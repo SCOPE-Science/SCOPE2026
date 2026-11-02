@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof explicitly quantifies the product-minimality hypothesis, arbitrary competing distinct-prime sets, and the unique-prime isolation condition. Its central estimate \(ku/R\le5/2\) is proved for all cardinalities, using only the monotonicity of \(\sum r_i/\prod r_i\) and small-prime bounds. The estimate \(R<kM\), the prime maximum comparison, and unique factorization close the argument. Supplemental finite rational enumeration reproduces the auxiliary sharp bound, but no finite experiment is treated as the infinite proof.
+## correctness
 
-**Originality: PASS, subject to independent priority review.** The direct motivating paper uses \(4M^2\) in its extension lemma. A previous stronger sufficient radius \(M\Lambda(M)\), obtained from primorial-based control of \(R\), remains asymptotically superlinear; the present proof controls \(u\) directly and gives \(O(M)\). published-record and general-literature searches for product-minimal prime-set extension and linear prime-gap isolation produced no equivalent theorem. A general published inequality on products and sums of distinct primes could implicitly provide a comparable or better constant; this remains a priority risk.
+PASS
 
-**Value: PASS.** The arithmetic gap needed to protect a prescribed minimal-product prime partition falls from a quadratic sufficient window, and even from a primorial-based superlinear window, to an explicit linear window. This is a quantitatively stronger structural lemma for the specific prime-partition construction, not a mere change in constants. The constant is only sufficient, not optimal, and no effective control on the first suitable prime is obtained.
+Let A≠empty be product-minimal at sum s, M=product A, H=ceil(5M/2). For any candidate B with sum s+q and product ≤qM, write k=|B|, b=max B, u=sum(B\{b}), R=product(B\{b}). Since b≥(s+q)/k, R≤qM/b<kM. Independently verified the universal auxiliary inequality k*u/R≤5/2 for k≥2: k=2 gives 2, k=3 max at (2,3) gives 5/2; for k≥4 first-prime extremizers and F_m=(m+1)S_m/P_m, F_3=4/3 with F_{m+1}/F_m<1, close all larger cases. Thus u<5M/2, and with s≤M, |b-q|=|s-u|<5M/2≤H; isolation forces b=q. Product-minimality and unique prime factorization force B=A∪{q}; k=1 also follows with u=0. Independent combinations of first 12 primes through k=7 verified the sharp auxiliary maximum 5/2 as supplemental finite check only.
 
-The complete relevant proof of the source paper's Lemma 2 and adjacent supporting lemmas was inspected. No independence or external certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Campbell arXiv:2610.19534 Lemma 2 obtains product-minimality preservation after adjoining a prime isolated in width 4M²; the reviewed proof replaces the product-based estimate by a sum bound giving width ceil(5M/2), linear in M. Campbell Lemma 6 features an 11M gap for a DIFFERENT complementary max-product construction, so it does not itself establish the same equal-sum product-minimal extension. The new inequality strengthens a natural proof ingredient rather than repeating the published theorem with a renamed constant.
+
+## value
+
+PASS
+
+Replacing the quadratic isolation width by a universal linear radius in the central distinct-prime product-minimization extension lemma is a mathematically motivated sharp-order improvement in an existing construction; no claim of an effective least prime or optimal 5/2 coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

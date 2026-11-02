@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The regenerative stationary law is the exponentially aged no-reset diffusion, and the exact mean identity follows from its generator. Global Lipschitzness controls the error from replacing short SDE paths by Brownian paths. Brownian motion sampled at an independent exponential time has an exact Laplace law, whose positive-part expectation gives the profile \(\frac{\sqrt D}{2}e^{-|\xi|/\sqrt D}\). The second McKean kink contributes exponentially little at the indicated scale. Uniform error bounds and a global contraction give the recovery-equilibrium expansion. The bundled checker passes 28 analytic and finite-volume checks; the proof, not the finite sample, supports the uniform limiting assertion.
+## correctness
 
-**Originality — PASS, conditional on wider literature.** Swaby–Bressloff (arXiv:2609.31153v1, §§II–V) supplies the stochastic model, exact stationary equation and averaged dynamics. Its explicit asymptotics are for vanishing diffusivity, not growing reset rate and reset-location detuning. Bressloff (arXiv:2503.07585v1, §§1–2) treats the earlier noiseless cubic model. Searches for high-rate cusp, resolvent, McKean, kink and detuning forms found no exact equivalent among inspected published records. An unexamined general high-rate resolvent boundary-layer theorem could still subsume the specialization; search absence is not proof of novelty.
+PASS
 
-**Value — PASS.** The two McKean switching thresholds are fixed physically meaningful nonsmooth voltage points. The theorem predicts a parameter-scale \(r^{-1/2}\) response window and a signed \(r^{-3/2}\) recovery shift not visible in a regular integer-power perturbation of the mean. The explicit exponential profile distinguishes exact kink resetting from nearby and ordinary interior resetting, permitting concrete finite-rate comparisons. This is more informative than a bare local Brownian moment identity.
+For Lipschitz piecewise-affine McKean drift and fixed D>0, the process reset at b+ξ/√r has regenerative law X_Exp(r); exact identity μ−v_r=[Ef(X_Exp(r))+I0−w]/r. Brownian displacement at independent exponential time is Laplace with scale sqrt(D/r); the exact positive-part identity E(ξ+Y)_+−ξ_+=sqrt(D)/2 exp(−|ξ|/sqrt(D)). Globally Lipschitz SDE drift changes Ef by O_K(r^-1) and the remote kink has exponentially small contribution; slope jump Δ_b therefore produces Δ_b sqrt(D)/(2r^(3/2)) exp(−|ξ|/sqrt(D))+O_K(r^-2). The averaged map w→μ/γ is a contraction for r>L+γ^-1, giving unique globally attracting equilibrium and same coefficient/γ. Independently integrated the Laplace hinge identity; finite-volume evidence is corroboration, not infinite proof.
 
-**Limitations.** Fixed positive diffusion and frozen-voltage adiabatic approximation; no finite-timescale full-system error estimate. Normalization, finite-rate stationary equations and the general averaged model are pre-existing. Independent priority and proof audit are still required.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for a sharp r^-3/2 reset-at-kink boundary layer of stationary mean and slow fixed point, distinct from the pre-existing McKean stochastic-resetting model and its fixed-rate small-noise analysis.
+
+## value
+
+PASS
+
+Kinks at ±a are intrinsic switching voltages, so the nonanalytic r^-3/2 correction, r^-1/2 detuning window and explicit exponential profile provide a natural quantitative phase boundary for averaged McKean neuronal dynamics, not merely a stand-alone Laplace probability exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

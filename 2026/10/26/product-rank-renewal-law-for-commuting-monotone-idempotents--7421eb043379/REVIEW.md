@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof classifies each fiber of the common idempotent product as a rooted interval, proves the left/right fixed-point exclusion in both directions, and shows that arbitrary compatible blocks concatenate uniquely. Its anchored-retraction count gives a rational series without extrapolating from finite data. The simple-dominant-pole argument and the differentiated rank series justify the two asymptotic assertions. Exhaustive independent integer checks for chain lengths one through nine agree with every product-rank coefficient.
+## correctness
 
-**Originality — PASS within examined coverage.** The basic monotone monoid, its Fibonacci idempotent count, and comparable-idempotent pairs are prior work, not discoveries here. The full 2009/2010 endomorphism paper addresses pairs with \(ef=fe=f\), whereas the present formula counts pairs whose common product may be distinct from both factors. The full 2022 monotone-endomorphism paper classifies homomorphisms, not the present bivariate common-product-rank series. The unrestricted-transformation centralizer characterization is mathematically broader in allowed maps but not a formula for the order-restricted enumerator. Searches of published research records, primary mathematical literature, alternate phrases and exact initial coefficients found no directly dominating identity. The 2006 individual-idempotent-count paper was available only at abstract level, and hidden priority in it or other earlier enumerations remains possible.
+PASS
 
-**Mathematical value — PASS.** Commuting idempotents encode compatible retractions, a natural structural issue for order-preserving transformation semigroups. The theorem identifies the exact obstruction on each common-product fiber and determines the full joint statistic of commutativity and common image size for every chain length. It also yields a sharp decay rate and a linear law for the expected common rank, not just an isolated small numerical count.
+For commuting nondecreasing finite-chain retractions e,f the common product h=ef is an idempotent and its fibers are invariant rooted intervals. The side-exclusion lemma holds in both directions: two extra fixed points of different maps on the same side contradict commutativity; conversely one map constant at the root on each side makes both composites constant there. An anchored side of length a has H_a retractions, H(t)=(1-t)/(1-3t+t^2), so an ordered two-map side has 2H_a-1 choices. Each h-fiber has B(t)=tL(t)^2, L(t)=2H(t)-1/(1-t), yielding exactly the bivariate uB/(1-uB) and c_{n,k}=[t^{n-k}]L(t)^{2k}. Dominant-root analysis, positive aperiodic B coefficients and an ordinary pole justify the total-count and linear mean common-rank asymptotics. Exact B(1/6)=5766/9025<1 establishes exponential decay of commuting probability against F_{2n}^2. Independently enumerated ALL monotone idempotents and commuting ordered pairs through n=7 with every rank coefficient matching the renewal formula; finite checks do not prove the all-n claim.
 
-The finite checker is corroboration rather than infinite proof. Independent validation has not been carried out. These assessments are bounded by the documented literature-access risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known monotone-idempotent/Fibonacci counts and pair relations ef=fe=f are not claimed. The complete rank-of-product distribution for arbitrary commuting pairs and its renewal asymptotics are not implied by the inspected single-map enumerations or stronger-comparability endomorphism formulas. Unrestricted full-transformation centralizer/commuting counts are differently constrained combinatorial objects; no directly covering formula was located. Best-of-knowledge PASS subject to inaccessible 2006 full text.
+
+## value
+
+PASS
+
+Pairs of commuting monotone retractions represent compatible interval projections; determining the entire natural common-image-rank statistic for every finite chain, a rational total count, mean rank slope, and exponential commutativity rarity is a structural enumeration, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

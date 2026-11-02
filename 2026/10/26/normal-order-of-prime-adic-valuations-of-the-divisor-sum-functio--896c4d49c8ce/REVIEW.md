@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The valuation is additive across the prime-power factors of \(n\). Replacing its prime-power values by \(\nu_p(q+1)\) changes the average absolute value by a bounded amount, because the contribution from exponents at least two is dominated by a convergent prime-power series. Mertens' theorem in fixed progressions and a uniform Brun–Titchmarsh tail bound give the exact coefficient \(\sum_{j\ge1}1/\varphi(p^j)=p/(p-1)^2\). The Turán–Kubilius inequality then supplies the concentration needed for normal order.
+## correctness
 
-## Originality
-**PASS, with residual risk.** The 2015 literature establishes density-one divisibility properties of the divisor-sum function; the 2020 preprint and 2025 paper give local valuation formulas and pointwise upper bounds. The inspected statements do not provide this normal-order constant. indexed research search searches for the exact normal-order statement returned no direct match; that does not prove uniqueness. A possible unindexed treatment of this standard additive-function application remains a residual risk.
+PASS
 
-## Value
-**PASS.** The exact normal-order constant is a natural distributional invariant for the classical divisor-sum function. It strengthens qualitative density-one divisibility and complements pointwise maximum bounds by describing the typical valuation. The constant arises from the full tower of prime residue classes modulo \(p^j\), not from a finite table or arbitrary parameter slice.
+For any FIXED prime p, multiplicativity of sigma gives f_p(n)=sum_{q^a||n}g_p(q,a), g_p=v_p(1+q+...+q^a). Let F_p(n)=sum_{q|n}v_p(q+1), a strongly additive proxy. For a>=2, g_p(q,a)+v_p(q+1) <= a log_p q+log_p(a+1)+log_p(q+1); weighted by q^-a, these terms are summable, giving mean absolute error O_p(1) and hence o(loglog x) outside density o(1). For q!=p, v_p(q+1)=sum_{j>=1}1_(q=-1 mod p^j); for q=p the term vanishes. Fixed-progression Mertens estimates, with the high-modulus tail controlled by Brun–Titchmarsh and direct sparse counting, give mean A_p(x)=sum_{q<=x}v_p(q+1)/q=(sum_{j>=1}1/phi(p^j)+o(1))loglog x = (p/(p-1)^2+o(1))loglog x. The second-moment proxy sum_{q<=x}v_p(q+1)^2/q=O_p(loglog x), since a_q²=sum_{j<=a_q}(2j-1) and sum j/phi(p^j) converges. Turán–Kubilius then yields mean square deviation O_p(x loglog x); Chebyshev and the bounded error transfer give f_p(n)~[p/(p-1)^2]loglog n in natural density. No finite experiment is treated as the proof. Independently checked finite n comparisons of the additive proxy and valuation (not an asymptotic certification).
 
-## Closest literature and limits
-Luca–Pomerance (2015) study the range of the proper-divisor sum and prove a density-one divisibility lemma for \(\sigma(n)\); Amdeberhan–Moll–Sharma–Villamizar (2020 preprint, published 2021) derive local formulas for \(\nu_p(\sigma(n))\); Zhao–Chen (2025) prove an unconditional pointwise ceiling bound. The latter publisher page exposed the abstract and references, but no open full text was located. The result here is only a fixed-prime normal order, not a uniform theorem in \(p\) and not a central limit theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after comparison of theorem statements, hypotheses, reductions and implications. The inspected sources do not establish the complete final claim for this record; known components are acknowledged. Normal order of prime-adic valuations of the divisor-sum function retains explicit residual priority risks. An inaccessible plausible source alone is not treated as failure or as a whole-document NOT_COVERING finding.
+
+## value
+
+PASS
+
+The result computes the exact leading typical-order constant for a classical multiplicative arithmetic function. It complements published local and extremal valuations with a distributional statement governed by the complete tower of classes q=-1 mod p^j; despite standard analytic tools, extracting the full p-dependent normal-order constant and its valid uniform-modulus tail is meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The code `checker.py` uses only the Python standard library, constructs finite cyclic analogues of the explicit framework, verifies each argument has at most three attackers and three targets, enumerates every subset of the non-self-attacking core vertices, and checks the exact admissible and preferred families. Reproduction: `python checker.py`. The observed output is:
+# Independent mathematical audit
 
-```
-OK rows=2, cycle_period=2, core_subsets=16, admissible=3, preferred=2
-OK rows=3, cycle_period=3, core_subsets=512, admissible=4, preferred=3
-OK rows=4, cycle_period=4, core_subsets=65536, admissible=5, preferred=4
-FINITE_ANALOGUES_OK
-```
+## correctness
 
-The infinite construction is not computationally exhausted. The proof relies on explicitly quantified finite attacker sets, forced adjacent row members, mutual inter-row conflicts, and a pointwise convergence argument. The compactness projection lemma and closedness assertions are mathematical deductions, not experimental extrapolations. No independent external audit was performed.
+PASS
+
+Countable finite indegree makes each conflict condition and each defense clause clopen, hence admissible C is compact closed in 2^A. For each a, inclusion-witness K_a⊂C×C is compact and its projection closed; nonmaximal admissibles are their countable union, so preferred are G_delta. Symmetric irreflexive locally finite attacks turn admissible into independent and preferred into maximal independent; local finite domination makes preferred closed. Directed construction has self-looped enforcers u,d that force each occupied core vertex to its two row neighbors; every pair of rows has exactly one mutual conflict. Thus admissibles are ∅ and disjoint full rows E_n, preferred are E_n and converge to nonpreferred ∅; every indegree/outdegree ≤3. Independently enumerated complete finite 3×3 analogue and checked its admissible families; infinite conclusion follows from forcing and topology.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the bounded-degree computable nonclosed preferred family alongside symmetric/local-finiteness contrast; standard compact-maximal-point G_delta lemma is recognized as prior elementary topology.
+
+## value
+
+PASS
+
+A sharp distinction between fixed-framework Borel regularity and closedness, with a concrete degree-three computable counterexample, identifies a real topological boundary of infinite argumentation semantics. Not claimed as descriptive-set-theoretic completeness or optimal degree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

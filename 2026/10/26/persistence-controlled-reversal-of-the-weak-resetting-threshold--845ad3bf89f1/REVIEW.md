@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim concerns the one-sided reset-rate derivative at zero and the first-order active-amplitude displacement of its simple passive zero. The renewal formula reduces the reset response to unreset first and second moments. Two explicit inhomogeneous Dirichlet–Neumann resolvent problems follow by differentiating the killed OU–Brownian backward generator. Their Green solution, exact passive factorization, and sequential persistence/fast-relaxation limits establish both the coefficient and its sign reversal. Girsanov with exponentially controlled killed survival justifies local moment differentiation; no finite experiment is substituted for an infinite-limit proof. `verify.py` independently checks 905 deterministic identities and numerical consistency conditions.
+PASS
 
-## Originality
+PASS: Complete deterministic reset to (x,η) makes successive first-passage excursions i.i.d.; the renewal identity ET_r=(1−Φ(r))/(rΦ(r)) gives initial reset slope H=m1²−m2/2. For passive reflecting–absorbing BM with generator ∂xx, μ=x−x²/2 and M=2x/3−x³/3+x⁴/12; H0 has the simple interior zero c=1−1/√5 and positive derivative 1/(3√5). Differentiating the backward moment equations for the small drift εv yields (γ−∂xx)A=1−x and (γ−∂xx)B=M'(x)+2A with Dirichlet 0 and Neumann 1 boundary conditions. The displayed positive mixed-boundary Green resolvent gives S(γ)=−3√5[2μ(c)A(c)−B(c)/2]. Direct independent quadrature reproduces S(0)=4/125>0, S(0.1)=0.015585415510…, S(0.3)<0 and S(1)=−0.061343172483…; analytic interior resolvent asymptotics yield S(γ)=−1/γ+O(γ^−2). Continuity proves at least one reversal, not uniqueness; IFT gives the local root only for small ε and fixed γ. Moment differentiation is justified by small-drift Girsanov control and bounded-interval killed-process spectral gap, not numerical evidence alone.
 
-**PASS under self-review, with residual priority risk.** The directly motivating 2026 Georgiou–Bressloff–Bertrand article explicitly treats fixed-velocity resetting through simulations (Section 3.4 and Figure 9), whereas its analytic expansion uses a Gaussian reset-velocity law. Approximate linear activity dependence, general renewal formulas, and the passive critical starting location are already known. The new scientific assertion is the exact deterministic-velocity first-order coefficient for the reflecting–absorbing active OU model and its analytically forced sign reversal as relaxation varies. The 2016 Pal–Reuveni general restart result does not compute this model-specific coefficient; Baouche–Kurzthaler study a 2D active Brownian wall problem, and Shankari–Sahoo study free OU transport rather than absorbing interval search. Broader perturbative Green-function theory might implicitly yield this specialization, so independent priority assessment is still needed.
+## originality
 
-## Value
+PASS
 
-**PASS.** A directly identified analytical gap is the dependence of optimal-reset onset on a fixed reinitialized propulsion direction. The sign reversal reveals that initial outward propulsion can either enlarge or shrink the helpful-resetting region depending on persistence; it makes a falsifiable prediction that is not captured by the general coefficient-of-variation restart criterion. The exact coefficient permits parameter calibration without re-running rare first-passage simulations. It does not claim global finite-reset optimality or finite-activity control.
+The exact same AOUP reflected-absorbed model and beneficial-resetting transition were studied by Georgiou–Bressloff–Bertrand in 2026. Their §3.4 explicitly treats fixed initial/reset velocity solely by simulations and shows shifts, not an analytic first-order coefficient nor rigorous persistence sign reversal in the weak-amplitude derivative. The passive threshold and generic restart renewal are acknowledged prior work. This Green-function coefficient and opposite persistence limits are a genuine model-specific addition, not an assertion of first discovery of resetting onset.
 
-## Closest literature and limits
+## value
 
-Primary comparison: Georgiou–Bressloff–Bertrand, arXiv:2609.21124v1, Sections 2, 3.2, 3.4 and Appendix; general restart: Pal–Reuveni, arXiv:1607.06048; orientation-dependent active Brownian resetting: Baouche–Kurzthaler, DOI:10.1039/D5SM00340G; unconstrained active OU transport: Shankari–Sahoo, arXiv:2509.18515. The finite-interval absorbing–reflecting boundary conditions, complete velocity reinitialization, weak active amplitude, and only locally identified resetting threshold are essential. Numerical root location does not establish uniqueness in relaxation rate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: This sharp model-calibrated coefficient resolves the qualitative direction-sensitive threshold shift suggested by existing simulations and proves a persistence-controlled reversal that is not captured by stationary-Gaussian velocity perturbation. It gives a useful exact boundary of when weak resetting helps in the canonical reflected/absorbed active search setup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

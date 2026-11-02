@@ -1,11 +1,21 @@
-# Review of optimal single-site Fock jet placement
+# Independent mathematical audit
 
-**Correctness — PASS.** Unitary Weyl translation yields the explicit exact Charlier projection formula. Its parameter derivative telescopes to the product of two consecutive Charlier polynomials, identifying every local maximum with a positive associated Laguerre root. A uniform local Poisson limit together with global tail bounds yields the Hermite envelope. The derivative factorization and a decreasing Sonin energy at consecutive Hermite zeros prove that the first nonnegative zero gives the global maximum, producing a strict even/odd rule. The included checker confirms exact polynomial identities and independently computed finite coefficients. Finite calculations support, but do not prove, the general theorem.
+## correctness
 
-**Originality — PASS, qualified.** The closest multiplicity-sampling literature (Escudero–Haimi–Romero, arXiv:2004.12922) establishes infinite-set density criteria rather than this sharp one-site finite-degree design. Nilsson's Charlier–Hermite convergence (arXiv:1202.2557) is an input, not the global optimizer classification. The Hermite diagonal is also a familiar Gaussian-unitary-ensemble density; its formula is not claimed new. An existing first-jet approximation law covers only the first derivative and does not imply the parity hierarchy for all fixed derivative orders at a single site. Originality rests on the exact finite Laguerre candidate reduction, the global Sonin ordering and the complete all-order asymptotic Fock optimality classification. Historical-equivalence risk remains, especially through random-matrix or displaced-number-state terminology.
+PASS
 
-**Value — PASS.** The most natural one-node derivative sampling design has a computable finite-degree set of candidates and, asymptotically, an exact site-placement rule. The alternating center versus double-offset placement for even versus odd derivative order is a structural effect: increasing the local measurement order by one can change the location of the best probe by an entire \(\sqrt N\) scale. The exact constants and optimizer classification provide benchmarks for Hermite-augmented Fock/Gabor approximations.
+PASS: Weyl translation is unitary in the specified Gaussian Fock norm and maps span{e_0,...,e_k} to J_k(a), so the projection onto jets gives e^-lambda lambda^N/N! sum_{j=0}^k C_j(N;lambda)^2/(j! lambda^j). Charlier recurrence and d C_{j+1}/d lambda=-(j+1)C_j telescope to F prime = e^-lambda lambda^N C_k C_{k+1}/(N! k! lambda^(k+1)). For N>k the associated Laguerre C_{k+1}= (k+1)! L_{k+1}^{N-k-1} has exactly k+1 positive simple zeros, all strict local maxima; interlaced C_k zeros are minima. On lambda=N+y sqrt(N) the Charlier generating function tends to He_j(-y), giving scaled envelope H_k(y). Fixed k polynomial Poisson-tail bounds exclude escaping maximizing radii. H_k derivative is -e^-y²/2 He_k(y)He_{k+1}(y)/k!; the oscillator Sonin energy decreases between nonnegative zeros, ordering local maxima so y=0 if even k, ±smallest positive root He_{k+1} if odd k. Independent exact rational polynomial derivative checks for (N,k)=(7,2),(8,3),(11,4), plus numerical Hermite extrema k=2..8, corroborate identities but do not replace infinite proof. N<=k is not claimed for finite candidate classification.
 
-**Scientific boundaries.** The jet order is fixed as \(N\to\infty\); growing jet orders and multisite samplers are not covered. At odd order both limiting branches optimize, but finite-degree equality between branches is not asserted. Hermite and Charlier identities are classical components and priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): The Hermite sum H_k is exactly a scaled finite GUE one-point density / Hermite Christoffel-Darboux diagonal and is classical, as confirmed by Devroye–Hamdan (2026) and earlier orthogonal-polynomial literature; do not claim the density or its formula new. Nilsson supplies general Charlier-to-Hermite transitions and zeros, Escudero–Haimi–Romero supplies infinite multiple-sampling density criteria. The inspected full primary texts do not give the exact finite-degree one-site Fock projection Laguerre-candidate theorem together with a complete all-jet-order best-radius parity law. Some Hermite maximum ordering may already be an implicit consequence of classical oscillator inequalities; the scientific contribution is restricted to the combined sharp Fock sampling design, with material priority risk through GUE and coherent-state terminology.
+
+## value
+
+PASS
+
+PASS: Optimal placement of one value-plus-derivative probe to capture a large-degree monomial is a natural Hilbert-space approximation problem, not an arbitrary polynomial slice. The theorem gives exact finite candidate positions and all-order asymptotically optimal radius offsets and constants, with a parity-driven order-√N jump when jet order changes. The shift is a genuine structural sampling phenomenon, and existing general Fock sampling density theory does not by itself solve this design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

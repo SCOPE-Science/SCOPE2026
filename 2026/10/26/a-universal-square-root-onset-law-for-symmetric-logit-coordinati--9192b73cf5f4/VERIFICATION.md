@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-For the exact game equations and positive parameters, differentiation gives \(\ddot z=[S_\lambda'(z)-1]\dot z-\alpha[S_\lambda(z)-1/2]\). Thus \(f_\lambda(z)=1-S_\lambda'(z)\), \(g=\alpha(S_\lambda(z)-1/2)\). These are exact identities, checked numerically and independently by differentiating the explicit logistic function.
+## correctness
 
-At the critical parameter, \(f_4(z)=\tanh^2(2z)\). The Lyapunov energy is proper, and no nonconstant complete trajectory lies in the \(\dot E=0\) set. Above criticality, \(F=z-\tfrac12\tanh(\lambda z/2)\) has a unique positive zero; existence, uniqueness and stability use the classical Liénard theorem, not simulation.
+PASS
 
-For the amplitude, the calculation retains terms through \(\delta A^2\) and \(A^4\) in mean energy drift; the result is \(\delta\alpha A^2/8-\alpha A^4/2\). These coefficients follow from the exact derivatives \(S_\lambda'(0)=\lambda/4\) and \(S_\lambda^{(3)}(0)=-\lambda^3/8\). The cycle expansion is local and requires \(\alpha>0\) fixed. The included program `verify.py` reports computed amplitudes at finite, not infinitesimal, \(\delta\), so small finite residuals are expected.
+Exact change z=x-y, v=z-dot conjugates the planar logit field to z-double-dot+f(z)z-dot+g(z)=0 with f=1-(lambda/4)sech^2(lambda*z/2) and g=(alpha/2)tanh(lambda*z/2). Direct differentiation checks the map and restoring force. For lambda<=4, proper energy E=v^2/2+(alpha/lambda)log cosh(lambda*z/2) decreases, and the only invariant subset with f(z)*v^2=0 is the origin; LaSalle includes equality lambda=4. For lambda>4, odd F=integral f has unique positive crossing, is increasing thereafter, and g is odd positive for z>0 with coercive potential; classical Lienard uniqueness yields one attracting nonconstant orbit. Logistic reflection fixes its half-period average. Taylor f=-delta/4+4z^2+O(delta*z^2+z^4), g=alpha*z+O(delta*z+z^3), and averaging <sin^2>=1/2, <sin^2 cos^2>=1/8 yield A-dot=delta A/8-A^3/2+higher terms, so the Hopf amplitude satisfies A^2=delta/4+O(delta^2) and T->2pi/sqrt(alpha). The exact inverse x=(S_lambda(z)+alpha/2-v)/(1+alpha), y=x-z gives centered x and y amplitudes 1/(2sqrt(1+alpha)) and sqrt(alpha)/(2sqrt(1+alpha)), respectively. Independent SymPy verification checked f,g and critical z^2 coefficient 4; finite simulation is not treated as the all-parameter proof.
 
-To reproduce: use Python 3.10 or later and `pip install -r requirements.txt`, then run `python verify.py`. All files are present in this package. Numerical checks provide consistency only, not independent proof of global dynamics, nonexistence, or parameter-uniform asymptotics.
+## originality
+
+PASS
+
+Qualitative oscillations and Hopf square-root scaling are not new. The surviving precise model-specific result is the globally sharp critical case, exactly one orbit, and the explicit rate-independent 1/2 payoff-gap leading coefficient with both original coordinate amplitudes and exact cycle means. The inspected 2021/2022 model paper discusses the orbit and explicitly conjectures uniqueness rather than giving the three sharp coefficients. No identical source found, with ordinary Lienard and Hopf theory acknowledged as prior machinery.
+
+## value
+
+PASS
+
+A universal *physical-coordinate* amplitude coefficient, including the critical equality and a global unique cycle, is a natural quantitative follow-up to the original logit feedback game. This is not valued for rediscovering generic Hopf/Lienard theory but for explicitly determining the onset magnitude in payoff and behavior variables uniformly over feedback rate alpha. A future researcher using this benchmark can require the coefficient and exact cycle means for quantitative comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

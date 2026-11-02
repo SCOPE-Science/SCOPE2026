@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Execute `python3 check_retractions.py` using the standard Python 3 library. The checker directly multiplies monomials in finite truncated polynomial rings, evaluates compositions of ring endomorphisms and identifies their induced cotangent ranks.
+## correctness
 
-Observed output:
+PASS
 
-```
-P2_M2_AND_M3_IDEMPOTENTS_EXHAUSTIVE_OK
-p=2,q=2,m=2 ranks 0..2: 1 12 1
-p=2,q=2,m=3 ranks 0..3: 1 448 3584 1
-GF3_M2_RANKONE_IMAGES_EXHAUSTIVE_OK embeddings=5832 images=972 per-image-retractions=9
-TRUNCATED_RETRACTION_CENSUS_OK
-```
+Every element of the maximal ideal is p-nilpotent by Frobenius, so arbitrary nilpotent generator images define a unique algebra map, and invertible cotangent linear part characterizes automorphisms via Nakayama. Split an idempotent cotangent projection into image and kernel and lift u_i=π(a_i), v_j=b_j−π(b_j), yielding conjugacy to P_r. To count embedded rank-r images, divide all cotangent-independent r generating tuples (prod_i(q^m−q^i)) q^{r(p^m−1−m)} by |Aut(A_r)|=|GL_r(q)| q^{r(p^r−1−r)}. This gives [m choose r]_q q^{r(p^m−p^r−m+r)} images. Each image has q^{(m−r)(p^r−1)} splittings by arbitrary images of omitted generators in its augmentation ideal. Degrees compare as delta_{m,r}=r(p^m−p^r)+(m−r)(p^r−1), and their difference changes sign exactly at m=p+3. Verified rank 0,m contribute one; finite checks do not claim proof for all p,m.
 
-The binary tests inspect every candidate with idempotent cotangent matrix, a necessary condition for idempotence, and then test each remaining generator tuple explicitly. The ternary check exhausts rank-one embeddings and uses exact row-space equality to identify generated image subalgebras; nine retractions per image are obtained analytically, not by enumerating all algebra maps. A further 200 seeded ternary substitutions test multiplication identities. The unlimited field and generator parameters are established by the written algebraic proof, not by finite enumeration. No external validation was performed.
+## originality
+
+PASS
+
+Carlson–Friedlander–Pevtsova Proposition 1.1 directly covers cotangent-independence/flatness of truncated polynomial subalgebra embeddings, so this ingredient is prior. This work additionally classifies unital algebra idempotents by conjugacy, enumerates *all* embedded image subalgebras and distinct splitting maps over F_q, and identifies asymptotic top-rank reversal; none is stated by the inspected earlier proposition. Other pre-endomorphism work treats general nonassociative algebra and different maps. PASS qualified by possible earlier endomorphism-monoid enumeration.
+
+## value
+
+PASS
+
+Complete conjugacy classes, exact image counts and per-image retraction multiplicities for the natural modular group algebra k[C_p^m] provide intrinsic classification information across all primes, generator ranks and finite field sizes. The nonlinear exponent and phase reversal for the two highest proper ranks make the result more than a recitation of Nakayama's lemma or the earlier embedding criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

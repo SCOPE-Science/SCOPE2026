@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:54:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q=4 and three transmitted symbols, each 3-word has at most three distinct length-2 deletion descendants, so five words cannot cover all 16 ordered received pairs. The displayed six-word code gives a partition. Directly inspected exact mask representation M(a,b,c) and complete six-subset DP (64 possible triples), and independently implemented capacity-pruned increasing-sextuple and 24 global symbol permutations times reversal; found 644 optimal covers, 120 disjoint-shadow, 524 overlapping, and 21 orbits: 8*1 + 12*3 + 24*9 + 48*8 = 644. The capacity bound at depths 3,4,5 is 16-3(6-k), so pruning is exhaustive. Every counted codebook is an unordered set with distinct words; duplicate deletion positions are collapsed. This is a finite exhaustive proof only for q=4,n=3, not a general alphabet formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie–Sun–Ge 2026 covers general insertion/deletion bounds and constructions.",
+          "Chee–Ge–Ling 2010 Theorem 6.4 describes possible cardinalities of perfect deletion-correcting codes, not all overlapping minimum covering codebooks."
+        ],
+        "reasoning": "A theorem on minimum cardinalities or sizes of perfect codes does not determine number of all minimal set covers, nor their group orbits. A general enumeration of directed coverings would dominate, but none was established by inspected statements.",
+        "searches": [
+          "quaternary length-three single deletion covering codes six codewords complete enumeration labeled covering codes orbit 644 21",
+          "arXiv:2606.15379",
+          "arXiv:1008.1343"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: quaternary length-three single deletion covering codes six codewords complete enumeration labeled covering codes orbit 644 21",
+        "arXiv:1008.1343v1",
+        "arXiv:2606.15379v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier results imply minimum six and perfect existence, both expressly excluded as new.",
+          "Census also includes 524 overlapping covers, which cannot be deduced from a perfect-code existence theorem."
+        ],
+        "reasoning": "The final implication claim is strictly stronger than numerical optimum and perfect examples: counting every optimal set cover requires its own exhaustion; prior sources do not visibly supply those counts.",
+        "searches": [
+          "arXiv:1008.1343v1 Theorem 6.4",
+          "arXiv:2606.15379v1 Sections I,V",
+          "quaternary length-three single deletion covering codes six codewords complete enumeration labeled covering codes orbit 644 21"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 16-bit mask formalism is exactly a directed ordered-pair covering design; perfect codes are set partitions of the ordered pairs.",
+          "Resultary closest published record 2026/10/4/SCOPE-exact-length-three-single-deletion-covering-number-for-odd-alpha--9607d49b27ed concerns optimal cardinalities for odd alphabets, not q=4 cover populations."
+        ],
+        "reasoning": "None of these equivalent descriptions in the inspected primary sources yields the labeled optimal-codebook or orbit census. Negative semantic results are not treated as proof of priority.",
+        "searches": [
+          "quaternary length-three single deletion covering codes six codewords complete enumeration labeled covering codes orbit 644 21",
+          "quaternary directed ordered-pair covers by ordered triples, all minimal six-sets",
+          "arXiv:1008.1343"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved ternary length-four packing census has distinct parameters and correction rather than covering; older examples have no exact 644/21 table in material read."
+        ],
+        "reasoning": "No inspected exact table contains the entire census; unindexed tables remain a risk.",
+        "searches": [
+          "quaternary length-three single deletion covering codes six codewords complete enumeration labeled covering codes orbit 644 21",
+          "Resultary 2026/10/4/SCOPE-complete-classification-of-maximum-ternary-length-four-single-de--d311fe5550d3"
+        ]
+      },
+      "rationale": "Known lower bound/minimum size and existence of perfect six-word deletion codes are explicitly not new. The tested new final claim is the 644/120/524 labeled-codebook census, incidence profiles and 21 symmetry orbits. No inspected stronger theorem or published record was shown to imply the complete counting statistics; residual unindexed directed-covering-design risk remains.",
+      "residual_risks": [
+        "No exhaustive historical bibliography of q=4 directed-design enumerations; earlier unindexed exact census may exist.",
+        "Only the fixed alphabet, length 3, single deletion and specified 48-element equivalence group are classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes existing cardinality spectrum/existence, not complete covering-codebook population.",
+          "evidence": [
+            "Theorem 6.4; small-alphabet constructions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1008.1343",
+          "material_read": "Open 2010 primary preprint: Sections 1–2 and 6, Theorem 6.4 and small-alphabet examples/table checked",
+          "method": "Primary source text or published abstract, compared to claim hypotheses and quantifiers",
+          "title": "Spectrum of Sizes for Perfect Deletion-Correcting Codes",
+          "trigger": "Closest prior exact short-length perfect deletion-code sizes"
+        },
+        {
+          "assessment": "Different objective: general construction/bounds versus exact count and orbits at q=4,n=3.",
+          "evidence": [
+            "Sections I and V; arXiv:2606.15379v1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.15379v1",
+          "material_read": "Open 2026 primary manuscript introductory definitions and Section V bounds/constructions examined",
+          "method": "Primary source text or published abstract, compared to claim hypotheses and quantifiers",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "General covering-code bound might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural DNA-sized four-symbol deletion-covering problem has many inequivalent minimal covers; determining all 644, including 524 non-perfect overlap-bearing ones, resolves a complete finite classification beyond a known optimum size. Exact orbit and incidence profiles are usable structural benchmarks, not a routine substitution of a previously published count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md blob 4e40870cf96032600b3c0bba84d11b604878cb1e",
+    "Frozen Git verify_cover.py blob 849f891bd2f4962ec810b0181bee6707fe3636a0",
+    "Independent capacity-pruned exact enumeration / group orbit calculation: 644 covers, 120 perfect, 21 orbits",
+    "Resultary semantic query: quaternary length-three single deletion covering codes six codewords complete enumeration labeled covering codes orbit 644 21",
+    "arXiv:1008.1343v1",
+    "arXiv:2606.15379v1"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No exhaustive historical bibliography of q=4 directed-design enumerations; earlier unindexed exact census may exist.",
+    "Only the fixed alphabet, length 3, single deletion and specified 48-element equivalence group are classified.",
+    "Full repository directory tree listing at frozen commit unavailable through the provided GitHub read-only connector; material claims and supporting program blobs were actually fetched at exact assigned commit."
+  ],
+  "residual_risks": [
+    "No exhaustive historical bibliography of q=4 directed-design enumerations; earlier unindexed exact census may exist.",
+    "Only the fixed alphabet, length 3, single deletion and specified 48-element equivalence group are classified."
+  ],
+  "schema_version": 1
+}

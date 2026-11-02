@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact derivatives, branch comparisons, parameter-floor argument, and asymptotic transform are given in RESULT.md. The local update was reconstructed from the primary source's Strategy 4.1. The script `verification.py` uses only the Python standard library and checks the exact cubic factors plus finite iterates for the quartic and quintic cases. These finite checks are sanity checks only; they do not establish the infinite asymptotic. A positive stopping tolerance truncates the trajectory, so the asymptotic describes the pre-termination law as tolerance decreases. Independent audit has not been performed.
+# Independent mathematical audit
 
-Observed finite checks: p=3 factors at rho=0.5, 1, 1.5, 2, 3 were 0.5, 0.5, 0.666666666667, 0.75, 0.916666666667 (all PASS). At 100000 iterations with rho_min=1, the scaled inverse-power values were 0.12511339 versus limit 0.125 for p=4 (relative error 0.0907%) and 0.25101382 versus limit 0.25 for p=5 (relative error 0.4055%); both PASS the finite sanity-check tolerance.
+## correctness
+
+PASS
+
+Inspected 1D exact UTR-Adaptive Strategy 4.1 update on f_p(x)=|x|^p/p with p>=3 and rho floor>0. Gradient magnitude a^(p-1), Hessian (p-1)a^(p-2), and ratio H/sqrt(|g|)=(p-1)a^((p-3)/2) drive branch selection. For p=3, the two branch radii and constrained Newton solutions yield q3(rho)=1/2 (rho<=1), 1-1/(2rho) (1<rho<=2), and 1-1/(4rho) (rho>2). At p>3 branch H/sqrt|g| ->0, radius a^((p-1)/2)/(4rho) is eventually active, and descent acceptance tends to 1/4>eta; accepted updates lower rho to rho_min. Exact recurrence a_{k+1}=a_k-a_k^((p-1)/2)/(4rho_min) gives a_k ~ [8rho_min/((p-3)k)]^(2/(p-3)) by inverse-power telescoping. Formula describes local infinite zero-tolerance update, not a fixed positive-stopping-tolerance run. Independently checked branch thresholds and recurrence algebra and inspected provided verification.py; finite checks alone do not establish asymptotics.
+
+## originality
+
+PASS
+
+The algorithm and quadratic local rate at nondegenerate optima are prior Jiang et al. material. This claim investigates exact degenerate power minima with f_p''(0)=0, outside positive-definite Hessian theorem assumptions. The cubic-versus-higher flatness branch boundary, rho-floor dependent contraction and polynomial leading constant are not implied by that theorem as stated. Related Bregman/regularized Newton papers use different updates.
+
+## value
+
+PASS
+
+A sharp, explicit degeneracy threshold for a standard adaptive trust-region algorithm is useful for diagnosing its limits at flat minima: cubic flatness contracts linearly but higher powers show quantified polynomial stall, with exact dependence on parameter floor. The test family is natural and the asymptotic rate is nontrivial beyond mere substitution, despite the one-dimensional and pre-termination restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

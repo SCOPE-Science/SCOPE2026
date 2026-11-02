@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact \((x,y)\leftrightarrow(z,\dot z)\) change of coordinates yields a Liénard equation with \(f_\lambda=1-(\lambda/4)\operatorname{sech}^2(\lambda z/2)\) and \(g=(\alpha/2)\tanh(\lambda z/2)\). For \(\lambda\le4\) a proper energy strictly rules out nontrivial invariant subsets of its zero-dissipation set. For \(\lambda>4\), the primitive \(F\) has exactly one positive zero, correct signs and monotonicity beyond it, and proper potential, meeting standard uniqueness/existence assumptions. The half-wave symmetry is forced by uniqueness. At onset, the energy-Poincaré radial coefficients \(\delta A/8-A^3/2\) give the exact leading \(1/2\) amplitude; direct transformation yields the other two leading coordinate amplitudes. Numerics are supplemental and cannot prove uniqueness or globality.
+## correctness
 
-**Originality — PASS (provisional bibliographic assessment).** Loginov [1] already proves periodic-orbit existence and the noisy equilibrium transition; the finding does **not** claim those as new. Standard Liénard theory already implies symmetric-case qualitative uniqueness once the reduction is identified; this is explicitly recognized as broader mathematical coverage. The potentially new quantitative statement is the exact, speed-independent payoff-gap amplitude coefficient, translated cooperation and payoff coordinate coefficients, and combination with global critical and symmetry laws in the published game. Inspected source sections and relevant research-index searches did not expose that specific parameter-explicit result. Residual risk: an earlier special-function or Hopf analysis may contain equivalent coefficients.
+PASS
 
-**Mathematical value — PASS.** The source highlights uncertainty about orbit selection. Balanced feedback is an intrinsic neutral policy target, not an arbitrary numerical slice. The new coefficient predicts the size of aggregate strategy/payoff oscillations near onset, separates amplitude from environmental adjustment speed, and gives an exact critical/noise boundary at which finite-amplitude oscillations disappear. A general Hopf exponent by itself would not quantify strategy amplitude.
+Exact change z=x-y, v=z-dot conjugates the planar logit field to z-double-dot+f(z)z-dot+g(z)=0 with f=1-(lambda/4)sech^2(lambda*z/2) and g=(alpha/2)tanh(lambda*z/2). Direct differentiation checks the map and restoring force. For lambda<=4, proper energy E=v^2/2+(alpha/lambda)log cosh(lambda*z/2) decreases, and the only invariant subset with f(z)*v^2=0 is the origin; LaSalle includes equality lambda=4. For lambda>4, odd F=integral f has unique positive crossing, is increasing thereafter, and g is odd positive for z>0 with coercive potential; classical Lienard uniqueness yields one attracting nonconstant orbit. Logistic reflection fixes its half-period average. Taylor f=-delta/4+4z^2+O(delta*z^2+z^4), g=alpha*z+O(delta*z+z^3), and averaging <sin^2>=1/2, <sin^2 cos^2>=1/8 yield A-dot=delta A/8-A^3/2+higher terms, so the Hopf amplitude satisfies A^2=delta/4+O(delta^2) and T->2pi/sqrt(alpha). The exact inverse x=(S_lambda(z)+alpha/2-v)/(1+alpha), y=x-z gives centered x and y amplitudes 1/(2sqrt(1+alpha)) and sqrt(alpha)/(2sqrt(1+alpha)), respectively. Independent SymPy verification checked f,g and critical z^2 coefficient 4; finite simulation is not treated as the all-parameter proof.
 
-**Closest literature and boundaries.** Loginov (2021/2022), arXiv:2106.08224 and DOI:10.1007/s00182-021-00783-z, contains the original game and existence classification. Rosati–Villari (2013), DOI:10.1186/1687-2770-2013-144, and classical Liénard theory cover qualitative uniqueness under explicit monotonicity hypotheses; their general results are not claimed to be original. Scope is balanced-target deterministic logit dynamics, not arbitrary target or noise protocol. Full bibliographic uniqueness is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualitative oscillations and Hopf square-root scaling are not new. The surviving precise model-specific result is the globally sharp critical case, exactly one orbit, and the explicit rate-independent 1/2 payoff-gap leading coefficient with both original coordinate amplitudes and exact cycle means. The inspected 2021/2022 model paper discusses the orbit and explicitly conjectures uniqueness rather than giving the three sharp coefficients. No identical source found, with ordinary Lienard and Hopf theory acknowledged as prior machinery.
+
+## value
+
+PASS
+
+A universal *physical-coordinate* amplitude coefficient, including the critical equality and a global unique cycle, is a natural quantitative follow-up to the original logit feedback game. This is not valued for rediscovering generic Hopf/Lienard theory but for explicitly determining the onset magnitude in payoff and behavior variables uniformly over feedback rate alpha. A future researcher using this benchmark can require the coefficient and exact cycle means for quantitative comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

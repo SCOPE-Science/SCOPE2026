@@ -1,15 +1,21 @@
-# Scientific review: sharp bounded-depth process fidelity for two-axis qubit compilation
+# Independent mathematical audit
 
-## Correctness — PASS
-The colatitude cap at each tilt depth follows from the spherical triangle inequality and an inductive half-turn construction; the rightmost free phase lifts any reachable Bloch ray to its entire special-unitary stabilizer fiber. The process-fidelity maximization is then the nearest-ray problem for a spherical cap. Haar Bloch colatitude density yields the full distribution and mean; exact Taylor expansion yields the quartic coefficient. The analytic proof covers all stated parameters. The standalone numerical program passed 90 finite assertions and does not replace the universal proof.
+## correctness
 
-## Originality — PASS (best knowledge)
-Garbaravičius–Wolf (2026) analyzes the number of switches needed to reach every unitary, and averages over randomly drawn control bases. Hamada (2014) gives a stronger pointwise exact-synthesis factor-count theorem and provides the geometric cap ingredient, which is **acknowledged prior work**. The present object is the exact optimal **process fidelity at insufficient fixed tilt depth** and its Haar-target probability law; these were not found as assertions or stronger coverage in the inspected sources. Aiello et al. (2015) optimizes execution time of exact control words; Peterson et al. (2022) studies a different two-qubit gate set. Six direct published-finding corpus semantic queries and related aliases returned no matching equivalent claim. The closest indexed items concern sampled bang switches, a different Hadamard architecture, and robust multi-copy qubit discrimination. Residual risk is an unlocated general geometric fidelity theorem or derivation using Hamada's exact control synthesis.
+PASS
 
-## Value — PASS
-A fixed budget of tilted-axis pulses is a motivated quantum-control resource, and process fidelity is the directly relevant performance observable for targets outside the reachable set. The complete target law and a sharp quartic mean-versus-quadratic worst-case error distinction quantify a nonobvious practical difference between typical and worst-target compilation. These are exact natural invariants of a standard alternating control architecture, not an arbitrary finite census.
+With axes separated by 0<θ≤π/2, each Bθ pulse changes the Bloch colatitude of the first-axis north pole by ≤2θ; induction using opposite-meridian half-turns and azimuthal freedom gives exact reachable cap {U:β(U)≤min(2mθ,π)} including m=0 and poles. The free final A rotation spans the Hopf fiber of each reachable Bloch ray. SU(2) trace identity reduces optimal phase-insensitive process fidelity to squared ray overlap, cos²(d/2), and nearest cap projection gives cos²(((β−c)_+)/2) globally. Uniform Haar SU(2) projects to uniform Bloch sphere, with β-density sinβ/2; integrating yields the stated atom, survival law and exact mean error (1+cos c)/4−(π−c)sin c/8. Taylor expansion at c=π gives δ^4/96−δ^6/1440+O(δ^8), while worst error sin²(δ/2)∼δ²/4. Independent numerical Haar integrals at c=0,.8,1.4,π and independent symbolic Taylor calculation corroborate; finite checks do not prove all-target cap equality.
 
-## Limitations and closest literature
-The result assumes unrestricted ideal signed pulse angles and first-axis gates at both ends. It does not solve time-optimal control, other word architectures, realistic time/noise bounds, or higher-dimensional synthesis. Hamada's exact synthesis results are not claimed as new; scientific priority of the metric/Haar extension is not independently certified. Main source: Garbaravičius and Wolf, arXiv:2610.17826v1. Principal comparison: Hamada, arXiv:1401.0153, and Aiello et al., arXiv:1410.4975.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hamada 2014 proves stronger pointwise exact-synthesis minimal rotation counts and constructive cap geometry: this is explicitly prior and not claimed. Garbaravičius–Wolf 2026 studies number of switches for arbitrary unitaries at fixed axes and expectation over random basis pairs, not fixed-budget approximation fidelity distribution over Haar targets. The new assessed claim is optimal process-fidelity *beyond* exact reachable set and its Haar-target law, including quartic mean versus quadratic worst-case. No equivalence found in inspected sources; direct metric projection/Haar-integration derivability and an unread 2026 full text remain priority risks.
+
+## value
+
+PASS
+
+Tilted-axis pulse count is a natural constrained-control resource; for impossible-to-synthesize target gates exact optimal phase-insensitive process fidelity is the relevant quantity. Its complete Haar distribution and sharp quartic mean versus quadratic worst-case separation are useful exact benchmarks for a standard ideal SU(2) control architecture, even without a larger noisy/time-optimal theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

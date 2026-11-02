@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two-site resolvent reduction yields the exact scalar determinant. The two strictly decreasing positive resolvent factors enforce a unique sub-band root precisely above threshold; reflection followed by bipartite staggering supplies the upper-band partner. The threshold Fourier vector has a provably nonvanishing constant numerator, hence is not square summable in dimension three. The cubic Green integral has the verified \(\sqrt\kappa/(4\pi)\) edge defect; this produces the squared onset. The Newtonian Fourier singularity has coefficient \(1/(4\pi|r|)\), giving the precise inverse-square separation penalty. Independently evaluated standard-library quadratures corroborate the constants, but the proof does not rely on finite tests.
+## correctness
 
-## Originality
-PASS on the cited and searched record, with residual priority risk. Hiroshima et al. (arXiv:1209.0522) treat a single on-site potential and classify its threshold; Albeverio et al. (math-ph/0501013) treat quasi-momentum-induced binding in a two-body lattice family; Hiroshima et al. (arXiv:1804.05339) treat a center-plus-all-neighbors potential, not a two-site neutral pair. McCutcheon's 2004 report develops the single-defect Green/T-matrix method. The accessible local ledger contains a two-dimensional neutral pair finding; it proves all-coupling binding and an exponential gap, not this dimension-three positive threshold, universal separation penalty or quadratic onset. Semantic searches of the available research database for neutral point pairs, inverse-square separation and relevant eigenvalue constants did not retrieve the same theorem. No search by itself proves novelty; unavailable broad impurity treatments remain a documented priority risk.
+PASS
 
-## Mathematical value
-PASS. Neutral (zero-sum) defect pairs offer a natural contrast to one isolated attractive defect and to the unconditional binding of dimension two. The theorem determines the entire out-of-band binding phase boundary for every separation, including the precise price of a nearby compensating repulsive defect and the critical onset law. It has a direct spectral interpretation for two opposite on-site perturbations, rather than introducing an arbitrary finite graph or a contrived parameter slice. The inverse-square penalty is a nontrivial quantitative consequence of the three-dimensional lattice Green tail, and the threshold state changes from resonance to actual bound state at criticality.
+On ℓ²(Z³) with H0 symbol ε(k)=2Σ_j(1−cos k_j), two-site Birman–Schwinger reduction gives determinant 1−λ²[G0(κ)²−Gr(κ)²]. Strict heat-kernel positivity gives 0<Gr<G0, and both positive factors G0±Gr strictly decrease in κ, establishing a unique simple negative outlier iff λ>(g²−h_r²)^(-1/2). Spatial midpoint reflection swaps equal-and-opposite defect signs while bipartite staggering sends H0 to 12−H0, yielding exactly one matching upper outlier. At λc the threshold-state Fourier numerator is nonzero at k=0, hence /ε(k) in L1 but not L2; it gives bounded decaying non-ℓ² resonance. Since G0(0)−G0(κ)~√κ/(4π) while G0−Gr changes O_r(κ), expansion yields the stated 16π²/(a_r² λc^6) quadratic binding onset. Newtonian lattice Green tail Gr(0)~1/(4π|r|) gives λc−1/g~1/(32π²g³|r|²); g−h_e1=1/6 follows from cubic symmetry. Independently integrated 3D heat kernel with SciPy ive: g=0.25273100985866287, h_e1=0.08606434319199875, λc≈4.208302041223322, with separation n² penalty tending toward 0.196143842. These finite quadratures corroborate constants only.
 
-## Closest sources and limitations
-The closest primary publications are the 2012 rank-one lattice paper and the 2018 multi-delta threshold analysis. The latter uses a symmetric center/nearest-neighbor support, so the two-site mixed-sign scalar determinant and its long-separation asymptotic are not supplied by its cited formulation. A 2009 broader three-dimensional lattice-potential article was available only as abstract/limited text here; it is a priority risk, not a claimed full-text exclusion. The conclusion concerns states **outside** the essential band; it does not classify embedded point spectrum or uniform joint limits in coupling and separation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical rank-one lattice defect thresholds and resonance behavior are acknowledged; the exact opposite-sign two-site zero-sum perturbation is not rank one. The inspected 2018 source addresses a centered impurity plus an entire symmetric nearest-neighbor shell, not a neutral arbitrary-separation pair. A related 2D opposing pair has unconditional binding, a genuinely different dimension-three phase. The exact all-separation neutral threshold and 1/|r|² penalty were not established by the inspected sources. Full 2009 same-dimensional impurity paper inaccessible: material residual priority risk.
+
+## value
+
+PASS
+
+Neutral pairs are canonical balanced impurity perturbations and have a distinct sharp 3D onset threshold versus single attractive sites and 2D pairs. The theorem gives all-separation critical coupling, symmetric outliers, a clear resonance boundary and a quantitative price of nearby repulsion: a natural motivated spectral result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

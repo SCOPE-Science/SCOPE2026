@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The unrestricted result follows from the two residue-class inequalities and the exact offset-deficit obstruction in `RESULT.md`, not from enumeration.
+## correctness
 
-Run `python3 verify.py` in a directory containing this file and `verify.py`. It computes the Apéry residues by Dijkstra's shortest-path algorithm using positive generators, independently of the proof's offset construction, for all integer parameters \(2\le n\le100\). Each computed Frobenius number is compared to \(n^3-2\). It should output `VERIFY_OK parameters=2..100 all_exact_frobenius_checks`.
+PASS
 
-This finite verification does not establish the infinite theorem or uniqueness in the literature. Independent audit has not been performed.
+Set a=n^2, offsets 1,n+1,n+2. For each residue r in [0,a), write r=q(n+1)+s, 0<=s<=n, q<=n-1, with q=n-1 implying s=0. The offsets represent r in L=max(q,s) terms, so the nonnegative semigroup has a representative w=aL+r<=n^3+n^2-2 in every residue. Therefore all integers m>=n^3-1 are representable by subtracting multiples of a; if w>m then w>=m+a>n^3+n^2-2. Conversely n^3-2 must use <=n-1 nonbase generators; offset t is congruent a-2 modulo a and below 2a-2, forcing t=a-2. If L<=n-2 then t<=a-4. For L=n-1, reducing n-1 largest offsets by n is impossible: only changes 1 or n+1 are available and n copies of the former cannot fit. Hence F=n^3-2. Separate independent modular Dijkstra/Apéry computations confirm all n=2,...,40, not the infinite assertion.
+
+## originality
+
+PASS
+
+A concrete exact Frobenius number for a natural adjacent-offset quadratic four-generated family is not contained in the materially inspected published eventual quasipolynomial theorem, which applies to different parameter ranges/generator counts. Four generators are genuinely minimal for n>=3; the finite n=2 redundancy is disclosed. No matching older formula found in bounded searches, which is not proof of priority.
+
+## value
+
+PASS
+
+The exact all-n conductor of a simple quadratic four-generator numerical semigroup resolves a natural parametric Frobenius instance beyond the principal published three-generator EQP theory. Its adjacent-offset structure and boundary-case proof make it a self-contained useful exact invariant; no general four-generator conjecture is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

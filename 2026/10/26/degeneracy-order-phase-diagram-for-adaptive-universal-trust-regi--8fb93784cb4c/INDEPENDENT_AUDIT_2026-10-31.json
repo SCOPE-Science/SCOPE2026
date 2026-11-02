@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:54:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inspected 1D exact UTR-Adaptive Strategy 4.1 update on f_p(x)=|x|^p/p with p>=3 and rho floor>0. Gradient magnitude a^(p-1), Hessian (p-1)a^(p-2), and ratio H/sqrt(|g|)=(p-1)a^((p-3)/2) drive branch selection. For p=3, the two branch radii and constrained Newton solutions yield q3(rho)=1/2 (rho<=1), 1-1/(2rho) (1<rho<=2), and 1-1/(4rho) (rho>2). At p>3 branch H/sqrt|g| ->0, radius a^((p-1)/2)/(4rho) is eventually active, and descent acceptance tends to 1/4>eta; accepted updates lower rho to rho_min. Exact recurrence a_{k+1}=a_k-a_k^((p-1)/2)/(4rho_min) gives a_k ~ [8rho_min/((p-3)k)]^(2/(p-3)) by inverse-power telescoping. Formula describes local infinite zero-tolerance update, not a fixed positive-stopping-tolerance run. Independently checked branch thresholds and recurrence algebra and inspected provided verification.py; finite checks alone do not establish asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "UTR local quadratic theorem assumes positive-definite limiting Hessian; f_p''(0)=0 for p>=3.",
+          "Adjacent gradient-regularized Newton and Bregman regularized methods have nonidentical radius/branch rules."
+        ],
+        "reasoning": "General nondegenerate local rate is inapplicable; a general degenerate UTR rate theorem could dominate, but was not found in inspected material.",
+        "searches": [
+          "arXiv:2311.11489 Theorem 4.3",
+          "universal adaptive trust region degeneracy power function p=3 p>3 branch rate local sharp",
+          "regularized Newton global rate Mishchenko 2023"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: universal adaptive trust region degeneracy power function p=3 p>3 branch rate local sharp",
+        "arXiv:2311.11489 primary Algorithm 3 / Strategy 4.1 / Theorem 4.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Branch rules are directly from Jiang et al., not new.",
+          "Theorem 4.3 excludes zero-Hessian minima and does not state branch crossing or power-law rate."
+        ],
+        "reasoning": "Deriving the flat-minimum phase diagram requires solving its exact 1D trust-region subproblem, proving eventual boundary activity and acceptance; this is an application beyond prior theorem hypotheses, though using known algorithm rules.",
+        "searches": [
+          "arXiv:2311.11489 Algorithm 3 Strategy 4.1 Theorem 4.3",
+          "universal adaptive trust region degeneracy power function p=3 p>3 branch rate local sharp"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The flat power germ is equivalent locally to a one-dimensional degenerate convex minimum; its Hessian-to-square-root-gradient ratio controls trust-region activation.",
+          "The official Strategy 4.1 equations specify the exact problem solved in this theorem."
+        ],
+        "reasoning": "Searches covered algorithm aliases (universal trust region, adaptive cubic-gradient regularization, degenerate p-power minimizer); no matching exact phase-law statement in read primary sections.",
+        "searches": [
+          "universal adaptive trust region degeneracy power function p=3 p>3 branch rate local sharp",
+          "arXiv:2311.11489 Strategy 4.1 flat power minima"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned nearby but unrelated smoothness and convergence phenomena, not an exact three-branch rho table and 1/k^(2/(p-3)) limit."
+        ],
+        "reasoning": "No exact table found in checked publications; absence is not a general negative priority certificate.",
+        "searches": [
+          "universal adaptive trust region degeneracy power function p=3 p>3 branch rate local sharp",
+          "Resultary SCOPE degeneracy power minimum trust region local phase rates"
+        ]
+      },
+      "rationale": "The algorithm and quadratic local rate at nondegenerate optima are prior Jiang et al. material. This claim investigates exact degenerate power minima with f_p''(0)=0, outside positive-definite Hessian theorem assumptions. The cubic-versus-higher flatness branch boundary, rho-floor dependent contraction and polynomial leading constant are not implied by that theorem as stated. Related Bregman/regularized Newton papers use different updates.",
+      "residual_risks": [
+        "Only 1D exact local power germs with vanishing stopping tolerance, not a global or multidimensional convergence theorem.",
+        "Potential equivalent special-case rate in unindexed trust-region analyses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The algorithm is acknowledged; its positive-definite Hessian local theorem is not applicable to f_p power germs.",
+          "evidence": [
+            "Algorithm 3; Strategy 4.1; Theorem 4.3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.11489",
+          "material_read": "Open primary paper: Algorithm 3, Strategy 4.1, Condition 4.1 and Theorem 4.3 with local nondegeneracy conditions; relevant equations and acceptance criteria inspected",
+          "method": "Primary source text or published abstract, compared to claim hypotheses and quantifiers",
+          "title": "A Universal Trust-Region Method for Convex and Nonconvex Optimization",
+          "trigger": "Primary algorithm with potentially dominating local-convergence theorem"
+        },
+        {
+          "assessment": "Different regularization and stronger local assumptions; no claim to have excluded every possible equivalent corollary.",
+          "evidence": [
+            "Mishchenko 2023 published abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/22M1488752",
+          "material_read": "Published abstract and update description; entire article not inspected",
+          "method": "Primary source text or published abstract, compared to claim hypotheses and quantifiers",
+          "title": "Regularized Newton Method with Global O(1/k^2) Convergence",
+          "trigger": "Neighboring second-order regularization method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp, explicit degeneracy threshold for a standard adaptive trust-region algorithm is useful for diagnosing its limits at flat minima: cubic flatness contracts linearly but higher powers show quantified polynomial stall, with exact dependence on parameter floor. The test family is natural and the asymptotic rate is nontrivial beyond mere substitution, despite the one-dimensional and pre-termination restriction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md at commit 64291444ea6dfcdde63af2e9acc7c67591d0ca47",
+    "Frozen Git verification.py blob c784bc1745da7e77d77d2bf0dacc948224d3230d",
+    "Hand reconstruction of exact scalar KKT solution, acceptance ratio and inverse-power asymptotic",
+    "Resultary semantic query: universal adaptive trust region degeneracy power function p=3 p>3 branch rate local sharp",
+    "arXiv:2311.11489 primary Algorithm 3 / Strategy 4.1 / Theorem 4.3"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only 1D exact local power germs with vanishing stopping tolerance, not a global or multidimensional convergence theorem.",
+    "Potential equivalent special-case rate in unindexed trust-region analyses.",
+    "Full repository directory tree listing at frozen commit unavailable through the provided GitHub read-only connector; material claims and supporting program blobs were actually fetched at exact assigned commit."
+  ],
+  "residual_risks": [
+    "Only 1D exact local power germs with vanishing stopping tolerance, not a global or multidimensional convergence theorem.",
+    "Potential equivalent special-case rate in unindexed trust-region analyses."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is every labeled alphabet of size \(q\ge3\), with word lengths \(n=3,4,5,6\), distinct unordered center pairs, and empty one-deletion-shadow intersection. The claimed object is the entire **equality-case** census, not merely the known intersection upper bound. The proof reduces arbitrary alphabets to equality partitions on \(2n\) labeled positions and proves an injective lift count \((q)_{\underline{s}}\). It enumerates all \(203\), \(4140\), \(115975\), and \(4213597\) corresponding restricted-growth patterns and checks every one-deletion and two-deletion set, with duplicate subsequences removed. Each maximum and every equality pattern is retained. Dividing ordered pairs by two is justified by the fixed-point-free center swap. Independent direct enumeration for small labeled alphabets and a separate orbit replay match. The primary proof evidence is the complete reproducible classifier source and its matched output, not the output log alone.
+PASS
 
-## Originality — PASS, with residual risk
+Every ordered pair of length-n centers corresponds uniquely to an RGS partition on 2n positions; every q-symbol realization is an injection of s equality labels, giving (q)_s, and center-swap is fixed-point-free under disjoint one-deletion shadows. Inspected full C++ recursion over Bell(6),Bell(8),Bell(10),Bell(12) partitions and exact deduplicated deletion subsequences. Independently wrote/compiled a separate C++ RGS enumerator: counts 203, 4140, 115975, 4213597 total patterns; eligible 133,3690,113073,4194600; maxima 3,4,6,6; extremal support multiplicities {3:1},{2:1,3:4,4:1},{3:1},{2:2,3:8,4:2}. Thus all q>=3 labeled unordered-pair polynomials follow, with quaternary totals 12,66,12,132; orbit-replay logic for swap/reversal inspected. Exhaustive only at n=3..6; no arbitrary-n assertion.
 
-Wang, Li, and Fu (arXiv:2509.24237) determine ternary maximum values, not the complete labeled equality counts. Sun and Ge (arXiv:2606.25822, Theorem 1.1) supply a universal upper bound of six for one-deletion-separated centers under exactly two deletions; an upper bound does not enumerate equality cases. Wang, Li, and Fu (arXiv:2609.16837, Theorem 32, Remark 5, Section VI) give general-alphabet maximal behavior and extremal structure for sufficiently large lengths, and a sharper classification for \(t\ge q+2\), which does not cover \(t=2\). None of the inspected relevant claims states the all-alphabet length-three-through-six equality templates and falling-factorial pair counts. Relevant semantic mathematical-record searches and accessible earlier claims did not identify equivalent coverage. An undiscovered combinatorial enumeration, or an implicit small case of an older equivalence theorem, remains possible; searches cannot prove absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-The exact population and structure of worst-case ambiguity pairs refine a natural reconstruction threshold question. In particular, six-way ambiguity first appears at length five with one three-symbol equality type, while length six has twelve types across two-, three-, and four-symbol supports. Their counts differ significantly by alphabet size, including the quaternary counts \(12,66,12,132\), and the complete symmetry classification reveals \(1,4,1,5\) orbit types. This is a natural complete classification at the shortest interesting lengths, not an arbitrary reslicing or a claim of new code-rate improvement.
+Recent known global six-overlap bound and large-length reconstruction maxima are credited, not presented as novel. The assessed statement is the complete short n=3..6 equality-template and falling-factorial population census for all q>=3, plus 1/4/1/5 symmetry class counts. Relevant published Resultary findings use different alphabet/number of deletions, and inspected primary quantified theorems do not imply the finite equality populations.
 
-## Closest literature and remaining limitations
+## value
 
-Inspected: arXiv:2609.16837 (introduction, definitions, Sections III–VI, Theorem 32, Remark 5, appendix opening); arXiv:2606.25822 (abstract, Introduction and Theorem 1.1); arXiv:2509.24237 (introduction, main ternary theorem and short-length computations). The theorem does not address other lengths, higher deletions, or practical protocols. There is no independent external audit. Residual originality risk: unindexed prior equality-census work.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equality-case classes of the natural two-deletion reconstruction ambiguity under one-deletion separation are mathematically meaningful, even when the maximum alone is known. The exact support-profile and all-alphabet labeled-population polynomials resolve the exceptional short-length boundary not characterized by large-length bounds. Finite exhaustion is valid and valuable because these are the entire finite parameter range claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

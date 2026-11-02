@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Frobenius annihilates every element of the augmentation ideal, so generator images are unconstrained apart from lying in that ideal. Invertible cotangent linear parts characterize automorphisms. The conjugacy construction uses the image/kernel splitting of an idempotent cotangent operator and constructs a lift with invertible linear part. Counting independent generating tuples modulo automorphisms of the smaller truncated algebra gives the distinct images; free assignments to the omitted generators give exactly the splitting multiplicities. The rank-degree calculation is a direct polynomial-degree comparison. Exhaustive binary computations at generator ranks two and three and a ternary rank-one embedded-image enumeration independently reproduce the small cases.
+## correctness
 
-**Originality — PASS (best knowledge, not certified priority).** The closest material is Carlson–Friedlander–Pevtsova, Proposition 1.1, identifying cotangent independence of truncated-polynomial embeddings as the flatness criterion. It does not state the orbit classification of all idempotent endomorphisms or the rank-stratified splitting counts. Ebrahim–Facchini §6 gives abstract idempotent pre-endomorphism decompositions but not this finite algebra-map census. Chakraborty–Dasgupta–Dutta–Gupta treat polynomial domains, not the nilpotent modular group algebra. Searches under group-algebra, polynomial-truncation, Gaussian-binomial, and algebra-retract formulations returned no matching formula; an unlocated special-case or generic endomorphism-monoid enumeration remains a priority risk.
+PASS
 
-**Value — PASS.** The finite algebra \(\mathbb F_q[C_p^m]\) is central to modular representation theory; its algebra-retraction endomorphism monoid has an intrinsic rank stratification. The theorem classifies every retraction geometrically and gives exact embedded-image and splitting multiplicities in all ranks and all finite field sizes. The counts are nonlinear in the algebra dimension and exhibit a sharp asymptotic reversal between the two largest proper cotangent ranks at generator number \(m=p+3\). This is a complete natural invariant rather than an isolated computation.
+Every element of the maximal ideal is p-nilpotent by Frobenius, so arbitrary nilpotent generator images define a unique algebra map, and invertible cotangent linear part characterizes automorphisms via Nakayama. Split an idempotent cotangent projection into image and kernel and lift u_i=π(a_i), v_j=b_j−π(b_j), yielding conjugacy to P_r. To count embedded rank-r images, divide all cotangent-independent r generating tuples (prod_i(q^m−q^i)) q^{r(p^m−1−m)} by |Aut(A_r)|=|GL_r(q)| q^{r(p^r−1−r)}. This gives [m choose r]_q q^{r(p^m−p^r−m+r)} images. Each image has q^{(m−r)(p^r−1)} splittings by arbitrary images of omitted generators in its augmentation ideal. Degrees compare as delta_{m,r}=r(p^m−p^r)+(m−r)(p^r−1), and their difference changes sign exactly at m=p+3. Verified rank 0,m contribute one; finite checks do not claim proof for all p,m.
 
-**Scientific limits and closest literature.** The source's existing flatness criterion is explicitly acknowledged. Related general retract theory may provide indirect deductions; no exhaustive publication-priority certification or independent audit is claimed. The formula is not extended to unequal truncation powers or arbitrary finite modular group algebras.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Carlson–Friedlander–Pevtsova Proposition 1.1 directly covers cotangent-independence/flatness of truncated polynomial subalgebra embeddings, so this ingredient is prior. This work additionally classifies unital algebra idempotents by conjugacy, enumerates *all* embedded image subalgebras and distinct splitting maps over F_q, and identifies asymptotic top-rank reversal; none is stated by the inspected earlier proposition. Other pre-endomorphism work treats general nonassociative algebra and different maps. PASS qualified by possible earlier endomorphism-monoid enumeration.
+
+## value
+
+PASS
+
+Complete conjugacy classes, exact image counts and per-image retraction multiplicities for the natural modular group algebra k[C_p^m] provide intrinsic classification information across all primes, generator ranks and finite field sizes. The nonlinear exponent and phase reversal for the two highest proper ranks make the result more than a recitation of Nakayama's lemma or the earlier embedding criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

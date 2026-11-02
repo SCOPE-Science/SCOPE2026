@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The exact theorem was proved using the rank-one normal form, Grassmannian image count and complementary-kernel count. Direct enumeration in `factorization_checker.py` computed both idempotence and nilpotence from matrix multiplication for n=2 q=2,3,4,5; n=3 q=2,3; n=4 q=2. All rank distributions matched; final output `MINIMAL_RANK_FACTOR_EXHAUSTIVE_OK`. The n=2 tests check known earlier instances, not new novelty. The proof, not the finite experiments, establishes all n>=3 and all prime powers q. Historical publication priority and independent audit remain unperformed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Write A=v psi and N=u psi uniquely with E u=v and psi(u)=0, E v=v. When u,v independent, w=u-v lies in ker E and v in im E; images containing v but excluding w count q^(r-1)[n-2 choose r-1]_q, and compatible complements contribute q^(r(n-r-1)), giving C_nr=q^(r(n-r)-1)[n-2 choose r-1]_q. For trace A=0 the unique exceptional u=v adds D_nr=q^(r(n-r))[n-1 choose r-1]_q; for nonzero trace no exception. Thus count is (q^(n-1)-1)C or (q^(n-1)-q)C+D. The difference D-(q-1)C>0 in every r, including r=n. Independent direct binary 3x3 exhaustive calculations gave rank-strata tracezero (8,16,1), trnonzero (6,6,0), totals 25 vs 12; the proof establishes all n,q.
+
+## originality
+
+PASS
+
+Prior exact two-dimensional finite-field idempotent–nilpotent fiber counts are explicitly excluded; more general singular-quadratic product papers establish existence or ranks, not inspected labeled rank-specific multiplicities for every n>=3. Botha (2016) is directly relevant but its complete text was unavailable. Distinguishes rank-one right factors from arbitrary nilpotents; qualified best-of-knowledge original.
+
+## value
+
+PASS
+
+For naturally studied idempotent–nilpotent matrix factorization, the exact rank-resolved fiber counts and strict trace-zero advantage quantify a structural distinction invisible to existence criteria. The q-Grassmannian formula works in every dimension, not an isolated small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

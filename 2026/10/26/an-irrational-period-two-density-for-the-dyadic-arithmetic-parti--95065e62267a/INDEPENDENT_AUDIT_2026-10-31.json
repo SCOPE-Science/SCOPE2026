@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T13:52:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For v>=2, v2(D_2(x))=v+v2(v)-1. Every odd v>=3 immediately decreases to even; for even v with k=v2(v), k=1 means a fixed valuation and k=2 the exact 2-cycle; k>=3 descends to T(k)=1+v2(floor((k-1)/2))<k in one or two iterates (parity accounted). Thus the least eventual period from m is F(m+1), where F(1)=1,F(2)=2,F(r>=3)=F(T(r)). Inverting the unique T fibers gives the disjoint residue-class decomposition A={2} union_{t in A,h>=0}{2^t(2h+1)+1,2^t(2h+1)+2}. Counting its two residue classes mod 2^(t+1), with only t<=log2 N active and geometric omitted tail, yields A(N)=N*sum_{t in A}2^-t+O(log N), hence same density for exponents m. Non-eventual periodicity of the binary indicator: for q>=2, compare r=2^K+1 and r+q, whose T-values are K and fixed 1+v2(floor(q/2)), while F(K) takes both values at arbitrarily large K; for q=1 use r=2^K+2 with K in A and r+1, which has label 1. Thus the binary expansion is not eventually periodic, so alpha is irrational. Independent direct valuation trajectory cycle detection for m=2..100000 agrees with F(m+1), count 29705, and alpha computed from first 120 exact binary digits is about 0.29705882370403475. Finite data are not the irrationality proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 generalization transfers valuation dynamics to broader local fields, and thereby covers eventual periodicity beyond p=2.",
+          "Its broader starting-field quantifiers do not state an exponent-counting density with nonperiodic binary digits."
+        ],
+        "reasoning": "An extension of individual-orbit periodicity to p-adic fields is orthogonal to proving arithmetic density of a discrete input-exponent family.",
+        "searches": [
+          "arxiv:2201.12453 PDF Theorems 8 and 9",
+          "arxiv:2307.04912 Theorem 2.8 p-adic extension"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2201.12453",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL25/Xiao/xiao3.html",
+        "arxiv:2307.04912",
+        "Resultary search arithmetic partial derivative p-adic valuation period two density irrational binary exponents Emmons Xiao"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Emmons–Xiao Theorems 8,9 imply each valuation orbit has period 1 or 2 for p=2, but do not by implication alone determine natural density or irrationality.",
+          "Inverting recursively defined residue classes supplies a separate counting argument; nonperiodicity requires constructing towers of different F-labels."
+        ],
+        "reasoning": "The stronger generalized dynamics theorem alone cannot substitute for the new exponent-sampling theorem; a separate counting/nonperiodicity proof is essential.",
+        "searches": [
+          "doi and full journal HTML https://cs.uwaterloo.ca/journals/JIS/VOL25/Xiao/xiao3.html",
+          "arxiv:2201.12453",
+          "arxiv:2307.04912"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Emmons–Xiao JIS 25 (2022), Article 22.4.7, studies eventual v_p trajectories and possible periods for each start; the present α counts exponents and proves irrationality.",
+          "The source’s recurrence terminology can be transformed to F via descending 2-adic valuation of the current even valuation, but neither the residue-class α series nor the density theorem is stated in inspected text."
+        ],
+        "reasoning": "The classification of which individual trajectories settle into 2-cycles is a necessary input, not itself the limiting frequency or irrationality theorem.",
+        "searches": [
+          "arithmetic partial derivative p-adic valuation period two density irrational binary exponents Emmons Xiao",
+          "Emmons Xiao The Arithmetic Partial Derivative 2022 Theorems 8 9",
+          "2-adic valuation derivative period class natural density irrational"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned unrelated arithmetic valuation records; no matching exact α=Σ2^-r coefficient sequence/table.",
+          "The author-side finite count 29705 through 100000 agrees with an independent direct-cycle count, but is not a prior published infinite table."
+        ],
+        "reasoning": "No exact database/table furnishing this irrational exponent density was identified; this negative search does not establish absolute novelty.",
+        "searches": [
+          "arithmetic partial derivative p-adic valuation period two density irrational binary exponents Emmons Xiao",
+          "Resultary dyadic exponent period two irrational density Emmons Xiao",
+          "OEIS arithmetic partial derivative valuation period two binary"
+        ]
+      },
+      "rationale": "The known Emmons–Xiao theorem provides ultimate periodicity and valuation-period classification. This exact self-similar exponent-set description, natural density with O(log N) error, and the proof that the period-two density is irrational are additional quantified number-theoretic assertions. A similar period tree may be derived from their results, but explicit density and nonperiodicity are not proved in the inspected Theorems 8-9.",
+      "residual_risks": [
+        "The original paper may contain implicit self-similar density via its proof even without stating it; the novel classification is specifically the density and irrationality.",
+        "The package mistakenly cites Journal of Integer Sequences Article 22.6.3; the primary journal page identifies Article 22.4.7. This bibliographic correction is required before publication and does not invalidate the mathematical proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS individual eventual periodicity, not the present explicit exponent density and irrational binary coding",
+          "evidence": "Theorems 8-9 classify periodic valuations; original journal HTML identifies correct Article 22.4.7.",
+          "identifier_or_url": "arxiv:2201.12453; Journal of Integer Sequences 25 (2022), Article 22.4.7",
+          "material_read": "Primary full PDF: definitions, dynamical valuation formula, Theorems 8 and 9 and their period-class arguments; journal HTML bibliographic record",
+          "method": "Lawful primary full PDF and author/journal page",
+          "title": "The Arithmetic Partial Derivative",
+          "trigger": "Identical prime-adic derivative and eventual valuation period result"
+        },
+        {
+          "assessment": "PRIORITY_RISK limited reading: p-adic dynamics may encode related period data",
+          "evidence": "The published scope broadens fields and periodicity; no evaluated exponent density independently confirmed.",
+          "identifier_or_url": "arxiv:2307.04912",
+          "material_read": "Bibliographic abstract and indicated general valuation Theorem 2.8, not a comprehensive full-document reading",
+          "method": "arXiv abstract/secondary context only; no whole-document NOT_COVERING claim",
+          "title": "A Generalization of Arithmetic Derivative to p-adic Fields and Number Fields",
+          "trigger": "Potential dominating broader p-adic dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The density of an eventual valuation period among the natural input-exponent family m is a canonical frequency statistic, not a contrived slice of integers. The explicit irrational limiting constant, recursively defined digit set, logarithmic discrepancy, and nonperiodicity are a meaningful quantitative complement to previously known per-trajectory classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2201.12453",
+    "https://cs.uwaterloo.ca/journals/JIS/VOL25/Xiao/xiao3.html",
+    "arxiv:2307.04912",
+    "Resultary search arithmetic partial derivative p-adic valuation period two density irrational binary exponents Emmons Xiao"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Counts *initial exponents* m of 2^m, not natural density over all integers or p-adics.",
+    "No other prime p claimed.",
+    "Original RESULT bibliographic Article 22.6.3 is inaccurate; primary journal page gives 22.4.7."
+  ],
+  "residual_risks": [
+    "The original paper may contain implicit self-similar density via its proof even without stating it; the novel classification is specifically the density and irrationality.",
+    "The package mistakenly cites Journal of Integer Sequences Article 22.6.3; the primary journal page identifies Article 22.4.7. This bibliographic correction is required before publication and does not invalidate the mathematical proof."
+  ],
+  "schema_version": 1
+}

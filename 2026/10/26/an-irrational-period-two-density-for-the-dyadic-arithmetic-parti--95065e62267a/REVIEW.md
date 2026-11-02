@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The direct valuation identity, even-block descent, and two exact terminal periods establish the period classifier for every exponent \(m\ge2\). The decomposition of the period-two indicator into disjoint dyadic residue classes yields the natural density with logarithmic discrepancy. Two unbounded families of different labels and a shift-by-period contradiction prove the binary expansion is nonperiodic, hence the density irrational. Independent finite valuation-cycle detection supports, but does not replace, the symbolic proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** Emmons–Xiao (2022, arXiv:2201.12453, Theorems 8–9) derive individual eventual valuation periods. Emmons–Xiao (2023, arXiv:2307.04912, Theorem 2.8) generalize them to local fields. The new claim is an explicit positive-density frequency law over all initial exponents with a logarithmic discrepancy estimate and a nonperiodic binary-expansion argument proving its density irrational. The inspected primary source text does not contain this counting or irrationality theorem. Earlier unindexed work remains possible.
+PASS
 
-**Mathematical value — PASS.** The infinite distribution of terminal cycle types is a natural quantitative invariant of the arithmetic partial derivative studied in the motivating literature. Its density is not merely a computed decimal: it is an explicitly computable irrational arithmetic constant, while every individual valuation period is either one or two. The dyadic self-similarity and quantitative discrepancy give tools for further dynamical and digit-sequence study, without claiming any larger downstream theorem.
+For v>=2, v2(D_2(x))=v+v2(v)-1. Every odd v>=3 immediately decreases to even; for even v with k=v2(v), k=1 means a fixed valuation and k=2 the exact 2-cycle; k>=3 descends to T(k)=1+v2(floor((k-1)/2))<k in one or two iterates (parity accounted). Thus the least eventual period from m is F(m+1), where F(1)=1,F(2)=2,F(r>=3)=F(T(r)). Inverting the unique T fibers gives the disjoint residue-class decomposition A={2} union_{t in A,h>=0}{2^t(2h+1)+1,2^t(2h+1)+2}. Counting its two residue classes mod 2^(t+1), with only t<=log2 N active and geometric omitted tail, yields A(N)=N*sum_{t in A}2^-t+O(log N), hence same density for exponents m. Non-eventual periodicity of the binary indicator: for q>=2, compare r=2^K+1 and r+q, whose T-values are K and fixed 1+v2(floor(q/2)), while F(K) takes both values at arbitrarily large K; for q=1 use r=2^K+2 with K in A and r+1, which has label 1. Thus the binary expansion is not eventually periodic, so alpha is irrational. Independent direct valuation trajectory cycle detection for m=2..100000 agrees with F(m+1), count 29705, and alpha computed from first 120 exact binary digits is about 0.29705882370403475. Finite data are not the irrationality proof.
 
-**Limitations.** Uniform sampling is over initial exponents of positive powers of two, not positive integers. No result for arbitrary primes or for integer trajectories is claimed. The primary source classifies individual orbits, so the precise degree of historical novelty of the newly deduced global invariant remains contingent on unindexed literature. Only self-review and executable finite checks have been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known Emmons–Xiao theorem provides ultimate periodicity and valuation-period classification. This exact self-similar exponent-set description, natural density with O(log N) error, and the proof that the period-two density is irrational are additional quantified number-theoretic assertions. A similar period tree may be derived from their results, but explicit density and nonperiodicity are not proved in the inspected Theorems 8-9.
+
+## value
+
+PASS
+
+The density of an eventual valuation period among the natural input-exponent family m is a canonical frequency statistic, not a contrived slice of integers. The explicit irrational limiting constant, recursively defined digit set, logarithmic discrepancy, and nonperiodicity are a meaningful quantitative complement to previously known per-trajectory classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

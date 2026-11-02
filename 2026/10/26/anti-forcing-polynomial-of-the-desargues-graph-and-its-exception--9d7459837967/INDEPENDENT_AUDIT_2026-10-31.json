@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T17:52:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Desargues graph is the bipartite double of Petersen: ten left two-subsets, ten right, adjacent when disjoint. Every perfect matching is an admissible 10x10 bijection. Independent backtracking counted 60. Contract a fixed matching; each remaining edge is one directed arc in a ten-vertex, twenty-arc loopless digraph; alternating cycles correspond to directed cycles. A minimum deletion set hitting all such cycles equals minimum feedback arc set = 20−max over linear vertex orders of forward arcs. Exact subset recurrence over all 2^10 vertex sets computed, independently of the packaged verifier, giving 6 matchings with anti-forcing 5 and 54 with anti-forcing 6. The supplied 240-action orbit/transversal verifier source was independently read; its exhaustive definitions support exceptional size-6 involutive Petersen lifts and other orbit sizes 24,30. Finite exhaustive enumeration is a complete proof for this fixed graph, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lei–Yeh–Zhang, arxiv:1406.3796, gives general alternating-cycle characterization and planar bipartite minimax theory.",
+          "Desargues is nonplanar, so planar-specific equality does not apply; graph-specific computed values are 5 and 6.",
+          "General anti-forcing spectra/upper-bound articles address other families or bounds, not inspected Desargues complete distribution."
+        ],
+        "reasoning": "Broader existence and upper-bound theorems do not imply these fixed graph anti-forcing multiplicities. A plausible 2017 spectrum article had no accessible complete full text, retained as risk rather than whole-document noncoverage.",
+        "searches": [
+          "Desargues graph Petersen bipartite double anti-forcing polynomial 6z5 54z6 matchings",
+          "Lei Yeh Zhang 2014 anti forcing numbers perfect matchings graphs",
+          "Shi Zhang 2017 tight upper bound on maximum anti forcing numbers graphs",
+          "Deng Zhang 2017 anti forcing spectra perfect matchings graphs"
+        ]
+      },
+      "checked_sources": [
+        "Lei–Yeh–Zhang arxiv:1406.3796, primary full-text relevant sections",
+        "Deng–Zhang 2017 doi:10.1007/s10878-015-9986-3, abstract only",
+        "Shi–Zhang et al arxiv:1704.04124, general bound",
+        "Symmetry 17 (2025) 133 Desargues matching table",
+        "Resultary Desargues matching complex queries, distinct invariant",
+        "Resultary semantic search: Desargues graph Petersen bipartite double anti-forcing polynomial 6z5 54z6 matchings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior alternating-cycle transversal characterization gives a method to compute af(G,M), not this graph-specific outcome.",
+          "The assessed calculation explicitly evaluates all 60 matchings (DP 2^10), obtaining 6z^5+54z^6, and tests complementary two-factor ambiguity."
+        ],
+        "reasoning": "One must still solve exact combinatorial optimization for the contracted graph. Neither known perfect-matching number nor 2017 generic bound logically determines the rank distribution.",
+        "searches": [
+          "Desargues graph Petersen bipartite double anti-forcing polynomial 6z5 54z6 matchings",
+          "arxiv:1406.3796",
+          "arxiv:1704.04124",
+          "arxiv:1607.05392"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-matching anti-forcing number equals a minimum directed feedback arc set after contracting matching edges, as a reformulation of the alternating-cycle transversal characterization.",
+          "The exact target graph is GP(10,3) / Desargues–Levi incidence graph."
+        ],
+        "reasoning": "Searched graph aliases and anti-Kekulé/forcing terminology, carefully distinguishing anti-forcing from different invariants; general alternating cycle characterization is known but does not return the value 5/6 without graph computation.",
+        "searches": [
+          "Desargues graph Petersen bipartite double anti-forcing polynomial 6z5 54z6 matchings",
+          "Desargues graph bipartite double Petersen GP(10,3) anti forcing number",
+          "Desargues anti-forcing feedback arc subset DP"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A 2025 published matching-polynomial table gives 60 Desargues perfect matchings, a count independently confirmed here.",
+          "The polynomial enumerating all perfect matchings is not the anti-forcing polynomial which tracks minimum deletion sets per matching.",
+          "Published Desargues matching-reconfiguration 6+24+30 orbit split is prior."
+        ],
+        "reasoning": "Known database count 60 and orbit sizes do not determine anti-forcing numbers. New asserted exact data are the anti-forcing values, their multiplicities, and identification of low-value orbit.",
+        "searches": [
+          "Desargues graph Petersen bipartite double anti-forcing polynomial 6z5 54z6 matchings",
+          "Desargues graph perfect matchings 60 polynomial table anti forcing 6 54",
+          "Symmetry 2025 matching polynomials of symmetric semisymmetric double group graphs Desargues table"
+        ]
+      },
+      "rationale": "Best-of-knowledge: existing literature defines anti-forcing via alternating cycles and gives broad bounds/graph classes, whereas no inspected published source determines this Desargues-specific complete anti-forcing polynomial or which six Petersen lifts attain the lower value. The previously reported count of 60 and 6+24+30 orbit division are not claimed as new. The anti-forcing values and exceptional structural classification survive.",
+      "residual_risks": [
+        "The complete Deng–Zhang (2017) article and possible supplements were not materially available; authorized institutional access returned vpn_disconnected, so priority risk remains. No retry/bypass was attempted.",
+        "An unindexed computational table for GP(10,3) may independently contain this distribution; no uninspected whole text was declared noncovering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains generic characterization used as premise, not Desargues-specific 5/6 census in inspected sections",
+          "evidence": "Lei, Yeh and Zhang (2014/2016), arxiv:1406.3796",
+          "identifier_or_url": "arxiv:1406.3796",
+          "material_read": "Primary full arXiv paper; opening definitions, Lemma 2.1 and plane bipartite theorem inspected using PDF text and page image",
+          "method": "Read original arXiv PDF text and screenshot relevant theorem page",
+          "title": "Anti-forcing numbers of perfect matchings of graphs",
+          "trigger": "Exact same anti-forcing invariant and alternating-cycle characterization"
+        },
+        {
+          "assessment": "Table says 60 perfect matchings, not anti-forcing values or polynomial",
+          "evidence": "Symmetry 17 (2025), article 133, Table 1",
+          "identifier_or_url": "https://www.mdpi.com/2073-8994/17/1/133",
+          "material_read": "Relevant matching-polynomial table and Desargues row inspected via source/search",
+          "method": "Read table context",
+          "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+          "trigger": "Matching count 60 potentially in existing exact table"
+        },
+        {
+          "assessment": "Full-text NOT_COVERING not asserted; unresolved possibility of hidden spectrum table retained as risk",
+          "evidence": "Deng & Zhang, Journal of Combinatorial Optimization 33 (2017), 660–680",
+          "identifier_or_url": "doi:10.1007/s10878-015-9986-3",
+          "material_read": "Accessible abstract/bibliographic material only; arXiv/preprint and lawful OA searches did not locate the same full article, and authorized institutional attempt reported vpn_disconnected",
+          "method": "Web abstract reading and one authorized institutional attempt; no retry, bypass or human-verification automation",
+          "title": "Anti-forcing spectra of perfect matchings of graphs",
+          "trigger": "Closest similarly named primary paper; may contain a Desargues worked example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The anti-forcing polynomial is a motivated exact invariant of a standard named 20-vertex cubic bipartite graph. It discriminates structurally distinct perfect-matching types and shows complementary cycle lengths alone do not determine anti-forcing. A complete classification for this graph is useful independently of an infinite-family theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Lei–Yeh–Zhang arxiv:1406.3796, primary full-text relevant sections",
+    "Deng–Zhang 2017 doi:10.1007/s10878-015-9986-3, abstract only",
+    "Shi–Zhang et al arxiv:1704.04124, general bound",
+    "Symmetry 17 (2025) 133 Desargues matching table",
+    "Resultary Desargues matching complex queries, distinct invariant",
+    "Resultary semantic search: Desargues graph Petersen bipartite double anti-forcing polynomial 6z5 54z6 matchings"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The graph is fixed and finite; no general bound for all cubic bipartite graphs is claimed.",
+    "The 60 matching count and 6+24+30 symmetry partition are prior, not novelty."
+  ]
+}

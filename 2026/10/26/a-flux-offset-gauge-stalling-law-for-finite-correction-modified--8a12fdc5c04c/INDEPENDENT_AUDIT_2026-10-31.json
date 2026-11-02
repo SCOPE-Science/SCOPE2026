@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:49:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The actual two-cell periodic ODE has positive initial masses a,b and transfer fluxes K_{3/2}=y_1+C, K_{5/2}=y_2+C, C>=0. Their difference is independent of C, whereas the production/destruction split retains C. Independently reduce the signed Gauss-Lobatto mPDeC stage equation to a positive 2x2 linear exchange system: x_1=(a+h(a+b)R_+)/(1+h(R_++R_-)), x_2=a+b-x_1. R_+,R_- >=0, so all finite stages strictly positive and conservative. Induct on fixed correction count m: previous stages approach a,b at O(C^-1), rates have leading multiples C; stage difference satisfies x_1-a=[m eta_ell/B_ell]*ab(b-a)/[(a+b)C]+O(C^-2) with B_ell=sum|theta|, eta_ell=sum theta. The last Gauss-Lobatto stage has eta=B=1, giving M ab(b-a)/[(a+b)C]. The true flow at fixed h moves by (b-a)(1-exp(-2h))/2; if a!=b and h>0, nonzero true drift survives while the numerical map freezes as C grows. Exact one-correction identity and 16 fresh rational configurations independently checked. Finite samples cannot establish uniform asymptotic induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2610.21857v1 §3.2 mPDeC formulation and §4/Theorem 4.4 positivity and equilibrium proof; arXiv:2206.07371 generic local stability study for canonical PDS rates."
+        ],
+        "reasoning": "Fixed-representation order and equilibrium preservation do not assert estimates uniform across a family of algebraically equivalent flux decompositions; no inspected stronger theorem forces the large-C coefficient.",
+        "searches": [
+          "Resultary semantic query: modified Patankar deferred correction mPDeC dependence on constant additive flux offset gauge production destruction finite corrections stalling",
+          "Web query: Öffner Redle Torlo 2610.21857 flux globalization modified Patankar offset rates positivity gauge stalling",
+          "https://arxiv.org/html/2610.21857v1",
+          "https://arxiv.org/abs/1905.09237",
+          "https://arxiv.org/abs/2206.07371"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.21857v1",
+        "https://davidetorlo.it/publication/2020-07-01-mPDeC",
+        "https://arxiv.org/abs/2206.07371"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.4 of arXiv:2610.21857v1 guarantees steady-state preservation, not uniform dynamics away from equilibrium.",
+          "The explicit exact first correction is h(b-a)/(1+h(2+C(1/a+1/b))) for the source model."
+        ],
+        "reasoning": "Plugging the paper’s rate formula into the specified two-cell setting is an extra derivation; the original theorem gives neither the all-finite-M coefficient nor the nonzero fixed-step bias. Thus the assessed specific theorem is not claimed merely by adopting their method.",
+        "searches": [
+          "Resultary semantic query: modified Patankar deferred correction mPDeC dependence on constant additive flux offset gauge production destruction finite corrections stalling",
+          "Web query: Öffner Redle Torlo 2610.21857 flux globalization modified Patankar offset rates positivity gauge stalling",
+          "https://arxiv.org/html/2610.21857v1",
+          "https://arxiv.org/abs/1905.09237",
+          "https://arxiv.org/abs/2206.07371"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Flux-offset invariance is equivalent to independence of numerical updates from constant C in K_{j+1/2}+C.",
+          "Offner–Redle–Torlo arXiv:2610.21857v1 §4 equations (4.1) explicitly use max(K,0), -min(K,0), retaining absolute face flux."
+        ],
+        "reasoning": "A general gauge-invariance theorem of signed-flux mPDeC would cover the claim, but the inspected equations describe one splitting and prove well balancing; they do not give an offset-uniform update theorem or opposite failure coefficient.",
+        "searches": [
+          "Resultary semantic query: modified Patankar deferred correction mPDeC dependence on constant additive flux offset gauge production destruction finite corrections stalling",
+          "Web query: Öffner Redle Torlo 2610.21857 flux globalization modified Patankar offset rates positivity gauge stalling",
+          "https://arxiv.org/html/2610.21857v1",
+          "https://arxiv.org/abs/1905.09237",
+          "https://arxiv.org/abs/2206.07371"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary 2026 article §5 presents numerical shallow-water benchmarks, not a table varying an additive two-cell flux constant and the finite correction count."
+        ],
+        "reasoning": "A numerical database is not the natural implication route for this all-C asymptotic statement; no exact corresponding table or universal coefficient was identified in the material read.",
+        "searches": [
+          "Resultary semantic query: modified Patankar deferred correction mPDeC dependence on constant additive flux offset gauge production destruction finite corrections stalling",
+          "Web query: Öffner Redle Torlo 2610.21857 flux globalization modified Patankar offset rates positivity gauge stalling",
+          "https://arxiv.org/html/2610.21857v1",
+          "https://arxiv.org/abs/1905.09237",
+          "https://arxiv.org/abs/2206.07371"
+        ]
+      },
+      "rationale": "PASS (qualified): The authors of the motivating 2026 flux-globalized mPDeC paper construct the rates by sign-splitting face fluxes and prove positivity/well-balancing. Their primary full text (arXiv:2610.21857v1, §§3.2, 4, Theorem 4.4) does not analyze arbitrary additive face-flux gauges, the fixed-M large-gauge limit, or its exact 1/C coefficient. Traditional mPDeC and stability results use specified production/destruction representations; those results neither state nor logically imply this sharp representation-sensitivity theorem. The claim is for this two-cell periodic example, not for failure of their chosen gauge-fixed shallow-water implementation. Unindexed prior stability or invariance analysis remains a priority risk.",
+      "residual_risks": [
+        "Subsequent or obscure Patankar flux-splitting literature could analyze constant offset sensitivities under equivalent notation.",
+        "Two-cell periodic upwind model, fixed positive initial state, h>0, fixed finite M and fixed quadrature; no claim of universal solver instability, simultaneous M-to-infinity scaling, or failure of gauge-normalized implementations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact method ingredients covered; constant offset large-gauge finite-correction theorem not stated in these sections",
+          "evidence": [
+            "§3.2 rates and weights; §4 Eq.(4.1) and Thm 4.4; explicit 2026-10-15 submission"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.21857v1",
+          "material_read": "Full primary HTML, Introduction, §§3.1–3.2, §4, Theorem 4.4 and §6 referenced and compared",
+          "method": "Read equations (3.4)–(3.5), (4.1), and statements about WB/positivity and specific test regime",
+          "title": "High-order positivity-preserving well-balanced schemes: combining flux globalization with modified Patankar deferred correction methods",
+          "trigger": "Exactly matching mPDeC flux-splitting algorithm and face rates"
+        },
+        {
+          "assessment": "Establishes general numerical method, not verified to establish gauge sensitivity",
+          "evidence": [
+            "Author page https://davidetorlo.it/publication/2020-07-01-mPDeC; published 2020"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2020.01.025",
+          "material_read": "Author-hosted abstract and bibliographic description read; full original text not read for this audit",
+          "method": "Compared stated order, conservation, and positivity conditions",
+          "title": "Arbitrary high-order, conservative and positivity preserving Patankar-type deferred correction schemes",
+          "trigger": "Original mPDeC algorithm"
+        },
+        {
+          "assessment": "Strong broader-prior possibility recorded; no conclusive same-C result established",
+          "evidence": [
+            "Original assigned source cites canonical linear rates"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.07371",
+          "material_read": "Abstract/known statement and assigned source references compared; not full primary text",
+          "method": "Checked whether studied canonical linear rates imply arbitrary gauge family",
+          "title": "Local stability of production-destruction methods",
+          "trigger": "Potential stronger stability theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Flux differences govern the conservative semidiscretization, so an arbitrary additive flux constant should leave the underlying ODE unchanged. The theorem exhibits and quantifies loss of this invariance in a standard nonlinear positive linearly implicit splitting, through every fixed finite correction budget. It distinguishes conservation/positivity and fixed-representation order from genuinely gauge-uniform accuracy, providing a concrete mathematical motivation for flux normalization. This is not a mere notational reparametrization, as the numerical solution changes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.21857v1",
+    "https://davidetorlo.it/publication/2020-07-01-mPDeC",
+    "https://arxiv.org/abs/2206.07371"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Two-cell periodic upwind model, fixed positive initial state, h>0, fixed finite M and fixed quadrature; no claim of universal solver instability, simultaneous M-to-infinity scaling, or failure of gauge-normalized implementations."
+  ],
+  "residual_risks": [
+    "Subsequent or obscure Patankar flux-splitting literature could analyze constant offset sensitivities under equivalent notation.",
+    "Two-cell periodic upwind model, fixed positive initial state, h>0, fixed finite M and fixed quadrature; no claim of universal solver instability, simultaneous M-to-infinity scaling, or failure of gauge-normalized implementations."
+  ],
+  "schema_version": 1
+}

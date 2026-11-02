@@ -1,12 +1,21 @@
-# Review of the bipartite product-digraph threshold
+# Independent mathematical audit
 
-## Correctness
-PASS. The hypotheses ensure that the nonzero-product relational structure has exactly the universal unary relation and the directed binary relation. The no-two-walk branch has one explicit three-vertex obstruction. In the other branch oriented odd cycles of unbounded size fail to map to any bipartite target while each proper induced subgraph maps to the two-arc path contained in the target. These establish, respectively, finite duality with bound three and failure of finite duality. The published nilpotent power-semiring theorem transfers these claims to finite basability. A transitive-tournament counterexample establishes the stated sharpness of the bipartite restriction. Multiplication-table and small homomorphism computations were independently replayed by the accompanying checker. Limitations: the proof invokes the cited published finite-basis/finite-duality equivalence and does not independently derive that theorem.
+## correctness
 
-## Originality
-PASS in this self-review, with residual risk. The motivating 2026 article's Theorems 1.1 and 4.1 cover the general reduction but do not state the two-colour directed-walk criterion or the one-product boundary pair. Its Example 4.4 supplies the single-edge positive example, Example 4.5 supplies a commutative two-way-edge negative example, and Section 7 concerns a different group-ideal counterexample. The 2007 finite-duality paper supplies foundational constraint-satisfaction results and a positive transitive-tournament example. The exact bipartite-support implication comparison does not appear in the inspected passages. The construction may be implicit in earlier directed-graph CSP literature, and independence has not been certified.
+PASS
 
-## Value
-PASS. Within the complete nilpotent index-three class, the result isolates an easily checked and sharp structural threshold for a broad noncommutative subfamily, supplies an explicit four-variable bound, and demonstrates a five-element one-product flip from nonfinite to finite basability while keeping all squares zero. This distinguishes orientations of nonzero products beyond the previously presented one-edge and symmetric-edge examples. It does not claim to resolve the unrestricted finite-basis problem.
+The finite-nilpotent S³={0}, S²≠{0}, directed nonzero product relation, and bipartite underlying support are essential. If the target has no length-two directed walk, every source digraph without one maps by source/sink coloring to any target arc, and the directed two-arc path is the unique three-vertex critical obstruction, hence b(D)=3. If p→q→r is in the bipartite target, H_(2m+1) with alternately directed path edges and closing arc has odd underlying cycle, fails any two-coloring target map, but each vertex deletion admits a map to p→q→r; this is an infinite family of critical obstructions, so no finite duality. Published 2026 nilpotent-semiring equivalence then gives finite/nonfinite basis; its stated variable bound max(4,b) gives 4. In the five-element examples all products except ab=bc=z (and optionally ac=z) vanish and z annihilates, hence associativity; the transitive tournament T3 admits exactly digraphs with no directed three-walk, so b=4. Independently checked both 5-element tables for every triple and small directed homomorphisms. Small checks do not replace the unbounded odd-cycle proof or cited correspondence.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The published Wang–Yin–Wang reduction establishes the equivalence between finite semiring basis and finite homomorphism duality but the inspected abstract/identified examples do not explicitly supply the bipartite directed-two-walk dichotomy, all-size critical odd-cycle construction, or one-product five-element boundary pair. The result is an explicit specialization with genuine structure, not a new general reduction. Primary full text was not retrieved; retain equivalence-priority risk.
+
+## value
+
+PASS
+
+A complete, checkable graph criterion for an algebraic finite-basis problem and a sharp one-product boundary at the first possible semigroup order meaningfully simplify a broader difficult classification; the obstruction-variable bound is exact in the finite branch.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

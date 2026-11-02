@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T14:57:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each graph has 27abc odd vertices, degree 6, so six matchings cannot color 3N edges: lower bound 7. The 81-edge ternary three-torus seed is explicitly specified in the actual certificate.json table. Independently constructed graph adjacency, 81 unique undirected edges, all 27 vertex incidence lists and all 81 simple 4-cycles, verifying six distinct incident colors and four distinct edge colors per 4-cycle; seven colors occur with multiplicities (11,11,12,12,11,12,12). Reduction modulo 3 from any odd-multiple-of-three cycle is a locally bijective covering onto C3. Every larger graph 4-cycle uses two directions and descends to a seed 4-cycle, so pullback certifies infinite family. Finite certificate alone would not establish the general theorem; parity plus graph covering does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published 2023 theorem covers different modulo-seven family; Theorem 1.8 bounds ternary 3-cube only.",
+          "Jiang–Li repeating construction transfers existing a seed coloring but does not create the 7-color seed."
+        ],
+        "reasoning": "Period-repetition is prior art and used explicitly, but without an optimal ternary base certificate it does not logically imply the 7-color result. The claimed infinite family is a corollary of the independently verified newly provided seed.",
+        "searches": [
+          "Gyárfás Sárközy theorem 1.7 odd cycles lengths multiples of seven",
+          "Jiang Li lemma 2.4 periodic repetition B coloring product cycles",
+          "higher dimensional odd torus B coloring 2026 conjecture"
+        ]
+      },
+      "checked_sources": [
+        "FROZEN RESULT.md 1bbe8681e9b8bed5fceb3f97330aa286ec9d7c36",
+        "FROZEN certificate.json a336abe8086304283e3c8a02b39d80da8e306617",
+        "FROZEN verify.py f3332c1548d733d80898d8bec3100f4763da45ff",
+        "Gyárfás–Sárközy DOI:10.1007/s00373-023-02697-x, Theorem1.8",
+        "Jiang–Li arXiv:2608.21774v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.8 published 7≤q_B(C3³)≤8, so q_B=7 is not already established there.",
+          "Lemma 2.4 periodic lifting presumes a base coloring and does not solve the earlier one-color gap."
+        ],
+        "reasoning": "The established degree-plus-one conjecture for odd cycles is stronger in scope but unproved in this case in the inspected older result. Present proof supplies specific certifying base case then known lifting argument.",
+        "searches": [
+          "Gyárfás Sárközy 2023 Theorem 1.8 C3 cubed bound",
+          "Jiang Li arXiv:2608.21774v1 theorem 1.4 and lemma 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gyárfás–Sárközy (2023), Theorem 1.8 states 7≤q_B(C3 □ C3 □ C3)≤8, no q_B=7 certificate.",
+          "Jiang–Li arXiv:2608.21774v1 discusses B edge colorings and period lift, mainly 2D classification."
+        ],
+        "reasoning": "Equivalent problem is edge-coloring of cartesian product of triangles with every four-edge square rainbow, not vertex b-coloring or unrelated graph distance chromatic number.",
+        "searches": [
+          "B-coloring rainbow four cycles C3 cartesian C3 cartesian C3 seven color",
+          "Gyárfás Sárközy 2023 rainbow C4 proper edge coloring C3xC3xC3 theorem 1.8",
+          "Jiang Li 2026 B coloring grid graphs seven color ternary torus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact cactus-graph B-coloring theorem deals with a different graph family and is inapplicable to Cartesian products of three triangles.",
+          "Finite certificate enumerates all 81 color assignments and 81 four-cycles; exact independent replay confirms correctness."
+        ],
+        "reasoning": "No located database table already assigns q_B=7 to C3³. The explicit 81-entry certificate is not inferred from a stored output log.",
+        "searches": [
+          "B-coloring rainbow four cycles C3 cartesian C3 cartesian C3 seven color",
+          "exact B coloring number C3 cube 27 vertices 81 edges rainbow squares certificate",
+          "Resultary B coloring cactus graphs vs product tori"
+        ]
+      },
+      "rationale": "Gyárfás–Sárközy (2023) Theorem 1.8 explicitly leaves this 27-vertex instance at 7≤q_B≤8. Their congruence-seven family is not a congruence-three seed. Jiang–Li 2026 provide 2D grid exact classification and a known period-lift lemma; that lift is acknowledged, but its application to a previously unavailable seven-color 3D seed resolves the open case and infinite specified odd cycle family. Best-of-knowledge qualified by possible unindexed subsequent certificate.",
+      "residual_risks": [
+        "A later/unindexed 2026 seven-color ternary seed may predate this package; database search cannot prove absolute historical priority.",
+        "Full Jiang–Li primary PDF was not separately inspected in this run; the abstract and theorem descriptions may omit a specialized construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior published interval 7..8, not a 7-color assignment",
+          "evidence": "Gyárfás and Sárközy, Graphs and Combinatorics 39 article 98 (2023), Thm1.8",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-023-02697-x",
+          "material_read": "Accessible primary HTML main theorem statements 1.6–1.8 and relevant proof/discussion of C3 Cartesian cube",
+          "method": "Publisher full HTML relevant sections",
+          "title": "Proper Edge Colorings of Cartesian Products with Rainbow C4-s",
+          "trigger": "Same invariant, same 27-vertex instance, precise preceding bound"
+        },
+        {
+          "assessment": "Provides two-dimensional results and known period-repetition method, no verified 7-color ternary three-torus certificate",
+          "evidence": "Z. Jiang and J. Li, arXiv:2608.21774v1, posted 2026-08-22",
+          "identifier_or_url": "https://arxiv.org/abs/2608.21774",
+          "material_read": "ArXiv abstract and accessible bibliographic statements of Theorem 1.4, Lemma 2.4, Section 7 conjecture; full PDF not independently examined in this run",
+          "method": "ArXiv OA abstract and search excerpts",
+          "title": "B-coloring of grid graphs",
+          "trigger": "Contemporaneous primary exact grid and lifting theorem"
+        },
+        {
+          "assessment": "Inapplicable to non-cactus product of three triangles; does not dominate theorem",
+          "evidence": "Resultary 2026/10/4/...01451e4782ad",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-b-coloring-number-of-cactus-graphs--01451e4782ad",
+          "material_read": "Published research-record summary of exact cactus classification",
+          "method": "Resultary search summary",
+          "title": "Exact B-coloring number of cactus graphs",
+          "trigger": "Exact invariant but possibly different family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closing the published exact 7-vs-8 gap for a natural minimal odd three-torus and resolving an infinite period-three family of the established B-coloring conjecture is a substantive finite-certificate theorem. The seed certificate is essential and not a mechanical derivative of the earlier period-lift lemma.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "FROZEN RESULT.md 1bbe8681e9b8bed5fceb3f97330aa286ec9d7c36",
+    "FROZEN certificate.json a336abe8086304283e3c8a02b39d80da8e306617",
+    "FROZEN verify.py f3332c1548d733d80898d8bec3100f4763da45ff",
+    "Gyárfás–Sárközy DOI:10.1007/s00373-023-02697-x, Theorem1.8",
+    "Jiang–Li arXiv:2608.21774v1"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Proves only 3-factor cycles of lengths 3a,3b,3c with positive odd a,b,c; does not prove all odd tori or dimension>3.",
+    "Does not classify all optimal seven-colorings or assert certificate uniqueness."
+  ],
+  "residual_risks": [
+    "A later/unindexed 2026 seven-color ternary seed may predate this package; database search cannot prove absolute historical priority.",
+    "Full Jiang–Li primary PDF was not separately inspected in this run; the abstract and theorem descriptions may omit a specialized construction."
+  ],
+  "schema_version": 1
+}

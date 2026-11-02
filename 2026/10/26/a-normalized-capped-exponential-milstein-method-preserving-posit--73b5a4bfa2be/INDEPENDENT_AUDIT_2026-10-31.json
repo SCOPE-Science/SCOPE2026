@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:52:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For dX=g(X)dB with g=x²/(1+x), f=x/(1+x), a=x²/(1+x)^3, cap C(z)=min(z²,1), Q=exp(fz+(a/2)(C-h)-(f²/2)h), and M_h(x)=E Q(x,sqrt(h)Z)>0. The multiplier Q/M is strictly positive and has conditional mean one. Since |f|≤1 and 0≤a≤4/27, capped exponential tails admit Gaussian moments of every fixed q at every finite h; a Jensen lower bound on M_h(x) uniform in x gives moment induction and genuine martingale, not merely local. At small h the Gaussian tail |z|>1 has exponentially small contribution; Taylor gives a centered Milstein expansion xQ/M=x+gz+(gg'/2)(z²-h)+xρ with Eρ=0, E|ρ|²=O(h³) uniformly. Direct symbolic algebra confirmed x(f²+a)=gg'. Bounded f,a derivatives and Lipschitz g,gg' plus solution moment bounds yield centered Itô–Taylor local error O(h³) in conditional mean-square and global strong order one by discrete Gronwall. The uncapped quadratic Gaussian at x=2 has infinite q-moment for h≥27/(4q); this is a known comparison. Finite quadrature supports but does not certify the stochastic convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bréhier–Cohen's existing unconditional positivity theorem is broader in diffusion coefficients but its quoted moment treatment and uncapped exponential can diverge at a coarse step; it does not dominate the all-step finite q-moment and exact-martingale conjunction claimed here.",
+          "Bréhier–Cohen Aug 2026 primary abstract states unconditional positivity and strong first-order convergence.",
+          "Yi–Hu–Zhao (2020) log truncation rather than exact Gaussian mean normalization."
+        ],
+        "reasoning": "Bréhier–Cohen's existing unconditional positivity theorem is broader in diffusion coefficients but its quoted moment treatment and uncapped exponential can diverge at a coarse step; it does not dominate the all-step finite q-moment and exact-martingale conjunction claimed here.",
+        "searches": [
+          "positivity martingale-preserving exponential Milstein SDE capped gaussian quadratic correction normalization all moments strong order one",
+          "https://arxiv.org/abs/2608.25689",
+          "https://arxiv.org/abs/2010.16321"
+        ]
+      },
+      "checked_sources": [
+        "Brehier and Cohen, Analysis of a first-order explicit positivity preserving scheme for a class of scalar SDEs, arXiv:2608.25689v1 (2026-08-26)",
+        "Brehier and Cohen, Explicit domain preserving numerical schemes for a class of stochastic differential equations, arXiv:2608.25685v1",
+        "Yi, Hu, Zhao, Positivity preserving logarithmic Euler-Maruyama type scheme, arXiv:2010.16321 (2020)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uncapped prior algorithm provides positivity and strong convergence with its own assumptions but differs in the two essential operations cap and normalization. Its divergence threshold motivates the modification; it does not automatically imply the all-step moment result.",
+          "Bréhier–Cohen Aug 2026 primary abstract states unconditional positivity and strong first-order convergence.",
+          "Yi–Hu–Zhao (2020) log truncation rather than exact Gaussian mean normalization."
+        ],
+        "reasoning": "The uncapped prior algorithm provides positivity and strong convergence with its own assumptions but differs in the two essential operations cap and normalization. Its divergence threshold motivates the modification; it does not automatically imply the all-step moment result.",
+        "searches": [
+          "positivity martingale-preserving exponential Milstein SDE capped gaussian quadratic correction normalization all moments strong order one",
+          "https://arxiv.org/abs/2608.25689",
+          "https://arxiv.org/abs/2010.16321"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalized exponential one-step multiplier Q/EQ is a standard martingale-enforcing transform, but coupling it with a capped quadratic exponential and first-order Milstein coefficient for this g yields the four-property theorem; generic normalization alone does not prove the claimed error rate.",
+          "Bréhier–Cohen Aug 2026 primary abstract states unconditional positivity and strong first-order convergence.",
+          "Yi–Hu–Zhao (2020) log truncation rather than exact Gaussian mean normalization."
+        ],
+        "reasoning": "Normalized exponential one-step multiplier Q/EQ is a standard martingale-enforcing transform, but coupling it with a capped quadratic exponential and first-order Milstein coefficient for this g yields the four-property theorem; generic normalization alone does not prove the claimed error rate.",
+        "searches": [
+          "positivity martingale-preserving exponential Milstein SDE capped gaussian quadratic correction normalization all moments strong order one",
+          "https://arxiv.org/abs/2608.25689",
+          "https://arxiv.org/abs/2010.16321"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact scheme/counterexample table plays a role; numerical quadratures are limited reproducibility checks and cannot determine original strong order or moment theorems.",
+          "Bréhier–Cohen Aug 2026 primary abstract states unconditional positivity and strong first-order convergence.",
+          "Yi–Hu–Zhao (2020) log truncation rather than exact Gaussian mean normalization."
+        ],
+        "reasoning": "No exact scheme/counterexample table plays a role; numerical quadratures are limited reproducibility checks and cannot determine original strong order or moment theorems.",
+        "searches": [
+          "positivity martingale-preserving exponential Milstein SDE capped gaussian quadratic correction normalization all moments strong order one",
+          "https://arxiv.org/abs/2608.25689",
+          "https://arxiv.org/abs/2010.16321"
+        ]
+      },
+      "rationale": "Bréhier–Cohen (2026) establish positivity and strong order one for the uncapped exponential integrator under small-step moment restrictions. The inspected abstracts and the audited manuscript's explicit formula comparison distinguish the proposed capped z² tail and exact conditional-moment normalization that together give unconditional all-coarse-step moments and true martingality for a specific nonlinear scalar diffusion. Earlier logarithmically truncated Euler and bounded-domain methods preserve different properties and use different formulas; no same four-property single scheme located in Resultary or accessible primary abstracts. Best-of-knowledge PASS with significant uninspected-full-text risk.",
+      "residual_risks": [
+        "The closest 2026 Bréhier–Cohen paper was accessible only by abstract/secondary citation this run (arXiv PDF/HTML fetch disabled); a mathematically equivalent earlier modification remains possible.",
+        "Exact Gaussian normalization is required; finite-precision quadrature can destroy exact martingality. Only one scalar driftless SDE and fixed finite T are proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier strong order-one positivity stated, no abstract-level evidence of capped-and-exactly-normalized all-step martingale construction; priority risk substantial.",
+          "evidence": [
+            "Bréhier–Cohen Aug 2026 primary abstract states unconditional positivity and strong first-order convergence.",
+            "Audited frozen RESULT.md contrasts uncapped formula and Gaussian moment obstruction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.25689",
+          "material_read": "Primary arXiv abstract; full PDF and HTML URLs unavailable in this runtime; claimed formula (26) and Proposition 9 contrasted via inspected audited manuscript rather than presented as freshly read original.",
+          "method": "ArXiv abstract, full-text fetch attempts, source-citation comparison",
+          "title": "Analysis of a first-order explicit positivity preserving scheme for a class of scalar SDEs",
+          "trigger": "Same exponential-Milstein positivity scheme and moment failure"
+        },
+        {
+          "assessment": "Logarithmic-truncation Euler scheme structurally differs from capped quadratic Milstein with exact conditional normalizer.",
+          "evidence": [
+            "Yi–Hu–Zhao (2020) log truncation rather than exact Gaussian mean normalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.16321",
+          "material_read": "Primary title/abstract and source-described method; full paper not retrieved this run.",
+          "method": "Bibliographic and theorem-level comparison",
+          "title": "Positivity preserving logarithmic Euler-Maruyama type scheme for stochastic differential equations",
+          "trigger": "Potential general positivity/truncation implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The method resolves a concrete conflict between positivity, exact mean preservation, coarse-step moment existence, and first-order strong accuracy for a motivated nonlinear positive martingale; the exact normalizer caveat is explicit and the scheme is mathematically nontrivial beyond a single routine Euler step.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Brehier and Cohen, Analysis of a first-order explicit positivity preserving scheme for a class of scalar SDEs, arXiv:2608.25689v1 (2026-08-26)",
+    "Brehier and Cohen, Explicit domain preserving numerical schemes for a class of stochastic differential equations, arXiv:2608.25685v1",
+    "Yi, Hu, Zhao, Positivity preserving logarithmic Euler-Maruyama type scheme, arXiv:2010.16321 (2020)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The closest 2026 Bréhier–Cohen paper was accessible only by abstract/secondary citation this run (arXiv PDF/HTML fetch disabled); a mathematically equivalent earlier modification remains possible.",
+    "Exact Gaussian normalization is required; finite-precision quadrature can destroy exact martingality. Only one scalar driftless SDE and fixed finite T are proved."
+  ],
+  "residual_risks": [
+    "The closest 2026 Bréhier–Cohen paper was accessible only by abstract/secondary citation this run (arXiv PDF/HTML fetch disabled); a mathematically equivalent earlier modification remains possible.",
+    "Exact Gaussian normalization is required; finite-precision quadrature can destroy exact martingality. Only one scalar driftless SDE and fixed finite T are proved."
+  ],
+  "schema_version": 1
+}
