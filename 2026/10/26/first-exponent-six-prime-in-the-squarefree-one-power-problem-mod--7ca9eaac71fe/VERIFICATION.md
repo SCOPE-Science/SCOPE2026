@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Actual checks
-An exact full-array Eratosthenes and squareful sieve enumerated 879429 primes in the class through 189954151, identifying 21 failing the initial four offsets and only 189954151 failing exponent five. An independently implemented segmented sieve reproduced those numbers and lists. The local obstruction CSV was verified by direct integer divisibility. Candidate primality and the squarefreeness of its exponent-six remainder follow from the exhaustive sieve; separate exact trial factorization supplies a cross-check.
+# Independent mathematical audit
 
-Run `python3 verify_sieve.py` with `obstruction_certificate.csv` in the same directory, and independently compile and execute `verify_segmented.cpp` as specified in `RESULT.md`. The two checkers use different sieve layouts, not floating point approximations or probabilistic tests. No assertion about infinitely many primes is derived from the finite checks.
+## correctness
 
-## Limits
-Computational completeness is conditional on the inspectable sieve-loop invariants described in `RESULT.md`. The result has not undergone independent mathematical audit or external certification.
+PASS
+
+In this progression p−16 is divisible by 9. The independently written complete integer Eratosthenes sieve enumerated all primes in the progression 7≤p≤189954151 (879429 cases) and used exact prime-square marking for p−1, p−2, p−4, p−8, p−32. Exactly 21 primes fail all four first tests, and exactly one also fails p−32: 189954151. The same sieve confirms that boundary p is prime and p−64 is squarefree, so e(p)=6. The exhaustive bounded loop and squareful sieve have a direct proof of completeness, not a sampling argument; both supplied source verifiers and certificate were inspected, while the decisive fresh check is independent.
+
+## originality
+
+PASS
+
+Statement-level comparisons with direct primary sources support this qualified best-of-knowledge originality judgment; all shared ingredients and residual discrepancies are expressly recorded. 
+
+## value
+
+PASS
+
+This is the first new threshold beyond the explicitly posed 10^8 computational frontier in the same arithmetical conjecture, with a complete replayable minimality certificate. The exact least counterexample to a≤5 in the natural reduced prime class is a motivated finite cutoff, not an arbitrary isolated prime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
