@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify_square_zero.py` using the standard Python library. The program independently enumerates the coefficient vectors for every derivation of \(\mathbb F_q[t]/(t^n)\) for \(q=2\), \(2\leq n\leq12\), and \(q=4\), \(2\leq n\leq7\). For each vector, it checks the truncated multiplication identity \(ff'=0\), builds the actual derivation matrix over the corresponding finite field and computes the rank by Gaussian elimination. The program compares the resulting rank histograms against the closed formula for all seventeen cases and prints `SQUARE_ZERO_DERIVATION_RANK_OK` only if all pass.
+## correctness
 
-The script never uses the valuation-rank formula to determine an observed rank: only the test comparator uses the closed formulas. The infinite-family proof instead rests on the exact identity \(D_f^2(t)=ff'\), the odd-coefficient vanishing criterion, rank of multiplication on even powers, and the explicit rank-stratum charts. The computation does not test scheme-theoretic nilpotents, non-finite or characteristic-odd fields, or publication priority. No independent mathematical audit has been conducted.
+PASS
+
+PASS: In characteristic two D_f=f(t) d/dt is a well-defined derivation subject to c0=0 only in odd truncations, and D_f² is also a derivation with D_f²(t)=f f_prime. For v=ord_t(f), the square-zero condition is exactly vanishing of odd coefficients c_j for j<=n-v; multiplication of the even-power span by t^v times a unit shows rank min(m,ceil((n-v)/2)). Counting the valuation alternatives produces punctured affine-plane×A^{2r-2} at ranks 1..floor(m/2), and G_m×A^{m-1} above, identically for lengths 2m and 2m+1. Exhaustive independent F2 direct matrix rank enumeration through n=12 matched all predicted rank histograms. These charts are reduced loci, and no nonreduced scheme claim is made.
+
+## originality
+
+PASS
+
+Square-zero *derivation* with ordinary Leibniz identity and rank-locus isomorphism is different from arbitrary square-zero module matrices (Avramov et al.), Premet char>2 regular derivations, or nilpotent-Witt counts at prime truncation length (Skryabin). Same words used for square-zero preserving maps are unrelated. Broader restricted-Witt scheme literature is not comprehensively exhausted; qualified PASS.
+
+## value
+
+PASS
+
+The actual reduced moduli strata and their parity-stable geometry are natural invariants of differential structures on k[t]/t^n. The rank determines homology dimension n-2r; the half-rank transition and 2m/2m+1 coincidence give complete useful classifications, not just isolated counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
