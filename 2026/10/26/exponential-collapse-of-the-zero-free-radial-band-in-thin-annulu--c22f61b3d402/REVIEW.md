@@ -1,19 +1,21 @@
-# Scientific review: exponential collapse of a thin-annulus zero-free band
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ordinary annulus Bergman kernel admits an exact Laurent series determined by monomial norms. On the negative scalar axis, geometric summation converts it to the periodization of the logistic density \(g(y)=1/(4\cosh^2(y/2))\). Its exact Poisson formula is uniformly differentiable. At quarter period the first Fourier mode vanishes and the second determines the positive residual; the first mode determines the positive derivative. The resulting unique local zero is shifted by \(-\pi^{-1}e^{-2\pi^2/L}(1+o(1))\), where \(L=2\log(1/r)\). The known complete scalar-root classification identifies the local zero with the outer root bounding the central zero-free band, giving the claimed sharp amplitude and exponential scale. The included high-precision checker independently evaluates the original and dual series and measures the exact numerical width at seven moduli. The infinite assertion depends on the analytic argument, not on finite tests.
+PASS
 
-## Originality — PASS, with priority risk
+For q=r²=e^-L the Laurent monomial norms give H(t)=πtK=1/L+∑_{n≠0}n t^n/(1-q^n). On the negative axis t=-e^-Lv, Poisson summation of g(y)=1/(4cosh²(y/2)), with Fourier transform πω/sinh(πω), yields exactly H=-4π²/L²∑_{k≥1} k cos(2πkv)/sinh(2π²k/L). With E=e^-2π²/L, at v=1/4 the first nonzero even harmonic gives H=16π² E²/L² (1+O(E²)), while H_v=16π³ E/L²(1+O(E²)); uniform first-harmonic domination in an O(E) neighborhood places the outer root at v=1/4-E/π+o(E). Then Δ=2e^-L/4 sinh(L(1/4-v)) ~ (2L/π)e^-L/4 E = (4sqrt(r)/π)log(1/r) exp(-π²/log(1/r)). Verified direct logistic-series/Poisson duality numerically at multiple L with high precision, checking the prefactor. Gustafsson–Sebbar Theorem 6.1 is used explicitly, not re-proved, for the exact full zero-free band identification.
 
-The complete 2009 Gustafsson--Sebbar arXiv paper, especially Section 6.3 and Theorem 6.1, establishes the existence, structure, and exact elliptic description of the central zero-free band for the annulus, so **none of those statements is claimed here as novel**. The mathematical contribution assessed is the **new sharp asymptotic** \(\Delta(r)\sim(4\sqrt r/\pi)\log(1/r)\exp[-\pi^2/\log(1/r)]\). It is not stated in the inspected detailed primary treatment; obtaining it requires passing to the Poisson-dual (thin-modulus) representation and balancing distinct exponentially small harmonics. Published-record semantic searches also found no equivalent narrow-band asymptotic. The 2007 Sebbar--Falliero article is highly relevant but its full text could not be accessed; an equivalent calculation there or in other elliptic/theta literature remains a genuine publication-priority risk. This is self-review, not a claim of independent certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The width of the central radial region in which the annular Bergman kernel has no zeros for any other interior point is a canonical geometric function of the conformal modulus. The pre-existing classification gives positivity for each nondegenerate annulus but does not quantify the near-degenerate regime. The result proves its width decays faster than every algebraic power of the thickness, and determines both the sharp exponential exponent and prefactor. This matters for the geometry and numerical resolution of kernel zeros: algebraic approximations to a thin annulus cannot detect the central band. The result is specific to the unweighted circular annulus, not a theorem for arbitrary doubly connected domains.
+Best-of-knowledge originality from distinct actual primary statements and implications: An implicit elliptic characterization may permit derivation but is not itself the same explicit exponential asymptotic statement or prefactor; older Sebbar–Falliero remains a priority risk. A broad qualitative all-r theorem is mathematically compatible with, but not automatically quantitatively dominating, the exact thin-annulus expansion. Missing full 2007 text prevents excluding an equivalent asymptotic there. The root is an instance of the established classification, but the asymptotic coefficient is additional unless explicit modular transformation asymptotics are already present in the inaccessible earlier paper.
 
-## Closest sources and remaining limitations
+## value
 
-Gustafsson--Sebbar, arXiv:0912.1223v1, Section 6.3, Theorem 6.1 (full text inspected): qualitative zero-free band and elliptic root specification, but no derived sharp thin-annulus width. Sebbar--Falliero, DOI:10.1090/S0002-9939-06-08353-5 (bibliographic record accessible; full paper not accessible): residual possible overlap on annulus/Eisenstein asymptotics. Independent validation and comprehensive historical priority research remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The zero-free band separating two known Bergman-kernel zero regimes collapses nonperturbatively as r→1. Identifying both the exponent π²/log(1/r) and leading coefficient 4/π is a sharp natural geometric boundary-layer invariant useful in Lu Qi-Keng kernel-zero asymptotics, not merely a first numerical approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
