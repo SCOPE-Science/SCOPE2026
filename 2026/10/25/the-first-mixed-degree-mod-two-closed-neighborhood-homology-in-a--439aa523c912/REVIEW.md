@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Explicit closed-neighborhood balls are checked against the categorical graph adjacency rule. All subfaces and mod-two boundary matrices are enumerated completely for the five stated inputs. Independently written tuple-set and integer-mask implementations agree on every face count and every exact boundary rank, and the resulting Betti numbers satisfy the Euler identity. The proof applies only to the finite stated parameters and mod-two coefficients.
+PASS
 
-## Originality
+For categorical graph product G_n=K3×Kn with edges precisely (i,j)~(a,b) iff i≠a and j≠b, the closed neighborhood B_ij has 2n−1 vertices. The complex consists of all nonempty subsets of the 3n prescribed balls. Independent construction of every ball and all its subfaces for each n=2,...,6, followed by complete bitwise GF(2) elimination on every consecutive simplicial boundary, reproduces every source f-vector and rank vector. The only positive reduced Betti numbers are n2 β1=1; n3 β2=14; n4 β3=25; n5 β4=44; n6 β4=47,β5=36. At n6 exactly 26016 nonempty simplices are counted; alternating Euler values agree. The first mixed-positive-degree case in the claimed finite indexed range is exactly n6; no statement about n>=7, integral homology or homotopy type is made.
 
-PASS on the accessible primary and indexed literature comparison. The closest explicit graph-product formula in Matsushita (arXiv:2511.12608, Example 3.5) concerns the Cartesian product, while the new data concern the categorical product. Antolín Camarena and Carnero Bravo (arXiv:2307.12401, Section 4) compute the canonical double cover of a categorical triple product, not that of a Cartesian rook graph. Thus neither publication's exact result implies the stated mixed-degree cutoff. Searches for the categorical product, closed neighborhood, rook-complement aliases and exact ranks did not locate stronger explicit coverage. This is evidence-based novelty, not exhaustive proof of nonexistence elsewhere.
+## originality
 
-## Value
+PASS
 
-PASS. The five consecutive naturally indexed graphs exhibit a sharp failure of concentrated mod-two homology at the first tested parameter where it can be asserted in the full n>=2 sequence, supplying a motivated and reproducible boundary case beyond the known Cartesian rook computation. The exact n=6 complex has 26,016 simplices and two nonzero positive homological degrees. Such an exact finite threshold is a useful structural benchmark without requiring an unproved infinite-family extrapolation.
+The primary closed-neighborhood paper's explicit graph-product result concerns the Cartesian rook graph K_m□K_n, whereas the current graph input is categorical K3×Kn. The 2023 categorical-product independence-complex theorem applies, through the canonical-double-cover relation, to the complement/Cartesian problem, not directly to these categorical closed-neighborhood ranks. Resultary's triangular-graph mixed-degree finding and open-neighborhood Cartesian-product results are distinct graph families and invariants. A stronger closed formula under complementary graph reformulation remains a historical risk, not currently established coverage.
 
-## Sources and limitations
+## value
 
-Primary documents: arXiv:2511.12608 and arXiv:2307.12401, especially the original definition, canonical-double-cover relation and the precise Cartesian-product formula. Limits: mod-two only, n=2 through 6 only; neither torsion nor homotopy type is determined. A covering formula outside the inspected literature remains possible. Independent audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first occurrence of mixed positive-degree mod-two homology in a simple naturally indexed product family is a motivated finite cutoff; the exact degree-4 and degree-5 ranks provide a reproducible structural benchmark beyond the established Cartesian computations. This natural invariant remains independently useful even without an all-n theorem or integral classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
