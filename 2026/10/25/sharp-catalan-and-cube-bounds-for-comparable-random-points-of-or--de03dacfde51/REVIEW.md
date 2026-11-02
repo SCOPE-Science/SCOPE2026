@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument verifies both inequality directions with distinct mechanisms: the order-polytope indicator is FKG, and every conditional two-extension interleaving satisfying pointwise comparison is a Catalan ballot word. Comparable-coordinate dependence and a missing alternating word establish strictness at the correct endpoints. The exact doubled-poset volume ratio and star beta-integral formula are proved symbolically. An integer dynamic-programming checker exhaustively matched 1099 forward-relation posets through five elements and seven star examples. General validity is analytic and not inferred from this enumeration.
+## correctness
 
-## Originality — PASS, with residual risk
-Classical FKG association and Stanley's linear-extension triangulation are acknowledged. Fried (arXiv:1910.01752, Theorem 3.9) already proves the chain end case under the equivalent simplex stochastic-dominance representation; no novelty is claimed for that case separately. Fang–Fourier–Litza–Pegel (arXiv:1712.01037) study polytope transfer maps and Ehrhart equivalence, not random pair comparability. The closest accessible literature and mathematical-record queries do not explicitly cover the simultaneous general-poset sharp sandwich, equality cases and star quantitative interpolation; equivalent older inequalities on product-poset linear extensions remain a risk. A failed search is not a proof of absolute novelty.
+PASS
 
-## Mathematical value — PASS
-The two sharp global bounds and their rigidity classify both extremes of a natural order-polytope probabilistic invariant. The proof connects continuous FKG dependence, finite-poset linear extensions, and Catalan ballot counting; the exact star formula quantifies a natural intermediate asymptotic regime. These are structural statements for arbitrary posets, not a recomputed enumerative table.
+From actual RESULT.md, the order polytope indicator is log-supermodular under coordinate min/max, so continuous FKG association applied first conditionally in X and then to F_i(Y_i) yields q(P)>=2^-n, strictly when a pair of coordinates is poset-comparable. Conditional on two linear extensions, the common order-statistic interleavings satisfying X<=Y form a subset of Catalan ballot words; different extensions exclude the alternating ballot word. Hence q<=1/(n+1), strict unless unique extension (chain). Comparing volumes of O(P×C2) and O(P)² yields e(P×C2)/(binom(2n,n)e(P)²); conditioning on star tops yields (p+1)2^(p-1)(p!)²/(2p+1)! and stated Stirling asymptotic. Independently recomputed all 75 forward-oriented relation subsets up to 4 points and five stars by exact integer extension DP; these finite checks do not prove all-poset assertions.
 
-## Limits
-Only standard uniform Lebesgue measure and ambient product order are covered. The code cannot independently validate asymptotic or all-poset arguments. Bibliographic coverage is qualified; external independent mathematical review is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical association, order-polytope triangulation, ballot/Catalan combinatorics, and Fried’s chain/simplex equality case are acknowledged. The asserted joint all-poset sharp sandwich with both rigidity cases, exact extension-count interpretation, and star interpolation was not mathematically implied by the materially inspected primary results. Best-of-knowledge rather than definitive priority.
+
+## value
+
+PASS
+
+The simultaneous sharp inequalities and rigidity at two natural endpoints classify the comparability probability of every finite order polytope. The doubled-poset count connects geometric probability to standard linear-extension data, while the exact natural star family is a nontrivial interpolation/asymptotic. This is a motivated structural global theorem, not a rearranged textbook calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
