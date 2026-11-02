@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The upper bound separates the near regime \(|w-h|<k\) from the far regime. In the far regime, the winner can receive approvals only from the two peaks on its side of the median; uniqueness forces both to approve it, and the remaining three intervals must avoid their union and each other. This yields the threshold \(m\ge5k-1\) and bound \(m-3k\). Explicit interval constructions attain both branches and the unique-winner feasibility boundary \(m=2k-1\).
+PASS
 
-## Originality
+For 1≤k<m, every top-k set of a strict single-peaked ranking is precisely a length-k interval containing its peak, and conversely all such intervals are realizable. If m<2k−1, all length-k intervals share at least two points so a unique approval winner is impossible. For a putative winner w at distance d≥k from median peak h, no voter peaking at or right of h can approve w; two left voters must both approve w, with intervals intersecting only at w, otherwise the winner is tied. The other three length-k intervals must be mutually disjoint and disjoint from the two-winner union, forcing m≥5k−1 and d≤m−3k. For d<k the bound is k−1; explicit five-ballot intervals attain k−1 whenever m≥2k−1 and m−3k for m≥5k−1, including the k=1 boundary. Independent exhaustive enumeration of interval-and-peak multisets for (m,k)=(4,1),(5,2),(6,2),(7,2),(9,2),(7,3),(9,3) yielded maxima 1,1,1,1,3,2,2, matching the piecewise formula. These finite checks only corroborate the infinite parameter proof.
 
-PASS, subject to the stated literature risk. database searches using the exact five-voter, top-\(k\), median-peak, and displacement formulations returned no direct match. A related Borda-scoring displacement formula uses a different score vector and does not imply the top-\(k\) approval formula. The primary full text inspected for Brandt et al. treats approval ballots in single-peaked electorates but focuses on computational complexity and manipulation, not the displacement invariant. Weber (1995) was available only as an abstract, so related older approval-voting results cannot be ruled out completely.
+## originality
 
-## Value
+PASS
 
-PASS. The result is a sharp finite classification of a natural electoral invariant: the maximum spatial distance between a unique fixed-\(k\) approval winner and the median voter. The exact transition at \(m=5k-1\) distinguishes a local regime from a regime with linearly growing displacement, which is relevant when comparing approval and rank-based voting rules.
+Targeted source and implication comparisons did not identify prior coverage of the precisely scoped final theorem; best-of-knowledge PASS with named residual risks, not a priority certificate.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Top-k approval on an axis is a standard restricted voting rule and the median peak is a natural Condorcet benchmark. The precise feasibility cutoff and second 5k−1 distance transition measure how a uniquely victorious approval candidate may deviate from that benchmark. The result is not merely a parameter substitution: disjoint interval packing produces a new sharp two-regime law and explicit extremizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
