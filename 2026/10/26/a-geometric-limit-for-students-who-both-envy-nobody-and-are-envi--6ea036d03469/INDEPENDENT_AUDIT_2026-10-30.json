@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:46:58.815335Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen 2026/10/26/a-geometric-limit-for-students-who-both-envy-nobody-and-are-envi--6ea036d03469/RESULT.md, exact Git blob f89861790df6863ca21bd9c8591b58177bf11137",
+        "Frozen mathematical verification source at same tree, inspected before testing",
+        "Independently implemented /mnt/data/scope_worker-06_20261030T193846Z/independent_checks.py, 1311 bounded assertions across batch"
+      ],
+      "rationale": "Conditional on assignment history, a newly protected position is globally top-choice with probability r_j/n, whereas an unprotected position avoids envying the t_j previously protected allocations with probability r_j/(r_j+t_j). Adjacent interchange of one protected status and one unprotected status leaves the product unchanged; hence the k-wise event equals the final-k-positions probability k!/n^k for every specified set. Summing joint events gives falling-factorial moments (n)_k/n^k, binomial inversion the exact distribution and pgf convergence 1/(2-z). Independently implemented profile enumeration over all 24^4=331776 n=4 strict preference profiles and exact subset probabilities for n<=9 corroborated the identity. No independence of the indicators is claimed.",
+      "residual_risks": [
+        "Independent uniformly random complete strict preferences with exactly n students and n houses.",
+        "The limit counts doubly qualified allocated students, not unenvied-only or top-choice-only marginal counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ortega et al. provide E first-choice=(n+1)/2, E unenvied=H_n.",
+          "Myers–Wilf gives coupon singleton distributions."
+        ],
+        "reasoning": "The stronger-looking unenvied marginal distribution is for a different event; it cannot determine correlation with first-choice status and does not imply the intersection count.",
+        "searches": [
+          "random serial dictatorship no envy and receives top choice intersection count geometric",
+          "arXiv:2603.23385 Props 1 and 3",
+          "arXiv:math/0304229 coupon singleton"
+        ]
+      },
+      "checked_sources": [
+        "The Distribution of Envy in Matching Markets — https://arxiv.org/pdf/2603.23385",
+        "Some New Aspects of the Coupon-Collector’s Problem — https://arxiv.org/pdf/math/0304229",
+        "Resultary semantic query: random serial dictatorship no envy and receives top choice intersection count geometric"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known first moments yield only E union=E first-choice+E unenvied-E intersection once the new intersection expectation is obtained.",
+          "The new adjacent-status factor cancellation proves every k-way event, not just a mean."
+        ],
+        "reasoning": "The previously published results do not mathematically determine the joint event; the all-k calculation is additional and gives geometric rather than Poisson limit.",
+        "searches": [
+          "random serial dictatorship no envy and receives top choice intersection count geometric",
+          "arXiv:2603.23385 proposition 3",
+          "arXiv:math/0304229 section 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Outdegree-zero in envy digraph is equivalent to receiving overall first choice in complete assignment.",
+          "Indegree-zero means no other student envies the allocation."
+        ],
+        "reasoning": "Equivalent double-isolation/first-choice-unenvied formulations differ from the previously known marginal counts; the joint k-wise law is not established by those marginals.",
+        "searches": [
+          "random serial dictatorship no envy and receives top choice intersection count geometric",
+          "RSD isolated vertex envy digraph first-choice and unenvied",
+          "arXiv:2603.23385"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest RSD census concerns 3-agent lottery-support shapes, not double envy-free count."
+        ],
+        "reasoning": "No directly matching all-n count table identified; search nonappearance is not a novelty certificate.",
+        "searches": [
+          "random serial dictatorship no envy and receives top choice intersection count geometric",
+          "Resultary random serial dictatorship geometric envy intersection",
+          "Resultary complete three-agent RSD lottery shape"
+        ]
+      },
+      "rationale": "Ortega et al. 2026 establish separate first-choice and unenvied marginal expectations and use coupon-collector arguments for related DA observables; Myers–Wilf count coupon singletons. Neither marginal determines the joint intersection law of doubly qualified students, and the inspected primary propositions do not state the k-wise exchangeability/geometric limit. Related Resultary RSD studies concern small-market lottery or inefficiency shapes, not this count.",
+      "residual_risks": [
+        "An unpublished or differently named envy-digraph isolated-vertex theorem might already contain the k-wise protected-position identity.",
+        "The geometric limit is for iid uniform rankings and complete square assignment only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains E[unenvied]=H_n and E[top choice]=(n+1)/2 but not the joint protected-position geometric law in inspected portions",
+          "evidence": "Proposition 3 handles unenvied mean; joint probability all k specified are both protected is separate.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.23385",
+          "material_read": "Complete 11-page open manuscript, model, Proposition 1 pp.3–4, Proposition 3 pp.7–8, discussion and references",
+          "method": "Primary open full PDF text and page screenshot of Proposition 3",
+          "title": "The Distribution of Envy in Matching Markets",
+          "trigger": "Same RSD preference model; exactly the two marginal statistics"
+        },
+        {
+          "assessment": "Coupon singletons model only one-sided occupancy, not double envy-free allocations",
+          "evidence": "Section 4 covers coupon singleton count; it does not specify a joint RSD first-choice/unenvied indicator.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0304229",
+          "material_read": "Primary paper introduction and complete section 4 pp.18–19 including equation (47)",
+          "method": "Open primary PDF text and page screenshot",
+          "title": "Some New Aspects of the Coupon-Collector’s Problem",
+          "trigger": "Closest coupon-singleton distribution antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md full final claim and proof, and cited closest primary prior results",
+        "Independent mathematical reasoning about the object and invariant; known antecedents explicitly excluded"
+      ],
+      "rationale": "Exact k-wise intersection probabilities give an unusual position-exchangeable statistic despite position-sensitive marginals, and the non-Poisson geometric limit yields a natural complete probabilistic law for simultaneous absence of both directions of envy.",
+      "residual_risks": [
+        "An unpublished or differently named envy-digraph isolated-vertex theorem might already contain the k-wise protected-position identity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Under n-by-n independent uniform complete strict preferences and random serial dictatorship, for any k specified serial positions the probability each both receives her overall first choice and is envied by nobody equals k!/n^k; these intersection indicators are exchangeable and their count converges to geometric(1/2), with exact mean 1, variance 2(1-1/n) and displayed inclusion–exclusion distribution.",
+  "limitations": [
+    "Independent uniformly random complete strict preferences with exactly n students and n houses.",
+    "The limit counts doubly qualified allocated students, not unenvied-only or top-choice-only marginal counts.",
+    "An unpublished or differently named envy-digraph isolated-vertex theorem might already contain the k-wise protected-position identity.",
+    "The geometric limit is for iid uniform rankings and complete square assignment only."
+  ],
+  "schema_version": 1
+}
