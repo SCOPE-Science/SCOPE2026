@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T14:12:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For a fixed input sign path and predictable rule, Z_k=(eps_k-m_k)h_k(xi_1,...,xi_{k-1}) are independent centered bounded masked variables with sum Var(Z_k)/k² finite, so Kolmogorov’s strong law gives their averages tending to zero. Fubini yields, for almost every fixed mask, almost-sure input-path vanishing of scaled cross-brackets. Adding the deterministic bias contribution bounded by a_n gives uniform-in-time bracket convergence to t I_2 for the pair (X,Y) conditioned on the mask. Each increment has length sqrt 2, so the vector martingale functional CLT applies in D([0,1],R²). Conversely choosing the fixed predictable h_k=sgn m_k forces a nonvanishing terminal cross-covariance on a subsequence whenever a_n fails, and uniform fourth moments of each marginal simple random walk make terminal products uniformly integrable. Hoeffding’s exponential maximal inequality yields P(max_{j<=n}|Q_j|>n(a_n+delta))<=2e^(-n delta²/2). The quantifier is for all fixed h, a.e. mask separately, not a common mask set for uncountably many h: a realized mask can be matched by the deterministic h_k=eps_k selected after that mask. Independently enumerated all fair masks and input walks to n=6 for a nontrivial predictable rule, confirming zero centered cross-bracket and E Q_n²=n. The infinite functional convergence is analytic, not deduced from enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hamza–Tournier Theorem 2 concerns a different subset-indexed independent class; their one-factor Corollary 9 is annealed.",
+          "Collevecchio et al. Theorem 6 is a general bracket-based condition for fixed transforms and motivates sufficiency."
+        ],
+        "reasoning": "A general martingale functional CLT becomes sufficient after a separate centered-mask SLLN, while the converse needs universal adversarial predictable sign choice. No inspected broader theorem directly states the absolute Cesàro iff.",
+        "searches": [
+          "arxiv:2610.01658",
+          "arxiv:2010.16000",
+          "quenched invariance principle martingale transforms independent sign masks Cesaro bias"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.01658v1",
+        "arxiv:2010.16000",
+        "Jacod–Shiryaev classical martingale FCLT",
+        "Resultary semantic search: quenched bootstrap random walk orthogonality predictable signs Cesaro bias masks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 9 in the motivating one-factor paper gives annealed convergence and labels the quenched question open.",
+          "The earlier general theorem supplies a standard functional CLT for bracket convergence; absolute Cesàro mask bias is sufficient and universally necessary by a separate sign-of-mean rule."
+        ],
+        "reasoning": "The result does not resolve the full open one-factor parameter space. It rigorously resolves the fair empty-subset case and yields a universal iff in the external-mask class, beyond the unconditional application of a generic CLT.",
+        "searches": [
+          "arxiv:2610.01658 Corollary 9 Section 4.2",
+          "arxiv:2010.16000 Theorem 6",
+          "Kolmogorov SLLN independent temporal masks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general bootstrap walk has a predictable bracket criterion, but does not quantify universally across all predictable sign rules with temporal independent masks.",
+          "The audited assertion is ∀fixed h, P_epsilon-a.e. rather than one common full-measure mask set for all rules."
+        ],
+        "reasoning": "The theorem is a sharp specialization-plus-necessity to temporal mask distributions, not a renamed version of annealed convergence; changing the quantifier order would be false.",
+        "searches": [
+          "quenched bootstrap random walk orthogonality predictable signs Cesaro bias masks",
+          "arxiv:2610.01658 quenched one factor empty subset fair mask",
+          "arxiv:2010.16000 Theorem 6 bracket bootstrap martingale"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary Rademacher stopping-bias item concerns bounded stopping, not this temporal-mask quenched FCLT.",
+          "The audited result is an all-sequence analytic characterization rather than a finite numerical census."
+        ],
+        "reasoning": "No exact database or finite table is relevant to replacing the quantified invariance principle; searches for equivalent theorem names did not uncover one but do not prove originality.",
+        "searches": [
+          "quenched bootstrap random walk orthogonality predictable signs Cesaro bias masks",
+          "Resultary:2026/9/20/SCOPE-linear-wise-independent-rademacher-bounded-stopping-bias--ffc9773418a4",
+          "quenched bootstrap masks sum absolute means theorem"
+        ]
+      },
+      "rationale": "PASS, qualified: Hamza–Tournier 2026 establish annealed functional convergence in their time-by-subset-size one-factor construction and explicitly do not settle its general quenched counterpart; their quenched theorem assumes different subset-indexed coefficient independence. Collevecchio–Hamza–Shi–Williams 2022 give the general martingale-bracket invariance principle but not the universal all-predictable-rules iff criterion from absolute Cesàro mask bias. This universal sharp temporal-bias characterization and fair-empty-coefficient application are the scientific contribution. Because it is built from standard martingale tools, an implicit prior equivalent characterization is a live historical-priority risk.",
+      "residual_risks": [
+        "An implicit all-rules Cesàro iff may exist in older martingale-transform literature despite no located identical statement.",
+        "The result requires masks independent of input and of each fixed rule; does not settle dependent mask or entire one-factor elliptic regime."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-factor annealed result and open quenched extension; its separate quenched theorem uses different coefficient independence",
+          "evidence": [
+            "Section 4.2, Corollary 9 and following remark; Theorem 2 hypotheses"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01658",
+          "material_read": "Accessible full primary HTML, especially construction and Section 4.2 Corollary 9 and statement of quenched limitation",
+          "method": "Read primary HTML in relevant theorem/remark passages",
+          "title": "Are random random walks normal?",
+          "trigger": "Exactly motivating time-by-size one-factor quenched question"
+        },
+        {
+          "assessment": "General predictable bracket limit framework, not a temporal-independent-mask all-rule iff in absolute means",
+          "evidence": [
+            "Theorem 6, martingale bracket convergence criteria"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.16000",
+          "material_read": "Accessible primary PDF including Theorem 6 and pertinent model definitions",
+          "method": "Read PDF theorem and related body, inspected source page image",
+          "title": "Limit theorems and ergodicity for general bootstrap random walks",
+          "trigger": "Closest general bracket-dynamics theorem"
+        },
+        {
+          "assessment": "A standard tool; no novelty claim for the martingale FCLT",
+          "evidence": [
+            "Vector martingale functional CLT (classical premise)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-662-05265-5",
+          "material_read": "Standard identified martingale functional limit, not a newly read full treatise",
+          "method": "Applied the established theorem with bounded jumps and convergent brackets",
+          "title": "Limit Theorems for Stochastic Processes",
+          "trigger": "Classical martingale FCLT formal premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Determining exactly which independent temporal perturbations force quenched decoupling against every fixed predictable transformation is a natural sharp invariance-principle question. A precise iff via absolute Cesàro bias, an adversarial necessity rule, exponential finite-horizon deviation estimate, and the fair-empty-bit subcase of an explicitly open question make the result useful beyond a routine statement that a martingale CLT exists. Its delicate null-set quantifier boundary prevents an otherwise plausible false strengthening.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The universal condition is for each fixed deterministic predictable family with a separate mask-null set.",
+    "No dependent masks or universal common exceptional-free set; no full solution of the motivating quenched one-factor regime.",
+    "Classical martingale tools do not automatically establish historical originality."
+  ],
+  "schema_version": 1
+}
