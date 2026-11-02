@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** Every deck element belongs to one of two parity classes, giving the exact minimum of two Euclidean squared-distance expressions. Circle-distance pairs have a coordinatewise maximal far-side edge; maximizing on that edge yields the pointwise eccentricity and its switching threshold. A two-branch derivative calculation proves its strict spatial ordering. The area-normalized radius has factored derivatives with one stationary minimum in each branch; their exact values coincide. Rational Voronoi-vertex checks corroborate, but do not replace, the proof.
+
+**Originality — PASS, provisionally.** Davis–Recio-Mitter (arXiv:1912.07411v1, Section 3) explicitly determines the Dirichlet-domain vertices of the unit-square flat Klein bottle; that established special-case construction is not claimed. Eyll (doi:10.1007/s12220-025-02197-9) and Katz–Sabourau (doi:10.1007/s10455-026-10057-0) establish systolic statements about shortest noncontractible curves, not the metric radius. Comparisons with accessible geometric research records on conditional geodesic-distance means and injectivity-radius distributions show distinct invariants with no implication that evaluates the minimax metric radius. The reviewed indexed sources did not supply the exact all-aspect eccentricity or two-optimum area inequality. Older specialized computations remain a residual priority risk.
+
+**Mathematical value — PASS.** This establishes the sharp isoradial area inequality across the entire moduli of flat Klein metrics, complete center and diameter loci, an explicit farthest-point transition, and exactly two *nonisometric* optimal similarity classes. The doubled equality family distinguishes the minimax metric-radius objective from systolic area and is a structural, geometrically motivated result, not an arbitrary finite numerical benchmark.
+
+**Limitations.** No claim extends to curved Klein metrics, other quotient holonomy types, or noisy radius estimation. Exact universal statements require the analytic proof; the checker contains finite corroborative instances only. Historical priority and mathematical review are not independent certifications.
+
+Self-review: passed. Independent audit: not yet performed.
