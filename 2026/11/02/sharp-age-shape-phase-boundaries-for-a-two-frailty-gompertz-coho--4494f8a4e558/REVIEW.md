@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Exact survivor weights reduce the cohort hazard derivative to the sign of one logistic function \(g\). Its derivative has a single sign change because \((u+k)\tanh(u/2)\) increases strictly; the minimum and endpoint signs yield an exhaustive shape classification, with both boundary cases treated separately. The fold expansion follows from a nonzero mixed parameter derivative and positive second age derivative. The standalone verification program ran successfully, but no numerical evidence is substituted for universal proof.
+
+**Originality — PASS within the inspected evidence, with residual historical risk.** Prior work already gives the survivor-frailty selection identity and examples of increasing components giving a nonmonotone mixture hazard. Here the claim is the exact iff region and boundary scaling for **two equal-weight Gompertz multipliers**, not the generic selection phenomenon. Finkelstein (2009, Sections 2–4) surveys other mixtures and gamma-Gompertz, and Vaupel and Missov (2014, Sections 3–6) treat general identities and gamma frailty. Neither inspected material states the exact two-atom classification. The 1983 Vaupel–Yashin full report and 1997 Gompertz-mixture estimation article remain full-text access risks, and other general shape theorems might imply a special case. No claim of historically certain priority is made.
+
+**Mathematical value — PASS.** The number and order of turning ages in a cohort mortality curve is an interpretable demographic invariant. A sharp three-regime (plus fold boundary) partition, its physically measurable parameter inequalities, and the onset scaling distinguish continuous gamma frailty's familiar plateau behavior from a discrete frailty alternative; they give explicit checks for when survivor selection actually reverses the cohort's apparent aging direction. The result is a complete analytic classification rather than an arbitrary numerical slice.
+
+The statement is restricted to two equal-weight, common-slope, positive Gompertz subcohorts; no empirical model-validation or more general frailty classification is proved.
+
+Self-review: passed. Independent audit: not yet performed.
