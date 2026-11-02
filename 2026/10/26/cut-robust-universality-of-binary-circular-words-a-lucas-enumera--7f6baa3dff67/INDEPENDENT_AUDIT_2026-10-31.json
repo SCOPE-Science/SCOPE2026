@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:11:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For a binary linear word, each greedy complete two-letter arch corresponds to one disjoint unequal-adjacency edge and conversely, so universality index equals path matching number. In the cyclic transition subgraph, deleting each cut edge changes matching number by one only at odd-indexed edges of odd-length 1-runs. The fully alternating even case has no loss. Even 1-runs give a unique cyclic monomer/dimer tiling except the all-ones transition string with two tilings; the 2-to-1 lift from even-parity transition strings to indexed words and trace of [[1,1],[u,0]] give R_(n,k)=2n/(n-k)*binom(n-k,k)-2*[n=2k,k>=1], and R_n=2*(L_n-[n even]). n=1 and 2 boundaries were checked. Independently constructed exhaustive subsequence tests over all binary words n<=12 check every cyclic cut, bad-cut positions, and refined counts. These finite checks corroborate, not replace, the unrestricted matching/transfer proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fleischmann–Germann–Nowotka give arch/remainder growth and algorithms",
+          "Schnoebelen–Veron prove a bound on indices of conjugates, not all-index counts"
+        ],
+        "reasoning": "General-alphabet arch and circular-index results do not in their published statements entail the binary even-run characterization or Lucas correction; possible stronger unretrieved cyclic matching theorem remains a risk.",
+        "searches": [
+          "arXiv:2104.09063 remainder circular universality",
+          "arXiv:2304.11932 Lemma 3.4",
+          "Resultary circular binary subsequence universality all rotations constant universality arch factorization Lucas matching even runs transition word"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2003.04629 Lemma 20",
+        "arXiv:2104.09063 Sections 3-4",
+        "arXiv:2304.11932 Lemma 3.4",
+        "OEIS A000032",
+        "Resultary:2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known ±1 conjugate gap; does not show every cut achieves the same maximum",
+          "The proof supplies the missing essential-edge criterion and trace enumerator"
+        ],
+        "reasoning": "Conjugacy difference bounded by one does not imply that all cuts agree or count the agreeing cuts; the claimed theorem requires additional combinatorial deductions.",
+        "searches": [
+          "arXiv:2003.04629 §4 Lemma 20",
+          "arXiv:2104.09063 §§3–4",
+          "arXiv:2304.11932 Lemma 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barker et al., Lemma 20: every rotation differs by at most one arch from a best rotation",
+          "The present statement identifies which indexed cut edges cause the strict loss and enumerates them"
+        ],
+        "reasoning": "The known conjugate bound is compatible with many different bad-cut sets; its assertion cannot determine the zero-bad-cut family without the edge matching criterion.",
+        "searches": [
+          "circular binary subsequence universality all rotations constant universality arch factorization Lucas matching even runs transition word",
+          "all conjugates equal subsequence universality index binary matching on cycle",
+          "arXiv:2003.04629 Lemma 20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lucas numbers/classical cyclic matching enumerator already known",
+          "Resultary finding counts the linear binary universality index, not the all-rotations-stable subfamily"
+        ],
+        "reasoning": "The coefficient sequence is not claimed new; its identification with invariance across all cuts is the new asserted fact. The linear distribution uses a different transfer generating function.",
+        "searches": [
+          "OEIS A000032 Lucas numbers",
+          "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "rationale": "A distinct classification of cyclic origin-stability with exact bad-cut counts, not merely the previously known +/-1 bound between conjugates; known Lucas matching numbers are explicitly treated as classical. Best-of-knowledge original conditional on unindexed descriptions.",
+      "residual_risks": [
+        "The transfer coefficients are classical cyclic matching counts: novelty only in binary cut-robust interpretation and exact bad cuts.",
+        "An older unindexed equivalence between conjugate arch stability and alternating-transition runs may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General one-arch bound is established but no identical even-transition-run or all-cut count in material inspected",
+          "evidence": [
+            "arXiv:2003.04629, Section 4, Lemma 20"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+          "material_read": "Abstract, definitions and circular universality section including Lemma 20 on best rotation",
+          "method": "Open arXiv full PDF, text inspection and visual check of relevant pages",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Foundational treatment of circular scattered-subsequence universality"
+        },
+        {
+          "assessment": "Remainder results and algorithms are prior art; no known direct all-cut Lucas formula in reviewed sections",
+          "evidence": [
+            "arXiv:2104.09063, Sections 3–4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.09063",
+          "material_read": "Definitions and key arch-remainder and circular statements, selected proof sections and conclusion",
+          "method": "Open arXiv PDF text and relevant page inspection",
+          "title": "Scattered Factor Universality — The Power of the Remainder",
+          "trigger": "Potential broader arch-remainder result"
+        },
+        {
+          "assessment": "Bounds conjugate-index difference but no classification/count of constant-index rotations found in relevant theorem statements",
+          "evidence": [
+            "arXiv:2304.11932 Lemma 3.4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.11932",
+          "material_read": "Introduction, arch-jumping/cyclic universality section including Lemma 3.4 and algorithm discussion",
+          "method": "Open arXiv PDF text and visual page inspection",
+          "title": "On arch factorization and subword universality for words and compressed words",
+          "trigger": "Possible dominating theorem for conjugate indices"
+        },
+        {
+          "assessment": "The classical sequence exists; the theorem-specific word interpretation is not guaranteed by it",
+          "evidence": [
+            "OEIS A000032"
+          ],
+          "identifier_or_url": "https://oeis.org/A000032",
+          "material_read": "Initial sequence and classical matching interpretation",
+          "method": "Public sequence database text",
+          "title": "OEIS A000032 Lucas numbers",
+          "trigger": "Identify possible existing exact table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact all-cuts invariance criterion, count of origin-dependent deficits, index-refined family enumerator and an exponentially rare asymptotic are natural structural objects in scattered-subsequence universality; classical Lucas numbers alone do not explain which words realize the family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Does not apply to alphabets larger than binary or to contiguous substrings.",
+    "Exhaustive tests stop at n=12; unrestricted proof uses matching and transfer identities.",
+    "Best-of-knowledge priority; incomplete published text cannot be treated as whole-document noncoverage.",
+    "No GitHub write or publication occurred; external Lean/expert channels unchanged."
+  ],
+  "schema_version": 1
+}
