@@ -1,103 +1,143 @@
 {
   "correctness": {
-    "rationale": "Every edge-distance square is strictly convex. An exact vertex-normal angular criterion limits local maxima to <=2 (even) or <=3 (odd), with triangle and square treated at the boundaries. Opposite-edge perpendicular feet yield sharp 4-point lower bounds; for odd orders the necessary and sufficient 6-point condition reduces to the explicitly factored weak-peak/strong-valley quadratic, proving the threshold and the strict endpoint. The all-order proof and the n^-4 expansion are analytic. Symbolic and 75-digit finite checks ran successfully from the actual included verify.py; no finite enumeration is used as an infinite proof.",
+    "rationale": "Reconstructed for n>=3 and R>0: normalization R=1, squared distance on every edge strictly convex, angular test bounds strict distance peaks by two even or three odd. The opposite even side yields two crossings plus two on complement for all nonvertex centers; vertex chains are monotone. For odd n, an interior projection supplies at least four crossings; both opposite-edge projections have interior feet when t<tau_n. The weak-peak/strong-valley squared gap factors as c²(t-t_-)(t-t_+), where t_-=(2s/c)(1-cos(alpha/2))² and t_+>s. It is positive exactly |t|<t_-; at equality two doubled crossings degenerate into one tangent/vertex each, so the maximum is four. The normalized perimeter ratio equals tau_n/s and its Taylor leading term is pi^4/(32n^4). Independent exact symbolic difference factorization passed, and fresh radius-chamber enumeration checked 80 representative centers across n=3..101, including both sides of the threshold. Finite tests supplement, not replace, the all-n geometric proof.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limits": [
+    "Regular Euclidean polygons only, n>=3, R>0, circle centers on boundary, positive radii and distinct intersection points.",
+    "Finite radius-chamber tests are supplementary to the analytic all-order proof.",
+    "Search-based historical priority judgment is not proof that no unindexed equivalent result exists."
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Bárány and Roldán-Pensado, A Question from a Famous Paper of Erdős, 2013, DOI:10.1007/s00454-013-9507-z, Introduction, Sections 2 and 3.",
-        "Published record: A polygon-complexity bound for the Erdős circle-intersection invariant, 2026, searchable summary states an upper bound for the minimum N(K), not pointwise H_K(p)."
+        "Bárány–Roldán-Pensado Theorems 1.1–1.4: existence of K with N(K)=6, finiteness of N(K), sets J(K,m) and genericity; no pointwise profile for P_n.",
+        "A polygon-complexity bound proves N(K)<=2n-4 for convex n-gons, an existential best-center bound.",
+        "The farthest-distance-profile theorem computes μ_n(p)=max_q ||p-q||; it does not enumerate circles at intermediate radii or give J(P_n,6)."
       ],
-      "reasoning": "The 2013 convex-body theorem concerns existence of good centers and generic high multiplicity; its quantifier min over centers does not dominate the maximum at every center. The published polygon complexity estimate N(K)<=2n-4 also bounds a different quantifier and is not a six-window classification.",
+      "reasoning": "None of the inspected stronger-looking results dominates the all-center count H_n(p), which maximizes number of boundary points on one radius rather than maximizing radius or minimizing over centers. Special n=3 and n=4 cases alone would not entail every n.",
       "searches": [
-        "A Question from a Famous Paper of Erdős Bárány Roldán-Pensado intersection count regular polygon",
-        "geometric tomography inner parallel bodies polytopes exact probability distance boundary"
+        "Bárány Roldán-Pensado A Question from a Famous Paper of Erdős DOI 10.1007/s00454-013-9507-z full online text",
+        "Resultary: A polygon-complexity bound for the Erdős circle-intersection invariant, 2026-10-04, full RESULT.md",
+        "Resultary: Complete farthest-distance profiles and sharp self-Chebyshev stability for regular polygons, 2026-10-11, full RESULT.md"
       ]
     },
     "checked_sources": [
-      "Bárány and Roldán-Pensado, A Question from a Famous Paper of Erdős, 2013, DOI:10.1007/s00454-013-9507-z, Introduction, Sections 2 and 3.",
-      "Published record: A polygon-complexity bound for the Erdős circle-intersection invariant, 2026, searchable summary states an upper bound for the minimum N(K), not pointwise H_K(p).",
-      "P. Erdős, On sets of distances of n points, Amer. Math. Monthly 53 (1946), 248-250, cited in the 2013 source."
+      "Bárány and Roldán-Pensado, Discrete Comput. Geom. 50 (2013), DOI 10.1007/s00454-013-9507-z",
+      "Roldán Pensado, Problems in Convex Geometry, UCL thesis 2013, Chapter 3, https://discovery.ucl.ac.uk/1388895/1/Thesis.pdf",
+      "Resultary 2026/10/4 polygon complexity bound, full RESULT.md",
+      "Resultary 2026/10/11 farthest-distance profile, full RESULT.md",
+      "Resultary 2026/10/11 parallelogram N(Q)=2, full RESULT.md"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Bárány and Roldán-Pensado, A Question from a Famous Paper of Erdős, 2013, DOI:10.1007/s00454-013-9507-z, Introduction, Sections 2 and 3.",
-        "Published record: A polygon-complexity bound for the Erdős circle-intersection invariant, 2026, searchable summary states an upper bound for the minimum N(K), not pointwise H_K(p).",
-        "Earlier best-center result: \\(N(P_n)=4\\) for odd regular polygons."
+        "The 2013 Lemma 3.2 / thesis Lemma 3.9 supplies sufficient regions for two-edge double intersections in general polygons but neither necessary regular-polygon cutoff nor the other-edge/no-six equivalence.",
+        "The 2013 min-center results do not recover p-dependent H_n(p); the farthest-distance formula controls only the largest radius and not intermediate profile oscillations."
       ],
-      "reasoning": "The earlier odd-order formula is \\(\\min_p H_n(p)=4\\). The new result has H_n(p)=6 on an open interval around every odd side midpoint, and H_n(p)=4 elsewhere. The minimum does not specify those intervals; the general polygon bound likewise does not imply their exact size or vanishing at order n^-4.",
+      "reasoning": "The submitted exact necessary-and-sufficient quadratic gap condition and exclusion of six at equality require local peak/valley comparisons absent from the cited prior theorems. The inherited J(K,m) notation provides motivation but no quantitative center-locus formula.",
       "searches": [
-        "A Question from a Famous Paper of Erdős Bárány Roldán-Pensado intersection count regular polygon",
-        "regular odd n-gon circle centers on boundary maximum six intersections tiny midpoint interval six point circle exact location width threshold",
-        "Erdos circle intersection J(K,6) regular polygons explicit measure length proportion"
+        "Bárány–Roldán-Pensado 2013 Theorem 1.1, Theorem 1.2, Theorem 1.3 and Section 3",
+        "Roldán Pensado 2013 thesis Chapter 3, Theorems 3.1–3.4 and Lemmas 3.8–3.9",
+        "Resultary: A polygon-complexity bound for the Erdős circle-intersection invariant and farthest-distance profile"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Bárány and Roldán-Pensado, A Question from a Famous Paper of Erdős, 2013, DOI:10.1007/s00454-013-9507-z, Introduction, Sections 2 and 3.",
-        "Related best-center exact result: regular odd n-gons have N(P_n)=4; this is a minimum over centers, whereas the new theorem gives a pointwise maximum and the full six-center locus."
+        "Bárány and Roldán-Pensado (2013) define J(K,m) in the Introduction but give no explicit regular-polygon six-center interval in their Sections 2–3.",
+        "Roldán Pensado thesis (2013), Chapter 3 pp. 31–42, only states the regular odd-polygon lower obstruction for N(K) and develops general examples and genericity."
       ],
-      "reasoning": "An equivalent formulation would describe precisely the set of boundary points admitting six concyclic boundary intersections, or its fraction of the regular polygon perimeter. Best-center values and existence of a single radius at some center do not imply that set. No equivalent full-spectrum statement was seen.",
+      "reasoning": "The equivalent formulation is exact J(P_n,6) as a union of n open edge-midpoint intervals, with interval endpoint and perimeter measure. A statement about N(P_n)=min_p H(p) or one possible six-point circle does not entail those sets.",
       "searches": [
-        "regular odd n-gon circle centers on boundary maximum six intersections tiny midpoint interval six point circle exact location width threshold",
-        "Erdos circle intersection J(K,6) regular polygons explicit measure length proportion",
-        "circle center at side midpoint regular pentagon hexagon number intersections with polygon boundary worst-center 6 versus 4",
-        "circle intersections boundary regular polygon maximum six side midpoint geometry"
+        "Resultary semantic search: regular polygon boundary circle intersects boundary six points side midpoint exact threshold centers six intersections Erdős J(K,6)",
+        "Resultary semantic search: pointwise maximum circles centered on convex polygon boundary number of intersection points odd regular n-gon six",
+        "web search: circle regular polygon boundary J(K,6) theorem six points",
+        "Bárány–Roldán-Pensado 2013, Introduction and Section 3; Roldán Pensado 2013 thesis, Chapter 3"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "No relevant exact centerwise classification or n-dependent threshold table was identified in the targeted searches; this negative result is not proof of nonexistence."
+        "Resultary includes the submitted finding itself; this circular match is excluded from independent prior coverage.",
+        "The compared full published 2026 minimum-invariant RESULT.md has no exact centerwise table or six-window threshold.",
+        "The thesis reports the older regular odd-polygon four-intersection lower bound and different 15-gon examples."
       ],
-      "reasoning": "The claimed cutoff is algebraic-trigonometric and continuous in the center position; a list of values at selected polygons or a table of \\(N(P_n)\\) does not imply the stated all-n pointwise iff classification.",
+      "reasoning": "No independent table or all-order exact spectrum was located. This absence is not a proof of priority; the identified tables/records optimize different invariants and cannot algebraically force the interval endpoints.",
       "searches": [
-        "regular odd n-gon circle centers on boundary maximum six intersections tiny midpoint interval six point circle exact location width threshold",
-        "Erdos circle intersection J(K,6) regular polygons explicit measure length proportion",
-        "regular pentagon six points circle boundary centered",
-        "regular polygon six intersections circle center boundary"
+        "Resultary semantic queries above (40 returned hits per query), screened precise circle-intersection entries including submitted circular match and n-gon minimum-bound record",
+        "web search: regular odd n-gon circle center boundary six intersections threshold measure exact",
+        "web search: Edgardo Roldán Pensado Problems in Convex Geometry dissertation Chapter 3"
       ]
     },
-    "rationale": "The reviewed 2013 source defines J(K,m) and proves universal finiteness and a N(K)=6 example, but does not derive the regular-polygon worst-center profile or the exact six-center perimeter fraction. The closest published general polygon bound concerns min_p H_K(p), not H_K(p) for every p. Exact six-windows, equality boundaries and the \\(n^{-4}\\) law were not identified in the recorded specialized searches. Unindexed equivalent derivations remain a real residual risk.",
+    "rationale": "The inspected 2013 primary journal article and corresponding thesis chapter introduce the best-center invariant N(K), the sets J(K,m), general existence/finite bounds and a special 15-gon, but neither establishes the all-center spectrum of regular polygons nor the exact J(P_n,6) arcs or n^-4 density. The closest published polygon-complexity result concerns min_p H_K(p), and a related farthest-distance profile retains only max_q ||p-q||, insufficient to reconstruct how many level-set intersections occur at intermediate radii. Targeted published-record searches did not locate a dominating equivalent theorem; this is a best-of-knowledge conclusion subject to residual historical risk.",
     "residual_risks": [
-      "An older unindexed regular-polygon calculation might derive the same six-center windows or formula.",
-      "The broader 2026 polygon-complexity source was accessible in summary rather than full text; no whole-document negative conclusion is asserted.",
-      "The full 2013 article was inspected from an indexed online text rendition; typeset figure details were not needed for the comparison."
+      "An older unindexed geometric note may have computed the same exact regular-polygon six-center window; searches do not establish absolute novelty.",
+      "The 2013 thesis and journal article supply a sufficient two-side geometric crossing lemma that may inspire this calculation, but were not found to state its sharp interval or all-center converse.",
+      "No additional later unpublished manuscripts were accessed."
     ],
     "source_inspections": [
       {
-        "assessment": "Defines and motivates the new measured object; no formula for six-center arcs in regular polygons, or all-center parity spectrum, appears in the inspected text.",
+        "assessment": "Motivates J(K,m) but does not state an exact regular-n six-center interval or the asserted perimeter fraction.",
         "evidence": [
-          "Introduction: mentions odd regular polygons as a four-intersection obstruction; Theorem 1.3 involves |J(K,infty)|/perimeter; Section 3 constructs nonregular 15-gon attaining N=6."
+          "Introduction defines N(K), J(K,m), Theorems 1.1–1.4; Section 3 Lemma 3.2 gives a sufficient two-segment crossing criterion and a 15-gon example."
         ],
         "identifier_or_url": "https://doi.org/10.1007/s00454-013-9507-z",
-        "material_read": "Full online text: introduction, definition of J(K,m), Theorems 1.1-1.4, key Section 2 proof, Lemmas 3.1 and 3.2 and Section 3 constructions.",
-        "method": "Direct text inspection of the publicly indexed full journal article, not merely abstract.",
+        "material_read": "Full indexed online article including Introduction, Theorems 1.1–1.4, Section 2 finiteness argument, Section 3 Lemmas 3.1–3.2 and 15-gon construction.",
+        "method": "Public full-text article rendered in web search; comparison of actual statements, proof constructions and definitions.",
         "title": "A Question from a Famous Paper of Erdős",
-        "trigger": "Original formulation of boundary-centered circle intersections and J(K,m)."
+        "trigger": "Original geometric invariant and strongest direct primary paper"
       },
       {
-        "assessment": "The accessible statement bounds N(K), a minimum over centers; it does not imply the claimed exact pointwise spectrum, but an undisclosed subsidiary argument remains a small literature risk.",
+        "assessment": "The same minimum-over-centers and generic/existence results appear; no all-center regular-polygon six-window classification in the relevant chapter.",
         "evidence": [
-          "Accessible summary: \\(N(K)\\le 2n-4\\) for \\(n\\ge4\\), alongside an acute-triangle phase split."
+          "p.31 J(K,n) definition; pp.37–39 Lemmas 3.8–3.9 and nonregular 15-gon; pp.30–31 prior regular odd-polygon four-point obstruction."
         ],
-        "identifier_or_url": "published searchable mathematical record, 2026",
-        "material_read": "Title and scientific summary only; full text was not available for this comparison.",
-        "method": "Semantic record search; no unsupported whole-document exclusion.",
+        "identifier_or_url": "https://discovery.ucl.ac.uk/1388895/1/Thesis.pdf",
+        "material_read": "Chapter 3 (PDF pages 30–41), including Theorems 3.1–3.4, Section 3.1, Lemmas 3.8–3.9, Section 3.2 examples and Section 3.3 start; page images 30,31,38,39 inspected.",
+        "method": "Public UCL open-access PDF, extracted textual pages with page-image cross-check.",
+        "title": "Problems in Convex Geometry",
+        "trigger": "Highly relevant original thesis from same author, potential additional results not in journal article"
+      },
+      {
+        "assessment": "Upper bound on N(K) and triangle phase split do not imply pointwise H_n(p) or its six-center locus.",
+        "evidence": [
+          "Theorem N(K)<=2n-4 for convex n-gons, N(T)=4 if acute else 2."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-polygon-complexity-bound-for-the-erd-s-circle-intersection-inv--ab61f433b81d/RESULT.md",
+        "material_read": "Entire published RESULT.md including theorem, proof, relationship and limitations.",
+        "method": "Read the complete published mathematical result at its cited public URL.",
         "title": "A polygon-complexity bound for the Erdős circle-intersection invariant",
-        "trigger": "Potential broader regular-polygon coverage in published work."
+        "trigger": "Nearest indexed theorem in precisely the Erdős invariant"
+      },
+      {
+        "assessment": "Farthest-distance maximum depends on extreme vertices, not number of intersections of an intermediate-radius circle; noncoverage by mathematical implication.",
+        "evidence": [
+          "μ_n(x)^2 = (R+r)^2+t^2 odd, 4r^2+(s+|t|)^2 even."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-complete-farthest-distance-profiles-and-sharp-self-chebyshev-sta--7703b9469968/RESULT.md",
+        "material_read": "Entire published RESULT.md, formulas (1)–(9), proof and limits.",
+        "method": "Read the complete published RESULT.md at its cited public URL.",
+        "title": "Complete farthest-distance profiles and sharp self-Chebyshev stability for regular polygons",
+        "trigger": "Same exact polygons, centerwise distance data could conceivably dominate the claim"
+      },
+      {
+        "assessment": "N(Q)=2 is the least over centers, consistent with square vertex value but insufficient for square nonvertex H=4.",
+        "evidence": [
+          "The theorem selects a nonobtuse vertex and proves N(Q)=2; no interior-edge center profile."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-erd-s-s-circle-conjecture-is-exact-on-all-parallelograms--42eb792b9982/RESULT.md",
+        "material_read": "Entire published RESULT.md theorem, proof and limitations.",
+        "method": "Read the complete published RESULT.md at its cited public URL.",
+        "title": "Erdős's circle conjecture is exact on all parallelograms",
+        "trigger": "Exact square/rectangle overlap, where boundary-center versus best-center must be distinguished"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "bc2a7590-9fbe-4be4-830d-e273361f1da8",
   "value": {
-    "rationale": "The 2013 motivating paper expressly defines center sets J(K,m) and their relative boundary measures. This finding determines J(P_n,6), every H_n(p), and the exact asymptotic perimeter density across the entire canonical family. It supplies a new quantitative distinction between maximum- and minimum-centered intersection problems rather than an arbitrary special case.",
+    "rationale": "The primary 2013 problem explicitly asks for sets J(K,m) and their relative boundary measures. The result supplies a complete natural-family classification of H_n(p) and J(P_n,6), including the strict algebraic edge-midpoint window and exact n^-4 rarity. This quantifies variation over centers that cannot be recovered from the established best-center N(K), so the precise invariant and asymptotic are independently useful.",
     "status": "PASS"
   }
 }
