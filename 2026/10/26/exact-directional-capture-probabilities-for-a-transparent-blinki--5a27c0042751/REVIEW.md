@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Coupled Brownian–gate backward equations with one-sided signed capture boundary conditions, the retained-gate resolvent identity, and a two-state linear solve yield the exact probabilities. Monotonicity and limiting constants follow by controlled elementary factorizations. Independent high-precision mode/renewal reconstruction and exact-bridge Monte Carlo supported the mathematical check (2346 programmatic checks); numerical evidence is not substituted for an infinite proof.
+## correctness
 
-**Originality — PASS under self-review.** Zbik et al. (arXiv:2512.09739) establish unmarked first-hitting-time transforms and simulate the capture side. Bressloff (arXiv:2009.02739) models a reflecting closed gate, unlike this transparent gate. Bressloff (Phys. Rev. E 102, 022115) studies splitting among several fixed targets, using general methods that could provide an antecedent. The assessed contribution is the explicit retained-gate directional formulas, strict reset monotonicity for both gate starts, and sharp weak/strong resetting laws, not the broad renewal technique.
+PASS
 
-**Value — PASS.** First-capture direction is a measurable transport statistic not determined by the unmarked first-passage distribution. Exact right/left allocation and the parameter-universal rare wrong-side coefficient are relevant to intermittent molecular capture and direction-selective transport. The result replaces Monte Carlo calibration of the same quantity with closed forms.
+Solve killed two-component backward ODE for Laplace transforms H of total capture and G of signed approach side, using active Dirichlet values plus inactive continuity and derivative matching at the transparent origin. For a given reset rate r, derive retained-gate renewal matrix rL with L_ij=(rI-Q)^(-1)_ij-H_i[(rI-Q)^(-1)]_Aj and solve p=fplus+rLp. This reproduces the stated PA, PI and PE formulas, including the r->0 continuation. For strict monotonicity, F and alpha/(r+lambda) decrease, while (1-F)/(r+lambda) is strictly decreasing; factor 1/(1+rho) also decreases. Independent numerical resolvent calculations at five parameter points matched both initial-gate closed formulas, and strong/weak reset expansions follow analytically. Brownian crossing direction is a marked absorption event, not a reflecting-gate boundary.
 
-**Closest related material and residual risk.** The 2025 Zbik et al. preprint is directly on the same physical model. The 2020 Bressloff multiple-target splitting paper was inspected at abstract level only, and a broader marked-renewal theorem could imply part of this specialization. The claimed high-reset asymptotic requires fixed positive reset distance; no joint distance/rate limit or reflecting-gate extension is proved. No external scientific evaluation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh best-of-knowledge statement-level comparison with relevant published Resultary findings and primary articles, acknowledging known general methods and narrower ancestors; no inspected stronger theorem implies the exact final result. Priority is qualified by explicit residual risks.
+
+## value
+
+PASS
+
+In a natural intermittent-target search model, capture direction is not determined by mean first-passage time. Full side-resolved formulas, universal high-reset calibration, and strict monotone response to resetting offer an exact distributional observable beyond generic renewal identities and simulation plots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

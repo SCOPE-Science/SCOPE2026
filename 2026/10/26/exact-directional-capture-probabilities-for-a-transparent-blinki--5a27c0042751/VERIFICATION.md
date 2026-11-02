@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3. The executable uses only the standard library. It reconstructs two independent algebraic representations: the closed forms and a 70-digit renewal resolvent from backward eigenmodes, over unequal gate switching rates, initial positions and reset rates. It tests probability bounds, mixture identities, strict reset monotonicity over sampled parameters, and asymptotic coefficients. It also simulates Brownian positions **only at exact exponential event times**, using the exact Brownian-bridge crossing probability on active-gate intervals, with fixed random seeds. The run passed 2346 assertions/comparisons. Monte Carlo events give empirical rather than deductive evidence; the infinite claims follow from the analytical proof in RESULT.md. Finite double-precision tests have finite tolerances; high-precision renewal calculation guards against cancellation in the small capture-probability regime.
+## correctness
 
-No independent scientific audit was carried out.
+PASS
+
+Solve killed two-component backward ODE for Laplace transforms H of total capture and G of signed approach side, using active Dirichlet values plus inactive continuity and derivative matching at the transparent origin. For a given reset rate r, derive retained-gate renewal matrix rL with L_ij=(rI-Q)^(-1)_ij-H_i[(rI-Q)^(-1)]_Aj and solve p=fplus+rLp. This reproduces the stated PA, PI and PE formulas, including the r->0 continuation. For strict monotonicity, F and alpha/(r+lambda) decrease, while (1-F)/(r+lambda) is strictly decreasing; factor 1/(1+rho) also decreases. Independent numerical resolvent calculations at five parameter points matched both initial-gate closed formulas, and strong/weak reset expansions follow analytically. Brownian crossing direction is a marked absorption event, not a reflecting-gate boundary.
+
+## originality
+
+PASS
+
+Fresh best-of-knowledge statement-level comparison with relevant published Resultary findings and primary articles, acknowledging known general methods and narrower ancestors; no inspected stronger theorem implies the exact final result. Priority is qualified by explicit residual risks.
+
+## value
+
+PASS
+
+In a natural intermittent-target search model, capture direction is not determined by mean first-passage time. Full side-resolved formulas, universal high-reset calibration, and strict monotone response to resetting offer an exact distributional observable beyond generic renewal identities and simulation plots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

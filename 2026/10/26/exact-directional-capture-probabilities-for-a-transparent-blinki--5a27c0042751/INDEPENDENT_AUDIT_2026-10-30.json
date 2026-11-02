@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:09:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Solve killed two-component backward ODE for Laplace transforms H of total capture and G of signed approach side, using active Dirichlet values plus inactive continuity and derivative matching at the transparent origin. For a given reset rate r, derive retained-gate renewal matrix rL with L_ij=(rI-Q)^(-1)_ij-H_i[(rI-Q)^(-1)]_Aj and solve p=fplus+rLp. This reproduces the stated PA, PI and PE formulas, including the r->0 continuation. For strict monotonicity, F and alpha/(r+lambda) decrease, while (1-F)/(r+lambda) is strictly decreasing; factor 1/(1+rho) also decreases. Independent numerical resolvent calculations at five parameter points matched both initial-gate closed formulas, and strong/weak reset expansions follow analytically. Brownian crossing direction is a marked absorption event, not a reflecting-gate boundary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff arXiv:2009.02739 has a closed-state reflecting target, not a transparent two-sided Brownian gate with approach-direction label.",
+          "General renewal splitting-probability methods may be adapted but do not state this retained-gate directional law."
+        ],
+        "reasoning": "Broader renewal frameworks are acknowledged as method, not automatic coverage of a distinct boundary-value problem and its explicit inequality.",
+        "searches": [
+          "Resultary published findings: blinking transparent target Brownian stochastic resetting directional splitting probability capture side",
+          "arXiv:2512.09739",
+          "arXiv:2009.02739"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.09739",
+        "arXiv:2009.02739",
+        "Resultary semantic query explicitly recorded under all four originality comparison fields"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Total capture-time transforms H alone do not determine the signed approach-side transform G, especially under transparent crossings.",
+          "Changing from reflecting to transparent inactive boundary changes the PDE matching, and resets leave the gate evolving."
+        ],
+        "reasoning": "New marked backward problem and retained-gate matrix algebra are essential to obtain explicit PA,PI and reset monotonicity; closest prior statements do not logically imply these as given.",
+        "searches": [
+          "Resultary published findings: blinking transparent target Brownian stochastic resetting directional splitting probability capture side",
+          "arXiv:2512.09739",
+          "arXiv:2009.02739"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zbik et al. study the SAME transparent-retained-gate search model, use first-passage Laplace transforms and plot arrival side from simulation in their Figure 5.",
+          "The new object is a signed/marked capture Laplace transform, giving side-split rather than total time."
+        ],
+        "reasoning": "The model and arrival-side observable agree; inspected primary paper presents simulated side ratios rather than the exact closed forms and monotonicity theorem.",
+        "searches": [
+          "Resultary published findings: blinking transparent target Brownian stochastic resetting directional splitting probability capture side",
+          "arXiv:2512.09739",
+          "arXiv:2009.02739"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same mathematical model closed probability tables appeared in Resultary search hits; hits were unrelated Bernoulli or stopping probabilities.",
+          "Primary 2025 work gives numerical directional plots, not an exact analytical table in inspected sections."
+        ],
+        "reasoning": "Simulation curves cannot substitute for the all-parameter closed formulas; negative search is not proof of uniqueness.",
+        "searches": [
+          "Resultary published findings: blinking transparent target Brownian stochastic resetting directional splitting probability capture side",
+          "arXiv:2512.09739",
+          "arXiv:2009.02739"
+        ]
+      },
+      "rationale": "Fresh best-of-knowledge statement-level comparison with relevant published Resultary findings and primary articles, acknowledging known general methods and narrower ancestors; no inspected stronger theorem implies the exact final result. Priority is qualified by explicit residual risks.",
+      "residual_risks": [
+        "General splitting-probability identities may imply the formula after model-specific marked renewal calculation; historical derivations outside inspected sources remain possible.",
+        "Simulations were not considered exact validation; the derived backward boundary problem controls the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directions of arrivals are discussed via simulations; inspected text does not give the three exact directional formulas and strict monotonicity",
+          "evidence": [
+            "Section III.3 and Figure 5 of arXiv:2512.09739v2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.09739",
+          "material_read": "Complete accessible arXiv HTML: mathematical setup, Laplace-transform analysis, Section III.3 and Figure 5 side-arrival discussion",
+          "method": "Read relevant complete-text sections and compare analytic versus simulation claims",
+          "title": "Hitting the blinking target under stochastic resetting",
+          "trigger": "Exact same transparent gate/reset model and directional capture question"
+        },
+        {
+          "assessment": "Reflecting inactive target is a different boundary-value problem, no direct side-of-origin capture mark",
+          "evidence": [
+            "arXiv:2009.02739, closed-state boundary construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2009.02739",
+          "material_read": "Full accessible arXiv HTML: model setup, reflecting/inactive boundary conditions, renewal formulation",
+          "method": "Read model and result sections and compare transparency and gate renewal assumptions",
+          "title": "Diffusive search for a stochastically-gated target with resetting",
+          "trigger": "Strong nearby gated Brownian resetting model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a natural intermittent-target search model, capture direction is not determined by mean first-passage time. Full side-resolved formulas, universal high-reset calibration, and strict monotone response to resetting offer an exact distributional observable beyond generic renewal identities and simulation plots.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2512.09739",
+    "arXiv:2009.02739",
+    "GitHub frozen RESULT.md blob 6865fb481d866e134602b09cdb28f55d264a961e",
+    "GitHub frozen verify.py blob bb8a8e106c5984e0604add27507f201bc2227280",
+    "Independent checks at local independent_checks.py and independent_results.json"
+  ],
+  "disposition": "passed",
+  "final_claim": "For Brownian motion on R reset to x0>0 at rate r>=0 with independent two-state gate active->inactive alpha>0 inactive->active beta>0 retained across resets and transparent inactive origin, the initial-active and initial-inactive probabilities of finally hitting the active origin from positive side are PA=1-alpha(1-F)/(2(r+lambda)(1+rho)), PI=1-[F+alpha(1-F)/(r+lambda)]/[2(1+rho)], where lambda=alpha+beta, rho=sqrt(r/(r+lambda)), F=exp(-x0 sqrt((r+lambda)/D)); stationary-gate PE is their beta/alpha mixture. All increase strictly with r, wrong-side capture ~alpha/(4r), and PE has a universal positive sqrt(r) weak-reset correction.",
+  "limitations": [
+    "General splitting-probability identities may imply the formula after model-specific marked renewal calculation; historical derivations outside inspected sources remain possible.",
+    "Simulations were not considered exact validation; the derived backward boundary problem controls the claim.",
+    "Exact source tree SHA was copied from the actual assigned record; the accessible RESULT.md and verification script blobs were independently fetched at the frozen commit, but full tree object byte reconstruction was not available through the repository connector.",
+    "Public metadata contain source provenance and need verified confidentiality-safe complete replacement contents before publication.",
+    "Finite checks corroborate but do not constitute unrestricted proof."
+  ],
+  "schema_version": 1
+}
