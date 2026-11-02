@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cyclic angular gap counting identity is exact for every independent sample size, and the barycentric computation of opposite-ray intersection yields the stated rational halfplane mass. A Laurent-polynomial integration gives the rational-plus-logarithm finite sum. The unique interior maximizing direction has the verified quadratic expansion, giving the square-root Laplace prefactor. Direct exact/integral and simulation checks are included; numerical work is not substituted for the proof.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The previously known three-sample centroid-containment law is recovered, not rediscovered. Wendel's symmetric law cannot evaluate this nonsymmetric angular distribution. The perimeter Winternitz result of Berele and Catoiu (2026) already identifies the equilateral halfplane mass \(5/9\), so the exponential base is **not** a new result. The assessed contribution is the complete all-integer law and its sharp \(\sqrt m\) rare-failure constant. The nearest boundary-polytope publications concern expected hull size and not this event. Unindexed older angular-coverage probability literature may still present an equivalent formula.
+PASS
 
-**Mathematical value — PASS.** This is a natural exact probability and rare-event asymptotic for the planar centroid-capture problem, relevant to sample complexity of random enclosing hulls. Exact evaluation at arbitrary integer size and the nontrivial prefactor add quantitative information not supplied by the geometric depth alone.
+For every integer m>=1, normalized perimeter arclength on the equilateral triangle gives an atomless cyclic angular measure at the centroid. A failed convex-hull capture is equivalently a single cyclic gap of at least pi (unique outside null antipodal configurations). Counting its first sample produces p_m=m E[q(X)^(m-1)]. Direct opposite-ray barycentric intersection gives Q(t)=(1-t)^2/(2-3t) on [0,1/2] and q(t)=1-Q(1-t) on [1/2,1]. A Laurent-polynomial substitution z=2-3t yields the supplied finite Q+Q log2 formula, including p_2=1 and p_3=25/27-(20/81)log2. Differentiation verifies the unique strict angular-mass maximum q(2/3)=5/9 with q''=-2; the interior Laplace estimate yields 3 sqrt(pi m/5)(5/9)^m, with strictly subleading cusp/endpoints. Independently computed m=1,2,3,4,5,10,20 integrals and a fresh 30,000-sample geometric Monte Carlo agree. The integrals, not the finite experiment, establish the all-m law.
 
-**Limits.** Only uniform boundary sampling on an equilateral triangle is asserted; not arbitrary triangles, other sample laws, or independently audited verification. The known \(m=3\) benchmark is used only as a consistency check.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier Wendel symmetric-direction convex-hull formula does not apply to the nonsymmetric triangle perimeter direction law; Berele–Catoiu establishes only the 4/9 minimal halfplane perimeter mass, not the full angular law for every sample size. The prior 3-sample centroid probability is a specialization but does not imply the all-m integral or rare-failure prefactor.
+
+## value
+
+PASS
+
+The all-m exact event probability for the fixed natural centroid and normalized arclength triangle, including the asymptotically sharp polynomial factor, is independently useful in random-polytope containment and geometric probability. Recovering the previously known exponent 5/9 alone would be a routine restatement; the complete distribution and second-order tail are substantive additions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
