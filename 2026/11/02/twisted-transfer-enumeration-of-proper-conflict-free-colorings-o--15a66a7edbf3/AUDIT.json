@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, Proof sections 1-3 with definitions, boundary cases and full characteristic polynomial factors.",
+      "verify.py: exact integer characteristic polynomial identities for both 42-state blocks; direct edge-definition enumeration and 300-length witness tests.",
+      "VERIFICATION.md: reproducible checks and interpretation."
+    ],
+    "rationale": "The PCF condition on a cubic ladder is equivalent to the two explicit forbidden equalities in every three-column window, along with proper edges. A local three-color transition is either a cyclic forward/reverse move or an impossible swap; direction changes fail the same neighborhood constraint. Therefore a three-color pattern cannot satisfy the Möbius row-swap seam. The explicit four-palette words (ABC)^q, (ABC)^qD, (ABC)^qAC satisfy the forbidden equalities at all widths. The 84-state transfer and its row-exchange involution exactly encode all named PCF colorings, including twisted closure. Both full 42-by-42 characteristic polynomials are computed by exact integer Faddeev-LeVerrier in the attached standalone checker. Their determinant traces prove the rational generating series and the Lucas twist correction for all widths; direct small-graph tests are corroboration only.",
+    "residual_risks": [
+      "Independent mathematical review has not occurred. The large finite characteristic-polynomial calculation requires replay of the included code for independent arithmetic confirmation."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lu, Ying, Song, arXiv:2608.29375v1 (first public August 29, 2026), publicly stated theorem: every connected subcubic graph other than C5 is proper conflict-free kappa-choosable, with kappa=degree+1 at degree three.",
+        "Caro et al. (arXiv:2203.01088v1), accessible full text: exact results for other basic classes and broad coloring bounds, not a Möbius-ladder enumeration."
+      ],
+      "reasoning": "The broad 2026 four-list-colorability theorem covers existence of a four-coloring but does not imply the exact lower bound four or the named-color counting function. Previous general bounds and graph structural facts likewise do not determine the anti-invariant transfer trace.",
+      "searches": [
+        "arxiv:2608.29375v1, subcubic proper conflict-free kappa-choosability theorem",
+        "arxiv:2203.01088v1 Sections 2-5, basic classes and upper bounds",
+        "\"Remarks on proper conflict-free colorings of graphs\" \"prism\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.29375v1 (public abstract/theorem, August 29, 2026)",
+      "arxiv:2203.01088v1 (accessible complete preprint)",
+      "arxiv:2202.02570v1 (public abstract)",
+      "Wolfram MathWorld Möbius Ladder (standard graph definition; other enumerators)",
+      "Targeted web terminology searches and published mathematical record comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known prism count has 12 named PCF three-colorings exactly when 3 divides the width; it uses straight boundary identification.",
+        "The 2026 general subcubic result guarantees four available colors but does not restrict the number of optimal colorings."
+      ],
+      "reasoning": "Although the same local 84-state matrix can represent both problems, the prism count is tr(T^m), whereas the Möbius count is tr(JT^m). The former determines the total characteristic polynomial, not the involution-resolved plus/minus factors. The new row-swap spectrum, lower-bound obstruction and explicit rational Möbius count do not follow from the published upper bound or the untwisted trace without additional mathematics.",
+      "searches": [
+        "Published exact proper conflict-free prism count and transfer enumerator (untwisted C_m Cartesian K_2)",
+        "arxiv:2608.29375v1 connected subcubic PCF choosability",
+        "arxiv:2203.01088v1 full text basic-family theorems"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Open-neighborhood PCF is explicitly defined in Caro, Petruševski, Škrekovski, arXiv:2203.01088v1, Section 1 (full accessible text).",
+        "The antipodal-chord Möbius ladder is equivalently a crosswise-closed two-row ladder; standard Möbius-ladder descriptions record this graph equivalence, not a PCF enumerator."
+      ],
+      "reasoning": "Comparisons include the names proper conflict-free, PCF, open-neighborhood conflict-free proper coloring, Möbius ladder, twisted circular ladder, and prism. The present exact count uses row-swapped closure; a similarly named strong, odd or partial conflict-free coloring is not equivalent.",
+      "searches": [
+        "proper conflict-free coloring twisted circular ladders and prism cylinders cubic graphs",
+        "\"Möbius ladder\" \"proper conflict-free\" coloring",
+        "\"Mobius ladders\" \"conflict-free chromatic\"",
+        "proper conflict-free chromatic number circular ladder graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publicly available Möbius-ladder parameter listings describe chromatic number, independence polynomial and Hamiltonian cycles; they do not supply named proper conflict-free colorings.",
+        "The nearest mathematical-record results encountered concern PCF crown graphs or a distinct three-dynamic color invariant on Möbius ladders, not the present PCF count."
+      ],
+      "reasoning": "The absence of a hit is not proof of novelty; direct implication comparison shows the located exact graph tables and related PCF results do not assert or dominate the two 42-state characteristic-polynomial identities or the twisted generating function.",
+      "searches": [
+        "Published mathematical-record semantic query: exact PCF chromatic number of Möbius ladders M_2m four colors always",
+        "Published mathematical-record semantic query: exact number of proper conflict-free 3-colorings of prism graphs and Möbius ladders",
+        "\"Möbius ladder\" \"proper conflict-free\" coloring",
+        "Mobius Ladder MathWorld graph parameters and polynomial"
+      ]
+    },
+    "rationale": "The closest published 2026 theorem gives all subcubic graphs a proper conflict-free four-list-coloring, which implies only the present upper bound and neither the impossibility of three colors nor any named-color enumerator. The accessible complete 2022 primary article proves basic-family and general bounds without treating Möbius ladders or twisted traces. Existing exact prism results are for an untwisted seam; an ordinary transfer trace does not determine the row-swap trace. Searches for PCF Möbius-ladder statements, equivalents, exact tables, stronger results and aliases found no covering formula. Historical priority remains provisional, especially for a 2026 paper whose full text was not available.",
+    "residual_risks": [
+      "Full text of arxiv:2608.29375v1 could not be obtained; a hidden special-case comparison remains possible even though its stated principal result is the general upper bound.",
+      "Other terminology or older unindexed exact enumerations may exist; search failure is not a novelty proof.",
+      "Named-color count deliberately differs from orbit counts by automorphisms, which were not investigated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The asserted general four-choosability upper bound covers one part of the present chromatic conclusion, not the three-color obstruction or enumeration. Full-text hidden overlap remains a stated risk.",
+        "evidence": [
+          "The abstract explicitly states connected subcubic graphs other than C5 are kappa-choosable, with kappa=degree+1 for degree three.",
+          "First submitted August 29, 2026 (UTC)."
+        ],
+        "identifier_or_url": "arxiv:2608.29375v1; https://arxiv.org/abs/2608.29375",
+        "material_read": "First-public-date/abstract/theorem summary from arXiv listing and an independently indexed arXiv abstract; full manuscript text not accessible.",
+        "method": "Public arXiv metadata and alternate index; full-text arXiv and open-access retrieval attempts did not succeed.",
+        "title": "Proper Conflict-Free Choosability for Graphs with Bounded Average Degree",
+        "trigger": "Most recent directly relevant general subcubic proper conflict-free choosability theorem."
+      },
+      {
+        "assessment": "Contains general upper bounds, cycle and tree results, subdivision and claw-free cases; no Möbius-ladder row-swap PCF formula found in the examined complete text.",
+        "evidence": [
+          "Section 1 defines the exact open-neighborhood notion.",
+          "Sections 2-5 state basic-family and general upper-bound results; no Möbius-ladder enumerator."
+        ],
+        "identifier_or_url": "arxiv:2203.01088v1; https://www.researchgate.net/publication/358975147_Remarks_on_proper_conflict-free_colorings_of_graphs",
+        "material_read": "Accessible complete preprint text including introduction, Sections 2-5, main propositions and final questions. Searched for Möbius, prism, Cartesian and ladder in full text.",
+        "method": "Public complete preprint text rendered on ResearchGate; inspected theorem statements and related sections.",
+        "title": "Remarks on proper conflict-free colorings of graphs",
+        "trigger": "Foundational primary paper with exact basic-family PCF chromatic numbers."
+      },
+      {
+        "assessment": "Addresses planar/outerplanar upper bounds and unique-maximum colorings; no covering Möbius-ladder enumerator in the inspected abstract.",
+        "evidence": [
+          "Abstract describes general planar/outerplanar bounds, not twisted ladder PCF enumerators."
+        ],
+        "identifier_or_url": "arxiv:2202.02570v1; https://arxiv.org/abs/2202.02570",
+        "material_read": "ArXiv public abstract and bibliographic description, not a complete manuscript.",
+        "method": "Public abstract comparison.",
+        "title": "Proper conflict-free and unique-maximum colorings of planar graphs with respect to neighborhoods",
+        "trigger": "Original introduction and relevant related graph families."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "15a66a7e-dbf3-4d84-be5e-f3e02dc62392",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "RESULT.md, Finding and Proof: exact 42-state factorization and count.",
+      "Comparison of the 2026 broad upper bound with the new row-swap trace and obstruction.",
+      "verify.py: reproducible exact characteristic polynomial factors."
+    ],
+    "rationale": "Möbius ladders are a natural canonical infinite cubic family, and PCF coloring imposes genuinely local unique-neighbor constraints with a global row-swap obstruction. The result determines not just an upper bound but an exact four-color minimum at every width, an all-length named optimal-coloring generating function, and a nontrivial explicit spectral twist correction relative to circular ladders. The exact correction detects exceptional equality at width five and is derived from an involutive transfer decomposition useful in other strip-graph enumerations. These are structural classification and enumeration results, not a routine relabeling of the existing general subcubic upper bound.",
+    "residual_risks": [
+      "Not claimed for other cubic families or color-palette sizes; historical-priority uncertainty remains."
+    ],
+    "status": "PASS"
+  }
+}
