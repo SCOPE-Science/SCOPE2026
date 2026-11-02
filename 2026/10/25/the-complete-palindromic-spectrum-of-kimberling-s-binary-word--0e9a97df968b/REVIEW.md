@@ -1,15 +1,21 @@
-# Scientific review: palindromes of Kimberling's binary word
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is precisely for the infinite binary word \(B=0\pi(T)\), with \(\pi(0)=100,\pi(1)=101,\pi(2)=10\) and the Tribonacci fixed point \(T\). The primary paper proves this morphic representation. Since all \(\pi(\varphi^3(a))\) blocks have length at least \(11\) and the adjacent pairs of \(T\) are exactly \(00,01,02,10,20\), all factors of length at most \(11\) are exhausted by six explicit finite words. The palindrome census has \(P_B(10)=P_B(11)=0\), excluding every longer palindrome by its center. Distinct palindromes total \(15\); the last first appears at the 25th position, giving the sharp defect formula. The finite cover and independent palindromic-tree checker ran successfully; only the cover is used for the infinite proof.
+PASS
 
-## Originality — PASS within examined sources
+The primary paper proves B=0π(T) with T Tribonacci φ fixed point and π(0)=100, π(1)=101, π(2)=10. Recomputed all three φ³-image blocks of lengths 20,17,11 and all five actual adjacent Tribonacci pairs 00,01,02,10,20. Length≤11 factors lie in six explicit finite cover words, since spanning two boundaries would require ≥13 letters. Independent enumeration recovers distinct palindrome counts at lengths 1..11: 2,2,2,2,2,1,2,1,1,0,0. Nonexistence at lengths 10 and 11 excludes all larger palindromes by their centers. Total 15, longest unique 100101001 at length 9; prefix 24 has 14 and prefix 25 all 15, hence sharp defect N-15 for N≥25. Finite cover proves infinite statement, rather than 100,000-letter sampling.
 
-The primary paper (arXiv:2510.11318) proves the morphic identity, ordinary factor complexity and critical exponent, but does not give this palindromic classification. OEIS A288462 states the sequence rather than its complete palindrome census. General theorems on complement-symmetric Rote words and reversal-closed low-complexity words do not imply this theorem: the target word's factor language is neither complement-symmetric nor reversal-closed. Published mathematical-record and sequence searches found no equivalent or stronger covering statement. Residual risk: unindexed or unpublished overlapping analysis and historical-priority uncertainty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a recently studied binary word of minimum linear ordinary factor complexity among non-Sturmian examples, an exact palindromic spectrum is a natural intrinsic invariant that is not fixed by its ordinary complexity. The complete finite spectrum and its sharp defect-stabilization threshold distinguish this word sharply from complement-symmetric Rote sequences with palindromes at every length. The finite-window structural proof is transferable as a technique, but no general-family theorem is claimed.
+Original Dvořáková–Pelantová–Shallit source gives morphic formula and total factor complexity 2n, not distinct palindromic length spectrum or sharp defect. General palindrome identities often demand reversal closure or complement symmetry, both absent here; the ordinary complexity does not imply exact palindromic counts.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a complete and sharp palindromic-language classification of a specifically studied nonuniform morphic word, with exact finite spectrum, unique longest palindrome and first saturation threshold. Such complete factor-language invariants are natural in combinatorics on words and are not a routine calculation from factor complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

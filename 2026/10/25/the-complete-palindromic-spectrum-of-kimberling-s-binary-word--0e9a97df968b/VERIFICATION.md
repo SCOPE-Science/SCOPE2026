@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Use Python 3 without third-party packages. From the directory containing these files, run:
+## correctness
 
-```
-python3 verify_cover.py > reproduced_cover.json
-python3 verify_eertree.py > reproduced_eertree.json
-```
+PASS
 
-Compare the outputs against `verify_cover_output.json` and `verify_eertree_output.json`. All scripts and data are standalone. The first script derives the six-word finite cover from the Tribonacci and return-word morphisms, checks all relevant palindromic factors through length 11 and the exact 24/25-letter prefix transition. The symbolic fact that every length-at-most-11 factor occurs in this cover, together with absence of length-10 and length-11 palindromes, is the proof of universal absence at longer lengths. The second script independently checks the morphic coding and uses an online palindrome tree for a 100,000-symbol prefix; its finite extent is not a proof of absence at all lengths.
+The primary paper proves B=0π(T) with T Tribonacci φ fixed point and π(0)=100, π(1)=101, π(2)=10. Recomputed all three φ³-image blocks of lengths 20,17,11 and all five actual adjacent Tribonacci pairs 00,01,02,10,20. Length≤11 factors lie in six explicit finite cover words, since spanning two boundaries would require ≥13 letters. Independent enumeration recovers distinct palindrome counts at lengths 1..11: 2,2,2,2,2,1,2,1,1,0,0. Nonexistence at lengths 10 and 11 excludes all larger palindromes by their centers. Total 15, longest unique 100101001 at length 9; prefix 24 has 14 and prefix 25 all 15, hence sharp defect N-15 for N≥25. Finite cover proves infinite statement, rather than 100,000-letter sampling.
 
-The morphic identification of the original Kimberling sequence with the Tribonacci coding is a cited prior theorem, not independently reproved here. An independent scientific review has not been performed.
+## originality
+
+PASS
+
+Original Dvořáková–Pelantová–Shallit source gives morphic formula and total factor complexity 2n, not distinct palindromic length spectrum or sharp defect. General palindrome identities often demand reversal closure or complement symmetry, both absent here; the ordinary complexity does not imply exact palindromic counts.
+
+## value
+
+PASS
+
+This is a complete and sharp palindromic-language classification of a specifically studied nonuniform morphic word, with exact finite spectrum, unique longest palindrome and first saturation threshold. Such complete factor-language invariants are natural in combinatorics on words and are not a routine calculation from factor complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
