@@ -1,20 +1,21 @@
-# Review: Exact minimum-width directions of the sharp lattice-width simplex
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The vertex evaluations reduce width to half the integer range of \(\{0,x_1,x_2,x_3\}\) on the congruence sublattice \(x_1+x_2+x_3\equiv0\pmod4\). If that range is below two, all entries lie in \(\{0,1\}\) or \(\{-1,0\}\), forcing the zero vector. The range-two cases are exhausted by the three sign patterns in the proof and map to exactly 18 vectors. The edge determinant is \(1/2\), so the volume is exactly \(1/12\).
+PASS
 
-## Originality
+For the exact Aliev tetrahedron Δ, vertex evaluations of integral u=(a,b,c) are 0,(s+a)/2,(s+b)/2,(s+c)/2 with s=a+b+c. Setting x_i=s+u_i is a bijection onto integer triples with sum divisible by four, inverse u_i=x_i-s. Thus twice the lattice width is the integer range of 0,x1,x2,x3. A nonzero u cannot have range <=1: all x_i then lie in {0,1} or {-1,0}; their sum lies between -3,3 and divisible by 4, so all vanish. Range=2 splits exhaustively into (i) nonnegative: permutations of (2,2,0),(2,1,1), (ii) nonpositive negatives, and (iii) mixed: permutations of (-1,0,1). Mapping back gives exactly ±coordinate vectors, six permutations of (1,-1,0), and six mixed-sign ±1 triples, a total of 18 oriented/nine unoriented directions. Determinant of the edge matrix with diagonal 1 off-diagonal 1/2 is 1/2, volume 1/12; width=1 attains known sharp inequality. Independent integer shell enumeration confirmed 18 and independent range check scanned 4,912 nonzero u in [-8,8]^3; universal min lower bound is the congruence proof, not the scan.
 
-**PASS, with residual bibliographic risk.** Aliev’s 2023 paper states the sharp volume–lattice-width inequality and supplies the equality simplex, but the inspected text does not list its minimum-width directions. Draisma–McAllister–Nill give a universal count bound of \(3^3-1=26\) and characterize the equality case for that count; this does not imply the exact 18-vector set for \(\Delta\). Exact and alias-oriented literature searches found related general results but no matching classification. Search failure is not treated as proof of novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result gives the complete active-direction set for a canonical sharpness witness in a three-dimensional geometry-of-numbers inequality. This finite contact structure is a natural exact invariant of the equality example and is useful for comparing it with the universal direction-count theorem; no broader stability or equality-classification consequence is claimed.
+Aliev's 2023 primary result establishes the volume-lattice-width equality and explicitly specifies this tetrahedron, but does not enumerate the complete attaining integer-functional set in its corollary and proof. Draisma–McAllister–Nill bound the number of minimum directions by 3^d-1, equality only at the regular lattice cross-polytope; at d=3, their 26 bound does not specify the exact 18 or directional identities for Aliev's simplex. This finite contact classification is a distinct result, with priority qualification for unindexed discussions of the sharpness example.
 
-## Closest literature and limits
+## value
 
-- Aliev, arXiv:2306.14576: the sharp inequality and the equality simplex.
-- Draisma, McAllister, and Nill, DOI 10.1137/120877635: the general lattice-width-direction count and extremal cross-polytope case.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The particular tetrahedron is a canonical sharpness witness for the exact three-dimensional volume-width inequality, so its active primitive dual width functionals are a natural finite invariant, not an arbitrary mesh enumeration. The complete nine unoriented contact directions sharpen knowledge of the equality witness and can serve in studies comparing extremal width contact geometry and equality/stability conditions. The number and full direction list were not supplied by the published universal bound. The calculation is elementary but a motivated exact classification of a canonical extremizer, with no claim of a new general inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
