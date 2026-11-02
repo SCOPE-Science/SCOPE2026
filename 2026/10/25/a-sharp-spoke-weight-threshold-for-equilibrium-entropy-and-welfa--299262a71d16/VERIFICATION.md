@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in `RESULT.md` establishes the universal statement for all integers \(m\ge3\) and real parameters \(\lambda>0\) by direct payoff comparisons, a cyclic gap decomposition, transfer-matrix traces, and a deterministic cut-improvement argument. The separate code supplies a finite exact-arithmetic check and does not constitute an infinite proof.
+# Independent mathematical audit
 
-With Python 3 standard library, execute:
+## correctness
 
-```
-python3 verify.py
-```
+PASS
 
-This enumerates both hub actions and all \(2^m\) rim configurations for \(3\le m\le14\), at each of the six rational weights \(1/2,1,199/100,2,201/100,5\), verifying Nash and strict Nash tests by direct per-player payoff evaluation, all refined equilibrium counts, the weighted-cut optimum, the equilibrium welfare levels, and the price-of-anarchy numerator and denominator. It verifies the enumerator sequences through \(m=299\) using exact integers. A successful execution reports `PASS 72 wheel/weight cases; 393120 full profiles`, with two further `PASS` messages. These calculations do not cover all real weights or all \(m\); the proof handles those quantifiers.
+For any integer m>=3, real lambda>0, binary equal-edge-interest best responses on the labeled wheel reduce to 2k>=lambda+2 for a hub-matching rim site and lambda+2>=2ell for a hub-opposing rim site. This yields cyclic 2/3-spacing of zeros below lambda=2, isolated zeros at equality, and no zeros above. Cyclic gap root counting gives refined 2m/z*binom(z,m-2z), the closed-walk transfer trace gives Perrin P_m, and independent sets of a cycle give Lucas L_m at equality. Strict hub ties occur in exactly four even-m alternations below threshold; all states tie at threshold; two strong equilibria above. Each all-profile cut has edge weight lambda(m-z)+rim transitions. Eliminating consecutive zeros raises cut, then maximizing z proves max cut lambda*m+(2-lambda)_+floor(m/2), PoS=1 and stated PoA and asymptotic entropy. Independent direct payoff enumeration covered m=3..10 at four rational weights on both sides and at threshold; source verifier covers m=3..14. These finite tests do not prove the all-m theorem.
 
-No independent audit or externally assessed validation has been performed. Related general graphical-game literature establishes existence and potential-game principles but does not, on the inspected primary sections, imply the exact spoke-weighted wheel classification. An equivalent statement in less-visible Ising or local-cut literature remains possible.
+## originality
+
+PASS
+
+The game is equivalent to single-spin-flip local maxima of an antiferromagnetic weighted wheel cut. The Perrin and Lucas recurrences and generic maximum-cut/PNE relationship are prior tools, not novel by themselves. The surviving result is the full three-regime wheel classification including strict equilibria and sharp welfare inefficiency; the inspected ladder and general anti-coordination treatments do not directly imply it. The most dangerous wheel-specific Ising paper studies ground-state degeneration (global energy minimizers), a different object from all local equilibria, but its uninspected technical material remains a real priority risk.
+
+## value
+
+PASS
+
+A complete three-phase thermodynamic/equilibrium classification for the natural wheel family (hub vs ring frustration) is mathematically motivated. Nontrivial content lies in the whole PNE spectrum, discontinuous Perrin-to-Lucas-to-two entropy transition, strict tie boundary, and exact efficiency price; not only a textbook potential-game observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
