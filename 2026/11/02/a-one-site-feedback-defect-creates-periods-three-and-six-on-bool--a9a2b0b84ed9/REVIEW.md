@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The identities \(A^2=(d\bmod2)I\), \(\operatorname{rank}(A+(d\bmod2)I)=2^{d-1}\), and the rank-two image of the squared defect operator establish the complete invariant decomposition. The nonstandard load-bearing rank-increase step is proved using symmetry and \(\operatorname{im}H=\ker H\); it is independently checked by the included verifier over dimensions \(2\) through \(8\). Exactly computed Jordan blocks yield the even-dimensional transient census and the odd-dimensional primitive-orbit census. No finite experiment is taken as proof of the all-dimensions theorem.
+
+**Originality — PASS, with residual historical risk.** Brunnet–Chaté's full 2004 paper addresses uniform nonlinear totalistic rules on hypercubes rather than a single-site binary parity defect. The accessible full text of Lettieri–Stevens–Thomas (2006) treats one-dimensional homogeneous Rule 90/150 maps, not the non-circulant defective cube. Public record `f288ef2fe8b4` treats a distance-two cube and has no three- or six-cycles; public record `acea41c73be7` treats complete multipartite graphs. Older accessible local records on one-site ring defects, wheels and tori differ by graph and algebraic hypothesis. No equivalent published statement was identified in the searches; the general algebraic methods are established prior work. The large Martin–Odlyzko–Wolfram PDF was not fully inspected, so unlocated historical implications remain possible.
+
+**Value — PASS.** A single local feedback modification creates explicit period-three and period-six oscillations in odd-dimensional cubes whose uniform parity rule only has periods one and two, while in even dimension it creates a nonzero fixed attractor and one additional transient layer from an otherwise square-zero rule. The all-dimensional exact orbit census and block structure isolate a natural high-symmetry-versus-local-defect mechanism rather than an arbitrary small computation.
+
+The theorem is confined to characteristic two, the standard Boolean hypercube, and one designated feedback vertex; it makes no uniqueness claim over all historical sources. Independent validation is not performed.
+
+Self-review: passed. Independent audit: not yet performed.
