@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The claimed spectrum follows from a full invariant-space decomposition using the unsigned incidence maps of two complete graphs. The constant, standard, mixed, and kernel blocks account for every one of the \(\binom{m+n}{2}\) dimensions. The exact spanning-tree product follows by Kirchhoff's theorem. Direct exact characteristic polynomials and cofactor determinants on five parameter pairs, and an independently constructed modular Laplacian on eight pairs, corroborate the algebra; neither finite check is used as an infinite proof.
+
+**Originality — PASS, with residual priority risk.** The 2009 token-graph introduction does not classify Laplacian spectra; the 2020/2021 general spectrum theory establishes spectral inclusion, complement relationships, and algebraic connectivity for complete bipartite hosts, but does not give the full multiplicity-resolved factorization or displayed spanning-tree product. The 2024 commuting-algebra theory supplies general machinery, and the 2026 cograph-integrality theorem already implies mere integrality of this family. None is presented as a new conclusion here. The full spectra and tree product are natural explicit evaluations not located in the inspected primary texts or relevant mathematical finding searches. However, alternative deductions using the published spectral algebras, or an overlooked exact table, remain possible.
+
+**Value — PASS.** Two indistinguishable exclusion tokens on a complete bipartite graph form a canonical and highly symmetric graph family; its Laplacian controls random-walk relaxation and its nonzero spectrum determines the exact spanning-tree complexity. The formula applies to unbounded, unbalanced bipartitions and reveals uniformly at most ten distinct eigenvalues even as the configuration-space order grows quadratically. It answers a natural exact invariant question rather than computing one isolated graph.
+
+**Closest literature and scope.** See the four fully referenced primary sources in `RESULT.md`; the nearest prior tools are Dalfó et al. (2020/2021), Reyes et al. (2024), and Verma (2026). Only two tokens and part sizes at least three are claimed. A general derivation of integrality or the known spectral gap is not the contribution.
+
+Self-review: passed. Independent audit: not yet performed.
