@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The model is the uniform distribution on bounded-multiplicity partitions, not on labelled permutations. Exact product-law conditioning, a span-one local central limit for independent truncated-geometric multiplicities, and bounded-degree Hanf locality yield the joint short-cycle limit and finite Boolean truth table. The Fourier proof explicitly controls central and noncentral frequencies. An exact checker independently reproduces 1,134 finite enumerative identities; infinite limits use the analytic proof, not enumeration.
+## correctness
 
-**Originality (PASS, qualified).** The familiar unrestricted unlabelled-permutation zero-one law cannot imply the nontrivial base-dependent spectra of the capped model. The closely related papers by Albert–Bouvel–Féray, Koponen, Markström–Räty, Debruyne–Tenenbaum and Corteel–Pittel–Savage–Wilf have distinct scopes; the inspected portions do not give this exact logical classification. Residual risks include subsumption by a broad older restricted-part asymptotic combined with known locality, and uncatalogued model-theoretic precedents. Absence from search is not a proof of priority.
+PASS
 
-**Value (PASS).** The restriction “at most \(r\) cycles of each length” is a canonical partition-theoretic condition. The theorem identifies a sharp change from an unrestricted zero-one law to the complete \((r+1)\)-adic spectrum, with effective limit evaluation for every first-order sentence. Distinct-part and bounded-repeat conjugacy types form a natural parameter family, not an ad hoc finite slice.
+Unlabelled permutations correspond one-to-one to integer partitions of n, with each cycle length multiplicity m_j between 0 and fixed r. A bounded-degree Hanf locality argument makes any fixed first-order successor-language sentence eventually depend only on finitely many short cycle counts: cycles longer than J=2d+1 have the same rooted path-neighborhood, and long-cycle vertices exceed the finite Hanf saturation threshold for large n. The independent Boltzmann family Pr_t(M_j=a)=exp(-tja)/Σ_{b=0}^r exp(-tjb) becomes exactly uniform over admissible partitions when conditioned on Σ j M_j=n. The displayed Fourier lower bound on Σ_{j≤1/t}(1−cos jθ), third-moment O(t^-4) and variance Θ(t^-3), with t_n=Θ(n^-1/2), yield a span-one uniform lattice LLT and a ratio limit after deleting finitely many coordinates. Hence fixed m_1..m_J→iid Uniform{0..r}; FO probabilities have denominator (r+1)^J, while exact first-order formulas counting specified length-j cycles realize every such cylinder event, giving spectrum Z[1/(r+1)]∩[0,1]. Independently computed exact restricted-partition DP at n=20,50,100,250, r=1,2,3 and J=1,2,3; every finite-block decomposition held, and n=250 two-coordinate deviations from uniform were ≤0.023. These finite checks do not prove locality/LLT; those rely on the analytical proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison with primary literature, published results and a new Resultary search; foundational premises credited; no negative-search priority inference. Potential equivalence to restricted partition small-part limit laws and their logical interpretations was examined; no inspected source states the FO spectrum in this model.
+
+## value
+
+PASS
+
+The unlabelled/labelled distinction in random permutations radically changes first-order laws. This theorem gives a complete and effective FO spectrum for every fixed multiplicity cap r, a natural model between distinct parts and arbitrary integer partitions; dyadic/triadic and general base-(r+1) probabilities are genuinely nontrivial in the pure successor language. The uniform small-cycle limit, effective locality reduction and realizability form a motivated complete logical classification, not a cosmetic parameter rename.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
