@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T03:50:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p_n=(log n+t)/n with fixed real t, union-bound counting of reachable sets of sizes 2..floor(n/2), each with an out-arborescence and no outgoing edge, gives o(1) probability that any positive-outdegree vertex has at most half the graph reachable. The reversed statement holds for predecessor sets. Two sets exceeding n/2 intersect, yielding the exact all-pairs relation uRv iff u=v or outdeg(u)>0 and indeg(v)>0 a.a.s. Mixed factorial moments of zero indegrees/outdegrees tend to lambda^(a+b), lambda=e^-t; overlap patterns are lower order and hence independent Poisson limits follow. The resulting O_P(1) initial/final singleton layers and one large middle equivalence class give automorphism groups and a first-order convergence mixture by a quantifier-rank Ehrenfeucht–Fraïssé game with sufficiently large indistinguishable middle layers. The source finite verifier was inspected; it checks small directed-graph consequences, not asymptotic correctness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pittel–Poole analyze c/n with fixed c>1; Bal et al. study a color-enriched arborescence process."
+        ],
+        "reasoning": "Their hypotheses differ from logarithmic p and their conclusions do not imply FO limits; historical Karp full-text coverage is unverified and reported as a risk.",
+        "searches": [
+          "DOI:10.1002/rsa.3240010106",
+          "arXiv:1405.4022",
+          "arXiv:1411.3364"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob 0445f2201b77780e7987dbe6da62f246561d59db; verify_three_layer.py blob a3a15f12b8c94c0e5c1ec8d7d7f8de0693853f8b",
+        "R. M. Karp, The Transitive Closure of a Random Digraph, Random Structures & Algorithms 1 (1990), DOI:10.1002/rsa.3240010106",
+        "B. Pittel and D. Poole, Asymptotic Distribution of the Numbers of Vertices and Arcs of the Giant Strong Component in Sparse Random Digraphs, arXiv:1405.4022",
+        "Bal et al., Rainbow arborescence in random digraphs, arXiv:1411.3364",
+        "Resultary search: random directed graph reachability preorder logarithmic connectivity threshold indegree outdegree zero Poisson first-order law"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A giant strongly connected component at fixed average degree is weaker than an all-pairs exact reachability relation at the logarithmic threshold."
+        ],
+        "reasoning": "The joint source/sink Poisson mixture and first-order law require additional uniform reachability and EF arguments; inspected prior results do not imply them.",
+        "searches": [
+          "arXiv:1405.4022 (Theorems in public PDF)",
+          "arXiv:1411.3364 (public PDF)",
+          "DOI:10.1002/rsa.3240010106 (abstract)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Random reachability is the transitive closure of D(n,p); the target asserts a canonical near-complete preorder at p=(log n+t)/n."
+        ],
+        "reasoning": "This is mathematically a random transitive closure theorem, not merely a modal-logic rephrasing. Karp is therefore a priority trigger; the inspected abstract does not determine the full all-pairs formula in this window.",
+        "searches": [
+          "DOI:10.1002/rsa.3240010106",
+          "arXiv:1405.4022"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source computes small directed graphs with direct reachability and degree-zero moment tests; no named exact prior three-layer probability table was located."
+        ],
+        "reasoning": "Finite samples are only sanity tests, not a novelty argument or a substitute for the union bound/factorial moments.",
+        "searches": [
+          "Resultary query: random directed graph reachability preorder logarithmic connectivity threshold indegree outdegree zero Poisson first-order law",
+          "Assigned verify_three_layer.py"
+        ]
+      },
+      "rationale": "Karp (1990) studies transitive closure of random digraphs with giant-component regime but the full paper was inaccessible and might have stronger threshold results. Pittel–Poole (2014) analyze the giant strong component at fixed np>1, rather than the near-connectivity logarithmic window. Bal et al. (2014) cover spanning-arborescence thresholds in a different random colored digraph setting. None of the materially inspected results gave the precise three-layer all-pairs preorder, independent Poisson layer decoration and full FO convergence law. Best-of-knowledge, with explicit historical Karp risk.",
+      "residual_risks": [
+        "Karp (1990) full paper inaccessible due Oxford vpn_disconnected; a stronger near-connectivity reachability result in it could imply part of the random relation theorem.",
+        "Only the fixed-t directed Erdős–Rényi model is covered; moving thresholds and languages with named labels are not proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_THIS_LOGARITHMIC_WINDOW_ON_INSPECTED_THEOREM",
+          "evidence": [
+            "Main model with np->c>1 fixed and Gaussian giant SCC fluctuations"
+          ],
+          "identifier_or_url": "arXiv:1405.4022",
+          "material_read": "Public PDF abstract and opening theorem, page 1",
+          "method": "Direct PDF reading and page image",
+          "title": "Asymptotic Distribution of the Numbers of Vertices and Arcs of the Giant Strong Component in Sparse Random Digraphs",
+          "trigger": "Same directed random graph with giant SCC"
+        },
+        {
+          "assessment": "Different color-enriched arborescence hitting-time result; no FO law",
+          "evidence": [
+            "Threshold spanning arborescence assertions do not specify all ordered reachability pairs"
+          ],
+          "identifier_or_url": "arXiv:1411.3364",
+          "material_read": "Public PDF opening model and theorem statements",
+          "method": "Direct PDF reading and page image",
+          "title": "Rainbow arborescence in random digraphs",
+          "trigger": "Possible stronger logarithmic-threshold connectivity implication"
+        },
+        {
+          "assessment": "HISTORICAL_PRIORITY_RISK; cannot assert whole-document noncoverage",
+          "evidence": [
+            "Oxford job 3f364182d434cd1daac263545d532152 returned vpn_disconnected"
+          ],
+          "identifier_or_url": "DOI:10.1002/rsa.3240010106",
+          "material_read": "Available abstract only; full 1990 text not read",
+          "method": "Abstract/metadata; lawful accessible sources attempted, Oxford blocked",
+          "title": "The Transitive Closure of a Random Digraph",
+          "trigger": "Closest historical title for exact random reachability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives an exact canonical random S4-frame structure with probabilistic exceptional layers and a complete first-order convergence law, bridging random directed-graph connectivity and finite-model theory. Its concrete limit mixture and automorphism description are natural and genuinely more informative than a single connectivity probability.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md blob 0445f2201b77780e7987dbe6da62f246561d59db; verify_three_layer.py blob a3a15f12b8c94c0e5c1ec8d7d7f8de0693853f8b",
+    "R. M. Karp, The Transitive Closure of a Random Digraph, Random Structures & Algorithms 1 (1990), DOI:10.1002/rsa.3240010106",
+    "B. Pittel and D. Poole, Asymptotic Distribution of the Numbers of Vertices and Arcs of the Giant Strong Component in Sparse Random Digraphs, arXiv:1405.4022",
+    "Bal et al., Rainbow arborescence in random digraphs, arXiv:1411.3364",
+    "Resultary search: random directed graph reachability preorder logarithmic connectivity threshold indegree outdegree zero Poisson first-order law"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "This assessment uses a frozen Git tree; it does not authorize a repository write or certify global publication priority.",
+    "The confidentiality-sensitive source administrative files were inspected and no sanitized publishable replacement operations were staged.",
+    "Bounded independent arithmetic checks do not replace the infinite-parameter proof where applicable."
+  ],
+  "residual_risks": [
+    "Karp (1990) full paper inaccessible due Oxford vpn_disconnected; a stronger near-connectivity reachability result in it could imply part of the random relation theorem.",
+    "Only the fixed-t directed Erdős–Rényi model is covered; moving thresholds and languages with named labels are not proved."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and mathematical checks
 
-Run `python3 verify_three_layer.py` under Python 3.9 or later; no network access, random seed changes, or third-party packages are needed. The program enumerates all \(2^{n(n-1)}\) directed loop-free graphs for \(1\le n\le4\) and independently calculates reflexive transitive closure. The numbers of configurations satisfying the canonical identity at world counts \(1,2,3,4\) are respectively \(1,4,64,3283\) of \(1,4,64,4096\); satisfying the stronger sufficient half-reachability premise are respectively \(1,4,64,2909\). Every sufficient-case implication was checked.
+# Independent mathematical audit
 
-The checker also compares the exact expected numbers of zero-indegree vertices and the product of numbers of zero-indegree and zero-outdegree vertices with full-sample enumeration under edge probability \(1/2\). Seeded finite simulations at sizes \(20,40,80\), 120 trials per size, compare the canonical identity with the sufficient condition at \(p=(\log n)/n\). These are consistency checks, not the limit theorem.
+## correctness
 
-The proof of the asymptotic result separately verifies the count of outgoing-closed reachable sets, the large-reachability intersection implication, overlap terms in the joint factorial moments, and a rank-bounded EF game for the model-theoretic limit. No independent audit has been performed and no external proof assistant was used.
+PASS
+
+For p_n=(log n+t)/n with fixed real t, union-bound counting of reachable sets of sizes 2..floor(n/2), each with an out-arborescence and no outgoing edge, gives o(1) probability that any positive-outdegree vertex has at most half the graph reachable. The reversed statement holds for predecessor sets. Two sets exceeding n/2 intersect, yielding the exact all-pairs relation uRv iff u=v or outdeg(u)>0 and indeg(v)>0 a.a.s. Mixed factorial moments of zero indegrees/outdegrees tend to lambda^(a+b), lambda=e^-t; overlap patterns are lower order and hence independent Poisson limits follow. The resulting O_P(1) initial/final singleton layers and one large middle equivalence class give automorphism groups and a first-order convergence mixture by a quantifier-rank Ehrenfeucht–Fraïssé game with sufficiently large indistinguishable middle layers. The source finite verifier was inspected; it checks small directed-graph consequences, not asymptotic correctness.
+
+## originality
+
+PASS
+
+Karp (1990) studies transitive closure of random digraphs with giant-component regime but the full paper was inaccessible and might have stronger threshold results. Pittel–Poole (2014) analyze the giant strong component at fixed np>1, rather than the near-connectivity logarithmic window. Bal et al. (2014) cover spanning-arborescence thresholds in a different random colored digraph setting. None of the materially inspected results gave the precise three-layer all-pairs preorder, independent Poisson layer decoration and full FO convergence law. Best-of-knowledge, with explicit historical Karp risk.
+
+## value
+
+PASS
+
+The theorem gives an exact canonical random S4-frame structure with probabilistic exceptional layers and a complete first-order convergence law, bridging random directed-graph connectivity and finite-model theory. Its concrete limit mixture and automorphism description are natural and genuinely more informative than a single connectivity probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
