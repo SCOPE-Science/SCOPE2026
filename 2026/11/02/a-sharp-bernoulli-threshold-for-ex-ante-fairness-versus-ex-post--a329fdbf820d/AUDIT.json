@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The allocation state t identifies a complete equivalence class of deterministic preallocations. The independent comparison signs give Q_t=t+Z/2. Conditional on the heavy sign, Z is 2K or 2(K-r), and multiplying independent non-envy tails yields both closed forms, including equality atoms. Direct subtraction yields the single-crossing rule. The exact P1-P0 numerator has sign positive precisely from r=3. Concentration proves t_r/r ->1/2. Standalone exact checker reproduced the distribution independently for 65 cases and compared 200 thresholds; finite computation is corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2602.12359 §§2–4, Appendix E: randomized stochastic valuation profiles with bid-responsive mechanisms, typically common item law and asymptotic high-probability EF.",
+        "arXiv:2601.16579 §§1–3: known fixed values and random allocations minimizing the sum of agent-value variances.",
+        "arXiv:2609.23577 §§1–4: online randomized allocations, exact or approximate ex-post fairness of the random rule, not unknown-item values.",
+        "Aloisio et al., AAMAS 2024, §§2–3: precommitted independent random valuations, with expected maximum envy objective; no probability-of-zero-envy threshold theorem."
+      ],
+      "reasoning": "None of these broader mechanism results computes the exact finite probability for precommitted allocation of heterogeneous binary lotteries; different sources of uncertainty prevent importing their ex-ante/ex-post conclusions. Closest earlier precommitment work instead minimizes expected maximum envy, which does not determine the success probability at zero envy.",
+      "searches": [
+        "Web: \"Truthful Fair Division under Stochastic Valuations\" arxiv date",
+        "Web: \"2025 2026 ex ante ex post fairness uncertain valuations Bernoulli fair division paper\"",
+        "Web: \"2026 allocations before item values realized probability ex post envy free symmetric discrete two agents\"",
+        "Web: \"Approximately Fair Allocation of Indivisible Items with Random Valuations\" Aloisio publication 2024 arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.12359",
+      "arxiv:2601.16579",
+      "arxiv:2609.23577",
+      "arxiv:2610.34906",
+      "published-finding corpus mathematical record search (four actual semantic queries)",
+      "Own recoverable research ledger claims (61 records)",
+      "AAMAS2024:AloisioBCFV"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.34906 §5 Proposition 5.6 assumes non-atomic per-item symmetric distributions for two-agent optimality, whereas each proposed item has two atoms; §4 demands common convolution-power structure, whereas a single amplified Bernoulli is not a convolution of the r ordinary Bernoulli items.",
+        "arXiv:2602.12359 studies items drawn from a common distribution followed by bid-responsive choices, and proves high-probability EF, not a finite precommitted exact optimizer.",
+        "At r=3 the independently proved 84/256 versus 81/256 exhibits a strict gap without invoking prior theorems."
+      ],
+      "reasoning": "The earlier broad results neither dominate nor contradict this discrete special family because their hypotheses or timing of allocation decisions differ. The post-anchor close manuscript discusses the general model but gives no displayed exact classification of this family; the result is independently derived.",
+      "searches": [
+        "Web: \"two agents random lottery goods ex ante versus ex post probability Bernoulli\"",
+        "arXiv:2610.34906 §4 Theorems 4.4–4.5 and §5 Proposition 5.6",
+        "arXiv:2602.12359 §3 Theorem 3.7 and model §2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.34906 §§4–5: two-agent convolution-power sufficient hypotheses, non-atomic symmetric optimality, general symmetric probability guarantees; none states the atomic heterogeneous binomial-tail threshold.",
+        "published-finding corpus closest related records include 2026/10/4/SCOPE-exact-pair-balancing-law-for-gini-dispersion-of-poisson-binomial--bd2c764a90dd (Gini dispersion, not two-agent realized EF) and 2026/10/4/SCOPE-exact-fixed-sum-phase-diagram-for-collision-entropy-of-bernoulli--55be6d09f9ef (collision entropy, not preallocated goods)."
+      ],
+      "reasoning": "The proposed allocation objective multiplies independent opposed tails of a signed weighted Bernoulli sum. Coin-entropy and probability-mass-balancing laws use different functionals. The closest precommitted-lottery paper has conditions not satisfied by the amplified single Bernoulli good; its stated non-atomic optimality does not imply the atomic phase transition.",
+      "searches": [
+        "published-finding corpus: \"Fair Division of Lotteries Igarashi Oh 2610.34906 Bernoulli symmetric discrete ex-ante envy-free ex-post optimizing probability\"",
+        "published-finding corpus: \"two agents one heavy random item and several light fair Bernoulli items maximize ex-post envy freeness binomial tails partition\"",
+        "Web: \"symmetric\" \"discrete\" \"ex-ante\" \"ex-post\" envy-free probability allocation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A nearest available claim, 2026/10/4/SCOPE-exact-three-agent-lottery-shape-classification-for-random-ser--7ae5a1139952, concerns random serial dictatorship allocation lotteries.",
+        "prior research records has 61 recoverable accepted claims; related lottery-chores and online-success claims concern random allocation mechanisms rather than stochastic intrinsic item utilities."
+      ],
+      "reasoning": "No observed exact table of the weighted Bernoulli realized envy-free probabilities, no matching crossing threshold, and no prior research records entry entails the theorem. Search failure by itself is not treated as a novelty proof.",
+      "searches": [
+        "published-finding corpus: \"probability envy freeness symmetric Bernoulli uncertain valuations heavy goods counterexample\"",
+        "published-finding corpus: \"binomial tails fair lottery allocation ex ante envy free suboptimal even symmetric atom distributions\"",
+        "prior research records: exact recoverable claim text searched for uncertain, lottery, Bernoulli, envy and probability."
+      ]
+    },
+    "rationale": "The theorem classifies exact ex-post EF probabilities and the r=3 threshold for precommitted heterogeneous binary lottery goods. Comparison with valuation-responsive stochastic mechanisms, ex-ante allocation lotteries, and the closest uncertain-item manuscript identifies no statement or stronger result implying the threshold; exact duplication in unindexed work remains a risk.",
+    "residual_risks": [
+      "Unindexed work might contain an equivalent weighted-Bernoulli tail optimizer or the same sharp three-light-good boundary.",
+      "The later closely related lottery-items work is not an independent validation of this theorem; its more general model may motivate future refinement.",
+      "Proofed only for the explicitly stated independent fair binary valuation family, not arbitrary lotteries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different bid-responsive stochastic mechanisms, common distributions, asymptotic goals; no exact fixed-preallocation heavy-light Bernoulli theorem",
+        "evidence": [
+          "§2 assumes independent draws of item valuations and reports; §3 has picking-exchange and picking-sequence mechanisms; §4 focuses BIC and near-welfare-optimal allocations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.12359",
+        "material_read": "Sections 1–4, explicit model §2, Theorems 3.1, 3.7, 3.10, 4.1 and Appendix E sections on high-probability EF",
+        "method": "Accessible complete arXiv rendered manuscript",
+        "title": "Truthful Fair Division under Stochastic Valuations",
+        "trigger": "Eligible stochastic-valuation fairness model and probability of EF"
+      },
+      {
+        "assessment": "Probabilistic allocation of fixed known-valued goods; incompatible probability space with stochastic realized item values",
+        "evidence": [
+          "Introduction contrasts randomized allocations with ex-post bundles; variance is across allocation lotteries"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.16579",
+        "material_read": "Introduction, definitions, Theorem 1.1 and stated variance minimization contributions",
+        "method": "Accessible arXiv rendered manuscript",
+        "title": "On Best-of-Both-Worlds Fairness via Sum-of-Variances Minimization",
+        "trigger": "Possible ex-ante versus ex-post implication via variance minimization"
+      },
+      {
+        "assessment": "Online algorithmic randomization and worst-case valuations; not an exact closed form for precommitted uncertain goods",
+        "evidence": [
+          "Introduction §1 distinguishes allocation lottery from ex-post outcome, source values revealed at item arrival"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.23577",
+        "material_read": "Abstract, introduction, full contribution summary, §§2–4 descriptions",
+        "method": "Accessible arXiv rendered manuscript",
+        "title": "Randomized Online Fair Division: High-Probability and Expected Realized Fairness",
+        "trigger": "Potential domination by results on probability of realized fairness"
+      },
+      {
+        "assessment": "Close model. Proven optimality requires convolution powers or non-atomic symmetry; no observed exact heavy-versus-r-light atomic phase classification. Released October 26, 2026, subsequently to the selected February primary source.",
+        "evidence": [
+          "§4 convolution-power optimality conditions; §5 Proposition 5.6 assumes non-atomic symmetric distributions; §5 Example 5.1 differs in agent-specific item laws and asks multi-agent asymptotic probability"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.34906",
+        "material_read": "All major paper sections including §§4–5, Proposition 5.6, computational §6 and references; PDF page 1 image inspected",
+        "method": "Accessible arXiv full manuscript and PDF page inspection",
+        "title": "Fair Division of Lotteries",
+        "trigger": "Strongly relevant identical per-item lotteries and ex-post EF probability"
+      },
+      {
+        "assessment": "Their optimization minimizes expected maximal envy and proves broad approximation bounds; it does not count the probability of exact envy-freeness nor classify the heavy-versus-light fair Bernoulli family",
+        "evidence": [
+          "Page 2 defines expected maximum envy as expectation of the maximum of realized envy and studies a bound O(w sqrt(log(n)m/n)); exact zero-envy event probabilities are a different functional."
+        ],
+        "identifier_or_url": "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p2120.pdf",
+        "material_read": "Full three-page AAMAS 2024 extended abstract, including model §2, results §3 and future work §4",
+        "method": "Accessible original conference PDF, including visual inspection of the second page",
+        "title": "Approximately Fair Allocation of Indivisible Items with Random Valuations",
+        "trigger": "Identical precommitment timing with independent item valuation uncertainty"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a329fdbf-820d-4cd9-83a6-57ea1a992f67",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precommitted allocation model naturally asks whether equalizing expectations also maximizes joint realized no-envy probability. This theorem supplies an exact infinite-family phase boundary and optimizer, not a small ad-hoc example, and identifies discrete atoms and heterogeneous scale as causes of an ex-ante/ex-post discrepancy. The failure starts at three small goods and its optimal split approaches one half; such an exact boundary helps distinguish robust fair preallocations from expectation-balanced ones.",
+    "status": "PASS"
+  }
+}
