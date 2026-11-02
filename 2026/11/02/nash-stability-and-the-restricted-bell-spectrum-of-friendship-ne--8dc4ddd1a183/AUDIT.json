@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The proof fully derives all petal-pair constraints, shows a hub must retain at least one complete petal, and compares exact unilateral payoffs: a hub prefers an outside block precisely when its petal count exceeds the hub petal count. This gives the exact iff Nash characterization and restricted-Stirling count. Exact coalition-edge welfare calculations show the full welfare spectrum, an unrestricted optimum of \\(m+1\\) achieved in exactly \\(m\\) Nash partitions, and a unique worst Nash grand coalition of welfare \\(6m/(2m+1)\\) for every integer \\(m\\ge1\\). The standalone checker independently enumerated 700651 partitions for \\(m=1,2,3,4,5\\), matching counts, Nash status and extrema with exact arithmetic. The finite checks are corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hanaka–Ikeyama–Ono 2023, Theorem 1: there exists a welfare optimum on every unweighted block graph with clique/star coalitions; Theorem 2: an algorithm finds optimum welfare.",
+        "Bilò et al. 2018, Observation 3: the grand coalition is stable for nonnegative weights; Theorem 3 gives a broad linear upper bound on welfare inefficiency.",
+        "Neither of these broad statements classifies every stable partition or counts them by the number of petals and outside coalition blocks."
+      ],
+      "reasoning": "The general 2023 structural existence theorem can recover some existence/optimal welfare information but is not a characterization of Nash equilibria. The 2018 grand-coalition observation subsumes only the existence of the worst Nash example, while its broad asymptotic bound does not imply the exact coefficient or exact restricted-Stirling multiplicities. These overlaps are credited and not claimed as new.",
+      "searches": [
+        "Fractional hedonic game Nash-stable partitions block graph bouquet of triangles best and worst social welfare exact price of anarchy linear",
+        "Maximizing Utilitarian and Egalitarian Welfare of Fractional Hedonic Games on Tree-like Graphs Hanaka Ikeyama Ono 2023 block graphs exact optimal partition friendship graph windmill",
+        "Nash Stable Outcomes in Fractional Hedonic Games: Existence Efficiency and Computation Bilò Fanelli Flammini Monaco Moscardelli 2018 triangle windmill",
+        "arxiv:2310.05139 Theorem 1 and Theorem 2",
+        "doi:10.1613/jair.1.11211 Theorem 3 observation Nash existence"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2310.05139",
+      "https://jair.org/index.php/jair/article/download/11211/26422",
+      "https://arxiv.org/abs/1705.10116",
+      "Related published mathematical records on generalized-windmill dissociation polynomials and friendship-graph fractional edge resolution (different invariants)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 paper proves existence of a structured welfare optimum on block graphs; no implication from optimum-only structure to the spectrum of all equilibria exists without additional deviation analysis.",
+        "The 2018 paper proves Nash existence for all nonnegative weight graphs and general efficiency ratios. Exact multiplicities of stable partitions with internally disconnected coalitions are a different quantified assertion.",
+        "The 2017 original study defines fractional coalitions and develops broad stability questions; the statement here depends on the specific windmill graph and explicit hub-versus-block inequalities."
+      ],
+      "reasoning": "The new statement includes an iff condition for every labeled partition, a refined exact count and unique best/worst welfare classes. A theorem merely asserting existence, a general algorithm for one optimum, or an \\(O(n)\\) bound does not imply these claims. The distinct distance-hedonic and bipartite strict-core calculations concern different games, so they do not provide a stronger corollary covering this model.",
+      "searches": [
+        "Maximizing Utilitarian and Egalitarian Welfare of Fractional Hedonic Games on Tree-like Graphs Hanaka Ikeyama Ono 2023 block graphs exact optimal partition friendship graph windmill",
+        "Nash Stable Outcomes in Fractional Hedonic Games: Existence Efficiency and Computation Bilò Fanelli Flammini Monaco Moscardelli 2018 triangle windmill",
+        "Every complete stable coalitional partition of a windmill graph in fractional hedonic games: restricted Bell numbers and petal-block size cutoff",
+        "arxiv:2310.05139 pdf Section 3 Theorem 1 Section 4 Theorem 2",
+        "doi:10.1613/jair.1.11211 pdf sections 1-3 and related-work comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The mathematical object is both the friendship graph and the triangular generalized windmill \\(K_1\\vee(mK_2)\\).",
+        "The 2018 primary article defines the standard denominator as coalition cardinality and treats Nash moves without consent; this matches the model, not the exact indexed family.",
+        "Friendship and windmill text lookups within the 2018 and 2023 primary texts returned no same-family named theorem."
+      ],
+      "reasoning": "Alias searches included friendship graph, windmill graph, bouquet of triangles and join of disjoint pairs, with explicit strict Nash and self-inclusive denominators. The relevant works establish general model/algorithmic facts but no detected equivalence to the all-equilibria block-size cutoff. Absence of keyword matches alone would not support originality; the theorem statements and game definitions were compared as well.",
+      "searches": [
+        "All Nash-stable coalitional partitions of unweighted friendship / windmill graph with m triangular petals in standard (self-inclusive) fractional hedonic game: center must be grouped with s entire petals, all other petals form coalitions of at most s petals. Exact count restricted Bell numbers, PoA=(m+1)(2m+1)/(6m).",
+        "Exact count Nash equilibria in simple symmetric fractional hedonic games windmill friendship block graphs restricted set partitions triangular petals, center hub moves when bigger petal block",
+        "Exact Nash stability on friendship graph F_m = K_1 join m K_2; count of Nash partitions and price of anarchy under fractional self-inclusive group utility",
+        "Every complete stable coalitional partition of a windmill graph in fractional hedonic games: restricted Bell numbers and petal-block size cutoff",
+        "friendship graph Nash stable fractional hedonic exact enumeration",
+        "windmill graph fractional hedonic Nash",
+        "friendship graph fractional hedonic games",
+        "arxiv:2310.05139",
+        "doi:10.1613/jair.1.11211"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The calculated Nash counts for the first five sizes are \\(1,3,7,21,71\\); each is obtained from an explicit all-size set-partition bijection, not from a preexisting table.",
+        "The nearest indexed friendship/windmill results found concern dissociation polynomials and fractional edge resolving functions, which count graph-theoretic sets and not hedonic equilibria."
+      ],
+      "reasoning": "No directly matching table, sequence claim or closed form was located in the examined primary literature or indexed mathematical results. This does not exclude uncatalogued tables or formula equivalences in unexamined sources.",
+      "searches": [
+        "All Nash-stable coalitional partitions of unweighted friendship / windmill graph with m triangular petals in standard (self-inclusive) fractional hedonic game: center must be grouped with s entire petals, all other petals form coalitions of at most s petals. Exact count restricted Bell numbers, PoA=(m+1)(2m+1)/(6m).",
+        "Exact count Nash equilibria in simple symmetric fractional hedonic games windmill friendship block graphs restricted set partitions triangular petals, center hub moves when bigger petal block",
+        "Exact Nash stability on friendship graph F_m = K_1 join m K_2; count of Nash partitions and price of anarchy under fractional self-inclusive group utility",
+        "friendship graph windmill Nash stable fractional hedonic exact count",
+        "windmill graph coalition partition fractional hedonic games Nash stable Bell numbers"
+      ]
+    },
+    "rationale": "The exact Nash-characterization, restricted-Bell equilibrium count, and equilibrium-stratified welfare spectrum on triangular friendship networks were compared with the block-graph optimization theorem (Hanaka et al. 2023), general Nash-stability results (Bilò et al. 2018), the original fractional model (Aziz et al. 2017), and neighboring graph-invariant records. The identified general results do not logically determine these new exact assertions. A finite set of inspections cannot certify global publication priority; the named residual risks remain.",
+    "residual_risks": [
+      "No claim of exhaustive priority: uncatalogued fractional-hedonic work may specialize to friendship/windmill graphs under another name.",
+      "The original 2017 FHG full text and all appendices of the 2018 Nash paper were not exhaustively read. The directly relevant definitions and major results were inspected.",
+      "Nash and welfare are model-sensitive; results in modified fractional hedonic games with a different denominator are not comparable without rederivation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives a general welfare-maximization algorithm and clique/star optimal partition existence, but not an all-Nash equilibrium enumeration or restricted petal-block stability cutoff.",
+        "evidence": [
+          "arxiv:2310.05139v1",
+          "Section 3 Theorem 1 and Section 4 Theorem 2, PDF pages 7-10",
+          "Related-work stability discussion, PDF pages 3-4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2310.05139",
+        "material_read": "Abstract, introduction, related-work discussion, preliminaries, Section 3 Theorem 1 proof, and Section 4 Theorem 2 statement and optimization setup; searched the text for friendship/windmill aliases.",
+        "method": "Open full arXiv PDF, read relevant text and inspect rendered first page; cross-check arXiv HTML introduction.",
+        "title": "Maximizing Utilitarian and Egalitarian Welfare of Fractional Hedonic Games on Tree-like Graphs",
+        "trigger": "Same fractional utility on block graphs, including the friendship graph; directly relevant to the optimum-welfare component."
+      },
+      {
+        "assessment": "General Nash existence, welfare inefficiency bounds and results for trees/bipartite graphs, not an identified exact triangular friendship-graph stability classification.",
+        "evidence": [
+          "doi:10.1613/jair.1.11211",
+          "Observation 3, Theorem 3, Theorem 12 and discussion of standard versus modified fractional utility"
+        ],
+        "identifier_or_url": "https://jair.org/index.php/jair/article/download/11211/26422",
+        "material_read": "Introduction and model definition, main stated Nash existence and efficiency results, relevant example/graph constructions and concluding model-comparison passage; text searched for friendship and windmill names; not every appendix line was read.",
+        "method": "Open official 57-page full PDF, inspect rendered first page, read relevant result statements and selected proofs from pages 1-4, 13-14, and 34-36.",
+        "title": "Nash Stable Outcomes in Fractional Hedonic Games: Existence, Efficiency and Computation",
+        "trigger": "Principal full-text stability study of the same strict Nash and self-inclusive fractional utility."
+      },
+      {
+        "assessment": "Supplies background definitions; uninspected main-body details remain an originality risk.",
+        "evidence": [
+          "arxiv:1705.10116v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1705.10116",
+        "material_read": "Public abstract and metadata, with the standard model cross-checked against the two later papers; no whole-document negative novelty conclusion drawn.",
+        "method": "Inspect public arXiv abstract and cross-reference related work in inspected full papers.",
+        "title": "Fractional Hedonic Games",
+        "trigger": "Original general model definition and core-stability context."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8dc4ddd1-a183-42a5-8efd-6a12fd5d4ae4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete and explicitly enumerable Nash spectrum for the natural diameter-two friendship block graph is a meaningful classification, not a single example. The petal-size cutoff produces restricted Bell-number multiplicities and a complete equilibrium welfare distribution, while exact PoS=1 and PoA growing linearly separate best from worst decentralized coalition arrangements. The findings motivate studying coalition-size dilution on other shared-hub networks; no general hardness or large downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}
