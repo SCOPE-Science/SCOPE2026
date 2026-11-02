@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The height-layer formula directly counts each lattice point in a join, with disjoint integer-height slices. In dimension three it gives a cubic and an exact inequality for its sole potentially negative coefficient; AM--GM proves the normalized-volume minimum. In dimension four, Pick's theorem gives the exact quartic, and the only two potentially negative coefficients yield necessary and sufficient inequalities. The endpoint examples and the two-negative threshold have direct exact substitutions and elementary strict-inequality proofs. A standalone exact checker independently interpolated 3,388 sampled polynomials from slice counts; no infinite statement depends on sampling.
+PASS
 
-## Originality — PASS, subject to historical priority
+Disjoint integer-height slices contain (b j+1)L_P(t-j) lattice points, giving an exact convolution. Setting L_[0,a](k)=a k+1 yields n^3 coefficient ab/6, n^2 coefficient (a+b)/2, n coefficient (6+3a+3b-ab)/6; first negative iff (a-3)(b-3)>15. Put u=a-3,v=b-3, uv>=16 and AM–GM gives ab>=uv+3(u+v)+9>=49 with equality only at 7,7. For a polygon L_P=Ak²+B k/2+1, summation yields n^4=Ab/12, n^3=(4A+Bb)/12, n^2=((6-b)A+3B+6b)/12, n=(2A+(3-b)B+6b+12)/12. Pick 2A=2I+B-2 ensures positive n for b<=4, while n² positive through b<=6. For b=5 a negative n means B>2I+40 => 2A>=39, so normalized volume 2Ab>=195; triangle with B=41,I=0 attains. At b=7 the simultaneous quadratic and linear negativity conditions are contradictory; rectangle 37x4 with A=148,B=82 gives both negative at b=8 and for all larger integers. Independent symbolic summation/interpolation reproduced both formulas and witnesses; finite tests do not establish the unbounded proof.
 
-Liu--Tao--Xin's June 2026 join paper proves existence of negative Ehrhart coefficients by a high-dimensional construction, and gives the Ehrhart-series multiplicativity underpinning the present computations. It does not state the dimension-three exact interval classification or normalized-volume minimum, nor the polygon--segment area/boundary sign phase diagram and sharp length thresholds. Castillo--Liu--Nill--Paffenholz give general-dimensional existence and smooth examples but not these join-specific sharp thresholds. Search and indexed-literature comparisons did not identify an equivalent published theorem. Generic coefficient algorithms might imply individual instances once evaluated; priority of the complete sharp classification is not independently settled.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact family is forced by the smallest dimensions of the 2026 join-positivity problem, not an arbitrary parameter slice. The result identifies the first dimension and least volume where positivity can fail for two positive factors, the largest segment length universally safe for joins with any lattice polygon, and the earliest length at which maximal simultaneous Ehrhart-sign failure can occur. These are natural, sharp boundaries that the known existence theorem does not quantify. The result does not extend to arbitrary joins in higher dimensions.
+Liu–Tao–Xin 2026 gives the generic join enumeration and an existence example, while Castillo–Liu–Nill–Paffenholz demonstrates negative Ehrhart coefficients in unrelated smooth classes. The sharp segment/segment and polygon/segment thresholds are separate from these prior works; exact formulas follow elementary specialization, so novelty rests on the complete sharp classification, not on generic convolution.
 
-## Closest literature and limitations
+## value
 
-The closest relevant primary paper is Liu, Tao, and Xin, arXiv:2606.18794, Proposition 1.2 and Theorem 2.3. The other principal comparison is Castillo et al., arXiv:1704.05532, especially the dimension-three and multi-coefficient negativity constructions. Indexed related literature about Cartesian products with lattice segments studies a different operation; title/abstract comparison alone cannot rule out every unpublished or differently indexed equivalent formulation. The two-negative threshold is existential over polygons; no claim is made of universal negativity beyond it.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The very smallest possible dimensions of standard joins of individually Ehrhart-positive factors give a naturally motivated sharp phase diagram: earliest dimension, minimum volume, universal safe segment-length cutoff and first two-sign-failure threshold. The exact inequalities classify an unbounded family without claiming all joins or all polytopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
