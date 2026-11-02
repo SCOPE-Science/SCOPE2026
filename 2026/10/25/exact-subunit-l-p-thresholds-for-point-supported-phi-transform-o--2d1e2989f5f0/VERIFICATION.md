@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The proof was checked from the definitions. The reflected kernel \(\rho_t(x)=t^{-n}\phi(-x/t)\) has mass one and support shrinking to the origin, so it converges to \(\delta_0\) in distributions. Differentiating yields the stated transform. The pointwise limit follows from the kernel’s constant neighborhood and compact support. The \(L^p\) identity follows by the substitution \(y=-x/t\), and the sign of \(n-(n+m)p\) yields the exact threshold for this family.
+# Independent mathematical audit
 
-Limits: this is not a classification of all distributions and does not decide the subunit range above \(n/(n+m)\) in fixed dimension/order. It does not assert a counterexample for each named Fourier-inversion summability method. Independent audit and independent validation have not been performed.
+## correctness
+
+PASS
+
+Construct a compact nonnegative normalized smooth bump with a plateau at 0 and nonzero mth derivative elsewhere. Its reflected dilation rho_t tends to delta in distributions; differentiation gives F=(-1)^m t^{-n-m}partial_1^m phi(-x/t), converging distributionally to partial_1^m delta. The plateau gives F(0,t)=0 and compact support gives eventually F(x,t)=0 for each fixed x!=0. The substitution y=-x/t yields exactly ∫|F|^p = C t^(n-(n+m)p), where C>0 finite. On any compact neighborhood of 0 the support lies inside for small t, proving both boundedness for p<=n/(n+m) and divergence for larger p; the endpoint is constant, not logarithmic. For any fixed 0<p<1 choosing m=1 and n>=p/(1-p) gives an obstruction. No numerical sampling is required.
+
+## originality
+
+PASS
+
+Narrow best-of-knowledge PASS only for the explicit n,m,p local quasi-norm profile and dimension-independent subunit support-exclusion obstruction; the older pointwise delta derivative example is expressly prior-covered.
+
+## value
+
+PASS
+
+The exact dimension/order cutoff is modest but mathematically motivated by whether the local-Lp assumption of the pointwise support-detection theorem can be weakened below one. It shows a general dimension-independent extension fails for every p<1 while preserving positivity and phi(0)>0; that concrete sharp obstruction is useful even though derived by an elementary scaling computation. It is not presented as a new general regularity theorem or as a novel delta-prime example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

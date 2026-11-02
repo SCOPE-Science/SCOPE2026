@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T15:06:09.701740Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Full frozen RESULT.md and verification checked; the transform sign and exponent checked by chain rule and Jacobian.",
+        "Primary Vindas–Estrada 2010 §3 Proposition1 confirms transform convention, §6 Theorem2 confirms the p>=1 support domain; inspected full OA text/screenshots."
+      ],
+      "limitations": [
+        "Does not address p above n/(n+m) for all other singular distributions; only this constructed family.",
+        "No claim for every Abel, Cesaro or Gauss–Weierstrass kernel."
+      ],
+      "rationale": "Construct a compact nonnegative normalized smooth bump with a plateau at 0 and nonzero mth derivative elsewhere. Its reflected dilation rho_t tends to delta in distributions; differentiation gives F=(-1)^m t^{-n-m}partial_1^m phi(-x/t), converging distributionally to partial_1^m delta. The plateau gives F(0,t)=0 and compact support gives eventually F(x,t)=0 for each fixed x!=0. The substitution y=-x/t yields exactly ∫|F|^p = C t^(n-(n+m)p), where C>0 finite. On any compact neighborhood of 0 the support lies inside for small t, proving both boundedness for p<=n/(n+m) and divergence for larger p; the endpoint is constant, not logarithmic. For any fixed 0<p<1 choosing m=1 and n>=p/(1-p) gives an obstruction. No numerical sampling is required.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vindas–Estrada Theorem2 explicitly requires p in [1,infty] and phi>=0, phi(0)>0; the kernel here satisfies positivity but p<1.",
+          "Their proof passes from Lp to locally bounded L1 and then Radon measures, an implication unavailable below p=1."
+        ],
+        "reasoning": "The prior general support theorem does not cover, or contradict, these point-supported p<1 counterexamples, and no theorem in the inspected full paper gives n/(n+m) for the derivative family.",
+        "searches": [
+          "Vindas Estrada 2010 full paper Theorem 2 p15-16",
+          "Graham 2008 support tempered distributions theorem delta derivative",
+          "support theorem p<1 local quasi Banach distributional phi transform"
+        ]
+      },
+      "checked_sources": [
+        "Vindas–Estrada 2010 full OA pdf, Theorem2 §6, §3 Proposition1",
+        "Graham 2008 DOI abstract and subsequent citations",
+        "Resultary distributional and Fourier kernel integrability searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2010 full text proves convergence of phi-transform and support exclusion for p>=1 only; it does not state the subunit obstruction.",
+          "Combining the *standard* scaling law with a point-supported derivative yields the formula immediately; the observation is narrow and its nontrivial motivation comes from support detection."
+        ],
+        "reasoning": "The exact n,m-dependent cutoff is an elementary consequence of the identified family, rather than a new general support theorem; best-of-knowledge originality is limited to the quantitative profile and dimension-independent impossibility consequence.",
+        "searches": [
+          "Vindas Estrada On the support of tempered distributions §3 Proposition1 §6 Theorem2",
+          "Graham 2008 delta-prime even bump support failure",
+          "homogeneous distributions scaling Lp quasi norm derivative delta"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The reflected approximate identity has derivative F=t^(-n-m) (derivative of phi)(-x/t); a known pointwise vanishing phenomenon for delta-prime is acknowledged.",
+          "Vindas–Estrada §3 defines the distributional phi-transform and proves its distributional convergence, providing the exact common setup."
+        ],
+        "reasoning": "The new narrowly framed statement quantifies p-boundedness for every n,m, rather than claiming novelty of delta derivative pointwise convergence. This is a direct scaling refinement, so folklore risk is high.",
+        "searches": [
+          "distributional phi transform scaling derivative dirac distribution Lp quasi norm",
+          "Graham 2008 DOI 10.1017/S030500410700103X delta prime even test function",
+          "Vindas Estrada 2010 DOI 10.1017/S0013091508000102 §§3,6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related Fourier-kernel integrability and other distributional thresholds concern different operators; no matching natural table of n,m,p threshold was identified.",
+          "Source reference list and direct PDF inspection identified no explicit table of derivative-of-delta quasi norm thresholds."
+        ],
+        "reasoning": "There is no canonical database for this distributional asymptotic; checked indexed results and primary text did not provide a dominating exponent statement. A negative search alone does not establish priority.",
+        "searches": [
+          "Resultary support distributions phi transform delta subunit Lp derivative threshold",
+          "point supported distribution derivative delta Lp scaling n/(n+m)",
+          "Graham and Vindas Estrada delta prime exact Lp exponent"
+        ]
+      },
+      "rationale": "Narrow best-of-knowledge PASS only for the explicit n,m,p local quasi-norm profile and dimension-independent subunit support-exclusion obstruction; the older pointwise delta derivative example is expressly prior-covered.",
+      "residual_risks": [
+        "The cutoff is a direct standard dilation calculation and may have been known implicitly or as textbook folklore; modest originality only.",
+        "Graham 2008 primary full text was not accessible during this run; potential exact norm discussion remains unverified.",
+        "The result concerns general phi-transform only, NOT all named Fourier inversion summability methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Defines phi transform and p>=1 support result; no p<1 derivative scaling threshold in sections read.",
+          "identifier_or_url": "https://doi.org/10.1017/S0013091508000102",
+          "material_read": "Open-access full 19-page author version, section 3 transform and Proposition1 p5, section 6 Theorem2 p15 and proof p16, Corollary2 p17, inspected text and rendered PDF pages",
+          "method": "UGent open-access PDF text plus screenshots pages 5 and 16",
+          "title": "On the support of tempered distributions",
+          "trigger": "Primary phi-transform and local Lp support theorem"
+        },
+        {
+          "assessment": "BACKGROUND_POINTWISE_OBSTRUCTION",
+          "evidence": "Pointwise counterexample is prior, exact high-order/dimensional local Lp cutoff not established by material actually seen.",
+          "identifier_or_url": "https://doi.org/10.1017/S030500410700103X",
+          "material_read": "Original theorem and delta-prime example described in available source comparisons; full Graham article not accessed in this execution",
+          "method": "Published abstract and secondary primary citations; not presented as full reading",
+          "title": "The support of tempered distributions (Graham)",
+          "trigger": "Known pointwise vanishing derivative-delta obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "Novelty and value are restricted to the exact quantitative obstruction; a readily derived dilation identity alone would not warrant broader claims."
+      ],
+      "rationale": "The exact dimension/order cutoff is modest but mathematically motivated by whether the local-Lp assumption of the pointwise support-detection theorem can be weakened below one. It shows a general dimension-independent extension fails for every p<1 while preserving positivity and phi(0)>0; that concrete sharp obstruction is useful even though derived by an elementary scaling computation. It is not presented as a new general regularity theorem or as a novel delta-prime example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Vindas–Estrada 2010 full OA pdf, Theorem2 §6, §3 Proposition1",
+    "Graham 2008 DOI abstract and subsequent citations",
+    "Resultary distributional and Fourier kernel integrability searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Does not address p above n/(n+m) for all other singular distributions; only this constructed family.",
+    "No claim for every Abel, Cesaro or Gauss–Weierstrass kernel.",
+    "Novelty and value are restricted to the exact quantitative obstruction; a readily derived dilation identity alone would not warrant broader claims."
+  ],
+  "residual_risks": [
+    "The cutoff is a direct standard dilation calculation and may have been known implicitly or as textbook folklore; modest originality only.",
+    "Graham 2008 primary full text was not accessible during this run; potential exact norm discussion remains unverified.",
+    "The result concerns general phi-transform only, NOT all named Fourier inversion summability methods."
+  ],
+  "schema_version": 1
+}

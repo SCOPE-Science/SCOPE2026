@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For \(\rho_t(x)=t^{-n}\phi(-x/t)\), the approximate-identity limit is \(\rho_t\to\delta_0\), and distributional differentiation gives \(F=\partial_1^m\rho_t\to\partial_1^m\delta_0\). The change of variables \(y=-x/t\) gives the exact factor \(t^{n-(n+m)p}\). The pointwise-zero and endpoint statements follow from compact support and the constant plateau of \(\phi\).
+PASS
 
-## Originality
+Construct a compact nonnegative normalized smooth bump with a plateau at 0 and nonzero mth derivative elsewhere. Its reflected dilation rho_t tends to delta in distributions; differentiation gives F=(-1)^m t^{-n-m}partial_1^m phi(-x/t), converging distributionally to partial_1^m delta. The plateau gives F(0,t)=0 and compact support gives eventually F(x,t)=0 for each fixed x!=0. The substitution y=-x/t yields exactly ∫|F|^p = C t^(n-(n+m)p), where C>0 finite. On any compact neighborhood of 0 the support lies inside for small t, proving both boundedness for p<=n/(n+m) and divergence for larger p; the endpoint is constant, not logarithmic. For any fixed 0<p<1 choosing m=1 and n>=p/(1-p) gives an obstruction. No numerical sampling is required.
 
-PASS, narrowly framed. Graham’s earlier paper already gives a pointwise support-detection failure example for \(\delta'_0\); that phenomenon is not claimed as new. The inspected literature does not state the exact local-\(L^p\) threshold \(n/(n+m)\) for this general \(\phi\)-transform family. The literature searches found no matching claim or implication. Residual risk: the scaling refinement may be folklore, and the searches are not a proof of novelty.
+## originality
 
-## Value
+PASS
 
-PASS. The order- and dimension-dependent exponent is a natural quantitative boundary for the local-integrability assumption in distributional support recovery. It shows that no dimension-independent extension to every \(p<1\) can hold in the general \(\phi\)-transform class. The result does not claim a complete support theorem below \(p=1\).
+Narrow best-of-knowledge PASS only for the explicit n,m,p local quasi-norm profile and dimension-independent subunit support-exclusion obstruction; the older pointwise delta derivative example is expressly prior-covered.
 
-Closest literature: C. C. Graham (2008), DOI 10.1017/S030500410700103X; J. Vindas and R. Estrada (2010), DOI 10.1017/S0013091508000102. The latter’s theorem assumes \(p\ge1\), \(\phi\ge0\), and \(\phi(0)>0\); the present kernel meets the latter conditions.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact dimension/order cutoff is modest but mathematically motivated by whether the local-Lp assumption of the pointwise support-detection theorem can be weakened below one. It shows a general dimension-independent extension fails for every p<1 while preserving positivity and phi(0)>0; that concrete sharp obstruction is useful even though derived by an elementary scaling computation. It is not presented as a new general regularity theorem or as a novel delta-prime example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
