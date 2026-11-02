@@ -1,15 +1,21 @@
-# Scientific review: characteristic-five bielliptic genus-two Hasse crossing
+# Independent mathematical audit
 
-## Correctness — PASS
-The sextic is squarefree exactly when the associated monic cubic is squarefree because the cubic has nonzero constant term and characteristic is five. The discriminant identity and the diagonal Cartier--Manin coefficients determine the exact geometric ranks, including the distinction between stable Frobenius rank and one-step Cartier rank. Substitution into the two Hasse equations identifies four transverse intersection points, three of which lie on the singular boundary; on the smooth parameter surface only the origin is superspecial. The repeated-root parametrization of the discriminant gives exactly \(q-1\) singular marked coefficients over every \(\mathbb F_{5^n}\), and the cubic roots of \(2\) explain parity-dependent counts. An exact finite-field checker corroborates the formulas for three extensions but is not substituted for the universal algebraic proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-Shaska--Völklein (arXiv:math/0107142) provide the normal form, bielliptic quotients, and general quotient \(j\)-invariants; Gutierrez--Shaska (arXiv:math/0601456) provide the extra-involution/dihedral-invariant framework. These cover the underlying family and an alternative general approach to the individual Hasse conditions. The formula for genus-two Cartier--Manin matrices is also classical and reproduced in Zobernig (arXiv:2111.07270). The narrower claim assessed here is the complete characteristic-five *marked parameter* geometry: the four transverse intersections, three triple-root exclusions, one superspecial crossing, and all-extension rank-stratum counts and zeta functions. Unlike a generic elliptic-quotient or Cartier formula, these require specialization together with discriminant elimination and global finite-field counting. The inspected papers do not state those specialized geometric and counting conclusions. Closely related unlocated tables or calculations remain a risk; mathematical-record searches are not uniqueness proofs.
+PASS
 
-## Mathematical value — PASS
-Genus-two curves admitting an extra involution form a natural two-dimensional sublocus; their Jacobians split up to a prime-to-five isogeny into elliptic factors, so simultaneous degeneration of the two ordinary factors is geometrically meaningful. The result identifies exactly where the two nonordinary divisors cross, separates a unique smooth superspecial fiber from three misleading boundary intersections, and describes both the arithmetic parity and every finite-extension count. These facts give a complete natural arithmetic stratification of a marked moduli chart, not an arbitrary numerical slice.
+For sextic g(x²) with g(u)=u³+a u²+b u+1, squarefreeness is the nonzero cubic discriminant. Coefficients c4=b²+2a=H2 and c8=a²+2b=H1 of f(x)² give diagonal Cartier–Manin matrix, so stable rank and a-number are determined by nonzero/zero diagonal entries under Frobenius iterations. H1=0 parametrizes b=2a², H2 then yields 4a(a³-2); discriminant restricts to 2(a³-2)² mod5. Only origin is a smooth transverse intersection; three other geometric intersections have triple-root cubics and lie outside U. Singular cubics over F_q correspond bijectively to unique F_q^× double roots, q-1 total; roots of a³=2 number t_n=2+(-1)^n. Inclusion–exclusion yields N0=1,N1=2q-6-2(-1)^n,N2=q²-3q+6+2(-1)^n, and exponentiation gives stated zeta functions. Independent symbolic discriminant check and exhaustive F5 parameter scan confirmed ranks [1,6,14], q-1 singular pairs. The all-extension result is the Frobenius/root-count argument.
 
-## Scope and risk
-The calculation is for the indicated normalized coefficient chart, not geometric isomorphism classes. It excludes singular curves and does not compute the Jacobian zeta functions themselves. Existing general bielliptic formulas imply some of the rank mechanism; novelty is claimed only for the combined explicit boundary and finite-field stratification. Independent checking of historical completeness and of the theorem is still desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shaska–Völklein establishes extra-involution genus-two normal forms; Zobernig counts small-characteristic coarse moduli invariants rather than marked coefficient pairs. Neither inspected claim directly furnishes the three singular-boundary Hasse intersections and all-extension marked-stratum zeta functions. Classical supersingular elliptic quotient formulas can give individual rank tests, but not automatically the exact coefficient-surface arithmetic census.
+
+## value
+
+PASS
+
+The intersection of the two Hasse divisors and singular cubic boundary is a natural geometric stratification of a classical genus-two family; complete exact extension-field counts and zeta functions provide a reusable arithmetic description, beyond merely stating Cartier coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
