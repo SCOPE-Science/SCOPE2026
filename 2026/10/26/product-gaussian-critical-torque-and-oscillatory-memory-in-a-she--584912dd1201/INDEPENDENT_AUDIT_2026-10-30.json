@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T12:51:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/product-gaussian-critical-torque-and-oscillatory-memory-in-a-she--584912dd1201/RESULT.md",
+        "2026/10/26/product-gaussian-critical-torque-and-oscillatory-memory-in-a-she--584912dd1201/verify.py",
+        "/mnt/data/scope_worker-06_20261030T123400Z/independent_checks.py"
+      ],
+      "rationale": "The cubic characteristic polynomial λ³+3λ²+5λ+3−g has Routh–Hurwitz stability for 0≤g<3. Directly recomputing the Lyapunov covariance confirms the rank-one 6/(5(3−g))vvᵀ pole and stated finite B; the slow vector v=(2,1,1) has K_3v=0, the transverse a=(1,−5,3)/2 satisfies aᵀv=0, and H_3v=a with vᵀH_3v=0. Gaussian covariance convergence gives a single slow normal shared across fixed times, independent of the fast Gaussian η; direct matrix calculations recover Rη(0)=5 and Rη′(0+)=-35/4 and fast eigenvalues (-3±i√11)/2. Expanding the torque XᵀHX=2ξ(aᵀX)+bounded transverse term+δy² and applying Slutsky yields the product law, whose variance is 24 and whose lag covariance has the claimed cosine−sine zeros. Independent exact symbolic calculations reproduced the key Lyapunov, Laurent, Wick and oscillator identities; neither finitely many tests nor characteristic-function algebra alone establishes the multi-time limit, which is supplied by the Gaussian argument. At g=3 stationary initialization is undefined; growing time windows are not covered.",
+      "residual_risks": [
+        "Covariance convergence holds only at fixed finite times, not growing windows; noise-driven torque interpretation is different."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier works obtain the linear stability threshold g=3, stationary Gaussian moments and finite mean mechanical observables; the 2024 source mentions qualitative fluctuation divergence."
+        ],
+        "reasoning": "The Gaussian model is not original and general Wick/Lyapunov machinery is broader; however the papers’ inspected stated results do not supply this normalized full-law limit and its exact lag zero sequence. An unlocated expression in the wider Gaussian-process literature is a risk.",
+        "searches": [
+          "arXiv:2402.10579v2 sections II–VI, Appendix C",
+          "DOI:10.1478/AAPP.1011A3"
+        ]
+      },
+      "checked_sources": [
+        "\"nonreciprocal shear trapped colloidal particle critical torque product normal stationary angular momentum oscillatory covariance Fernandez Hess Klapp\"",
+        "arXiv:2402.10579v2",
+        "arXiv:2402.10579v2 sections II–VI, Appendix C",
+        "DOI:10.1478/AAPP.1011A3",
+        "Resultary: nonreciprocal shear trapped colloidal particle critical torque product normal stationary angular momentum oscillatory covariance Fernandez Hess Klapp",
+        "Resultary 2026/10/11/SCOPE-exact-stationary-mode-energy-and-fluctuation-laws-in-the-gissing--dfa04776526a",
+        "arXiv:2402.10579v2 sec IV and VI, appendix C"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Second-moment and mean-torque identities at fixed g can be used to *compute* higher Gaussian moments, but are not the same as the critical scaled finite-dimensional distribution and all fixed-lag oscillation zeros."
+        ],
+        "reasoning": "A new calculation and rank-one singular asymptotics are needed to derive the exact asserted claim; the earlier results alone as written do not entail the closed spectral law. General transform techniques may nevertheless render this corollary more routine than a stand-alone theorem.",
+        "searches": [
+          "arXiv:2402.10579v2 sec IV and VI, appendix C",
+          "DOI:10.1478/AAPP.1011A3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fernandez–Hess–Klapp (2024) treat angular momentum and stationary covariance of a sheared colloid; this audited torque is explicitly the drift-force quadratic form xz+yz−gy², not white-noise velocity torque."
+        ],
+        "reasoning": "An ordinary Gaussian quadratic observable is an alias worth checking; the exact asymptotic product-normal distribution and oscillatory lag kernel were not located in the inspected primary discussion. Mechanical angular momentum terminology alone does not identify the stochastic-velocity and force observables.",
+        "searches": [
+          "\"nonreciprocal shear trapped colloidal particle critical torque product normal stationary angular momentum oscillatory covariance Fernandez Hess Klapp\"",
+          "arXiv:2402.10579v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest returned findings concern other dynamical systems (e.g. Gissinger and Sprott), not the same K_g or torque."
+        ],
+        "reasoning": "No same-system full torque-law table was found; a negative semantic search is only bounded evidence, not proof of novel priority.",
+        "searches": [
+          "Resultary: nonreciprocal shear trapped colloidal particle critical torque product normal stationary angular momentum oscillatory covariance Fernandez Hess Klapp",
+          "Resultary 2026/10/11/SCOPE-exact-stationary-mode-energy-and-fluctuation-laws-in-the-gissing--dfa04776526a"
+        ]
+      },
+      "rationale": "The exact all-parameter claim was compared by statement and implication against all identified strongly related primary works; known constructions, setup theorems and restricted subclasses are acknowledged as prior. The four structured comparisons and source inspections distinguish unproven priority from a concrete known coverage implication. Under a best-of-knowledge standard the unlocated stronger result is a stated risk, not an invented negative full-text finding.",
+      "residual_risks": [
+        "Underlying Gaussian quadratic-form machinery is standard and a stronger earlier formula in linear-response/torque fluctuation literature could dominate.",
+        "Covariance convergence holds only at fixed finite times, not growing windows; noise-driven torque interpretation is different."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS model, stability and mean observables; not found asserting the product-normal fixed-lag theorem",
+          "evidence": "Section VI qualitative fluctuation discussion; appendix C mechanical mean-observable formula",
+          "identifier_or_url": "arXiv:2402.10579v2",
+          "material_read": "Full accessible arXiv HTML: model equations and stationary mean/covariance in sections II–IV, discussion in VI and Appendix C",
+          "method": "arXiv primary full-text HTML",
+          "title": "Nonequilibrium dynamics and entropy production of a trapped colloidal particle in a complex nonreciprocal medium",
+          "trigger": "Same 3-coordinate OU model and critical shear; source motivation of higher moments"
+        },
+        {
+          "assessment": "COVERS model and stationary second moments; no inspected exact critical torque process limit",
+          "evidence": "Stable g<3 and instability at g=3 are prior",
+          "identifier_or_url": "DOI:10.1478/AAPP.1011A3",
+          "material_read": "Accessible full original article treatment of stationary covariance, stability and torque/mean observables",
+          "method": "primary full article as openly accessible posted text",
+          "title": "Shear-flow-induced distortion of the density distribution and transition from a stationary to an instationary non-equilibrium state of a colloidal particle in a trap",
+          "trigger": "Original source of same critical shear model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/product-gaussian-critical-torque-and-oscillatory-memory-in-a-she--584912dd1201/RESULT.md",
+        "arXiv:2402.10579v2",
+        "DOI:10.1478/AAPP.1011A3"
+      ],
+      "rationale": "A source paper explicitly poses higher-order mechanical fluctuations near this linear stability loss; the stationary mean remains finite while torque variance diverges. A full non-Gaussian normalized law with one common slow factor and a sign-changing two-time memory is a meaningful new fixed-lag observable, not just the known variance divergence. Its exact coefficients are useful calibration benchmarks, but no path-space or long-time scaling limit is established.",
+      "residual_risks": [
+        "Underlying Gaussian quadratic-form machinery is standard and a stronger earlier formula in linear-response/torque fluctuation literature could dominate.",
+        "Covariance convergence holds only at fixed finite times, not growing windows; noise-driven torque interpretation is different."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the normalized stable three-dimensional sheared Ornstein–Uhlenbeck model, the deterministic-force torque at fixed physical times, after multiplication by sqrt(3-g), converges in joint finite-dimensional law to the product of one shared N(0,6/5) variable and twice a stationary damped-oscillatory Gaussian process; the one-time variance residue is 24 and the fixed-lag limiting covariance changes sign at an explicit infinite sequence.",
+  "limitations": [
+    "Underlying Gaussian quadratic-form machinery is standard and a stronger earlier formula in linear-response/torque fluctuation literature could dominate.",
+    "Covariance convergence holds only at fixed finite times, not growing windows; noise-driven torque interpretation is different."
+  ],
+  "schema_version": 1
+}
