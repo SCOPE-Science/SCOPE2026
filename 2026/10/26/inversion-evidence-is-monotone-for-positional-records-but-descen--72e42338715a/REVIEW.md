@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The uniform inversion-sequence bijection gives independent discrete uniform variables. Their convolution is log-concave, which yields the conditional posterior and its monotonicity by adjacent mass ratios. The finite first-failure boundary is supported by exhaustive all-permutation enumeration and an independently implemented subset dynamic program; the two exact integer tables agree for every order and marked position through eight, with a unique strict inequality of integer determinant \(3043\). Reproducible `verify.py` is included. Finite verification is not presented as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-Searches of available research summaries, classical aggregate records/inversions papers and permutation-statistics literature did not identify the fixed-position inversion posterior theorem combined with the sharp first descent-conditioning reversal. The full accessible Baril–Petrossian paper studies equivalence classes of descent/record patterns, not this conditional probability comparison. Jin's aggregate Euler–Stirling distributions do not, from available descriptions, explicitly give this local position-marked threshold. The Katzenbeisser joint-paper full text was unavailable and creates residual priority risk, particularly for the inversion component; it is not evidence that the claim is absent. Literature search is not a proof of uniqueness.
+PASS
 
-## Value — PASS
-The same record event admits a monotone posterior when conditioned on a global Mahonian disorder statistic yet violates that rule under the closely related Eulerian disorder statistic. The exact earliest reversal at eight symbols gives a motivated, finite structural boundary and a concrete warning against substituting descent counts for inversion counts in conditional ranking inference. The all-order proof explains the inversion side through the convolution structure and does not rely on numerical extrapolation.
+The independent insertion-rank variables U_l are uniform on {0,...,l-1}, inversion total is their sum and R_j is U_j=0; convolution log-concavity gives a monotone posterior likelihood ratio. Exhaustive direct enumeration of all permutations n=2..8 reconstructed every A_n(d),B_n,j(d), and found the unique adjacent increase (8,5,5), determinant 3043, fractions 596/4293 and 35/247. Boundary k with f(k)=0 yields posterior 0 as required. The finite cutoff is not a claim about all n>8.
 
-## Limitations
-No all-order classification for the descent-conditioned posterior is claimed; no result for arbitrary nonuniform permutations is claimed. Historical priority is not independently certified. The 1990 primary article could not be inspected in full.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected source establishes the joint position-specific inversion posterior and the sharp descent counterexample. Baril–Petrossian study equivalence relations under descents/records, not these conditional probabilities. Resultary fixed-point/descent covariance concerns fixed points, not left-to-right records.
+
+## value
+
+PASS
+
+The order-eight boundary is a natural sharp finite test of evidential monotonicity for two standard permutation disorder statistics, with a separate all-n inversion law; not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
