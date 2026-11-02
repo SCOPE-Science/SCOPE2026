@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** On the explicitly defined smooth quartic, the primary source establishes that its 800 irreducible conics correspond to exactly 400 cutting planes and provides two plane seeds and four projective generators. Dual orbit traversal is exact over the four-dimensional rational basis of \(\mathbb Q(i,\sqrt5)\). The 160- and 240-plane orbits are disjoint; all 400 normalized rows are tested under every Galois involution, giving fixed-point totals \(64,160,16\). Stabilizer fixed fields yield the four exact counts \(16,144,48,192\), and orbit sizes yield the Galois profile. The archived verifier is complete and executable with the standard library. The input conic-completeness theorem remains an explicit published premise.
+## correctness
 
-**Originality — PASS, with stated residual risk.** Naskręcki's source states the 800-conic classification, 400 supporting planes, explicit seeds and group action, and a larger coefficient field for individual conics; it does not give the minimal field of each *supporting plane* or their complete Galois permutation profile. Degtyarev's enumerative and Kummer analyses are chiefly geometric over \(\mathbb C\), and the Bonnafé–Sarti treatment describes automorphisms without this exact arithmetic descent. Searches for Galois, fixed hyperplanes, fields, complex conjugation, and related descriptions revealed no implication-equivalent result. The quantitative profile is not the same as the prior count of 400 planes or a bound on the conic-component splitting field. Older, unindexed computations or supplementary data could encode it implicitly; searches cannot rule that out.
+PASS
 
-**Value — PASS.** The complete geometrically reducible hyperplane locus of an exceptional smooth K3 quartic is a natural finite arithmetic configuration. Determining which cutting planes descend individually to the rational, imaginary quadratic, real quadratic, or biquadratic fields resolves an arithmetic question not answered by the complex conic count. It also distinguishes descent of the *plane* from descent of its complementary conic components. The 400-element classification is an intrinsic, motivated finite census, not a randomly selected subfamily.
+Reconstructed the projective row action from four explicit matrices and H1=(1,1,1,0), H3=(0,0,1,i(1+sqrt5)/2). Exact computation over the Q-basis (1,i,sqrt5,i sqrt5), using field norm inverses, independently found disjoint normalized plane orbits of 160 and 240 elements and closed Galois action. For sigma_i, sigma_sqrt5, sigma_i*sigma_sqrt5 the 400-element fixed counts are 64,160,16. Their simultaneous fixed intersection is 16 Q-rational planes, giving 144 Q(i)-minimal, 48 Q(sqrt5)-minimal, zero Q(sqrt(-5))-minimal, and 192 full biquadratic fields. Orbit-stabilizer yields 16 one-, 96 two-, and 48 four-element Galois orbits. Four sample plane equations were independently verified to belong to the corresponding orbit and have the stated field. Exhaustiveness uses Naskręcki Theorem 1.1 and Corollary 3.1, not an unsupported extrapolation from 400 tests.
 
-**Scope and limitations.** The claim is restricted to the displayed embedded model over \(\mathbb Q\); it neither classifies component-conic fields nor asserts analogous distributions for arbitrary twists. Results of literature searches are evidence of comparison, not a logical proof of priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS, qualified. Naskręcki's Theorem 1.1 and Appendix A already supply the quartic, group, conic seeds and geometric orbits, and Corollary 3.1 already counts the 400 planes. They do not state the exact Galois projective fixed-point counts (64,160,16), minimal supporting-plane fields (16 Q,144 Q(i),48 Q(sqrt5),192 Q(i,sqrt5)) or 16+96+48 orbit profile. The independently checked finite Galois computation is a new arithmetic extraction rather than a new geometric conic census. Those inputs make the refinement short and potentially implicit in older calculations, so priority is qualified, not absolute.
+
+## value
+
+PASS
+
+The whole geometrically reducible hyperplane set is a natural complete finite arithmetic configuration attached to the distinguished 800-conic K3 quartic. Minimal fields of projective plane equations and their actual Galois orbit lengths are intrinsic to the fixed Q-embedding and not determined by the geometric count 400 or by the conic component coefficient field. The full exact 16/144/48/192 classification clarifies which plane sections descend over Q and the two quadratic subfields versus requiring the biquadratic compositum. Such precise incidence/descent data are reusable without new general theory; the claim is narrow and computation-heavy, but not an arbitrary slice or isolated arithmetic curiosity. Its value is modest and relies on original arithmetic information rather than a new conic construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
