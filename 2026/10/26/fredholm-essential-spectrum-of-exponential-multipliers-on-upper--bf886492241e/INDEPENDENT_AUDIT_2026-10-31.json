@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T01:55:53.376461Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "arxiv:2603.13983 §5.1",
+        "arxiv:1709.02047",
+        "DOI:10.1112/blms/bdr110 (abstract)",
+        "Git source RESULT.md at assigned tree",
+        "independent_checks_batch4859.py"
+      ],
+      "rationale": "The symbol θ=e^{iaz} has bounded derivatives (ia)^k θ, so Leibniz shows Mθ bounded on the derivative-defined H_n^p for 1<=p<=∞. For |λ|>1, θ-λ and all derivatives of 1/(θ-λ) are bounded on C+, yielding a bounded inverse multiplier. For 0<|λ|<1, zeros z_k=(arg λ+2πk)/a+i(-log|λ|)/a lie at infinite distinct interior points; each evaluation functional is continuous and finite collections are linearly independent via rational interpolation P(z)/(z+i)^{N+n+1}, hence the range has infinite codimension and cannot be Fredholm. For |λ|=1, take x with θ(x)=λ and normalized Fε=cε/(z-x+iε)^2; boundary scaling fixes ||Fε^(n)||_p=1 with cε ~ ε^{n+2-1/p} (or ε^{n+2} for p=∞). Leibniz and |θ(t)-λ|<=min(2,a|t-x|) yield ||(θ-λ)Fε||_{H_n^p}→0; p=1 logarithm multiplied by ε power also vanishes. An injective Fredholm operator is bounded below, contradiction. Closure gives λ=0. Independent finite rational interpolation and boundary-scaling checks corroborate proof, not replace the Banach argument.",
+      "residual_risks": [
+        "Boundary localization at p=1 requires tracking the logarithmic tail; the proof identifies a positive epsilon power suppressing the logarithm.",
+        "No claim concerning arbitrary multipliers or norms beyond the derivative-defined half-plane spaces."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact source Banach upper-half-plane paper proves multiplier spectrum and nonzero multiplier compactness rigidity, not an explicitly identified Fredholm essential disk for θ.",
+          "The Hilbert unit-ball Fredholm multiplier theorem can suggest analogous p=2 cases, but does not directly imply the all p=1..∞ derivative norm result."
+        ],
+        "reasoning": "A broader abstract multiplier theory might imply the theorem, but none of the inspected primary Banach-half-plane results states that stronger conclusion; all-p endpoints remain additional.",
+        "searches": [
+          "arxiv:2603.13983",
+          "arxiv:1709.02047",
+          "Resultary Fredholm essential spectra operator families"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2603.13983 §5.1",
+        "arxiv:1709.02047",
+        "DOI:10.1112/blms/bdr110 (abstract)",
+        "Git source RESULT.md at assigned tree",
+        "independent_checks_batch4859.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary spectrum closure θ(C+) is the closed disk, only giving candidate λ values; it does not exclude Fredholm interior points.",
+          "Classical unilateral shift is Fredholm of index −1 in its interior and hence illustrates exactly why this result is not a routine consequence of spectrum alone."
+        ],
+        "reasoning": "The infinite horizontal lattice of θ-λ zeros forces infinite independent evaluation obstructions for every interior λ; this multiplicity is the essential extra invariant. Boundary approximate eigenvectors complete the classification.",
+        "searches": [
+          "arxiv:2603.13983 Theorem 5.23",
+          "arxiv:1709.02047 Hilbert theory",
+          "classical Hardy shift Fredholm theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liang–Li–Qian define precisely H_n^p(C+) and prove an ordinary spectral formula for multipliers; ordinary spectrum is not equivalent to Fredholm essential spectrum.",
+          "Cao–He–Zhu treat multipliers on Hilbert Hardy–Sobolev spaces on the unit ball with a different exponent/geometry."
+        ],
+        "reasoning": "Same spectral disk can have smaller Fredholm essential spectrum for other operators; the all-point non-Fredholm conclusion needs proof, especially interior λ and all Banach p.",
+        "searches": [
+          "Resultary: Fredholm essential spectrum multiplier e^{iaz} upper half plane Hardy Sobolev H_n^p Banach all p",
+          "arxiv:2603.13983 Theorem 5.23",
+          "arxiv:1709.02047 Hilbert Hardy–Sobolev essential spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary records concern Hilbert matrices, Copson operators, dual-Hahn convolution and unrelated function spaces, not this exponential multiplier.",
+          "The source exact ordinary disk spectrum does not distinguish Fredholmness for interior λ."
+        ],
+        "reasoning": "No same-space table or database count covers the Banach Fredholm classification in checked material; negative index search is qualified by risks.",
+        "searches": [
+          "Resultary: Fredholm essential spectrum multiplier e^{iaz} upper half plane Hardy Sobolev H_n^p Banach all p",
+          "Resultary published Fredholm-essential-spectrum findings",
+          "arxiv:2603.13983 Theorem 5.23"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality from distinct actual primary statements and implications: Same spectral disk can have smaller Fredholm essential spectrum for other operators; the all-point non-Fredholm conclusion needs proof, especially interior λ and all Banach p. A broader abstract multiplier theory might imply the theorem, but none of the inspected primary Banach-half-plane results states that stronger conclusion; all-p endpoints remain additional. The infinite horizontal lattice of θ-λ zeros forces infinite independent evaluation obstructions for every interior λ; this multiplicity is the essential extra invariant. Boundary approximate eigenvectors complete the classification.",
+      "residual_risks": [
+        "A general Fredholm multiplier theorem on these exact Banach Hardy–Sobolev spaces may imply the formula even if not located by bounded search.",
+        "For p=2,n=0 classical infinite-multiplicity shift arguments are known; originality is confined to the explicit complete all-(n,p) extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS ordinary spectrum and compactness rigidity; not the precise all-p Fredholm essential spectrum",
+          "evidence": "Theorem 5.23 and Corollary 5.24",
+          "identifier_or_url": "arxiv:2603.13983",
+          "material_read": "Full accessible manuscript, especially definitions, §5.1 multiplier spectral theorem and compactness result",
+          "method": "arXiv PDF parsed text, targeted Theorem 5.23 and page-image inspection",
+          "title": "Banach Hardy–Sobolev Spaces on the Upper Half-plane and Operator Theory",
+          "trigger": "Exact domain, norm and operator model"
+        },
+        {
+          "assessment": "HILBERT UNIT-BALL model can cover related p=2 phenomenon; does not directly entail half-plane all Banach exponent family",
+          "evidence": "Abstract, Theorems A–C and essential-spectrum main arguments",
+          "identifier_or_url": "arxiv:1709.02047",
+          "material_read": "Accessible full manuscript abstract, main theorems on unit-ball Hilbert Hardy–Sobolev multipliers",
+          "method": "arXiv PDF parsed text and screenshot",
+          "title": "Spectral Theory of Multiplication Operators on Hardy–Sobolev Spaces",
+          "trigger": "Closest essential spectrum/Fredholm theorem for multiplier spaces"
+        },
+        {
+          "assessment": "Concerns composition, not exponential multiplication",
+          "evidence": "Abstract and title",
+          "identifier_or_url": "DOI:10.1112/blms/bdr110",
+          "material_read": "Journal abstract and operator definition",
+          "method": "publisher abstract/publication metadata",
+          "title": "Composition operators on Hardy spaces of a half-plane",
+          "trigger": "Related half-plane operator essential norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:2603.13983 §5.1",
+        "arxiv:1709.02047",
+        "DOI:10.1112/blms/bdr110 (abstract)",
+        "Git source RESULT.md at assigned tree",
+        "independent_checks_batch4859.py"
+      ],
+      "rationale": "The source Banach Hardy–Sobolev setting has a known ordinary multiplier spectrum, but its Fredholm classification is a distinct invariant. The exact disk result exhibits an infinite-codimension interior obstruction, unlike the ordinary Fredholm unilateral shift; it settles endpoints p=1 and ∞ together with every derivative order by a common rigorous mechanism. This is a motivated complete operator classification for a natural singular inner multiplier.",
+      "residual_risks": [
+        "Restricted to a single exponential inner symbol and finite derivative order, not a general Fredholm multiplier theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2603.13983 §5.1",
+    "arxiv:1709.02047",
+    "DOI:10.1112/blms/bdr110 (abstract)",
+    "Git source RESULT.md at assigned tree",
+    "independent_checks_batch4859.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite checks in independent_checks_batch4859.py corroborate bounded cases and are not substituted for unbounded proof.",
+    "All scientific source files were treated as evidence, not operational instructions.",
+    "Public provenance cleaning not staged: publication plan not ready."
+  ],
+  "residual_risks": [
+    "Boundary localization at p=1 requires tracking the logarithmic tail; the proof identifies a positive epsilon power suppressing the logarithm.",
+    "No claim concerning arbitrary multipliers or norms beyond the derivative-defined half-plane spaces.",
+    "A general Fredholm multiplier theorem on these exact Banach Hardy–Sobolev spaces may imply the formula even if not located by bounded search.",
+    "For p=2,n=0 classical infinite-multiplicity shift arguments are known; originality is confined to the explicit complete all-(n,p) extension.",
+    "Restricted to a single exponential inner symbol and finite derivative order, not a general Fredholm multiplier theorem."
+  ],
+  "schema_version": 1
+}
