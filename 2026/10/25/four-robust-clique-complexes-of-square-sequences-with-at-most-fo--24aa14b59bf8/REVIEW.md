@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All graph extensions allowed by the definition are enumerated and quotiented by graph isomorphism, giving \(1,2,7,29\) exact types. For each graph, every admissible face is tested, and an explicit face-poset matching is checked along every covering relation. A full topological sort certifies acyclicity. The only critical dimensions are zero (one vertex) and five (rank from the table), which directly proves a wedge of five-spheres or contractibility via discrete Morse theory. An independent program reconstructs every mod-two boundary operator and agrees in every degree on all \(39\) types. Risks: the proof is finite and requires the supplied code/environment to reproduce the whole case exhaustion; no extrapolation to longer sequences is justified.
+PASS
 
-## Originality — PASS, with bounded literature uncertainty
+All legal square-sequence graph attachments of length <=4 are either edge attachments introducing 2 vertices and 3 edges or corner attachments introducing 1 vertex on an existing 2-edge path. Iterating both and removing exact graph-isomorphic duplicates gives 1,2,7,29 classes for lengths 1..4. For each, the forbidden independent 4-sets generate all nonfaces of Cliq_4; exhaustive nonempty face-poset Morse matchings directed along Hasse covers have exactly one critical 0-cell and only critical 5-cells (or none). Independent graph-isomorphism enumeration and a separately programmed full acyclicity check reproduced all 39 homotopy outcomes, including the s=4 distribution {(7,0):3,(8,0):4,(8,1):4,(9,2):7,(9,3):2,(9,4):1,(10,4):8}. Forman matching yields actual integral wedge S5 rather than mod-two homology only. Bound s<=4 essential.
 
-The motivating full paper gives the results for \(k=2,3\) and for arbitrary \(k\) in **edge-only** square sequences, but explicitly conjectures the all-corner-allowed extension. Thus these known cases are not claimed new. The present exact table includes \(21\) corner-containing four-square types outside that edge-only result. Targeted mathematical-record searches found related results for three-robust bipartite graph complexes and grid **cut** complexes, but not a theorem implying the four-robust corner-attached classification. Searches cannot prove global novelty; unindexed sources remain a risk. One motivating primary paper was read materially through its definitions, theorem statements, proof scope, and conjecture.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete, naturally delimited finite layer of Filakovský's named Conjecture 5 at the first forbidden-set size beyond the proved \(k=3\) regime. Corner gluing is precisely the stated obstruction to the published induction, so enumerating *all* corner-containing graphs up to four squares isolates meaningful boundary behavior. At four squares the same size nine vertices permits sphere multiplicity two, three, or four, so structural attachments genuinely affect topology. The result does not purport to solve the unrestricted conjecture.
+Best-of-knowledge PASS with clearly separated known all-edge subfamily: Filakovský 2602.11365 proves k=2,3 for corner sequences and arbitrary k for edge-only sequences, and conjectures corner-glued general k. The novel finite sector is k=4, at most 4 squares, including 21 corner-containing s=4 graph types; the 8 all-edge length-four types are already covered. No earlier exact 39-class/corner table was identified.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Finite but complete first missing k=4 corner-gluing threshold of a natural explicit conjecture; provides precise finite homotopy classification and reproducible counterexample search boundary, not just a sample of arbitrary graphs. The grid P3 box P3 carries four 5-sphere summands.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
