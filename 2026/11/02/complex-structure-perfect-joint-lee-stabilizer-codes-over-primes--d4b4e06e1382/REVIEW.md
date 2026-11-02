@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The partition into four-element orbits uses the irreducibility of \(T^2+1\) for \(p\equiv3\pmod4\). Orbitwise constancy of the alternating tensor \(v(Jv)^\mathsf T-(Jv)v^\mathsf T\) and the exact full-space second-moment cancellation prove commutation. The syndrome partition and rank are exact, and a two-qudit, joint-Lee-weight-three zero-syndrome witness is excluded from the stabilizer by the \(\lceil(p-1)p^{r-1}/4\rceil\) physical-support lower bound. Standalone exact modular tests passed for six parameter pairs, including the excluded trivial corner.
+
+**Originality — PASS, with residual risk.** Guo et al., arXiv:2610.04834, Section 3.1 and Table 2 present the joint Lee metric and selected perfect examples, not this all-rank, prime-congruence family. Matsumoto, arXiv:2105.12354, works with CSS codes and separate component weights. The full original Section 3.1/Table 2 and relevant Matsumoto definitions/construction were compared at the level of correction criterion and code parameters. Targeted semantic record searches for perfect joint-Lee codes, \(J^2=-I\) symplectic designs, and odd-prime congruence families found no dominating statement. A hidden equivalence to a classical quantum-Hamming or symplectic-orbit construction cannot be excluded; no independent priority audit has been performed.
+
+**Value — PASS.** The problem is motivated by saturation of the joint-Lee sphere-packing bound, and the construction resolves an infinite set of dimensions not covered by the motivating perfect-code table, notably \([[12,10,3_{\diamond}]]_7\) and \([[20,16,3_{\diamond}]]_3\). The commutativity identity is a nontrivial geometric mechanism compatible with a complete error-syndrome tiling. The result is limited to joint-Lee correction and makes no claim of Hamming-distance or decoding-complexity improvements.
+
+Self-review: passed. Independent audit: not yet performed.
