@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:48:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/sharp-minimum-and-stability-of-surface-area-for-unicyclic-graphi--fa812a991423/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/sharp-minimum-and-stability-of-surface-area-for-unicyclic-graphi--fa812a991423/CHECK.py",
+        "https://arxiv.org/abs/2206.03204",
+        "Independent check script /mnt/data/scope_worker-06_20261028T123636Z/audit_checks.py"
+      ],
+      "rationale": "Every independent (n-2)-subset of root incidence vectors corresponds to a two-component spanning forest with Gram determinant s(n-s). For unicyclic connected n-vertex G with c-cycle, selecting n-2 edges by removing either a bridge and cycle edge (c such sets per bridge), or two cycle edges (interval components A_{i,k}); deleting two bridges leaves a cycle and contributes zero. Therefore S(G)=2c sum_bridge sqrt(s_e(n-s_e))+sum_{i,k}sqrt(A_{i,k}(n-A_{i,k})). Each bridge s_e between 1 and n-c has sqrt(s(n-s))>=sqrt(n-1), equality only s=1, forcing all off-cycle vertices direct leaves. The strictly concave sum of cyclic interval terms reaches its minimum at a vertex of the simplex a_i>=1,sum=n, i.e. all leaves at one cycle vertex, proving the global bound and rigidity. Inside direct-leaf family, Jensen gives sharp balanced upper bound when c|n. Because f_double_prime<=-2/n, strong concavity yields the exact quadratic stability deficit. Independent all-integer direct-leaf allocations for (n,c)=(6,3),(8,4),(9,3) confirm extrema and deficit; infinite proof is symbolic.",
+      "residual_risks": [
+        "General unicyclic maximum is NOT claimed; c not dividing n makes the stated balanced upper bound unattained. n>c>=3, unit edge roots, intrinsic Euclidean metric in sum-zero hyperplane."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 compares full unrestricted d+1-segment zonotopes at fixed volume to a regular rhombic dodecahedron with equality only for regular form; its global extremal bound is not attained in most fixed-cycle-length graphic families."
+        ],
+        "reasoning": "A stronger-dimensional-domain theorem can imply a special case only if it controls the SAME restricted extremum and equality, which here it does not. It cannot supply explicit c-dependent minimum, equality among unicyclic graphs, or the stability deficit within direct-leaf allocations.",
+        "searches": [
+          "https://arxiv.org/abs/2206.03204",
+          "Joós–Lángi 2023 §3.1 Theorem 3",
+          "https://arxiv.org/abs/2111.12422"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2206.03204",
+        "https://arxiv.org/abs/2111.12422",
+        "https://arxiv.org/abs/2102.05900",
+        "Resultary unicyclic graphic zonotope query",
+        "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/mtk.12191"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Joós–Lángi Corollary 1 proves V_{n-2} as sum of independent (n-2)-subset parallelepiped volumes. For unicyclic G, this becomes bridge cuts and two-cycle-edge interval cuts. Its Theorem 3 has unrestricted regular extremizers, whereas here the graph-restricted minimizer is cycle-star and the direct-leaf upper bound uses Jensen with equality at balanced a_i."
+        ],
+        "reasoning": "Prior generator-sum formula is a premise, not the minimum or constrained maximum with cycle length c held fixed. The new optimization relies on the strict concavity of sqrt(s(n-s)) and the integer leaf allocation geometry, not direct substitution into a published extremal theorem.",
+        "searches": [
+          "https://arxiv.org/abs/2206.03204",
+          "https://arxiv.org/abs/2102.05900",
+          "https://arxiv.org/abs/2111.12422"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Intrinsic boundary area S=2V_{n-2}; Corollary 1 writes V as a forest determinant sum. Graph-cut fragment sizes s_e and cyclic intervals A_{i,k} give exactly the specialized formula."
+        ],
+        "reasoning": "The general forest sum and intrinsic-volume normalization are prior and not novel. The new theorem is an optimization on fixed-cycle-length graphic root vector configurations, with unique cycle-star minimizer and balanced leaf constrained maximum, not merely renaming the formula.",
+        "searches": [
+          "https://arxiv.org/abs/2206.03204",
+          "https://arxiv.org/abs/2111.12422",
+          "Resultary: graphical zonotope unicyclic graph fixed cycle length surface area minimizing star leaves stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieved a tree graphical zonotope width-variance extremum, not the same Euclidean surface-area statistic; no table of all unicyclic fixed-n,c extrema was recovered."
+        ],
+        "reasoning": "Even exact small-graph tables cannot imply the continuous strict-concavity uniqueness or all-n formula; search failure alone proves nothing about priority.",
+        "searches": [
+          "Resultary semantic: graphical zonotope unicyclic graph fixed cycle length surface area minimizing star leaves stability",
+          "web: graphical zonotope unicyclic graph surface area spanning forest extremizer cycle star"
+        ]
+      },
+      "rationale": "Joós–Lángi Corollary 1, read in full from accessible arXiv HTML, establishes the general zonotope intrinsic-volume generator-subset sum. Their §3.1 Theorem 3 optimizes intrinsic volumes over all d or d+1 segment zonotopes at fixed volume and has regular extremizers in those unrestricted classes. It does NOT imply the sharp MINIMUM within the restrictive unit graphic-incidence unicyclic class at fixed n and cycle length c, whose extremizer is a highly asymmetric cycle-star, nor the balanced direct-leaf constrained MAXIMUM with explicit variance deficit. Independent graph-forest concavity proof is substantive. Prior results about trees, abstract graphic matroids, and zonotope deformation cones do not determine this metric classification. Best-of-knowledge PASS, with graph cut-energy risks.",
+      "residual_risks": [
+        "A graph-cut invariant or chemical-graph index under different names might encode the same cycle-star surface-area optimization.",
+        "Full literature over all fixed-cycle-length cut-energy extremizers is not exhausted; the current proof uses a known general intrinsic-volume identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_INTRINSIC_VOLUME_IDENTITY; DIFFERENT_UNRESTRICTED_EXTREMUM",
+          "evidence": "Corollary 1: V_k(Z)=sum_{independent k-subsets}|wedge p_i|. Theorem 3: extremum among unrestricted d,d+1 segment zonotopes at fixed volume, regular equality, not fixed-cycle-length incidence zonotopes or direct-leaf stability.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.03204",
+          "material_read": "Full accessible arXiv HTML of Corollary 1 and proof, §3.1 Theorem 3 and proof, remarks and hypotheses, including equilateral/unrestricted distinctions",
+          "method": "Read primary complete relevant HTML mathematical sections, not only abstract",
+          "title": "Isoperimetric problems for zonotopes",
+          "trigger": "Same invariant V_{n-2} for d+1 generated zonotopes, potentially dominating prior theorem"
+        },
+        {
+          "assessment": "GRAPHICAL_CONTEXT_NOT_SPECIFIC_SURFACE_OPTIMIZER",
+          "evidence": "Deformation-cone and combinatorial structure claims differ from fixed-cycle Euclidean surface-area optimization.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.12422",
+          "material_read": "Public accessible abstract, definitions and relevant research overview; full proof not inspected here",
+          "method": "ArXiv public sections and synopsis",
+          "title": "Deformed graphical zonotopes",
+          "trigger": "Same graphical zonotope construction, combinatorial deformation family"
+        },
+        {
+          "assessment": "GENERAL_VOLUME_TOOL",
+          "evidence": "General generator-subset formula is already known, explicitly excluded from novelty.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.05900",
+          "material_read": "Original arXiv abstract and Joós–Lángi explicit citation of general generator-subset identity; complete primary proof not inspected",
+          "method": "ArXiv abstract/cited equation comparison",
+          "title": "Vector-valued Maclaurin inequalities",
+          "trigger": "Earlier intrinsic volume sum attributed by Joós–Lángi"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/sharp-minimum-and-stability-of-surface-area-for-unicyclic-graphi--fa812a991423/RESULT.md",
+        "https://arxiv.org/abs/2206.03204"
+      ],
+      "rationale": "Sharp full-class metric minimum, unique extremizing rooted-tree arrangement, opposite sharp constrained maximum, and a quantitative stability inequality on leaf allocations separate Euclidean geometry from common matroid and constant volume. Those are natural and potentially reusable graph/zonotope comparison benchmarks, not mechanical duplication of the forest-volume formula.",
+      "residual_risks": [
+        "The exact general surface-area formula is a specialization of established zonotope intrinsic-volume decomposition; new value lies in optimization, equality and stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>c>=3 unit unicyclic graphical zonotopes, the sharp intrinsic surface-area minimum is 2c(n-c)sqrt(n-1)+2 sum_{k=1}^{c-1}(c-k)sqrt(k(n-k)), uniquely all leaves at one cycle vertex; among direct-leaf graphs the balanced upper bound 2c(n-c)sqrt(n-1)+n sum_{k=1}^{c-1}sqrt(k(c-k)) has equality iff c|n with uniform allocations and a stated strong-concavity quadratic deficit.",
+  "limitations": [
+    "No maximum among all rooted unicyclic graphs; discrete balanced upper bound may be strict if n not divisible by c.",
+    "Earlier graph-cut-energy/isoperimetric literature could express same optimization, residual priority risk."
+  ],
+  "schema_version": 1
+}
