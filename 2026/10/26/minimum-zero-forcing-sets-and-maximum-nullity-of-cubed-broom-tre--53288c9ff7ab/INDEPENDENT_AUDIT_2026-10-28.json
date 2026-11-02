@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T22:52:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let B_{t,ell} have t>=2 brush leaves a_i at v_0 and path v_0...v_ell with ell>=2; cube adjacency means tree-distance at most 3. Brush leaves become a true-twin clique adjacent to v0,v1,v2. Reconstructed the Gram representation: assign identical interval vectors w0 to brushes and consecutive interval vectors w_{j+1} to v_j in R^{ell−1}, each supported on coordinate indices max(0,i−3)..min(i,ell−2). Two vectors overlap precisely at cube distance<=3 and these vectors span ell−1 dimensions, hence a real symmetric matrix with exact off-diagonal support and nullity t+2. The standard inequality M<=Z gives the lower bound Z>=t+2. Explicit forcing schedules of size t+2 reach all vertices using forward path forces v_{j−3}->v_j or reverse forces v_{j+3}->v_j, with omitted brush forced when the first three path vertices are black. Necessity: at most one brush is initially white because distinct true twins cannot be uniquely forced while both white. With t black brushes and two path vertices the only possible first force is from a brush, requiring two of v0,v1,v2; with t−1 brushes and three path vertices, the first force must come from brush or right endpoint, leaving exactly four path triples. This exhausts cases and yields 3+4t minimum sets for ell>=3. For ell=2 the cube is K_{t+3}, so t+3 minimum sets and Z=M=t+2. Independently built broom distance cubes and exhaustive zero-forcing simulations for 18 pairs 2<=t<=4,2<=ell<=7; all exact counts match, with no forcing sets of size t+1. Finite work corroborates but Gram rank/first-move argument proves the full infinite family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abiad exact path power and conjectured sharp equal-arm spider bounds have different hypotheses; DeAlba mainly concerns minimum rank and strict squares."
+        ],
+        "reasoning": "The generic M(G)<=Z(G) inequality and prior path-power minimum-rank formulas provide context but do not dominate a complete zero-forcing set classification. Even a general spider cubic upper bound would not imply the exact 4t+3 labeled number or exhaustive list.",
+        "searches": [
+          "Resultary semantic query: Third powers of broom trees zero forcing sets maximum nullity count independent domination",
+          "Abiad, Flagg, Ghasemi Nezhad and Zeijlemaker, The Zero Forcing Number of Graph Powers, arXiv:2610.03892; https://arxiv.org/html/2610.03892",
+          "DeAlba et al., Minimum Rank of Powers of Trees, Electronic Journal of Linear Algebra 23 (2012), pp.151–163; https://journals.uwyo.edu/index.php/ela/article/download/1023/1023/1023"
+        ]
+      },
+      "checked_sources": [
+        "Abiad, Flagg, Ghasemi Nezhad and Zeijlemaker, The Zero Forcing Number of Graph Powers, arXiv:2610.03892; https://arxiv.org/html/2610.03892",
+        "DeAlba et al., Minimum Rank of Powers of Trees, Electronic Journal of Linear Algebra 23 (2012), pp.151–163; https://journals.uwyo.edu/index.php/ela/article/download/1023/1023/1023",
+        "Resultary published spider-tree minimal zero-forcing finding",
+        "Resultary search: Third powers of broom trees zero forcing sets maximum nullity count independent domination"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new 3+4t minimum-set count survives even if part of Z=t+2 were known through a stronger bound."
+        ],
+        "reasoning": "Knowing Z of equal-arm spider powers, or real minimum rank of path powers, cannot determine the full family of extremizing forcing subsets for the broom cube. Exact tree-distance<=3 true-twin geometry plus exhaustive possible first forces are genuinely new steps.",
+        "searches": [
+          "Resultary semantic query: Third powers of broom trees zero forcing sets maximum nullity count independent domination",
+          "Abiad, Flagg, Ghasemi Nezhad and Zeijlemaker, The Zero Forcing Number of Graph Powers, arXiv:2610.03892; https://arxiv.org/html/2610.03892",
+          "DeAlba et al., Minimum Rank of Powers of Trees, Electronic Journal of Linear Algebra 23 (2012), pp.151–163; https://journals.uwyo.edu/index.php/ela/article/download/1023/1023/1023"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abiad Proposition 9 assumes equal arm length >=k+1; here t arms have length 1 and the remaining arm arbitrary ell. DeAlba distinguishes usual and strict powers explicitly."
+        ],
+        "reasoning": "The cubed broom is a highly asymmetric spider (t unit arms, one length-ell arm); prior equal-arm spider upper bounds and path-power exact results are not a theorem about this asymmetric family. Zero forcing set enumeration is distinct from the value Z alone or the minimum rank of a strict graph power.",
+        "searches": [
+          "Resultary semantic query: Third powers of broom trees zero forcing sets maximum nullity count independent domination",
+          "Abiad, Flagg, Ghasemi Nezhad and Zeijlemaker, The Zero Forcing Number of Graph Powers, arXiv:2610.03892; https://arxiv.org/html/2610.03892",
+          "DeAlba et al., Minimum Rank of Powers of Trees, Electronic Journal of Linear Algebra 23 (2012), pp.151–163; https://journals.uwyo.edu/index.php/ela/article/download/1023/1023/1023"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published spider-tree minimal forcing sets concern T, not T^3; maximum-nullity rank for T or T^(2) is a different invariant."
+        ],
+        "reasoning": "No inspected exact table contains all labeled minimum zero-forcing subsets for cubed brooms of arbitrary handle. Existing 32-pair verifier and new independent 18-pair brute force are finite only; the first-move proof is needed for all ell.",
+        "searches": [
+          "Resultary semantic query: Third powers of broom trees zero forcing sets maximum nullity count independent domination",
+          "Abiad, Flagg, Ghasemi Nezhad and Zeijlemaker, The Zero Forcing Number of Graph Powers, arXiv:2610.03892; https://arxiv.org/html/2610.03892",
+          "DeAlba et al., Minimum Rank of Powers of Trees, Electronic Journal of Linear Algebra 23 (2012), pp.151–163; https://journals.uwyo.edu/index.php/ela/article/download/1023/1023/1023",
+          "2026/10/4/SCOPE-all-minimal-zero-forcing-sets-and-the-upper-zero-forcing-number--243a67e5cc7b"
+        ]
+      },
+      "rationale": "Abiad–Flagg–Ghasemi Nezhad–Zeijlemaker (2026) study graph-power zero forcing and give exact path-power values and an upper bound for equal-arm spiders S_m(ell)^k; their Proposition 9 assumes all legs equal and does not enumerate minimum sets of a broom cube with many unit arms and one arbitrary handle. DeAlba et al. (2012) treat minimum ranks of path powers and strict powers/squares of trees; they do not classify min zero forcing sets of the usual cubic broom. A broader upper bound could overlap with the t+2 cardinality, and common true-twin forcing rules are standard; the assessed contribution survives as the exact uniform complete labeled minimum-set enumeration and simultaneous maximum-nullity equality. An unindexed combinatorial formula for broom powers remains a residual risk.",
+      "residual_risks": [
+        "An earlier exact zero-forcing polynomial or threshold-graph true-twin classification may imply the 4t+3 count.",
+        "Prior path-power minimum rank and general tree graph-power methods may simplify the invariant Z=t+2; the independently valuable part is the all-minima census.",
+        "No claim for general spiders, other powers, or zero-forcing subsets of nonminimum cardinality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_BOUNDS_NOT_COVERING_MINIMUM_SET_CLASSIFICATION",
+          "evidence": "Their Proposition 9 only bounds Z for S_m(ell)^k when all arms share length ell>=k+1; no exact broom cube enumeration.",
+          "identifier_or_url": "https://arxiv.org/html/2610.03892",
+          "material_read": "Read accessible full arXiv HTML, focusing on exact path-power propositions, Proposition 9 equal-length spiders and Conjecture 10, comparing arm lengths and enumeration scope.",
+          "method": "Full-text OA HTML",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "Primary same invariant for graph powers and spiders, possible stronger theorem"
+        },
+        {
+          "assessment": "EARLIER_RANK_WORK_DIFFERENT_POWER_OR_FAMILY",
+          "evidence": "Minimum rank of path powers and strict tree squares is prior; the paper does not classify minimum zero forcing sets for standard third powers of brooms.",
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/1023/1023/1023",
+          "material_read": "Read full accessible 14-page PDF with visual first-page check, paying particular attention to definitions of ordinary versus strict powers, Theorem 3.2 on path powers and section 4 on strict squares and tree minimum rank.",
+          "method": "Full-text PDF plus screenshot",
+          "title": "Minimum Rank of Powers of Trees",
+          "trigger": "Potentially dominating maximum-nullity theorem for tree powers"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH",
+          "evidence": "Concerns spider trees before cubing and minimal sets (not necessarily minimum), so no demonstrated implication for cubed brooms.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-minimal-zero-forcing-sets-and-the-upper-zero-forcing-number--243a67e5cc7b",
+          "material_read": "Read published Resultary summary, not complete RESULT.md.",
+          "method": "Resultary semantic search summary",
+          "title": "All minimal zero forcing sets and the upper zero forcing number of spider trees",
+          "trigger": "Same underlying spider family, possible array of minimum sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Zero forcing number and maximum nullity are natural extremal graph invariants connected to inverse eigenvalue problems. For a sparse tree family whose cubes have large true-twin cliques, the exact stable count 4t+3 for all handle lengths ell>=3, the Gram witness establishing matching maximum nullity, and the complete first-move classification offer a precise infinite-family result. It is not merely a small computation or an arbitrary new graph power; it supplies a reusable twin/clique/path forcing template, while clearly limiting its scope to cubes of brooms.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Abiad, Flagg, Ghasemi Nezhad and Zeijlemaker, The Zero Forcing Number of Graph Powers, arXiv:2610.03892; https://arxiv.org/html/2610.03892",
+    "DeAlba et al., Minimum Rank of Powers of Trees, Electronic Journal of Linear Algebra 23 (2012), pp.151–163; https://journals.uwyo.edu/index.php/ela/article/download/1023/1023/1023",
+    "Resultary published spider-tree minimal zero-forcing finding",
+    "Resultary search: Third powers of broom trees zero forcing sets maximum nullity count independent domination"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Real symmetric off-diagonal support exact, zero forcing is the standard one-white-neighbor rule.",
+    "Finite enumeration t<=4 ell<=7 is corroborative, not a proof of all t,ell."
+  ],
+  "residual_risks": [
+    "An earlier exact zero-forcing polynomial or threshold-graph true-twin classification may imply the 4t+3 count.",
+    "Prior path-power minimum rank and general tree graph-power methods may simplify the invariant Z=t+2; the independently valuable part is the all-minima census.",
+    "No claim for general spiders, other powers, or zero-forcing subsets of nonminimum cardinality."
+  ],
+  "schema_version": 1
+}
