@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For \\(n=3k+2\\) every gamma-set has k+1 centers with exactly one short length-two cyclic gap, giving the n distinct rotations. The pair {0,2} realizes traces with multiplicities 1,k,k,k+1; every triple co-occurring in a gamma-set forces its third point whenever the two endpoints around the short gap are selected, excluding three-way shattering. The depth-three certificate uses 8 explicitly checked shift witnesses for all k>=3; the k+1-shift ordered-threshold subfamily yields floor(log2(k+1)) full adaptive levels. Entropy bounds Ldim above by floor(log2 n); for k=1 and k=2 the value 2 follows from VC lower and respectively cardinality or root-positive-branch count, and for k=3 the value 3 is exact. The extracted verifier independently enumerates all gamma-sets at k<=6 and recomputes exact Ldim; finite samples are not used to infer the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Malliaris and Moran, Agnostic Online Learning and Excellent Sets, arXiv:2108.05569 (2021): general model-theoretic Littlestone/online learning theory; accessible abstract and results overview.",
+        "Related results for inclusion-minimal dominating sets and maximal independent sets concern different hypothesis families. Minimum dominating sets are a subfamily of inclusion-minimal dominating sets; their exact dimensions do not follow from upper bounds on the larger family."
+      ],
+      "reasoning": "General online-learning theory identifies Littlestone dimension with optimal realizable mistake bounds, without determining these values. Generic cardinality bounds provide only the upper order; they do not force the cyclic triple obstruction or logarithmic lower bound. Existing dimensions of larger dominating-set classes cannot imply an exact dimension for a strict subfamily.",
+      "searches": [
+        "\"maximal independent sets\" \"VC-dimension\" \"induced matching\" trees",
+        "Minimum dominating sets of C_(3k-1) cycles have VC dimension two and Littlestone dimension logarithmic, with unbounded adaptive shattering gap",
+        "Littlestone dimension minimum dominating sets of cycles of order 3k+2; VC dimension bounded two while online mistake bound logarithmic"
+      ]
+    },
+    "checked_sources": [
+      "Hernández-Gómez et al., Transitivity on Minimum Dominating Sets of Paths and Cycles (2020), DOI 10.3390/sym12122053, §2.1.2 Lemma 5 and Theorem 2: exactly n cyclically translated minimum dominating sets for n=3k-1, classified by one overlap of closed neighborhoods.",
+      "Malliaris and Moran, Agnostic Online Learning and Excellent Sets, arXiv:2108.05569 (2021): general model-theoretic Littlestone/online learning theory; accessible abstract and results overview.",
+      "Scientific-record searches for gamma-set VC/Littlestone cycle classes and their cyclic-orbit/threshold formulations.",
+      "Other mathematical statements concerning inclusion-minimal dominating sets and maximal independent sets of cycles, checked for nonimplication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hernández-Gómez et al., Transitivity on Minimum Dominating Sets of Paths and Cycles (2020), DOI 10.3390/sym12122053, §2.1.2 Lemma 5 and Theorem 2: exactly n cyclically translated minimum dominating sets for n=3k-1, classified by one overlap of closed neighborhoods.",
+        "Malliaris and Moran, Agnostic Online Learning and Excellent Sets, arXiv:2108.05569 (2021): general model-theoretic Littlestone/online learning theory; accessible abstract and results overview.",
+        "The exact n-member orbit is an input to the proof; the nontrivial implications are the forced-triple theorem and all-depth balanced-threshold embedding."
+      ],
+      "reasoning": "The 2020 classification determines the concepts themselves, but its stated consequences analyze automorphism orbit structure rather than adversarial query trees. Its statement does not supply the present exact VC=2, first gap at n=11, or logarithmic Ldim growth; these require new independent combinatorial arguments. The 2021 theory has much broader conceptual scope but no specific computed dimensions in the material checked.",
+      "searches": [
+        "\"minimum dominating sets\" \"Littlestone\" \"cycles\"",
+        "\"gamma-sets\" \"VC dimension\" \"cycle\"",
+        "\"cyclic shifts\" \"VC dimension\" \"Littlestone\" domination",
+        "Transitivity on Minimum Dominating Sets of Paths and Cycles Lemma 5 3k-1 gamma sets",
+        "Agnostic Online Learning and Excellent Sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hernández-Gómez et al., Transitivity on Minimum Dominating Sets of Paths and Cycles (2020), DOI 10.3390/sym12122053, §2.1.2 Lemma 5 and Theorem 2: exactly n cyclically translated minimum dominating sets for n=3k-1, classified by one overlap of closed neighborhoods.",
+        "The hypothesis family is equivalently the orbit of a binary word with one cyclic spacing of two and all other spacings three. The queried property is vertex membership, not the existence or count of gamma-sets."
+      ],
+      "reasoning": "Aliases for this finite concept class include gamma-set hypergraph, minimum domination sets on cycles, one-defect cyclic binary necklaces, cyclic translates of 3-separated sets, and vertex membership orbits. A paper classifying orbit members does not already state exact static and adaptive shattering unless it also proves the corresponding dimension implications. The checked cycle paper contains no such learning calculation in its cycle results.",
+      "searches": [
+        "\"minimum dominating sets\" \"Littlestone\" \"cycles\"",
+        "\"gamma-sets\" \"VC dimension\" \"cycle\"",
+        "Cyclic shift class of gamma sets on cycle C_n domination size ceil(n/3) shattered triples and binary threshold subfamily"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record closest responses concerned graph domination numbers, cycle cover-free families and other graph invariants, not gamma-set shattering; no exact table of the claimed dimensions was retrieved.",
+        "Hernández-Gómez et al., Transitivity on Minimum Dominating Sets of Paths and Cycles (2020), DOI 10.3390/sym12122053, §2.1.2 Lemma 5 and Theorem 2: exactly n cyclically translated minimum dominating sets for n=3k-1, classified by one overlap of closed neighborhoods."
+      ],
+      "reasoning": "The exact table in the 2020 cycle paper is a count/orbit enumeration of minimum dominating sets, not a table of VC or Littlestone dimensions. The finite ranks given here are independently computed only as corroboration of a universal proof and small-boundary assertion.",
+      "searches": [
+        "Minimum dominating sets of C_(3k-1) cycles have VC dimension two and Littlestone dimension logarithmic, with unbounded adaptive shattering gap",
+        "Cyclic shift class of gamma sets on cycle C_n domination size ceil(n/3) shattered triples and binary threshold subfamily",
+        "Exact VC dimension of minimum dominating sets in vertex-transitive 2-regular graphs and online learning mistake bound"
+      ]
+    },
+    "rationale": "The 2020 primary literature supplies the cyclic gamma-set classification, but the inspected cycle lemmas and automorphism theorem do not calculate VC/Littlestone dimensions or provide the forced-triple obstruction and ordered-threshold adaptive embedding. The general 2021 Littlestone work does not supply a cycle-specific dimension calculation in the material accessed. Published research-record searches and historical deduplication did not identify a stronger implication. This remains a best-knowledge originality judgment, not a guarantee of comprehensive priority.",
+    "residual_risks": [
+      "The first primary paper already fully classifies the underlying gamma-set family; historical sources might have derived its learning dimensions elsewhere.",
+      "Some portions of the original primary text were not available for material inspection; appendix coverage remains unverified.",
+      "The separate general online-learning source was not inspected in full.",
+      "No independent human priority verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS hypothesis-set classification and gamma-transitivity, NOT the new VC/Littlestone statements in inspected portions; residual risk from incomplete direct publisher access.",
+        "evidence": [
+          "Hernández-Gómez et al., Transitivity on Minimum Dominating Sets of Paths and Cycles (2020), DOI 10.3390/sym12122053, §2.1.2 Lemma 5 and Theorem 2: exactly n cyclically translated minimum dominating sets for n=3k-1, classified by one overlap of closed neighborhoods.",
+          "Date explicitly published 2020-12-11; n=3k-1 lemma gives one short spacing and exactly n gamma-sets."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym12122053",
+        "material_read": "Indexed full-text HTML of introduction, cycle subsection §2.1.2 including Lemma 5, its explicit n-member family, and Theorem 2 orbit classification; other portions were not independently inspected, so assessment is limited to accessible material.",
+        "method": "Search-indexed open-access HTML text from original publisher, checked matching version and formula",
+        "title": "Transitivity on Minimum Dominating Sets of Paths and Cycles",
+        "trigger": "Direct treatment of precisely the gamma-sets of cycles of order 3k-1"
+      },
+      {
+        "assessment": "General theory background, not affirmative evidence of a specific cycle parameter result; residual uninspected-content risk.",
+        "evidence": [
+          "Malliaris and Moran, Agnostic Online Learning and Excellent Sets, arXiv:2108.05569 (2021): general model-theoretic Littlestone/online learning theory; accessible abstract and results overview.",
+          "First arXiv public date 2021-08-12."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.05569",
+        "material_read": "Open arXiv entry, abstract and detailed indexed results overview; the primary full text was not accessible in this round.",
+        "method": "Authoritative arXiv metadata and accessible abstracts; no claim to have inspected unaccessed sections",
+        "title": "Agnostic Online Learning and Excellent Sets",
+        "trigger": "Canonical 2021 middle-period general theory connecting online prediction and Littlestone dimension"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "95033bfd-a484-4462-b754-36be1eb53908",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This determines the exact static dimension for a canonical infinite family of minimum-size domination systems and shows a logarithmically diverging adaptive/static shattering gap on connected vertex-transitive 2-regular graphs. The short-gap cyclic structure is a mathematically natural rigidity invariant; its exact implications for shattering are not a mere parameter relabeling. The two-sided logarithmic estimate has a constant-size additive uncertainty, and the first gap in this residue class is rigorously localized at n=11.",
+    "status": "PASS"
+  }
+}
