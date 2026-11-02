@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The covariance–derivative identity is exact for the finite Mallows exponential tilt. Uniform-bias covariance is obtained by conditioning on individual fixed points and summing inversion indicators. At either extreme of bias, the first nontrivial permutation layer is a single adjacent transposition. A uniform bound on all deeper layers, using the inversion-sequence product and a two-point Lipschitz estimate, proves strict signs for the displayed cutoffs at every sample size. The standard-library checker passed 393 exact finite assertions, including inversion-weighted moment formulas and sign checks. Finite checks are not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS (best-knowledge, residual historical-priority risk).** He (2021) and He–Müller–Verstraaten (2022) give fixed-parameter large-size cycle limits, including odd/even effects, but no all-finite-size covariance derivative sign with the displayed bias cutoff. A February 2024 discussion on fixed points versus inversions specifically poses the monotonic relationship that this result refutes. Nearby published uniform-permutation covariance formulas do not imply the tilted finite-size statement. Exact historical priority is not formally established.
+PASS
 
-## Value
-**PASS.** The result answers a motivated monotonicity question negatively using infinitely many odd sizes, identifies a quantitative region where the reversal is guaranteed, and completely resolves the first odd size by an exact rational covariance and threshold. The even-size high-bias contrast distinguishes a real parity boundary, not a single isolated computation.
+The exponential-family identity q∂E_q F/∂q=Cov_q(F,J) holds term-by-term for finite permutations, and q∂E_q J/∂q=Var_q(J)>0. At q=1 the fixed-point versus inversion-indicator covariance for a<b is (a−b)/[n(n−1)], and summing gives −(n+1)/6. At identity the n−1 adjacent swaps each destroy two fixed points, first Taylor coefficient c=−2(n−1). At reversal, only two central-adjacent swaps destroy one fixed point each for odd n (c=−2), while the central adjacent swap creates two for even n (c=+2). The q-factorial Mahonian level coefficients obey a_k<=n^k; |F−F_extreme|<=2k under k adjacent swaps bounds |b_k|<=2k a_k. Geometric series at x<=1/(100 n²) give uniform derivative error <1 while |c|>=2, so the derivative sign is certified for all n; reverse-bias x=1/q reverses the covariance sign. The n3 exact rational identity follows from complete six-permutation enumeration. Independent enumerations for n2..8 exactly reproduce unbiased and both cutoff signs. Continuity and positivity ensure odd-n covariance crossing and a local minimum, but not uniqueness beyond n3.
 
-## Limits and closest literature
-The all-parameter covariance sign remains open in this package except at the specified regimes and for the full three-symbol formula. The sufficient cutoff need not be sharp; odd-size zero uniqueness is not asserted beyond three symbols. The cited research on Mallows cycle laws addresses different limits. Independent validation and exhaustive historical priority review have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Mallows permutation cycle theory includes fixed-point expectations and pronounced odd/even effects in n→infinity asymptotics. The 2024 MathOverflow discussion explicitly asks whether expected fixed points decrease with expected inversions, conjectures a monotonic response and notes uniform conditional-inversion counterexamples; it does not supply the stated finite-n Mallows high-bias covariance reversal. The new result gives a uniform explicit all-odd-n counterfamily and rigorous quantitative cutoff, beyond qualitative parity asymptotics.
+
+## value
+
+PASS
+
+The fixed-point/inversion relation was explicitly posed as an unresolved monotonicity question in 2024. An exact counterfamily for every odd size, with a rigorous uniform polynomial high-bias bound, is a meaningful structural answer and identifies a parity-dependent sign reversal. It is not a tiny exceptional n3 example and does not infer finite-n behavior from asymptotic experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

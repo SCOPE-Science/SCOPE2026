@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:49:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md complete perturbation proof and inspected mallows_fixedpoint_checker.py",
+        "Independent_checks.py exhaustive enumeration of all permutations n2..8, exact rational covariances at q=1 and both cutoffs"
+      ],
+      "rationale": "The exponential-family identity q∂E_q F/∂q=Cov_q(F,J) holds term-by-term for finite permutations, and q∂E_q J/∂q=Var_q(J)>0. At q=1 the fixed-point versus inversion-indicator covariance for a<b is (a−b)/[n(n−1)], and summing gives −(n+1)/6. At identity the n−1 adjacent swaps each destroy two fixed points, first Taylor coefficient c=−2(n−1). At reversal, only two central-adjacent swaps destroy one fixed point each for odd n (c=−2), while the central adjacent swap creates two for even n (c=+2). The q-factorial Mahonian level coefficients obey a_k<=n^k; |F−F_extreme|<=2k under k adjacent swaps bounds |b_k|<=2k a_k. Geometric series at x<=1/(100 n²) give uniform derivative error <1 while |c|>=2, so the derivative sign is certified for all n; reverse-bias x=1/q reverses the covariance sign. The n3 exact rational identity follows from complete six-permutation enumeration. Independent enumerations for n2..8 exactly reproduce unbiased and both cutoff signs. Continuity and positivity ensure odd-n covariance crossing and a local minimum, but not uniqueness beyond n3.",
+      "residual_risks": [
+        "100 n² is a proven sufficient rather than optimal threshold; no all-q even-n sign theorem or general crossing uniqueness.",
+        "Finite n2..8 examples alone do not prove all-n derivative bounds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "He–Müller–Verstraaten Theorem 1.6 concerns fixed-point expectation asymptotics as permutation size tends to infinity under fixed q, with parity effects.",
+          "Current claim fixes arbitrary finite n and quantifies q near 0 and infinity uniformly in n by 100n²."
+        ],
+        "reasoning": "A theorem on n→infinity with fixed q does not imply finite-n q-derivative sign or a uniform polynomial cutoff for all n.",
+        "searches": [
+          "https://arxiv.org/abs/2201.11610",
+          "https://arxiv.org/abs/2112.09789",
+          "Mallows permutations fixed points inversion covariance nonmonotonic odd n q reciprocal reversal"
+        ]
+      },
+      "checked_sources": [
+        "Mallows permutations fixed points inversion covariance nonmonotonic odd n q reciprocal reversal",
+        "https://arxiv.org/abs/2201.11610",
+        "https://mathoverflow.net/questions/463675/relationship-between-fixed-points-and-inversions-in-permutations",
+        "https://arxiv.org/abs/2112.09789"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Asymptotic fixed-point count at a fixed bias does not determine derivative signs with respect to q at finite n.",
+          "Unbiased q=1 identity is one point; full odd-n reversal is forced by analysis of the reversal permutation and uniform tail bounds."
+        ],
+        "reasoning": "The all-odd-n quantitative sign theorem requires controlling q factorial coefficient sums uniformly in n; neither the asymptotic prior result nor the online conjecture supplies this implication.",
+        "searches": [
+          "https://arxiv.org/abs/2201.11610",
+          "https://mathoverflow.net/questions/463675/relationship-between-fixed-points-and-inversions-in-permutations",
+          "Mallows permutations fixed points inversion covariance nonmonotonic odd n q reciprocal reversal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact covariance is q∂E_q F/∂q in an inversion-exponential family.",
+          "2024 MathOverflow answer explicitly asks about monotonic expected fixed points versus expected inversions under Mallows bias."
+        ],
+        "reasoning": "The conjectured monotone Mallows response is a direct equivalent statement about the sign of the submitted covariance. The question itself poses it as open and provides only uniform-inversion-class exceptions, not this all-odd-n q bound.",
+        "searches": [
+          "Mallows permutations fixed points inversion covariance nonmonotonic odd n q reciprocal reversal",
+          "https://arxiv.org/abs/2201.11610",
+          "https://mathoverflow.net/questions/463675/relationship-between-fixed-points-and-inversions-in-permutations",
+          "Mallows fixed points inversions covariance q symmetry inversion reversal odd even"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent full n3 enumeration gives rational covariance 2q(q²−2q−2)/(q²+q+1)² and unique zero 1+sqrt3.",
+          "MathOverflow Feb 2024 answer gives conditional-uniform inversion counts and a conjectured derangement-based expectation, not the q-tilted covariance rational function."
+        ],
+        "reasoning": "These finite analytic identities and large-q signs were not located in an exact table; absence of matching table is not a universal novelty certification.",
+        "searches": [
+          "Mallows permutations fixed points inversion covariance nonmonotonic odd n q reciprocal reversal",
+          "https://mathoverflow.net/questions/463675/relationship-between-fixed-points-and-inversions-in-permutations",
+          "Mallows fixed point covariance inversion exact n3 q=1+sqrt3",
+          "OEIS Mallows fixed point inversion bivariate generating function"
+        ]
+      },
+      "rationale": "Prior Mallows permutation cycle theory includes fixed-point expectations and pronounced odd/even effects in n→infinity asymptotics. The 2024 MathOverflow discussion explicitly asks whether expected fixed points decrease with expected inversions, conjectures a monotonic response and notes uniform conditional-inversion counterexamples; it does not supply the stated finite-n Mallows high-bias covariance reversal. The new result gives a uniform explicit all-odd-n counterfamily and rigorous quantitative cutoff, beyond qualitative parity asymptotics.",
+      "residual_risks": [
+        "Earlier Mallows finite-size covariance derivative may be concealed in cycle-count generating identities not inspected; the search is not an exhaustive literature-priority proof.",
+        "The 2024 MathOverflow participant discussed a revised probabilistic monotonicity conjecture, but an earlier edited answer or later unindexed followup might already contain a related counterexample."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LARGE-n FIXED-q ASYMPTOTICS, NOT FINITE-n q-DERIVATIVE SIGN",
+          "evidence": "Theorem 1.6 concerns even/odd n subsequences and fixed q, not explicit all-size covariance cutoff q>=100n².",
+          "identifier_or_url": "https://arxiv.org/abs/2201.11610",
+          "material_read": "Primary arXiv full 42-page PDF retrieved; introduction, Theorem 1.6 and surrounding fixed-point statements read and first page rendered",
+          "method": "Primary arXiv PDF text and screenshot",
+          "title": "Cycles in Mallows random permutations",
+          "trigger": "Mallows fixed-point parity and asymptotic results potentially stronger"
+        },
+        {
+          "assessment": "PROBLEM STATEMENT AND RELATED UNIFORM-CLASS COUNTEREXAMPLE, NOT SUBMITTED MALLOWS ALL-ODD THEOREM",
+          "evidence": "The answer distinguishes a revised Mallows monotonicity conjecture from an invalid fixed-inversion-class implication; no all-odd finite-n sign result there.",
+          "identifier_or_url": "https://mathoverflow.net/questions/463675/relationship-between-fixed-points-and-inversions-in-permutations",
+          "material_read": "Whole accessible question text, all two answers and visible comments through February 2024 read",
+          "method": "Complete MathOverflow HTML thread",
+          "title": "Relationship between fixed points and inversions in permutations",
+          "trigger": "Explicit 2024 conjecture that current result contradicts"
+        },
+        {
+          "assessment": "ASYMPTOTIC PRECURSOR, FULL DOCUMENT UNCLEARED",
+          "evidence": "Cycle-count CLT is distinct from finite-n covariance derivative, but uninspected technical appendices remain an originality risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.09789",
+          "material_read": "Bibliographic/abstract and citation context read; complete separate PDF NOT inspected",
+          "method": "Primary arXiv abstract",
+          "title": "A central limit theorem for cycles of Mallows permutations",
+          "trigger": "Potential precursor fixed-point parity findings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Natural Mallows exponential family and contemporaneous fixed-point/inversion question",
+        "Analytical all-odd proof from reversal local geometry and uniform q-factorial bounds"
+      ],
+      "rationale": "The fixed-point/inversion relation was explicitly posed as an unresolved monotonicity question in 2024. An exact counterfamily for every odd size, with a rigorous uniform polynomial high-bias bound, is a meaningful structural answer and identifies a parity-dependent sign reversal. It is not a tiny exceptional n3 example and does not infer finite-n behavior from asymptotic experiments.",
+      "residual_risks": [
+        "Cutoff is nonsharp; no uniqueness beyond n3; finite expected-value response is not distributional stochastic ordering."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For finite Mallows inversion weighting q^J on S_n, n>=2 and q>0, Cov_1(F,J)=−(n+1)/6 and Cov_q(F,J)<0 when 0<q<=1/(100 n²). If q>=100 n² the covariance is positive for odd n and negative for even n. Thus for all odd n>=3 expected fixed points exhibit an interior minimum and at least one covariance zero. For n=3 unique crossing is q=1+sqrt(3); endpoint expansions have slopes −2(n−1)q near zero and ±2/q for high q according to parity.",
+  "limitations": [
+    "High inversion q>1 uses the conventional weighting q^J with ordinary inversion count, not distance from reversal.",
+    "At odd n≥3 at least one local minimum is established, not unique.",
+    "Possible previous exact finite-n covariance study under Mallows cycle generating functions remains unexcluded.",
+    "No external expert attestation or Lean formal proof; finite experiments support but do not prove unbounded parameters.",
+    "Publication withheld until guarded privacy-safe complete public metadata replacements exist."
+  ],
+  "schema_version": 1
+}
