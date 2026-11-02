@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:45:13.174745Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md Git blob 4a4e7e4a1516f513230df07cbd92b4bdfa06fadb, carry intervals, digit-block formula (1), prime-power boundary",
+        "Guo et al. arXiv:2606.22997v1 Lemmas 4 and 9: prime support; exact exponent is separate proof",
+        "Independent 789 exact p-adic minima n3..400, exact original gcd n3..35, both match formula."
+      ],
+      "limitations": [
+        "Proof uses published support lemmas, which were checked in full relevant source text, not independently reproved. Does not apply arbitrary multiplier subsets."
+      ],
+      "rationale": "Reconstructed dependence on published Guo–Qiu–Cao–Feng–Gao Lemmas 4 and 9 (no p outside n; support iff m<=p^a). For p^a||n, m=n/p^a, L=floor(log_p m), if L>=a then m>p^a (since p∤m), support lemma yields exponent zero. Else for any q, b=v_p(q-1), carries at b<j<=a and at a+L<j<=a+b yield min exponent >=max(0,a-b)+max(0,b-L)>=a-L. For m=1, q=2 attains a; for 2<=m<p^a the permitted q=1+t p^a has digit-block identity v_p binom(qk,k)=a-v_p binom(m-1,t), and t=p^L-1 (or t=1 when L=0) attains a-L by Kummer. Checked endpoints and witness q<=n. Fresh independent direct p-factorial valuation minima for 789 pairs (n<=400), direct integer gcd n3..35, all agree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Kummer carry characterization provides a tool but no optimized minimum over 2<=q<=n without the witness argument; classic fixed-upper-index gcds are different quantification."
+        ],
+        "reasoning": "No inspected stronger published full gcd theorem implies this formula without substantial further optimization.",
+        "searches": [
+          "Guo et al. arXiv:2606.22997v1 introduction on binomial gcds",
+          "Classical Kummer and Legendre theorems"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2606.22997v1",
+        "https://oeis.org/A080170",
+        "Resultary: binomial qk k p-adic full gcd query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact valuations imply the earlier prime-support criterion and gcd-one characterization, but the latter cannot recover exponents. Kummer alone does not select minimum q; the digit-block witness supplies the new step."
+        ],
+        "reasoning": "The target refines prior implications in one direction; cannot treat support-only results as prior exact gcd coverage.",
+        "searches": [
+          "Guo et al. 2026 arXiv:2606.22997 Theorem 1 and Lemmas 4/9",
+          "Kummer base-p carry valuation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A p-support condition D(k)>1 does not determine v_p(D(k)) when positive. OEIS A080170 records gcd-one characterization, not full values."
+        ],
+        "reasoning": "Compared equivalent fixed-lower-index multiplier gcd, prime support and valuation functions; the exact a-floor(log_p m) exponent is strictly stronger than whether p appears.",
+        "searches": [
+          "Guo et al. arXiv:2606.22997v1 Lemmas 4/9 and Theorem 1",
+          "OEIS A080170 gcd-one problem",
+          "Resultary: gcd of binomial qk k q=2..k+1 exact exponent p-adic formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A080170 is centered on the gcd-one predicate. Resultary related p-adic studies treat different binomial families and congruences."
+        ],
+        "reasoning": "No exact complete D(k) value sequence or equivalent table found; lack of matching table alone does not establish originality.",
+        "searches": [
+          "OEIS A080170",
+          "Resultary: exact p-adic valuation fixed-lower-index binomial gcd",
+          "Resultary published finding: 2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28"
+        ]
+      },
+      "rationale": "Guo et al. 2026 solve the support/gcd-one criterion and provide relevant lemmas, but positive valuations are not specified by that Boolean statement. The target formula uniquely determines all prime-power components and explicit witness multipliers; classic row-gcd families have different varying indices.",
+      "residual_risks": [
+        "An implicit classical formula in unindexed binomial-gcd literature might give the full exponents.",
+        "The exact formula depends on the accuracy of Guo et al. Lemmas 4 and 9, which were inspected as actual published inputs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIME_SUPPORT_KNOWN_EXACT_EXPONENT_NOT_STATED",
+          "evidence": "Lemma 4 rules out p∤(k+1); Lemma 9 support iff cofactor<=p^a; Theorem 1 is gcd=1 criterion.",
+          "identifier_or_url": "https://arxiv.org/html/2606.22997v1",
+          "material_read": "Complete available arXiv HTML mathematics sections, Theorem 1, Lemma 4, Lemma 9, proof and introductory prior comparison",
+          "method": "Read full relevant primary math text and checked theorem statements",
+          "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+          "trigger": "Identical family D(k), direct likely strongest prior"
+        },
+        {
+          "assessment": "KNOWN_SUPPORT_PROBLEM",
+          "evidence": "The sequence represents gcd-one behavior; exact arbitrary positive prime exponents not supplied.",
+          "identifier_or_url": "https://oeis.org/A080170",
+          "material_read": "Sequence definition/problem and context via primary cited paper",
+          "method": "Cross-checked sequence semantics",
+          "title": "OEIS A080170",
+          "trigger": "Original binomial gcd motivating source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "For k>=2 and n=k+1, D(k)=gcd_{q=2}^{n} binom(qk,k) equals product over p^a||n of p^max(0,a-floor(log_p(n/p^a))).",
+        "Mathematical motivation and prior-scoped comparison in RESULT.md and this independent review."
+      ],
+      "limitations": [
+        "Proof uses published support lemmas, which were checked in full relevant source text, not independently reproved. Does not apply arbitrary multiplier subsets."
+      ],
+      "rationale": "The full value, not mere support, of the natural binomial gcd underlying the recent criterion is a complete exact invariant with nontrivial p-adic carry optimization and witness selection. It yields D(k)|k+1 and precise prime-power cases; unlike a routine relabeling of a Boolean theorem, it resolves extra numerical multiplicity data.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2606.22997v1",
+    "https://oeis.org/A080170",
+    "Resultary: binomial qk k p-adic full gcd query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For k>=2 and n=k+1, D(k)=gcd_{q=2}^{n} binom(qk,k) equals product over p^a||n of p^max(0,a-floor(log_p(n/p^a))).",
+  "limitations": [
+    "Proof uses published support lemmas, which were checked in full relevant source text, not independently reproved. Does not apply arbitrary multiplier subsets."
+  ],
+  "residual_risks": [
+    "An implicit classical formula in unindexed binomial-gcd literature might give the full exponents.",
+    "The exact formula depends on the accuracy of Guo et al. Lemmas 4 and 9, which were inspected as actual published inputs."
+  ],
+  "schema_version": 1
+}

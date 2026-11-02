@@ -1,11 +1,21 @@
-# Scientific assessment: exact binomial gcd valuations
+# Independent mathematical audit
 
-**Correctness — PASS.** Guo et al. [1, Lemmas 4 and 9] are the published inputs: they exclude extraneous primes and settle whether each prime divides the gcd. The new argument establishes lower valuations using two disjoint carry intervals, then supplies an admissible explicit multiplier achieving equality. The digit-block identity is reconstructed in full, including the prime-power boundary and the case \(m=1\). The finite verifier separately tests exact formulae and witnesses; it is supplementary, not a proof.
+## correctness
 
-**Originality — PASS (best-knowledge, residual risk).** Direct inspection of [1, §§1–2, Theorem 1 and Lemmas 4 and 9] shows its stated target is the prime-support or gcd-one criterion, not the exact exponent formula. Classic binomial gcd literature cited there changes the fixed-upper/lower-index family. Searches for the exact valuation, equivalent multiplier-gcd formulation, and a pre-existing sequence/table description did not reveal an equivalent statement. An unindexed classical identity, or an implicit derivation in older gcd literature, remains possible. Search absence alone does not certify novelty.
+PASS
 
-**Mathematical value — PASS.** This computes the *full value of the natural gcd* underlying the recent OEIS A080170 resolution; its exact prime powers, witness multipliers, and the bound \(D(k)\mid k+1\) are not consequences of a support-only criterion. It is a natural complete invariant rather than an arbitrary cutoff. The proof requires a nontrivial carry-versus-multiplier optimization.
+Reconstructed dependence on published Guo–Qiu–Cao–Feng–Gao Lemmas 4 and 9 (no p outside n; support iff m<=p^a). For p^a||n, m=n/p^a, L=floor(log_p m), if L>=a then m>p^a (since p∤m), support lemma yields exponent zero. Else for any q, b=v_p(q-1), carries at b<j<=a and at a+L<j<=a+b yield min exponent >=max(0,a-b)+max(0,b-L)>=a-L. For m=1, q=2 attains a; for 2<=m<p^a the permitted q=1+t p^a has digit-block identity v_p binom(qk,k)=a-v_p binom(m-1,t), and t=p^L-1 (or t=1 when L=0) attains a-L by Kummer. Checked endpoints and witness q<=n. Fresh independent direct p-factorial valuation minima for 789 pairs (n<=400), direct integer gcd n3..35, all agree.
 
-The closest primary literature is Guo–Qiu–Cao–Feng–Gao, arXiv:2606.22997v1, and the standard Kummer–Legendre identities. Limitations include the specific multiplier range, dependence on the published support lemmas, potential implicit older coverage, and the absence of independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Guo et al. 2026 solve the support/gcd-one criterion and provide relevant lemmas, but positive valuations are not specified by that Boolean statement. The target formula uniquely determines all prime-power components and explicit witness multipliers; classic row-gcd families have different varying indices.
+
+## value
+
+PASS
+
+The full value, not mere support, of the natural binomial gcd underlying the recent criterion is a complete exact invariant with nontrivial p-adic carry optimization and witness selection. It yields D(k)|k+1 and precise prime-power cases; unlike a routine relabeling of a Boolean theorem, it resolves extra numerical multiplicity data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

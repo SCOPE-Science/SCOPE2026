@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 check.py` with the standard Python library. This computes the proposed exact gcd formula and independent factorial-valuation minima for all \(3\le n\le1200\), computes the *original* large-integer defining gcd for all \(3\le n\le80\), and verifies 1,295 choices of the explicit binomial witness identity at eligible parameters up to \(n=400\).
+## correctness
 
-Expected final line: `CERTIFICATE_OK n_formulas= 1198 direct_gcd_cases= 78 witness_identity_cases= 1295`.
+PASS
 
-The proof of the infinite statement uses Kummer's theorem, Legendre's digit-sum formula, and Guo et al. arXiv:2606.22997v1 Lemmas 4 and 9, not extrapolation from finite experiments. No independent mathematical audit or formal certification is asserted.
+Reconstructed dependence on published Guo–Qiu–Cao–Feng–Gao Lemmas 4 and 9 (no p outside n; support iff m<=p^a). For p^a||n, m=n/p^a, L=floor(log_p m), if L>=a then m>p^a (since p∤m), support lemma yields exponent zero. Else for any q, b=v_p(q-1), carries at b<j<=a and at a+L<j<=a+b yield min exponent >=max(0,a-b)+max(0,b-L)>=a-L. For m=1, q=2 attains a; for 2<=m<p^a the permitted q=1+t p^a has digit-block identity v_p binom(qk,k)=a-v_p binom(m-1,t), and t=p^L-1 (or t=1 when L=0) attains a-L by Kummer. Checked endpoints and witness q<=n. Fresh independent direct p-factorial valuation minima for 789 pairs (n<=400), direct integer gcd n3..35, all agree.
+
+## originality
+
+PASS
+
+Guo et al. 2026 solve the support/gcd-one criterion and provide relevant lemmas, but positive valuations are not specified by that Boolean statement. The target formula uniquely determines all prime-power components and explicit witness multipliers; classic row-gcd families have different varying indices.
+
+## value
+
+PASS
+
+The full value, not mere support, of the natural binomial gcd underlying the recent criterion is a complete exact invariant with nontrivial p-adic carry optimization and witness selection. It yields D(k)|k+1 and precise prime-power cases; unlike a routine relabeling of a Boolean theorem, it resolves extra numerical multiplicity data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
