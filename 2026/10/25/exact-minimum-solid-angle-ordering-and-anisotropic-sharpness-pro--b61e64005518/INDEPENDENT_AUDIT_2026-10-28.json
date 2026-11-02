@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T00:50:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/exact-minimum-solid-angle-ordering-and-anisotropic-sharpness-pro--b61e64005518/RESULT.md Git blob b39f47d36e46e83da69785d9d45edc45260a6697",
+        "2026/10/25/exact-minimum-solid-angle-ordering-and-anisotropic-sharpness-pro--b61e64005518/VERIFICATION.md",
+        "/mnt/data/scope_worker03_delivery_20261028T003857Z/independent_check_results.json"
+      ],
+      "rationale": "For right simplex conv(0,a_i e_i) in R^n, gnomonic section through tangent cone at a_i e_i yields spherical Jacobian (1+|z|²)^(-n/2). Changing z_j=a_j t_j/a_i gives the stated positive integral with common prefactor prod a_j over standard Δ_{n-1}. The origin angle is the spherical positive orthant; nonzero vertex cones are proper subsets of similarly measured sign orthants. Swapping i and j in paired simplex integrals changes denominators by (a_i²-a_j²)(1-t²); t<1 a.e., proving complete strict ordering by reverse leg length. The denominator for every t is <diam(S)^2 in positive measure, giving Ω_i>n μ. With a1=L>q=max b_j, diam=sqrt(L²+q²), and the uniform Dirichlet-simplex moment E[t_j²]=2/[n(n+1)], the cone integral gives Ωmin=B/((n-1)!L^(n-1))*(1-B2/((n+1)L²)+O(L^-4)); division by nμ gives the claimed coefficient n q²/2-B2/(n+1)>0. Independently verified three n=2 formulas against right-triangle angles and two n=3 quadratures with L=40,80 giving rescaled ratio 4.75049,4.75012 vs target 4.75; dimension-uniform proof is analytic.",
+      "residual_risks": [
+        "Finite independent tests do not certify any unrestricted theorem; analytical argument and published structural lemmas carry generality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Licht proves μ≤Ωmin/n for any simplex and optimality of certain exponents.",
+          "Akopyan–Karasev study upper bounds on minimum angle for polytopes and near regular simplices."
+        ],
+        "reasoning": "Global inequality and distinct extremality directions do not identify which vertex minimizes or the explicit L^-2 stability coefficient on the right-family.",
+        "searches": [
+          "right simplex vertex solid angles ordering leg lengths sharp fullness solid angle anisotropic asymptotic",
+          "arXiv:2610.05883 Theorem 4.4",
+          "arXiv:1505.05263"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.05883 full available primary",
+        "arXiv:1505.05263 abstract/result information",
+        "Resultary query right simplex vertex solid angles ordering leg lengths sharp fullness solid angle anisotropic asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.4 permits Ωmin/(n μ)>=1, but does not determine the positive coefficient of the gap.",
+          "Example 3.2 has equal short legs and controls a different shape-measure exponent; no arbitrary b_j expansion."
+        ],
+        "reasoning": "Knowing sharpness in the limit cannot imply the strict exact anisotropic second-order expansion without new asymptotic work.",
+        "searches": [
+          "arXiv:2610.05883 Theorem 4.4 and Example 3.2",
+          "arXiv:1505.05263 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known spherical projection formula for cone angles and normalized simplex fullness.",
+          "Pointwise integrand comparison produces ordering by leg length; no source asserted it in the inspected sections."
+        ],
+        "reasoning": "Equivalent standard cone/solid-angle coordinates provide a method but no preexisting exact anisotropic deficit theorem was located.",
+        "searches": [
+          "right simplex vertex solid angles ordering leg lengths sharp fullness solid angle anisotropic asymptotic",
+          "arXiv:2610.05883 Section 3 Eq(3.3), Example 3.2",
+          "gnomonic tangent cone solid angle integral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published exact second-order coefficient matching n q²/2-B2/(n+1) was returned.",
+          "Independent quadrature for n=2,3 confirmed exact rate."
+        ],
+        "reasoning": "Angle tables and generic bounds do not replace the all-dimensional formula; possible unindexed formula remains a priority risk.",
+        "searches": [
+          "right simplex vertex solid angles ordering leg lengths sharp fullness solid angle anisotropic asymptotic",
+          "Resultary published-record semantic search; 15 nearest matches",
+          "simplex mesh quality angle tables anisotropic"
+        ]
+      },
+      "rationale": "Licht's October 2026 paper already gives the universal Ω_min versus fullness inequality and a degeneration congruent to the equal-short-leg subfamily. These are explicitly not claimed novel. The record adds an all-parameter nonzero vertex angle ordering and exact second-order anisotropic deficit for arbitrary fixed positive short-leg arrays, not stated as consequences in inspected source. Classical vertex-cone integrals are known; emphasis is full ranking and sharp rate. Residual risk from older angle formulas and meshing literature.",
+      "residual_risks": [
+        "Specialized finite-element angle-coordinate literature could contain the full integral/ranking or second-order formula; no universal novelty guarantee.",
+        "The second-order asymptotic is for fixed n and fixed b_j; no global stability theorem beyond this family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: universal first-order bound and equal-short-leg degeneration known; missing claimed complete angle ordering and general second-order coefficient.",
+          "evidence": [
+            "Fullness μ=Vol/diam^n, Theorem 4.4 global inequality, Example 3.2 degeneration."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.05883",
+          "material_read": "Full primary arXiv rendered text: definitions, Section 3 Example 3.2, Section 4 shape inequalities and proof, cone-coordinate formulas",
+          "method": "Direct primary mathematical reading",
+          "title": "On solid angles and simplex shape measures",
+          "trigger": "Direct predecessor global shape inequality and degenerating right-simplex family"
+        },
+        {
+          "assessment": "Comparison limited; bounds address regular-polytope extremal angle rather than right-anisotropic deficit.",
+          "evidence": [
+            "Abstract says dim3 minimum angle bounded by regular simplex; near-regular dim4 variant."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.05263",
+          "material_read": "ArXiv abstract and results description; full six-page body not inspected",
+          "method": "Abstract/theorem-outline level",
+          "title": "Bounding minimal solid angles of polytopes",
+          "trigger": "Possible stronger statement for minima of simplex angles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2610.05883 full available primary",
+        "arXiv:1505.05263 abstract/result information",
+        "Resultary query right simplex vertex solid angles ordering leg lengths sharp fullness solid angle anisotropic asymptotic"
+      ],
+      "rationale": "Minimum-angle/fullness geometry is a natural shape-quality invariant of simplex meshes. A complete vertex ranking identifies the worst cone from unequal leg lengths, and the explicit positive second-order coefficient differentiates anisotropic degenerations even when all share the same leading optimal ratio. This is a motivated parameter-complete refinement rather than an arbitrary subcase of the known global inequality.",
+      "residual_risks": [
+        "Value is for the specifically motivated claim as stated; no larger research program or all-case theorem is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.05883 full available primary",
+    "arXiv:1505.05263 abstract/result information",
+    "Resultary query right simplex vertex solid angles ordering leg lengths sharp fullness solid angle anisotropic asymptotic"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Right simplices with all positive orthogonal legs, Euclidean unnormalized spherical measure.",
+    "Long-leg second-order asymptotic only as L→∞ with other legs fixed and positive."
+  ],
+  "residual_risks": [
+    "Specialized finite-element angle-coordinate literature could contain the full integral/ranking or second-order formula; no universal novelty guarantee.",
+    "The second-order asymptotic is for fixed n and fixed b_j; no global stability theorem beyond this family."
+  ],
+  "schema_version": 1
+}
