@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The three-round signature follows from the exact atomic Hintikka recursion with repeated-variable moves represented through pair atoms. The cycle-local reduction handles loops, two-cycles, long cycles, and multiplicities explicitly. The exhaustive finite table comes from `verify.py`; a second, direct triple-enumeration method agrees on all 731 small canonical vectors and 509 other cases. The sole class first requiring 19 vertices is the cycle-count vector \((3,2,1,1,1,0,0)\). The infinite-size conclusion relies on the symbolic reduction rather than on finite test coverage.
+## correctness
 
-## Originality
-The closest direct comparator is Albert–Bouvel–Féray, *Two first-order logics of permutations* (arXiv:1808.05459), which uses the same binary relation but investigates expressibility, not the exact rank-three quotient of all finite bijections. Libkin's 2004 foundational text provides general EF/type machinery, while Otto's 2016 lecture notes treat successor strings, not bijective directed cycles. Published and database keyword/semantic comparisons did not reveal an equivalent 143-class or sharp 19-point theorem. An uncatalogued enumeration could still predate this computation.
+PASS
 
-## Value
-The precise finite-model abstraction is natural: rank-three formulas cannot inspect unlimited cycles and unlimited component multiplicities, but their interactions matter. The 143-type quotient and sharp 19-point witness identify the smallest complete semantic testbed for *all* rank-three sentences over finite bijections in the relation language. Neither number is a restatement of the standard EF theorem or of a single-cycle cutoff; obtaining them requires a nontrivial finite classification and an exact global reduction.
+The three-round Ehrenfeucht–Fraïssé invariant is the nested set of root/pair atomic incidence types including all possible third-vertex five-bit masks; equality and repetitions are explicitly accounted for. A third move sees only the four nearest neighboring candidates plus existence of a distant loop/nonloop, so cycle lengths at least seven collapse to seven; three copies of any component length suffice when at most three distinct components can be selected. Those infinite reductions are distinct from the finite census. An independently implemented full-vertex direct signature routine agreed with the local-signature method on all 731 canonical vectors of order at most 19; separate enumeration of all 4^7-1=16,383 reduced vectors gave exactly 143 distinct signatures and 142 signatures at order<=18. The sole first appearance at order 19 was multiplicities (3,2,1,1,1,0,0). The finite enumeration exhausts its proved reduced domain; it is not extrapolated to the unrestricted domain without the reduction proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The EF/Hintikka recursion and locality are standard, not claimed new; the inspected primary paper works in precisely the permutation-as-binary-bijection language but does not present an enumeration of all rank<=3 theories or the sharp universal representative size. Resultary searches did not identify a dominating published census. This is qualified best-of-knowledge originality, not an exhaustive priority certificate.
+
+## value
+
+PASS
+
+Ordinary quantifier-rank classes of a natural finite-model-theoretic family measure logical indistinguishability. A complete exact census, a minimal model for every class, and a provably optimal common kernel size are natural classification data not derivable from the general Ehrenfeucht–Fraïssé method without a genuine family-specific argument and census. The 19-point obstruction exhibits the interaction between cycle lengths and multiplicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
