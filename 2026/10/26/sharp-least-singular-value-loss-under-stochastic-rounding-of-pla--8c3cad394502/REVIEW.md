@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the entire sixteen-outcome signed-Bernoulli quantization law. Its cases yield the exact squared least-singular-value distribution, from which both expected squared singular value and the singularity probability follow. Completion of the square proves the sharp global relative-loss constant with unique equality input. Differentiation of the fixed-norm loss and strict monotonicity of an explicit rational function establish the exact orientation bifurcation and both extremizer regimes. The accompanying `verify_rounding.py` checked the symbolic identities, 121 rational cases, 1,000 direct-SVD cases and six orientation values. Its finite checks are supporting evidence, not substitutes for the proofs.
+PASS
 
-## Originality — PASS (provisional)
+All 16 Bernoulli outcomes yield smallest squared singular values 0,1,(3-sqrt 5)/2,2, with exact probability polynomials. Summation gives E sigma_min²=s²-(sqrt 5-1)ab(a+b-2ab); determinant zero iff both Bernoulli pair-products vanish, probability (1-a²)(1-b²). Writing k=ab/s²<=1/2 gives loss/s²=ks sqrt(1+2k)-2k²s²=(1+2k)/8-2k²(s-sqrt(1+2k)/(4k))²<=1/4; equality a=b=1/2. For s<=1, u=(a+b)/s in[1,sqrt2], derivative sign governed by strictly decreasing h(u)=(3u²-1)/(4u(u²-1)); threshold h(sqrt2)=5/(4sqrt2). Independent exact 16-state symbolic and derivative checks passed; no inference to high dimension.
 
-The closest studied work is Ma, Yu and Drineas, arXiv:2606.00312, whose spectral improvement theorems impose dimensional and spectral/rank requirements absent in this two-by-two equal-spectrum setting. Earlier Dexter et al., arXiv:2403.12278, examine tall-and-thin matrices; Boutsikas et al., arXiv:2303.03547, treat deterministic perturbation estimates. The inspected material does not contain the exact independent-rounding sixteen-outcome law, sharp relative degradation or symmetry-breaking orientation threshold. Focused semantic database queries using the golden-ratio constant, rank-loss probability, planar rotations and orientation transition found no dominating mathematical result; nearby results on SOAP or spectral filters concern different operators. Searches cannot certify uniqueness, and equivalent specialized treatments remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-Stochastic rounding is promoted as a spectral regularizer in recent numerical analysis. Its behavior for the smallest nontrivial square, initially perfectly conditioned matrix family is therefore a meaningful boundary test rather than a cosmetic example. The finding quantifies a 30.9% maximal relative loss in expected squared minimum singular-value energy, an exact 9/16 rank-collapse chance at the worst input, and an orientation-design phase transition. This clarifies why broad unconditional regularization inferences are unsafe and shows that the coordinate orientation affects rounding stability. It is not asserted to establish a high-dimensional or practical floating-point counterexample.
+Best-of-knowledge PASS, with actual primary statement/implication comparison and listed residual priority risks; an unsuccessful search is not historical novelty proof. General low-precision matrix results are not equivalent to the exact 16-pattern squared-singular-value law or orientation phase boundary. The cited main improvement theorem has nontrivial rank, variance and dimension assumptions that do not fit this test family. A higher-dimensional theorem with restrictive aspect-ratio/variance parameters does not dominate a two-dimensional exact degradation theorem; no contradiction of any hypothesis is asserted.
 
-## Residual limits
+## value
 
-The entire claim is confined to independent unit-cell entrywise stochastic rounding, squared singular values, and the stated scale restriction for orientation optimization. Bibliographic priority outside the inspected papers and database remains uncertain. Independent audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Small singular values motivate recent claims about stochastic-rounding regularization. The smallest perfectly conditioned square family is a natural boundary case with a sharp 30.9% loss in expected squared min-singular energy, 9/16 rank collapse at the worst case, and an exact symmetry-breaking orientation threshold. This is a structural counterbalance, not a false claim that tall-matrix theorems fail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
