@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary deterministic initial state in the Schur stable range, epoch and iid recurrences are explicit 2-by-2 linear systems driven by independent signs. The unique Lyapunov covariance solutions give exact phase variances for all admissible real parameters. Symbolic algebra checks full matrix equations, phase indexing and rational witness; strict sign factorization classifies every boundary, with independent mathematical reasoning for positivity of denominators and location of thresholds. A finite experiment is not being passed off as a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Qiu–Ma–Milzarek address general convergence and complexity with momentum; they do not give the stationary per-phase constant-step risk formulas.",
+        "Ying et al. analyze periodic reshuffling performance with no heavy-ball momentum, hence do not cover the new positive-momentum phase-crossing thresholds."
+      ],
+      "reasoning": "General algorithmic convergence and no-momentum periodicity do not dominate an exact stationary heavy-ball phase comparison; broad bounds cannot imply the precise opposite-sign intervals.",
+      "searches": [
+        "arXiv:2404.18452 Sections 1-4",
+        "arXiv:1803.07964 Section IV-C",
+        "random reshuffling heavy-ball momentum two component quadratic exact stability threshold order dependent epoch eigenvalues",
+        "random reshuffling momentum stationary variance scalar quadratic two components additive gradient noise and sign reversal"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2306.05300",
+      "https://arxiv.org/abs/2404.18452",
+      "https://arxiv.org/abs/1803.07964",
+      "https://papers.neurips.cc/paper_files/paper/2020/hash/42299f06ee419aa5d9d07798b56779e2-Abstract.html",
+      "2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73",
+      "2026/10/4/SCOPE-condition-nine-is-the-sharp-positivity-frontier-for-optimally-tu--b9a86b72a2c2",
+      "2026/10/4/SCOPE-exact-ehrenfest-law-and-linear-noise-floor-for-additive-noise-si--91e3f2750878",
+      "2026/10/4/SCOPE-adamomentum-cancels-momentum-attenuation-at-the-alternating-grad--31659e74d0c4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Time-average from Kühn–Rosenow recovers the phase average, but does not determine the odd-even difference; one can vary phase covariance keeping average unchanged.",
+        "Ying et al. show periodicity for β=0 but the splitting thresholds collapse at β=0.",
+        "De Sa already demonstrates RR need not always outperform iid in different models, but does not determine three sharp thresholds for this correlated-noise scalar heavy-ball model."
+      ],
+      "reasoning": "The claimed finding requires both the phase-average and phase-difference formulas; the latter determines separate endpoints t_-, t_0, t_+. Neither the prior long-time average alone nor the qualitative older reversal implies those signs.",
+      "searches": [
+        "arXiv:2306.05300 Equation (6), Appendix A",
+        "arXiv:1803.07964 Section IV-C",
+        "NeurIPS 2020 Christopher De Sa Random Reshuffling is Not Always Better",
+        "phase resolved random reshuffling heavy ball two examples stationary at epoch boundary versus within epoch covariance variance sign crossover"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kühn–Rosenow Appendix A explicitly distinguishes long-time averages from fixed-update-index covariances; Equation (6) and Appendix B.2 derive a long-time average, not two phase variances.",
+        "The related STORM result has a different two-memory stochastic gradient recursion with iid noise."
+      ],
+      "reasoning": "Rephrase the claimed theorem as a period-two cyclostationary covariance equation, correlated innovations for momentum AR(2), or stationary noise-floor RR versus iid. No exact two-phase formula plus cubic sign-classification implication was found in the inspected source or nearest published findings.",
+      "searches": [
+        "two sample random reshuffling heavy ball momentum stationary quadratic noise variance iid versus without replacement exact crossover",
+        "phase resolved random reshuffling heavy ball two examples stationary at epoch boundary versus within epoch covariance variance sign crossover",
+        "cyclostationary noise of random reshuffling stochastic momentum at odd even iteration sharp stationary risk",
+        "arXiv:2306.05300 Appendix A and B.2",
+        "2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-result searches returned deterministic heavy-ball positivity, constant-template STORM stationary covariance, and alternating-gradient AdaMomentum normalization—different recurrences and comparisons.",
+        "No same exact parameter triple of stationary phase variances was identified."
+      ],
+      "reasoning": "No exact tabulated phase-threshold coverage surfaced. Search incompleteness is acknowledged and not represented as a proof of uniqueness.",
+      "searches": [
+        "with replacement versus without replacement heavy ball quadratic scalar sign threshold step 1 plus beta stationary error",
+        "anti-correlated noise epoch stochastic gradient momentum phase variance reversal",
+        "permutation sampling heavy ball two samples steady state covariance overrelaxed SGD",
+        "2026/10/4/SCOPE-condition-nine-is-the-sharp-positivity-frontier-for-optimally-tu--b9a86b72a2c2",
+        "2026/10/4/SCOPE-exact-ehrenfest-law-and-linear-noise-floor-for-additive-noise-si--91e3f2750878",
+        "2026/10/4/SCOPE-adamomentum-cancels-momentum-attenuation-at-the-alternating-grad--31659e74d0c4"
+      ]
+    },
+    "rationale": "The inspected closest heavy-ball epoch-noise article establishes all-step averaged stationary variances, not the distinct fixed-epoch-phase stationary covariance pair and its three exact crossings; its Appendix A explicitly distinguishes the two averages. Related works with RR momentum convergence bounds, periodic no-momentum RR, and independent matrix-product reversals do not imply the joint phase threshold statement. Semantic search returned related but noncovering published mathematical findings; residual specialist coverage risk is identified.",
+    "residual_risks": [
+      "Kühn–Rosenow Appendix B already contains a covariance technique from which the phase formulas might be derived, and an earlier specialized derivation could exist; this claim of originality is about the not-previously-stated sharp phase-classification, not inventing the covariance method or the average.",
+      "Semantic result retrieval and examined articles do not constitute exhaustive worldwide priority proof; independent expert and bibliographic verification are not performed.",
+      "The nearest known articles and published-result records are relevant but not formal certificates of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers anti-correlated noise and all-step stationary variance, but expressly averages over update positions rather than reporting the two fixed-phase stationary variances and their three exact comparison crossings. Closest and substantive priority risk.",
+        "evidence": [
+          "arXiv:2306.05300 Appendix A says fixed-update-index across-run covariance can depend on k, unlike its long-time average.",
+          "Theorem 4.3 Eq. (6) and Appendix B.2 Eq. (36) use shift-invariant time averaging."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2306.05300v3",
+        "material_read": "Full HTML main text Sections 2,4.1-4.3, Appendix A, Appendix B.2 including Equations (6),(29),(36)-(38) and distinctions between time averages and phase-indexed ensembles",
+        "method": "Read arXiv open HTML and compare definitions, equations, quantifiers and implication strength",
+        "title": "Anti-Correlated Noise in Epoch-Based Stochastic Gradient Descent: Implications for Weight Variances in Flat Directions",
+        "trigger": "Identical heavy-ball companion matrix and within-epoch anticorrelated noise"
+      },
+      {
+        "assessment": "Broader objective assumptions, distinct output: iteration complexity and last-iterate convergence rather than constant-step stationary phase risk.",
+        "evidence": [
+          "arXiv:2404.18452 abstract describes complexity and convergence, including heavy-ball.",
+          "No statement fixing exact stationary two-sample odd/even noise-floor crossings identified."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.18452",
+        "material_read": "Full available PDF introduction, algorithms, main complexity theorem, convergence claims, Section 4 and corollaries",
+        "method": "Reviewed open PDF text and rendered page(s), compared convergence assertions against stationary phase-noise claims",
+        "title": "Random Reshuffling with Momentum: Complexity Bounds and Last-iterate Convergence",
+        "trigger": "Same algorithm class, momentum and fresh reshuffling"
+      },
+      {
+        "assessment": "Examines constant-step RR periodicity without heavy-ball momentum; not a statement that implies the positive-momentum triple thresholds.",
+        "evidence": [
+          "arXiv:1803.07964 discussion of periodic mean square and steady-state expressions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1803.07964v2",
+        "material_read": "Full HTML introduction, main convergence/stationary claims, analysis of periodic mean-square behavior in Section IV-C",
+        "method": "Reviewed OA full text, compared momentum assumptions and sign-threshold structure",
+        "title": "Stochastic Learning under Random Reshuffling with Constant Step-sizes",
+        "trigger": "Foundational constant-step stationary RR and periodicity"
+      },
+      {
+        "assessment": "Proves RR can be worse in other learning setups via noncommutative matrix-product construction, not our positive-momentum two-example phase-specific stationary thresholds.",
+        "evidence": [
+          "De Sa (NeurIPS 2020) counterexample addresses a distinct noncommutative product inequality; general RR-superiority counterexample is prior art."
+        ],
+        "identifier_or_url": "https://papers.nips.cc/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+        "material_read": "Open conference full paper introduction, matrix inequality, counterexample construction and concluding comparison",
+        "method": "Reviewed open PDF and rendered page, compared error observable, model and sampling criterion",
+        "title": "Random Reshuffling is Not Always Better",
+        "trigger": "Potentially dominating older example where RR loses to iid"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dee0f197-58c9-4f9a-bcc5-49aa0b276d32",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Within-epoch evaluation and epoch-end evaluation can give opposite strict rankings of the same stable, constant-step momentum optimizer; the sharp crossing values identify when. Strict positive momentum produces two extra interior crossings invisible from the all-step time-averaged noise floor. The phenomenon is natural to optimization checkpointing and sampling diagnostics and has a concrete rational example, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
