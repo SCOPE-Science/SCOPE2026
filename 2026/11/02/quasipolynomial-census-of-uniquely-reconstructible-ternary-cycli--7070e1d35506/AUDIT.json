@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Explicit state space, BEST/matrix tree count, rigorous periodic and primitive split, unique integer-flow normal form, factorial equality and coefficientwise polynomial monotonicity, exact disjoint case census. Checkers independently passed for all types through n=25 and all words through n=12; both use delivered source files, not stale logs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jacquet et al. 2012 §2.1 explains realized connected versus all balanced profiles and states an asymptotic relation; Eq. 40 gives the balanced matrix GF, not uniqueness fibers.",
+        "Grisales et al. 2022 count loopless digraphs by vertex count, not ternary repeated transition multiplicities."
+      ],
+      "reasoning": "The general BEST/Whittle methods can test a specified matrix but do not state or directly imply the evaluated all-length count without a new exhaustive equality classification and arithmetic. A stronger paper with the same evaluated invariant was not found.",
+      "searches": [
+        "https://www.cs.purdue.edu/homes/spa/papers/it12-types.pdf",
+        "https://dmtcs.episciences.org/en/articles/2768/download",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL25/Dimitrov/dim4.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://dmtcs.episciences.org/en/articles/2768/download",
+      "https://www.cs.purdue.edu/homes/spa/papers/it12-types.pdf",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL25/Dimitrov/dim4.pdf",
+      "https://arxiv.org/pdf/2208.08522",
+      "published-finding corpus: 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+      "published-finding corpus: 2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary 2012 work establishes an algorithmic link to Whittle/BEST and an asymptotic for the total number of types, not the uniqueness-fiber cardinality.",
+        "The delivered result uses factorial comparison plus a nonnegative-polynomial monotonicity proof to evaluate all equality cases."
+      ],
+      "reasoning": "Knowing a fixed matrix type-class formula is not the evaluated classification over all matrices. Neither the broad Markov-type asymptotic nor a simple graph unique-tour characterization entails the stated quasi-polynomial without a separate analysis. Remaining risk is historical derivation not found by these searches.",
+      "searches": [
+        "ternary cyclic first order Markov types one necklace uniquely reconstructible from directed adjacent pair counts exact number quasi polynomial n squared",
+        "Number of ternary first-order Markov types realizable on a single circular word versus all balanced frequency matrices",
+        "https://www.cs.purdue.edu/homes/spa/papers/it12-types.pdf",
+        "https://arxiv.org/pdf/2208.08522"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The cyclic-profile problem is equivalent to counting balanced three-vertex transition multigraphs with one Eulerian vertex-label necklace.",
+        "The 2023 uniqueness paper treats edge-distinguished Eulerian circuits, not repetitions collapsed to a symbol string."
+      ],
+      "reasoning": "Fixed-profile BEST counts edge tours after dividing identical transitions; Burnside then counts periodic vertex-label necklaces. Neither unrestricted labeled Euler-tour uniqueness nor count of indexed words gives the all-n ternary one-necklace profile census. No equivalent enumerated sequence identified.",
+      "searches": [
+        "ternary cyclic first order Markov types one necklace uniquely reconstructible from directed adjacent pair counts exact number quasi polynomial n squared",
+        "unique cyclic Euler tour transition frequency matrix for ternary words orbit singleton class size under rotations",
+        "Web: unique cyclic word given bigram counts Eulerian cycles uniqueness",
+        "https://arxiv.org/pdf/2208.08522"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published 2010/2012 tables refer to counts of all balanced matrices, rather than the one-necklace subfamily.",
+        "published-finding corpus hit 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71 has a distinct binary linear observation."
+      ],
+      "reasoning": "No checked table or searchable enumeration gave 3,6,11,24,45,64,93,114,... as ternary cyclic one-necklace classes, nor the six-residue formula. Absence from indexed material is not priority proof.",
+      "searches": [
+        "ternary dinucleotide spectrum unique necklace count n quadratic with period six",
+        "Exact all-length generating function number of distinct cyclic bigram transition count profiles for ternary alphabet three symbols connected Eulerian balanced matrices",
+        "Web: ternary circular Markov type number distinct adjacent pair counts exact generating function",
+        "published-finding corpus: ternary dinucleotide spectrum unique necklace count n quadratic with period six"
+      ]
+    },
+    "rationale": "Checked 2010 and 2012 primary papers give overall Markov-type asymptotics and balanced-matrix GF, not count of precisely one rotation orbit per ternary profile. Checked 2022 and 2023 Euler-tour uniqueness papers treat edge-distinguished or loopless graphs, not indistinguishable transition arcs with arbitrary multiplicities. Closest indexed published-finding corpus records have different scope. Priority qualified for historical unindexed sources.",
+    "residual_risks": [
+      "Unindexed historical work could enumerate exactly this ternary reconstruction fiber sequence.",
+      "Some prior graph uniqueness work may have implicit specializations not indexed by the terms searched.",
+      "Only scientific self-review, not independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts balanced ternary matrices and asymptotics, not numbers of profiles with exactly one circular realization",
+        "evidence": [
+          "Theorem and ternary denominator at published PDF pp. 7–8; balanced-flow definition at pp. 1–3",
+          "https://dmtcs.episciences.org/en/articles/2768/download"
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2768/download",
+        "material_read": "Definitions and balance constraints on pp. 1–3 and ternary exact balanced generating function on pp. 7–8, with relevant other searchable sections",
+        "method": "Open lawful public full PDF, read its relevant text and mathematical pages",
+        "title": "Counting Markov Types",
+        "trigger": "Earliest verified public foundational Markov-type enumeration, 2009-12-31 listing, 2010 proceedings"
+      },
+      {
+        "assessment": "Provides fixed-profile BEST/Whittle tools, connectedness asymptotic and exact balanced-matrix GF, but not a one-necklace profile census. Nontrivial additional factorial equality classification required",
+        "evidence": [
+          "Definition around pp. 3–4 distinguishes realizable from non-realizable balanced profiles",
+          "Eq. 9 and Eq. 11 discuss connected Eulerian types and disconnected matrices",
+          "Eq. 40 supplies only balanced-matrix enumeration and asymptotics",
+          "https://www.cs.purdue.edu/homes/spa/papers/it12-types.pdf"
+        ],
+        "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/it12-types.pdf",
+        "material_read": "Abstract, introduction and examples pp. 1–5, §2.1 and its connectedness and exponential formula pp. 6–9, and ternary balanced generating-function calculation around Eq. 40",
+        "method": "Open authors' public manuscript PDF; compare exact statements and implications",
+        "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+        "trigger": "Expanded primary result; potentially stronger implication via exact Eulerian type counts"
+      },
+      {
+        "assessment": "Counts loopless graphs with one Eulerian tour in an edge-distinguished setting, parameterized by vertex count; does not evaluate repeated-arc cyclic Markov profiles by length",
+        "evidence": [
+          "2022 abstract: loopless directed graphs with n non-isolated vertices and 1/2(n−1)! Catalan count",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL25/Dimitrov/dim4.pdf"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL25/Dimitrov/dim4.pdf",
+        "material_read": "Full first-page statement and abstract; inspected its object and varying-vertex parameter",
+        "method": "Open public original PDF and compare theorem scope",
+        "title": "Digraphs With Exactly One Eulerian Tour",
+        "trigger": "Potential complete prior enumeration of unique Euler tours"
+      },
+      {
+        "assessment": "Characterizes unique edge-distinguished Eulerian circuits; replacing parallel edges and loops by paths changes word reconstruction equivalence. No evaluated ternary multiplicity census",
+        "evidence": [
+          "§1.1 treats distinct edges and replaces parallel edges/loops by paths; BEST and Pevzner characterizations",
+          "https://arxiv.org/pdf/2208.08522"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.08522",
+        "material_read": "Abstract, introduction, BEST and Pevzner comparisons pp. 1–3; uniqueness theorem statement",
+        "method": "Open public arXiv full PDF and compare edge identity/loop treatment",
+        "title": "Simplicity in Eulerian Circuits: Uniqueness and Safety",
+        "trigger": "General uniqueness characterization might dominate specialized claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7070e1d3-5506-4df9-9881-a5f06249c751",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "One-necklace reconstruction from exact ordered-pair observations is a natural discrete identifiability invariant, with relevance to Markov profiles and circular sequence assembly. The exact all-length quasipolynomial, complete structure, and period-six correction are stronger than a routine fixed-parameter numerical table and are not obtained by enumerating all balanced matrices.",
+    "status": "PASS"
+  }
+}
