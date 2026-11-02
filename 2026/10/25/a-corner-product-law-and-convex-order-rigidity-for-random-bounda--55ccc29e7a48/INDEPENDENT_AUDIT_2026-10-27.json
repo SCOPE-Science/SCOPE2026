@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T20:12:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/a-corner-product-law-and-convex-order-rigidity-for-random-bounda--55ccc29e7a48/RESULT.md",
+        "independent_checks.json corner entry",
+        "2026/10/25/a-corner-product-law-and-convex-order-rigidity-for-random-bounda--55ccc29e7a48/verify.py (Git blob c3c8ffb320f638cf23f5297a80d4550642fb4276)"
+      ],
+      "rationale": "When every polygon side is occupied, each unsampled corner removes exactly a triangle of area c_j U_j V_j with c_j=sin(theta_j)/2; event complement is ≤m exp(-N ell_min/L). Pairwise survival (1-(u+v)/L)^N on disjoint incident side segments yields exact corner-product expectation with L²/[(N+1)(N+2)] and exponentially small side corrections. Independently verified that survival integration for N=3,4,7,12. The 2m disjoint shrinking boundary germs give independent Exp(1) rescaled gaps, and uniform exponential tails yield convergence of all fixed moments. Integrating exp(-u-z/u) and Laplace saddle give product tail sqrt(pi) z^1/4 exp(-2sqrt z), and finite-sum subexponentiality gives k* dominant-corner factor. Permutation averaging and strict Jensen prove mean-normalized convex order equality iff all sin(theta_j) equal; sine concavity at fixed sum interior angles proves leading mean maximum iff equiangular.",
+      "residual_risks": [
+        "Tail is asymptotic for the LIMIT variable as t→∞ after N→∞, not uniform joint scaling.",
+        "Polygon fixed, all side lengths positive; no m→∞ law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "First paper provides broader dimensional mean-rate context, but no inspected full distributional product-convolution and convex-order formula for fixed planar polygon.",
+          "Second paper uses corner Poisson behavior but focuses on Hausdorff distance."
+        ],
+        "reasoning": "A stronger *ambient dimension* or *general convex body* range does not automatically imply a sharper polygon-specific distribution without explicit theorem content.",
+        "searches": [
+          "Reitzner Schütt Werner convex hull random points boundary simple polytope",
+          "Prochno Schütt Sonnleitner Werner random approximation in Hausdorff metric"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1911.05917",
+        "https://arxiv.org/abs/2404.02870",
+        "https://case.edu/artsci/math/werner/publications/rpbd.pdf",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/a-corner-product-law-and-convex-order-rigidity-for-random-bounda--55ccc29e7a48/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Local arclength gaps rescaled by N/L converge to independent rate-one exponentials.",
+          "On the every-side-occupied event, missing area is exactly sum of 0.5 sin θ times adjacent corner-distance products."
+        ],
+        "reasoning": "General Poisson spacing plus exact corner geometry may make the core limit derivable by a short argument, but no inspected published formula or stronger implication yielded the complete all-orders/tail/rigidity package. Standard spacing and subexponential facts are not claimed new.",
+        "searches": [
+          "classical uniform boundary spacing Dirichlet independent exponential local gaps",
+          "subexponential products Weibull tail asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reitzner–Schütt–Werner (2019/2023) discusses random convex hulls on simple polytope boundaries with expected missing-volume asymptotics.",
+          "Prochno–Schütt–Sonnleitner–Werner (2024/2025) studies Hausdorff metric using corner spacing."
+        ],
+        "reasoning": "Similar random corner spacings are not an equality of functionals: the squared gap product for area is different from Hausdorff gap metrics.",
+        "searches": [
+          "Resultary_Search search: random convex hull boundary sampled polygon missing area product independent exponentials corner convex order tail",
+          "random inscribed polygon missing area product exponential corner gaps",
+          "polygon boundary sampling area defect law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned regular polygon Gumbel Hausdorff behavior and unrelated random convex geometry findings, not an exact area-product density table."
+        ],
+        "reasoning": "This is a full distributional limit and rigid angle classification, not a previously identified numeric table; no absence proof claimed.",
+        "searches": [
+          "Resultary_Search search: random convex hull boundary sampled polygon missing area product independent exponentials corner convex order tail",
+          "product of two exponential corner area distribution random polygon",
+          "sin theta variance area convex order equal sine"
+        ]
+      },
+      "rationale": "The polygonal corner gaps are familiar from random boundary sampling and Hausdorff-distance theorems, but the exact missing-area sum of exponential products, all-order mean with exponentially small side-length dependence, sharp limiting tail, and equal-sine convex-order rigidity are not implied by the inspected generalized expected-volume/Hausdorff statements. The elementary convex-order inequality itself is a standard exchangeability/Jensen application; novelty attaches to the geometric random-area law and its exact consequences, not Jensen.",
+      "residual_risks": [
+        "Complete older stochastic geometry/random-spacing literature and monograph appendices not exhaustively inspected.",
+        "Limiting tail is t→∞ only after N→∞, not a joint-tail uniformity theorem.",
+        "The angle equal-sine and equiangular equality cases differ; preserve exact distinction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general expected-volume asymptotics; it does not state the corner product distribution, full tail or convex order in inspected statements.",
+          "evidence": [
+            "Theorem on expected volume deficit, with dimension-dependent asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "Full accessible Springer article HTML including abstract, introduction, principal volume asymptotic and discussion of dimension effects.",
+          "method": "Primary open full HTML relevant theorem reading.",
+          "title": "The convex hull of random points on the boundary of a simple polytope",
+          "trigger": "Same sampling scheme and missing volume observable for general simple polytopes."
+        },
+        {
+          "assessment": "The functional is Hausdorff metric, not missing area; no direct claim-versus-prior implication.",
+          "evidence": [
+            "Main Hausdorff-distance approximation results, fixed-polygon corner probabilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.02870",
+          "material_read": "Accessible full Springer HTML main theorem, polygon case and distance metric scope.",
+          "method": "Primary full HTML substantive section inspection.",
+          "title": "Random approximation of convex bodies in Hausdorff metric",
+          "trigger": "Same boundary polygon spacing limiting method."
+        },
+        {
+          "assessment": "Cannot claim whole-text noncoverage; older random spacing overlap remains a residual risk.",
+          "evidence": [
+            "2003 broad random convex body analysis."
+          ],
+          "identifier_or_url": "https://case.edu/artsci/math/werner/publications/rpbd.pdf",
+          "material_read": "Bibliographic entry and relevant intro/structural context as accessible; entire older monograph not fully inspected.",
+          "method": "Open-access bibliographic and relevant-section comparison.",
+          "title": "Polytopes with vertices chosen randomly from boundary of convex body",
+          "trigger": "Broad older random polytope theorem could dominate expectation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/a-corner-product-law-and-convex-order-rigidity-for-random-bounda--55ccc29e7a48/RESULT.md",
+        "https://arxiv.org/abs/1911.05917",
+        "https://arxiv.org/abs/2404.02870"
+      ],
+      "rationale": "Exact geometric area deficits for random polygon boundary samples admit a full limiting law, all-order exponentially accurate mean, sharp stretched-exponential tail and two distinct rigidity results for fluctuation and expectation. These are natural distributional refinements beyond expectation rates and Hausdorff approximation, not an arbitrary finite calculation.",
+      "residual_risks": [
+        "Some ingredients are standard random spacing and Jensen/subexponential lemmas, whose isolated restatements are not claimed new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed polygon only; no finite-N exact area law or joint t,N extreme asymptotics.",
+    "Complete older stochastic geometry/random-spacing literature and monograph appendices not exhaustively inspected.",
+    "Limiting tail is t→∞ only after N→∞, not a joint-tail uniformity theorem.",
+    "The angle equal-sine and equiangular equality cases differ; preserve exact distinction."
+  ],
+  "schema_version": 1
+}
