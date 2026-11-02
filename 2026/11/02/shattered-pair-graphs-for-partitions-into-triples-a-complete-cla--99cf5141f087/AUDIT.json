@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For any shattered set, its all-positive labeling must fit each connected query component into a triple. Mixed labeling rules out cycles, and triple size permits only K2 and P3; saturation (p,q)=(m,0),(m-1,1) forces prohibited pair positives. Conversely any nonexceptional (p,q) admits an explicit initial partition. When p+q<=m-1, a free triple provides 3 transferable vertices; when p+q=m,q>=2, each edge box provides one movable vertex. With at most two movable vertices in any path box, each box has enough outside source vertices; for subsets of vacancies meeting two boxes, all movable vertices are Hall neighbors, so Hall matching realizes any target labeling without reversing retained positive pairs. Labeled graph counting gives factorial coefficient; max sizes are exactly (m-1,0) and (m-2,2). Replayed direct full-support enumeration for n=3,6 and all 34 canonical profiles m=1..4. All domains, special m=1 case and proof limitations stated; this finite verification is not asserted as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ailon–Begleiter–Ezra JMLR 15 (2014) p. 902: Θ(n) VC bounds for arbitrary-size blocks with at most k classes.",
+        "Accessible previous finding on refinement-closed partition classes has a different hypothesis: all refinements may occur, whereas equal 3-block partitions are not closed under refinement."
+      ],
+      "reasoning": "Neither broad Θ(n) bound nor refinement-closed-family theorem yields exact fixed-size shattering or support coefficients. The current theorem establishes restrictions not inherited from larger concept classes; e.g. some full-matchings are shattered in the unrestricted model but not with triple blocks.",
+      "searches": [
+        "VC dimension equivalence relations all set partitions prescribed block sizes every class size k pairwise same-block queries",
+        "shattering pairwise equivalence relation query supports partitions into equal size blocks Littlestone",
+        "same-cluster pair query VC shattering when all partition blocks have size 3; disjoint P3 paths and edges support characterization",
+        "JMLR 15 (2014) Section 5.2 same-cluster equivalence relation VC dimension"
+      ]
+    },
+    "checked_sources": [
+      "JMLR 15 (2014), Ailon–Begleiter–Ezra, pp. 901–903, Section 5.2; direct full PDF inspected",
+      "arXiv:1704.01862v1 (2017-04-06) and ITCS 2018",
+      "arXiv:1706.07719v1 (2017)",
+      "arXiv:1908.04976v1; ESA 2019",
+      "published-finding corpus closest identifiers 2026/9/18/SCOPE-binary-similarity-square-root-tree-likeness--5d4665db6247, 2026/9/20/SCOPE-exact-weight-three-two-cover-free-families--c72f7a3b70a2, 2026/9/19/SCOPE-clique-partitions-joined-unequal-cluster-graphs--07df8435d587"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "JMLR 2014 class permits at most k blocks with unconstrained sizes and gets linear bounds, without triple packing necessity/sufficiency.",
+        "Ailon et al. ITCS 2018 studies same-cluster queries in geometric approximation, Mazumdar–Saha 2017 side-information query complexity, Saha–Subramanian 2019 correlation-clustering approximation.",
+        "published-finding corpus record 2026/9/18/SCOPE-binary-similarity-square-root-tree-likeness--5d4665db6247 concerns correlation-clustering similarity and tree fitting; 2026/9/19/SCOPE-clique-partitions-joined-unequal-cluster-graphs--07df8435d587 concerns clique partition numbers in joins, not shattered pair constraints."
+      ],
+      "reasoning": "Inspected statements fail to imply both directions of fixed-size graph characterization; specifically arbitrary cluster-size members of broader concept classes need not be realizable in a triple-only partition, so broad shattering implications do not restrict. Conversely exact triple enumeration is not a direct corollary of graph cycle obstruction or algorithmic query complexity.",
+      "searches": [
+        "Ailon Bhattacharya Jaiswal Kumar 2017 1704.01862 same cluster query VC shattering",
+        "Mazumdar Saha 2017 1706.07719 query complexity clustering side information",
+        "Saha Subramanian 2019 1908.04976 correlation clustering same-cluster queries",
+        "Ailon Begleiter Ezra Active Learning Using Smooth Relative Regret Approximations with Applications 2014 VC equivalence clustering"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The concept consists of equivalence relations with every equivalence class exactly three, equivalently perfect 3-uniform set partitions or triangle factors of a complete graph; the support graph records pair co-membership.",
+        "No published published-finding corpus summary among returned results formulated the all-support graph characterization or its polynomial."
+      ],
+      "reasoning": "Queried equivalence relations, fixed-size set partitions, same-cluster oracle, triple blocks, P3 unions and matching formulations; nearby triple-packing records count cover-free systems rather than equivalence-relation query supports.",
+      "searches": [
+        "VC dimension equivalence relations all set partitions prescribed block sizes every class size k pairwise same-block queries",
+        "uniform set partitions perfect k-matchings pair equality shattering VC dimension formula (m-1)(k-1)",
+        "shattering pairwise equivalence relation query supports partitions into equal size blocks Littlestone",
+        "same-cluster pair query VC shattering when all partition blocks have size 3; disjoint P3 paths and edges support characterization",
+        "set partition equivalence relation concept class graph of shattered pairs with every block size exactly three",
+        "VC shattering polynomial of triples partitions same-cluster pair queries maximal supports"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest: 2026/9/20/SCOPE-exact-weight-three-two-cover-free-families--c72f7a3b70a2 counts cover-free triple packings, not pair-labelings of 3-block partitions.",
+        "Exhaustive current direct-check package verifies 32768 supports at n=6 and 34 canonical graphs through m=4, not a prior database."
+      ],
+      "reasoning": "No existing exact support table for this restricted equivalence class was found in accessible search. Search nonidentification does not prove absence of older tables; checks are finite and cannot substitute for historical exhaustive search.",
+      "searches": [
+        "set partition equivalence relation concept class graph of shattered pairs with every block size exactly three",
+        "VC shattering polynomial of triples partitions same-cluster pair queries maximal supports",
+        "uniform set partitions perfect k-matchings pair equality shattering VC dimension formula (m-1)(k-1)"
+      ]
+    },
+    "rationale": "The all-m fixed-three-block graph characterization, precise two saturated forbidden profiles and full labeled support polynomial are not implied by checked close sources. The 2014 JMLR paper directly studies same-block equivalence concepts, but permits arbitrary class sizes and only derives Θ(n) VC bounds; its matching-shattering lower bound can actually fail under the exact-three restriction. Checked later work studies query complexity, not static all-labelings support profiles. Related published records and accessible prior claims concern different classes or invariants. Remaining unsearched historical mathematical literature is an explicit priority risk, not evidence of uniqueness.",
+    "residual_risks": [
+      "Historical priority is not exhausted: an older combinatorics/learning-theory theorem for perfect 3-uniform partitions could cover the result under different notation.",
+      "Public published-finding corpus search operates on ranked summaries; absence of a close result is not a uniqueness proof.",
+      "The four inspected primary papers span direct related frameworks but cannot categorically exclude every appendix or all related publications."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for present exact triple-block theorem: Section 5.2 gives Θ(n) bounds for at most k clusters of unrestricted sizes, with matching lower bound and cycle upper bound. Neither the triple-block support criterion nor exact polynomial follows by specialization, since equal block sizes cannot be inferred from all partitions with at most k classes.",
+        "evidence": [
+          "JMLR 15 (2014), pp. 901–903, especially p. 902: class C all equivalence relations with at most k classes and VCdim Θ(n)."
+        ],
+        "identifier_or_url": "https://www.jmlr.org/papers/volume15/ailon14a/ailon14a.pdf",
+        "material_read": "Abstract, main theory overview, Section 5 introduction, all of pp. 901–903 including Section 5.2 and Theorem 14; full-document search for VC dimension and shattering references.",
+        "method": "Primary publisher full-text PDF, pages inspected as text and rendered page images.",
+        "title": "Active Learning Using Smooth Relative Regret Approximations with Applications",
+        "trigger": "Directly defines a concept class of pairwise-equivalence relations and discusses its VC dimension."
+      },
+      {
+        "assessment": "NOT_COVERING for the exact shattering graph of all partitions into unlabeled triples: geometric-clustering approximation/query-complexity goal, no stated fixed-triple enumeration theorem in inspected material.",
+        "evidence": [
+          "arXiv:1704.01862v1, posted 2017-04-06, algorithmic approximation framework."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1704.01862",
+        "material_read": "Abstract, introduction and initial formal algorithmic results on first three pages of open preprint; full-document term search for VC dimension/shattering.",
+        "method": "Lawful arXiv full-text and publisher metadata, read text and representative rendered pages.",
+        "title": "Approximate Clustering with Same-Cluster Queries",
+        "trigger": "Middle-window source employing precisely same-cluster pair queries."
+      },
+      {
+        "assessment": "NOT_COVERING for the fixed-three-block pair-support classification; its subject is efficient recovery under noisy side information and oracle query complexity, not the support polynomial.",
+        "evidence": [
+          "arXiv:1706.07719v1: query-complexity clustering statements."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.07719",
+        "material_read": "Abstract, introduction, principal definitions and theorem statements, full-document term search for VC dimension and shattering.",
+        "method": "Lawful arXiv full text and rendered pages.",
+        "title": "Query Complexity of Clustering with Side Information",
+        "trigger": "Learning clusters via pairwise same/different oracle."
+      },
+      {
+        "assessment": "NOT_COVERING for prescribed all-triple partitions: approximation/oracle efficiency for correlation clustering, not the all-labelings VC characterization or support polynomial.",
+        "evidence": [
+          "arXiv:1908.04976; ESA 2019."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.04976",
+        "material_read": "Abstract, introduction, central theorem statements and VC-dimension terminology checked within main text.",
+        "method": "Open-access full text with rendered page inspection.",
+        "title": "Correlation Clustering with Same-Cluster Queries Bounded by Optimal Cost",
+        "trigger": "A natural potential source of stronger shattering implications for equality-of-cluster queries."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "99cf5141-f087-4dcb-a591-0737060f716f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed equal-size triple clustering is a natural restriction of same-block equivalence queries. The classification detects exactly two globally saturated obstructions beyond local transitivity; they have meaningful combinatorial consequences not visible from an unconstrained equivalence-relation class. It yields every shattered support for every size, exact VCdim 2m-2 and entire labeled shattering polynomial and extremal-support count. This addresses a structural static-learning capacity, not merely finite examples or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
