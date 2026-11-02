@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the regular-polygon crossing-angle theorem
+# Independent mathematical audit
 
-Run `python diagonal_transversality_verify.py` using a standard Python 3 interpreter. The file is embedded alongside this document and relies only on the standard library.
+## correctness
 
-The program calculates the acute angle directly from Cartesian chord direction vectors for every four-element subset for \(4\le n\le24\) and checks its exact integer multiplicity against the stated formula, including the even midpoint atom. For larger polygons it checks normalization, the limiting folded-beta CDF, and sampled fixed-order moments with independent quadrature and convergent series. The checks completed successfully in the package preparation environment; the final status line is `ALL_CROSSING_DIAGONAL_ANGLE_CERTIFICATES_OK`.
+PASS
 
-The exact probability formula, all real moment orders and all infinite-size limits are **analytical theorems** proved in `RESULT.md`. Finite enumeration and numerical quadrature are corroboration only, not exhaustive proofs of limits. No external independent validation or certification is claimed.
+For positive cyclic gaps a+b+c+d=n, the chord-direction difference is pi(a+c)/n. Counting (a,c) and (b,d) positive compositions with marked starting points gives n(s-1)(n-s-1) and correct factors 2/4; each sampled quartet is counted once. The finite law normalizes. Riemann sums give the folded beta density; the near-zero mass <=Ck/n^2 and sin(pi*k/n)>=2k/n give uniform integrability for q<2; harmonic sum yields log coefficient at q=2 and dominated convergence by C k^(1-q) yields the zeta constant for q>2. Independently computed 15,504 Euclidean 4-vertex tests for n=4..19 and 72 integer bins, plus numerical fixed-q limit checks.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of actual final mathematical implications with primary sources and relevant published semantic records. Relevant predecessor results were credited; no inspected full-theorem statement covers the final claim, with explicit residual priority risks.
+
+## value
+
+PASS
+
+The reciprocal sine of a crossing angle is the determinant conditioning for two unit line directions. The exact all-n pair-weighted law and sharp moment cutoff quantify natural degeneracy in a canonical geometric model and provide finite/continuum constants; not simply a set of possible angles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
