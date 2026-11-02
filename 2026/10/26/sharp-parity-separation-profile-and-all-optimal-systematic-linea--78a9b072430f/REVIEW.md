@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces the two simultaneous distances to a weight-at-least-three sum-free column set, invokes the independently published Davydov--Tombak structural bound with the precise threshold needed, counts the excluded weight-one and weight-two vectors in affine hyperplanes, proves equality and uniqueness, and verifies the two small exceptional dimensions. Exhaustive small-dimension enumeration and direct distance checks are reproduced in `verify.py`; finite data are not substituted for an infinite proof.
+## correctness
 
-**Originality — PASS with residual risk.** The closest framework literature (Rajput et al. 2025/2026 and Verma--Singh 2026) defines and bounds the relevant code class but does not derive the constrained parity profile or all extremizers. Ho's 2026 abstract states an exact systematic linear separation analysis for thresholds at most three, not the distance-four joint requirement here; another 2026 systematicity paper optimizes the generator of a fixed code instead of message dimension at fixed redundancy. The 1989 Davydov--Tombak theorem provides the critical structural inequality and cannot be presented as new; combining it with the restricted low-weight column geometry yields the explicit complete coding classification. The recent systematicity sources were not available as full text despite bounded access attempts, and unindexed equivalence remains a risk.
+PASS
 
-**Value — PASS.** The quantity is a natural fixed-overhead optimization for a systematic linear code protecting a parity attribute more strongly than the data. The theorem identifies exact dimension losses relative to a conventional distance-three code, a genuine exceptional four-check-bit case, and all maximizing structures. In the large-\(r\) regime it distinguishes \(r\) strictly protected data-distance-three designs from an equally large conventional distance-four design. This structural distinction is not conveyed by existence bounds alone.
+The encoder E(u)=(u,uP) gives, for a nonempty message support T, the exact weight |T|+wt(sum_{i in T}h_i). Data distance at least three and message-parity separation at least four are therefore equivalent to distinct nonzero check columns h_i with wt(h_i)>=3 and no zero sum of three distinct columns. For r>=5, the Davydov--Tombak structural bound for non-hyperplane sum-free subsets (5*2^(r-4)) lies strictly below M_r=2^(r-1)-r. Thus a maximizer must lie in an affine hyperplane, and counting the s weight-one and s(r-s) weight-two exclusions in {a·v=1} gives at most 2^(r-1)-s(r-s+1), with equality only at wt(a)=1 or r. A through-origin hyperplane holds at most 2^(r-2) sum-free elements. This proves the exact K(r) profile and all r+1 large-r extremizers; r<=4 is checked directly. Strict codeword-distance-three versus full-distance-four distinctions follow from explicit two-column differences. Fresh exhaustive independent set enumeration for r=3,4,5 found K=1,5,11 with 1,1,6 maximizers and inspected constructions r=5,6,7. The finite enumeration is corroboration, not the proof for all r.
 
-The result covers linear systematic encoders only. Distance four means stronger pairwise detection, not a second additional correctable Hamming error. The proof uses a previously established sum-free-set theorem; separate expert reproduction has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: complete restricted sum-free column extremizers and exact systematic fixed-redundancy parity/data protection profile not directly supplied by the inspected source statements; the non-hyperplane sum-free bound is openly credited. Some recent closely relevant coding preprints were accessed only at abstract level; their uninspected main texts remain a material priority risk.
+
+## value
+
+PASS
+
+The fixed appended parity-symbol budget and unequal message/data distance protection are natural practical and mathematical constraints. The sharp dimension-loss profile and all r+1 maximizers distinguish r genuinely strict schemes from one distance-four scheme; this classification is a nontrivial structural consequence of the sum-free stability theorem, not merely a restatement or a one-line coding substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

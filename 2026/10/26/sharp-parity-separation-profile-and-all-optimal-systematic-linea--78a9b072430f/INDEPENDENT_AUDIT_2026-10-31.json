@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:58:52.520072Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "The key non-hyperplane stability bound is explicitly imported from Davydov--Tombak, not reproved. The proof makes no claim for nonlinear/nonsystematic encoders or correction of two Hamming errors."
+      ],
+      "rationale": "The encoder E(u)=(u,uP) gives, for a nonempty message support T, the exact weight |T|+wt(sum_{i in T}h_i). Data distance at least three and message-parity separation at least four are therefore equivalent to distinct nonzero check columns h_i with wt(h_i)>=3 and no zero sum of three distinct columns. For r>=5, the Davydov--Tombak structural bound for non-hyperplane sum-free subsets (5*2^(r-4)) lies strictly below M_r=2^(r-1)-r. Thus a maximizer must lie in an affine hyperplane, and counting the s weight-one and s(r-s) weight-two exclusions in {a·v=1} gives at most 2^(r-1)-s(r-s+1), with equality only at wt(a)=1 or r. A through-origin hyperplane holds at most 2^(r-2) sum-free elements. This proves the exact K(r) profile and all r+1 large-r extremizers; r<=4 is checked directly. Strict codeword-distance-three versus full-distance-four distinctions follow from explicit two-column differences. Fresh exhaustive independent set enumeration for r=3,4,5 found K=1,5,11 with 1,1,6 maximizers and inspected constructions r=5,6,7. The finite enumeration is corroboration, not the proof for all r.",
+      "scope": [
+        "F_2^r, r>=0; systematic binary linear encoders; parity of message bits rather than integer Hamming weight; Hamming data separation >=3 and functional separation >=4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reiher (2025) introduction explicitly attributes the 5*2^(r-4) nonhyperplane sum-free bound to Davydov–Tombak; this is the nonstandard theorem used in the proof.",
+          "Rajput et al. (2026) supplies the general simultaneous data-and-function protection framework, while Verma–Singh discusses modular sum in Lee metric."
+        ],
+        "reasoning": "The dominant older sum-free theorem forces an affine hyperplane for large enough sets but does not itself exclude weight-one/two check columns or classify which maximizing hyperplane slices yield exact parity-encoder lengths. Framework/metric results do not state the complete sharp profile.",
+        "searches": [
+          "Reiher On Lev periodicity conjecture Davydov Tombak 5*2^(n-4)",
+          "arXiv:2511.18420 data protection",
+          "arXiv:2610.12217 Lee data protection"
+        ]
+      },
+      "checked_sources": [
+        "Reiher DOI:10.1112/blms.70043 introduction (full HTML)",
+        "Davydov–Tombak 1989 original theorem through Reiher accurate quotation",
+        "arXiv:2608.29389 abstract",
+        "arXiv:2610.09011 abstract",
+        "arXiv:2511.18420 article metadata and abstract",
+        "arXiv:2610.12217 abstract",
+        "arXiv:2604.26397 accessible exposition",
+        "Resultary semantic published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "DT gives precisely the non-hyperplane threshold, not the constrained extremal set or enumeration.",
+          "Ho exact d<=3 and Rajput fixed-code generator procedures have different data/functional distance and optimization parameters."
+        ],
+        "reasoning": "The all-r upper bound and equality classification require a fresh shell-count argument after applying DT. Low functional thresholds and fixed-code optimization do not automatically imply the joint 3/4 fixed-r result.",
+        "searches": [
+          "Davydov Tombak 1989 nonhyperplane bound",
+          "arXiv:2608.29389 systematic linear function correcting",
+          "arXiv:2610.09011 generator optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parity functional distance is the first relative generalized Hamming weight of the encoded parity kernel, an equivalent general formulation noted in Ho arXiv:2608.29389.",
+          "The actual constraint requires simultaneous distinct-column, low-weight-exclusion and three-column sum conditions; the fixed-code generator optimization of Rajput-Jagatti-Rajan is a different quantified problem."
+        ],
+        "reasoning": "Compared relative-code-distance and generator-basis aliases with the actual fixed-r systematic maximum, not titles. Ho announces exact systematic results for functional separation <=3; the present functional threshold is 4 with an additional data-distance threshold 3. Abstract-only comparison does not eliminate possible hidden corollaries.",
+        "searches": [
+          "binary parity function correcting systematic linear code data distance 3 parity distance 4 sum-free columns",
+          "arXiv:2608.29389 abstract",
+          "arXiv:2610.09011 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published mathematical index returned related PIR and other binary-code records but no exact 3/4 parity/data optimum; finite table r=3,4,5 independently computed K=1,5,11."
+        ],
+        "reasoning": "Ordinary [n,k,3] tables do not determine the parity-function separation for the designated systematic message coordinates. A negative search is not a historical novelty proof.",
+        "searches": [
+          "sum-free binary F2^n all columns weight >=3 max 2^(n-1)-n",
+          "Resultary semantic query binary systematic linear parity function correcting codes data distance 3 parity separation 4 extremal redundancy sum-free sets affine hyperplane"
+        ]
+      },
+      "rationale": "PASS, qualified: complete restricted sum-free column extremizers and exact systematic fixed-redundancy parity/data protection profile not directly supplied by the inspected source statements; the non-hyperplane sum-free bound is openly credited. Some recent closely relevant coding preprints were accessed only at abstract level; their uninspected main texts remain a material priority risk.",
+      "residual_risks": [
+        "Full texts of very recent systematic/strict function-correcting coding papers could contain a stronger theorem with this result as a corollary.",
+        "The original 1989 Davydov–Tombak proof was not materially checked, though the precise needed theorem is quoted in later peer-reviewed primary mathematics.",
+        "An equivalent shell-restricted maximal cap classification could be indexed without coding terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the structural input; the coding-specific low-weight exclusions are not its claimed result",
+          "evidence": [
+            "Introduction: nonhyperplane binary sum-free sets bounded by 5·2^(n-4), attributed to Davydov and Tombak."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/blms.70043",
+          "material_read": "Open full-text introduction, paragraphs on sum-free subsets of binary vector spaces and original Davydov–Tombak result",
+          "method": "web-accessible primary full HTML, relevant introduction materially read",
+          "title": "On Lev’s periodicity conjecture, Christian Reiher (2025)",
+          "trigger": "closest credited nonstandard combinatorial ingredient"
+        },
+        {
+          "assessment": "Abstract announces systematic optimal redundancy for prescribed separation d<=3; no whole-document noncoverage finding",
+          "evidence": [
+            "ArXiv abstract explicitly limits its solved systematic redundancy cases to d<=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.29389",
+          "material_read": "Abstract and announced theorem scope only; full mathematical proof not obtained",
+          "method": "arXiv abstract",
+          "title": "On systematicity of linear function-correcting codes, Duy Ho (2026)",
+          "trigger": "precise systematic linear functional distance alias"
+        },
+        {
+          "assessment": "Optimizes generator basis of fixed linear code, unlike variable information dimension at fixed redundancy; possible unseen implications remain",
+          "evidence": [
+            "Abstract describes greedy optimal-generator algorithm and information-set criterion for fixed code."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.09011",
+          "material_read": "Complete detailed abstract including fixed-code generator-optimization problem; full proof not obtained",
+          "method": "arXiv abstract",
+          "title": "On Optimal Encodings and Systematicity in Function-Correcting Codes, Rajput et al. (2026)",
+          "trigger": "strong recent overlap on systematicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed appended parity-symbol budget and unequal message/data distance protection are natural practical and mathematical constraints. The sharp dimension-loss profile and all r+1 maximizers distinguish r genuinely strict schemes from one distance-four scheme; this classification is a nontrivial structural consequence of the sum-free stability theorem, not merely a restatement or a one-line coding substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Reiher DOI:10.1112/blms.70043 introduction (full HTML)",
+    "Davydov–Tombak 1989 original theorem through Reiher accurate quotation",
+    "arXiv:2608.29389 abstract",
+    "arXiv:2610.09011 abstract",
+    "arXiv:2511.18420 article metadata and abstract",
+    "arXiv:2610.12217 abstract",
+    "arXiv:2604.26397 accessible exposition",
+    "Resultary semantic published-finding search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The key non-hyperplane stability bound is explicitly imported from Davydov--Tombak, not reproved. The proof makes no claim for nonlinear/nonsystematic encoders or correction of two Hamming errors.",
+    "Full texts of very recent systematic/strict function-correcting coding papers could contain a stronger theorem with this result as a corollary.",
+    "The original 1989 Davydov–Tombak proof was not materially checked, though the precise needed theorem is quoted in later peer-reviewed primary mathematics.",
+    "An equivalent shell-restricted maximal cap classification could be indexed without coding terminology."
+  ],
+  "schema_version": 1
+}
