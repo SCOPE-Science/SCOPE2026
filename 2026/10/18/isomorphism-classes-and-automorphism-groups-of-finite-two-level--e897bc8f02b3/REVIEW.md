@@ -1,11 +1,21 @@
-# Review of the unlabelled S4bI two-level frame classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The new proof is an equivariant enhancement of an already established labelled normal form: order automorphisms preserve both levels, and frame isomorphisms are exactly independent isomorphisms of the two preorders preserving the permitted source ideals. The stabilizer-product identity, Burnside ideal-orbit formula and top-class recurrences follow. The standalone Python verifier checked all constructed small relations against the confluence axioms and matched independent permutation counting through level size three; the independent C program directly exhausts *all* original-axiom relations for sizes \((2,2)\), \((2,3)\), \((3,2)\). Infinite-scope correctness rests on the proof, not on finite tests.
+## correctness
 
-**Originality — PASS, with explicit overlap and residual risks.** The earlier **labelled** result (identifier `e7e391a5-d9c0-4936-b7c0-2c4a3793fea7`) covers the whole normal-form premise and its labelled-count formula; those are NOT new here. The precise new result consists of complete isomorphism invariants, automorphism groups and the orbit-count formula and recurrences. Searches of related modal semantics, unlabelled preorders and historical research records did not identify the same statement. KR 2023 Definitions 4–5 and arXiv:2104.15053 support the semantic setup; OEIS A001930 supplies the already-known unlabelled preorder counts. A possibly unindexed two-colored-topology reformulation remains a novelty risk. Search absence is not a uniqueness proof.
+PASS
 
-**Mathematical value — PASS.** Classifying finite model isomorphism types is a natural structural refinement of labelled modal-frame counting. The marked-ideal stabilizer decomposition handles nonfree permutation actions and gives a computable two-parameter census for every finite level size, not just an arbitrary sample. The work neither claims a general decision theorem nor treats code output as mathematical significance.
+For p,q>=2 the two named levels are intrinsic minimal and maximal worlds of the fixed complete height-two order, so every isomorphism respects A and B independently. With R reflexive/transitive, restrictions Q_A,Q_B are preorders. Forth-up for a R b with b maximal requires every B point to reach b, forcing the target into Top(Q_B), and transitivity closes its class; the A sources form a predecessor-closed ideal U. Forth-down dually forces B->A target in Top(Q_A), with B source ideal V. All four pieces of the normal form are sufficient for reflexivity, both confluences and transitivity, including two-cross-edge composites; this is acknowledged as previously proved. The normal form is unique and S_p×S_q-equivariant, hence an isomorphism class is exactly a pair of preorder classes decorated by permitted ideal-orbits, with automorphism group the stabilizer product. If o(Q) counts ideal orbits and t(Q) indicates top class, factors (1+t_B(o_A-1))(1+t_A(o_B-1)) sum to the stated four-term I_{p,q}. The greatest-class decomposition yields b_n=sum_{j<n}a_j and d_n=sum_{j<n}(a_j+c_j), with a0=c0=1, and Burnside computes c_n. Independent from-code finite checks enumerated all preorders/ideals through n=4 and all literal-axiom R on (2,2),(2,3), recovering a,b,c,d and 38/135/452/7034. Independently checked all 89+762+762+5922 constructed frame stabilizer orders for sizes (2,2),(2,3),(3,2),(3,3). These finite tests corroborate, but arbitrary p,q correctness rests on the equivariant structural proof.
 
-The result covers only complete height-two underlying posets and does not count modal theories or bisimulation classes. No independent expert or external audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the all-p,q isomorphism-orbit and automorphism-stabilizer refinement, not for the earlier labelled top-class normal form. A distinct earlier mathematical record is cited as giving the exact four-piece labelled decomposition and labelled counts. Its full original bytes were not independently retrievable, so this is a significant implication/priority risk: the new theorem is an equivariant orbit extraction from that normal form, not a new classification of labelled relations. The independent group-action proof adds explicit stabilizer groups, a universal four-term quotient formula and marked-ideal/top-class statistics; no inspected published statement supplies those exact conclusions. Mere search absence is not novelty proof.
+
+## value
+
+PASS
+
+Unlabelled modal-frame types and their automorphism groups are intrinsic finite-model-theoretic invariants of the natural complete two-level posets, not an arbitrary parameter slice. The conditional marked-ideal decomposition turns a whole infinite two-parameter family into explicit, computable orbit statistics and stabilizers; the nonfree group actions show why the known labelled numbers cannot simply be divided by p!q!. The first values 38,135,452 and the universal b,d recurrences are motivated exact structural data for classifying models up to renaming. The work is a relatively close and standard equivariant refinement of a prior labelled normal form, not a new logic or a broad decidability result; nevertheless it is a natural complete classification and concrete invariant, not just a table recomputation or a type check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
