@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The determinant identity, exhaustive support analysis, and nondegenerate local quadratic forms prove the eleven-node K3 geometry. The exact checker performs exhaustive projective point counts via two independent algorithms over both finite fields. The two traces and the Weil absolute-value bound force the asserted 18/4 eigenvalue split. The proof does not extrapolate finite examples without the Weil theorem.
+## correctness
 
-## Originality — PASS (qualified)
-Dardanelli–van Geemen (arxiv:math/0409322v1) describes the classical Clebsch Hessian and its Néron–Severi configuration. Kondō (arxiv:2102.00591v2) describes characteristic-five Hessian/Coble geometry and supersingularity. Neither inspected paper states the point counts 41 and 901, the Frobenius multiplicities 18 and 4, or this F5 zeta function. Targeted published-mathematics-record and literature queries and comparisons with related claims found no covering record. Material originality risks include arithmetic equivalences under another model and possible deductions from fully explicit geometric divisor fields in later literature. Absence from search results alone is not treated as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-Exact arithmetic of the distinguished bad-prime Hessian K3 surface is independently motivated: its geometric supersingularity does not specify the F5-form's zeta function. Maximality over F25 and the resulting full Frobenius spectrum settle all extension-field point counts, beyond a small isolated computation.
+The elimination Hessian determinant is 6^4 e4 in coordinates e1=0, valid modulo5. Geometric singular-point criterion uses equality of five e4 partials: 2 nonzero coordinates give 10 opposite-sign pair points; 3 nonzero coordinates are smooth; 4 nonzero excluded by e4; 5 nonzero force all squared coordinates equal and e1=0 in characteristic 5, giving E. The local quadratic terms at a pair node are -(uv+uw+vw), at E are proportional to sum y_i^2 on tangent sum y_i=0 with nonzero determinant (I3+J3 det4 mod5), so all eleven are rational A1 nodes and crepant quartic resolution is K3 with b2=22. Independently re-enumerated every normalized projective F5/F25 point of e1=e4=0 using finite-field arithmetic with theta^2=2, obtaining exact chart totals (23,12,5,1)=41 and (803,72,25,1)=901. Eleven rational exceptional conics each add q points: Y counts 96 and 1176. Traces on H2 are 70 and 550; the second is the maximum 22*25, so by purity every alpha_j^2=25, and first trace forces 18 positive and 4 negative eigenvalues. The stated Hasse-Weil zeta is forced for all extensions. Finite enumeration is exhaustive for F5,F25 but the geometric and purity steps are separate proofs.
 
-## Limitations
-The claim applies only to the displayed F5 model and its minimal resolution. It does not classify other twists, integral models, or the Artin invariant. Historical arithmetic coverage is not exhaustive; this is not an external scientific certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior char-zero Clebsch Hessian geometry and characteristic-five Kondo Coble fixed-point geometry are directly credited. The novel assessed finite-field Frobenius eigenvalue multiplicities require exact arithmetic counts and are not implied by generic supersingularity alone. Relevant primary full text was read; broader historical zeta-equivalent treatments are a priority risk.
+
+## value
+
+PASS
+
+For the natural exceptional-characteristic reduction of the maximally symmetric Clebsch Hessian K3, the exact arithmetic zeta function determines all extension-field counts, a natural invariant more informative than generic supersingularity. The eleventh node and equality of second Frobenius trace make a nontrivial finite-data-to-global-determination phenomenon; this is not a known-table recomputation in inspected sources.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
