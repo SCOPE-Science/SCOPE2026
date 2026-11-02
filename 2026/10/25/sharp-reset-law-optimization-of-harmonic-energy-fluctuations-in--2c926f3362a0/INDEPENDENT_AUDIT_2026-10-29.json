@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T20:55:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/sharp-reset-law-optimization-of-harmonic-energy-fluctuations-in--2c926f3362a0/RESULT.md",
+        "2026/10/25/sharp-reset-law-optimization-of-harmonic-energy-fluctuations-in--2c926f3362a0/verify.py"
+      ],
+      "evidence": [
+        "RESULT.md §Proof 1–4 and verified squared-radial boundary specification",
+        "Git blob b39a30927fb07118ab9b82a11979db8c43dda147 inspected: CIR noncentral-chi-square renewal sampling, six scenarios, moment/penalty checks",
+        "Independent SymPy completed-square identity equality under symbolic alpha,beta,D,r,z,w; exact numeric example 5/3 and 1/36"
+      ],
+      "rationale": "With Y=X² the correctly normalized CIR generator is 2(alpha+D-beta y)partial_y+4Dy partial_yy; independent rate-r reset adds r(E f(Z)-f(y)). Stationary renewal mixture and common-reset coupling guarantee existence, uniqueness and moments. Testing y,y² yields (2beta+r)m1=2(alpha+D)+rz and (4beta+r)m2=4(alpha+3D)m1+r(z²+w). Completing the square produces K=4beta²r/((2beta+r)²(4beta+r))>0 and a dispersion penalty r w/(4beta+r); strict z>0 and w>=0 prove the interior/boundary cases and uniqueness without assuming deterministic resets. Independently verified symbolic equality and the alpha=3,beta=2,D=r=1 example gives Var(Y)=5/3, randomized w=1/4 cost 1/36.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olsen equation (20) gives an adaptable moment hierarchy",
+          "No global point-law minimization and critical alpha-D boundary in inspected applications"
+        ],
+        "reasoning": "A general stationary moment method is broader procedurally, but not a published quantitative optimal-reset-law theorem for this specific model. Algebraic specialization plus constrained minimization is the assessed additional result.",
+        "searches": [
+          "stationary variance minimization CIR logarithmic harmonic diffusion random reset location law reset to distributions quadratic energy",
+          "arXiv:2310.04840 Section III",
+          "arXiv:2306.08770 Section 3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2306.08770",
+        "https://arxiv.org/pdf/2310.04840",
+        "Resultary semantic search: stationary variance minimization CIR logarithmic harmonic diffusion random reset location law reset to distributions quadratic energy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Moment framework can reproduce reset-generator equations but does not explicitly supply optimum law or dispersion equality case",
+          "Fixed reset point cannot rule out better randomized reset distributions without the variance decomposition"
+        ],
+        "reasoning": "Existing general machinery could yield the formula after nontrivial CIR-specific calculations; inspected results do not logically assert the completed-square global optimization and uniqueness among laws.",
+        "searches": [
+          "arXiv:2310.04840 equations (19)–(23)",
+          "arXiv:2306.08770 fixed-reset treatment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gültekin fixed-point stationary log-harmonic model",
+          "Olsen general distributed reset moment hierarchy"
+        ],
+        "reasoning": "The squared coordinate is CIR with state-dependent diffusion; Olsen harmonic OU formulas concern linear coordinate with additive noise. Full physical potential variance differs from quadratic harmonic energy variance.",
+        "searches": [
+          "stationary variance minimization CIR logarithmic harmonic diffusion random reset location law reset to distributions quadratic energy",
+          "arXiv:2306.08770",
+          "arXiv:2310.04840"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected sources show fixed-reset density and OU moments, not a two-parameter exact optimizer table"
+        ],
+        "reasoning": "No natural finite database for continuous control laws; check concerns published phase tables/parameter thresholds rather than integer sequences.",
+        "searches": [
+          "stationary variance minimization CIR logarithmic harmonic diffusion random reset location law reset to distributions quadratic energy",
+          "log-harmonic resetting random restart distribution variance"
+        ]
+      },
+      "rationale": "Gültekin determines stationary density for a fixed reset point and morphology thresholds. Olsen gives the general reset-to-distribution moment strategy with additive OU/run-and-tumble examples. Neither inspected statement establishes a global optimizing reset distribution for the squared-CIR observable and exact transition region; standard generator calculations and reset renewal methods are acknowledged prior.",
+      "residual_risks": [
+        "A general affine-jump/CIR optimal-control theorem with reset distributions could implicitly cover this quadratic minimization",
+        "Physical total-potential fluctuations, reset energy cost and non-Poisson protocols are deliberately excluded"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "fixed-point resets; no varying-law global harmonic-energy variance minimization",
+          "evidence": "stationary density/hypergeometric model",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.08770",
+          "material_read": "abstract, stationary density expression and parameter/morphology analysis in Section 3",
+          "method": "arXiv/OA PDF text and page-image examination",
+          "title": "The steady state distribution for diffusion in a logarithmic-harmonic potential with stochastic resetting",
+          "trigger": "exact same stochastic potential and reset mechanism"
+        },
+        {
+          "assessment": "general distributed-reset moment method; additive OU examples do not state CIR squared-harmonic variance optimal law",
+          "evidence": "Eq. 20 general reset moment hierarchy; Eq. 21 OU moments",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.04840",
+          "material_read": "abstract, Sections II–III, equations (19)–(23), harmonic-potential/OU applications",
+          "method": "arXiv/OA PDF text and page-image examination",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "potential stronger reset distribution moment theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact admissible-law control problem with positive reset support",
+        "Unique optimizer and sharp unattained boundary phase transition",
+        "Global stability penalty distinguishes random and deterministic resetting"
+      ],
+      "rationale": "The reset point is a natural externally controllable choice in a logarithmic-harmonic diffusion; stationary harmonic-energy variability is a physical observable. The exact phase boundary, optimal deterministic law among all randomized laws, and strictly quantitative dispersion penalty provide a complete parameter-dependent control law rather than a generic moment identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2306.08770",
+    "https://arxiv.org/pdf/2310.04840",
+    "Resultary semantic search: stationary variance minimization CIR logarithmic harmonic diffusion random reset location law reset to distributions quadratic energy",
+    "2026/10/25/sharp-reset-law-optimization-of-harmonic-energy-fluctuations-in--2c926f3362a0/RESULT.md"
+  ],
+  "disposition": "passed",
+  "final_claim": "Among all positive reset-location distributions with finite fourth moment for the canonical CIR/squared-radial logarithmic-harmonic diffusion, the stationary variance of H=beta X²/2 has unique deterministic optimum R=sqrt((alpha-D)/beta-Dr/beta²) if alpha>D and 0<r<beta(alpha-D)/D; elsewhere only a nonattained zero-location limit minimizes. The variance excess is exact quadratic in E[R²] displacement and Var(R²).",
+  "limitations": [
+    "A general affine-jump/CIR optimal-control theorem with reset distributions could implicitly cover this quadratic minimization",
+    "Physical total-potential fluctuations, reset energy cost and non-Poisson protocols are deliberately excluded"
+  ],
+  "residual_risks": [
+    "A general affine-jump/CIR optimal-control theorem with reset distributions could implicitly cover this quadratic minimization",
+    "Physical total-potential fluctuations, reset energy cost and non-Poisson protocols are deliberately excluded"
+  ],
+  "schema_version": 1
+}

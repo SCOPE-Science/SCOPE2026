@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the canonical nonnegative squared-CIR representation, for which regeneration at positive Poisson rate proves a unique stationary law. Two generator moment equations for the squared position give the exact stationary first and second moments for *any* independent positive reset law with finite fourth moment. Algebraic completion of the square yields a strictly positive mismatch coefficient and a strictly positive reset-law dispersion penalty. The admissible domain \(\mathbb E R^2>0\), \(\operatorname{Var}(R^2)\ge0\) gives the interior versus excluded-boundary dichotomy without further analytic regularity hypotheses. The included program samples independent stationary observations using the noncentral chi-square CIR transition and checks the main identities, but numerical agreement is not treated as a universal proof.
+PASS
 
-## Originality — PASS (qualified)
+With Y=X² the correctly normalized CIR generator is 2(alpha+D-beta y)partial_y+4Dy partial_yy; independent rate-r reset adds r(E f(Z)-f(y)). Stationary renewal mixture and common-reset coupling guarantee existence, uniqueness and moments. Testing y,y² yields (2beta+r)m1=2(alpha+D)+rz and (4beta+r)m2=4(alpha+3D)m1+r(z²+w). Completing the square produces K=4beta²r/((2beta+r)²(4beta+r))>0 and a dispersion penalty r w/(4beta+r); strict z>0 and w>=0 prove the interior/boundary cases and uniqueness without assuming deterministic resets. Independently verified symbolic equality and the alpha=3,beta=2,D=r=1 example gives Var(Y)=5/3, randomized w=1/4 cost 1/36.
 
-The entire original logarithmic-harmonic stationary point-reset **density** is prior art (Gültekin, arXiv:2306.08770). General renewal ideas and moment equations under randomized reset positions are also prior techniques (Olsen, arXiv:2310.04840). The claim is not either of those: it is the sharp global minimizing reset *law* for the variance of the squared position, the exact rate threshold, and both penalty terms. Gültekin's 8-page preprint was examined through its model, density derivation and discussion; it does not state the present optimization or analyze arbitrary reset distributions. Olsen's 8-page preprint was examined through Sections II–V, including Eq. (22) and the additive-OU variance Eq. (24); it covers a different noise structure and observable. Searches for logarithmic-harmonic/CIR reset-law variance optimization did not identify a directly covering theorem, but this is not a uniqueness proof. The main residual risk is unlocated optimization in the larger affine-diffusion or resetting literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The optimized variance is the natural fluctuation measure for the trap's quadratic energy component. The result is a complete nontrivial design classification over an *infinite-dimensional family of resetting distributions*, not a single-parameter example: randomizing the reset site has a sharp strictly positive variance cost, while a unique boundary-crossing rate separates an attained finite-location optimum from an unattained limit. The square-root approach to that boundary and exact variance penalty make the classification quantitative. This does not optimize full-potential variance or the energetic expense of the reset operation.
+Gültekin determines stationary density for a fixed reset point and morphology thresholds. Olsen gives the general reset-to-distribution moment strategy with additive OU/run-and-tumble examples. Neither inspected statement establishes a global optimizing reset distribution for the squared-CIR observable and exact transition region; standard generator calculations and reset renewal methods are acknowledged prior.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The reset point is a natural externally controllable choice in a logarithmic-harmonic diffusion; stationary harmonic-energy variability is a physical observable. The exact phase boundary, optimal deterministic law among all randomized laws, and strictly quantitative dispersion penalty provide a complete parameter-dependent control law rather than a generic moment identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
