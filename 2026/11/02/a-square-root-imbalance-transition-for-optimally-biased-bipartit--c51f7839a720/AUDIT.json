@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every finite a,b,epsilon, a monotone coupling of greedy and arbitrary competing visited-count chains proves all-horizon cover-time dominance. Under greedy control, independent odd/even arrival clocks yield the stated exact maximum of independent geometric sums. For fixed epsilon in (0,1), the geometric triangular arrays have bounded third centered moments and Riemann-sum mean/variance coefficients I and V, giving the independent Gaussian maximum and final-part probability by continuous mapping. Second-moment uniform integrability yields the mean correction, and Chebyshev proves sharpness outside the window. An executable standard-library checker supplies 6250 exact finite rational tests; finite tests are not presented as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Haslegrave–Sauerwald–Sylvester, sections 1, 3 and 5, develops trajectory-tree bounds and complexity of optimal covering strategies but does not state a finite complete-bipartite formula.",
+        "Georgakopoulos–Haslegrave–Sauerwald–Sylvester, 2019/2020 choice-walk results, establish graph-class growth bounds for a different control mechanism.",
+        "Ross–Wu (2013) abstract establishes stochastic optimality of an empty-eligible-box policy under a coupon-vector assumption, potentially relevant only to the greedy-policy component."
+      ],
+      "reasoning": "Neither a bound on cover-time expectation nor optimality of a coupon assignment policy implies the exact parity-sensitive distribution, the variance integrals, and the normal last-class window. The inaccessible 2013 full text is a residual priority risk for the subsidiary optimality argument, but not a known implication-equivalent treatment of all statements.",
+      "searches": [
+        "\"biased random walk\" \"complete bipartite\" \"cover time\" controller",
+        "\"time dependent biased random walks\" \"coupon collector\" \"complete bipartite\"",
+        "https://arxiv.org/html/2006.02475v2",
+        "https://arxiv.org/html/1911.05170v2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2006.02475v2",
+      "https://arxiv.org/html/1911.05170v2",
+      "https://doi.org/10.4230/LIPIcs.ITCS.2020.76",
+      "https://doi.org/10.1007/s10479-012-1086-5",
+      "https://www.stat.berkeley.edu/users/aldous/RWG/Book_Ralph/Ch6.S2.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2020 biased-walk general cover-time upper bounds do not determine exact finite distributions or second-order fluctuations.",
+        "2019 two-choice walk is not the epsilon-biased walk; its discovery kernel differs for all intermediate unseen fractions.",
+        "Ross–Wu (2013) treats a different coupon-eligibility allocation process, and only its abstract was publicly accessible in this comparison."
+      ],
+      "reasoning": "The candidate extends a target-specific exact distribution and normal crossover, not a mere parameter instance of prior bounds. Parts of the greedy-optimization argument may be classical, and their priority is left open; this alone does not imply the full theorem or dominate its fluctuation statement.",
+      "searches": [
+        "\"Choice and Bias in Random Walks\" complete bipartite cover",
+        "\"A generalized coupon collecting model as a parsimonious optimal stochastic assignment model\"",
+        "https://arxiv.org/abs/2006.02475",
+        "https://arxiv.org/abs/1911.05170"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In the exact model the discovery probability when j of m vertices are unseen is epsilon+(1-epsilon)j/m. In the distinct two-offer choice walk it is 1-(1-j/m)^2.",
+        "The full 2020 controlled-walk paper defines exactly the epsilon model but its explicit cover-time results are graph-general bounds, not the geometric maximum or Gaussian terminal-class law."
+      ],
+      "reasoning": "A two-offer walk cannot be substituted by choosing an effective constant epsilon: its quadratic state dependence differs from the affine dependence here. A general coupon-clock CLT alone does not identify the precise controlled graph process, its globally optimal strategy, or the coupled terminal-part law.",
+      "searches": [
+        "\"time dependent biased random walk\" \"complete bipartite\" \"cover time\"",
+        "\"controlled coupon collector\" \"Gaussian\" \"bipartite\"",
+        "\"complete bipartite\" \"epsilon-biased\" \"cover time\"",
+        "arXiv:2006.02475",
+        "arXiv:1911.05170"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The specified primary articles and their accessible complete texts contain no closed table of the controlled complete-bipartite cover-time distributions.",
+        "Direct finite-state rational dynamic programming is provided solely as a reproducibility diagnostic; no external exhaustive table is claimed or used."
+      ],
+      "reasoning": "No identified exact database or table subsumes the family. This is only a search comparison and is not treated as a proof of uniqueness or historical priority.",
+      "searches": [
+        "\"epsilon-biased\" \"cover time\" \"normal\" \"bipartite\"",
+        "\"controlled coupon collector\" \"Gaussian\" \"bipartite\"",
+        "\"biased\" \"complete bipartite\" \"last visited vertex\" normal cover time",
+        "doi:10.4230/LIPIcs.ITCS.2020.76"
+      ]
+    },
+    "rationale": "Target-specific novelty is the exact independent-geometric maximum for controlled cover time on complete bipartite graphs, together with the Gaussian terminal-part square-root imbalance window and expected-time correction. Primary full texts give broad graph cover bounds, not the exact finite law or this asymptotic. An older assignment-theoretic paper may cover the greedy sublemma but its abstract alone cannot establish the full target theorem; historical priority is not independently certified.",
+    "residual_risks": [
+      "Ross and Wu (2013) was abstract-only and may establish a general version of the greedy-policy component; its full text was not used to conclude noncoverage.",
+      "General coupon and stochastic-assignment theory could contain equivalent independent-stage or window results under another formulation; scholarly search cannot certify global novelty.",
+      "No independent mathematical review or historical-priority determination has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT MODEL, NOT IDENTIFIED COVERAGE of parity-separated complete-bipartite distribution and Gaussian imbalance limit.",
+        "evidence": [
+          "The model lets the controller choose a neighbour with independent probability epsilon; Section 1.1 reports general asymptotic bounds; Section 5 studies strategy complexity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.02475v2",
+        "material_read": "Accessible full HTML: abstract, model definition, introduction and results, Section 3 cover-time theorem statements, Section 5 optimal-cover strategies and Section 6 overview; searched target-specific terms.",
+        "method": "Read accessible primary full-text HTML and compare formal dynamics and announced theorem conclusions.",
+        "title": "Time Dependent Biased Random Walks",
+        "trigger": "Same epsilon-controlled walk and cover-time optimal-control topic"
+      },
+      {
+        "assessment": "DISTINCT MODEL: chooses between two random offers, so its discovery law is quadratic, unlike the affine epsilon kernel.",
+        "evidence": [
+          "Introduction explicitly defines two uniformly sampled neighbour offers. Main results concern broad graph families including discrete tori and bounded-degree expanders."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1911.05170v2",
+        "material_read": "Accessible full HTML: introductory model, graph cover-time theorems and related-literature statements, with targeted comparisons across main results.",
+        "method": "Read primary HTML and compare per-step neighbor-selection distribution and scope of cover-time claims.",
+        "title": "The Power of Two Choices for Random Walks",
+        "trigger": "Closest graph-exploration choice model and shared conference predecessor"
+      },
+      {
+        "assessment": "RELATED FRAMEWORK but no same finite complete-bipartite distribution or Gaussian part-imbalance transition identified.",
+        "evidence": [
+          "Article 76 states general rare-event enhancement and hardness for strategy computation, rather than exact geometric stage factorization on K_{a,b}."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2020.76",
+        "material_read": "Accessible nineteen-page publisher PDF: introduction, abstract, model definitions and main theorem/complexity statements; first-page image and extracted text inspected.",
+        "method": "Direct primary PDF textual reading with page-image verification.",
+        "title": "Choice and Bias in Random Walks",
+        "trigger": "Conference predecessor also discussing biased random walks"
+      },
+      {
+        "assessment": "POSSIBLE OVERLAP for greedy policy; full-paper novelty comparison unresolved, no explicit evidence it implies the two-clock Gaussian limit.",
+        "evidence": [
+          "Abstract treats sequential assignment of arriving eligible coupons and proves a stochastically optimal empty-box choice under independent coupon-vector entries."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10479-012-1086-5",
+        "material_read": "Only publisher and bibliographic abstracts describing eligibility vectors and empty-box assignment; full article inaccessible through checked open channels.",
+        "method": "Abstract-level comparison, explicitly not treated as whole-document exclusion.",
+        "title": "A generalized coupon collecting model as a parsimonious optimal stochastic assignment model",
+        "trigger": "Potentially stronger general assignment-policy optimality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c51f7839-a720-4bbd-933b-c108e6c54276",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact cover-time law is a natural nontrivial controlled random-walk observable for arbitrary bipartite part sizes. Its normal maximum and square-root imbalance transition quantify a new second-order phenomenon under fixed positive controller access, sharply contrasting with the coupon-collector extremes of the uncontrolled walk. The combined exact stochastic optimality, distribution and phase crossover carry information unavailable from first-order general graph bounds; not a selected small-parameter computation.",
+    "status": "PASS"
+  }
+}
