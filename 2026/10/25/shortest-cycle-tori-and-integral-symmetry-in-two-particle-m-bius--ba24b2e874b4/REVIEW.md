@@ -1,19 +1,21 @@
-# Review of shortest-cycle tori in Möbius–Kantor two-particle configurations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph's combinatorial definition, girth-six criterion, and the published two-particle stable-equivalence theorem justify the 120/336/228-cell unordered cubical model. The boundary matrices are written out explicitly and checked to square to zero. The integer second boundary has Smith factors 207 units and one factor two, and the connected one-skeleton has rank 119 boundary, giving integral homology ranks and first-homology torsion. All 111 geometric tori were enumerated and verified as cycles. A determinant-one minor for twenty six-cycle-pair tori in the larger automorphism orbit proves actual integral generation of the complete rank-twenty kernel. Smith invariants of all four length types prove every quotient, not merely rational rank. A direct symmetry-action computation corroborates the Lefschetz character and zero invariant dimension.
+PASS
 
-## Originality — PASS, with residual risks
+Correctness PASS for exactly two distinct unordered particles on the specified 16-vertex, 24-edge GP(8,3). Prue–Scrimshaw allows the 120/336/228-cell unordered cubical model (cubic graph, girth six, n=2). Fresh integer chain construction gave ∂1∂2=0, ∂2 rank208, Smith 207 units and a 2, and ∂1 rank119, hence H1=Z^9⊕Z/2 and H2=Z^20. Complete DFS gives 400 simple cycles and 111 vertex-disjoint cycle pairs: 60 of type6/6, 24 of6/8, 24 of6/10 and 3 of8/8. Every signed exterior product is a 2-cycle. The 48-element shortest-pair automorphism orbit contains an exact determinant-1 20×20 minor; saturation of ker∂2 proves an integral basis, not just rational spanning. Exact Smith factors for the remaining torus matrices give the claimed parity defects. Independent Lefschetz computation of all 96 automorphisms gives trace counts {20:1,2:16,0:66,-4:13}; mean 0. No infinite extrapolation is involved.
 
-The closest primary papers develop general two-particle graph homology or planar torus-generation results, but do not supply this nonplanar graph's shortest-cycle orbit-basis theorem, its four integral length-lattice quotients, or its complete ninety-six-automorphism second-homology character. Published findings on the same graph's matching and independence complexes concern different simplicial complexes. Accessible prior two-particle torus classifications involve the Heawood or complete tripartite graph; they do not imply the result for the Möbius–Kantor graph. This is a best-knowledge originality assessment rather than a mathematical uniqueness proof. Inaccessible thesis chapters and unindexed computations leave bibliographic uncertainty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Möbius–Kantor graph is a distinguished symmetric cubic nonplanar graph of girth six, making shortest geometric torus generators and the action of its full automorphism group canonical objects. The result identifies a *single* forty-eight-element orbit that contains an integral basis, exhibits distinct parity obstructions in the next two natural cycle-length families, and proves the absence of rationally invariant top-dimensional classes. These integer and equivariant distinctions are not determined by Betti numbers, ordinary graph counts, or generic planar graph-braid theorems. They also differ structurally from dense multipartite examples: here the complete basis consists of pairs of shortest six-cycles in a sparse nonplanar graph.
+Originality PASS, qualified. The broad theorems compute models or ordered/planar geometric classes. The nonplanar unordered GP(8,3) single-48-orbit integral basis, complete cycle-length Smith quotient table and full 96-element rational character are not consequences of those theorems. Other published records for Möbius–Kantor independence or matching complexes concern distinct functors; results for different graphs do not imply this one.
 
-## Closest literature and scope
+## value
 
-Farley–Sabalka (arXiv:math/0410539), Prue–Scrimshaw (arXiv:0909.5511), Barnett–Farber (arXiv:0903.2180), and An–Knudsen (arXiv:2008.10371) provide the relevant topological and geometric context. Only the indicated finite graph and two unordered particles are classified; no broader conjecture or external validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Scientific value PASS: GP(8,3) is a standard highly symmetric sparse nonplanar cubic graph. The natural shortest embedded cycle-pair classes give an integral basis already in one automorphism orbit, while the next natural cycle lengths have distinct 2-primary obstructions. These distinctions and the absence of any rational invariant H2 vector are not determined by ordinary Betti numbers, adjacency spectra or general planar graph-braid methods; a finite exact lattice benchmark is useful for understanding geometry of nonplanar graph-braid homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
