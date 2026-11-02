@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Uniform parent choices yield exact conditional increments: EΔX=1-X/n, EΔY=(X-2Y)/n, EΔXΔY=X/n, E(ΔY)^2=(X+4Y+6F3)/n, and E(ΔX)^2=1-X/n. Induction proves E F_r=n/(r+1)! for n>=r+1. Exact triangular second-moment recurrences with verified small-tree base values imply Var X=n/12, Cov(X,Y)=n/8, Var Y=59n/180 for every n>=5. A standalone exact checker passed 5017 assertions covering all trees through n=8, conditional increments through n=7, and polynomial recurrences up to n=200. Finite checks support, not replace, induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hartle--Krapivsky (2025) derives m_l and single-site descending moments mu_j=1/(j+1), and evaluates total graph-leaf count cumulants, not the cross-vertex covariance of the weighted leaf-child second factorial sum.",
+        "Hartle--Krapivsky (2026) provides recursive-tree joint one-site degree/leaf-degree laws in Appendix A, while second-order count computations in Section IV concern a distinct preferential-attachment process.",
+        "Stepanyants et al. (2026) give rank/layer marginal expectations and an O(n) variance bound for their counts, not exact finite pair-count variances."
+      ],
+      "reasoning": "One-site moments, generic self-averaging and separate count cumulants do not determine Var(sum_v choose(L_v,2)) or Cov(sum_v L_v,sum_v choose(L_v,2)); the two-parent dependencies in the exact squared increments are additional data.",
+      "searches": [
+        "arxiv:2511.04085 Section II and III",
+        "arxiv:2602.01021 Section IV and Appendix A",
+        "arxiv:2608.04303 Theorems 5 and 7",
+        "\"Statistics of leaves in growing random trees\" variance factorial"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2511.04085v1",
+      "arxiv:2602.01021v1",
+      "arxiv:2608.04303",
+      "doi:10.1007/s11009-013-9333-z",
+      "search:random recursive tree cherries variance",
+      "search:random recursive tree leaf sibling covariance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known mu_2=1/3 implies an asymptotic first moment n/6 for pair count, but gives no E[Y_n^2] or E[X_nY_n].",
+        "Fringe covariance formulas apply to disjoint occurrences of fixed fringe motifs; each parent of terminal children can simultaneously contribute many unordered pairs, so a bounded single fringe motif is not equal to Y_n."
+      ],
+      "reasoning": "The new proof closes the global second moments via X,Y and F_3. It requires conditional square and cross-increment identities which are not corollaries of the published marginal moment formulas. Broader uninspected general-purpose additive-functional literature remains a residual priority risk.",
+      "searches": [
+        "arxiv:2511.04085v1 leaf-degree factorial moments",
+        "arxiv:2602.01021v1 Appendix A, fluctuations Section IV",
+        "doi:10.1007/s11009-013-9333-z Theorems 1,2 and concluding discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gopaladesikan--Mahmoud--Ward (2013), Theorems 1--2 concern entire rooted subtrees matched on the fringe, and concluding section treats the S3 everywhere motif without sibling-terminal restrictions; its E[Q_n,S3]=n-H_{n-1}-1 differs from E[Y_n]=n/6."
+      ],
+      "reasoning": "Our pairs are formed by two actual outdegree-zero children of a shared parent, with any number of further internal children permitted; the fringe motif and an embedded 3-vertex shape count different events. The available cherry results from Yule phylogenetic trees use a different growth law and statistic.",
+      "searches": [
+        "\"random recursive tree\" \"cherries\" variance",
+        "\"random recursive tree\" \"sibling leaves\" variance",
+        "\"recursive trees\" \"cherries\" \"central limit\"",
+        "doi:10.1007/s11009-013-9333-z"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible 2025 RRT leaf-degree formulas tabulate limiting one-vertex frequencies and factorial moments, not Var Y_n=59n/180 or Cov(X_n,Y_n)=n/8.",
+        "No matching explicit exact covariance coefficient surfaced in searched paper tables or mathematical-result records."
+      ],
+      "reasoning": "The natural tables of leaf-degree marginals contain no exact global pair-count second moment. Lack of indexed matches is supporting search evidence, not proof of uniqueness.",
+      "searches": [
+        "\"random recursive tree\" \"cherries\" 59/180",
+        "\"random recursive tree\" \"leaf degree\" 59/180",
+        "\"random recursive trees\" \"leaf siblings\" \"variance\"",
+        "arxiv:2511.04085 equations 1,5,21,22"
+      ]
+    },
+    "rationale": "Statement-level and implication-level comparisons with the direct 2025 leaf-degree study, 2026 recursive-tree joint marginal analysis, 2026 rank/layer paper and 2013 fringe motif theorem found no reported all-n variance of the unordered terminal-sibling-pair count. This does not establish absolute priority; broader additive-functional coverage remains possible.",
+    "residual_risks": [
+      "Unindexed or inaccessible general tree-additive-functional results might imply the same coefficients.",
+      "One-vertex asymptotic leaf-degree laws are known; the novelty assessment applies only to the finite global second-moment and covariance formulas.",
+      "A tree-root boundary may make some unrooted/cherry conventions inequivalent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Marginal one-vertex leaf-degree and leaf-count laws; does not state global terminal-sibling-pair covariance",
+        "evidence": "Equations (1),(5),(19),(22) and overview of Section III; named unrooted leafdegree differs from the rooted terminal-child count at primordial boundary.",
+        "identifier_or_url": "https://arxiv.org/html/2511.04085v1",
+        "material_read": "Abstract; introduction and main-results summary; Section II.1 on leaf-degree distribution and factorial moments; relevant discussion of fluctuations and Section III contents",
+        "method": "Full public HTML read, comparison of definitions and stated equations",
+        "title": "Statistics of leaves in growing random trees",
+        "trigger": "Same tree model and leaf-degree observable, strongest direct overlap candidate"
+      },
+      {
+        "assessment": "RRT appendix gives one-vertex joint marginals; evaluated global variance/covariance in Section IV concern preferential attachment rather than the uniform recursive tree",
+        "evidence": "Appendix A equations (114)--(140); Section IV equations (67)--(74).",
+        "identifier_or_url": "https://arxiv.org/html/2602.01021v1",
+        "material_read": "Sections I-II and IV (main model and count fluctuations), complete RRT Appendix A subsections A.1--A.4",
+        "method": "Full public HTML selective primary-text inspection",
+        "title": "Leaves of preferential attachment trees",
+        "trigger": "Potentially broader joint degree/leaf-degree formulas and second-order fluctuations"
+      },
+      {
+        "assessment": "Bounds variances of rank/layer counts but does not compute terminal-sibling-pair second moments",
+        "evidence": "Theorem 5 and proof (section IV.7) provide only O(n) variance control for rank and layer counts.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.04303",
+        "material_read": "Abstract, introduction, main theorems, and proof of Theorem 5 on rank/layer self-averaging",
+        "method": "Full web-rendered text with explicit theorem/lemma comparison",
+        "title": "The rank and layer distributions in random recursive trees",
+        "trigger": "Same uniform recursive tree; potentially stronger rank-one count variance theorem"
+      },
+      {
+        "assessment": "Theorems 1-2 cover fringe motif counts; Section 10 explicitly distinguishes matches anywhere and gives a different count. Exact covariance of terminal-sibling pairs not stated",
+        "evidence": "Theorem 1 assumes occurrences on the fringe; Section 10 gives Q_{n,S3} mean n-H_{n-1}-1, unlike n/6 for pairs of terminal siblings.",
+        "identifier_or_url": "https://doi.org/10.1007/s11009-013-9333-z",
+        "material_read": "Abstract, Sections 1,3,5 and final Section 10 including example of nonfringe cherries",
+        "method": "Publicly indexed full paper text read in web preview; visual PDF screenshot retrieval unavailable",
+        "title": "Asymptotic Joint Normality of Counts of Uncorrelated Motifs in Recursive Trees",
+        "trigger": "Potential generic motif covariance theorem subsuming terminal-sibling pairs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d3480f10-53f7-4ada-8c04-59ed2f15f662",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Y_n=sum_v binomial(L_v,2) is a natural count of pairs of terminal siblings and measures clustering beyond the total terminal population or one-vertex leafdegree. The exact nondegenerate covariance and constant correlation quantify dependence between peripheral abundance and local clustering, with a proof requiring the higher overlapping-family statistic F3. The result is valid for all n>=5, yields concrete fluctuation magnitudes and L2 concentration, and does not claim an unsupported CLT.",
+    "status": "PASS"
+  }
+}
