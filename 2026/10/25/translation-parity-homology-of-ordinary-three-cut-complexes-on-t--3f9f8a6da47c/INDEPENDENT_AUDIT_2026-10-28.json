@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T08:05:39.253519Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m,n>=5 and G=C_m □ C_n, the ordinary 3-cut Alexander dual Y contains all N=mn vertices, all C(N,2) edges, precisely 6N triangles (induced length-two paths), and N square tetrahedra, with no 5-vertex faces since each five-set all whose triples are paths would satisfy 3|E|=20. Straight-path free edge/triangle collapses, square tetrahedron/corner-triangle and diagonal/corner-triangle collapses yield a 2D torus cellulation with N(N-13)/2 extra one-cells, so H_2(Y)=Q and H_1(Y)=Q^B with B=N(N-13)/2+2. Translations preserve the oriented torus fundamental class. Only nonzero order-two translations setwise stabilize edges in the complete 1-skeleton, giving signed chain trace -N/2, all nonidentity elements fix no vertices/triangles/tetrahedra. Hopf trace yields H1 character B at identity, 2-N/2 at order 2, 2 otherwise. Equivariant Alexander duality twists by the permutation sign σ(t)=(-1)^{a n(m-1)+b m(n-1)}, determining homology degrees N-5,N-4 and all character averages. Independent code enumerated 5×5 Y f-vector (25,300,150,25), mod-two boundary ranks (24,124,25), Betti dimensions (152,1), and all translation traces; finite arithmetic supports the uniform collapse proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 5.8 gives homotopy wedge for 3-cut rectangular path grids; the torus has nonzero H_2 in Alexander dual and two adjacent homology degrees.",
+          "General equivariant duality supplies sign twists but not the toroidal trace before computing Y."
+        ],
+        "reasoning": "Neither known grid case nor duality alone determines this all-parameter two-cycle T-character and quotient parity. The total 2-cut result is a different invariant.",
+        "searches": [
+          "Topology of Cut Complexes II Proposition 5.8 and Theorem 6.6",
+          "Total two-cut torus Resultary extension theorem",
+          "general equivariant Alexander duality"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2304.13675",
+        "https://arxiv.org/abs/2407.08158",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-integral-face-winding-obstruction-in-toroidal-total-two-cut--a66192a534f8",
+        "Resultary toroidal ordinary 3-cut semantic query",
+        "Git RESULT.md SHA 4c0de03f9acba83a5563223fcca8fdb0c025fe12",
+        "Git check_torus_translation.py SHA 4d9851ce8cba7916d68d0200f9e7d5c581e36315"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For ordinary Δ3, Y has 6N path triangles and N square tetrahedra; total Δ2 instead has dual the triangle-free graph G and top homology in a different degree.",
+          "Path grid Δ3 is shellable with one homology degree, while torus Δ3 exhibits H_{N-5} and H_{N-4}, due to H2 of Y."
+        ],
+        "reasoning": "Prior claims cannot imply the submitted two-degree character without a new dual face classification and torus-oriented character computation; different structures preclude a direct specialization.",
+        "searches": [
+          "Bayer et al Topology of Cut Complexes II Sections 5 and 6",
+          "Resultary integral face-winding toroidal total two-cut full RESULT.md",
+          "equivariant combinatorial Alexander duality ground-set sign"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary 3-cut dual has faces of size up to 4 built from all connected induced triples, unlike total 2-cut dual whose graph clique complex has size <=2.",
+          "The rectangular grid G(m,n) in Bayer et al. is P_m □ P_n, not C_m □ C_n."
+        ],
+        "reasoning": "Words toroidal grid, cut complex, and translation occur in distinct studies, but the underlying dual complexes and symmetry modules differ mathematically.",
+        "searches": [
+          "Resultary semantic ordinary 3 cut complex toroidal grid Cartesian product two cycles translation parity homology Alexander dual",
+          "Bayer 2024 Topology Cut Complexes II Section 5 grid and Section 6 cycles",
+          "Resultary total toroidal two-cut integral face winding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed published square-grid D4 character is for finite path-square grids; cycle-power cyclic result is for a single cycle, not a Cartesian product.",
+          "No exact two-cycle character table or subgroup-quotient table was identified in inspected sources."
+        ],
+        "reasoning": "The natural toroidal equal-parity formula is not a known-table lookup in the material read; best-of-knowledge residual risk remains.",
+        "searches": [
+          "Resultary cycle power cyclic cut complex records",
+          "Resultary D4 square-grid three-cut homology",
+          "published toroidal grid three-cut character tables"
+        ]
+      },
+      "rationale": "The Bayer–Denker–Jelić Milutinović–Sundaram–Xue sequel studies ordinary cut complexes of rectangular PATH grids P_m□P_n (including 3-cut Betti counts) and dihedral actions of individual cycles. Their exact theorems do not extend by simple substitution to periodic two-cycle products with torus H_2 and all translations. The strongest closely named published torus result uses TOTAL two-cut complexes with a 1D graph Alexander dual, not ordinary three-cut with 3D square tetrahedra. Prior nonequivariant toroidal homology does not recover these oriented characters or the same/opposite parity quotient criterion. No covering prior full T-character was found, with unindexed equivariant-topology risk.",
+      "residual_risks": [
+        "Only rational representations/quotient homology are classified; integral quotient torsion and homotopy not determined.",
+        "Cyclic lengths at least five; shorter cycles change induced square/path classification.",
+        "An unindexed equivariant cut-complex computation for periodic grids could alter best-of-knowledge originality.",
+        "The independent 5x5 mod-2 calculation corroborates but cannot alone prove torsion-freeness or all-parameter homotopy collapse."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING: rectangular path-product grid and single cycles; no two-cycle toroidal translation result",
+          "evidence": "Section 5 vertices at rectangle corners; Proposition 5.8 unique top sphere degree; Section 6 Theorem 6.6 dihedral single-cycle characters",
+          "identifier_or_url": "https://arxiv.org/abs/2407.08158",
+          "material_read": "Accessible full rendered arXiv article, Introduction, Section 5 grid (Proposition 5.8; formulas for path products), Section 6 cycle actions",
+          "method": "Read primary full HTML in rendered page with targeted section/theorem examination",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Highly relevant same ordinary 3-cut construction on grid graphs and symmetry on cycles"
+        },
+        {
+          "assessment": "Foundational definitions not this periodic product theorem",
+          "evidence": "Bayer et al arxiv:2304.13675, ordinary cut-complex definition and graph families",
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675",
+          "material_read": "ArXiv abstract and paper theorem overview; complete text not reread",
+          "method": "Primary bibliographic/abstract inspection",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Foundational definitions, equivariant Alexander duality context"
+        },
+        {
+          "assessment": "DIFFERENT COMPLEX: total 2-cut vs ordinary 3-cut; not dominating",
+          "evidence": "Total two-cut dual is 1D clique graph; uses face-winding extension class order lcm(m,n), not the 3-cut Y torus collapse",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-integral-face-winding-obstruction-in-toroidal-total-two-cut--a66192a534f8",
+          "material_read": "Entire published RESULT.md including equivariant integral extension and dual graph argument",
+          "method": "Read full Resultary published result via GitHub",
+          "title": "The integral face–winding obstruction in toroidal total two-cut complexes",
+          "trigger": "Same torus graph and group, possible confusion with stronger result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ordinary toroidal three-cut complex is a natural periodic counterpart of cut complexes on rectangular path grids. The complete T-representation and subgroup quotient homology, especially survival of the top class iff both cycle lengths have equal parity, are motivated symmetry data hidden by ordinary Betti numbers. The two-dimensional torus fundamental class and ground-set Alexander-duality sign explain a genuine parity phenomenon beyond an arbitrary finite computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2304.13675",
+    "https://arxiv.org/abs/2407.08158",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-integral-face-winding-obstruction-in-toroidal-total-two-cut--a66192a534f8",
+    "Resultary toroidal ordinary 3-cut semantic query",
+    "Git RESULT.md SHA 4c0de03f9acba83a5563223fcca8fdb0c025fe12",
+    "Git check_torus_translation.py SHA 4d9851ce8cba7916d68d0200f9e7d5c581e36315"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Ordinary Δ3 not total-cut, m,n>=5; geometric quotient |X|/H distinct from cut complex of graph quotient.",
+    "Only translation group, not reflections/coordinate swaps; all homology claims over Q."
+  ],
+  "schema_version": 1
+}
