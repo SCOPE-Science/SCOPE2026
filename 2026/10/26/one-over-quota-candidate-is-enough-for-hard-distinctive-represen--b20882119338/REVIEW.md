@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The greedy positive assertion follows by packing pairwise disjoint quota-support sets and extending a maximal packing. The negative assertion is an exact polynomial reduction from X3C. Four copies make the difference between at most three uncovered element voters and at least four forced uncovered voters decisive. The three allocation cases \(B=0\), \(B=1\), and \(B\ge2\) exhaust all distributions of the \(4t\) selected candidates. Verification of JR itself is polynomial. The accompanying independent-from-formula finite predicate enumerations were run, but do not substitute for the general proof.
+## correctness
 
-## Originality — PASS, provisional priority
-Chingoma et al. (arXiv:2609.29332), Definition 22 and Theorem 26 with Appendix D, introduce DR and show hardness without the one-overquota promise. Aziz et al. (arXiv:1407.8269) prove JR existence without quota-sized elected supports. Elkind et al. (arXiv:2108.12949) examine small justifying groups. Compared statements do not imply the one-exception complexity boundary. Relevant mathematical-record searches on DR, exact quota support, matching, and X3C returned no implication-equivalent claim. Historical priority remains a residual risk, especially under alternative hypergraph partial-cover terminology.
+PASS
 
-## Mathematical value — PASS
-The result identifies the exact minimum number of candidates whose support may exceed the quota needed for NP-completeness, subject to sufficient exactly-quota candidates. It also supplies a constructive polynomial method on the zero-exception side. The hard family is highly structured: quota four, every ordinary candidate shares one voter, and the sole oversized candidate is supported by all others. These constraints expose which feature causes representation-feasibility hardness.
+DR means JR plus every elected candidate has exactly q=ceil(n/k) supporters. When all supports <=q and at least k candidates have q supports, greedily maximize pairwise disjoint q-support hyperedges: size <= floor(n/q)<=k. Padding with distinct q candidates preserves JR because every nonselected q-support intersects the maximal packing and hence a represented voter, and smaller supports cannot cause JR failure. For NP-hardness from X3C |U|=3t, make four copies of U and common d; n=12t+1, k=4t, q=4. Each ordinary candidate is T_j union {d}, exception e all 12t element voters without d. Every selected DR member ordinary; d represented, so only e blocks and requires >=4 uncovered element voters. YES exact covers in each copy cover all. In NO X3C, any allocation s_1+...+s_4=4t leaves >=4 uncovered: deficit B=0 has four copies with t sets each missing >=1, B=1 has one t-1 copy missing >=3 plus two t copies missing >=1, B>=2 has >=3B>=6. Thus exact iff, NP membership straightforward. Independent exact direct-JR committee enumeration tests on YES/NO instances; infinite hardness from reduction.
 
-## Limitations
-The dichotomy does not establish hardness for other quotas or bounded voter degrees; it assumes a varying committee size. Independent external scientific validation and full historical-priority review are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact statements and implications with same-object original papers, published related mathematical records, and alternatives. The exact one-exception promise is not inherited from the source result and its sharp separation is a substantive new combinatorial construction. Residual historical priority and access risk explicitly retained.
+
+## value
+
+PASS
+
+A sharply motivated computational-complexity boundary: without oversized support, DR is always constructible when enough candidates meet quota, but one almost-universal overquota candidate suffices for NP-completeness even with all others 4-supported sharing a voter. This is structurally restricted hardness, not routine unrestricted NP-completeness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

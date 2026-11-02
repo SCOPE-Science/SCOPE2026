@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T18:59:38.300573Z",
+  "axes": {
+    "correctness": {
+      "rationale": "DR means JR plus every elected candidate has exactly q=ceil(n/k) supporters. When all supports <=q and at least k candidates have q supports, greedily maximize pairwise disjoint q-support hyperedges: size <= floor(n/q)<=k. Padding with distinct q candidates preserves JR because every nonselected q-support intersects the maximal packing and hence a represented voter, and smaller supports cannot cause JR failure. For NP-hardness from X3C |U|=3t, make four copies of U and common d; n=12t+1, k=4t, q=4. Each ordinary candidate is T_j union {d}, exception e all 12t element voters without d. Every selected DR member ordinary; d represented, so only e blocks and requires >=4 uncovered element voters. YES exact covers in each copy cover all. In NO X3C, any allocation s_1+...+s_4=4t leaves >=4 uncovered: deficit B=0 has four copies with t sets each missing >=1, B=1 has one t-1 copy missing >=3 plus two t copies missing >=1, B>=2 has >=3B>=6. Thus exact iff, NP membership straightforward. Independent exact direct-JR committee enumeration tests on YES/NO instances; infinite hardness from reduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 DR source proves unrestricted decision hardness, not hardness with only one oversized candidate.",
+          "2015 universal JR existence does not impose exact support of elected members."
+        ],
+        "reasoning": "Unrestricted NP-hardness does not imply NP-hardness of restricted instances; universal JR without exact quota support does not imply DR constructibility.",
+        "searches": [
+          "distinctive representation approval voting over quota single candidate NP complete JR exact quota supporters",
+          "arXiv:2609.29332 Theorem 26 and Appendix D",
+          "arXiv:1407.8269 justified representation greedy guarantee"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.29332 Definition 22, Theorem 26 and Appendix D (primary full relevant text)",
+        "arXiv:1407.8269 JR theorem summary",
+        "arXiv:2108.12949 justifying groups",
+        "Resultary semantic search: distinctive representation approval voting over quota single candidate NP complete JR exact quota supporters"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source reduction has a different candidate support structure and proves hardness only without the all-but-one q-supported promise.",
+          "Four copies ensure a NO instance has at least four uncovered voters regardless of reallocation, while one exception alone detects failure."
+        ],
+        "reasoning": "The exact one-exception promise is not inherited from the source result and its sharp separation is a substantive new combinatorial construction.",
+        "searches": [
+          "arXiv:2609.29332 Appendix D original unrestricted reduction",
+          "distinctive representation approval voting over quota single candidate NP complete JR exact quota supporters"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "DR equals ordinary JR subject to exactly-q support of all winners. The reduction rephrases as choosing 4t triples on four copies with at most three uncovered elements."
+        ],
+        "reasoning": "The one-exception hypergraph partial-cover formulation is a proper promise subclass of unrestricted DR, requiring its own reduction.",
+        "searches": [
+          "distinctive representation approval voting over quota single candidate NP complete JR exact quota supporters",
+          "Chingoma et al arXiv:2609.29332 Definition 22 and Theorem 26"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed records discuss Jefferson/Webster quota failures and unrelated voting paradoxes, not this DR one-exception promise."
+        ],
+        "reasoning": "No exact table of this reduction appears in searched corpus; mathematical distinguishing evidence comes from source theorem hypotheses and the four-copy argument.",
+        "searches": [
+          "distinctive representation approval voting over quota single candidate NP complete JR exact quota supporters",
+          "Resultary ranked hits: apportionment quota violations and other voting rules"
+        ]
+      },
+      "rationale": "Compared exact statements and implications with same-object original papers, published related mathematical records, and alternatives. The exact one-exception promise is not inherited from the source result and its sharp separation is a substantive new combinatorial construction. Residual historical priority and access risk explicitly retained.",
+      "residual_risks": [
+        "An earlier hypergraph partial-cover or promise complexity theorem under other terminology could imply this specific restricted hardness.",
+        "Hardness is for variable k, quota q=4, four-copy construction; no claim about q<=3, short ballots or fixed k."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNRESTRICTED_PRIOR_NOT_STRONGER_PROMISE",
+          "evidence": "Appendix D uses different support construction; does not assert or imply one-oversized-candidate hardness.",
+          "identifier_or_url": "arXiv:2609.29332",
+          "material_read": "Accessible primary arXiv HTML including Definition 22, Theorem 26 and Appendix D constructive hardness proof.",
+          "method": "Open-access HTML full relevant theorem and appendix read.",
+          "title": "Diverse Representation in Approval-Based Committee Voting",
+          "trigger": "Defines DR and establishes nearest unrestricted hardness"
+        },
+        {
+          "assessment": "JR_WEAKER_THAN_DR",
+          "evidence": "JR does not require elected candidate supporter counts equal q; cannot give DR trivially.",
+          "identifier_or_url": "arXiv:1407.8269",
+          "material_read": "Accessible abstract and published JR construction description; no complete proof/full text claimed.",
+          "method": "Open scholarly record / abstract reading.",
+          "title": "Justified Representation in Approval-Based Committee Voting",
+          "trigger": "Potentially stronger universal representation theorem"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_CRITERION",
+          "evidence": "Focus on justifying group sizes, not one-exception DR hardness.",
+          "identifier_or_url": "arXiv:2108.12949",
+          "material_read": "Bibliographic and result overview, no complete-text noncoverage claimed.",
+          "method": "Open scholarly abstract/record.",
+          "title": "Justifying Groups in Multiwinner Approval Voting",
+          "trigger": "Related small-justifying group optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharply motivated computational-complexity boundary: without oversized support, DR is always constructible when enough candidates meet quota, but one almost-universal overquota candidate suffices for NP-completeness even with all others 4-supported sharing a voter. This is structurally restricted hardness, not routine unrestricted NP-completeness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.29332 Definition 22, Theorem 26 and Appendix D (primary full relevant text)",
+    "arXiv:1407.8269 JR theorem summary",
+    "arXiv:2108.12949 justifying groups",
+    "Resultary semantic search: distinctive representation approval voting over quota single candidate NP complete JR exact quota supporters"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Positive existence requires at least k quota-supported candidates; hardness only for the stated one-exception family with n=12t+1 and k=4t."
+  ],
+  "residual_risks": [
+    "An earlier hypergraph partial-cover or promise complexity theorem under other terminology could imply this specific restricted hardness.",
+    "Hardness is for variable k, quota q=4, four-copy construction; no claim about q<=3, short ballots or fixed k."
+  ],
+  "schema_version": 1
+}
