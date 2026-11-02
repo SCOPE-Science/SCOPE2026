@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytical proof uses iid regeneration blocks, explicit four-step static-walk moments, an absolutely convergent power series, and a closed generating function in the fair-arrow specialization. Its uniform remainder follows from the deterministic bound \(|Z_n|\le n\).
+# Independent mathematical audit
 
-To reproduce: install `requirements.txt` and execute `python verify.py`. This exact symbolic checker enumerates all \(2^n\) step sequences for each \(1\le n\le4\), integrates their environmental weights in terms of \(\mathbb EB\) and \(\mathbb EB^2\), checks the moment table and cubic coefficients, and algebraically checks the fair-arrow generating function and rational variance. It completed successfully.
+## correctness
 
-Finite path enumeration alone is not a proof of asymptotic expansion or of global all-\(p\) formulas. Those deductions, as well as the uniform tail estimate and the two-cycle decomposition, are written in `RESULT.md`. The exact crossover boundary coefficient vanishes and its next term is not determined here. Independent validation has not been performed.
+PASS
+
+PASS — IID geometric refresh blocks justify renewal-reward speed and CLT variance generating series. Direct exact path probabilities through four steps give m1…m4 and second moments as polynomials in d,w; substitution produces the cubic expansion with a uniform O(δ⁴) tail from |Z_n|≤n. For fair deterministic-arrow sites, the first opposing arrow creates a reflecting 2-cycle; the resulting second-moment generating function produces the all-p rational variance and monotonicity. Independently reconstructed the 16 four-step paths and symbolic Taylor coefficients, plus fair-arrow coefficients to n=10.
+
+## originality
+
+PASS
+
+Qualified PASS for the explicit universal centered cubic sign reversal, weak-drift crossover, and global fair-deterministic-arrow rational curve. The general regenerative variance series and nonzero-drift second derivative are known Martin–Nagel inputs; full text of that 2026 paper was not accessible in this run, and its close possible implication is expressly retained as a priority risk.
+
+## value
+
+PASS
+
+PASS — The published positive curvature for nonzero mean drift vanishes at zero bias, a natural unresolved boundary. The negative cubic coefficient determines the opposite one-sided transport effect, the d∼√(1−p) scale is sharp, and the exactly solvable fair-arrow benchmark shows a global slowdown. No new general CLT is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
