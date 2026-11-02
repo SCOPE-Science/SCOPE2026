@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The single Poisson-kernel theorem is reconstructed with exact quantifiers: arbitrary integer grid counts and independent shift replications, any radii satisfying \(r_k^{N_k}\to1\). Fourier orthogonality gives both the exact aliasing identity and variance. Rare-core avoidance plus a tail expectation estimate proves zero-in-probability when \(m_k(1-r_k^{N_k})\to0\); the critical Laplace transforms converge to the finite-mean Poisson integral by dominated convergence; an explicit maximum-summand estimate establishes Lindeberg's condition above threshold. A compact subsequence argument proves that the work threshold is necessary, not merely sufficient. The total-work approximation uses logarithmic equivalences valid under the specified near-boundary condition. The standalone checker passed 475 numeric and deterministic assertions, without being used as a substitute for the infinite proofs.
+PASS
 
-## Originality — PASS, with priority qualifications
+PASS: Fourier aliasing of the periodic Poisson kernel P_r gives exact N-point shifted average P_(r^N)(N Theta); a uniform cell shift makes its argument uniform. Thus mean 1 and Var(A)=2r^(2N)/[m(1-r^(2N))]. In a triangular array q=r^N→1, set epsilon=1-q and L=m epsilon. At L→0, absent hits within epsilon-scaled angular core (probability O(mKepsilon)), while outer-arc expectation is asymptotically 1-2 arctan(K)/pi; then K→∞ and Markov prove A→0 in probability despite unbiasedness. At L→lambda∈(0,∞), scaling u=epsilon x and domination by 1/(1+x²) in the exact Laplace transform yields the Poisson shot noise of intensity lambda/(2pi) with mark 2/[lambda(1+x²)]; Campbell formulas give mean 1, variance 1/lambda. At L→∞, exact variance gives L² consistency and maximum normalized triangular summand O(1/sqrt(L)), hence Lindeberg CLT sqrt(L)(A-1)⇒N(0,1). The three subsequential cases prove iff L→∞ for convergence in probability/mean square; q→1 also implies epsilon~N(1-r). Independently verified Fourier aliasing numerically at 36 parameter values. Finite comparisons do not replace the weak-convergence proof.
 
-Classical periodic Fourier aliasing and the Poisson kernel are established ingredients. The closest motivating randomized quadrature paper, Goda–Kazashi–Suzuki (arXiv:2212.11476v1), analyzes integration of fixed Gaussian-Sobolev integrands on the line and proves worst-case RMSE bounds under that different object and scope; those bounds do not imply a three-phase weak-limit classification for a family of Poisson kernels narrowing with mesh spacing. Bao–Hua–Lai–Zhang (arXiv:2305.05855) and af Klinteberg (arXiv:2304.11865) analyze deterministic near-singular correction schemes, without this independent-shift triangular-array limiting law. Trefethen–Weideman's classical trapezoidal aliasing analysis motivates rather than subsumes the near-boundary statistical threshold. Related prior work on Poisson shot-noise limits establishes abstract techniques, not the stated sharp parameter, exact variance, and full grid-quadrature trichotomy as one theorem.
+## originality
 
-Targeted mathematical-record and open-literature searches, plus comparison against other preceding mathematical statements, disclosed no covering published statement. A preceding claim gives an unshifted Cauchy-mixture trapezoidal formula and parity/scale conditions, not independent random phase averaging or the critical Poisson limit. The finite search does not establish global novelty: alternative formulations or inaccessible numerical-analysis literature remain possible, and publication priority has not been independently established. Some broad classical-source full texts were only partially accessible, so the assessment does not call them exhaustively noncovering.
+PASS
 
-## Value — PASS
+PASS qualified: exact Poisson-kernel Fourier aliasing and randomized trapezoids are classical; Goda/Kazashi/Suzuki analyze randomized rules for fixed Gaussian-weighted Sobolev classes, while Bao et al and af Klinteberg address deterministic near-singularity correction. None of inspected results states this joint m,N,r boundary regime or Poisson shot-noise critical law with m(1-r^N) threshold, although the limiting point-process theorem is standard. Possible unindexed stochastic sampling/rare-event shot-noise result remains a material equivalent-formulation risk.
 
-A standard remedy for phase aliasing in periodic trapezoidal integration is independent random shifting. For a naturally near-singular positive analytic test kernel, this result gives a necessary-and-sufficient quantitative work criterion, an exact finite-sample variance, and a critical distribution describing the failure of concentration. The especially relevant zero-in-probability but exactly unbiased regime warns against interpreting unbiasedness or fixed-integrand RMSE theory as a guarantee of typical accuracy under boundary-layer refinement. The exact Poisson/Gaussian transition provides a reproducible stress benchmark for quadrature software and a design rule for the sampling budget. This is more than a substitution in the classical alias formula because the adaptive sample-budget regime and nondegenerate critical shot-noise distribution need separate probabilistic analysis.
+## value
 
-## Scope, checks, and risks
+PASS
 
-The result is one theorem for the precisely defined circular Poisson family, not a universal optimal scheme. Classical aliasing is expressly not presented as novel. Exhaustive priority cannot be proved by negative search results; the full Trefethen–Weideman PDF and portions of the broader applied point-process literature could not be fully read, a residual originality risk. No peer or independent audit has occurred.
+PASS: A natural near-boundary analytic kernel has an unbiased yet typically zero Monte Carlo quadrature in the under-sampled regime, a nondegenerate Poisson critical law, and an exact Gaussian/consistent over-sampling transition. The sharp necessary-and-sufficient total sampling budget mN(1-r)→∞ is useful for identifying rare-spike failure mechanisms that ordinary unbiasedness and deterministic trapezoid accuracy miss. Claim deliberately restricted to independently refreshed grids and q→1, not arbitrary integrands.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

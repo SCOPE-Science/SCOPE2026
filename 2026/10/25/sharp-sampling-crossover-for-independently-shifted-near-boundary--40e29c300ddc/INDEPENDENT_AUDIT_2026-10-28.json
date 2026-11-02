@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T14:57:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Fourier aliasing of the periodic Poisson kernel P_r gives exact N-point shifted average P_(r^N)(N Theta); a uniform cell shift makes its argument uniform. Thus mean 1 and Var(A)=2r^(2N)/[m(1-r^(2N))]. In a triangular array q=r^N→1, set epsilon=1-q and L=m epsilon. At L→0, absent hits within epsilon-scaled angular core (probability O(mKepsilon)), while outer-arc expectation is asymptotically 1-2 arctan(K)/pi; then K→∞ and Markov prove A→0 in probability despite unbiasedness. At L→lambda∈(0,∞), scaling u=epsilon x and domination by 1/(1+x²) in the exact Laplace transform yields the Poisson shot noise of intensity lambda/(2pi) with mark 2/[lambda(1+x²)]; Campbell formulas give mean 1, variance 1/lambda. At L→∞, exact variance gives L² consistency and maximum normalized triangular summand O(1/sqrt(L)), hence Lindeberg CLT sqrt(L)(A-1)⇒N(0,1). The three subsequential cases prove iff L→∞ for convergence in probability/mean square; q→1 also implies epsilon~N(1-r). Independently verified Fourier aliasing numerically at 36 parameter values. Finite comparisons do not replace the weak-convergence proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Randomized trapezoidal RMSE for Gaussian Sobolev functions and deterministic near-singular periodic correction are distinct input assumptions from an N-dependent Poisson kernel with independent fresh shifts."
+        ],
+        "reasoning": "Fixed-class quadrature theorems do not dominate a singular moving family with divergent norms, and deterministic singularity swapping is a different algorithm.",
+        "searches": [
+          "Goda Kazashi Suzuki arxiv:2212.11476",
+          "Bao Hua Lai Zhang arxiv:2305.05855",
+          "af Klinteberg arxiv:2304.11865"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 4417c64474d163a27bac57b3eeb1badf6896dc4f",
+        "https://arxiv.org/abs/2212.11476",
+        "https://arxiv.org/abs/2305.05855",
+        "https://arxiv.org/abs/2304.11865",
+        "DOI 10.1137/130932132"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact Fourier alias formula is classical, but rare-hit collapse, critical Laplace exponent and the many-shift Gaussian scaling require additional analysis of q→1/m→∞ in a triangular array."
+        ],
+        "reasoning": "Prior fixed-function error rates and deterministic Fourier coefficient bounds are not the stated three-way weak-limit theorem; the mathematical tools remain credited as prior.",
+        "searches": [
+          "arxiv:2212.11476",
+          "arxiv:2305.05855",
+          "Trefethen Weideman SIAM Review 2014 DOI 10.1137/130932132"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fourier aliased quadrature equals mean of iid P_q(U) variables, so alternative names include triangular-array rare-event shot noise and approximate identity Monte Carlo."
+        ],
+        "reasoning": "Generic Poisson point-process limits could reproduce this when specialized, but no inspected full theorem covers the exact iff work threshold, all three regimes and CLT together.",
+        "searches": [
+          "Resultary: Poisson kernel independently shifted trapezoidal quadrature near boundary sampling distribution",
+          "arxiv:2212.11476",
+          "arxiv:2305.05855"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest findings concern general quadrature, Hamming projection crossovers, or Poisson approximation, not this exact sampling observable and threshold."
+        ],
+        "reasoning": "No exact database/table entry found; absence of an index result does not establish novelty by itself.",
+        "searches": [
+          "Resultary semantic: independently shifted near-boundary Poisson quadrature shot noise",
+          "Poisson shot noise trichotomy r^N m"
+        ]
+      },
+      "rationale": "PASS qualified: exact Poisson-kernel Fourier aliasing and randomized trapezoids are classical; Goda/Kazashi/Suzuki analyze randomized rules for fixed Gaussian-weighted Sobolev classes, while Bao et al and af Klinteberg address deterministic near-singularity correction. None of inspected results states this joint m,N,r boundary regime or Poisson shot-noise critical law with m(1-r^N) threshold, although the limiting point-process theorem is standard. Possible unindexed stochastic sampling/rare-event shot-noise result remains a material equivalent-formulation risk.",
+      "residual_risks": [
+        "An existing result in randomized integration of approximate identities or heavy-tailed triangular arrays could specialize immediately to this shot-noise limit.",
+        "Independence is required across entire shifted-grid evaluations; reusing one shift and general integrands are not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not handle moving near-boundary circular Poisson kernels in joint m,N,r regime",
+          "evidence": "Fixed Gaussian-weighted Sobolev classes and worst-case RMSE, not iid Poisson-kernel shot noise.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.11476",
+          "material_read": "Accessible full HTML manuscript, algorithm and main optimal-RMSE theorem for Gaussian weighted Sobolev spaces",
+          "method": "Read theorem and assumptions of primary text",
+          "title": "Randomizing the trapezoidal rule gives the optimal RMSE rate in Gaussian Sobolev spaces",
+          "trigger": "Closest named randomized quadrature reference"
+        },
+        {
+          "assessment": "Regularization/correction method is deterministic and does not establish repeated independent-shift rare-hit distribution",
+          "evidence": "Nearly singular integral treatment changes weights or representation; no q=r^N critical stochastic limit.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.05855",
+          "material_read": "Accessible full HTML, near-singularity setup, deterministic singularity swapping method and conclusions",
+          "method": "Read model, main methods and results",
+          "title": "Singularity swapping method for nearly singular integrals based on trapezoidal rule",
+          "trigger": "Near-singular quadrature might dominate special case"
+        },
+        {
+          "assessment": "Classical alias cancellation credited as known; no exclusion of other statements claimed from an unread full text",
+          "evidence": "The exact finite alias relation follows independently from Poisson Fourier expansion.",
+          "identifier_or_url": "https://doi.org/10.1137/130932132",
+          "material_read": "Referenced standard published Fourier alias analysis; direct theorem-specific full-text reading was not performed in this run",
+          "method": "Bibliographic and proof-method comparison",
+          "title": "The Exponentially Convergent Trapezoidal Rule",
+          "trigger": "Standard Fourier-aliasing and periodic trapezoid prior art"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A natural near-boundary analytic kernel has an unbiased yet typically zero Monte Carlo quadrature in the under-sampled regime, a nondegenerate Poisson critical law, and an exact Gaussian/consistent over-sampling transition. The sharp necessary-and-sufficient total sampling budget mN(1-r)→∞ is useful for identifying rare-spike failure mechanisms that ordinary unbiasedness and deterministic trapezoid accuracy miss. Claim deliberately restricted to independently refreshed grids and q→1, not arbitrary integrands.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 4417c64474d163a27bac57b3eeb1badf6896dc4f",
+    "https://arxiv.org/abs/2212.11476",
+    "https://arxiv.org/abs/2305.05855",
+    "https://arxiv.org/abs/2304.11865",
+    "DOI 10.1137/130932132"
+  ],
+  "disposition": "passed",
+  "limitations": "Actual frozen package C/O/V assessed; finite computations not infinite proofs. Source-level scientific originality is best-of-knowledge, not independent universal priority certification. Public metadata privacy controls prevent import.",
+  "residual_risks": [
+    "An existing result in randomized integration of approximate identities or heavy-tailed triangular arrays could specialize immediately to this shot-noise limit.",
+    "Independence is required across entire shifted-grid evaluations; reusing one shift and general integrands are not covered."
+  ],
+  "schema_version": 1
+}
