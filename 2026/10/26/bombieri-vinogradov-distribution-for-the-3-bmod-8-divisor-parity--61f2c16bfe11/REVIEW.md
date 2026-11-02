@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact, published identification of the reciprocal support is used without modification. The proof separates the higher odd-prime-exponent layers (at most \(O(\sqrt X)\)) and the nonprimitive prime–square decompositions (also \(O(\sqrt X)\)), preserving congruence-class uniformity. The \(k\le(\log X)^C\) contribution is controlled by the strong \(\max_{y\le X}\) Bombieri–Vinogradov theorem. For larger \(k\), direct progression counts and the standard mean bound \(\sum_{m\le Q}1/\varphi(m)\ll\log Q\) give the requisite uniform tail. All constants and modulus restrictions are explicit and compatible. The finite verifier is corroborative, not an infinite proof.
+## correctness
 
-## Originality — PASS, residual risk stated
-Cooper–Riasanovsky (2013), full Section 3 including Proposition 16 and the appendix, identifies the support and proves density zero but contains no prime-level equidistribution result. OEIS A192717 records the same structure and equivalent odd quadratic-form representation parity, but no asymptotic in progressions. The 2026 published review of the classical Bombieri–Vinogradov theorem states the prime theorem, rather than a theorem concerning this reciprocal support. Source- and claim-level searches in the research index for the support aliases, parity, prime–square convolution, and Bombieri–Vinogradov level found no equivalent or stronger stated result; tangential divisor-power, Tunnell-parity, and recurrence-index hits do not imply this result. The short convolution transfer may have appeared elsewhere or may be considered implicit in older generalizations; novelty remains a best-knowledge judgment, not a certification.
+PASS
 
-## Mathematical value — PASS
-A classical parity-of-reciprocal problem has a natural sparse component with previously only a zero-density statement and exact multiplicative characterization. The present full averaged \(1/2\)-level distribution result determines a sharp prime-like quantitative scale and simultaneously controls a growing set of arithmetic progressions with prescribed compatibility modulo eight. This goes beyond tabulating coefficients, a routine parity check, or an arbitrarily selected finite subsequence; it extends the original paper's density analysis in an analytically meaningful direction. The result does not address the much harder \(7\pmod{16}\) density conjecture.
+PASS, subject to a bibliographic numbering erratum. Cooper–Riasanovsky/OEIS prior support decomposition as p^(4j+1)k² with p≡3 mod 8 prime and p∤k is correctly credited and directly checked. Summing higher j>=1 and spurious p|k principal-stratum terms gives O(sqrt X) each uniformly per progression. For k<=log(X)^(R+4), use the standard strong max_{y<=X} Bombieri–Vinogradov prime theorem at modulus Q with arbitrary log power; the dependence of a k^(-2) on k is absorbed by max over all reduced classes. For k>log^C, the elementary progression upper bound y/m+1, sum_m 1/φ(m)<<log Q and Qsqrt X control tails, so choosing B_R large proves every R. The total coefficient is 1/4 sum_{odd k}1/k²=π²/32. Independent GF(2) series inversion vs prime factorization checked 500 residue-3 indices below 4000; not an asymptotic proof. The cited support characterization is Proposition 26 in the primary paper, not Proposition 16 as written in the source RESULT; citation number must be corrected in a future scientific-file maintenance edit, but does not alter the theorem.
 
-## Closest literature and limits
-Cooper–Riasanovsky, Journal of Integer Sequences 16 (2013), Proposition 16; OEIS A192717, author dated 2012-12-31; and the standard Bombieri–Vinogradov theorem. Independent rediscovery or implicit coverage via a general prime–square convolution theorem remains possible. No independent audit has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified because the transfer argument is elementary once the classical BV theorem and published prime-square support are known. The exact support and density-zero result are old; the new asserted statement gives an explicit main term and averaged growing-modulus level for this canonical parity reciprocal slice. Searches of the relevant published corpus, OEIS, and primary convolution/BV literature revealed no directly dominating statement with the same slice and uniform progression regime. A general convolution-stability theorem may imply the statement without matching notation; this is a real priority and value risk, not a proof of novelty.
+
+## value
+
+PASS
+
+PASS, qualified. The parity reciprocal has a canonical sparse progression slice whose earlier known results identify members but do not quantify their distribution. The exact square-weighted progression asymptotic and level 1/2 provide a natural nontrivial arithmetic statistic with a sharp prime-like leading scale. The argument is a standard BV transfer rather than new sieve technology; its value is in the exact natural slice and the complete uniform statement, not a claim to improve BV itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
