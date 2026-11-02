@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T14:42:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md from frozen Git commit 359233893f22559a64d1a2a83158566d85606adf",
+        "check_candidate.py and verify_graph_maps.py from identical source tree",
+        "independent_graph_quotient_check.py in private audit artifacts"
+      ],
+      "evidence": [
+        "Frozen source RESULT.md SHA b87abe65255f803596b46673df8efc50584c0c9c, Sections Finding and Proof 1–3.",
+        "Source check_candidate.py and verify_graph_maps.py were read as mathematical evidence, not executed blindly.",
+        "Independent finite graph-map enumerator constructed local adjacency maps and induced colour-isomorphism targets for all 32,583 words on m=3..11 (3 colours to m=9, then 2 colours to m=11); every case matched the theorem.",
+        "Independent examples: alternating 8-cycle yields 2 distinct P3 and 2 distinct P5 colour targets; constant 8-cycle yields 1 each."
+      ],
+      "rationale": "The actual final RESULT.md proof establishes every connected irreflexive locally-surjective quotient of C_m has maximum degree 2, hence is P_l (l≥2) or C_d (d≥3). For cycle targets, back-surjectivity forces a consistent forward/backward covering f(i)=a±i mod d, giving d|m and the named colour word factoring iff p|d. For path targets, each interior image must traverse the two distinct neighbours and each endpoint must reverse direction, forcing the reflection walk rho_L(i+t) of exact period L=2(l−1). Closing requires even L|m; fibre colour compatibility requires p|L and a vertex-centred reflection. Two reflections compose to translation 2(s−t), yielding one centre class modulo odd p and two for even p. Target reversal shifts centre by L/2, swapping these classes precisely when L/p is odd; for even L/p they are distinct because equality would force forbidden period p/2. This gives the exact q_L and divisor sums. Cases m=3, l=2, constant p=1, odd m, p even and long multipliers were explicitly covered.",
+      "residual_risks": [
+        "The independent finite enumerator does not prove all lengths/alphabets; the all-parameter conclusion rests on the written normal-form and group-action proof.",
+        "Changing irreflexivity, undirectedness or back-surjectivity would change the normal forms; the theorem does not extend to those settings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chaplick et al. give polynomial-time decision for locally-surjective maps when treewidth and degree conditions hold (which include source cycles).",
+          "Fiala–Paulusma and Dvořák et al. classify complexity of existence to a fixed target, not the number of nonisomorphic variable coloured target structures.",
+          "Bubboloni treats component counts of reflexive graph quotients; her component ratio is not an invariant path-colour orbit count."
+        ],
+        "reasoning": "Algorithmic coverage of existence does not explicitly furnish the closed one-versus-two dihedral orbit classification for all periodic colour words. Even a generic enumeration algorithm would require the claimed symbolic formula as an additional result; no stronger statement was found in the accessed primary text.",
+        "searches": [
+          "Web search: cycle to path locally surjective homomorphism quotient, 2015 role assignment",
+          "arXiv:1408.6676 Sections 1 and 4",
+          "Fiala–Paulusma 2003 Theorem 1",
+          "Dvořák et al. 2022 abstract and introduction",
+          "Bubboloni 2017 Theorems A and B"
+        ]
+      },
+      "checked_sources": [
+        "Chaplick–Fiala–van ‘t Hof–Paulusma–Tesař, arXiv:1408.6676 / Theoretical Computer Science 590 (2015), Section 1 and Section 4.",
+        "Fiala–Paulusma, A complete complexity classification of the role assignment problem, 2003 public manuscript, Theorem 1 and Section 2.",
+        "Dvořák–Masařík–Novotná–Krawczyk–Rzążewski–Żuk, ISAAC 2022 DOI 10.4230/LIPIcs.ISAAC.2022.30, Sections 1–2.",
+        "Bubboloni, Graph homomorphisms and components of quotient graphs, Rend. Sem. Mat. Univ. Padova 138 (2017), Theorems A and B.",
+        "Actual Resultary searches for bounded-morphic images, role assignments, coloured cycles and reflection parity; nearest hits concerned unrelated cycle homology or crown finite-space maps.",
+        "Actual GitHub public-repository code searches for bounded morphism cycle path and colour-preserving cycle quotient returned no results."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proof states maps C_m→P_l must fold with period 2(l−1), while the 2015/2003/2022 work solves existence or complexity problems with fixed target, not primitive-colour-word isomorphism orbit sizes.",
+          "The 2017 quotient component theorem assumes reflexive graphs and counts source connected components, not types of labelled path images."
+        ],
+        "reasoning": "Under a direct implication test, the known role-assignment and algorithmic propositions are insufficient to derive q_L=2 precisely when p and L/p are even without separately establishing the two reflection-centre classes and path reversal action. The claim survives as a specific additional exact result, subject to uncatalogued-priority risk.",
+        "searches": [
+          "Chaplick et al. arXiv:1408.6676 full primary introduction/algorithm sections",
+          "Fiala–Paulusma 2003 primary Theorem 1 and role assignments",
+          "Dvořák et al. 2022 DOI 10.4230/LIPIcs.ISAAC.2022.30",
+          "Bubboloni 2017 DOI 10.4171/RSMUP/138-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bounded morphisms of irreflexive undirected coloured Kripke frames equal vertex-colour-preserving locally-surjective graph homomorphisms, called role assignments by Fiala–Paulusma 2003.",
+          "The target spectrum also has a periodic-word/dihedral reflection formulation. Resultary nearest matches were about homology of cycles, finite crowns or other unrelated structures."
+        ],
+        "reasoning": "Equivalent terminology and groups of cycle-word symmetries were searched, not just theorem titles. Local surjectivity and role assignments are old, but the exact colour-isomorphism quotient type orbit count was not supplied by the checked primary sources.",
+        "searches": [
+          "Resultary semantic query: vertex-coloured undirected cycle locally surjective graph homomorphism to a path cycle quotient isomorphism counts primitive period reflection parity",
+          "Resultary semantic query: modal p-morphism bounded morphic image finite colored cycles path folding and reflection word period",
+          "Web search: locally surjective cycle path homomorphism graph; role assignment cycles paths colour",
+          "arXiv:1408.6676 Section 1; Fiala–Paulusma 2003 Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published table of the alphabet-uniform spectrum indexed by primitive period p and reflecting quotient length L appeared in actual public or Resultary query results.",
+          "Independent finite enumeration in this review covers 32,583 ternary/binary words m=3..11; this is new corroboration, not existing literature or an infinite proof."
+        ],
+        "reasoning": "An exact computational data table could dominate a fixed finite case but not automatically the all-length and all-alphabet formula. Negative searches do not prove novelty; a specialized table under other terminology could remain.",
+        "searches": [
+          "Resultary semantic query: locally surjective homomorphism cycles paths role assignment quotient counting colored graphs",
+          "Web search: bounded morphism cycle path irreflexive, coloured cycle locally surjective",
+          "Public repository code searches: bounded morphism cycle path; colour-preserving cycle quotient"
+        ]
+      },
+      "rationale": "No inspected primary result directly provides, or mathematically implies without additional dihedral orbit analysis, the all-alphabet target-isomorphism multiplicity and divisor counts. The cycle/path mapping normal forms are elementary and historically established at the level of roles/coverings; claimed originality is only the complete labelled quotient spectrum and parity refinement. Best-of-knowledge, not priority certification.",
+      "residual_risks": [
+        "Specialized earlier labelled-role assignment, bisimulation or modal quotient literature may express the parity law under another name; searches are not comprehensive.",
+        "Elementary dihedral orbit counting makes inadvertent rediscovery plausible even though no exact covering source was located.",
+        "A 1996 oriented-path homomorphism paper appeared in the prior self-review only via its publisher abstract; it was not treated as full-text negative evidence here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines exactly the local-neighborhood surjectivity predicate and studies fixed source/target existence and complexity; no all-word coloured-cycle target-isomorphism parity spectrum in the inspected relevant primary sections.",
+          "evidence": [
+            "Section 1 definition maps each source neighborhood surjectively onto target neighborhood, and identifies role assignments; sections 3–4 concern NP hardness and decision algorithms.",
+            "The 2015 journal theorem bounds treewidth/degree for polynomial-time decision, not symbolic colour-orbit counting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1408.6676",
+          "material_read": "Public full-text PDF, abstract and introduction pages 1–4, Section 4 algorithm on pages 10–15, cycle/path references in the complexity constructions, and conclusion; first page rendered and inspected.",
+          "method": "Primary arXiv PDF text, targeted section and term navigation, rendered page 1.",
+          "title": "Locally Constrained Homomorphisms on Graphs of Bounded Treewidth and Bounded Degree",
+          "trigger": "Direct equivalence to locally surjective graph homomorphisms; possible stronger coverage of degree-two maps."
+        },
+        {
+          "assessment": "Theorem 1 is a complexity dichotomy for fixed role graphs, with paths/cycles as possible targets; neither target type colourings nor minimal-period/reflection multiplicities are classified.",
+          "evidence": [
+            "Definition requires r(N_G(u))=N_R(r(u)), matching graph form of bounded morphism.",
+            "Theorem 1 classifies complexity of R-role assignment by the fixed host; the source is arbitrary and may be looped."
+          ],
+          "identifier_or_url": "https://paperzz.com/doc/7108226/a-complete-complexity-classification-of-the-role-assignme...",
+          "material_read": "Accessible complete 2003 preprint text, introduction, definitions and Observations 2.1–2.6, Theorem 1, end discussion and cited path/cycle role-assignability passages.",
+          "method": "Primary manuscript reproduced in public HTML; read theorem and relevant graph-role definitions and implications.",
+          "title": "A complete complexity classification of the role assignment problem",
+          "trigger": "Role colouring is an exact alias of locally surjective graph homomorphisms and may include path/cycle classifications."
+        },
+        {
+          "assessment": "Studies fixed-target list-LSHom existence and subexponential complexity in hereditary graph classes; no isomorphism-type inventory across variable path lengths or primitive coloured word parity law.",
+          "evidence": [
+            "Abstract and Section 1 specify host H fixed, lists on source vertices, and ETH/algorithmic complexity outcomes.",
+            "The authors mention P3 and C4 as tractability boundaries, not enumeration of path-coloured quotient isomorphism types."
+          ],
+          "identifier_or_url": "https://drops.dagstuhl.de/opus/volltexte/2022/17315/pdf/LIPIcs-ISAAC-2022-30.pdf",
+          "material_read": "Public full-text conference PDF, abstract, introduction pages 1–4, statement of list locally-surjective homomorphism and complexity dichotomy, inspected first-page rendering.",
+          "method": "Primary licensed PDF with text and rendered first page.",
+          "title": "List Locally Surjective Homomorphisms in Hereditary Graph Classes",
+          "trigger": "List constraints can encode named unary colours and path/cycle hosts; stronger algorithmic results might subsume the quotient statement."
+        },
+        {
+          "assessment": "Studies component-count preservation and group-orbit quotient maps for reflexive graphs; all graphs in the paper have loops, unlike this irreflexive theorem, and its results do not express target colour-pattern orbit counts.",
+          "evidence": [
+            "Theorem A controls connected components under locally-surjective maps and Theorem B gives a component ratio for complete orbit homomorphisms.",
+            "Section 1 explicitly assumes every vertex has a loop; neither theorem determines 1-versus-2 path quotient colourings."
+          ],
+          "identifier_or_url": "https://ems.press/content/serial-article-files/43948",
+          "material_read": "Public full-text 2017 PDF, title/abstract, Introduction, Theorems A/B, definitions and Sections 3–4 about graph quotients; first page rendered.",
+          "method": "Primary PDF text and rendered first page.",
+          "title": "Graph homomorphisms and components of quotient graphs",
+          "trigger": "Potential generic stronger quotient/orbit theorem for locally surjective homomorphisms."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Finite coloured modal frames and role-assignment definitions in the inspected primary papers.",
+        "RESULT.md complete classification and symbolic reflection argument."
+      ],
+      "rationale": "A complete, exact isomorphism-type spectrum for one natural class of coloured Kripke/role frames is a motivated classification: it yields the least possible folded quotient and the complete divisor-count law, and shows a genuine parity phenomenon not supplied by a generic yes/no homomorphism algorithm. A researcher studying modal abstraction or finite role reductions could require precisely which nonisomorphic colour targets survive; not just whether a map exists. The proof is elementary but not a routine renaming or a computation of arbitrary small instances.",
+      "residual_risks": [
+        "The result is specific to connected simple irreflexive images of a cycle and named colour-preserving quotients; wider implications are not established.",
+        "No claim is made that this is a major general modal-logic theorem or a minimal description-length result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For m>=3, with named cyclic vertex-colouring w of primitive period p|m, all connected irreflexive undirected simple bounded-morphic quotient targets are coloured cycles C_d for d|m, d>=3, p|d (one isomorphism class each), or coloured paths P_(1+L/2) if and only if m is even, w has a vertex-axis reflection, L|m is even and p|L. Each such path order has q_L=2 precisely when p and L/p are both even, and q_L=1 otherwise. Minimal path order is 1+lcm(p,2)/2. Total paths are tau(m/(2p)) for p odd with m even, or tau(m/p)+1_{2|m/p}tau(m/(2p)) for even p and reflection.",
+  "schema_version": 1
+}
