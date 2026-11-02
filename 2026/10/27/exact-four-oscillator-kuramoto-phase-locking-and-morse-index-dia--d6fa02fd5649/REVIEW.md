@@ -1,15 +1,21 @@
-# Scientific appraisal: Exact four-oscillator Kuramoto phase-locking and Morse-index diagram
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Taking the nonzero complex order parameter and using its argument as gauge gives all sixteen cosine-sign patterns, reduced without omission to the four admissible branches A, B, C and D. Exact derivative signs and an explicit check of the common \(q=3\) boundary show the state counts at every coupling, including the two non-generic folds and the unstable four-branch boundary junction. The quotient Hessian is an indefinite diagonal form plus one negative rank-one term, whose Schur complement yields the complete index classification; the formulas for \(T_A,T_B,T_C,T_D\) are substituted explicitly. A runnable verifier independently checks sample vector-field residuals and linear indices. The sampling does not replace the analytic proof.
+## correctness
 
-## Originality
-**PASS under inspected evidence.** The closest general four-node algebraic treatment, Xin–Kikkawa–Liu (2016), supplies degree bounds and up to ten observed equilibria at selected parameters, not the exact special uniform-frequency global bifurcation and Morse diagram. Coss et al. (2017) provide methods and different exact examples, not these thresholds. Ottino-Löffler–Strogatz (2015) concern large-size locking-threshold asymptotics; Yagasaki (2025) studies an odd-site bifurcation framework, not an even four-site complete Morse classification. published-finding corpus queries on precise oscillator count, graph topology, equally spaced frequencies, thresholds, and instability indices found a distinct four-cycle Braess-locking finding and identical-frequency discrete dynamics but no covering claim. The inaccessible full text of Xin et al. and any unindexed earlier four-node calculation remain residual risks. General computational solvability does not by itself imply the explicit three-transition classification without the sign, merging and rank-one inertia arguments.
+PASS
 
-## Mathematical value
-**PASS.** The four-oscillator complete graph is the smallest even nontrivial uniform-frequency example, and the exact solution distinguishes onset of stable locking from three separate changes in the number and types of unstable equilibria. The unstable-junction and simultaneous-double-fold thresholds are natural bifurcation invariants, not arbitrary parameter cutoffs. The labeled state count, precise Morse indices, and stable-state uniqueness form a complete benchmark for a canonical system, rather than a minor numerical improvement.
+Self-consistency with order parameter re^{iψ} requires r>0; after rotation sin(theta_j)=omega_j/q with q=Kr>=3. For x=q²>9, h=sqrt(x−9), l=sqrt(x−1), the only positive cosine-sign-sum families are (2,2),(2,0),(0,2),(−2,2), producing K_A=2x/(h+l), K_B=2x/h, K_C=2x/l, K_D=x(h+l)/4 with labelled sign multiplicities 1,2,2,1. Differentiating these branches yields unique A minimum at x*=(20+2sqrt73)/3, B minimum at x=18, monotone C and D, and endpoint K_0=9/sqrt2. At x=9 the outer cosine signs merge into precisely one extra-zero-mode state (not four); B folds at K=12 give two distinct labelled degeneracies. The Hessian H=q diag(c)−K(cc^T+ss^T)/4 has the rotational null mode; restriction to c·v=0 and a rank-one Schur complement gives reduced instability indices, including the exact T_A=x/(hl)−1, T_B=9/(x−9), T_C=1/(x−1), T_D<0. This yields total nondegenerate states 0/2/4/8 across open coupling regions and exceptional counts 1,2,6 at K*,K0,12. Independent direct symmetric Hessian eigenvalue calculations reproduced instability histograms at K=4.5,5,7,13; numeric samples do not establish exact thresholds or exhaust real K.
 
-## Scope and risks
-The assertion is confined to all-to-all attractive coupling and the four specifically normalized frequencies; threshold cases are classified by linear nullity, not nonlinear center-manifold type. Previous general algorithms may permit recomputation of portions of the result; inaccessible or unindexed specializations are a genuine priority risk, not evidence of novelty. Independent checking would be useful before publication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level primary-literature comparison: the identified antecedents cover qualitative mechanisms, methods or partial counts but no inspected theorem implies the precise assessed evaluated claim; limitations and possible older equivalents remain explicit. The assigned complete graph with four DISTINCT frequencies is not equivalent to a four-cycle or a four-identical-frequency problem; the labelled solution branches and Hessian signatures are essential. A general polynomial form does not directly supply this exact all-K Morse-index diagram.
+
+## value
+
+PASS
+
+A complete labelled four-node equilibrium count together with index distribution and singular bifurcation locations is a natural exact finite-system classification: it informs stability and nonlinear branch analysis where existence of a locking threshold alone is insufficient. Explicit classification across all positive coupling is mathematically substantive despite a small fixed graph, because it resolves exceptional collisions and indices, not merely a routine parameter rescaling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
