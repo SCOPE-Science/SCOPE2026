@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The ternary word construction exhausts all integer triangle metrics bounded by \(k\); the Johnson and Grassmann block embeddings preserve every pair distance. These establish all third-move extension patterns, not merely finite samples. Explicit absence witnesses prove each parameter threshold is sharp; the four-variable diamond sentence separates Hamming from the other two families for every \(k\ge2\). The included checker verified the constructive formulas and concrete witnesses through \(k=7\), and direct triangle enumerations for \(k=2,3\). A general mathematical proof, rather than finite enumeration, justifies the infinite quantifiers.
+
+**Originality — PASS, qualified.** Comparison included available prior claims about Hamming/Johnson/Grassmann adjacency theories and counting refinement; current published-finding corpus searches for combinations of the scheme names, three-round equivalence, metric triangle patterns, and induced diamonds; and accessible primary full text of Kurihara (2011) and Kivva (2019). Kurihara develops intersection-number and character-table methods and Kivva describes differences in local geometries, but neither inspected theorem states the cross-family three-round logical comparison, simultaneous sharp parameter bounds, or exact rank-four separator. The abstract of Terwilliger (1987) is relevant but its full text was not accessed. Standard intersection-number formulas might entail some components after additional computations; equivalently formulated work could remain unindexed.
+
+**Value — PASS.** A distance-coloured first-order observer with three nested quantifiers cannot distinguish three natural geometries with very different numbers of points and intersection multiplicities. The explicit common ternary isometric skeleton gives a structural explanation and a reusable construction; simultaneous optimal ambient thresholds and the first four-point obstruction make this a sharp statement rather than a routine finite census.
+
+**Limitations.** No four-round Johnson-versus-Grassmann classification; no independent proof checking or certification; historical coverage incomplete, especially Terwilliger's unavailable full text. The theorem is specific to the fully coloured distance language at fixed diameter.
+
+Self-review: passed. Independent audit: not yet performed.
