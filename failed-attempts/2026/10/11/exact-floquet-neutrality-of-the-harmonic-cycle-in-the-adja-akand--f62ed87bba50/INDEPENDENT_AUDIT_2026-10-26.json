@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T10:49:28Z",
+  "axes": {
+    "correctness": {
+      "evidence": {
+        "all_n_analytic": [
+          "finite geometric series identity",
+          "closed exact one-form integral",
+          "elementary trigonometric antiderivative",
+          "autonomous tangential multiplier"
+        ],
+        "independent_finite_checks": {
+          "method": "Fresh SymPy polynomial expansion of Rdot+2xy(y+S_n)R; all identically zero",
+          "n": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "scope": "does not establish universal statement without symbolic proof"
+        },
+        "source_files": [
+          "RESULT.md",
+          "SLOGAN.txt",
+          "REVIEW.md",
+          "VERIFICATION.md",
+          "verify.py",
+          "verification_output.txt",
+          "AUDIT.json",
+          "METADATA.json"
+        ],
+        "source_tree_reconstruction": "fd50b885b110be01c1144f7d08b00b42d693659f"
+      },
+      "rationale": "For all n>=0, the source equation gives F=(y,-x(R+yS_n)y-x^(2n+3)) with R=x^2+y^2-1 and S_n=sum_{l=0}^n x^(2l). The finite geometric identity (1-x^2) S_n=1-x^(2n+2) implies exactly Rdot=-2xy(y+S_n)R, so the unit circle is invariant. On gamma=(cos t,-sin t), the normal log multiplier is -2 integral_0^(2π) xy(S_n+y)dt=0: the S_n term is integral of exact xS_n(x) dx along a closed path and the other is integral cos(t)sin^2(t)dt=0. The normal multiplier is 1, and the tangential autonomous multiplier is 1. A separate direct parity/reversibility proof also forces the same value. Independently expanded the complete polynomial defect identity for n=0,1,2,3,5 using symbolic exact arithmetic; these finite checks are corroboration only. Poincaré map may have nontrivial Jordan/shear in full 2D, and no exponential hyperbolicity is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "André Vanderbauwhede (2012), Branches of Periodic Orbits in Reversible Systems, https://cage.ugent.be/~avdb/articles/avdb-rtds2012.pdf, Sections 2 and 4, reverse symmetry and Poincaré multipliers: full available ten-page PDF Sections 2 and 4 read; symmetry of flow, symmetric cycles, and inverse-return-map relation apply beyond this polynomial family.",
+          "Adjaï, Akande, Yehossou, Monsia (2022), Periodic solutions and limit cycles of mixed Lienard-type differential equations, DOI:10.3934/math.2022833, Theorem 1.1, equation (1.8) and proof: explicit period-2π symmetric orbit for each n."
+        ],
+        "reasoning": "The 2012 statement applies to any smooth planar reversible vector field possessing a symmetric non-equilibrium periodic orbit with transversal section. Our sigma(x,y)=(-x,y) and the 2022 exact orbit meet those hypotheses for every n. The older general theorem plus source orbit covers every n and gives a local family of nearby cycles, stronger than just neutral linearization.",
+        "searches": [
+          "reversible dynamical systems symmetric periodic orbit return map P inverse Floquet reciprocal multipliers Vanderbauwhede",
+          "Branches of Periodic Orbits in Reversible Systems Vanderbauwhede 2012 PDF",
+          "periodic orbit unit circle zero transverse Floquet exponent factorized radial defect R' polynomial Liénard system"
+        ]
+      },
+      "checked_sources": [
+        "Adjaï, Akande, Yehossou, Monsia (2022), Periodic solutions and limit cycles of mixed Lienard-type differential equations, DOI:10.3934/math.2022833, Theorem 1.1, equation (1.8) and proof",
+        "André Vanderbauwhede (2012), Branches of Periodic Orbits in Reversible Systems, https://cage.ugent.be/~avdb/articles/avdb-rtds2012.pdf, Sections 2 and 4, reverse symmetry and Poincaré multipliers",
+        "Villari and Zanolin (2022), On the Qualitative Behavior of a Class of Generalized Liénard Planar Systems, DOI:10.1007/s10884-021-09984-2",
+        "Resultary semantic index, 2026-10-26, three actual query searches; exact indexed copy 2026/10/11/SCOPE-exact-floquet-neutrality-of-the-harmonic-cycle-in-the-adja-akand--f62ed87bba50 is NOT independent prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adjaï, Akande, Yehossou, Monsia (2022), Periodic solutions and limit cycles of mixed Lienard-type differential equations, DOI:10.3934/math.2022833, Theorem 1.1, equation (1.8) and proof",
+          "André Vanderbauwhede (2012), Branches of Periodic Orbits in Reversible Systems, https://cage.ugent.be/~avdb/articles/avdb-rtds2012.pdf, Sections 2 and 4, reverse symmetry and Poincaré multipliers",
+          "Direct verified parity check: F(-x,y)=(y,-g(x,y))=-diag(-1,1)F(x,y) for F=(y,g); original harmonic orbit meets x=0 at t=π/2,3π/2 with nonzero x-dot."
+        ],
+        "reasoning": "The old orbit and general reversible theorem jointly imply the exact submitted multiplier: sigma is identity on the transverse x=0 line, hence P=P^{-1}; because P is a local increasing diffeomorphism, P=id. Therefore Pprime=1 for every n. This is a decisive theorem-level implication, not just common Floquet methodology.",
+        "searches": [
+          "exact Floquet neutrality harmonic cycle mixed Liénard Adjaï Akande Yehossou Monsia equation x''+x(x'^2+x' sum x^(2l)+x^2-1)x'+x^(2n+3)",
+          "periodic orbit unit circle zero transverse Floquet exponent factorized radial defect R' polynomial Liénard system",
+          "Vanderbauwhede 2012 Branches of Periodic Orbits in Reversible Systems Sections 2 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adjaï, Akande, Yehossou, Monsia (2022), Periodic solutions and limit cycles of mixed Lienard-type differential equations, DOI:10.3934/math.2022833, Theorem 1.1, equation (1.8) and proof: printed harmonic solution x=cos(t), y=-sin(t), n>=0.",
+          "André Vanderbauwhede (2012), Branches of Periodic Orbits in Reversible Systems, https://cage.ugent.be/~avdb/articles/avdb-rtds2012.pdf, Sections 2 and 4, reverse symmetry and Poincaré multipliers: reversible fixed-point section, R P R=P^{-1}, paired eigenvalues of symmetric periodic orbits.",
+          "Resultary semantic index, 2026-10-26, three actual query searches; exact indexed copy 2026/10/11/SCOPE-exact-floquet-neutrality-of-the-harmonic-cycle-in-the-adja-akand--f62ed87bba50 is NOT independent prior work"
+        ],
+        "reasoning": "Exact neutrality is equivalently the derivative-1 identity for the transverse Poincaré map. On the fixed line x=0 of the reverser the return map equals its inverse; it is order-preserving and therefore locally identity. This is a derivation from the published general reversible-system framework and the old explicit solution, not a coincidentally worded title.",
+        "searches": [
+          "exact Floquet neutrality harmonic cycle mixed Liénard Adjaï Akande Yehossou Monsia equation x''+x(x'^2+x' sum x^(2l)+x^2-1)x'+x^(2n+3)",
+          "periodic orbit unit circle zero transverse Floquet exponent factorized radial defect R' polynomial Liénard system",
+          "exact neutral Floquet multiplier divergence zero harmonic periodic solution planar polynomial oscillator cyclic family",
+          "10.3934/math.2022833 Floquet multiplier stability unit circle limit cycle",
+          "reversible symmetric periodic orbit Poincare map involution multiplier 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic index, 2026-10-26, three actual query searches; exact indexed copy 2026/10/11/SCOPE-exact-floquet-neutrality-of-the-harmonic-cycle-in-the-adja-akand--f62ed87bba50 is NOT independent prior work",
+          "The same-family 2022 article displays phase portraits for n=0,1,2 but not a tabulation of multipliers."
+        ],
+        "reasoning": "No independently prior literal neutral-multiplier database entry was established. That negative search is not support for originality: exact values are logically forced by the known higher-level reversibility theorem, independently of tabular wording.",
+        "searches": [
+          "exact Floquet neutrality harmonic cycle mixed Liénard Adjaï Akande Yehossou Monsia equation x''+x(x'^2+x' sum x^(2l)+x^2-1)x'+x^(2n+3)",
+          "exact neutral Floquet multiplier divergence zero harmonic periodic solution planar polynomial oscillator cyclic family",
+          "10.3934/math.2022833 characteristic exponent Floquet table"
+        ]
+      },
+      "rationale": "Decisive covered corollary. The 2022 primary source gives the exact harmonic orbit of its polynomial family. Every member is reversible under sigma(x,y)=(-x,y), because S_n is even and the vector field obeys F(sigma z)=-D sigma F(z). The orbit intersects Fix(sigma)={x=0} transversely. Classical reversibility theory explicitly states sigma P sigma=P^{-1} on a symmetric periodic orbit Poincaré map (Vanderbauwhede 2012, Sections 2,4) and reciprocal Floquet eigenvalue pairing. On the 1-dimensional section x=0 the involution sigma acts identically, so P=P^{-1}; since a planar flow first-return map preserves order, P is locally identity, and its derivative is 1. The tangential autonomous Floquet multiplier is 1. Indeed a local annulus of symmetric cycles is forced, a statement stronger than the submitted neutrality. The normal-defect identity is an elementary special-purpose algebraic verification and cannot distinguish this claim from the general known theorem. The exact indexed Resultary copy is not counted as independent prior literature.",
+      "residual_risks": [
+        "The assigned first-variation algebra is correct, but a neutral Floquet multiplier alone is not generally evidence of global stability.",
+        "The stronger local periodic-annulus consequence uses smooth transversal return near the actual non-equilibrium harmonic orbit, not a global classification of all trajectories.",
+        "No exhaustive search for original historical authorship of reversible planar periodic orbit theory was necessary because the accessible 2012 primary source already decisively implies the same claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_ORBIT_ESTABLISHED; no explicit Floquet number, but its exact orbit combined with the pre-existing general reversible theorem implies the submitted neutral multiplier.",
+          "evidence": "Theorem 1.1 gives the harmonic x(t)=cos(t) for every integer n>=0; y=-sin(t); both x=0 crossings are transverse.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2022/8/PDF/math-07-08-833.pdf; doi:10.3934/math.2022833",
+          "material_read": "Complete publicly accessible article PDF (17 pp), particularly introduction, equation (1.8), Theorem 1.1, its proof, accompanying phase portraits, and conclusions; theorem page additionally viewed as PDF image.",
+          "method": "Lawful open-access full PDF text and direct PDF page-image reading.",
+          "title": "Periodic solutions and limit cycles of mixed Lienard-type differential equations",
+          "trigger": "The exact originating equation (1.8), quantified harmonic orbit, and phase portraits for the assigned family."
+        },
+        {
+          "assessment": "DECISIVE_BROADER_COVERAGE: for 1D section fixed pointwise by sigma, inverse-conjugacy forces derivative one; also local periodic annulus.",
+          "evidence": "Section 4 gives R P R=P^-1 and Floquet eigenvalue reciprocity for symmetric reversible cycles; Section 2 shows fixed-subspace orbit construction.",
+          "identifier_or_url": "https://cage.ugent.be/~avdb/articles/avdb-rtds2012.pdf",
+          "material_read": "Full public 10-page paper, focusing on reversibility definitions and symmetric periodic orbit geometry (Section 2), and inverse conjugacy of Poincaré maps and reciprocal eigenvalue pairing (Section 4); section pages examined as PDF images.",
+          "method": "Lawful open-access PDF full-text and image reading, followed by explicit substitution sigma(x,y)=(-x,y) into assigned vector field.",
+          "title": "Branches of Periodic Orbits in Reversible Systems",
+          "trigger": "Check stronger published reversible-periodic-orbit theorems that could imply exact neutral Floquet multipliers despite no matching coefficient."
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND_NOT_THE_DECISIVE_THEOREM; family-specific orbit comes from Adjaï et al. and reversibility coverage from Vanderbauwhede.",
+          "evidence": "Different Liénard vector fields and stability results, without the exact assigned coefficients.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10884-021-09984-2",
+          "material_read": "Publicly available article HTML introduction and accessible theorem/stability passages, including generalized Liénard cycle existence and hyperbolic/stable examples.",
+          "method": "Primary public HTML statement-level scope comparison.",
+          "title": "On the Qualitative Behavior of a Class of Generalized Liénard Planar Systems",
+          "trigger": "Closest separate generalized-Liénard primary stability framework and examples."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Adjaï, Akande, Yehossou, Monsia (2022), Periodic solutions and limit cycles of mixed Lienard-type differential equations, DOI:10.3934/math.2022833, Theorem 1.1, equation (1.8) and proof",
+        "André Vanderbauwhede (2012), Branches of Periodic Orbits in Reversible Systems, https://cage.ugent.be/~avdb/articles/avdb-rtds2012.pdf, Sections 2 and 4, reverse symmetry and Poincaré multipliers"
+      ],
+      "rationale": "Although Floquet multipliers are mathematically natural invariants for a displayed oscillator, the submitted value is an immediate established reversible-systems consequence of the introducing paper's exact known symmetric orbit. The entire main theorem follows by checking even/odd parity of the coefficients and applying standard return-map conjugacy; the claimed exact polynomial normal-defect law is short routine geometric-series algebra that adds no independently motivated new invariant, classification, or structural boundary not already forced by the broader theorem. Rechecking a known corollary in custom coordinates, even for all n and with correct code, does not satisfy the required nontrivial-value standard. The stronger local periodic annulus is also a generic reversible-flow consequence and cannot rescue the original claim as new.",
+      "residual_risks": [
+        "A different, genuinely new higher-order nonlinear return coefficient might have value, but none is claimed, computed or independently established by the assigned package."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Adjaï, Akande, Yehossou, Monsia (2022), Periodic solutions and limit cycles of mixed Lienard-type differential equations, DOI:10.3934/math.2022833, Theorem 1.1, equation (1.8) and proof",
+    "André Vanderbauwhede (2012), Branches of Periodic Orbits in Reversible Systems, https://cage.ugent.be/~avdb/articles/avdb-rtds2012.pdf, Sections 2 and 4, reverse symmetry and Poincaré multipliers",
+    "Villari and Zanolin (2022), On the Qualitative Behavior of a Class of Generalized Liénard Planar Systems, DOI:10.1007/s10884-021-09984-2",
+    "All eight frozen files and matching current blobs"
+  ],
+  "disposition": "failed",
+  "limitations": "The assigned theorem deals only with the first Floquet variation along x=cos(t) for integers n>=0. We do not assert global stability or global center. General local period annulus follows from the pre-existing reversal theorem, not a newly accepted scientific claim.",
+  "residual_risks": [
+    "General reversibility prior result decisive despite lack of literal earlier source-specific multiplier table.",
+    "A normal multiplier one does not by itself settle nonlinear stability in arbitrary nonreversible systems; the additional period-annulus conclusion here uses the specifically verified reverser."
+  ],
+  "schema_version": 1
+}
