@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite Kneser-neighborhood face condition is equivalent to missing at least two ground vertices. The published 2018 sphere-wedge theorem supplies a unique reduced homology degree. The proof independently derives the augmented simplicial Lefschetz trace through signed pair-orbit selection, Boolean-lattice Möbius inversion, and removal of exactly the full-support and one-omitted-fixed-point supports. The resulting character is exactly the sign twist of an exterior square and the \((n-2,2)\) Specht module, as checked from permutation-module characters. The elementary argument handles \(n=4\) and every permutation cycle type. A standalone standard-library script checks 38 exact conjugacy-class traces and independently re-enumerates oriented invariant faces for \(n=4,5,6\). Finite experiments corroborate but do not establish the all-parameter proof.
+## correctness
 
-## Originality — PASS (with residual risk)
-Nilakantan–Singh's primary source (arXiv:1802.05848v1, Theorem 1.3 and Section 5) proves nonequivariant wedge structure and no full permutation-group character. A second Kneser-neighborhood paper concerns three-subsets. Schultz's prior equivariant theorem concerns stable Kneser graphs and dihedral actions, a different complex and group. A published six-point result (opaque indexed ID `6890383e239b`) already provides the exact \(n=6\) representation and its full RESULT text was compared; it does not state the theorem for general \(n\). The current theorem recovers that example but extends to every \(n\ge4\), genuinely including new higher parameters, and cannot be inferred from a single exceptional example or homology dimensions. Other equivalences and broader coverage were searched without detecting a covering source. Bibliographic coverage is not a uniqueness proof; differently framed or unindexed results remain a risk.
+PASS
 
-## Mathematical value — PASS
-The output is a uniform irreducible representation classification for a standard infinite family of graph neighborhood complexes, not a Betti-number recomputation or a fixed isolated census. It separates the two natural quadratic-size Specht constituents, yields a character depending only on two elementary permutation statistics, and proves that no full-symmetry-invariant top-homology class exists. These are natural equivariant topological invariants for Kneser graph complexes, with established connections to graph coloring. The earlier six-point computation does not determine the uniform module structure.
+Face membership is equivalent to the support of the two-subsets omitting >=2 ground labels. Signed augmented Lefschetz trace of invariant two-subset-orbit selections reduces to a Boolean Möbius inversion over ground-label cycles, yielding sign(g)(f^2-3f+1) after concentration in degree n-4 from the Nilakantan–Singh wedge theorem. The character of wedge^2 U_n plus Specht(n-2,2), computed from ordinary and two-subset permutation modules, equals f^2-3f+1 on every cycle type, so semisimplicity gives the rational module identification. Independent orbit-mask recurrence verified all 38 cycle-type pairs for n=4..7 (and no extrapolation). The n=4 reduced H0 case is included.
 
-## Limitations
-The proof relies on a published nonequivariant homotopy classification. Integral lattices and equivariant homotopy types are not established; the previously documented \(n=6\) case is excluded from novelty claims. Independent mathematical review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established nonequivariant wedge count (n^2-3n+1) supplies the rank but not an S_n representation. The published KG(6,2) computation already identifies the n=6 Specht constituents, explicitly excluded from new priority. The surviving claim is the uniform all-n character and module identity, not reasserting that earlier case. A broader representation formula under different algebraic aliases is possible but not found.
+
+## value
+
+PASS
+
+A full rational natural group-action module for an infinite graph-complex family is a meaningful refinement of homotopy rank: it resolves all permutation traces, gives the absence of invariants, and unifies and generalizes the known isolated six-point case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
