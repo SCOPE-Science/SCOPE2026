@@ -1,15 +1,21 @@
-# Scientific assessment: three-cut tetrahedral difference-body volumes
+# Independent mathematical audit
 
-## Correctness — PASS
-The three removed simplices are disjoint for total depth below one, yielding the exact volume. The coordinate facets alone contribute to the reflected mixed volume because all other relevant support values vanish. The reflection-symmetric cubic Minkowski identity gives the normalized difference-body formula. Strict pairwise averaging follows from an explicit rational derivative whose numerator has positive endpoint minima, and majorization generates the complete sharp interval. The exact-rational verifier independently recomputes both hull volumes for 112 rational configurations and checks 75 instances of the nonstandard derivative identity. The continuous theorem follows from the algebraic proof, not the finite sample.
+## correctness
 
-## Originality — PASS under inspected evidence
-The original 1957 difference-body inequality and the 2026 global Godbersen theorem cover only the universal upper bound. The 2020 anti-blocking-body projection decomposition implies a way to compute the exact ratio, but not the resulting strict Schur-concavity in the three truncation depths. A published one-vertex simplex-truncation formula already gives the sharp single-cut endpoint; its one-variable theorem cannot compare genuine multi-cut depth distributions. Full primary text was inspected for the 2020 anti-blocking paper, 2024 sum-of-anti-blocking paper, and 2026 Godbersen theorem; the published one-cut proof was read in full. The October 2026 higher-order paper was abstract-only, with residual unindexed-priority risk noted. No uniqueness claim beyond the proved depth-vector equality cases is made.
+PASS
 
-## Mathematical value — PASS
-This is a sharp complete distribution theorem for a natural three-parameter deformation of a simplex, a canonical equality family in the Rogers--Shephard/Godbersen inequalities. The law distinguishes equal cuts from concentrated cuts at fixed total barycentric depth and records both rigid extremizers. It is more than recomputation of the general bound or a one-vertex special case; it resolves the geometry of *how* the relative volume changes under independent vertex cuts. No general stability theorem is asserted.
+PASS. Disjoint removed corner tetrahedra yield vol(K)=(1−Q3)/6. On xi=0 facet, area=(1−Q2+ai²)/2 and h_{−K}(−ei)=1−ai; all facets with nonnegative normal have h_{−K}=0 since origin∈K. The surface-area mixed-volume formula gives V(K,K,−K)=[3−s−(2−s)Q2−Q3]/6 and symmetry yields R=20−6[s+(2−s)(Q2−Q3)/(1−Q3)]. Pairwise depth balancing at fixed v=x+y,z and product p=xy gives derivative of H=(Q2−Q3)/(1−Q3) equal −B(v,z)/(positive denominator squared), B=2−3v+v³+3vz²−2z³. Its min in z∈[0,1−v] is at endpoints; endpoint values (1−v)²(v+2)>0, 6v(1−v)²>0, so strict Schur concavity follows. Unique extremizers are (s,0,0) permutations and equal s/3 triple. Independent ConvexHull from all constraint-intersection vertices gives volume ratio matching rational formula for four distinct triples to <4×10⁻¹⁵, but finite samples do not prove majorization.
 
-## Limits
-The total cut depth must be below one. Fixed sum is not fixed lost volume. Human examination of all historical equivalents has not been completed, and the latest related higher-order article was not reviewed in full.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified best-of-knowledge, not certified historical priority. General anti-blocking volume identities (Artstein-Avidan et al., Manui et al.) calculate the difference body; universal Rogers–Shephard/Godbersen bounds cover R≤20 and a one-vertex published Resultary record covers (s,0,0). Higher-order Godbersen theorem handles universal inequalities. None of the examined statements orders all 3-cut fixed-depth configurations. Hence numerical formula may be methodological specialization, but strict fixed-depth Schur concavity and equality rigidity are not implications of those earlier theorems alone. Residual risk: A previously published multivertex anti-blocking projection formula could lead quickly to the exact ratio; only majorization is claimed as independent value.
+
+## value
+
+PASS
+
+PASS. How a fixed total amount of simplex corner truncation is DISTRIBUTED affects a natural affine-invariant Rogers–Shephard ratio; strict Schur ordering and rigid equal/unbalanced extremizers answer a meaningful multivariate geometric optimization. The raw anti-blocking volume formula and one-cut endpoint are acknowledged predecessors; the fixed-sum majorization is the surviving mathematical contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
