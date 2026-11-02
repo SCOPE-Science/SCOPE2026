@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The theorem quantifies length, diffusivity, finite Robin rates, periodic pulse times and a fixed positive reflecting gap. Normalizing to generator ∂xx on [0,1], the stationary boundary occupation law gives E[L_d]=d and E[L_d²]=2∫₀^d(d-s)H_s(0,0)ds≤3d^(3/2), using the explicit Neumann kernel. Cauchy–Schwarz yields p≥kd/(1+3k√d)≥(1/4)min(kd,√d); p≤kd and a reflection-principle hitting estimate yields p≤4min(kd,√d). Strictly positive, uniformly bounded Neumann heat kernels over every nonreactive gap compare each conditional pulse hazard to p with fixed two-sided multiplicative constants, establishing the complete infinite-product iff criterion. The half-line Robin transform gives √dF(k√d), and paths affected by the right endpoint require a Gaussian-cost round trip, bounding the difference uniformly in k. Nondimensionalization yields the physical units and the exponent comparison yields the power-law boundary. Replayed standard-library verify.py: 254 finite spectral, asymptotic, envelope and exponent check groups; numerical tests are only supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grebenkov and Ye (2026), §III.2–III.3: smooth power-law reactivities and adiabatic regimes; the paper also permits piecewise-constant protocols in §III.1.",
+        "Bressloff (2022), §§2–4: stochastic conformational switching of Robin boundary conditions, not deterministic pulse durations.",
+        "Guillaume (2024): accessible abstract about finite-time intermittent *perfectly absorbing* step barriers; full publisher content rate-limited."
+      ],
+      "reasoning": "A general theorem that bounds the reaction probability during an arbitrary pulse through a min(rate×duration, square-root duration) scale, plus a uniform-gap mixing argument, would dominate the claim, so that possibility was searched. The directly inspected motivating work allows piecewise switching but does not establish the all-sequence exposure criterion. Random-state gating and finite-time perfect barriers do not entail the precise infinite-horizon classification.",
+      "searches": [
+        "diffusion controlled surface reaction periodic intermittent time windows nonreaction probability diverging integrated surface reactivity",
+        "boundary local time pulsed killing time windows Brownian motion absorption survival sharp condition sum sqrt pulse width",
+        "intermittent reactive boundary temporal pulses survival sharp criterion collision local time",
+        "arxiv:2610.23017",
+        "arxiv:2205.13985",
+        "doi:10.3390/appliedmath4030058"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.23017 (full original article text)",
+      "arxiv:1909.07677 (full original article text)",
+      "arxiv:2205.13985 (full original article text)",
+      "doi:10.3390/appliedmath4030058 (abstract only)",
+      "2026/9/18/SCOPE-subcritical-perturbed-brownian-boundary-charge--b83c5c0d9612",
+      "2026/10/4/SCOPE-asymmetric-robin-interval-exact-zero-mode-resonance-and-cubic-se--919d57b9a89d",
+      "2026/10/4/SCOPE-a-pulse-survival-obstruction-refutes-the-published-permanence-th--e021cce6c3f7",
+      "Accessible current-week research claim ledger (125 prior claims; no claim-level pulse/Robin match)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grebenkov and Ye (2026), §III.2–III.3: \\(\\int\\kappa(t)dt<\\infty\\) suffices for nonzero nonreaction; their adiabatic long-time regimes are for smooth rates.",
+        "The new counterregime uses \\(d_n=n^{-4}/4\\), \\(k_n=n^6\\), so \\(\\sum k_nd_n=\\infty\\) yet \\(\\sum\\sqrt{d_n}<\\infty\\).",
+        "Another regime \\(d_n=n^{-2}/4\\), \\(k_n=n\\) has finite total open time but harmonic divergent exposure, forcing eventual reaction."
+      ],
+      "reasoning": "The earlier finite-integral sufficiency is a strictly one-direction implication and does not settle nonreaction when integrated reactivity diverges. The explicit pulsed examples give logically different outcomes under hypotheses not covered by the smooth adiabatic regime. The older local-time and stochastic switching works provide tools but no dominating exact infinite-pulse implication.",
+      "searches": [
+        "sharp survival criterion pulsed time-dependent Robin reactivity short windows Brownian reflecting interval sum min(kappa delta, sqrt delta)",
+        "diffusion controlled surface reaction periodic intermittent time windows nonreaction probability diverging integrated surface reactivity",
+        "boundary local time pulsed killing time windows Brownian motion absorption survival sharp condition sum sqrt pulse width",
+        "arxiv:2610.23017",
+        "arxiv:1909.07677",
+        "arxiv:2205.13985"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grebenkov and Ye (2026), §III.4: weighted boundary-local-time hazard is equivalent to the time-dependent Robin boundary condition.",
+        "Grebenkov (2019), §II and Appendix B: local-time Laplace transforms and boundary-local-time moment analysis.",
+        "Closest static Robin spectral search hit 2026/10/4/SCOPE-asymmetric-robin-interval-exact-zero-mode-resonance-and-cubic-se--919d57b9a89d concerns the zero-mode secular multiplicity of a quantum interval, not time-dependent killing."
+      ],
+      "reasoning": "The same pulse theorem is equivalently a convergence criterion for independent-exponential killing by a deterministic time-weighted boundary-local-time additive functional. This equivalence was searched explicitly. The cited articles supply the representation and constant-rate kernels, not the necessity/sufficiency for shrinking pulse windows. Static Robin spectra cannot imply the time-window infinite-product statement without the extra mixing and pulse-exposure estimates.",
+      "searches": [
+        "sharp survival criterion pulsed time-dependent Robin reactivity short windows Brownian reflecting interval sum min(kappa delta, sqrt delta)",
+        "isolated Robin boundary pulses local time radiation killing spectral one-pulse F erfc crossover",
+        "diffusion with time-dependent partially absorbing Robin boundary reaction, local time, time-dependent reactivity threshold finite reaction probability, spectral expansion",
+        "arxiv:2610.23017",
+        "arxiv:1909.07677",
+        "arxiv:2205.13985"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Research result 2026/9/18/SCOPE-subcritical-perturbed-brownian-boundary-charge--b83c5c0d9612 concerns a moving reflected boundary and contact-set variation; no Robin killing.",
+        "Research result 2026/10/4/SCOPE-asymmetric-robin-interval-exact-zero-mode-resonance-and-cubic-se--919d57b9a89d concerns a *time-independent* spectral zero mode, not temporal absorption.",
+        "The locally accessible prior-claim ledger contained 125 recoverable finding claims; no overlap on Robin, boundary local-time reaction, or pulsed absorption was identified."
+      ],
+      "reasoning": "The result is an analytic infinite-family convergence classification rather than a finite tabulation. Searches for the formula, aliases, related Robin spectra and local-time boundary results did not locate an exact enumerated formula/table that logically covers the claim. Absence of a matching indexed item alone is not proof of novelty.",
+      "searches": [
+        "sharp survival criterion pulsed time-dependent Robin reactivity short windows Brownian reflecting interval sum min(kappa delta, sqrt delta)",
+        "isolated Robin boundary pulses local time radiation killing spectral one-pulse F erfc crossover",
+        "2026/10/4/SCOPE-asymmetric-robin-interval-exact-zero-mode-resonance-and-cubic-se--919d57b9a89d",
+        "2026/9/18/SCOPE-subcritical-perturbed-brownian-boundary-charge--b83c5c0d9612"
+      ]
+    },
+    "rationale": "The exact separated-pulse threshold and uniform crossover were compared at claim/implication level against the relevant primary full texts (Grebenkov–Ye, Grebenkov, Bressloff), an intermittent-barrier abstract, multiple targeted research-record queries and 125 recoverable prior claims. Earlier statements supply the Robin/local-time framework, one-direction finite-integral sufficient condition, smooth adiabatic regimes and stochastic gating; none of the inspected statements entails the width-capped infinite-pulse iff theorem. No definitive priority certification is claimed and a broader, unlocated potential/capacity result remains a concrete residual risk.",
+    "residual_risks": [
+      "The full article behind doi:10.3390/appliedmath4030058 was not accessible; abstract differences do not establish noncoverage.",
+      "A general theorem in the broad literature on time-dependent boundary potentials, parabolic capacity, or intermittently gated traps might imply the special-case criterion.",
+      "The review is a best-knowledge literature comparison; no independent publication-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the underlying time-dependent Robin formulation and piecewise-constant admissibility, but not the infinite-pulse width/reactivity exact series.",
+        "evidence": [
+          "§III.1 permits locally bounded piecewise-constant protocols.",
+          "§III.2–III.3 derives smooth-rate adiabatic regimes, including finite-integral reactivity survival.",
+          "§III.4 gives exact weighted boundary-local-time killing."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.23017",
+        "material_read": "Full accessible article text including sections I–V and appendices, with detailed examination of §§III.1–III.5 and conclusions.",
+        "method": "Read primary arXiv full text; compared assumptions, infinite-horizon claims, waveform classes, and implications.",
+        "title": "Diffusion-controlled reactions with time-dependent surface reactivity",
+        "trigger": "Same Robin model with time-dependent surface reactivity; nearest direct antecedent and source of the local-time construction."
+      },
+      {
+        "assessment": "Develops boundary-local-time spectral and moment tools without classifying infinitely many nonstationary finite-rate Robin pulses.",
+        "evidence": [
+          "§II presents partially reflected Brownian motion and its Dirichlet-to-Neumann representation.",
+          "Appendix B analyzes local-time variance."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1909.07677v2",
+        "material_read": "Full accessible arXiv HTML including general spectral results, short-time regimes and Appendix B on variance.",
+        "method": "Read primary text and compared constant-time local-time laws to deterministic separated pulse requirements.",
+        "title": "Probability distribution of the boundary local time of reflected Brownian motion in Euclidean domains",
+        "trigger": "Potential stronger generic local-time theorem with bounds that might imply pulse exposure."
+      },
+      {
+        "assessment": "Derives random-switching Robin propagators; no sharp deterministic infinite-pulse series classification.",
+        "evidence": [
+          "Abstract and main theory: two-state stochastic switching and paired boundary local times.",
+          "The half-line model alternates between reflecting and partially absorbing states."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.13985",
+        "material_read": "Full accessible arXiv primary article including two-state gating description, equations and half-line example.",
+        "method": "Read primary text and compared random conformational switching versus deterministic shrinking reactivity windows.",
+        "title": "Stochastically switching diffusion with partially reactive surfaces",
+        "trigger": "Plausible coverage of gated reactive boundaries and local-time accumulation."
+      },
+      {
+        "assessment": "No decisive coverage from accessible material; cannot assert the whole document lacks related results.",
+        "evidence": [
+          "Title/abstract explicitly concern drifted Brownian survival under an intermittent step barrier.",
+          "Full primary text inaccessible; residual risk retained."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/appliedmath4030058",
+        "material_read": "Accessible abstract and bibliographic description only; full publisher text not accessible due to request limit.",
+        "method": "Compared stated abstract scope (finite horizon, perfect barrier) to finite-rate Robin infinite-horizon criterion.",
+        "title": "Computation of the Survival Probability of Brownian Motion with Drift Subject to an Intermittent Step Barrier",
+        "trigger": "Potential intermittent-absorbing-barrier equivalent to the pulse limit."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "74e25b7b-3246-4f6f-8738-d6f6a573e869",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A bounded-domain reactant must return to a surface, but the duration and reaction intensity of each open window determine whether infinitely many opportunities guarantee capture. The series classifies *all* finite positive pulse strengths and shrinking widths with a uniformly mixing gap, not just a parameter slice, and gives distinct reaction-limited and diffusion-limited scaling. Explicit counterregimes show divergent integrated reactivity can coexist with permanent survival and finite total open time can still yield certain eventual absorption. This is a natural non-adiabatic boundary-reaction design question and exact infinite-horizon classification, not a routine fixed-rate spectral recomputation.",
+    "status": "PASS"
+  }
+}
