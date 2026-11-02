@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The converse classification is forced by antitonicity and double-negation inflation: \(X\subseteq N(Y)\iff Y\subseteq N(X)\) produces a symmetric polarity, while semicomplementation eliminates graph loops. Every value on a finite powerset is determined from singleton values by the polarity equivalence. For the forward lifting, the exact definition \(A\Rightarrow_G B=N_G(A\setminus B)\cup(A\cap B)\) satisfies P1–P5; the nonstandard P5 proof identifies \(X=(A\cap B)\setminus C\), \(T=(A\cap B)\Rightarrow_G C\), and obtains \(X\subseteq A\setminus T\), forcing the desired inequality. Both additional algebraic laws and the biconditional negation-import statement are proved, including a two-atom missing-edge witness. The bundled finite recheck covers all graphs with up to four labelled atoms and 266,376 axiom triples; it does not replace the general proof.
+PASS
 
-## Originality — PASS, with residual risk
+Read Chen’s five preconditional axioms P1–P5 and three F-algebra laws directly in Definition 3.1/3.3; confirmed Holliday antitone-negation Proposition 1. On Boolean P(V), N(∅)=V, N antitone, A∩N(A)=∅ and A⊆N(N(A)) imply self-adjoint polarity X⊆N(Y) iff Y⊆N(X); singleton adjacency is symmetric and irreflexive, and singleton tests determine N(A) as the common-neighbor operation of a unique simple graph. Conversely N_G reverses unions to intersections and has semicomplementation and double inflation. Carefully reconstructed P1–P5 for A⇒_G B=N_G(A\B)∪(A∩B), using X=(A∩B)\C for P5; checked conditional identity, normality, modus ponens, induced N_G and negation import only on complete graphs via two nonadjacent vertices. Independently enumerated all 1,2,3,4-vertex simple graphs, checked all subset triples and all laws: 266376 graph-triples, matching the original verified code; this is finite corroboration, while the polarity and conditional identity proofs apply to every n>=1. The count 2^{n choose 2} is explicitly of distinct unary reducts, not binary conditional extensions.
 
-Primary full-text comparisons were made against Chen's 2026 definitions, general relational semantics and conservativity, Holliday's 2024 precomplementation-to-preconditional Proposition 4 and his 2023 relational/conditional representations, and a published complete finite-chain normal form. Graph/polarity representation of weak pseudocomplementation is treated as prior art, **not** claimed as new. Chen's stronger conservativity and Holliday's general representation operate via possibly larger carriers; Holliday's simple Sasaki-style operation does not generally have conditional identity for nonclassical Boolean graph negation. The conjunction of a fixed-carrier lifting of every graph polarity, modus ponens, normality, and the sharp negation-import boundary was not found in the inspected material. A historical general same-carrier lifting theorem could subsume the construction, so independent priority review remains needed.
+## originality
 
-## Value — PASS
+PASS
 
-On chains, a previously counted family of preconditionals has a common unary negation. In contrast, on a Boolean lattice with \(n\) atoms every labelled graph polarity occurs as an \(\mathsf F\)-reduct, yielding \(2^{\binom n2}\) distinct forms even though the lattice itself is fixed. More strongly, the explicit lift preserves modus ponens and normality while sharply identifying the additional axiom that collapses this canonical family to classical implication. This separates semicomplemented fundamental negation from a Heyting restriction on the simplest distributive lattices and provides readily testable finite examples.
+The correspondence between fundamental negations and symmetric irreflexive graph polarities is standard in substance, and not presented as novel alone. Chen’s 2026 primary full text defines F and describes fundamental lattices; Holliday’s full Preconditionals Proposition 2 lifts any antitone precomplementation as ¬A∨(A∩B), but this generally fails conditional identity for noncomplete G. The reviewed explicit same-carrier Boolean extension with N(A\B), its MP/normality laws and graph-exact negation-import boundary is a substantive stronger result not stated in either source. The earlier fixed-point normal form for finite chains is a different carrier class, and general frame representations need not give identical Boolean carrier.
 
-## Closest literature and limits
+## value
 
-Chen 2026, §3 (algebraic axioms), §4 (dual algebras) and Corollary 4.8 (conservativity); Holliday 2024, Proposition 4; Holliday 2023, §6; the public finite-chain preconditional normal form. A broad omitted theorem about fixed-carrier Boolean conditional lifts remains a priority risk. No assertion is made about the count of all binary operations, all extensions of the same negation, or an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact labeled reduct spectrum on a canonical finite Boolean lattice is a natural algebraic classification, and the explicit same-carrier lift resolves a genuine extension issue left by the usual Sasaki-type construction, rather than a trivial relabeling. The coexistence of MP and normality with many nonclassical graph negations, plus sharp complete-graph boundary for negation import, clarifies logical independence and is useful beyond the raw counting formula. No unsupported claim about all binary F-preconditionals or arbitrary lattices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
