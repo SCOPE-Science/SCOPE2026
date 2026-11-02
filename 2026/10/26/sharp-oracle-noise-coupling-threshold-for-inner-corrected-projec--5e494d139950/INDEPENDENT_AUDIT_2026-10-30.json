@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:59:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Checked published IPFE tableau Eq114 against all four source-defined k0..k3 stages. Substitution on ah=1 gives v=lambda(1-lambda)x+h[lambda²eta0+(1-lambda)eta1]; k3-k2=lambda a v-(1+lambda)eta2+eta3, so x_next=Gx+sum c_i eta_i with c=(hLlambda²,hL(1-lambda),-hxi(1+lambda)/(2lambda),hxi/(2lambda)). Squaring under stipulated moment/covariance and independence across outer steps proves Q and the geometric-variance recurrence for every n. The nonnegative deficit term scales (1-rho)/lambda² with coefficient approaching h²sigma²/2; remaining Q0→5h²sigma²/2, so the biconditional and both limits follow without cancellation. G<3/8. Independent exact rational stage arithmetic and all five correlations verified in >1000 combinations, but the threshold follows analytically for arbitrary lambda.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General variance reduction with past-simulation control variates (Papavasiliou/Kevrekidis abstract) and stochastic projective diffusion coarse observables (Xiu/Kevrekidis) differ from the specific final-pair additive noise covariance of Eq114."
+        ],
+        "reasoning": "A general correlated finite-difference variance bound could imply scaling after inserting known tableau coefficients; searched likely aliases. Full 2007 SIAM article unavailable, so no claim of whole-paper noncoverage, with explicit priority risk.",
+        "searches": [
+          "Resultary semantic search: inner derivative corrected projective forward Euler four stage stochastic oracle noise variance coupling covariance",
+          "primary: https://arxiv.org/html/2210.08302v2",
+          "primary: https://arxiv.org/abs/math/0504273",
+          "primary: https://doi.org/10.1137/060650635"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2210.08302v2",
+        "https://arxiv.org/abs/math/0504273",
+        "https://doi.org/10.1137/060650635",
+        "Resultary semantic search: inner derivative corrected projective forward Euler four stage stochastic oracle noise variance coupling covariance",
+        "Resultary: 2026/10/4/SCOPE-exact-persistent-noise-separation-between-stochastic-ohm-and-dua--31e39c4cd36d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original paper Sec 5.2 Eq114, Sec 6.2 stability analyze deterministic fast-mode amplification and order, not independence-across-steps noisy stages. 2007 variance-reduction abstract is conceptual but lacks accessible full text."
+        ],
+        "reasoning": "Old deterministic tableau plus classical variance identities permit a new calculation, but no inspected primary statement proves the infinite-horizon iff coupling threshold or independent-batch Ω(lambda^-2) law for this IPFE model. The inaccessible primary remains a named historical risk.",
+        "searches": [
+          "Resultary semantic search: inner derivative corrected projective forward Euler four stage stochastic oracle noise variance coupling covariance",
+          "primary: https://arxiv.org/html/2210.08302v2",
+          "primary: https://doi.org/10.1137/060650635"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Koellermeier-Samaey Sec 5.2 Eq114 defines deterministic IPFE, with two additional function evaluations and coefficients ±xi/(2lambda). Standard correlated-difference variance and AR(1) stationary variance identities are classical."
+        ],
+        "reasoning": "Compared stochastic RK amplification, variance reduction by common random numbers, correlated finite differences and sample batching. The individual identities are standard, but the explicit IPFE four-stage scalar formula and necessary-sufficient lambda² coupling condition are not present in the read original method paper.",
+        "searches": [
+          "Resultary semantic search: inner derivative corrected projective forward Euler four stage stochastic oracle noise variance coupling covariance",
+          "primary: https://arxiv.org/html/2210.08302v2",
+          "primary: https://doi.org/10.1137/060650635"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "IPFE Butcher tableau Eq114 is an exact known coefficient table; it does not tabulate the stochastic covariance Q, stationary variance, or sharp correlation-rate threshold."
+        ],
+        "reasoning": "Tableau coefficients are prior input, not novel. No discrete sequence/database classification is relevant to the continuous lambda-rho asymptotic law.",
+        "searches": [
+          "Resultary semantic search: inner derivative corrected projective forward Euler four stage stochastic oracle noise variance coupling covariance",
+          "primary: https://arxiv.org/html/2210.08302v2"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge statement-based originality after checking primary comparison and relevant published Resultary records; no uninspected full text asserted not covering. Old deterministic tableau plus classical variance identities permit a new calculation, but no inspected primary statement proves the infinite-horizon iff coupling threshold or independent-batch Ω(lambda^-2) law for this IPFE model. The inaccessible primary remains a named historical risk.",
+      "residual_risks": [
+        "2007 Papavasiliou–Kevrekidis full primary article inaccessible via arXiv/OA and institutional retrieval reported vpn_disconnected; only abstract read; it may contain a dominating variance coupling calculation.",
+        "Model assumes implementable perfectly identical additive oracle errors at two distinct stage states, which may be unrealistic for arbitrary stochastic simulators.",
+        "Results do not extend automatically to nonlinear or multidimensional equations, state-dependent noise, or physical white-noise SDEs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines prior 4-stage method, not the current additive-noise variance law",
+          "evidence": "Eq(114): two final weights -xi/(2lambda), +xi/(2lambda)",
+          "identifier_or_url": "https://arxiv.org/html/2210.08302v2",
+          "material_read": "Full HTML Sec2.2 PFE, Sec5.2 Eq(112)-(115) IPFE coefficient tableau (114), Sec6.2 deterministic stability",
+          "method": "Read original arXiv HTML primary; targeted sections and derived tableau coefficients",
+          "title": "Projective Integration Methods in the Runge-Kutta Framework and the Extension to Adaptivity in Time",
+          "trigger": "Published exact IPFE tableau, same K=1 stages"
+        },
+        {
+          "assessment": "Different coarse random diffusion setting; abstract alone cannot certify whole-document noncoverage",
+          "evidence": "Abstract: projective integration of random-diffusion coarse observables",
+          "identifier_or_url": "https://arxiv.org/abs/math/0504273",
+          "material_read": "Accessible abstract and projective coarse-observable summary; complete proof text not inspected",
+          "method": "arXiv abstract",
+          "title": "Equation-free, multiscale computation for unsteady random diffusion",
+          "trigger": "Potential earlier stochastic projective variance implications"
+        },
+        {
+          "assessment": "Abstract describes multiscale simulation with control variates but cannot justify whole-document not-covering; unresolved full-text comparison recorded as residual risk",
+          "evidence": "SIAM abstract, 2007; full text not obtained",
+          "identifier_or_url": "https://doi.org/10.1137/060650635",
+          "material_read": "Original publisher abstract, title, date, subject and control variates; full text inaccessible following arXiv/OA attempts; authorized institutional access returned vpn_disconnected",
+          "method": "SIAM abstract and authorized institutional retrieval attempt",
+          "title": "Variance Reduction for the Equation-Free Simulation of Multiscale Stochastic Systems",
+          "trigger": "Strong earlier variance-reduction priority candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Deterministic RK stability of a new derivative-corrected projective method does not guarantee bounded stochastic-oracle errors. The theorem identifies an exact coupling rate, leading constants, and independent-sampling batch complexity for the simplest meaningful stiff scalar fast mode, enabling implementers to distinguish a stable integrator from a noise-unstable corrected integrator. The covariance calculation is elementary but the derived sharp performance boundary is model-motivated, not an arbitrary normalization check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2210.08302v2",
+    "https://arxiv.org/abs/math/0504273",
+    "https://doi.org/10.1137/060650635",
+    "Resultary semantic search: inner derivative corrected projective forward Euler four stage stochastic oracle noise variance coupling covariance",
+    "Resultary: 2026/10/4/SCOPE-exact-persistent-noise-separation-between-stochastic-ohm-and-dua--31e39c4cd36d"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the published K=1 four-stage IPFE tableau on x’=-ax with macrostep ah=1, microstep lambda in (0,1/2), two independent first noises and final pair of variance sigma^2 and correlation rho, the exact stationary mean square equals Q/(1-G^2), G=lambda(1-lambda)(1+xi/2), Q as in source, and stays bounded as lambda↓0 iff 1-rho_lambda=O(lambda²). Independent final noise grows as h² sigma²/(2lambda²); common final noise gives 5h²sigma²/2, and independent batch averaging needs B_lambda=Omega(lambda^-2).",
+  "limitations": [
+    "Assumes independent entire outer-step noise vectors, finite second moments, positive fixed sigma and macrostep ah=1.",
+    "No Gaussianity needed; all assertions are for stipulated additive-noise oracle rather than physical stochastic calculus."
+  ],
+  "residual_risks": [
+    "2007 Papavasiliou–Kevrekidis full primary article inaccessible via arXiv/OA and institutional retrieval reported vpn_disconnected; only abstract read; it may contain a dominating variance coupling calculation.",
+    "Model assumes implementable perfectly identical additive oracle errors at two distinct stage states, which may be unrealistic for arbitrary stochastic simulators.",
+    "Results do not extend automatically to nonlinear or multidimensional equations, state-dependent noise, or physical white-noise SDEs."
+  ],
+  "schema_version": 1
+}
