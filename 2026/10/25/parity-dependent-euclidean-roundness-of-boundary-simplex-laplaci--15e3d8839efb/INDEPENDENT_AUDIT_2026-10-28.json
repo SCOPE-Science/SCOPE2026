@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:47:01Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md blob f2f00ecaa8b76b77d3d8ad202cb198df9e2bc044 original-column metric proof; inspected actual check_metric.py source.",
+        "Independent NumPy/SciPy reconstruction of the exact column realization, convex-hull facet support planes, and unconstrained-centre inscribed-ball linear program matches formulas for n=3..11 (nine cases); all enclosing contact counts and support distances pass. The symbolic polar/barycentric derivation proves arbitrary n."
+      ],
+      "rationale": "The top boundary-incidence Gram matrix has the exact oriented form L=nI−ss^T. For even n, the affinely centred columns split as the orthogonal free sum of two regular (m−1)-simplices: the product of their polars gives r=n/sqrt(2m(m−1)), while vertex barycenter averaging gives unique enclosing radius sqrt(n(n−2)). For odd n, the simplex barycentric functionals λ_i(x)=x_i/n+s_i(1−1·x/n) have two intrinsic facet gradient norms sqrt(n−1)/n and sqrt(n+3)/n; the sum of normalized slacks yields the unique optimal incenter and r, and the p-positive-vertex barycenter gives the uniquely minimal enclosing ball and strict q-negative-vertex deficit. All centres lie in the affine hull. Both parity asymptotics and almost-equal edge-length contrast follow from exact formulas.",
+      "risks": [
+        "Formulas depend on the precise canonical Euclidean realization: unimodular or columnwise sign transformations do not preserve all pairwise metric quantities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The most relevant general graph-Laplacian radius result fixes spectra of graph polytopes, while the audited result is for the highest simplicial down-Laplacian in original coordinates.",
+          "The original Juhnke-Kubitzke–Köhne paper covers general simplicial complexes but gives no arbitrary Euclidean radius theorem entailing the formulas."
+        ],
+        "reasoning": "General combinatorial/lattice equivalence does not imply metric radius: neither a unimodular projection nor column sign flips preserve Euclidean distances between the polytope vertices.",
+        "searches": [
+          "arXiv:2301.11602 boundary simplex highest-dimensional Laplacian polytope sections 3–7",
+          "Resultary: canonical top dimensional simplicial complex Laplacian boundary simplex polytope inradius circumradius parity",
+          "Web: Laplacian polytope metric radii simplex boundary; Braun Meyer Laplacian Simplices 2017",
+          "Resultary 841b23980b76 summary"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2301.11602",
+        "https://arxiv.org/abs/1706.07085",
+        "Resultary 841b23980b76"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Juhnke-Kubitzke–Köhne provide the matrix and facets; straightforward general Euclidean convex optimization could in principle derive numbers, but does not state these all-n optimal centres.",
+          "Odd and even boundary-simplex embeddings are not congruent to ordinary graph Laplacian simplices."
+        ],
+        "reasoning": "The new result is calculationally accessible from earlier data but not a textbook tautology; the global all-facet/vertex extremal proof, contact geometry and near-equilateral parity contrast supply non-implied structure.",
+        "searches": [
+          "arXiv:2301.11602 boundary simplex highest-dimensional Laplacian polytope sections 3–7",
+          "Resultary: canonical top dimensional simplicial complex Laplacian boundary simplex polytope inradius circumradius parity",
+          "Web: Laplacian polytope metric radii simplex boundary; Braun Meyer Laplacian Simplices 2017",
+          "arXiv:1706.07085 graph Laplacian simplices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical matrix nI−ss^T was known in arXiv:2301.11602, but the source studies combinatorial and lattice-equivalence properties.",
+          "Graph Laplacian simplex radii arise from different column sets even though the matrices are related by diagonal sign conjugation."
+        ],
+        "reasoning": "L=D(nI−11^T)D is orthogonally similar to a complete-graph Laplacian, but the right D separately negates selected columns, not an ambient isometry of their convex hull. Therefore complete-graph regular-simplex metric formulas do not transfer; even dimension differs.",
+        "searches": [
+          "arXiv:2301.11602 boundary simplex highest-dimensional Laplacian polytope sections 3–7",
+          "Resultary: canonical top dimensional simplicial complex Laplacian boundary simplex polytope inradius circumradius parity",
+          "Web: Laplacian polytope metric radii simplex boundary; Braun Meyer Laplacian Simplices 2017"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Checked exact even r=sqrt(2n/(n−2)), odd r=n/[p sqrt(n−1)+q sqrt(n+3)], and distinct p-contact enclosing sphere against the full relevant original treatment.",
+          "No exact published table of these canonical Euclidean radii in the inspected sources."
+        ],
+        "reasoning": "Earlier parity combinatorial type is not already a metric table. The new formulas require optimizing intrinsic Euclidean supporting hyperplanes.",
+        "searches": [
+          "arXiv:2301.11602 boundary simplex highest-dimensional Laplacian polytope sections 3–7",
+          "Resultary: canonical top dimensional simplicial complex Laplacian boundary simplex polytope inradius circumradius parity",
+          "Web: Laplacian polytope metric radii simplex boundary; Braun Meyer Laplacian Simplices 2017",
+          "arXiv:2301.11602 facets and volumes",
+          "Resultary inradius metric queries"
+        ]
+      },
+      "rationale": "Best-of-knowledge original metric parity classification of the canonical boundary-simplex top-Laplacian polytope; its combinatorial and lattice structure is prior art and explicitly credited.",
+      "residual_risks": [
+        "The signed matrix is prior work; independent computation from it by another author may predate this exact Euclidean formula.",
+        "Metric conclusions are not invariant under general lattice-equivalence; any novelty claim must specify original-column Euclidean embedding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "Provides L=nI−ss^T and parity-dependent combinatorial type/volume but not intrinsic original-column Euclidean inradius, unique centres, minimum enclosing radius, and contact counts."
+          ],
+          "identifier_or_url": "arXiv:2301.11602; https://arxiv.org/abs/2301.11602",
+          "material_read": "Original 23-page preprint: abstract, signed top-Laplacian construction, combinatorial type theorem, face/facet and lattice-volume sections 3–7; PDF pages 1 and 10 visually inspected; inradius/circumradius terms searched",
+          "method": "Full-text PDF section inspection and screenshots, no reinterpretation as mere title search",
+          "title": "Laplacian polytopes of simplicial complexes",
+          "trigger": "Same exact top boundary-simplex Laplacian polytope and possible metric domination"
+        },
+        {
+          "assessment": "NOT_APPLICABLE",
+          "evidence": [
+            "Graph Laplacians have 1 in the kernel; here top L has sign vector s in the kernel, and right sign conjugation changes the vertex set. Even n has polytope dimension n−2 and free-sum type rather than graph-Laplacian regular simplex."
+          ],
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-vertex-transitive-laplacian-simplices-have-spectral-inradii-and--841b23980b76",
+          "material_read": "Published structured result summary for canonical graph-Laplacian simplices of connected vertex-transitive graphs",
+          "method": "Resultary summary comparison; no claim of reading full text",
+          "title": "Vertex-transitive Laplacian simplices have spectral inradii and degree-controlled circumradii",
+          "trigger": "Superficially stronger prior radius formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "A complete formula for all dimensions, unique centers and facet/vertex contacts, and a quantitative parity-separated asymptotic phenomenon."
+      ],
+      "rationale": "The original-column Euclidean inradius and minimum enclosing radius are canonical shape-quality invariants of a widely studied simplicial Laplacian polytope. The sharp order-parity gap r_even→sqrt2 versus sqrt(n)r_odd→1, despite edge lengths becoming almost equal, reveals a nontrivial high-dimensional geometric instability with exact contact sets; this is not a mere normalization check.",
+      "risks": [
+        "No assertion about other simplicial complexes or arbitrary coordinate-equivalent embeddings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 7e2d58c4aeaf4c723729105950cb5e0622adcb55",
+    "RESULT.md/f2f00ecaa8b76b77d3d8ad202cb198df9e2bc044",
+    "AUDIT.json/6b84f8ebeb729ba0530ddbc995157d9a5434b563",
+    "METADATA.json/caf2940cb90b1dbfb477aec52ff7604464e08e21",
+    "https://arxiv.org/abs/2301.11602",
+    "https://arxiv.org/abs/1706.07085",
+    "Resultary 841b23980b76"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Canonical top boundary-simplex down-Laplacian and original Euclidean metric only."
+  ],
+  "residual_risks": [
+    "The signed matrix is prior work; independent computation from it by another author may predate this exact Euclidean formula.",
+    "Metric conclusions are not invariant under general lattice-equivalence; any novelty claim must specify original-column Euclidean embedding.",
+    "Formulas depend on the precise canonical Euclidean realization: unimodular or columnwise sign transformations do not preserve all pairwise metric quantities."
+  ],
+  "schema_version": 1
+}
