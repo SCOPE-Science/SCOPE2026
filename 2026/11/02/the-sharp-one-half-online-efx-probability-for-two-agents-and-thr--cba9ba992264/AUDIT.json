@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For 2+1 bundles EFX is equivalent to the singleton owner receiving a maximum-valued good. The algorithm is a valid causal decision tree: first recipient fair coin; second decision based on revealed comparison; third determines feasible EFX completion. Case analysis for opposite first-two preferences and both possible same-preference orientations yields ≥1/2 for every real nonnegative additive valuation, including ties via canonical ranking. Two fixed positive identical-valuation inputs with equal first-two goods force disjoint split/pair events at time two, proving all algorithms have some input with success ≤1/2. Packaged verifier directly rechecks 15,625 profiles and both witness events. No finite experiment substitutes for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.28333v1 Theorem 5.4 is broad in n but its lower bound is 2/((n+1)n!), less than 1/2 at n=2",
+        "arXiv:2410.08986 abstract describes an ex-post EFX lottery computed with complete-instance transformations and reallocation"
+      ],
+      "reasoning": "The general upper bound is consistent with equality but supplies no matching lower bound at two agents. A general offline ex-post lottery does not dominate a theorem about making irrevocable decisions without access to future valuations; information constraints differ.",
+      "searches": [
+        "Online Fair Division Against an Oblivious Adversary Cohen Teh Wooldridge",
+        "online randomized fair division EFX n+1 goods n factorial lower bound",
+        "Best-of-Both-Worlds Fairness of the Envy-Cycle-Elimination Algorithm"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.28333v1, §5.3 and full theorem proof",
+      "arXiv:2504.03951v1, Proposition 3.6 full proof",
+      "arXiv:2410.08986, abstract only",
+      "MSC2020 listing: 91B32 Resource and cost allocation including fair division"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5.4 states n general lower bound 2/((n+1)n!), giving 1/3 at n=2, and upper bound 1/n!, giving 1/2",
+        "Proposition 3.6 supplies n offline solutions, giving 2 at n=2, but no online adaptive success guarantee"
+      ],
+      "reasoning": "Prior lower ≤1/3 cannot imply the universal ≥1/2 guarantee by specialization. The present construction is a new online strategy with a separate proof. The prior upper implies ≤1/2, and the independent indistinguishable-prefix upper proof agrees with it. An exact 1/2 distribution would imply the new statement, but was not found in inspected sections or targeted records.",
+      "searches": [
+        "arXiv:2609.28333 Theorem 5.4 two agents lower bound 2/((n+1)n!)",
+        "arXiv:2504.03951 Proposition 3.6 n+1 EFX allocations online",
+        "two agents three goods randomized irrevocable EFX 1/2 optimal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.28333v1 Section 5.3 gives the bounds but does not identify equality at n=2",
+        "arXiv:2504.03951v1 Proposition 3.6 addresses the offline cardinality of EFX solutions"
+      ],
+      "reasoning": "Taking n=2 in Theorem 5.4 produces [1/3,1/2], a proper interval. Offline complete-information lotteries and EFX counts cannot be transferred to adaptive irrevocable allocation without proving an online implementability condition. The new two-coin policy closes this interval, not merely renaming a known offline distribution.",
+      "searches": [
+        "online EFX two agents three indivisible goods exact minimax success probability one half randomised irrevocable allocation oblivious adversary",
+        "two agents three goods online EFX probability 1/2",
+        "online EFX 3 goods 2 agents probability optimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic mathematical-record searches returned nearby but different stochastic-assignment and fair-division results; none stated the n=2, m=3 online EFX minimax value",
+        "arXiv:2504.03951v1 table and Proposition 3.6 enumerate EFX allocations, not online worst-case success probabilities"
+      ],
+      "reasoning": "A census of ex-post EFX allocations does not specify which terminal EFX assignments can be realized after the early irrevocable allocations. The calculation in the current verification script is new validation, not an external preexisting table. Negative search results are treated only as risk-reduction.",
+      "searches": [
+        "exact finite probability optimal online envy-freeness up to any good EFX random allocations n+1 items adversarial order",
+        "randomized online fair division exact EFX successful probability three goods",
+        "two-agent three-item online EFX probability 1/2 lower bound best possible optimal adaptive randomized"
+      ]
+    },
+    "rationale": "The inspected motivating paper (Cohen–Teh–Wooldridge, arXiv:2609.28333v1, Theorem 5.4) proves upper 1/n! and a lower 2/((n+1)n!), leaving 1/3 versus 1/2 for n=2. Its own online lower bound uses a profile-independent preselected recipient assignment. The present valuation-adaptive second decision attains 1/2. Neoh–Teh Proposition 3.6 concerns offline EFX-allocation counting, not online success. Matching full-strength online probability was not identified in targeted record and literature searches. Search nonmatches do not establish uniqueness.",
+    "residual_risks": [
+      "An earlier or contemporaneous differently indexed result could explicitly derive the two-agent three-good 1/2 online policy.",
+      "The full body of arXiv:2410.08986 was not inspected; the compared algorithm model differs, but whole-text absence cannot be certified.",
+      "Novelty searches are not exhaustive across all archival or unpublished mathematical sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Upper at n=2 matches; universal construction gives only 1/3 and the inspected argument does not provide an adaptive 1/2 lower bound.",
+        "evidence": [
+          "arXiv:2609.28333v1, Theorem 5.4, Section 5.3, equations (17)-(19)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.28333",
+        "material_read": "Abstract, Introduction §§1.1-1.3, full §5.3 including Theorems 5.4 and 5.5 and both sides of Theorem 5.4 proof; nearby probability statement (19).",
+        "method": "Direct full-text arXiv article view with inspected contiguous proof and result text.",
+        "title": "Online Fair Division Against an Oblivious Adversary",
+        "trigger": "The source formulates the same irrevocable online EFX success-probability question with n+1 goods."
+      },
+      {
+        "assessment": "Offline count and precomputed serial choices; no online irrevocable probability theorem in the inspected relevant section.",
+        "evidence": [
+          "arXiv:2504.03951v1, Proposition 3.6, PDF page 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2504.03951",
+        "material_read": "PDF pp. 1-4 including Section 3 and full proof of Proposition 3.6, and the immediately adjacent counting results; verified against rendered page 4.",
+        "method": "Read parsed full-text PDF pages and inspected page image for the relevant result and proof.",
+        "title": "Understanding EFX Allocations: Counting and Variants",
+        "trigger": "The motivating paper explicitly relies on its Proposition 3.6 for the EFX-allocation-count lower bound."
+      },
+      {
+        "assessment": "Described algorithms sort/transform entire instances and/or allow envy-cycle bundle changes; this cannot establish the stated irrevocable online success probability. Whole-paper absence of related tricks is not asserted.",
+        "evidence": [
+          "arXiv:2410.08986, abstract; public indexed algorithm description"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.08986",
+        "material_read": "Verified public abstract and externally indexed algorithm description only; full primary proof not inspected.",
+        "method": "Bibliographic and public summary comparison, with incomplete full-text access.",
+        "title": "Best-of-Both-Worlds Fairness of the Envy-Cycle-Elimination Algorithm",
+        "trigger": "Ex-post EFX algorithm for two agents suggests a possible implication via randomization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cba9ba99-2264-4574-90bd-362c62a3ee29",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 motivating paper quantifies a gap between 1/3 and 1/2 already at the first nontrivial horizon of two agents and three goods; this exact tight randomized minimax probability closes the gap. The result separates adaptivity at the second arrival from advance lottery over entire recipient sequences and yields a transparent optimal online strategy. The information-limited 3-good model is natural, not an arbitrary parameter selection, because with ≤2 goods giving them to distinct agents guarantees EFX. Larger n and larger horizons remain open for this argument.",
+    "status": "PASS"
+  }
+}
