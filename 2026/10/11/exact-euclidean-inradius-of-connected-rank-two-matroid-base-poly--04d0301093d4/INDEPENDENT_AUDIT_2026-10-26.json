@@ -1,0 +1,205 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T09:45:57Z",
+  "axes": {
+    "correctness": {
+      "evidence": {
+        "analytic": [
+          "exact hypersimplex decomposition",
+          "Euclidean projection norms in H_0",
+          "interval feasibility criterion",
+          "attaining optimal center"
+        ],
+        "independent_numerical": {
+          "max_absolute_discrepancy": 2.220446049250313e-16,
+          "method": "Independent construction of every basis indicator, scipy.spatial.ConvexHull facet hyperplanes in orthonormal affine coordinates, scipy.optimize.linprog Chebyshev radius",
+          "n_range": [
+            3,
+            8
+          ],
+          "profiles_checked": 42,
+          "representative_cases": {
+            "h=(1,1,1)": "0.4082482904638631",
+            "h=(1,1,3)": "0.26463940966490257",
+            "h=(2,2,2)": "0.2886751345948129"
+          }
+        },
+        "limits": [
+          "Intrinsic Euclidean metric within full-dimensional affine H, not ambient R^n.",
+          "Connected loopless rank-two only (s>=3); excludes s=2 product of simplices and matroids with loops.",
+          "Numerical checks are finite regression evidence, not the proof."
+        ],
+        "tree_blob_guards_verified": {
+          "AUDIT.json": "f2ccdefb8a46930734babca9292502ded22a1491",
+          "METADATA.json": "6e86cafc797c70118234ea37dca59928ffdde5f4",
+          "RESULT.md": "3ce8b914f7b74947caa053e249074927cf8a78f4",
+          "REVIEW.md": "e49a84213fd32dea53fdf5770e0b4257c653ec0b",
+          "SLOGAN.txt": "278ad66f55a2129288c0f1de994eafef66d7c132",
+          "VERIFICATION.md": "a35c6fb33b94745a3f6ca2b0b16a8e9392a76637",
+          "verify.py": "24aa91ccf6679dc5d228b4795084e6de6cf3a127"
+        }
+      },
+      "rationale": "For connected rank-two M, there are s>=3 nonempty parallel classes; the base polytope in affine H(sum x_i=2) equals x_i>=0 and x(C_j)<=1. Its coordinates can be realized from hypersimplex class totals by conditional distributions within selected class pairs, including zero-mass classes. Projected normal lengths in H are A=sqrt((n-1)/n), B_j=sqrt(h_j(n-h_j)/n). Ball inclusion iff all c_i>=rA and class totals c(C_j)<=1-rB_j; r feasible iff intervals [h_j r A,1-r B_j] each nonempty and their lower/upper sums straddle 2. These are exactly three upper barriers: 2/(nA), (s-2)/sum(B), min_j 1/(h_j A+B_j). Allocating totals and uniform class coordinates constructs an attaining center. The same inequalities characterize all Chebyshev centers. Independent ConvexHull facet computation and LP for 42 distinct nondecreasing parallel-class partitions with n=3..8 matched formula to <=2.3e-16; examples with all 3 competing active regimes were exhibited. Finite checks support but do not prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferroni–Schröter (2024), §2.3, gives a general matroid base-polytope definition/rank inequality description, but no exact maximal Euclidean-ball classification.",
+          "Published 'Minkowski asymmetry and all centers of rank-two matroid base polytopes', RESULT.md, gives s(P)=max{max_j h_j,(n-2)/2,2/(s-2)} for a different affine invariant; it explicitly excludes Euclidean radius.",
+          "The general Chebyshev-center LP for halfspaces computes an instance but requires solving the weighted simultaneous-clearance optimization; no located broader theorem already evaluates the stated all-profile expression."
+        ],
+        "reasoning": "The known general polyhedral descriptions do not supply the evaluated Euclidean normals or the three distinct closed-form obstructions. The Minkowski asymmetric-reflection optimization uses different constraints and cannot yield metric Euclidean inradius by algebraic substitution.",
+        "searches": [
+          "Euclidean inball and Chebyshev center of edge polytopes complete multipartite graphs hypersimplex metric",
+          "inradius polytope defined by nonnegative coordinates partition class sum upper bounds hypersimplex matroid rank 2",
+          "matroid base polytope largest inscribed Euclidean ball inradius distance facet greedy",
+          "matroid base polytope Chebyshev center Euclidean facets",
+          "Ferroni–Schröter (2024) DOI:10.1112/jlms.12984 §2.3",
+          "Resultary: Minkowski asymmetry and all centers of rank-two matroid base polytopes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.08183 (full ar5iv HTML)",
+        "arXiv:2310.05487; DOI:10.1017/S0963548325000021 (full Cambridge HTML)",
+        "DOI:10.1112/jlms.12984 (§2.3 OA full HTML)",
+        "DOI:10.1215/ijm/1255984847 (abstract/bibliography only; full text blocked)",
+        "Published rank-two Minkowski asymmetry RESULT.md (full GitHub file)",
+        "Resultary published semantic-index searches on 2026-10-26 UTC three actual query strings recorded above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 of Ferroni–Jochemko–Schröter is an Ehrhart counting formula; it does not assert maximal contained Euclidean balls.",
+          "Corollary 2.12 of Ferroni–Schröter is an f-vector formula; Section 2.6 names Ohsugi–Hibi's earlier f-vector theorem.",
+          "Published Minkowski asymmetry result optimizes -(P-c)⊆s(P-c), with nonmetric constraints (s+1)c_e≥1, (s+1)c(C_j)≤s, whereas the current ball uses Euclidean A=sqrt((n-1)/n), B_j=sqrt(h_j(n-h_j)/n)."
+        ],
+        "reasoning": "None of the inspected stated results dominates the proposed exact Euclidean inradius. The new expression is deducible from known halfspaces by nontrivial but elementary weighted Chebyshev LP elimination; that is an argument for correctness, not preexisting result coverage. The exact special uniform cases may be classical and are not claimed separately.",
+        "searches": [
+          "arXiv:2106.08183 Theorem 1.1, §2.2",
+          "arXiv:2310.05487 Corollary 2.12 §2.6",
+          "DOI:10.1215/ijm/1255984847 Theorem 2.5 summary",
+          "published rank-two Minkowski asymmetry RESULT.md",
+          "inradius polytope defined by nonnegative coordinates partition class sum upper bounds hypersimplex matroid rank 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferroni–Jochemko–Schröter (2022), arXiv:2106.08183 §2.2, rank-two halfspace description under class sizes; full ar5iv text inspected.",
+          "Ferroni–Schröter (2025), arXiv:2310.05487 §2.6, explicitly identifies rank-two matroid base polytopes with complete multipartite edge polytopes.",
+          "The exact Euclidean inradius would be the Chebyshev radius for these identical polytopes in the sum-two hyperplane; the two inspected full articles compute different invariants."
+        ],
+        "reasoning": "The matroid and edge-polytope aliases identify the same 0–1 vertices without rescaling. Searches under both aliases and Chebyshev/insphere terms found the assigned finding itself but no independently prior exact radius or all-center formula.",
+        "searches": [
+          "intrinsic Euclidean inradius Chebyshev radius rank two matroid base polytopes parallel class sizes complete multipartite edge polytope",
+          "Euclidean inball and Chebyshev center of edge polytopes complete multipartite graphs hypersimplex metric",
+          "rank 2 matroid base polytope complete multipartite graph Euclidean inradius Chebyshev center",
+          "arXiv:2106.08183 §2.2",
+          "arXiv:2310.05487 §2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the indexed copy of the assigned claim; it was excluded as independent prior publication evidence.",
+          "Resultary also returned a distinct same-family Minkowski asymmetry classification and metric formulas for nonidentical symmetric edge polytopes, not this base-polytope inradius.",
+          "Ferroni–Schröter (2025) Cor. 2.12, Ohsugi–Hibi (2000) Theorem 2.5 as discussed there, and Ferroni–Jochemko–Schröter (2022) Thm.1.1 give f-vectors or Ehrhart polynomials; these are not a metric inradius table."
+        ],
+        "reasoning": "Exact combinatorial counting and lattice enumeration do not determine Euclidean distances to facet hyperplanes. A record in a search index repeating the very submission is not independent novelty evidence.",
+        "searches": [
+          "intrinsic Euclidean inradius Chebyshev radius rank two matroid base polytopes parallel class sizes complete multipartite edge polytope",
+          "Euclidean inball and Chebyshev center of edge polytopes complete multipartite graphs hypersimplex metric",
+          "inradius polytope defined by nonnegative coordinates partition class sum upper bounds hypersimplex matroid rank 2",
+          "\"rank two matroid\" \"inradius\" base polytope",
+          "\"complete multipartite\" \"inscribed ball\" \"edge polytope\"",
+          "DOI:10.1215/ijm/1255984847; Ohsugi–Hibi 2000"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact Euclidean metric classification of all connected loopless rank-two matroid base polytopes and all optimal centers. The same objects are complete multipartite edge polytopes; full-text primary 2022 and 2025 treatments compute Ehrhart and face data, not Euclidean inradius. A related published same-family result computes Minkowski asymmetry (affine reflection containment, no Euclidean normal lengths) and does not imply this formula. The 2000 Ohsugi–Hibi same-object historical paper is a named residual full-text risk, not proof of coverage or a reason for automatic scientific failure.",
+      "residual_risks": [
+        "Ohsugi–Hibi (2000) full primary text could not be inspected; publisher pages nontext and authorized Oxford access returned vpn_disconnected. A hidden metric aside cannot be ruled out.",
+        "The exact inradius of uniform hypersimplices can be classical; the all-profile three-obstruction formula is not credited as discovery of the LP/Chebyshev-center method itself.",
+        "Semantic and bibliographic search do not certify absolute priority; an unindexed equivalent generalized-permutahedron or matroid inball computation is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Describes the same objects and Ehrhart invariants, not an exact intrinsic Euclidean inradius theorem.",
+          "evidence": "Theorem 1.1 computes Ehrhart polynomial from hyperplane sizes; text has no occurrences of inradius, Euclidean or Chebyshev.",
+          "identifier_or_url": "arXiv:2106.08183; https://ar5iv.labs.arxiv.org/html/2106.08183",
+          "material_read": "Full accessible ar5iv HTML, including Introduction, Theorems 1.1–1.3, §2.2 matroid polytopes, and full-document searches for inradius, Euclidean, Chebyshev.",
+          "method": "Read and compare the main theorem and rank-two polytope description with the metric optimization.",
+          "title": "Ehrhart polynomials of rank two matroids",
+          "trigger": "Exact same connected rank-two matroid family and parallel-class size profile."
+        },
+        {
+          "assessment": "Full text computes face numbers, not metric inradius; explicit same-object equivalence.",
+          "evidence": "§2.6 describes cross-class bases and complete multipartite edge polytopes; Cor. 2.12 is an f-vector formula.",
+          "identifier_or_url": "arXiv:2310.05487; DOI:10.1017/S0963548325000021; https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/face-enumeration-for-split-matroid-polytopes/8AB800A4A0AAB1AEF4720C07899107AF",
+          "material_read": "Accessible full HTML, Introduction, Section 2.6 and Corollary 2.12, references, and document-wide inradius/Euclidean/metric searches.",
+          "method": "Compared exact invariant and the statements/implications of Theorem 2.5 and Corollary 2.12.",
+          "title": "Face enumeration for split matroid polytopes",
+          "trigger": "Full-text modern primary paper, Section 2.6, on same complete multipartite edge polytope alias."
+        },
+        {
+          "assessment": "Same class but affine Minkowski asymmetry; does not determine Euclidean inradius.",
+          "evidence": "Exact published asymmetry value max{max class size,(n-2)/2,2/(s-2)}; limitations explicitly exclude Euclidean radius.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-asymmetry-and-all-centers-of-rank-two-matroid-base-pol--a659b650d983",
+          "material_read": "Complete published RESULT.md fetched from repository, with statement, proof and limitations.",
+          "method": "Compared containment definitions, optimal-center constraints and metric normalizations.",
+          "title": "Minkowski asymmetry and all centers of rank-two matroid base polytopes",
+          "trigger": "Resultary same-object/same parallel-class parameter hit for exact centers."
+        },
+        {
+          "assessment": "Provides rank-inequality geometry and valuative results but not an exact Chebyshev-radius specialization.",
+          "evidence": "Definition 2.9 and Remark 2.10 concern base polytopes and inequalities; the main subject is valuations.",
+          "identifier_or_url": "DOI:10.1112/jlms.12984; https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12984",
+          "material_read": "Open-access article §2.3, Definitions 2.9, 2.13, examples on matroid hypersimplices and rank inequalities.",
+          "method": "Compared its general polyhedral/valuative scope with the proposed Euclidean ball optimization.",
+          "title": "Valuative invariants for large classes of matroids",
+          "trigger": "Plausible general matroid-polytope theorem or halfspace description that might imply a rank-two metric result."
+        },
+        {
+          "assessment": "Accessible descriptions announce algebraic initial ideals, f-vectors, Ehrhart and volume, but WHOLE-DOCUMENT noncoverage is NOT established; explicit priority risk remains.",
+          "evidence": "ResearchGate abstract lists compressedness, squarefree initial ideals, f-vectors, Ehrhart polynomials and normalized volumes; Ferroni–Schröter §2.6 identifies Ohsugi–Hibi Theorem 2.5 as an f-vector formula.",
+          "identifier_or_url": "DOI:10.1215/ijm/1255984847; https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-44/issue-2/Compressed-polytopes-initial-ideals-and-complete-multipartite-graphs/10.1215/ijm/1255984847.full",
+          "material_read": "Bibliographic metadata, published abstract (ResearchGate and MaRDI), and Ferroni–Schröter (2025) direct quotation of its Theorem 2.5 scope. Project Euclid full/PDF returned nontext placeholders. No full primary text obtained.",
+          "method": "Checked arXiv/preprint and lawful OA full/PDF routes first; then attempted authorized institutional access once; VPN disconnected, no bypass.",
+          "title": "Compressed polytopes, initial ideals and complete multipartite graphs",
+          "trigger": "Original 2000 primary source on exact same complete multipartite edge polytopes."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": {
+        "active_obstruction_witnesses": {
+          "aggregate_class": "(2,2,2)",
+          "coordinate": "(1,1,1,1,1)",
+          "single_class": "(1,1,3)"
+        },
+        "mathematical_motivation": "Complete class-size parametrization for a standard family and the canonical Euclidean inradius/center."
+      },
+      "rationale": "A natural geometric roundness invariant for all connected rank-two matroid base polytopes/complete multipartite edge polytopes. Exact class-size-dependent expression and all incenter vectors give quantitative metric information genuinely separate from known Ehrhart, face and Minkowski-asymmetry data. Each of the three obstructions can be uniquely active in natural examples (uniform U_{2,5}: coordinate; all classes (2,2,2): aggregate class cap; (1,1,3): single-class compatibility). This can be used directly for geometric scaling/conditioning comparisons of rank-two base polytopes; it is a complete class, not an arbitrary finite slice. Its proof is elementary interval LP once facets are known; value is a modest explicit structural classification, not a broad theorem or solution for higher-rank matroids.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2106.08183 (full ar5iv HTML)",
+    "arXiv:2310.05487; DOI:10.1017/S0963548325000021 (full Cambridge HTML)",
+    "DOI:10.1112/jlms.12984 (§2.3 OA full HTML)",
+    "DOI:10.1215/ijm/1255984847 (abstract/bibliography only; full text blocked)",
+    "Published rank-two Minkowski asymmetry RESULT.md (full GitHub file)",
+    "Resultary published semantic-index searches on 2026-10-26 UTC three actual query strings recorded above"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No results for disconnected rank-two matroids or higher-rank matroids.",
+    "The formula is for Euclidean metric induced by the sum-two affine hull.",
+    "No new general Chebyshev LP theorem, novel combinatorial polytope model or full historical priority certification is claimed.",
+    "The institutionally inaccessible 2000 same-object paper is a bibliographic limitation only; it is not counted as a science failure."
+  ],
+  "residual_risks": [
+    "Ohsugi–Hibi (2000) full primary text could not be inspected; publisher pages nontext and authorized Oxford access returned vpn_disconnected. A hidden metric aside cannot be ruled out.",
+    "The exact inradius of uniform hypersimplices can be classical; the all-profile three-obstruction formula is not credited as discovery of the LP/Chebyshev-center method itself.",
+    "Semantic and bibliographic search do not certify absolute priority; an unindexed equivalent generalized-permutahedron or matroid inball computation is possible."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a connected loopless rank-two matroid, the bases are exactly the cross-class pairs, giving the stated halfspace description. The proof computes the norms of the projected coordinate and class-indicator normals in the affine translation space and converts ball containment into linear clearance inequalities. The three displayed bounds are necessary by summation and within-class compatibility. They are sufficient because the class-total intervals are nonempty and their aggregate lower and upper endpoints straddle \(2\), after which equal distribution within each class yields a valid center. The finite checker independently re-solves this interval feasibility problem through \(n=24\).
+## correctness
 
-## Originality
-PASS with a documented residual access risk. The main same-object source identifies rank-two matroid base polytopes with complete multipartite edge polytopes and computes their face numbers, but its full accessible text has no occurrence of “inradius”, “Euclidean”, or “metric”. Exact searches under the aliases “rank-two matroid base polytope”, “complete multipartite edge polytope”, “inradius”, “Chebyshev center”, and “inscribed ball” did not locate a theorem implying the displayed formula. The older Ohsugi–Hibi source is the closest historical paper on the identical complete-multipartite edge-polytopes; its accessible abstract announces algebraic and enumerative invariants, not Euclidean roundness, but its full text was inaccessible in the source inspected.
+PASS
 
-## Value
-PASS. The finding gives a natural metric invariant for the full connected rank-two matroid family highlighted in the literature as a geometrically important class, and it identifies exactly which of three structurally different facet-clearance obstructions determines roundness. It is parameter-uniform, not a finite table or a single example, and the center description can support quantitative conditioning or geometric comparison of these polytopes.
+For connected rank-two M, there are s>=3 nonempty parallel classes; the base polytope in affine H(sum x_i=2) equals x_i>=0 and x(C_j)<=1. Its coordinates can be realized from hypersimplex class totals by conditional distributions within selected class pairs, including zero-mass classes. Projected normal lengths in H are A=sqrt((n-1)/n), B_j=sqrt(h_j(n-h_j)/n). Ball inclusion iff all c_i>=rA and class totals c(C_j)<=1-rB_j; r feasible iff intervals [h_j r A,1-r B_j] each nonempty and their lower/upper sums straddle 2. These are exactly three upper barriers: 2/(nA), (s-2)/sum(B), min_j 1/(h_j A+B_j). Allocating totals and uniform class coordinates constructs an attaining center. The same inequalities characterize all Chebyshev centers. Independent ConvexHull facet computation and LP for 42 distinct nondecreasing parallel-class partitions with n=3..8 matched formula to <=2.3e-16; examples with all 3 competing active regimes were exhibited. Finite checks support but do not prove all n.
 
-## Closest literature and limitations
-Ferroni–Schröter, arXiv:2310.05487 / DOI:10.1017/S0963548325000021, is the principal source defining and enumerating the same family. Ohsugi–Hibi, DOI:10.1215/ijm/1255984847, is earlier same-object literature whose accessible material covers compressedness, toric initial ideals, face numbers, Ehrhart polynomials, and normalized volume. The theorem is restricted to connected loopless rank-two matroids and intrinsic affine-hull inradius. The inaccessible full Ohsugi–Hibi text remains the main residual literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact Euclidean metric classification of all connected loopless rank-two matroid base polytopes and all optimal centers. The same objects are complete multipartite edge polytopes; full-text primary 2022 and 2025 treatments compute Ehrhart and face data, not Euclidean inradius. A related published same-family result computes Minkowski asymmetry (affine reflection containment, no Euclidean normal lengths) and does not imply this formula. The 2000 Ohsugi–Hibi same-object historical paper is a named residual full-text risk, not proof of coverage or a reason for automatic scientific failure.
+
+## value
+
+PASS
+
+A natural geometric roundness invariant for all connected rank-two matroid base polytopes/complete multipartite edge polytopes. Exact class-size-dependent expression and all incenter vectors give quantitative metric information genuinely separate from known Ehrhart, face and Minkowski-asymmetry data. Each of the three obstructions can be uniquely active in natural examples (uniform U_{2,5}: coordinate; all classes (2,2,2): aggregate class cap; (1,1,3): single-class compatibility). This can be used directly for geometric scaling/conditioning comparisons of rank-two base polytopes; it is a complete class, not an arbitrary finite slice. Its proof is elementary interval LP once facets are known; value is a modest explicit structural classification, not a broad theorem or solution for higher-rank matroids.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
