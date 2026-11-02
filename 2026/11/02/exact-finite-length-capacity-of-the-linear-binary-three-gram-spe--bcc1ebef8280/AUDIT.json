@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The inverse of the read profile is exactly an Euler trail on the order-two binary de Bruijn graph. Conservation expresses e,g,c in terms of b,d,f and endpoint divergence. Every admissible nonloop support is weakly connected because all nonloop cycles share vertices 01 and 10; detached 00/11 loops are excluded explicitly. The four orbit-class rational sums are exhaustive/disjoint, and their algebra yields the stated numerator. The pole analysis establishes exact least period twelve and the leading constant \\(13/288\\). Direct word/flow/Euler-witness verification from VERIFY.py agrees with the infinite proof through all tested cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kiah–Puleo–Milenkovic Theorem 3.3: the balanced-flow bounding sets are quasipolynomials of degree \\(|S|-|V|=4\\) and period dividing the cycle lcm; the realizable-profile count is bounded between them and no exact numerator is supplied.",
+        "2010 paper focuses one-step transitions among original alphabet symbols; 2021 manuscript studies multistrand high-rate constructions at logarithmic read lengths."
+      ],
+      "reasoning": "Knowing a degree, period divisor or asymptotic rate does not determine all finite coefficients, and a count of balanced cyclic flows cannot supply the twelve endpoint-divergent classes. These broader frameworks are credited, not relabeled as new.",
+      "searches": [
+        "arxiv:1502.00517 Theorem 3.3 Corollary 3.4 exact profile quasipolynomial",
+        "doi:10.46298/dmtcs.2768 first-order Markov type count",
+        "arxiv:2108.11725 asymptotic multi-strand reconstruction capacity",
+        "exact binary r=3 length limited substring composition reconstruction capacity classes"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2108.11725v1 (2021-08-26)",
+      "arxiv:1502.00517v1 (2015-02-02)",
+      "doi:10.46298/dmtcs.2768 (2010)",
+      "Exact cyclic binary ordered three-gram profile count (ID f0526690-baa6-45d4-a3c2-4888d23883a3)",
+      "Exact linear three-window composition histogram (ID 2d009d6c-e2ea-44b1-9d1a-d32b944caf05)",
+      "Exact cyclic three-window composition histogram (ID b58eb546-9973-46d0-8576-207482e7be9d)",
+      "Exact binary r=2 length-limited composition reconstruction",
+      "Exact binary two-multispectrum code size and singleton classification",
+      "Exact worst-case realizing length for ternary window-two DNA profile rankings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A cyclic profile has zero divergence and is linear-realizable after the first two bits are appended; its count is a proper subset of this problem.",
+        "The four composition coordinates are sums of the eight ordered coordinates by weight, so distinct ordered profiles can collapse to one observed composition histogram."
+      ],
+      "reasoning": "The linear observable strictly refines the known composition observable and strictly includes endpoint-imbalanced profiles excluded by the cyclic result. Neither prior count, alone or together, implies the numerator enumerating all ordered linear profiles. The balance decomposition establishes the missing contribution directly.",
+      "searches": [
+        "Exact cyclic ordered binary three-gram profile count (opaque ID f0526690-baa6-45d4-a3c2-4888d23883a3)",
+        "Exact linear three-window composition histogram count (opaque ID 2d009d6c-e2ea-44b1-9d1a-d32b944caf05)",
+        "Exact count of distinct binary linear 3-gram multiplicity vectors for all lengths, eight ordered triples, a rational generating function, order-two Markov types"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2015 Kiah–Puleo–Milenkovic defines complete ordered k-gram profiles; Theorem 3.3 proves degree and period bound, not this exact rational numerator.",
+        "2010 Jacquet–Knessl–Szpankowski develops order-one Markov counts, often cyclic balanced, not this precise order-two unrestricted linear count."
+      ],
+      "reasoning": "Ordered length-three linear profiles are precisely order-two empirical Markov transition counts on four overlapping two-symbol states. The primary works give general structural/asymptotic facts, but no inspected formula identical to or stronger than this all-length specific numerator and code capacity. Searched semantic aliases and sequence values; indexed retrieval is not exhaustive.",
+      "searches": [
+        "Exact count of distinct binary linear 3-gram multiplicity vectors for all lengths, eight ordered triples, a rational generating function, order-two Markov types",
+        "binary de Bruijn order two unrestricted linear 3-spectrum Euler trails sequence profile quasi polynomial",
+        "\"binary\" \"3-gram\" \"profile\" \"exact\" enumeration generating function",
+        "\"Markov types\" \"order two\" exact number binary words k gram profiles",
+        "Kiah-Puleo-Milenkovic arxiv:1502.00517 §3–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching indexed exact three-gram profile table emerged from the completed scholarly-database and literature searches.",
+        "The 2015 paper tabulates polytope asymptotic constants for other parameters; an exact complete binary unrestricted length-three linear A_n table was not found in inspected material."
+      ],
+      "reasoning": "An exact table covering every length or generating function would subsume the finding even if presented without the same terminology. The cited searches identified no such coverage; this is a bounded best-knowledge comparison, not proof of global novelty.",
+      "searches": [
+        "exact length n three-gram profile count all binary strings, endpoint imbalance counts 8,15,28,52,92,151",
+        "length-3 substring composition multiset binary linear words all possible profile histograms exact",
+        "\"8, 15, 28, 52, 92, 151\" sequence words three gram",
+        "arxiv:1502.00517 Table I Table II exact binary 3-gram profile counts"
+      ]
+    },
+    "rationale": "The inspected exact cyclic ordered-threegram count covers only balanced profiles, and the linear three-window Hamming-weight count is a coarser projected invariant. Kiah et al. provide a general quasipolynomial degree/period theorem but not this explicit all-length binary length-three formula; Jacquet et al. analyze first-order types; Yehezkeally et al. asymptotic multi-strand rates. Targeted literature and scientific-database comparisons yielded no stronger exact formula. Unindexed equivalent priority remains a stated risk.",
+    "residual_risks": [
+      "An unindexed exact enumeration of binary order-two linear Markov types could already imply the result.",
+      "Only inspected sections of full primary sources, not every appendix or every possible external paper, received direct material examination.",
+      "The known broad quasipolynomial framework overlaps the degree/period-bound portion; only the explicit exact generating function, coefficient law and endpoint classification are claimed as the new finding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.3 supplies quasipolynomial degree and period bound for bounding flow sets; inspected material does not give the explicit finite binary unrestricted length-three realizable-profile generating function.",
+        "evidence": "arxiv:1502.00517, Theorem 3.3, Corollary 3.4, Tables I–II",
+        "identifier_or_url": "https://arxiv.org/pdf/1502.00517",
+        "material_read": "Full abstract, definitions of profile and de Bruijn graph, Lemma 3.2 and Theorem 3.3 around pp. 6–8, and discussion of enumerative constants and tables around pp. 17–19",
+        "method": "Open-access arXiv primary full text, text and page-image inspection",
+        "title": "Codes for DNA Sequence Profiles",
+        "trigger": "Exactly same ordered read-count model; plausible all-length count in a broader theorem"
+      },
+      {
+        "assessment": "Defines the channel and studies multi-strand code rates at large read lengths; no inspected exact finite binary length-three one-strand profile capacity formula.",
+        "evidence": "arxiv:2108.11725v1, 2021-08-26, abstract and Introduction",
+        "identifier_or_url": "https://arxiv.org/pdf/2108.11725",
+        "material_read": "First page including abstract, introduction and definition of length-l profile, and overview of multi-strand asymptotic coding goals",
+        "method": "Open-access arXiv primary full text and page-image inspection",
+        "title": "Multi-strand Reconstruction from Substrings",
+        "trigger": "Guiding earliest eligible reconstruction model and definition of complete length-l reads"
+      },
+      {
+        "assessment": "Order-one alphabet transition matrices, principally balanced/cyclic enumeration and asymptotics; does not present the explicit linear order-two de Bruijn case.",
+        "evidence": "doi:10.46298/dmtcs.2768, §§1–2",
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2768/download",
+        "material_read": "Abstract and first four pages, including one-step transition count model, balancing equations and main asymptotic claims",
+        "method": "Publisher-provided open-access primary PDF, text and page-image inspection",
+        "title": "Counting Markov Types",
+        "trigger": "Potential equivalent higher-order Markov-type count under different name"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bcc1ebef-8280-45e8-8680-28a507671702",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete ordered triple-read multiset is a naturally motivated, experimentally meaningful idealized sequencing observable. The exact count equals optimal zero-error code size for every finite word length. The proof resolves nontrivial endpoint-divergent and weak-connectivity corrections and gives an exact period-twelve degree-four law instead of only asymptotic rate/degree, so it is neither an arbitrary slice nor routine restatement.",
+    "status": "PASS"
+  }
+}
