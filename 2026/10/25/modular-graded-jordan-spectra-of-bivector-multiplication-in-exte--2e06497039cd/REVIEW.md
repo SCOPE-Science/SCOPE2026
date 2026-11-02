@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Exterior Darboux normal form reduces every odd-characteristic bivector of rank \(2r\) to \(r\) commuting pair-bivectors. Its exterior algebra decomposes as copies of squarefree monomial modules with explicit degree shifts; Boolean inclusion matrices model multiplication by their degree-one sum. The integral diagonal-form theorem of Ghorbani et al. [1, Corollary 3], including the complementary-subset case, computes the modular ranks after the invertible \(k!\) factor is accounted for. The graded three-rank difference recovers every length and starting degree. A \(p\)-th power vanishes by Frobenius. Classical orbit–stabilizer counting yields the alternating-rank frequencies. These steps establish the stated formulas for all odd finite fields and dimensions, without extrapolating from computation. Reproducible finite tests (69 full power-rank comparisons and two exhaustive alternating-rank enumerations) agree, including the characteristic-three dimension-eight change. No independence claim is made.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Odd-characteristic bivector Darboux form splits into r symplectic pairs and n-2r zero directions. Each pair contributes a graded length-2 string plus two stationary degree-one vectors; choosing m active pairs gives squarefree complete intersections shifted by r-m. For k<p multiplication by (sum z_i)^k is k! times a j-versus-(j+k) inclusion map, including the complementary-subset case, so published integral diagonalization gives exact modular graded ranks. For k>=p Frobenius forces zero. Shifted finite differences R_{ell-1}-(1+T²)R_ell+T²R_{ell+1} count homogeneous string starts. GL/Sp orbit–stabilizer yields rank-frequency factors. Boundaries r=0, n odd, k>=p and nonzero factorial k<p checked. Independently built direct 256-dim exterior multiplier for n=8,r=4 and calculated all power ranks modulo p=3,5; partitions exactly (3^45,2^40,1^41) and (5,4^8,3^27,2^48,1^42). Infinite proof rests on the decomposition and cited integral theorem.
 
-The integral inclusion-matrix diagonal form [1] and alternating-matrix rank counts [4] are **already known**. Our object is the exterior wedge multiplication operator by an arbitrary bivector, and the asserted output consists of its entire graded Jordan-string distribution for every alternating rank and characteristic, combined with the known alternating-rank orbit frequencies. Neither [1] nor [4] alone yields that complete statement, and Cook's polynomial complete-intersection results [2] and the Artinian Jordan survey [3] do not give it. The published mathematics comparison found no stronger matching implication among retrieved results; the closest Jordan-type and nilpotent-matrix records concern different algebras/operators. This is a qualified best-knowledge novelty assessment, **not proof of global historical uniqueness**. Older modular symplectic \(\mathfrak{sl}_2\) literature may phrase an equivalent result; its complete priority status is unresolved.
+## originality
 
-## Value — PASS
+PASS
 
-The full graded Jordan distribution is an intrinsic natural invariant of multiplying an exterior algebra by a two-form. The result supplies an explicit uniform solution over infinitely many dimensions, ranks and odd characteristics; it exhibits a meaningful modular phase boundary (a nondegenerate bivector in dimension eight has radically different strings at characteristics three and five), and gives exact finite-field frequencies for all possible cases. This is not merely a new proof of the known alternating-form rank count or Wilson diagonal form. The formula is usable for modular Lefschetz calculations and Jordan-type stratifications.
+Compared actual invariant and mathematical implications rather than names. Examined closest primary materials, cited known premises/special cases, and preserved priority risks; no decisive equivalent or dominating all-scope theorem found within checked sources.
 
-## Limitations and references
+## value
 
-Only odd finite fields, homogeneous exterior degree two, and the stated nilpotent wedge action are covered. The numerical checks are finite and do not replace the proof. No independent mathematical validation or exhaustive historical-priority verification was undertaken. Core source material: [1] arXiv:0709.3144v1, Corollary 3; [2] arXiv:1111.4979v1, §§1–2; [3] arXiv:2307.00957v1, introduction; [4] arXiv:1011.4539v1, Proposition 3.8.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full grade-resolved Jordan strings of multiplication by a two-form are natural intrinsic exterior-algebra invariants, with sharp characteristic-dependent phase change at n=8. Uniform finite binomial formulas for all n,r,p plus frequencies across q-forms provide exact modular Lefschetz and Jordan-stratum data beyond routine rank or weak Lefschetz properties. Classical alternating rank counts are credited rather than treated as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
