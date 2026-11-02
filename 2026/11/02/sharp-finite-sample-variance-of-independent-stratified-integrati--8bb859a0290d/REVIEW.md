@@ -1,0 +1,19 @@
+# Scientific review: bounded monotone Lipschitz stratified integration
+
+## Correctness — PASS
+
+The claim concerns independent one-point-per-cell uniform stratification, a globally nondecreasing function in \([0,1]\), and a global Lipschitz ceiling \(L>0\). The fixed-endpoint-increment local variance bound is derived from a mandatory uniform component in the pushforward law; a centered saturated ramp attains its equality conditions. Independent cells reduce the error to a sum of the exact local bounds. Pairwise exchange in the resulting cubic allocation problem proves that an equal-positive-coordinate maximizer exists, and maximization over its integer support proves the formula for every \(n\ge1\), \(L>0\). The endpoints and large-sample regimes follow algebraically. The standalone verifier passed 4,816 exact-rational assertions; separately, numerical continuous-optimization stress tests found no counterexample. Neither finite computation is substituted for the general analytical proof.
+
+## Originality — PASS, with residual historical risk
+
+Basak, Bect and Vazquez, arXiv:2203.00423, Theorem 4.1, compute the sharp variance over all bounded nondecreasing functions. Their extremizer is a discontinuous single step and their bound does not give the finite-\(L\) envelope. The new claim changes the admissible function class in a mathematically substantive way, and obtains the exact local transition law, global allocation, support-size quantization, and \(L=4/3\) asymptotic transition. Kunsch, arXiv:2309.09059, concerns Sobolev confidence error and stratified control variates; Pettersson and Krumscheid, arXiv:2107.01355, concern adaptive strata and hybrid sample allocation. Their checked material does not imply the sharp variance identity for this fixed estimator and joint shape/range constraint. Prior sharp Lipschitz-variance inequalities, especially Bobkov–Houdré (1996), may cover a local ingredient and were not fully accessible; that is the main residual historical-priority risk, not evidence of complete claim coverage. The submitted claim does not attribute invention of stratification, Popoviciu's inequality, the bathtub principle, or pairwise equalization.
+
+## Value — PASS
+
+This is the natural intersection of two standard complexity classes: bounded monotone functions (whose extremal errors are controlled by jumps) and Lipschitz functions (whose smoothness controls randomized integration rates). Instead of only interpolating two upper bounds, the theorem exactly determines the worst-case mean-squared risk at every sample count and smoothness budget, identifies the extremal function geometry, and shows a non-obvious switch from all active cells to sparsely concentrated three-quarter-width ramps. The finite support optimization and continuous-to-step limit are reusable test cases for randomized quadrature and shape-constrained risk estimation. No claim is made of a rate improvement over general optimal quadrature methods.
+
+## Closest literature, limitations and risks
+
+The unrestricted-monotone theorem of Basak–Bect–Vazquez is the closest result, but it cannot recover the exact \(n,L\)-dependent constant. Kunsch's Sobolev framework also gives a different objective and admissible class. The result requires one-dimensional equal strata, one independent uniform sample per stratum, a single shared nondecreasing integrand, global range at most one and bounded global slope. Higher-dimensional partial monotonicity, optimized partitions, correlated samples, and other risk criteria remain unproved. A literature search is not a proof of global uniqueness; a future independent priority review may locate a stronger old variance inequality or a special-purpose stratified-integration theorem.
+
+Self-review: passed. Independent audit: not yet performed.
