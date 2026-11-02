@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:10:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen complete RESULT.md and exact Git tree from assigned commit",
+        "independently implemented mathematical checks in independent_checks.py",
+        "critical lemmas reconstructed from definitions, not merely VERIFY_OK"
+      ],
+      "rationale": "The recurrence telescopes to a_n=n!S_n/2^n. The 2-adic logarithm at z=2 gives L1=sum 2^j/j=0, and the formal dilogarithm transformation Li2(z)+Li2(z/(z-1))=-1/2 log²(1-z) gives L2=0 at z=2. For L3=sum2^j/j³ the j=4 term uniquely minimizes j-3 nu2(j) at -2, so nu2(L3)=-2. Let N=2^m; sum expansion gives S_N=-2^N N²(L3-N T_N). For j<N the denominator estimates j-4 nu2(j)>=-4, for j>=N>=16 the term valuation is >=-1, so nu2(T_N)>=-4. With m>=4 the correction N T_N has valuation>=0, strictly above -2, establishing nu2(S_N)=N+2m-2. Legendre nu2(N!)=N-1 gives second formula. Independent exact integer recurrence verified m=4..10. Valid two-adic series converge; no finite truncation is treated as infinite proof.",
+      "residual_risks": [
+        "Does not classify all n; excluded m=2,3 are not asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dubickas proves nu2(S_n)>=n+1-log2(n+1) with equality iff n=2^k-1, not at n=2^m."
+        ],
+        "reasoning": "The broader n-domain is only a lower bound, mathematically weaker at the claimed dyadic indices. It does not determine the extra cancellation captured by Li3(2).",
+        "searches": [
+          "Dubickas, On a sequence of rational numbers with unusual divisibility by a power of 2, Theorem 1 (2024)",
+          "Farhi 2022 divisibility bounds",
+          "Farhi 2023 general p-adic lower bounds"
+        ]
+      },
+      "checked_sources": [
+        "Farhi arXiv:2204.10136v1",
+        "Dubickas 2024 full PDF page 204",
+        "Farhi 2023 Journal of Integer Sequences 26 23.6.1 (prior bound)",
+        "OEIS A003149",
+        "Resultary Farhi integer sequence sum 2^j/j exact valuation at power of two indices n=2^m"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exact equality family n=2^k-1 has nu2(S_n)=2^k-k; this is disjoint from n=2^m."
+        ],
+        "reasoning": "The existing bound at n=2^m lies roughly 3m below the proposed exact valuation; the present theorem requires additional independent p-adic cancellation, rather than specialization of a known equality case.",
+        "searches": [
+          "Dubickas 2024 Theorem 1 and equation (2.4)",
+          "Farhi 2022 arXiv 2204.10136"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent a_n=n!S_n/2^n; OEIS A003149 tabulates the factorial convolution and the original Farhi recurrence."
+        ],
+        "reasoning": "The sequence naming and normalizations are known; the exact two-adic valuation for n a power of two is the candidate contribution.",
+        "searches": [
+          "Farhi integer sequence sum 2^j/j exact valuation at power of two indices n=2^m",
+          "OEIS A003149",
+          "Farhi 2022 arXiv:2204.10136"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS tabulates terms and the Resultary top results concern different Thue–Morse valuation objects."
+        ],
+        "reasoning": "A table of integer terms is not the same as a proved infinite exact valuation identity; unfound equivalent entries remain a priority risk.",
+        "searches": [
+          "OEIS A003149 factorial convolution",
+          "Resultary Farhi integer sequence sum 2^j/j exact valuation at power of two indices n=2^m"
+        ]
+      },
+      "rationale": "Farhi 2022 defines this exact recurrence and Dubickas 2024 proves a stronger general lower bound with equality precisely n=2^k-1. That theorem does not give equality at n=2^m; the assessed exact power-of-two subsequence and its p-adic third-order term are not stated by these inspected papers.",
+      "residual_risks": [
+        "Classical dilogarithm evaluation and 2-adic Li3 tail may have appeared unindexed.",
+        "A broader p-adic polylogarithm theorem could entail the exact value without presenting the same subsequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The equality indices in Theorem 1 are one less than powers of two; power-of-two valuations are not determined by this statement",
+          "evidence": "Theorem 1: equality iff n=2^k-1; equation (2.4) evaluates those indices.",
+          "identifier_or_url": "https://epublications.vu.lt/object/elaba:201585470/201585470.pdf",
+          "material_read": "Complete six-page primary PDF, especially page 204 Theorem 1 and proof and equation (2.4); visually inspected page 204",
+          "method": "Lawful open PDF full text with direct page screenshot",
+          "title": "On a sequence of rational numbers with unusual divisibility by a power of 2",
+          "trigger": "Identical S_n and strongest known lower/equality theorem"
+        },
+        {
+          "assessment": "Original construction and integrality prior; exact dyadic valuations are assessed refinement",
+          "evidence": "Formula a_n=n!S_n/2^n and sequence recurrence.",
+          "identifier_or_url": "arXiv:2204.10136v1; https://arxiv.org/html/2204.10136v1",
+          "material_read": "Original accessible HTML: definition, integrality and main results",
+          "method": "Primary arXiv HTML read",
+          "title": "On a curious integer sequence",
+          "trigger": "Original exact a_n recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "actual final RESULT.md statement and proof",
+        "prior-work comparison against same objects and invariants"
+      ],
+      "rationale": "A natural exact two-adic valuation law on an infinite distinguished subsequence, complementing the known one-below-dyadic equality indices, is a meaningful arithmetic refinement not obtainable by plugging into the prior lower bound.",
+      "residual_risks": [
+        "Computational m<=10 checks do not replace the uniform tail bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Does not classify all n; excluded m=2,3 are not asserted.",
+    "Computational m<=10 checks do not replace the uniform tail bound."
+  ],
+  "schema_version": 1
+}
