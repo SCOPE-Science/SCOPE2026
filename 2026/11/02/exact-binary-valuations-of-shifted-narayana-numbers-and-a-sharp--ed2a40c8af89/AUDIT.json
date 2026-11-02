@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For the integral companion matrix M, direct multiplication gives \\(M^7=I+2C\\) and \\(M^{14}=I+4B\\). Integral inverse powers yield \\(w_{-4}=(-1,0,1)\\), with first coordinates of \\(Cw_{-4}\\) and \\(Bw_{-4}\\) equal to 1 and 5. The binomial bound \\(\\nu_2(4^j\\binom{m}{j})\\geq\\nu_2(m)+3\\) for \\(j\\geq2\\) proves the exact valuations on indices \\(n=7s-4\\). A complete 14-class mod-4 check and the mod-8 increment \\(e_1Bw_5=148\\) settle all remaining classes. The valuation classes are explicit arithmetic progressions, giving densities and the exact finite period errors \\([-5/7,4/7]\\), \\([-3/7,9/7]\\), and \\([-15/28,6/7]\\). Higher classes are single progressions with error \\(<1\\). Equality at \\(C_1(4)-12/7=9/7\\) proves sharpness. A separately implemented modular recurrence tests 100001 terms and separate matrix exponentiation and rational periodic counts agree. Finite computations support but do not replace the infinite argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ji–Yang–Cai 2022 Theorem 1 and Theorem 2 address double factorials and repdigits; Lemma 3 states lower bounds for unshifted terms.",
+        "Lin 2021 abstract describes negative-index formulas and convolved Narayana numbers."
+      ],
+      "reasoning": "The closest general recurrence identities are tools compatible with the present proof but do not give exact binary shifted valuations and certainly not the sharp simultaneous-in-level discrepancy constant. The unavailable portion of Lin 2021 is an explicitly identified access risk, not a proof of absence.",
+      "searches": [
+        "Narayana cows recurrence sequence valuation 2 a_n+1 mod 4 7",
+        "Narayana cow 2-adic valuations of neighbors and congruence M^14=I+4B",
+        "On the Recurrence Properties of Narayana’s Cows Sequence 2021"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2206.09174",
+      "doi:10.3390/sym14102004",
+      "doi:10.3390/sym13010149 (abstract/intro only)",
+      "OEIS:A000930"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.6 gives v3 on a shift of the same sequence, not v2.",
+        "The 2022 Lemma 3 shows \\(\\nu_2(G_n)\\)>=1 or >=2 on specified classes, with no shifted target or exact equality.",
+        "The 2021 abstract states a negative-index identity program, without a binary valuation frequency theorem."
+      ],
+      "reasoning": "No inspected prior implication contains the exact binary valuation of a_n+1. Known negative-index formulas alone require the nontrivial binomial lifting step and do not supply the sharp counting bound; unshifted divisibility bounds cannot decide the shifted valuation.",
+      "searches": [
+        "arXiv:2206.09174 Theorem 3.6 v3(a_n+1)",
+        "doi:10.3390/sym14102004 Lemma 3 v2(G_n)",
+        "doi:10.3390/sym13010149 negative Narayana indices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2206.09174 Theorem 3.6 computes \\(\\nu_3(a_n+1)\\), not v2.",
+        "Symmetry 2022 14 2004 Lemma 3 concerns \\(\\nu_2(a_n)\\), without the +1 shift."
+      ],
+      "reasoning": "The exact congruence branch for \\(\\nu_2(a_n+1)\\) would imply the complete classification; the identified explicit shifted valuations in arXiv:2206.09174 concern the unrelated 3-adic norm. A change of prime is not an implication. No exact binary shifted formula was found in relevant primary statements.",
+      "searches": [
+        "Narayana cows number a_n 2-adic valuation a_n+1 exactly 1+v2((n+4)/7) for n congruent 3 modulo 7",
+        "Narayana sequence shifted plus-one binary valuations density 9/7 sharp discrepancy 3/7 3/28",
+        "Narayana sequence ν₂(a_n+1) \"n+4\" binary valuations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000930 lists the original Narayana sequence and combinatorial interpretations, not an identified exact shifted valuation classification.",
+        "Ji–Yang–Cai 2022 states a finite congruence lower-bound lemma with different parameter."
+      ],
+      "reasoning": "The all-index valuation law and the optimal all-level discrepancy constant are not numerical sequences of isolated values or implied by an inspected tabulation. The OEIS index normalization was explicitly reconciled.",
+      "searches": [
+        "OEIS A000930 Narayana cows 2-adic valuation shifted plus one",
+        "Narayana sequence 2-adic valuation density 3/7 3/28"
+      ]
+    },
+    "rationale": "The inspected 2022 Ismail–Rihane–Anwar Theorem 3.6 concerns 3-adic valuations of a_n+1, not binary valuations. Ji–Yang–Cai (2022), Lemma 3, supplies only 2-adic lower bounds for unshifted a_n and proves factorial/repdigit results, not the exact shifted law. Lin (2021) develops negative-index recurrence identities without a reported valuation distribution. OEIS supplies sequence data but no identified exact shifted 2-adic theorem. Searches of published mathematical records and abstract indices gave no direct or stronger coverage. Closest sources and residual risks remain identified below.",
+    "residual_risks": [
+      "A previously unindexed or unlocated equivalent binary valuation derivation may exist.",
+      "The full body of Lin (2021) was unavailable on attempted access; the inspected abstract does not settle all conceivable implications.",
+      "The computational verifier is finite and is not an independent proof of the infinite theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: the shifted valuations are at prime three rather than prime two",
+        "evidence": "Theorem 3.6 classifies \\(\\nu_3(a_i+1)\\) by index residues modulo 8 and 24; the present claim gives \\(\\nu_2(a_n+1)\\) and its sharp counting law.",
+        "identifier_or_url": "https://arxiv.org/abs/2206.09174",
+        "material_read": "Complete openly rendered article text, including Theorems 3.5 and 3.6 and their cases, and section 4",
+        "method": "Read the full openly accessible original manuscript text and compared the prime, shifts, and quantified indices",
+        "title": "Narayana Sequence and The Brocard-Ramanujan Equation",
+        "trigger": "Same sequence and identical ±1 shifts; possible direct coverage"
+      },
+      {
+        "assessment": "Not covering: only lower bounds for unshifted sequence valuations, not exact shifted binary valuations",
+        "evidence": "Lemma 3 states \\(\\nu_2(G_n)\\)>=1 in two classes mod 7 and >=2 in another. Theorems 1 and 2 classify double-factorial and repdigit coincidences.",
+        "identifier_or_url": "https://doi.org/10.3390/sym14102004",
+        "material_read": "The complete open-access article structure and main theorems; Section 2.1, Lemma 3 and its proof, later Diophantine application through Section 4",
+        "method": "Read the primary OA paper with its displayed recurrence lemma, exact scope, and subsequent applications",
+        "title": "On Diophantine Equations Related to Narayana’s Cows Sequence and Double Factorials or Repdigits",
+        "trigger": "Published 2022 binary valuation lemma for exactly this recurrence"
+      },
+      {
+        "assessment": "Potentially useful general negative-index identities; no decisive evidence of a stronger shifted valuation theorem",
+        "evidence": "Abstract announces negative-index identities and convolved Narayana numbers; no valuation classification is advertised.",
+        "identifier_or_url": "https://doi.org/10.3390/sym13010149",
+        "material_read": "Public title, abstract, opening section and recurrence description; complete full text inaccessible in attempted retrieval",
+        "method": "Read accessible public abstract and introductory excerpt, without treating an inaccessible full text as inspected",
+        "title": "On the Recurrence Properties of Narayana’s Cows Sequence",
+        "trigger": "Negative-index results might imply part of the matrix representation"
+      },
+      {
+        "assessment": "Provides source sequence information but no identified complete shifted binary valuation or counting theorem",
+        "evidence": "OEIS A000930 begins 1,1,1,2,..., whereas the theorem begins 0,1,1,1,2,...",
+        "identifier_or_url": "https://oeis.org/A000930",
+        "material_read": "Sequence definition, initial terms, comments and index convention",
+        "method": "Compared its normalization to the zero-first-term convention and inspected listed formulas",
+        "title": "Narayana’s cows sequence (OEIS A000930)",
+        "trigger": "Exact sequence index and possible valuation notes/table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ed2a40c8-af89-4eff-aac0-ae4b770ac1f3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper explicitly treats Narayana values one away from 1 at prime three, and the binary analogue supplies a natural complementary exact invariant. The matrix proof isolates a genuine negative-index integer root that governs an infinite tower of valuations. The result determines every value, its exact rational natural frequency, and an optimal discrepancy 9/7 uniformly over both counting cutoff and valuation level. This is a natural complete classification with quantitative arithmetic content, not a routine example or arbitrary finite range.",
+    "status": "PASS"
+  }
+}

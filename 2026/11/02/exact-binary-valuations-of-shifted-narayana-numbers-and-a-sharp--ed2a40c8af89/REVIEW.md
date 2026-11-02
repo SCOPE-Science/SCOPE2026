@@ -1,0 +1,11 @@
+# Scientific review: shifted Narayana binary valuations
+
+**Correctness — PASS.** Direct integer multiplication gives the displayed powers of the unimodular companion matrix. The matrix acts on the negative-index state \((-1,0,1)\). The first coordinates of the two relevant matrix increments are odd; the binomial coefficient bound supplies the necessary divisibility at every power of two. The other residue classes follow from a period-fourteen computation and one modulo-eight test. The infinite value-frequency claims and the constant \(9/7\) follow from exact arithmetic progressions, with all small periods exhaustively evaluated using rational arithmetic. A separately implemented modular-recurrence checker passed through index \(100000\). The argument does not infer an infinite theorem from a finite sample.
+
+**Originality — PASS relative to the inspected record.** Ismail–Rihane–Anwar, arXiv:2206.09174, Theorem 3.6, addresses the same shifted recurrence at prime three but not at prime two. Ji–Yang–Cai, *Symmetry* 14 (2022), 2004, Lemma 3, gives only lower bounds at prime two for the unshifted sequence, while its main theorems classify factorial, double-factorial and repdigit coincidences. Lin, *Symmetry* 13 (2021), 149, discusses negative-index recurrence identities, not the valuation-frequency distribution. Searches of mathematical abstracts and relevant primary literature did not identify an equivalent or stronger implication. Unindexed literature and an inaccessible full-text copy of Lin's paper remain bibliographic risks; the latter's title and abstract did not indicate a covering theorem. The review makes no absolute-priority claim.
+
+**Mathematical value — PASS.** Complete prime-two valuations for a natural shifted recurrence form a motivated counterpart to the published prime-three classification. The special branch is controlled by a genuine negative-index root and not a finite tabulation. Exact densities and an optimal discrepancy constant independent of the valuation level provide a further nontrivial arithmetic distribution law. This is a natural complete classification, not a mere congruence or isolated numerical witness.
+
+The work has no independent scientific audit and does not settle analogous questions for \(a_n\) or \(a_n-1\).
+
+Self-review: passed. Independent audit: not yet performed.
