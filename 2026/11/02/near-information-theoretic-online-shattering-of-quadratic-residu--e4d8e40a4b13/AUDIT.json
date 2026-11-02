@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For any center subset of size \\(m\\) in a field of order \\(q\\), the identity \\(\\sum_x X_A(x)^2=m(q-m)\\) follows from quadratic-character orthogonality. The Boolean incidence correction at zero difference yields both children of size at least \\((m-\\sqrt m-1)/2\\). The explicit real thresholds \\(T_d=8\\cdot2^d-7\\cdot2^{d/2}\\) satisfy \\(T_0=1\\) and \\(T_d-\\sqrt{T_d}-1\\ge2T_{d-1}\\); induction produces complete adaptive trees. The upper bound requires \\(2^d\\) distinct terminal hypotheses among at most \\(q\\) translations. Fresh finite checks corroborate prime and extension-field cases; no extrapolation from computation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guingona et al., arXiv:2109.04805, Theorem 3.10: linear-span zero-set families have equal VC and Littlestone dimensions of dimension minus one.",
+        "McDonald et al., arXiv:2210.03789, Theorem 1.4: a one-half logarithmic asymptotic VC lower bound, not a logarithm minus absolute constant.",
+        "The generic hypothesis-count argument gives only the matching information-theoretic upper bound."
+      ],
+      "reasoning": "The zero-set theorem assumes hypotheses are all zero sets of a fixed finite-dimensional linear span; the Paley translate family is not this class. General counting bounds give no lower bound. Existing ordinary VC lower bounds yield a much weaker online lower bound via VC≤Ldim. No broader accessible theorem was found implying a three-level adaptive deficiency.",
+      "searches": [
+        "Online shattering depth of pseudorandom graphs near information bound, Paley tournaments, quadratic character neighborhoods",
+        "Littlestone dimension strongly regular graphs neighborhood class",
+        "Littlestone dimension expander graph neighborhoods pseudo random spectral lower bound",
+        "arXiv:2109.04805 Theorem 3.10",
+        "arXiv:2210.03789 Theorem 1.4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2210.03789 (same translated nonzero quadratic residues; Sections 1–5)",
+      "arXiv:2109.04805 (exact dimensions for linear-combination zero sets)",
+      "arXiv:2108.13231 (finite-field circle VC context)",
+      "2026/10/11/SCOPE-paley-half-band-concentration-exact-character-spectrum-and-compl--a14287c60e05",
+      "2026/10/11/SCOPE-sharp-paley-fourth-moments-and-the-phase-rigidity-threshold--e3652915658c",
+      "2026/9/21/SCOPE-four-existential-closure-super-geometric-dominance--424c9dd4cac4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2210.03789 proves a static lower bound asymptotic to \\((1/2-\\varepsilon)\\log_2q\\); the inequality \\(\\operatorname{VCdim}\\le\\operatorname{Ldim}\\) implies only this weaker online bound.",
+        "arXiv:2109.04805 characterizes zero sets of linear combinations rather than additive quadratic-residue translates.",
+        "The exact second moment \\(m(q-m)\\) and the adaptive threshold \\(T_d\\) are proved directly in RESULT.md."
+      ],
+      "reasoning": "The new theorem controls Ldim from below by log_2(q) minus three for all odd prime powers, a stronger and different implication than published static lower bounds. It makes no claim that ordinary VC dimension has this property; hence there is no inadvertent assertion that existing VC results are improved. Alternative graph-learning formulations remain a residual historical risk.",
+      "searches": [
+        "Littlestone dimension of translates of quadratic residues in finite fields / Paley graph out-neighborhoods log_2(q)-O(1) using second moment character sum",
+        "Online shattering depth of pseudorandom graphs near information bound, Paley tournaments, quadratic character neighborhoods",
+        "Exact Littlestone dimension and online shattering of Paley graph neighborhoods, translates of nonzero quadratic residues as Boolean concept class. Character sum second moment yields log_2(q)-O(1) bounds.",
+        "VC dimension versus Littlestone dimension of quadratic residues and additive translates from the 2022 McDonald Sahay Wyman paper",
+        "Paley graph online shattering Littlestone dimension mistake bound quadratic residues",
+        "arXiv:2210.03789, Theorems 1.4, 1.6 and Section 5",
+        "arXiv:2109.04805 Theorem 3.10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McDonald–Sahay–Wyman, arXiv:2210.03789, Introduction Definitions 1.1–1.2: equivalence of translates of nonzero squares with Paley Cayley (di)graph neighborhoods.",
+        "arXiv:2109.04805, Section 2: classical Littlestone dimension is adaptive binary-tree shattering, also called online/thicket shattering."
+      ],
+      "reasoning": "The claim is invariant under replacing residue translates by Paley out-neighborhood indicators, and under switching query/center roles using additive translation. The available exact-object paper treats ordinary VC shattering and never states an adaptive near-information-limit result; its ordinary VC bounds do not imply the claimed additive-three online bound.",
+      "searches": [
+        "Littlestone dimension of translates of quadratic residues in finite fields / Paley graph out-neighborhoods log_2(q)-O(1) using second moment character sum",
+        "Exact Littlestone dimension and online shattering of Paley graph neighborhoods, translates of nonzero quadratic residues as Boolean concept class. Character sum second moment yields log_2(q)-O(1) bounds.",
+        "Paley graph online shattering Littlestone dimension mistake bound quadratic residues",
+        "arXiv:2210.03789 Sections 1–4; Paley (di)graph out-neighborhood translation formulation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "McDonald–Sahay–Wyman, arXiv:2210.03789, Sections 4.1–4.3: numerical tables and code concern nonadaptive VC shattered supports, not online decision trees.",
+        "Published published-finding corpus records 2026/10/11/SCOPE-paley-half-band-concentration-exact-character-spectrum-and-compl--a14287c60e05 and 2026/10/11/SCOPE-sharp-paley-fourth-moments-and-the-phase-rigidity-threshold--e3652915658c analyze Paley Fourier concentration and moments, not the Littlestone depth of the neighborhood class."
+      ],
+      "reasoning": "Known VC tables do not give the adaptive rank, and relevant published records do not tabulate the claimed bound. Finite direct ranks of sampled small prime powers are presented solely as new corroborating calculations, not as a claim of previously unrecorded exact tables.",
+      "searches": [
+        "Exact Littlestone dimension and online shattering of Paley graph neighborhoods, translates of nonzero quadratic residues as Boolean concept class. Character sum second moment yields log_2(q)-O(1) bounds.",
+        "VC dimension versus Littlestone dimension of quadratic residues and additive translates from the 2022 McDonald Sahay Wyman paper",
+        "published-finding corpus published Paley quadratic residues online learning thicket dimension",
+        "arXiv:2210.03789 Section 4, VC numerical computations primes to 300"
+      ]
+    },
+    "rationale": "Direct implication comparisons with arXiv:2210.03789 (same Paley translates, ordinary VC only), arXiv:2109.04805 (fixed linear-span zero sets), and relevant published Paley records did not identify a theorem implying an additive-constant lower bound for online shattering of this family. This is priority conditional on accessible searches, not a uniqueness certificate.",
+    "residual_risks": [
+      "Terminological variants including Paley out-neighborhood Littlestone rank, online mistake trees, thicket dimension, and pseudorandom graph adaptive querying might contain related earlier results not indexed in accessible searches.",
+      "The constant three may be improvable and no optimality is asserted.",
+      "No independent peer verification or exhaustive scholarly priority certification was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes static VC lower and small-prime numerical statements; no stated Littlestone rank or all-field additive bound.",
+        "evidence": [
+          "Original arXiv submission date 2022-10-07",
+          "Theorem 1.4 yields lower bounds near half of \\(\\log_2q\\) for ordinary VC dimension.",
+          "Section 4: numerical experiments explicitly compute VC dimensions",
+          "Section 5: directions discuss ordinary VC and random graph conjectures"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.03789",
+        "material_read": "Accessible full-text HTML: Introduction and definitions, Theorems 1.4 and 1.6, character-sum method in Sections 2–3, numerical VC procedure in Section 4, and Section 5 future questions.",
+        "method": "Read public arXiv full-text and compare quantifiers/learning protocol, not only the abstract",
+        "title": "The VC-dimension of quadratic residues in finite fields",
+        "trigger": "Exact same translated quadratic-residue hypothesis class, primary predecessor"
+      },
+      {
+        "assessment": "Theorem 3.10 covers zeros of nontrivial linear combinations of fixed independent functions; it is not an all-translation theorem for a finite-field multiplicative set.",
+        "evidence": [
+          "Original arXiv submission date 2021-09-10",
+          "Theorem 3.10 states equality VCdim=Ldim=d-1 for zero sets of the specified linear class",
+          "Definition 2.2 supplies adaptive Littlestone tree formalism"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+        "material_read": "Accessible full-text Introduction and Section 2 definitions, Section 3 theorem scope and statement.",
+        "method": "Read public arXiv full-text portions with theorem hypotheses and compare hypothesis class structures",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Potential broader exact theorem for field-valued families, and definitions of the online invariant"
+      },
+      {
+        "assessment": "Treats fixed-radius circles in F_q^2 and ordinary VC dimension, not translates of nonzero squares in F_q or their adaptive shattering dimension.",
+        "evidence": [
+          "Original arXiv submission date 2021-08-30",
+          "Theorem 1.3 is a density-dependent static VC result for finite-field circles"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.13231",
+        "material_read": "Accessible arXiv full-text Introduction, Theorems 1.3 and 1.6 and definitions of fixed-radius circle incidence classes.",
+        "method": "Read public arXiv HTML introduction and main theorem statements",
+        "title": "The VC-dimension and point configurations in finite fields",
+        "trigger": "Related finite-field geometric incidence dimension results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e4d8e40a-4b13-4d94-9ec0-a0ae9b07832e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a canonical dense finite-field incidence class, establishes adaptive tree depth within a uniform additive constant of the maximum log_2(q), as opposed to merely a proportional lower bound inherited from known VC estimates. A structural second-moment balancing lemma applies to every adversarially reached version space, giving a genuinely online extension of the analytic finite-field program. The exact invariant is motivated by the 2022 paper’s emphasis on Paley pseudorandom learning complexity; the result does not claim to resolve its static VC conjecture.",
+    "status": "PASS"
+  }
+}

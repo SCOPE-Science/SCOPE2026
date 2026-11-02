@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The character identity \(\sum_x X_A(x)^2=m(q-m)\) follows by a direct fractional-linear substitution for distinct centers and an elementary diagonal count. The balanced-query lemma includes the required negative treatment of zero. An explicit real threshold recurrence proves the infinite adaptive tree lower bound, and the usual leaf count gives the upper bound. The accompanying code supplies supplementary finite checks for prime and quadratic-extension orders, not a substitute for the proof.
+
+**Originality — PASS under accessible comparisons.** The source with the closest objects, McDonald–Sahay–Wyman (arXiv:2210.03789), studies static VC dimension of quadratic-residue translates and obtains a lower coefficient approaching one half; its inspected sections and numerical tables do not give the additive-constant *adaptive* statement. Guingona–Kolesnikov–Nierwinski–Soucy (arXiv:2109.04805) proves exact learning dimensions for zero sets of fixed linear spans, not for Paley translate hypotheses. Published research searches revealed Paley spectral and graph-structure findings but not a matching online-shattering bound. Alternative terminology (Paley out-neighborhoods, thicket dimension, sequential shattering) remains a priority risk.
+
+**Mathematical value — PASS.** The discrepancy between static and adaptive complexity in a canonical pseudorandom finite-field family is a concrete gap: existing ordinary VC bounds do not force online dimension within a bounded additive distance of the hypothesis-count ceiling. The result replaces a potential multiplicative loss with a uniform three-level bound, and the second-moment split lemma works on every adversarially generated version space. Its constant may be improvable.
+
+Self-review: passed. Independent audit: not yet performed.
