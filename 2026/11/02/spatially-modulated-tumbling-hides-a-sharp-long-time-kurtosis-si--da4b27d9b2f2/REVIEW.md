@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The result states the exact two-zone geometry, hazards, positivity restrictions, and unwrapped cumulant normalization. Direct transfer-matrix computation gives an analytic principal-eigenvalue equation, with nonzero first derivative in the eigenvalue parameter at zero. Its Taylor coefficients are computed explicitly to fourth order; differentiation yields the long-time cumulants and exact sign threshold. The independent high-precision monodromy program agrees in six parameter settings, including homogeneous rates and both signs of the fourth-cumulant coefficient. Numerical checks supplement, not replace, the proof. The claim is about leading large-time cumulants, not finite-time kurtosis at the transition.
+
+**Originality — PASS on the compared record, with residual risk.** Relevant sources include Tailleur and Cates (arXiv:0803.1069, 2008), whose exact microscopic transport equations and slowly varying drift-diffusion theory are distinct from the two-zone tilted spectral law, and Singh, Sabhapandit and Kundu (arXiv:2004.11041, 2020), whose studied profiles concern unbounded inhomogeneous and absorbing geometries. The closest inaccessible plausible paper, Angelani and Garra (Phys. Rev. E 100, 052147, 2019), addresses variable propulsion speed, but the full text was unavailable. Actual comparative searches are documented in AUDIT.json. Historical priority is not independently certified.
+
+**Value — PASS.** The sign of the fourth-cumulant rate, which controls the leading approach of excess kurtosis to its Gaussian limit, is experimentally and analytically meaningful. The exact critical zone-length/contrast relation proves that two systems have identical long-time diffusion yet opposite higher-order dispersion. It therefore separates Gaussian-scale effective transport from a specific observable non-Gaussian correction. The threshold is sharp and attained within strictly positive rate protocols whenever \(aL>2\sqrt3\,v\).
+
+**Limitations.** Symmetric direction speeds, two equal-width periodic spatial zones, and positive Poisson reversal rates only. No claim is made about arbitrary rate profiles, other particle interactions or full finite-time kurtosis. Relevant inaccessible historical literature is a priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
