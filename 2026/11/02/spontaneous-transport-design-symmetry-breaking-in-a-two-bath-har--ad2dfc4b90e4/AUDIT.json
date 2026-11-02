@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The spring matrix is positive definite because its determinant is positive for positive mutual coupling and positive total pinning; full velocity damping makes the drift Hurwitz. Stationary covariance identities derive the exact current formula displayed in RESULT.md, and the two fixed budgets reduce flux optimization to a strictly convex quadratic in pinning contrast with an explicitly clipped minimizer. On the interior branch, the derivative has exactly the sign change at the universal damping threshold and a single possible positive minimizer; on the boundary branch, the derivative is strictly increasing. These facts prove all interior, boundary and critical cases, including uniqueness below threshold and precisely two mirror optima above it. The objective diverges when either positive damping tends to zero, excluding lost boundary extrema. An exact rational covariance check, 600 independent numerical Lyapunov comparisons, 180 one-dimensional optimizer comparisons and an exact radical witness passed. The infinite theorem rests on the full analytic proof, not finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/1012.0622, Sections I–III: arbitrary-network Green function and current statistics",
+        "https://arxiv.org/html/2010.10432v1, Sections III–IV: general exact two-oscillator current"
+      ],
+      "reasoning": "Broad spectral and heat-current formulas imply every particular current after specialization; neither the first full network framework nor the closest dimer application treats the two simultaneous fixed-sum budgets or classifies optimal allocations. The theorem adds a global constrained optimization, not a new generic current identity.",
+      "searches": [
+        "exact heat flow two coupled oscillators Langevin reservoirs optimize bath coupling rates detuning",
+        "two oscillator harmonic thermal transport maximize heat current asymmetric damping pinning",
+        "heat flux phase transition mirror-optimal thermostat strengths pinning budget two coupled masses",
+        "arxiv:1012.0622 harmonic network cumulant generating function",
+        "arxiv:2010.10432 heat current"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1012.0622 (first public version December 3, 2010)",
+      "arxiv:1905.11854 (first public version May 28, 2019)",
+      "arxiv:2010.10432 (first public version October 20, 2020; exact same dimer current)",
+      "arxiv:1409.2904 (withdrawal history inspected, not used in proof)",
+      "Published mathematical-results searches listed under equivalent_formulations, broader_coverage, exact_database_or_table and claim_vs_prior_implication",
+      "Relevant previously published mathematical and physical findings compared for statement-level implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2010.10432v1: Eq. (22) contains the general flux; Section VI studies thermal rectification versus bath exchange",
+        "https://arxiv.org/abs/1012.0622: general harmonic-network fluctuation theorem and transmission framework"
+      ],
+      "reasoning": "Prior current expressions imply the starting algebraic objective, and are therefore acknowledged as dominating the current-identity subclaim. They do not state or calculate the unique balanced optimum below \\(\\Gamma^2=8k\\), twin asymmetric optima above, or the \\(P_c\\) clipping transition. The proof supplies those comparisons and boundary cases, not merely reparametrizing an existing maximum.",
+      "searches": [
+        "harmonic dimer Langevin two thermal baths unequal pinning fixed sum friction optimal heat current allocation",
+        "joint optimization two oscillator Langevin heat current fixed total pinning and total friction, symmetry-breaking threshold",
+        "Simón Alaña Pons Ruiz García Muga 2020 heat rectification minimal two harmonic oscillators exact heat conductance",
+        "arxiv:2010.10432 Eq. (22) and Sections VI–VII",
+        "arxiv:1012.0622"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2010.10432v1 Sections IV Eq. (22), VI and VII",
+        "https://arxiv.org/abs/1905.11854"
+      ],
+      "reasoning": "A two-damped-oscillator current formula is equivalent to the known source expression for m1=m2=1. The new statement instead characterizes the constrained argmax set, bifurcation threshold and boundary saturation, none stated in the inspected comparison. A generic formula determines the objective but does not by itself enumerate its global optimizers.",
+      "searches": [
+        "harmonic dimer Langevin two thermal baths unequal pinning fixed sum friction optimal heat current allocation",
+        "joint optimization two oscillator Langevin heat current fixed total pinning and total friction, symmetry-breaking threshold",
+        "asymmetric on-site spring and dissipation allocation harmonic dimer transport critical damping 8 coupling",
+        "Simón Alaña Pons Ruiz García Muga 2020 heat rectification minimal two harmonic oscillators exact heat conductance",
+        "Gamma squared equals 8k symmetry-breaking joint optimal Langevin thermal current stiffness damping allocation",
+        "2020 harmonic dimer formula Eq. 22; Section VI alternate bath-swap optimization",
+        "arxiv:2010.10432",
+        "arxiv:1905.11854"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/html/2010.10432v1, Table 1 defines forward/backward bath swaps; Eqs. (35)–(37) concern rectification",
+        "Published mathematical-results semantic searches returned no dimer allocation table among top hits"
+      ],
+      "reasoning": "The inspected published tables and figures concern rectification under swapping reservoirs, not the exact budget-constrained argmax map. A semantic search yielding no table is limited negative evidence and is not asserted as proof of novelty.",
+      "searches": [
+        "joint optimization two oscillator Langevin heat current fixed total pinning and total friction, symmetry-breaking threshold",
+        "Gamma squared equals 8k symmetry-breaking joint optimal Langevin thermal current stiffness damping allocation",
+        "two mass harmonic chain pinned springs coupling k optimally choose damping gamma1 gamma2 fixed total",
+        "harmonic dimer thermal conductance asymmetric pinning optimal bath coupling friction ratio",
+        "Simón 2020 parameters Table 1 and Eqs. (22), (35)–(37)"
+      ]
+    },
+    "rationale": "The established harmonic-network and harmonic-dimer conductance formulas, especially Eq. (22) of arXiv:2010.10432, already cover the model and the full arbitrary-parameter J formula; those are expressly NOT claimed as new. The new result gives the global maxima under simultaneous *two different fixed-sum budgets*, their sudden mirror-symmetry breaking at \\(\\Gamma^2=8k\\) and pinning-boundary transition at \\(P_c\\), with unique/exactly-two characterization. The closest full primary text maximizes a bath-swap rectification metric, not this constrained one-direction flux. A mathematical-results index and targeted primary-literature searches did not reveal equivalent allocation results. Because the known flux makes the optimization accessible to exact algebra, unexamined earlier optimizer literature remains a priority risk.",
+    "residual_risks": [
+      "The general same-dimer heat-current formula was published in 2020/2021. Constrained optimization might be regarded as a derivable specialization, although the sharp joint-budget phase diagram is absent from the inspected primary text.",
+      "No claim of exhaustive historical or independent priority verification; other transport-optimization work could overlap.",
+      "The 2019 graded-ion study was searched selectively rather than every full-text equation; no undocumented claims are made about its entire content.",
+      "The 2014 preprint has a withdrawal/error history and contributes no proof premise."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "general heat-transfer framework; no finite two-budget allocation optimizer in inspected material",
+        "evidence": [
+          "https://arxiv.org/abs/1012.0622, Sections I–III, Eqs. (1)–(5)"
+        ],
+        "identifier_or_url": "arxiv:1012.0622",
+        "material_read": "arXiv full HTML (introduction; model/noise dynamics; Green-function and generating-function derivation in Sections II–III)",
+        "method": "read arxiv served full text and checked model, stated theorem and scope",
+        "title": "Generating Function Formula of Heat Transfer in Harmonic Networks",
+        "trigger": "archival focal background for classical harmonic-network heat transfer"
+      },
+      {
+        "assessment": "Exact J formula is already present. The optimization there concerns rectification under bath interchange; not this two-budget global maximization. Strong priority adjacency is acknowledged.",
+        "evidence": [
+          "https://arxiv.org/html/2010.10432v1, Eqs. (22), (33)–(37), Sections VI–VII"
+        ],
+        "identifier_or_url": "arxiv:2010.10432",
+        "material_read": "Full arXiv HTML: Sections II–IV model and exact Eq. (22), Section VI parametric rectification and Eqs. (33)–(37), Section VII and references",
+        "method": "read full HTML and compared objective/constraints/result implications",
+        "title": "Heat rectification with a minimal model of two harmonic oscillators",
+        "trigger": "decisive same two-oscillator physical model and arbitrary damping/pinning flux formula"
+      },
+      {
+        "assessment": "Multi-ion graded trapping/rectification, not an identified joint fixed-sum dimer allocation theorem; further full-text review could reduce residual priority risk",
+        "evidence": [
+          "https://arxiv.org/abs/1905.11854, introduction and model"
+        ],
+        "identifier_or_url": "arxiv:1905.11854",
+        "material_read": "Full arXiv text introduction, physical model, statement of covariance method and targeted text searches for budget/optimum",
+        "method": "read available parsed full-text opening and targeted find searches",
+        "title": "Asymmetric Heat Transport in Ion Crystals",
+        "trigger": "graded local trapping and temperature-driven heat currents in classical Langevin crystals"
+      },
+      {
+        "assessment": "General harmonic-network heat current, not a fixed-sum optimizer; arXiv warns of withdrawal for error in Eqs. (19)–(20), so not used as a mathematical premise",
+        "evidence": [
+          "https://arxiv.org/abs/1409.2904: arXiv withdrawal notice",
+          "https://arxiv.org/html/1409.2904v4: Sections I–II, V, appendix"
+        ],
+        "identifier_or_url": "arxiv:1409.2904",
+        "material_read": "arXiv abstract and full HTML introduction, model, applications, conclusions and appendix context; withdrawal notice inspected",
+        "method": "read available arxiv HTML and revision/withdrawal information",
+        "title": "New analytic solution for heat flow through a general harmonic network",
+        "trigger": "archival general-network strong-coupling formula that might dominate dimer case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ad2dfc4b-90e4-4874-bfbd-5bf09f7e64fe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A physically motivated design fixes available local trap stiffness and dissipative coupling separately. Unlike routine evaluation of the known dimer current, joint design exhibits an unexpected universal bifurcation \\(\\Gamma^2=8k\\), two mirror-optimal layouts, and a separate boundary saturation \\(P_c\\). The all-parameter global classification, unique/twin optimum counts and exact gain witness give actionable thermal-network design information. This is not a claim about large-scale transport laws or unmodeled reservoirs.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,15 @@
+# Scientific review: two-budget thermal-dimer allocation
+
+## Correctness: PASS
+
+The claim fixes positive coupling \(k\), positive total pinning \(P\), positive total friction \(\Gamma\), nonnegative local pinning, and strictly positive individual damping. The drift is exponentially stable because the stiffness matrix is positive definite and all velocity directions are damped. Independent stationarity identities yield the exact mean heat current and reduce allocation to the coercive two-variable objective displayed in RESULT.md. The one-variable optimization has a strictly monotone derivative in both the interior and clipped regimes, giving exactly the stated global minimizers including the critical equality and zero-on-site-pinning boundary. A standalone checker passed an exact rational covariance identity, 600 independent random Lyapunov comparisons, 180 numerical optimization comparisons, and an exact-parameter witness. The infinite parameter theorem rests on the analytical derivative argument, not the finite tests. Residual numerical risk is limited to independent software precision; analytic proof does not rely on the checker.
+
+## Originality: PASS on examined evidence
+
+The 2010 Saito–Dhar paper provides the broad harmonic-network heat-transfer formalism. The 2019 Simón et al. paper treats experimentally motivated, graded ion crystals. Closest is Simón et al. 2020 (Phys. Rev. E 2021): its Section IV Eq. (22) ALREADY provides the arbitrary-coupling dimer heat current, so neither the model nor that formula is novel here. Sections VI–VII optimize thermal-rectification *asymmetry* under swapping baths and discuss parameter sweeps, not the joint fixed-sum allocation of pinning and damping that maximizes a single-direction current. The new theorem is the all-budget phase portrait, including universal \(\Gamma^2=8k\) spontaneous symmetry breaking, the two mirrored optima, and the pinning-budget boundary transition. Targeted mathematical-results and primary-literature searches did not identify this optimization statement. Risk: the previous arbitrary-parameter current formula makes the new optimization derivable by calculus; unsearched or inaccessible older optimization studies may cover it, so historical priority is not certified. This is a scientific distinction, not claimed independence.
+
+## Value: PASS
+
+Under independently limited total restoring and dissipation resources, the globally optimal device layout changes qualitatively. The exact symmetric-to-asymmetric threshold is independent of the total pinning budget; the additional \(P_c\) boundary identifies when all local stiffness should be concentrated at one node. That natural two-resource design question is neither a mere numerical parameter scan nor a restatement of known current formulas. The theorem supplies unique or exactly two optimal configurations at all budgets and gives a concrete physical transport gain, \(1/10\) versus \(1/11\) in a simple test system. It does not claim a general theorem about non-Markovian, quantum, or larger networks.
+
+Self-review: passed. Independent audit: not yet performed.
