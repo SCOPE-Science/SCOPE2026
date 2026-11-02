@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T14:03:19.799658Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem concerns B_n(j,k)=binom(n,k)(j/n)^k(1-j/n)^(n-k) including endpoints. Parseval independently gives r_n(x)=pi^-1 int_0^pi (1-4x(1-x)sin²(t/2))^n dt. For u=nx(1-x)>=1/2, n>=4u and the log inequality 0<=e^{-nq}-(1-q)^n<=nq²e^{-nq} (q<=1/2), plus sin(t/2) comparison and exponentially small q>1/2, give |r_n(x)-(4pi u)^-1/2|<=C u^-3/2. At j<=n/2, Le Cam binomial–Poisson TV <=j²/n yields |r_n(j/n)-e^{-2j}I0(2j)|<=4j²/n; the opposite side is symmetric. The error relative to g_{n,j} is C min(j,n-j)^-3/2 and thus summably bounded. Cutoff K=floor(n^(2/7)) makes the endpoint/bulk error O(n^-1/7). Subtracting x^-1/2+(1-x)^-1/2 from [x(1-x)]^-1/2 produces h with integrable derivative, giving sum g_{n,j}=sqrt(pi*n)/2+zeta(1/2)/sqrt(pi)+O(n^-1/2). The two endpoint rows are exactly 2 and each Poisson correction contributes a convergent sum. Independent exact rational energies for n=2,3,4,5,10 and separate stable log-gamma binomial calculations n=128,256,512,1024,2048 confirmed the predicted limit numerically. Numerical residuals at n=512,1024,2048 are 1.2756347548,1.2799016279,1.2829274156 versus C_B about 1.29025656; these finite checks do not prove the limit. No issue found in endpoint n>=1, normalization or quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marco–Martínez §4.4 computes singular values for Bernstein–Vandermonde matrices but gives no growing-n energy expansion; its interior-node hypothesis does not coincide with the endpoints used here.",
+          "Raşa 2014 Theorems 3.1 and 4.3 and Măduţa–Otrocol–Raşa §3 provide pointwise integral identities, recurrences and inequalities; no uniform-grid trace theorem located."
+        ],
+        "reasoning": "A numerical algorithm for all singular values can in principle compute each finite energy, but its published asymptotic statements do not supply the additive constant or a convergence rate. Pointwise formulas and loose inequalities do not mathematically imply the precise summed asymptotic without a new uniform edge analysis.",
+        "searches": [
+          "Resultary semantic query: equispaced Bernstein collocation matrix squared Frobenius norm trace B_n B_n^T asymptotic edge constant Poisson Bessel",
+          "Web search: Bernstein collocation matrix Frobenius norm sum binomial square at j/n asymptotic",
+          "https://arxiv.org/html/1409.1015v2",
+          "https://arxiv.org/html/0812.3115v1",
+          "https://ictp.acad.ro/inequalities-for-indices-of-coincidence-and-entropies/",
+          "https://arxiv.org/abs/1706.05178"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1409.1015v2",
+        "https://arxiv.org/html/0812.3115v1",
+        "https://ictp.acad.ro/inequalities-for-indices-of-coincidence-and-entropies/",
+        "https://arxiv.org/abs/1706.05178",
+        "https://arxiv.org/abs/2005.03251",
+        "Resultary semantic query: equispaced Bernstein collocation matrix squared Frobenius norm trace B_n B_n^T asymptotic edge constant Poisson Bessel",
+        "Resultary semantic query: Bernstein basis collocation nodes j/n sum squared basis probabilities index of coincidence asymptotic zeta boundary",
+        "Resultary semantic query: sum j=0 to n sum k binomial(n,k)^2 (j/n)^(2k) (1-j/n)^(2n-2k) asymptotic",
+        "Web search: Bernstein collocation matrix Frobenius norm sum binomial square at j/n asymptotic",
+        "Web search: Bernstein Vandermonde matrix trace BB^T Frobenius norm equispaced asymptotic",
+        "Web search: Wright Fisher binomial transition matrix Hilbert Schmidt norms spectral singular value asymptotics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact Parseval row collision identity is known: Raşa 2014 (4.9). The continuum leading integral is then standard, but the full constant receives distinct singular-mesh zeta and nonvanishing endpoint-Poisson terms.",
+          "Theorem 2.1 of Raşa 2017 is log convexity, not asymptotics of a sampled total. Theorems 4–6 of Măduţa et al are pointwise n-recursions/inequalities."
+        ],
+        "reasoning": "Reconstructing the exact constant requires a uniform u^-3/2 Gaussian comparison, a summable lattice tail, endpoint binomial-to-Poisson coupling and singular Euler-type summation. None of the checked stronger-looking statements directly implies these quantitative conclusions.",
+        "searches": [
+          "https://arxiv.org/html/1409.1015v2",
+          "https://arxiv.org/html/0812.3115v1",
+          "https://ictp.acad.ro/inequalities-for-indices-of-coincidence-and-entropies/",
+          "https://arxiv.org/abs/1706.05178",
+          "Web search: Wright Fisher binomial transition matrix Hilbert Schmidt norms spectral singular value asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "E_n=||B_n||_F^2=tr(B_n B_n^T) equals sum_{j=0}^n F_n(j/n), and B_n is also the neutral Wright–Fisher binomial transition matrix.",
+          "Raşa 2014 equation (4.1) defines precisely the row collision F_n(x), while (3.7) gives the limiting Poisson collision via e^{-2j}I_0(2j)."
+        ],
+        "reasoning": "Mapped nomenclatures to exactly the same quantity, including the squared Schatten-2 norm, binomial coincidence index, and neutral Wright–Fisher transition kernel. The full inspected papers establish rowwise identities/shape properties, not a whole endpoint-inclusive grid sum with its exact order-one asymptotic.",
+        "searches": [
+          "Resultary semantic query: equispaced Bernstein collocation matrix squared Frobenius norm trace B_n B_n^T asymptotic edge constant Poisson Bessel",
+          "Resultary semantic query: Bernstein basis collocation nodes j/n sum squared basis probabilities index of coincidence asymptotic zeta boundary",
+          "Resultary semantic query: sum j=0 to n sum k binomial(n,k)^2 (j/n)^(2k) (1-j/n)^(2n-2k) asymptotic",
+          "Web search: Wright Fisher binomial transition matrix Hilbert Schmidt norms spectral singular value asymptotics",
+          "https://arxiv.org/html/1409.1015v2",
+          "https://arxiv.org/html/0812.3115v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant Resultary semantic hits were unrelated equispaced Bergman spectra, Cesàro matrices and other Bessel/Poisson effects, not a Bernstein grid energy table.",
+          "The exact order-one constant C_B=2+zeta(1/2)/sqrt(pi)+2 sum_{j>=1}(e^{-2j}I0(2j)-(4pi j)^-1/2) is not in the inspected primary numerical tables."
+        ],
+        "reasoning": "Neither a table of pointwise F_n values nor numerical finite singular-value experiments determines the nontrivial infinite order-one correction. Negative search results are only best-of-knowledge evidence, not a proof of priority.",
+        "searches": [
+          "Resultary semantic query: equispaced Bernstein collocation matrix squared Frobenius norm trace B_n B_n^T asymptotic edge constant Poisson Bessel",
+          "Resultary semantic query: Bernstein basis collocation nodes j/n sum squared basis probabilities index of coincidence asymptotic zeta boundary",
+          "Resultary semantic query: sum j=0 to n sum k binomial(n,k)^2 (j/n)^(2k) (1-j/n)^(2n-2k) asymptotic",
+          "Web search: Bernstein Vandermonde matrix trace BB^T Frobenius norm equispaced asymptotic"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS after independent Resultary and public literature searches and primary full-text comparisons. Known Raşa identities cover the rowwise binomial/Poisson collision integrals, and Marco–Martínez covers Bernstein–Vandermonde singular-value numerical methods. The precise full-grid square-energy asymptotic, nonzero Poisson–Bessel plus zeta correction, and O(n^-1/7) rate were not implied by inspected statements. Search failure is not novelty proof; older Markov-chain trace or Bernstein approximation sources remain a residual risk.",
+      "residual_risks": [
+        "Best-of-knowledge only: the trace is also the squared Frobenius norm of a neutral Wright–Fisher transition kernel; an older stochastic-matrix/approximation-theory result might express the same constant under alternate terminology.",
+        "The 2020 structured-inversion paper was assessed from abstract only; no claim about its entire text is made. The 2013 Marco–Martínez ELA article and some older pointwise-entropy sources were not fully re-read on this execution.",
+        "No full spectral distribution, individual singular-value limits, nonuniform mesh analogue, or sharpness of the O(n^-1/7) exponent follows from this result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves the pointwise F_n(x) integral, Legendre relation, recurrences, convexity, Heun equation and Poisson I0 counterpart; does not supply an aggregate over the endpoint-inclusive x=j/n mesh or its constant asymptotic",
+          "evidence": "Equations (3.7), (4.1), (4.9)-(4.15), (6.1)-(6.4) are pointwise in x; §7 discusses integral kernels but no discrete-grid Hilbert-Schmidt trace.",
+          "identifier_or_url": "https://arxiv.org/html/1409.1015v2",
+          "material_read": "All seven sections of author primary arXiv HTML, in particular §2 Lemma 2.1, §3 Theorem 3.1, §4 Theorem 4.3, §6 Theorem 6.1 and final remarks",
+          "method": "Complete original arXiv HTML full-text/statement comparison",
+          "title": "Special functions associated with positive linear operators",
+          "trigger": "Primary theorem on the exact same binomial collision function and Poisson Bessel counterpart"
+        },
+        {
+          "assessment": "Studies Neville bidiagonal decomposition, high-relative-accuracy numerical singular values, generally at strictly interior nodes, not squared Frobenius energy at full endpoint-inclusive uniform mesh",
+          "evidence": "§3 explicitly assumes 0<x_1<...<x_{l+1}<1; §4.4 gives singular-value algorithm but no E_n uniform-grid two-term asymptotic.",
+          "identifier_or_url": "https://arxiv.org/html/0812.3115v1",
+          "material_read": "Complete primary arXiv HTML, sections 1–5 with Theorems 3.1–3.2 and §4.4 singular-value algorithm",
+          "method": "Primary full-text HTML, checked matrix definitions, algorithms, numerical examples and conclusion",
+          "title": "Accurate numerical linear algebra with Bernstein–Vandermonde matrices",
+          "trigger": "Same Bernstein–Vandermonde matrix and singular-value questions; possible stronger energy result"
+        },
+        {
+          "assessment": "Gives pointwise function definitions and inequalities at fixed x, not the trace sum over x=j/n nor Poisson–Bessel/zeta constant",
+          "evidence": "(1.1) coincidence index; (2.10) recurrence; Theorem 4 gives fixed-x inequalities (3.1)–(3.2).",
+          "identifier_or_url": "https://ictp.acad.ro/inequalities-for-indices-of-coincidence-and-entropies/",
+          "material_read": "Complete institutional author manuscript text, Introduction, §2 recurrences, §3 Theorems 4–5 and §4 Theorem 6",
+          "method": "Primary author-affiliated institutional full-text HTML",
+          "title": "Inequalities for indices of coincidence and entropies",
+          "trigger": "Same F_n(x) and possible stronger recurrences determining the discrete mesh sum"
+        },
+        {
+          "assessment": "Theorem 2.1 proves log convexity in x; this property does not determine the discrete sampling-sum asymptotic",
+          "evidence": "Theorem 2.1 concerns F_n(x) on [0,1] and Corollary 2.2 entropy concavity.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.05178",
+          "material_read": "Accessible complete arXiv text with Theorem 2.1, proof, Corollary 2.2",
+          "method": "Primary arXiv text rendering",
+          "title": "The index of coincidence for the binomial distribution is log-convex",
+          "trigger": "Exact binomial collision index potentially implies aggregate theorem"
+        },
+        {
+          "assessment": "Indicates structured matrix inversion and conditioning, without a specific energy asymptotic in abstract; no whole-document noncoverage assertion",
+          "evidence": "Abstract treats inverse factorization and conditioning.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.03251",
+          "material_read": "Abstract only",
+          "method": "Primary arXiv bibliographic abstract",
+          "title": "Structured inversion of the Bernstein–Vandermonde matrix",
+          "trigger": "Another relevant matrix paper potentially covering spectral Frobenius quantities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The squared Hilbert–Schmidt/Schatten-2 norm of the full natural Bernstein collocation matrix is a mathematically motivated total spectral-energy invariant. The normal-density bulk predicts only the sqrt(n) term; persistent Poisson endpoint layers and the singular Riemann-sum zeta term yield the independently useful exact order-one correction. This is a quantified infinite-dimensional mesh asymptotic with absolute error, not routine substitution of a known pointwise collision limit or an arbitrary finite slice. No downstream general theorem or optimized rate is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/1409.1015v2",
+    "https://arxiv.org/html/0812.3115v1",
+    "https://ictp.acad.ro/inequalities-for-indices-of-coincidence-and-entropies/",
+    "https://arxiv.org/abs/1706.05178",
+    "https://arxiv.org/abs/2005.03251",
+    "Resultary semantic query: equispaced Bernstein collocation matrix squared Frobenius norm trace B_n B_n^T asymptotic edge constant Poisson Bessel",
+    "Resultary semantic query: Bernstein basis collocation nodes j/n sum squared basis probabilities index of coincidence asymptotic zeta boundary",
+    "Resultary semantic query: sum j=0 to n sum k binomial(n,k)^2 (j/n)^(2k) (1-j/n)^(2n-2k) asymptotic",
+    "Web search: Bernstein collocation matrix Frobenius norm sum binomial square at j/n asymptotic",
+    "Web search: Bernstein Vandermonde matrix trace BB^T Frobenius norm equispaced asymptotic",
+    "Web search: Wright Fisher binomial transition matrix Hilbert Schmidt norms spectral singular value asymptotics"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge only: the trace is also the squared Frobenius norm of a neutral Wright–Fisher transition kernel; an older stochastic-matrix/approximation-theory result might express the same constant under alternate terminology.",
+    "The 2020 structured-inversion paper was assessed from abstract only; no claim about its entire text is made. The 2013 Marco–Martínez ELA article and some older pointwise-entropy sources were not fully re-read on this execution.",
+    "No full spectral distribution, individual singular-value limits, nonuniform mesh analogue, or sharpness of the O(n^-1/7) exponent follows from this result.",
+    "The analytical proof, not the finite checker outputs, justifies the asymptotic. Numerical C_B is illustrative, not an interval certificate."
+  ],
+  "schema_version": 1
+}
