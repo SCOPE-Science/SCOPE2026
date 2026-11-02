@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T10:02:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each radius r the induction identifies all coordinate-swap orbits inside the Chebyshev square Q_r and separates their old colors globally. Every new front orbit (i,r+1) has an old-orbit neighbor cut I_i={a in [0,r]: |a-i|<=1}, distinct for r>=2; base r=0,1 separate by vertex degree. Swap invariance prevents splitting any orbit. For the lower bound, (0,n-1) and (n-1,n-1) have isomorphic unmarked neighborhoods to radius n-2 and are at distance n-1 from the unique marked root, but become different at round n-1. The underlying proof, not finite cases, gives every n>=3. Independent implementation checks n=3..10 round counts and final classes; source verification script independently inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "p.1 states CR iteratively separates vertices by number of neighbors in previous color classes and stops at coarsest equitable partition; p.2 studies conditional-gradient/fractional graph automorphisms.",
+          "Abstract gives |V|-1 maximum number of iterations over arbitrary order-|V| graphs, unlike n-1 in P_n ⊠ P_n."
+        ],
+        "reasoning": "Kiefer–McKay (2020) prove a sharp O(|V|) worst-case iteration count for general graphs. That does not give the precise n−1 depth or exact stable orbits for this n²-vertex marked high-degree graph. Arvind et al. characterize general refinability notions but do not explicitly determine this marked strong-product family in inspected accessible descriptions.",
+        "searches": [
+          "Resultary: single marked corner color refinement square king graph strong product paths stable orbits coordinate swapping exact rounds n-1",
+          "Resultary: king graph color refinement one corner n-1 exact diagonal grid equitable orbit",
+          "web: strong product of paths color refinement individualized corner king graph 1-WL orbits stabilization depth",
+          "Kersting et al 2014 doi:10.1609/aaai.v28i1.8992; Kiefer McKay arxiv:2005.10182; Arvind et al arxiv:1502.01255"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cse.wustl.edu/~garnett/files/papers/kersting_et_al_aaai_2014.pdf",
+        "https://arxiv.org/abs/2005.10182",
+        "https://arxiv.org/abs/1502.01255",
+        "https://mathworld.wolfram.com/KingGraph.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "p.1 states CR iteratively separates vertices by number of neighbors in previous color classes and stops at coarsest equitable partition; p.2 studies conditional-gradient/fractional graph automorphisms.",
+          "For each radius r the induction identifies all coordinate-swap orbits inside the Chebyshev square Q_r and separates their old colors globally"
+        ],
+        "reasoning": "A Cartesian product P_n □ P_n lacks the diagonal edges critical for the I_i cuts and degree base cases; a known Cartesian-grid formula cannot be substituted. General coarsest-equitable-partition algorithms compute case outputs but do not automatically prove the uniform closed-form depth and orbit theorem.",
+        "searches": [
+          "Resultary: single marked corner color refinement square king graph strong product paths stable orbits coordinate swapping exact rounds n-1",
+          "Resultary: king graph color refinement one corner n-1 exact diagonal grid equitable orbit",
+          "web: strong product of paths color refinement individualized corner king graph 1-WL orbits stabilization depth",
+          "Kersting et al 2014 doi:10.1609/aaai.v28i1.8992; Kiefer McKay arxiv:2005.10182; Arvind et al arxiv:1502.01255"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "p.1 states CR iteratively separates vertices by number of neighbors in previous color classes and stops at coarsest equitable partition; p.2 studies conditional-gradient/fractional graph automorphisms.",
+          "For every n>=3, synchronous 1-WL color refinement of P_n strong-product P_n initially marking only the corner (0,0) attains precisely the coordinate-swap orbit partition after exactly n-1 strict rounds; n(n+1)/2 classes, n singleton classes, and n(n-1)/2 doubletons. n=2 is excluded."
+        ],
+        "reasoning": "Terms king graph, Moore-neighbor square grid, strong product P_n ⊠ P_n, equitable corner partition, 1-WL color passing and orbit refinement describe the same task. Kersting et al. define color refinement as coarsest equitable partition and discuss fractional automorphisms, not this exact king-front partition.",
+        "searches": [
+          "Resultary: single marked corner color refinement square king graph strong product paths stable orbits coordinate swapping exact rounds n-1",
+          "Resultary: king graph color refinement one corner n-1 exact diagonal grid equitable orbit",
+          "web: strong product of paths color refinement individualized corner king graph 1-WL orbits stabilization depth",
+          "Kersting et al 2014 doi:10.1609/aaai.v28i1.8992; Kiefer McKay arxiv:2005.10182; Arvind et al arxiv:1502.01255"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Abstract gives |V|-1 maximum number of iterations over arbitrary order-|V| graphs, unlike n-1 in P_n ⊠ P_n.",
+          "Actual Resultary queries listed in searches: no exact matching table identified; negative retrieval is not proof of novelty."
+        ],
+        "reasoning": "A targeted published-record search for king grids, square Moore neighborhoods and individualized-corner WL returned no exact class/round table; MathWorld identifies the king graph as a strong product but provides no stated corner-refinement profile. Search absence is not a priority proof.",
+        "searches": [
+          "Resultary: single marked corner color refinement square king graph strong product paths stable orbits coordinate swapping exact rounds n-1",
+          "Resultary: king graph color refinement one corner n-1 exact diagonal grid equitable orbit",
+          "web: strong product of paths color refinement individualized corner king graph 1-WL orbits stabilization depth",
+          "Kersting et al 2014 doi:10.1609/aaai.v28i1.8992; Kiefer McKay arxiv:2005.10182; Arvind et al arxiv:1502.01255"
+        ]
+      },
+      "rationale": "The exact submitted statement was compared against equivalent terminology, general bounds, named exact prior tables and their logical implications. Inspected relevant sources support a distinct increment; missing full texts and hidden equivalent special cases remain documented best-of-knowledge risks.",
+      "residual_risks": [
+        "General WL algorithms make the family class table computable and related hidden grid-specific equitable partition results may already imply it.",
+        "Independent finite tests cover n=3..10 only; the induction is the infinite proof.",
+        "Mathematical value is a focused structural example rather than a broad method for all strong products."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR general refinement and equitable-partition theory; inspected material does not determine marked king-graph exact rounds",
+          "evidence": "p.1 states CR iteratively separates vertices by number of neighbors in previous color classes and stops at coarsest equitable partition; p.2 studies conditional-gradient/fractional graph automorphisms.",
+          "identifier_or_url": "https://www.cse.wustl.edu/~garnett/files/papers/kersting_et_al_aaai_2014.pdf",
+          "material_read": "Original full-text PDF p.1 (page index 0) introduction and CR definition, p.2 fractional automorphism and conditional-gradient formulation; full paper accessible, only relevant portions inspected",
+          "method": "web PDF opened and p.1 screenshot visually inspected",
+          "title": "Power Iterated Color Refinement",
+          "trigger": "Original color-refinement and orbit-partition formalism in a general paper"
+        },
+        {
+          "assessment": "GENERAL PRIOR; no whole-document exclusion is asserted",
+          "evidence": "Abstract gives |V|-1 maximum number of iterations over arbitrary order-|V| graphs, unlike n-1 in P_n ⊠ P_n.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.10182",
+          "material_read": "ArXiv abstract and publication description; complete primary proof not read in this audit",
+          "method": "arXiv abstract, library and related search",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "General sharp stabilization bounds could dominate a family-specific number"
+        },
+        {
+          "assessment": "GENERAL PRIOR; exact special case not certified absent in entire text",
+          "evidence": "Discusses color refinement and compact/refinable graphs, not an identified corner-marked square king-graph formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+          "material_read": "Bibliographic abstract and known general definitions; complete text not inspected independently this run",
+          "method": "arXiv abstract and repository citation check",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Automorphism-orbit/refinability equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The king graph is a natural diagonal-adjacency lattice used for symmetric-neighborhood refinement; a single individualized corner leaves one nontrivial stabilizer. Exact coincidence of 1-WL and that orbit partition, and the sharp number of synchronous fronts needed, are motivated structural facts for this infinite grid family; this is not an assertion about arbitrary strong products or a generic extremal n^2-vertex stabilization result. The result is modest in scope but not a mere parameter substitution from Cartesian grids.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General WL algorithms make the family class table computable and related hidden grid-specific equitable partition results may already imply it.",
+    "Independent finite tests cover n=3..10 only; the induction is the infinite proof.",
+    "Mathematical value is a focused structural example rather than a broad method for all strong products.",
+    "No GitHub writes, independent certificate writes or publisher uploads occurred. Existing public metadata was not sanitized; plan is not import-ready."
+  ],
+  "schema_version": 1
+}
