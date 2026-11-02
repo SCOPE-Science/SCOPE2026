@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Finite arithmetic checks
+# Independent mathematical audit
 
-Run the standalone `verify.py` with Python 3 and no third-party packages:
+## correctness
 
-```
-python3 verify.py
-```
+PASS
 
-The code constructs the directed de Bruijn graph of order \(n-1\) with arbitrary integer alphabet size \(q\), removes the two specified windows, computes the grounded out-Laplacian arborescence determinant by exact fraction-free Bareiss elimination, and applies the BEST factorial product. It compares these values with the exact derived loop/alternation count for nine cases: \((2,2),(2,3),(2,4),(2,5),(2,6),(3,2),(3,3),(4,2),(4,3)\). It additionally exhaustively enumerates necklaces (independent of the graph cofactor implementation) at \((2,2),(2,3),(2,4),(3,2)\) and checks all cyclic factor frequencies. The observed terminal message was:
+Cyclic windows biject with labeled edges of order-(n-1) de Bruijn digraph. A q^n-2 edge-simple closed tour has two deleted balanced edges; every balanced two-edge digraph is two loops (distinct constants) or an alternating directed 2-cycle. BEST gives cyclic tours via rooted directed arborescences times factorial degree product, reduced by (q-1)^2. Loops do not change the directed Laplacian. Deleting the alternating 2-cycle gives Laplacian rank-one update L-ww^T. Since the uniform de Bruijn shift satisfies P^(n-1)=J and w^TP^kw=2(-1/q)^k, determinant lemma gives exact factor (q-1+2(-1/q)^(n-1))/(q+1), positive for q≥3. Multiply by binom(q,2). Distinct length-n windows guarantee aperiodicity, so no extra rotational stabilizer. Independently recomputed Laplacian cofactors for seven (q,n) cases including q3 n3 and q4 n3; direct complete ternary n2 necklace enumeration matches 24, with constant/alternating split 18/6. Infinite result rests on graph proof.
 
-```
-VERIFY_OK tree_cases=9 exhaustive_cases=4 total_checks=13
-```
+## originality
 
-Representative exact totals: \(T_{2,4}=20\), \(T_{2,5}=2816\), \(T_{3,2}=24\), \(T_{3,3}=435456\), \(T_{4,2}=20736\). These tests do not establish the result at untested sizes and do not constitute an independent audit. Infinite correctness rests on the supplied combinatorial proof, the BEST theorem, and the directed matrix-tree identity. The published binary case is prior coverage, not a new result.
+PASS
+
+Best-of-knowledge originality concerns the exact restricted result, not known underlying theory. The BEST/matrix-tree theorem permits deriving the formula but does not mechanically contain the two-edge balanced deletion classification and alternating-walk Green-function ratio. Prior constructive P_L algorithms and binary tables cannot imply the complete q-ary enumerator without substantial additional derivation. The binary special case is explicitly prior-covered and excluded from novelty. Comparison with arXiv:2108.07759, CPM 2022, arXiv:1903.05442, https://mathoverflow.net/questions/227666/cycles-of-length-2n-2-in-the-de-bruijn-graph/516176 and published semantic research searches found no established equivalent in material actually read; inaccessible full texts are not treated as proof of noncoverage.
+
+## value
+
+PASS
+
+The two-window deletion level is the first genuinely nontrivial edge-balanced defect in de Bruijn necklaces; an exact all-n, all-q≥3 count and complete missing-type breakdown answer a natural enumerative question left open in arbitrary-length constructions. Binary results are acknowledged as prior, but nonbinary full-count classification has distinct alphabet dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

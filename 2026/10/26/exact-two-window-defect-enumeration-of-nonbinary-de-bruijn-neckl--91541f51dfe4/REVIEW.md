@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unrestricted nonbinary theorem follows from the unique balanced two-edge deletion types in the directed de Bruijn graph. The BEST factorial correction is explicit; the matrix-tree determinant perturbation gives the exact alternating-to-loop ratio. The resulting closed form and identification with balanced \(P_L^{(q)}\) necklaces have all quantifiers and boundaries proved. The supplied script checked nine exact directed cofactors and four exhaustive small necklace families; finite checks do not stand in for the infinite proof.
+PASS
 
-## Originality — PASS, residual risks stated
+Cyclic windows biject with labeled edges of order-(n-1) de Bruijn digraph. A q^n-2 edge-simple closed tour has two deleted balanced edges; every balanced two-edge digraph is two loops (distinct constants) or an alternating directed 2-cycle. BEST gives cyclic tours via rooted directed arborescences times factorial degree product, reduced by (q-1)^2. Loops do not change the directed Laplacian. Deleting the alternating 2-cycle gives Laplacian rank-one update L-ww^T. Since the uniform de Bruijn shift satisfies P^(n-1)=J and w^TP^kw=2(-1/q)^k, determinant lemma gives exact factor (q-1+2(-1/q)^(n-1))/(q+1), positive for q≥3. Multiply by binom(q,2). Distinct length-n windows guarantee aperiodicity, so no extra rotational stabilizer. Independently recomputed Laplacian cofactors for seven (q,n) cases including q3 n3 and q4 n3; direct complete ternary n2 necklace enumeration matches 24, with constant/alternating split 18/6. Infinite result rests on graph proof.
 
-The original Gabric–Holub–Shallit and Nellore–Ward papers give respectively general existence and an explicit open enumeration question but no closed nonbinary count at length \(q^n-2\). Cameron–Gündoğan–Sawada and Alhakim supply constructions rather than an all-necklace census. Critically, a MathOverflow answer published October 19, 2026 supplies exactly the binary specialization and a similar matrix method, so **no binary originality is claimed**. The q-ary count for every \(q\ge3\), the type-resolved multiplicities, and the balanced-necklace equivalence are nonbinary assertions not implied by merely quoting binary numbers. The original 1982 binary article could not be fully examined, and nonindexed nonbinary prior work remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A closed two-defect q-ary enumeration resolves a natural infinite slice of the published enumeration problem, not merely an isolated numerical example. The theorem determines all feasible missing-window types, exact counts for each symbol pair, and limiting type frequencies. The refinement distinguishes the two distinct failure modes of near-complete cyclic test sequences.
+Best-of-knowledge originality concerns the exact restricted result, not known underlying theory. The BEST/matrix-tree theorem permits deriving the formula but does not mechanically contain the two-edge balanced deletion classification and alternating-walk Green-function ratio. Prior constructive P_L algorithms and binary tables cannot imply the complete q-ary enumerator without substantial additional derivation. The binary special case is explicitly prior-covered and excluded from novelty. Comparison with arXiv:2108.07759, CPM 2022, arXiv:1903.05442, https://mathoverflow.net/questions/227666/cycles-of-length-2n-2-in-the-de-bruijn-graph/516176 and published semantic research searches found no established equivalent in material actually read; inaccessible full texts are not treated as proof of noncoverage.
 
-## Remaining limits
+## value
 
-Results cover only labeled alphabets, cyclic rotation as equivalence, and the deficit-two family with \(q\ge3\), \(n\ge2\). No independent validation or publication-priority certification has been performed. Verifier output is finite arithmetic evidence only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-window deletion level is the first genuinely nontrivial edge-balanced defect in de Bruijn necklaces; an exact all-n, all-q≥3 count and complete missing-type breakdown answer a natural enumerative question left open in arbitrary-length constructions. Binary results are acknowledged as prior, but nonbinary full-count classification has distinct alphabet dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
