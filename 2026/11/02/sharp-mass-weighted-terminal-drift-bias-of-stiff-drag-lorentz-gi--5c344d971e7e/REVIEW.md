@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The physical relative-kinetic metric conjugates the multispecies drag–Lorentz generator to a strictly dissipative matrix. Exact polynomial algebra reduces the numerical fixed-point error to one rational function; a completed global left-half-plane modulus optimization gives the algebraic sharp constant. The Cayley contraction and von Neumann inequality extend the estimate without any diagonalizability or eigenvector-conditioning hypothesis. A one-species transverse stiff-branch family converges to the equality boundary. A standalone exact-rational verifier checks the identity and representative physical matrix cases; it is not substituted for the analytic argument.
+
+**Originality — PASS, with residual priority risk.** The 2026 source establishes the stiff GIRK stability function and Strang fixed-point equations and reports asymptotic terminal-drift error. The inspected 2025 GIRK precursor, devoted to aerodynamic drag, and the 2026 charged extension do not establish this sharp uniform kinetic-norm constant or its stiff-regime extremizer. Searches for the exact rational transfer function and equivalent upper-bound formulations revealed no earlier identified statement. This does not prove absence of a classical or otherwise unindexed derivation; related general numerical-stability and operator-theory results remain background.
+
+**Mathematical value — PASS.** A sharp, model-wide quantitative bias guarantee improves the prior asymptotic statement into an explicit uniform accuracy benchmark, and the dissipativity argument avoids the otherwise uncontrolled eigenvector condition-number factor for coupled multiple species. The extremal charged example shows that a smaller universal constant cannot be justified. The result is deliberately confined to constant coefficients, uniform forcing and the fixed point; it makes no transient, nonlinear or spatial stability assertion.
+
+Closest direct sources: arXiv:2610.18979v1 (full Methods and Appendices inspected) and arXiv:2511.07562v1 (full Methods and relevant stability/steady-state sections inspected). Remaining priority risk: an equivalent estimate may appear under a different rational-stability or semigroup formulation.
+
+Self-review: passed. Independent audit: not yet performed.

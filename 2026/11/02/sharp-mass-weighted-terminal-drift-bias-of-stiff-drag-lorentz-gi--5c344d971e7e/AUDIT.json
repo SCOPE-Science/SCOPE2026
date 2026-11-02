@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Exact R rationalization, the positive physical metric identity Q M=diag(epsilon_i T_i), global scalar modulus maximization, Cayley contraction and von Neumann inequality give a full proof for arbitrary dimension and nonnormality. One positive-drag physical family proves sharpness within stiff timesteps; 236 exact-rational coupled-system tests reproduce the transfer identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical von Neumann contraction inequality is a general theorem that bounds analytic rational functions of contractions.",
+        "Chen et al. Appendix A establishes eigenmode stability in a spectral region and gives physical mode assumptions."
+      ],
+      "reasoning": "General functional calculus supplies one proof ingredient but not the method-specific fixed-point identity, the scalar optimization or physical sharp extremizer. Neither the source stability estimate nor the generic inequality states a strictly stronger result implying the sharp numerical constant without the supplied new calculation.",
+      "searches": [
+        "von Neumann inequality maximal dissipative matrices rational functional calculus left half plane contractions",
+        "stiff 2 stage Runge Kutta (1-z)/(1-2z+2z^2) terminal steady state bias forcing Strang",
+        "half plane H infinity functional calculus dissipative operator rational residual amplification stationary error stiff integrator"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier_or_url": "https://arxiv.org/html/2610.18979v1",
+        "title": "A Nonlinear General Implicit Runge–Kutta Integrator for Multifluid Charged Dust and Gas"
+      },
+      {
+        "identifier_or_url": "https://arxiv.org/html/2511.07562v1",
+        "title": "General Implicit Runge-Kutta Integrators for Multifluid Gas-Dust Aerodynamic Drag"
+      },
+      {
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Von_Neumann%27s_inequality",
+        "title": "Von Neumann contraction inequality (classical operator theory)"
+      },
+      {
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/0732060",
+        "title": "Runge–Kutta numerical shadowing of stationary points (Lubich, Nipp and Stoffer)"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source provides R(z), Wfp and a large-step terminal-drift asymptotic, and Appendix A derives an eigenmode damping region.",
+        "The 2025 source treats drag-only GIRK and terminal-drift behavior without arbitrary gyromotion and arbitrary nonnormal coupled-species universal norms."
+      ],
+      "reasoning": "Their definitions imply the algebraic f expression by calculation, but neither known source explicitly proves its sharp H-infinity optimum, proves extension to nonnormal kinetic-metric contractions, or supplies a stiff-branch sharpness witness. A mere corollary with full stated implication would be covered; here substantial optimization and functional-calculus steps remain necessary.",
+      "searches": [
+        "A Nonlinear General Implicit Runge-Kutta Integrator for Multifluid Charged Dust and Gas Appendix A terminal drift Table 1",
+        "General Implicit Runge-Kutta Integrators for Multifluid Gas-Dust Aerodynamic Drag terminal steady state",
+        "two stage stiff Runge Kutta stability function (1-z)/(1-2z+2z^2) contractivity dissipative nonnormal matrix singular value threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen et al. 2026 Eqs. (39)–(42) give the fixed-point formula and Table 1 reports only large-step order.",
+        "The exact rational error simplifies to f(z)=-z/[(2z-1)(2z^2-3z+2)], whose uniform optimum is different from one-step R stability."
+      ],
+      "reasoning": "The formula could be expressed as an H-infinity norm of a rational steady-state transfer. Searches of its exact coefficients, numerical bound, and terminal-drift aliases did not return an equivalent stated constant. Lack of search hits does not establish publication priority.",
+      "searches": [
+        "\"1-z\" \"1-2z+2z\" \"terminal\" Runge-Kutta",
+        "\"GIRK\" \"fixed point\" \"relative error\" charged dust",
+        "\"0.174872575\" Runge Kutta",
+        "stationary response distortion rational function -z/( (2z-1)(2z^2-3z+2) ) optimal 0.174872"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chen et al. 2026 Table 1 has an asymptotic O(Δt^-2) stiff-drift error, not an exact all-timestep relative bound.",
+        "The closest published numerical-stability records located concern distinct RK methods, positivity or discrete recurrence stability, not this charged-dust transfer function."
+      ],
+      "reasoning": "The source table contains the rate but no computed global sup-norm or physical kinetic-metric optimizer. A source-table entry of the form O(Δt^-2) cannot imply a finite uniform best constant on the complete stiff branch.",
+      "searches": [
+        "GIRK Chen Li He Wibking Krumholz Bai 2610.18979 terminal drift fixed point charged dust",
+        "multifluid charged dust gas implicit Runge Kutta terminal drift bias mass weighted norm fixed point exact global upper bound",
+        "charged dust gas drag Lorentz GIRK stiff resolved energy nonnormal amplification contractive"
+      ]
+    },
+    "rationale": "The 2026 paper establishes the numerical map and only an asymptotic stiff-regime fixed-point error; 2025 drag-only precursor and examined relevant numerical/operator literature do not state the exact sharp 0.174872575596... mass-weighted bound or physically attainable supremum. Specific residual historical-priority risk remains.",
+    "residual_risks": [
+      "Other literature may derive the same rational H-infinity maximum under a generic RK nomenclature.",
+      "An inaccessible complete earlier source might contain an equivalent fixed-point bound; abstract-only sources were not treated as full negative inspections."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the scheme and gives its large-step order; the newly asserted exact uniform 17.49% metric bound and stiff sharpness are not stated in inspected material.",
+        "evidence": [
+          "Equations (39)-(42), Table 1, Appendix A A2-A3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.18979v1",
+        "material_read": "Full publicly accessible HTML text: Methods II.3, II.4, II.7, Table 1, Results III.4, Appendix A, Appendix B and bibliography",
+        "method": "Read source equations, compare its fixed-point error and Appendix A claims to the new sharp bound",
+        "title": "A Nonlinear General Implicit Runge–Kutta Integrator for Multifluid Charged Dust and Gas",
+        "trigger": "Same exact charged-dust numerical integrator, stability function and forced steady state"
+      },
+      {
+        "assessment": "Precursor method and error considerations are distinct and do not yield the charged signed-gyrofrequency, nonnormal sharp bound as stated.",
+        "evidence": [
+          "Methods II.5-II.7, Results III.2 and III.5, Appendix B"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.07562v1",
+        "material_read": "Publicly accessible complete HTML; Methods II.5–II.7, Results III.2, III.5 and stability appendix",
+        "method": "Compared RK stability, drag-only source model, steady-state results and their exact implications",
+        "title": "General Implicit Runge-Kutta Integrators for Multifluid Gas-Dust Aerodynamic Drag",
+        "trigger": "Earlier GIRK drag-only source and potential dominating terminal-drift analysis"
+      },
+      {
+        "assessment": "Provides a legitimate proof tool but requires independent exact function reduction and extremal physical model.",
+        "evidence": [
+          "Contraction bound for polynomials, analytic rational extension"
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Von_Neumann%27s_inequality",
+        "material_read": "The statement of the single-contraction inequality and analytic-function extension",
+        "method": "Check whether the general result subsumes the scientific claim",
+        "title": "Von Neumann contraction inequality (classical operator theory)",
+        "trigger": "Potentially broader functional-calculus theorem"
+      },
+      {
+        "assessment": "Priority risk remains because abstract alone does not rule out an equivalent bound hidden in the article.",
+        "evidence": [
+          "Title and available abstract only"
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/0732060",
+        "material_read": "Available indexed title and abstract-level description only; full text not accessed",
+        "method": "Checked scope of available abstract-level material, without claiming full-text exclusion",
+        "title": "Runge–Kutta numerical shadowing of stationary points (Lubich, Nipp and Stoffer)",
+        "trigger": "Possible broader steady-point literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5c344d97-1e7e-43bd-97a0-b721d6ef19ad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "It supplies a universal sharp quantitative fixed-point accuracy guarantee for arbitrarily many charged-dust species, including nonnormal interactions for which eigenvalue-only error estimates would not control the kinetic-energy norm. The explicit stiff-branch near-extremizer proves the constant cannot be improved. Does not claim a new end-to-end or nonlinear stability theorem.",
+    "status": "PASS"
+  }
+}
