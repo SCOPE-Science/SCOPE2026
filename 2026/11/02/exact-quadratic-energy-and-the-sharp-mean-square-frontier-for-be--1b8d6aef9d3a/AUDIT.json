@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The explicit positive definite matrix P has det P=qz²[1-q/(1+qz)²]>0. Exact evaluation of the two companion matrices yields E[A_D^T P A_D]-P=[z(qz²+z-2)/(1+qz)]diag(1,0). Two-step observability is strictly positive for every q in (0,1) and z>0, proving contraction, conservation, or growth in mean-square energy precisely on the three sides of z+qz²=2. Independence of centered innovations adds exactly sigma² per energy step. Stationary second moment and pole follow algebraically; the separate Jury test establishes the first/second-moment stability gap. The extracted symbolic verifier reports 3510 exact rational branch and moment checks and independent symbolic identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mishchenko et al., arXiv:2206.07638, Section 4 gives convergence guarantees under a delay-adaptive γ and independent stochastic gradient noise, not necessary-and-sufficient fixed-step lag criteria.",
+        "Cong, Doan and Siegmund (2015), DOI:10.3934/dcdsb.2015.20.861, abstract states multiplicative-ergodic spectrum for random-delay equations; full text was not inspected.",
+        "Al-Lawati and Draper (2022), ICASSP DOI:10.1109/ICASSP43922.2022.9747271, publisher abstract studies renewal-like gradient arrival process and expected staleness; full manuscript not inspected."
+      ],
+      "reasoning": "General mean-square stability theory of i.i.d. switched matrices provides a covariance-lift spectral-radius characterization. In the present low-dimensional instance it can be specialized with further algebra, but no compared source gives the explicit sharp probability frontier together with a positive-definite Lyapunov identity and noise-pole constant. The inaccessible older full text prevents an exhaustive priority claim.",
+      "searches": [
+        "asynchronous stochastic gradient descent random delays sharp step size mean square stability 2021 2022 arxiv",
+        "random delay linear difference equation second moment Lyapunov matrix 2023",
+        "stochastic delayed Euler equation exact mean-square stability random lag zero one Bernoulli",
+        "Gradient Staleness in Asynchronous Optimization Under Random Communication Delays arxiv 2022"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2206.07638",
+      "arxiv:2406.11159",
+      "arxiv:2306.08926",
+      "doi:10.3934/dcdsb.2015.20.861 (abstract only)",
+      "related stochastic delay and switched-system published scientific summaries",
+      "doi:10.1109/ICASSP43922.2022.9747271 (conference abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 of arXiv:2206.07638 uses time-varying delay-adaptive step size; its sufficient convergence bounds do not algebraically imply the exact \\(qz^2+z<2\\) condition for fixed \\(z\\).",
+        "Section III-C of arXiv:2406.11159 analyzes characteristic roots of a continuous-time delay model; the exact discrete-time Bernoulli second moment and additive-noise stationarity are different mathematical objects.",
+        "Theorem 4.1 of arXiv:2306.08926 concerns finite-horizon error of Euler with random time evaluations and a fixed delay. It does not provide a sharp infinite-horizon stochastic switching frontier."
+      ],
+      "reasoning": "These compared statements neither subsume the explicit conditional Lyapunov identity nor the necessary-and-sufficient mean-square parameter boundary. A general lifted covariance Lyapunov framework may recover it after specialization, which is acknowledged as method-level prior art.",
+      "searches": [
+        "arxiv:2206.07638 Theorem 3 delay adaptive stepsizes strong convexity",
+        "arxiv:2406.11159 stationary variance characteristic root stochastic delay",
+        "arxiv:2306.08926 randomized Euler scheme fixed lag random evaluation time"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mishchenko et al. (2022), arXiv:2206.07638, algorithm and Theorem 3: arbitrary delays with delay-adaptive step sizes; no Bernoulli fixed-step quadratic Lyapunov formula in inspected text.",
+        "Yu et al. (2024), arXiv:2406.11159, Eq. (13)-(15) and III-C: continuous stochastic delay differential equation and characteristic roots, not a discrete covariance moment condition."
+      ],
+      "reasoning": "Averaging the random delay gives a deterministic second-order mean recurrence, which is strictly weaker than the presented mean-square result. Rewriting as a two-state Bernoulli switched linear system is equivalent, but the explicit quadratic identity and closed-form threshold were not supplied by the compared results.",
+      "searches": [
+        "Bernoulli one-step random delay scalar Euler recurrence X next equals X minus z times X delayed mean-square stability threshold q z squared plus z less than two",
+        "\"randomly delayed\" \"x_{n+1}\" \"x_{n-1}\" \"stability\"",
+        "stochastic delayed difference equation random Bernoulli delay mean square stability x_n+1 x_n minus alpha x_n-Dn"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A related published result, “Exact delay-distribution law for two-coordinate randomized Gauss–Seidel,” concerns \\(S_{k+1}=S_k/2+(r^2/2)\\mathbb E[S_{k-D}]\\) for a different orthogonal coordinate update, not the Bernoulli stale-gradient recurrence."
+      ],
+      "reasoning": "The relevant prior claims have different stochastic recurrences or deterministic delay allocations. No exact matching polynomial boundary or covariance-noise expression appeared in the compared searchable records; this is evidence of a gap rather than proof of uniqueness.",
+      "searches": [
+        "random stochastic delay two state companion matrix second moment sharp stability",
+        "random delayed Euler mean square boundary and mean-stable but variance unstable",
+        "\"z+q z^2\" \"delay\" \"stability\" gradient"
+      ]
+    },
+    "rationale": "The exact scalar Bernoulli lag probability/stepsize boundary and positive quadratic energy, the pole of the additive-noise stationary variance, and the first/second-moment separation were not stated in the inspected original texts or closest retrieved scientific records. The generic covariance-lift test for switched systems is an implicit method, not the explicit exact classification; remaining specialization/priority risk is acknowledged.",
+    "residual_risks": [
+      "Specialized prior closed-form threshold in older random-delay difference-equation literature may exist but was not identified.",
+      "General finite-dimensional switched-system covariance theory is acknowledged; a reviewer may regard algebraic specialization as standard rather than a novel classification.",
+      "One plausible older article was inspected only to abstract level and cannot support a definitive noncoverage statement.",
+      "The 2022 Al-Lawati–Draper random-communication-delay conference article was not inspected in full; its abstract discusses renewal-arrival staleness rather than exact scalar Bernoulli mean-square stability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different delay-adaptive learning rates and theorem type; not direct exact fixed-step Bernoulli two-moment frontier",
+        "evidence": [
+          "First arXiv submission 2022-06-15",
+          "Theorem 3 includes delay-dependent adaptive stepsize schedules and finite-horizon expected bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.07638",
+        "material_read": "Introduction, asynchronous update definition, Theorem 3, independent-delay assumption, Appendix A/B, conclusions",
+        "method": "Parsed complete arXiv article text; inspected relevant sections and formulas",
+        "title": "Asynchronous SGD Beats Minibatch SGD Under Arbitrary Delays",
+        "trigger": "Natural primary algorithmic motivation: asynchronous stochastic gradients with stale parameters"
+      },
+      {
+        "assessment": "Continuous stochastic delay equation with characteristic-root damping and stationarity; no explicit Bernoulli one-step discrete covariance boundary located",
+        "evidence": [
+          "First arXiv submission 2024-06-17",
+          "Continuous-time scalar equation d x(t)=-v x(t-tau) dt+sigma dB(t)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.11159",
+        "material_read": "Sections II, III-A, III-C, equations (13)–(15), (26), characteristic-root discussion, conclusion",
+        "method": "Parsed arXiv full-text view, targeted section and formula comparison",
+        "title": "Distributed Stochastic Gradient Descent with Staleness: A Stochastic Delay Differential Equation Based Framework",
+        "trigger": "Same scalar quadratic staleness mechanism, plausible stronger continuous-time stability treatment"
+      },
+      {
+        "assessment": "Random evaluation times on a fixed lag rather than independent Bernoulli selection of stale gradients; fixed-horizon error bounds",
+        "evidence": [
+          "First arXiv submission 2023-06-15",
+          "Algorithm (2.6) samples random time theta, not random delay choice"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.08926",
+        "material_read": "Introduction, Section 2 update (2.6), Theorem 4.1 and numerical setup",
+        "method": "Parsed arXiv full-text view with explicit update-formula comparison",
+        "title": "On approximation of solutions of stochastic delay differential equations via randomized Euler scheme",
+        "trigger": "Potential same-named randomized Euler scheme with delays"
+      },
+      {
+        "assessment": "Priority unresolved; abstract concerns a multiplicative ergodic theorem rather than an explicit Bernoulli mean-square frontier",
+        "evidence": [
+          "2015 article abstract on number of Lyapunov exponents for random delay",
+          "Full proof and examples not inspected"
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/dcdsb.2015.20.861",
+        "material_read": "Abstract, bibliographic data, references only",
+        "method": "Publisher HTML abstract; full-text material unavailable in this comparison",
+        "title": "On Lyapunov exponents of difference equations with random delay",
+        "trigger": "Potential older covering theory of linear random delay equations"
+      },
+      {
+        "assessment": "Abstract analyzes renewal-process gradient arrivals, expected staleness and connection to worker/communication parameters, not an explicitly stated binary one-step scalar mean-square threshold. Full-text priority comparison remains unresolved.",
+        "evidence": [
+          "IEEE SPS talk abstract dated 12 May 2022, https://rc.signalprocessingsociety.org/conferences/icassp-2022/spsicassp22vid1518",
+          "DOI:10.1109/ICASSP43922.2022.9747271"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ICASSP43922.2022.9747271",
+        "material_read": "IEEE Signal Processing Society conference abstract and bibliographic record; no full manuscript available in the checked material",
+        "method": "Scientific publisher abstract and search for author preprint/open version",
+        "title": "Gradient Staleness in Asynchronous Optimization Under Random Communication Delays",
+        "trigger": "Random communication delays and a similar asynchronous optimization update, potential dominant prior work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1b8d6aef-9d3a-4c34-af1d-66b993a80adc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Independent zero/one-step gradient staleness is a natural mathematical model of asynchronous numerical optimization. The result gives a sharp closed-form staleness budget rather than merely sufficient bounds, quantifies the stationary noise blow-up, and proves a strict parameter window where expected iterates converge although mean-square energy grows. The positive quadratic energy identity is structural and can serve as a check for general delay-stability estimates; scope beyond the scalar Bernoulli fixed-step model is explicitly unproved.",
+    "status": "PASS"
+  }
+}
