@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:59:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — Writing u=e^(iθ), z=re^(iψ), direct real projection produces z⁺/z=1+it(1−e^(2i(θ−ψ))); conditional rotational Haar invariance makes each factor iid for a fixed nonzero starting vector. Their circular support is entirely in upper half-plane, avoiding zero; uniform log-series about 1+it has coefficients w^j/j with |w|²=q, giving mean ln|1+it|+i atan t, complex second moment E[(L−EL)²]=0 and E|L−EL|²=Li₂(q). Thus equal log-radius and unwrapped-phase variance Li₂(q)/2 and zero cross covariance. E|multiplier|²=1+2t² and det(I+2tuuᵀJ)=1 checked. For gain 2, exact MSE formula and Taylor expansions give E error²/h→ω²T|z0|², while bounded triangular-array log increments satisfy Lindeberg and covariance ω²T/2. Independently checked four full-angle Fourier/log quadratures and three h→0 MSE cases; their finite-step deviations are O(h), not counterexamples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dong–Schwerdtner–Peherstorfer 2025 general randomized time-stepping Theorem 1 gives bounds; Forrester–Zhang 2018 general isotropic products."
+        ],
+        "reasoning": "Broad frameworks cover integrator definition and some convergence/exponent methods, but inspected accessible formulas do not cover this exact joint log/phase covariance plus sharp compensated MSE.",
+        "searches": [
+          "published-Resultary semantic search: Haar random rank-one projected Euler planar oscillator rotation complex multipliers Lyapunov logarithmic phase drift (2026-10-28; limit=15)",
+          "https://arxiv.org/html/2512.19009v1",
+          "https://arxiv.org/abs/1706.03398",
+          "https://doi.org/10.1016/j.spl.2026.110703"
+        ]
+      },
+      "checked_sources": [
+        "Dong–Schwerdtner–Peherstorfer 2025 arxiv:2512.19009v1",
+        "Sturman–Thiffeault 2017 arxiv:1706.03398",
+        "Forrester–Zhang 2018 arxiv:1805.05529 (general framework)",
+        "Q. Dong 2026 DOI 10.1016/j.spl.2026.110703 (abstract only)",
+        "Published Resultary semantic 15-hit search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The iid factor 1+it(1−e^{iφ}) leads to Li₂(t²/(1+t²))/2 phase-radius variance by complex Fourier orthogonality.",
+          "Exact MSE constant follows from gain-two Euler expectation at floor(T/h) steps."
+        ],
+        "reasoning": "The joint law requires exploiting conditional Haar independence and a specialized log-circle expansion; generic random-matrix product CLTs and numerical error inequalities do not imply all stated constants without further work.",
+        "searches": [
+          "published-Resultary semantic search: Haar random rank-one projected Euler planar oscillator rotation complex multipliers Lyapunov logarithmic phase drift (2026-10-28; limit=15)",
+          "https://arxiv.org/html/2512.19009v1",
+          "https://arxiv.org/abs/1706.03398",
+          "https://doi.org/10.1016/j.spl.2026.110703"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Planar rank-one projected Euler matrices in SL(2,R) are Haar-conjugated shears; log multiplier is Fourier log of shifted circle."
+        ],
+        "reasoning": "Examined equivalent random-matrix Lyapunov product, isotropic shear ensemble and stochastic numerical-error formulations rather than only the oscillator wording.",
+        "searches": [
+          "published-Resultary semantic search: Haar random rank-one projected Euler planar oscillator rotation complex multipliers Lyapunov logarithmic phase drift (2026-10-28; limit=15)",
+          "https://arxiv.org/html/2512.19009v1",
+          "https://arxiv.org/abs/1706.03398",
+          "https://doi.org/10.1016/j.spl.2026.110703"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rotationally invariant product paper 2026 only abstract available, cannot be excluded as exponent coverage; no exact joint law table located in inspected sources."
+        ],
+        "reasoning": "The plausible later source remains a named priority risk; absence of an indexed match is not novelty proof.",
+        "searches": [
+          "published-Resultary semantic search: Haar random rank-one projected Euler planar oscillator rotation complex multipliers Lyapunov logarithmic phase drift (2026-10-28; limit=15)",
+          "DOI 10.1016/j.spl.2026.110703"
+        ]
+      },
+      "rationale": "PASS, qualified — Dong–Schwerdtner–Peherstorfer 2025 already defines the Haar-sketch integrator and provides generic bias and strong-error bounds, which are not new. General SL(2,R) Lyapunov and isotropic matrix-product machinery (Sturman–Thiffeault, Forrester–Zhang) is also prior, but inspected sources do not supply simultaneously the joint exact unwrapped phase/radial Fourier law and the sharp compensated time-integration MSE coefficient. A plausible 2026 Q. Dong rotational-invariance article was only abstract-readable; its exact exponent coverage is a residual priority risk, not a fabricated whole-document exclusion.",
+      "residual_risks": [
+        "Q. Dong 2026 rotationally invariant random matrix paper full formulas inaccessible; it may overlap exact exponent, but exact stochastic numerical error appears distinct in accessible material.",
+        "No higher-dimensional, correlated-sketch or variable-step analysis; stepwise area preserving does not mean each vector stays bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior work defines sketched Euler and supplies bias/variance/error bounds. Does not imply the specialized exact complex multiplier, joint phase/radius dilogarithm covariance and sharp compensated error constant.",
+          "evidence": "Dong, Schwerdtner and Peherstorfer (2025), Eqs. (36)–(37), Proposition 3 and Theorem 1.",
+          "identifier_or_url": "https://arxiv.org/html/2512.19009v1",
+          "material_read": "Full accessible HTML, construction of right sketch and equations 36–37, Proposition 3 and main error theorem",
+          "method": "Primary full-text inspection and theorem implication comparison",
+          "title": "Randomized time stepping of nonlinearly parametrized solutions of evolution problems",
+          "trigger": "Original numerical integrator / Haar projected sketch method"
+        },
+        {
+          "assessment": "Two fixed shear generators differ from Haar-conjugated rank-one shears; its exponent bounds do not determine the exact joint unwrapped phase/radius law here.",
+          "evidence": "Sturman and Thiffeault (2017), random product of two shears.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.03398",
+          "material_read": "Available primary mathematical statements and comparison to two fixed shear generators",
+          "method": "Primary preprint inspection",
+          "title": "Lyapunov exponents for the random product of two shears",
+          "trigger": "Random planar SL(2,R) products and Lyapunov drift"
+        },
+        {
+          "assessment": "Unresolved priority risk for part of Lyapunov exponent; cannot infer full noncoverage from abstract. The exact numerical Euler phase and strong-error law remain differentiated in available material.",
+          "evidence": "Q. Dong, Statistics & Probability Letters 234 (2026), 110703 (abstract only).",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2026.110703",
+          "material_read": "Accessible title/abstract only; complete mathematical formulas not inspected",
+          "method": "Bibliographic and abstract comparison only; no whole-document exclusion",
+          "title": "The Largest Lyapunov exponent for products of rotationally invariant random matrices",
+          "trigger": "Same isotropic random-matrix framework, potential broader exponent coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — Randomized projected integration of a conservative oscillator has potentially hidden geometric instability. The exact positive radial Lyapunov drift despite stepwise determinant one, isotropic phase/radial second-order law, and the sharp compensated mean-square integration error provide concrete analytical calibration beyond generic convergence bounds.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dong–Schwerdtner–Peherstorfer 2025 arxiv:2512.19009v1",
+    "Sturman–Thiffeault 2017 arxiv:1706.03398",
+    "Forrester–Zhang 2018 arxiv:1805.05529 (general framework)",
+    "Q. Dong 2026 DOI 10.1016/j.spl.2026.110703 (abstract only)",
+    "Published Resultary semantic 15-hit search"
+  ],
+  "disposition": "passed",
+  "limitations": "Unwrapped phase is not circular phase and has zero covariance but not independent of radius; the unavailable 2026 article is a priority risk.",
+  "residual_risks": [
+    "Q. Dong 2026 rotationally invariant random matrix paper full formulas inaccessible; it may overlap exact exponent, but exact stochastic numerical error appears distinct in accessible material.",
+    "No higher-dimensional, correlated-sketch or variable-step analysis; stepwise area preserving does not mean each vector stays bounded."
+  ],
+  "schema_version": 1
+}
