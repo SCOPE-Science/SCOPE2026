@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The entire formula is obtained by enumerating **only the two pivotal correctness configurations**, after conditioning on the common signal. The adjacent central binomial coefficients agree, giving the exact two-term expression. Division by a positive exponential factor reduces sign changes to a monotone one-dimensional exponential comparison. The rational example has conditional coefficients \(7/125\) and \(-4/125\); its full gain is \(-1/375\) at three voters and \(2/625\) at five. The independent exact verifier compares full binary-vector enumeration with a separately convolved distribution on sampled parameters. These tests are evidence corroborating, not replacing, the all-\(m\) proof.
+PASS
 
-## Originality — PASS with explicit residual risks
+With n=2m+1 odd, one s->t delegation changes majority correctness only in the two pivotal cases S=m-1,t correct,s incorrect (gain) and S=m,t incorrect,s correct (loss), where S is the number of correct votes among 2m-1 ordinary conditionally independent voters. Their equal central binomial coefficients give exact Δ_m=binom(2m-1,m-1) Σ_b π_b [(1-q_b)c_b(1-a_b)-q_b a_b(1-c_b)] [q_b(1-q_b)]^(m-1). A positive exponential normalization yields a monotone affine exponential ratio, so across integer m there is at most one sign reversal, even if a coefficient vanishes or λ0=λ1. Statewise gain criterion follows by dividing positive odds factors. With a=(3/5,3/5), c=(4/5,4/5), q=(3/5,4/5), π=(1/3,2/3), direct exact fractions Δ_1=-1/375, Δ_2=2/625 and Δ_m>0 thereafter. Independently compared complete Bernoulli outcome enumeration with pivotal formula for n=3,5,7,9, including Δ_3=248/46875 and Δ_4=56/9375. All-size result is the pivotal partition, not finite extrapolation.
 
-The closest source is Gilbert, Schmid, Schnell, Svoboda and Yeo (arXiv:2608.16738v1), whose complete HTML model, technical propositions, delegation designs and discussion were compared. The paper analyzes asymptotic delegation mechanisms, counterexamples to naive average-competence routing, and exact finite-size illustrations for other delegation architectures, but does not state the present single-edge gain identity or its two-exponential one-crossing consequence. Kahng, Mackenzie and Procaccia (2021) study a scalar independent model; Abramowitz and Mattei (2024) study weighted fixed representatives using agreement with voter majority, not objective correctness. Targeted external literature searches, mathematical-record comparisons and accessible previously established claims revealed no stronger covering result. A basic pivotality identity or an equivalent formulation under unsearched vocabulary may exist: historical priority is not certified, and the 2021 paper's full appendices were not inspected.
+## originality
 
-## Value — PASS
+PASS
 
-The recently proposed two-state correlated voting framework asks when delegation improves collective epistemic outcomes. A single fixed edge is its cleanest nontrivial unit: the result gives an exact, efficiently evaluated finite-size decision criterion and proves that its quality can change direction at most once as voters are added. A rational example reverses at the smallest two eligible odd sizes **even though the delegate is more competent in every state**. This is a structural classification of a motivated accuracy tradeoff, not an arbitrary enumeration or isolated numerical inequality.
+Gilbert, Schmid, Schnell, Svoboda and Yeo (arXiv:2608.16738) study the same two-state common-signal liquid democracy model and related competence-versus-accuracy effects, making it the decisive comparison. Their indexed claims focus on general mechanisms, correlations and asymptotic/other delegation architectures, whereas the present theorem gives fixed-edge finite-population two-exponential sign geometry. Their full primary text could not be re-read in this run; an authorized access attempt returned disconnected institutional VPN. Kahng–Mackenzie–Procaccia (2021) use scalar independent competences and cannot express two-state competition; Abramowitz–Mattei (2024) compare to a different benchmark. Resultary query returned unrelated voting-rule census findings rather than an identical single-edge conditional gain theorem. Originality remains a qualified best-of-knowledge PASS; plausible known pivotal-identity reductions are a specific risk.
 
-## Scientific boundaries
+## value
 
-No claim is made for heterogeneous large backgrounds, more than two states, multiple edges, different voting rules, or the strategic selection of the single edge. Equal state pivotal variance makes the sign constant; with unequal pivotal variances, at most one crossing is possible. The scientific review is self-review only; independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The single edge is the elementary action in correlated epistemic liquid voting. The exact conditional cost/benefit criterion and at-most-one population reversal resolve a natural sensitivity question as electorate size varies. The sharp three-to-five reversal even when delegate competence dominates in BOTH states is an informative structural counterexample to naive competence monotonicity; no broad equilibrium mechanism is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
