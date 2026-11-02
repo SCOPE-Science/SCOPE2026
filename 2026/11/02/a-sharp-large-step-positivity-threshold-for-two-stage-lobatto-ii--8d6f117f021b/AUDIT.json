@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Symbolic two-stage stability calculation gives R(z)=1/(1-z+z²/2). The transient Jordan block yields an exact sine coefficient sequence; summation gives absorption entry q^k[cos(kθ)+sin(kθ)] with θ=atan(1/(1+h)) and q=cosθ−sinθ. Necessary and sufficient angular threshold follows by first integer crossing 3π/4, with h=0 and n≤4 handled. Cotangent expansion gives large-n law. Direct rational inversion and coefficient recurrence passed 26022 finite assertion groups; analytic proof covers all dimensions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lóczi–Ketcheson studies general RK stability-function monotonicity bounds, not exact sign patterns of finite upper-triangular Markov endpoint maps.",
+        "Higueras–Ketcheson–Kocsis modifies the method using a second spatial operator; the claim here is for the unperturbed map.",
+        "Related studies of Padé [2/2], Radau IIA and other numerical updates use different rational functions."
+      ],
+      "reasoning": "The more general positivity-framework papers do not furnish a dominating all-n, all-h classification for this particular map. Their general SSP conditions may be inapplicable as necessary conditions for recovery at very large h; no logical implication covering the exact cotangent boundary was found.",
+      "searches": [
+        "L-stable Lobatto IIIC negative coefficients endpoint recovery Markov generators",
+        "Lobatto IIIC maximum principle pure birth matrix positivity 2 stages",
+        "fastest exit positivity absorbing Markov implicit Lobatto method",
+        "arXiv:1303.6651v1 §1 and §2; arXiv:1505.04024v2 §1 and §3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1303.6651v1",
+      "https://arxiv.org/abs/1505.04024",
+      "https://arxiv.org/html/1505.04024v2",
+      "https://juliagni.github.io/RungeKutta.jl/stable/lobatto/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For unmodified Lobatto IIIC, R(z)=1/(1-z+z²/2). Distinct Radau IIA and [2/2] Padé maps have different numerator/denominator and different Jordan-coefficient sequences.",
+        "The 2013 general radius definitions imply neither the necessity nor the sufficiency of h≥cot(3π/[4(n−1)])−1 on a fixed n-state birth generator.",
+        "The actual proof sums the terminal absorption-column tail and shows its exact sign is cos(kθ)+sin(kθ), absent from the inspected source statements."
+      ],
+      "reasoning": "This is not a renaming of another RK positivity phase: equality of endpoint functions would require equality of rational stability maps, which fails. No inspected stronger theorem implies the sign of every finite absorbing-chain entry for every h, including large-step recovery and critical zeros.",
+      "searches": [
+        "arXiv:1303.6651v1 rational absolute monotonicity positivity",
+        "arXiv:1505.04024v1 perturbations monotonicity",
+        "published-finding corpus: implicit Runge Kutta stability R(z)=1/(1-z+z²/2) nonnegative birth chain matrix exact",
+        "published-finding corpus: L-stable Lobatto IIIC negative coefficients endpoint recovery Markov generators"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two-stage Lobatto IIIC has stability function R(z)=1/(1-z+z²/2), the [0/2] Padé approximant. The public Lobatto IIIC tableau reproduces R by direct symbolic calculation.",
+        "Lóczi–Ketcheson arXiv:1303.6651v1 §1 analyzes general radii of absolute monotonicity; no exact fixed absorbing-chain endpoint domain identified in the inspected material."
+      ],
+      "reasoning": "Both the Lobatto IIIC and Padé aliases were tested, not just title wording. A general absolute-monotonicity radius is a uniform guarantee over broad systems and cannot by itself imply the exact graph-specific disconnected positivity set {0} union a large-step ray; a separate full coefficient and absorbing-tail calculation is required.",
+      "searches": [
+        "Lobatto IIIC two stage positivity absorbing pure birth Markov chain exact step size n cotangent",
+        "implicit Runge Kutta stability R(z)=1/(1-z+z²/2) nonnegative birth chain matrix exact",
+        "Padé [0/2] approximant positivity pure birth Markov chain exact cot threshold",
+        "Lobatto IIIC 2 stage absolute monotonicity radius 0 positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned neighboring records on Gauss–Legendre/Padé [2/2] and two-stage SDIRK positivity, but no entry with the rational map R(z)=1/(1-z+z²/2) and an all-length cotangent endpoint threshold.",
+        "No inspected primary table or source reproduced the exact safe set or boundary."
+      ],
+      "reasoning": "Searched exact rational-method aliases and the scalar threshold function, and examined nearby records by statement rather than topic alone. Absence from search is not a proof of uniqueness; residual literature risk is recorded.",
+      "searches": [
+        "Lobatto IIIC two stage positivity absorbing pure birth Markov chain exact step size n cotangent",
+        "two-stage Lobatto IIIC positivity transient coefficient sine angular threshold",
+        "Padé [0/2] approximant positivity pure birth Markov chain exact cot threshold",
+        "published-finding corpus search: Lobatto IIIC two stage positivity absorbing pure birth Markov chain exact step size n cotangent",
+        "web search: [0/2] Padé Markov absorbing chain positivity sign"
+      ]
+    },
+    "rationale": "Actual published-finding corpus and web searches including Lobatto IIIC, [0/2] Padé, pure-birth absorbing chains, and exact cotangent threshold did not locate same or stronger theorem. Inspected general absolute-monotonicity and perturbed-RK primary literature concerns different necessary/sufficient questions and does not imply the exact large-step ray. Nearby Radau IIA and [2/2] Padé studies use different rational stability functions. Specialist older overlap remains a disclosed risk.",
+    "residual_risks": [
+      "Historical specialist Lobatto IIIC and [0/2] Padé positivity results may be unindexed or absent from accessible texts; search cannot certify novelty.",
+      "The accessible 2018 revised Higueras text is not byte-identical to the 2015 v1; the original v1 abstract was checked, not its entire full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General rational absolute-monotonicity and method bounds; no full finite absorbing-birth exact positivity threshold identified in inspected material.",
+        "evidence": [
+          "arXiv:1303.6651v1 §§1–2, especially formula (1.1) for RK stability, R(ψ) definition, and §2 theorem topics"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1303.6651v1",
+        "material_read": "Full accessible HTML obtained; read abstract, introduction, definitions and the main-results outline, and searched document for Lobatto / relevant method names.",
+        "method": "Direct primary full-text HTML inspection plus targeted text search; version v1 dated 2013-03-26.",
+        "title": "Rational functions with maximal radius of absolute monotonicity",
+        "trigger": "Most plausible older abstract framework for rational endpoint positivity and SSP radii"
+      },
+      {
+        "assessment": "Optimizes altered/perturbed RK methods and SSP coefficients, not the unmodified Lobatto IIIC fixed birth-chain endpoint sign domain.",
+        "evidence": [
+          "arXiv:1505.04024v2 §1, definition of perturbed RK schemes, §3 topic outline; v1 posted 2015-05-15"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1505.04024v2",
+        "material_read": "Accessible revised HTML: abstract, introduction, method-versus-perturbation definitions, section organization; v1 posting record separately checked at arXiv:1505.04024.",
+        "method": "Direct full-text HTML of revised version and v1 public-date record; no claim to have read the unavailable exact v1 full text.",
+        "title": "Optimal monotonicity-preserving perturbations of a given Runge-Kutta method",
+        "trigger": "Potentially dominating result for methods with zero uniform positivity radius"
+      },
+      {
+        "assessment": "Confirms standard two-stage Lobatto IIIC matrix; documents the method, not Markov-chain positivity phases.",
+        "evidence": [
+          "Two-stage Lobatto IIIC tableau with A entries 1/2, -1/2; 1/2, 1/2 and b=(1/2,1/2)"
+        ],
+        "identifier_or_url": "https://juliagni.github.io/RungeKutta.jl/stable/lobatto/",
+        "material_read": "Two-stage Lobatto IIIC tableau and adjacent Lobatto-family definitions.",
+        "method": "Public method documentation cross-checked against direct symbolic evaluation of R(z).",
+        "title": "Lobatto III Methods — RungeKutta.jl documentation",
+        "trigger": "Verify the exact two-stage Lobatto IIIC tableau and avoid numerical-method misidentification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d6f117f-021b-4f96-bb92-84d4e84ae2ff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact all-length all-step domain is a natural positivity condition for approximated Markov transitions; the unexpected five-state onset of small-step failure and sharp large-step recovery, with critical h_n~4n/(3π), are structural and not explained by generic A/L-stability. Explicit entries and unique critical nonstructural zero give practical diagnostics. Does not claim large steps are accurate.",
+    "status": "PASS"
+  }
+}
