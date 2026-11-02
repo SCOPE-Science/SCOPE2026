@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "A monotone weighted-Hamming coupling with Perron factor 1-2h+2h cos(pi/(m+1))<1 proves existence/uniqueness and geometric mixing for all m>=2 and 0<h<=1/2. Conditional independence proves C=BCB+D with D diagonal nonnegative; the convergent nonnegative path sum with positive boundary variance gives strict positivity for h<1/2 and precisely same-parity positivity at h=1/2. The two-step kernel separates parity classes, yielding entire-block independence through uniqueness for P^2. For m=2 exact two-state moment closure gives q=2(1-2h)/(4-5h), with 0<h<2/3 ensuring valid binary probabilities and positive transition matrix. Exact rational Markov-chain checks corroborate m=2,3,4; full generality is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Croci–Giles arXiv:2010.16225, pages 1-4 and 12-22, obtains error accumulation bounds and conditional independence of new stochastic-rounding errors for float formats, not the binary stationary joint law.",
+        "Ben-Ari et al. arXiv:2004.10187, pages 1-4, states the graph is complete bipartite and the target is quasi-stationarity conditioned on nonabsorption; the present path with fair boundary reservoirs is ergodic and is not conditioned on survival."
+      ],
+      "reasoning": "The numerical error bounds do not imply the exact parity-block independence or off-diagonal strict positivity. General dualities may facilitate a new proof, but an applicable theorem containing the joint endpoint law was not found in the inspected material.",
+      "searches": [
+        "published-finding corpus: stochastic rounding heat equation Markov chain Bernoulli random quantization stationary distribution spatial correlation voter model",
+        "published-finding corpus: Gaussian rounding heat correlation finite grid independent local rounding noise downstream stationary covariance",
+        "Web: stochastic rounding heat equation stationary correlation binary grid",
+        "arXiv:2010.16225 sections 2-5; arXiv:2004.10187 sections 1-4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2010.16225",
+      "arXiv:1502.02883",
+      "arXiv:2004.10187",
+      "published-finding corpus 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "published-finding corpus 2026/9/19/SCOPE-boundary-parity-reduction-modular-laplacian--329faea3aeba"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new theorem quantifies the stationary distribution of X in {0,1}^m after one complete-step rounding with deterministic half-valued boundary reservoirs; Croci–Giles analyzes roundoff errors in floating-point solution vectors, not these Markov stationary distributions.",
+        "Gastner uses periodic identification of left/right neighbors, with consensus and period-two behavior at p+=1; the reservoir-driven chain here has a contracting unique invariant distribution and shows full parity-block independence at the maximal monotone heat CFL step.",
+        "Ben-Ari et al. address QSDs on complete bipartite graphs, not unconditioned invariants of a noisy boundary-driven path."
+      ],
+      "reasoning": "The distinction lies in assumptions and mathematical implication, not titles or parameters: the compared older theorems do not yield all the new conclusions for the stated Dirichlet stochastic-rounded Euler map without further derivation. Generic duality and product-kernel techniques are not claimed as newly discovered principles.",
+      "searches": [
+        "arXiv:2010.16225 full text, sections 2,4,5",
+        "arXiv:1502.02883 full text, sections 2,3,8,11",
+        "arXiv:2004.10187 full text, sections 1,3,4",
+        "published-finding corpus: stationary covariance positivity independence checkerboard parity synchronous probabilistic cellular automaton heat nearest neighbor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gastner arXiv:1502.02883, pages 1-3, sets periodic boundary conditions, updates each site using two neighbors and maps the link spins to a constrained Ising model; no fixed fair boundary reservoirs or uniquely pinned stationary heat-rounding law in that formulation.",
+        "published-finding corpus closest 2026/9/19/SCOPE-boundary-parity-reduction-modular-laplacian--329faea3aeba concerns deterministic modular binary insertions and boundary words, not Bernoulli stochastic rounding invariant laws."
+      ],
+      "reasoning": "Synchronous-voter dynamics is an important alias at h=1/2; periodic/absorbing voter correlation results are not by themselves the finite Dirichlet-reservoir stationary factorization with strict h<1/2 signs and the two-cell extension. The statement is mathematically comparable but not directly implied by the inspected results.",
+      "searches": [
+        "published-finding corpus: stationary law parity factorization stochastic rounding binary heat finite difference Dirichlet one half boundary CFL 1/2 synchronous noisy voter",
+        "published-finding corpus: stationary covariance positivity independence checkerboard parity synchronous probabilistic cellular automaton heat nearest neighbor",
+        "Web: \"parallel voter model\" \"bipartite\" \"stationary\" \"independent\" parity classes",
+        "Web: \"synchronous voter model\" \"even\" \"odd\" stationary independent",
+        "arXiv:1502.02883 sections 2-3 and abstract"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac concerns deterministic positivity of BE-filtered Crank–Nicolson, not stochastic stationary covariance.",
+        "No exact transition table or published stationarity formula for the specified coarse pinned heat chain was identified in the actual searches."
+      ],
+      "reasoning": "A classical finite-state transition-matrix enumeration would be capable of computing each fixed small grid, but no identified table gives the arbitrary-grid checkerboard independence and strict covariance classification. Non-discovery alone is not treated as proof of novelty.",
+      "searches": [
+        "published-finding corpus: critical Courant number full checkerboard independence stochastic rounded heat Euler binary quantization",
+        "published-finding corpus: stochastic rounding explicit Euler finite difference heat equation fixed integer grid two interior sites stationary covariance sign change CFL 1/2 exact invariant measure",
+        "Web: \"stochastic rounding\" \"heat equation\" \"invariant\" \"distribution\" covariance"
+      ]
+    },
+    "rationale": "Direct full-text comparison: Croci–Giles treats floating-point heat-roundoff global error rather than stationary binary quantization; Gastner gives periodic synchronous voter/Ising correlation formulae rather than Dirichlet-reservoir fixed-grid Euler rounding; Ben-Ari et al. study absorbing voter QSD on a different graph. published-finding corpus checks of parity-factorized heat SR, stationary covariance, binary diffusion and numerical heat positivity did not reveal a statement implying this exact domain and assertions. Standard voter/Markov tools are credited. Residual risk remains of an unlocated equivalent special case; no independent priority audit.",
+    "residual_risks": [
+      "The stationary parity decomposition may be known in older noisy synchronous voter or fixed-grid probabilistic cellular automata under another terminology.",
+      "Published numerical-roundoff literature uses hardware floating-point models different from this binary fixed-grid model; priority over every older specialized model is not independently established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING specific binary stationary distribution; source concerns arithmetic floating-point error bounds, and gives no invariant checkerboard law",
+        "evidence": "arXiv:2010.16225 PDF pp. 1-4, 12-14, 21-22; abstract and Section 2 define floating-point SR; Section 4 propagates local roundoff errors.",
+        "identifier_or_url": "https://arxiv.org/pdf/2010.16225",
+        "material_read": "Abstract; sections 1-2 describing SR, heat stencil, and numeric formats; section 4 error growth/correlation treatment; section 5 numerical discussion and references to errors",
+        "method": "Full-text PDF opened; relevant pages read and visually checked; focused section and terminology search",
+        "title": "Effects of round-to-nearest and stochastic rounding in the numerical solution of the heat equation in low precision",
+        "trigger": "Same heat discretization and SR setting"
+      },
+      {
+        "assessment": "CLOSEST MECHANISM but NOT_COVERING the pinned Dirichlet reservoir stationary law and subcritical Euler self-retention classification",
+        "evidence": "arXiv:1502.02883 pp. 1-4: periodic topology and conditional neighbor-voter update; no stochastic heat binary reservoir model.",
+        "identifier_or_url": "https://arxiv.org/pdf/1502.02883",
+        "material_read": "Abstract and sections 1-4 defining periodic synchronous voter model and Ising link-spin mapping; section headings and relation to correlation functions",
+        "method": "Full-text PDF opened and source pages inspected visually, with statement-level comparison",
+        "title": "The Ising chain constrained to an even or odd number of positive spins",
+        "trigger": "Synchronous voter alias and possible stationary spin correlations"
+      },
+      {
+        "assessment": "NOT_COVERING: asynchronous pull voter, absorbing complete-bipartite QSD, not synchronous reservoir-driven path invariant law",
+        "evidence": "arXiv:2004.10187 PDF pp. 1-4, Theorem 1.1 and Sect. 3 define different chain and conditional nonabsorption.",
+        "identifier_or_url": "https://arxiv.org/pdf/2004.10187",
+        "material_read": "Abstract; sections 1-3 and description of section 4, model and main statements",
+        "method": "Full-text PDF accessed; statement/assumption comparison and first-page visual inspection",
+        "title": "Quasi-Stationary Distributions for the Voter Model on Complete Bipartite Graphs",
+        "trigger": "Bipartite voter duality might imply parity independence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f89bb2d5-2468-4d8e-a63d-5fb72a75fa41",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The stationary solution has strictly positive inter-site correlations below the monotone CFL edge despite conditionally independent new rounding draws; at the edge its odd/even blocks factor completely, while each block may remain internally correlated. The exact two-cell continuation has a sharp anticorrelation regime within deterministic spectral stability. This mathematically motivates a distinction between stochastic-rounding noise independence and stationary numerical-field independence, with exact solver-parameter consequences rather than an arbitrary small-table calculation.",
+    "status": "PASS"
+  }
+}
