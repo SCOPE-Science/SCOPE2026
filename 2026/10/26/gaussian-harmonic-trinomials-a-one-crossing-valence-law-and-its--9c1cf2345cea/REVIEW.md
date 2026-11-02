@@ -1,9 +1,21 @@
-# Scientific review of the Gaussian harmonic-trinomial transition theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof checks the critical-radius normalization, establishes a star-shaped simple hypocycloid by its strict polar-angle winding, proves injectivity in the reversing disk, and uses the harmonic degree at infinity to obtain the zero count. Circular Gaussian scaling produces one threshold, its moment spectrum, and an exact integral formula. The two Gaussian coupling expansions use explicit Green/residue area and inertia formulas; the large-degree expansion includes the angular Jacobian correction, resulting in the Euler-constant term and the negative \((\log n)/n\) coefficient. The numerical checker independently compares two conditioning integrals and verifies 58 consistency assertions. No count is made at a singular transition and finite checks are not substituted for proof.
+## correctness
 
-**Originality — PASS, provisionally.** Sète–Zur (arXiv:1908.08759) provides caustic preimage theory; Brilleslyper–Brooks–Dorff–Howell–Schaubroeck (doi:10.1090/bproc/51) and Brooks–Dorff–Hudson–Pitts–Whiffen–Woodall (doi:10.1007/s40840-021-01230-8) determine deterministic harmonic-trinomial valence regimes. Those deterministic ingredients, including the hypocycloid and the \(n\)-versus-\(n+2\) alternative, are not the claim of novelty. Lundberg (arXiv:2201.00788) and Lundberg–Thomack (arXiv:2308.10333) concern other harmonic-polynomial probabilistic questions or Gaussian ensembles. Searches of mathematical records and relevant prior work found no statement covering the full random two-coefficient threshold moment law together with the universal rational limit and the logarithmic finite-degree correction. The remaining risk is an equivalent probabilistic reformulation of known caustic results or overlooked sparse-ensemble literature; lack of a search hit is not a uniqueness proof.
+PASS
 
-**Value — PASS.** The two-valued maximal-valence statistic is a natural probabilistic refinement of deterministic valence classification. Exact threshold integrability, weak/strong coupling exponents, and especially the universal high-degree crossover with explicit correction measure how geometric nonlinearity persists (and fades) under Gaussian perturbation. The large-degree correction is not merely a re-expression of a known deterministic threshold and is quantitatively testable.
+For H(z)=z^n+sA overline(z)+B with n>=2 and independent standard circular complex Gaussian A,B, the critical circle of f_n(z)=z^n+overline(z) has radius r_n=n^(-1/(n-1)). The inequality |z^n-w^n|<|z-w| for distinct interior disk points gives at most one reversing preimage, and winding/degree n yields exactly n+2 roots when the effective Gaussian target is in the hypocycloid and n otherwise. Polar-angle monotonicity W_n=n(n-1)(1-cos u)/(n²+2n cos u+1) proves a one-valued radial boundary, hence one random crossing T_n=(|B|/rho_n(Theta))^(1/q_n)/|A|. Independent Rayleigh/exponential integration gives the exact p_n(s) and Mellin strip -2q_n<p<2; Green-residue area and inertia supply small-s coefficients, and moment Taylor supplies large-s coefficients. Expanding q_n=1+1/n+O(n^-2), log rho²=(-2 log n+2 cos u)/n+O(log n/n²), weighted polar Jacobian W_n=(1-cos u)+O(n^-1) and the gamma logarithmic integral gives p_n(s)=s²/(1+s²)-s²[2 log n+EulerGamma+log(1+s^-2)]/[n(1+s²)²]+O_delta,Delta(log²(n)/n²), uniformly on each compact positive coupling interval. Boundary n=2 and s->0/infinity and exclusion of singular threshold respected.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Known harmonic-map argument-principle and hypo/epicycloid trinomials supply the deterministic zero-count mechanism, not the Gaussian one-threshold distribution and exact Mellin/moment law. The independent finite-degree coupled random phase/size integration and log(n)/n coefficient were not found in the inspected old references or the targeted Resultary search. This is best-of-knowledge, not a priority guarantee.
+
+## value
+
+PASS
+
+The number of roots is a canonical random-harmonic-map statistic. Its single-threshold distribution and sharp moment strip quantify a real stochastic transition, while the logarithmic large-degree correction discriminates it from the naive rational limit; this is a genuinely motivated exact invariant beyond the known deterministic root-count classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
