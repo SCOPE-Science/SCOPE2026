@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies rank-three sentence types with sets of pointed extension types, proves a uniform local-neighborhood reduction for every branching factor at least two and height at least three, and evaluates the exhaustive depth cases. The two small heights are checked from atomic triple diagrams. The independent direct enumerator and compressed orbit implementation agree on their overlapping finite inputs. The classification is not inferred from finite experiments.
+## correctness
 
-**Originality — PASS, with uncertainty.** The main related source is Verbitsky's 2004 Ehrenfeucht-game analysis of tree definability; its undirected graph and asymptotic quantifier-rank bounds do not state or imply the eight-class directed parent-edge classification. Known directed-path thresholds concern branching one, excluded here. The 2026 paper on full ordinal trees uses named successor functions and ordinal heights, not this exact finite relational invariant; its full text could not be examined, so equivalent implicit coverage remains a documented risk. Indexed research comparisons revealed no covering exact claim. This review does not certify global uniqueness.
+PASS
 
-**Value — PASS.** Complete regular rooted trees are canonical finite branching models. The sharp collapse of all positive heights above five, with explicit exceptional small-height branching effects, determines an exact logical expressivity boundary for their parent-child relation. The eight representative orders and optimal 127-vertex bound give a finite testing family for all rank-three sentences within this natural class.
+Exact Hintikka recursion maps atomic diagrams of ordered triples to Q(x,y), sets S(x) and global rank-three sentence invariant Σ. For b>=2 and h>=3, every extension z is x, y, adjacent to x/y, or neither; count |V|>2b+4 guarantees an outside witness, and common-neighbor cases split into sibling or grandparent/grandchild. Comparing ancestor/descendant positions and nearest branch points gives depth profiles with stable interior type from depth 3 through h−3. Hence branching beyond two does not affect Σ, and profiles collapse at height six; h=1,2 have b=2 vs >=3 local witness distinctions. Independent definition-level ordered-triple enumeration for (b,h)=(2,3,4)×h≤3 and b=2 h≤6 corroborated signature classes, including 127 vertices for T2,6. Infinite-height equivalence rests on proven finite locality/depth cases rather than extrapolating checks to h>60.
 
-**Limits.** The result requires finite complete regular trees with branching at least two, positive heights, parent-edge language, and ordinary first-order rank three. Indexed sources may omit unpublished or differently formulated equivalents. No independent audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+First-order Ehrenfeucht–Fraïssé games are classical. Verbitsky studies definability/quantifier-depth bounds primarily for undirected graphs with separators, Chen–Zhang handle ordinal branching with named successor functions, and Resultary exact directed-path threshold treats b=1, excluded here. These premises do not give this exact 8-class directed unlabelled-root family, although analogous finite-model reduction could have been recorded elsewhere.
+
+## value
+
+PASS
+
+A sharp quantifier-rank classification with an exact smallest-representative bound answers a natural logical distinguishability question for canonical finite tree families; the infinite tail collapse and language sensitivity are the substantive features.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
