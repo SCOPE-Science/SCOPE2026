@@ -1,17 +1,21 @@
-## Correctness (C)
+# Independent mathematical audit
 
-PASS. The equilibrium CDF is normalized in every parameter regime. Interior indifference gives \(F(b)=(b/V)^{1/(N-1)}\); uniform tie-breaking at the cap gives win probability \(S_N(q)/N\). These identities yield the support endpoint, cutoff equation, and all boundary cases. The Riemann-sum argument proves the stated large-\(N\) limit. Spot checks are sanity checks only.
+## correctness
 
-## Originality (O)
+PASS
 
-PASS, with bounded literature risk. Muratov's full-text classification covers two and three players. Pastine and Pastine treat general constrained contests but explicitly exclude minimum-bid cases from their model and impose genericity conditions that do not fit identical binding caps. The inspected cap-only two-bidder literature does not cover the joint reserve-plus-cap, arbitrary-\(N\) statement. No claim is made that every unindexed source has been ruled out.
+Bids below reserve except zero are dominated; no positive atom below the cap because an infinitesimal overbid beats ties. Continuous support indifference yields F(b)=(b/V)^{1/(N-1)} with payoff zero. Uniform cap tie probability equals S_N(q)/N, fixing q uniquely for 1<V<N and continuous endpoint Vq^{N-1}. If endpoint≤r the distribution is only atoms at zero and cap; otherwise it has the positive continuous interval [r,endpoint]. For r<V≤1 support ends at V, and V≥N gives all bids at cap. Strictly monotone S_N(q)/q^{N-1} gives unique threshold and checks boundaries including V=Vc; Riemann sums with q_c=exp(-a_N/N) give limit r+a_r. Independent numerics for 24 (N,r) pairs, including N=2 Vc=2-r, corroborate but are not a proof.
 
-## Value (V)
+## originality
 
-PASS. The result supplies a complete symmetric-equilibrium classification and an exact population-size threshold with a finite limiting value \(r+a_r\). This gives a mathematically precise answer to when the continuous bidding region vanishes under a reserve and cap.
+PASS
 
-## Closest literature and limitations
+Best-of-knowledge originality after actual source and implication comparisons. Classical all-pay unbounded-support equilibrium cannot recover cap tie-binomial atom and the reserve-induced zero-versus-continuous threshold; Muratov's small-N cases do not logically determine every N. Muratov 2021 full text explicitly classifies N=2 and N=3, not arbitrary N; Pastine–Pastine 2023 general constraints do not encompass the binding reserve/minimum eligibility model with identical symmetric caps under their stated genericity conditions.
 
-The claim is restricted to identical valuations, complete information, uniform tie-breaking, one prize, reserve \(r\in(0,1)\), and cap one. Asymmetric equilibria and equilibrium selection are not classified. References are listed in the result and structured audit.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Reserve eligibility and a bid cap give a natural mixed-strategy all-pay contest. The exact transition from continuous bidding to two-atom play for arbitrary finite populations and its positive finite large-N limit are structural equilibrium facts useful beyond a small numerical example, without claiming asymmetric equilibrium classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
