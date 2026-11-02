@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness
+**PASS.** The recurrence \(c_{j+1}=Bc_j+c_{j-1}\) is exactly equivalent to each closed-neighborhood equation. The characteristic identity \(\chi_B=(x^3+x+1)^2\), vanishing \(f_9(B)=0\), and eight nonzero polynomial residues ensure that the first-column space is either zero or exactly six-dimensional, with the only nonzero lengths congruent to eight modulo nine. The zero-column reflection repeats the full eight-column support weight exactly \(q\) times. The proof provides an exhaustive, disjoint first-column table for all \(64\) cases, not a probabilistic sample. Two differently constructed algorithms independently check the matrix equation, spectra, and boundary cases on finite parameter ranges; the general theorem follows from the polynomial and recurrence arguments.
+
+## Originality
+**PASS (best-knowledge, not a priority certificate).** Goldwasser–Klostermeyer (2002) establishes the column/row recurrence and even explicitly mentions a \(6\times8\) quiet pattern; these premises are credited. Klostermeyer (2026) studies nullspace existence and primality; Scherphuis tabulates dimensions; Francis (2026) supplies a weighted \(4\times4\) base spectrum and square-grid extensions. These results do not state or imply by a generic dimension theorem the eight-class weight distribution of *all* six-row patterns or the exact count of minimum-support patterns. The 2009 orbit-weight paper studies a different minimization statistic. Targeted searches of research records and primary sources identified no identical or stronger weight enumerator for this family. Residual risk: an unlocated equivalent finite table might exist, particularly in the older parity-domination literature.
+
+## Value
+**PASS.** The exact spectrum is a natural invariant of the six-row grid's zero-effect binary code, as opposed to an arbitrary enumeration slice. The width-six family is specifically motivated in the established nullspace-prime literature by the \(6\times8\) primitive; extending that instance gives an infinite, sharply periodic family. The eight distinct nonzero weight levels, the exact minimum \(18q\), and the multiplicity four answer quantitative questions not settled by existence and dimension data, and determine the noise-weight distribution of silent moves for any independent press probability. The result is self-contained and has a clear interpretation in parity domination and Lights Out; it does not depend on claiming a broader coding-theory breakthrough.
+
+## Relationship and limitations
+Primary comparators: Klostermeyer and Goldwasser (2002); Klostermeyer (2026), arXiv:2610.31475v1; Francis (2026), especially its square-grid extension; Scherphuis's dimension table; and the distinct orbit-weight statistic of Goldwasser–Klostermeyer (2009). No general width or symmetry-classification claim is made. An independent literature-priority review and independent proof audit remain to be performed.
+
+Self-review: passed. Independent audit: not yet performed.

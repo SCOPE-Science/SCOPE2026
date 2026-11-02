@@ -1,0 +1,169 @@
+{
+  "correctness": {
+    "rationale": "The neighborhood parity equations are equivalent to the six-dimensional Fibonacci recurrence with both zero boundary columns. Over F2, the characteristic polynomial is (x^3+x+1)^2; f9(B)=0, while f1(B) through f8(B) are invertible by their nonzero residues modulo irreducible x^3+x+1. T^9=diag(B^7,B^7) makes all solutions periodic in blocks of nine, and a zero-column reflection repeats the eight-column support weight q times. All 64 possible six-bit initial columns are classified explicitly by a disjoint table, yielding the claimed exact coefficients. Independently reconstructed binary Gaussian elimination confirms all lengths 1–54 and direct parity-tested recurrence confirms 1–144; the infinite statement rests on the proof, not finite sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Scherphuis, Lights Out Mathematics, tabulates board dimensions and kernel sizes; those numbers determine only W(1), not the eight nonzero coefficients.",
+        "Francis, Algebra in the Game Lights Out (2026), Lemma 30 and Proposition 31, evaluates a 4-by-4 weight spectrum and folded square boards, a different width.",
+        "Goldwasser and Klostermeyer (2009), Maximum Orbit Weights in the sigma-game and lit-only sigma-game, studies orbit minimum weights rather than the distribution over the zero-effect kernel."
+      ],
+      "reasoning": "The strongest located grid nullspace theorems give existence, periods, dimension, or other board geometries; none yields the specified 6-by-(9q-1) coefficient list as an established corollary. The older recurrence supplies a legitimate proof ingredient, not the evaluated support spectrum.",
+      "searches": [
+        "\"Lights Out Mathematics\" 6 width quiet patterns table",
+        "even dominating sets 6-row rectangular grid minimum weight 18 times q eight nonzero support sizes",
+        "\"Algebra in the Game Lights Out\" Francis weight polynomial 4x4",
+        "\"Maximum Orbit Weights\" Goldwasser Klostermeyer grid"
+      ]
+    },
+    "checked_sources": [
+      "Prime Nullspace Matrices and Even Dominating Sets — https://arxiv.org/html/2610.31475v1",
+      "Nullspace-Primes and Fibonacci Polynomials — https://www.fq.math.ca/Scanned/40-4/klostermeyer.pdf",
+      "Lights Out!: A Survey of Parity Domination in Grid Graphs — https://studyres.com/doc/8475290/lights-out---a-survey-of-parity-domination-in-grid-graphs",
+      "Algebra in the Game Lights Out — https://peterefrancis.com/lights-out-algebra/paper.pdf",
+      "Lights Out Mathematics — https://www.jaapsch.net/puzzles/lomath.htm",
+      "Maximum Orbit Weights in the sigma-game and Lit-only sigma-game on Grids and Graphs — https://doi.org/10.1007/s00373-009-0841-0",
+      "Fibonacci Polynomials and Parity Domination in Grid Graphs — https://doi.org/10.1007/s003730200020"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Klostermeyer (2026), arXiv:2610.31475v1, investigates prime nullspace matrices, existence, and row/column support; it does not report the six-row kernel Hamming enumerator.",
+        "The 2002 Fibonacci recurrence yields an explicit algorithm for the pattern set and dimension but does not directly state the numerical multiplicities 4,12,12,3,12,15,4,1.",
+        "The 2009 orbit-weight invariant has a different quantifier: it minimizes within each orbit rather than counting every homogeneous kernel vector by weight."
+      ],
+      "reasoning": "This exact finite base support census, extended to every 9q-1 length by a proven reflection period, is neither identical to nor a simple renaming of the dimension/existence statement. Computation is finite and exhaustive, while the all-length assertion follows by symbolic algebra. Residual historical priority uncertainty is reported.",
+      "searches": [
+        "Lights Out quiet patterns 6 by n 9q-1 Hamming weight enumerator nine levels 18 20 22 24 26 28 30 36",
+        "6 by 8 binary grid closed neighborhood parity kernel dimension six complete weight spectrum",
+        "even dominating sets 6-row rectangular grid minimum weight 18 times q eight nonzero support sizes",
+        "arXiv:2610.31475 nullspace-prime even dominating sets six row"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The column recurrence c(j+1)=(I+A(P6))c(j)+c(j-1) defines exactly the nullspace of the standard closed-neighborhood Lights Out matrix.",
+        "Klostermeyer, Lights Out! A Survey of Parity Domination in Grid Graphs, Theorem 1(6)-(9), proves the first-column recurrence and dimension criterion but gives no weight distribution.",
+        "Goldwasser and Klostermeyer, Nullspace-Primes and Fibonacci Polynomials (Fibonacci Quarterly 2002) explicitly mentions a 6-by-8 nullspace matrix without counting the 64 possible patterns by support size."
+      ],
+      "reasoning": "Even dominating sets, quiet button patterns, zero-effect click vectors, binary closed-neighborhood kernels, and nullspace matrices all describe the same object. The precise new claim is the entire Hamming weight distribution for the six-row grid family, not the existence/dimension criteria or one example.",
+      "searches": [
+        "Lights Out quiet patterns 6 by n 9q-1 Hamming weight enumerator nine levels 18 20 22 24 26 28 30 36",
+        "6 by 8 binary grid closed neighborhood parity kernel dimension six complete weight spectrum",
+        "\"even dominating\" \"6 x 8\" minimum support quiet patterns",
+        "\"Fibonacci Polynomials and Parity Domination in Grid Graphs\" pdf arxiv"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2002 Nullspace-Primes paper identifies one six-by-eight nullspace matrix, not all 64 support sizes.",
+        "The publicly accessible Lights Out Mathematics tabulations concern nullities and numbers of quiet patterns, not Hamming weight enumerators.",
+        "A 2026 source evaluates 4-by-4 weights, which was excluded explicitly as a covering instance for a different width."
+      ],
+      "reasoning": "No exact six-by-eight 64-vector Hamming distribution was found in the inspected primary sources or targeted mathematical-record searches. The proof supplies a full checkable partition of the 64 vectors, not only an aggregate count.",
+      "searches": [
+        "6 by 8 binary grid closed neighborhood parity kernel dimension six complete weight spectrum",
+        "Lights Out quiet patterns 6 by n 9q-1 Hamming weight enumerator nine levels 18 20 22 24 26 28 30 36",
+        "\"6 × 8\" nullspace matrix weight distribution",
+        "\"Lights Out\" \"6x8\" \"weight enumerator\""
+      ]
+    },
+    "rationale": "The same-object 2002/2026 Fibonacci/quiet-pattern literature supplies existence, dimension, period and a six-by-eight example, not the complete six-row eight-level Hamming distribution. The closest weighted 2026 paper addresses a four-by-four base and square boards, already excluded from the novel claim. Searches of records and published sources found no exact covering support-spectrum statement. Historical priority remains provisional, especially because the original 2002 Graphs and Combinatorics full text was not accessible.",
+    "residual_risks": [
+      "The full 2002 Graphs and Combinatorics paper was not obtainable through available public sources; only its abstract, reference records, and later full survey of its theorem could be compared.",
+      "An equivalent 6-by-8 support distribution may appear in unlocated earlier finite Lights Out or coding tables.",
+      "The 2009 orbit-weight full text was not exhaustively available, although the accessible definition concerns a different statistic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides existence and structural questions, but not the support-refined six-row weight polynomial",
+        "evidence": [
+          "Dated arXiv v1 October 22, 2026; definitions and nullspace-prime results focus on existence and no-zero-row properties."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.31475v1",
+        "material_read": "Full openly accessible HTML sections on nullspace-primes, grid recurrence, and support properties",
+        "method": "Read actual primary open HTML text and searched for weight-spectrum claims",
+        "title": "Prime Nullspace Matrices and Even Dominating Sets",
+        "trigger": "Direct motivating October 22, 2026 treatment of the same combinatorial objects"
+      },
+      {
+        "assessment": "Earlier recurrence, divisibility and one example are credited; no six-row complete weight enumerator",
+        "evidence": [
+          "Goldwasser and Klostermeyer, Fibonacci Quarterly 40 (2002), 323–327."
+        ],
+        "identifier_or_url": "https://www.fq.math.ca/Scanned/40-4/klostermeyer.pdf",
+        "material_read": "Full accessible five-page paper, including theorem statements and grid examples",
+        "method": "Read PDF text and checked page images, including the page identifying a 6-by-8 nullspace matrix",
+        "title": "Nullspace-Primes and Fibonacci Polynomials",
+        "trigger": "Highly relevant original recurrence and explicit 6-by-8 instance"
+      },
+      {
+        "assessment": "Theorem 1 determines recurrence and kernel dimension but no coefficient-resolved spectrum",
+        "evidence": [
+          "Theorem 1(6)–(9), recurrence and nullspace criterion; no weight distribution in transcript."
+        ],
+        "identifier_or_url": "https://studyres.com/doc/8475290/lights-out---a-survey-of-parity-domination-in-grid-graphs",
+        "material_read": "Full accessible document transcript, including Theorem 1, the grid recurrence and enumerated applications",
+        "method": "Read primary survey transcript and searched for weight and six-by-eight counts",
+        "title": "Lights Out!: A Survey of Parity Domination in Grid Graphs",
+        "trigger": "Survey of results that might subsume the proposed weight spectrum"
+      },
+      {
+        "assessment": "Contains a complete four-by-four base spectrum and folding results for squares; not the six-row kernel",
+        "evidence": [
+          "Peter Francis, May 19, 2026; 4-by-4 quiet pattern polynomial 1+13z^8+2z^12."
+        ],
+        "identifier_or_url": "https://peterefrancis.com/lights-out-algebra/paper.pdf",
+        "material_read": "Relevant definitions, examples, Lemma 30 and Proposition 31 in the 24-page PDF",
+        "method": "Read relevant PDF passages and page-21 image",
+        "title": "Algebra in the Game Lights Out",
+        "trigger": "Strongest analogous 2026 weight enumerator for a related family"
+      },
+      {
+        "assessment": "The table gives kernel sizes, not complete Hamming weights",
+        "evidence": [
+          "Jaap Scherphuis, Lights Out Mathematics."
+        ],
+        "identifier_or_url": "https://www.jaapsch.net/puzzles/lomath.htm",
+        "material_read": "Descriptions and rectangular grid tabulation of dimensions and numbers of patterns",
+        "method": "Compared tabulated invariants with the claimed polynomial and minimum-weight coefficients",
+        "title": "Lights Out Mathematics",
+        "trigger": "Public board nullity and quiet-pattern table that could contain the exact count"
+      },
+      {
+        "assessment": "Different invariant; complete text was not exhaustively accessible, remaining priority risk noted",
+        "evidence": [
+          "Goldwasser and Klostermeyer (2009) studies orbit minimum weight, not complete quiet-pattern support multiplicities."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00373-009-0841-0",
+        "material_read": "Available abstract, introductory methods and targeted accessible excerpts (not independently verified as full paper)",
+        "method": "Compared definition of maximum orbit weight with homogeneous nullspace weight distribution",
+        "title": "Maximum Orbit Weights in the sigma-game and Lit-only sigma-game on Grids and Graphs",
+        "trigger": "Plausible collision due to weight and grid language"
+      },
+      {
+        "assessment": "Abstract and survey support parity-existence/recurrence results, but whole-text novelty comparison remains uncertain",
+        "evidence": [
+          "Goldwasser, Klostermeyer, and Ware, Graphs and Combinatorics 18 (2002), 271–283."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s003730200020",
+        "material_read": "Bibliographic record and abstract; complete 2002 text was not accessible",
+        "method": "Checked for lawful OA and preprint, compared the accessible abstract and the later full survey statement of its theorem",
+        "title": "Fibonacci Polynomials and Parity Domination in Grid Graphs",
+        "trigger": "Original same-object source; plausible unobserved stronger classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e16d68f4-cf7e-45f2-b278-48b3d7448029",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The explicit first nontrivial six-row nullspace primitive is mathematically motivated by the 2002 recurrence and 2026 nullspace-prime research. The all-width result determines a complete new natural invariant, including eight nonzero weight levels, sharp minimum support 18q with four minimizers, and exact silent-press probabilities for biased random moves. This is not supplied by nullity tables or generic existence theorems; the six-row family is natural, and the exact eight-column census gives an auditable nontrivial refinement.",
+    "status": "PASS"
+  }
+}
