@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T05:54:19.478406Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual Git 2026/10/26/exact-extinction-law-and-a-gaussian-winding-penalty-for-excitati--cae3512f5687/RESULT.md SHA f1df353fc83abeaa10c55f707dc827dab170b045",
+        "Independent checks: independent_checks_batch4899.py, run output BATCH4899_INDEPENDENT_BOUNDED_CHECKS_OK"
+      ],
+      "rationale": "For every integer n>=3 and threshold-one synchronous 3-state Greenberg–Hastings dynamics on C_n square K2, apply Gravner–Lyu–Sivakoff finite-graph Theorem 3: extinction iff the integer edge 1-form g(a,b)=1_(a,b)=(0,1)-1_(a,b)=(1,0) has zero cycle circulation. n square faces plus one rim generate the integer cycle lattice (rank n+1). Build the 9-state rung Laurent matrix from zero square curl, impose one independent upper-rim winding by [z^0]tr M(z)^n. Direct symbolic 9x9 computation independently confirms det(xI-M(1))=(x-2)^3(x+1)^4(x²-7x+4) and second log-weight derivative -2(x-2)(x+1)^2(3x³+21x-16), giving lambda=(7+sqrt33)/2 and sigma²>0. A zero-weight self loop and weight-one allowed 3-cycle show unique Fourier maximal phase, eliminating other saddle contributions and proving Gaussian local limit n^-1/2 with one winding constraint. Independent Laurent dynamic programming yields E_3=261,E_4=1485,E_5=8409,E_6=49215. Finite checks do not prove all-n asymptotics; primitive PF perturbation and Fourier steepest descent do.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 covers arbitrary finite graphs at a yes/no criterion level, not a distribution over all 3^(2n) labelings or local limit asymptotics on prisms.",
+          "The 1993 cellular-automaton work concerns broad excitable media; historic full text not established in this review."
+        ],
+        "reasoning": "General synchronization theory is broader in graph scope but weaker in aggregate counting and asymptotic parameter determination, so does not directly dominate the final prism enumeration.",
+        "searches": [
+          "arXiv:1610.07320 finite-graph winding synchronization theorem",
+          "arXiv:patt-sol/9303002 excitable automata background"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob f1df353fc83abeaa10c55f707dc827dab170b045",
+        "Assigned verify_finite.py blob b17682c80a72151fb15229813eaa5988b29b6c57",
+        "Assigned verify_symbolic.py blob a73564e0fb44d5ff2f65b2a02474ac5d18a0cd34",
+        "arXiv:1610.07320 Theorem 3",
+        "Resultary Greenberg Hastings three color excitable cellular automaton circular prism graph extinction count circulation integer winding Gaussian coefficient"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A zero-holonomy criterion alone does not count constrained edge colorings, evaluate the transfer spectral radius, or impose the global zero-winding local limit.",
+          "The prism cycle-lattice basis and aperiodicity witnesses are independently necessary for the claimed enumeration."
+        ],
+        "reasoning": "Prior irrotational theorem proves the conceptual premise, not the exact count and Gaussian prefactor. Claim does not purport to rediscover that premise.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320 Theorem 3",
+          "Original GH 1978 DOI:10.1137/0134040"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Irrotational/zero-circulation is precisely the known criterion for synchronizing three-color GH dynamics on a finite graph.",
+          "The assessed 9-state prism transfer, [z^0] projection, exact characteristic polynomial and Gaussian asymptotic are additional consequences not explicitly evaluated in Theorem 3."
+        ],
+        "reasoning": "The general iff criterion is fully credited. Extinction-count enumeration for the prism is not synonymous with the ability to decide extinction of one state.",
+        "searches": [
+          "Resultary: Greenberg Hastings three color excitable cellular automaton circular prism graph extinction count circulation integer winding Gaussian coefficient",
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320 Theorem 3 and equation (5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned unrelated ternary semigroup trace counts, cyclic particle homology and chiral correspondence; none explicitly involved GH dynamics on circular prisms.",
+          "Exact E_n is an all-n constant term of a 9-state weighted transfer matrix with lambda and sigma² derived algebraically."
+        ],
+        "reasoning": "No covering exact prism extinction table identified in the actual Resultary query; do not infer absolute historical priority from that negative result.",
+        "searches": [
+          "Resultary: Greenberg Hastings three color excitable cellular automaton circular prism graph extinction count circulation integer winding Gaussian coefficient",
+          "Greenberg Hastings prism extinction number sequence 261 1485 8409 49215"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical comparison of the same object, definitions, parameter quantifiers, and implication strength. Foundation and partial coverage are credited explicitly; neither failed searches nor inaccessible full literature alone are represented as novelty proof. The general iff criterion is fully credited. Extinction-count enumeration for the prism is not synonymous with the ability to decide extinction of one state. Prior irrotational theorem proves the conceptual premise, not the exact count and Gaussian prefactor. Claim does not purport to rediscover that premise.",
+      "residual_risks": [
+        "An unindexed early excitable cellular automata paper may already enumerate this precise prism graph; 1978/1993 full texts not independently read here.",
+        "The asymptotic relies on a global Fourier aperiodicity condition and the published synchronization theorem; finite enumeration by itself is not proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the extinction-versus-persistence circulation test, NOT the explicit n-prism 9-state enumeration or asymptotic in inspected text.",
+          "evidence": "Gravner, Lyu, Sivakoff arXiv:1610.07320, Theorem 3.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "Accessible original full HTML, especially Theorem 3 and equation (5) defining cycle circulation and synchronization, together with dynamics setup.",
+          "method": "Full primary arXiv HTML reading of theorem and relevant proof context.",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Exactly same Greenberg–Hastings dynamics and graph-cycle criterion; strongest prior implication."
+        },
+        {
+          "assessment": "Original work not adjudicated for whole-document noncoverage; retained as priority risk.",
+          "evidence": "Durrett and Griffeath arXiv:patt-sol/9303002.",
+          "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
+          "material_read": "Metadata and abstract/citation available; original 1993 full text was not read for this task.",
+          "method": "Lawful open-access metadata/reference inspection.",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata",
+          "trigger": "Historical excitable dynamics could conceal exact periodic prism formula."
+        },
+        {
+          "assessment": "Model antecedent credited; no claim of complete historical text inspection.",
+          "evidence": "Greenberg–Hastings SIAM J Appl Math 34 (1978) 515–523.",
+          "identifier_or_url": "https://doi.org/10.1137/0134040",
+          "material_read": "Historical publication metadata/title and model antecedent; not full paper.",
+          "method": "Bibliographic reference inspection.",
+          "title": "Spatial Patterns for Discrete Models of Diffusion in Excitable Media",
+          "trigger": "Original Greenberg–Hastings cellular automaton."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md blob f1df353fc83abeaa10c55f707dc827dab170b045",
+        "Assigned verify_finite.py blob b17682c80a72151fb15229813eaa5988b29b6c57",
+        "Assigned verify_symbolic.py blob a73564e0fb44d5ff2f65b2a02474ac5d18a0cd34",
+        "arXiv:1610.07320 Theorem 3",
+        "Resultary Greenberg Hastings three color excitable cellular automaton circular prism graph extinction count circulation integer winding Gaussian coefficient"
+      ],
+      "rationale": "The general irrotational extinction criterion is known, but extracting exact extinction counts for all prism circumferences and the nontrivial Gaussian winding penalty addresses a natural sparse periodic graph family. The algebraic Perron growth constant and n^-1/2 subexponential correction distinguish local face constraints from the one global homology cycle, useful for finite excitable-media census and statistical mechanics.",
+      "residual_risks": [
+        "An unindexed early excitable cellular automata paper may already enumerate this precise prism graph; 1978/1993 full texts not independently read here.",
+        "The asymptotic relies on a global Fourier aperiodicity condition and the published synchronization theorem; finite enumeration by itself is not proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md blob f1df353fc83abeaa10c55f707dc827dab170b045",
+    "Assigned verify_finite.py blob b17682c80a72151fb15229813eaa5988b29b6c57",
+    "Assigned verify_symbolic.py blob a73564e0fb44d5ff2f65b2a02474ac5d18a0cd34",
+    "arXiv:1610.07320 Theorem 3",
+    "Resultary Greenberg Hastings three color excitable cellular automaton circular prism graph extinction count circulation integer winding Gaussian coefficient"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed early excitable cellular automata paper may already enumerate this precise prism graph; 1978/1993 full texts not independently read here.",
+    "The asymptotic relies on a global Fourier aperiodicity condition and the published synchronization theorem; finite enumeration by itself is not proof.",
+    "All finite independent calculations corroborate only their tested domain; they do not alone prove infinite, all-real, all-parameter or asymptotic claims.",
+    "Complete publication-sanitation file changes were not prepared or exported; science assessment is complete but publication not ready."
+  ],
+  "residual_risks": [
+    "An unindexed early excitable cellular automata paper may already enumerate this precise prism graph; 1978/1993 full texts not independently read here.",
+    "The asymptotic relies on a global Fourier aperiodicity condition and the published synchronization theorem; finite enumeration by itself is not proof."
+  ],
+  "schema_version": 1
+}

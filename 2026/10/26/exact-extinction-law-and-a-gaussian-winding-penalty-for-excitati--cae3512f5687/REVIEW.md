@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every integer \(n\ge3\), extinction is equivalent to integral zero circulation on the \(n\) elementary rung squares and the upper rim, using the published finite-graph excitation criterion [1]. The nine-state transfer uses exactly the oriented square-curl equation, and its zero Laurent coefficient imposes the remaining rim constraint. A direct calculation yields \(\det(xI-M(1))=(x-2)^3(x+1)^4(x^2-7x+4)\); the positive Perron root and an exact second-derivative identity yield the variance. Primitive matrix connectivity, the weight-zero loop and the weight-one three-cycle justify a unique saddle and the Gaussian \(n^{-1/2}\) factor. All \(9^n\) initial configurations were checked for \(3\le n\le6\), and symbolic determinant checks were reproduced from the packaged scripts.
+## correctness
 
-**Originality — PASS (bounded).** The closest antecedent [1] already proves the all-graph zero-circulation criterion; this is explicitly not new. Its inspected theorem, equation (5), and targeted page searches contain no explicit circular-prism extinction enumeration or the algebraic Perron/Gaussian asymptotic. The inspected small-world-network paper [2] treats stochastic parameter-dependent excitation rather than deterministic prism extinction. Published research index searches and exact-sequence searches produced no covering entry; this absence is not proof of uniqueness. Comparable circular-prism majority and minority dynamical results involve different state rules, and previously indexed wheel/friendship excitation results use different graph families. Older founding texts [3,4] could not be inspected fully, leaving a bounded risk of unindexed equivalent calculations.
+PASS
 
-**Mathematical value — PASS.** The extinction probability is an intrinsic parameter of a canonical width-two cyclic network, not an arbitrary finite slice. The exact all-circumference count and explicit exponential rate are supplemented by the nontrivial \(n^{-1/2}\) correction: local square compatibility alone has Perron growth, whereas a single global topological winding constraint supplies a Gaussian penalty. The computation permits quantitative comparisons of extinction on different finite excitable networks, without claiming a full attractor census.
+For every integer n>=3 and threshold-one synchronous 3-state Greenberg–Hastings dynamics on C_n square K2, apply Gravner–Lyu–Sivakoff finite-graph Theorem 3: extinction iff the integer edge 1-form g(a,b)=1_(a,b)=(0,1)-1_(a,b)=(1,0) has zero cycle circulation. n square faces plus one rim generate the integer cycle lattice (rank n+1). Build the 9-state rung Laurent matrix from zero square curl, impose one independent upper-rim winding by [z^0]tr M(z)^n. Direct symbolic 9x9 computation independently confirms det(xI-M(1))=(x-2)^3(x+1)^4(x²-7x+4) and second log-weight derivative -2(x-2)(x+1)^2(3x³+21x-16), giving lambda=(7+sqrt33)/2 and sigma²>0. A zero-weight self loop and weight-one allowed 3-cycle show unique Fourier maximal phase, eliminating other saddle contributions and proving Gaussian local limit n^-1/2 with one winding constraint. Independent Laurent dynamic programming yields E_3=261,E_4=1485,E_5=8409,E_6=49215. Finite checks do not prove all-n asymptotics; primitive PF perturbation and Fourier steepest descent do.
 
-**Limitations.** The proof imports the published finite-graph circulation theorem [1]; direct finite enumeration does not replace that result. Persistent attractor spectra and nonuniform initial laws are not classified. Equivalent unindexed exact counts remain possible, particularly in uninspected historical full texts.
+## originality
 
-References: [1] Gravner–Lyu–Sivakoff, arXiv:1610.07320v1, Theorem 3; [2] Reyes, arXiv:1505.00182v1; [3] Durrett–Griffeath, arXiv:patt-sol/9303002v1; [4] Greenberg–Hastings, DOI:10.1137/0134040.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge mathematical comparison of the same object, definitions, parameter quantifiers, and implication strength. Foundation and partial coverage are credited explicitly; neither failed searches nor inaccessible full literature alone are represented as novelty proof. The general iff criterion is fully credited. Extinction-count enumeration for the prism is not synonymous with the ability to decide extinction of one state. Prior irrotational theorem proves the conceptual premise, not the exact count and Gaussian prefactor. Claim does not purport to rediscover that premise.
+
+## value
+
+PASS
+
+The general irrotational extinction criterion is known, but extracting exact extinction counts for all prism circumferences and the nontrivial Gaussian winding penalty addresses a natural sparse periodic graph family. The algebraic Perron growth constant and n^-1/2 subexponential correction distinguish local face constraints from the one global homology cycle, useful for finite excitable-media census and statistical mechanics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
