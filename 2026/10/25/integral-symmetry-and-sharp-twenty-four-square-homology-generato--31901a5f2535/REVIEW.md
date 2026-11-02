@@ -1,15 +1,21 @@
-# Research review: integral two-particle homology on complete bipartite graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit signed cubical boundary gives necessary and sufficient integer equations, and the matrix with three left-side labels has one free alternating generator for every unordered pair of right labels. No quotient by three-cells occurs. Four-edge support is sharp, and the elimination proof establishes integral—not just rational—generation. Finite cubical reconstructions for \(n=4,5,6,7,8\) confirm the boundary and generator ranks in odd characteristics; their characteristic-two discrepancy does not affect the integral top-kernel proof.
+## correctness
 
-## Originality — PASS, qualified by access risk
-Farber–Hanbury 2010 already implies relevant ordered Betti-number information for complete bipartite graphs, so the rank is not treated as the novelty. Barnett–Farber 2009 supplies the deleted-product model. Ramos–Yun 2026 analyzes rational balanced \(K_{n,n}\) representations, not this fixed-three-part integral lattice or its sharp support. Relevant indexed prior records involve different graph families, number of particles or sink collision rules. The uninspected full text of a 2010 dissertation may contain closely related integral generators; this uncertainty is not claimed resolved.
+PASS
 
-## Mathematical value — PASS
-The uniform \(S_3\times S_n\) integral representation and the exact minimum 24-square carriers give a geometric chain-level structure that ranks and rational-only results do not determine. Complete integral generation by natural minimal cycles is meaningful because these nonplanar graphs admit no vertex-disjoint product cycles; the chain support is stated in a reproducible canonical CW model.
+For unordered collision-free pairs on geometric K_{3,n} (n>=4), use the genuine unordered deleted-product cubical SDR. There are no 3-cells. From the signed boundaries of square cells e_ai wedge e_bj, the coefficients at right-vertex one-cells require the 3x3 zero-diagonal row/column-sum matrices to be integer multiples of the alternating epsilon; antisymmetry forces y_ij=y_ji, and left-vertex one-cells force the unsigned pair-incidence equations sum_{i≠j}y_ij=0. This gives the exact integral S3 sign-twisted ker J lattice, not merely an index-bounded sublattice, rank n(n-3)/2 and rational Specht (n-2,2). The weighted support graph has no leaves; a 3-edge triangle cannot have nonzero integer balanced row sums, so minimum nonzero support is a 4-cycle with alternating +/-t values. Each y-pair contributes six square cells, forcing sharp support 24, exactly 3*C(n,4) primitive classes up to sign. The explicit induction transferring coefficients via four-cycles clears row-star entries integrally and proves lattice generation. Independently built exact cubical boundary matrices for n=4,5,6 with rational ranks 34,55,81 (square counts 36,60,90), respectively, and checked 3,15,45 quad generators have zero boundary and 24-square supports; finite checks only corroborate all-n proof.
 
-## Limitations
-Not a calculation of the complete homotopy type, or of support among arbitrary singular chains. Published and unindexed equivalent descriptions remain possible. The mathematical review is internal to this document package and not an independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Barnett-Farber supplies graph deleted-product retraction, and Farber-Hanbury gives numerical Betti information for ordered mature complete bipartite spaces; these are credited as prior groundwork. The substantive new candidate is unordered integral S3×Sn module, complete primitive generator classification and sharp 24-square minimum in the canonical cubical model. Ramos-Yun develops rational stable representation for balanced bipartite graphs, not this fixed-three-part integral lattice. A directly plausible 2010 Barnett Durham dissertation was found, whose abstract discusses ORDERED F(Gamma,2) on complete bipartite graphs; complete full text could not be read from OA or authorized institutional access (VPN disconnected). This access limitation remains explicit risk but is not itself strong coverage of the unordered lattice theorem.
+
+## value
+
+PASS
+
+The precise integral equivariant two-particle H2 lattice and sharp minimal cubical carrier support are natural topological invariants of a uniform family whose rank alone was largely known. Integral generation by minimal-support cycles and their non-product-torus nature supply structure unavailable from Betti ranks or rational-only representations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
