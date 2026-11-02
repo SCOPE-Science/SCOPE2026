@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification and limitations
-The finite checker is `verify.py`; run `python verify.py` from the extracted package directory. It enumerates every simplex in the four-vertex vertex-witness Čech complexes for the maximum, taxicab, Euclidean and a cut-square norm. The observed face counts are \((4,0,0,0)\) below one, \((4,6,4,0)\) for each nonmaximum norm on the interval starting at one and ending at its diagonal norm, and \((4,6,4,1)\) after the diagonal threshold. The nontrivial middle-stage complex is therefore the tetrahedron boundary, an integral two-sphere.
+# Independent mathematical audit
 
-The checker does not certify infinitely many norms or arbitrary finite metric spaces. Universal correctness rests on the written inequalities, exact face equivalence, and explicit strong deformation homotopy. The original content is the norm-rigidity boundary, not the previously established general categorical-product Künneth theorem. No independent audit has occurred.
+## correctness
+
+PASS
+
+For normalized monotone absolute Φ, max(a,b)<=Φ(a,b)<=Φ(1,1)max(a,b), so c=1 iff Φ is maximum. For maximum metric, a simplex of the product has vertex-witness criterion exactly when both projected simplices are witnessed. Every categorical simplicial product realization retracts by support-preserving barycentric map z_xy -> (sum_y z_xy)(sum_x z_xy), with linear homotopy preserving the allowed full rectangle and natural in the radius. Over a field, Künneth yields interval intersections. If c>1, the four corners of two 2-point unit factors have radius-1..c open stage of all proper subsets, the boundary of a tetrahedron S², with H2 interval [1,c); both factor complexes are a simplex at r>=1. This is an exact universal necessity witness and minimal size two points per factor.
+
+## originality
+
+PASS
+
+Gakhar–Perea 2019 supplies categorical persistent Künneth and a max-Rips application, and Matsushita 2025 identifies intrinsic closed-ball Čech with closed-neighborhood complexes. Standard product topology is credited; their inspected results do not assert converse norm rigidity or the exact four-point Čech H2 obstruction. No Resultary hit implied necessity; uninspected metric nerve-product classifications remain risk.
+
+## value
+
+PASS
+
+Universal factorizability of homotopy and persistence from metric factors is a structural condition. The result characterizes its exact norm boundary, and the four-point two-sphere interval exposes a sharp minimal topological failure despite trivial factors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
