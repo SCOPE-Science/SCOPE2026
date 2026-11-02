@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The supplied `verify.py` uses only Python 3 standard-library modules. Its signed reduced Lefschetz calculation enumerates actual faces of the ordinary cut complex, computes orientation signs of preserved simplices, and compares the result with the exterior-power and layer-exchange character for all \(212\) tested conjugacy-class representatives across \(2\le n\le6\) and \(2\le k\le n\). All tested cases in the claimed domain \(n\ge k\ge4\) are included.
+# Independent mathematical audit
 
-The independent graph-construction path enumerates induced disconnected \(k\)-subsets using adjacency and connectivity, and compares literal face membership with the structural description in the proof for \(25{,}488\) subset cases. Direct mod-two boundary elimination verifies six \((n,k)\)-cases: \((4,4),(5,4),(5,5),(6,4),(6,5),(6,6)\), with nonzero Betti numbers respectively \(1,4,1,10,5,1\), in the theorem's predicted degrees.
+## correctness
 
-These finite computations do not independently establish an infinite-parameter theorem. The proof supplies that step through the dual cover, relative homology, and equivariant Alexander duality. Character agreement alone would not prove homology concentration without that separate argument. No independent external audit has been performed.
+PASS
+
+The ordinary cut complex of K_n square K_2 has Alexander dual B union two pure-layer simplices, where B has at most k-1 occupied columns. The layer skeleton K_+ retracts simplicially onto B up to contiguity, and likewise K_-. In the relative homology long exact sequence the map from the two shifted skeleton homologies onto H_{k-2}(B) is (a,b) -> a+b; its kernel (a,-a) is wedge^{k-1} U_n with layer-swap sign -1. Equivariant combinatorial Alexander duality adds the 2n-vertex determinant, trivial on S_n and (-1)^n on layer exchange, yielding epsilon^{n+1} in reduced degree 2n-k-2. The hook character is the (k-1) exterior coefficient of the standard module. Independent direct signed Lefschetz traces for n=4..6 corroborated the claimed action; these finite traces do not prove the all-n concentration.
+
+## originality
+
+PASS
+
+Best-of-knowledge original remainder after separately excluding known component formulas and narrower/other-object antecedents. Theorem 7.18 gives homotopy-equivalent wedge of binomial(n-1,k-1) spheres in degree 2n-k-2 for exactly these clique prisms; it does not identify the action of S_n x C_2, and a dimension does not determine a hook module or swap eigenvalue.
+
+## value
+
+PASS
+
+The full natural automorphism-group rational representation, including nontrivial irreducible hook and parity sign, is an exact structural refinement of a natural established topology family; its finite/infinite scope is motivated by the earlier homotopy theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

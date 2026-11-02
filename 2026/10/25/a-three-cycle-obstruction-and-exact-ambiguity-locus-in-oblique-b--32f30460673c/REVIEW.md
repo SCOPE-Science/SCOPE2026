@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete section profile determines the multiset of the absolute normal-weighted side lengths by the Fourier-sinc product, nonzero even logarithmic coefficients, and Newton identities. The explicit three-cycle construction preserves both view multisets and total volume in every dimension at least three. Under three distinct view-coordinate ratios, exhaustive analysis of the six permutations and the nontrivial polynomial factorization proves the precise exceptional family and excludes other nonidentical fibers. Three full-support variance measurements invert an explicit nonsingular matrix. The supplied exact symbolic script passes all four substantive checks. The infinite-dimensional-index assertion is proved for every finite integer dimension, not extrapolated from computation.
+## correctness
 
-## Originality — PASS, subject to documented historical uncertainty
-The October 2026 motivating section-function paper addresses richer families of directions and not the fixed two-oblique-view labelled-box fibers. A related publicly posted orthotope moment-tomography result was read in full: it concerns unordered sides from Haar-random projection-volume statistics and does not imply this result. Targeted similarity searches including two-view section tomography, box-spline aliasing and three-cycle weighted permutations found no equivalent. Some spline and classical tomography books were accessible only as bibliographic information; overlap with their uninspected portions remains an acknowledged residual risk rather than a claim of exhaustive priority.
+PASS
 
-## Value — PASS
-The result settles the sharp number of prescribed fully oblique viewing directions needed in dimension three for an identifiable geometric object. It explains the exact one-parameter two-to-one ambiguity and proves equal-volume ambiguity persists at every parallel-section offset. It also gives all-dimensional counterexamples for any pair of full-support views. The fixed-coordinate-frame and full-support hypotheses are essential; noisy stability and higher-dimensional sharp sufficiency remain open here.
+For each full-support normal u the Fourier transform of the complete parallel-section function is the box volume times the product sinc(s|u_i|a_i/2). The nonzero even coefficients of log sinc and Newton identities uniquely recover the multiset of positive weighted widths. A three-cycle switch preserves the width multisets in both views and total volume, for any two full-support views and every finite d≥3. In generic dimension 3 a nontrivial transposition violates the weighted first sum when ratios r_i differ; eliminating a variable for the two three-cycles gives the checked product factorization, leaving one positive one-dimensional exceptional two-to-one family. Three stated oblique normals have squared-coordinate moment matrix determinant 1/12 and recover all positive side lengths. Independent symbolic factorization and matrix inversion pass.
 
-## Closest literature and limits
-Fish–Ryabogin–Sun–Yaskin, arXiv:2610.10229v1 (2026-10-07), and the publicly available published-finding corpus orthotope projection-moment theorem (2026-10-11) are the nearest inspected sources. The distinct data models and mathematical implications are discussed in the finding. The classical box-spline bibliography is not an exhaustive originality exclusion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality relative to the genuinely inspected primary claims, including broader/equivalent variants; no exact or dominating prior theorem identified. No unsuccessful search is construed as proof of absolute priority. A continuum-view rigidity result would not imply exact ambiguity for every pair of fixed normals, nor the complete exceptional family. The sharp three-view scheme needs a new permutation analysis and explicit second-moment inverse rather than the abstract existence of sections.
+
+## value
+
+PASS
+
+Fixing all section offsets and prescribed full-support observation normals is a natural inverse-tomography model. The exact nonidentifiable 3-cycle locus and minimal three-view reconstruction threshold distinguish it sharply from random-orientation statistics and explain when a complete pair of physical experiments fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

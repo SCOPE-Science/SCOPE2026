@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-Every radical coefficient, multiplication, commutator component, rank case, and count is defined and proved in `RESULT.md`. The two scalar middle-arrow cases are exhaustive. The rank-four factorization counts the zero case exactly; the nonzero case is controlled by an explicit tensor map whose four ranks account for every zero/nonzero pair of factors. The free top-path coefficient yields \(q^{2ac}\). The class-number denominator is the exact order \(q^{2a+2c+ac+1}\). The finite examples were independently enumerated from commutator-map ranks and agree with the formula; they are checks, not substitutes for the proof. Correctness: PASS.
+PASS
 
-## Originality
+Path-basis J has vector spaces U⊕F_q⊕W⊕U⊕W⊕(U⊗W), dimension 2a+2c+ac+1. Commutator equations are tu−sv=0, sx−tw=0 and u⊗y−v⊗z+p⊗x−r⊗w=0. Top paths are central, giving factor q^(2ac). When (s,t)=0, rank-r a×4 matrix M and 4×c matrix N give MN=0, contributing Z=sum R_(a,4)(r;q)q^((4−r)c). When (s,t)≠0, u=su0,v=tu0,w=sw0,x=tw0, and remaining tensor map P0⊗w0+u0⊗Q0 has rank 0,a,c,a+c−1 in the four zero/nonzero configurations. Its kernel counts yield T and the q²−1 scalar multiplier, exact in all characteristics. Burnside commuting pairs / |J| yields class number of 1+J. Independent modular commutator-matrix rank enumerations for (a,c,q)=(1,1,2),(1,1,3),(2,1,2),(1,2,2) reproduced 1024,41553,30208,30208. They corroborate but do not prove the all-prime-power formula.
 
-The 2022 quiver-radical commuting-pair paper proves explicit formulas for quivers with no path longer than two; the present family has length-three paths. Goodwin–Röhrle's prior theorem already covers polynomiality of four-block parabolic unipotent class counts, and Pak–Soffer supply a broad pattern-group recursion, so neither polynomiality nor fixed-size computability is claimed as new. The precise possible addition is a uniform, closed arithmetic expression valid for all outer block sizes, obtained via a bounded-rank tensor argument. Known adjacent-rank square-zero profiles count one-element equations and do not imply ordered commuting-pair counts. Potential unlocated special-formula literature remains a residual risk. Originality: PASS on the inspected evidence and this precise statement, not a proof of priority.
+## originality
 
-## Value
+PASS
 
-This is a complete exact count for a natural infinite two-parameter family at the first new path-length threshold in the motivating quiver program; it also gives explicit algebra-group conjugacy class numbers in arbitrary characteristic. The bounded four-column rank compression makes the count inspectable and usable without running a general fixed-dimensional pattern-group recursion. The theorem's value depends on the all-parameter expression, not on the previously known fact of polynomiality. Value: PASS.
+Qualified best-of-knowledge PASS solely for the uniform explicit closed C_(a,c)(q), not polynomiality: Hennecart–Perry solve path-length≤2; here every a,c positive give length 3. Goodwin–Röhrle cover polynomial class counts for ≤5-step parabolics and Pak–Soffer provide general pattern-group recurrences. Neither accessible statement prints this symbolic outer-block expression, though complete technical texts and potential small-parabolic coefficient tables were not read, a material priority risk.
 
-## Limitations
+## value
 
-No arbitrary-quiver result or orbit classification is claimed. General polynomiality for this group is already published; overlapping fixed-size numerical values are not new. The proof is for exactly one middle arrow, four vertices and projective multiplicity one. No independent validation has been done.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A compact exact class-count for the natural four-block (a,1,1,c) unipotent radical uniformly in a,c and all finite fields, reducing arbitrary outer sizes to ranks of a×4 matrices. Answers an explicit first longer-path case of a motivating quiver counting problem, a useful reference formula even though polynomiality and algorithmic countability are known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

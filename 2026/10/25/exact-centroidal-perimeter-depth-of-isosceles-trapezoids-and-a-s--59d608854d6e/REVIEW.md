@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed exact formula is derived by dividing all centroidal lines into three exhaustive edge-incidence regimes. The two-leg height sum is strictly monotone, the lower-corner objective has a positive second derivative and an exact compact feasible interval, and the two-base case is monotone. Both competing arc lengths are bounded strictly above one quarter by explicit rational inequalities, while a genuine open family approaches the endpoint. The packaged supplementary checker evaluates 204 shapes and 367404 sampled lines. Its finite checks do not constitute the parameter-wide proof.
+## correctness
 
-**Originality — PASS under inspected evidence.** The source's Lemma 2 contains the ray-arc optimization for triangles, and its full triangle result is already stronger than isolated triangle median examples. Those claims are not relabeled as new. The new theorem classifies the **genuine trapezoid** family, requiring additional leg-leg and base-base comparisons not covered by the triangle source. Related accessible geometric-dilation, regular-polygon depth and quadrilateral chord-length results concern distinct objectives. Dedicated record and literature searches did not identify the same exact trapezoid profile. This is an evidence-limited priority judgment, not a proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** The perimeter version of centroidal Winternitz depth is an actively studied geometric invariant, and genuine trapezoids are the first natural symmetric four-vertex extension of the recent triangle model. A parameter-wide exact evaluation, its complete minimizer-direction classification and its globally sharp one-quarter endpoint (attained only by degeneration) are substantive structural information rather than a chosen numerical instance. The result is independent of a particular discretization or computing experiment.
+For B>b>0,h>0, the area centroid is (0,ch) with c=(B+2b)/(3(B+b)), and perimeter 2(B+b+L), L=sqrt((B-b)^2+h²). Reflecting lines about the symmetry axis partitions all unoriented centroidal chords into (i) leg/leg, (ii) bottom/leg, (iii) bottom/top incidence ranges using exact thresholds t_L=ch/B, t_R=(1-c)h/b. In the leg/leg regime the sum of relative intersection heights strictly decreases with slope squared, so minima occur at endpoints or at the horizontal upper arc U=2b+2(1-c)L. In the corner regime, the centroid ray intercept relation a/z+v/w=1 with a=B-(B-b)c and v=cL gives F(z)=z+vz/(z-a), z in [a/(1-c),2B], with F''=2av/(z-a)^3>0 and constrained minimizer z*=clamp(a+sqrt(av)); the complement has its minima at endpoints and is not better. The bottom/top regime is monotone and contributes a shared endpoint. Hence exact displayed min{U,F(z*)} formula and complete horizontal/corner equality classification. Both candidates exceed P/4 for B>b>0, and B=1,b=1/k,h=k tends to 1/4 strictly from above. An independent boundary-line-intersection checker evaluated 8000 directions over 80 nondegenerate sample shapes; that does not replace the complete three-regime proof.
 
-**Closest source and scientific limitations.** Berele–Catoiu, arXiv:2603.23653v1 (2026-03-24), supplies the ray formula and triangle theory. Their claimed triangle-wide \(3/10\) lower bound is inconsistent with the explicit \(15,15,2\) median example; no dependent triangle lower bound is assumed in this proof. The positive-base trapezoid result is independently proved here. Related unindexed older boundary-splitting results remain a possible historical-priority risk. The statement is not extended to non-isosceles quadrilaterals.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nearest full primary 2026 article derives center-ray splitting for triangles, not genuine trapezoids. A related published isosceles-trapezoid geometric dilation theorem optimizes the length of half-perimeter chords, mathematically a different functional from shortest boundary-perimeter arcs of area-centroidal lines. The closed all-parameter profile, minimizing directions and strict sharp 1/4 infimum are not implied by either comparison. Priority may exist under perimeter Winternitz/centroidal boundary-depth aliases.
+
+## value
+
+PASS
+
+The centroidal perimeter Winternitz invariant is geometrically motivated, and isosceles trapezoids are the first symmetric four-vertex family beyond triangles. The all-shape formula, exact competing optimizer types and sharp unattained 1/4 boundary are substantive geometric classification, not a random restricted numerical cut.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

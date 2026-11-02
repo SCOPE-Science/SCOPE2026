@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full proof identifies exactly the two equilateral maximizing families, establishes coercive radial/angular localization, and computes the uniformly controlled Taylor normal form with radial coefficient \(\sqrt3/2\) and angular matrix \((\sqrt3/8)\left(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\right)\). The Lebesgue-variable Jacobian, two orientation factors, radial regular variation, beta integral, and independence assertions were reconstructed. The positive matrix has determinant \(9/64\). Finite numerical calculations corroborate, but do not prove, the limit. Assumptions include independent angles and radii, positive continuous angular density, and radial density \(g(t)\sim a t^{b-1}\) with \(a,b>0\).
+## correctness
 
-**Originality — PASS relative to checked evidence, priority not certified.** Lao–Mayer (2007) concern circle-point perimeter extremes; Koroleva–Nikitin (2013) establish the circle-point area coefficient. Nikitin–Simarova (2020) treat kernels on a circle. None of the inspected relevant portions identifies the three continuous radial-deficit degrees of freedom of an interior sample, the disk area exponent \(3b+1\), the five-component conditional Dirichlet law, or the full threefold angular tilt. The closest published geometric results on small circumradius and dual-deviation triangles study different functionals; related area-extreme results use a square's vertex geometry or boundary points of a threefold oval. General boundary Laplace theory is an unresolved historical-priority risk, not an identified theorem with matching consequences.
+PASS
 
-**Value — PASS.** The exact law measures a natural rare geometric configuration and explains the contrast between circle-boundary and disk-interior extremes through three radial boundary deficits. It determines both the rare-event frequency and its entire leading conditional local shape, across all radial boundary exponents \(b>0\) and continuous angular sampling densities. The orientation bias is encoded in a nontrivial threefold sampling correlation, while the normalized local shape becomes universal. These are not mere renamings or a finite table.
+Maximum disk triangle area M=3sqrt3/4 is attained only by two oriented equilateral families. In near-maximal charts, first inward radial derivatives are c=sqrt3/2, and independent symbolic Hessian check gives B=(sqrt3/8)[[2,1],[1,2]], sqrt(det B)=3/8. Compactness localizes radial deficits O(epsilon) and relative angle defects O(sqrt(epsilon)); the Taylor remainder is uniform o(epsilon), including b in (0,1) under local regular-variation bounds. The measure Jacobian and beta integral yield C epsilon^(3b+1), C=(16pi/3) I_p a^3 c^(-3b) Gamma(b)^3/Gamma(3b+2). Polar z gives five Dirichlet shares (b,b,b,1,1); chart products give phase W/I_p, uniform angular energy phase and fair independent orientation. Independent symbolic derivatives/determinant and b=1 uniform-disk C=32/(27sqrt3 pi) passed. Finite tests cannot establish weak convergence; normal-form dominated convergence does.
 
-**Scope and residual limits.** Results are asymptotic for three iid points in a fixed unit disk model, not full finite-area distributions. No uniform parameter rates or sample-size extremes are claimed. Historical priority is provisional, and no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published circle-sampled near-maximal triangle area results, including Koroleva-Nikitin 2013 Theorem B, cover boundary angular probabilities but have no independent radial thickness. A radial exponent and angular density mixture, explicit normalization and conditional five-share Dirichlet limit are additional statements. No inspected primary claim or Resultary hit dominates this interior-disk law; generalized Laplace asymptotics leave best-knowledge priority risk.
+
+## value
+
+PASS
+
+Natural rare-event geometry for large-area triangles inside a disk: gives precise probability exponent for all b>0 and a full conditional shape distribution, showing universality of normalized radial/angular shares and nonuniform orientation-phase tilt. This distinguishes area-uniform interior sampling from classical boundary-only extremes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

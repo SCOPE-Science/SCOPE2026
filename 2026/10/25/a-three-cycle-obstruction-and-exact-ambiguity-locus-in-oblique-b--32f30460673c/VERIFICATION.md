@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and SymPy. The checker executes exact symbolic 3-cycle elimination, exceptional weighted-product checks, a six-permutation rational three-dimensional example, and the exact determinant/inverse of the full-support three-view variance map. These checks passed at manuscript preparation time.
+## correctness
 
-The analytic assertion that one profile recovers its weighted-width multiset uses the classical sine Weierstrass product, nonzero zeta coefficients and Newton identities; it holds for any finite dimension and is proved in RESULT.md. The universal two-view counterexample and the exact three-dimensional fiber theorem follow from displayed algebra, not empirical tests. The script is an independent computational check of that algebra, not a proof that every possible historical source has been read.
+PASS
 
-Unproved here: stability under noisy sections; reconstruction of arbitrary oriented parallelotopes; smallest number of full-support views in higher dimension; an exhaustive global literature priority claim. Independent audit has not been performed.
+For each full-support normal u the Fourier transform of the complete parallel-section function is the box volume times the product sinc(s|u_i|a_i/2). The nonzero even coefficients of log sinc and Newton identities uniquely recover the multiset of positive weighted widths. A three-cycle switch preserves the width multisets in both views and total volume, for any two full-support views and every finite d≥3. In generic dimension 3 a nontrivial transposition violates the weighted first sum when ratios r_i differ; eliminating a variable for the two three-cycles gives the checked product factorization, leaving one positive one-dimensional exceptional two-to-one family. Three stated oblique normals have squared-coordinate moment matrix determinant 1/12 and recover all positive side lengths. Independent symbolic factorization and matrix inversion pass.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality relative to the genuinely inspected primary claims, including broader/equivalent variants; no exact or dominating prior theorem identified. No unsuccessful search is construed as proof of absolute priority. A continuum-view rigidity result would not imply exact ambiguity for every pair of fixed normals, nor the complete exceptional family. The sharp three-view scheme needs a new permutation analysis and explicit second-moment inverse rather than the abstract existence of sections.
+
+## value
+
+PASS
+
+Fixing all section offsets and prescribed full-support observation normals is a natural inverse-tomography model. The exact nonidentifiable 3-cycle locus and minimal three-view reconstruction threshold distinguish it sharply from random-orientation statistics and explain when a complete pair of physical experiments fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

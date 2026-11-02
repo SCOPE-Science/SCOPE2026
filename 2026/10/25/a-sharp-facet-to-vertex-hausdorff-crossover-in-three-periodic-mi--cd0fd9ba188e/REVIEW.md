@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The cyclic support recurrence independently reconstructs each facet, and the distance-to-disk maximum reduces to the smallest facet support and largest vertex radius. The positive quadratic root gives the unique transition. Endpoint strictness follows from the positive derivative of the arctangent remainder. Exact transport is witnessed by a matching plan and a distance-function dual potential. The attached finite checker tests independent geometric coordinates but is not relied on to prove the infinite statement.
+## correctness
 
-**Originality: PASS, with residual risk.** The direct 2026 planar Minkowski paper treats the regular grid and a broad transportation bound; it does not contain the explicit periodic-three crossover, its sharp phase root or the thin boundary layer. The published equal-area equiangular result handles two-periodic edge lengths, while Cauchy quadrature concerns centrally symmetric sampling zonogons. Their strongest applicable statements were compared with the exact period-three signed Hausdorff formula, and no dominating explicit classification was located. The broad support-function Fourier representation could in principle be specialized to derive this law; a previously unindexed full specialization cannot be ruled out.
+PASS
 
-**Value: PASS.** For a natural, balanced discrete family of convex-body reconstructions, the work supplies a sharp and complete parameter classification of which extremal geometric feature determines the Hausdorff error. It also quantifies an exceptional fourth-order boundary layer and exhibits persistent quadratic shape convergence with only first-order transportation control, a meaningful limitation on the predictive sharpness of generic stability inequalities.
+The balanced three-periodic normal measure (facet lengths delta(1-t) every third direction, delta(1+t/2) otherwise) yields unique centered Minkowski polygon for N=3m>=9. Facet-support recurrence ell_j=(r_{j-1}+r_{j+1}-2cos(delta) r_j)/sin(delta) with r_j=A-L tau_j gives support values a=A+Lt,b=A-Lt/2. Adjacent line intersection has squared radius (x^2+y^2-2cos(delta)xy)/sin^2(delta), so inradius is b and circumradius is mixed (a,b). Consequently dH(K,B)=max{1-b,R-1}. The exact quadratic R^2-(2-b)^2=C0+C1t+C2t² has C0<0,C2>0 and is positive at t=1 by a strict arctan inequality, giving exactly one crossover t_N in (0,1). Analytic series yield 1-t_N=3pi²/(5N²)+O(N^-4) and uniform dH=pi²(1+2t)/(3N²)+O(N^-4). Matching one-step transport plan and geodesic distance-to-deficit potential give W1=2pi t/(3N). Independent symbolic Taylor and quadratic-identity calculations corroborate finite identities, not infinite quantifiers.
 
-**Limitations and closest comparisons.** The family is not all periodically weighted normal grids. A general Fourier inverse formula in An's paper provides implicit reconstruction, but not this exact phase classification. The finite checker samples dimensions and parameters rather than certifying every real parameter. An unindexed equivalent result is the primary remaining originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2026 inverse Minkowski reconstruction theorem gives a general transport upper bound and the equal-weight grid instance t=0, but not an exact three-periodic facet-versus-vertex switch and N^-2-thin threshold. The published equal-area/equiangular polygon result is for period-two lengths and an area deficit, and a sharp Cauchy quadrature result optimizes a distinct zonogon brightness statistic. General inverse support recurrence permits calculation but does not state the sharp phase theorem without the additional derivation.
+
+## value
+
+PASS
+
+The balanced three-periodic family is a natural discretized surface-area measure for inverse Minkowski reconstruction. This exact all-t phase classification shows where farthest vertices supersede nearest facets; the threshold has a quantitatively sharp N^-2 boundary layer. Uniform N^-2 Hausdorff approximation while W1 is N^-1 for fixed positive t exposes a concrete limitation of generic transport stability bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

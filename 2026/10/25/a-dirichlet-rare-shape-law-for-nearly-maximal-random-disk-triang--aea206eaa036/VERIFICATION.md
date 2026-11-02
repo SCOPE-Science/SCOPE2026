@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The standalone program `verify.py` was executed against the formulas included here. It reports successful checks for the exact radial/angular constants, the threefold angular correlation for trigonometric sampling densities, the transverse Hessian, and near-maximum importance-sampling trials. With area-uniform points, the exact coefficient is \(32/(27\sqrt3\pi)\), approximately \(0.21780894633947345\). The numerical trials at area deficits \(0.02\) and \(0.005\) returned ratios to the predicted coefficient of approximately \(1.0230\) and \(0.9956\), with Monte Carlo uncertainties recorded by the script. For a radial-deficit boundary exponent \(b=2\) and angular perturbation \(p(\theta)=(1+0.35\cos(3\theta))/(2\pi)\), the conditional radial share means approach \(1/4\), while the angular-energy mean approaches \(1/8\). The normal-form derivation and Dirichlet integral in RESULT.md, rather than these finite checks, support the theorem.
+## correctness
 
-Checks do not establish absence of stronger previously published theorems or furnish independent mathematical validation. The angular density must be strictly positive and continuous, and radial and angular coordinates must be independent. The theorem makes no finite-threshold error-rate claim.
+PASS
+
+Maximum disk triangle area M=3sqrt3/4 is attained only by two oriented equilateral families. In near-maximal charts, first inward radial derivatives are c=sqrt3/2, and independent symbolic Hessian check gives B=(sqrt3/8)[[2,1],[1,2]], sqrt(det B)=3/8. Compactness localizes radial deficits O(epsilon) and relative angle defects O(sqrt(epsilon)); the Taylor remainder is uniform o(epsilon), including b in (0,1) under local regular-variation bounds. The measure Jacobian and beta integral yield C epsilon^(3b+1), C=(16pi/3) I_p a^3 c^(-3b) Gamma(b)^3/Gamma(3b+2). Polar z gives five Dirichlet shares (b,b,b,1,1); chart products give phase W/I_p, uniform angular energy phase and fair independent orientation. Independent symbolic derivatives/determinant and b=1 uniform-disk C=32/(27sqrt3 pi) passed. Finite tests cannot establish weak convergence; normal-form dominated convergence does.
+
+## originality
+
+PASS
+
+Published circle-sampled near-maximal triangle area results, including Koroleva-Nikitin 2013 Theorem B, cover boundary angular probabilities but have no independent radial thickness. A radial exponent and angular density mixture, explicit normalization and conditional five-share Dirichlet limit are additional statements. No inspected primary claim or Resultary hit dominates this interior-disk law; generalized Laplace asymptotics leave best-knowledge priority risk.
+
+## value
+
+PASS
+
+Natural rare-event geometry for large-area triangles inside a disk: gives precise probability exponent for all b>0 and a full conditional shape distribution, showing universality of normalized radial/angular shares and nonuniform orientation-phase tilt. This distinguishes area-uniform interior sampling from classical boundary-only extremes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

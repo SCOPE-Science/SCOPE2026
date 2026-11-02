@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T20:17:52.192418Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed minimum width w>0 and radius R>=w, v=(sqrt((4R²-(R-w)²)/3)-(R-w))/2, rho=w-v,c=R-rho solve R²=c²+cv+v². Erosion by s in [0,rho] commutes with intersection of three radius-R disks, yielding three radius-(R-s) disks centered at cu_j and eroded vertices at v_s=(sqrt(4(R-s)²-3c²)-c)/2. Their core plus three circular segments has exact area G(s)=3sqrt3 v_s²/4+(3/2)(R-s)²(alpha_s-sin alpha_s), alpha_s=2asin(sqrt3 v_s/[2(R-s)]). G strictly decreases G(0)>0 to G(rho)=0 while pi s² increases; unique s* solves G(s*)=pi s*². The standard planar convex Cheeger theorem gives set erosion+s*B and six alternating arcs with turning angles alpha_s* and 2pi/3-alpha_s*. As R→infinity, direct uniform expansion near s0=w/(3+sqrt(pi sqrt3)) and nonzero root derivative give s*=w/H+[w²(H²+6H-9)/(6H³)]/R+O(w³/R²), h=H/w-[(H²+6H-9)/(6H)]/R+O(w/R²). Independently recomputed roots, area formula and leading correction at R=1,2,10,100,1000; universal result derives from exact geometry plus implicit-function theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complete published same-family Steiner work optimizes OUTER parallel area across R; its exact object is T_{w,R}+tB, not |(T_{w,R})_-s|. Drach–Tatarko studies lens / general bounds, while Bezdek supplies un-eroded disk triangle geometry."
+        ],
+        "reasoning": "The shared family does not imply the new Cheeger coefficient because inner and outer offsets have different support/corner behavior; full outer-area optimization does not determine the Cheeger root.",
+        "searches": [
+          "Resultary a sharp Steiner-area phase diagram for regular disk triangles",
+          "Drach Tatarko Stability of reverse isoperimetric inequalities in the plane Area Cheeger inradius",
+          "arXiv:0903.5361 regular disk polygon geometry"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.19300",
+        "arXiv:0903.5361",
+        "doi:10.5802/aif.3728",
+        "Resultary a sharp Steiner-area phase diagram for regular disk triangles",
+        "Drach–Tatarko Cheeger/inradius lens work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fodor–Robock–Sagmeister provides fixed width geometry, general Cheeger theory provides unique root, but each prior ingredient leaves the entire eroded-area function and derivative calculation to be proved."
+        ],
+        "reasoning": "The correction constant K=(H²+6H-9)/(6H) depends on explicit first-order cancellation of core and circular segments; it is not a corollary of a general extremal inequality.",
+        "searches": [
+          "Fodor Robock Sagmeister arXiv:2602.19300 Lemma 2.2 minimal width",
+          "Bogosel DOI:10.5802/aif.3728",
+          "Resultary exact outer Steiner area disk triangles full theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical convex Cheeger root |K_-s|=pi s² is known and explicitly credited. Bogosel works with constant-width classes and Reuleaux, while Fodor–Robock–Sagmeister treats area extremality."
+        ],
+        "reasoning": "Equivalent formulations of the new coefficient would express a derivative of Cheeger radius at flat-arc/large-R limit. No full accessible primary theorem found with that derivative; standard root characterization alone is an implicit method, not its specialized evaluated value.",
+        "searches": [
+          "Resultary sharp Cheeger first order regular disk triangle fixed minimum width large radius equilateral arc coefficient",
+          "arXiv:2602.19300 ball convex Pál inequality",
+          "Bogosel 10.5802/aif.3728 Cheeger constant Reuleaux"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary same-family outer-Steiner theorem read in full RESULT.md, only area/perimeter and outer offsets. Reuleaux Cheeger single endpoint is not the R-varying coefficient."
+        ],
+        "reasoning": "The root function and first-order asymptotic depend on an analytic family, not a finite published table of one endpoint shape.",
+        "searches": [
+          "Resultary: exact cheeger disk triangle regular family first-order H coefficient",
+          "web: Cheeger Reuleaux triangle to equilateral triangle asymptotic rate"
+        ]
+      },
+      "rationale": "The general inner-parallel Cheeger characterization and old disk-triangle width/area/radius formulas are clearly pre-existing. The recent same-family outer-Steiner phase diagram studies (T+tB), not the inner parallel sets and Cheeger-root variable. Reuleaux/constant-width Cheeger work and two-disk lens results cover related boundaries but not the variable-R three-disk six-arc Cheeger law and exact O(1/R) slope. Inaccessible Bogosel full text remains qualified risk rather than automatic scientific rejection.",
+      "residual_risks": [
+        "Bogosel complete primary text was blocked by publisher HTTP 403; only accessible metadata and related mathematical context were read. An inaccessible plausible Cheeger antecedent alone does not negate best-of-knowledge O.",
+        "A previously published inner-parallel formula could imply the slope after straightforward specialization; searches found no decisive broad coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS shape parametrization and area extremality, NOT Cheeger root or large-radius derivative",
+          "evidence": "Minimum width w=v+rho and equilateral-disk family, no s*-equation in inspected theorem",
+          "identifier_or_url": "https://arxiv.org/html/2602.19300",
+          "material_read": "full accessible HTML mathematical definition, Lemma 2.2 width and inradius, Theorem 1.1 and related geometric formulas",
+          "method": "primary arXiv HTML",
+          "title": "Pál's isominwidth inequality for ball convex bodies in planes of constant curvature",
+          "trigger": "same regular disk triangle fixed-width family"
+        },
+        {
+          "assessment": "NOT IMPLICATION-COVERING: outer offsets and optimization do not determine inner Cheeger derivative",
+          "evidence": "The theorem studies area(T_{w,R}+tB)=A+tP+pi t² and thresholds 1/3 and 0.63886...",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-steiner-area-phase-diagram-for-regular-disk-triangles--3d6ed11c0577",
+          "material_read": "full published RESULT.md including main phase theorem and proof",
+          "method": "GitHub connector full file",
+          "title": "A sharp Steiner-area phase diagram for regular disk triangles",
+          "trigger": "exact same family under outer rather than inner offset"
+        },
+        {
+          "assessment": "UNRESOLVED PRIORITY RISK limited to inaccessible full text: no whole-document noncoverage asserted",
+          "evidence": "Constant-width/Reuleaux comparison at R=w; exact variable-R slope not established by metadata",
+          "identifier_or_url": "https://doi.org/10.5802/aif.3728",
+          "material_read": "title, abstract/landing-page material and bibliographic description; full publisher text request denied HTTP 403",
+          "method": "publisher accessible metadata, not full article",
+          "title": "A geometric proof of the Blaschke–Lebesgue theorem for the Cheeger constant",
+          "trigger": "plausible Reuleaux and inner-parallel Cheeger antecedent"
+        },
+        {
+          "assessment": "DIFFERENT GEOMETRY: lens made by two disk arcs and general inequalities, not three-disk full six-arc family",
+          "evidence": "Cheeger lens applications are not formula for T_{w,R} flat-arc slope",
+          "identifier_or_url": "https://arxiv.org/abs/2601.10785",
+          "material_read": "accessible primary mathematical text on lens competitors and Cheeger estimates",
+          "method": "lawful open text/author version",
+          "title": "Stability of reverse isoperimetric inequalities in the plane: Area, Cheeger and inradius",
+          "trigger": "broader Cheeger theory and lens geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical regular disk triangle interpolates between the Reuleaux triangle and an equilateral limiting triangle at fixed minimum width; its Cheeger constant is a standard nontrivial geometric optimization independent of area. The complete all-R scalar characterization and exact sharp first correction quantify a natural curvature-to-flat transition; derivability from general Cheeger theory does not by itself make the specialized constant a known table entry.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2602.19300",
+    "arXiv:0903.5361",
+    "doi:10.5802/aif.3728",
+    "Resultary a sharp Steiner-area phase diagram for regular disk triangles",
+    "Drach–Tatarko Cheeger/inradius lens work"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Source Git tree and all 7 blobs were fetched at the exact assigned commit; no GitHub writes or dispatcher closeout.",
+    "Sampling or numerical enumeration was not used as a universal proof except where a complete finite domain was rigorously reduced and exhausted.",
+    "Historical novelty is a best-of-knowledge judgment, not a guarantee of priority.",
+    "Bogosel complete primary text was blocked by publisher HTTP 403; only accessible metadata and related mathematical context were read. An inaccessible plausible Cheeger antecedent alone does not negate best-of-knowledge O.",
+    "A previously published inner-parallel formula could imply the slope after straightforward specialization; searches found no decisive broad coverage."
+  ],
+  "schema_version": 1
+}

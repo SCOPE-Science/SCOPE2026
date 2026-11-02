@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T23:11:14.135670Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The definition requires disjoint nonempty proper prefix/suffix for every ordered pair, including self pairs. Distinct selected words cannot occupy the same primitive length-n cyclic orbit. For n=5..12 Mobius inversion gives necklace limits (1,2,5,8,14,20,30,40). Independently rebuilt all fixed-weight-four words and cyclic orbits; checked actual complete certificate.json codebooks of sizes 1,2,5,8,14,20,30,39 are pairwise nonoverlapping and self-unbordered. At n=12, independently enumerated all 495 words, precisely 128 eligible ones, and validated the 39 disjoint cliques as covering the entire eligible set with pairwise conflicts. Thus an admissible code contains at most 39, and given 39-word code attains it. n=4 only word 1111 self-bordered. Finite enumeration is exhaustive in the asserted interval, not an infinite-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blackburn Theorem 4 is sharp when n divides alphabet size q and constructions are unrestricted in weight; here q=2, n=12, weight 4.",
+          "Chee–Kiah–Purkayastha–Wang compare unrestricted nonoverlapping code constructions to general Levenshtein bounds."
+        ],
+        "reasoning": "No general bound identified forces M_4(12)≤39: the natural primitive necklace bound only yields 40, whereas the 39-clique cover supplies the missing obstruction.",
+        "searches": [
+          "Resultary:constant weight 4 binary nonoverlapping cross bifix free maximum n=12 39 primitive necklaces deficit",
+          "arxiv:1112.3168",
+          "arxiv:1209.0236",
+          "arxiv:1303.1026"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1303.1026",
+        "arxiv:1209.0236",
+        "arxiv:1112.3168",
+        "doi:10.1016/j.tcs.2005.03.040",
+        "oeis:A099766",
+        "Resultary semantic query fixed-weight code packing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Verified all 495 length-twelve weight-four words; 128 unbordered; a disjoint partition into 39 pairwise-conflict cliques and a feasible 39-word code.",
+          "The prior general q-ary upper bound does not distinguish 39 from 40 at this constant weight."
+        ],
+        "reasoning": "The new exact codebook-and-clique dual certificate supplies genuinely stronger, specific combinatorial content; the general construction and primitive necklace estimate do not imply it.",
+        "searches": [
+          "Resultary:constant weight 4 binary nonoverlapping cross bifix free maximum n=12 39 primitive necklaces deficit",
+          "Blackburn non overlapping codes paper Construction 2 and Section 4",
+          "fixed weight four cross bifix free code 39"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blackburn 2015 arXiv:1303.1026 §1–4 studies C(n,q), where no constant Hamming weight is fixed.",
+          "The object here is independent-set packing among weight-four unbordered words, not simply primitive-word enumeration."
+        ],
+        "reasoning": "Terms cross-bifix-free, strongly regular code, comma-free/necklace transversal, and non-overlapping encode related but not identical constraints. Blackburn’s unrestricted code C(n,2) does not yield M_4(12).",
+        "searches": [
+          "Resultary:constant weight 4 binary nonoverlapping cross bifix free maximum n=12 39 primitive necklaces deficit",
+          "cross-bifix-free constant weight four prefix-suffix length twelve 39 codewords",
+          "Blackburn arXiv:1303.1026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS unbordered-word count for (12,4) is 128; inspected certificate independently reconstructs it.",
+          "The exact 39-clique partition and 39-word independent set concern pairwise compatibility, absent from individual bordered/primitive counts."
+        ],
+        "reasoning": "Table entries for *individual* primitive or unbordered words are different statistics; 128 eligible words and 40 necklace orbits cannot by themselves imply a packing number of 39.",
+        "searches": [
+          "Resultary:constant weight 4 binary nonoverlapping cross bifix free maximum n=12 39 primitive necklaces deficit",
+          "OEIS A099766 fixed weight unbordered words n 12 weight 4",
+          "Harju Nowotka counting bordered and primitive words with fixed weight"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the first strict deficit for primitive-orbit transversals under the *pairwise* cross-bifix restriction is a new exact fixed-weight packing statement compared with inspected unrestricted bounds and primitive-word counts. Historical constant-composition coding tables may conceal an alias; search silence is not proof.",
+      "residual_risks": [
+        "An unindexed constant-composition cross-bifix-free packing table or codebook could independently record 39 without using this terminology.",
+        "The result is expressly finite through n=12; there is no general formula for larger n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general q-ary length n unrestricted codes; its Theorem 4 assumes n|q and does not determine fixed weight 4 length12",
+          "evidence": [
+            "Blackburn §3 Construction 2; Theorem 4."
+          ],
+          "identifier_or_url": "arxiv:1303.1026v3",
+          "material_read": "Full 14-page arXiv PDF: definitions §1, nonoverlap bounds §2, generalized code constructions §3 and short unrestricted length results §4",
+          "method": "arXiv open PDF, page images and full extracted text (; screenshots ,)",
+          "title": "Non-overlapping codes",
+          "trigger": "Direct equivalence of terminology and strongest general bounds"
+        },
+        {
+          "assessment": "No claim of full-document noncoverage; residual risk that a restricted example is tabulated",
+          "evidence": [
+            "General unrestricted q-ary size estimates; exact small weight-four optimum not supported by the inspected material."
+          ],
+          "identifier_or_url": "arxiv:1209.0236",
+          "material_read": "Publication summary and construction/bound descriptions; full text not independently reconstructed in this run",
+          "method": "arXiv/primary literature search and assigned bibliographic references",
+          "title": "Cross-bifix-free codes within a constant factor of optimality",
+          "trigger": "Same constraints, general-size comparison"
+        },
+        {
+          "assessment": "Counts individual words, not pairwise cross-overlap compatible families; no whole-document noncoverage asserted",
+          "evidence": [
+            "OEIS A099766 counts length12 weight4 unbordered words as 128."
+          ],
+          "identifier_or_url": "doi:10.1016/j.tcs.2005.03.040",
+          "material_read": "Bibliographic description and stated primitive/bordered enumeration result; not complete article",
+          "method": "Primary-literature cross-check and OEIS A099766 alias comparison",
+          "title": "Counting bordered and primitive words with a fixed weight",
+          "trigger": "Exact same alphabet and weight count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first natural failure of the standard primitive-necklace packing upper bound for fixed weight four, with a global pairwise-compatibility obstruction beyond counting orbits and a dual certificate that another researcher can directly reuse in synchronization-code extremal problems. The finite cutoff n=12 is mathematically motivated by first failure and proved exact, not a random sample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1303.1026",
+    "arxiv:1112.3168",
+    "arxiv:1209.0236",
+    "doi:10.1016/j.tcs.2005.03.040",
+    "oeis:A099766"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Arbitrary larger blocklengths remain unproved.",
+    "A previously printed specialized packing table may contain an equivalent answer, despite the negative searches."
+  ],
+  "schema_version": 1
+}

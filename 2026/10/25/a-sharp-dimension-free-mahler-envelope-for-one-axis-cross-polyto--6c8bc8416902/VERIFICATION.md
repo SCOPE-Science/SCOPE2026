@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python standard library. In this package's working directory it returned `VERIFY_OK 1490 alpha 1.79328213290076 bound 1.298425607525639 mu200 1.296345920324350`.
+## correctness
 
-The code performs exact rational comparisons between a polynomial antiderivative for polar volume and the independent closed integral for dimensions 2 through 18, compares two normalized-product expressions, and numerically examines maximizers for dimensions 2 through 200 and dimensional scaling for multiple parameters. Floating-point tests permit machine-epsilon ties where values saturate. The all-dimensional derivative argument, strict inequalities, and limiting maximization are analytical claims, not consequences of those tests.
+PASS
 
-Historical-priority uncertainty remains, particularly possible older equivalent unconditional-body or shadow-system formulations. The public mathematical sources listed in RESULT.md were compared; independent scientific review has not occurred.
+Fiber integration gives vol(B1^d+[-h,h]e1)=2^d(1+dh)/d!. The polar inequality max_j|uj|+h|u1|<=1 has volume 2^d/(dh)[1-(1+h)^(-d)], hence the asserted normalized product. With t=(1+h)^-1 its excess over one is (sum_{j=1}^{d-1}t^j-(d-1)t^d)/d>0; dividing the derivative by t^(d-1) produces a strictly decreasing root equation with one maximizer for every integer d>=2. Setting alpha=dh gives the strict envelope g(alpha)=(1+1/alpha)(1-exp(-alpha)), uniquely maximized at the positive alpha solving exp(alpha)=1+alpha+alpha^2; monotonicity in d for fixed alpha and compactness of maximizing alpha show increasing peaks to C*=1.298425607525639... and dh_d->alpha*. Direct rational polynomial-integration and volume-product comparisons passed 33 independent low-dimensional parameter cases; universal assertions use the proof.
+
+## originality
+
+PASS
+
+Existing Hanner local-minimality work concerns lower stability, not this global upper envelope. Full published cube/cross-polytope intersection and cube plus full cross-polytope Minkowski interpolation statements are geometrically different and do not specialize to a single-axis cross-polytope extrusion. The latter has the same scalar equation exp(alpha)=1+alpha+alpha^2 in a growing-dimensional saddle, which is explicitly acknowledged as prior shared numerical structure, not assumed independent novelty. The complete present profile and all-dimension optimal bound were not shown by inspected antecedents.
+
+## value
+
+PASS
+
+This symmetric one-coordinate extrusion interpolates between two natural Hanner-type Mahler-minimizer shapes. A complete all-dimensional positive excursion, unique finite optimum, strictly increasing normalized peaks, and a sharp dimension-free ceiling are meaningful benchmarks for local/global volume-product stability; not simply a computed constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

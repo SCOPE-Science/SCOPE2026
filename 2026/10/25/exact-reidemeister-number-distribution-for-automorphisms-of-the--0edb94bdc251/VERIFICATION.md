@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The proof relies on the classification of all automorphisms by a quotient matrix and a central linear shift, a fixed-ordinary-class formula for twisted conjugacy, and an exhaustive four-case classification of invertible two-dimensional matrices. These are proved in `RESULT.md`; computations are independent consistency checks only.
+## correctness
 
-The standalone `check_reidemeister.py` (Python 3, no third-party dependencies) enumerates all invertible matrices for the four odd primes \(3,5,7,11\), tallies the exact automorphism multiplicities, and checks the total. In addition, for \(p=3\), the checker constructs the actual order-\(27\) group multiplication, all \(432\) automorphisms, and all action orbits \(x\mapsto gx\varphi(g)^{-1}\). This tests the defining relation directly rather than relying on the fixed-conjugacy-class formula. Output: `VERIFY_OK`.
+PASS
 
-No computational enumeration is used to infer the universal quantifier over all odd primes. The statement does not apply to characteristic two or to all extraspecial groups of higher order. No independent mathematical audit has been performed.
+Every odd-p group automorphism corresponds to GL2(Fp) quotient A and central linear shift ℓ, p² choices per A. Noncentral conjugacy classes are central fibers and center classes are singletons; the finite twisted Burnside fixed-class identity gives R=p^dimker(A−I)+(p−1)1_detA=1. SL2 unipotents, identity, and split eigenvalue cases yield all four disjoint counts and sum to p²|GL2|. Independent matrix histograms for p3,5,7,11 and direct twisted-orbit partitions for all 432 p3 automorphisms passed.
+
+## originality
+
+PASS
+
+The first fixed-point-free R=1 count is already published; the audited originality claim is the complete prime-uniform four-stratum multiplicity distribution. General finite-group Reidemeister formulas and extraspecial automorphism classifications are compatible ingredients, not an already displayed histogram in inspected text.
+
+## value
+
+PASS
+
+Counting all automorphisms by individual twisted-conjugacy number is a natural invariant in finite-group dynamics and representation theory. Exact four-stratum distribution for every odd prime adds intermediate strata beyond the previously counted fixed-point-free one.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The zero-sum, unit-positive-mass section is exactly the complete-graph root polytope. Coarea gives each sign-sector volume; independent simplex Dirichlet variables and two Vandermonde identities give the radial second moment; permutation symmetry fixes every covariance component. The exact isotropic-constant ratio follows from the two volumes and variances. Strict inequality in every dimension is proved using gamma-function log-convexity, a monotone elementary factor, \(\pi<22/7\), and the two small base cases; Stirling gives the constant. Exact independent simplex integrations agree in four dimensions \(n=3,4,5,6\); they are not substituted for the proof.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+P_n is precisely the intrinsic-Euclidean zero-sum l1 section with positive and negative masses at most one. A sign sector with k positive coordinates has coarea weight sqrt(n)/[(n-1)(k-1)!(n-k-1)!], and conditional radial parameter s has density (n-1)s^(n-2); the two simplicial direction distributions are independent uniform Dirichlet. Hence E[s²]=(n-1)/(n+1), conditional E||X||²=2(n-1)/(n+1)[1/(k+1)+1/(n-k+1)], and weighted Vandermonde gives trace 4(n-1)(2n-1)/(n(n+1)²). Permutation symmetry fixes the full covariance scalar; multiplying the sector counts gives Vol=sqrt(n) C(2n-2,n-1)/(n-1)!. Substitution into the dimension-matched cross-polytope constant yields the claimed exact rational power R_n^(2(n-1)). Exact n=2 equality, n=3,4 deficits and gamma-logconvexity lower bound C(2d,d)>=4^d/sqrt(pi(d+1/2)) together with the decreasing tail factor prove strict R<1 for n>=5; Stirling gives (3/2-log pi)/2. Independently recomputed all rational weighted moments and ratio signs n=2..31. Finite tests are not used to prove n unbounded. Caveat: the root polytope notation is full type-A, not positive root.
 
-D'Alì–Delucchi–Michałek explicitly identify the complete-graph body and study its combinatorial and lattice-volume structure. Chen–Davis–Korchevskaia study graph-facet correspondences. Kipp gives isotropic-extremality conditions and the cross-polytope constant, but his statement does not imply the claimed strict comparison or exact root-polytope covariance. Searches also considered type-A root polytopes, sum-zero \(\ell_1\) sections, inertia, exact moment tables, and isotropic constants. No complete covering formula was located. The remaining risk is an equivalent moment calculation in classical section or Dirichlet-integral literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Complete-graph root polytopes are a canonical family of centrally symmetric lattice polytopes, and the regular cross-polytope is their natural dimension-matched benchmark. The result determines a natural affine-invariant geometric statistic for the whole family, gives a strict all-dimensional comparison, and measures the asymptotic separation at a sharp rate. These properties do not follow merely from their known Ehrhart volume or graph-facet counts. The one-dimensional equality is included as a sharp boundary.
+Qualified PASS after comparing same body under complete-graph symmetric edge polytope, full type-A root polytope, and the central l1 section. D’Alì–Delucchi–Michałek identify the body and investigate Ehrhart, facets, graph structure; Chen–Davis–Korchevskaia establish facet graph correspondence; Kipp characterizes local isotropic maximizers and crosspolytope benchmark. None of their inspected results gives uniform volume second moments for this complete-graph family and its strict all-dimensional ratio.
 
-## Limits
+## value
 
-Independent mathematical review is outstanding. The primary literature comparisons leave possible equivalent formulations in general convex-body section-moment tables. Finite computational checks do not establish originality, and the theorem is restricted to complete graphs rather than arbitrary graph symmetric-edge polytopes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full complete-graph root polytope is a standard combinatorial/convex-geometric family, and its intrinsic uniform-volume covariance and isotropic constant are natural affine invariants not determined by Ehrhart counts. An exact covariance plus dimensionwise strict comparison to cross-polytopes and sharp first-order isotropic deficit constitute a useful continuous-measure classification in all dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review: parity halfcube isotropic profile
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim concerns ordinary uniform Euclidean volume for every integer \(n\ge3\). The even-parity inequality system cuts exactly \(2^{n-1}\) pairwise-interior-disjoint cube-corner simplices. Their normalized Dirichlet coordinate-square moments yield the exact scalar covariance after subtracting cube and corner integrals. Even signed coordinate changes force zero means and all mixed moments. The determinant normalization is explicit. A direct rational calculation handles dimensions \(3\) and \(4\); a strictly positive cubic for all \(n\ge5\) and Bernoulli's inequality prove the remaining comparison; logarithmic expansion proves the limiting coefficient. Exact rational regression and independent polytope integration for dimensions \(3\)–\(6\) passed. Numerical checks are corroborative, not infinite proofs.
+PASS
 
-## Originality (PASS, qualified)
+The standard parity halfcube H_n is the [-1,1]^n cube minus 2^(n-1) strict odd-corner simplex interiors defined by s·x>n-2; distinct odd corners differ in at least two signs, so cut interiors cannot overlap. Each removed simplex has volume 2^n/n!, giving Vol H_n=2^n(1-a_n), a_n=2^(n-1)/n!. Uniform n-simplex Dirichlet moments of y_i give E(1-2y_i)^2=(n²-n+2)/((n+1)(n+2))=m_n. Subtracting removed moments from cube and dividing by 1-a_n produces diagonal variance (1/3-a_n m_n)/(1-a_n); even signed coordinate flips and permutations eliminate all means/cross covariance for n>=3. Normalization yields squared isotropic ratio (1-3a_n m_n)/(1-a_n)^(1+2/n). n=3 exact cube-relative squared ratio (3/5)*3^(2/3)>1, n=4 squared ratio (4/5)*sqrt(3/2)<1. For n>=5, b_n=3m_n > p_n=1+2/n by positive cubic numerator and strict Bernoulli inequality implies ratio<1. Logarithmic expansion as a_n->0 yields (1-L_H/L_cube)/a_n->1. Independently checked all exact rational signs by clearing rational powers n=3..60 (float comparisons would lose precision after n=24, and were not trusted).
 
-Ermel–Walter (arXiv:1803.10561) supply the exact facet description and Manecke–Sanyal–So (arXiv:1812.07491) develop the halfcube combinatorics and triangulations. Neither inspected full article determines uniform-volume covariance or the cube-relative isotropic sign/profile. The published type-D spin-weight John/Löwner result concerns exactly the same vertex orbit but extremal ellipsoids, not uniform interior moments. The published Hanner isotropic theorem subsumes the classical four-dimensional cross-polytope instance only. Kipp (arXiv:2407.01353) supplies general isotropic context, not this specialization. All six targeted published-finding corpus queries and an accessible current ledger of forty prior claims were compared using scientific implications, including the alias/parity orbit. No dominating formula was identified. Residual older-inertia-table priority risk remains.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The result computes a natural affine-invariant observable on the canonical parity halfcube family and reveals a complete exceptional-dimension classification with a sharp factorial asymptotic scale. The distinction between interior covariance and contact ellipsoids, and between odd/noncentrally-symmetric and even instances, makes this more than a standard restatement of existing vertex/facet combinatorics.
+Qualified PASS: Ermel–Walter supply parity-facet inequalities and Manecke–Sanyal–So full halfcube structure/triangulations, without an inspected interior-inertia formula; Kipp supplies isotropic context. Resultary published John/Löwner spin-weight orbit concerns the same vertex set but extremal ellipsoids, not volume-uniform covariance. Published Hanner theorem covers only dimension-four crosspolytope special case; odd halfcubes are not centrally symmetric. A Resultary diagonal-halfcube record is about cutting the cube by one diagonal hyperplane, a distinct body. Historical halfcube inertia tables remain possible.
 
-## Limits
+## value
 
-The low-dimensional simplex and cross-polytope comparisons are classical and not individually novel. The proof does not establish a universal isotropic extremal inequality. No independent mathematical review has yet been performed. Equivalent calculations in unindexed older literature remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The demihypercube/parity polytope is a natural canonical high-dimensional family. A complete Euclidean interior uniform covariance and affine-invariant isotropic profile distinguishes interior mass from John/Löwner contacts, classifies the unique sign reversal at dimension 3, and gives its sharp superfactorial high-dimensional defect. This is substantive all-dimensional geometry even though its tetrahedron/crosspolytope boundary cases are classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

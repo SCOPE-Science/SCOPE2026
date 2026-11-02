@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T20:17:52.192431Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unit-circumradius regular nonagon admits 18 directed chord-normal directions j*pi/9, with support heights h_j=1 for even j and c=cos(pi/9) for odd j. Four support normals bound a polygon iff all cyclic gaps are in {1,...,8}. The exact support polygon shoelace formula reduces the global continuous area minimum to 1548 bounded quartets among choose(18,4)=3060. The bundled checker uses rational interval arithmetic in x=2cos(pi/9), the unique root x³-3x-1 in the bracket [18793852415/10¹⁰,18793852417/10¹⁰], with exact cosine/sine recurrences and positive denominators. Its 1548-case certificate yields exactly nine rotations of {0,5,9,13} as all chord winners, and separately 90 bounded four-odd-index edge-only cases yield exactly nine rotations of {1,5,9,13}; both losing families have strict rational separation. Independent full high-precision 1548-case enumeration agreed with winner count, area q_ch=2[c-(1+c²)cos(5pi/9)/2]/sin(5pi/9)+2c²tan(2pi/9), ratio 1.286857637640353..., edge-only optimum c²[3tan(2pi/9)+tan(3pi/9)] and strict gap about 0.02997756117. One optimal direction is genuinely a diagonal; affine maps preserve areas ratios/directions. All finite enumeration is exhaustive only after the proof reduces the continuum to 18 normals.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accepted general sqrt2 bound is much looser than 1.286857..., and the minimum enclosing parallelogram plus pentagonal cases solve different constraint sets."
+        ],
+        "reasoning": "The new regular nonagon optimum is not a trivial substitution into the all-regular enclosing-parallelogram formula because the winner has nonopposite four normals and a diagonal direction.",
+        "searches": [
+          "arXiv:2610.08168 general Kuperberg quadrilateral conjecture",
+          "Resultary exact minimum area enclosing parallelograms regular polygons",
+          "arXiv:2108.00326 minimum circumscribing (n-1)-gon pentagon"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.08168",
+        "arXiv:2108.00326",
+        "Resultary exact minimum-area enclosing parallelograms for regular polygons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first computes a general bound/experiments, the second imposes parallelogram symmetry, and the third covers the five-gon case. None logically forces the 18-normal winner pattern {0,5,9,13}."
+        ],
+        "reasoning": "Proving this optimizer needs 1548 exact interval comparisons and 90 edge-only checks; the strict gap establishes necessity of genuine diagonal direction and is not implied by old general bounds.",
+        "searches": [
+          "Vígh arXiv:2610.08168 full statement and numerical examples",
+          "Resultary exact minimum area enclosing parallelograms regular polygons",
+          "arXiv:2108.00326 pentagonal enclosing quadrilateral"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vígh contains a general chord-enclosure problem and at least a nonagon figure for an arbitrary polygon, not the full regular nonagon exact normal-orbit classification; old heptagon benchmark concerns n=7."
+        ],
+        "reasoning": "A general conjectured existence bound or illustration for nonregular nonagon does not imply the exact regular nonagon endpoint or the edge-only penalty.",
+        "searches": [
+          "arXiv:2610.08168 nonagon chord enclosing quadrilateral numerical examples",
+          "Resultary: regular nonagon chord quadrilateral 1.28685763764 edge only diagonal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published exact regular-nonagon table containing this 1548-subset result or its nine equality indices located. Nearby published regular polygon tables concern parallelograms or translative hull ratios."
+        ],
+        "reasoning": "The exact finite classification solves a naturally singled-out polygon; absence in searches is not proof of novelty. The strict edge-only gap is a separate exact invariant.",
+        "searches": [
+          "Resultary: regular nonagon chord quadrilateral sharp area and diagonal required",
+          "web: minimum area enclosing quadrilateral regular nonagon 1.286857637640 exact"
+        ]
+      },
+      "rationale": "Vígh 2026 introduces chord quadrilateral enclosure, reports numeric experiments for some polygons but does not derive this regular nonagon exact formula, nine minimizers or strict edge-only penalty. The heptagon exact computation is a different n and edge-only optimum, and regular n enclosing parallelogram formulas solve a restricted family. The nonagon diagonal direction, exact all-config classification and strict arithmetic gap therefore remain best-of-knowledge new. An unindexed historical polygon optimization table is residual risk.",
+      "residual_risks": [
+        "An unindexed exact area/enclosure table for regular nine-gons could cover the value, though no full text inspected so far supplied the all-winner diagonal result.",
+        "The theorem does not solve unrestricted enclosing quadrilaterals or the general chord conjecture; conclusions remain limited to chord/edge directions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING regular nonagon complete exact optimum/strict edge-only gap; related nonagon example not asserted identical regular figure",
+          "evidence": "No symbolic 1548-case nonagon certificate or ninefold minimizer list in inspected full source",
+          "identifier_or_url": "https://arxiv.org/html/2610.08168",
+          "material_read": "full arXiv HTML: definitions, general estimates and numerics, polygon illustrations",
+          "method": "primary full HTML",
+          "title": "A Note on Kuperberg's Quadrilateral Conjecture",
+          "trigger": "same chord enclosure problem, regular polygon and nonagon figure"
+        },
+        {
+          "assessment": "DIFFERENT domain: parallelograms cannot include the four-normal {0,5,9,13} optimizers",
+          "evidence": "The general M(P_n) formula restricts two pairs of opposite normals",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad",
+          "material_read": "full published RESULT.md and residue-class formulas",
+          "method": "GitHub connector full text",
+          "title": "Exact minimum-area enclosing parallelograms for regular polygons",
+          "trigger": "same regular-n geometry but a restricted enclosing four-gon shape"
+        },
+        {
+          "assessment": "DIFFERENT n and enclosing class; no logical nonagon implication established",
+          "evidence": "Pentagon (n-1)-gon extremal theorem does not give ninefold regular nonagon chord-normal classification",
+          "identifier_or_url": "https://arxiv.org/abs/2108.00326",
+          "material_read": "primary title/abstract and result attribution from inspected present package; not claimed full-text noncoverage",
+          "method": "abstract plus current source references",
+          "title": "On smallest area (n-1)-gon containing a convex n-gon",
+          "trigger": "possible exact pentagon predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nonagon illustrates a structural phenomenon absent from the heptagon benchmark: allowing directions along polygon diagonals strictly improves the enclosing four-gon area versus restricting to original edges. Exact sharp values and all nine optimizer configurations give a natural rigorous test instance for a current chord-quadrilateral conjecture, even without resolving its general form. This is mathematically motivated rather than an arbitrary finite enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.08168",
+    "arXiv:2108.00326",
+    "Resultary exact minimum-area enclosing parallelograms for regular polygons"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Source Git tree and all 7 blobs were fetched at the exact assigned commit; no GitHub writes or dispatcher closeout.",
+    "Sampling or numerical enumeration was not used as a universal proof except where a complete finite domain was rigorously reduced and exhausted.",
+    "Historical novelty is a best-of-knowledge judgment, not a guarantee of priority.",
+    "An unindexed exact area/enclosure table for regular nine-gons could cover the value, though no full text inspected so far supplied the all-winner diagonal result.",
+    "The theorem does not solve unrestricted enclosing quadrilaterals or the general chord conjecture; conclusions remain limited to chord/edge directions."
+  ],
+  "schema_version": 1
+}

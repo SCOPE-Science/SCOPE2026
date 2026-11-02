@@ -1,11 +1,21 @@
-# Review of a post-contact curvature law for the first intrinsic-volume metric
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized line-symmetry-difference identity gives the exact translation profile. Contact is the radial boundary of the difference body; strict convexity isolates precisely two normal caps. Each cap has positive-definite quadratic support gap and a rescaled integral with explicit value, yielding the exponent \((n+1)/2\) and coefficient \(2^{(n+3)/2}\gamma^{(n+1)/2}\sqrt{\kappa_G}/(n+1)\). The positivity and all normalizations were re-derived rather than inferred from finite calculations. Planar ball, 3D ball and ellipse constants were checked numerically.
+## correctness
 
-**Originality — PASS, best knowledge with priority risk.** The closest primary text is Besau and Hoehner, *An intrinsic volume metric for the class of convex bodies in \(\mathbb R^n\)*, arXiv:2208.13927. Proposition 2.6(v) already supplies the whole equal-metric law for overlapping translates, and Proposition 2.6(ii) supplies a general one-sided bound; neither implies the new asymptotic positive coefficient after intersection ceases. Its Definition 1.1 fixes the common normalization. Later work by Hoehner, arXiv:2512.02379, addresses completeness/topology for higher metric indices rather than translated first-metric curvature. Targeted literature searches and indexed-claim searches did not locate an equivalent theorem; an unindexed result remains possible.
+PASS
 
-**Mathematical value — PASS.** The new one-sided exponent and coefficient identify local curvature of the difference body through a natural metric for convex bodies. The result is multidimensional, works without central symmetry of the original body, and includes a necessary radial/normal incidence angle; it sharpens a previously qualitative inequality on the disjoint side of a geometric phase transition.
+For n>=2, C^2 support functions with positive curvature-radius operator, use Besau–Hoehner line-symmetric-difference definition with Haar probability and c_n=omega_n/(2*kappa_{n−1}) to derive delta1(K,K+tv)=2c_n ∫min(t|u·v|,h_{K−K}(u))dσ. Thus F(t)=2t−delta1=2c_n ∫(t|u·v|−h_D(u))_+dσ. The support inequality for ±tv in D proves F(t)=0 exactly for 0<=t<=T, and strict positivity after contact. Uniform strict curvature yields precisely two antipodal equality normals ±u0 at Tv. In each cap h_D(u)−Tv·u=0.5 ξ^TQ ξ+o(|ξ|^2), Q=∇²_Sh_D+h_D I>0, γ=u0·v>0. Replacing ξ with sqrt(eps γ) Q^-1/2 z, integrating (1−|z|²/2)_+ over R^{n−1}, and accounting for two caps and sphere normalization gives F(T+eps)~2^((n+3)/2)/(n+1) *γ^((n+1)/2)*sqrt(κ_G(D,Tv))*eps^((n+1)/2). Independent planar-ball cap integral ratios ~0.99955 for radii 0.7,1,3; 3D exact 2eps²/(2r+eps) agrees coefficient 1/r. The curvature-positive hypothesis is essential for the nondegenerate exponent, and equality-before-contact is prior work.
 
-**Limitations and risk.** Hypotheses require \(C^2\) support functions with positive curvature radii; flat, nonsmooth, and degenerate contacts are excluded. The theorem is an asymptotic at first separation, not a global translation formula. Publication-priority verification is incomplete, and no external independent validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for curvature-dependent post-contact one-sided exponent and coefficient, while Besau–Hoehner 2022 Proposition 2.6(v) already implies equality throughout intersection; their Definition 1.1 supplies the exact integral. The audited post-contact local curvature asymptotic is not a mere restatement of the covered overlap theorem. Standard local cap asymptotics could yield an equivalent unindexed derivation; residual risk expressly retained.
+
+## value
+
+PASS
+
+The first intrinsic-volume metric is a natural convex-body metric, and the first departure from translation distance is a geometric phase transition. Its exact exponent and curvature/incidence constant give a local inverse measurement of the Gauss curvature of K−K, while exposing the smooth-curvature boundary of the earlier overlap result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

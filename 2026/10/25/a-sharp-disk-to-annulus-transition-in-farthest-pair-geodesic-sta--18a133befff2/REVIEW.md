@@ -1,21 +1,21 @@
-# Scientific review: annular geodesic diameter tails and vanishing-hole crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source geometry supplies an exact two-branch shortest path: the Euclidean chord if it avoids the inner circle, and two tangent segments plus the shorter inner circular arc otherwise. Monotonicity of the latter's radial primitive proves the unique diametral radial configuration, and exact near-diameter expansions yield the positive-hole cubic coefficient and its uniform-simplex conditional law. A second singular scaling, with hole radius proportional to the square root of the distance deficit, produces a piecewise-angular loss function and a compact limiting integration region. Its explicit integral gives the claimed crossover, disk exponent, and marked limit. The density normalization is checked using the three-simplex volume in the positive-hole case and integrating the two-dimensional triangular cross-section for each angular defect in the crossover case. The small-ball asymptotic and strict derivative of diameter at fixed area prove the global inverse assertion. The accompanying numerical quadrature was executed on the packaged source, passing 18 finite diagnostics, and symbolic integration verified the crossover coefficient; neither is substituted for the infinite proof.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+For the intrinsic metric on {r<=|x|<=R}, shortest paths are chords when unobstructed and two tangents plus a shorter inner-circle arc when obstructed. With K=R^2-r^2 and g(s)=sqrt(s^2-r^2)-r arccos(r/s), monotonicity in radius and minor angle gives exact diameter 2sqrt(K)+2r atan(r/sqrt(K)). The small-distance area coefficient equals 1/K, and the diameter strictly increases in r at fixed K, proving inverse radii uniqueness. For r>0 the near-diameter loss is c(R-rho)+c(R-sigma)+r(pi-theta)+quadratic remainder, c=sqrt(K)/R. Three independent scaled defects have limiting constant density 4R^4/(pi rK^3), and simplex volume 1/6 gives the precise cubic upper-tail coefficient 2R^4/(3pi rK^3) and a uniform-simplex mark law. When r=a sqrt(R epsilon), the chord/tangent boundary occurs at z=2a; the limiting loss is x+y+F_a(z), F_a(z)=az below 2a and a^2+z^2/4 above. Integrating its x,y sections produces J(a), piecewise with threshold a=1/sqrt(2), including disk a=0 and conditional density 2/J(a). Analytic localization/tightness supplies dominated convergence only for fixed a. Independent symbolic integration of J verified the exact two branches and their joining; finite quadrature was not mistaken for the proof.
 
-Relevant full scientific material inspected includes Chang et al. (2005), specifically their disk-obstacle tangent-and-arc shortest-path construction, and Blumberg et al. (arXiv:1206.4581), especially their annulus sample experiment in §7. The latter explicitly uses the *Euclidean subspace metric*, not the path metric constrained to stay in the annulus. Sheng (1985) covers Euclidean chords in concentric plane regions by its accessible abstract; its full paper was not inspected. Bäsel (arXiv:1208.6228) develops Euclidean chord-distance distributions for right triangles. These sources do not state a fixed-hole intrinsic cubic upper tail or the marked vanishing-hole crossover. The unavailable full text of Sheng and possibly unindexed classical geometry research remain bibliographic risks. New results are not claimed for the classical tangent-arc construction, the elementary area formula, or the known disk Euclidean distance law alone.
+## originality
 
-Available geodesic-distance inverse results on metric graphs, cylinders and Klein bottles, and Euclidean distance-tail results on convex polytopes, do not specialize to the planar annulus with an obstacle-avoiding length metric. A claim-level literature and indexed-results search used synonyms such as circular obstacle, planar concentric shell, shortest obstacle-avoiding path, diameter tail, shrinking hole, and inverse distance law; the closest overlapping results concerned Euclidean straight-line visibility in spherical shells and Gromov–Hausdorff distance under a deleted hole. Neither controls this intrinsic pair-distance law. Database search and incomplete full text are not proofs of historical novelty.
+PASS
 
-## Mathematical value — PASS
+Classical obstacle-avoiding geodesic geometry is not claimed new. Published random Euclidean chord-distance distributions for annular regions and persistent-homology studies of annuli in the subspace Euclidean metric do not imply intrinsic farthest-pair upper-tail exponents or the marked critical shrinkage law. Indexed work on GH distances after holes concerns different observables; plausible inaccessible historical specialist work remains a priority risk.
 
-The planar annulus is a natural nonconvex Euclidean length space. Its nonzero hole changes the **probability exponent** for nearly farthest pairs from \(5/2\) to \(3\), even as the hole radius tends to zero. The critical scaling \(r\asymp\sqrt{R\varepsilon}\) gives an exact transition, a closed coefficient with a sharp threshold where direct geodesics disappear from the endpoint event, and a nontrivial marked conditional law. The same distribution also globally determines the metric-annulus radii from only two asymptotic features. This describes a motivated degeneration mechanism, not an arbitrary parameter computation.
+## value
 
-## Limits requiring independent attention
+PASS
 
-The result covers only uniform-area sampling and concentric circular annuli in the Euclidean intrinsic length metric; there is no uniform-in-scaling-parameter error estimate or extension to eccentric holes. The numerical diagnostics are finite and have no certified quadrature error bounds. The incomplete full-text historical comparison is a residual originality risk. No externally independent mathematical validation has been carried out.
+The annulus is a canonical nonconvex length space; creating any positive circular hole changes the near-diameter tail exponent from 5/2 to 3. The sharp r proportional sqrt(R epsilon) transition and conditional location marks explain the geometric mechanism, while two observed distance-distribution endpoint coefficients determine the annulus radii. This is a meaningful complete quantitative degeneration and inverse statistic.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

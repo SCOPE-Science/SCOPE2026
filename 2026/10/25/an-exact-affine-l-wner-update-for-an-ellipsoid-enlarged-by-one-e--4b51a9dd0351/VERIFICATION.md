@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Analytic containment is provided by the exact nonnegative square in RESULT.md. Analytic optimality is given by an explicitly isotropic distribution of transformed contacts and the trace–determinant inequality, which covers all competing ellipsoids. The affine covariance step is direct matrix algebra, and both limits follow from root expansions.
+## correctness
 
-Run `python verify_cap.py` using the Python standard library. Its observed output was `PASS 18700 deterministic numerical diagnostics`. Tested samples span several dimensions, spike distances and positive-definite diagonal affine changes. This is non-exhaustive supporting evidence, not a proof of universal inequalities or any statement of mathematical independence.
+PASS
 
-Historical coverage checks used the primary sources cited in RESULT.md. Independent historical-priority or scientific audits have not been performed; an equivalent earlier formulation remains possible.
+Affine-normalize original ellipsoid to B2^d and outlier to H e1. Solve dr²+(d−1)Hr=1 with 0<r<1/d; exact factorization of the containment slack is (b^-2−a^-2)(s+r)², verifying the entire ball and unique latitude, while H−c=a. Under candidate normalization, apex plus isotropic latitude orbit with weights 1/(d+1), d/(d+1) has mean zero and covariance I/d. Integrating each competitor gives tr(M^-1)≤d; AM–GM forces det M≥1, equality only at candidate, proving universal optimality and uniqueness. Affine untransform gives Q*. Fixed-H and fixed-d limits follow from root expansion. Independently verified factorization and latitude identities with symbolic algebra.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified PASS: original special-ellipsoid literature provides a characterization of extremal ellipsoids but inspected studies of cuts, slabs and multi-ellipsoid hulls did not identify the explicit one-outlier rank-one affine update, entire apex-plus-ring contact structure and two sharp limits. A prior geometric optimal-design or polar-dual formulation may remain undiscovered; Todd full text uninspected.
+
+## value
+
+PASS
+
+PASS: adding one outlier to a full ellipsoid is a canonical exact extremal-geometry update problem. Explicit global minimum-volume solution, entire contact-orbit classification and sharp volume limits give useful closed forms not supplied by routine numerical MVEE algorithms. It does not address multiple points or simultaneous limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

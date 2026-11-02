@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T15:19:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/a-sharp-covariance-law-for-worst-case-and-perimeter-errors-of-ra--781f4f4936fc/RESULT.md",
+        "2026/10/25/a-sharp-covariance-law-for-worst-case-and-perimeter-errors-of-ra--781f4f4936fc/VERIFICATION.md",
+        "2026/10/25/a-sharp-covariance-law-for-worst-case-and-perimeter-errors-of-ra--781f4f4936fc/verify.py"
+      ],
+      "rationale": "For iid uniform unit-circle points the ordered Dirichlet gaps equal iid Exp(1) variables divided by their sum. Convex support yields exactly H=1-cos(pi max gap), while perimeter gives D=2 sum(pi gap-sin(pi gap)), even when a gap exceeds pi radians. Taylor/Dirichlet moment control reduces covariance to pi^5/(6 n^4) Cov(M^2 U^-2,F3). The influence polynomial psi(x)=x^3-18x+12 has exponential mean zero, variance 360; the CLT yields normal perimeter variance 40 pi^6. Conditioning on the maximum at L+z gives truncated independent exponentials and an unchanged centered CLT, proving joint Gumbel-normal independence. Exact conditional E[sum psi(Ei)|M=m] = m^3-18m+12 -(n-1) exp(-m)/(1-exp(-m)) (m^3+3m^2-12m); its leading contribution gives Cov(M^2,sum psi)~2(log n)^4 and covariance constant pi^5/3. The ratio limit follows by Slutsky. Bounded independent quadrature and exact factorial-moment checks corroborate but do not prove the asymptotics.",
+      "residual_risks": [
+        "A finite verifier is supporting evidence rather than proof of the complete infinite statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Besau-Rosen-Thäle 2021 projective random inscribed-polytope Gaussian approximation, Theorem 1.15",
+          "Bélisle 2011, circular random polygon, accessible abstract"
+        ],
+        "reasoning": "General smooth-functional Gaussian approximations and same-circle marginal area/perimeter fluctuations do not, without an additional max-gap joint calculation, determine the much smaller mixed covariance. Bélisle full text unavailable, so priority risk remains.",
+        "searches": [
+          "uniform random points on a circle covariance largest gap Hausdorff disk approximation error polygon perimeter deficit asymptotic log^4 n over n^5 Gumbel Gaussian",
+          "https://arxiv.org/abs/2005.10502",
+          "https://doi.org/10.1016/j.spl.2010.11.012"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2005.10502",
+        "https://doi.org/10.1016/j.spl.2010.11.012",
+        "https://doi.org/10.1111/j.1365-2818.1988.tb04682.x",
+        "https://doi.org/10.19139/soic-2310-5070-1193",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang-Xu-Liu (2021) treats area/semiperimeter extrapolation and leading cancellation",
+          "Schneider (1988) concerns convex-set approximation rates"
+        ],
+        "reasoning": "Neither the known cancellations of two smooth global observables nor Hausdorff and perimeter rate bounds imply an exact n^-5 log^4 n mixed moment. First-marginal asymptotic independence also does not imply the nonzero lower-order covariance.",
+        "searches": [
+          "uniform random points on a circle covariance largest gap Hausdorff disk approximation error polygon perimeter deficit asymptotic log^4 n over n^5 Gumbel Gaussian",
+          "https://doi.org/10.19139/soic-2310-5070-1193",
+          "https://doi.org/10.1111/j.1365-2818.1988.tb04682.x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pyke, Spacings, JRSS B 27 (1965), classical Dirichlet/exponential representation",
+          "https://doi.org/10.19139/soic-2310-5070-1193"
+        ],
+        "reasoning": "The equivalent spacing mixed quantity is Cov((max_i Ei)^2,sum_i (Ei^3-18Ei+12))~2(log n)^4, with further n-normalization of S. Classical spacing representations alone determine no such covariance; area/perimeter cancellations apply sums, not the maximum.",
+        "searches": [
+          "uniform random points on a circle covariance largest gap Hausdorff disk approximation error polygon perimeter deficit asymptotic log^4 n over n^5 Gumbel Gaussian",
+          "extreme and linear circular spacing statistics joint covariance Gaussian maximum Gumbel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1"
+        ],
+        "reasoning": "Target is an infinite joint coefficient, not a finite catalog entry; nearest indexed Gumbel-Hausdorff result samples a finite regular polygon boundary, with different geometry and no circular perimeter covariance.",
+        "searches": [
+          "uniform random points on a circle covariance largest gap Hausdorff disk approximation error polygon perimeter deficit asymptotic log^4 n over n^5 Gumbel Gaussian",
+          "Resultary Gumbel transition and second-order Hausdorff error randomly inscribed regular polygons 2026/10/11/3fe000dbc9a1"
+        ]
+      },
+      "rationale": "The first nonzero mixed Hausdorff/perimeter covariance of order (log n)^4/n^5 and its sharp pi^5/3 coefficient is not an implication of marginal perimeter CLTs, Hausdorff-rate theorems, or area/semiperimeter extrapolation; those lack an exact maximum-conditioned mixed moment. The independent Gumbel/Gaussian joint statement follows from a separate conditional-truncation argument. Best-of-knowledge PASS with inaccessible same mathematical model literature explicitly retained as risk.",
+      "residual_risks": [
+        "The complete Bélisle (2011) and Schneider (1988) source texts were inaccessible; no claim of whole-document noncoverage is made.",
+        "Classical joint extreme-value and empirical-functional covariance theorems may exist under alternate formulations.",
+        "The deterministic finite quadrature is not proof of convergence or a finite-n covariance-sign theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Class concerns projective random inscribed polytopes and smooth functionals; does not establish maximum-gap mixed perimeter covariance.",
+          "evidence": [
+            "arXiv:2005.10502; DOI:10.1007/s00208-021-02257-9"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.10502",
+          "material_read": "Accessible primary open-access/arXiv introduction, definitions, and Gaussian approximation statements including Theorem 1.15",
+          "method": "arXiv primary full-text HTML and theorem comparison",
+          "title": "Random inscribed polytopes in projective geometries",
+          "trigger": "Closest broad random-inscribed-polytopes limit theorem"
+        },
+        {
+          "assessment": "No assertion of whole-document noncoverage. Abstract concerns random circle polygon area/perimeter; possible unverified overlap remains.",
+          "evidence": [
+            "DOI:10.1016/j.spl.2010.11.012"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2010.11.012",
+          "material_read": "Bibliographic record and abstract only; full text inaccessible",
+          "method": "Open-access/preprint search then authorized institution; access unavailable (VPN disconnected)",
+          "title": "On the polygon generated by n random points on a circle",
+          "trigger": "Exact circle-sampling object, plausible hidden joint moment theorem"
+        },
+        {
+          "assessment": "Available abstract gives rates; uninspected full paper creates priority risk.",
+          "evidence": [
+            "DOI:10.1111/j.1365-2818.1988.tb04682.x"
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2818.1988.tb04682.x",
+          "material_read": "Abstract and bibliographic record, not complete paper",
+          "method": "Published bibliographic/abstract comparison; complete text unavailable",
+          "title": "Random approximation of convex sets",
+          "trigger": "Potential dominating Hausdorff/perimeter approximation theorem"
+        },
+        {
+          "assessment": "Area/semiperimeter cancellation known; a Hausdorff max-gap mixed covariance is not its corollary.",
+          "evidence": [
+            "DOI:10.19139/soic-2310-5070-1193"
+          ],
+          "identifier_or_url": "https://doi.org/10.19139/soic-2310-5070-1193",
+          "material_read": "Published proof claims, theorem statements and extrapolation description accessible in source discussion; no new whole-document inspection claimed",
+          "method": "Direct theorem and implication comparison",
+          "title": "Random Polygons and Optimal Extrapolation Estimates of Pi",
+          "trigger": "Same circle sample, potential area-perimeter joint cancellation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2005.10502",
+        "https://doi.org/10.1016/j.spl.2010.11.012",
+        "https://doi.org/10.1111/j.1365-2818.1988.tb04682.x",
+        "https://doi.org/10.19139/soic-2310-5070-1193",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1"
+      ],
+      "rationale": "The maximum gap governs worst-case boundary approximation while all gaps govern perimeter. A sharp positive covariance invisible after the separate Gumbel and Gaussian fluctuation normalizations quantifies coupling between a natural local extreme and global geometric estimation error. The exact coefficient is an independently useful benchmark in random convex approximation, not a marginal CLT repeated.",
+      "residual_risks": [
+        "The significance is confined to the exact motivated object/invariant; no broader theorem is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2005.10502",
+    "https://doi.org/10.1016/j.spl.2010.11.012",
+    "https://doi.org/10.1111/j.1365-2818.1988.tb04682.x",
+    "https://doi.org/10.19139/soic-2310-5070-1193",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The complete Bélisle (2011) and Schneider (1988) source texts were inaccessible; no claim of whole-document noncoverage is made.",
+    "Classical joint extreme-value and empirical-functional covariance theorems may exist under alternate formulations.",
+    "The deterministic finite quadrature is not proof of convergence or a finite-n covariance-sign theorem."
+  ],
+  "schema_version": 1
+}

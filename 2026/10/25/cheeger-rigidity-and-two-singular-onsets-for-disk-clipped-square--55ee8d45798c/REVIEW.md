@@ -1,11 +1,21 @@
-# Scientific review — disk-clipped square Cheeger profile
+# Independent mathematical audit
 
-**Correctness — PASS.** The result follows from the published planar convex inner-parallel characterization, exact erosion of intersected square and disk, and elementary integral geometry. The root exists uniquely by the strictly decreasing eroded-area difference. The exact plateau begins when the eroded disk first contains the square's eroded core; the two limiting expansions arise from four circular side caps and four clipped corners. The included code independently tests formulas at intermediate parameters and both asymptotic coefficients; it is a consistency check, not a substitute for the proof.
+## correctness
 
-**Originality — PASS.** Searches included Cheeger-radius aliases, two-strip spherical slices, rounded squares, and circle/square intersections in literature and indexed records. Cañete discusses symmetry and the standard characterization; Ftouhi–Masiello–Paoli cover planar Cheeger inequalities and singly clipped spherical slices, but neither inspected full text gives this complete parameter law. The closest indexed square theorem minimizes a different circumradius/area subset functional. The square's Cheeger number and general method are expressly prior work. Priority risk remains for alternative classical terminology.
+PASS
 
-**Mathematical value — PASS.** A natural deformation from disk to square has an exact threshold where the minimizing set becomes insensitive to geometric corner changes, and below that threshold a complete scalar description. The exponents \(3/2\) and \(2\) distinguish side tangency from corner activation and specify the sharp leading sensitivity coefficients. These are geometric boundary phenomena, rather than a one-off numeric special case.
+Using the planar convex Cheeger characterization |(K_R)_{-t}|=pi*t^2 with unique t=1/h, independently derived eroded set [-1+t,1-t]^2 intersect B_(R-t). The clipped area 4a*sqrt(b²-a²)+4b²(asin(a/b)-pi/4) is correct in a<b<sqrt(2)a. Monotonicity of F_R(t) gives a unique root. Inner square fits the eroded disk at R*=sqrt(2)-(sqrt(2)-1)*2/(2+sqrt(pi)), establishing an exact constant-set plateau, while strict inclusion below R* increases t. Side-cap loss from four caps is (16/3)sqrt(2b)*(R-1)^(3/2)+O((R-1)^(5/2); the corner loss is 4d²+O(d³). These yield both stated asymptotic constants. Own 65-digit independent root/cap calculations checked intermediate radii and both limits; all checks passed. Endpoint R=1 gives h=2, R=sqrt(2) the rounded-square value. Finite checks are corroboration, not proof of continuum quantifiers.
 
-**Limits.** Only centered clipped squares in the Euclidean plane are covered. The inner-parallel theorem is quoted as an established source; global priority and independent verification are not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete centered disk-square radius profile, exact retention threshold and two singular laws. The underlying Cheeger characterization and rounded-square value are explicitly known; the novel candidate is the explicit shape-dependent transition rather than a generic algorithm. Full accessible Cañete article supplies rotational symmetry and inner-parallel characterization but does not formulate this two-parameter saturation/endpoint profile; other plausible primary technical texts remained inaccessible or inspected as abstracts only.
+
+## value
+
+PASS
+
+The Cheeger set of a natural planar disk-to-square deformation becomes rigorously insensitive to further corner changes at a nontrivial sharp radius. Opposite endpoint tangencies yield 3/2 and 2 exponents with exact coefficients; the plateau is a motivated geometric stability phenomenon and an exact parametric classification, not merely a recalculation of the square endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

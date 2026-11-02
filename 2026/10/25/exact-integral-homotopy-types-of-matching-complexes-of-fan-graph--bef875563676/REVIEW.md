@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof completely enumerates the hub-spoke cells, identifies each link with a join of the matching complexes of two paths, and derives the precise three-periodic path homotopy types by a deletion/link suspension argument. The exceptional inclusion for \(n\equiv1\pmod3\) is an actual homotopy equivalence, because the endpoint link is contractible. All remaining cone maps are null for stated connectivity or contractibility reasons; the \(n=3\) augmented-empty-complex exception is treated separately. These steps imply the full **integral homotopy equivalences**, including the multiplicities, not merely homology ranks. Exact full simplicial boundary computations independently confirm the predicted mod-two reduced Betti vectors for every \(3\le n\le15\). Their finite extent is explicitly distinguished from the all-parameter proof.
+## correctness
 
-## Originality — PASS, with bibliographic residual risk
-The closest main primary source is Bayer–Jelić Milutinović–Vega, arXiv:2411.04601, Theorem 2: every outerplanar matching complex is contractible or a sphere wedge. That theorem implies wedge existence for fans but does **not** imply the three exact multiplicity/dimension formulas. The same authors' earlier arXiv:2211.12559 treats a different triangular-line family; its Section 4 and Appendix A specify graphs not isomorphic to fans once the common-hub triangular adjacency is present. Fan matching polynomial formulas encode counts of matchings, not the attaching maps or homotopy group information. Mathematical-record searches using exact graph names, variants, parameter formulas and broader implication queries did not identify the stated homotopy classification. The primary sources were inspected beyond abstracts. Residual uncertainty concerns unindexed graph-topology papers and the possibility that an equivalent formula is stated in a different vocabulary.
+PASS
 
-## Mathematical value — PASS
-The fan graph is a canonical maximal outerplanar graph and a natural test case for the broad 2024 wedge-existence theorem. This result provides the exact integral homotopy type for an infinite family, locates the period-three jumps in sphere dimension and multiplicity, and identifies a simple global contractibility/critical-link mechanism that the broad wedge-existence statement does not supply. This is more specific than simply applying the existing general theorem, and not an arbitrary finite parameter slice.
+For each n>=3, matchings with no spoke form A=Ind(P_{n-1}), while faces with a unique spoke s_i form cones s_i*B_i, B_i=Ind(P_max(i-2,0))*Ind(P_max(n-i-1,0)); cones intersect each other only in A. The path complex recurrence Ind(P_m)~Sigma Ind(P_(m-3)) follows by vertex deletion whose remaining path has an isolated endpoint, and has correct cases S^(a-1), contractible, S^a by m modulo 3. For n=3q, q>=2, q noncontractible B_i are S^(q-2), maps to A~S^(q-1) are null by connectivity; n=3 directly gives three contractible components. For n=3q+2, base is contractible, exactly 2q+2 links S^(q-1) suspend to S^q. For n=3q+1, B_1->A is a homotopy equivalence by contractible endpoint link, making base contractible, and q other S^(q-1) links yield q S^q. The homotopy pushout argument is integral, not just homology. Independently enumerated all matching faces and alternating reduced Euler characteristics n=3..19, matching all predicted sphere multiplicities. Source finite F2 verifier/recorded output n=3..15 was read but not treated as a universal proof.
 
-## Limits
-The proof is restricted to ordinary matching complexes of the specified graph family. Exact mod-two computations corroborate, but cannot replace, the integral homotopy proof. Bibliographic searches do not establish uniqueness, and outside-index overlap remains possible. No independent scientific review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Bayer–Jelić Milutinović–Vega (arXiv:2411.04601) prove outerplanar complexes are wedges or contractible, without a fan-specific dimension/multiplicity law. Their triangle-line tiling graphs are not the common-hub fan graphs (triangular faces in a fan have shared hub). Matching-polynomial tables concern face counts rather than integral homotopy. Complete exact fan formulas were not found among indexed mathematical records or inspected relevant primary sections; unindexed homotopy literature remains risk.
+
+## value
+
+PASS
+
+A complete integral homotopy classification of the canonical fan maximal-outerplanar family, including a nontrivial mod-three sphere-dimension and multiplicity law, sharpens general outerplanar wedge-existence and exposes the attaching-link cancellation mechanism. It is a meaningful infinite natural family rather than a repackaging of a matching polynomial or a small finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

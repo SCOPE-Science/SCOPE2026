@@ -1,15 +1,21 @@
-# Scientific review: fixed-weight-four non-overlapping codes
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof defines the full prefix/suffix condition including self-overlap and uses the primitive-orbit argument only for an initial upper bound. For lengths \(5\)–\(11\), explicit codebooks reach this bound. At length \(12\), the separate exhaustive covering certificate partitions every one of the \(128\) unbordered weight-four words into \(39\) cliques of pairwise conflicting words. Thus no code can exceed \(39\), and a directly checked \(39\)-word code attains equality. `python verify.py` reruns orbit counts and every relevant overlap test from the included data. The conclusion covers only lengths through \(12\).
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The nearest known unrestricted-code papers are Bilotta–Pergola–Pinzani (arXiv:1112.3168), Chee–Kiah–Purkayastha–Wang (arXiv:1209.0236), and Blackburn (arXiv:1303.1026). Their constructions and unrestricted upper bounds do not provide the exact constant-weight-four packing optimum or its particular cross-orbit obstruction. Harju–Nowotka (2005) enumerate primitive/bordered fixed-weight words; those individual-word counts alone do not imply the optimum for pairwise non-overlap. Searches for fixed-weight, cross-bifix-free and necklace-transversal formulations uncovered no direct prior theorem. Historical novelty cannot be established definitively by database search alone; unindexed restricted tables remain a risk.
+PASS
 
-## Value — PASS
-The result isolates a natural sharp transition in synchronization coding: the first weight-four length for which a primitive necklace cannot be represented by every orbit at once. The strict deficit is not merely a table entry: the upper certificate exhibits a global partition obstruction beyond the standard necklace counting argument, matched by a construction. It is independently reproducible without an optimization solver.
+The definition requires disjoint nonempty proper prefix/suffix for every ordered pair, including self pairs. Distinct selected words cannot occupy the same primitive length-n cyclic orbit. For n=5..12 Mobius inversion gives necklace limits (1,2,5,8,14,20,30,40). Independently rebuilt all fixed-weight-four words and cyclic orbits; checked actual complete certificate.json codebooks of sizes 1,2,5,8,14,20,30,39 are pairwise nonoverlapping and self-unbordered. At n=12, independently enumerated all 495 words, precisely 128 eligible ones, and validated the 39 disjoint cliques as covering the entire eligible set with pairwise conflicts. Thus an admissible code contains at most 39, and given 39-word code attains it. n=4 only word 1111 self-bordered. Finite enumeration is exhaustive in the asserted interval, not an infinite-length proof.
 
-## Limits
-The theorem gives a finite cutoff only, not an asymptotic conjecture, unrestricted optimum, or uniqueness classification. Independent mathematical review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: the first strict deficit for primitive-orbit transversals under the *pairwise* cross-bifix restriction is a new exact fixed-weight packing statement compared with inspected unrestricted bounds and primitive-word counts. Historical constant-composition coding tables may conceal an alias; search silence is not proof.
+
+## value
+
+PASS
+
+This is the first natural failure of the standard primitive-necklace packing upper bound for fixed weight four, with a global pairwise-compatibility obstruction beyond counting orbits and a dual certificate that another researcher can directly reuse in synchronization-code extremal problems. The finite cutoff n=12 is mathematically motivated by first failure and proved exact, not a random sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

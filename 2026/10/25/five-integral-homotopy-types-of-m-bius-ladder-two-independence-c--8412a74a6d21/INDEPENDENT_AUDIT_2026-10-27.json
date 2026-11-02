@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T23:11:14.135705Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the graph on 2n vertices with edges i↔i±1 and i↔i+n, an Ind_2 face is exactly a vertex subset inducing max degree≤1 (equivalently every component size≤2). Independently enumerated every nonempty bitmask and checked the supplied pivot orders, matched face pairs and topological acyclicity across all nonempty Hasse covers for n=4,5,6,7,8. Found respectively 78,232,685,2046,6078 faces; 38,111,339,1022,3023 Morse pairs; 192,720,2556,8946,30384 Hasse edges; one critical 0-cell plus k d-cells at (d,k)=(2,1),(3,9),(3,6),(4,1),(5,31). Entire Hasse digraph acyclic in all five. These finite exhaustive matchings and the CW theorem establish the *integral homotopy* wedges, not merely mod-p Betti ranks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Total three-cut source gives BI_3(M2n) ≃ wedge^{1+C(n+1,2)} S^3 for all n≥5, where BI3 controls independent triples, not connected component sizes.",
+          "Agarwal–Basak classify Ind(M2n) and perfect matching but not Ind_2.",
+          "Sawant theorem hypotheses require a tree; Möbius ladders contain cycles."
+        ],
+        "reasoning": "The broad published theorem on same graph actually covers a different functor, with explicit conflicting wedge ranks (n=5 BI3 has 16 S3 versus Ind_2 has 9 S3). No implication.",
+        "searches": [
+          "Resultary:Mobius ladder M_2n two independence Ind_2 higher independence homotopy sphere wedge n 4 5 6 7 8",
+          "Carnero Bravo total cut complexes and their duals arxiv:2602.21427",
+          "Resultary:2026/10/11/SCOPE-uniform-sphere-wedge-homotopy-for-m-bius-ladder-total-three-cut--43048a124c95",
+          "Sawant 2605.25150 higher independence complexes of trees"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2608.30601v2",
+        "Resultary:2026/10/11/SCOPE-uniform-sphere-wedge-homotopy-for-m-bius-ladder-total-three-cut--43048a124c95",
+        "arxiv:2602.21427",
+        "arxiv:2605.25150",
+        "Resultary search Möbius Ind_2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent complete Hasse matching yields Morse critical cells (1 vertex plus 1 S2, 9 S3, 6 S3, 1 S4, 31 S5) at n4..8.",
+          "Existing same-graph formulas involve different simplices, so their identical graph input cannot imply the type of Ind2 without new structural relationships, which are absent."
+        ],
+        "reasoning": "The different face criterion defeats naive inheritance from ordinary independence, perfect matching, or BI3. These five natural finite benchmark cases require genuine new calculation.",
+        "searches": [
+          "Resultary:Mobius ladder M_2n two independence Ind_2 higher independence homotopy sphere wedge n 4 5 6 7 8",
+          "arxiv:2608.30601",
+          "Resultary search Mobius ladder two independence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Agarwal–Basak’s full primary article classifies ordinary vertex Ind and edge perfect-matching complexes; neither allows induced components of size exactly two.",
+          "The published total 3-cut paper defines BI_3(U) by α(G[U])<3. For example a triangle on three vertices has independent number 1 but is excluded from Ind_2, so these are distinct simplicial complexes even before specializing to the ladder."
+        ],
+        "reasoning": "Several same-graph dualities/aliases exist, but their face predicates differ: Ind_2 forbids induced 3-vertex connected components, while BI3 constrains independence number. No equivalence found.",
+        "searches": [
+          "Resultary:Mobius ladder M_2n two independence Ind_2 higher independence homotopy sphere wedge n 4 5 6 7 8",
+          "arxiv:2608.30601 independence perfect matching Mobius ladder",
+          "Resultary:2026/10/11/SCOPE-uniform-sphere-wedge-homotopy-for-m-bius-ladder-total-three-cut--43048a124c95"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published total-cut table n=5,6,7 has ranks 16,22,29; these differ from Ind2 ranks 9,6,1.",
+          "Agarwal–Basak n parity ordinary independent complex also differs in face set."
+        ],
+        "reasoning": "The five computed exact types are not repetitions of known BI3/ordinary-matching tables. An independent specialized Ind2 table under 2-dependent sets is a residual priority risk.",
+        "searches": [
+          "Resultary:Mobius ladder M_2n two independence Ind_2 higher independence homotopy sphere wedge n 4 5 6 7 8",
+          "Ind_2 Mobius ladder n4 n5 n6 integral homotopy table",
+          "higher independence complexes Wagner graph exact sphere wedge"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the graph family is known but its *induced-component-size≤2* complex Ind_2 is distinct from ordinary independence, perfect matching, and bounded-independence BI_3/total-cut duals. Exact first five integral types were independently certified, not mere homology ranks.",
+      "residual_risks": [
+        "Terminology Ind_r, k-independent, 2-dependent or induced-matching-style may hide a previously enumerated table.",
+        "No claim of infinite n-periodicity from the first five observed values."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not compute higher induced-component-size≤2 vertex complex Ind_2",
+          "evidence": [
+            "Main theorem for ordinary Ind, additional results for edge perfect matching; not Ind_2."
+          ],
+          "identifier_or_url": "arxiv:2608.30601v2",
+          "material_read": "Full arXiv HTML primary manuscript, introduction, main theorem, proofs and concluding sections: ordinary independence Ind(M2n) and perfect matching M_p(M2n) are the only computed functors",
+          "method": "Read full arXiv HTML source ; compared definitions and all theorem regimes",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Same Möbius ladder family; most plausible dominating exact topology theorem"
+        },
+        {
+          "assessment": "Ind_2 face condition = each component size≤2, not α(G[U])<3; rank difference at n5 confirms the other theorem cannot simply cover Ind_2",
+          "evidence": [
+            "For n=5, published BI3 ≃ ∨^16 S3, assessed Ind2 ≃ ∨^9 S3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-uniform-sphere-wedge-homotopy-for-m-bius-ladder-total-three-cut--43048a124c95",
+          "material_read": "Full RESULT.md, including precise definition BI3={U:α(G[U])<3}, proof of wedge rank 1+C(n+1,2), and Alexander dual total-cut definition",
+          "method": "Read entire published finding via GitHub full source",
+          "title": "Uniform sphere-wedge homotopy for Möbius-ladder total three-cut complexes",
+          "trigger": "Same graph and tempting Alexander-dual relationship"
+        },
+        {
+          "assessment": "Tree-specific result does not directly apply to cyclic Möbius ladder",
+          "evidence": [
+            "M2n has a rim cycle plus spokes, not a tree."
+          ],
+          "identifier_or_url": "arxiv:2605.25150",
+          "material_read": "Bibliographic/abstract tree-only theorem; full article not independently reread",
+          "method": "Primary title and hypotheses comparison",
+          "title": "On the Vertex Decomposability of r-Independence Complexes of Trees",
+          "trigger": "Potential higher independence structural theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The five smallest nondegenerate cases immediately after M6=K3,3 show nontrivial changes of sphere dimension and multiplicity upon permitting induced isolated edges. The integral types form a motivated baseline for higher-independence topology on a natural symmetric cyclic graph family; no infinite-family classification is claimed or needed for this exact useful finite invariant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2608.30601v2",
+    "Resultary:2026/10/11/SCOPE-uniform-sphere-wedge-homotopy-for-m-bius-ladder-total-three-cut--43048a124c95",
+    "arxiv:2605.25150",
+    "arxiv:2602.21427"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed higher-Ind2 small-graph benchmark might have these counts under different nomenclature.",
+    "Different alternative higher-independence definitions should not be conflated with this component-size predicate."
+  ],
+  "schema_version": 1
+}

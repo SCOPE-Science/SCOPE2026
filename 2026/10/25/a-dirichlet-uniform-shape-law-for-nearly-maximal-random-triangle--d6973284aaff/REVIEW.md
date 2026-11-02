@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is conditional joint weak convergence, not merely the known scalar square-area tail. The determinant expansion is an exact polynomial identity. The elementary product integral gives the coefficient \(h^5\log(1/h)/120\) for each ordered three-corner configuration; the complete maximum-area configuration classification makes other configurations lower order. On logarithmic scales away from endpoints, both factors in the product vanish and all nonlinear terms are negligible. The coordinate change gives uniform Lebesgue mass on a five-simplex and a separate uniform logarithmic exponent; the endpoints contribute vanishing relative mass. Twenty thousand direct determinant checks, exact rational beta integrals, and numerical quadrature confirm critical local calculations. No finite experiment is treated as proof.
+PASS
 
-## Originality — PASS, conditional on inspected literature
+Maximal-area square triangles have a full unit side as base; leading logarithmic mass arises at 24 ordered distinct-three-corner charts, while away from endpoints of opposite side the volume is O(h^5). Exact chart determinant gives H=1-2A=a+b+c+f+de-ad-af-bc-be-cf, and error 0<=a+b+c+f+de-H<=2eta(a+b+c+f). Independent symbolic expansion passes. Product-volume identity J_eta(h)=h^5/120(log(eta^2/h)+H_5) for local corners and 24 charts yields P(A>1/2-eps)~(32/5)eps^5 log(1/eps). After a,b,c,f and de rescaled by h and e=h^u, the limiting density on a 5-simplex is Lebesgue and u uniform independent, giving Dirichlet(1,1,1,1,1,1) times Uniform(0,1). The u near 0/1 extremes carry vanishing log relative mass; finite normal-form slack can be slightly negative without affecting weak convergence. Independent exact beta and determinant checks passed. Analytic localization/probability argument, not simulations, proves the limit.
 
-Philip's complete published area CDF and Trott's published square-triangle treatment cover the scalar upper-area law, which is expressly excluded from the originality claim. The scalar CDF does not determine conditional point locations. Jiang, Li and Vitányi analyze minimum area in large random samples; Koroleva and Nikitin analyze polygonal extrema with boundary-circle sampling. Neither gives the joint six-component Dirichlet shape limit with an independent uniform logarithmic coordinate. Searches for corner localization, multiscale product splitting, and these conditional laws identified no stronger published statement. Historical priority remains provisional; the inaccessible full Trott chapter is a residual comparison risk but its advertised statistic is scalar area.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise multiscale configuration of a rare near-maximal random triangle is natural and cannot be recovered from the complete distribution of its area alone. The theorem explains why a logarithm appears in the classical marginal tail: two distinct vertex displacements constrain only their product. It also gives an explicit complete limit distribution for all six normalized deficit shares, an independent non-Gaussian logarithmic location exponent, and an affine-invariant parallelogram version. These describe the rare-event mechanism rather than merely recomputing the marginal probability.
+Philip/Trott computed the scalar square-triangle area distribution and thus scalar epsilon^5 log tail, which is explicitly non-novel. The new result is the joint six-share Dirichlet law, fair 24 corner configurations and independent log-uniform exponent splitting two product-constrained defects. An exact scalar pushforward cannot recover conditional positions. Trott full text not accessible here and retains bounded priority risk.
 
-## Limitations and closest literature
+## value
 
-The proof applies to three independent area-uniform points in a square or an affine image. No convergence rate or larger-polygon analogue is claimed. Scalar area-tail coefficients are known from exact prior distributions. A further historical search of unpublished conditional-coordinate analyses could affect priority; independent audit has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The conditional location geometry of a nearly maximal triangle is a natural object missed by the known scalar distribution. The law resolves its singular product-corner mechanism and supplies a complete multiscale conditional invariant (Dirichlet shares and a uniform logarithmic splitting), including affine parallelogram images.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

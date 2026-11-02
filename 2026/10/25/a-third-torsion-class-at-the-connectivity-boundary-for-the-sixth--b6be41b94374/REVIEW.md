@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The claim follows from Tuffley's lexicographic cell structure for finite subset spaces of connected finite \(2\)-complexes. The degree-six boundary matrix has Smith form with two unit factors and kernel rank eight. In an integral kernel basis, the image of the degree-seven boundary has Smith factors \(1,1,1,1,1,1,1,3\), giving the quotient \(\mathbb Z/3\mathbb Z\). The embedded certificate supplies the integer matrices and unimodular transformations, and the dependency-free verifier checks the identities exactly.
+PASS
 
-## Originality
+The Tuffley-type unbased cellular complex of exp_6(S²) has ranks C5=6, C6=10, C7=15. Independent assembly of the differential from the stated signed decrement/merge rules gives D6 D7=0 and Smith invariant factors D6=(1,1,0,...), hence an integral rank-eight kernel. In the unimodular kernel coordinates the image of D7 has Smith factors (1,1,1,1,1,1,1,3), giving H6=Z/3. Independent SymPy reconstruction agrees with the submitted exact matrices/certificate, including modular rank 7 at 3 and 8 at 2. This is an actual finite exhaustive integer chain computation conditional on the stated cellular boundary identification, not a rational-homology inference.
 
-Tuffley's 2003 paper computes unbased integral homology through \(k=5\) and gives general top-degree groups; it does not state this degree-six group for \(\operatorname{exp}_6(S^2)\). published-finding corpus searches using the exact expression \(H_6(\operatorname{exp}_6(S^2))\), the alias \(\operatorname{Sub}_6(S^2)\), and lower-degree integral torsion in finite subset spaces returned no direct match. The closest published-finding corpus records concern based third finite-subset spaces of sphere bouquets and rational orthogonal actions on finite subset spheres, not this unbased integral group. Mostovoy's 2026 abstract states rational homology and top-degree integral results but not this lower group; its full text was inaccessible, so a residual risk remains.
+## originality
 
-## Value
+PASS
 
-The space \(\operatorname{exp}_6(S^2)\) is \(5\)-connected, so degree six is its first possible nonzero integral homology degree. The group is torsion and therefore invisible in the rational homology calculation, and it extends the known full integral calculation from \(k\leq5\) to a natural next case.
+Best-of-knowledge originality relative to the genuinely inspected primary claims, including broader/equivalent variants; no exact or dominating prior theorem identified. No unsuccessful search is construed as proof of absolute priority. Known H10=Z+Z/5 and H12=Z and all rational groups do not imply H6 torsion. A general cellular boundary formula makes this exact computation possible, but a new Smith reduction is required to recover the first nonzero group.
 
-## Closest literature and limitations
+## value
 
-C. Tuffley, “Finite subset spaces of closed surfaces,” arXiv:math/0311371, §§1.2 and 2.2–2.3. J. Mostovoy, “Finite subset spaces of spheres,” arXiv:2603.01439; abstract consulted, full text not obtained. The result is limited to one integral homology group and has not undergone an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sixth finite subset space of the two-sphere is 5-connected, so H6 is its first possible nonzero integral homology group. Nonzero 3-torsion is invisible to known rational homology and naturally extends the complete low-cardinality integral computations. An exact significant integral invariant of a canonical topology functor can be independently useful without a full homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

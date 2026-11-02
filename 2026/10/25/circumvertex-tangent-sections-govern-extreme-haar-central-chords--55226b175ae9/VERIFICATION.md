@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification protocol
+# Independent mathematical audit
 
-The self-contained `verify.py` uses the Python standard library. Execute `python verify.py` in the directory containing the source. Expected terminal line:
+## correctness
 
-`VERIFY_OK: rectangle, octahedron, all-dimensional orthotope Gram, even polygon tests`
+PASS
 
-Four independent diagnostic groups are included. In two dimensions, spherical arcs give exact rectangle-tail probabilities and their estimated slopes approach the closed-form coefficient for three different positive side pairs. In three dimensions, direct spherical polar integration of a regular octahedron's radial feasibility event approaches the coefficient \(3/(4\pi)\). In dimensions \(2,3,4,5,7\), Gram-determinant evaluations for orthotope tangent-section simplices agree with the predicted \((d-1)\)-volume. Exact regular even-polygon chord quantiles independently produce the same endpoint slopes.
+Strict convexity of Euclidean norm squared makes all maximizers of radius R occur at vertices, and u_v strongly exposes v. Consequently -u_v⋅z≥c_v||z|| for z in tangent cone, making S_v a bounded full (d-1)-dimensional slice. For chord deficit δ=ε/2, near each extremal u_v, support inequality bounds angular distance O(δ), while gnomonic U=(u_v+(δ/R)w)/sqrt(1+(δ/R)^2||w||²) turns active facet inequalities into S_v plus thickness O(δ) slabs. Spherical Jacobian contributes (δ/R)^(d-1)(1+O(δ²)); summing disjoint vertex neighborhoods gives stated coefficient and O(ε^d). For orthotope tangent-simplex Gram determinant yields R^d/((d-1)!prod a_i) per vertex, hence 2R/((d-1)!σ_(d-1)prod a_i); for cross-polytope sections are l1 unit balls yielding 2d/((d-1)!σ). Independently derived planar diamond direction-tail slope 2/π and rectangular scaling; no smooth-body conclusion. Finite checks are not universal proof.
 
-The script checks finite values and floating-point agreement, not the general polyhedral remainder theorem. The analytic proof in `RESULT.md`, including tangential localization, finite facet perturbations and the spherical Jacobian, establishes the infinite quantifiers. Scientific originality comparisons remain subject to literature-access limitations. No independent audit has been performed.
+## originality
+
+PASS
+
+Qualified PASS: general fixed-polytope upper-tail coefficient by all farthest-vertex cone sections was not located in semantic records or accessible primary summaries; specialized central-polygon and 3-D box coefficients are covered antecedents and not claimed new. Distinguish Haar line through center from offset-random lines and random hyperplane-section diameters. The September 2026 general-section source was available only as abstract, leaving a notable same-geometry priority risk.
+
+## value
+
+PASS
+
+Natural sharp endpoint problem for random central chord length: universal polyhedral power d−1 with a computable local finite-facet coefficient valid without simple vertices or genericity. Extends known exact regular-polygon and box cases to arbitrary centrally symmetric polytopes while explaining the tangent-cone mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

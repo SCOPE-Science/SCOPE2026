@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T15:19:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/a-sharp-disk-to-annulus-transition-in-farthest-pair-geodesic-sta--18a133befff2/RESULT.md",
+        "2026/10/25/a-sharp-disk-to-annulus-transition-in-farthest-pair-geodesic-sta--18a133befff2/VERIFICATION.md",
+        "2026/10/25/a-sharp-disk-to-annulus-transition-in-farthest-pair-geodesic-sta--18a133befff2/verify_annulus.py"
+      ],
+      "rationale": "For the intrinsic metric on {r<=|x|<=R}, shortest paths are chords when unobstructed and two tangents plus a shorter inner-circle arc when obstructed. With K=R^2-r^2 and g(s)=sqrt(s^2-r^2)-r arccos(r/s), monotonicity in radius and minor angle gives exact diameter 2sqrt(K)+2r atan(r/sqrt(K)). The small-distance area coefficient equals 1/K, and the diameter strictly increases in r at fixed K, proving inverse radii uniqueness. For r>0 the near-diameter loss is c(R-rho)+c(R-sigma)+r(pi-theta)+quadratic remainder, c=sqrt(K)/R. Three independent scaled defects have limiting constant density 4R^4/(pi rK^3), and simplex volume 1/6 gives the precise cubic upper-tail coefficient 2R^4/(3pi rK^3) and a uniform-simplex mark law. When r=a sqrt(R epsilon), the chord/tangent boundary occurs at z=2a; the limiting loss is x+y+F_a(z), F_a(z)=az below 2a and a^2+z^2/4 above. Integrating its x,y sections produces J(a), piecewise with threshold a=1/sqrt(2), including disk a=0 and conditional density 2/J(a). Analytic localization/tightness supplies dominated convergence only for fixed a. Independent symbolic integration of J verified the exact two branches and their joining; finite quadrature was not mistaken for the proof.",
+      "residual_risks": [
+        "A finite verifier is supporting evidence rather than proof of the complete infinite statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blumberg–Gal–Mandell–Pancia §7 explicitly uses an annulus with subspace Euclidean metric",
+          "Sheng abstract defines the distance between sampled points in planar regions as Euclidean"
+        ],
+        "reasoning": "General metric-measure statistical frameworks do not automatically yield a geodesic upper-tail formula; same-shaped Euclidean chord laws use shorter ambient distances than paths around the excluded center.",
+        "searches": [
+          "intrinsic geodesic distance two uniformly sampled points annulus farthest pair distance upper tail hole radius shrinking critical transition",
+          "https://arxiv.org/abs/1206.4581",
+          "https://doi.org/10.2307/1427086"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1206.4581",
+        "https://doi.org/10.2307/1427086",
+        "https://cs.nyu.edu/exact/doc/computable.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-small-hole-gromov-hausdorff-cubic-asymptotic--a0d57fbb476f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Euclidean annulus experiment concerns persistent homology in ambient subspace distance",
+          "Geometric shortest-path obstacle theorem specifies tangent-and-arc formulas"
+        ],
+        "reasoning": "Knowing individual geodesic lengths and a generic metric-measure metric alone is insufficient to imply the exact 3-variable endpoint simplex, phase threshold, or inverse radius law. Their derivation requires fresh localization and integration.",
+        "searches": [
+          "intrinsic geodesic distance two uniformly sampled points annulus farthest pair distance upper tail hole radius shrinking critical transition",
+          "https://arxiv.org/abs/1206.4581",
+          "https://doi.org/10.2307/1427086"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chang et al., Shortest Path amidst Disc Obstacles Is Computable (2005), classical tangent/arc geometry",
+          "Sheng 1985 DOI:10.2307/1427086, Euclidean chord sampling"
+        ],
+        "reasoning": "The equivalent object is the obstacle-avoiding intrinsic length metric, not straight-line Euclidean distance restricted to the annular point set. The classical tangent/arc geodesic representation does not determine probabilities, endpoint exponents, or marks.",
+        "searches": [
+          "intrinsic geodesic distance two uniformly sampled points annulus farthest pair distance upper tail hole radius shrinking critical transition",
+          "geodesic annulus obstacle avoiding distance tail two random points shrinking circular hole"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-small-hole-gromov-hausdorff-cubic-asymptotic--a0d57fbb476f"
+        ],
+        "reasoning": "The result is an asymptotic probability density and marked transition, not a finite tabulated length. The closest indexed deleted-hole GH invariant compares entire metric spaces and cannot return pair-distance tail coefficients.",
+        "searches": [
+          "intrinsic geodesic distance two uniformly sampled points annulus farthest pair distance upper tail hole radius shrinking critical transition",
+          "Resultary small-hole Gromov-Hausdorff cubic asymptotic 2026/9/18/a0d57fbb476f"
+        ]
+      },
+      "rationale": "Classical obstacle-avoiding geodesic geometry is not claimed new. Published random Euclidean chord-distance distributions for annular regions and persistent-homology studies of annuli in the subspace Euclidean metric do not imply intrinsic farthest-pair upper-tail exponents or the marked critical shrinkage law. Indexed work on GH distances after holes concerns different observables; plausible inaccessible historical specialist work remains a priority risk.",
+      "residual_risks": [
+        "Sheng (1985) complete text was inaccessible; accessible abstract concerns Euclidean, not intrinsic geodesic, distances.",
+        "Unindexed random intrinsic-distance literature could contain an equivalent annulus asymptotic.",
+        "The critical formula is proved for fixed a; no simultaneous uniform a->infinity claim is justified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not use intrinsic hole-avoiding metric or derive geodesic diameter upper-tail law.",
+          "evidence": [
+            "arXiv:1206.4581"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1206.4581",
+          "material_read": "Primary arXiv full-text §7 annulus experiment and definition of its subspace Euclidean distance",
+          "method": "Accessible arXiv full text and mathematical section comparison",
+          "title": "Robust statistics, hypothesis testing, and confidence intervals for persistent homology on metric measure spaces",
+          "trigger": "Same annular random point object under a potentially stronger metric-statistic theory"
+        },
+        {
+          "assessment": "Available description gives Euclidean straight-line chord distance; whole-document noncoverage is not established and priority risk remains.",
+          "evidence": [
+            "DOI:10.2307/1427086"
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/1427086",
+          "material_read": "Published abstract and bibliographic information only; primary full text inaccessible",
+          "method": "arXiv/OA access search followed by authorized institutional attempt (VPN disconnected)",
+          "title": "The distance between two random points in plane regions",
+          "trigger": "Same planar annulus random pair distances"
+        },
+        {
+          "assessment": "Classical geodesic representation is prior work, not new; probabilistic tail calculation is separate.",
+          "evidence": [
+            "Chang, Choi, Kwon, Park, Yap, SoCG 2005"
+          ],
+          "identifier_or_url": "https://cs.nyu.edu/exact/doc/computable.pdf",
+          "material_read": "Geometric shortest-path construction as presented in actual package plus external primary reference; full paper not independently asserted read",
+          "method": "Geometry formula reconstruction and primary bibliographic comparison",
+          "title": "Shortest Path amidst Disc Obstacles Is Computable",
+          "trigger": "Classical exact tangent and circular arc obstacle path theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1206.4581",
+        "https://doi.org/10.2307/1427086",
+        "https://cs.nyu.edu/exact/doc/computable.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-small-hole-gromov-hausdorff-cubic-asymptotic--a0d57fbb476f"
+      ],
+      "rationale": "The annulus is a canonical nonconvex length space; creating any positive circular hole changes the near-diameter tail exponent from 5/2 to 3. The sharp r proportional sqrt(R epsilon) transition and conditional location marks explain the geometric mechanism, while two observed distance-distribution endpoint coefficients determine the annulus radii. This is a meaningful complete quantitative degeneration and inverse statistic.",
+      "residual_risks": [
+        "The significance is confined to the exact motivated object/invariant; no broader theorem is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1206.4581",
+    "https://doi.org/10.2307/1427086",
+    "https://cs.nyu.edu/exact/doc/computable.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-small-hole-gromov-hausdorff-cubic-asymptotic--a0d57fbb476f"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Sheng (1985) complete text was inaccessible; accessible abstract concerns Euclidean, not intrinsic geodesic, distances.",
+    "Unindexed random intrinsic-distance literature could contain an equivalent annulus asymptotic.",
+    "The critical formula is proved for fixed a; no simultaneous uniform a->infinity claim is justified."
+  ],
+  "schema_version": 1
+}
