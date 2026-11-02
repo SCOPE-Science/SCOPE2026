@@ -1,0 +1,87 @@
+{
+  "correctness": {
+    "rationale": "For a spine color j, a block of size s contributes z^j(sum_{h != j} z^h)^(s-1). Four-state transfer sums all proper colorings. uint64_t arithmetic evaluates exactly modulo 2^64. The complete lex-reversal enumeration has (C(198,4)+4851)/2=31,060,953 distinct types; each unordered_map key compares both residues exactly and no same-order repetitions occurred. The actual standalone verifier was compiled and replayed, returning RESULT N<=200 CLASSES=31060953 COLLISIONS=0. A separate Python checker compared the spine formula to literal proper-coloring enumeration on all four-spine types of order at most eight and checked larger reversal instances (40 exact checks). Polynomial equality implies congruence of both evaluations, so their injectivity certifies polynomial separation. No unbounded inference is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.31785v1 Section 6 states full caterpillar checks only through 25 vertices and selected five-spine sizes to 50."
+      ],
+      "reasoning": "An all-tree or all-caterpillar proven injectivity theorem would subsume the claimed range; the inspected source states this as an open conjecture rather than a theorem. No covering theorem was located.",
+      "searches": [
+        "four-spine caterpillars fourth principal specialization chromatic symmetric 31 million structures",
+        "caterpillar 4 spine chromatic symmetric finite bound reconstruction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.31785v1, introduction, definitions, Section 6",
+      "Targeted literature searches using the stated queries; none showed proven coverage of the 200-vertex four-spine statement."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.31785v1 proves exact reconstruction for elongated bistars and three-spine caterpillars using the third t-specialization; Conjecture 6.2 treats the ordinary fourth specialization.",
+        "Its examples show third-specialization collisions among four-spine caterpillars."
+      ],
+      "reasoning": "Results for the third specialization on shorter spines and collisions on four spines do not imply the present fourth-specialization separation. The source conjecture, being unproved, cannot be treated as established coverage of the finite claim.",
+      "searches": [
+        "caterpillar 4 spine chromatic symmetric finite bound reconstruction",
+        "Exact fourth principal specialization of chromatic symmetric function for four-spine caterpillar trees; distinguishing compositions up to reversal",
+        "ps3(Z) four-spine caterpillar collision (3,r+1,r,r+2) vs (3,r+2,r,r+1), fourth specialization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Principal specialization is a weighted proper four-coloring polynomial; distinct specializations are certified by distinct integer evaluations after modular reduction.",
+        "arXiv:2610.31785v1, p.2 defines principal specialization and pp.24–25 formulate Conjecture 6.2."
+      ],
+      "reasoning": "Equivalent names include the ordinary chromatic symmetric specialization ps4(X_T), weighted four-coloring sum, and caterpillar chromatic-sum polynomial. The source proposes universal injectivity, but does not prove it for the finite domain through order 200.",
+      "searches": [
+        "four-spine caterpillar ps4(X) 200 vertices chromatic symmetric principal specialization finite verification",
+        "four-spine caterpillar chromatic symmetric specialization q=2 q=3 modular signatures",
+        "Exact fourth principal specialization of chromatic symmetric function for four-spine caterpillar trees; distinguishing compositions up to reversal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The cited source gives no table or certificate for every one of the 31,060,953 four-spine isomorphism types through order 200."
+      ],
+      "reasoning": "Known finite experiments in the cited source do not cover the much larger complete four-spine range, nor its deterministic two-residue injectivity certificate.",
+      "searches": [
+        "four-spine caterpillar ps4(X) 200 vertices chromatic symmetric principal specialization finite verification",
+        "four-spine caterpillars fourth principal specialization chromatic symmetric 31 million structures",
+        "four-spine caterpillar chromatic symmetric specialization q=2 q=3 modular signatures"
+      ]
+    },
+    "rationale": "The direct four-spine finite range through 200 is not established by the inspected source; the source states a conjecture for all caterpillars and reports only complete checks through order 25 and particular five-spine sizes through 50. Earlier collisions for the third t-specialization do not imply any equality or separation statement for the ordinary fourth specialization. Actual targeted database and literature searches identified no proof or exact finite certificate encompassing the claimed domain. Historical priority remains qualified.",
+    "residual_risks": [
+      "Historical equivalent computations may exist under alternative chromatic-specialization terminology.",
+      "This finite computational theorem is not an all-order proof; distinct modular signatures are sufficient only in the enumerated domain.",
+      "Independent review of the C++ finite checker has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Conjecture 6.2 is open in the paper. Finite checks cover all caterpillars only through 25 vertices and selected 5-internal-vertex sizes through 50, not the complete four-spine range through 200.",
+        "evidence": [
+          "arXiv:2610.31785v1, introduction and Section 6, especially p.25."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.31785v1",
+        "material_read": "Abstract, Introduction, definitions of principal specialization and caterpillar types, Section 6 Discussion and Conjectures 6.1–6.4, with PDF page images for definitions and conjectures.",
+        "method": "Examined arXiv PDF text and visual page renderings, including page 2 and page 25; compared theorem and known finite checks by implication.",
+        "title": "Principal specializations of the t-chromatic symmetric function",
+        "trigger": "Direct originating research paper; its conjecture and finite-check range are the closest possible covering result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96a7ad71-e7e6-44c6-84dd-ba703e8dc615",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Directly tests an explicitly formulated unresolved graph-invariant reconstruction conjecture in a complete natural fixed-spine family, raising the complete finite cutoff from 25 to 200 vertices in that family and covering 31,060,953 nonisomorphic objects. Pair-of-residue separation offers a reproducible compact exact witness without symbolic coefficient explosion. Unlike an isolated example or tiny parameter increment, this exhaustive family-wide computation addresses the conjecture’s primary combinatorial discriminating property. No downstream or infinite theorem is asserted.",
+    "status": "PASS"
+  }
+}
