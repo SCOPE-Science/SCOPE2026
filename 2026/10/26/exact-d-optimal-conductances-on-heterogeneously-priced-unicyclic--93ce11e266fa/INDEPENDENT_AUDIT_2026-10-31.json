@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T16:22:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Matrix-tree theorem gives τ=(product over bridges w_e) × sum over deleted cycle edge j of product_{i in C\\j} w_i. Positive determinant and full budget hold; logdet is strictly concave since weighted reduced Laplacian is injective for simple graph. Euler homogeneity gives λ=(N-1)/B. Bridge KKT gives w_e=B/((N-1)c_e); a zero cycle edge is KKT optimal iff its cost ≥ sum others. Interior KKT gives x_i(1-x_i)=tc_i and at most one larger root; strict monotonicity of branch ratios yields unique scalar root. Independent numerical maximization and KKT checks confirmed representative symmetric and asymmetric cost cases, not a universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1207.6430",
+          "https://webspace.maths.qmul.ac.uk/l.h.soicher/designtheory.org/library/preprints/optimal.pdf",
+          "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "https://arxiv.org/abs/1307.4953"
+        ],
+        "reasoning": "Osting–Brune–Osher already connects D-optimality to maximizing spanning-tree count, and generic concave design frameworks can numerically optimize it. General optimization existence does not evaluate this family’s sharp deletion criterion or scalar root.",
+        "searches": [
+          "Resultary semantic query: D-optimal spanning tree weighted Laplacian conductance allocation heterogeneous edge costs unicyclic graphs",
+          "https://arxiv.org/abs/1207.6430",
+          "https://webspace.maths.qmul.ac.uk/l.h.soicher/designtheory.org/library/preprints/optimal.pdf",
+          "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "https://arxiv.org/abs/1307.4953"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1207.6430",
+        "https://webspace.maths.qmul.ac.uk/l.h.soicher/designtheory.org/library/preprints/optimal.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+        "https://arxiv.org/abs/1307.4953"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/1207.6430",
+          "https://webspace.maths.qmul.ac.uk/l.h.soicher/designtheory.org/library/preprints/optimal.pdf",
+          "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "https://arxiv.org/abs/1307.4953"
+        ],
+        "reasoning": "Bailey–Cameron compare unweighted unicyclic graph topologies, not allocated weights on a fixed given topology. The full present weight vectors and threshold c_j≥Σ_{i≠j}c_i are not implied by merely knowing an unweighted optimal topology.",
+        "searches": [
+          "Resultary semantic query: D-optimal spanning tree weighted Laplacian conductance allocation heterogeneous edge costs unicyclic graphs",
+          "https://arxiv.org/abs/1207.6430",
+          "https://webspace.maths.qmul.ac.uk/l.h.soicher/designtheory.org/library/preprints/optimal.pdf",
+          "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "https://arxiv.org/abs/1307.4953"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1207.6430",
+          "https://webspace.maths.qmul.ac.uk/l.h.soicher/designtheory.org/library/preprints/optimal.pdf",
+          "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "https://arxiv.org/abs/1307.4953"
+        ],
+        "reasoning": "Compared weighted spanning-tree maximization, matrix-tree determinant design, grounded Laplacian logdet, electrical resistance design and D-optimal edge allocations. These objectives are equivalent by the matrix-tree theorem; literature result after reduction still requires arbitrary-cost solution.",
+        "searches": [
+          "Resultary semantic query: D-optimal spanning tree weighted Laplacian conductance allocation heterogeneous edge costs unicyclic graphs",
+          "https://arxiv.org/abs/1207.6430",
+          "https://webspace.maths.qmul.ac.uk/l.h.soicher/designtheory.org/library/preprints/optimal.pdf",
+          "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "https://arxiv.org/abs/1307.4953"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/1207.6430",
+          "https://webspace.maths.qmul.ac.uk/l.h.soicher/designtheory.org/library/preprints/optimal.pdf",
+          "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "https://arxiv.org/abs/1307.4953"
+        ],
+        "reasoning": "This is an all-positive-price continuum over every unicyclic graph; a finite precomputed table would not cover it. Searched exact unicyclic conductance optimality / tree-count design statements, with no exact parameter table identified.",
+        "searches": [
+          "Resultary semantic query: D-optimal spanning tree weighted Laplacian conductance allocation heterogeneous edge costs unicyclic graphs",
+          "https://arxiv.org/abs/1207.6430",
+          "https://webspace.maths.qmul.ac.uk/l.h.soicher/designtheory.org/library/preprints/optimal.pdf",
+          "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "https://arxiv.org/abs/1307.4953"
+        ]
+      },
+      "rationale": "The determinant/spanning-tree objective and numerical Laplacian D-optimality are known (Osting–Brune–Osher Proposition 4.2, Boyd). Bailey–Cameron’s unweighted unicyclic extremum varies topology rather than continuously priced individual conductances. The arbitrary cost/all attachments deletion frontier and explicit scalar-root optimizer are not mathematical consequences of those specific cited theorems without the new KKT reduction. Specialized optimal-design results might subsume the calculation.",
+      "residual_risks": [
+        "Optimal-design or electrical-network literature may encode the same unicyclic KKT characterization as a special case.",
+        "The criterion concerns weighted spanning-tree determinant, not shortest tree or algebraic connectivity; nonnegative conductances and positive linear prices essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS determinant interpretation and prior general objective; not the all-price unicyclic closed solution",
+          "evidence": "Proposition 4.2 links spanning tree count and determinant optimality.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.6430",
+          "material_read": "Lawful primary full text, Proposition 4.2 and surrounding ranking/design formulations",
+          "method": "Full-text PDF inspection",
+          "title": "Optimal Data Collection for Informative Rankings Expose Well-Connected Graphs",
+          "trigger": "Same graph Laplacian D-optimality and spanning-tree objective"
+        },
+        {
+          "assessment": "DIFFERENT VARIABLE: unweighted graph topology rather than heterogeneous continuous conductance allocation",
+          "evidence": "Unweighted cycle optimizes spanning-tree count in a different admissible class.",
+          "identifier_or_url": "https://webspace.maths.qmul.ac.uk/l.h.soicher/designtheory.org/library/preprints/optimal.pdf",
+          "material_read": "Theorem 4.1 and statement on unweighted cycle topology read in the prior-work comparison",
+          "method": "Public preprint theorem inspection",
+          "title": "Combinatorics of Optimal Designs",
+          "trigger": "Potential prior exact unicyclic optimality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives a complete continuous resource allocation for an infinite graph topology class with arbitrary heterogeneous prices, including when exactly a cycle edge is optimally deleted. Equal per-bridge expenditure independent of fringe-tree shape and unique cycle solution provide reusable optimization benchmarks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Optimal-design or electrical-network literature may encode the same unicyclic KKT characterization as a special case.",
+    "The criterion concerns weighted spanning-tree determinant, not shortest tree or algebraic connectivity; nonnegative conductances and positive linear prices essential.",
+    "No formal Lean or expert verification was performed; limited independent computations do not certify infinite proofs or historical priority."
+  ],
+  "schema_version": 1
+}
