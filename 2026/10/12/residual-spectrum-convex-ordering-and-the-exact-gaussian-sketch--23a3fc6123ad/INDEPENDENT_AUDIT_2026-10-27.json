@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T07:51:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Tropp, Yurtsever, Udell and Cevher (2017), Practical Sketching Algorithms for Low-Rank Matrix Approximation, SIAM J. Matrix Anal. Appl. 38 (2017), 1454-1485, doi:10.1137/17M1111590; https://tropp.caltech.edu/papers/TYUC17-Practical-Sketching.pdf; Theorem 4.3 and Appendix A.3, Lemmas A.3-A.5.",
+        "Nakatsukasa (2020), Fast and stable randomized low-rank matrix approximation, arXiv:2009.11392v1, https://arxiv.org/pdf/2009.11392; section 3.4, Theorem 3.2 and proof.",
+        "Pinned eight-file Git source tree SHA 8ae1730e237daeda64dfe879437ab2d0489dd279 (checked commit 6c379935c2e469fc18959fc6c387e31328c64bcf), exact RESULT.md and verify.py.",
+        "Fresh independent numerical/symbolic corroboration, independent_gaussian_sketch_check.py and independent_gaussian_sketch_results.json (900 direct matrix identities, 17 exact inverse-chi-square variance cases, 60 beta-prime/F CDF cases)."
+      ],
+      "rationale": "For real standard Gaussian Y independent of the fixed orthonormal Q, the blocks G=Y^TQ and H=Y^TU are independent Gaussian and G has rank r almost surely for ell>=r. Orthogonality of range(Q) and range(B) gives exactly R=1+sum_j lambda_j ||G^dag h_j||^2, with conditional iid and unconditional exchangeable nonnegative Z_j. For ell>=r+2, the common beta-prime mean is finite and Hardy-Littlewood-Polya plus Jensen yields lambda majorizes mu => R_mu <=cx R_lambda for every convex phi for which expectations exist. Integrating Gaussian N_r(0,(G^TG)^-1) against Wishart_r(ell,I) gives density Gamma((ell+1)/2)/(pi^(r/2) Gamma((ell-r+1)/2)) (1+||z||²)^(-(ell+1)/2), whence ||z||²~BetaPrime(r/2,(ell-r+1)/2)=(r/nu)F_(r,nu). The tail index nu/2 follows exactly. For every nonzero weight vector, a single positive component supplies lower moment-divergence and a finite sum supplies upper moment-finitemess, proving iff 0<q<nu/2 even for ell=r or r+1. When nu>4, conditioning on G and using the Gaussian quadratic-form variance gives Var R=Var tr(S^-1)+2 E tr(S^-2) sum lambda², strictly increasing under non-permutation strict majorization. Edge cases zero B (undefined), ell=r, ell=r+1, finite mean ell>=r+2, finite variance ell>=r+4, d=1, zeros padded, and random Q (only conditional) were checked. Fresh independent calculations passed 900 direct reconstruction identities, 17 exact rational r=1 variance cases, 60 F/beta-prime CDF cases, and conditional variance diagnostics, which corroborate rather than prove infinite statements.",
+      "residual_risks": [
+        "The covariance is conditional on a fixed Gaussian factor G; Z_j are not unconditionally independent.",
+        "Finite numerical checking is not a derivation of exact infinite-sample tails or all-q equivalence.",
+        "Strict variance statement applies only when ell>=r+4; convex order requires finite equal means (ell>=r+2)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tropp Lemma A.3 and A.4 cover the precise error decomposition; Lemma A.5 gives the spectrum-independent first mean.",
+          "Kressner-Lam Theorem 8 explicitly reproduces the same decomposition, Theorem 9 reproduces expectation, Theorem 11 gives higher-moment-based tail bounds with different strength and scope.",
+          "Nakatsukasa Theorem 3.2 provides the generalized Nystrom expectation upper bound."
+        ],
+        "reasoning": "These are strong premises and partial coverage, especially Tropp/Kressner, and the mean is expressly not original. The reviewed primary theorem statements do not directly supply a universal Schur-convex order across residual singular-value profiles, nor an iff q frontier for every positive q and rank. The new deduction is narrow and derives from classical tools; this relationship is disclosed rather than claiming a new Gaussian decomposition.",
+        "searches": [
+          "Tropp et al., 2017, Theorem 4.3 and Lemmas A.3-A.5 full relevant proof",
+          "Nakatsukasa, 2020, Theorem 3.2 and Section 3.4",
+          "Kressner and Lam, 2024, Lemma 2 and Theorems 8-11",
+          "Web: randomized generalized Nystrom higher moments error tail",
+          "Web: randomized matrix approximation Gaussian Frobenius error distribution F beta prime residual spectrum"
+        ]
+      },
+      "checked_sources": [
+        "Tropp, Yurtsever, Udell and Cevher (2017), Practical Sketching Algorithms for Low-Rank Matrix Approximation, SIAM J. Matrix Anal. Appl. 38 (2017), 1454-1485, doi:10.1137/17M1111590; https://tropp.caltech.edu/papers/TYUC17-Practical-Sketching.pdf; Theorem 4.3 and Appendix A.3, Lemmas A.3-A.5.",
+        "Nakatsukasa (2020), Fast and stable randomized low-rank matrix approximation, arXiv:2009.11392v1, https://arxiv.org/pdf/2009.11392; section 3.4, Theorem 3.2 and proof.",
+        "Kressner and Lam (2024), Randomized low-rank approximation of parameter-dependent matrices, Numerical Linear Algebra with Applications 31(6), e2576, doi:10.1002/nla.2576; https://onlinelibrary.wiley.com/doi/10.1002/nla.2576; Lemma 2 and Theorems 8-11.",
+        "Resultary published-record search: first semantic query (Gaussian sketch low rank residual singular spectrum majorization convex order Frobenius error inverse Wishart beta prime distribution) and second (generalized Nystrom Gaussian two-sided sketch error distribution spectral weights beta prime exact moment cutoff); no matching record found in inspected hits.",
+        "Related but mathematically distinct published records: 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee (adaptive pivoting expected products), 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af (weak Gauss-Newton test-frame robustness).",
+        "Pinned eight-file Git source tree SHA 8ae1730e237daeda64dfe879437ab2d0489dd279 (checked commit 6c379935c2e469fc18959fc6c387e31328c64bcf), exact RESULT.md and verify.py.",
+        "Fresh independent numerical/symbolic corroboration, independent_gaussian_sketch_check.py and independent_gaussian_sketch_results.json (900 direct matrix identities, 17 exact inverse-chi-square variance cases, 60 beta-prime/F CDF cases)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier exact mean 1+r/(ell-r-1) equals the mean asserted here for ell>r+1; it is fully covered by Tropp Lemma A.5.",
+          "Tropp and Kressner supply independent Gaussian factor matrices; integrating them and applying exchangeable-weight majorization yields the beta-prime mixture and convex-risk claim.",
+          "Kressner-Lam high-moment tail bounds concern fixed oversampling and parameters, not an exact all-q existence frontier."
+        ],
+        "reasoning": "The decomposition and expectation are entirely prior. Equal means alone do not imply convex ordering or a variance strictness formula. Completing the argument uses conditional independence of singular-mode Gaussian energies, a majorization/convex Jensen comparison, and a radial inverse-Wishart integration; these applications are straightforward standard tools but yield a new explicit risk statement for the model in the inspected literature. Originality is qualified rather than an assertion of a new probability law or algorithm.",
+        "searches": [
+          "Tropp 2017 Lemmas A.3-A.5 exact formula and Theorem 4.3",
+          "Kressner-Lam 2024 Theorems 8, 9 and 11",
+          "Nakatsukasa 2020 theorem 3.2",
+          "Web: majorization inverse Wishart Frobenius sketch Gaussian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tropp et al., Lemma A.4 supplies Psi_2^dagger Psi_1 applied to a fixed residual, the same Gaussian experiment underlying the present spectral mixture.",
+          "The rank-one distribution is the classical squared norm of a multivariate Student-t vector, equivalently scaled F or beta-prime; these probability identities are treated as tools rather than claimed inventions.",
+          "Resultary semantic hits at 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee and 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af discuss different algorithms/observables."
+        ],
+        "reasoning": "Equivalent formulations include Gaussian oblique projection loss, inverse-Wishart Gaussian regression coefficient norm, weighted exchangeable Gaussian energies and matrix-t mixtures. The 2017 factor law is prior; the searched primary statements did not articulate the residual-spectrum convex-risk ordering for this normalized loss. Isolated classical Student-t/F identities are not independent priority claims.",
+        "searches": [
+          "Resultary: Gaussian sketch low rank residual singular spectrum majorization convex order Frobenius error inverse Wishart beta prime distribution",
+          "Resultary: generalized Nystrom Gaussian two-sided sketch error distribution spectral weights beta prime exact moment cutoff",
+          "Web: Gaussian least squares convex order singular values residual",
+          "Web: randomized matrix beta prime error Gaussian pseudoinverse",
+          "Tropp 2017 Appendix A.3 Lemma A.4 and Nakatsukasa 2020 Section 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem is a continuum of spectral profiles rather than a finite numerical enumeration; no exact finite table or database is part of its claim.",
+          "The compared published-record summaries are about adaptive pivoting or weak Gauss-Newton measurements rather than the Gaussian two-sided residual-spectrum law."
+        ],
+        "reasoning": "An exact combinatorial database check is inapplicable to this continuous-spectrum mathematical claim; the meaningful analogue is prior tabulated error distributions or exact formulas, searched by weighted Gaussian/F/beta-prime synonyms. Lack of an indexed hit is not proof of priority.",
+        "searches": [
+          "Resultary search: Gaussian sketch low rank residual singular spectrum majorization convex order Frobenius error inverse Wishart beta prime distribution (24 hits)",
+          "Resultary search: generalized Nystrom Gaussian two-sided sketch error distribution spectral weights beta prime exact moment cutoff (25 hits)",
+          "Published-record checks: 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee and 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af",
+          "Web: exact distribution randomized Frobenius Nystrom error"
+        ]
+      },
+      "rationale": "The exact Gaussian decomposition/first mean are preexisting. Best-of-knowledge, the additional all-spectrum convex-risk majorization, strict spectral variance dependence and explicit exact-q cutoff as a unified Gaussian two-sided sketch robustness classification are not stated by the reviewed primary works, including a closely related 2024 extension. Classical inverse-Wishart and majorization ingredients and the risk of a routine-corollary priority objection are fully acknowledged.",
+      "residual_risks": [
+        "The 2017 Gaussian factor decomposition already determines the full error distribution in principle. The spectral convex-order conclusion follows after a standard Hardy-Littlewood-Polya/Jensen argument, and the rank-one beta-prime law is classical multivariate Student-t theory; future priority review may regard parts as routine corollaries.",
+        "An unindexed or otherwise unlocated Gaussian regression, random projection or generalized Nystrom source could state an equivalent spectrum-by-majorization risk theorem. Search results cannot prove absence.",
+        "The finding is conditional on fixed Q and independent real Gaussian Y; nothing proves unconditional ordering when Q/residual spectra are random, complex-valued analogues, finite precision, or stochastic dominance of every upper-tail probability.",
+        "The 900 matrix replays and other finite checks are corroborative; analytic independence, Wishart integration and convex Jensen/majorization carry the unrestricted proof. No Lean proof or external expert attestation was claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact orthogonal error decomposition, independent Gaussian factors and expectation multiplier; does not explicitly establish spectral majorization-convex order, exact rank-one beta-prime calibration or all-positive-order iff moment cutoff. Its factor distribution is an essential non-original premise.",
+          "evidence": [
+            "Appendix A.3 Lemma A.3: ||A-Ahat||_F²=||A-QQ*A||_F²+||X-Q*A||_F².",
+            "Appendix A.3 Lemma A.4: X-Q*A=Psi_2^dagger Psi_1 P*A; independent Gaussian blocks.",
+            "Lemma A.5: exact mean of factor error, r/(ell-r-1) in the real case; Theorem 4.3 expected Frobenius bound."
+          ],
+          "identifier_or_url": "Tropp et al. (2017), DOI:10.1137/17M1111590; https://tropp.caltech.edu/papers/TYUC17-Practical-Sketching.pdf",
+          "material_read": "Original 32-page publisher/author PDF; investigated the reconstruction definition in section 4, Theorem 4.3 (page 11), complete Appendix A.3 Gaussian factor-error proof (pages 28-30); visually examined rendered pages 29-30, and searched the full document for convex order, majorization, beta, distribution.",
+          "method": "Direct full-text PDF search and paragraph-by-paragraph comparison of Lemmas A.3-A.5 and Theorem 4.3 with this result; visual PDF page inspection.",
+          "title": "Practical Sketching Algorithms for Low-Rank Matrix Approximation",
+          "trigger": "Primary analysis of exactly the same two-sided Gaussian reconstruction map and its conditional error split."
+        },
+        {
+          "assessment": "Covers broad generalized Nystrom setting and an expected Frobenius-error bound derived using Tropp; does not itself state residual-spectrum convex ordering or sharp all-positive-order moment equivalence.",
+          "evidence": [
+            "Section 3.4 equation (14) and Theorem 3.2, equation (15), bound average generalized Nystrom Frobenius error.",
+            "Theorem 3.2 proof explicitly invokes the 2017 Gaussian independent-block argument."
+          ],
+          "identifier_or_url": "Nakatsukasa (2020), arXiv:2009.11392v1; https://arxiv.org/pdf/2009.11392",
+          "material_read": "Original 33-page preprint, the defining algorithm, section 3.4 and Theorem 3.2 with proof (pages 13-14), visually inspected the page containing theorem and proof; full-text searches for majorization, beta-prime, variance.",
+          "method": "Compared its two-sided approximation, exact parameter relationships and average-error proof with the fixed-Q conditional theorem.",
+          "title": "Fast and stable randomized low-rank matrix approximation",
+          "trigger": "Primary generalized Nystrom literature on same Y-testing/oblique-projection algorithm and possibly stronger distributional statement."
+        },
+        {
+          "assessment": "Theorem 8 restates the same exact decomposition, Theorem 9 the same first mean (credited to Tropp), Theorem 11 a parameter-dependent tail bound using certain higher moments. It is the closest strengthened coverage, but no exact all-q iff threshold, rank-one F law or convex-order comparison across residual spectra is stated in inspected sections.",
+          "evidence": [
+            "Section 3.1 Theorem 8 gives exactly the Pythagorean decomposition.",
+            "Theorem 9 reproduces the known first moment; Section 3.3 Theorems 10-11 give expected-error and tail bounds.",
+            "Section 2 Lemma 2 bounds a selected high moment of the Gaussian pseudoinverse; not the claimed sharp cutoff for every q>0."
+          ],
+          "identifier_or_url": "Kressner and Lam (2024), doi:10.1002/nla.2576; https://onlinelibrary.wiley.com/doi/10.1002/nla.2576",
+          "material_read": "Accessible full HTML primary article, focusing on sections 2 and 3, Lemma 2, Theorems 8-11 and their assumptions and proofs, with related numerical/parameter-dependent scope.",
+          "method": "Read complete relevant online theorem/proof sections and checked whether higher-moment bounds imply an exact all-q cutoff or full spectral profile ordering.",
+          "title": "Randomized low-rank approximation of parameter-dependent matrices",
+          "trigger": "Highly relevant later open-access work studying the same Gaussian generalized Nystrom map with higher-order moments and tail bounds."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Tropp, Yurtsever, Udell and Cevher (2017), Practical Sketching Algorithms for Low-Rank Matrix Approximation, SIAM J. Matrix Anal. Appl. 38 (2017), 1454-1485, doi:10.1137/17M1111590; https://tropp.caltech.edu/papers/TYUC17-Practical-Sketching.pdf; Theorem 4.3 and Appendix A.3, Lemmas A.3-A.5.",
+        "Nakatsukasa (2020), Fast and stable randomized low-rank matrix approximation, arXiv:2009.11392v1, https://arxiv.org/pdf/2009.11392; section 3.4, Theorem 3.2 and proof.",
+        "Kressner and Lam (2024), Randomized low-rank approximation of parameter-dependent matrices, Numerical Linear Algebra with Applications 31(6), e2576, doi:10.1002/nla.2576; https://onlinelibrary.wiley.com/doi/10.1002/nla.2576; Lemma 2 and Theorems 8-11."
+      ],
+      "rationale": "Residual squared singular-value proportions are a natural matrix-sketch quality invariant. The exact expected squared inflation is blind to spectral concentration, but nonlinear loss/convex risk and finite variance are crucial for reliability of randomized approximate factorizations. Explicit monotonicity across all residual profiles, a rank-one worst convex-risk calibration, and the sharp oversampling-dependent q-moment frontier distinguish genuinely consequential regimes. The theorem is incremental and based on standard Gaussian and majorization tools, but gives a directly interpretable algorithm-specific risk classification beyond a mere reformulation of its known mean formula; no faster algorithm or unconditional random-range result is claimed.",
+      "residual_risks": [
+        "The novelty and value are an exact conditional risk classification, not an algorithmic improvement or a general matrix-t theorem.",
+        "Convex order does not guarantee every quantile or tail probability is ordered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Tropp, Yurtsever, Udell and Cevher (2017), Practical Sketching Algorithms for Low-Rank Matrix Approximation, SIAM J. Matrix Anal. Appl. 38 (2017), 1454-1485, doi:10.1137/17M1111590; https://tropp.caltech.edu/papers/TYUC17-Practical-Sketching.pdf; Theorem 4.3 and Appendix A.3, Lemmas A.3-A.5.",
+    "Nakatsukasa (2020), Fast and stable randomized low-rank matrix approximation, arXiv:2009.11392v1, https://arxiv.org/pdf/2009.11392; section 3.4, Theorem 3.2 and proof.",
+    "Kressner and Lam (2024), Randomized low-rank approximation of parameter-dependent matrices, Numerical Linear Algebra with Applications 31(6), e2576, doi:10.1002/nla.2576; https://onlinelibrary.wiley.com/doi/10.1002/nla.2576; Lemma 2 and Theorems 8-11.",
+    "Resultary published-record search: first semantic query (Gaussian sketch low rank residual singular spectrum majorization convex order Frobenius error inverse Wishart beta prime distribution) and second (generalized Nystrom Gaussian two-sided sketch error distribution spectral weights beta prime exact moment cutoff); no matching record found in inspected hits.",
+    "Related but mathematically distinct published records: 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee (adaptive pivoting expected products), 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af (weak Gauss-Newton test-frame robustness).",
+    "Pinned eight-file Git source tree SHA 8ae1730e237daeda64dfe879437ab2d0489dd279 (checked commit 6c379935c2e469fc18959fc6c387e31328c64bcf), exact RESULT.md and verify.py.",
+    "Fresh independent numerical/symbolic corroboration, independent_gaussian_sketch_check.py and independent_gaussian_sketch_results.json (900 direct matrix identities, 17 exact inverse-chi-square variance cases, 60 beta-prime/F CDF cases)."
+  ],
+  "disposition": "passed",
+  "final_claim": "For fixed Q and independent real Gaussian Y, R=1+sum lambda_j ||G^dagger h_j||^2; for ell>=r+2 majorization of residual squared singular proportions orders R in convex order; for rank-one residual R-1~BetaPrime(r/2,(ell-r+1)/2); for all B!=0 E[R^q]<infinity iff q<(ell-r+1)/2; when ell>=r+4 Var R=A_(r,ell)+B_(r,ell)sum lambda_j^2 with B>0.",
+  "limitations": [
+    "No quantitative statement for B=0 (ratio undefined), dependence of Q and Y, non-Gaussian sketches or finite arithmetic.",
+    "No external expert or formal proof certificate; finite verification does not establish the unrestricted theorems.",
+    "Original mean and projection decomposition already proved by prior literature.",
+    "Package privacy: replaced three public administrative files with neutral scientific content; no new public operational metadata."
+  ],
+  "residual_risks": [
+    "The 2017 Gaussian factor decomposition already determines the full error distribution in principle. The spectral convex-order conclusion follows after a standard Hardy-Littlewood-Polya/Jensen argument, and the rank-one beta-prime law is classical multivariate Student-t theory; future priority review may regard parts as routine corollaries.",
+    "An unindexed or otherwise unlocated Gaussian regression, random projection or generalized Nystrom source could state an equivalent spectrum-by-majorization risk theorem. Search results cannot prove absence.",
+    "The finding is conditional on fixed Q and independent real Gaussian Y; nothing proves unconditional ordering when Q/residual spectra are random, complex-valued analogues, finite precision, or stochastic dominance of every upper-tail probability.",
+    "The 900 matrix replays and other finite checks are corroborative; analytic independence, Wishart integration and convex Jensen/majorization carry the unrestricted proof. No Lean proof or external expert attestation was claimed."
+  ],
+  "schema_version": 1
+}
