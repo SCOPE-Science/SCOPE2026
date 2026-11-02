@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers n>=4, 0<=m<=N and p in [0,1] are covered. The triple-pair orbit decomposition computes E[TW], and factorization gives strict sign with nonzero numerator factors; boundary cases handled directly. An independent exact Fraction verifier exhausts 33,856 graphs for n=4,5,6, tests the binomial formula for rational probabilities and all n<=40,m values; finite verification supplements but does not establish the general theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chatterjee–Varadhan handle graphon triangle large deviations, a different asymptotic problem.",
+        "Klusowski–Wu handle sampling-estimator risk on fixed input graphs."
+      ],
+      "reasoning": "General exact subgraph moment expansions could subsume the identity if evaluated for induced wedges; no inspected theorem supplied its strict sign for each fixed edge count or its comparison with G(n,p). Potential wider moment tables remain a residual risk.",
+      "searches": [
+        "published-finding corpus query: network motifs covariance triangle and open triplet induced wedges binomial random graph",
+        "published-finding corpus query: For all n>=4 in uniform G(n,m), triangles and induced open wedges have strictly negative covariance at every 3<=m<=binom(n,2)-2; G(n,p) sign flips at p=2(n-3)/(3n-8)",
+        "published-finding corpus query: G(n,m) number of triangles versus open triples two-edge induced paths covariance negative, fixed edge count",
+        "published-finding corpus query: triangle wedge covariance Simpson paradox conditioning edges fixed-size random graph",
+        "arxiv:1008.1946",
+        "pmlr:v75:klusowski18a"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "arxiv:1008.1946",
+        "scope": "independent-edge random-graph large deviations and triangle count, not fixed-edge induced-motif mixed covariance"
+      },
+      {
+        "identifier": "arxiv:1309.3321",
+        "scope": "wedge sampling and clustering; wedge includes closed wedges, unlike induced-open-wedge count"
+      },
+      {
+        "identifier": "arxiv:1411.5713",
+        "scope": "signed triangle count for testing geometric random graphs against G(n,p)"
+      },
+      {
+        "identifier": "pmlr:v75:klusowski18a",
+        "scope": "variance/covariance of graph-motif estimators under node sampling of a fixed graph"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published finding has Cov(number of connected components, number of triangles), not Cov(triangles, induced open wedges).",
+        "Seshadhri et al. define a sampling estimator and analyze its precision rather than this cross moment."
+      ],
+      "reasoning": "None of the checked published statements directly supplies the hypergeometric factor sign for all m. Classical joint subgraph moment machinery could produce parts of the formula by additional calculation; the new assessed claim is the exact all-level fixed-edge sign and its sharp contrast with G(n,p).",
+      "searches": [
+        "published-finding corpus query: Erdos Renyi G(n,p) covariance triangle count induced open wedges P3 sign change 2(n-3)/(3n-8)",
+        "published-finding corpus query: triangles induced two paths open triads count covariance random graph p positive negative",
+        "published-finding corpus query: network motifs covariance triangle and open triplet induced wedges binomial random graph",
+        "published-finding corpus query: For all n>=4 in uniform G(n,m), triangles and induced open wedges have strictly negative covariance at every 3<=m<=binom(n,2)-2; G(n,p) sign flips at p=2(n-3)/(3n-8)",
+        "published-finding corpus query: G(n,m) number of triangles versus open triples two-edge induced paths covariance negative, fixed edge count",
+        "published-finding corpus query: triangle wedge covariance Simpson paradox conditioning edges fixed-size random graph",
+        "published-finding corpus: 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wedge-sampling work uses both open and closed two-edge paths; here the induced wedge equals total two-stars minus three times triangle count.",
+        "The fixed-edge theorem concerns a cross-covariance of motif counts, not estimator variances."
+      ],
+      "reasoning": "A putative equivalent must address the mixed moment between triangle number and induced exact-two-edge path number, or the implied relation Cov(T,all-two-stars)-3 Var(T). None of the inspected primary comparisons states or visibly implies the universal all-m sign.",
+      "searches": [
+        "published-finding corpus query: Erdos Renyi G(n,p) covariance triangle count induced open wedges P3 sign change 2(n-3)/(3n-8)",
+        "published-finding corpus query: triangles induced two paths open triads count covariance random graph p positive negative",
+        "published-finding corpus query: network motifs covariance triangle and open triplet induced wedges binomial random graph",
+        "arxiv:1309.3321"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest identified record computes component-count versus triangle-count covariance under bond percolation, a different statistic.",
+        "No matching table for triangle/induced-open-wedge covariance was located in inspected sources."
+      ],
+      "reasoning": "No exact result/table or database entry was located with the same covariance or stronger implication. Search incompleteness is acknowledged, not taken as proof of priority.",
+      "searches": [
+        "published-finding corpus query: For all n>=4 in uniform G(n,m), triangles and induced open wedges have strictly negative covariance at every 3<=m<=binom(n,2)-2; G(n,p) sign flips at p=2(n-3)/(3n-8)",
+        "published-finding corpus query: G(n,m) number of triangles versus open triples two-edge induced paths covariance negative, fixed edge count",
+        "published-finding corpus query: triangle wedge covariance Simpson paradox conditioning edges fixed-size random graph",
+        "published-finding corpus: 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+      ]
+    },
+    "rationale": "Published published-finding corpus comparisons identify component/triangle covariance and other different statistics; inspected primary texts address triangle deviations, wedge sampling, signed triangle tests, and motif estimator uncertainty, not a strict fixed-edge triangle/induced-open-wedge covariance sign reversal. A general subgraph-moment theorem may subsume the closed form; historical-priority risk expressly retained.",
+    "residual_risks": [
+      "General subgraph-count moment identities might imply the exact covariance as a special case; no exhaustive historical literature review or human audit has occurred.",
+      "Originality is relative to actual inspected published-finding corpus results and named primary works; absence of a matching search result is not a mathematical novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not assert fixed-edge triangle versus induced-open-path mixed covariance.",
+        "evidence": "Primary focus is the graphon large deviation principle for dense G(n,p), including triangle densities.",
+        "identifier_or_url": "arxiv:1008.1946",
+        "material_read": "full accessible HTML (introduction and relevant theorem statements; keyword searches for covariance and wedge)",
+        "method": "read accessible arXiv page and targeted textual searches",
+        "title": "The large deviation principle for the Erdős–Rényi random graph",
+        "trigger": "triangle counts in independent-edge Erdős–Rényi graphs"
+      },
+      {
+        "assessment": "Statistical estimators based on wedge sampling, not exact G(n,m) joint covariance. Wedges may be closed, unlike induced-open paths.",
+        "evidence": "Paper describes wedge sampling and triangle-count estimation in large graphs.",
+        "identifier_or_url": "arxiv:1309.3321",
+        "material_read": "full accessible arXiv text, introduction, definitions, related work, sampling statements and covariance term search",
+        "method": "read primary HTML and inspect wedge definition",
+        "title": "Wedge Sampling for Computing Clustering Coefficients and Triangle Counts on Large Graphs",
+        "trigger": "triangle and wedge joint statistics, alternative meaning of wedge"
+      },
+      {
+        "assessment": "Studies testing against geometric graphs using signed triangles, not induced open-wedge cross moments.",
+        "evidence": "Null G(n,p) is compared to geometric alternatives.",
+        "identifier_or_url": "arxiv:1411.5713",
+        "material_read": "accessible full arXiv text, introduction and relevant signed-triangle statistics; covariance keyword search",
+        "method": "full-text browsing and targeted searches",
+        "title": "Testing for high-dimensional geometry in random graphs",
+        "trigger": "signed triangle fluctuation statistics in independent-edge graph nulls"
+      },
+      {
+        "assessment": "Covariance there is for estimators on subsampled fixed graphs, not joint motif counts of random G(n,m).",
+        "evidence": "Observation model is vertex or graph sampling; motifs of a fixed unknown graph are estimated.",
+        "identifier_or_url": "pmlr:v75:klusowski18a",
+        "material_read": "primary full PDF, introduction, model, covariance-related estimator discussion; first page visually inspected",
+        "method": "PDF textual extraction with section-specific reading and page screenshot",
+        "title": "Counting Motifs with Graph Sampling",
+        "trigger": "general covariance calculations for motif counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8705144c-49c2-4111-aaee-fea2da55c43e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Triangle counts and *open* wedges are jointly used as clustering/transitivity diagnostics; their covariance determines calibration of joint null diagnostics. A strict sign at every fixed-edge level, its sharp boundary degeneracies and opposite sign below an explicit independent-edge threshold constitute a nontrivial structural phenomenon absent from marginal moments, motivated by distinct graph null models.",
+    "status": "PASS"
+  }
+}
