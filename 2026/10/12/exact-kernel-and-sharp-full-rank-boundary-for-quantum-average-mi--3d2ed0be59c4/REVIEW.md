@@ -1,13 +1,21 @@
-# Scientific review of the double-star average-mixing classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies all five distinct adjacency energies (four nonzero simple energies and a possibly absent zero energy), computes the zero projector including the small leaf cases, and writes the whole average mixing matrix as a sum of positive-semidefinite terms. The leaf-block eigenvalues and two-hub determinant give exact ranks, while explicit vectors and matching dimensions give the entire kernel. Direct projector reconstruction and numerical diagonalization check boundary cases. The infinite conclusion is analytical, not an inference from enumeration.
+## correctness
 
-**Originality — PASS, with residual risk.** Fan and Godsil [2] treat double-star adjacency state transfer, which neither determines the Cesàro mixing matrix nor its kernel. Coutinho, Godsil, Guo and Zhan [1] and the quantum-walk lecture notes [4] provide general average-mixing rank tools and identify strongly cospectral pair differences, but do not state the full two-parameter classification including singleton-leaf three-coordinate nullvectors. Coutinho and collaborators [3] provide exact computational machinery, not this family theorem. Mohan and collaborators [5] address Laplacian average-mixing trace; their full text was inaccessible, so an unindexed or incidental adjacency result remains a residual risk. Database and primary-literature searches did not locate an equivalent or stronger theorem, but negative search results alone do not establish novelty.
+PASS
 
-**Value — PASS.** The result supplies a complete natural tree-family rank classification and exact kernel, with a sharp positive-definiteness boundary. In particular, highly degenerate zero adjacency spectra are compatible with full-rank mean mixing for unequal hub leaf counts at least three, whereas symmetric hubs, two-leaf modules and singleton-leaf constraints each have a different explicit nullspace mechanism. This gives structural information unavailable from a trace statistic or state-transfer criterion.
+For every p,q>=1 with ordinary unweighted adjacency, the double-star bipartite off-diagonal block has rank two and F(s)=s^2-(p+q+1)s+pq with two distinct positive roots mu_±. This gives four simple nonzero eigenvalues and one zero eigenspace of dimension p+q-2, whose projector is Q_p ⊕ Q_q on the leaf blocks. For positive-energy squared eigenvector profiles w_±, the exact average mixing is E0∘E0+2w_+w_+^T+2w_-w_-^T. The leaf Schur-squares Q_s∘Q_s have constant eigenvalue (s-1)/s and transverse eigenvalue (s-2)/s, hence ranks f(1)=0, f(2)=1 and f(s>=3)=s. Modulo their ranges, the two profile vectors have independent hub projections exactly for p≠q because determinant (p-q)/(4Delta); singleton leaves add a residual coordinate without losing the two-profile rank. For p=q one hub relation remains, and at p=q=1 the profiles span a two-dimensional range. This proves the four nullity cases and the iff full-rank frontier. The listed pair-difference and singleton-side three-coordinate vectors satisfy every Schur-square kernel condition and match the computed dimension; hence form complete bases. Independent 225-case eigenspace/matrix enumeration and symbolic determinant/orthogonality checks agree, but the all-positive-integer assertion rests on this proof rather than finite sampling.
 
-**Scientific limitations.** The theorem assumes unweighted adjacency evolution; it does not address Laplacian evolution, arbitrary decorations or finite-time rates. The most recent related Laplacian paper could only be compared at abstract level. The verification script provides supportive finite checks. Further independent review and literature verification have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-References: [1] arXiv:1709.03591; [2] arXiv:1206.0082; [3] arXiv:2208.08971; [4] Godsil, *Graph Spectra and Quantum Walks*, §§11.5, 13.5; [5] arXiv:2608.20739.
+Best-of-knowledge novelty for the complete two-parameter, ordinary-adjacency, double-star Cesaro average-mixing nullity, explicit full kernel bases, and sharp positive-definite boundary. Primary sources provide the Schur-square spectral identity, abstract rank/commutant bounds, individual-graph exact computation, and double-star state-transfer results but do not state or imply the parameter-uniform full-kernel classification. A separately identified recent Laplacian paper is abstract-only and left as a residual risk. Search absence is not treated as proof of novelty.
+
+## value
+
+PASS
+
+The mean mixing matrix of the continuous-time adjacency quantum walk is a natural long-time transport invariant. Double stars are a standard nontrivial diameter-three family with arbitrarily large zero adjacency eigenspaces and prior state-transfer interest. The theorem gives the full kernel and a sharp positive-definiteness classification for every p,q≥1, distinguishing equal-arm symmetry, two-leaf twins, and singleton-leaf three-coordinate constraints. It provides structural information not determined by trace/laziness, pairwise strong cospectrality, or per-instance computations. Its scope is precisely the unweighted adjacency family; no universal tree theorem, finite-time mixing rate, or perturbative stability is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
