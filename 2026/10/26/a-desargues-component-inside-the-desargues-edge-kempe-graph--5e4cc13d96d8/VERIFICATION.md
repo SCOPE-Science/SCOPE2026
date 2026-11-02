@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-`certificate.json` is a complete list, not a partial test: `base_edges` records all thirty edges of \(\operatorname{GP}(10,3)\); `colorings` lists all 32 canonical three-class partitions as three 30-bit masks; `kempe_edges` lists all 36 unordered reconfiguration edges; `components` partitions the 32 states; `desargues_isomorphism` is a bijection from the 20-state component to the vertices of the original graph.
+## correctness
 
-`verify_factorizations.py` proves completeness by recursively branching over every edge at the least unmatched vertex until no vertices remain, and by splitting every complementary even cycle in all two alternating ways. It checks all colorings, all three color pairs per coloring, every connected bichromatic cycle, every resulting quotient state, the complete component partition, and preservation and reflection of adjacency under the explicit isomorphism.
+PASS
 
-`verify_direct_colors.py` uses a different search space: each edge is assigned a color subject to local vertex constraints. Global color permutations are eliminated uniquely by fixing distinct colors on the three edges incident to vertex zero. It visits every compatible edge-color assignment by finite backtracking, independently builds every bichromatic cycle through edge-connectivity searches, compares all 32 states and 36 edges to the certificate, checks the explicit isomorphism, and recomputes all large-component distance distributions.
+D=GP(10,3) has 20 vertices, 30 edges and 60 perfect matchings; deleting one matching yields 36 complementary (10,10) 2-factors and 24 Hamiltonian 20-cycles, so quotient states (36×2+24)/3=32. An independently written exhaustive perfect-matching recursion produced all 60, and a distinct direct edge-color backtracker fixing global S3 at a vertex produced exactly 32 colorings; both methods gave the same 32 states. Exhaustive switching of each bichromatic connected cycle generated 36 undirected Kempe moves, one component on 20 states of degree three and six isolated edges, with exactly 20 profiles of three (10,10) unions and 12 profiles of one (10,10) plus two Hamiltonian unions. Independent NetworkX graph isomorphism and full distance computation identified the twenty-state component with the original D, distance profile (1,3,6,6,3,1). The actual certificate.json and the two source exhaustive verifier scripts were inspected; finite exhaustive certificate, unlike finite sampling, covers the complete specified quotient space.
 
-Run `python3 verify_factorizations.py` and `python3 verify_direct_colors.py` from this directory. Their captured standard outputs are stored in `factorization_output.txt` and `direct_output.txt`. The certificate's SHA-256 is `d34d0c2b0fe953fa127ef17e6bfe64d7350aae19b36bad29f0d48f937ed44f6c`.
+## originality
 
-**Limits.** These exhaustive algorithms establish the specified finite result, not its historical originality or any infinite generalization. No independent external validation has been performed.
+PASS
+
+Earlier edge-Kempe results count classes and analyze several graph families, while recent computer tables potentially already imply 7 component counts for cubic graphs of order twenty. The assessed exact 32-state reconfiguration adjacency graph and surprising large component D-isomorphism are strictly finer than a count of equivalence classes. Search did not find a statement of D⊔6K₂ or an explicit isomorphism; unindexed older full datasets may already encode it.
+
+## value
+
+PASS
+
+The Desargues graph is a canonical highly symmetric 20-vertex cubic bipartite graph. A complete exact reconfiguration graph including explicit self-isomorphic component, distance distribution, and bichromatic signatures is a motivated finite invariant for coloring/Kempe dynamics; not a gratuitous one-number census. No infinite-family generalization is required for this natural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: the Desargues color-switch graph
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The finite enumeration is exhaustive, not an extrapolation from samples. An edge-perfect-matching recursion generates all 60 matchings. Their complementary two-factor types (36 with two ten-cycles, 24 with one twenty-cycle) give 32 unordered three-matchings by an independent counting identity. The complete certificate lists these 32 colorings and all 36 legal one-cycle Kempe switches. A stored 20-vertex bijection preserves and reflects all 30 edges of the original Desargues graph, proving the large component's isomorphism; the other 12 states pair as six edges. A separate direct edge-color backtracker, with color names fixed around one vertex, reconstructs the whole quotient without using the matching enumeration. Both programs were executed against the packaged certificate; outputs agree. Risk: the proof uses a finite executable certificate rather than a closed-form conceptual classification, but both algorithms exhaust all possibilities by construction and do not assume their conclusion.
+PASS
 
-## Originality: PASS, with explicit priority risk
+D=GP(10,3) has 20 vertices, 30 edges and 60 perfect matchings; deleting one matching yields 36 complementary (10,10) 2-factors and 24 Hamiltonian 20-cycles, so quotient states (36×2+24)/3=32. An independently written exhaustive perfect-matching recursion produced all 60, and a distinct direct edge-color backtracker fixing global S3 at a vertex produced exactly 32 colorings; both methods gave the same 32 states. Exhaustive switching of each bichromatic connected cycle generated 36 undirected Kempe moves, one component on 20 states of degree three and six isolated edges, with exactly 20 profiles of three (10,10) unions and 12 profiles of one (10,10) plus two Hamiltonian unions. Independent NetworkX graph isomorphism and full distance computation identified the twenty-state component with the original D, distance profile (1,3,6,6,3,1). The actual certificate.json and the two source exhaustive verifier scripts were inspected; finite exhaustive certificate, unlike finite sampling, covers the complete specified quotient space.
 
-Relevant primary work includes Belcastro–Haas (arXiv:1209.1730; 2014 publication), Belcastro–Haas (Australasian J. Combin. 2017), and Goedgebeur–Östergård (arXiv:2105.01363; 2022 publication). The 2017 article treats edge-Kempe reconfiguration graph structures and is particularly close, but its explicit examples are other cubic graphs such as crossed prisms; a twenty-vertex crossed prism has four-cycles and is not the girth-six Desargues graph. The 2022 study's exhaustive census supports component counts for cubic graphs yet reports aggregate numerical distributions, not this example's full state graph or a self-isomorphism. Targeted searches for the base graph, aliases, exact decomposition, and parameter implications, together with accessible historical claim comparisons, did not reveal covering statements. Residual uncertainty: an unindexed equivalent classification or a full published dataset permitting straightforward extraction may exist. This search is evidence, not proof of first discovery.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The canonical Desargues graph is a distance-transitive cubic incidence graph. Its three-edge-coloring dynamics have a surprising exact self-reproduction: a whole twenty-state Kempe component is isomorphic to the starting graph, while other states have a different mobility regime. This adds complete adjacency and metric geometry to known component-count investigations, with a verifiable intrinsic distinction by bichromatic cycle types. Unlike an arbitrary isolated numerical statistic, the exact graph structure and self-isomorphism answer a natural reconfiguration problem on an unusually symmetric graph. It is a finite result, not a claim of generality.
+Earlier edge-Kempe results count classes and analyze several graph families, while recent computer tables potentially already imply 7 component counts for cubic graphs of order twenty. The assessed exact 32-state reconfiguration adjacency graph and surprising large component D-isomorphism are strictly finer than a count of equivalence classes. Search did not find a statement of D⊔6K₂ or an explicit isomorphism; unindexed older full datasets may already encode it.
 
-## Limitations
+## value
 
-No independent external scientific audit. Historical priority is not conclusively decidable from accessible indexing. No analogous theorem for larger generalized Petersen graphs is proved. The statement concerns the global color-permutation quotient, not the named-color graph. The executable full certificate, the explicit isomorphism mapping, and two separate exact programs are included.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Desargues graph is a canonical highly symmetric 20-vertex cubic bipartite graph. A complete exact reconfiguration graph including explicit self-isomorphic component, distance distribution, and bichromatic signatures is a motivated finite invariant for coloring/Kempe dynamics; not a gratuitous one-number census. No infinite-family generalization is required for this natural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T02:02:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "D=GP(10,3) has 20 vertices, 30 edges and 60 perfect matchings; deleting one matching yields 36 complementary (10,10) 2-factors and 24 Hamiltonian 20-cycles, so quotient states (36×2+24)/3=32. An independently written exhaustive perfect-matching recursion produced all 60, and a distinct direct edge-color backtracker fixing global S3 at a vertex produced exactly 32 colorings; both methods gave the same 32 states. Exhaustive switching of each bichromatic connected cycle generated 36 undirected Kempe moves, one component on 20 states of degree three and six isolated edges, with exactly 20 profiles of three (10,10) unions and 12 profiles of one (10,10) plus two Hamiltonian unions. Independent NetworkX graph isomorphism and full distance computation identified the twenty-state component with the original D, distance profile (1,3,6,6,3,1). The actual certificate.json and the two source exhaustive verifier scripts were inspected; finite exhaustive certificate, unlike finite sampling, covers the complete specified quotient space.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2021/22 tables can count Kempe classes of graphs of this order, plausibly including 7 for D; neither inspected presentation supplies the explicit twenty-vertex isomorphism and 36-edge adjacency."
+        ],
+        "reasoning": "Class counts alone do not determine all internal adjacency; broader enumeration software or released full datasets may nevertheless imply this exact graph.",
+        "searches": [
+          "Goedgebeur–Östergård arXiv:2105.01363 full text tables cubic graph switching 3-colorings",
+          "Belcastro–Haas 2017 full PDF"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md, certificate.json, verify_factorizations.py and verify_direct_colors.py inspected against exact Git blobs.",
+        "New independently written exhaustive matching and proper edge-coloring backtracking (60 matchings, 32 states), all 36 Kempe edges and NetworkX isomorphism to GP(10,3).",
+        "Belcastro–Haas 2017 full PDF, Goedgebeur–Östergård 2021 full PDF, Resultary searches."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorems for crossed prisms, other cubic classes and component-count enumerations do not directly imply this specific labeled GP(10,3) quotient adjacency and graph isomorphism."
+        ],
+        "reasoning": "General switch-method machinery is credited; the specific exhaustive certificate is needed for the stronger conclusion.",
+        "searches": [
+          "Belcastro–Haas arXiv:1209.1730",
+          "Belcastro–Haas 2017 edge-Kempe-equivalence graphs",
+          "Goedgebeur–Östergård arXiv:2105.01363"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published 2017 paper defines relevant edge-Kempe graphs and global color quotient, but discusses crossed prisms not GP(10,3) full quotient adjacency."
+        ],
+        "reasoning": "The exact equivalence sought is the complete Kempe switch graph on S3 orbits, not merely equivalence-class counts or labeled-color dynamics.",
+        "searches": [
+          "Resultary: Desargues graph GP(10,3) three edge colorings Kempe switching graph 32 7 components",
+          "Belcastro–Haas edge Kempe equivalence graph quotient by color permutations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source publication enumerates graph-wise switching class counts, which may contain the seven-component count for D."
+        ],
+        "reasoning": "Known-table recomputation is explicitly excluded from novelty; only the full certified exchange graph and D component identification are credited.",
+        "searches": [
+          "Goedgebeur Östergård cubic graph Kempe components 20 vertices tables",
+          "Desargues 32 one-factorizations 36 Kempe edges 6 K2"
+        ]
+      },
+      "rationale": "Earlier edge-Kempe results count classes and analyze several graph families, while recent computer tables potentially already imply 7 component counts for cubic graphs of order twenty. The assessed exact 32-state reconfiguration adjacency graph and surprising large component D-isomorphism are strictly finer than a count of equivalence classes. Search did not find a statement of D⊔6K₂ or an explicit isomorphism; unindexed older full datasets may already encode it.",
+      "residual_risks": [
+        "Unindexed dataset of cubic 3-edge-coloring reconfiguration graphs may already contain this entire adjacency structure.",
+        "Finite result specific to GP(10,3) and colors modulo global permutations; named-color or automorphism quotient is different."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analyses crossed-prism families, not identified full Desargues quotient graph",
+          "evidence": "The twenty-vertex crossed prism is not GP(10,3).",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf",
+          "material_read": "Full 2017 primary PDF inspected for definitions, named-color distinction and examples",
+          "method": "Publisher lawful full PDF and screenshots",
+          "title": "Edge-Kempe-equivalence graphs of class-1 regular graphs",
+          "trigger": "Same edge-Kempe graph formalism and quotient convention"
+        },
+        {
+          "assessment": "Potential prior component-count coverage, no located full D⊔6K₂ adjacency/certificate",
+          "evidence": "Tables classify number of equivalence classes, weaker than adjacency isomorphism.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.01363",
+          "material_read": "Full arXiv preprint inspected for switching graph algorithm and graph-size class tables",
+          "method": "Lawful arXiv full PDF and screenshots",
+          "title": "Switching 3-edge-colorings of cubic graphs",
+          "trigger": "Closest broad exhaustive class database"
+        },
+        {
+          "assessment": "Prior general Kempe methodology and prism results are acknowledged",
+          "evidence": "Does not by cited statement identify the full Desargues switch graph.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.1730",
+          "material_read": "Published abstract and cited theorems; not asserted fully read",
+          "method": "Literature and source proof comparison",
+          "title": "Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs",
+          "trigger": "Foundational general component counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Desargues graph is a canonical highly symmetric 20-vertex cubic bipartite graph. A complete exact reconfiguration graph including explicit self-isomorphic component, distance distribution, and bichromatic signatures is a motivated finite invariant for coloring/Kempe dynamics; not a gratuitous one-number census. No infinite-family generalization is required for this natural classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md, certificate.json, verify_factorizations.py and verify_direct_colors.py inspected against exact Git blobs.",
+    "New independently written exhaustive matching and proper edge-coloring backtracking (60 matchings, 32 states), all 36 Kempe edges and NetworkX isomorphism to GP(10,3).",
+    "Belcastro–Haas 2017 full PDF, Goedgebeur–Östergård 2021 full PDF, Resultary searches."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite 20-vertex Desargues graph only; exact exhaustive finite certificate, not infinite-family theorem."
+  ],
+  "residual_risks": [
+    "Unindexed dataset of cubic 3-edge-coloring reconfiguration graphs may already contain this entire adjacency structure.",
+    "Finite result specific to GP(10,3) and colors modulo global permutations; named-color or automorphism quotient is different."
+  ],
+  "schema_version": 1
+}
