@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:51:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on X or Y after removing A×B yields exact 3-block row-stochastic matrices P0=[[1-q,q,0],[1-q,q,0],[0,0,1]] and Q0=[[1-p,0,p],[0,1,0],[1-p,0,p]], where S0=A^c×B^c,S1=A^c×B,S2=A×B^c. Their commutator C0=P0Q0-Q0P0 has rows (0,pq,-pq),(-p(1-q),0,p(1-q)),((1-p)q,-(1-p)q,0). The integral kernel K_ij=C0_ij/m_j is skew in the product-measure block masses, and every output block depends only on input block means. Thus the L∞ norm equals maximum absolute row sum 2max{pq,p(1-q),(1-p)q}, attained by block signs; L1 equality is dual since C*=-C in weighted L². Pairwise comparisons give the stated three regions and ties. On orthonormal normalized block indicators H_ij=K_ij sqrt(m_i m_j) is real skew with squared nonzero singular value pq(1-pq), so eigenvalues ±i sqrt(pq(1-pq)); C kills the orthogonal complement. As p=q→1 endpoint norm→2 while Hilbert norm→0. Independently verified symbolic matrix, skewness, C³=-pq(1-pq)C, and row sums. Arbitrary underlying probability spaces are covered because the 3-block kernel is exact.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hilbert maximal correlation framework determines the L2 eigenvalue modulus, here sqrt(pq(1-pq))",
+          "Prior binary-chain full RESULT.md excludes p=1,infinity"
+        ],
+        "reasoning": "General two-projection Hilbert equivalence cannot preserve L∞ block geometry; it does not imply the sharp endpoint formula. Known inequalities ||PQ-QP||<=2 are not exact p,q-dependent phase results.",
+        "searches": [
+          "Beigi 2014 maximal correlation singular values",
+          "Conde 2022 norm of sum and anticommutator of orthogonal projections",
+          "Zaharopol 1990 products of conditional expectations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/2026 2026-10-11 three point conditional-expectation commutator full RESULT.md",
+        "Resultary/2026 2026-10-11 binary conditional-expectation chain full RESULT.md",
+        "Beigi 2014 arxiv:1405.2502 abstract/background",
+        "Conde 2022 DOI:10.1016/j.jmaa.2021.125650 prior Hilbert projections",
+        "Resultary search conditional-expectation commutator endpoint norms 2026-10-30"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-point result explicitly excludes operator norms and is for real ell4",
+          "The binary-chain result explicitly excludes endpoints p=1,infinity and measures W^k-E",
+          "Classical maximal-correlation singular value formula supports only Hilbert modulus"
+        ],
+        "reasoning": "None of the full inspected statements implies 2max{pq,p(1-q),(1-p)q}; the L2 spectrum is prior Hilbert theory, so only endpoint formula/phase/separation are claimed as novel. A hidden table of all finite conditional-expectation commutators remains a residual possibility.",
+        "searches": [
+          "Resultary 2026-10-11 three point commutator full RESULT.md",
+          "Resultary 2026-10-11 binary expectation chains full RESULT.md",
+          "Beigi arxiv:1405.2502 classical maximal correlation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full Resultary 2026-10-11 numerical-radius paper computes real ell4 spatial numerical radius on uniform three-point space",
+          "Full Resultary binary-chain paper computes Lp centered product norm only for 1<p<infinity"
+        ],
+        "reasoning": "Both act on 3-atom quotient after simplifying some cases, but spatial numerical radius and centered product powers are different functionals/operators. Matching a three-point representation does not imply its endpoint commutator norm or full p,q phases.",
+        "searches": [
+          "Resultary SCOPE three point conditional expectation numerical radius ell4",
+          "binary conditional expectation chain endpoint L1 L∞ commutator",
+          "conditional expectation commutator missing rectangle product law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Three-point source gives only numerical radius sqrt(3sqrt6)/16 for real ell4, not operator norm on variable masses",
+          "Weighted L1 endpoint profile concerns M_w E M_u, not PQ-QP for rectangular truncation"
+        ],
+        "reasoning": "The claim is an exact two-real-parameter analytic phase diagram, not a lookup of a small fixed matrix in an established table. No exact p,q endpoint table was identified.",
+        "searches": [
+          "Resultary sharp numerical radius three point commutator published 2026/10/11",
+          "Resultary weighted conditional L1 endpoint profile 2026/9/20"
+        ]
+      },
+      "rationale": "PASS qualified: classical maximal correlation/two-projection theory already implies the Hilbert spectral formula, which is explicitly excluded from novelty. Full-text Resultary records on fixed three-atom real ell4 numerical radius and centered binary-chain mixing norms do not evaluate the asymmetric 2-parameter endpoint commutator. The sharp endpoint row-sum phase diagram and cross-norm separation are new to the inspected primary material, with residual priority risk from elementary finite-state conditional-expectation literature.",
+      "residual_risks": [
+        "Exact L2 eigenvalue and maximal-correlation interpretation are classical and not claimed as original",
+        "A less well-indexed endpoint commutator table for 3-block conditional expectations might imply the new p,q formula",
+        "No claim is made about multiple deleted rectangles or all intermediate Lp exponents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_REAL_ELL4_SPATIAL_NUMERICAL_RADIUS",
+          "evidence": [
+            "Explicitly concerns real ell4 spatial numerical radius sqrt(3sqrt6)/16, explicitly not operator norm"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-numerical-radius-of-a-three-point-conditional-expectation--d81ced4c9642",
+          "material_read": "Complete publicly available RESULT.md: finding, proof, assumptions and limitations",
+          "method": "GitHub public full scientific source file",
+          "title": "Sharp numerical radius of a three-point conditional-expectation commutator",
+          "trigger": "same three-point commutator operator"
+        },
+        {
+          "assessment": "RELATED_PRODUCT_NORMS_EXCLUDES_ENDPOINT_COMMUTATOR",
+          "evidence": [
+            "Theorem is for centered W^k-E, real 1<p<∞; explicitly excludes endpoint exponents and does not form the commutator"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mixing-norms-and-time-reversal-obstruction-for-binary-cond--8cff936fbe0f",
+          "material_read": "Complete publicly available RESULT.md: hypothesis, operator rank-one decomposition, exact power norms, limitations",
+          "method": "GitHub public full scientific source file",
+          "title": "Exact mixing norms and time-reversal obstruction for binary conditional-expectation chains",
+          "trigger": "two conditional expectations and sharp norms"
+        },
+        {
+          "assessment": "COVERS_HILBERT_COMPONENT_AS_BACKGROUND",
+          "evidence": [
+            "Maximal-correlation singular value characterization yields L2 result but not variable-mass L∞ row-sums"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2502",
+          "material_read": "Primary abstract, reference and identified classical singular-value characterization; full article not read in this run",
+          "method": "Web arXiv abstract and bibliographic search",
+          "title": "Maximal Entanglement – A New Measure of Entanglement",
+          "trigger": "classical maximal correlation Hilbert projection angle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Deletion of a rectangular forbidden event from independent data is a natural conditioning/missing-data model. Exact endpoint commutator norms for two coordinate projections quantify noncommutation in L1/L∞, exhibit phase transitions according to deleted-mass geometry, and separate endpoint and Hilbert stability sharply. The exact 2-parameter statement is a motivated non-Hilbert invariant, not merely a renamed 3x3 matrix norm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For an independent product law normalized after excluding A×B with p,q in (0,1), commutator C=[E(.|X),E(.|Y)] has sharp L1 and L∞ norm 2 max{pq,p(1-q),(1-p)q} with exact dominant-block phases, rank-two L2 spectrum ±i sqrt(pq(1-pq)), and divergent endpoint-to-Hilbert norm ratio for p=q→1.",
+  "limitations": [
+    "Exact L2 eigenvalue and maximal-correlation interpretation are classical and not claimed as original",
+    "A less well-indexed endpoint commutator table for 3-block conditional expectations might imply the new p,q formula",
+    "No claim is made about multiple deleted rectangles or all intermediate Lp exponents.",
+    "Public-facing AUDIT.json and METADATA.json include scope_run_id provenance; no guarded sanitizing replacement was staged, so publication is not ready."
+  ],
+  "schema_version": 1
+}
