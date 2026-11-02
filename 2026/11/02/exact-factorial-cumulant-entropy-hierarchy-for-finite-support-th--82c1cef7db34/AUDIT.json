@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The exact Charlier orthogonality and Parseval isometry hold in Poisson L2 because finite support gives a square-integrable likelihood ratio. The analytic log-PGF Taylor expansion, expanding-disk Gaussian majorant, and exponentially vanishing outer tail establish strong L2 convergence of the scaled density with coefficient κ_r/(r!λ^r) times the r-th Charlier polynomial. This yields the chi-square and TV constants, and bounded entropy quadratic quotient plus uniform integrability yields one-half chi-square for KL. The truncated exponential polynomial has nonnegative normalized coefficients and the stipulated first nonzero cumulant. The standalone checker passed 1368 finite assertions; infinite validity rests on the analytic argument. Scope: fixed finite support, mean, first nonzero order and iid thinning.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Harremoës–Johnson–Kontoyiannis, Thinning and Information Projections, arXiv:1601.04255, Theorem 22 (2016) obtains liminf information-divergence inequalities for arbitrary count laws, but no limsup counterpart under finite-support assumptions.",
+        "Zacharovas–Hwang, A Charlier–Parseval Approach to Poisson Approximation and Its Applications, arXiv:0810.4756 (2008), Sections 1.2, 4, 5 establishes a general orthogonal methodology and second-order error bounds, primarily for Poisson-binomial distribution, not the stated all-index KL asymptotic theorem.",
+        "Kavvadias, Thinning Operation via the Poisson–Föllmer Process, arXiv:2608.02927 (2026), Section 1.3 and Proposition 3.20 obtains a second-order limsup bound under bounded-density hypotheses, without exact all-order constants for finite-support inputs."
+      ],
+      "reasoning": "The broadest close predecessor is the 2016 lower bound: a nonzero sharp lower coefficient does not entail a matching upper coefficient. The 2008 Parseval result provides a proof ingredient rather than a theorem that states the exact entropy classification. The current finding restricts support to prove the missing upper and equality at every fixed first-mismatch order.",
+      "searches": [
+        "arXiv:0810.4756, intro and Sections 4–5",
+        "arXiv:1601.04255, Theorems 21–22 and proof",
+        "web: Poisson approximation leading chi square relative entropy Charlier general analytic probability generating functions higher order",
+        "web: Harremoes Johnson Kontoyiannis information theoretic Poisson approximation exact second order relative entropy asymptotics factorial moments variance"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.02927: 2026-08-03 original source, full manuscript sections 1.3 and Proposition 3.20 inspected",
+      "arXiv:1601.04255: primary full text, Theorems 21–22 inspected",
+      "arXiv:0810.4756: primary full text, introduction and Sections 4–5 inspected",
+      "arXiv:0906.0690: abstract and bibliographic descriptions only; direct PDF inaccessible",
+      "Related mathematical claims on Bernoulli cumulant inequalities and Poisson–Charlier projection norms were compared for implication; neither gives a thinning entropy-rate theorem",
+      "Relevant earlier scientific claims were compared for implication; no matching finite-support thinning asymptotic was identified"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 lower bound uses exactly the same r-th Poisson–Charlier direction; the new upper limit matches its coefficient, with proof supplied for finite support.",
+        "Poisson-binomial results have κ_2<0 whenever an active Bernoulli is present, so they cannot imply the non-Poisson variance-matched r>=3 examples by specialization.",
+        "The 2026 upper bound does not identify the exact r=2 coefficient or the faster rates after cumulant cancellation under its stated hypotheses."
+      ],
+      "reasoning": "Taking a corollary of the published all-order liminf alone cannot prove equality, and no available cited theorem supplies the required strong Poisson L2 convergence. The proof derives this missing norm limit with a finite-support global complex-growth bound. The explicit polynomial input witnesses all orders, including parameter regimes absent from Bernoulli approximation.",
+      "searches": [
+        "arXiv:1601.04255 Theorem 22: normalized n^(2r-2) entropy liminf",
+        "arXiv:0810.4756: Sections 3–5 Charlier Parseval and second order Poisson-binomial",
+        "arXiv:2608.02927: Proposition 3.20",
+        "thinning triangular arrays Poisson Charlier first nonzero factorial cumulant sharp total variation chi-square Kullback-Leibler constants",
+        "web: Poisson thinning factorial moment matching relative entropy convergence arbitrary polynomial rates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Harremoës–Johnson–Kontoyiannis, Thinning and Information Projections, arXiv:1601.04255, Theorem 22 (2016) proves an all-order lower limit bound using normalized Poisson–Charlier moments, not a convergent upper limit.",
+        "Zacharovas–Hwang, A Charlier–Parseval Approach to Poisson Approximation and Its Applications, arXiv:0810.4756 (2008), Sections 1.2, 4, 5 proves the Charlier–Parseval isometry and shows that higher-order Poisson approximations are possible.",
+        "A nearby catalogued claim about Poisson-binomial effective trial counts concerns Bernoulli cumulant inequalities rather than thinning relative-entropy asymptotics."
+      ],
+      "reasoning": "Charlier-moment and factorial-cumulant descriptions are equivalent for the first nonzero index; the normalization is explicitly matched against Theorem 22, so its lower bound is credited. Neither that lower bound nor the Charlier isometry alone states the proven matching all-order upper, the TV constants, or the realizable hierarchy for general finite-support non-Bernoulli inputs.",
+      "searches": [
+        "law of thin numbers factorial cumulant cancellation relative entropy order n^-4 variance equals mean third factorial cumulant",
+        "Law of thin numbers exact entropy Poisson approximation higher factorial cumulants matching mean variance cubic Charlier n^4 relative entropy",
+        "web: thinning Poisson relative entropy factorial cumulants asymptotic",
+        "web: Poisson relative entropy third factorial cumulant asymptotic expansion",
+        "arXiv:1601.04255, Theorem 22 and Section V"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available Poisson-binomial cumulant-hierarchy comparisons concern effective trial counts, not exact all-order thinning divergence.",
+        "Available Hamming-projection/Poisson–Charlier comparisons concern orthogonal projection norms, not probability-law thinning or information divergence.",
+        "The directly inspected 2016 and 2008 primary texts include no tabulation of the described all-order finite-support KL constants."
+      ],
+      "reasoning": "No exact database row or published table found covers the full claim; this negative retrieval is only evidence of a completed bounded comparison, not a proof of uniqueness or priority.",
+      "searches": [
+        "Poisson Charlier expansion entropy sharp asymptotic relative entropy thinning iid sum factorial cumulants",
+        "mod Poisson convergence higher-order KL divergence factorial cumulants n power law exact leading coefficient",
+        "truncated Poisson Taylor polynomial distribution with arbitrarily many matched factorial moments fast Poisson approximation",
+        "web: Poisson approximation relative entropy matching factorial moments rates",
+        "web: law of thin numbers higher order entropy factorial cumulants exact rate"
+      ]
+    },
+    "rationale": "The 2016 Harremoës–Johnson–Kontoyiannis Theorem 22 provides the matching all-order liminf but not the equality established here. The 2008 Zacharovas–Hwang paper proves the foundational Charlier–Parseval identity and second-order error estimates, not this finite-support exact all-order information hierarchy. The eligible 2026 Kavvadias source gives an n^2 limsup with different conditions. The checked mathematical literature and claim comparisons did not identify an implicit or exact covering theorem in the inspected material; historical priority remains provisional.",
+    "residual_risks": [
+      "Older broad Poisson–Charlier expansions, including Barbour 1987, might implicitly contain the same all-order constants; original full text not independently inspected.",
+      "The 2009 Harremoës–Johnson–Kontoyiannis full text was not accessible during this run, although its later stronger 2016 paper was inspected directly.",
+      "Published retrieval and semantic search cannot prove historical uniqueness; independent historical-priority assessment remains outstanding.",
+      "No result beyond the fixed-finite-support class is established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Bounds convergence and supplies a nonsharp n^2 limsup under positivity/density constraints; no cancellation hierarchy or exact leading entropy constants found in the material read.",
+        "evidence": [
+          "Section 1.3 around Theorem 1.8 and (1.9) states the known limsup n^2 bound.",
+          "Proposition 3.20 bounds n^2 divergence by (Var X / EX - 1)^2 under a density bounded away from zero and infinity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.02927",
+        "material_read": "Introduction Section 1.3 including Theorem 1.8, previous n^2 bound and Proposition 3.20 with its hypotheses and proof.",
+        "method": "Read the openly available full manuscript text at https://www.researchgate.net/publication/411305704_Thinning_Operation_via_the_Poisson-Follmer_Process; verified original 2026-08-03 arXiv submission date.",
+        "title": "Thinning Operation via the Poisson–Föllmer Process",
+        "trigger": "Eligible 2026 source on quantitative information-theoretic thinning."
+      },
+      {
+        "assessment": "Theorem 22 states a liminf rate inequality at every fixed order when lower Charlier moments vanish; it does not assert or establish the matching upper limit for all fixed finite-support laws.",
+        "evidence": [
+          "Theorem 22 explicitly has liminf and >=, not equality.",
+          "The text after Theorem 21 calls tightness of the asymptotic lower bound a conjectural matter for a specified class."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1601.04255",
+        "material_read": "Introduction, Theorem 3, Section V moment projections and Theorems 18, 19, 21, 22 with proof of the all-order lower bound.",
+        "method": "Read the author-posted arXiv PDF text and inspected the visual first page.",
+        "title": "Thinning and Information Projections",
+        "trigger": "A direct historical predecessor on all-order Poisson–Charlier entropy limits."
+      },
+      {
+        "assessment": "The general identity and higher-order approximation machinery are prior art, but the inspected statements address error bounds/second order, especially for Poisson-binomial laws; no exact all-order finite-support thinning relative-entropy theorem identified.",
+        "evidence": [
+          "Equation (1.2) gives the Parseval identity, quoted as a known ingredient.",
+          "Sections 4–5 develop second-order Poisson-binomial and signed-measure approximations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0810.4756",
+        "material_read": "Introduction including Section 1.2; Section 4 higher-order estimates; Section 5 signed-measure expansions and surrounding references.",
+        "method": "Read the arXiv PDF searchable text and inspected a screenshot of its first central Parseval-identity page.",
+        "title": "A Charlier–Parseval Approach to Poisson Approximation and Its Applications",
+        "trigger": "The classical Parseval identity and potential stronger general Poisson approximation coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82c1cef7-db34-474f-924b-577bcff169b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact sharp rates resolve a natural gap between a published all-order KL liminf theorem and finite-support achievable upper rates. The finding classifies the information-theoretic convergence exponent by the first nonzero factorial cumulant, gives exact three-metric constants, and constructs every polynomial superconvergence order. This is not a numeric recomputation: variance-matched non-Poisson examples exhibit a qualitatively faster n^-4 rate and an unbounded hierarchy of higher cancellations.",
+    "status": "PASS"
+  }
+}
