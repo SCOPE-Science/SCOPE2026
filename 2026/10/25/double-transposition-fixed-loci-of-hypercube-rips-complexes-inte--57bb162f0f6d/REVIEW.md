@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The geometric fixed-point orbit-barycenter model is derived from uniqueness of barycentric coordinates. Exact compatibility edges are computed from all original Hamming vertex pairs and cross-checked against the prefix/tail factorization. The reproducible exhaustive search computes every simplex through dimension seven, constructs genuine unit-incidence Morse matchings, checks the full acyclic incidence orientation, and eliminates every integral differential exactly (not numerically). The resulting Morse CW complex proves the circle/two-sphere wedge homotopy types through six, and integral homology and fundamental group at seven. Coordinate truncation and zero-append maps are explicit equivariant simplicial retractions for every larger dimension. Higher three-cell attaching maps are expressly not declared trivial.
+## correctness
 
-**Originality — PASS with residual priority risk.** The closest literature concerns the ambient hypercube Vietoris–Rips complex or its equivariant homology character, not the pointwise geometric fixed space of the double disjoint coordinate transposition. Relevant primary full texts (arXiv:2606.20784, arXiv:2605.00705, arXiv:2103.01040) were inspected for corresponding objects, involutions, group actions and strong implications. Database semantic searches included both the exact cycle type and aliases for fixed simplicial orbit complexes; no statement implying this result was identified. That does not rule out unindexed equivalent literature or hidden results.
+PASS
 
-**Value — PASS.** This gives an exact integral fixed-locus classification at the first nontrivial Rips threshold for a natural nontrivial coordinate-permutation cycle type, exhibiting a circle and exponentially larger sphere-homology phenomena invisible in ambient simply connected homotopy. The first third-homology summands appear already in cube dimension seven, and the explicit equivariant retraction upgrades a finite computation to an infinite family of split nonvanishing obstructions.
+For any simplex invariant under sigma, fixed barycentric coordinates are constant on each involution-orbit; admissible orbit-barycentres correspond exactly to vertex orbits of diameter <=2, and a collection is a simplex iff every original pair of vertices across their union has Hamming distance <=2. This is a flag complex with 8*2^(n-4) eligible orbit vertices. Inspected verification source constructs these original orbits independently of a four-bit prefix/tail factorization, enumerates all maximal cliques and complete face sets and lexicographic matched pairs, checks all Hasse incidences for acyclicity, then eliminates unit integral Morse boundaries, giving critical vectors (1,1), (1,1,4), (1,1,20), (1,1,68,4) with zero integral differential. Independent separately coded exhaustive orbit graph and GF(2) boundary ranks reproduced face vectors (8,16,8), (16,52,48,8), (32,152,208,84,16), (64,416,768,512,192,32) and the same reduced mod-2 Betti ranks. Morse CW n4..6 with one 1-cell has trivial 2-cell attaching degrees, hence the asserted S1/S2 wedges; n7 has pi1=Z with 3-cell higher attachments left unclassified. Coordinate truncation and zero-padding commute with sigma, are 1-Lipschitz and give a simplicial retraction and section in every n>=k>=4, so only the claimed split summands follow for n>=7.
 
-**Scientific limitations.** No full homotopy classification at dimension seven; no full homology at larger dimensions; finite enumeration is complete for the claimed finite cases and does not prove any unstated infinite pattern. Priority remains subject to externally indexed and non-indexed scholarship. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest published symmetry papers compute how hyperoctahedral automorphisms act on the homology of the ambient VR complex, which is categorically different from the homotopy type of their pointwise geometric fixed locus. The submitted exact double-transposition fixed-locus CW classifications and integrally split dimensional retractions were not established by accessible statement-level comparisons. Inaccessible full primary literature leaves a real priority risk.
+
+## value
+
+PASS
+
+A nontrivial involution on a canonical metric complex has natural fixed-point topology. Exact integral classifications and the persistence of a fundamental circle under dimension growth reveal phenomena not inferable from ambient representation characters; this is a motivated homotopy/representation refinement rather than arbitrary small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
