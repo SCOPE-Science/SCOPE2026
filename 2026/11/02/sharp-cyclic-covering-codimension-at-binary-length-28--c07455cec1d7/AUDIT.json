@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "The polynomial reduction commutes with cyclic rotation because (t^3+t+1)^3 divides t^28+1. The four independent binary functionals define a codimension-four preimage. All 512 quotient states partition into 22 exact T-orbits, each with an explicit kernel witness, and an independently executed exact checker verifies every orbit and all state coverage. The union bound excludes codimension five; no asymptotic or sampling inference is involved.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1810.03485 general h_2(n)<=floor(log_2 n) proves only the upper value four.",
+        "arxiv:2607.24351 Theorem 5 assumes n=2p with two primitive modulo p.",
+        "arxiv:2606.13307 emphasizes gcd(q,n)=1 and specific geometric families; n=28 is even.",
+        "arxiv:2602.04558 reports \\(h_2(21)\\)=4 and a different zero-codimension focus."
+      ],
+      "reasoning": "The standard bound is one-sided. The double-prime theorem and odd/geometric constructions do not imply this 28-coordinate lower bound. The known n=21 case is not related by a published monotonicity in length.",
+      "searches": [
+        "arxiv:1810.03485 Theorem and Lemma h_q(n) upper bound",
+        "arxiv:2607.24351 Theorem 5 h_2(2p) primitive",
+        "arxiv:2606.13307 Section 7 geometric constructions upper bound",
+        "arxiv:2602.04558 introduction h_2(21)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1903.10613",
+      "https://arxiv.org/abs/1810.03485",
+      "https://arxiv.org/abs/2607.24351",
+      "https://arxiv.org/abs/2606.13307",
+      "https://arxiv.org/abs/2602.04558",
+      "https://oeis.org/A308361",
+      "https://doi.org/10.1016/j.ffa.2025.102625"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 table states a remaining one-unit gap at 28.",
+        "The 2019 product lower bound together with \\(h_2(14)\\)=3 gives at most the known lower bound 3.",
+        "The 2026 double-prime statement applies to 2p for primitive p, not 4*7.",
+        "2025 journal metadata and later citations mention \\(h_2(21)\\)=4; full paper unavailable."
+      ],
+      "reasoning": "The new statement strictly strengthens the known 2019 bounds and is not a corollary of any inspected later theorem. The plausible but inaccessible 2025 primary text cannot be conclusively excluded as implying the same value, so independent priority confirmation remains necessary.",
+      "searches": [
+        "arxiv:1903.10613 Theorem 2.1 product h2(mn)",
+        "arxiv:2607.24351 Theorem 5 primitive root 2p",
+        "arxiv:2602.04558 h_2(21)=4",
+        "doi:10.1016/j.ffa.2025.102625 cyclically covering subspaces"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1903.10613 Section 1 identifies covering subspaces with linearly independent orthogonal checks; Appendix A entry n=28 bounds \\(h_2(28)\\) in [3,4].",
+        "The new R=F_2[t]/((t^3+t+1)^3) certificate constructs four such checks."
+      ],
+      "reasoning": "The quotient orbit construction is merely a proof method for the standard cyclically covering invariant, not a new definition. The closest 2019 formulation leaves the exact parameter undetermined.",
+      "searches": [
+        "cyclic shift cover binary length 28 rank 4 orthogonal complement cyclic module (x^3+x+1)^3",
+        "h_2(28) cyclically covering n28 gap 3 4 2019",
+        "\"h2(28)\" \"cyclically covering\"",
+        "arxiv:1903.10613 (orthogonal-check and cyclic-shift formulation)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:1903.10613 Appendix A lists n=28 as (3,4), not (4,4).",
+        "OEIS A308361 lists exact data only n=1..20; n=14 has 3 and does not settle n=28."
+      ],
+      "reasoning": "Neither the original published small-value table nor the indexed exact-value sequence contains the claimed exact evaluation. In particular the previously known \\(h_2(14)\\)=3 and a product bound yield only \\(h_2(28)\\)>=3.",
+      "searches": [
+        "\"h_2(28)\" cyclically covering subspaces",
+        "\"h_2(28)=4\"",
+        "\"28\" \"cyclically covering subspace\" \"codimension 4\"",
+        "exact h_2(28)=4 cyclically covering binary subspaces 28 codimension four",
+        "OEIS A308361 cyclically covering binary subspaces n=1..20",
+        "arxiv:1903.10613 Appendix A table n=28"
+      ]
+    },
+    "rationale": "Aaronson–Groenland–Johnston Appendix A explicitly reports (3,4) at n=28. The new four-check, 9-dimensional quotient construction supplies the missing lower bound. Inspected later papers concern different parameters or non-dominating constructions. No equivalent exact evaluation was found; inaccessible 2025 source and unindexed work remain priority risks.",
+    "residual_risks": [
+      "The 2025 Sun–Ma–Zeng paper could contain an uninspected theorem entailing \\(h_2(28)\\)=4; full text was unavailable.",
+      "Unindexed or differently phrased constructions may establish the exact value without naming \\(h_2(28)\\).",
+      "The new certificate has not undergone independent review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly applicable; explicitly leaves \\(h_2(28)\\) between 3 and 4",
+        "evidence": [
+          "Appendix A n=28: lower 3, upper 4; Theorem 2.1 gives product inequalities"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1903.10613",
+        "material_read": "Rendered full-text introduction, multiplicative bounds and complete Appendix A small-value table, including n=28",
+        "method": "Full-text reading with cross-check against publisher-author hosted PDF",
+        "title": "Cyclically covering subspaces in \\(\\mathbb F_2^n\\)",
+        "trigger": "Exact table for the same invariant and length"
+      },
+      {
+        "assessment": "Upper bound four at length 28; does not provide four-dimensional cyclic covering at that length",
+        "evidence": [
+          "General inequality h_q(n)<=floor(log_q n)",
+          "Known geometric constructions are for different lengths"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1810.03485",
+        "material_read": "Primary-paper text including general counting upper bound, product inequality and geometric-series constructions",
+        "method": "Primary arXiv paper and PDF page inspection",
+        "title": "Smallest cyclically covering subspaces of \\(\\mathbb F_q^n\\), and lower bounds in Isbell’s conjecture",
+        "trigger": "General upper and lower bounds"
+      },
+      {
+        "assessment": "Theorem 5 covers n=2p with two primitive mod p, not n=28",
+        "evidence": [
+          "First submission 2026-07-27",
+          "Theorem 5 and its irreducible-prime hypothesis"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.24351",
+        "material_read": "Rendered full-text relevant introduction, Section 3 Theorem 5, adjacent hypotheses, and full-text check for length 28",
+        "method": "Direct arXiv full-text inspection",
+        "title": "Cyclic codes and cyclically covering subspaces",
+        "trigger": "Recent motivating source and prime doubling theorem"
+      },
+      {
+        "assessment": "No evaluated binary n=28 result; the relevant general constructions do not establish this value",
+        "evidence": [
+          "DFT coprimality hypothesis and geometric quotient family"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.13307",
+        "material_read": "Full-text introduction, core hypotheses, Section 7 geometric-construction statements, searches for the number 28",
+        "method": "Direct arXiv full-text inspection",
+        "title": "Discrete Fourier Transform Approach to Cyclically Covering Subspaces of \\(\\mathbb F_q^n\\)",
+        "trigger": "Related general constructions and potential domination"
+      },
+      {
+        "assessment": "Reports \\(h_2(21)\\)=4 but not this length-28 equality",
+        "evidence": [
+          "Introduction attributes \\(h_2(21)\\)=4 to Sun–Ma–Zeng; primary emphasis on h_q(n)=0"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.04558",
+        "material_read": "Full-text introduction and summarized previous results, relevant theorems on h_q(n)=0 and the prior n=21 result",
+        "method": "Direct arXiv full-text inspection",
+        "title": "On cyclically covering subspaces of \\(\\mathbb F_q^n\\)",
+        "trigger": "Possible later exact length values"
+      },
+      {
+        "assessment": "Priority comparison limited to bibliographic metadata and later citations; no not-covering conclusion is inferred from snippets",
+        "evidence": [
+          "2026 Li–Yuan–Li–Zeng introduction explicitly attributes \\(h_2(21)\\)=4 to this paper"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ffa.2025.102625",
+        "material_read": "Journal bibliographic record and descriptions cited in 2026 full texts; not the full paper",
+        "method": "Searched arXiv and lawful open-access sources; full text not obtainable; relied only on journal metadata and explicit later citations",
+        "title": "Cyclically covering subspaces of \\(\\mathbb F_q^n\\)",
+        "trigger": "Highly relevant 2025 work on the same invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c07455ce-c1d7-48c0-9d60-5d795049545e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "\\(h_2(28)\\) is a natural, separately tabulated exact cyclic-covering invariant with a published one-unit interval (3,4). The four-check polynomial quotient construction closes that gap sharply, with a compact, transparent and independently reproducible finite-orbit certificate. This is a motivated extremal value, not a parameter-renaming or isolated codeword recomputation.",
+    "status": "PASS"
+  }
+}
