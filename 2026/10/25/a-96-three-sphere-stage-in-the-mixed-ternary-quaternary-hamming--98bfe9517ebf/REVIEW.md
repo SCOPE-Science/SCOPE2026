@@ -1,19 +1,21 @@
-# Scientific assessment: A 96-three-sphere stage in the mixed ternary–quaternary Hamming box
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact matching described in `RESULT.md` has a supplied executable certificate, `verify.py`, which re-enumerates all \(30,992\) augmented independent faces and checks all \(178,704\) directed cover relations. It verifies \(15,448\) matched pairs, a complete acyclic topological sort, and exactly \(96\) critical cardinality-four faces, along with a distinguished empty-to-vertex matched pair. Deleting the empty element makes the ordinary critical-cell vector \((1,0,0,96)\), which suffices for the wedge-of-three-spheres homotopy type. The 33-coordinate-simplex decomposition proves the scale-one wedge-of-40-circles stage independently of computation. This is a complete proof for the single finite object, not an assertion about all triple products.
+PASS
 
-## Originality — PASS, qualified
+At scale one each maximal clique is a coordinate fiber, giving 36 points, 33 contractible fibers and 108 incidences: cycle rank 40. At scale two pairwise Hamming <=2 is exactly independence in K3 x K3 x K4. Independently enumerated all 30,992 augmented faces with precise f-vector (1,36,414,2028,4869,6804,6816,5184,3042,1324,396,72,6), constructed 15,448 disjoint deterministic toggle pairs, verified all 178,704 covering incidences and all 30,992 directed DAG nodes; 96 unmatched size-four faces and the empty/singleton pair imply a CW model with one vertex and 96 3-cells. Integral wedge follows from acyclic Morse, not Euler characteristic alone. Distances are integers 0-3 and r>=3 gives simplex; persistence degree zero and positive-degree intervals follow.
 
-Closest primary literature: Antolín Camarena–Carnero Bravo (arxiv:2307.12401), Sections 1 and 4, **conjectures** the all-three-factor sphere-wedge claim and **proves** the version having a factor of size two; the predicted multiplicity for the current triple is already \(96\). Goyal–Shukla–Singh (arxiv:1905.06926) treats two factors; Adamaszek–Adams (arxiv:2103.01040) treats all-binary Hamming cubes. The closest indexed previous finite case is the 27-vertex triple \((3,3,3)\), not the 36-vertex triple \((3,3,4)\). Research-database and primary-literature comparisons looked for exact, dual and broader formulations, with scientific search details recorded in `AUDIT.json`. The public indexed (3,3,3) result's full text was unavailable; an unindexed or implicit covering proof remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A canonical first mixed-alphabet case settles a substantive finite instance of a published infinite-family homotopy conjecture, supplying homotopy type rather than merely the conjecturally predicted sphere count. It also yields complete integral persistence for the corresponding 36-point graph-metric Hamming space. The case is motivated by the explicit 2023 conjecture and is not an arbitrary graph slice.
+Against materially inspected primary literature and indexed mathematical findings, the precise claim is not implied by the closest related theorems, as detailed by the four comparisons. Best-of-knowledge, not global proof of priority.
 
-## Limits
+## value
 
-The conclusion does not solve the general three-factor conjecture; only the \((3,3,4)\) case is proved. The certificate is finite exhaustive computation whose correctness can be independently replayed, not an external mathematical audit. No group-representation result is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the first unequal-alphabet, all-nonbinary three-complete-factor case of a natural categorical-product homotopy conjecture, with a fully exhausted finite homotopy proof and complete metric persistent homology. The sphere number 96 was already predicted; the value lies in proving the integral wedge and barcode, not rediscovering the conjectured number or claiming all-parameter classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
