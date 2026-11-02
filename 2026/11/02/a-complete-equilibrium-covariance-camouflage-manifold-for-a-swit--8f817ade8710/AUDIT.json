@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "A stationary stochastic convolution exists with uniformly bounded conditional Gaussian variance. State-resolved Itô-generator equations yield w2=2D(2K-Q^T)^{-1}pi, w4=12D(4K-Q^T)^{-1}w2 and C(t)=1^T exp((Q^T-K)t)w2. Its fixed initial slope C'(0+)=-D and Cayley-Hamilton reduce pure exponential covariance to an exact positive-prefactor factorization F=0. Solving F=0 with alpha,beta>0 uniquely gives k1<rho<k2 and the two explicit rates. ODE uniqueness proves all lags. Exact fourth-moment elimination yields a strictly positive fourth cumulant for every interior parameter. Algebraic identities were independently replayed from packaged verify.py with 229 symbolic/exact-rational checks, including an off-resonance control; finite checks are not substituted for analytical global quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang et al. arxiv:1412.7952 Secs. 3.3 and 3.4 derive general forward lag covariance and all-order moment recursions that specialize to this model."
+      ],
+      "reasoning": "Huang et al. supplies the forward machinery and enough general formulas to rederive this case after inverse elimination, but does not state a complete positive-rate iff eigenmode-cancellation classification or its exact fourth cumulant on the resulting two-dimensional family. This possibility of broader logical coverage remains a specifically acknowledged originality risk.",
+      "searches": [
+        "1412.7952 Huang Jansen Mandjes Spreij De Turck Markov-modulated Ornstein Uhlenbeck processes two-state covariance eigenvalue cancellation",
+        "Stationary Gaussian scale mixture of Brownian particle in a two-state randomly switching harmonic trap identifies both trap stiffnesses from essential support of mixing variance and switching rates from autocovariance spectral poles",
+        "Markov switching Ornstein Uhlenbeck Gaussian covariance single exponential hidden switching identifiability fourth cumulant"
+      ]
+    },
+    "checked_sources": [
+      "Biroli et al., arxiv:2312.02570",
+      "Huang et al., arxiv:1412.7952",
+      "Zhang and Wang, DOI:10.1080/03610918.2015.1132321",
+      "Frydel, arxiv:2407.12213"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Biroli et al. 2023 studies the same physical model but the stated correlation formula is for distinct particles at equal time.",
+        "Huang et al. 2014 gives forward lag covariance/moments for Markov-modulated OU.",
+        "Frydel 2024 treats alternating zero/positive stiffness rather than a pair of distinct strictly positive stiffnesses."
+      ],
+      "reasoning": "The present conclusion states necessity, sufficiency, uniqueness of the tuned rates given k1,k2,rho, a two-dimensional observationally equivalent family, and a strictly positive fourth-cumulant formula. None of the inspected stated theorems implies these as an already evaluated conclusion without additional eigenvalue-cancellation and positivity analysis. A future demonstration that a published stronger theorem explicitly classifies this fiber would invalidate this originality assessment.",
+      "searches": [
+        "two-state random stiffness autocorrelation exactly Ornstein Uhlenbeck exponential despite non-Gaussian",
+        "Strict identifiability of Markov-modulated harmonic trap parameters from poles and residues of stationary correlation functions",
+        "Autocorrelation invisible switching stiffness rates: continuous family of telegraph harmonic confinement parameters sharing exact stationary two-time covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Biroli et al. arxiv:2312.02570 Eq. (12)-(14) gives one-time Gaussian mixture and spatial particle correlations, not single-particle temporal OU covariance mimicry.",
+        "Huang et al. arxiv:1412.7952 Sec. 3.3 gives general forward covariance methods without a stated rate-classification theorem for one-exponential cancellation."
+      ],
+      "reasoning": "Equivalent forms searched included single-exponential autocovariance, hidden fast relaxation, covariance-mode cancellation, OU spectral mimicry, geometric-mean resonance, and fourth-cumulant separation. The nearest identified claims use distinct stochastic mechanisms and do not algebraically imply the stated complete rate locus.",
+      "searches": [
+        "Two-state randomly switching harmonic trap gives exactly single exponential position covariance indistinguishable from equilibrium Ornstein–Uhlenbeck at tuned switching rates, while stationary law remains non Gaussian",
+        "Markov modulated OU has exact covariance cloaking resonance when total switching rate lies strictly between twice the two confinement stiffnesses",
+        "Symmetric two-state harmonic stiffness switching at rate geometric mean of stiffnesses leads position autocovariance equal to equilibrium OU with geometric mean stiffness and positive kurtosis",
+        "two-state harmonic stiffness Markov switching one-exponential covariance OU mimic kappa4 alpha beta rho quadratic stationary moments"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Biroli et al. arxiv:2312.02570 has exact one-time variance-mixture formulas.",
+        "Zhang and Wang DOI:10.1080/03610918.2015.1132321 has stationary one-time density and Fourier-transform results; neither is an exact parameter table for one-exponential temporal covariance cancellation."
+      ],
+      "reasoning": "No directly tabulated source was found for the pair (positive stiffnesses, tuned switching rates) with exact OU covariance; the inspected exact stationary distributions and generic moment formulae are credited as inputs, and a negative database search is not treated as a novelty proof.",
+      "searches": [
+        "2312.02570 Biroli Kulkarni Majumdar Schehr dynamically emergent correlations between particles in a switching harmonic trap stationary temporal autocovariance",
+        "2017 Zhang Wang two-state Markov-switching Ornstein Uhlenbeck stationary density Fourier transform autocorrelation",
+        "fluctuating confinement on-off trap Frydel 2407.12213 stationary distribution inverse parameter recovery"
+      ]
+    },
+    "rationale": "The exact stationary Gaussian-mixture model of Biroli et al. and the general Markov-modulated covariance and higher-moment methods of Huang et al. are prior. The assessed contribution is the complete, positive-parameter iff classification for an exactly equilibrium-like stationary position autocovariance, together with its strictly nonzero fourth-cumulant formula. The inspected primary materials do not state this classification. General forward formulas may indirectly imply it after additional specialization and elimination, so definitive priority remains open.",
+    "residual_risks": [
+      "The general forward covariance and moment recursions of Huang et al. could be viewed as logically covering the present specialized algebraic fiber without an explicit restatement. The novelty assessed is its complete inverse classification and interpretation, not forward formulae.",
+      "The supplementary document mentioned in Biroli et al. was not separately examined. The complete main article was read for all relevant stated results.",
+      "The primary-text search and semantic database comparison do not certify global publication priority; independent literature assessment remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the Gaussian-mixture marginal and related spatial phenomena; inspected main text does not give the all-lag equilibrium covariance camouflage iff classification or its locus-restricted fourth cumulant.",
+        "evidence": [
+          "arxiv:2312.02570, main text model Eq. (2)-(4), stationary distribution Eq. (12)-(13), spatial correlation Eq. (14)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.02570",
+        "material_read": "Accessible complete main-text article: model and coupled forward equations; stationary variance-mixture integral; discussion of inter-particle spatial correlations and extreme-value statistics, including stated supplemental-material scope.",
+        "method": "Read public arXiv rendered text, model and main results through the references; distinguished distinct-particle equal-time correlations from single-particle time-lag covariance.",
+        "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+        "trigger": "Exactly the same two-positive-stiffness model with independent Brownian noise and asymmetric Markov rates."
+      },
+      {
+        "assessment": "Dominates the forward calculation machinery and implies moment recurrences for this specialization, but does not state the exact positive-rate eigenmode-cancellation fiber or demonstrate its positive fourth-cumulant obstruction. Derivability as an elementary corollary remains a real priority risk.",
+        "evidence": [
+          "arxiv:1412.7952, Sections 3.3-3.4, 4.1, 6.4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.7952",
+        "material_read": "Accessible public main text: Sections 3.1, 3.3 (covariance at a lag), 3.4 (higher moments), 4.1 (Laplace-transform PDE), and 6.4 (stationary moments).",
+        "method": "Read arXiv rendered complete-text relevant derivations; compared matrix-exponential forward covariance and arbitrary moment recursion with the evaluated inverse classification.",
+        "title": "Markov-modulated Ornstein-Uhlenbeck processes",
+        "trigger": "General process class containing the model and potentially dominating covariance and moment results."
+      },
+      {
+        "assessment": "Focuses on stationary one-time densities and their Fourier transforms; no temporal autocovariance-cloaking result was located in accessible text.",
+        "evidence": [
+          "DOI:10.1080/03610918.2015.1132321, author-shared full-text abstract and model, document searches for covariance/autocorrelation."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03610918.2015.1132321",
+        "material_read": "Public full-text HTML reproduction including abstract and introductory model; text searched for covariance/autocorrelation.",
+        "method": "Read accessible author-shared text at ResearchGate and searched the document for covariance and autocorrelation.",
+        "title": "The stationary distribution of Ornstein-Uhlenbeck process with a two-state Markov switching",
+        "trigger": "Same hidden two-state continuous-time switching OU model and potential exact marginal formulas."
+      },
+      {
+        "assessment": "Stiffness alternates between zero and one positive value; this does not cover the two distinct strictly positive stiffnesses and the exact all-lag covariance cancellation.",
+        "evidence": [
+          "arxiv:2407.12213v2, Sections IV-V, especially Eq. (27)-(29) and Eq. (34)-(40)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.12213",
+        "material_read": "Accessible full-text HTML including the fluctuating trap derivation, Gaussian-mixture representation, multidimensional extension and stationary moments.",
+        "method": "Read arXiv HTML sections on the on/off trap and its Gaussian-mixture law; searched full text for autocorrelation.",
+        "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+        "trigger": "Closest contemporary model with a randomly switching stiffness and conditional Gaussian variance mixture."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f817ade-8710-4626-be68-82dcd497485f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural inverse question for an experimental switching confinement model has an exhaustive answer: complete population covariance at every lag cannot exclude hidden stiffness switching even with matching diffusion, because every fixed effective OU relaxation rate supports a two-dimensional family of observationally identical but non-Gaussian models. A closed strictly positive fourth cumulant gives a specific distinguishing higher-order statistic. This is a nontrivial structural classification and cancellation manifold, not a generic moment plug-in or arbitrary parameter slice. The result is ideal-population only, with no noisy-data recovery claim.",
+    "status": "PASS"
+  }
+}
