@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Every cover yields a directed tour lower bound from one selected occurrence per palindrome, even with repeated occurrences. The included certificate verifier checks 702 or 756 exact integer dual inequalities and dual objectives 66 and 68, and explicitly constructs valid words of those lengths. Thus exact universal lower and constructive upper bounds coincide.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen/Kitaev/Sun full arXiv paper: universal cycle/word existence with removals from all same-length words, particularly one and two omissions",
+        "Simpson 2014 abstract: upper bound on total distinct palindromes in circular words across lengths",
+        "Teng/Yao 1997: general superstring approximation, not exact finite constrained table"
+      ],
+      "reasoning": "Existence of universal cycles for collections differing from the full word collection by at most two factors does not decide the optimum length for the particular 27 palindrome words out of 243 ternary 5-words. Overall palindrome diversity bounds and approximation ratios are insufficient to deduce exact 66 or 68.",
+      "searches": [
+        "https://arxiv.org/abs/1908.01116",
+        "https://doi.org/10.1016/j.tcs.2014.07.012",
+        "https://doi.org/10.1137/S0097539794286125",
+        "palindromes superstring length 5 3 symbols 68"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1908.01116",
+      "OEIS:A330022",
+      "OEIS:A390882",
+      "doi:10.1016/j.tcs.2014.07.012",
+      "doi:10.1137/S0097539794286125"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior existence results apply to almost-complete collections rather than the sparse ordinary-palindrome subfamily",
+        "The OEIS records binary length-five minimum 22, so extension to 3 symbols is not a numerical consequence",
+        "The circular-word diversity bound gives a coarse restriction, not exact length 66"
+      ],
+      "reasoning": "Neither matching terminology nor a general optimization framework entails these exact costs without instance-specific optimality; the new degree-and-cut certificate supplies precisely the missing lower bounds and constructions.",
+      "searches": [
+        "arxiv:1908.01116",
+        "OEIS:A330022",
+        "doi:10.1016/j.tcs.2014.07.012",
+        "doi:10.1137/S0097539794286125",
+        "ternary cyclic palindrome cover length five exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://oeis.org/A330022 states the binary linear palindrome-superstring sequence and describes the Hamiltonian-overlap path reduction",
+        "https://arxiv.org/abs/1908.01116 defines universal words/cycles of selected equal-length factors"
+      ],
+      "reasoning": "Weighted Hamiltonian path/cycle reduction is known general methodology, not presented as new. The precise ternary 27-pattern optimum values for both boundary conditions were not specified by the inspected sources or comparison results. Binary results do not imply ternary values.",
+      "searches": [
+        "palindromic superstring exact ternary five-letter words cyclic length 66 linear length 68",
+        "minimum cycle cover all 27 palindromes abcba ternary alphabet overlap shortest superstring",
+        "shortest common superstring of length-5 palindromes over alphabet size three",
+        "OEIS:A330022"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A330022 counts minimum linear lengths for binary palindromes",
+        "OEIS A390882 concerns multiplicities of binary palindrome superstrings, not this ternary numerical optimum"
+      ],
+      "reasoning": "The inspected databases address the binary case, not a ternary 5-palindrome table or a paired circular/linear benchmark. Lack of a matching record is insufficient to prove novelty; an unindexed finite table remains a residual risk.",
+      "searches": [
+        "https://oeis.org/A330022",
+        "https://oeis.org/A390882",
+        "ternary palindrome superstring length 5 66 68",
+        "all palindromes ternary shortest cyclic superstring"
+      ]
+    },
+    "rationale": "The exact 27-target ternary length-five ordinary-palindrome cyclic/linear optima and matching 66/68 cut-dual certificates are not implied by the closely compared universal-cycle, binary-palindrome-superstring, circular-palindrome-diversity or general superstring approximation results. An unindexed equivalent finite table remains possible; negative searches alone are not the originality basis.",
+    "residual_risks": [
+      "An equivalent q=3, length-5 value may appear in specialized, unindexed exact-shortest-superstring computational literature.",
+      "The Simpson 2014 and Teng–Yao 1997 primary papers were assessed through authoritative abstracts rather than line-by-line full texts; their stated theorems are not exact instance-specific cover results.",
+      "Self-review is not independent peer verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: primary theorems concern removing a small number of factors from all length-n words, not the present 27/243 restricted coverage optimum",
+        "evidence": [
+          "Submitted 2019-08-03, arXiv:1908.01116; abstract explicitly describes one/two removed words and binary n<=4 exact cases"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.01116",
+        "material_read": "Entire lawful arXiv HTML article, including setup, main results and examples; author-hosted full PDF inspected by page",
+        "method": "Compared hypotheses about removed factors, length and full-set coverage against the 27 ordinary ternary palindromes",
+        "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+        "trigger": "Definitions and possible stronger restricted-universal-cycle coverage"
+      },
+      {
+        "assessment": "NOT_COVERING: records binary linear minima, including binary length-five 22, not ternary length-five or cyclic minimum",
+        "evidence": [
+          "OEIS A330022: sequence and November 22, 2025 Hamiltonian path comment; original 2019-11-27 entry"
+        ],
+        "identifier_or_url": "https://oeis.org/A330022",
+        "material_read": "Full publicly displayed sequence, comments, examples, bibliographic history and Hamiltonian reduction note",
+        "method": "Compared alphabet cardinality, palindrome order, linear/circular reading and numerical tables",
+        "title": "OEIS A330022: Length of shortest binary string containing all palindromes of length n",
+        "trigger": "Potential exact smallest-palindrome-superstring database"
+      },
+      {
+        "assessment": "NOT_COVERING at abstract theorem level: global diversity bound does not imply sharp covering word length; full text not materially inspected and is residual source risk",
+        "evidence": [
+          "Simpson, Theoretical Computer Science 550 (2014): total-palindrome upper bound in circular words"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.07.012",
+        "material_read": "Open scholarly abstract describing its theorems and scope",
+        "method": "Compared upper bounds on total distinct palindromes across lengths with fixed-length complete-cover minimization",
+        "title": "Palindromes in circular words",
+        "trigger": "Circular palindrome coverage may have general bounds"
+      },
+      {
+        "assessment": "NOT_COVERING at abstract theorem level: approximate upper bounds do not establish 66/68 numerical equality",
+        "evidence": [
+          "Teng/Yao, SIAM Journal on Computing 26 (1997): 2.89-factor approximation algorithm"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0097539794286125",
+        "material_read": "Publisher bibliographic page, abstract and paper scope",
+        "method": "Compared approximation algorithm bounds with exact finite optimum",
+        "title": "Approximating Shortest Superstrings",
+        "trigger": "Potential stronger arbitrary-target shortest-superstring result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "11abece6-2ea8-4bc1-a849-91ae5f6287d2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The target is the canonical complete family of 27 ordinary five-letter ternary palindromes, not a contrived word subset. Exact minimum cyclic 66 and linear 68 sizes give a nontrivial 2-letter boundary effect and certificate-backed benchmarks for restricted universal-word/superstring optimization.",
+    "status": "PASS"
+  }
+}
