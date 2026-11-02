@@ -1,0 +1,204 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T21:56:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and VERIFICATION.md at frozen SHA, all eight frozen source files",
+        "Direct Poisson/Fourier derivation and analytic monotonicity/equality reasoning",
+        "Bounded independent SymPy/mpmath symbolic integral, polynomial root, and quadrature calculations"
+      ],
+      "rationale": "From L∞ Poisson representation, u(0)=∇u(0)=0 removes Fourier modes 0,1. The derivative kernel is K_r(t)=(1-r²)sin(t)/(1-2r cos t+r²)². After odd symmetrization ψ, its first sine moment is zero. For H_r(x)=(1-r²)/(1-2rx+r²)² strictly increasing, subtracting H_r(0) and taking the L∞ bound yields |u_y(r,0)|≤(2/π)[∫_0^1 H_r(x) dx−∫_{−1}^0 H_r(x) dx]=8r/[π(1−r⁴)]. The trace −sgn(sin 2t) has zero constant/first Fourier modes and saturates the bound at every 0<r<1; its Poisson integral is u*(z)=(2/π)Arg[(1−z²)/(1+z²)] with |u*|<1 in the disk. For F=z+i(M−1)u, J=1+(M−1)u_y, so a positive-real-axis fold forces r≥r_M, unique from 8(M−1)r=π(1−r⁴); u* attains. Comparison with r_0(M)=M−√(M²−1) factors into (ρ−1)[πρ³+πρ²+(π+4)ρ+π−4]=0. The cubic is strictly increasing, has unique root ρ*∈(0,1), and strict comparison occurs exactly for M>(1+ρ*²)/(2ρ*)=4.4487630197851664... . Independent SymPy simplifications checked kernel/integral/factorization and independently recomputed 60-digit threshold, with numerical quadrature at r=0.1,0.5,0.9. These checks corroborate, not replace, the all-r analytic argument.",
+      "residual_risks": [
+        "Claimed optimality only for Jacobian collapse on positive real axis among bounded real vertical shears; no universal harmonic Landau radius or nonreal-fold exclusion for all u.",
+        "Numerical decimal is a display approximation to uniquely characterized exact root, not an exact closed algebraic number independent of π."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Svetlik gives (4/π) arctan |z|² as sharp pointwise value bound for same vanishing first jet, but not a derivative extremal.",
+          "General harmonic gradient bound 4/[π(1-r²)] does not exploit ∇u(0)=0, unlike 8r/[π(1-r⁴)]=O(r).",
+          "Published centered-univalence theorem classifies the explicit u* only; published Poisson extremizer theorem concerns Lp circle norms without the first-sine moment constraint."
+        ],
+        "reasoning": "Specifically examined the strongest plausible dominating same-object bound (Svetlik), general sharp gradient theorem, higher-order Schwarz maps, stronger same-shear radius theorem and norm extremizer rigidity. None of their inspected mathematical statements implies sharp constrained transverse derivative for every admissible u and its universal vertical-shear mechanism threshold. An uninspected older constrained interpolation result remains a recorded residual risk.",
+        "searches": [
+          "Schwarz Pick derivative harmonic vanishing gradient origin exact second order two point bound",
+          "Dieudonné lemma sharp derivative bound holomorphic self map disk zero of order two at zero",
+          "sharp Schwarz Pick lemma multiple zero order n derivative estimate at interior point",
+          "Schwarz Pick lemma derivative for holomorphic maps with multiple zero at origin 2r/(1-r4)",
+          "Kalaj–Marković arXiv:1012.3153 full text",
+          "Kargar 2024 Theorems 4.3–4.8",
+          "Bai–Huang–Zhu arXiv:2007.12840 full text",
+          "Svetlik 2019 Theorem 11 Corollary 1",
+          "Resultary published 2026/10/11/SCOPE-exact-centered-univalence-radius-of-the-borovikov-shear--16de77633d7a, complete RESULT.md at https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-centered-univalence-radius-of-the-borovikov-shear--16de77633d7a/RESULT.md",
+          "Resultary published 2026/10/11/SCOPE-schwarz-gap-rigidity-for-real-poisson-extremizers--4283e66b4d00, complete RESULT.md at https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-schwarz-gap-rigidity-for-real-poisson-extremizers--4283e66b4d00/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "M. Borovikov, A Counterexample to the Liu-Luo-Luo Conjecture on the Harmonic Landau Radius, arXiv:2609.39676v1 (2026-09-30), full primary text §§1–3.",
+        "M. Svetlik, A note on the Schwarz lemma for harmonic functions (2019), full primary arXiv HTML, Theorem 11 and Corollary 1.",
+        "R. Kargar, On Harnack inequality and harmonic Schwarz lemma, Canadian Mathematical Bulletin 67 (2024), Theorems 4.3–4.8; DOI:10.4153/S0008439524000298.",
+        "D. Kalaj and M. Marković, Optimal estimates for gradient of harmonic functions in the unit disk, arXiv:1012.3153; Theorem 1.1, p=∞ consequence and proof.",
+        "X.-J. Bai, J. Huang, J.-F. Zhu, Boundary Schwarz lemma for harmonic mappings having zero of order p, arXiv:2007.12840; Lemma 1.1, Theorems 1.1–1.2, hypotheses.",
+        "Resultary published 2026/10/11/SCOPE-exact-centered-univalence-radius-of-the-borovikov-shear--16de77633d7a, complete RESULT.md at https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-centered-univalence-radius-of-the-borovikov-shear--16de77633d7a/RESULT.md",
+        "Resultary published 2026/10/11/SCOPE-schwarz-gap-rigidity-for-real-poisson-extremizers--4283e66b4d00, complete RESULT.md at https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-schwarz-gap-rigidity-for-real-poisson-extremizers--4283e66b4d00/RESULT.md",
+        "Resultary semantic search results for two complete queries, excluding the assigned hit as prior evidence",
+        "Web search terms on first-jet constrained gradients, harmonic Schwarz–Pick and exact Landau threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Borovikov ⇒ existence of a fold at r_M for explicit u*, but not ∀u positive-real-axis fold≥r_M.",
+          "Exact centered univalence of explicit u* ⇒ no earlier off-axis collapse for that u*, but not variational optimality among all u.",
+          "Svetlik same-jet |u(z)| bound, general |∇u| bound and Poisson Lp norm theorem do not explicitly imply the sharp constrained derivative functional.",
+          "Our claimed result ⇒ sharp classwide bound plus M_shear; its exact threshold is slightly below Borovikov's sufficient M*>4.451599... ."
+        ],
+        "reasoning": "Compared logical direction: knowing an explicit extremal attains a candidate value does not upper-bound other functions; a value-envelope estimate alone does not fix the derivative at r; a stronger theorem for one fixed map is not stronger for the whole perturbation class. The existing 2026 source only provides an approximate sufficient M bound, not exact iff class threshold.",
+        "searches": [
+          "arXiv:2609.39676v1 full §§1–3",
+          "Svetlik 2019 Corollary 1",
+          "Resultary exact-centered-univalence RESULT.md",
+          "Resultary Schwarz-gap-rigidity RESULT.md",
+          "Kargar 2024 Theorem 4.5",
+          "Kalaj–Marković arXiv:1012.3153"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Borovikov §2 identifies same u*, transverse derivative and r_M for a specific function, but no universal inequality.",
+          "Svetlik Corollary 1 bounds |u(z)| for same 0/1 jet, not its sharp transverse derivative.",
+          "Resultary current assigned finding appeared in searches and was excluded as independent prior evidence."
+        ],
+        "reasoning": "Checked the theorem as a constrained harmonic gradient extremal, strip/Schwarz zero-jet bound, L∞ moment-duality inequality, shear fold optimality, and exact Landau threshold. Same-hypotheses value bounds and same-map explicit fold are only partial mathematical overlap; no logical deduction of exact universal u_y bound from inspected prior statements was located.",
+        "searches": [
+          "Sharp derivative estimate for bounded real harmonic disk functions with vanishing value and first derivative at the origin; extremal transverse derivative at r is 8r/(pi(1-r^4)), Poisson extremal sign(sin 2t), Landau vertical shear",
+          "Counterexample to Liu Luo Luo conjecture harmonic Landau radius Borovikov precise earliest Jacobian fold and sharp threshold 4.448763, vertical shear optimality",
+          "real harmonic functions unit disk sharp gradient vanishing first derivative 8r pi 1-r4",
+          "harmonic Schwarz lemma zero first derivative sharp tangent derivative harmonic functions",
+          "\"vanishing first jet\" \"harmonic\" \"derivative\" \"sharp\"",
+          "\"u(0)=0\" \"grad u(0)=0\" \"derivative\" harmonic sharp",
+          "harmonic maps strip derivative bound zero first jet 8r pi r4",
+          "arXiv:2609.39676 §2; Svetlik 2019 Corollary 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned record itself, a close same-u* centered-radius classification, and a distinct Poisson norm classification; these were discriminated by theorem implication.",
+          "No independent table entry giving the full class threshold or the derivative inequality was located; the threshold is directly obtained from the unique root of πρ³+πρ²+(π+4)ρ+π−4."
+        ],
+        "reasoning": "An exact numeric-constant search is only overlap screening, not a novelty proof. The parameter value is a derived analytic transition, not an enumerated database object. Compared same-map equation versus classwise sharp inequality rather than relying on matching digits.",
+        "searches": [
+          "Sharp derivative estimate for bounded real harmonic disk functions with vanishing value and first derivative at the origin; extremal transverse derivative at r is 8r/(pi(1-r^4)), Poisson extremal sign(sin 2t), Landau vertical shear",
+          "Counterexample to Liu Luo Luo conjecture harmonic Landau radius Borovikov precise earliest Jacobian fold and sharp threshold 4.448763, vertical shear optimality",
+          "harmonic Landau radius Borovikov exact threshold 4.448763",
+          "4.4487630197851664455692236305 harmonic Landau shear",
+          "8r/(pi(1-r^4)) bounded harmonic zero first jet"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after searching Resultary and relevant published records, and directly inspecting seven highly relevant full mathematical texts. Borovikov explicitly gives u* and its fold equation; independently published exact centered univalence classification covers the same fixed u*, but neither establishes the sharp inequality for every zero-first-jet bounded real harmonic perturbation or its extremality over this whole shear class. Svetlik's highly relevant same-first-jet theorem gives a sharp value bound but not a sharp derivative; general gradient and higher-order mapping lemmas use different conditions. No examined prior result implies the complete derivative optimality and exact class threshold. This does not claim that unsuccessful keyword searches prove novelty.",
+      "residual_risks": [
+        "An older Poisson moment-constrained or holomorphic strip-interpolation theorem, possibly under duality/Schwarz–Pick terminology, might imply this derivative estimate despite no matching source identified.",
+        "Svetlik 2019 has the same zero-first-jet hypotheses and might admit a nontrivial derivative corollary not stated in the inspected theorem; that possible implication was considered but no direct implication found.",
+        "Same-date published records' ordering does not establish independent chronological priority; no priority claim is made.",
+        "Optimality does not address nonreal Jacobian failures for arbitrary u or counterexamples outside bounded real vertical-shear class."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: constructs the same u* and r_M and supplies an upper-bound-based sufficient M*>4.451599..., but does not establish sharp derivative optimality over all admissible u or the exact M_shear 4.448763... threshold",
+          "evidence": "Its fold is r_M, with 8(M-1)r_M=π(1-r_M^4); its comparison uses r_M<π/(8(M-1)) rather than exact equality at r_0(M).",
+          "identifier_or_url": "arXiv:2609.39676v1; https://arxiv.org/abs/2609.39676",
+          "material_read": "Open primary full HTML: abstract, Introduction, §2 complete construction and Eq. defining u*, u_y, J, r_M, sufficient M*; §3 asymptotic discussion",
+          "method": "Direct primary full-text arXiv/HTML reading; compared statements and mathematical implications",
+          "title": "A Counterexample to the Liu-Luo-Luo Conjecture on the Harmonic Landau Radius",
+          "trigger": "Identical perturbation u*, shear Jacobian and fold equation; potential direct prior coverage"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE: for u(0)=0 and ∇u(0)=0 obtains sharp |u(z)|≤(4/π) arctan |z|²; this is a same-hypotheses value envelope, not the claimed sharp |u_y(r,0)|, nor the shear-parameter optimality or exact threshold",
+          "evidence": "Corollary 1 sharp value majorant (4/π)arctan(r²). That statement alone does not provide the sharp transverse derivative at positive real axis.",
+          "identifier_or_url": "M. Svetlik, 2019 arXiv primary HTML; verified full text and Theorem 11, Corollary 1",
+          "material_read": "Full available primary HTML, especially introduction, §2 Theorem 11/Corollary 1 and its §3 proof",
+          "method": "Direct primary full-text reading; checked fixed-point value vs directional derivative",
+          "title": "A note on the Schwarz lemma for harmonic functions",
+          "trigger": "Highly relevant source uses the SAME first-jet vanishing condition and may subsume extremal derivative"
+        },
+        {
+          "assessment": "NOT_COVERING: general |∇u(z)|≤(4/π)(1-u(z)^2)/(1-|z|²) does not exploit the zero first jet and is substantially weaker near r=0",
+          "evidence": "Theorem 4.5 general gradient bound 4/[π(1-r²)] at u(r)=0, compared with 8r/[π(1-r^4)]=O(r).",
+          "identifier_or_url": "DOI:10.4153/S0008439524000298; full publisher article",
+          "material_read": "Publisher primary full HTML; §4 Theorems 4.3–4.8 and the sharp Colonna/Kalaj-Vuorinen gradient statements",
+          "method": "Direct primary full-text inspection",
+          "title": "On Harnack inequality and harmonic Schwarz lemma",
+          "trigger": "Sharp general gradient/Schwarz lemma for bounded real harmonic functions"
+        },
+        {
+          "assessment": "NOT_COVERING: sharp general Hardy-space gradient constants do not impose the extra zero first-jet normalization that changes extremal constant",
+          "evidence": "p=∞ general 4/[π(1-r²)] gradient bound, without the first-sine Fourier moment constraint.",
+          "identifier_or_url": "arXiv:1012.3153; D. Kalaj and M. Marković",
+          "material_read": "Full open article HTML: theorem and the directional gradient optimization, proof, and p=∞/Colonna bound",
+          "method": "Primary full-text arXiv reading",
+          "title": "Optimal estimates for gradient of harmonic functions in the unit disk",
+          "trigger": "Strongest plausible general sharp directional derivative result for real harmonic functions"
+        },
+        {
+          "assessment": "NOT_COVERING: sense-preserving complex disk self-maps of multiplicity p; real scalar harmonic perturbations are rank-one and not sense-preserving, and statements control values/boundary derivatives instead of constrained interior transverse derivative",
+          "evidence": "Sense-preservation |w_z|-|w_{bar z}|>0, value estimates such as (4/π) arctan |z|^p.",
+          "identifier_or_url": "arXiv:2007.12840v1; DOI:10.1007/s40840-020-00980-1",
+          "material_read": "Full primary open HTML: definitions, Lemma B, Lemma 1.1, Theorems 1.1–1.2, proof hypotheses",
+          "method": "Direct arXiv full-text reading",
+          "title": "Boundary Schwarz lemma for harmonic mappings having zero of order p",
+          "trigger": "Possible stronger second-order zero theorem"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE: proves exact centered univalence radius and pointwise Jacobian minimum for fixed u*, but does not optimize u_y among all bounded harmonic zero-first-jet perturbations or compute/claim optimal M_shear threshold",
+          "evidence": "min_{|z|≤r} J_{F_M}(z)=1-[8(M-1)/π] r/(1-r^4) for explicit u*, not for arbitrary u.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-centered-univalence-radius-of-the-borovikov-shear--16de77633d7a/RESULT.md",
+          "material_read": "Entire original RESULT.md: theorem, proof, limitations, related work and references",
+          "method": "Direct primary published finding file fetched from GitHub",
+          "title": "Exact centered univalence radius of the Borovikov shear",
+          "trigger": "Published close-topic exact radius theorem of the identical explicit shear"
+        },
+        {
+          "assessment": "NOT_COVERING: establishes sharp L∞_0→L^p norms of Poisson averages and equality cases, not the one-moment-constrained directional derivative functional or shear optimality",
+          "evidence": "Its functional is ∥P_r f∥_p for 1<p<∞; the audited functional is directional differentiation u_y(r,0) with vanishing first sine moment.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-schwarz-gap-rigidity-for-real-poisson-extremizers--4283e66b4d00/RESULT.md",
+          "material_read": "Entire original RESULT.md: statement, proof, parameter range, references, limitations",
+          "method": "Direct primary published finding file fetched from GitHub",
+          "title": "Schwarz-gap rigidity for real Poisson extremizers",
+          "trigger": "Published sharp real Poisson and square-wave extremizer theorem might imply derivative bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Motivating 2026 Borovikov counterexample and its coarse sufficient M threshold",
+        "Theorem's sharp classwise derivative and exact extremal trace",
+        "Distinct published same-u* centered-radius theorem and its narrower quantification"
+      ],
+      "rationale": "The natural class consists of all real bounded harmonic perturbations with vanishing first jet, the exact normalization required by the recent harmonic Landau counterexample. The sharp transverse derivative is an independently useful natural extremal invariant of this whole class, not merely the small numerical improvement from Borovikov's sufficient threshold. It proves a structural optimization boundary for earliest positive-real-axis Jacobian folding and identifies a common extremal for all radii and a unique exact parameter transition. Future efforts to improve the Landau bound using real-axis vertical shears need this exact optimal constant to distinguish this mechanism from nonreal or non-shear alternatives. No claim of solving the universal Landau problem, global injectivity of every arbitrary shear, or downstream landmark theorem is made.",
+      "residual_risks": [
+        "Mathematical value is of the narrowly specified real-axis vertical-shear architecture, not a universal optimum for all harmonic maps.",
+        "If an older result mechanically determines the derivative extremum, both independent novelty and value need reassessment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen SCOPE2026 record's eight blobs and actual Git tree",
+    "M. Borovikov, A Counterexample to the Liu-Luo-Luo Conjecture on the Harmonic Landau Radius, arXiv:2609.39676v1 (2026-09-30), full primary text §§1–3.",
+    "M. Svetlik, A note on the Schwarz lemma for harmonic functions (2019), full primary arXiv HTML, Theorem 11 and Corollary 1.",
+    "R. Kargar, On Harnack inequality and harmonic Schwarz lemma, Canadian Mathematical Bulletin 67 (2024), Theorems 4.3–4.8; DOI:10.4153/S0008439524000298.",
+    "D. Kalaj and M. Marković, Optimal estimates for gradient of harmonic functions in the unit disk, arXiv:1012.3153; Theorem 1.1, p=∞ consequence and proof.",
+    "X.-J. Bai, J. Huang, J.-F. Zhu, Boundary Schwarz lemma for harmonic mappings having zero of order p, arXiv:2007.12840; Lemma 1.1, Theorems 1.1–1.2, hypotheses.",
+    "Resultary published 2026/10/11/SCOPE-exact-centered-univalence-radius-of-the-borovikov-shear--16de77633d7a, complete RESULT.md at https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-centered-univalence-radius-of-the-borovikov-shear--16de77633d7a/RESULT.md",
+    "Resultary published 2026/10/11/SCOPE-schwarz-gap-rigidity-for-real-poisson-extremizers--4283e66b4d00, complete RESULT.md at https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-schwarz-gap-rigidity-for-real-poisson-extremizers--4283e66b4d00/RESULT.md"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The result is restricted to positive-real-axis fold optimality for the bounded real harmonic vertical-shear class; nonreal collapse in arbitrary perturbations and the unrestricted harmonic Landau problem remain outside scope.",
+    "Novelty is best-of-knowledge with explicit high-relevance coverage and unresolved historical terminology risk; no unattested literature exhaustiveness is claimed.",
+    "Finite/symbolic numerical replays corroborate but do not replace arbitrary-radius Fourier and monotonicity proof."
+  ]
+}

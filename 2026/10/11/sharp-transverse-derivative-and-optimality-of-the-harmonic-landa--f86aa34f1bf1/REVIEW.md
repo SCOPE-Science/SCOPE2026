@@ -1,37 +1,21 @@
-# Review of Sharp transverse derivative and optimality of the harmonic Landau shear
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For bounded real harmonic \(u\) with zero value and zero gradient at the origin, the first three Fourier constraints remove the constant and first harmonics. The transverse derivative at \((r,0)\) is therefore a linear functional against the odd kernel
-\[
-K_r(t)
-=
-\frac{(1-r^2)\sin t}{(1-2r\cos t+r^2)^2}.
-\]
-After odd symmetrization, the only remaining constraint is the zero first sine moment. Subtracting the median kernel level \(H_r(0)\) gives an \(L^\infty\) extremal problem whose sign changes exactly at \(t=\pi/2\). The resulting integral is exactly
-\[
-\frac{8r}{\pi(1-r^4)}.
-\]
-The source perturbation has the extremal boundary trace and saturates the bound.
+PASS
 
-For a vertical shear, the Jacobian is
-\[
-1+(M-1)u_y.
-\]
-Thus the sharp derivative inequality gives an exact lower bound on every positive-real-axis fold radius, attained by the source map. The comparison with the holomorphic Landau radius reduces to one strictly increasing cubic, proving the exact threshold.
+From L∞ Poisson representation, u(0)=∇u(0)=0 removes Fourier modes 0,1. The derivative kernel is K_r(t)=(1-r²)sin(t)/(1-2r cos t+r²)². After odd symmetrization ψ, its first sine moment is zero. For H_r(x)=(1-r²)/(1-2rx+r²)² strictly increasing, subtracting H_r(0) and taking the L∞ bound yields |u_y(r,0)|≤(2/π)[∫_0^1 H_r(x) dx−∫_{−1}^0 H_r(x) dx]=8r/[π(1−r⁴)]. The trace −sgn(sin 2t) has zero constant/first Fourier modes and saturates the bound at every 0<r<1; its Poisson integral is u*(z)=(2/π)Arg[(1−z²)/(1+z²)] with |u*|<1 in the disk. For F=z+i(M−1)u, J=1+(M−1)u_y, so a positive-real-axis fold forces r≥r_M, unique from 8(M−1)r=π(1−r⁴); u* attains. Comparison with r_0(M)=M−√(M²−1) factors into (ρ−1)[πρ³+πρ²+(π+4)ρ+π−4]=0. The cubic is strictly increasing, has unique root ρ*∈(0,1), and strict comparison occurs exactly for M>(1+ρ*²)/(2ρ*)=4.4487630197851664... . Independent SymPy simplifications checked kernel/integral/factorization and independently recomputed 60-digit threshold, with numerical quadrature at r=0.1,0.5,0.9. These checks corroborate, not replace, the all-r analytic argument.
 
-## Originality
+## originality
 
-PASS. The fresh primary source contains the same extremal-looking harmonic function but uses it only as one counterexample and compares its exact fold radius to a crude rational upper bound. It neither proves derivative extremality among all zero-first-jet perturbations nor computes the optimal threshold of the full shear mechanism.
+PASS
 
-A full-text comparison with modern harmonic Schwarz-lemma literature found sharp general gradient bounds but no refinement using the vanishing first jet. A full-text comparison with higher-order harmonic Schwarz lemmas found different hypotheses: sense-preserving disk self-maps with a zero of multiplicity \(p\), rather than scalar bounded harmonic perturbations into an interval.
+Best-of-knowledge PASS after searching Resultary and relevant published records, and directly inspecting seven highly relevant full mathematical texts. Borovikov explicitly gives u* and its fold equation; independently published exact centered univalence classification covers the same fixed u*, but neither establishes the sharp inequality for every zero-first-jet bounded real harmonic perturbation or its extremality over this whole shear class. Svetlik's highly relevant same-first-jet theorem gives a sharp value bound but not a sharp derivative; general gradient and higher-order mapping lemmas use different conditions. No examined prior result implies the complete derivative optimality and exact class threshold. This does not claim that unsuccessful keyword searches prove novelty.
 
-Candidate-specific published-finding searches over the source identifier, the exact threshold, the derivative constant, zero-first-jet terminology, and vertical-shear optimality returned no implication-equivalent result.
+## value
 
-## Value
+PASS
 
-PASS. The source paper's threshold improvement alone would be numerically small, but the accepted claim is structural: it proves that the source perturbation is the sharp extremal for the entire natural vertical-shear counterexample architecture. This identifies exactly what the construction can and cannot achieve.
+The natural class consists of all real bounded harmonic perturbations with vanishing first jet, the exact normalization required by the recent harmonic Landau counterexample. The sharp transverse derivative is an independently useful natural extremal invariant of this whole class, not merely the small numerical improvement from Borovikov's sufficient threshold. It proves a structural optimization boundary for earliest positive-real-axis Jacobian folding and identifies a common extremal for all radii and a unique exact parameter transition. Future efforts to improve the Landau bound using real-axis vertical shears need this exact optimal constant to distinguish this mechanism from nonreal or non-shear alternatives. No claim of solving the universal Landau problem, global injectivity of every arbitrary shear, or downstream landmark theorem is made.
 
-The theorem therefore converts one explicit counterexample into an optimality principle, supplies the exact parameter boundary for that mechanism, and creates a benchmark for any future attempt to disprove the harmonic Landau conjecture at smaller \(M\): such an improvement must leave this real-axis bounded-shear framework or exploit a different critical geometry.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
