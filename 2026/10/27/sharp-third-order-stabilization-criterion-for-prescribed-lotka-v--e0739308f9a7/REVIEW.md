@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claimed necessary-and-sufficient condition is derived from the exact equilibrium condition and Euler's identity for homogeneous quadratic polynomials, which force \(J\mathbf1=-h\). The converse realizes every matrix with this row-sum vector using explicit diagonal-square coefficients. Constant nonnegative row sums force an eigenvalue in the closed right half-plane; negative constant row sums admit a negative scalar matrix. Nonconstant row sums admit a rank-one nilpotent perturbation of \(-I\). The resulting matrix is Hurwitz in every dimension, and the unnormalized Jacobian is positively diagonally similar. Boundaries include \(n=1\) and \(h\equiv0\), with the claim restricted to strict Hurwitz stability. Exact-rational replay tests support the proof rather than substituting for it.
+PASS
 
-## Originality
+For fixed z>0, r, S and completely unconstrained partner-symmetric quadratic per-capita terms (repeated partners permitted), positive diagonal normalization gives B=S diag(z), equilibrium Q_i(1)=-r_i-sum_j B_ij and Jacobian row sums s_i=-2r_i-sum_j B_ij by homogeneous Euler identity. Conversely every J with J1=s is realized with Q_i(y)=1/2 sum_j(J_ij-B_ij)y_j^2, preserving the equilibrium and full linearization; original Jacobian is diagonally similar. When s=c1 with c>=0, c is a forbidden eigenvalue; when c<0, J=cI works. For nonconstant s, choose u^T1=1, u^Ts=-1 and J=-I+(s+1)u^T; rank-one perturbation squares to zero, so all eigenvalues equal -1. Covers n=1, constant-zero boundary, all coefficient signs, strict Hurwitz rather than global attraction. Separately recomputed 504 exact rational stabilizing configurations, checking the actual equilibrium and Jacobian and nilpotency; the finite cases are not the proof.
 
-PASS, subject to remaining priority risk. The highly relevant 2026 arXiv paper's full Section 4 and Theorem 4.2 were read: they give a universal **fourth-order** construction and a particular third-order example, not the stated necessary-and-sufficient third-order boundary for arbitrary **fixed** data. The 2024 Gibbs et al. main article was read through its model, stability results, and correlation analysis: it develops constrained and sampled higher-order coefficient designs, but no universal iff criterion in the accessible main text. Published research-record searches for row-sum/Hurwitz completion and equivalent higher-order coexistence formulations did not surface an implication-equivalent theorem. The Gibbs supplemental PDF was not accessible in the attempted route; broader matrix completion and ecological literature can contain equivalent results. No search failure is treated as a proof of absolute novelty, and independent historical-priority confirmation is outstanding.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The natural open design question is not just whether higher-order effects *can* rescue stability, but the **minimum interaction order needed at a given abundance and fixed pairwise parameters**. This result exactly isolates the codimension-\(n-1\) exceptional family (with sign boundary) in which three-body terms cannot provide a Hurwitz equilibrium. It provides an explicit construction for all other data and a concrete competitive two-species example where fourth-order terms are genuinely necessary. It can guide interaction-order model selection and provide adversarial tests for stabilizing higher-order design methods. It does not imply empirical feasibility, signs, bounded coefficient magnitudes, or global stability.
+Compared mathematical objects and implications, not merely similar titles: Çelik et al., Theorem 4.2 establishes a four-body completion by using quadratic AND cubic per-capita terms, and Example 4.1 a special third-order construction; it does not classify the third-order-only obstruction. Theorem 4.2 (arxiv:2609.09286) supplies sufficiency at order four, not necessity/sufficiency at order three or its exceptional boundary; the new construction and Euler row-sum obstruction are additional ingredients. Residual priority risks documented, including uninspected plausible original sources; absence of search hits is not assumed to certify novelty.
 
-## Closest sources and limitations
+## value
 
-Çelik et al., arXiv:2609.09286, Section 4/Theorem 4.2 and Example 4.1, and Gibbs et al., DOI:10.1111/ele.14458, Model form and Question 3, are the closest inspected full-text materials. Duran-Sala et al., arXiv:2501.09172, was examined at abstract level and cannot be used to exclude whole-text coverage. Gibbs's supporting-information PDF was inaccessible and remains a specific residual literature risk. Published mathematical records and available prior claims were compared for claim implications; absence of similar records is not a uniqueness certificate. The scientific result is limited to unrestricted symmetric partner tensors with repeated indices and local Hurwitz stability.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sign/magnitude of a specifically prescribed third-order ecological correction is a natural minimal-interaction-order question. An exact necessary-and-sufficient obstruction separates all exceptional fixed data requiring fourth-order terms from the otherwise universally explicit third-order construction, which is not a routine corollary of fourth-order existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

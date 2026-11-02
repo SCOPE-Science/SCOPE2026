@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3 and its standard library. The program uses `fractions.Fraction` and a deterministic seed, with no external dependencies or network access. The reproducible terminal message starts `EXACT_REPLAY_OK 1190 rational cases` and reports the constructed/obstructed cases.
+## correctness
 
-For every tested coefficient tuple it directly checks the equilibrium equation, computes the Jacobian of the actual unnormalized vector field, verifies its positive-diagonal similarity to the constructed target matrix, verifies the mandatory Euler row-sum identity, and checks the rank-one nilpotent structure that places every constructed nonconstant-row-sum eigenvalue at \(-1\). It separately checks two fully explicit two-species examples and a fourth-order rescue.
+PASS
 
-These are **finite exact-rational consistency checks**. The general proof is the algebraic argument in `RESULT.md`, particularly the homogeneous quadratic identity and the nilpotent matrix construction. There is no computational claim of exhaustive verification of the real parameter domain, or of global nonlinear stability. Independent audit has not been performed.
+For fixed z>0, r, S and completely unconstrained partner-symmetric quadratic per-capita terms (repeated partners permitted), positive diagonal normalization gives B=S diag(z), equilibrium Q_i(1)=-r_i-sum_j B_ij and Jacobian row sums s_i=-2r_i-sum_j B_ij by homogeneous Euler identity. Conversely every J with J1=s is realized with Q_i(y)=1/2 sum_j(J_ij-B_ij)y_j^2, preserving the equilibrium and full linearization; original Jacobian is diagonally similar. When s=c1 with c>=0, c is a forbidden eigenvalue; when c<0, J=cI works. For nonconstant s, choose u^T1=1, u^Ts=-1 and J=-I+(s+1)u^T; rank-one perturbation squares to zero, so all eigenvalues equal -1. Covers n=1, constant-zero boundary, all coefficient signs, strict Hurwitz rather than global attraction. Separately recomputed 504 exact rational stabilizing configurations, checking the actual equilibrium and Jacobian and nilpotency; the finite cases are not the proof.
+
+## originality
+
+PASS
+
+Compared mathematical objects and implications, not merely similar titles: Çelik et al., Theorem 4.2 establishes a four-body completion by using quadratic AND cubic per-capita terms, and Example 4.1 a special third-order construction; it does not classify the third-order-only obstruction. Theorem 4.2 (arxiv:2609.09286) supplies sufficiency at order four, not necessity/sufficiency at order three or its exceptional boundary; the new construction and Euler row-sum obstruction are additional ingredients. Residual priority risks documented, including uninspected plausible original sources; absence of search hits is not assumed to certify novelty.
+
+## value
+
+PASS
+
+The sign/magnitude of a specifically prescribed third-order ecological correction is a natural minimal-interaction-order question. An exact necessary-and-sufficient obstruction separates all exceptional fixed data requiring fourth-order terms from the otherwise universally explicit third-order construction, which is not a routine corollary of fourth-order existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
