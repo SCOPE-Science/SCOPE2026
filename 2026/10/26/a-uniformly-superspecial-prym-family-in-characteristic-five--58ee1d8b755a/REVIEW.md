@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two fixed points of the tame involution and the quotient equation are derived directly. The exact basis of four holomorphic differentials splits into \(+1\) and \(-1\) involution eigenspaces. The symbolic Cartier coefficient identities make the anti-invariant two-dimensional Cartier operator identically zero for every smooth parameter; the superspecial surface criterion then proves the claim, independent of sampling. The source's nonisotriviality follows from the distinct Cartier ranks and \(5\)-ranks at \(a=0\) and at nonzero smooth parameters. The explicit genus-two matrix independently checks ordinarity of the quotient.
+## correctness
 
-## Originality — PASS (priority unverified)
-Baldwin–Eilbeck–Gibbons–Ônishi (arXiv:math/0612654) study Abelian functions of cyclic trigonal genus-four curves. Kudo–Harashita (arXiv:1607.01114) classify superspecial **genus-four Jacobians** in small characteristic. Related characteristic-five general trigonal work gives ambient Jacobian \(5\)-rank, and a previously reported characteristic-seven calculation gives an *ordinary* Prym for this same pencil. None of these results asserts that the Prym **itself** is a fixed superspecial dimension-two factor for all characteristic-five smooth parameters. Relevant exact-statement searches did not identify an equivalent theorem; negative searches do not establish absolute priority. A specialized existing Prym/Cartier analysis remains the principal residual originality risk.
+PASS
 
-## Mathematical value — PASS
-This is a one-parameter family of nonisomorphic source curves with a uniformly superspecial Prym surface, a natural and exceptional Newton/Ekedahl–Oort condition. It separates the arithmetic of a Prym factor from that of the ambient genus-four Jacobian and from the genus-two quotient; the source has \(5\)-rank two generically, although its Prym has \(5\)-rank zero and maximal \(a\)-number. This is stronger than a textbook computation of an individual point or mere restatement of ambient rank.
+The tame involution has genus-two quotient w^2=(t^3-a)^2-4 and Prym dimension two. A basis of anti-invariant holomorphic differentials dx/y^2 and x^2 dx/y^2 is killed by the Cartier operator: in F_5[a,x], coefficients [x^4]f^3 and [x^14]f^3, [x^4]f, and [x^4]x^2f all vanish. Thus Prym a-number is 2, which in dimension 2 implies superspeciality. The plus-block coefficients a and a(a^2-4), nonzero for a != 0 and a^2 !=4, give stable rank 2 and the stated source/quotient p-rank; quotient Hasse-Witt polynomial coefficients were checked independently. The squarefreeness and tameness exclusions are essential.
 
-## Limits
-There is no independent proof audit or absolute historical-priority guarantee. No polarized classification or arithmetic descent over nonclosed fields is asserted. Symbolic identities are proved algebraically; finite-field tests corroborate but cannot replace them.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The uniform superspecial Prym factor with varying genus-four source and ordinary genus-two quotient is not furnished by inspected genus-four superspecial Jacobian enumerations or general trigonal Prym constructions. Best-of-knowledge priority, not exclusion of every possible equivalent moduli formulation.
+
+## value
+
+PASS
+
+A one-parameter nonisotrivial locus with a fixed superspecial isogeny factor and ordinary complementary quotient in characteristic five is a concrete, motivated structural phenomenon about Cartier eigenspaces and Prym variation, not a small-instance sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

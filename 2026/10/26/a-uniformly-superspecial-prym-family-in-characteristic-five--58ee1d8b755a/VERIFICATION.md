@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-`verify.py` requires Python 3 only. It multiplies sparse bivariate polynomials in \(\mathbb F_5[a,x]\), verifying the exact Cartier contributions: the degree-\(4\) and degree-\(14\) coefficients of \(f_a^3\) vanish, while the degree-\(9\) coefficient equals \(a^3+a\); the sole nonzero relevant coefficient for \(x^i f_a\) equals \(a\) for \(i=1\). Independently, it verifies the four entries of the genus-two Cartier–Manin matrix from \(h_a(t)^2\). Finally, it constructs \(\mathbb F_{25}\) and counts \(66\) points on the superspecial member \(C_0\).
+# Independent mathematical audit
 
-Reproduce by executing `python verify.py`. This checks the critical parameter-uniform polynomial identities and one point-count sanity test, not the general theory of the Cartier operator, the tame double-cover/Prym identification, or historical novelty. Those standard inputs and logical deductions are given in `RESULT.md`. All calculations refer to the embedded program shipped with this finding, not an external log or a different version. The scientific conclusion is conditional only on the explicit smoothness assumption \(a^2\ne4\).
+## correctness
+
+PASS
+
+The tame involution has genus-two quotient w^2=(t^3-a)^2-4 and Prym dimension two. A basis of anti-invariant holomorphic differentials dx/y^2 and x^2 dx/y^2 is killed by the Cartier operator: in F_5[a,x], coefficients [x^4]f^3 and [x^14]f^3, [x^4]f, and [x^4]x^2f all vanish. Thus Prym a-number is 2, which in dimension 2 implies superspeciality. The plus-block coefficients a and a(a^2-4), nonzero for a != 0 and a^2 !=4, give stable rank 2 and the stated source/quotient p-rank; quotient Hasse-Witt polynomial coefficients were checked independently. The squarefreeness and tameness exclusions are essential.
+
+## originality
+
+PASS
+
+The uniform superspecial Prym factor with varying genus-four source and ordinary genus-two quotient is not furnished by inspected genus-four superspecial Jacobian enumerations or general trigonal Prym constructions. Best-of-knowledge priority, not exclusion of every possible equivalent moduli formulation.
+
+## value
+
+PASS
+
+A one-parameter nonisotrivial locus with a fixed superspecial isogeny factor and ordinary complementary quotient in characteristic five is a concrete, motivated structural phenomenon about Cartier eigenspaces and Prym variation, not a small-instance sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
