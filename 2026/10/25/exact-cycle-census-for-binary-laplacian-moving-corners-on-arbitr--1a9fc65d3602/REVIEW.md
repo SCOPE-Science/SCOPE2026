@@ -1,19 +1,21 @@
-# Scientific review: binary moving-corner cycle census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed result concerns precisely the finite binary corner map \(T=(I+U^2)(I+V^2)\). Frobenius reduces its power-of-two fixed spaces to multiplication by \(u^a+v^a+u^av^a\) in a truncated polynomial ring. Decomposition by exponents modulo \(a\), a unit-preserving substitution, and a quotient-algebra rank identity prove that each pair of residue chains contributes \(\min(d_i,e_j)\) to the nullity. Summing chain levels gives the stated finite sum. Distinct surviving monomials prove the operator order, and nested fixed sets give exact periods and zeta. The dyadic probability follows from an exact half-dimension calculation. Pure-Python checker results: 405 binary matrix ranks and 60 exhaustive orbit counts passed. No probabilistic computation is used as an infinite proof.
+PASS
 
-## Originality — PASS on inspected evidence, with priority risk
+For every D,E>=1 over F_2, Frobenius gives T^(2^r)-I multiplication by u^a+v^a+u^av^a on F_2[u,v]/(u^D,v^E), a=2^(r+1). Splitting by exponents mod a produces truncated chain pairs. The automorphism Y->(1+X)Y sends X+Y to X+Y+XY, and the quotient by X+Y has length min(d_i,e_j). Summing chain survival indicators gives exactly K_r and #Fix=2^K_r. Distinct monomials show exact operator order 2^R, and nested fixed-point counts yield least periods, cycle counts and zeta. For dyadic windows with max>=4, K_(R-1)=DE/2 proves full-period proportion 1-2^(-DE/2). Reviewed actual RESULT.md and artifacts/verify_corner.py at pinned tree; independent constructed bitwise operator and 405 exact rank checks, including K(5,7)=(10,19,35). One-sided D=1 or E=1 handled by vanishing truncated shifts. No assumption that short finite checks establish the universal formula.
 
-The motivating paper supplies the binary corner factorization and full-operator order, but stops short of counting individual seed periods. Classical unipotent tensor-product results supply background linear algebra, not an all-rectangle moving-corner orbit census; the specific quotient-algebra synthesis and the exact dyadic period fraction were not identified in the inspected sources. Related public modular-Laplacian records concern full-space Frobenius dilation or cross-modulus parity, not finite corner cycle distributions. A standard tensor-product theorem combined with the source's factorization points toward this derivation, so originality is necessarily confined to the explicit dynamical census and may require wider historical checking.
+## originality
 
-## Value — PASS
+PASS
 
-The source explicitly distinguishes the operator's period from potentially shorter periods of individual seeds. An exact count for all window shapes resolves that natural quantitative gap, gives a complete finite dynamical zeta function, and quantifies how rarely dyadic seeds fail to attain maximal period. Rectangular uniformity and the surprising half-rank formula are structural, not an arbitrary computed small case. The calculation can guide selection of corner seeds where full-period behavior matters, but makes no claim about security or full-lattice recurrence.
+Originality is the full all-rectangle distribution of binary moving-corner periods and cycles, not the underlying unipotent tensor-block nullity or moving-corner factorization. Direct comparison with closest square-window source finds an exact operator order, not fixed-state counts. Literature/index overlap remains possible for equivalent dynamical formulations.
 
-## Limitations and closest literature
+## value
 
-Closest source: Nowak-Kępczyk, arXiv:2511.17389v2, Section 3.5, Theorems 1–2. Algebraic background: Glasby–Praeger–Xia, arXiv:1711.06860v2, Sections 1–2. Full-lattice modular-Laplacian records from September 2026 were read and address different objects. Historical-priority risk persists, especially from pre-existing modular Jordan-product techniques. The conclusion is for an autonomous co-moving corner, not a whole-lattice return. Only characteristic two and the diagonal mask are covered.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The moving-corner local rule defines a natural finite-state dynamical system studied for Frobenius revivals. The theorem resolves the entire period spectrum, all exact multiplicities, dynamical zeta and a sharp generic-period probability for every rectangle; these are nontrivial seed-level invariants not implied by operator order alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
