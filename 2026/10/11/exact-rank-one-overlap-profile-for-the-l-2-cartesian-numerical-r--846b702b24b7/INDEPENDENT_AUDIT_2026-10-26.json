@@ -1,0 +1,187 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T17:42:01Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Assigned RESULT.md at Git blob c4f76174ea2ab05f274003a6f39e0acc1357eb11; explicit eigenvalues and antiderivative reconstructed.",
+        "arXiv:2610.04844v1 definition and invariance assertions, Theorem 4 global bounds and Propositions 2,3 endpoint mechanisms.",
+        "arXiv:2503.05036v1 (1.2) classical rank-one omega(T)=(alpha+|tr T|)/2.",
+        "Independent scipy integrate.quad of squared 2x2 spectral norm for r=0,.07,.2,.5,.8,.999,1, errors 0 to 8.78e-13; supplementary only.",
+        "Canonical frozen Git tree and actual six blob SHAs reconstructed; source and current main directory file identities agree."
+      ],
+      "limitations": [
+        "Nonzero rank-one bounded operators on complex Hilbert spaces; no higher-rank profile, other averaging exponents or q/rho radius identification.",
+        "Uses the ordinary operator norm, angular probability normalization 1/(2pi), and principal real arcsin on [0,1].",
+        "No claim of formal Lean proof or expert attestation; bounded quadrature is corroboration only."
+      ],
+      "rationale": "For any nonzero rank-one T=alpha u⊗v on a complex Hilbert space, scalar phase/unitary similarity reduce it (on span{u,v}) to the real 2x2 block alpha[[r,s],[0,0]], r=|tr T|/alpha in [0,1], s=sqrt(1-r²), with zero direct summand. Re(e^-itT) has eigenvalues alpha/2[r cos t ± sqrt(1-r² sin²t)]; since sqrt(1-r² sin²t)≥r|cos t|, the norm is exactly alpha/2(sqrt(1-r²sin²t)+r|cos t|). Its square is alpha²/4[1+r²cos2t+2r|cos t|sqrt(1-r²sin²t)]. The cos2t term averages to zero, and the cross term becomes (2/pi)int_0^1 sqrt(1-r²u²)du; evaluation yields omega_2²=alpha²[1/4+(r sqrt(1-r²)+asin r)/(2pi)]. r=0 gives alpha²/4, r=1 gives alpha²/2; no hidden division by zero since antiderivative at r=0 is taken by limit. Independent quadrature on the actual 2x2 Hermitian matrix at r=0,.07,.2,.5,.8,.999,1 matches to <=9e-13. Classical omega rank-one identity gives the asserted ratio, and r=0 iff T²=0, r=1 iff normal. This is a complete all-parameter symbolic proof, not extrapolated from sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2610.04844v1 Theorem 4 yields omega/sqrt(2)<=omega_2<=omega; Proposition 2 covers self-adjoint endpoints and Proposition 3 covers anticommuting equal-square Cartesian parts. Its explicit upper-sharpness 2x2 T=H+iK has trace=determinant=0 and is rank-one nilpotent, so endpoints are prior coverage.",
+          "arXiv:2610.15242v1 Theorem 2.2 integrates squared vector-state evaluations and takes a supremum AFTER integration to represent omega²; omega_2 integrates norm squares and is different.",
+          "Resultary/2026 2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727/RESULT.md studies distance-to-phase-selfadjoint lower-comparison stability; no exact full rank-one arcsin profile."
+        ],
+        "reasoning": "Existing general global sharp bounds and endpoint equality examples do not fix interior omega_2 values. The source’s later operator inequalities lack a premise yielding the claimed 2x2 angular eigenvalue integral. The new formula covers r in (0,1) as a continuous class, though its endpoints themselves are covered.",
+        "searches": [
+          "arXiv:2610.04844v1 Theorem 4 Proposition 2 Proposition 3 rank-one",
+          "arXiv:2610.15242v1 Theorem 2.2 vector-state integral numerical radius",
+          "Resultary: L2 Cartesian numerical radius exact rank one operator formula arcsin trace overlap",
+          "Resultary: rank one numerical radius operator norm of real part averaged squared numerical radius"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.04844v1 full HTML (focal)",
+        "arXiv:2503.05036v1 full HTML (rank-one q-radius)",
+        "arXiv:2610.15242v1 primary HTML (integral numerical radius)",
+        "Resultary published complete RESULT.md: 2026/10/11/SCOPE-exact-projective-spectral-gap-formula-and-optimal-finite-spectra--f6644dc86b39",
+        "Resultary published complete RESULT.md: 2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Audeh–Moradi–Sahoo Theorem 4 only bounds omega_2 between half-power limits for all operators.",
+          "The nilpotent and normal r=0,1 endpoints are already obtained from the focal general equality mechanisms and examples, so endpoint attainment is a corollary, not independently new.",
+          "The Denčić et al. q-radius expression is an optimization under a pair-state constraint; q=1 recovers omega, not omega_2.",
+          "Audeh–Kittaneh–Moradi representation of omega² takes sup_x after integration of scalar quadratic form; omega_2 uses integration of sup over states, which is generally not commutable."
+        ],
+        "reasoning": "The full continuously varying arcsin dependence requires separate pointwise operator-norm spectrum and angular integration. The existing weaker inequality and different-function formulas cannot imply it merely through substitution. The only already-covered pieces are the endpoints and classical omega ratio factor.",
+        "searches": [
+          "arXiv:2610.04844v1 Theorem 4 and Proposition 3",
+          "arXiv:2503.05036v1 Theorem 2.1 and (1.2)",
+          "arXiv:2610.15242v1 Theorem 2.2",
+          "Resultary/2026 L2-Cartesian radius unitary spectrum and operator-norm stability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2610.04844v1 Section 1 and Theorem 4: defining angular mean-square norm and universal interval; inspected full-text search finds no rank-one or arcsin profile.",
+          "arXiv:2503.05036v1 Theorem 2.1 computes omega_q(a⊗b)=(alpha+q abs(trace)+sqrt(1-q²) sqrt(alpha²-abs(trace)²))/2, a q-constrained functional, not omega_2.",
+          "The submitted function contains arcsin(r) from integrating |cos theta|sqrt(1-r²sin²theta); neither the q-radius supremum nor classical omega formula states this integral."
+        ],
+        "reasoning": "The normalized rank-one overlap r is the complete phase/unitary invariant, and angular-operator-norm root-mean-square, numerical-range symmetric support-function mean square, and an integral of the 2x2 rotated Hermitian eigenvalue may denote the same sought value. Searches found no earlier same-function equality. Related q/rho numerical radii are different functionals despite same parameter.",
+        "searches": [
+          "Resultary: L2 Cartesian numerical radius exact rank one operator formula arcsin trace overlap",
+          "Resultary: root mean square numerical radius rotating real parts rank one trace elliptic integral formula",
+          "Web: \"Cartesian numerical radius\" \"rank one\" \"arcsin\"",
+          "Web: numerical range ellipse rank one matrix root mean square support function squared ellipse rotated real part norm integral",
+          "arXiv:2610.04844v1 HTML full text rank, rank-one, projection, arcsin"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the assigned finding 2026/10/11/SCOPE-exact-rank-one-overlap-profile-for-the-l-2-cartesian-numerical-r--846b702b24b7 (self-copy excluded as independent priority).",
+          "Resultary/2026 2026/10/11/SCOPE-exact-projective-spectral-gap-formula-and-optimal-finite-spectra--f6644dc86b39/RESULT.md calculates omega_2 of unitary operators via projective spectral gaps, not rank-one nonunitary operators.",
+          "Closest rank-one q, rho, Davis–Wielandt and joint-radius findings have different definitions or other functionals; none supplies the exact omega_2 rank-one overlap table."
+        ],
+        "reasoning": "The actual published-record searches considered the exact angular mean-square invariant, operator-radius aliases and rank-one overlap; no independently covering table was identified. Results about unitaries, q/rho numerical radius, or power moments are not interchangeable with the audited functional.",
+        "searches": [
+          "Resultary: L2 Cartesian numerical radius exact rank one operator formula arcsin trace overlap",
+          "Resultary: root mean square numerical radius rotating real parts rank one trace elliptic integral formula",
+          "Resultary: rank one numerical radius operator norm of real part averaged squared numerical radius",
+          "Web: integral of squared operator norm real rotated rank one arcsin",
+          "Web: mean-square support function ellipse center offset arcsin rank one numerical range"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the full continuous rank-one omega_2 profile, not for the defining integral, the classical rank-one omega formula, or either sharp endpoint alone. The focal Audeh–Moradi–Sahoo arXiv:2610.04844v1 defines omega_2 and proves universal inequalities and equality mechanisms; its exhibited upper-bound Pauli 2x2 example has determinant zero and trace zero, so a rank-one nilpotent saturating the upper bound is ALREADY implicit in that paper, while its self-adjoint equality includes rank-one projections at the lower bound. Nevertheless its inspected full HTML has no rank-one specialization or interior r-dependent arcsin identity. Denčić et al. arXiv:2503.05036v1 Theorem 2.1 treats a distinct constrained two-vector q-numerical radius and (1.2) the classical omega. Audeh–Kittaneh–Moradi arXiv:2610.15242v1 Theorem 2.2 concerns omega via a supremum over vector-state angular integrals rather than the average of OPERATOR norms defining omega_2; the two quantities cannot be identified by swapping sup and integral. Published Resultary normal-unitary spectral-gap and cubic-stability findings address different operator classes/aspects and do not imply the nonnormal rank-one continuum formula. A universal prior integral evaluation under another name remains a residual risk; a failed search is not treated as priority proof.",
+      "residual_risks": [
+        "An earlier generic angular support-function mean-square or 2x2 numerical-range ellipse calculation may compute this same arcsin profile under different terminology.",
+        "The focal paper’s upper-sharpness example and self-adjoint proposition already imply both rank-one endpoint claims; priority pertains to continuous 0<r<1 profile, not the endpoint corollary.",
+        "The complete historical literature is not exhaustively indexed or searched; originality is a bounded best-of-knowledge assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: all universal bounds and both endpoint phenomena, including an implicitly rank-one nilpotent example, but not the continuous interior rank-one formula.",
+          "evidence": [
+            "arXiv:2610.04844v1 Theorem 4: omega/sqrt2≤omega_2≤omega; Proposition 2 phase-selfadjoint lower case; Proposition 3 anticommuting upper case; explicit 2x2 Pauli example after Theorem 4 has determinant 0.",
+            "Theorem 12 gives a general norm bound from H,K, not an equality dependent only on rank-one overlap."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.04844v1",
+          "material_read": "Primary full HTML introduction, definition/invariances, Propositions 2–3, Theorems 4,5,9,12, later bounds and their proof portions; full-document exact searches for rank-one, rank, projection, arcsin.",
+          "method": "Direct HTML primary-text reading, equation/proof comparison and in-document full-text term searches.",
+          "title": "The L²-Cartesian Numerical Radius of Hilbert Space Operators",
+          "trigger": "Introduces the exact audited functional and its sharp global comparison; high-priority possible source of direct rank-one coverage."
+        },
+        {
+          "assessment": "Not covering omega_2: it computes constrained q-numerical radius; supplies only the classical omega rank-one identity used in the audit claim’s ratio.",
+          "evidence": [
+            "Theorem 2.1: omega_q(a⊗b)=1/2(alpha+q|<a,b>|+sqrt(1-q²)sqrt(alpha²-|<a,b>|²)); equation (1.2) handles omega at q=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2503.05036v1",
+          "material_read": "Primary full HTML introduction and definitions, equation (1.2), Theorem 2.1 and proof, associated corollaries and rank-one matrix propositions in Section 3.",
+          "method": "Direct reading and comparison of mathematical definitions, Theorem 2.1 and its proof; comparison of allowed state pairs versus operator-norm angular averaging.",
+          "title": "q-numerical radius of rank-one operators and the generalized Buzano inequality",
+          "trigger": "Closest primary published exact rank-one numerical-radius expression with the same overlap parameter."
+        },
+        {
+          "assessment": "Inspected Theorem 2.2 does not cover rank-one omega_2: it represents classical omega and omega² with a supremum of scalar state-integrals rather than an integral of operator-norm squares.",
+          "evidence": [
+            "Theorem 2.2(ii), equation (2.11): omega²=2 sup_{||x||=1} int <Re(e^-it T)x,x>² dt, not int ||Re(e^-it T)||² dt."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.15242v1",
+          "material_read": "Abstract, introduction and full Theorem 2.2 statement and surrounding integral identities in Section 2.",
+          "method": "Direct primary HTML comparison of order of supremum and integral and distinct integrands.",
+          "title": "Integral Representations and Sharp Numerical Radius Inequalities for Hilbert Space Operators",
+          "trigger": "A separate October 2026 primary source with angular integral numerical-radius claims could imply the sought formula."
+        },
+        {
+          "assessment": "Applies to U unitary, not general rank-one T; a nonzero rank-one operator can be unitary only in dimension one (r=1), already covered endpoint.",
+          "evidence": [
+            "Projective unitary spectrum gap formula for omega_2(U)^2, not rank-one overlap r profile."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-projective-spectral-gap-formula-and-optimal-finite-spectra--f6644dc86b39/RESULT.md",
+          "material_read": "Complete published RESULT.md claim, proof, normalization and prior-work comparison.",
+          "method": "Direct GitHub file read and operator-class/parameter implication comparison.",
+          "title": "Exact projective spectral-gap formula and optimal finite spectra for the L²-Cartesian radius of unitaries",
+          "trigger": "Closest named published same omega_2 functional exact-profile classification."
+        },
+        {
+          "assessment": "Gives quantitative lower-bound deficit and equality criterion, but not the rank-one continuous profile for omega_2.",
+          "evidence": [
+            "omega_2(T)^2-omega(T)^2/2≥d(T)^3/(2πomega(T)); does not compute exact value from rank-one r."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727/RESULT.md",
+          "material_read": "Complete published RESULT.md claim, proof, limitations and references.",
+          "method": "Direct full published-source comparison of invariant, bound and quantifiers.",
+          "title": "Cubic operator-norm stability for the L²-Cartesian numerical radius",
+          "trigger": "Relevant published stronger dimension-free statement about exact lower sharpness."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Focal arXiv:2610.04844v1 introduces angular RMS radius and gives only sharp global interval; exact rank-one interior dependence is not supplied.",
+        "Complete rank-one parameterization and exact arcsin formula in source RESULT.md; explicit 0<r<1 normalized profile.",
+        "arXiv:2503.05036v1 illustrates rank-one overlap as a natural unitary/phase invariant for numerical radii."
+      ],
+      "limitations": [
+        "A small structural subclass classification, not a new all-operator inequality or a higher-rank theorem.",
+        "Already-known endpoint sharpness mechanisms have no independent originality or value; assessment credits the interior formula."
+      ],
+      "rationale": "An exact continuous profile for a just-introduced angular numerical-radius functional on the canonical rank-one family is a naturally motivated and independently usable benchmark, rather than an arbitrary tiny slice. Rank-one operators are a standard test class, and their normalized generating-vector overlap r is the unique scalar parameter after phase/unitary reductions. The formula gives the entire 0≤r≤1 transition (indeed d(omega_2²/alpha²)/dr=sqrt(1-r²)/pi), quantitatively interpolates between nilpotent and normal extremes, and allows evaluation/comparison without angular integration. The two endpoint examples themselves are already implicit in the original paper, so their rediscovery is not assigned independent value; the substantive surviving fact is the full interior function.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.04844v1 full HTML (focal)",
+    "arXiv:2503.05036v1 full HTML (rank-one q-radius)",
+    "arXiv:2610.15242v1 primary HTML (integral numerical radius)",
+    "Resultary published complete RESULT.md: 2026/10/11/SCOPE-exact-projective-spectral-gap-formula-and-optimal-finite-spectra--f6644dc86b39",
+    "Resultary published complete RESULT.md: 2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The exact formula is confined to nonzero rank-one bounded operators on a complex Hilbert space; scalar/phase/unitary normalization specified.",
+    "The 0 and 1 endpoint special cases are already implied by original global sharpness work; novelty priority only for interior rank-one profile.",
+    "Source package is not publication-safe as is due to operational metadata; review scientific completion does not imply repository synchronization."
+  ],
+  "residual_risks": [
+    "An earlier generic angular support-function mean-square or 2x2 numerical-range ellipse calculation may compute this same arcsin profile under different terminology.",
+    "The focal paper’s upper-sharpness example and self-adjoint proposition already imply both rank-one endpoint claims; priority pertains to continuous 0<r<1 profile, not the endpoint corollary.",
+    "The complete historical literature is not exhaustively indexed or searched; originality is a bounded best-of-knowledge assessment."
+  ],
+  "schema_version": 1
+}
