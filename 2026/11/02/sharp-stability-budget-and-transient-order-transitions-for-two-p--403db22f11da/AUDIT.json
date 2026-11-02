@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Direct symbolic transfer gives the Jury inequalities. For fixed sum, the eigenvalue modulus is decreasing in product before the repeated-root threshold and increasing after; the positive-product boundary at sum one is excluded. For repeated-root optimum N=P-rI is nilpotent and has exact Frobenius norm 1+a; determinant-one singular-value algebra yields the finite-horizon norm, strictly ordered by first rate. Exact symbolic/finite numerical checks in verify.py passed; the written proof supplies universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1806.10188, equations (2), Theorem 1, pp.2,7: constant learning rate in fixed-delay quadratic analysis.",
+        "arXiv:1909.05350, pp.1–3: broad delay estimates with scalar or varying rates, no exact two-cycle optimum found.",
+        "arXiv:2202.08550, pp.2,7–8: sufficient delay-adaptive rate policies for PIAG/Async-BCD, not the fixed-sum extremal calculation.",
+        "PMLR 151 goujaud22a, pp.1–3: exact cyclical heavy-ball spectral expressions for a different first-order method; no delayed-gradient transient ordering."
+      ],
+      "reasoning": "General monodromy and Schur stability criteria cover the abstract technique, so these are not claimed as novel. The coupled optimization over a fixed total stale-gradient learning-rate budget, its nonattainment point, and the norm distinction between its two optimal orderings require the explicit special transfer family; none of the inspected stronger results supplies them as a direct stated implication. A general parametrized spectral formula is the strongest conceptual overlap and limits the novelty claim.",
+      "searches": [
+        "web: periodic delayed gradient descent alternating stepsizes stability quadratic delay one",
+        "web: 2020 Arjevani Shamir Srebro A tight convergence analysis for stochastic gradient descent with delayed updates pdf full text",
+        "primary full-text source: https://proceedings.mlr.press/v151/goujaud22a/goujaud22a.pdf",
+        "published-finding corpus: optimal stable two-step scalar lagged linear recursion fixed sum coefficients trace determinant double root"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1806.10188",
+      "arXiv:1909.05350",
+      "arXiv:2202.08550",
+      "PMLR:151/goujaud22a",
+      "published-finding corpus: 2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe",
+      "published-finding corpus: 2026/10/4/SCOPE-critical-damping-ratio-for-scalar-least-squares-primal-dual-line--f8268fe426bc",
+      "Mathematical item de54d7f6-1af5-438e-8389-783700d9f7c4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arjevani et al. Theorem 1 imposes a single η and derives a bound; it does not quantify unequal alternating η values.",
+        "Goujaud et al. Theorem 3.1 addresses momentum with current gradients and eigenvalue rates; no delayed term or norm-order theorem was found.",
+        "The characteristic-polynomial Schur test is classical; additional budget minimization and exact Jordan singular-value calculation are supplied explicitly."
+      ],
+      "reasoning": "The candidate implies a strict stable-budget supremum of 3 instead of 2 and an exact transient ordering for the two spectrally tied optima. These do not follow from a constant-step sufficient theorem or from merely knowing eigenvalues: the latter are identical after swapping but the Euclidean norms differ. A general cyclic spectral method may aid rederivation, but does not already certify the ordered transient claim.",
+      "searches": [
+        "web: delayed gradient descent alternating stepsize stability",
+        "web: 2-periodic second order linear difference equations stability Schur coefficient a b",
+        "published-finding corpus: optimal stable two-step scalar lagged linear recursion fixed sum coefficients trace determinant double root",
+        "arXiv:1806.10188 PDF text search periodic and Theorem 1",
+        "PMLR 151/goujaud22a full-text search delayed, transient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Earlier mathematical finding de54d7f6-1af5-438e-8389-783700d9f7c4 treats two-periodic optimistic-gradient updates on a skew operator, not one-step-delayed scalar gradient descent.",
+        "published-finding corpus result 2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe concerns bilateral first-order recurrence on sequence spaces, not a lag-one two-state optimizer.",
+        "PMLR 151 goujaud22a studies current-gradient heavy-ball recurrence, with a different location and coefficient of the delayed term."
+      ],
+      "reasoning": "The stale-gradient state map has trace 1-a-b and determinant ab. Equivalent eigenvalue descriptions are accounted for, as are classical Floquet/Jury reductions. Current-gradient cyclic momentum results cannot be copied as an equality of matrices, and their asymptotic eigenvalue analysis does not determine this map’s order-dependent Euclidean transient norm.",
+      "searches": [
+        "published-finding corpus: two-periodic second-order linear difference equation y(n+1)=y(n)-a_n y(n-1) exact Schur stability minimax spectral radius",
+        "web: linear delay difference equation x n+1 x n a n x n-1 period two Schur stability",
+        "web: delayed gradient descent alternating stepsize stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest previously recorded alternating-steps theorem concerns a bilinear optimistic-gradient rotation, identifier de54d7f6-1af5-438e-8389-783700d9f7c4, and does not imply the present stale-gradient recurrence theorem.",
+        "published-finding corpus returned related nonlinear optimization and two-periodic recurrence entries, but no directly corresponding table or exact claim in the inspected ranked hits."
+      ],
+      "reasoning": "The checked mathematical claim records contain no matching exact fixed-budget spectral-rate or order-dependent finite-horizon formula. This is a bounded comparison rather than a proof of exhaustive novelty.",
+      "searches": [
+        "scientific prior-claim comparison: item de54d7f6-1af5-438e-8389-783700d9f7c4",
+        "published-finding corpus: period-2 delayed-gradient method alternated positive step sizes total budget three gradient scaling threshold",
+        "published-finding corpus: periodic alternating learning rates delayed gradient descent scalar quadratic sharp stability threshold spectral radius"
+      ]
+    },
+    "rationale": "Four directly relevant primary texts were materially examined and compared at recurrence and conclusion level. Constant-rate delayed-gradient results, sufficient delay-adaptive conditions and cyclic current-gradient momentum do not directly state the sharp fixed-budget classification with ordered Euclidean transient norms. Generic Jury/Floquet tools are prior art. Residual specialized periodic-delay priority risk remains.",
+    "residual_risks": [
+      "Specialized earlier period-two delayed-difference or step-size schedule results might have the same budget optimum under different terminology.",
+      "General cyclic transfer-matrix and heavy-ball spectral machinery may make part of the calculation a known specialization; the norm-order part distinguishes this claim.",
+      "Finite literature and database searches do not establish exhaustive publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes fixed-delay constant-rate deterministic and noisy convergence bounds, not sharp two-period total-budget spectral or norm-order laws.",
+        "evidence": [
+          "arXiv:1806.10188v1 p.2 Eq.(2) and p.7 Theorem 1; 2018-06-26 first-version timestamp"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1806.10188",
+        "material_read": "PDF pp.1–2 and Theorem 1 around p.7, together with extracted text search for periodic-rate statements",
+        "method": "arXiv full-text PDF rendered and text checked",
+        "title": "A Tight Convergence Analysis for Stochastic Gradient Descent with Delayed Updates",
+        "trigger": "Same delayed-gradient quadratic recurrence and direct time-delay model"
+      },
+      {
+        "assessment": "General rates and delayed SGD connection; no period-two quadratic exact spectral optimization in inspected sections.",
+        "evidence": [
+          "arXiv:1909.05350 pp.1–2, D-SGD update and literature discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1909.05350",
+        "material_read": "PDF pp.1–2 and source model plus textual searches in body for periodic rates",
+        "method": "arXiv full-text PDF rendered and text checked",
+        "title": "The Error-Feedback Framework: Better Rates for SGD with Delayed Gradients and Compressed Updates",
+        "trigger": "Broad delayed-gradient estimate with variable step sizes"
+      },
+      {
+        "assessment": "Sufficient adaptive policies tied to delays for PIAG/Async-BCD; does not characterize fixed lag-one alternating positive rate budgets.",
+        "evidence": [
+          "arXiv:2202.08550 pp.2–3, pp.7–8, Proposition 1 and adaptive policies"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.08550",
+        "material_read": "PDF pp.1–3 and section 3.4 with adaptive policies (13)–(14)",
+        "method": "arXiv full-text PDF rendered and theorem/algorithm text checked",
+        "title": "Delay-Adaptive Step-sizes for Asynchronous Learning",
+        "trigger": "Plausible stronger variable-step delayed-gradient convergence"
+      },
+      {
+        "assessment": "The method uses current-gradient heavy-ball with constant momentum; its rate theory is related but neither the present stale-gradient sum constraint nor the order-sensitive norm calculation is given.",
+        "evidence": [
+          "PMLR 151, Algorithm 1 p.1, Theorem 3.1 p.3, cyclical Hessian-spectrum assumptions"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v151/goujaud22a/goujaud22a.pdf",
+        "material_read": "PDF pp.1–3 including Algorithm 1 and Theorem 3.1 plus searched occurrences of delayed/stale/transient",
+        "method": "Open-access primary full-text PDF rendered and theorem/algorithm compared",
+        "title": "Super-Acceleration with Cyclical Step-sizes",
+        "trigger": "Potential dominating two-cycle step-size rate theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "403db22f-11da-46b5-859a-b14d04b30791",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete exact classification is motivated by finite delay in gradient reuse. It quantifies an unexpected 50-percent larger stable fixed-sum learning-rate budget, a unique balance-to-critical-damping transition, an unattained zero-rate edge, and a rigorous finite-time order penalty invisible to Floquet eigenvalues. These are interpretable, meaningful sharp boundary/optimization facts for the minimal nontrivial stale-gradient recursion, with explicit warnings against unqualified algorithmic generalization.",
+    "status": "PASS"
+  }
+}
