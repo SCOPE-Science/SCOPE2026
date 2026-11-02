@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Narasimhan–Seshadri gives the requisite bijection. The binary octahedral and icosahedral subgroups are self-normalizing in the unitary group; the epimorphism orbit stabilizers are their centers. The finite-group models are exact, subgroup enumeration closes all finite generators, and commutator, Möbius, and independent Frobenius–Mednykh counts agree. The only universality claimed is independence from a complex structure with fixed topological genus.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** The inspected new McPherson paper describes the exceptional symmetric-power problem and does not give these numerical exact-monodromy strata; Kim proves an exceptional-locus finiteness statement rather than these counts. Klug and earlier Mednykh work give a general count of homomorphisms rather than enumerated surjections to these groups and corresponding rank-two bundle classes. Targeted search found no direct counts \(8640\) or \(46080\). A historical treatment of surface-group epimorphism counts for these particular finite groups could already imply the numerical values; search absence alone is not a uniqueness guarantee.
+PASS
 
-**Mathematical value — PASS.** Exceptional finite-unitary-monodromy bundles form natural finite loci in the rank-two moduli studied through symmetric-power stability, rather than arbitrary small parameter slices. Their exact full-group strata cardinalities quantitatively sharpen the known finiteness context and distinguish two geometrically motivated binary polyhedral monodromy types for every genus-two curve.
+Narasimhan-Seshadri identifies stable determinant-trivial bundles with irreducible unitary representations. Both binary polyhedral images are self-normalizing SU(2) subgroups (rotational normalizers S4 and A5), so each surjection orbit has |G|/2 representatives. A separately authored exact finite group implementation independently enumerated SL2(F5) and quaternionic 2O multiplication, all 76 and 35 subgroups and commutator distributions. It obtains genus-two Hom 3309120 and 335616, Epi 2764800 and 207360, and quotient 46080 and 8640. Formula holds for every complex genus-two curve through pi1 topological invariance.
 
-**Limits.** No complete exceptional-locus census is claimed, nor algebra computations for all exceptional symmetric powers. Only exact binary octahedral and binary icosahedral monodromy is counted. Independent historical priority and independent audit remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general surface-group Frobenius-Mednykh Hom formula is classical, and binary polyhedral groups are classical. The claimed new information is specific epi counts onto 2O and 2I and their SU(2) conjugacy quotients, not the generic hom formula. Closest accessible statements McPherson and Kim address symmetric-tensor stability/exceptional locus and finiteness, respectively; no full exact monodromy cardinalities were verified. Best-of-knowledge only; earlier group-specific census remains a genuine priority risk.
+
+## value
+
+PASS
+
+Full binary octahedral/icosahedral monodromy strata are geometrically natural finite loci inside rank-two stable determinant-zero moduli. Exact counts 8640 and 46080 for every complex genus-two curve refine the nontrivial finiteness/exceptional symmetric-power context; subgroup Möbius arithmetic is a substantive exact classification rather than a tiny arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
