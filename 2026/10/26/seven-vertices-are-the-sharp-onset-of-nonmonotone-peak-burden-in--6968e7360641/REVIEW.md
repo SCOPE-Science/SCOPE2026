@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a one-generation-infectious single-seed process on a tree, each potential infection has a unique parent path, giving an exact Bernoulli bond-percolation representation. The expected peak-indexed cumulative infection statistic is therefore the finite bond polynomial in `RESULT.md`. Its derivative has the explicitly derived Bernstein representation. The provided standalone program exhaustively enumerates all labeled trees through seven vertices using Prüfer codes, identifies the 85 rooted types via canonical recursive child codes, enumerates every edge-state mask, and rederives all integer/rational profile coefficients in `rooted_tree_certificate.tsv`. All 36 rooted types of orders at most six have nonnegative Bernstein differences; among 48 seven-vertex types exactly two have negative terminal differences. Their formulas are also reconstructed by elementary event conditioning independently of the exhaustive enumeration; Descartes' rule proves unique interior peaks. Program and certificate were executed and compared from their actual packaged paths. Limitation: finite enumeration does not imply anything for larger graphs.
+PASS
 
-## Originality — PASS (best-knowledge, not independent priority certification)
+In a synchronous one-generation infectious process seeded at a root on a tree, infection passes along each unique root path precisely when its Bernoulli edges are open. Thus the earliest maximum generation count and cumulative infections at that generation are exactly computable for each percolated rooted tree. Independent recursive unlabeled-rooted-tree generation by multisets of subtrees (not the package Prüfer-code method) produced counts (1,1,2,4,9,20,48), 85 rooted types for n<=7. Independent exhaustive enumeration of all 2^(n−1) edge-open masks within each type and exact conditional Bernstein differences found no negative differences for n<=6, and exactly the two claimed seven-vertex polynomials 7H_A=1+2p²+5p⁵−5p⁶ (last Bernstein difference -1/6) and 7H_B=1+6p²+6p³−23p⁴+25p⁵−11p⁶ (last difference -1/2). These complete finite enumerations provide exhaustive proof of the natural n<=7 cutoff; derivative-transform/Descartes argument yields a single interior maximum for each exception. The package certificate is consistent with the independent computation.
 
-The closest source, Ozbay–Nielsen–Nguyen, arXiv:2212.06995, establishes that a peak-indexed epidemic statistic can be nonmonotone in discrete-time SIR models and offers simulated large-network examples; that observation is acknowledged as prior. Our additional statement is the sharp *smallest rooted-tree size*, the census of two exceptional rooted shapes, and their exact probability polynomials and peak thresholds. Sharkey–Kiss–Wilkinson–Simon, DOI:10.1007/s11538-013-9923-5, analyze continuous-time Markovian SIR on trees, establishing exact fixed-time means but no earliest-sample-peak functional. Curran-Sebastian–Pellis–Hall–House, arXiv:2301.07058, approximate peak-time uncertainty through branching/deterministic dynamics, not the present exact rooted-tree census. Semantic research-record searches and own-claim deduplication identified no stronger implication, matching enumeration, or equivalent published claim. Residual publication-priority risk from broader combinatorial epidemic-functionals literature remains explicit.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating model highlights a paradox in peak-indexed epidemic severity estimates without pinpointing the smallest contact networks needed to realize it. A natural and complete sharp threshold within rooted trees, including the exact number and shape of first exceptions, clarifies which topology and tie-sensitive peak shift first permit the phenomenon. The two exact polynomial examples provide reproducible benchmarks for finite stochastic epidemic modelling. The precise mathematical motivation is the natural peak-indexed statistic and first-obstruction census, not a policy effect size or a claim about general networks.
+Ozbay–Nielsen–Nguyen established nonmonotone peak-indexed cumulative epidemic burden by Monte Carlo on larger networks; the exact rooted single-seed tree problem and minimum-size seven-vertex threshold are not treated in its inspected primary results. Exact continuous-time SIR tree equations concern expectations of instantaneous compartments, not the path-dependent earliest-peak statistic. The new finite complete cutoff and explicit two polynomial laws are not a corollary of the prior numerical phenomenon. This is qualified because search cannot exclude all other combinatorial epidemic-tree enumerations.
 
-## Scope and risks
+## value
 
-The result assumes a predetermined single seed, independent identical edge probabilities, synchronized generations, immediate removal after one infectious generation, and the **first** maximum of prevalence. Changing those assumptions can change the classification. The independent novelty audit and external scientific validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The motivating epidemic paradox asks how expected cumulative infection burden at its peak can decrease with higher edge transmissibility. Finding the exact first rooted-tree size at which the phenomenon is possible and classifying all minimal exceptions is a natural complete finite structural obstruction, with exact two polynomials and a sharp six/seven boundary. Exhaustive finite classification is a valid proof for this finite cutoff and does not purport to solve larger graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
