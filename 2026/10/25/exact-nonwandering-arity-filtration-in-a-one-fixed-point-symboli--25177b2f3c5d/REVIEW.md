@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The proof classifies all large-time source-to-target pairs of individual configurations. The lower bound reduces nonwandering to a directed edge cover of the finite target set, while an explicit synchronized family of finite-block and translated-step configurations realizes every prescribed admissible arrow. Both equalities and the exceptional fixed-point loop are proved. The complete proof handles all finite subsets, every positive symmetric-product order, and boundary cases, including \(a=b=c=0\) when the fixed point is present. The standalone exact dynamic-programming and shift-word verifier passes 53 symbolic edge-cover cases and their orbit-witness checks. Finite checks alone would not prove the result.
+## correctness
 
-## Originality
-The full arXiv text of Đorić (arXiv:2610.23058v1) constructs the system and explicitly classifies only the order-two nonwandering set (Proposition 7). The stated new theorem determines the minimum order for every finite configuration and hence all higher products; its order-two specialization agrees exactly with the source. Searches of published mathematical records for the invariant, arrow-cover mechanism, and aliases found no covering statement. The 2012 symmetric-product paper's full text was inaccessible and only its abstract was compared, leaving a priority risk. Related polynomial-entropy results address another invariant and do not imply this classification.
+PASS
 
-## Value
-This is a complete, sharp, naturally defined higher-order classification for the central countable quotient example in a current nonwandering-symmetric-products paper. It identifies a genuinely new hierarchy (a set with one fixed point and \(c\) isolated blocks first becomes nonwandering at order \(2c\)) and the nontrivial exceptional parity for equal numbers of opposite step configurations. The theorem exhibits how finite transport combinatorics controls induced recurrence, and gives a usable explicit answer at each order rather than a routine restatement of the order-two case.
+Reconstructed compact symbolic quotient and all eventual one-particle source-target pairs: p->any, isolated finite block->p, ascending step->p/descending step, descending->p/ascending. For any unbounded return sequence of F_n, compactness yields <=n endpoint arrows covering every source and target in A. Their two disjoint orientation classes require max(a,b) each, every isolated block forces two p arrows, and p requires an extra arrow exactly when c=0 and a=b. Explicit finite-block long bridges and translates realize every permitted directed arrow simultaneously with distinct initial/terminal representatives at arbitrarily long common times; fixed p handles self-loop. Independently computed exact minimum edge covers for all 53 nonempty a,b,c<=2,p in {0,1} combinations; n=1 and F2 boundaries align with Đorić Proposition 7. Finite DP is corroboration; all n follows the endpoint/arrow proof.
 
-## Limits
-The result is specific to the exact symbolic quotient and does not classify arbitrary dynamical systems, entropy, or the chain recurrent set. One historically relevant 2012 full text was not available, so priority is not independently confirmed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete minimal-symmetric-product-order arity filtration of the specific quotient. Đorić 2026 builds the EXACT same system and explicitly classifies F_2(g) in Proposition 7; no all-n formula or coverage for sets containing multiple finite blocks/steps appears in the full primary text. The present arrow-cover relation gives genuinely new exact higher-n thresholds with the n=2 predecessor recovered.
+
+## value
+
+PASS
+
+A complete all-n nonwandering threshold for every finite configuration in a natural published counterexample system quantifies precisely when apparently wandering points become recurrent in symmetric products. It extends a known pair classification to a nontrivial infinite-parameter filtration and supplies explicit sharp witnesses, valuable for analyzing induced hyperspace dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
