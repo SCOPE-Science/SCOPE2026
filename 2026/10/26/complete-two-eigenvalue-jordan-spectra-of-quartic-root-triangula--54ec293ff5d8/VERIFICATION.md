@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification
-Run `python3 verify_squarezero_semisimple.py` with Python 3 standard library. The script directly enumerates upper-triangular matrices over prime fields and a four-element extension field, tests the quartic identity, evaluates the canonical idempotent, checks its commutation and square-zero remainder, and obtains separately the ranks on the zero and one generalized eigenspaces. It compares the exact joint histograms with the theorem's recurrence. The tests cover \((n,q)\) equal to \((1,2),(2,2),(3,2),(4,2),(5,2),(2,3),(3,3),(3,4),(2,5)\).
+# Independent mathematical audit
 
-The seven additional numeric recurrence sweeps use integer substitutions \(q\in\{2,3,4,5,7,9,11\}\) and \(0\leq n<25\); these sweeps are arithmetic checks rather than exhaustive extension-field matrix enumerations. Over \(\mathbb F_4\) the script uses the irreducible polynomial \(t^2+t+1\). The terminal success marker is `VERIFY_OK_TWO_EIGENVALUE_SQUAREZERO_JORDAN`.
+## correctness
 
-The proof's unbounded claims rest on the canonical polynomial splitting, idempotent conjugation and last-column recurrence, not the finite runs. The assessment reported here is not independent audit.
+PASS
+
+For every prime-power q and n>=1, reconstruct the unique CRT polynomial idempotent E=3A^2-2A^3 from A^2(A-I)^2=0; E^2=E, N=A-E is square-zero, EN=NE, including characteristic 2 and 3. Every triangular idempotent with fixed binary diagonal of a ones lies in a single unitriangular conjugacy orbit of size q^{a(n-a)}: g=ED+(I-E)(I-D) is unitriangular and Eg=gD. Commutation splits N into two independent strictly upper-triangular square-zero parts. Last-column extension proves f_{m,r}=q^r f_{m-1,r}+(q^{m-r}-q^{r-1})f_{m-1,r-1}, with zero boundaries, hence the complete paired Jordan multiplicity binom(n,a) q^{a(n-a)} f_{a,i}f_{n-a,j}. Independently enumerated all 64,1024,32768 triangular binary matrices for n=3,4,5: 60,824,20224 solutions with all 8,14,20 refined strata exactly matching formula; finite checks corroborate but do not establish universality.
+
+## originality
+
+PASS
+
+The square-zero single-eigenvalue rank recurrence, nilpotent Jordan refinements and distinct-root triangular polynomial counts precede this result. The assessed claim combines mixed generalized zero/one eigenspaces, their independent square-zero Jordan ranks and a q^{a(n-a)} idempotent fiber, for every characteristic. The inspected comparisons do not provide this paired three-parameter spectrum; equivalent general CRT-plus-nilpotent counting theorems remain plausible and are recorded as a priority risk.
+
+## value
+
+PASS
+
+This is a natural exact classification of all Jordan types of the split quartic annihilator in triangular matrix algebras, not an arbitrary isolated numerical example. The refinement distinguishes mixed-eigenvalue strata missed by totals and one-root counts; the unitriangular fiber mechanism can be reused for other split annihilators. Its scope is exactly upper-triangular matrices and eigenvalues 0,1 with blocks of size at most two.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
