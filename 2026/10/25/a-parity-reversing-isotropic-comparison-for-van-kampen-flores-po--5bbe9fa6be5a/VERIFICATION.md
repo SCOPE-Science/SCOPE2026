@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The proof in `RESULT.md` uses an exact polytope decomposition, simplex Dirichlet second moments, the Wallis product, and explicit strict inequalities. The supporting `check.py` executable recomputes (1) the odd and even central-binomial comparisons by rational arithmetic through \(m=10\), (2) both elementary Taylor-series rational inequalities used for the infinite tails, and (3) independently triangulated numerical volume and radial second moments of all six polytopes \(\Omega_n\) with \(3\le n\le8\).
+# Independent mathematical audit
 
-**Execution:** `OPENBLAS_NUM_THREADS=1 python check.py` using Python 3.10 or later, NumPy, and SciPy. Observed output: `CHECK_OK odd_exact=10 even_exact=10 independent_hulls=6 (+ analytical infinite proof)`. The hull comparisons used tolerance \(10^{-10}\); they are finite corroboration only. Strict assertions beyond the finite checked range are proved by the inequalities written in `RESULT.md`, not by extrapolation or timeout.
+## correctness
 
-The inexact floating-point hull tests cannot certify asymptotic signs. Independent mathematical validation has not been performed.
+PASS
+
+Triangulate the symmetrized regular simplex into n binomial(n-1,floor((n-1)/2)) simplicial cones, each intrinsic volume 1/(sqrt(n)(n-1)!). A uniform d-simplex Dirichlet moment yields radial second moment per conical cell; permutation invariance forces covariance lambda I on H_n with claimed odd/even formulas. Compare isotropic constants using exact central binomial Wallis products p_m, q_m; finitely many borderline inequalities exact-rational and infinite tails via 2/pi and strict exponential bounds. Independently checked exact rational inequalities m<=25 and independently reconstructed convex hull volume/second moments at n=3,4,5; none of the finite checks alone establish all dimensions. Limit from log Wallis product and Stirling.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS on complete stated final result; exact same-object full primary theorems and Resultary published findings compared by mathematical implication, not titles. Older tools or special cases acknowledged as prior. Bounds of order sqrt(n/d) for arbitrary projected crosspolytopes cannot yield the sign of a tiny parity-dependent difference from the same-dimensional crosspolytope or the exact first-order normalized deficit; need new cone moments and Wallis inequalities.
+
+## value
+
+PASS
+
+An affine-invariant isotropic constant is a canonical convex geometric invariant; the canonical maximal-volume Bier/Van Kampen–Flores body is highly symmetric. Exact covariance, two exceptional parity reversals versus same-dimensional crosspolytope, and normalized first correction are motivated new quantified comparisons, not simply the known volume formula. Does not cover arbitrary projections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The central cube-section polar determines all facet sign patterns. Explicit equal-volume conical simplices give the second moments; the odd/even scalar covariance follows from the exact Dirichlet integral and coordinate-permutation symmetry. Comparing with the regular cross-polytope reduces to two central-binomial rational inequalities. Wallis and elementary exponential bounds prove all unbounded cases, and direct rational checks establish the finite exceptions. The optional independent convex-hull computations for dimensions two through seven of the body corroborate the formulas but are not the infinite proof.
+## correctness
 
-**Originality: PASS, qualified.** The underlying maximal-volume Bier geometry, the median-hypersimplex polar, and its volume are established by Jevtić–Živaljević (arXiv:2108.00618); these are not claimed as new. Alonso-Gutiérrez and coauthors (arXiv:0904.2632) give general projected-cross-polytope isotropic bounds, and Kipp (arXiv:2407.01353) supplies the cross-polytope comparator and structural restrictions. Their inspected results do not imply the exact parity reversal or its asymptotic coefficient. Equivalent older projected-\(\ell_1\) formulas remain a bibliographic risk.
+PASS
 
-**Value: PASS.** The exact isotropic constant is a natural affine invariant of a canonical polytope family. Its strict ordering relative to the same-dimensional regular cross-polytope reverses precisely in the two small dimensions \(n=4,6\), then reverts permanently despite asymptotic equality. The exact negative first-order coefficient quantitatively identifies the difference between the families, beyond the familiar volume identity.
+Triangulate the symmetrized regular simplex into n binomial(n-1,floor((n-1)/2)) simplicial cones, each intrinsic volume 1/(sqrt(n)(n-1)!). A uniform d-simplex Dirichlet moment yields radial second moment per conical cell; permutation invariance forces covariance lambda I on H_n with claimed odd/even formulas. Compare isotropic constants using exact central binomial Wallis products p_m, q_m; finitely many borderline inequalities exact-rational and infinite tails via 2/pi and strict exponential bounds. Independently checked exact rational inequalities m<=25 and independently reconstructed convex hull volume/second moments at n=3,4,5; none of the finite checks alone establish all dimensions. Limit from log Wallis product and Stirling.
 
-**Limitations.** The claim does not address arbitrary cross-polytope projections, other Bier simplicial complexes, or arbitrary realizations. No independent audit has been performed; search coverage cannot establish uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS on complete stated final result; exact same-object full primary theorems and Resultary published findings compared by mathematical implication, not titles. Older tools or special cases acknowledged as prior. Bounds of order sqrt(n/d) for arbitrary projected crosspolytopes cannot yield the sign of a tiny parity-dependent difference from the same-dimensional crosspolytope or the exact first-order normalized deficit; need new cone moments and Wallis inequalities.
+
+## value
+
+PASS
+
+An affine-invariant isotropic constant is a canonical convex geometric invariant; the canonical maximal-volume Bier/Van Kampen–Flores body is highly symmetric. Exact covariance, two exceptional parity reversals versus same-dimensional crosspolytope, and normalized first correction are motivated new quantified comparisons, not simply the known volume formula. Does not cover arbitrary projections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
