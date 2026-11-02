@@ -1,0 +1,193 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T06:49:05.253744Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and SLOGAN.txt at source tree e25313d5452612e05ff65a7c86c0209cd8eb160f",
+        "Frozen VERIFICATION.md and artifacts/verify.py, independently reconstructed rather than relying on saved VERIFY_OK",
+        "Mu--Guo 2026 Definition 3 (weight -1 convention)"
+      ],
+      "rationale": "Independently reconstructed the ternary multiplication [x,y,z]=det(x,y)z_2 e1 from [e1,e2]=e1, so it satisfies Lie triple axioms over every field. For R=[[a,b],[c,d]], independently expanded the eight ordered basis triples to four distinct defect polynomials c(a^2 d-a^2-abc-bc), c^2(ad-a-bc-d), a^2d^2-2a^2d-abcd+abc-bcd, c(ad^2-2ad-bcd+bc-d^2). For c=0 only a^2 d(d-2)=0 remains, giving A (a=0), B (d=0), C (d=2). For c!=0, set Delta=ad-bc; equation two gives Delta=a+d, equation one becomes c Delta=0; hence Delta=a+d=0 and Cayley-Hamilton implies R^2=0. Direct substitution proves every square-zero R solves all defects. The square-zero cone has q^2 points (zero and q^2-1 nonzero rank-one nilpotents); A,B,C each have q^2; A intersect B intersect N is the b-line of q points; A intersect C is a distinct b-line of q points; C intersects B,N trivially in odd characteristic. Inclusion-exclusion yields 4q^2-3q. Only C has nonzero determinant 2a, hence rank-two q(q-1), zero one, rank-one (q-1)(3q+1). For F_{q^m}, substitute q^m in the universal classification, obtaining zeta (1-qT)^3/(1-q^2T)^4. The independent symbolic derivation and exact-integer finite-field checks over F3,F5,F7,F11 checked 17,748 matrices and reproduced rank profiles (1,20,6), (1,64,20), (1,132,42), (1,340,110). The finite checks are corroboration, not a proof over all fields; the exact algebraic case split supplies the unrestricted proof. Characteristic two is explicitly excluded.",
+      "residual_risks": [
+        "The polynomial ideal is analyzed as a reduced set of solutions, not asserted scheme-theoretically reduced or smooth.",
+        "No characteristic-two classification is claimed.",
+        "Arbitrary extension-field counts follow from the proof, not separate enumeration of F_{q^m}."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 paper develops cohomology, deformation, extensions and higher structures for arbitrary Reynolds Lie triple systems; its same-object Example 4 is a sufficient affine-plane family for all weights.",
+          "2023 Lie-Yamaguti source provides the general Reynolds identity and ternary reduction, not a displayed low-dimensional complete matrix locus in examined statements.",
+          "Gharbi--Mabrouk--Makhlouf Proposition 3.3 concerns a 2lambda-induced ternary operator from a Reynolds Lie algebra, without implying exhaustiveness of all ternary Reynolds operators.",
+          "Two-dimensional pre-Lie Reynolds operators satisfy a bilinear product identity on another algebraic structure; this is not equivalent to the ternary Reynolds identity. For example R=diag(1,2) is ternary Reynolds, but for the pre-Lie product e2·e1=-e1 and all other products zero it fails the bilinear Reynolds identity at (e2,e1)."
+        ],
+        "reasoning": "The general literature extends the formalism to larger classes but its reviewed theorems do not impose necessary matrix identities for every Reynolds operator on this fixed triple. The closer same-object result supplies only A; the additional B, C, N, including invertible and c!=0 solutions, require the new polynomial case split. Different pre-Lie or Rota--Baxter identities cannot be substituted without proving a reduction.",
+        "searches": [
+          "DOI:10.3390/axioms12100934, Lie-Yamaguti Reynolds Definition 8 and Proposition 11",
+          "DOI:10.3390/axioms15080616, Definition 3, Examples 3-5 and paper section structure",
+          "arXiv:2309.01385, §3.1 weighted Reynolds, Theorem 3.2 and Proposition 3.3",
+          "DOI:10.3390/sym16030262, Hom-Lie triple Example 7 and related sections",
+          "arXiv:2504.20297, two-dimensional pre-Lie Rota-type operators (bibliographic/abstract comparison)"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/axioms15080616 (Mu--Guo 2026, Definition 3/Example 4)",
+        "arXiv:2309.01385v1 (Gharbi--Mabrouk--Makhlouf 2023, Section 3)",
+        "DOI:10.3390/axioms12100934 (Teng--Jin--Long 2023, ordinary Reynolds specialization)",
+        "DOI:10.3390/sym16030262 (Xiao--Teng--Long 2024, Hom-Lie triple special case)",
+        "arXiv:2504.20297 (Basdouri--Mosbahi--Zahari 2025, 2D pre-Lie: different operator)",
+        "Resultary published-finding semantic searches (four queries); Resultary/2026 code search (two queries): no decisive covering result found"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mu--Guo sufficient family consists of matrices [[0,b],[0,d]] and necessarily has rank at most one; the audited theorem includes R=diag(1,2), an invertible Reynolds operator, and square-zero matrices with c!=0.",
+          "Gharbi--Mabrouk--Makhlouf 2023 Propositions about induced Reynolds operators and induced ternary brackets generate solutions under extra hypotheses, not every solution of the weight -1 ternary Reynolds identity.",
+          "An invertible-operator/derivation construction can account for some C operators, but does not classify the noninvertible B and N components or yield the exact entire finite-field rank distribution."
+        ],
+        "reasoning": "The cited prior sufficient examples and structural constructions do not mathematically imply the universal only-if classification. A change of weight normalization or Lie-to-triple functor alone does not supply the exact four-component locus. No stronger specific earlier theorem implying both classification and point counts was established in the actual consulted sources.",
+        "searches": [
+          "Mu--Guo 2026 Example 4, Definition 3",
+          "Teng--Jin--Long 2023 Reynolds Lie-Yamaguti identity",
+          "Gharbi--Mabrouk--Makhlouf 2023 Theorem 3.2, Proposition 3.3 and Definition 3.2",
+          "Xiao--Teng--Long 2024 Hom-Lie triple Example 7 and derivation Example 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mu--Guo 2026 Definition 3 with lambda=-1 is the exact ternary identity and Example 4 proves R=[[0,b],[0,d]] is admissible; this is only component A.",
+          "Gharbi--Mabrouk--Makhlouf arXiv:2309.01385 Definition 3.2 gives the weighted version and §3.2 its cocycle/representation formulation; no two-dimensional matrix classification was located in the inspected full primary PDF.",
+          "The distinct c!=0 nilpotent branch and invertible d=2 branch cannot be exhausted by Mu--Guo Example 4, where the entire first column vanishes."
+        ],
+        "reasoning": "Checked the same condition under weight -1 Reynolds, weighted Reynolds, generalized Reynolds/3-cocycle, Hom-Lie triple specialization, low-dimensional operator variety and square-zero-cone language. Earlier definitions and sufficient examples alone do not imply necessity or the three other pieces.",
+        "searches": [
+          "Resultary: Reynolds operator two-dimensional Lie triple system [e1,e2,e2]=e1 full classification weight minus one",
+          "Resultary: Rota Baxter Reynolds operators low dimensional nonabelian Lie triple system nilpotent cone affine planes counting finite fields",
+          "GitHub code search in Resultary/2026: Reynolds Lie triple; Reynolds operator",
+          "Web: \"Reynolds operator\" \"Lie triple system\" \"two-dimensional\" matrices classification",
+          "Web: \"Reynolds\" \"Lie triple\" \"[e1,e2,e2]\" classification",
+          "arXiv:2309.01385, §3.1-§3.2 weighted and generalized Reynolds identities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected same-object 2026 Example 4 gives a q^2-point sufficient plane, not 4q^2-3q or the rank profile.",
+          "Resultary searches returned general matrix, finite-field and algebraic counting records (e.g. 2026/10/4/SCOPE-weight-zero-rota-baxter-operators-on-the-four-dimensional-exteri--6ed2dc859a4a) with different underlying algebras and operator identities.",
+          "No retrieved exact Reynolds-Lie-triple table or named database asserts this locus; failed exact-pattern searches are treated as residual priority risk, not proof of novelty."
+        ],
+        "reasoning": "The geometric fingerprint A union B union C union N, polynomial 4q^2-3q, and ranks (1,(q-1)(3q+1),q(q-1)) were queried separately. Any prior exact table for the same object could cover the result, but none was actually found in the retrieved and inspected sources.",
+        "searches": [
+          "Resultary: finite field point count Reynolds Lie triple operators 4q^2-3q rank distribution",
+          "Resultary: Reynolds operator Lie-Yamaguti 2D algebra matrices trace determinant weight minus one",
+          "Web: \"4q^2-3q\" Reynolds operator",
+          "Web: two-dimensional Lie triple Reynolds rank distribution",
+          "GitHub search in Resultary/2026: Reynolds operator"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified PASS for the complete weight-minus-one Reynolds locus and all-odd-finite-field rank/point-count classification. Mu--Guo (Axioms 15 (2026) 616, Definition 3 and Example 4) uses the same triple system and Reynolds weight convention but explicitly constructs only the first-column-zero plane A, not a necessary-and-sufficient locus. Teng--Jin--Long (Axioms 12 (2023) 934) and Gharbi--Mabrouk--Makhlouf (arXiv:2309.01385) develop broad Reynolds/cohomology theory but no matching all-matrix two-dimensional classification was found in examined portions. Xiao--Teng--Long (Symmetry 16 (2024) 262) contains the same ordinary Reynolds identity in its Hom-Lie triple framework; its example is not a classification. The source proof adds distinct d=0 and d=2 planes and all rank-one square-zero operators, including c != 0, as well as rank counts and the zeta function. These are not consequences of the earlier sufficient plane A alone. Targeted Resultary and published-record/code searches identified only other algebra/operator invariants, no theorem whose hypotheses and conclusion imply this full locus. Direct full-text publisher retrieval for the exact-object 2026 article was HTTP429 and the authorized Oxford source returned vpn_disconnected; consequently absolute priority is not certified.",
+      "residual_risks": [
+        "The complete Mu--Guo 2026 source was not accessible as a full publisher file in this run; the direct fetch yielded HTTP 429 and the authorized Oxford attempt for this same DOI yielded vpn_disconnected (job 53a7b7397f0c727d44cf4479c20f0c93). It was not retried or bypassed.",
+        "Direct 2023/2024 MDPI full-document retrieval was likewise unavailable; conclusions about those articles are limited to the exact statements and indexed sections actually examined.",
+        "An earlier equivalence, low-dimensional table or unindexed classification of weight-minus-one Reynolds operators could remain undiscovered; failed searches are not priority proof.",
+        "The classification is genuinely for characteristic !=2 and weight -1; scaling to other nonzero weights is related but not asserted as separately novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: Example 4 supplies precisely the affine plane A and is explicitly worded as a sufficient example for any weight; inspected results do not establish all-matrix classification. Uninspected full text is priority risk.",
+          "evidence": "Example 4: T=[[0,a],[0,b]] on [e1,e2,e2]=e1 is Reynolds for any weight. Definition 3 includes lambda[R x,R y,R z] so lambda=-1 matches the audited identity. Paper states goals of representations/cohomology/deformations/extensions, not a low-dimensional enumeration.",
+          "identifier_or_url": "DOI:10.3390/axioms15080616; https://www.mdpi.com/2075-1680/15/8/616",
+          "material_read": "Publisher-indexed original text covering title/abstract, section organization, Section 3 weighted Reynolds Definition 3, Examples 1-5 (especially Example 4), and retrieved portions of Sections 4-8. Direct complete HTML/PDF retrieval failed with HTTP 429. This is NOT a claim that the entire PDF was read.",
+          "method": "Targeted primary publisher indexed-text retrieval and direct-access attempt.",
+          "title": "Cohomology of Reynolds Lie Triple Systems and Applications",
+          "trigger": "Most decisive same-object and same-operator published source; Example 4 uses exactly [e1,e2,e2]=e1."
+        },
+        {
+          "assessment": "SAME_OPERATOR_GENERAL_FRAMEWORK: establishes weight conventions and induced ternary constructions, but inspected theorem statements and examples do not give the present finite-dimensional four-component classification.",
+          "evidence": "Definition 3.2 defines lambda-weighted triple Reynolds identity; Example 3.1 is an infinite-dimensional Block-type example; Proposition 3.3 maps binary Reynolds weight lambda to ternary weight 2lambda, which does not assert completeness.",
+          "identifier_or_url": "arXiv:2309.01385v1; https://arxiv.org/pdf/2309.01385",
+          "material_read": "Accessible 26-page primary PDF: title, abstract, contents, definitions in Section 3.1, Theorem 3.2, Proposition 3.3, Section 3.2 generalized operators, examples, and the late-section conclusions and examples, with full-text targeted searches for a two-dimensional complete classification. PDF page 1 and page 6 visually inspected.",
+          "method": "Primary open-access PDF text inspection, targeted complete-text search and PDF page screenshots.",
+          "title": "Maurer-Cartan type cohomology on generalized Reynolds operators and NS-structures on Lie triple systems",
+          "trigger": "Earlier full-text primary work using explicitly weighted Reynolds operators on Lie triple systems."
+        },
+        {
+          "assessment": "GENERAL_OPERATOR_DEFINITION: provides ordinary Reynolds ternary specialization and cohomological framework; no exhaustive matrix classification established in examined statements.",
+          "evidence": "Ordinary Reynolds ternary product is [Rx,Ry,z]+[x,Ry,Rz]+[Rx,y,Rz]-[Rx,Ry,Rz]; Proposition 11 relates it to generalized Reynolds operators.",
+          "identifier_or_url": "DOI:10.3390/axioms12100934; https://www.mdpi.com/2075-1680/12/10/934",
+          "material_read": "Publisher-indexed original article abstract, section plan, Lie-triple specialization Remark 1, ordinary Reynolds Definition 8 and related Proposition 11/12 as surfaced in indexed text. Direct publisher full-document fetch was HTTP 429; complete paper not read this run.",
+          "method": "Publisher indexed-text statement/implication comparison and attempted direct full-document fetch.",
+          "title": "Generalized Reynolds Operators on Lie-Yamaguti Algebras",
+          "trigger": "Historical primary definition from which the weight -1 ternary identity is obtained."
+        },
+        {
+          "assessment": "BROADER_FORMALISM_NOT_COMPLETE_CLASSIFICATION: recovers the same weight -1 identity but the inspected statements do not impose necessity on all operators of the fixed two-dimensional Lie triple.",
+          "evidence": "Example 7 states [Ta,Tb,Tc]=T([Ta,Tb,c]+[a,Tb,Tc]+[Ta,b,Tc]-[Ta,Tb,Tc]); Example 8 constructs invertible examples from derivations.",
+          "identifier_or_url": "DOI:10.3390/sym16030262; https://www.mdpi.com/2073-8994/16/3/262",
+          "material_read": "Publisher-indexed original article introduction, Section 3 general operator definition, Examples 7-8 and structural construction statements; full article was not separately downloaded.",
+          "method": "Primary indexed-publisher text and mathematical implication check.",
+          "title": "Generalized Reynolds Operators on Hom-Lie Triple Systems",
+          "trigger": "Potentially dominating generalized formalism with the exact ordinary Reynolds identity in its trivial-Hom specialization."
+        },
+        {
+          "assessment": "SPECIFICALLY_INAPPLICABLE: two-dimensional pre-Lie algebras use a bilinear Reynolds identity; this is not the ternary system even when the Lie bracket is the same.",
+          "evidence": "The preprint treats pre-Lie multiplication P(x)·P(y)=P(x·P(y)+P(x)·y-P(x)·P(y)); ternary identity has three arguments and an independently larger solution set.",
+          "identifier_or_url": "arXiv:2504.20297; https://arxiv.org/abs/2504.20297",
+          "material_read": "Bibliographic metadata and original preprint abstract only; full pre-Lie classification not read.",
+          "method": "Abstract-level object/invariant comparison with explicit distinct defining identities.",
+          "title": "Rota-Type Operators on 2-Dimensional Pre-Lie Algebras",
+          "trigger": "Low-dimensional Reynolds classification could be confused with the ternary algebra problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mu--Guo 2026 Example 4: exact algebra with only a sufficient plane published",
+        "Gharbi--Mabrouk--Makhlouf 2023 weighted Reynolds and induced ternary context",
+        "Independently established 4-component geometry and rank-two stratum over every odd finite field"
+      ],
+      "rationale": "This is a motivated complete low-dimensional operator classification: the two-dimensional nonabelian Lie triple L is explicitly the first concrete same-object example in Mu--Guo 2026. The published sufficient first-column-zero family A is not exhaustive: the all-field exact solution includes two additional affine planes, the square-zero cone with matrices c!=0, and a genuinely invertible d=2 branch. The full rank stratification over every odd finite field and extension-field zeta function give natural invariants of the resulting operator variety, beyond a one-off numerical table. A future low-dimensional Reynolds/cohomology or deformation computation could use the complete operator-locus stratification as a baseline; this precision is motivated by the original example rather than an arbitrary slice. The point count itself uses elementary inclusion-exclusion but depends on the independently nontrivial full solution-locus classification. No claim about arbitrary Lie triple systems, all weight parameters or characteristic two is made.",
+      "residual_risks": [
+        "This is a first nonabelian example classification rather than a global higher-dimensional structure theorem.",
+        "Finite-field zeta follows automatically from the all-field geometry once the classification is established; it is a corollary, not independent novelty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and SLOGAN.txt at source tree e25313d5452612e05ff65a7c86c0209cd8eb160f",
+    "Frozen VERIFICATION.md and artifacts/verify.py, independently reconstructed rather than relying on saved VERIFY_OK",
+    "Mu--Guo 2026 Definition 3 (weight -1 convention)",
+    "DOI:10.3390/axioms15080616 (Mu--Guo 2026, Definition 3/Example 4)",
+    "arXiv:2309.01385v1 (Gharbi--Mabrouk--Makhlouf 2023, Section 3)",
+    "DOI:10.3390/axioms12100934 (Teng--Jin--Long 2023, ordinary Reynolds specialization)",
+    "DOI:10.3390/sym16030262 (Xiao--Teng--Long 2024, Hom-Lie triple special case)",
+    "arXiv:2504.20297 (Basdouri--Mosbahi--Zahari 2025, 2D pre-Lie: different operator)",
+    "Resultary published-finding semantic searches (four queries); Resultary/2026 code search (two queries): no decisive covering result found",
+    "Mu--Guo 2026 Example 4: exact algebra with only a sufficient plane published",
+    "Gharbi--Mabrouk--Makhlouf 2023 weighted Reynolds and induced ternary context",
+    "Independently established 4-component geometry and rank-two stratum over every odd finite field"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One specific two-dimensional Lie triple algebra, every field of characteristic not two, Reynolds weight -1 only.",
+    "Finite matrix experiments do not establish the unrestricted theorem; the exact case split does.",
+    "Same-object 2026 article was only partially obtainable; publisher rate limiting and institution VPN disconnection leave explicitly documented residual-priority risk.",
+    "The original public scientific files RESULT.md and SLOGAN.txt were not modified, and no repository write or dispatcher closeout was made.",
+    "Scientific passed decision is distinct from not_ready privacy-safe publication plan; no independent external expert/Lean certification is asserted."
+  ],
+  "residual_risks": [
+    "The polynomial ideal is analyzed as a reduced set of solutions, not asserted scheme-theoretically reduced or smooth.",
+    "No characteristic-two classification is claimed.",
+    "Arbitrary extension-field counts follow from the proof, not separate enumeration of F_{q^m}.",
+    "The complete Mu--Guo 2026 source was not accessible as a full publisher file in this run; the direct fetch yielded HTTP 429 and the authorized Oxford attempt for this same DOI yielded vpn_disconnected (job 53a7b7397f0c727d44cf4479c20f0c93). It was not retried or bypassed.",
+    "Direct 2023/2024 MDPI full-document retrieval was likewise unavailable; conclusions about those articles are limited to the exact statements and indexed sections actually examined.",
+    "An earlier equivalence, low-dimensional table or unindexed classification of weight-minus-one Reynolds operators could remain undiscovered; failed searches are not priority proof.",
+    "The classification is genuinely for characteristic !=2 and weight -1; scaling to other nonzero weights is related but not asserted as separately novel.",
+    "This is a first nonabelian example classification rather than a global higher-dimensional structure theorem.",
+    "Finite-field zeta follows automatically from the all-field geometry once the classification is established; it is a corollary, not independent novelty."
+  ],
+  "schema_version": 1
+}
