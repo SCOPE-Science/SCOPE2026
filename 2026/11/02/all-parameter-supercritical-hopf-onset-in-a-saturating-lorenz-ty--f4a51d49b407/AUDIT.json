@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For all sigma>0 and kappa>epsilon>0, exact eigenvalues give a nonzero Hopf crossing speed. The quadratic center manifold yields h11=-2c|a|^2/sigma, and removing quadratic terms yields nu=|a|^2(2d-2c^2/sigma-2c/omega)=-sigma Delta^3[sigma(kappa+4epsilon)+4Delta]/[2 kappa^2(1+sigma^2 Delta)]<0. The Hopf theorem proves existence, local uniqueness, stability and the stated leading signal radius. The package checker passed generic symbolic identities and independent three-dimensional multilinear calculations at three rational parameter sets. No global attractor assertion is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Scholarpedia Andronov–Hopf article: general first Lyapunov coefficient formula",
+        "Published findings titled Supercritical Hopf boundary and sharp critical relaxation in Sprott case F and Exact first Hopf threshold and recurrence half-space in a variable-index chaotic flow: different vector fields",
+        "Fowler et al., Physica D 4 (1982): different vector field"
+      ],
+      "reasoning": "General local Hopf theorems imply a cycle after a sign computation but neither fix the sign nor supply this saturating coefficient or amplitude. Other explicit Hopf studies cited are on non-equivalent systems and so do not dominate the present statement.",
+      "searches": [
+        "Lorenz modified thermodynamic consistent model supercritical Hopf first Lyapunov coefficient phase amplitude",
+        "Lorenz like scalar real complex normal form multiplicative growth x feedback first Lyapunov coefficient exact",
+        "\"modified Lorenz\" \"phi\" \"sigma\" \"kappa\" Hopf subcritical canard"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.21415v1",
+      "doi:10.1016/0167-2789(82)90057-4",
+      "https://www.scholarpedia.org/article/Andronov-Hopf",
+      "doi:10.3390/math12091354",
+      "published finding: Supercritical Hopf boundary and sharp critical relaxation in Sprott case F",
+      "published finding: Exact first Hopf threshold and recurrence half-space in a variable-index chaotic flow"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Khodabandehlou–Maes, Section V.1: exact linear crossing r_H, Section V.2: amplitude growth is numerically consistent with supercritical onset",
+        "The same source contains no evaluated Lyapunov coefficient or general all-parameter normal form",
+        "The 1982 complex Lorenz paper concerns an explicitly different coefficient structure"
+      ],
+      "reasoning": "Knowing a Hopf pair crosses and observing a stable small cycle at one parameter choice does not imply supercriticality for every sigma,kappa,epsilon or establish the leading coefficient. The new exact negative factorization provides the missing implication. The threshold and model themselves remain attributed to the source.",
+      "searches": [
+        "\"Local Detailed Balance in the Lorenz Model\" \"Lyapunov coefficient\" Hopf",
+        "\"Khodabandehlou\" \"Maes\" Hopf supercritical analytic cubic coefficient",
+        "Lorenz modified thermodynamic consistent model supercritical Hopf first Lyapunov coefficient phase amplitude"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.21415v1, equations (7), (9), (16)–(19), Sections V.1–V.2",
+        "Fowler, Gibbon, McGuinness (1982) uses a distinct complex Lorenz system with two complex variables and a real variable"
+      ],
+      "reasoning": "The source model is equivalent to a scalar linear filter coupled to a complex scalar with multiplicative growth phi(x)-1+ix; inspected published claims state the linear threshold and numerical supercritical appearance, not the resonant cubic normal form. Classical complex-Lorenz equations are not an exact substitution because their couplings are different.",
+      "searches": [
+        "\"Local Detailed Balance in the Lorenz Model\" \"Lyapunov coefficient\" Hopf",
+        "\"Khodabandehlou\" \"Maes\" Hopf supercritical analytic cubic coefficient",
+        "three-dimensional Lorenz-type system xdot=sigma(y-x)-r complex zdot=(phi(x)-1+i*x)z"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating article gives r_H=sigma/sqrt(kappa-epsilon) and a numerical amplitude table for sigma=10,kappa=1,epsilon=0.05, not the exact cubic coefficient or general physical prefactor",
+        "Available published mathematical-search records returned Lorenz and Sprott results on different models"
+      ],
+      "reasoning": "No inspected exact formula or table gives the stated factorization or parameter-wide sign; negative lookup alone has not been used as a uniqueness certificate.",
+      "searches": [
+        "\"Khodabandehlou\" \"Maes\" supercritical Hopf coefficient saturating phi x",
+        "\"sigma(y-x)\" \"phi(x)-1\" Hopf Lorenz",
+        "\"supercritical Hopf\" \"x-gated\" isotropic \"Lorenz\""
+      ]
+    },
+    "rationale": "Comparisons of the complete motivating source, relevant historical complex-Lorenz equations, general Hopf theory, and returned published mathematical findings reveal no inspected result that supplies or implies the strict all-parameter cubic sign and physical amplitude prefactor for these specific equations. Generic Hopf theory does not itself evaluate the model-dependent sign. An inaccessible 2024 modified reduced-model article and older unindexed literature create residual priority risk.",
+    "residual_risks": [
+      "A historical paper may implicitly derive an equivalent real/complex feedback Hopf coefficient under another parametrization; such priority cannot be ruled out by search.",
+      "The 2024 modified reduced Lorenz article could not be read in full after an HTTP 429; its available abstract does not identify the same ODE.",
+      "The result has not undergone independent mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the model, the linear crossing and numerical near-threshold behavior; DOES NOT establish the all-parameter analytic cubic coefficient or amplitude law.",
+        "evidence": [
+          "Equations (7), (9), (16)–(19); Section V.2 says initial growth is consistent with a supercritical Hopf bifurcation for numerical parameters."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.21415v1",
+        "material_read": "Complete relevant HTML sections II, IV, V, VIII–IX, plus equation and text searches for cubic coefficient and normal form",
+        "method": "Direct full-text reading of original arXiv HTML v1",
+        "title": "Local Detailed Balance in the Lorenz Model: Replaces the Butterfly with Frenetic Bursting",
+        "trigger": "Identical vector field, saturation and Hopf threshold"
+      },
+      {
+        "assessment": "Different governing equations and complex-variable arrangement; no direct implication established, though general technique is similar.",
+        "evidence": [
+          "Abstract writes complex Lorenz equations with xdot=-sigma*x+sigma*y and ydot=(r-z)*x-a*y, unlike the real x-gated saturation phi(x) here."
+        ],
+        "identifier_or_url": "doi:10.1016/0167-2789(82)90057-4",
+        "material_read": "Institutional repository abstract with displayed equations and description of nonlinear analysis",
+        "method": "Read open repository abstract; did not obtain the publisher full text",
+        "title": "The complex Lorenz equations",
+        "trigger": "Historical analytical Hopf and amplitude results for Lorenz-derived complex systems"
+      },
+      {
+        "assessment": "General theorem and normalization method; not a model-specific sign or amplitude statement.",
+        "evidence": [
+          "The reference supplies multilinear formulas for the model-dependent coefficient and standard supercritical Hopf interpretation."
+        ],
+        "identifier_or_url": "https://www.scholarpedia.org/article/Andronov-Hopf",
+        "material_read": "Relevant first-Lyapunov-coefficient and Hopf normal-form passages",
+        "method": "Read mathematical reference excerpt",
+        "title": "Andronov–Hopf Bifurcation",
+        "trigger": "Independent check of normal-form theorem and cubic coefficient conventions"
+      },
+      {
+        "assessment": "Described reduced model, Neimark–Sacker and chaos control, with no evidence that it studies the same x-gated saturating ODE; coverage remains incompletely checked.",
+        "evidence": [
+          "2024 abstract describes a modified reduced Lorenz model and bifurcations, not the Khodabandehlou–Maes saturation phi(x)=kappa x^2/(1+epsilon x^2)."
+        ],
+        "identifier_or_url": "doi:10.3390/math12091354",
+        "material_read": "Publisher search-result abstract and metadata; full-text request produced HTTP 429",
+        "method": "Public abstract inspected; bounded full-text attempt",
+        "title": "Dynamic Behavior and Bifurcation Analysis of a Modified Reduced Lorenz Model",
+        "trigger": "Possible prior Lorenz modification and bifurcation classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f4a51d49-b407-443e-a5bc-123636f2ecbc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original paper demonstrated the positive-forcing Hopf threshold analytically and supercritical onset numerically for one parameter set. Proving its sign throughout the admissible saturation and damping parameter domain, ruling out generalized Hopf on both threshold surfaces, and identifying the exact physical amplitude prefactor closes a natural bifurcation-classification gap with direct quantitative relevance.",
+    "status": "PASS"
+  }
+}
