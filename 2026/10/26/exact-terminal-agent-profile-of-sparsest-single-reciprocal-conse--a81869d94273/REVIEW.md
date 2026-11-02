@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Sugiura's original single-core equivalence and minimum-link bound are applied with their hypotheses intact: weak connectedness is implied by a single-core order, the distinguished mutual dyad is unique, and exactly two arcs are charged to each new agent. The independent terminal-removal argument shows that terminal-removable vertices cannot attach to one another and can all be postponed. Its inverse construction gives the correct marked intersection counts without overcounting attachment orders. Inclusion-exclusion then gives the all-orders profile. The embedded standard-library checker compares exhaustive directed edge subsets and directly generated distinct graphs through five vertices, and reconstructs the six-vertex histogram by an independent growth generator. The arbitrary-order proof is analytic, not inferred from tests.
+## correctness
 
-**Originality — PASS for the terminal-agent distribution only.** A material overlap was identified: the unrefined totals equal the pre-existing OEIS A103353 sequence and Priez–Virmaux's \(\chi(m)=m^2+m\) generalized-parking-function count. Those totals and the scalar recurrence are treated as known, not new. Sugiura's inspected Corollary 2 and Proposition 2 establish the network class and minimum links, but not a labeled graph enumeration refined by the number of terminal-removable agents. The checked OEIS matrix triangle and generalized-parking-function full text contain no explicit graph terminal-deletion statistic. The resulting refined array, its inclusion-exclusion formula, and the simultaneous deletion lemma were not found in the actual mathematical-results catalogue searches or the targeted literature searches. This is a best-knowledge comparison, not a proof of uniqueness or priority.
+PASS
 
-**Value — PASS.** The number of terminal-removable agents is not an arbitrary slicing variable: it equals the number of distinct agents who can be the final addition of a minimum-link consensus network, or whose deletion preserves the sharp consensus network class. The full profile gives an exact structural resilience/flexibility distribution and avoids conflating different construction witnesses, a concrete issue not answered by the already-known total enumeration. Sharp extremes and finite profiles support practical use in sampling and classifying minimal communication architectures. It does not imply faster learning or any stronger behavioral theorem.
+The sole reciprocal pair and 2(n-1)-arc budget force each later vertex in a single-core order to receive exactly one inbound and one outbound arc from distinct earlier agents. Degree (1,1) is equivalent to removability, and any set of such agents is pairwise nonadjacent and may be deleted jointly. For a fixed r-set, deleting yields F_(n-r)*((n-r)(n-r-1))^r possibilities. Inclusion-exclusion gives F_n and binomial inversion gives R_(n,k); every valid graph has at least one removable agent, and the all-terminal boundary is 2^(n-2). Independent graph-generation by all attachment orders exactly recovered n=3..6 histograms (2); (16,4); (312,192,8); (11520,12192,1664,16), totals 2,20,512,25392. This proof is conditional on Sugiura’s published single-core equivalence; its full text was not accessible this run, so external source theorem remains an explicit premise.
 
-**Closest literature and risks.** Sugiura (2026, arXiv:2608.22234) supplies the core characterization. OEIS A103353 and A103244 (2005) and Priez–Virmaux (arXiv:1411.4161) dominate any claim for the scalar total sequence. Earlier general strongly-connected digraph asymptotics do not distinguish direct mutual pairs, terminal agents, or the exact minimum budget. A possible disguised equivalent of the refined deletion profile in older combinatorial or species literature remains a priority risk; the new network-specific statement and derivation are narrower than a global priority claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the DELIMITED finding: The exact terminal-removable noncore-agent histogram R_(n,k) in fixed-dyad minimum-arc consensus networks; not the prior scalar F_n. The predecessors imply the premises and scalar totals but the checked statements do not supply every k-fiber; the new theorem is a specific combinatorial implication, with unresolved alternate parking-function refinement priority risk.
+
+## value
+
+PASS
+
+The histogram counts how many actual agents can serve as a final step of a minimum-link, single-reciprocal consensus construction, thus quantifying reverse-construction flexibility that the known scalar count cannot determine; the all-n inclusion-exclusion and endpoint count are natural, useful refinements rather than arbitrary slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
