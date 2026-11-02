@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Two-round Ehrenfeucht–Fraïssé equivalence is exactly equality of the realized five-bit one-point characters, by the back-and-forth characterization of quantifier rank. Truncating red and blue block counts to two and block-shape multiplicities to two preserves every two-round game, so the exact 6560-profile classification covers every nonempty finite structure. The deterministic integer/set computation reports 207 classes and the full minimum-size distribution, with an independent pointwise quantifier-free extension computation confirming every signature class. The six-block extremizers force thirteen elements by their required and excluded local characters.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The closest inspected source on equivalence structures is Pratt-Hartmann (2015), whose main claims concern decidability/complexity and certificates for richer two-variable counting logic; no exact depth-two census or sharp thirteen-point bound was identified in the inspected introduction and local-configuration/certificate sections. Mwesigye–Truss (2018) classifies coloured linear orders rather than coloured equivalence partitions. Fagin et al. (2021 preprint) develops quantifier games and ordered-structure bounds, not this numerical classification. Existing uncoloured-equivalence shallow-theory classifications do not determine coloured class compositions. Searches for direct aliases and counts located no equivalent statement, but incomplete coverage of older works is a residual risk rather than proof of absolute priority.
+PASS
 
-**Value — PASS.** A single unary colour is the minimal nontrivial expansion of finite equivalence partitions. The exact 207 theories, canonical five-bit invariant, reproducible full classification table, and optimal thirteen-element representative bound provide a complete base case for finite-model type spectra and small representative problems. The sharpness argument identifies the interaction between required local profiles and forbidden mixed-class profiles; the numeric count is not a trivial consequence of an uncoloured partition table.
+In the two-move Ehrenfeucht–Fraïssé game, a first selected point is classified by colour and the four existential possibilities of a different red/blue member inside/outside its E-class. Matching these characters in both structures is both necessary and sufficient to answer the second move. Capping each class colour count at two and each of eight nonzero class-shape multiplicities at two preserves every possible two-move response. All 3^8−1=6560 profiles are then exhaustive (not an extrapolation). Independently recomputed both the direct quantifier-free one-point type partition and the five-bit formula: exactly 207 groups with minimum-size distribution 2,6,10,17,22,28,30,29,26,18,12,5,2 (sizes 1..13); both extremal profiles require size 13.
 
-**Scientific limits.** No claim is made for rank three, counting quantifiers, more unary colours, or independent validation. Equivalent results outside the inspected literature remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Comparisons of actual mathematical implications support a best-of-knowledge original contribution beyond cited prior facts, with explicit overlap credit and residual priority risks; not a universal guarantee.
+
+## value
+
+PASS
+
+Complete exact logical-type census and sharp minimal representative bound for a natural unary expansion of equivalence relations. The five-bit invariant is a reusable structural normal form, and the tight 13-element obstruction matters for finite-model testing beyond the existence of a generic decision procedure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
