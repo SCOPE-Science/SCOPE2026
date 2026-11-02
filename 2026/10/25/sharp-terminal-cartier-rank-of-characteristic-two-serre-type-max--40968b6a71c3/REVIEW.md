@@ -1,10 +1,21 @@
-## Correctness — PASS
-The pole-order differential basis and one-step Cartier action are explicit. The proof classifies every possible initial differential, including those in the two auxiliary \(y\)-degrees, and solves the unique surviving congruence for each number of intermediate alternations. Distinct terminal forms and their vanishing under one more Cartier application give both rank and exact nilpotency index. The finite script checks seven values without claiming that a finite test proves the theorem.
+# Independent mathematical audit
 
-## Originality — PASS, with priority limitations
-The fully inspected Serre-type preprint (arXiv:2610.15266v1) computes the a-number and basic Cartier action, not the \((n-1)\)-st Cartier image. The fully inspected higher-ranks paper (arXiv:2610.17476v1) concerns a different family. published-finding corpus and targeted literature searches found no equal or stronger claim among retrieved records. General results on powers of Cartier may imply this calculation indirectly, so priority is not conclusively established.
+## correctness
 
-## Mathematical value — PASS
-A precise higher Cartier rank describes the count of maximal nilpotent blocks of the Jacobian's characteristic-two Cartier module. This is a natural geometric refinement of the known a-number, uniform in all odd \(n\ge3\), not a small finite tabulation or arbitrary slice. The theorem leaves shorter blocks and general Ekedahl–Oort types open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For odd n=2k+3>=3, m=(2^n+1)/3, the pole semigroup <4,m> gives differential basis x^i y^j dx with j=0,1,2, 4i+jm<=3m-5. Reading RESULT.md and the actual Cartier verifier establishes transition rules (j=0 odd -> ((i-1)/2,0), j=1 odd -> ((i-1)/2,2), j=1 even -> ((i+m-1)/2,0), j=2 odd -> ((i-1)/2,1), others zero). For C^(n-1), the j=1 alternating route followed by exit to j=0 requires s≡I_{k-r} mod 4^(k-r+1) in a bounded range, uniquely yielding initial indices indexed r=0..k and terminal exponents (2*4^r-2)/3. Initial j=0 and j=2 paths fail the necessary index bounds. Terminal exponents are even, hence C^n=0, while rank(C^(n-1))=k+1=(n-1)/2>0. Semilinear nonzero images over an algebraically closed perfect field have these dimensions. Independently implemented basis transition and enumerated n=3,5,7,9,11,13,15,17 (basis sizes 3,15,63,255,1023,4095,16383,65535): all exact terminal images/ranks and subsequent vanishing checked. Finite checks corroborate only; infinite proof is the congruence and exclusion argument.
+
+## originality
+
+PASS
+
+The invariant refines the known a-number of the identical Serre-type family: the rank of the last nonzero Cartier power and maximal length-n chain count are not supplied by the inspected original statement. Related all-power Cartier theorem for van der Geer–van der Vlugt curves assumes odd characteristic and different curve equations, so it does not mathematically imply this characteristic-two answer. Best-of-knowledge PASS with notable priority uncertainty because likely relevant full text was not accessible.
+
+## value
+
+PASS
+
+The rank of the penultimate Cartier iterate counts maximum-length nilpotent Cartier chains and is a natural arithmetic-geometric invariant of these Jacobians, beyond their a-number. Exact uniform answer for every odd n>=3 is independently useful even though shorter blocks and full Ekedahl–Oort types are unclassified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T00:06:12.361755Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd n=2k+3>=3, m=(2^n+1)/3, the pole semigroup <4,m> gives differential basis x^i y^j dx with j=0,1,2, 4i+jm<=3m-5. Reading RESULT.md and the actual Cartier verifier establishes transition rules (j=0 odd -> ((i-1)/2,0), j=1 odd -> ((i-1)/2,2), j=1 even -> ((i+m-1)/2,0), j=2 odd -> ((i-1)/2,1), others zero). For C^(n-1), the j=1 alternating route followed by exit to j=0 requires s≡I_{k-r} mod 4^(k-r+1) in a bounded range, uniquely yielding initial indices indexed r=0..k and terminal exponents (2*4^r-2)/3. Initial j=0 and j=2 paths fail the necessary index bounds. Terminal exponents are even, hence C^n=0, while rank(C^(n-1))=k+1=(n-1)/2>0. Semilinear nonzero images over an algebraically closed perfect field have these dimensions. Independently implemented basis transition and enumerated n=3,5,7,9,11,13,15,17 (basis sizes 3,15,63,255,1023,4095,16383,65535): all exact terminal images/ranks and subsequent vanishing checked. Finite checks corroborate only; infinite proof is the congruence and exclusion argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Almeida Filho–Tafazolian–Vieira determine all Cartier-power ranks for van der Geer–van der Vlugt y^p-y=xR(x) where p is ODD, not the char2 fourfold Artin–Schreier family. Shafighi treats all q but only a-number in accessible summary."
+        ],
+        "reasoning": "Despite stronger-sounding title, an odd-characteristic all-ranks theorem cannot automatically cover characteristic-two q²=4 family; no explicit geometric identification/reduction found.",
+        "searches": [
+          "arXiv:2610.17476 abstract and statement",
+          "arXiv:2610.15266 abstract"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md/SLOGAN.txt/REVIEW.md/VERIFICATION.md and cartier_2n_verifier.py",
+        "arXiv:2610.15266 abstract",
+        "arXiv:2610.17476 abstract",
+        "Resultary semantic search of published mathematical records, 2026-10-29"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-step Cartier transition and canonical basis can be iterated, but neither source states the sharp unique-survivor modular classification; all-power result in different odd-p family is not an applicable specialization."
+        ],
+        "reasoning": "The result is computationally derivable from credited action plus a new nontrivial infinite congruence analysis; prior ingredients do not visibly assert the claimed exact formula.",
+        "searches": [
+          "arXiv:2610.15266 primary abstract",
+          "arXiv:2610.17476 primary abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shafighi identifies y^(q²)-y=x^((q^n+1)/(q+1)) and determines only a-number in accessible abstract; q=2 gives the precise same curves."
+        ],
+        "reasoning": "A-number equals nullity of a single Cartier step and alone does not determine its (n-1)-st rank or nilpotent block profile. Search returned no equivalent terminal-image formula; this alone cannot prove novelty.",
+        "searches": [
+          "Resultary query: Cartier operator terminal nilpotent image rank C^{n-1} Serre-type maximal curves y^4+y=x^{(2^n+1)/3}",
+          "arXiv:2610.15266 abstract and exact curve equation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No explicit rank(C^(n−1)) table for this same family appeared in searched results; source already gives one-step matrix."
+        ],
+        "reasoning": "Numerical initial values follow the new infinite proof; absence from retrieval is not a uniqueness certificate.",
+        "searches": [
+          "Resultary query: Serre-type maximal curves higher Cartier rank nilpotency",
+          "arXiv:2610.15266 abstract"
+        ]
+      },
+      "rationale": "The invariant refines the known a-number of the identical Serre-type family: the rank of the last nonzero Cartier power and maximal length-n chain count are not supplied by the inspected original statement. Related all-power Cartier theorem for van der Geer–van der Vlugt curves assumes odd characteristic and different curve equations, so it does not mathematically imply this characteristic-two answer. Best-of-knowledge PASS with notable priority uncertainty because likely relevant full text was not accessible.",
+      "residual_risks": [
+        "Full text of arXiv:2610.15266 could contain an unadvertised calculation of higher Cartier iterates.",
+        "Older general theorems on Cartier nilpotency of maximal curves could imply the displayed formula by a reduction not identified.",
+        "Oxford authentication was disconnected; no bypass, no invented reading."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT FAMILY, possible additional full-text results unknown",
+          "evidence": "Abstract says a-number computed via monomial Cartier action; cannot infer full text lacks terminal-image result.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.15266",
+          "material_read": "Primary abstract, parameter family, a-number theorem statement and report of explicit differential basis/one-step Cartier matrix; full PDF/HTML inaccessible.",
+          "method": "Read arXiv abstract; attempted arXiv/OA and then authorized Oxford, which returned vpn_disconnected.",
+          "title": "The a-number of the Serre-type maximal curves of Abdón–Bezerra–Quoos",
+          "trigger": "Exact same Serre-type family, natural closest priority source"
+        },
+        {
+          "assessment": "INAPPLICABLE PARAMETER FAMILY, residual literature risk",
+          "evidence": "Odd p y^p-y=xR(x), not p=2 and y^4+y=x^m.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.17476",
+          "material_read": "ArXiv abstract with explicit every-iterate rank formula and stated p odd hypothesis; full paper inaccessible.",
+          "method": "Read abstract and precise family; arXiv/OA and Oxford retrieval attempted; Oxford VPN disconnected.",
+          "title": "a-Numbers, higher Cartier ranks and maximality of van der Geer–van der Vlugt curves",
+          "trigger": "Extremely plausible higher-rank dominating theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rank of the penultimate Cartier iterate counts maximum-length nilpotent Cartier chains and is a natural arithmetic-geometric invariant of these Jacobians, beyond their a-number. Exact uniform answer for every odd n>=3 is independently useful even though shorter blocks and full Ekedahl–Oort types are unclassified.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Does not determine shorter nilpotent chains, full Ekedahl–Oort type or general maximal curves.",
+    "Unavailable same-family full primary text is a historical priority risk, not mathematical disproof.",
+    "Full text of arXiv:2610.15266 could contain an unadvertised calculation of higher Cartier iterates.",
+    "Older general theorems on Cartier nilpotency of maximal curves could imply the displayed formula by a reduction not identified.",
+    "Oxford authentication was disconnected; no bypass, no invented reading."
+  ],
+  "schema_version": 1
+}
