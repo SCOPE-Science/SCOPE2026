@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex set, graph generators, inclusive filtration, cycle-distance normalization, and range of all parameters are explicit. The scale-one graph is connected, bipartite and has 72 edges and 24 vertices, so it is a wedge of 49 circles. The 24-vertex metric has diameter three, making the terminal complex a simplex. For scale two, the supplied exact program enumerates every one of 9,904 faces, verifies 4,935 disjoint codimension-one matched pairs, topologically sorts all 56,328 directed Hasse incidences, and obtains exactly one critical zero-cell plus 33 critical three-cells. These conditions establish the homotopy type \(\bigvee^{33}S^3\) by discrete Morse theory. A separate exact \(\mathbb F_2\) boundary calculation corroborates the Betti numbers but is not substituted for the homotopy proof. No infinite-family assertion is made.
+## correctness
 
-## Originality — PASS, with residual risk
-Equivalent formulations and aliases were searched: the Reye/full-transposition graph, the Cayley graph on \(S_4\) with six transpositions, and the independence complex of the six-four-cycle Cayley graph. Adamaszek's graph-power theorems address general sufficient conditions and specific graph classes, not this classification; its girth and four-cycle-exclusion hypotheses do not hold here. Kozlov's formal deformations relate different graph-complex constructions. Circle Rips classifications cover a different metric family. Related published calculations for graph metrics, including the adjacent-swap 24-permutation permutahedral metric, do not imply this six-generator result. Direct comparison and available research-index searches did not identify a covering statement. Unindexed or differently named results remain a genuine priority risk; searches cannot prove absence.
+PASS
 
-## Value — PASS
-The full-transposition metric on \(S_4\) is canonical in reflection length and symmetric-group combinatorics. It is the first order at which a nonterminal radius-two Vietoris–Rips stage can occur for this metric; the resulting wedge of 33 three-spheres is structurally non-obvious from its 11-dimensional simplicial model. The exact homotopy classification, not merely homology ranks, gives all coefficient-field persistence barcodes and a reproducible benchmark for graph-power complexes of Cayley graphs. The value is in a motivated finite example, not in a claim about a general symmetric-group theorem.
+Reconstructed all 24 lexicographically ordered permutations, six transposition generators and graph shortest distances; the cycle formula d(p,q)=4-c(p^{-1}q) agrees with the generator metric. Scale 1 is connected, bipartite and triangle-free with 24 vertices/72 edges, giving 49 circles. Diameter 3 makes scale >=3 a simplex. Independently reimplemented scale-2 clique enumeration from permutation distances and obtained f=(24,204,800,1632,2040,2008,1608,990,440,132,24,2), total 9,904 nonempty simplices. Reconstructed the staged all-vertex matching: 4,935 disjoint codimension-one pairs, 34 critical faces (one 0-simplex and 33 3-simplices). Built the entire oriented face Hasse diagram with 56,328 incidences and exhaustively topologically sorted all 9,904 face-nodes; no directed cycles. Finite acyclic discrete Morse theory gives a CW complex with one 0-cell and 33 3-cells attached to a point, therefore exactly a wedge of 33 S^3 integrally. Filtration jumps at 0/1/2/3 only; the positive-dimensional persistence degrees cannot persist across distinct nonzero-degree adjacent stages, so the stated barcodes follow. This exhaustive finite certificate tests precisely S4 and no n>4 generalization.
 
-## Literature and limitations
-Closest sources: Kozlov, arXiv:math/0503613; Adamaszek, arXiv:1104.0433; Adamaszek–Adams, arXiv:1503.03669; MathWorld, “Transposition Graph.” The result is specific to 24 permutations, the complete set of transposition generators, and inclusive radii. The algorithm has been checked in the present review; an independent audit is not yet performed. Literature coverage remains incomplete in principle.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+An actual full mathematical statement/implication comparison, targeted Resultary queries, equivalent graph/independence aliases and primary-source reading found no independent source determining K_2 for the full-transposition metric. The exact matching establishes the S4 wedge, distinct from prior group-metric and graph-power examples. This is qualified best-of-knowledge originality; unindexed equivalent enumerations remain possible. The indexed identical Resultary record was recognized as the assigned finding and explicitly excluded from independent priority evidence.
+
+## value
+
+PASS
+
+Full-transposition distance is the canonical reflection-length metric on S4. Its radius-two Rips complex is a natural first nonterminal metric thickening beyond the diameter-two S3 case; the integral wedge of 33 three-spheres is not apparent from the 11-dimensional 9,904-face flag model or elementary graph parameters. The complete homotopy/persistence classification and replayable acyclic matching supply a useful exact finite benchmark for combinatorial topology of Cayley graph powers. The finite scope and lack of an infinite-family theorem are appropriately limited rather than reasons for intrinsic worthlessness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
