@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Every consecutive triple weight changes by -1,0 or 1, giving necessity. Explicit base words 0001,0011,00011,000111 and independent endpoint extension cycles 100, 011 or 001 realize every positive interval histogram. Positive-composition counting proves the cubic and deficit formulas. Any h>=4 counterexample would require both h consecutive zeros and h consecutive ones in 2h+1 positions, and the sole extra bit duplicates only a level in {0,1,h-1,h}, never level 2. Standalone independent DP, brute enumeration, and witness checks confirm finite samples without substituting for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Marcovich and Yaakobi, arXiv:1912.11108, introduction and Section II: length-fixed FULL-STRING substrings, not binary-weight-only reads; results concern reconstruction under missing or erroneous literal reads.",
+        "Gupta and Mahdavifar, arXiv:2201.09955, Sections II-IV and conclusion: exact all-length composition multiset, algorithms and constructed codebooks, not a count of all possible length-three output profiles.",
+        "A public exact binary read-length-two multispectrum result yields a different parity-sensitive output count and does not give the width-three feasibility criterion."
+      ],
+      "reasoning": "A result for a richer observation need not determine how many distinct outcomes survive a specific lossy projection without a full description of its fibers. The inspected code constructions or algorithms do not entail that every interval-support four-vector can be realized, the O(m) representative map, or the sharp failure at all widths at least four. Window length two is not a dominating special case.",
+      "searches": [
+        "length 3 substring composition multispectrum binary reconstruction read vectors Parikh spectrum coding theorem",
+        "binary read-length-three unordered Parikh multispectra zero error code capacity exact polynomial",
+        "Reconstruction of Strings from their Substrings Spectrum arxiv:1912.11108",
+        "A New Algebraic Approach for String Reconstruction from Substring Compositions arxiv:2201.09955"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1912.11108",
+      "arxiv:2201.09955",
+      "doi:10.3390/e24030433",
+      "https://oeis.org/A188554",
+      "published exact binary two-multispectrum result"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sporring–Darkner 2022 section 2 defines H_S as a position-indexed sequence [(h_0),(h_1),...]; Section 4 concerns ambiguity classes for that sequence, not the multiplicity histogram of its entries.",
+        "Theorem here requires an O(m) binary witness for EVERY nonnegative four-vector with contiguous positive support and prohibits a specified profile for each wider window; none of the compared sources asserts this realization bridge.",
+        "OEIS A188554 proves an identical count for an unrelated family; equivalence of numerical counts does not imply the claimed characterization of local composition spectra."
+      ],
+      "reasoning": "Neither the ordered local-histogram result nor the all-length composition reconstruction code yields the present iff for the unordered length-three observation. The known A188554 polynomial covers only numerical enumeration, which is disclosed; it does not imply existence of a binary word for each formal interval vector or the h>=4 obstruction.",
+      "searches": [
+        "\"Reconstructing Binary Signals from Local Histograms\" \"sequence of histograms\"",
+        "\"three window\" binary \"compositions\" \"multispectrum\" histogram number",
+        "length four binary composition histogram missing central profile one duplicated weight two",
+        "exact number possible binary length three unordered composition multispectra 3-mer Parikh vector profile reconstruction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sporring and Darkner (2022) Eq. (6)-(7), Eq. (19), Section 3: a time-ordered stream of local histograms is the known observation, not unordered histogram-of-histograms.",
+        "Gupta and Mahdavifar, arXiv:2201.09955, Section II(A): composition multisets of substrings of all lengths, not only length-three windows.",
+        "OEIS A188554: exactly the same cubic polynomial, but for 3-row pattern-avoiding binary arrays and equivalently nonincreasing-step words."
+      ],
+      "reasoning": "The claimed theorem concerns feasibility of a FOUR-COORDINATE COUNT VECTOR indexed by triple weight; neither a full ordered histogram stream nor an all-length composition multiset is equivalent as an observation. Sorted visited-level words identify the counted output types with the different OEIS family once interval support has been proved, so the cubic sequence is acknowledged as known, while the interval realizability theorem is a separate existence statement about overlapping binary windows.",
+      "searches": [
+        "binary length-three window-composition multispectrum realizable histogram contiguous support exact cubic (m^3+11m+12)/6",
+        "3-window binary local-weight histogram unordered multiset support interval all integer vectors realizable",
+        "binary 3-gram composition read spectra cardinalities ternary type counts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A188554 explicitly records 1,4,7,12,20,... (offset zero) and a(n)=(n^3+11n+12)/6 for n>=1; it interprets terms via 3-by-n binary arrays without certain patterns and via nonincreasing unit-step words.",
+        "The OEIS page does not identify binary overlapping-triple multispectra or give a simultaneous realization by one common binary source word."
+      ],
+      "reasoning": "The numerical sequence is NOT claimed new. The OEIS objects are in bijection with formal interval-supported positive coordinate vectors, not automatically with realizable sliding-triple profiles; precisely that difficult existence direction is proved constructively here, and a separate sharp width-four obstruction is supplied. Counting the same integer sequence alone would be covered, so the accepted claim is the feasibility equivalence and boundary, not novel terms.",
+      "searches": [
+        "\"4, 7, 12, 20, 32, 49, 72\" binary histograms",
+        "site:oeis.org \"4, 7, 12, 20, 32, 49, 72\"",
+        "site:oeis.org \"4,7,12,20,32,49,72\"",
+        "\"n^3+11n+12\" \"6\" sequence",
+        "https://oeis.org/A188554"
+      ]
+    },
+    "rationale": "The new core is the exact iff characterization of feasible unordered length-three binary composition read multispectra, an explicit witness for every permitted vector, and a sharp counterexample for ALL widths >=4. Primary full-text discussions involve either literal fixed-length reads, all-length substring composition multisets, or ordered local histograms. Exact OEIS A188554 numeric coincidence is disclosed, and no novelty is claimed for the pre-existing cubic sequence. Search of published related research records found no statement implying the realizability equivalence or all-width sharp obstruction. A less-indexed equivalent realization theorem remains possible.",
+    "residual_risks": [
+      "The same numeric cubic sequence was published separately as OEIS A188554; it must never be marketed as a new sequence.",
+      "A prior theorem on binary sliding-window histograms may implicitly contain the h=3 feasibility equivalence, although no such statement appeared in checked source material.",
+      "The indexed copy of the 2022 ordered-local-histogram paper was inspected in sections, while direct publisher HTML intermittently returned rate limiting.",
+      "No independent human literature certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different, strictly more informative literal read alphabet; no exact classification of unordered triple-weight frequency vectors stated in inspected material.",
+        "evidence": [
+          "Page 1 defines S_L(w) as the multiset of literal L-substrings; Section I states codes for incomplete/noisy read spectra."
+        ],
+        "identifier_or_url": "arxiv:1912.11108; https://arxiv.org/pdf/1912.11108",
+        "material_read": "16-page primary PDF: title, abstract, introduction, definitions in Sections I-II and stated objectives.",
+        "method": "Inspected the primary PDF and its initial page; checked literal-read definition and how reads enter the reconstruction condition.",
+        "title": "Reconstruction of Strings from their Substrings Spectrum",
+        "trigger": "Same fixed-length read-multispectrum reconstruction model; potential broader coverage."
+      },
+      {
+        "assessment": "Observation includes compositions of all substrings, and paper develops algorithms and special codebooks rather than describing all fixed-length triple output types.",
+        "evidence": [
+          "Section II(A) defines C(s) using substrings of ALL lengths; introduction and conclusion describe reconstruction algorithms and codes."
+        ],
+        "identifier_or_url": "arxiv:2201.09955; https://arxiv.org/pdf/2201.09955",
+        "material_read": "22-page primary PDF, abstract, introduction pp. 1-3, formal Section II(A) on p.4, conclusion on p.20, plus searched occurrences of fixed window, length-three and compositions.",
+        "method": "Read primary PDF text, checked PDF page 4 visually, and searched within the complete document for fixed-length/window concepts.",
+        "title": "A New Algebraic Approach for String Reconstruction from Substring Compositions",
+        "trigger": "All-length binary composition spectra could imply projected length-three output enumeration."
+      },
+      {
+        "assessment": "Studies the ordered sequence H_S=[h_0,...,h_(n-m)] of local histograms, not the unordered four-vector recording how frequently each weight appears. A further hidden specialization remains a limited residual risk.",
+        "evidence": [
+          "Section 2 Eq. (19) explicitly retains position order in H_S; Section 4 counts ambiguity/metameric classes under H_S."
+        ],
+        "identifier_or_url": "doi:10.3390/e24030433; https://www.mdpi.com/1099-4300/24/3/433",
+        "material_read": "Publisher-indexed sections 1-5 including introduction, Eq. (6)-(7) for h_j, Eq. (19) for H_S, Section 3 reconstruction, Section 4 cases, Table 1 description, and conclusion; direct publisher page intermittently rate-limited.",
+        "method": "Inspected publisher-indexed scientific text for the formal observation and results; direct full HTML was rate-limited on subsequent opening.",
+        "title": "Reconstructing Binary Signals from Local Histograms",
+        "trigger": "Nearly identical local triple histogram terminology; decisive comparison required."
+      },
+      {
+        "assessment": "Exact polynomial and initial terms are known for pattern-avoiding arrays / unit-step words, but the recorded objects are not binary source words with unordered sliding-triple count vectors. Numerical novelty is explicitly excluded.",
+        "evidence": [
+          "Entry states a(n)=(n^3+11n+12)/6 for n>=1; comments identify pattern-avoiding arrays and bounded adjacent-step words."
+        ],
+        "identifier_or_url": "https://oeis.org/A188554",
+        "material_read": "Complete public sequence entry: values, formulas, comments, array interpretation and date history.",
+        "method": "Read complete numerical database entry and compared its stated objects and polynomial with candidate.",
+        "title": "OEIS A188554",
+        "trigger": "Exact initial counts 4,7,12,20,... and possible known numeric formula."
+      },
+      {
+        "assessment": "Window-two special case has parity-split exact counts, not an all-width coverage theorem or an implication yielding the h=3 realization equivalence.",
+        "evidence": [
+          "Published summary specifies exact binary length-two read multispectra and singleton classification."
+        ],
+        "identifier_or_url": "Publicly available research record: exact-binary-two-multispectrum-code-size-and-singleton-classific",
+        "material_read": "Published title and abstract summary only, not full document.",
+        "method": "Compared the reported observation length, invariant and count with the current h=3 theorem.",
+        "title": "Exact binary two-multispectrum code size and singleton classification",
+        "trigger": "Closest already published fixed-read-count result at the preceding window length."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2d009d6c-e2ea-44b1-9d1a-d32b944caf05",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Noiseless composition-only read streams are a natural finite-alphabet reconstruction channel. This theorem completely classifies every attainable output and gives an optimal zero-error codebook of exact size at all source lengths, not merely small enumerations. It also pinpoints the sharp read-width cutoff at which the simple realizability criterion fails, so it supplies a structurally motivated boundary absent from the known numerical OEIS family.",
+    "status": "PASS"
+  }
+}
