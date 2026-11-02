@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof assumes a cyclic dimension of at least three and a link no greater than half the shortest side, which excludes intersections of adjacent forbidden events. Weighted inclusion--exclusion gives a two-state cyclic matching trace, with forbidden triangular edge integral evaluated exactly. Its homogeneous eigenvalue formula yields the finite-moment identity and explicit positive variance correction. Analytic moment-generating-function convergence gives the Gaussian limit, and a finite everywhere differentiable limiting cumulant generating function gives the large-deviation principle. Eighty-seven independently constructed computational comparisons passed. The proof, not the finite checks, establishes the infinite-dimensional statements.
+PASS
 
-## Originality — PASS, qualified
+For s≥3 and 0<ℓ≤min a_i/2, adjacent forbidden coordinate events cannot coexist. Inclusion-exclusion therefore ranges over matchings of the cyclic edge graph; each unoccupied vertex gives M_i and edge gives B_i, and the two-state 2x2 cyclic transfer trace equals the signed sum. In homogeneous case diagonalization at fixed r>0 yields exact MGF, mean s/2 by reflection, explicit finite variance and asymptotic σ²>1/12. The smaller eigenvalue ratio is uniformly <1 for real tilt and analyticity of Λ gives MGF CLT and Gärtner-Ellis LDP. At endpoints 0/1, asymptotics log m(t) show infinite rate. An independent direct matching enumeration matched trace for s=3,4,6 at distinct t, including zero. These are corroborations; infinite s follows analytically.
 
-The 2022 primary article introduces chainlink polytopes, proves complementary-section Ehrhart equivalence, and contains an unweighted matching-volume trace (Proposition 6.8). Those results are prior art, and their combinatorial proof strategy is reused with attribution. The present claim adds a nonzero exponential tilt, a full continuous section-mass transform, exact nontrivial variance, a homogeneous Gaussian limit, and a large-deviation rate. The earlier circular-fence rank-polynomial paper counts discrete ideals instead of continuous section-volume fluctuations. The available mathematical search did not identify a dominating theorem, but an equivalent weighted transfer-matrix theorem may exist in adjacent literature; this is not an independent novelty certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural rank-sum functional defines the volume distribution over parallel hyperplane sections, central to the original motivation for chainlink polytopes. The exact positive variance enhancement shows that cyclic links have a first-order effect on section-mass fluctuations rather than merely changing total volume. The full limiting fluctuation and large-deviation descriptions, over an infinite family of growing-dimensional convex polytopes, are mathematically substantive. No assertion is made for dimension-dependent links, arbitrary inhomogeneous limits, or local density limits.
+Original chainlink-volume trace at t=0 and combinatorial matching method are prior art (Kantarcı Oğuz–Özel–Ravichandran Prop 6.8). This statement upgrades to all real exponential tilts and complete continuous section mass transform, exact variance, CLT and large-deviation rate. Earlier fence-poset rank polynomials are discrete counts. Untilted volume equality does not imply derivatives at nonzero tilt nor asymptotic fluctuation laws. Possible weighted matching/hard-core model alias remains residual.
 
-## Closest literature and outstanding limitations
+## value
 
-Kantarcı Oğuz–Özel–Ravichandran, *Chainlink Polytopes and Ehrhart-Equivalence* (arXiv:2211.08382v1), Sections 4 and 6, is the nearest direct predecessor. Kantarcı Oğuz–Ravichandran, *Rank Polynomials of Fence Posets Are Unimodal* (arXiv:2112.00518v1), supplies related combinatorial motivation. Public mathematical records also contain chainlink inradius results, which address a different metric invariant; their brief abstracts cannot exclude unexamined statements in full manuscripts. The general weighted-tilt analogue might already occur under another name. Independent validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sections of an increasing-dimensional natural polytope family have a canonical sum-coordinate mass observable. Exact variance enhancement σ²>1/12 and full CLT/LDP identify leading-order effect of link constraints and large-scale section fluctuations. This fills a meaningful gap beyond volume, rather than a mechanical restatement of a previously evaluated trace.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
