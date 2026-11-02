@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T10:08:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/dba77ed3d1f80e30411533240fd58f87c547013b/2026/10/26/period-three-rigidity-of-maximum-edge-open-packings-in-complete--59a533ee9f84/RESULT.md",
+        "https://arxiv.org/pdf/2403.00750",
+        "https://arxiv.org/pdf/2406.04020"
+      ],
+      "rationale": "On a tree, two selected edges are forbidden exactly when a third edge joins their endpoints, equivalently for every uv, (d_S(u)-epsilon_uv)(d_S(v)-epsilon_uv)=0. For a subtree with parent-edge indicator x and j selected child edges, the proof partitions all root boundary states into j=0, j=1, j>=2 and derives the exact recurrence. Substitution proves the explicit three-residue DP solution and strict maximizing j=b at h=1 mod3, j=0 at h=0,2 mod3 for b>=2. The forced boundary continuations are unique; the layers thus give the only maximizer, and the ratio is the quotient of two geometric sums. Independently enumerated every edge subset on six small instances, including b=2,h=3 (16,384 subsets), b=3,h=2 (4096), verifying unique optima. Infinite uniqueness follows the recurrence, not finite experiments.",
+      "residual_risks": [
+        "The state-uniqueness proof depends on forced continuation argument; no claim for incomplete or nonuniform trees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/2403.00750",
+          "https://arxiv.org/pdf/2406.04020",
+          "2026 Das Santra chordal/AT-free EOP algorithms cover broad graph classes."
+        ],
+        "reasoning": "General algorithms find an optimum for an input tree but do not directly imply symbolic strict uniqueness or every-third-level structure without solving the DP for all b,h. Rooted-product theorem in 2406 concerns induced matching, not the present EOP optimum.",
+        "searches": [
+          "\"edge open packing\" \"tree\" linear time Brešar Samadi",
+          "\"edge open packing\" \"rooted product\" unique tree"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2403.00750",
+        "https://arxiv.org/pdf/2406.04020",
+        "https://doi.org/10.1051/ro/2022171",
+        "https://arxiv.org/abs/2610.02275"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2403.00750",
+          "https://arxiv.org/pdf/2406.04020",
+          "https://doi.org/10.1051/ro/2022171"
+        ],
+        "reasoning": "2403.00750 implies computability of rho_e^o on all trees, a strictly different output from an exact full b-ary closed form plus one forced optimum for each h. 2406.04020 identifies trees with rho_e^o=nu_I and certain product bounds; no theorem there directly yields full-star layer uniqueness for regular rooted trees.",
+        "searches": [
+          "Brešar and Samadi arxiv:2403.00750 Section 3 tree linear-time DP",
+          "Brešar Dravec Hedžet Samadi arxiv:2406.04020 tree structural equality and rooted product"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2403.00750",
+          "https://arxiv.org/pdf/2406.04020",
+          "Edge open packing means selected edges induce disjoint stars, and is not ordinary vertex open packing or induced matching."
+        ],
+        "reasoning": "The correct predicate is EOP/injective edge color class. The selected layers have degree-b stars, so an induced-matching classification does not recover them.",
+        "searches": [
+          "Resultary: edge open packing complete rooted b-ary trees unique maximum every third level",
+          "\"edge open packing\" \"complete binary tree\" exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/pdf/2403.00750",
+          "https://arxiv.org/pdf/2406.04020",
+          "2022 RAIRO foundational work concerns basic graph families, full publisher text unavailable."
+        ],
+        "reasoning": "No full parameter formula or unique-max table was found in the examined relevant sections; a nonhit alone does not prove originality.",
+        "searches": [
+          "Resultary: edge open packing complete rooted b-ary trees unique maximum every third level",
+          "\"edge open packing number\" \"complete binary tree\" levels period 3"
+        ]
+      },
+      "rationale": "Best-of-knowledge: existing all-tree algorithm can compute these optimum numbers but does not provide the closed two-parameter formula and uniqueness/rigid-layer theorem directly. Inspected full relevant primary preprints and retained possibility of hidden formula in 2022 foundational article.",
+      "residual_risks": [
+        "2022 foundational article full text inaccessible; may contain regular-tree corollary.",
+        "An unindexed tree dynamic-programming specialization could explicitly give the same geometric series and unique optimizer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General linear-time computation of optimum size, not a published all-b,h unique-layer formula in examined material.",
+          "evidence": [
+            "Theorem explicitly gives linear-time algorithm on arbitrary tree."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.00750",
+          "material_read": "Complete 2024 author arXiv PDF, especially tree dynamic-programming section and theorem/definitions.",
+          "method": "Read original text and PDF page image; compared algorithm output to closed formula and uniqueness.",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "General tree algorithm is a plausible stronger coverage theorem."
+        },
+        {
+          "assessment": "Tree equality and product bounds do not assert this EOP unique maximizer on complete rooted b-ary trees.",
+          "evidence": [
+            "Theorem 6.1 gives induced matching of rooted products, not EOP of uniformly branching rooted trees."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.04020",
+          "material_read": "Complete 27-page author arXiv PDF; introduction, tree equality part, rooted-product Section 6 and central theorem statements.",
+          "method": "Read original PDF text and page image; distinguished EOP vs induced matching.",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Tree structural theorems and product results could subsume this optimum."
+        },
+        {
+          "assessment": "Possible uninspected family result is a residual priority risk.",
+          "evidence": [
+            "RAIRO Operations Research 56 (2022), 3765-3776."
+          ],
+          "identifier_or_url": "https://doi.org/10.1051/ro/2022171",
+          "material_read": "Publisher abstract and indexed excerpts; full 2022 publisher PDF not read.",
+          "method": "Statement-level comparison; no whole-document noncoverage asserted.",
+          "title": "Edge open packing sets in graphs",
+          "trigger": "Foundational 2022 paper may have exact classical family enumeration."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2403.00750",
+        "https://arxiv.org/pdf/2406.04020",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/dba77ed3d1f80e30411533240fd58f87c547013b/2026/10/26/period-three-rigidity-of-maximum-edge-open-packings-in-complete--59a533ee9f84/RESULT.md"
+      ],
+      "rationale": "The exact optimizer and uniqueness across all branching factors is a substantial structural rigidity refinement over generic tree algorithms; the period-three selected-layer phenomenon and limiting density are natural, not arbitrary slices.",
+      "residual_risks": [
+        "Known generic linear-time computability is not claimed as new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only complete uniformly b-ary trees; no arbitrary-tree uniqueness characterization."
+  ],
+  "schema_version": 1
+}
