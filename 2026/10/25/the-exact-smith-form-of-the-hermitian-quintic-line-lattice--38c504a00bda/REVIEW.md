@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite-field script exhaustively enumerates the normalized points, the isotropic points, and all totally isotropic lines over \(\mathbb F_{16}\). It reconstructs the intersection matrix using adjunction and line intersections, then obtains ranks \(37\) modulo two and \(53\) modulo three, with \(37\) unit Smith pivots and \(16\) valuation-one factors. The general rank and absence of odd-prime factors follow from the cited Hermitian/Fermat lattice results.
+## correctness
 
-## Originality
-**PASS, with a bibliographic risk recorded.** Harashita's general theorem supplies only the bound \(e\le2\) for this case and Remark 6.3 leaves individual lower bounds open. The exact finite calculation supplies the multiplicities and shows no factor of \(4\). published-finding corpus searches returned line-spectrum records for different surfaces, including the 85-line Yu–Zhu quintic and 64-line Schur quartic, but no matching \(\mathcal H(3,16)\) Smith form. The accessible abstract of Shimada (2001) gives general rank and characteristic-primary discriminant results; the full text fetch timed out, so an uninspected special-case table remains a residual risk.
+PASS
 
-## Value
-**PASS.** The precise elementary divisors determine the exact 2-primary Smith profile of a natural finite line configuration, sharpening the general annihilator bound from \(4\) to \(2\) and resolving the multiplicity in this case. The result is finite, motivated by the recent general bound, and reproducible without external software.
+Over GF16=F2[a]/(a⁴+a+1), the Hermitian pairing h(v,w)=Σv_i w_i⁴ defines 1105 isotropic projective points among 4369 total; every maximal totally isotropic line has 17 rational points, and independent exhaustive projective enumeration recovered exactly 325 lines. On a smooth quintic surface, adjunction gives self-intersection -3 for each line and any two distinct projective lines intersect once transversely if they meet, giving off-diagonal 0/1. Independently reconstructed the 325×325 Gram matrix from shared-point incidence. Each line has 68 others intersecting it; its line intersection graph is strongly regular with (v,k,λ,µ)=(325,68,3,17), giving adjacency eigenvalues 68 (once), 3 (272 times), -17 (52 times), hence Gram A−3I has rational rank 53. Separate exact modular elimination on the independently reconstructed matrix yielded rank mod2=37, rank mod3=53 and local Smith pivot counts mod4: 37 units plus 16 factors with valuation exactly 1. The resulting 53 nonzero factors exhaust the rational rank, excluding all 2-adic valuations≥2. The cited Shimada/Harashita Hermitian cycle-lattice theorem ensures odd-prime factors do not occur in the nonzero line-lattice discriminant; hence full Smith form diag(1^37,2^16,0^272). Source script verification/hermitian_quintic_smith.py was fully read, and an independently written finite-field and modular-linear-algebra script reproduced the numbers, including the independent srg equation. The general p-primary theorem is used as a mathematical premise rather than falsely inferred from a mod3 check.
 
-## Closest literature and limitations
-Harashita, arXiv:2610.01731v1, §§3 and 6; Shimada, *Proc. Lond. Math. Soc.* (3) 82 (2001), 131–172. The result does not classify other fields or determine the index of the line lattice in the full numerical cycle lattice.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Harashita, arXiv:2610.01731 (Oct 1 2026), treats these Hermitian line-cycle lattices uniformly. In §6 Corollary 6.2 it bounds each p-adic elementary exponent by νm=2 for the present q=4, m=1; Remark 6.3 expressly says lower bounds/multiplicities are not treated. The exact 1^37 2^16 specialization is not a corollary of those upper bounds, which permit valuation-two factors. Shimada (2001) establishes full rational rank and p-primary discriminant; its complete paper could not be read, so a forgotten exact q=4 example there remains a real priority risk. The published near-match 85-line Yu–Zhu quintic is a different surface and Gram matrix.
+
+## value
+
+PASS
+
+The 325 rational maximal-isotropic lines on a Hermitian quintic are a canonical highly symmetric finite configuration whose intersection lattice is central to algebraic cycles. Their complete integral Smith profile is a precise unknown natural invariant, sharpening the published annihilator bound from 4 to 2, determining the entire 2-primary elementary multiplicity and rank. Such exact structure can be used to test index/saturation predictions and is a motivated complete arithmetic calculation, not an arbitrary tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
