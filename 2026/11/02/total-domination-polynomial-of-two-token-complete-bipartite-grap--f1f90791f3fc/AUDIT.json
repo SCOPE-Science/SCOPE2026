@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The exact criterion is necessary and sufficient: two pure-token vertices share only mixed-token neighbors, so the selected mixed-token matrix needs at most one empty row and one empty column; a mixed token is adjacent to selected pure tokens exactly when its A endpoint or B endpoint is covered, forcing a complete edge cover on A or on B. The selected parts therefore factor. Two independent inclusion-exclusion formulas give every coefficient. A minimum selected mixed part has \\(n-1\\) cells, one in every column but one; the function from active columns to rows must use \\(m\\) or \\(m-1\\) rows. Minimum pure selection is a minimum edge cover of the smaller part, or either part if their cover sizes tie. For even part size this is a perfect matching, for odd part size one 3-path plus a matching; exact multiplicities yield the stated Stirling-number coefficient. The formulas and edge-cover counts are independently reproduced by a standalone standard-library verifier, including 4,260,928 literally enumerated token-graph vertex subsets. Finite checks corroborate rather than replace the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chinman et al., arXiv:2610.28936v1, main result evaluates the ordinary domination number for the two-token complete-bipartite family and bounds larger-token cases.",
+        "Acosta Troncoso et al., arXiv:2610.31557v1, Theorem 1.1 and Lemma 2.2 give the ordinary domination number and a criterion permitting occupied vertices to dominate themselves.",
+        "Related indexed findings on complete multipartite and chain graphs enumerate total domination for different host graphs; they do not treat the symmetric two-token graph."
+      ],
+      "reasoning": "The earlier parameters and host graphs are not stronger coverage of total domination in \\(F_2(K_{m,n})\\). A closed-neighborhood dominating set need not be total dominating and neither ordinary minimum value nor a different host-graph polynomial implies all desired coefficients.",
+      "searches": [
+        "total domination number and total domination polynomial of the two token graph F_2(K_m,n) of a complete bipartite graph, with enumeration of minimal total dominating sets",
+        "total dominating sets of token graphs domination polynomial complete bipartite graphs",
+        "\"total domination polynomial\" \"token graphs\" complete bipartite",
+        "arXiv:2610.28936v1",
+        "arXiv:2610.31557v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.28936v1 (primary; relevant statements and definitions)",
+      "arXiv:2610.31557v1 (primary; relevant theorem/lemma and proof sections)",
+      "Jacob–Goddard–Laskar (2007; title, metadata and abstract only)",
+      "Searchable mathematical result records for total domination, symmetric squares, token graphs and related host graph polynomials",
+      "Accessible earlier claims on ordinary domination of \\(F_2(K_{3,n})\\) and adjacency kernels of \\(F_2(K_{m,n})\\)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For \\(m=3\\), or odd \\(m\\ge5\\) with \\(n=m+1\\), the published ordinary domination number is \\(n-2+\\lceil m/2\\rceil\\), whereas the present total-domination minimum is \\(n-1+\\lceil m/2\\rceil\\).",
+        "A total-dominating set must dominate the selected token vertices externally, whereas ordinary domination automatically covers selected vertices.",
+        "The present theorem evaluates an entire polynomial and its minimal coefficient in a regime where the ordinary-domination papers evaluate a number."
+      ],
+      "reasoning": "The general inclusion relation total domination => ordinary domination does not reverse; a formula for the smaller ordinary invariant cannot supply the polynomial for the stricter class. The published characterizations are structural context but do not establish the new exact enumeration.",
+      "searches": [
+        "arXiv:2610.31557v1 Theorem 1.1 Lemma 2.2 dominated sets",
+        "arXiv:2610.28936v1 ordinary domination F2(Kmn)",
+        "total dominating sets of token graphs domination polynomial complete bipartite graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Both 2026 primary preprints define two-token graphs and analyze ordinary domination; the open-neighborhood condition for selected token vertices differs.",
+        "Literal total-domination criterion in the present proof is equivalent to a row/column occupancy requirement combined with an edge cover of one host part."
+      ],
+      "reasoning": "The phrases total domination, open-neighborhood coverage and double-vertex graph were checked as aliases. No retrieved source proved the same occupancy-times-edge-cover polynomial. Matching a graph family or one parameter is insufficient; the compared primary results lack the all-set counting statement.",
+      "searches": [
+        "\"F_2(K_{m,n})\" \"total domination\"",
+        "\"token graphs\" \"total dominating sets\" counting",
+        "\"double vertex graph\" \"total domination number\"",
+        "open neighborhood domination of double vertex graph symmetric square of complete bipartite graphs edge-cover generating functions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest indexed mathematical records include total-domination polynomials for chain graphs and complete multipartite host graphs, none a table for the two-token graphs.",
+        "Independent direct enumeration obtained minimum-set counts 8, 12, 32, 80, 108 and 576 for selected small parameter pairs, which are reproducible checks, not an independent database.",
+        "Accessible metadata for Jacob, Goddard and Laskar (2007) covers general double-vertex graph constructions but did not expose a total-domination table."
+      ],
+      "reasoning": "No exact database or earlier table supplying these all-parameter coefficients was found. Search absence is not a uniqueness proof; partial access to older double-vertex graph literature remains a residual priority risk.",
+      "searches": [
+        "\"two token graph\" \"total domination polynomial\"",
+        "\"F_2(K_{m,n})\" \"total domination\"",
+        "Enumerating total dominating sets in symmetric square of complete bipartite K_{m,n}: two-token graph open neighborhood, row-column occupancy, edge-cover polynomial, Stirling numbers",
+        "\"Double Vertex Graphs and Complete Double Vertex Graphs\" domination \"total\""
+      ]
+    },
+    "rationale": "Relevant primary 2026 papers prove ordinary closed-neighborhood domination numbers, not the total open-neighborhood polynomial or exact all-size enumeration. The ordinary parameter differs by one in documented exceptional cases and cannot imply the claimed total-domination polynomial. Actual literature and semantic searches of mathematical research records, plus accessible prior claims, identified no implied or equivalent result. A different historical title or a presently inaccessible source could still contain an equivalent formula; priority is qualified, not independently certified.",
+    "residual_risks": [
+      "A prior paper indexed as double-vertex graphs or symmetric squares could contain equivalent total-domination data under a different name; relevant older full text was not available for exhaustive inspection.",
+      "Semantic and phrase searches cannot certify novelty or historical priority; independent literature verification remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Ordinary domination number, not the total-domination polynomial or labelled minimum-set enumeration.",
+        "evidence": [
+          "Preprint v1 first public on 2026-10-20; its summary explicitly restricts exact k=2 result to the ordinary domination number and provides bounds for k>=3."
+        ],
+        "identifier_or_url": "arXiv:2610.28936v1; https://arxiv.org/abs/2610.28936",
+        "material_read": "Abstract, formal definitions and main results on domination of the two-token graph, plus relevant discussion of larger token counts in the accessible primary text.",
+        "method": "Read accessible preprint text and compared definitions and quantifiers with the proposed total-dominating-set polynomial.",
+        "title": "The domination number of the k-token graph of the complete bipartite graph K_{m,n}",
+        "trigger": "Exactly the same host and two-token graph; potential stronger k-token coverage."
+      },
+      {
+        "assessment": "The paper allows selected vertices to count as ordinarily dominated and provides a minimum value only; its theorem is not an all-size total-domination enumeration.",
+        "evidence": [
+          "Theorem 1.1 gives ordinary \\(\\gamma=\\lceil m/2\\rceil+n-1\\) except one-smaller cases \\(m=3\\) and odd \\(m\\ge5\\) with \\(n=m+1\\); the structural Lemma 2.2 concerns ordinary dominating sets."
+        ],
+        "identifier_or_url": "arXiv:2610.31557v1; https://arxiv.org/abs/2610.31557",
+        "material_read": "Primary abstract, introductory theorem, relevant formal definitions and Lemma 2.2 neighborhood criterion, proof components and the exceptional-case theorem sections.",
+        "method": "Inspected relevant HTML/full-text material; compared the closed-neighborhood ordinary domination criterion with the strict open-neighborhood total-domination requirement and checked for total-domination statements.",
+        "title": "The domination number of the 2-token graph of the complete bipartite graph",
+        "trigger": "Same graph, matching m,n range and detailed dominating-set criterion."
+      },
+      {
+        "assessment": "No covering total-domination result visible in accessible material; risk remains because full text was unavailable.",
+        "evidence": [
+          "The 2007 title describes the underlying double-vertex graph construct rather than an explicit polynomial for total dominating sets."
+        ],
+        "identifier_or_url": "Jacob, Goddard and Laskar (2007), bibliographic search metadata",
+        "material_read": "Search-accessible title, metadata and abstract only; the full text was not independently inspected.",
+        "method": "Alias and bibliographic relevance screening, not a whole-document comparison.",
+        "title": "Double Vertex Graphs and Complete Double Vertex Graphs",
+        "trigger": "Double-vertex graph is plausible alias of the two-token construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f1f90791-f3fc-4729-b0f2-46c85134abf7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The closely related new literature determines ordinary domination on this two-parameter infinite token-graph family; its stricter total-domination polynomial is a natural next invariant and is not reducible to its published scalar minimum. The result enumerates every total-dominating vertex set by size via two independent structural factors, determines the exact minimum and a Stirling-number formula for the number of minimum configurations, and exhibits parameter regimes in which ordinary versus total minima differ. These facts support studying covering redundancy and distributions of feasible token configurations, without requiring a downstream theorem.",
+    "status": "PASS"
+  }
+}
