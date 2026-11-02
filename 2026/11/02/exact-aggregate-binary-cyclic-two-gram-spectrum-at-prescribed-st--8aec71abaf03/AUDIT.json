@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "A circular active binary word has t positive zero and one runs, hence 2t<=n, with every integral 00 count A from 0 to n−2t realized by the explicit word 0^(A+1)1^(n−2t−A+1)(01)^(t−1). Constant cycles give only all-zero or all-one profiles. Adding integral intervals proves exact necessary/sufficient support. Setting all t_i>=1 when T>=r gives complete A-layer, while length-two strands show sharp failure at T=r−1. For two cycles, T=1 interval union has precisely the single equal-length hole and T>=2 is complete, giving S(N−S)+4−2 I_equal. Deterministic zero-error capacity follows by one codeword per attainable output. Actual finite exhaustive checker passed 64 ordered length pairs, 64 triples and 81 quadruples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tesler Sect. 9 develops Eulerian multicyclic constructions with unrestricted orbit-length partitions; this does not supply prescribed length realization.",
+        "Yehezkeally et al. model collections of finite linear strings, typically using substring lengths scaling with source length."
+      ],
+      "reasoning": "Prescribing the component-length vector is a stronger constraint than fixing only the aggregate edge multiplicities and number of cycles; unrestricted multicycle counting may include realizations with forbidden length partitions. A linear multi-string reconstruction code does not settle circular 2-gram profile support.",
+      "searches": [
+        "Feasible integer edge-flow profiles decomposed into exactly two directed cycles of specified lengths in binary de Bruijn graph; complete characterization",
+        "Multicyclic de Bruijn fixed cycle length spectrum of arbitrary 2 gram counts subset sum obstruction",
+        "arXiv:1708.03654 Theorem 9.3",
+        "arXiv:2108.11725 multi-strand reconstruction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1708.03654 (full public text)",
+      "arXiv:2108.11725 (full public text)",
+      "arXiv:1502.00517 (full public text)",
+      "Exact binary two-multispectrum code size and singleton classification (published result ID 13779c08da71)",
+      "Exact binary r=2 length-limited composition reconstruction (published result ID a98561a7f27e)",
+      "Exact worst-case realizing length for ternary window-two DNA profile rankings (published result ID 9a35e7b20e23)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 9.3 of Tesler counts decompositions of prescribed balanced edge multisets, without the theorem requirement that each component cycle have one of the specific lengths.",
+        "The earlier linear-source profile code size result has one source object, not two cyclic sources with unspecified separation of reads."
+      ],
+      "reasoning": "Neither published comparison provides the exact union-of-intervals criterion parameterized by length vector, the full-layer threshold T=r with sharpness, or S(N-S)+4−2*1_{n1=n2}. These statements require proving the transition/run decomposition and interval filling with all cycle lengths fixed.",
+      "searches": [
+        "arXiv:1708.03654 multicyclic Eulerian arbitrary multiplicity length prescribed",
+        "arXiv:2108.11725 linear multistrand substring reconstruction length two",
+        "Maximum zero error code size for two circular binary strands of prescribed unequal lengths from aggregated cyclic length-two substring multiplicities, exact transition counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tesler, arXiv:1708.03654, Sect. 9, enumerates multicyclic decompositions but not fixed prescribed individual length profiles.",
+        "The cited published binary two-multispectrum claim gives linear single-word adjacent-pair observations and singleton fibers, rather than aggregate circular fixed-length strands."
+      ],
+      "reasoning": "A multiset of directed edges in the 2-vertex de Bruijn graph specifies a balanced flow. General Eulerian cycle decomposability permits arbitrary component lengths, whereas the claim imposes exactly r components of fixed lengths and classifies each aggregate A layer. Rotational normalization does not remove the missing equal-length (T=1,A=s−1) support point.",
+      "searches": [
+        "Two circular binary DNA strands with fixed lengths, exact number of possible aggregate dinucleotide count profiles and reconstruction code capacity",
+        "Multi strand binary cyclic bigram profiles Minkowski sum complete characterization of realizable read multiset counts",
+        "Maximum zero error code size for two circular binary strands of prescribed unequal lengths from aggregated cyclic length-two substring multiplicities, exact transition counts",
+        "Exact binary two-multispectrum code size and singleton classification (published result ID 13779c08da71)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No cited exact small-parameter table explicitly lists the claimed fixed-two-cyclic-strand support, missing equal-length profile and formula for all lengths.",
+        "Closest published records concern single linear composition profiles and ternary realization rankings."
+      ],
+      "reasoning": "An exact two-strand all-parameter theorem cannot be replaced by tables for a single linear string; no matching table was identified in the inspected resources. Absence from query results is not proof of novelty.",
+      "searches": [
+        "Short circular multi-strand reconstruction 2-gram aggregate spectra gaps and code size",
+        "Balanced 2 by 2 Markov types with two components prescribed lengths, missing one profile when strand lengths equal",
+        "General multi strand cyclic dinucleotide reconstruction profiles for r strands sharp transition threshold",
+        "Exact binary r=2 length-limited composition reconstruction (published result ID a98561a7f27e)",
+        "Exact worst-case realizing length for ternary window-two DNA profile rankings (published result ID 9a35e7b20e23)"
+      ]
+    },
+    "rationale": "The main all-r fixed-cycle-length feasibility theorem and exact two-cycle equal-length defect are not stated by the inspected multicycle-flow and linear multi-strand sources, nor by the closest published profile records. Generic multicycle enumeration with unrestricted component sizes does not imply an exact fixed-size attainability support or the closed two-length zero-error capacity without additional analysis. An implicit equivalent formulation remains possible.",
+    "residual_risks": [
+      "The exact two-strand formula might be an unadvertised easy corollary of older Eulerian multicycle literature or a result using different Markov-type terminology.",
+      "No claim is made of a definitive global novelty proof; independent expert literature audit is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Highly relevant general methodology; does not explicitly determine the possible fixed-length two-cycle binary digram profiles or their capacity",
+        "evidence": [
+          "Section 9 counts representations with multicyclic decompositions of edge multiplicities while component-length vector is not fixed."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.03654",
+        "material_read": "Full accessible author preprint including multicyclic discussion and Section 9, Theorem 9.3",
+        "method": "Read public full-text HTML/text and compare cycle-count restrictions to fixed component-length feasibility",
+        "title": "Multi de Bruijn Sequences",
+        "trigger": "Multi-cycle Eulerian realization and de Bruijn edge-type enumeration might subsume aggregate profiles"
+      },
+      {
+        "assessment": "Different linear-source model and reconstruction regime; no direct fixed cyclic binary two-read spectrum formula identified",
+        "evidence": [
+          "Problem models collections of strings reconstructed from their substring multisets, not cyclic two-gram counts with each component length prescribed."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.11725",
+        "material_read": "Accessible author preprint, problem formulations and main reconstruction statements",
+        "method": "Read public full text and compare cyclic wraparound vs linear substrings, length-two vs length-growing reads",
+        "title": "Multi-strand Reconstruction from Substrings",
+        "trigger": "Multi-strand read observation and code capacity could already include the special channel"
+      },
+      {
+        "assessment": "Foundational related framework, but no direct fixed multicycle length support theorem located",
+        "evidence": [
+          "Considers DNA sequence profiles of an individual source string; general profile feasibility does not fix multiple component cycle lengths."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.00517",
+        "material_read": "Accessible full arXiv HTML treatment of sequence-profile coding and flow framework",
+        "method": "Compared single-linear-word sequence profile constraints with aggregate cycle-length-constrained profiles",
+        "title": "Codes for DNA Sequence Profiles",
+        "trigger": "de Bruijn flow and Markov type descriptions may dominate the proposed result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8aec71ab-af03-4a58-8c29-baf1491921aa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete finite-length attainable profile spectrum for prescribed distinct circular strand lengths directly characterizes the observation states of a noiseless multi-strand read-multiset channel. The universal full-layer threshold is sharp uniformly in arbitrary number of strands, and the exact two-strand zero-error capacity features a genuine equal-length defect; this is an all-parameter constructive classification rather than a fixed numerical or textbook example.",
+    "status": "PASS"
+  }
+}
