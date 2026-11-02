@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Unbiasedness follows by importance-integration identity; polynomial residual is exactly -a h^2 u(1-u), so the beta weighting cancels its randomness. The uniform C^3 interpolation expansion after division by u(1-u) is rigorous via an interpolated remainder with bounded second derivative. Beta variance 1/20 yields 1/25920; independent-cell Riemann sums and Lindeberg yield limiting variance/CLT. A curvature bound yields interval widths M h^4/6 and Hoeffding exponent 72 m^7. Cubic variance and uniform benchmark are algebraically checked. verify.py passed 194 reproducible test groups.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kunsch develops stratified control variates with uniform local samples and higher-degree interpolation for general optimal confidence rates.",
+        "Leluc et al. give a general adaptive importance-sampling/control-variate algorithm with weighted least squares, not the exact fixed beta endpoint-linear rule."
+      ],
+      "reasoning": "Broader rate theorems may yield O(m^-7) using different algorithms, but neither fixes the one-random-point beta-weighted linear-residual construction nor implies its explicit constant, fixed-density uniqueness, or finite-sample tail bound. No claim of globally best randomized quadrature is made.",
+      "searches": [
+        "arXiv:2309.09059",
+        "arXiv:2205.11890",
+        "control variate importance sampling interpolation remainder density proportional u(1-u) variance asymptotic cubic",
+        "\"randomized trapezoidal\" \"Beta(2,2)\" importance sampling"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2309.09059",
+      "https://arxiv.org/abs/2011.15086",
+      "https://arxiv.org/abs/2205.11890",
+      "Published result: Positive-weight generalized Romberg quadrature for every integer refinement factor",
+      "Published result: Sharp curvature-range envelopes and a minimax weight for symmetric three-point rules"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kunsch: independent uniform local residual samples and higher polynomial controls; Wu: randomized trapezoidal antithetic sampling; Leluc et al.: broad adaptive importance sampling and control-variate fitting.",
+        "An earlier independent correlated three-cell random quadrature can have the same overall variance order without containing this independent beta construction."
+      ],
+      "reasoning": "Identical rate exponents alone do not imply identical estimators, sharp constants, or uniqueness within a restricted fixed-density family. The new claim is limited to its explicit beta endpoint-linear estimator; established error-rate results and generic IS optimality are treated as prior.",
+      "searches": [
+        "arXiv:2309.09059",
+        "arXiv:2011.15086",
+        "arXiv:2205.11890",
+        "\"stratified control variates\" \"beta\" random integration quadratic interpolation importance sampling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The beta correction is the linear-interpolation residual divided by 6u(1-u); it is equivalently importance sampling the residual with density proportional to the quadratic Peano kernel.",
+        "The general importance-sampling zero-variance rule for a known fixed-sign integrand is prior mathematics; the new assertions concern the exact stratified endpoint-linear estimator and sharp C^3 laws."
+      ],
+      "reasoning": "The abstract zero-variance choice would yield the beta shape for an exact quadratic, but does not on its own assert the independent m-cell estimator, unique universal m^-7 rate within fixed densities, sharp 1/25920 coefficient, CLT, or Hoeffding bound. Searches targeted both Beta naming and interpolatory/Peano-kernel aliases.",
+      "searches": [
+        "Beta(2,2) randomized trapezoidal quadrature linear interpolation one evaluation per subinterval zero variance quadratic",
+        "control variate importance sampling interpolation remainder density proportional u(1-u) variance asymptotic cubic",
+        "stratified integration quadratic exact beta density independent per bin m^-7",
+        "arXiv:2309.09059",
+        "arXiv:2011.15086",
+        "arXiv:2205.11890"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest mathematical records respectively address deterministic Romberg weights and deterministic three-point curvature-error envelopes; a separate Beta sample-variance record concerns a different invariant."
+      ],
+      "reasoning": "No exact beta residual quadrature or matching constant appeared in the actual targeted record searches. This nonmatch does not establish global uniqueness or exclude unpublished material.",
+      "searches": [
+        "Beta(2,2) randomized trapezoidal quadrature linear interpolation one evaluation per subinterval zero variance quadratic",
+        "stratified integration quadratic exact beta density independent per bin m^-7",
+        "\"quadratic exact\" \"randomized\" \"linear interpolant\" \"beta\" quadrature",
+        "published-finding corpus semantic search: generalized-romberg-positive-weights-integer-refinement",
+        "published-finding corpus semantic search: sharp-curvature-envelope-three-point-rules"
+      ]
+    },
+    "rationale": "Full-text comparisons with the 2023 uniform-residual stratification, 2020 randomized trapezoidal method, and 2022 adaptive importance-weighted control variates did not identify this exact beta-weighted endpoint-linear integration law or the joint uniqueness/variance/CLT/concentration package. The generic zero-variance principle is established and is not claimed as independently novel. Potential prior abstract importance-sampling equivalence remains a qualified risk.",
+    "residual_risks": [
+      "A more abstract fixed-sign Peano-kernel importance-sampling theorem may subsume the construction even without the Beta name; no exhaustive publication-priority certification is asserted.",
+      "Full coverage across older numerical integration monographs cannot be guaranteed from consulted accessible sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates field but uses independent uniform residual sampling rather than the fixed beta-weighted linear endpoint interpolation rule",
+        "evidence": [
+          "arXiv HTML method and SCV sampling discussion; first public 2023-09-16"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.09059",
+        "material_read": "Full public arXiv HTML including SCV algorithm, sampling laws and main error bounds",
+        "method": "Read method and theorem statements to compare interpolant degree, local randomness and rates",
+        "title": "Linear Monte Carlo quadrature with optimal confidence intervals",
+        "trigger": "2023 source develops stratified control variates for smooth integration"
+      },
+      {
+        "assessment": "Uses randomized pairs/antithetic structure, not the single independent beta-weighted correction with exact C^3 constants",
+        "evidence": [
+          "arXiv full-text method section, first public 2020-11-30"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2011.15086",
+        "material_read": "Full public arXiv manuscript including method and main error estimates",
+        "method": "Read random evaluation design and assumptions; compare one-sample structure and exact moments",
+        "title": "A randomised trapezoidal quadrature",
+        "trigger": "Plausible random trapezoidal rule with interpolation residual"
+      },
+      {
+        "assessment": "Broad AISCV method does not directly supply the candidate formula, unique fixed density or C^3 variance coefficient",
+        "evidence": [
+          "arXiv text algorithm/theorem sections, first public 2022-05-24"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.11890",
+        "material_read": "Full arXiv text including algorithm and main guarantees",
+        "method": "Compare adaptive least-squares fitting with exact deterministic endpoint linear interpolation and independent fixed local weights",
+        "title": "A Quadrature Rule combining Control Variates and Adaptive Importance Sampling",
+        "trigger": "General weighted integration framework potentially dominating the special rule"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e084e24d-045d-47f9-ba54-2683352fb7f7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A one-point-per-cell residual correction with only endpoint linear interpolation exactly cancels quadratic noise, attains sharp m^-7 variance on C^3 integrands, and provides explicit constants, CLT, and a nonasymptotic confidence bound. It improves the comparable uniform-residual m^-5 variance and gives a constructive unique choice in a natural fixed-density design class, with only 2m+1 function values. The motivation is efficient independent randomized quadrature rather than an arbitrary polynomial trick.",
+    "status": "PASS"
+  }
+}
