@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The sign-flip kernel follows from exact tight-binding Bessel amplitudes and the fair-zero convention; the reset-index labels are a symmetric Markov chain but the continuous-clock sign process retains the age. The positive renewal equation gives the exact integrated correlation. Strict monotonicity is the positive identity \(p_a-p_{a+1}=(b_a+b_{a+1})/2\). The Laplace representation of the Legendre \(Q\) function and a controlled geometric-tail limit supply the exponentially large memory with its sharp square-root prefactor. A Bessel Taylor expansion and explicit event conditioning establish the high-order onset. The standalone checker independently compared Bessel integrals, Legendre expressions, short-time coefficients and large-distance constants.
+## correctness
 
-**Originality — PASS (best-knowledge comparison).** The source by Acharya and Gupta provides the tight-binding reset model and one-time stationary position distribution, not the event-anchored label correlation and its large-distance memory constant. The general conditional-reset framework of Perfetto et al. and spectral treatment by Rose et al. provide useful background tools without yielding this model-specific triple of integrated identity, strict distance ordering and sharp high-order onset in their inspected material. Searches of related mathematical records and accessible claim history did not identify a dominating formulation. General semi-Markov renewal identities and Legendre asymptotics are existing mathematics, not claimed as inventions. Residual risk: broader literature on hidden conditional-reset memory could contain an equivalent specialization.
+PASS
 
-**Mathematical value — PASS.** The result identifies a nontrivial dynamically accessible observable that distinguishes identical symmetric one-time reset populations from their persistent two-time correlations. The exact exponent, prefactor, monotonicity and early-time order quantify a controllable metastable regime with increasing reset-site separation; the event-clock versus continuous-clock distinction prevents a physically consequential incorrect Markovian approximation.
+Starting at +a the flip probability at duration u is f_a(u)=J_a(gamma u)^2/2+sum_{n>a}J_n(gamma u)^2. Exponential waiting yields p_a=b_a/2+sum_{n>a}b_n, b_n=(lambda/(pi gamma))Q_{n-1/2}(1+lambda^2/(2gamma^2)). First-reset conditioning gives C(t)=e^-lambda t+(lambda e^-lambda u(1-2f_a(u)))*C(t); kernel is nonnegative with integral 1-2p_a<1. Integrating yields 1/(2lambda p_a), not a single exponential in clock time. p_a-p_{a+1}=(b_a+b_{a+1})/2>0 proves strict increasing memory. The positive Legendre integral at cosh eta has Laplace endpoint asymptotic Q_{n-1/2}~sqrt(pi/(2n sinh eta))e^-n eta; a geometric ratio bound justifies summing the tail and fixes the coefficient (gamma/lambda^2)sqrt(2pi a sinh eta)tanh(eta/2)e^{a eta}. Bessel Taylor and one-reset conditioning give the t^{2a+1} onset; repeated-reset paths have higher order. Independently compared Bessel-integral and Legendre flip transforms for bounded rates and n, including positivity/order; large-a finite samples are not a proof of uniform asymptotics.
 
-**Limits.** Infinite homogeneous lattice; perfect instantaneous conditioned reset; exponential waits; event-anchored rather than equilibrium-clock correlation; no assertion about quantum-coherence lifetime, a single time-exponential decay, finite geometry or simultaneous limits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original conditional-reset tight-binding paper specifies the model, position probabilities and Bessel/Legendre transforms; these are acknowledged prior. Its studied one-time occupations do not by themselves supply the event-anchored two-time reset-sign persistence and sharp integer-distance asymptotic. General renewal identities from Perfetto and Rose furnish tools, not the evaluated model-specific p_a and its onset/monotonicity. Primary Acharya–Gupta material was inspected for the reset rule and spectral transform. No claim of original general renewal equations. Remaining risk of model-specific two-time calculations under hidden-memory terminology.
+
+## value
+
+PASS
+
+An experimentally meaningful two-time classical reset record can remember the initial sign exponentially longer as reset locations separate despite a symmetric one-time sign law. The exact integrated lifetime, non-Markovian clock distinction and high-order onset distinguish two protocols with otherwise identical symmetric one-time statistics; the distance exponent and prefactor supply a nontrivial quantitative phase-space relation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

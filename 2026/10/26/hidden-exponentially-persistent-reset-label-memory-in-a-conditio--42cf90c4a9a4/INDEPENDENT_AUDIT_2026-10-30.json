@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:16:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting at +a the flip probability at duration u is f_a(u)=J_a(gamma u)^2/2+sum_{n>a}J_n(gamma u)^2. Exponential waiting yields p_a=b_a/2+sum_{n>a}b_n, b_n=(lambda/(pi gamma))Q_{n-1/2}(1+lambda^2/(2gamma^2)). First-reset conditioning gives C(t)=e^-lambda t+(lambda e^-lambda u(1-2f_a(u)))*C(t); kernel is nonnegative with integral 1-2p_a<1. Integrating yields 1/(2lambda p_a), not a single exponential in clock time. p_a-p_{a+1}=(b_a+b_{a+1})/2>0 proves strict increasing memory. The positive Legendre integral at cosh eta has Laplace endpoint asymptotic Q_{n-1/2}~sqrt(pi/(2n sinh eta))e^-n eta; a geometric ratio bound justifies summing the tail and fixes the coefficient (gamma/lambda^2)sqrt(2pi a sinh eta)tanh(eta/2)e^{a eta}. Bessel Taylor and one-reset conditioning give the t^{2a+1} onset; repeated-reset paths have higher order. Independently compared Bessel-integral and Legendre flip transforms for bounded rates and n, including positivity/order; large-a finite samples are not a proof of uniform asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original tight-binding paper supplies Bessel and Legendre one-time kernels; general renewal framework handles arbitrary observables but exact sign label probability and sharp large-a prefactor are not directly in the inspected source material."
+        ],
+        "reasoning": "Specializing a general semi-Markov renewal theorem still requires computing f_a, Q tail and high-order onset; a preexisting same mathematical model sign autocorrelation calculation would dominate.",
+        "searches": [
+          "Acharya Gupta 2023 Tight-binding model subject to conditional resets at random times; Perfetto Carollo Lesanovsky Garrahan 2021 renewal",
+          "Resultary semantic query: conditional quantum walk measurement reset label two-time correlation persistent memory Bessel Legendre renewal lattice"
+        ]
+      },
+      "checked_sources": [
+        "Acharya and Gupta arXiv:2308.14040 PDF pp.6-12 and conclusion",
+        "Perfetto et al. arXiv:2106.13761 bibliographic comparison",
+        "Rose et al. arXiv:1806.01298 bibliographic comparison",
+        "DLMF Chapter 14 (standard Legendre functions)",
+        "Resultary semantic quantum reset label query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Acharya–Gupta model determines the flip probability when one performs the sign sum; renewal theory then gives the integrated identity and Legendre asymptotic yields the sharp prefactor."
+        ],
+        "reasoning": "These inputs are acknowledged, but the stated observables and asymptotics are additional model-specific implications, not claimed automatically absent from every earlier text.",
+        "searches": [
+          "Acharya and Gupta arXiv:2308.14040 position occupation reset; Perfetto et al arXiv:2106.13761; Rose et al arXiv:1806.01298",
+          "Resultary semantic query: conditional quantum walk measurement reset label two-time correlation persistent memory Bessel Legendre renewal lattice"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Embedded reset-event sign chain has correlation (1-2p_a)^n; integrated physical-clock correlation equals 1/(2lambda p_a) only after renewal weighting."
+        ],
+        "reasoning": "Event-count Markov diagonalization alone does NOT assert clock-time exponential; stationary-age and reset-anchored correlations differ.",
+        "searches": [
+          "semi-Markov sign flip renewal kernel, event-indexed reset-label autocorrelation, quantum resetting persistence",
+          "Resultary semantic query: conditional quantum walk measurement reset label two-time correlation persistent memory Bessel Legendre renewal lattice"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF supplies standard Q integral and asymptotics; Resultary hits concerned different quantum walks or Markov correlations, no same two-state label formula."
+        ],
+        "reasoning": "The exact transform b_n is standard special-function data, but integrated memory, monotonicity and onset for the specific event-anchored label are not a matching table row in inspected records.",
+        "searches": [
+          "Bessel product Laplace Legendre Q half-integer transform DLMF 14; Resultary quantum reset label autocorrelation",
+          "Resultary semantic query: conditional quantum walk measurement reset label two-time correlation persistent memory Bessel Legendre renewal lattice"
+        ]
+      },
+      "rationale": "The original conditional-reset tight-binding paper specifies the model, position probabilities and Bessel/Legendre transforms; these are acknowledged prior. Its studied one-time occupations do not by themselves supply the event-anchored two-time reset-sign persistence and sharp integer-distance asymptotic. General renewal identities from Perfetto and Rose furnish tools, not the evaluated model-specific p_a and its onset/monotonicity. Primary Acharya–Gupta material was inspected for the reset rule and spectral transform. No claim of original general renewal equations. Remaining risk of model-specific two-time calculations under hidden-memory terminology.",
+      "residual_risks": [
+        "Uninspected full sections, supplementary materials or later followups may calculate this exact two-time sign record.",
+        "The result is event-anchored and cannot be promoted to stationary-clock autocorrelation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-time position populations/model and transform appear; no direct two-time sign persistence found in specifically inspected passages",
+          "evidence": [
+            "Position Bessel J_n^2 and Q_{n-1/2} Laplace transform are prior; reset-site sign rule supplies new f_a sum."
+          ],
+          "identifier_or_url": "arXiv:2308.14040; Phys. Rev. E 108 064125 (2023)",
+          "material_read": "Full PDF accessible; read model/reset rule around pp.6-12 and relevant Legendre-transform formulas and scanned conclusion; did not line-by-line exhaust all 25 pages",
+          "method": "Lawful full-text PDF reading and targeted searches",
+          "title": "Acharya and Gupta, Tight-binding model subject to conditional resets at random times",
+          "trigger": "Exact same conditional-reset quantum walk"
+        },
+        {
+          "assessment": "General reset framework; possible broader coverage risk retained",
+          "evidence": [
+            "The model-specific integer-distance asymptotic would require additional Bessel sign-tail computation."
+          ],
+          "identifier_or_url": "arXiv:2106.13761",
+          "material_read": "Abstract and research-source bibliography; full text not independently read",
+          "method": "Bibliographic and abstract comparison",
+          "title": "Perfetto et al., Designing non-equilibrium states of quantum matter through stochastic resetting",
+          "trigger": "General conditional reset renewal theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An experimentally meaningful two-time classical reset record can remember the initial sign exponentially longer as reset locations separate despite a symmetric one-time sign law. The exact integrated lifetime, non-Markovian clock distinction and high-order onset distinguish two protocols with otherwise identical symmetric one-time statistics; the distance exponent and prefactor supply a nontrivial quantitative phase-space relation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Not continuous-time two-state Markov, one-exponential clock decay, quantum-coherence persistence or finite lattice.",
+    "Asymptotic fixes gamma,lambda>0 before integer a→infinity; early onset fixes a.",
+    "Uninspected full sections, supplementary materials or later followups may calculate this exact two-time sign record.",
+    "The result is event-anchored and cannot be promoted to stationary-clock autocorrelation."
+  ],
+  "schema_version": 1
+}
