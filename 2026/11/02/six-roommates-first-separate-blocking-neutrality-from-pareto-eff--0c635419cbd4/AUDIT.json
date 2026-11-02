@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Proof uses exact definition from Takahashi 2026, prior certified 4-person unsolvable classification, and a closed 6-person case analysis. Each 4-person unsolvable profile has 3 distinct singleton blocker sets, precluding BN domination by Takahashi Lemma 1. The six-person profile is unstabilizable because V is a cyclic triple that always supplies a blocker; 9 one-cross matchings are exactly the Pareto optima; after one adjacent U reversal, matching-edge cases 02,12,01 give respectively 3 BN,3 BN,3 Pareto but BN dominated, totaling 6 vs 9. The bundled Python code reconstructs all 1296 four-person profiles plus 15 matchings of each six-person witness; every asserted result passed. The result does not rely on extrapolation from sample data.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Takahashi Theorem 1 existence; Lemma 1 B(nu) subseteq B(mu); Theorem 2 BN subseteq Pareto; Theorem 3 BN=stable if stable exists; none fixes first size after nonexistence.",
+        "Experiments with six roommates investigate absorbing sets, almost-stability and P-stability, using different dominance relations.",
+        "Present proof shows 4-person impossibility via the distinct-singleton blocker structure, and 6-person strict witness with a stable-less nine-Pareto set."
+      ],
+      "reasoning": "General existence and set inclusions do not imply that strict inclusion occurs in a six-person unsolvable perfect market or that none can occur at four. The conditional restriction to no-stable markets is material, and earlier solvable three-person Pareto separation is inapplicable.",
+      "searches": [
+        "roommate blocking neutrality minimum six agents separation from Pareto optimal matching",
+        "minimal 6 agents no stable roommates blocking neutral strictly Pareto efficient perfect matchings",
+        "arXiv:2608.11682v1 Sections 2–4, Examples 1–3",
+        "web: experimental results on the roommate problem stable absorbing sets 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://pdfs.assets.alphaxiv.org/2608.11682v1.pdf",
+      "https://arxiv.org/abs/2608.11682",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-stability-stratified-isomorphism-census-for-four-person-stable-r--0bfa73dccf63",
+      "https://link.springer.com/article/10.1007/s00355-026-01667-5",
+      "https://doi.org/10.1016/0196-6774(85)90033-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Takahashi Lemma 1 proves blocker-set inclusion under domination, used explicitly rather than presented as new.",
+        "Published four-person cyclic obstruction describes exactly which profiles are unsolvable, not their BN/PO relation.",
+        "Two explicit six-person instances are absent from inspected Takahashi examples and have exact sets established here."
+      ],
+      "reasoning": "From prior Lemma 1 plus the published 4-person normal form one can derive the new 4-person BN equality relatively quickly, but prior statements still leave open the first even market size and an unsolvable Pareto-efficient non-BN witness. The constructed six-person profile and 9-to-6 transition add a non-implied new fact; no stronger prior theorem located that settles both parts.",
+      "searches": [
+        "Full primary source arXiv:2608.11682v1, Definition 1, Lemma 1, Theorems 1-3 and Examples 1-3",
+        "published-finding corpus four-person census RESULT.md fetched by GitHub",
+        "roommate blocking neutrality minimum six agents separation from Pareto optimal matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Takahashi 2026 Definition 1 explicitly equates no justifiable reverse claims with blocking-neutral dominance (PDF page 4, footnote 2).",
+        "published-finding corpus published four-person stability census describes two no-stable isomorphism classes but does not define blocking-neutrality.",
+        "Web exact-phrase searches returned framework summaries and distinct experimental absorbing-set solutions, not the fixed-size conditional first separation."
+      ],
+      "reasoning": "Alternative phrases are justified-claim dominance, blocking-neutral domination, priority neutrality (originally school choice), and Pareto selectivity conditional on absence of stable perfect roommate pairings. The exact parameter 6, all-perfect-feasibility, and strict inclusion were compared at statement level; the earlier 3-person Pareto example permits singles and has a stable matching, while the 8-person paper example concerns almost-stability and equal blocker sets.",
+      "searches": [
+        "Meina Takahashi blocking-neutral roommate 2026 finite four agents six agents every unstable four perfect matching nondiscrimination dominance",
+        "blocking neutral stable roommates four person unsolvable every perfect matching blocking-neutral",
+        "blocking-neutral perfect roommates six 4 no-stable Pareto optimal 9 6 one adjacent swap Takahashi",
+        "web: \"blocking-neutral\" \"perfect matching\" \"smallest\" 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published 4-person table gives 48 no-stable labeled profiles with two orientation orbits, but no blocking-neutral count.",
+        "Other published four-person roommate studies analyze blocking-pair counts or stable-matching fairness without the same blocking-neutral selection criterion."
+      ],
+      "reasoning": "No covering database/table for the six-person nine Pareto versus six blocking-neutral classification or one-adjacent-reversal boundary was found. The existing 48-profile stability census is explicitly credited and used only for lower-bound background, not claimed as new.",
+      "searches": [
+        "blocking-neutral matchings strict Pareto optimality unsolvable roommates four six cyclic preference triples",
+        "published-finding corpus ID 2026/10/4/SCOPE-stability-stratified-isomorphism-census-for-four-person-stable-r--0bfa73dccf63",
+        "published stability and Pareto matching tables: searches for blocking-neutrality, justified-claim dominance, six-agent perfect-roommate examples"
+      ]
+    },
+    "rationale": "Actual published-finding corpus queries for blocking-neutrality and the six/four-person comparison returned no covering finding; the closest published four-person result counts stable matchings, not blocking-neutrality. Takahashi 2026 full primary PDF was read at the definition, monotonicity, inclusion, stability-coincidence, and all examples: it proves general framework and displays other examples but not the exact conditional first-six separation or the one-swap 9-to-6 selective transition. A no-indexed-hit result alone would not suffice; novelty rests on nonimplication of those prior statements and this independently proved witness. Residual risk of unindexed earlier equivalent examples remains.",
+    "residual_risks": [
+      "Unindexed earlier thesis or computational table could include an equivalent six-person blocking-neutral/Pareto separation.",
+      "Some alternative solution notions share words such as neutrality or absorbing sets but were not exhaustively cross-checked beyond relevant sources.",
+      "The result is conditional on perfect-pairing feasibility; cannot imply the same lower bound if singles or arbitrary constraints are allowed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Definitional foundation, Lemma 1, Pareto inclusion and all main results verified; inspected examples are not the claimed six-person strict conditional separation.",
+        "evidence": [
+          "PDF page 4 Definition 1 and footnote 2",
+          "PDF pp.5-6 Lemma 1",
+          "PDF pp.9-11 Theorems 2-3 and Example 3",
+          "PDF pp.7-8 Examples 1-2"
+        ],
+        "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2608.11682v1.pdf",
+        "material_read": "Primary manuscript 18-page PDF; Sections 2–4 (definitions, proofs, main results), Examples 1–3 and discussion; pages 3, 4, 7 also viewed as page images.",
+        "method": "Full-text direct PDF via lawful alphaXiv asset; parsed text and source page screenshots.",
+        "title": "A Solution to the Roommate Problem",
+        "trigger": "Introduces exact studied blocking-neutral dominance relation and claims general inclusion in Pareto optimality."
+      },
+      {
+        "assessment": "Provides the known 48 unsolvable profiles and two cyclic-orientation classes but no blocking-neutrality or six-person Pareto separation.",
+        "evidence": [
+          "RESULT.md four-person cyclic representatives",
+          "RESULT.md theorem of two no-stable relabeling classes and 48 labeled profiles"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-stability-stratified-isomorphism-census-for-four-person-stable-r--0bfa73dccf63",
+        "material_read": "Complete RESULT.md fetched from published repository; theorem, proof and references.",
+        "method": "Public repository content fetch by exact source file path.",
+        "title": "Stability-stratified isomorphism census for four-person stable roommates",
+        "trigger": "Covers exactly the four-person unsolvable stratum, a possible stronger prior barrier."
+      },
+      {
+        "assessment": "The relation studied is blocking-pair movement and absorbing sets, not Takahashi blocking-neutral dominance; no direct coverage of claimed first separation.",
+        "evidence": [
+          "Section 2 defines R by fulfilling a blocking pair",
+          "Section 3 describes no-stable six-agent experimental markets and absorbing sets"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00355-026-01667-5",
+        "material_read": "Accessible Section 2 model and Section 3 experimental design discussing markets 11–15.",
+        "method": "Published article HTML text.",
+        "title": "Experimental results on the roommate problem",
+        "trigger": "Studies six-roommate no-stable examples and alternative concepts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0c635419-cbd4-4fe3-baeb-47557c33b314",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first unsolvable compulsory-pairing market in which a stability fallback genuinely refines Pareto selection identifies a natural sharp boundary, and a single adjacent reversal alters the blocking-neutral set while leaving the no-stable status and the nine Pareto optima unchanged. This is a nontrivial link between instability and selection distinct from simple existence/efficiency statements; no all-six census or broad impossibility claim is made.",
+    "status": "PASS"
+  }
+}
