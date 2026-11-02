@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-## Reproducibility
 
-Run `python3 verify.py` with the standard Python interpreter (no third-party dependencies). Expected final line: `DIAMOND_SQZERO_NILCLEAN_OK 6 families 7800 fibers`.
+# Independent mathematical audit
 
-The checker constructs the complete incidence basis and tests \(e^2=e\) via literal convolution. It then counts the solutions of \((a-e)^2=0\) for each binary diagonal and each tuple of arm coefficients in the six named cases. The irrelevant long-interval coefficient can be held fixed because the only nonzero possible coefficient in the squared strict radical is the long interval. The checker uses binary-field arithmetic, prime-field arithmetic and separately implemented quartic-field arithmetic. It also maximizes observed fibers and compares the result with the sharp expression. The proof in `RESULT.md`, not the enumeration, establishes the result for arbitrarily large \(r\) and arbitrary prime powers.
+## correctness
 
-## Verification boundaries
+PASS
 
-No numerical enumeration is claimed to cover infinitely many fields or all posets. The package contains one mathematical finding only. Literature priority was not independently certified.
+For binary diagonal alpha,beta_i,gamma, the idempotence equations force (alpha+beta_i-1)x_i=(beta_i+gamma-1)y_i=0 and (alpha+gamma-1)z+sum_i x_iy_i=0. The only nontrivial entry of (a-e)^2 is sum_i(p_i-x_i)(s_i-y_i). Unequal endpoints give affine rank-zero/nonzero fibers q^(r+1) or q^r; equal endpoints reduce to a t-dimensional finite-field dot-product with zero count q^(2t-1)+q^t-q^(t-1) (and nonzero count q^(2t-1)-q^(t-1)). Maximization at t=r gives q^(2r-1)+q^r-q^(r-1), versus ordinary q^(2r). Independent literal incidence-product enumeration for q=2,3 and r<=3 confirms the formulas; universal statement follows from exact algebra, including characteristic 2.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality supported by comparisons of exact statements, same-object sources and published Resultary records; material limitations and possible unindexed equivalences explicitly retained. Equivalently counts points of the dot-product quadric in each affine idempotent fiber, a square-zero nil-clean restriction. Classical nil-clean index counts decompositions with unrestricted nilpotence and does not fix the quadratic section.
+
+## value
+
+PASS
+
+The pointwise count of a natural constrained nil-clean decomposition, its sharp index for an infinite family and quantified separation from unrestricted nil-clean index supply a motivated exact finite-algebra invariant. Not a renaming of total idempotent count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
