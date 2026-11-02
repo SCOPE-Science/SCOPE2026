@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:06:30.379089Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Signed coordinate permutations give 48 congruent spherical chambers with x>=y>=z>=0. In coordinates (x,sqrt(1-x²)cosφ,sqrt(1-x²)sinφ), area element is dx dφ; ordering requires φ>=L(x), and diagonal-support threshold requires φ<=H_c(x). Multiplication by 48/(4pi)=12/pi yields the exact distribution integral with appropriate endpoint handling. Minimizing C uses b_i=|u_i|/c∈[0,1] with Σb_i<=sqrt3 and Σb_i²=1/c²; convexity and vertex classification give max Σb_i²=1+(sqrt3-1)² at the 24 signed permutations of q(1,r,0), where r=sqrt3-1. A Taylor expansion at each isolated minimizer yields the coercive piecewise-linear local function max(-A t,B t+E|z|); the exact sublevel triangle/trapezoid area is (1+B/A)^2/(BE)=1/[q^5 r²(1-r)], producing the 24/(4pi) prefactor. Distinct caps have disjoint interiors for angular radius <=half arccos(1/sqrt3), giving F(c)=1-14(1-c)/2=7c-6 for c>=c0. Differentiation cos(rho*-delta) gives angular coefficient 6/[pi q³(1-r)]. Independently coded 1D quadrature at c=.82,.85,.88,.9,.95 matched 120000 direct random sphere directions within 0.0031; onset at eps=1e-4 gave coefficient 38.9368 versus 38.8842 predicted. Finite numerical comparisons support, but do not prove, the uniform local asymptotic or exact integral.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2002 paper treats varying radii and candidate best antipodal arrangements, and identifies precisely the 7-pair cube-octahedron compound at the covering transition.",
+          "A spherical Voronoi algorithm can in principle compute cap unions for any fixed sites, but is not by itself a published exact CDF and local asymptotic."
+        ],
+        "reasoning": "The original work covers the geometric configuration and radius, but the full inspected text does not state this exact integral plus quadratic coefficient. No assertion is made of global 14-site covering optimality.",
+        "searches": [
+          "Resultary semantic search: fourteen antipodal cube octahedron covering sphere area fraction gap quadratic asymptotic",
+          "Primary literature comparison: Fowler Tarnai Gaspar 2002 From circle packing to covering on a sphere with antipodal constraints; spherical Voronoi area computations"
+        ]
+      },
+      "checked_sources": [
+        "Fowler, Tarnai, Gáspár, From circle packing to covering on a sphere with antipodal constraints — https://www.researchgate.net/publication/243685417_From_circle_packing_to_covering_on_a_sphere_with_antipodal_constraints",
+        "Bürgisser, Cucker, Lotz, Coverage processes on spheres and condition numbers for linear programming — https://arxiv.org/abs/0712.2816",
+        "Na, Lee, Cheong, Voronoi diagrams on the sphere — https://doi.org/10.1016/S0925-7721(02)00077-9",
+        "Resultary published mathematical findings (15 ranked candidates) for query: fourteen antipodal cube octahedron covering sphere area fraction gap quadratic asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A covering radius identifies only the smallest c with nonzero uncovered area; it does not fix the distribution F(c) away from threshold.",
+          "A numerical area at an isolated angle does not establish a quadratic local asymptotic or its coefficient."
+        ],
+        "reasoning": "The previous configuration/radius cannot logically imply the full explicit formula without carrying out nontrivial chamber integration/local polyhedral analysis; the present proof does those steps. A previously published exact Voronoi-cell formula might imply this and remains a historical risk.",
+        "searches": [
+          "Resultary semantic search: fourteen antipodal cube octahedron covering sphere area fraction gap quadratic asymptotic",
+          "Primary literature comparison: known optimal candidate 2002 and covering radius vs exact threshold-dependent uncovered-area and quadratic closure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the 14 directions, max_s s·u equals max(||u||∞,||u||1/sqrt3); F(c) is the fraction outside 14 caps of radius arccos(c).",
+          "There are exactly 24 farthest-from-site directions at signed permutations of q(1,r,0), giving the threshold q."
+        ],
+        "reasoning": "All these describe the identical geometry; a previous area-vs-radius graph with an exact formula would be prior coverage regardless of terminology.",
+        "searches": [
+          "Resultary semantic search: fourteen antipodal cube octahedron covering sphere area fraction gap quadratic asymptotic",
+          "Primary literature comparison: equal-radialized cube–octahedron antipodal spherical cap covering; distribution of max normalized coordinate or L1 norm on S²; spherical Voronoi uncovered fraction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fowler–Tarnai–Gáspár report covering angular radius approximately 36.2060° and numerical coverage about 0.999790 near 35.9839°.",
+          "The independent exact quadrature reproduces that numerical benchmark within rounding, while giving every threshold and limit coefficient 38.8841568518."
+        ],
+        "reasoning": "The numerical table and radius are known prior facts; re-evaluating those values would have no novelty. The exact whole-range analytic law and local quadratic coefficient are distinct from tabulated individual approximations.",
+        "searches": [
+          "Resultary semantic search: fourteen antipodal cube octahedron covering sphere area fraction gap quadratic asymptotic",
+          "Primary literature comparison: 14 point antipodal spherical covering radius 36.2060 degrees coverage 0.999790 35.9839 degrees"
+        ]
+      },
+      "rationale": "PASS with best-of-knowledge qualification. Fowler–Tarnai–Gáspár (2002) already identifies the identical equal-radius cube–octahedron 14-site configuration, antipodal coverage transition, approximate covering radius 36.2060°, and intermediate numerical coverage, all excluded from novelty. Its public full text was inspected; the inspected paper derives and tabulates covering configurations/numerical values rather than the complete exact fixed-site uncovered-area CDF and local quadratic coefficient. General random-center sphere-coverage laws by Bürgisser–Cucker–Lotz do not directly describe these deterministic sites. General Voronoi algorithms could reconstruct the same distribution, but a computational method without an explicit demonstrated implication is not automatically the claimed exact formula.",
+      "residual_risks": [
+        "A computational geometry literature source may already provide an equivalent exact fixed-site cap union area law under spherical Voronoi terminology; not all full texts could be inspected.",
+        "The global configuration and covering threshold were published in 2002; originality concerns the explicit distribution and quadratic sharp coefficient only.",
+        "The result is not a proof of global fourteen-cap optimality, perturbation stability or higher-dimensional coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Configuration, radius and selected numerical coverage are known; no derivation in inspected text of complete exact CDF or sharp quadratic opening coefficient.",
+          "evidence": "DOI 10.1098/rspa.2002.0990, publication 2002-07-24; radius about 36.2060 degrees.",
+          "identifier_or_url": "https://www.researchgate.net/publication/243685417_From_circle_packing_to_covering_on_a_sphere_with_antipodal_constraints",
+          "material_read": "Public full text of 2002 Proceedings A article: covering graphs, numerical intermediate coverage, site arrangement, and identified radius for cube–octahedron compound.",
+          "method": "Read accessible full public article text, including relevant 7-pair covering discussion/figure material.",
+          "title": "Fowler, Tarnai, Gáspár, From circle packing to covering on a sphere with antipodal constraints",
+          "trigger": "identical seven antipodal pairs, coverage radius and numerical area profiles"
+        },
+        {
+          "assessment": "Random-cap-center coverage is a different probabilistic ensemble from a deterministic fixed 14-site cap union.",
+          "evidence": "arXiv:0712.2816.",
+          "identifier_or_url": "https://arxiv.org/abs/0712.2816",
+          "material_read": "Accessible arXiv summary and problem setting involving random independent centers; entire full text not read this execution.",
+          "method": "Read abstract/indexed contextual material.",
+          "title": "Bürgisser, Cucker, Lotz, Coverage processes on spheres and condition numbers for linear programming",
+          "trigger": "general spherical coverage probability literature"
+        },
+        {
+          "assessment": "Algorithmic coverage could enable formula derivation but abstract alone cannot establish prior exact equality or NOT_COVERING.",
+          "evidence": "Computational Geometry 23 (2002), DOI 10.1016/S0925-7721(02)00077-9.",
+          "identifier_or_url": "https://doi.org/10.1016/S0925-7721(02)00077-9",
+          "material_read": "Abstract/metadata describing general spherical Voronoi construction; no complete accessible full text inspected.",
+          "method": "Read indexed abstract and assessed scope only.",
+          "title": "Na, Lee, Cheong, Voronoi diagrams on the sphere",
+          "trigger": "potential general exact spherical cell algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The specific 14-point compound is a published canonical antipodally constrained covering configuration, not an arbitrary set of directions. Its exact all-threshold uncovered-area law and gap-closure exponent/coefficient give meaningful accuracy beyond the known covering radius and numerical near-covering values, and can calibrate geometric covering algorithms and local perturbations. The linear disjoint-cap regime and quadratic local gap regime provide complete sharp asymptotic benchmarks; no global optimality among other 14-site configurations is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the specific 14 normalized antipodal axis and body-diagonal site set with uniform S² area.",
+    "Intermediate CDF is exact one-dimensional quadrature rather than a single elementary closed form.",
+    "No claim of global best covering or uniqueness among site arrangements; historical priority beyond inspected literature remains qualified."
+  ],
+  "schema_version": 1
+}

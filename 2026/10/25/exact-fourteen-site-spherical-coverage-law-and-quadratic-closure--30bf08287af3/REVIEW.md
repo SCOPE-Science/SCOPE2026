@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The support expression is exactly \(\max(\|u\|_\infty,\|u\|_1/\sqrt3)\) for the fourteen declared sites. The 48-chamber spherical Jacobian is \(dx\,d\phi\); the ordering constraint and diagonal-cap constraint yield the integral with its correct probability normalization. An exact convex-polytope extremal argument finds all 24 gap directions and the prior-known covering radius. Local piecewise-linear expansion, coercivity and rescaling prove the coefficient \(6/(\pi q^5r^2(1-r))\) without extrapolating finite tests. A direct nearest-site distance argument supplies the independent high-threshold cap branch. The standalone checker reproduces the published numerical near-covering benchmark and samples 262144 spherical directions independently of the chamber integral.
+PASS
 
-## Originality — PASS relative to the material inspected
+PASS. Signed coordinate permutations give 48 congruent spherical chambers with x>=y>=z>=0. In coordinates (x,sqrt(1-x²)cosφ,sqrt(1-x²)sinφ), area element is dx dφ; ordering requires φ>=L(x), and diagonal-support threshold requires φ<=H_c(x). Multiplication by 48/(4pi)=12/pi yields the exact distribution integral with appropriate endpoint handling. Minimizing C uses b_i=|u_i|/c∈[0,1] with Σb_i<=sqrt3 and Σb_i²=1/c²; convexity and vertex classification give max Σb_i²=1+(sqrt3-1)² at the 24 signed permutations of q(1,r,0), where r=sqrt3-1. A Taylor expansion at each isolated minimizer yields the coercive piecewise-linear local function max(-A t,B t+E|z|); the exact sublevel triangle/trapezoid area is (1+B/A)^2/(BE)=1/[q^5 r²(1-r)], producing the 24/(4pi) prefactor. Distinct caps have disjoint interiors for angular radius <=half arccos(1/sqrt3), giving F(c)=1-14(1-c)/2=7c-6 for c>=c0. Differentiation cos(rho*-delta) gives angular coefficient 6/[pi q³(1-r)]. Independently coded 1D quadrature at c=.82,.85,.88,.9,.95 matched 120000 direct random sphere directions within 0.0031; onset at eps=1e-4 gave coefficient 38.9368 versus 38.8842 predicted. Finite numerical comparisons support, but do not prove, the uniform local asymptotic or exact integral.
 
-Fowler–Tarnai–Gáspár (2002), the principal source, already provides the equal-circumradius compound and its covering threshold; neither fact is presented as new. Its inspected discussion of numerical intermediate coverages and the covering graphs does not derive the exact sublevel integral for the *fixed* fourteen-site arrangement or the sharp quadratic uncovered-area coefficient. Bürgisser–Cucker–Lotz (2007) analyzes randomly sampled sites rather than the fixed fourteen-site law, and the general spherical Voronoi abstract alone does not establish equivalence. Several semantically related published research summaries concern unrelated Euclidean covering, polyhedral shadow, or distance distributions, and do not imply the present angular distribution. Full historical priority cannot be guaranteed; the potentially relevant inaccessible complete Voronoi-algorithm source remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question of uncovered *area* below the critical cap radius is the natural quantitative refinement of the classical fixed configuration's covering threshold. The exact integral gives all radii, and the universal leading-order leakage profile explains how the 24 Voronoi gap vertices open into small uncovered patches. It independently reproduces the 2002 published numerical coverage benchmark and provides a reusable analytical constant for fixed-covering tolerance calculations. The result is a motivated exact distribution and sharp edge law, not a restatement of the known optimal radius.
+PASS with best-of-knowledge qualification. Fowler–Tarnai–Gáspár (2002) already identifies the identical equal-radius cube–octahedron 14-site configuration, antipodal coverage transition, approximate covering radius 36.2060°, and intermediate numerical coverage, all excluded from novelty. Its public full text was inspected; the inspected paper derives and tabulates covering configurations/numerical values rather than the complete exact fixed-site uncovered-area CDF and local quadratic coefficient. General random-center sphere-coverage laws by Bürgisser–Cucker–Lotz do not directly describe these deterministic sites. General Voronoi algorithms could reconstruct the same distribution, but a computational method without an explicit demonstrated implication is not automatically the claimed exact formula.
 
-## Literature and limits
+## value
 
-Closest primary literature: Fowler–Tarnai–Gáspár (2002), DOI `10.1098/rspa.2002.0990`, the explicit original compound and numerical coverage data; Bürgisser–Cucker–Lotz (2007), arXiv:`0712.2816`, random rather than fixed site centers; Na–Lee–Cheong (2002), DOI `10.1016/S0925-7721(02)00077-9`, spherical Voronoi algorithms, abstract-level comparison only. Definitive historical priority and independent validation are not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The specific 14-point compound is a published canonical antipodally constrained covering configuration, not an arbitrary set of directions. Its exact all-threshold uncovered-area law and gap-closure exponent/coefficient give meaningful accuracy beyond the known covering radius and numerical near-covering values, and can calibrate geometric covering algorithms and local perturbations. The linear disjoint-cap regime and quadratic local gap regime provide complete sharp asymptotic benchmarks; no global optimality among other 14-site configurations is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
