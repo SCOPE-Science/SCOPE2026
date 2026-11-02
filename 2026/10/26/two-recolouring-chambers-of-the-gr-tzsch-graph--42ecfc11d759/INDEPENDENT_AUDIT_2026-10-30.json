@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T11:04:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source C++ uses a recursively exhaustive proper-colouring generator plus an independent complete scan of 4^11 assignments, each edge of the 20-edge Grötzsch adjacency graph, all eleven single-vertex recolouring replacements, reverse-edge checks, breadth-first components and all-roots BFS for exact diameters, and verifies all 24 palette and 10 dihedral actions. Our independent implementation regenerates all 12480 proper states, builds 45240 edges, checks two 6240 components and runs BFS from every state; checks parity/dihedral action on all states, not merely a representative. The 3-degeneracy theorem establishes connectedness for all >=5 colours. Independent check: Independent C++ implementation verified vertices=12480, edges=45240, component sizes [6240,6240], diameters [17,17], 24 palette permutations and 10 dihedral automorphisms on every colouring. Source verify.cpp control flow and full 4^11 scan were inspected; this is an exhaustive finite proof, unlike sampled simulations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 of Cereceda–van den Heuvel–Johnson states k-mixing for k>=degeneracy+2; Grötzsch graph has degeneracy 3, giving upper mixing 5."
+        ],
+        "reasoning": "This general theorem is credited for the 5-mixing corollary, but it does not classify the disconnected k=4 state-space chambers, degree distributions or diameter.",
+        "searches": [
+          "Cereceda van den Heuvel Johnson Connectedness graph vertex colourings degeneracy theorem",
+          "Grötzsch graph 5 mixing connectivity"
+        ]
+      },
+      "checked_sources": [
+        "https://matthewjohnsondurham.github.io/papers/cdam-2005-11.pdf",
+        "arXiv:1412.3493",
+        "https://www.matpic.com/essays/no-triangle-and-four-colours/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cereceda theorem yields connectivity for 5+ colours. Other surveyed results concern general mixing and bounds rather than exact 4-colouring graph enumeration."
+        ],
+        "reasoning": "There is no inspected theorem yielding 2 components of equal size and same diameter from 3-degeneracy alone. The exhaustive graph gives the additional exact facts.",
+        "searches": [
+          "Cereceda 2005 Theorem3 degeneracy k mixing",
+          "Brewster Noel arxiv:1412.3493 homomorphism recolouring"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cereceda–van den Heuvel–Johnson introduce single-vertex recolouring graph; Brewster–Noel develop general homomorphism recolouring. Source specifically computes components and symmetries for Mycielski C5."
+        ],
+        "reasoning": "A result only about chromatic number or mixing threshold does not imply component counts or distances; no inspected equivalent fixed-graph component profile appeared.",
+        "searches": [
+          "Grötzsch graph four coloring recoloring graph connected components diameter parity permutation mixing number",
+          "Grötzsch graph colorings graph 4 chromatic recolouring Glauber components",
+          "Brewster Noel mixing homomorphisms Grötzsch Mycielski"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The count 12480 is recorded in published/expository colourings discussions; both the source and independent checks recover it."
+        ],
+        "reasoning": "A chromatic polynomial/single total count supplies no recolouring adjacency, connected-component splitting, diameter 17 or the permutation handedness; the prior count is not claimed as original.",
+        "searches": [
+          "Grötzsch graph 12480 proper 4-colorings known Matpic",
+          "Grötzsch 4-colouring number chromatic polynomial"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority qualified by primary-source comparisons and explicit antecedent/corollary limits; For the standard Mycielskian of C5, the 4-colouring single-vertex recolouring graph has 12480 labelled states and 45240 edges, exactly two 6240-state components of diameter 17 with degree counts (240,1320,1920,2160,600) at degrees 5..9 per component; odd palette permutations and reflections swap components, even permutations and rotations preserve; its mixing threshold is 5. is not supplied in the compared prior statements.",
+      "residual_risks": [
+        "A specialized enumeration of Grötzsch graph reconfiguration under Glauber dynamics or homomorphism terminology might already report two components/diameter.",
+        "Proof is finite and exhaustive, but correctness relies on exact preservation of the chosen 20-edge graph model and code implementation; two separately structured programs corroborate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes k>=5 connectivity but not 4-colouring component census",
+          "evidence": "For d-degenerate graph the recolouring graph is connected at k>=d+2.",
+          "identifier_or_url": "https://matthewjohnsondurham.github.io/papers/cdam-2005-11.pdf",
+          "material_read": "Original PDF text and Theorem 3 statement on degree/degeneracy connectivity, checked against d=3",
+          "method": "Primary PDF with page-image inspection",
+          "title": "Connectedness of the Graph of Vertex-Colourings",
+          "trigger": "Direct theorem used to deduce mixing number"
+        },
+        {
+          "assessment": "Related framework; insufficient full-document evidence to exclude all hidden specialized examples",
+          "evidence": "Only general recolouring and mixing methods identified.",
+          "identifier_or_url": "arXiv:1412.3493",
+          "material_read": "Abstract and framework of graph-homomorphism recolouring; exact Grötzsch census not found in inspected material",
+          "method": "arXiv abstract and available text search",
+          "title": "Mixing Homomorphisms, Recolourings, and Extending Circular Precolourings",
+          "trigger": "Potential broader recolouring theorem"
+        },
+        {
+          "assessment": "Previously observed total 12480 colourings, not new",
+          "evidence": "Total count lacks component adjacency information.",
+          "identifier_or_url": "https://www.matpic.com/essays/no-triangle-and-four-colours/",
+          "material_read": "Section Eleven vertices, no triangle, four colours",
+          "method": "Public explanatory site",
+          "title": "No triangle, and four colours",
+          "trigger": "The known 12480 count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Grötzsch graph is the canonical smallest triangle-free 4-chromatic graph; a complete, nontrivial 12480-state recolouring chamber classification, symmetry obstruction and sharp diameter is a reusable finite benchmark in reconfiguration theory.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://matthewjohnsondurham.github.io/papers/cdam-2005-11.pdf",
+    "arXiv:1412.3493",
+    "https://www.matpic.com/essays/no-triangle-and-four-colours/"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the standard Mycielskian of C5, the 4-colouring single-vertex recolouring graph has 12480 labelled states and 45240 edges, exactly two 6240-state components of diameter 17 with degree counts (240,1320,1920,2160,600) at degrees 5..9 per component; odd palette permutations and reflections swap components, even permutations and rotations preserve; its mixing threshold is 5.",
+  "limitations": [
+    "Exact finite graph only; no analogous classification for larger Mycielski graphs.",
+    "The count 12480 and general degeneracy connectivity bound are prior knowledge, not new.",
+    "A specialized enumeration of Grötzsch graph reconfiguration under Glauber dynamics or homomorphism terminology might already report two components/diameter.",
+    "Proof is finite and exhaustive, but correctness relies on exact preservation of the chosen 20-edge graph model and code implementation; two separately structured programs corroborate.",
+    "Frozen public METADATA.json and AUDIT.json retain a scope_run_id operational provenance field; full confidentiality-safe replacement contents and verified guarded source-blob operations were not staged. Publication must remain withheld until every public file is semantically sanitized and checked."
+  ],
+  "schema_version": 1
+}
