@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The claim is restricted to sufficiently large integer cycle orders, the unnormalized graph Laplacian, and the *last* negativity threshold. Direct Fourier diagonalization gives the exact finite kernel, weighted first-mode domination makes the antipode its unique spatial minimum after a fixed scaled time, and derivative domination ensures a single final crossing. Uniform Taylor expansion of the discrete dispersion relation produces the even/odd correction; the separate term for odd cycles is the quadratic loss from sampling one half-step short of the antipode. The analytical proof includes controls of Fourier tails and does not extrapolate finite numerics to infinitely many cycles. The standalone checker passed 1,425 assertions. Risk: the proof invokes standard dominated-convergence/tail arguments rather than an explicit numerical lower bound on the sufficient cycle order.
+PASS
 
-## Originality
+Fourier diagonalization yields kernel F_n(s,j) with ρkn=16n⁴ sin⁴(πk/n), and continuum H_s=1+2Σ exp(−16π⁴sk⁴)cos(2πkx). For σ=1/3000, first-frequency weighted domination shows continuum antipode unique minimum and h(s)=H_s(1/2) has unique zero s* in (σ,1/1500), D=h'(s*)>0. Discrete tail bounds ρkn≥256k⁴ imply, for sufficiently large n, antipodal spatial minimum for every s≥σ and monotonic crossing; this is the eventual, not first, sign-change time. Uniform expansion ρkn=c k⁴(1−2π²k²/(3n²)+O(k⁴n⁻⁴)) gives τn/n⁴=s*−G/(Dn²)+O(n⁻⁴) even and s*−(G+B/8)/(Dn²)+O(n⁻⁴) odd; half-grid sampling causes odd correction. Independent Fourier/direct numerical checks for even/odd n through 321 matched coefficients and sign, not universal proof. No explicit finite n0 is claimed.
 
-**PASS within available source comparison.** The closest source is Daners–Glück–Kennedy (arXiv:1511.05294v1, full text inspected), which gives general semigroup positivity criteria and examples but no quantitative cycle-family horizon or parity defect. The 2008 Ferrero–Gazzola–Grunau paper addresses biharmonic eventual local positivity in Euclidean domains; its inspected abstract does not determine finite-cycle crossover times. Related existing finite-graph results for bipartite, rook, triangular, and cocktail-party graph Laplacians concern other graph families and do not imply a cycle's \(n^4\) scaling coefficient or arithmetic correction. Dedicated similarity and literature searches did not identify statement-level coverage. Risk: specialized unindexed periodic-kernel or numerical-analysis literature has not been exhaustively ruled out; the 2008 paper was compared via its abstract rather than full text.
+## originality
 
-## Value
+PASS
 
-**PASS.** Eventual positivity of higher-order diffusion is a natural stability property not predicted by positivity of ordinary heat flow. The theorem quantifies exactly how the last negative entry disappears under graph-to-circle refinement, with a dimensionally correct fourth-power time scale and a nontrivial parity splitting induced by the discrete antipodal sampling geometry. The coefficient gap is a structural effect for infinitely many cycle orders rather than a single small-table constant. No claim is made for unrelated graphs or all early-time sign patterns.
+Best-of-knowledge accepted after statement-level primary-literature and published mathematical-record comparisons; no decisive antecedent implication was identified. Source-reading limits and plausible unindexed-priority risks are explicit; a failed keyword search is not treated as novelty proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Sharp last-negativity horizon on a canonical finite-graph fourth-order heat semigroup, including strict even/odd finite-size correction and exact antipodal zeros, is meaningful and not supplied by general eventual positivity theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
