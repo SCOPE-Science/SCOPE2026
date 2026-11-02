@@ -1,15 +1,21 @@
-# Review: parity-restricted Pascal-row least common multiples
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(N\ge1\), the proof distinguishes odd and even rows, then resolves each prime valuation. The full-row maximum is proved by prime-base borrow counts. The exceptional odd-index obstruction is precisely \(N+2=2p^r\); the necessity proof excludes odd maximizers and exhibits an index losing exactly one borrow. The doubling identity for the even-index 2-adic valuation follows from binary digit sums. Independent direct LCM evaluation passed 800 rows, with 11,475 additional 2-adic identity checks. Computations are finite corroboration, not the proof of the universal statement.
+## correctness
 
-## Originality — PASS with stated risks
-Farhi (arXiv:0906.2295) derives the full-row identity and an attaining index, but not the parity-restricted maximum. Hong (arXiv:0907.3401) proves an equivalent unrestricted identity. Huber (arXiv:2609.23024) studies optimal selected subsets, and his general exclusion framework is the most substantial nearby comparison; it does not state the closed parity-case quotient formulas. Targeted literature and published mathematical-record searches found no equivalent indexed result. Residual risks are an unindexed earlier derivation and the ease of representing fixed parity subsets in a more general framework.
+PASS
 
-## Mathematical value — PASS
-The result answers a natural complete-row parity-dissection question for all indices; it classifies precise prime-power losses, rather than isolated test cases. The contrast between even and odd selections is structurally meaningful for divisibility of Pascal rows.
+For every prime p, Kummer borrowing shows max_k ν_p(C(N,k))=floor(log_p(N+1))−ν_p(N+1); an index p^r−1 attains the maximum. Odd N is handled by k↔N−k. At even N, all odd-prime maxima occur at even k; the even-index two-adic maximum equals the full-row two-adic maximum of row m by ν_2(C(2m,2j))=ν_2(C(m,j)). Odd-index two-adic maximum is attained by k=2^r−1. At an odd p, odd k=p^r−2 or modified digit k=p^r−1−p^j retains the full p-adic maximum except when N+2=2p^r; there the unique full-maximizer k=p^r−1 is even and the best odd k loses one p. This exhausts base-p digit patterns. Fresh independent exact LCM computation for N≤400 agrees, but the infinite theorem is proved by the borrow cases.
 
-## Limits and integrity
-No independent mathematical audit has occurred. The verifier's finite range does not bound the theorem. The claim concerns prescribed parity subsets only, not arbitrary periodic subsets. Further publication-priority review is warranted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Farhi gives the complete-row LCM and Kummer gives local valuations. Huber studies optimizing chosen entries and asymptotic supports, not the preassigned complete parity subrows. Prescribed parity-restricted quotients and their odd-prime-power exception were not located in inspected prior results.
+
+## value
+
+PASS
+
+The all-N two-class restriction is a natural arithmetic refinement of the familiar Pascal-row LCM. It yields unexpectedly sharp complementary prime-loss laws, one purely 2-adic and the other triggered precisely by odd prime powers; neither quotient follows by routine substitution into the full-row identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

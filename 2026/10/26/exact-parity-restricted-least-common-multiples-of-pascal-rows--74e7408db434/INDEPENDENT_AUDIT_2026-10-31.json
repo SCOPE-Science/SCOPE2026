@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:52:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every prime p, Kummer borrowing shows max_k ν_p(C(N,k))=floor(log_p(N+1))−ν_p(N+1); an index p^r−1 attains the maximum. Odd N is handled by k↔N−k. At even N, all odd-prime maxima occur at even k; the even-index two-adic maximum equals the full-row two-adic maximum of row m by ν_2(C(2m,2j))=ν_2(C(m,j)). Odd-index two-adic maximum is attained by k=2^r−1. At an odd p, odd k=p^r−2 or modified digit k=p^r−1−p^j retains the full p-adic maximum except when N+2=2p^r; there the unique full-maximizer k=p^r−1 is even and the best odd k loses one p. This exhausts base-p digit patterns. Fresh independent exact LCM computation for N≤400 agrees, but the infinite theorem is proved by the borrow cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huber arXiv:2609.23024 Theorems 1.1–1.3 optimize arbitrary selected coefficients and their large-support asymptotic."
+        ],
+        "reasoning": "A general prime-exclusion framework could in principle compute the parity subsets but no inspected theorem assigns these exact fixed index sets and evaluates both closed-form quotients. Kummer provides the proof mechanism but not the parity classification by itself.",
+        "searches": [
+          "Least common multiples of even and odd indexed binomial coefficients in row of Pascal triangle exact prime power quotients"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md/verify.py",
+        "Farhi arXiv:0906.2295",
+        "Hong arXiv:0907.3401",
+        "Huber arXiv:2609.23024",
+        "Resultary semantic parity-LCM query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-row p-adic bound floor(log_p(N+1))−ν_p(N+1) makes no claim about the parity of maximizing indices."
+        ],
+        "reasoning": "The new essential comparison classifies when an odd maximizing index exists. Neither Farhi, Hong, nor Huber gives this dichotomy automatically without the submitted separate base-p borrow argument.",
+        "searches": [
+          "Least common multiples of even and odd indexed binomial coefficients in row of Pascal triangle exact prime power quotients"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Farhi arXiv:0906.2295 full-row LCM formula; Hong arXiv:0907.3401 equivalent Nair identity; both lack parity index restriction in inspected statements."
+        ],
+        "reasoning": "Even/odd index LCM is not the ordinary full-row LCM, nor an equivalent relabeling: for even rows the full LCM has a nontrivial factor in one parity subrow not the other.",
+        "searches": [
+          "Least common multiples of even and odd indexed binomial coefficients in row of Pascal triangle exact prime power quotients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fresh direct exact binomial LCM enumeration for N=1..400 matched both formulas and their prime-power exceptional values.",
+          "Resultary parity-Pascal semantic query yielded unrelated congruence and valuation records, not an exact odd/even subrow table."
+        ],
+        "reasoning": "No matched exact tabulation identified; independent finite census is a checker, not a novelty claim or proof for all N.",
+        "searches": [
+          "Least common multiples of even and odd indexed binomial coefficients in row of Pascal triangle exact prime power quotients"
+        ]
+      },
+      "rationale": "Farhi gives the complete-row LCM and Kummer gives local valuations. Huber studies optimizing chosen entries and asymptotic supports, not the preassigned complete parity subrows. Prescribed parity-restricted quotients and their odd-prime-power exception were not located in inspected prior results.",
+      "residual_risks": [
+        "An old elementary parity-binomial LCM formula may predate the indexed sources.",
+        "Huber prime-exclusion formulas could mechanically compute these subsets with additional case analysis, although no closed result is stated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR full-row identity, NOT_COVERING explicit parity subrows",
+          "evidence": "Λ_N=lcm(1,…,N+1)/(N+1); no fixed even/odd retained indices in theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/0906.2295",
+          "material_read": "ArXiv full-page statement and full-row LCM derivation, together with the published formula",
+          "method": "Read accessible full primary HTML mathematical statements and relevant proof/sections",
+          "title": "An identity involving the least common multiple of binomial coefficients and its application",
+          "trigger": "Complete-row reference"
+        },
+        {
+          "assessment": "RELATED broader selected-index framework; NOT_COVERING stated prescribed-parity all-N closed forms",
+          "evidence": "Optimizes which indices to retain under a cardinality constraint; the theorem here fixes every even or odd index.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23024",
+          "material_read": "Full HTML main Theorems 1.1–1.3, §2 preliminaries, §5 asymptotics and §6 exact algorithm",
+          "method": "Read accessible full primary HTML mathematical statements and relevant proof/sections",
+          "title": "Extremal Least Common Multiples in Rows of Pascal’s Triangle",
+          "trigger": "Same row LCM optimization and prime-exclusion method"
+        },
+        {
+          "assessment": "NOT_COVERING as stated parity-restricted quotient",
+          "evidence": "Establishes equivalence of Nair/Farhi unrestricted identities, not valuations of specified parity subrows.",
+          "identifier_or_url": "https://arxiv.org/abs/0907.3401",
+          "material_read": "Primary preprint abstract and stated equivalence of two full-row LCM identities",
+          "method": "Read accessible primary abstract and theorem description; did not attribute unread body claims",
+          "title": "Nair’s and Farhi’s identities involving the least common multiple of binomial coefficients are equivalent",
+          "trigger": "Potential parity corollary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-N two-class restriction is a natural arithmetic refinement of the familiar Pascal-row LCM. It yields unexpectedly sharp complementary prime-loss laws, one purely 2-adic and the other triggered precisely by odd prime powers; neither quotient follows by routine substitution into the full-row identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all positive N, odd N has E_N=O_N=Λ_N; for even N=2m and w=m+1, Λ_N/E_N=2^{1+ν_2(w)−1_{w power of 2}} and Λ_N/O_N is the odd prime p if w=p^a for odd prime p, otherwise 1.",
+  "limitations": [
+    "An old elementary parity-binomial LCM formula may predate the indexed sources.",
+    "Huber prime-exclusion formulas could mechanically compute these subsets with additional case analysis, although no closed result is stated.",
+    "The identified finite checks do not substitute for the explicitly reconstructed proofs of infinite claims.",
+    "Historical priority is best-of-knowledge, not exhaustive. The frozen public administrative metadata requires confidentiality sanitization before import."
+  ],
+  "schema_version": 1
+}
