@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The two-pulse model is precisely normalized. The baseline maximum is beta+exp(-delta) because beta>=1. The modified impulse is a convolution of two exponential reservoir kernels. The exponent-weighted derivative of the postarrival discharge is strictly decreasing, proving uniqueness of its maximizer. A piecewise envelope derivative proves the lag crossover for every positive rate; the harmful excess has an exact single maximizer at twice the routed mode, and u*coth(u)>=1 proves the rate-uniform e^(-2) bound and unique equality case. Boundary values r=1, delta=0 and beta=1 are included. The standalone standard-library checker supplied in this package independently checks 280478 finite assertions including exact-rational cases; finite tests are corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pattison, Lane, Hardy & Reaney (2014), full publisher HTML, https://doi.org/10.1002/2013WR014067: Section 1 explicitly motivates confluence timing; Sections 2–4 use hydraulic simulations to study delays, magnitudes and some nonmonotone changes; no analytic two-exponential/serial-reservoir sharp cap in inspected full text.",
+        "McCuen (1979), https://doi.org/10.1061/JYCEAJ.0005300: accessible publisher abstract reports that local detention can raise downstream flows in a real watershed; no formula can be excluded because complete article was not read.",
+        "Błażejewski & Murat-Błażejewska (2003), https://doi.org/10.1623/hysj.48.4.665.51413: accessible abstract treats analytic single-basin routing for trapezoidal input, not a stated two-branch global peak bound; full text not read."
+      ],
+      "reasoning": "The strongest close contextual source concerns numerical hydraulic changes of hydrograph timing and does not provide a parameter-uniform theorem for an added serial reservoir. The earlier watershed demonstration supports the general phenomenon but its abstract cannot resolve exact two-stage formulas; this historical-priority uncertainty is retained rather than equated with proof of absence.",
+      "searches": [
+        "stormwater detention basin can increase peak flow downstream synchronization tributary timing literature",
+        "detention basins aggravate downstream flooding by synchronizing hydrograph peaks confluence",
+        "\"maximum\" \"downstream flow\" \"detention\" \"exponential\" \"confluence\"",
+        "\"detention\" \"downstream peak\" \"time constant\" analytic threshold"
+      ]
+    },
+    "checked_sources": [
+      "Pattison et al. 2014, https://doi.org/10.1002/2013WR014067 (publisher full text inspected)",
+      "McCuen 1979, https://doi.org/10.1061/JYCEAJ.0005300 (abstract and bibliography only)",
+      "Błażejewski and Murat-Błażejewska 2003, https://doi.org/10.1623/hysj.48.4.665.51413 (abstract and bibliography only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pattison, Lane, Hardy & Reaney (2014), full publisher HTML, https://doi.org/10.1002/2013WR014067: Section 1 explicitly motivates confluence timing; Sections 2–4 use hydraulic simulations to study delays, magnitudes and some nonmonotone changes; no analytic two-exponential/serial-reservoir sharp cap in inspected full text.",
+        "McCuen (1979), https://doi.org/10.1061/JYCEAJ.0005300: accessible publisher abstract reports that local detention can raise downstream flows in a real watershed; no formula can be excluded because complete article was not read.",
+        "Błażejewski & Murat-Błażejewska (2003), https://doi.org/10.1623/hysj.48.4.665.51413: accessible abstract treats analytic single-basin routing for trapezoidal input, not a stated two-branch global peak bound; full text not read."
+      ],
+      "reasoning": "A qualitative confluence peak increase does not imply a necessary-and-sufficient logarithmic lag boundary for every rate contrast, and numerical delay sensitivity does not imply a universal sharp global bound with a unique equality configuration. Standard convolution gives model formulas but by itself does not state the all-parameter optimization. The unread early publications make historical-priority judgment provisional.",
+      "searches": [
+        "stormwater detention basin can increase peak flow downstream synchronization tributary timing literature",
+        "\"Analytical solutions of a routing problem for storm water in a detention basin\" pdf",
+        "McCuen \"Downstream Effects of Stormwater Management Basins\" 1979 PDF filetype:pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pattison, Lane, Hardy & Reaney (2014), full publisher HTML, https://doi.org/10.1002/2013WR014067: Section 1 explicitly motivates confluence timing; Sections 2–4 use hydraulic simulations to study delays, magnitudes and some nonmonotone changes; no analytic two-exponential/serial-reservoir sharp cap in inspected full text.",
+        "McCuen (1979), https://doi.org/10.1061/JYCEAJ.0005300: accessible publisher abstract reports that local detention can raise downstream flows in a real watershed; no formula can be excluded because complete article was not read."
+      ],
+      "reasoning": "The convolution is a standard linear-system transformation and the qualitative sign paradox is explicitly known, so neither is claimed new. Inspected work did not state or imply the complete criterion delta versus log(r)/(r-1), the independence from all beta>=1, or the unique global e^(-2) maximum. A prior publication in equivalent queueing, pharmacokinetic or cascade language could still establish the same formulas.",
+      "searches": [
+        "\"flood peak\" \"two tributaries\" \"linear reservoirs\" exact condition detention paradox",
+        "\"confluence\" \"Erlang\" \"reservoir\" \"peak\" delay",
+        "two confluence exponential hydrographs one extra serial linear reservoir sharp lag threshold log rate ratio peak amplification",
+        "detention on first tributary shock at time zero with second at lag delta convolution exponential mixing maximal peak increase"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inspected full 2014 Water Resources Research article contains watershed hydraulic scenarios and figures, not a table for all positive rate ratios, lag thresholds and global exponential penalties.",
+        "Błażejewski & Murat-Błażejewska (2003), https://doi.org/10.1623/hysj.48.4.665.51413: accessible abstract treats analytic single-basin routing for trapezoidal input, not a stated two-branch global peak bound; full text not read."
+      ],
+      "reasoning": "No identified exact database or published table tabulates the proposed rate-contrast law. Absence of a search hit does not establish novelty; an uncatalogued analytical hydrology calculation remains a residual risk.",
+      "searches": [
+        "\"maximum\" \"downstream flow\" \"detention\" \"exponential\" \"confluence\"",
+        "\"confluence\" \"Erlang\" \"reservoir\" \"peak\" delay",
+        "linear reservoir Nash cascade impulse rainfall confluence delay peak increase paradox"
+      ]
+    },
+    "rationale": "The known qualitative adverse-confluence effect is explicitly excluded from the novelty claim. No exact rate-uniform log-threshold, beta-invariant twice-mode maximizer and global e^(-2) cap were found in the relevant inspected full text, published-record search or recoverable prior claims. Older potentially relevant full manuscripts were inaccessible; priority remains provisional and this is recorded as a residual risk.",
+    "residual_risks": [
+      "The complete McCuen (1979) manuscript was not readable; it might contain a related analytic simplification despite the case-study abstract.",
+      "The full Błażejewski–Murat-Błażejewska (2003) manuscript was not available for a definitive implication comparison.",
+      "The exact statement may be known in another discipline under hypoexponential or linear-system terminology even without an explicit hydrology title."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the specific two-exponential serial-routing analytical global peak threshold and sharp e^-2 cap; DOES establish qualitative and numerical timing effects.",
+        "evidence": [
+          "Introduction establishes relative timing and confluence superposition; Section 3.2 describes flow-magnitude and timing simulations; Section 5 reports watershed-level sensitivity and limits."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/2013WR014067",
+        "material_read": "Complete publisher HTML text, abstract and Sections 1–5, including sensitivity results and conclusion; methods and references checked.",
+        "method": "Publisher full HTML (first published 2014-06-06).",
+        "title": "The role of tributary relative timing and sequencing in controlling large floods",
+        "trigger": "Primary literature motivation: a downstream peak depends on timing of tributaries and attenuation."
+      },
+      {
+        "assessment": "QUALITATIVELY_COVERING the detention paradox; exact analytical formula not determined from accessible material. Historical-priority risk explicitly retained.",
+        "evidence": [
+          "Abstract describes a 2.12-square-mile Maryland watershed where a stormwater basin increased downstream peak flow and bedload transport."
+        ],
+        "identifier_or_url": "https://doi.org/10.1061/JYCEAJ.0005300",
+        "material_read": "Publisher abstract and bibliographic information only; full manuscript inaccessible.",
+        "method": "Accessible bibliographic and abstract pages; attempted authorized institutional retrieval, but unavailable.",
+        "title": "Downstream Effects of Stormwater Management Basins",
+        "trigger": "Direct predecessor describing adverse downstream peak effects of detention in a watershed."
+      },
+      {
+        "assessment": "Single-reservoir trapezoidal inflow addressed in abstract; whether the full paper contains equivalent confluence peak bounds remains unresolved.",
+        "evidence": [
+          "Abstract states analytic linear-reservoir routing for a trapezoidal inflow and reservoir sizing based on ponded depth."
+        ],
+        "identifier_or_url": "https://doi.org/10.1623/hysj.48.4.665.51413",
+        "material_read": "Publisher abstract and bibliographic information; full manuscript not read.",
+        "method": "Accessible journal abstract and bibliographic page; full manuscript not available for substantive inspection.",
+        "title": "Analytical solutions of a routing problem for storm water in a detention basin",
+        "trigger": "Potentially dominating earlier analytical linear-reservoir routing formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e1fdea69-9779-456e-8797-ba66a0d96ee2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The already recognized risk that local detention can increase downstream flood peaks is turned into an all-rate actionable mathematical benchmark: a necessary-and-sufficient arrival-lag boundary, robust independence from the strength of the later tributary, a unique worst-delay identity, and a universal optimal upper bound with its unique extremizer. This is not merely a numerical counterexample or an arbitrary parameter slice; it resolves the exact optimal risk envelope within a natural two-tributary routing model. The narrow scope limits empirical applications but does not eliminate the structural utility.",
+    "status": "PASS"
+  }
+}
