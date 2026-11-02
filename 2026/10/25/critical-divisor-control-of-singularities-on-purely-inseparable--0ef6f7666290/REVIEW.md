@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The Jacobian criterion reduces the singular locus to zeros of the differential of the local coefficient. Squarefreeness excludes critical roots of the binary form and rules out local order \(p\). At every critical point the first nonconstant exponent \(m\) is coprime to \(p\), so a formal change of parameter gives \(v^p=u^m\). Its normalization semigroup is \(\langle p,m\rangle\), with \(\delta=(p-1)(m-1)/2\). The critical divisor has degree \(p-2\), so the delta sum equals the plane arithmetic genus and the normalization has genus zero. The characteristic-five example has critical orders \(2\) and \(3\), verified by exact polynomial arithmetic.
+PASS
 
-## Originality
+The polynomial is integral because f squarefree of degree p is not a pth power in k(t); z^p-f is irreducible over k(t). The map onto P1 is finite purely inseparable degree p. Jacobian criterion, F_z=0, and Euler homogeneous identity in characteristic p reduce singularity to vanishing coefficient differential dh on affine charts. At critical point the local value f0 is nonzero (simple roots prevent df=0 at f=0), and its first nonconstant term order m>=2 is <=p-1 because f is degree p, is not a pth power (otherwise multiple root), and derivative degree <=p-2. Since gcd(m,p)=1 an mth-root formal coordinate substitution absorbs the higher unit and yields v^p=u^m; normalization via u=s^p,v=s^m proves semigroup and gap count. Transition of f across P1 charts has degree p, whose derivative cross term vanishes in characteristic p; df is nonzero section O(p-2), so sum critical vanishing multiplicities m-1=p-2 and deltas sum plane arithmetic genus (p-1)(p-2)/2. A unibranch integral curve with zero normalization genus has normalization P1. Independently checked char5 polynomial expansion h(2+u)=3+u²+u^5 and infinity 1+s³+s⁴; semigroup gaps give 2+4=6. These finite checks do not prove all p.
 
-**PASS, with residual literature-access risk.** Fong–Maccan's construction covers the squarefree family and its surface applications; Brion gives equivariant local structure and the arithmetic-genus formula. The inspected statements do not give the individual singularity semigroups as the critical divisor varies. The local monomial branches are standard, and no novelty is claimed for them alone. Searches for the exact polynomial, the \(\mu_p\)-normal family, and the critical-order formulation returned no directly matching finding. A local-singularity classification article for which only abstract/metadata were available remains a residual risk, not a basis for a negative coverage conclusion.
+## originality
 
-## Value
+PASS
 
-**PASS.** The critical-divisor formula converts a geometric construction used to produce elliptic surfaces into an explicit classification of every singular branch and its delta contribution throughout the prime-degree family. This is more informative than the already-known total arithmetic genus: it identifies where the entire genus defect is concentrated, gives a complete rational-normalization proof, and supplies a reproducible mixed-exponent example with two distinct free-point cusp types.
+Best-of-knowledge PASS for the global critical-divisor distribution, not the classical local monomial cusp semigroup formula alone. Fong–Maccan 2024 Example 3.13 explicitly studies the same z^(p^r)=f squarefree curve and its fixed points/multiple-fiber application, but the relevant inspected full primary text does not give the local critical-order semigroup list. Brion 2024 Theorems 1–2 gives equivariant local covers and total arithmetic-genus/Hurwitz relation, not this explicit pointwise critical divisor formula in the inspected introduction and theorems. Standard singularity classifications can give individual monomial branch types, so an uninspected local paper or other algebraic geometry source might imply the result after specialization. No blanket uniqueness claim.
 
-## Closest literature and limitations
+## value
 
-The closest primary sources are Fong–Maccan, *Isotrivial elliptic surfaces in positive characteristic* (arXiv:2405.11602), and Brion, *Equivariantly normal varieties for diagonalizable group actions* (arXiv:2405.12020). Related local-branch classifications concern semigroups and local equivalence but do not, in the inspected statements, establish the global critical-divisor correspondence. The claim does not cover exponents \(p^r\) for \(r>1\), non-squarefree forms, or classification by modality.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact singularity profile of a natural purely inseparable family used in elliptic surface constructions is determined by a computable divisor on P1; the theorem locates every singular point, its analytic type, value semigroup and delta, not just the total arithmetic genus. The p=5 example exhibits two distinct cusps on one curve. This natural finite-prime family invariant is structurally useful even though individual branch formulas are textbook.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
