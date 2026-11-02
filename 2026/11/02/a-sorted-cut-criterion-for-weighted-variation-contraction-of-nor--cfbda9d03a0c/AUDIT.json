@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every binary cut, each edge initially crossing the cut keeps its sign under I+epsilon Q with 0<epsilon<1/2, and equal-labelled edges contribute epsilon times the absolute directional difference. Thus J((I+epsilon Q)1_S)=J(1_S)+epsilon Phi(S) exactly. The two left-label cases produce respectively Phi=(s/q)W-(1+2s/q)C(Y) and Phi=|d|B-(1+d)A+sum_{j in Y}tau_j(s). All other cuts are complements. Column singleton inequalities control all right-only cuts by a sharp sum bound; maximizing fixed-cardinality mixed cuts selects the largest scores. Coarea and iterated Euler contractions imply semigroup contraction for all real signals and all t; a positive cut derivative gives small-time failure. Exact-rational checker executes separate tests 25,728 cuts in 276 positive profiles and 12,576 Euler inequalities. Finite testing is corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1307.0045 gives general graph-TV calculus and MBO estimates, rather than unconditional heat-TV monotonicity.",
+        "arxiv:1306.2561 gives curvature-conditional quadratic/positive-solution estimates, not arbitrary anisotropic edge weights.",
+        "The older heat-TV tree criterion applies only when \\(K_{2,q}\\) is a tree (\\(q=1\\)); the cycle case applies to \\(q=2\\). Unweighted complete multipartite variation contractions assume all variation weights equal and the unnormalized generator."
+      ],
+      "reasoning": "A theorem for arbitrary connected graphs with all independent edge-variation weights and normalized heat would cover this, but no inspected primary statement has that scope. The \\(q\\ge3\\) bicliques are neither trees nor cycles, and changing heat rates and edge-variation weights is not an innocuous specialization of the unweighted classification.",
+      "searches": [
+        "graph heat semigroup total variation diminishing complete bipartite graphs weighted edge cut",
+        "graph total variation heat semigroup contraction curvature graph heat flow 2015",
+        "complete bipartite heat semigroup variation contraction arbitrary weighted anisotropic edge gradient"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1307.0045",
+      "https://arxiv.org/abs/1306.2561",
+      "https://doi.org/10.1137/120895068",
+      "MSC2020 class 47D07: Markov semigroups and applications to diffusion processes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1307.0045 coarea Lemma 3.12 is a tool but the new score maximization is not an implication of its displayed statement alone.",
+        "arxiv:1306.2561 Theorems in §§3–4 address positive heat solutions and gradient squared estimates under graph curvature assumptions.",
+        "doi:10.1137/120895068 addresses graph-TV proximal minimization, distinct from a fixed normalized linear heat semigroup.",
+        "The two-by-q classification requires exact inequalities for independently varying positive edge weights and includes a five-vertex mixed-cut obstruction."
+      ],
+      "reasoning": "Even if a general cut criterion follows from standard convexity, it quantifies over \\(2^{q+2}\\) cuts and does not give the q+1 sorted tests or show why singleton tests first fail at \\(q=3\\). The prior unweighted/other-geometry results do not imply the explicit weighted formula.",
+      "searches": [
+        "weighted graph total variation heat semigroup contraction complete bipartite graph arbitrary edge weights",
+        "normalized random walk semigroup weighted edge total variation variation diminishing",
+        "graph heat equation gradient estimate Bakry Eméry discrete semigroup contraction bounded variation edges 2013"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1307.0045 §§2–4 defines anisotropic graph TV, coarea, and heat threshold dynamics but does not state the sorted \\(K_{2,q}\\) weighted semigroup criterion.",
+        "arxiv:1306.2561 studies heat curvature and positive-solution gradient estimates, not an exact edge-l1 variation contraction cone.",
+        "Related finite-dimensional dissipativity/logarithmic-norm terminology was considered; a general abstract test may exist, but no checked item supplies the polynomial sorting classification."
+      ],
+      "reasoning": "Normalized random-walk heat is a Markov semigroup, and weighted graph TV is an edge-l1 seminorm. Rewriting it as matrix dissipativity on the image of the incidence map does not automatically reduce its exponentially many cuts to column and top-s score inequalities. The exact \\(q\\ge3\\) formula, not the generic coarea identity, is assessed for coverage.",
+      "searches": [
+        "weighted graph total variation heat semigroup contraction complete bipartite graph arbitrary edge weights",
+        "two-by-q complete bipartite random walk heat semigroup preserves weighted graph total variation if and only if sorted mixed-cut inequalities",
+        "\\(K_{2,q}\\) degree normalized Laplacian graph total variation anisotropic edge weights contractivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected search records concerned weighted odd-cycle spectral asymptotics, graph zonotopes and quantum-graph heat envelopes, none of which tabulate graph-edge total-variation semigroup contraction cones.",
+        "The exact \\(q=3\\) witness uses positive rows (4,1,1) and (1,8,8), with all five singleton derivatives negative and a mixed-cut derivative of 1/6. No matching table or database entry was identified."
+      ],
+      "reasoning": "The statement is a full q-parametric necessary-and-sufficient polyhedral test, not a recomputation of a listed numeric graph invariant. Search absence is retained as residual uncertainty, not asserted as a proof of novelty.",
+      "searches": [
+        "two-by-q complete bipartite random walk heat semigroup preserves weighted graph total variation if and only if sorted mixed-cut inequalities",
+        "\\(K_{2,q}\\) degree normalized Laplacian graph total variation anisotropic edge weights contractivity",
+        "binary cut Dini derivative variation normalized heat and polynomial sorting certificate for two-row bicliques",
+        "weighted variation random walk semigroup complete bipartite graph sorted subset graph"
+      ]
+    },
+    "rationale": "Actual mathematical-index searches and accessible prior statements did not identify a theorem implying the \\(q\\ge3\\) arbitrary-weight, degree-normalized heat-semigroup sorted-cut classification. The most relevant primary texts develop graph TV/coarea and separate heat gradient estimates without this particular weighted contraction cone. Existing tree and cycle classifications apply to \\(q\\le2\\), not the new \\(q\\ge3\\) mixed-cut obstruction; unweighted multipartite classifications leave arbitrary anisotropic variation weights and normalized rates unresolved. This is a best-knowledge finding, not a proof of global uniqueness.",
+    "residual_risks": [
+      "An exact equivalent polyhedral criterion may be implicit in older weighted-l1 semigroup dissipativity or nonlinear graph-filtering literature not indexed in the searches.",
+      "The Couprie et al. source was evaluated only from its published abstract and metadata; its full text was not materially read.",
+      "Indexed mathematical records do not constitute an exhaustive global originality proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes graph TV, coarea and curvature/MBO, but inspected theorem statements do not classify the weighted normalized Markov-heat TV contraction cone of \\(K_{2,q}\\).",
+        "evidence": [
+          "Section 3 coarea lemma/theorem for graph TV",
+          "Section 4 MBO threshold dynamics and time-step results",
+          "No bipartite-specific classification found in the searchable full text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1307.0045",
+        "material_read": "Full accessible article text; introduction, graph-calculus setup, Section 3 coarea lemma and theorem, Section 4 heat-threshold dynamics, theorem outlines and searchable relevant terms.",
+        "method": "Primary full-text arXiv HTML and openly accessible 63-page publisher PDF; inspected relevant source pages and searched for bipartite, contraction and coarea.",
+        "title": "Mean curvature, threshold dynamics, and phase field theory on finite graphs",
+        "trigger": "Direct graph-TV and discrete coarea methods closely match the cut reduction."
+      },
+      {
+        "assessment": "Its curvature-dependent estimates for positive solutions and quadratic gradients do not imply the claimed all-data exact independently weighted edge-l1 TV cone.",
+        "evidence": [
+          "The introduction identifies the Li-Yau estimate for positive heat solutions as main result.",
+          "Section 2 distinguishes normalized and unnormalized vertex measures."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1306.2561",
+        "material_read": "Accessible primary full text, including introduction and statements of curvature-dimension and positive heat-gradient results; Section 2 normalized Laplacian convention.",
+        "method": "Opened primary arXiv full-text HTML and compared assumptions, gradient norm, and conclusions.",
+        "title": "Li-Yau inequality on graphs",
+        "trigger": "Strong candidate for more general graph-heat gradient bounds implying contraction."
+      },
+      {
+        "assessment": "Addresses proximal/TV-minimization methods rather than a normalized heat semigroup. Abstract-only comparison leaves a limited historical-literature risk.",
+        "evidence": [
+          "Publisher abstract discusses flexible graph-TV dual constraints and parallel proximal methods, not heat variation contraction."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/120895068",
+        "material_read": "Publisher article metadata, abstract, stated aims, keywords, and linked references; complete paywalled primary paper not materially read.",
+        "method": "Accessible publisher abstract and bibliographic material.",
+        "title": "Dual Constrained TV-based Regularization on Graphs",
+        "trigger": "Potentially related independently weighted edge-TV regularization and graph filtering."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cfbda9d0-3a0c-4c1d-8fcc-03f00a8403f1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete bipartite \\(K_{2,q}\\) is a natural family interpolating a three-vertex path (\\(q=1\\)), a cycle (\\(q=2\\)), and a multicycle graph (\\(q\\ge3\\)). The theorem gives an exact constructive admissibility cone for arbitrary positive edge-variation weights and fixed normalized jump rates; its \\(O(q^2\\log q)\\) test replaces \\(2^{q+2}\\) possible binary cuts. A strictly positive five-vertex weight configuration passes all singleton tests but fails a mixed-cut test, proving the first genuinely nonlocal weight constraint appears at \\(q=3\\). This is a structural and computationally useful classification rather than a renamed norm bound or unmotivated numerical slice.",
+    "status": "PASS"
+  }
+}
