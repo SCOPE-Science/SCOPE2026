@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Analytical proof checks all quantifiers: exact sketched-Ritz perturbation identity; sharp cross-Gram estimate using (G-I) norm and scalar optimizer t=1-epsilon^2; disjoint-eigenvalue-disk continuation; SPD Gram and symmetric block witness with explicit characteristic polynomial and defective endpoint. Actual standalone verify.py passed 1742 exact and seeded numerical assertions, treated as supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu and Liu Theorems 8--9 bound a selected characteristic subspace under a nonsymmetric perturbation, with local assumptions; they do not establish reality of every extracted eigenvalue.",
+        "Stewart (2011) covers general perturbation theory for oblique projectors, whose abstract does not give the named sketched-Ritz spectral transition."
+      ],
+      "reasoning": "A general nonsymmetric eigenvalue perturbation theorem provides disk-containment ingredients, but does not by itself give the sharp permitted sketch error as a function of distortion and true Ritz residual, or an attained symmetric SPD witness. A stronger precise theorem may exist outside inspected texts; this is retained as a risk.",
+      "searches": [
+        "perturbed Ritz projection nonsymmetric complex conjugate eigenvalues embedding gap rank two",
+        "Real Schur sketched symmetric eigenvalue sharp exceptional point complex pair near-isometry epsilon critical δ/sqrt(δ²+γ²)",
+        "doi:10.1137/100792093 oblique projector perturbation",
+        "arxiv:2610.22261v1 Theorems 8 and 9"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.22261v1 Sections 3.1 and 5.3",
+      "doi:10.1137/23M1565413 Sections 6.3 and 6.8",
+      "doi:10.1137/100792093 abstract",
+      "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0 (summary of published result; different spectral-filter object)",
+      "2026/9/17/SCOPE-projected-eigenpair-certification-false-positive--dc23fa36a6e4 (summary of published result; different stopping-test object)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu--Liu gives algorithms and local subspace selection under fixed sketch, not the universal entire-Ritz-spectrum reality cutoff.",
+        "Nakatsukasa--Tropp establishes sRR, residual estimates and reports complex eigenvalues qualitatively.",
+        "Classical normal-matrix eigenvalue disks are explicitly used as a proof ingredient here, not advertised as novel."
+      ],
+      "reasoning": "Neither a conditional local Schur-subspace guarantee nor the existence of complex sRR values entails an optimal closed-form distortion threshold. The new argument optimizes the cross-block of an almost-isometric Gram operator and attains this optimization in an SPD four-block design.",
+      "searches": [
+        "For symmetric A and orthonormal X, sketched Rayleigh Ritz H=(SX)†SAX, sharp bound ||H-XᵀAX|| ≤ ε/√(1-ε²) ||(I-XXᵀ)AX||, all eigenvalues real if Ritz separation greater twice this bound",
+        "Exact threshold of subspace embedding distortion for complex conjugate eigenvalues of sketched Rayleigh Ritz of SPD matrices with two Ritz values",
+        "arxiv:2610.22261v1 sections 3.1,5.3",
+        "doi:10.1137/23M1565413 sections 6.3,6.8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu and Liu explicitly state nonreal sRR eigenpairs and replace eigen-extraction by a real Schur decomposition.",
+        "Nakatsukasa and Tropp Section 6.8 states lack of guaranteed real Ritz estimates for symmetric inputs, without a quantitative threshold."
+      ],
+      "reasoning": "Equivalent formulations include a sharp residual-scaled nonsymmetric perturbation bound and a simple Ritz-spectrum gap condition. The papers mention the phenomenon, not the exact constant or boundary; a nonreality observation alone cannot imply this if-and-only-if extremal family.",
+      "searches": [
+        "sketched Rayleigh Ritz symmetric eigenproblems nonsymmetric projected matrix nonreal complex eigenvalues nearly isometric subspace embedding sharp threshold",
+        "For symmetric A and orthonormal X, sketched Rayleigh Ritz H=(SX)†SAX, sharp bound ||H-XᵀAX|| ≤ ε/√(1-ε²) ||(I-XXᵀ)AX||, all eigenvalues real if Ritz separation greater twice this bound",
+        "arxiv:2610.22261v1 Section 3.1",
+        "doi:10.1137/23M1565413 Section 6.8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved nearest published record 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0 addresses spectral filter gain, not this projected sketch matrix.",
+        "The other nearest published mathematical records concern a different normal spectral-filter Rayleigh-residual result and a projected eigenpair stopping-test false positive, not the symmetric sketched Ritz spectrum."
+      ],
+      "reasoning": "The result is a continuous parameter theorem, not a known numeric lookup table. The nearest returned mathematical records concern filters, projections or residual stopping criteria with different hypotheses and conclusions.",
+      "searches": [
+        "real-arithmetic sketched eigensolver 2026 Liu Liu complex eigenvalues Schur basis whitening",
+        "Exact threshold of subspace embedding distortion for complex conjugate eigenvalues of sketched Rayleigh Ritz of SPD matrices with two Ritz values",
+        "published-finding corpus semantic searches for sketched RR threshold, symmetric sketch real spectral pollution",
+        "web: \"sketched Rayleigh-Ritz\" \"nonreal\" \"gap\" \"epsilon\""
+      ]
+    },
+    "rationale": "Closest relevant original sources already identify complex sRR eigenpairs and nonsymmetric local subspace gap bounds, but accessible material does not present the sharp epsilon/sqrt(1-epsilon^2) matrix perturbation norm paired with the all-Ritz-reality threshold and attained complex transition. General oblique projection and normal-matrix perturbation theory are acknowledged as precursors; exhaustive priority confirmation is unavailable.",
+    "residual_risks": [
+      "Stewart (2011) full text and potentially more specialized oblique projector perturbation theory were not inspected; some intermediate lemmas may already be classical.",
+      "Unindexed historical literature might state the exact sharp sRR threshold; absence from searches is not priority proof.",
+      "The source paper proves a nearby local subspace-selection theorem; its scope and assumptions were compared, but no exhaustive formal implication search over every prior bound exists."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicitly covers nonreal sketched Ritz values, Schur extraction and local subspace estimates; does not state the universal sharp norm bound or its attained reality threshold.",
+        "evidence": [
+          "arXiv lines 30-40, 70-95, 386-465, 566-570; first posted 2026-10-15"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.22261",
+        "material_read": "ArXiv full-text rendering: Introduction, Sections 2.2, 3.1, 5.3 including Theorems 8-9 and proof, Conclusions, Appendix A titles.",
+        "method": "Direct full-text reading and section/term location; statements and implication comparison.",
+        "title": "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices",
+        "trigger": "Same sRR object, SPD symmetry, real Schur remedy and embedding hypothesis."
+      },
+      {
+        "assessment": "Defines sketched Ritz least-squares extraction and explicitly notes nonreal symmetric sRR eigenvalues but does not supply sharp residual-distortion matrix bound or exact complex-collision frontier.",
+        "evidence": [
+          "Section 6.3 sketched minimizer; Section 6.8, printed page 1203"
+        ],
+        "identifier_or_url": "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+        "material_read": "Primary full-text PDF Sections 6.3-6.8, particularly printed page 1203 (PDF page index 20) examined as rendered page.",
+        "method": "Read PDF sections and visually inspected the relevant page.",
+        "title": "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Foundational sketched Rayleigh--Ritz and explicit symmetric/nonreal discussion."
+      },
+      {
+        "assessment": "Relevant classical theoretical background; insufficient material to exclude a general equivalent block bound; no direct sketched Ritz spectrum claim shown by accessible abstract.",
+        "evidence": [
+          "2011 SIAM J. Matrix Anal. Appl. abstract: projector perturbation theory, representation and update methods"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/100792093",
+        "material_read": "Publisher abstract and bibliographic details only; full text not inspected.",
+        "method": "Primary publisher abstract.",
+        "title": "On the Numerical Analysis of Oblique Projectors",
+        "trigger": "Potentially broader perturbation and projector norm literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "520e06c0-4fb6-4f85-b8ce-bb3ffa39075c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Ritz gap versus residual/distortion balance gives a usable all-real spectrum guard for compressed projection of symmetric problems. The exact Gram extremizer proves its best possible universal constant and locates a defective eigenvalue collision separating real and complex outputs. This clarifies when real spectral extraction remains justified and when a real Schur mechanism can be necessary even for SPD inputs, in a way not supplied by qualitative counterexamples.",
+    "status": "PASS"
+  }
+}
