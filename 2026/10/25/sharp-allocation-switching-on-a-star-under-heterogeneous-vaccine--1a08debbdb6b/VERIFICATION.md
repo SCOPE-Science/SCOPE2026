@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and scope
 
-Execute the accompanying self-contained Python 3 file with `python3 verify.py`.
-Its completed execution returned `VERIFY_OK 20706 assertions` (20,706 separate assertions).
-The program independently constructs symmetric full-size star epidemic matrices and computes their eigenvalues by Jacobi rotation rather than using the stated two-dimensional formula. It checks the clipped optimizer against sampled allocations, verifies analytic differentiation and switching threshold cases, and checks exact-rational examples. No third-party packages or network access are needed.
+# Independent mathematical audit
 
-The proof of all-real-parameter and arbitrary-star-size uniqueness is the strict Perron eigenvalue convexity argument and two-dimensional symbolic analysis in RESULT.md, not any finite random search. Numerical tolerances apply only to numerical corroboration. No claim concerning nonlinear epidemic dynamics, arbitrary mobility graphs, or budgets with binding susceptible caps is certified here. Independent audit has not been performed.
+## correctness
+
+PASS
+
+The symmetric irreducible Metzler star eigenvalue is simple; its second derivative along a nonzero budget direction is positive unless the diagonal perturbation is scalar. A scalar perturbation is incompatible with Σh_i=0 unless h=0, so the optimizer is unique. Leaf permutations then force equal leaf vaccines. Orthogonally decomposing the star gives m−1 leaf-difference eigenvalues and a 2x2 block whose larger eigenvalue F(x) is strictly dominant. Its derivative F′=(1/m−κ)/2 + (κ+1/m)Δ/[2√(Δ²+4mμ²)] and F″>0. The interior stationary equation solves Δ=μ(κm−1)/√κ and x=(B+mμDκ)/(κm+1); clipping to [0,B] proves the exact all-real parameter allocation and endpoint transitions. Substitution yields the affine interior λ*. Independent NumPy full eigenvalue calculations checked 84 configurations against 61 competing symmetric allocations each; finite tests corroborate the proof only.
+
+## originality
+
+PASS
+
+Spectral convex vaccination allocation and symmetric epidemic Laplacians are known. The contribution asserted is the full heterogeneity-parameter exact center/leaf resource phase diagram for continuous allocations on a star, including strict uniqueness and affine interior branch. Closely related published pandemic-vaccination studies and network spectral design may subsume special cases; priority qualified.
+
+## value
+
+PASS
+
+The analytic result provides a complete fixed-budget resource-allocation phase diagram on a natural symmetric mobility graph, with a non-obvious optimal center-to-leaf switch controlled by heterogeneous efficacy and mobility, strict uniqueness and exact minimized growth. This is a motivated control-theoretic invariant, limited to early linear growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
