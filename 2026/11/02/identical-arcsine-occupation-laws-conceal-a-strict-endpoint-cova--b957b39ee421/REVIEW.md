@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The statement fixes the permutation size, edge-convention, and comparator normalization. The paired-edge identity is pathwise. The terminal-rank expectation is derived by equating two exact Eulerian insertion recurrences, not assumed. The only dependency beyond the prefix is its immediate boundary comparison; this gives the exact covariance formula. Cauchy–Schwarz and a simple-walk binomial recurrence establish a strict termwise gap. The one-dependent descent CLT, uniform integrability from exact second moments, and a valid Riemann-sum comparison give the stated asymptotics. The finite exact checker replayed successfully at four full permutation sizes and checked the rank identity through length eight.
+
+**Originality — PASS, qualified.** Fang et al. establish the original walk model and Brownian limit, not the finite occupation–endpoint covariance. Tang later proves the exact *marginal* arcsine law, not the finite joint covariance or strict comparison. This distinction was checked at statement-and-implication level, not merely by title. Related published mathematical findings on other permutation covariance statistics and generic maximum–endpoint symmetries do not imply this exact occupation–endpoint statement. Historical priority of the latter is still subject to unlocated literature.
+
+**Value — PASS.** Identical marginal occupation distributions can obscure statistically meaningful differences in joint behavior with final displacement. The all-size strict gap, exact Eulerian sum, and order-\(n^{3/2}\) comparison quantify that distinction for the concrete non-Markovian permutation walk used as a model for rank-pattern statistics. This is not just a restatement of the known discrete-arcsine marginal or Brownian limit. The asymptotic correlation by itself is not claimed to be new.
+
+**Risks and limits.** Literature searches cannot prove worldwide first priority. The formula does not characterize the complete joint law, and the comparator is restricted to an independent simple symmetric walk. Exact finite enumeration independently tests formulas but cannot replace the all-size proof.
+
+Self-review: passed. Independent audit: not yet performed.
