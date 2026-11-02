@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof derives all coatoms of the finite convex union-closed property lattice from its two closure axioms. Every proper element lies below a listed coatom, and adding a single previously missing team to any listed coatom generates the top. The coatom-cover intersections are contractible except for the simultaneous intersection of all coatoms, which is empty. The finite nerve lemma therefore gives the sphere, and its reduced Euler characteristic gives the Möbius number. `checker.py` independently exhausts every candidate property for ground sizes 1 through 4, checks closure and coatoms, and computes the matching Möbius values. The checker does not purport to prove the infinite-size statement.
+
+**Originality — PASS on inspected evidence.** The 2026 *Teams, Truthmakers, Translations* manuscript (arXiv:2610.15680v1, §3.1) uses convex union-closed properties as weak ideals and cites earlier expressive completeness. Anttila–Knudstorp's *Convex Team Logics* (arXiv:2503.21850, §3.1 and Theorem 3.5) establishes definability, but does not derive this semantic lattice's complete coatom structure, coatom crosscut complex, sphere, or Möbius invariant. Generic crosscut theory establishes the method and is acknowledged. Closest topical mathematical records concern other team-closure problems or the order complexes of different lattices, and do not imply the result. Residual risk: a stronger general lattice theorem or earlier specialist analysis of weak-ideal lattices could already cover this case.
+
+**Value — PASS.** The whole denotation-poset topology of an expressively complete team logic is a natural, unprescribed structural invariant. The theorem extracts a precise high-dimensional sphere and a nonzero Möbius invariant from an enormous lattice without requiring its full enumeration. The coatom classification is intrinsic to the logic's two closure laws and explains why the topology is stable for every valuation universe. This is a complete structural answer for a natural semantic object, not a calculation for an arbitrary slice.
+
+**Scientific limitations:** finite valuation universes only; homotopy equivalence rather than homeomorphism; no classification of arbitrary intervals; historic priority remains provisional.
+
+Self-review: passed. Independent audit: not yet performed.
