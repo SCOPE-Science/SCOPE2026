@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3 and nonempty S the proof explicitly reduces graph-state entropy to binary cross-cut rank, gives a ring automorphism establishing rank in the linear-term cases, reduces the odd full parity case via even-translation group algebra to a square-zero tensor differential and computes its homology. This derives the full eigenvalue list with correct normalization and boundaries; 1030 independent finite GF2 checks and six direct quantum partial traces corroborate but do not replace it. Exact package checker path verify.py and recorded output verification_output.txt are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hein et al., arxiv:quant-ph/0307130, Proposition 3 covers every finite graph and bipartition but gives the rank of a graph-specific matrix, without evaluating this family.",
+        "Hashizume et al., arxiv:2102.13117, main text and supplement focus on Q_m and sampled cut ranks.",
+        "Liu–Pan–Cao, DOI:10.1155/2014/167623, abstract concerns ordinary real adjacency eigenvalues and Estrada index."
+      ],
+      "reasoning": "The universal generic rank formula does not by itself imply an evaluated closed form for FQ_n; one still needs the characteristic-two algebra and exceptional homology calculation. Real adjacency spectra do not determine GF(2) ranks. General quantum scrambling estimates for Q_n do not cover the added antipodal matching or all structured S.",
+      "searches": [
+        "graph-state cut rank complete parity bipartition folded cube antipodal Cayley graph group algebra exterior differential",
+        "rank of binary adjacency augmented hypercube complement matching finite-field group algebra code",
+        "\"hypercube graph states\" entanglement exact Schmidt rank",
+        "\"folded cube\" \"binary rank\" \"adjacency\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/quant-ph/0307130v7",
+      "https://arxiv.org/html/2102.13117v3",
+      "https://arxiv.org/abs/1101.3386",
+      "https://doi.org/10.1155/2014/167623",
+      "https://doi.org/10.1088/1751-8121/ad0f4a",
+      "https://scispace.com/pdf/fault-tolerant-cube-graphs-and-coding-theory-30o1jnhray.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hein et al. (full text) explicitly rank the bipartite cut matrix, but do not compute the folded-cube matrix.",
+        "Hashizume et al. (full text), supplemental Fig. S2, computes sampled Q_m cut ranks for fast scrambling, not FQ_n exact parity ranks.",
+        "Wang et al. (full text) gives crossing-number bounds, rather than GF(2) cut invariants.",
+        "A previously recorded ordinary hypercube full-parity cut for even n establishes no new novelty for that bare-cube case."
+      ],
+      "reasoning": "The theorem is not a new derivation of the known graph-state Schmidt rank identity or the bare hypercube even-parity entropy; these are explicitly credited. The exact effect of the antipodal matching and the exceptional odd-dimensional correction are logically additional evaluations not obtained from the cited results without the present substantive matrix-rank proof.",
+      "searches": [
+        "parity cut entanglement folded n-cube FQ_n qubit graph state antipodal matching Schmidt spectrum 2^(n-2) - 2^((n-3)/2)",
+        "graph-state cut rank complete parity bipartition folded cube antipodal Cayley graph group algebra exterior differential",
+        "arxiv:quant-ph/0307130",
+        "arxiv:2102.13117",
+        "arxiv:1101.3386"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hein et al., arxiv:quant-ph/0307130, Section III.2: binary cut rank is the graph-state Schmidt entropy.",
+        "Hashizume et al., arxiv:2102.13117, supplement, Eq. (S4) and Figure S2: ranks for ordinary Q_m graph states, sampled partitions.",
+        "Wang et al., arxiv:1101.3386, Introduction: FQ_n is cube plus complementary edges; actual analysis is crossing number."
+      ],
+      "reasoning": "An equivalent statement could be expressed as the GF(2) rank of the parity cross-adjacency of FQ_n, the rank of a characteristic-two Cayley convolution operator, or the graph-state flat Schmidt spectrum. Checked those aliases; the primary graph-state source provides only the reduction, the ordinary hypercube source does not add the antipodal matching, and the folded-cube source proves geometric crossing bounds. The quantum claim is not merely the standard rank rule: the exceptional rank is evaluated explicitly.",
+      "searches": [
+        "parity cut entanglement folded n-cube FQ_n qubit graph state antipodal matching Schmidt spectrum 2^(n-2) - 2^((n-3)/2)",
+        "graph state qubit entanglement folded cube hypercube parity cut adjacency GF2 full reduced density spectrum",
+        "binary two-rank adjacency of folded hypercube FQ_(2m+1) exact formula 2^(2m)-2^m rank",
+        "folded hypercube adjacency matrix rank over GF(2) binary rank",
+        "\"folded hypercube\" \"cut-rank\" graph state"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching formula was located in actual named search queries.",
+        "Available published mathematical records on binary Hamming parity automata concern distance-two Boolean adjacency, not the parity cross-cut of FQ_n."
+      ],
+      "reasoning": "No exact table or database value encoding all n and t was found in the searches. This is not a uniqueness proof; specialized binary-rank tabulations might exist elsewhere. The finite checker independently reconstructs the matrices rather than looking them up.",
+      "searches": [
+        "\"folded hypercube\" \"rank\" \"GF(2)\" adjacency",
+        "binary two-rank adjacency of folded hypercube FQ_(2m+1) exact formula 2^(2m)-2^m rank",
+        "\"FQ5\" rank 12 GF2"
+      ]
+    },
+    "rationale": "The exact all-coordinate-parity Schmidt spectrum for antipodally augmented hypercube graph states, with the odd-dimensional full-parity dyadic correction and macroscopic entanglement loss after adding the antipodal matching, was not found as a statement or implied corollary in inspected primary sources or related published records. The general graph-state cut-rank theorem (Hein et al.) and earlier ordinary-hypercube graph-state instances (Hashizume et al.) are explicitly prior methods and are not claimed. Real-spectrum folded-cube results and free-fermion entanglement concern different invariants/states. Specialized historical binary adjacency-rank work remains a priority risk.",
+    "residual_risks": [
+      "An older specialized theorem giving binary adjacency rank of folded hypercubes, related group-algebra ideals, or their symmetric cut-rank functions could imply the new formula and alter priority.",
+      "Only publicly accessible abstracts or selected excerpts were inspected for some specialized folded-cube and old coding-theory literature, so absent coverage cannot be claimed for their entire articles.",
+      "A ranked semantic record search and cannot establish exhaustive uniqueness; its retrieved folded-cube Rips and Boolean automata entries were different claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides full generic GF2 cut-rank method; examined examples do not calculate FQ_n parity-cut ranks.",
+        "evidence": [
+          "arxiv:quant-ph/0307130, Proposition 3 and Eq. (48), full HTML lines 276-303; arXiv first-public 2003-07-18."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/quant-ph/0307130v7",
+        "material_read": "Sections II, III.2, III.3 and examples overview, including Proposition 3 and Section V",
+        "method": "Full lawful arXiv HTML inspection and targeted term search",
+        "title": "Multi-party entanglement in graph states",
+        "trigger": "General graph-state bipartite rank statement and potential exact coverage"
+      },
+      {
+        "assessment": "Constructs and samples ordinary hypercube Q_m qubit graph-state cut ranks, not antipodally augmented FQ_n or the stated deterministic parity spectra.",
+        "evidence": [
+          "arxiv:2102.13117, supplemental Eq. (S4), Figure S2 and main text lines 60-62; first-public 2021-02-25."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2102.13117v3",
+        "material_read": "Main text sections on hypercube scrambling and supplement Section II graph-state adjacency and Figure S2, lines 198-221",
+        "method": "Full lawful arXiv HTML inspection including supplementary text",
+        "title": "Deterministic Fast Scrambling with Neutral Atom Arrays",
+        "trigger": "Same Q_n graph states and quantum entanglement"
+      },
+      {
+        "assessment": "Confirms antipodal-edge definition; proves crossing-number bounds only, not binary parity cut rank.",
+        "evidence": [
+          "arxiv:1101.3386, lines 1-33 and full article sections, first-public 2011-01-18."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1101.3386",
+        "material_read": "Full arXiv text, especially graph definition, opening results and crossing proofs",
+        "method": "Lawful arXiv HTML/text inspection",
+        "title": "The crossing number of folded hypercubes",
+        "trigger": "Same folded-cube graph object and possible GF2 combinatorics"
+      },
+      {
+        "assessment": "Studies real adjacency characteristic polynomial and Estrada index, not GF2 cut ranks; full text not asserted inspected.",
+        "evidence": [
+          "Publisher abstract explicitly states Estrada index and characteristic polynomial."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2014/167623",
+        "material_read": "Publicly visible title and abstract; not the full article",
+        "method": "Abstract-level web inspection",
+        "title": "Some Properties on Estrada Index of Folded Hypercubes Networks",
+        "trigger": "Possibly stronger folded-cube adjacency spectrum"
+      },
+      {
+        "assessment": "Entanglement of many-fermion hopping ground states, different from a pure qubit graph state. Potential detailed treatment not excluded from abstracts alone.",
+        "evidence": [
+          "Publisher abstract: free-fermion folded-cube ground state area law, published 2023-12-05."
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1751-8121/ad0f4a",
+        "material_read": "Accessible publisher abstract, not full article",
+        "method": "Abstract-level inspection; full publisher body inaccessible",
+        "title": "Absence of logarithmic enhancement in the entanglement scaling of free fermions on folded cubes",
+        "trigger": "Same graph and entanglement terminology"
+      },
+      {
+        "assessment": "The visible GF2 rank is of the n-by-generator displacement set ensuring connectivity/fault tolerance, not the 2^(n-1)-by-2^(n-1) parity cut matrix. Residual possibility of unexamined appendices noted.",
+        "evidence": [
+          "1996 IEEE paper, Theorem 1 visible excerpt on rank of generator-set vectors."
+        ],
+        "identifier_or_url": "https://scispace.com/pdf/fault-tolerant-cube-graphs-and-coding-theory-30o1jnhray.pdf",
+        "material_read": "Accessible extracted excerpts around Theorem 1 only, not a complete full-text reading",
+        "method": "Search-extracted primary excerpt comparison",
+        "title": "Fault-tolerant cube graphs and coding theory",
+        "trigger": "Older use of matrix ranks and same antipodal generator family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce26ea2d-2639-43bd-9b6f-c1be9b7c7ccd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A single natural nonlocal perfect matching systematically destroys half-system maximal entanglement on a family of structured parity cuts; the exact exceptional n-odd full-parity correction arises from a nontrivial tensor-differential homology invariant. The full flat spectrum is calculated uniformly for all finite n and all nonempty S, offering sharp network-entanglement benchmarks and a structurally motivated boundary phenomenon.",
+    "status": "PASS"
+  }
+}
