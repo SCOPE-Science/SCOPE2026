@@ -1,15 +1,21 @@
-# Scientific review: Steiner-design endpoint projections
+# Independent mathematical audit
 
-## Correctness
-PASS. For a Steiner \(2\)-\((v,k,1)\) design, the incidence identity \(MM^{\mathsf T}=(r-1)I+J\) follows exactly from point-pair uniqueness. Eliminating block potentials reduces the dipole equation to the centered scalar operator \((vI-J)/k\), giving exact point and block potentials. All nonzero incidence currents and their multiplicities are enumerated; their absolute sum equals the claimed cut norm. The positive diagonal effective resistance implies the claimed cycle norm. Arbitrary choice of the incidence edge proves the operator-norm assertion without automorphism hypotheses. The embedded checker independently verifies every projection column of six designs using exact rational arithmetic, but finite tests are not the infinite proof.
+## correctness
 
-## Originality
-PASS, with explicit residual bibliographic risk. Full-text comparisons cover the 2023 foundational graph-projection work (particularly the graph-family summary and Hamming-cube theorem), the public Steiner-design neighborhood-complex work (same underlying incidence graph, different invariant), and a 2021 affine-graph study (a different graph construction and different invariants). Targeted indexed searches for Steiner-design incidence-graph orthogonal projection norms, electrical currents, and equivalent formulas found no covering theorem. A general electrical-network or design-incidence identity could have been exploited elsewhere to obtain the same absolute-current norms without matching terminology; indexed-search absence is not a proof of uniqueness.
+PASS
 
-## Value
-PASS. Steiner \(2\)-designs are a natural infinite class containing projective and affine planes and Steiner triple systems, including realizations with little symmetry. The parameter-only classification is stronger than a calculation on a single transitive graph and shows exactly when complementary operator projections exchange dominance. The threshold distinguishes the Fano and nine-point cases from all existing larger Steiner triple systems and gives a different, order-four cutoff in affine planes. Exact endpoint operator invariants have a direct role in transportation-cost and Lipschitz-free-space projection analysis. No claim of minimum norm among arbitrary projections is made.
+Let M be point/block incidence, with r=(v−1)/(k−1), b=vr/k. Point pair uniqueness gives MMᵀ=(r−1)I+J. The Laplacian Schur complement for a dipole from point p0 to incident block B0 is (vI−J)/k. The gauge x=(k/v)e_p0−(1/v)1_B0 and y=(Mᵀx−e_B0)/k satisfy both Kirchhoff equations. The six distinct edge-current types follow from the fact that distinct blocks intersect in at most one point; their count gives total |current| R+5(k−1)(v−k)/(vk)=5−4/k−4(k−1)/v, with diagonal R=1/k+(k−1)/v∈(0,1). Thus the complementary P=I−Q absolute column sum is 1+||Q_col||_1−2R=6−6/k−6(k−1)/v. Every incidence is arbitrary, and Q/P symmetric, giving both endpoint norms. k=2 boundary and strict dominance sign (k−2)v>2k(k−1) are correct. Independent standard-library rational checking verified all 167 individual source-incidence current and complement column sums over five design realizations, including Fano, AG(2,3) and a cyclic STS(13); the quantifiers are proved analytically, not extrapolated from finite cases.
 
-## Scope and residual risks
-The result is restricted to real, unweighted incidence graphs and the canonical Euclidean-orthogonal projections; it neither asserts Steiner-design existence nor addresses intermediate \(\ell_p\) norms. Although relevant primary full texts and an indexed mathematical record were inspected, older less-indexed calculations of Steiner-design electrical currents might yield equivalent endpoint formulas. The claimed originality is therefore a supported self-review, not independent bibliographic certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Comparison of mathematical implications supports a best-of-knowledge new pair of parameter-only absolute-current endpoint norms for the unweighted point–block incidence graphs of ALL existing Steiner 2-designs. Classical incidence identities and a general graph Hodge projection formula are prior art, but neither automatically determines the required edge-current signs and absolute column sums. The closest published design-incidence record studies neighborhood-complex homotopy, not operator norms; the primary canonical-projection paper computes the Hamming cube and other graph families. An unindexed older transfer-current theorem remains a priority risk.
+
+## value
+
+PASS
+
+Steiner 2-design incidence graphs form a natural infinite family including nonsymmetric systems; exact endpoint norms of canonical electrical cut/cycle projectors are directly relevant to graph transportation and Banach projection geometry. The universal dependence only on (v,k), not on incidence symmetries, and the sharp Q/P dominance change at (k−2)v=2k(k−1) provide motivated exact invariants. This is not a textbook substitution or known-table value; no minimality among all projections is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
