@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The finite exchange kernel is the convolution of independent hypergeometric samples and has an exact affine mean and an O(n) variance bound. Stirling expansions yield a uniform one-step lattice Gaussian approximation once the preceding count is n/2+o_p(n); this holds uniformly after one step. The random centre has o(sqrt(n)) fluctuations because lambda tends to zero. The resulting fixed-time lattice Gaussian approximation and stationary hypergeometric local CLT produce the stated exact Gaussian total-variation profile, including the critical-window scaling. Standalone exact finite checker: 5325 assertions passed; finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2022 Assumption 1 requires k/n tending to lambda strictly between zero and one half",
+        "2023 Assumption 4.1 requires |lambda_1| O(n^(-1/2)), corresponding to |k-n/2| O(sqrt(n)) in the balanced model",
+        "2016 half-swap extension treats logarithmic departures and three-step mixing"
+      ],
+      "reasoning": "The earlier hypotheses do not cover the n^(1-1/(2t)) critical windows. The 2023 critical theorem is applicable to a narrower subset but yields only a bounded accuracy-dependent mixing time, not the new fixed-time limit.",
+      "searches": [
+        "arxiv:2203.08647v1 Assumption 1, Theorem 1.2",
+        "arxiv:2308.08676v1 Assumption 4.1, Theorem 4.2",
+        "arxiv:1606.01437v2 Section 4.1 and spectral bounds"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.08676v1, Assumption 4.1 and Theorem 4.2",
+      "arxiv:2203.08647v1, Assumption 1 and Theorem 1.2",
+      "arxiv:1606.01437v2, Theorem 5 and Section 4.1",
+      "arxiv:1805.07803, abstract; small-swap regime",
+      "Semantic public-index queries recorded in equivalent_formulations and exact_database_or_table",
+      "Accessible prior claims 5c28676f-124f-4407-8f08-bbd69fac085a (hypergeometric vs binomial relative entropy) and 98e7dc7e-8353-4f71-9c01-be0097679ca1 (Johnson exchange walk subset-cover time); different objects and different invariants, neither implies urn-state mixing profile"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2016 established exponential eigenvalue formulas and the 3-step vanishing-distance conclusion, with explicit proof limited to t>=3",
+        "2023 established a bounded mixing time for the relevant critical model, without the exact t=2 outcome",
+        "2022 excludes k/n -> 1/2 by hypothesis",
+        "Accessible own-claim identifiers 5c28676f-124f-4407-8f08-bbd69fac085a and 98e7dc7e-8353-4f71-9c01-be0097679ca1 address, respectively, hypergeometric sampling KL divergence and Johnson-walk coverage, not fixed-time Bernoulli-Laplace mixing"
+      ],
+      "reasoning": "Known general eigenvalue information can be an input to an alternate proof but an explicit Gaussian total-variation profile and critical exponents do not follow as stated theorems from the inspected bounds. The present proof independently supplies uniform lattice local limits and mixture control; there remains some chance a stronger unlocated result implies it.",
+      "searches": [
+        "arxiv:1606.01437v2 Lemma 39, Theorem 5",
+        "arxiv:2308.08676v1 Lemma 2.4, Theorem 4.2",
+        "arxiv:2203.08647v1 Theorem 1.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1606.01437v2, Section 4.1, Theorem 5: half swap three-step spectral upper bound",
+        "arxiv:2308.08676v1, Theorem 4.2: 2 <= mixing time <= C, with no exact Gaussian fixed-time profile"
+      ],
+      "reasoning": "Compared the same two-urn count chain, its half exchange, affine eigenvalue, and two-step total-variation assertions. The named earlier statements do not give two-step convergence, and do not state the fixed-time profile.",
+      "searches": [
+        "Bernoulli Laplace urn half swap k=n/2 2-step total variation mixing from arbitrary initial n red n white",
+        "Bernoulli Laplace macroscopic exchange k=n/2 two step cutoff mixing deterministic first step",
+        "Bernoulli Laplace exact middle batch near one step stationary Gaussian two steps hypergeometric",
+        "sharp Gaussian total variation profile fixed step Bernoulli Laplace macroscopic k close to half n three quarters critical window",
+        "fixed time central limit profile Bernoulli Laplace urn two step mixing k n/2 n^{3/4}",
+        "Bernoulli Laplace urn n/2 swap mixing time exactly 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Section 5.2 of the 2023 source plots constant-order mixing in critical examples, without an exact fixed-time table",
+        "The 2016 source gives an explicit eigenvalue formula and a t>=3 estimate, not the normal-TV curve",
+        "The current reproducibility code makes new small-n exact comparisons, without claiming exhaustivity over prior literature"
+      ],
+      "reasoning": "No identified published table states the asserted limit profile or n^(1-1/(2t)) hierarchy. Indexed semantic-index top hits were unrelated; an absence in that index is not itself proof of novelty.",
+      "searches": [
+        "Bernoulli Laplace urn half swap k=n/2 2-step total variation mixing from arbitrary initial n red n white",
+        "Bernoulli Laplace macroscopic exchange k=n/2 two step cutoff mixing deterministic first step",
+        "Bernoulli Laplace exact middle batch near one step stationary Gaussian two steps hypergeometric",
+        "sharp Gaussian total variation profile fixed step Bernoulli Laplace macroscopic k close to half n three quarters critical window",
+        "fixed time central limit profile Bernoulli Laplace urn two step mixing k n/2 n^{3/4}",
+        "Bernoulli Laplace urn n/2 swap mixing time exactly 2",
+        "arxiv:2308.08676v1 Section 5.2 numerical Figure 3",
+        "arxiv:1606.01437v2 Section 4.1"
+      ]
+    },
+    "rationale": "In the inspected primary sources the half-exchange case has a vanishing three-step upper bound (Nestoridi and White, 2016) and only a two-to-C mixing-time bracket (Griffin et al., 2023). Alameda et al. (2022) assume a limiting swap fraction below one half. No inspected theorem implies the uniform fixed-time Gaussian profile or the n^{1-1/(2t)} transition scales; indexed-record searches did not identify an equivalent finding. General spectral formulas and unindexed literature remain residual priority risks.",
+    "residual_risks": [
+      "Earlier dual-Hahn spectral formulas might be leveraged to derive the same statement by an unlocated argument, despite the inspected papers not stating or implying the profile directly.",
+      "Web and semantic-index searches are not exhaustive proof of historical originality; no independent mathematical or priority audit has been done."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the uniform t>=2 normal-TV formula and critical scales; source proves bounded mixing only",
+        "evidence": [
+          "arxiv:2308.08676v1 lines 548-640, 642-659; exact first-public date at line 34"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2308.08676v1",
+        "material_read": "Introduction; Assumption 4.1; Theorem 4.2 and proof; Section 5 generalizations and numerical results",
+        "method": "Read accessible primary manuscript HTML, including hypotheses and relevant proof statements",
+        "title": "Cutoff in the Bernoulli-Laplace Model With Unequal Colors and Urn Sizes",
+        "trigger": "Same exact dynamics, critical exchange fraction"
+      },
+      {
+        "assessment": "NOT_APPLICABLE at k/n->1/2 because the paper assumes a strictly subhalf limiting exchange fraction",
+        "evidence": [
+          "arxiv:2203.08647v1 lines 52-87"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.08647",
+        "material_read": "Introduction; prior-results discussion; Assumption 1; Theorem 1.2; lower-bound comparison",
+        "method": "Read accessible primary manuscript full-text rendering of stated sections",
+        "title": "Cutoff in the Bernoulli-Laplace model with O(n) swaps",
+        "trigger": "Macroscopic swap sizes and mixing cutoff results"
+      },
+      {
+        "assessment": "NOT_COVERING the t=2 convergence: its vanishing bound for the half-swap case requires t>=3 and its range for varying k is far narrower than the new critical windows",
+        "evidence": [
+          "arxiv:1606.01437v2 lines 120-129, 546-756"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1606.01437v2",
+        "material_read": "Introduction, Theorem 5, Section 3 spectral diagonalization, Section 4.1 full relevant theorem/proof, Section 4.2 coupling overview",
+        "method": "Read accessible primary manuscript HTML in multiple views of the relevant sections",
+        "title": "Shuffling large decks of cards and the Bernoulli-Laplace urn model",
+        "trigger": "Plausible dominating near-half exchange theorem"
+      },
+      {
+        "assessment": "DIFFERENT_REGIME, requires k=o(n); no whole-document exclusion is claimed",
+        "evidence": [
+          "arxiv:1805.07803 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1805.07803",
+        "material_read": "Title, abstract, model and small-swap hypothesis",
+        "method": "Read accessible bibliographic abstract and model scope",
+        "title": "Cutoff for the Bernoulli-Laplace urn model with o(n) swaps",
+        "trigger": "Foundational swap-size parameter comparisons"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "32a8c083-ddf1-4b8f-afd7-6a45d9c5d898",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The known critical half-swap analysis only guaranteed vanishing variation by three steps, while broader critical work gave bounded mixing. The new theorem establishes sharp two-step mixing, quantifies all fixed-time total-variation profiles, and isolates a natural nested family of n^{1-1/(2t)} exchange-size sensitivity windows. These are motivated finite-time distributions for interchange and shuffle processes, not a formal parameter renaming or an arbitrary finite experiment.",
+    "status": "PASS"
+  }
+}
