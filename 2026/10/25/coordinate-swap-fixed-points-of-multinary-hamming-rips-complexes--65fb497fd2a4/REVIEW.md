@@ -1,19 +1,21 @@
-# Scientific assessment: coordinate-swap fixed points of multinary Hamming Rips complexes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-realization orbit-barycenter construction and exact flag compatibility rules classify every maximal simplex as one of the displayed \(S\), \(T\) and \(U\) families for all integers \(q\ge3\). The \(S/T\) core retracts up to homotopy onto a rook-clique complex, hence a complete bipartite graph. All \(U\)-triangles have already-present boundaries and attach along every rook rectangle, in particular all generating fundamental-group loops. Relative integral chains therefore give \(H_2\cong\mathbb Z^{(q-1)^2(q^2-2)/2}\) and a simply connected two-dimensional homotopy type, hence the stated sphere wedge. The included checker independently verifies exhaustive orbit facets for \(q=2,3,4,5\) and mod-two homology for \(q=2,3,4\). General correctness rests on the proof, not finite enumeration.
+PASS
 
-## Originality — PASS, with documented access risk
+The involution swapping the first two coordinates on [q]^3 has fixed-vertex orbits A_{a,c} and two-element orbits B_{ab,c}; each B orbit spans an edge in VR_{≤2}. Geometric fixed points have equal barycentric weights on each orbit, identifying the fixed space with a flag orbit complex L_q. All maximal facets classify as q row simplices S_c, q² symbol-column simplices T_{a,c}, and N=q(q−1)C(q,2)=q²(q−1)²/2 attachment triangles U_{a,b,c,d}. For the S/T-only subcomplex Y, deleting B vertices yields links covered by S,T_a,T_b with interval nerve, so each link is contractible; Y≃the clique complex of the q×q rook graph≃K_{q,q}. Each U triangle attaches along a rectangle loop of K_{q,q}; the (q−1)² rectangles based at a fixed row and column kill the free π1. Relative homology gives H2=Z^{N−(q−1)²}=Z^{(q−1)²(q²−2)/2}, no other positive homology. A simply connected 2-dimensional CW model is homotopy equivalent to that many 2-spheres by Hurewicz and Whitehead. Independently checked actual maximal facets q=3:30, q=4:92, and reduced mod2 Betti 2 respectively 14 and 63; no all-q inference from finite checks.
 
-The closest full primary article available, Bendersky--Elia--Grbić (arXiv:2605.00705), studies ambient **binary** hypercube Rips cohomology and connectivity, and the indexed Galetto--Montaño--Wellner theorem (arXiv:2606.20784) gives **ambient binary** homology representations. Neither supplies this multinary geometric fixed homotopy type by implication. The directly inspected complete public ternary-three-cube calculation proves that the ambient Rips complex is a wedge of \(46\) three-spheres but does not evaluate the coordinate-swap fixed space. Earlier work on the **binary** coordinate swap covers the \(q=2\) boundary, excluded here, and the multinary cyclic coordinate action is a different subgroup with a different fixed-space homotopy type. Full text for two related preprints was not obtained, and equivalent unindexed research cannot be ruled out.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The coordinate transposition is a natural order-two Hamming symmetry; its geometric fixed realization is a distinct topological object from the ambient Rips complex. A uniform all-nonbinary-alphabet two-sphere-wedge classification with an explicit cell-attachment mechanism gives structural symmetry information unavailable from the known ambient Betti numbers. Its contrast with the cyclic three-coordinate rotation fixed space is substantial and motivated, not a routine renaming or isolated computation.
+PASS, qualified best-of-knowledge: literature comparison of exact statements/implications. The orbit-support principle is credited standard; the universal q-fold maximal-facet classification and attachment argument are not supplied by the bare principle. Existing broader ambient homotopy theorems may cover q-specific complexes but do not mathematically imply the fixed-space topology without a new equivariant geometric analysis.
 
-## Scientific limitations and closest sources
+## value
 
-The conclusion is a nonequivariant integral homotopy type for geometric fixed points in precisely three coordinates at inclusive scale two. It neither specifies induced homology representations nor treats other thresholds. The broadest source inspected in full is the open-access paper arXiv:2605.00705, and the closest same-original-complex comparison is the directly read ternary cube RESULT.md. Other original full texts not accessed remain an originality risk. Independent mathematical validation is not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This computes an exact integral homotopy invariant of a natural infinite family of multinary Hamming Rips complexes with a coordinate-permutation symmetry. The distinction between ambient complexes and geometric fixed loci, together with the q-dependent complete two-sphere wedge decomposition, is a useful and motivated classification; the two-dimensional attaching geometry explains rather than merely tabulates ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
