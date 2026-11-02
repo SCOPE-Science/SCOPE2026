@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs iid labeled-pair uniform matching coupling, Hoeffding first-order crossing projection, exact edge-inclusion moments, DKW cusp bound and double-degenerate rank correction; paired iid CLT yields the stated nondegenerate matrix. Exact checker passed 13,895 assertions with exhaustive enumeration through n=7. Critical reverse-degeneracy follows from f(x)=f(1-x), not from finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Acan 2015 §§1–2 and paper outline: chord lengths and one-chord crossing degree; different scope.",
+        "Paguyo 2021/2023 §§1–3: univariate crossing CLT and simple chords Poisson; not a joint total-span result.",
+        "Prior published higher crossing-clique/total-length covariance addresses clique size at least three, not an asymptotic bivariate CLT for crossing pairs."
+      ],
+      "reasoning": "The available general U-statistic theorem is a tool, not a reported theorem containing the empirical-rank correction and its exact cancellation. Existing univariate or higher-clique results do not dominate the asserted joint limiting distribution.",
+      "searches": [
+        "joint asymptotic normality crossings total length uniform random chord diagrams",
+        "random chord diagram asymptotic Gaussian crossing total cyclic chord length 15/16 explained variance",
+        "joint CLT of intersection graph edges and total chord length of uniform matching empirical rank endpoint gaps",
+        "random matching chord span crossing number multivariate U statistic joint limit"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1501.01489v1",
+      "https://arxiv.org/html/2104.01134v2",
+      "https://arxiv.org/abs/1406.2867",
+      "Flajolet and Noy 2000 via Acan and Paguyo citations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Acan §2 conditional expected crossing degree can support finite Cov(X,T), which is explicitly not claimed new.",
+        "Paguyo Theorem 1.1 yields only the crossing marginal normal limit.",
+        "The earlier crossing/nesting joint normal theorem has a different second statistic and its Gaussian independence does not imply the crossing/shorter-span joint law."
+      ],
+      "reasoning": "Same marginal X alone, even together with all second moments, cannot force joint normality with T. The new proof directly supplies joint asymptotic linearization and establishes a rank-degeneracy identity. The correlation limit is a theorem-level consequence once the joint law and exact moments are combined.",
+      "searches": [
+        "random chord diagram joint central limit theorem number crossings total chord length span matching",
+        "joint asymptotic normality crossings total length uniform random chord diagrams",
+        "joint distribution upper lower and chord crossings random matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acan arXiv:1501.01489v1 §2: conditional degree given shorter-arc length; no joint crossing-count/total-span limit.",
+        "Paguyo arXiv:2104.01134v2 §§1–2: univariate crossing-count CLT and variance; no total-span coordinate."
+      ],
+      "reasoning": "A joint Gaussian claim is stronger than a univariate crossing CLT plus an exact mixed covariance, as convergence of joint laws does not follow merely from convergence of margins and covariance. Shorter circular chord span is the same arc-interior-count statistic in Acan, not a rebranding. No matching equivalent statement found in the inspected materially relevant sections.",
+      "searches": [
+        "random chord diagram joint central limit theorem number crossings total chord length span matching",
+        "joint central limit theorem number of crossings and sum of shorter circular chord lengths uniform random perfect matching asymptotic correlation sqrt 15 over 4",
+        "\"chord diagram\" \"total length\" \"crossings\" correlation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact enumeration through seven chords was carried out independently using verify.py, not extracted from a known database or table.",
+        "Published mathematical-record search for the given asymptotic correlation and joint limit did not return an exact counterpart."
+      ],
+      "reasoning": "The contribution is a continuum-scale bivariate Gaussian theorem, not a finite sequence or tabulated covariance. Exact finite moments are supporting calculations and not claimed as new database entries.",
+      "searches": [
+        "random chord diagram crossing total arc length covariance empirical matching",
+        "joint central limit theorem number of crossings and sum of shorter circular chord lengths uniform random perfect matching asymptotic correlation sqrt 15 over 4"
+      ]
+    },
+    "rationale": "The assessed original object is the joint crossing-count/total-shorter-arc-span normal limit and the exact asymptotic 15/16 regression share, not known univariate moments or Acan conditional chord degree. Materially relevant portions of Acan 2015 and Paguyo 2021/23 were inspected and do not state this joint law; related published records concern higher crossing cliques or crossing/nesting limits. Residual risk: an equivalent hidden generic-corollary in the broader literature may exist. No independent priority certification.",
+    "residual_risks": [
+      "A generic multivariate chord-diagram U-statistic theorem not encountered could imply the joint limit after a model-specific substitution.",
+      "The Acan–Pittel 2014 sparse-crossings paper was only inspected at abstract level, not in full; its scope differs materially.",
+      "No independent audit or historical-priority verification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers chord length and conditional degree; not the bivariate crossing-number/total-span limit",
+        "evidence": [
+          "§1 defines shorter-arc interior endpoint count; §2 states chord-length distribution and conditional degree moments; Theorem 2.1 is a one-chord degree distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1501.01489v1",
+        "material_read": "Full accessible HTML sections 1–2 (lines 40–120) and table-of-contents/scoped searches for the degree, length and asymptotic statements",
+        "method": "Read accessible HTML text and mathematical formulas directly",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Same matching model, identical definition of shorter-arc length, conditional crossing-degree moments"
+      },
+      {
+        "assessment": "Univariate crossing normal limit with error bound; no joint shorter-arc total limit",
+        "evidence": [
+          "Theorem 1.1 gives a crossing-only CLT; Lemma 2.2 gives its mean and variance; Theorem 1.2 concerns simple chords."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2104.01134v2",
+        "material_read": "Full accessible HTML sections 1–2, theorem statements §§1.1,2.1,2.4, and §3 heading",
+        "method": "Read arXiv HTML theorem statements and proofs of stated univariate moments and limit",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Central limit theorem, exact crossing moments and possible stronger joint statements"
+      },
+      {
+        "assessment": "Studies sparse-crossing conditioned chord diagrams and giant components, not visibly total arc length; no full-document exclusion asserted",
+        "evidence": [
+          "The abstract conditions on the total crossing number and studies largest-component behavior."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.2867",
+        "material_read": "Abstract and arXiv summary only",
+        "method": "Compared scope and conditional model from abstract, did not inspect the complete paper",
+        "title": "Formation of a giant component in the intersection graph of a random chord diagram",
+        "trigger": "Plausible broader random chord crossing analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "be161f52-19c4-4fce-80aa-45ae6ddf7340",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Establishes a nondegenerate bivariate limit law linking global intersection-graph complexity and circular geometry; a large, exact 15/16 limiting explained-variance fraction quantifies a natural predictor and requires proof of a nontrivial cancellation of the empirical-rank first-order correction. Not a one-moment computation.",
+    "status": "PASS"
+  }
+}
