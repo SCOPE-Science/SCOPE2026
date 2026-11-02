@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The free column action, row-ordered quotient boundary and 1,545-face census determine integral cellular chains of ranks \((5,40,120,120,24)\). The exact Smith factors are \((1^4)\), \((1^{35},5)\), \((1^{83},3)\), \((1^{24})\). They give the complete integral homology and agree with the Euler characteristic and independent finite-field ranks. The 24-term explicit three-cycle has zero boundary and evaluates to two on the normalized Bockstein cup cocycle modulo five. Signed Lefschetz enumeration of all row permutations yields the seven class traces and vanishing rational invariant multiplicity. The published connectivity bound supplies the simply-connected covering space, so the fundamental-group assertion follows.
+## correctness
 
-## Originality
-PASS for the full combined claim, with explicit limitations. The 2004 chessboard-complex torsion theorem already gives intrinsic \(\mathbb Z/3\) in degree two before quotienting; the 2000 rational representation theorem can constrain rational quotient invariants. Neither inspected primary text states the integral quotient computation together with the nonzero row-invariant mod-five cohomology class and absence of rational row invariants. The earlier four-row cyclic-column quotient has a related Bockstein product, so the Bockstein's existence alone is not credited as new. The five-row ambient \(S_5\) action and its full character, in combination with the mixed-prime quotient structure, are the claim evaluated here. Unindexed equivalent descriptions remain possible.
+PASS
 
-## Value
-PASS. The first square chessboard complex with known intrinsic three-torsion has a natural free fivefold quotient. Computing the exact integral groups shows simultaneous prime-three and prime-five torsion in adjacent degrees. More significantly, an explicit naturally fixed mod-five degree-three cohomology class survives while averaging the entire rational row character gives zero. This is a motivated difference between modular and characteristic-zero symmetry information for a canonical complex; it is not based on an arbitrary parameter slice. No broader homotopy or general-size theorem is claimed.
+PASS: Each nonempty rook placement has trivial column-shift stabilizer because shifting a selected rook forces a second rook in the same row. Standard chessboard connectivity (5-by-5 simply connected) gives universal C5 covering. Independently enumerated every 1545 original nonempty placement, quotient cell counts (5,40,120,120,24), all integral boundary matrices and verified d²=0; computed exact Smith factors d1=1^4,d2=1^35·5,d3=1^83·3,d4=1^24, independently verified characteristic ranks at 2,3,5,7. Constructed group-cover integral cocycle U, Bockstein lift δU/5, and the signed 24-cell integral 3-cycle z, checked ∂z=0 and <u cup βu,z>=2 mod5. Independently enumerated all 120 S5 row permutations and exact Lefschetz traces [12,-2,0,3,1,0,-3] for seven classes; class-weighted trivial multiplicity zero. Full finite enumeration is exhaustive for exactly this board.
 
-## Closest literature and limitations
-The 2020 generalized chessboard paper motivates the object and its equivariant uses. Shareshian–Wachs determines the ordinary five-by-five three-torsion, and Reiner–Roberts describes ordinary rational symmetric-group representations. Prior work on the four-by-five column quotient treats a different topological space; the present result does not reclaim its Bockstein evaluation as novel. The theorem concerns only the stated five-by-five quotient. Independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Shareshian–Wachs full primary text establishes 3-torsion in unquotiented Δ5,5 and chessboard connectivity; Reiner–Roberts gives rational symmetric-group homology of unquotiented complexes. Those do not determine the free cyclic column quotient integral SNF, nor a mod-5 symmetry-fixed cup/Bockstein class absent in rational invariants. Resultary query did not find matching quotient result. A highly relevant October 2026 preprint on column law/torsion was accessible only as substantial search-indexed excerpts (full page timeout); it remains an explicit priority risk, not asserted noncovering in full.
+
+## value
+
+PASS
+
+PASS: The quotient by a natural board-translation symmetry exhibits adjacent-degree torsion at two distinct primes and a modular-vs-characteristic-zero symmetry distinction. The exact Smith classification plus explicit nontrivial Bockstein product is a natural motivated finite algebraic-topology invariant, not merely known 3-torsion transported without work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
