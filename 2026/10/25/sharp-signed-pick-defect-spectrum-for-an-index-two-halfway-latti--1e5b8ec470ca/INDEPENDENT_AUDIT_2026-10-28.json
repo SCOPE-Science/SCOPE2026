@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:13:26.392971Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd b>=3 and integer k>(b+1)/2, translation by (1/2,1/2) makes a right triangle with legs d/2,d/b, d=k-(b+1)/2, so area=(2k-b-1)^2/(16b). No facet has an integer point. Exactly I=sum_{j=0}^{q-1} floor((b j+r)/2) interior points for k=bq+r,0<=r<b. Because b odd, parity of bj+r is parity of j+r; the explicit count of odd terms yields Delta=(2r-b-1)^2/(16b) plus 0 if q even, -1/4 if q odd r even, +1/4 if q odd r odd. Minimizing the even r square gives -1/4 if b=3 mod4 and -(b-1)/(4b) if b=1 mod4, with stated exhaustive residues; maximizing gives (b+1)^2/(16b) with q even r=0 or q odd r=1. The negative criterion is q odd,r even and |2r-b-1|<2 sqrt(b). Independent exact rational enumeration tested 13161 admissible parameter pairs and sign/extrema. The universal proof uses exact finite row summation, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The audited facet-normal determinants are 1,2,b for odd b>=3.",
+          "Chu–Karshon hypotheses require all adjacent primitive normal determinant one."
+        ],
+        "reasoning": "The direct cited theorem is inapplicable; the broad rational-polygon counting methods are strong computational coverage but no inspected theorem gives this uniform signed extremal conclusion outright.",
+        "searches": [
+          "halfway lattice rational triangle Pick area interior integer points periodic discrepancy index two nonunimodular negative defects",
+          "Chu Karshon halfway lattice polygon determinants unimodular Pick type theorem Beck Robins rational polygon"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00696v1 — Unimodular case explicitly excludes normals 1,2,b of audited family",
+        "arXiv:math/0111329v2 — General count algorithm is a significant antecedent; no whole-document noncoverage claimed",
+        "Resultary semantic search: halfway lattice rational triangle Pick area interior integer points periodic discrepancy index two nonunimodular negative defects"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem for unimodular halfway-lattice triangle gives constant area−interior 1/8 under its precise geometric hypotheses.",
+          "Here normal determinant exceeds one, and Delta can be as small as -1/4 or grow linearly with b, with exact phase inequalities."
+        ],
+        "reasoning": "The prior 1/8 formula cannot imply the variable negative defect outside its hypotheses; rational-polygon formulas can evaluate counts but not the bounded optimization without additional arithmetic analysis.",
+        "searches": [
+          "halfway lattice rational triangle Pick area interior integer points periodic discrepancy index two nonunimodular negative defects",
+          "Chu Karshon Pick type theorem halfway lattice triangle sign and general nonunimodular limitation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chu–Karshon arXiv:2610.00696v1 proves Pick-type constant for all-unimodular halfway polygons.",
+          "Beck–Robins arXiv:math/0111329v2 supplies lattice-count formulas for rational triangles."
+        ],
+        "reasoning": "General Dedekind sum formulas may be specialized to this family, but their availability as an algorithm does not automatically establish the optimized uniform residue spectrum or equality cases as a previously stated result.",
+        "searches": [
+          "halfway lattice rational triangle Pick area interior integer points periodic discrepancy index two nonunimodular negative defects",
+          "half integral rational triangle lattice point discrepancy Dedekind Rademacher b odd 2x+by"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned no closely matching published odd-b halfway triangle signed-defect table.",
+          "The exact I=sum floor((bj+r)/2) allows all residues q parity and r, not a partial numerical table."
+        ],
+        "reasoning": "There is no known directly located table of these optimal residues, while an unindexed Ehrhart/Dedekind table might contain an equivalent parametrization.",
+        "searches": [
+          "halfway lattice rational triangle Pick area interior integer points periodic discrepancy index two nonunimodular negative defects",
+          "Dedekind sums Pick defect triangle half integral residue negative one quarter b modulo4 table"
+        ]
+      },
+      "rationale": "Qualified PASS for complete two-parameter signed discrepancy spectrum, exact equality residue classes and sparse negative phase O(sqrt(b)). The unimodular halfway-Pick theorem of Chu–Karshon is outside this family because the primitive normal determinant sequence is 1,2,b. Beck–Robins Dedekind–Rademacher counting can in principle produce every individual count, but a general computation procedure alone is not a published uniform sharp spectrum; exact earlier specialization remains possible.",
+      "residual_risks": [
+        "An exact older Dedekind/Rademacher specialization to these half-integral triangles might imply the entire spectrum.",
+        "No claim for all halfway-lattice polygons with nonunimodular normals.",
+        "Finite checks are not exhaustive over unbounded b,k; universal proof is row sum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unimodular case explicitly excludes normals 1,2,b of audited family",
+          "evidence": [
+            "Unimodular facet incidence gives triangle value 1/8; source assumptions fail for odd b>=3."
+          ],
+          "identifier_or_url": "arXiv:2610.00696v1",
+          "material_read": "Full primary HTML theorem statements and normal determinant hypotheses",
+          "method": "Read arXiv HTML",
+          "title": "A Pick-type theorem for halfway-lattice polygons",
+          "trigger": "Direct same halfway-lattice area-minus-interior invariant"
+        },
+        {
+          "assessment": "General count algorithm is a significant antecedent; no whole-document noncoverage claimed",
+          "evidence": [
+            "Applies to rational polygons in principle, possibly permitting an alternative derivation of this residue spectrum."
+          ],
+          "identifier_or_url": "arXiv:math/0111329v2",
+          "material_read": "Primary abstract, formula descriptions and accessible excerpts",
+          "method": "arXiv primary search and text excerpts, not complete paper",
+          "title": "Explicit and efficient formulas for the lattice point count in rational polygons using Dedekind–Rademacher sums",
+          "trigger": "General counting method for rational triangles could dominate special formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is a clean minimal nonunimodular perturbation of halfway-lattice Pick-type triangles. Its signed defect can be negative, unlike the positive unimodular constant, and the exact residue-based phase/extrema explain when the topological defect persists or reverses. Complete strict bounds and sparse negative interval are meaningful structural data, not arbitrary sample instances.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.00696v1 — Unimodular case explicitly excludes normals 1,2,b of audited family",
+    "arXiv:math/0111329v2 — General count algorithm is a significant antecedent; no whole-document noncoverage claimed",
+    "Resultary semantic search: halfway lattice rational triangle Pick area interior integer points periodic discrepancy index two nonunimodular negative defects"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An exact older Dedekind/Rademacher specialization to these half-integral triangles might imply the entire spectrum.",
+    "No claim for all halfway-lattice polygons with nonunimodular normals.",
+    "Finite checks are not exhaustive over unbounded b,k; universal proof is row sum.",
+    "Complete publication sanitization not staged; not_ready is a publication/transport restriction, not science failure.",
+    "The provided verifier and finite independent checks cannot certify scientific novelty or external attestation."
+  ],
+  "schema_version": 1
+}
