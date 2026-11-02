@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible mathematical verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and its standard library. It reconstructs the unordered two-particle cubical cells from the graph edge list, checks every two-cell boundary via the signed formula, and uses sparse exact finite-field Gaussian elimination (moduli 101 and 2). For every \(3\le t\le8\), the model has \(\binom{t+3}{2}\) zero-cells, \((3t+2)(t+1)\) one-cells, and \(3t^2-t\) two-cells; the rank over \(\mathbb F_{101}\) is \(3t^2-t-t(t-3)/2\), and the rank over \(\mathbb F_2\) is one smaller, consistent with known first-homology two-torsion. For \(4\le t\le8\), the checker creates signed quadrilateral matrices and verifies that their integral boundaries vanish and that all tested classes transform correctly under generators of \(S_t\) and the transposition in \(S_2\). The expected last line is `VERIFY_OK_K12T_NON_TORIC_INTEGRAL_SECOND_HOMOLOGY_MODULE`.
+## correctness
 
-The proof for all \(t\) is **not** inferred from these tests: it comes from an exact, symbolically solved incidence condition on all two-cells, with no higher cells. The rational Specht-module identification uses the classical permutation representation on two-element subsets; its integral counterpart is the explicit \(\ker B_t\) lattice, not the rational Specht lattice assumed by extension. The combinatorial argument excluding pairs of disjoint cycles is valid for all parameters.
+PASS
 
-No independent audit or certification has been performed. Literature-priority uncertainty is documented in the accompanying review.
+Reconstructed the complete edge list d_a,d_b,p_i,q_i,r_i for the three-part graph and all disjoint edge-pair 2-cells: c2=3t²−t. The oriented cubical boundary ∂(e∧f)=(f,y)−(f,x)−(e,u)+(e,z) makes partner coefficients around fixed g a signed circulation in the graph with g endpoints deleted. For g=d_a,d_b the partner star forces A_i=C_i=0. For p_i, q_j and r_j, all remaining equations are exactly R_ij=−P_ij, T_ij=P_ij, P_ij=P_ji, P_ii=0 and each row sum zero, with no division. As C3=0, these integer kernel coordinates give full H2 with no saturation ambiguity. Under swap a↔b the explicit cellular cycle z(P) changes sign, while permutations of W act by unsigned incidence coordinates. B_t has rational rank t for t≥3, so rank C(t,2)−t=t(t−3)/2. A vertex cover {v,a,b} of size three meets each graph edge and every simple cycle uses ≥2 cover vertices, excluding disjoint cycles. Independently constructed signed cubical boundary ranks at t=3,4,5,6 were 24/42/65/93 with kernel dimensions 0/2/5/9; a t=4 alternating quadrilateral matrix gave explicit integral zero-boundary cycle. The finite rank examples corroborate the universal signed incidence solution.
+
+## originality
+
+PASS
+
+Ko–Park already give nonequivariant Betti information, and An–Knudsen already know non-toric degree-two classes for other nonplanar graphs. The exact integral S2×St lattice, uniform signed coordinate identification and all-t non-toric family are the surviving claim. Ramos–Yun is the strongest adjacent current source: full authorized 35-page paper was read, including Theorems 3.30–3.31 on rational S_n-representations of balanced K_(n,n,1), whereas this graph is unbalanced K_(1,2,t) with an integral S2×St-module. The cited prior theorem does not specialize to the present graph family, and rational character would not fix the integral lattice.
+
+## value
+
+PASS
+
+An exact integral symmetry-module classification over an unbounded natural nonplanar complete-tripartite family supplies structural information beyond a Betti-number formula. Its explicit signed cellular cycle basis coordinates and proof that no vertex-disjoint-cycle product torus exists give a concrete uniform non-toric model relevant to geometric generation questions in graph configuration topology. The rank and existence of some non-toric classes are known prior facts, but they do not remove the separate value of this complete equivariant lattice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

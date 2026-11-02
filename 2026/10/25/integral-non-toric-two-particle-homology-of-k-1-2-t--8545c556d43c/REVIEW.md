@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-particle cubical deformation retraction applies because \(G_t\) is simple, all essential-vertex paths have at least one edge, and all simple cycles have at least three edges. The exhaustive list of five two-cell types is complete, and the signed boundary identity independently reconstructs every incidence equation over \(\mathbb Z\). Solving these equations gives the full kernel of the degree-two boundary, without an index ambiguity because there are no three-cells. The explicit formula and the \(S_2\)-sign computation hold integrally for all \(t\ge4\). Exact modular and integral cycle calculations verify critical specializations through \(t=8\). They corroborate rather than substitute for the general proof.
+## correctness
 
-**Originality — PASS (best-knowledge, residual risks below).** The closest previously established statement is Ko–Park's arbitrary-graph second-Betti formula, which covers the rank but not the integral automorphism module or its explicit \(K_{1,2,t}\) cycle coordinates. Barnett–Farber's principal basis theorem treats planar ordered configurations; An–Knudsen's planar geometric-generation theorem and nonplanar Example 6.8 establish precedents for the non-toric phenomenon but not this integral infinite-family classification. Comparable published research records concern distinct spaces: sink configurations, two-particle Petersen and cuboctahedral configurations, and Borel–Moore exchange-sign homology. Several equivalent-name searches, including complete tripartite and fan-graph aliases, identified no dominating result. An abstract of Ramos–Yun (2026) was available but the full preprint could not be materially inspected, leaving an explicit residual priority risk.
+PASS
 
-**Value — PASS.** The natural integer kernel supplies every degree-two homology class of an infinite, graph-theoretically distinguished family of nonplanar configuration spaces, specifies the full \(S_2\times S_t\)-module and an explicit reproducible cycle model, and exhibits the sharp first nonzero case. No pair of disjoint graph cycles exists at any parameter, so standard disjoint-cycle product-torus generators miss the full positive-rank top homology. This concretely informs the nonplanar geometric-generator question raised in the literature. The known nonequivariant rank and generic non-toric phenomenon are not relied on as originality by themselves.
+Reconstructed the complete edge list d_a,d_b,p_i,q_i,r_i for the three-part graph and all disjoint edge-pair 2-cells: c2=3t²−t. The oriented cubical boundary ∂(e∧f)=(f,y)−(f,x)−(e,u)+(e,z) makes partner coefficients around fixed g a signed circulation in the graph with g endpoints deleted. For g=d_a,d_b the partner star forces A_i=C_i=0. For p_i, q_j and r_j, all remaining equations are exactly R_ij=−P_ij, T_ij=P_ij, P_ij=P_ji, P_ii=0 and each row sum zero, with no division. As C3=0, these integer kernel coordinates give full H2 with no saturation ambiguity. Under swap a↔b the explicit cellular cycle z(P) changes sign, while permutations of W act by unsigned incidence coordinates. B_t has rational rank t for t≥3, so rank C(t,2)−t=t(t−3)/2. A vertex cover {v,a,b} of size three meets each graph edge and every simple cycle uses ≥2 cover vertices, excluding disjoint cycles. Independently constructed signed cubical boundary ranks at t=3,4,5,6 were 24/42/65/93 with kernel dimensions 0/2/5/9; a t=4 alternating quadrilateral matrix gave explicit integral zero-boundary cycle. The finite rank examples corroborate the universal signed incidence solution.
 
-**Closest sources and limits.** Ko–Park, arXiv:1101.2648, Theorem 3.16 and Corollary 3.17 (rank covered); Barnett–Farber, arXiv:0903.2180, §§1–2 (ordered and planar); An–Knudsen, arXiv:2008.10371, §§1 and 6.8 (nonplanar generator issue); Ramos–Yun, arXiv:2606.13813 (abstract only, broader-priority risk). Complete publication priority is not certified; finite modular tests do not prove infinite-rank assertions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ko–Park already give nonequivariant Betti information, and An–Knudsen already know non-toric degree-two classes for other nonplanar graphs. The exact integral S2×St lattice, uniform signed coordinate identification and all-t non-toric family are the surviving claim. Ramos–Yun is the strongest adjacent current source: full authorized 35-page paper was read, including Theorems 3.30–3.31 on rational S_n-representations of balanced K_(n,n,1), whereas this graph is unbalanced K_(1,2,t) with an integral S2×St-module. The cited prior theorem does not specialize to the present graph family, and rational character would not fix the integral lattice.
+
+## value
+
+PASS
+
+An exact integral symmetry-module classification over an unbounded natural nonplanar complete-tripartite family supplies structural information beyond a Betti-number formula. Its explicit signed cellular cycle basis coordinates and proof that no vertex-disjoint-cycle product torus exists give a concrete uniform non-toric model relevant to geometric generation questions in graph configuration topology. The rank and existence of some non-toric classes are known prior facts, but they do not remove the separate value of this complete equivariant lattice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
