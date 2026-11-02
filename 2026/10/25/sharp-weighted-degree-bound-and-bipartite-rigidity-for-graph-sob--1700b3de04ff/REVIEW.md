@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The nonlinear map is piecewise linear and its global Lipschitz modulus equals the largest norm of its finitely many diagonal masks; an interior orthant construction attains every mask norm with actual pairs. Block Schur minimization derives the exact spectral cut formula. Weighted edgewise Cauchy–Schwarz and the crossing-degree bound yield the stated sharp envelope. Equality forces a maximizer's positive support to generate a whole weighted-regular bipartite connected component; the converse is witnessed by constant singular vectors. An independent rank-one Schur computation gives the full star formula, and diagnostics reproduce 3,056 mask comparisons plus exact-star regressions. Proof applies to all finite weighted graphs.
+## correctness
 
-## Originality
-PASS under the inspected-literature and accessible-dedup evidence, not an exhaustive priority guarantee. Keller–Lenz (arXiv:0904.2985) and Hinz–Teplyaev (arXiv:1511.08499) treat Dirichlet normal contractions and graph energy forms; Cai–Wang (arXiv:2006.13318, Lemma 3.3) show one-point ReLU energy reduction. These do not give a two-point Lipschitz norm. A previously obtained exact complete-graph formula covers a special graph and does not imply the sharp class-wide maximum-degree envelope or bipartite regularity rigidity. The classical strengthened Cauchy–Schwarz framework (Eijkhout–Vassilevski, 1991) and Kantorovich spectral bounds already imply generic energy-projection upper estimates; these classical ingredients and the Schur identity are not separately claimed novel. The claimed advance is the exact graph modulus together with its weighted-degree equality rigidity and irregular-star comparison. The 1991 primary full text was not read, so equivalence risk is explicitly retained. Residual risk: a classic equivalent result under coordinate-projection norm or canonical-correlation terminology may be unindexed.
+PASS
 
-## Value
-PASS. The theorem bridges the normal-contraction property and adversarial two-input conditioning by giving both a graph-specific exact spectral invariant and an optimal topology-independent upper bound based only on weighted maximum degree. It identifies precisely which graph geometries saturate the bound rather than merely providing a loose stability estimate. On growing stars the exact modulus remains bounded for fixed coupling although the universal maximum-degree envelope diverges; this quantifies how regularity, not degree alone, drives worst-case two-point amplification. The distinction has direct relevance to stability estimates for clipped graph signals.
+For finite graphs with positive edge weights and gamma>0, R(f)=max(f,0) is linear on each sign orthant, giving global two-point Lipschitz modulus max_S ||D_S||_A (attained locally). For A=I+gamma L, cut blocks X,Y,B, a Schur complement gives ||D_S||_A=(1-rho(S)^2)^(-1/2) with rho=||X^-1/2 B Y^-1/2||<1. Edgewise Cauchy–Schwarz plus crossing degrees c_i<=Delta yields rho<=gamma Delta/(1+gamma Delta), hence Lip<=(1+gamma Delta)/sqrt(1+2gamma Delta). Equality propagates positive maximizers to a whole bipartite component with weighted degree Delta, and any such component supplies equal singular vectors. Unit star Schur elimination gives exact sqrt(1+n gamma^2/[1+(n+1)gamma]); one-point energy contraction and nontrivial two-point expansion are compatible. Edgeless, isolated/disconnected boundary cases accounted for.
 
-## Closest literature and scope
-The three cited primary papers were inspected in their relevant technical sections. The 2020 source uses a normalized energy and proves one-point decay; the present theorem uses the explicitly defined unit-mass energy and controls two-point differences. The complete-graph special case is not claimed as an independent result. Independent priority assessment and validation remain unperformed; general vertex weights and nonquadratic norms are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality qualified by material actually accessed. The example directly rules out any implication that normal contraction supplies two-point nonexpansiveness, supporting the mathematical distinction. Relevant literature not wholly indexed or accessible; see source_inspections and residual_risks.
+
+## value
+
+PASS
+
+Quantifies a natural stability failure of a standard normal contraction under the graph-Sobolev metric. An exact graph-specific cut spectral formula, sharp degree-only bound, rigidity of extremizing graphs, and divergent irregular-star contrast answer precise, useful stability questions not mechanically implied by one-point Dirichlet contraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

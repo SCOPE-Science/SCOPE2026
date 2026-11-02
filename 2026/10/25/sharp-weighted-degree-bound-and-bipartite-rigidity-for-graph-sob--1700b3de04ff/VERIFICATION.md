@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact cut-Schur identity and weighted-degree inequality are algebraically proved in RESULT.md. The equality classification follows from equality in two Cauchy–Schwarz steps and propagation along a connected graph component.
+# Independent mathematical audit
 
-`checker.py` independently compares generalized eigenvalues of diagonal masks against the cut-Schur formula and the sharp degree bound for multiple finite weighted and unweighted graphs, including odd and even cycles and bipartite complete graphs. Run with NumPy and SciPy. An executed run passed 3,056 mask comparisons. The script also checks the closed-form rank-one star formula by exhaustive mask enumeration for several sizes and couplings. Such finite comparisons are diagnostic only, not a proof for all graph sizes.
+## correctness
 
-All findings are statements about the explicitly specified real finite-dimensional graph Sobolev norm. There is no assertion about infinite graphs, nonquadratic energies, or general nonlinear activations. Independent scientific validation has not been conducted.
+PASS
+
+For finite graphs with positive edge weights and gamma>0, R(f)=max(f,0) is linear on each sign orthant, giving global two-point Lipschitz modulus max_S ||D_S||_A (attained locally). For A=I+gamma L, cut blocks X,Y,B, a Schur complement gives ||D_S||_A=(1-rho(S)^2)^(-1/2) with rho=||X^-1/2 B Y^-1/2||<1. Edgewise Cauchy–Schwarz plus crossing degrees c_i<=Delta yields rho<=gamma Delta/(1+gamma Delta), hence Lip<=(1+gamma Delta)/sqrt(1+2gamma Delta). Equality propagates positive maximizers to a whole bipartite component with weighted degree Delta, and any such component supplies equal singular vectors. Unit star Schur elimination gives exact sqrt(1+n gamma^2/[1+(n+1)gamma]); one-point energy contraction and nontrivial two-point expansion are compatible. Edgeless, isolated/disconnected boundary cases accounted for.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality qualified by material actually accessed. The example directly rules out any implication that normal contraction supplies two-point nonexpansiveness, supporting the mathematical distinction. Relevant literature not wholly indexed or accessible; see source_inspections and residual_risks.
+
+## value
+
+PASS
+
+Quantifies a natural stability failure of a standard normal contraction under the graph-Sobolev metric. An exact graph-specific cut spectral formula, sharp degree-only bound, rigidity of extremizing graphs, and divergent irregular-star contrast answer precise, useful stability questions not mechanically implied by one-point Dirichlet contraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
