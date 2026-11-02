@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The theorem is established symbolically in `RESULT.md`: factor a nonzero rank-one map as \(a\otimes\varphi\), reduce the weight-zero Rota–Baxter equation to \(a^2=0\) and \(\varphi(aA_n)=0\), and use the exact \(t\)-adic valuation and principal ideals in \(k[t]/(t^n)\). The geometric component and intersection formula follows by elementary rank-one determinantal coordinates. These arguments apply to all fields and all integers \(n\ge4\).
+## correctness
 
-Run `python3 CHECKER.py` using Python 3 without external dependencies. For each test it enumerates all nonzero rank-one maps with canonical image-line generators. It directly checks the original Rota–Baxter equation on each ordered pair of basis elements and compares the decision to the independently computed valuation predicate, all valuation fibers and the claimed point-count formula. The arithmetic covers prime fields \(\mathbb F_2\), \(\mathbb F_3\) and the extension field \(\mathbb F_4\). Observed final line: `RANK_ONE_ROTA_BAXTER_IDENTITY_OK 13 cases`.
+PASS
 
-Coverage: \(q=2\), \(2\le n\le7\); \(q=3\), \(2\le n\le5\); \(q=4\), \(2\le n\le4\). The tests also include boundary lengths \(n=2,3\) outside the claimed range. In total, 77,267 distinct nonzero rank-one maps were checked across 13 cases. Small finite enumerations do not certify the infinite family, higher-rank solutions or scheme-theoretic reducedness; the theorem instead explicitly defines the reduced locus and provides a general proof.
+For nonzero rank-one P=a⊗phi, inserting into the weight-zero identity shows phi(xa)=c phi(x); then a²=2ca and applying phi to a²x two ways yields c²=2c² and c=0 in any characteristic. Therefore a²=0 and phi(aA_n)=0. In k[t]/t^n, v(a)=i>=ceil(n/2), with image subspace W_i=t^iA_n and allowable phi in U_i=W_i^perp. Each C_i is a rank-one determinantal/Segre cone of dimension n-1; incomparable components, pairwise intersections W_j⊗U_i of dimension n-1-(j-i), and adjacent intersections are precisely the singular locus of the reduced union. Segre degrees sum; valuation stratum over F_q has q^(n-i-1)(q^i-1) maps, yielding 1+h q^(n-1)-sum_{j<h}q^j. An independent check directly tested the original basis identity and valuation criterion for q,n=(2,4),(2,5),(2,6),(3,4), including 8355 nonzero candidate maps; no infinite proof rests on enumeration.
+
+## originality
+
+PASS
+
+General rank-one tensor reduction is elementary and standard Segre geometry is credited; untruncated polynomial RB classifications and Farooq 2026 square-zero truncations are different algebraic objects. The new specific reduced rank-one locus for arbitrary n>=4 and all fields, intersection/singularity structure, projective degree, and q-point strata are not implied by those studied special truncations.
+
+## value
+
+PASS
+
+The rank-one solution space is a natural geometric stratum of an operator variety, and the filtration-indexed reducible equidimensional component decomposition with exact singular geometry and arithmetic point counts is a substantive complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

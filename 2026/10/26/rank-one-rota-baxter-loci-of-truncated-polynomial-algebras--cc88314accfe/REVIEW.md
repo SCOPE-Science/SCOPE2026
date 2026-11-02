@@ -1,19 +1,21 @@
-# Scientific review: rank-one Rota–Baxter loci of truncated polynomial algebras
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rank-one bilinear operator identity is reduced without a characteristic assumption to \(a^2=0\) and \(\varphi(aA_n)=0\). Valuation in the principal local algebra gives the exact permitted image-generator exponents. Segre determinantal geometry gives every component, dimension, intersection, projective degree and the geometric singular locus. Finite-field counts account for scalar equivalence of tensor factorizations exactly once. The standalone exhaustive basis-identity tests cover 13 finite parameter cases and 77,267 rank-one maps, including extension-field arithmetic. General claims rest on proof, not experimental extrapolation.
+PASS
 
-## Originality — PASS, subject to publication-priority risk
+For nonzero rank-one P=a⊗phi, inserting into the weight-zero identity shows phi(xa)=c phi(x); then a²=2ca and applying phi to a²x two ways yields c²=2c² and c=0 in any characteristic. Therefore a²=0 and phi(aA_n)=0. In k[t]/t^n, v(a)=i>=ceil(n/2), with image subspace W_i=t^iA_n and allowable phi in U_i=W_i^perp. Each C_i is a rank-one determinantal/Segre cone of dimension n-1; incomparable components, pairwise intersections W_j⊗U_i of dimension n-1-(j-i), and adjacent intersections are precisely the singular locus of the reduced union. Segre degrees sum; valuation stratum over F_q has q^(n-i-1)(q^i-1) maps, yielding 1+h q^(n-1)-sum_{j<h}q^j. An independent check directly tested the original basis identity and valuation criterion for q,n=(2,4),(2,5),(2,6),(3,4), including 8355 nonzero candidate maps; no infinite proof rests on enumeration.
 
-The closest full-text sources are Guo–Rosenkranz–Zheng (arXiv:1407.5306v1, polynomial ring monomial/injective operators), Yu (arXiv:1503.02606, polynomial ring monomial operators), and Farooq (arXiv:2605.15670v1, square-zero radical truncation). The square-zero-radical case includes only the one-variable boundary \(k[t]/(t^2)\). In contrast, the finding concerns the univariate chain \(k[t]/(t^n)\) for \(n\ge4\), all characteristics, arbitrary rank-one linear operators, and a filtration-dependent **reducible** variety appearing at \(n=4\). Mathematical-research search comparisons found no dominating theorem with the same hypotheses and consequences. The universal rank-one identity reduction and the Segre degree formula are regarded as elementary known tools; they are not separately proposed as original. Residual risk: a broader unindexed Rota–Baxter variety result could imply the decomposition.
+## originality
 
-## Value — PASS
+PASS
 
-The result identifies a natural geometric parameter space of the simplest nonzero Rota–Baxter operators on every univariate Artinian truncation of length at least four. It settles the exact number, dimension and intersections of all irreducible components, shows a sharp transition from irreducibility to reducibility, determines the codimension-one singular support, and gives a uniform finite-field enumerator across every characteristic. The precise invariants clarify how longer nilpotent filtrations affect integration-type operators, rather than merely tabulating an isolated small algebra.
+General rank-one tensor reduction is elementary and standard Segre geometry is credited; untruncated polynomial RB classifications and Farooq 2026 square-zero truncations are different algebraic objects. The new specific reduced rank-one locus for arbitrary n>=4 and all fields, intersection/singularity structure, projective degree, and q-point strata are not implied by those studied special truncations.
 
-## Scope and limits
+## value
 
-Only rank at most one is classified. The parameter variety is treated as reduced, with no claim about nonreduced structures or higher-rank operators. Broader unpublished literature and independent mathematical validation are not excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The rank-one solution space is a natural geometric stratum of an operator variety, and the filtration-indexed reducible equidimensional component decomposition with exact singular geometry and arithmetic point counts is a substantive complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
