@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For two distinct positive queries the surviving centers are either a subset of a coordinate line of size q-2, two centers, or empty. A third query can divide those survivors only with a branch of size at most one, excluding a further depth-two tree and thereby every depth-four full tree. Complete and independently replayed trees achieve depth three in H(2,3) and H(4,2), depth two in H(3,2); elementary positive-branch bounds handle the smaller cases. Hamming-induced embeddings propagate all lower bounds. The VC comparison quotes the exact established Theorem 4.7 and independently checks small regimes. No extrapolation from finite enumeration is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guingona–Kolesnikov–Nierwinski–Soucy, Littlestone and VC-dimension of families of zero sets, arXiv:2109.04805 (abstract)",
+        "The focal paper proves static VC dimension at most three even on all induced subgraphs, which is not an upper bound on Littlestone dimension."
+      ],
+      "reasoning": "The general zero-set result applies to all nontrivial linear-combination zero sets, not to the exact-one-disagreement class with center-restricted hypotheses; it therefore does not imply this numerical online classification. The known static induced-subgraph bound is also logically weaker than the present adaptive bound.",
+      "searches": [
+        "\"Littlestone dimension\" \"Hamming\" \"open neighborhoods\"",
+        "\"Littlestone dimension\" \"Hamming graphs\" neighborhoods",
+        "\"Littlestone dimension\" paths subtrees vertices"
+      ]
+    },
+    "checked_sources": [
+      "Adler–Benediktsson–Macpherson, Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs, arXiv:2007.16042; accepted-version PDF, Section 4, Lemmas 4.1–4.5 and Theorems 4.6–4.8 (PDF pages 20–22)",
+      "Guingona–Kolesnikov–Nierwinski–Soucy, Littlestone and VC-dimension of families of zero sets, arXiv:2109.04805 (abstract)",
+      "arXiv:2007.16042 first public posting 2020-07-31; White Rose accepted version deposited 2021-09-29"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adler–Benediktsson–Macpherson, Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs, arXiv:2007.16042; accepted-version PDF, Section 4, Lemmas 4.1–4.5 and Theorems 4.6–4.8 (PDF pages 20–22)",
+        "Known statement VCdim(H(2,3))=2 permits Ldim(H(2,3))>=2 and does not imply Ldim=3; the published common-neighborhood intersection formula gives geometric input, not the positive-positive mistake-tree obstruction.",
+        "Our complete depth-three certificate for H(2,3) has eight independently checked leaves."
+      ],
+      "reasoning": "Established static VC values are treated as inputs and never claimed new. The positive-positive branch analysis proves a new global online upper bound, while explicit adaptive witness trees establish the values at minimal regimes, with the new strict gap. Neither is a corollary of the static dimension equalities alone.",
+      "searches": [
+        "\"Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs\" arxiv",
+        "\"Hamming graphs\" \"Littlestone\" \"neighborhood\"",
+        "Hamming graph open neighborhood edge relation Littlestone dimension exact VC dimension distinguishing online shattering of H(2,3)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adler–Benediktsson–Macpherson, Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs, arXiv:2007.16042; accepted-version PDF, Section 4, Lemmas 4.1–4.5 and Theorems 4.6–4.8 (PDF pages 20–22)",
+        "Definition: the edge relation E(x,y) is exactly the radius-one (distance-one) sphere neighborhood indicator, so online shattering translates to the Littlestone rank of this binary graph relation."
+      ],
+      "reasoning": "Compared neighborhood, adjacency-relation, distance-one sphere, q-ary cube and online mistake-tree formulations. The focal same-relation paper is static. None of the inspected alternatives supplied the adaptive parameter formula.",
+      "searches": [
+        "Hamming graph open neighborhood edge relation Littlestone dimension exact VC dimension distinguishing online shattering of H(2,3)",
+        "\"Hamming graphs\" \"Littlestone\" \"neighborhood\" 2024",
+        "\"Hamming graph\" \"online\" \"VC-dimension\" edge"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Adler–Benediktsson–Macpherson, Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs, arXiv:2007.16042; accepted-version PDF, Section 4, Lemmas 4.1–4.5 and Theorems 4.6–4.8 (PDF pages 20–22)",
+        "Theorem 4.7 tabulates precisely the VC=3 parameter regimes, including known exceptions H(2,3) and H(3,2); its table is not a Littlestone-dimension table."
+      ],
+      "reasoning": "Checked same objects, alphabet/dimension parameter boundaries and static table against the proposed all-parameter online table. The sole adaptive discrepancy H(2,3) is directly witnessed by a complete depth-three certificate, not a value in the existing VC table.",
+      "searches": [
+        "online shattering Hamming spheres graph neighborhoods Littlestone dimension equals three",
+        "Hamming graph open neighborhood edge relation Littlestone dimension exact VC dimension distinguishing online shattering of H(2,3)",
+        "\"H(2,3)\" \"Littlestone dimension\""
+      ]
+    },
+    "rationale": "The closest same-object primary paper establishes VC rather than Littlestone dimensions of Hamming open neighborhoods. Its intersection geometry is acknowledged and used, but its VC values do not imply the new depth-three tree for H(2,3), the adaptive bound, or uniqueness of the gap. Generic zero-set theorems address full linear-combination families, not these sparse Hamming distance-one neighborhoods. Four classes of coverage searches and direct implication comparisons found no dominating result among the accessed materials; historical priority uncertainty remains.",
+    "residual_risks": [
+      "Possible prior adaptive result under graph stability, half-graph or online edge-neighborhood terminology not found by accessible search.",
+      "Generic zero-set paper not inspected beyond its abstract; its stated principal theorem concerns a different family.",
+      "The new proof and extracted certificates have not received independent expert audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes known VC values and local intersection formulas; does not cover the online Littlestone classification or its unique strict VC gap.",
+        "evidence": [
+          "Theorem 4.7: VC dimension three iff d>=3,q>=3 or d>=2,q>=4 or d>=4,q>=2.",
+          "Lemma 4.5: common open-neighbor counts q-2 at distance one and 2 at distance two.",
+          "Search within primary PDF found no occurrence of Littlestone."
+        ],
+        "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/178584/1/Adler_Benediktsson_Macpherson.pdf",
+        "material_read": "Abstract and introduction, Section 4 Lemmas 4.1–4.5 and Theorems 4.6–4.8, including the parameter threshold theorem and small-case table on printed pages 21–22.",
+        "method": "Read accessible accepted-version full-text PDF and visually inspected the theorem and table pages.",
+        "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Same parameterized Hamming graph and precisely the same edge-relation/open-neighborhood concept class."
+      },
+      {
+        "assessment": "Not a same-object or stronger covering statement; no whole-document noncoverage assertion is made.",
+        "evidence": [
+          "The theorem concerns all zero sets of nontrivial linear combinations of independent functions, unlike the restricted Hamming-graph adjacency relation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+        "material_read": "Abstract and stated principal theorem from public abstract record.",
+        "method": "Compared theorem statement/required full linear-combination family to the present q-ary distance-one neighborhoods.",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Possible generic dimension-equality domination by a broader class of zero sets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7cdb5eb9-09a9-4204-b337-727d62ab12e2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-parameter exact adaptive rank and its sharp stabilization at three give a complete online-complexity invariant for a canonical distance-transitive graph family. H(2,3) is the unique full Hamming graph with different VC and Littlestone ranks, showing a genuine structural adaptive gap in the minimal ternary rook graph. The uniform bound transfers to every induced subgraph. This is neither just a numerical improvement nor a relabeling of the previously known static VC classification.",
+    "status": "PASS"
+  }
+}
