@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is a dimension statement about *finite-time noncapture*, not asymptotic nonconvergence. The explicit sixth-return formula in [1, Proposition 27(d)] has two separated full branches with contraction ratios \(1/16\) and \(1/8\). Their survivor is a strongly separated Cantor set of dimension \(s\), and countably many eventual endpoint captures do not alter the dimension. The graph-entry theorem and the graph's constant plateau images constrain the remaining graph exception to countable affine pullbacks of that survivor. The critical extra planar step proves that rank-zero itinerary cells map to integer lattice states, whose eventual return to the invariant interval forces six-cycle capture; no rank-zero open cell contributes. Rank-one preimage cells add at most one dimension, and explicit positive-quadrant fibers attain it. Exact rational verification passed 1,333 assertions; the analytical proof, rather than finite tests, establishes the infinite conclusion.
+## correctness
 
-**Originality — PASS (same-model, with residual risk).** [1] contains the invariant graph, its exact six-step interval map and entropy description, all credited. [2] proves a full graph-arclength measure statement, which does not supply a Hausdorff dimension for the complementary set of points in the entire plane. Direct comparisons with published results and semantic-result records did not reveal the full-plane \(1+s\) dimension law. The explicit rank-zero exclusion and full-fiber lifting are the additions beyond the published return formula. A hidden equivalent or broader covering result remains a possibility; search absence alone is not proof of novelty.
+PASS
 
-**Mathematical value — PASS.** The exception to eventual capture is the natural complement of a distinguished plateau-reached periodic orbit in the authors' chaos-at-an-endpoint example. Its planar fractal size is not determined by the known entropy or full arclength-measure results; quantifying the jump from \(s\) on the invariant graph to \(1+s\) in the plane reveals the geometric effect of rank-one dissipation and gives a sharp, noninteger exceptional-dimension invariant. The precise endpoint is mathematically selected by two onto branches, not an arbitrary parameter slice.
+For F(x,y)=(|x|-y-1,x-|y|-13/16) the exact six-cycle and sixth return to segment Pi=(u,u+3/16), -11/16<=u<=13/16, were independently reconstructed in rational arithmetic. The return is two full branches of slopes 16 and -8 on [-11/16,-19/32] and [-3/16,0], plus two plateaux leading to the periodic endpoint. The inverse contractions 1/16 and 1/8 have strongly separated images and thus their Cantor survivor has Hausdorff and upper box dimension s solving 16^(-s)+8^(-s)=1 (s≈0.287760787084). The graph-entry and graph-visitation assertions are explicitly taken from published Cima–Gasull–Mañosa–Mañosas Theorem B/Proposition27, not re-proved. On piecewise affine graph edges, nonconstant preimage maps are bi-Lipschitz and constant graph branches capture, giving graph exception dimension s. For the full plane, first rank-zero itinerary maps have integer-affine constant values in 16-scaled coordinates and must reach the six-cycle (the only isolated fixed point has unique preimage). Rank-two and rank-one preimages lift the graph Cantor sets by at most 0 and 1 dimensions, with countable affine pieces and boundaries dimension <=1. A positive-quadrant rank-one inverse strip provides a bi-Lipschitz embedded (Cantor exception)x[5,6], proving sharp 1+s. Independent rational checks verified 513 sample sixth returns, all 25 integral interval states, and the orbit; these finite tests support, but do not prove, the graph-entry or dimension theorems.
 
-**Closest literature and limits.** [1] Theorem B, Proposition 17, Proposition 27(d) and its full sixth-return formula are essential published premises; [2] studies full graph measure of periodic basins. More general self-similar dimension theory explains Step 1 but does not identify this map's full-plane exceptional set. The theorem is specific to the displayed parameter and exact finite-time capture. Historic priority outside accessible records is unproven; independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The endpoint full-plane exact noncapture dimension is not the previously studied graph recurrence, entropy or full-measure preperiodicity. The primary Cima et al article establishes invariant graph and sixth return and the sequel a measure statement; neither inspected full text states the planar Hausdorff dimension 1+s. The difference between noncapture by *exact finite landing* and asymptotic convergence is essential, and the rank-zero exclusion plus one-dimensional inverse fiber gives an additional implication. Qualified risk: a parameter-specific unindexed fractal dimension calculation might already exist.
+
+## value
+
+PASS
+
+Basins of finite-time capture and their exceptional boundaries are natural dynamical invariants; the exact value distinguishes a fractal exceptional set on the invariant graph (s) from its full-plane product lift (1+s), while showing the complement has zero area. The result is not merely computing entropy of the already-known return but resolves the dimension of a different globally defined set including singular itineraries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
