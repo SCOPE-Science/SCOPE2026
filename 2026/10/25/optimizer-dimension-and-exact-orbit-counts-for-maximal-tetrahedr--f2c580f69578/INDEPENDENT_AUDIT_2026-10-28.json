@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T14:54:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Six-times tetrahedron volume is multiaffine in four vertices, enabling prism-vertex reduction and requiring all positive endpoint combinations at an equality point to remain extremal with common orientation. Every strict 3+1 vertex split is suboptimal against a crossed-chord 2+2 split; hence equal-height rigidity holds for all tetrahedra, including interior corners. For four cyclic polygon vertices, crossed determinant is 4R² times three sin(pi*(gi+gj)/n) factors. The symmetric strictly concave log product is maximized by balanced positive integer gaps, producing the known scalar value and N=n/2*binom(4,n mod 4) distinct lower/upper assignments. Edge-endpoint binary choices yield exact complete-face equality criterion and dimension 0/1/2 for residues 0,odd,2 mod4. Independently tested n=4..20 crossed-chord maxima/optimal counts and n=4..15 endpoint-cell dimension. Numerical volume formula is prior, not claimed new.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rote treats arbitrary convex polygons and anchored optimal quadrilaterals; published even-n rectangle case fixes some extremizers; Hoehner–Ledford optimize different inscribed polytope families."
+        ],
+        "reasoning": "General planar existence/area conjugacy does not explicitly determine how many prism tetrahedra achieve equality or dimensions of all continuous strata, although equality analysis could specialize Rote lemmas. Specialized prism literature remains a residual risk.",
+        "searches": [
+          "Rote arXiv:1905.11203 full paper",
+          "Resultary exact even rectangles 10bad5e59427",
+          "Hoehner–Ledford arXiv:2608.04392"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md f7baefc7b3167432c6705c466fcaaa741d15ad56",
+        "assigned check_prism.py 2d5f3571fec05b0d99e62fa608083ac9507c899e",
+        "Rote arXiv:1905.11203 relevant full PDF",
+        "Resultary 827c68cd7bad complete RESULT.md",
+        "Resultary 10bad5e59427 complete RESULT.md",
+        "independent_check_results.json: prism"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rote plus max quadrilateral area yields V=h*(2*A_quad)/6 exactly. Neither source gives the 2+2 height rigidity proof, 16-endpoint test, or dimension transition as a stated classification."
+        ],
+        "reasoning": "The latter conclusions require multiaffine equality analysis and balanced cyclic-gap combinatorics. A solver could derive them from Rote and symmetry, but they are not automatic numerical corollaries.",
+        "searches": [
+          "Rote Lemmas1–3 and Section3",
+          "Resultary exact enclosing parallelograms theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rote area duality: largest inscribed quadrilateral area equals half minimal enclosing parallelogram area; regular polygon result explicitly gives its 3-branch trigonometric value."
+        ],
+        "reasoning": "After prism determinant 2+2 reduction this implies displayed maximal tetrahedral V_n. The scientific originality is explicitly restricted to all equality cases/dimension/count; value formula is a known corollary and not independent new content.",
+        "searches": [
+          "maximal volume tetrahedra regular polygon prism equality family balanced gaps optimizer dimensions",
+          "G. Rote arXiv:1905.11203 Lemmas1–3 Section3",
+          "Resultary regular enclosing parallelograms 827c68cd7bad"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously published exact area values already cover all three n mod4 branches; no matching full equality-face table or n/2,3n,2n tetrahedron count table found in the actual searches."
+        ],
+        "reasoning": "The new proposed data concern 3D optimizer cell structure and orbit enumeration, not the scalar maximum, and were independently enumerated for n<=20.",
+        "searches": [
+          "maximal volume tetrahedra regular polygon prism equality family balanced gaps optimizer dimensions",
+          "Resultary 827c68cd7bad",
+          "Resultary 10bad5e59427"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the mathematically precise additional claim, not of a matching title, with the inspected primary papers and published research. The latter conclusions require multiaffine equality analysis and balanced cyclic-gap combinatorics. A solver could derive them from Rote and symmetry, but they are not automatic numerical corollaries.",
+      "residual_risks": [
+        "Exact numerical maximal volume is covered prior work; acceptance applies only to the equality/optimizer classification.",
+        "Older regular-prism specialized extremal geometry results could subsume equality counts; searches not absolute priority proof.",
+        "Finite n<=20 checks do not prove all-n balanced optimizer statement; strict concavity and multiaffinity carry the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Determines planar scalar optimum/anchored configurations, not complete 3D prism equality strata.",
+          "evidence": "Conjugacy between max contained quadrilateral and half min enclosing parallelogram.",
+          "identifier_or_url": "arXiv:1905.11203 / https://arxiv.org/pdf/1905.11203",
+          "material_read": "Full 11-page PDF including Lemmas1–3 and Section3, page2 screenshot",
+          "method": "Read PDF math content and screenshot",
+          "title": "The Largest Contained Quadrilateral and the Smallest Enclosing Parallelogram of a Convex Polygon",
+          "trigger": "Direct stronger general quadrilateral optimization and equality lemmas"
+        },
+        {
+          "assessment": "Strong coverage of scalar volume; does not give tetrahedral optimizer family counts or dimensions.",
+          "evidence": "Min parallelogram area 4R² times (cos²(pi/n),cos(pi/n),cos³(pi/(2n))) for residues.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad/RESULT.md",
+          "material_read": "Entire published RESULT.md; cosine formulas, proof and limitations",
+          "method": "Read exact Git blob SHA 4821bf465e0a3cb465fc2452730deac23e3c52fe",
+          "title": "Exact minimum-area enclosing parallelograms for regular polygons",
+          "trigger": "Already covers numerical volume via Rote"
+        },
+        {
+          "assessment": "Even regular rectangles subset, does not classify all tetrahedra with movable edge corners.",
+          "evidence": "Mod-four centered rectangles have sharp vertex-ray classification, different 3D optimizer object.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-maximum-area-rectangles-in-every-regular-even-polygon--10bad5e59427/RESULT.md",
+          "material_read": "Entire published RESULT.md including centered rectangle proof and equality",
+          "method": "Read exact Git blob SHA db4cf50ad96e23c4f6c0e0afb9ae37af9610624b",
+          "title": "Exact maximum-area rectangles in every regular even polygon",
+          "trigger": "Possible classification of regular polygon equality patterns"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifies the complete equality locus rather than the known extremal volume: exactly which four endpoint or edge-supported vertices form maximal inscribed tetrahedra, number of distinct discrete optimizers, and previously hidden change from isolated extrema to 1D/2D families modulo four. These are natural degeneracy/optimizer invariants for a canonical geometric optimization problem, not an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned RESULT.md f7baefc7b3167432c6705c466fcaaa741d15ad56",
+    "assigned check_prism.py 2d5f3571fec05b0d99e62fa608083ac9507c899e",
+    "Rote arXiv:1905.11203 relevant full PDF",
+    "Resultary 827c68cd7bad complete RESULT.md",
+    "Resultary 10bad5e59427 complete RESULT.md",
+    "independent_check_results.json: prism"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge literature comparison does not establish absolute historical priority.",
+    "Bounded independent checks are not universal proofs; mathematical arguments and cited premises support infinite statements.",
+    "Publication blocked by operational provenance in public metadata, notwithstanding scientific PASS."
+  ],
+  "residual_risks": [
+    "Exact numerical maximal volume is covered prior work; acceptance applies only to the equality/optimizer classification.",
+    "Older regular-prism specialized extremal geometry results could subsume equality counts; searches not absolute priority proof.",
+    "Finite n<=20 checks do not prove all-n balanced optimizer statement; strict concavity and multiaffinity carry the proof."
+  ],
+  "schema_version": 1
+}
