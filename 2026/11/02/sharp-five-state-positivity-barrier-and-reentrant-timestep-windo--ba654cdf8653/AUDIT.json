@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The source-stability-function specialization is checked in exact Q(sqrt(2)) arithmetic. A cyclic resolvent expansion yields explicit entry coefficients, which are all nonnegative exactly when their common minimum bracket (at the diagonal) is. The four-state safe result has an exact positive Bernstein coefficient certificate; five-state failure has an exact negative surd witness; monotonicity in n transfers the dimension cutoff. Descartes sign variation, derivative endpoint signs and the negative witness force exactly two simple roots, while scaled limits yield the two threshold asymptotics. The independent formulas were replayed with 8541 verifier assertions. Finite experiments are not claimed as the quantified proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonaventura and Della Rocca 2015 derive a uniform sufficient absolute-monotonicity radius of approximately 2.414 (Section 3), not a necessary-and-sufficient bound for fixed cyclic generator size.",
+        "The same paper tests chemical and advection-diffusion applications and stage/endpoint monotonicity, rather than establishing a finite cyclic size cutoff."
+      ],
+      "reasoning": "A uniform sufficient threshold does not imply unconditional positivity for n<=4, finite-n threshold strict improvement, or positivity reentry at large steps. The present classification is mathematically stronger on the specified family, not a corollary of the global sufficient bound.",
+      "searches": [
+        "TR-BDF2 positivity Markov transition matrices directed cycle SSP threshold",
+        "TR-BDF2 directed cycle Markov endpoint positivity iff diagonal nonnegative, four state immunity, five state two-root interval and recovery h proportional n"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1510.04303",
+      "https://mural.maynoothuniversity.ie/id/eprint/3761/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bonaventura and Della Rocca 2015 Section 3 explicitly derive the relevant rational stability function and radius; numerical examples do not quantify the directed-cycle positivity set.",
+        "Zappavigna et al. 2012 Section 4 Example 3 uses an eight-state nilpotent chain to demonstrate small-step failure of a fourth-order diagonal Padé map; a different rational method and object."
+      ],
+      "reasoning": "The exact method-specific nonnegative cyclic kernel, the five-versus-four state cutoff and the single forbidden interval cannot be deduced from the global sufficient radius or from the different Padé counterexample without the new resolvent calculation and polynomial sign analysis.",
+      "searches": [
+        "order two L-stable Runge Kutta ring transition matrices positivity failure timestep interval",
+        "TR-BDF2 positivity recovery upper timestep grows linearly with directed cycle size n constant 3.45295617"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bonaventura and Della Rocca 2015, arXiv:1510.04303v1, equation (3.2), Sections 2–3; this is the correct stability function and monotonicity theorem but no cyclic-entry threshold is stated.",
+        "Zappavigna et al. 2012, Maynooth preprint, Section 4: cyclic-chain generator notation is present, but studied approximants are diagonal Padé rational functions, not the TR-BDF2 double-pole rule."
+      ],
+      "reasoning": "A naming substitution cannot turn the [1/1] or [2/2] diagonal Padé kernels into the L-stable TR-BDF2 kernel R(z)=(1+(sqrt(2)-1)z)/(1-(1-1/sqrt(2))z)^2. The exact cyclic kernel and root classifications are therefore not covered by those method-specific results.",
+      "searches": [
+        "TR-BDF2 endpoint matrix offdiagonal sign controlled by diagonal on directed ring",
+        "TR-BDF2 R(h(S-I)) positivity threshold q_n(t)=(sqrt2-1)-(2-sqrt2)sum t^j+(n-1)t^n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Literature searches returned the 2015 TR-BDF2 method paper and other-method positivity discussions, without an indexed identical fifth-state polynomial or two-threshold table.",
+        "The cyclic thresholds are defined here by q_n(t) and the exact n=5 surd witness, not by recomputation of a known table."
+      ],
+      "reasoning": "The published scalar method coefficients and familiar SSP radius are not tables of nonnegative cyclic matrix entries. No exact published or retrieved table with these cycle-size thresholds was located; a negative search result alone is not treated as proof of novelty.",
+      "searches": [
+        "TR-BDF2 Markov directed cycles exact positivity cutoff five states, diagonal resolvent and reentrant unsafe timestep interval",
+        "finite state positivity radius TR-BDF2 polynomial exact two roots dimension n≥5",
+        "TR BDF2 five state cyclic Markov chain positivity interval 3.222709632 6.805854391"
+      ]
+    },
+    "rationale": "The primary 2015 TR-BDF2 analysis gives the scalar rule and the global sufficient absolute-monotonicity radius, not the complete unit-rate directed-cycle positivity windows. The 2012 positive-system paper studies cyclic-chain models under diagonal Padé maps, which have different rational functions and do not imply the five-state TR-BDF2 cutoff, the diagonal-only criterion or recovery-scale asymptotics. Searches for direct and equivalent statements found no decisive coverage. Residual specialized historical overlap is acknowledged.",
+    "residual_risks": [
+      "Specialized earlier work on cyclic rational convolution kernels may contain a mathematically equivalent positivity criterion without using the name TR-BDF2.",
+      "No claim is made that broad searches exhaust all unpublished or inaccessible literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The scalar stability function and SSP radius are established; no exact directed cyclic n-threshold or two window classification in inspected sections",
+        "evidence": [
+          "Section 3 Eq. (3.2) provides rational stability function with parameter gamma; the L-stable parameter is 2-sqrt(2).",
+          "Section 3 states absolute monotonicity radius approximately 2.414; Section 6 discusses reaction and PDE tests."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1510.04303",
+        "material_read": "Full-text original method equations (3.1) and (3.2), Section 2 statements, Section 3 monotonicity calculations, Section 6 test descriptions, conclusion and appendix descriptions",
+        "method": "Read searchable PDF pages and checked displayed formula in page image",
+        "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+        "trigger": "Same numerical method and main positivity theory"
+      },
+      {
+        "assessment": "Includes a cyclic-chain setting, but analyzes diagonal Padé maps and nilpotent-chain counterexamples, not L-stable TR-BDF2 endpoint matrices",
+        "evidence": [
+          "Section 4 equations (16)–(18) describe a cyclic chain.",
+          "Section 4 Example 3 takes an eight-state nilpotent shift for the [2/2] Padé map and proves a negative high-order entry."
+        ],
+        "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/",
+        "material_read": "Full-text introduction, model and approximation definitions, Section 4 pages on cyclic chains and Example 3, Padé sufficient conditions, conclusion",
+        "method": "Read openly available preprint PDF and inspected page images",
+        "title": "Essentially Negative News About Positive Systems",
+        "trigger": "Positive discretizations and cyclic-chain model; plausible prior coverage of a cyclic kernel"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ba654cdf-8653-499c-97c2-5010b020737f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Positivity of endpoint transition matrices matters for simulations of transport and Markov dynamics. The theorem completely classifies admissible steps for a standard second-order L-stable method on all unit-rate directed cycles, reveals exact four-state immunity and five-state failure, and proves that a forbidden bounded interval is followed by recovery at steps of order n. The diagonal-only reduction and asymptotic recovery constant are structural rather than merely numerical or arbitrary finite parameters.",
+    "status": "PASS"
+  }
+}
