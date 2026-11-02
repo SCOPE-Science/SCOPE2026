@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The formal definition, finite nine-vertex base, rooted inclusion and one-neighbor lemmas, leaf-extension identity, closed broom count, equality analysis, and extension from trees to all connected graphs are individually established. Canonical-code enumeration covers all 47 nine-vertex tree types; a standalone verifier rechecks direct subset counts, rooted bounds and recurrences and returns ONE_PASS. Infinite results follow from induction and strict edge monotonicity, not numerical extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dourado et al. (2026), Theorem 11: all connected n-vertex graphs have at most 2^(n-1)+n convex sets, with top equality stars from order six.",
+        "Dourado et al. (2026), Section 2 studies trees and a linear-time counting recurrence."
+      ],
+      "reasoning": "A strict upper bound and uniqueness of the top extremizer do not specify which nonstar graph is best or give its exact number. General tree counting algorithms evaluate individual inputs but do not imply the claimed sharp global second extremum without separate optimization.",
+      "searches": [
+        "\"P3-convex\" \"second\" \"star\" sets connected graphs",
+        "\"near extremal P3-convex set counts star broom tree stability extremal\"",
+        "\"second extremal number of closed sets in two-neighbor bootstrap percolation trees\""
+      ]
+    },
+    "checked_sources": [
+      "Dourado et al., arXiv:2603.04706v1 (2026-03-05), primary full-text HTML, Theorem 11 and Section 2",
+      "Older P3-convexity literature abstract: Campos, Sampaio, Silva and Szwarcfiter, Graphs with few P4s under the convexity of paths of order three",
+      "Targeted web searches for P3-convex, broom, second maximum and closed-set synonyms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dourado et al. (2026) Theorem 11 establishes the first maximum; Section 2 proof uses a coarser rooted inequality to separate nonstar trees from the star.",
+        "The present theorem uses a sharper rooted one-neighbor deficit bound and an equality rigidity argument."
+      ],
+      "reasoning": "The previous theorem only yields c(G)<2^(n-1)+n for nonstar graphs at these orders. The exact 3*2^(n-3)+2n-2 ceiling and unique broom equality do not follow from that inequality or from a general algorithm for evaluating c(G).",
+      "searches": [
+        "Counting P3-convex sets in graphs arXiv:2603.04706v1 Theorem 11 Section 2",
+        "\"counting P3 convex sets 2026 Dourado Grippo Lin Protti sharp second maximum\"",
+        "\"number of P3 convex sets\" \"broom\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dourado et al. (2026), Introduction defines P3-convexity via every unselected vertex having at most one selected neighbor; Section 2 identifies the connected star extremum."
+      ],
+      "reasoning": "The claimed count is equivalently an extremum over two-neighbor-closed sets in trees and connected graphs. Searched alternate descriptions and the exact structural equality type; no covering formula was identified.",
+      "searches": [
+        "\"P3-convex\" \"second maximum\" graphs tree",
+        "\"P3-convex\" \"second largest\"",
+        "\"P3 convex sets\" \"subdivided star\" maximum",
+        "\"second maximum three-vertex-path convex subsets of connected graphs\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct complete nine-vertex tree enumeration gives 208 and a unique broom graph type; the source has no all-order second-extremal table."
+      ],
+      "reasoning": "No identical coefficient or existing exact count table covering every order at least nine was found. A finite table through nine cannot imply the all-order unique maximizer.",
+      "searches": [
+        "\"3*2^(n-3)+2*n-2 number convex vertex subsets tree subdivided star\"",
+        "\"subdivided star second most P3 convex sets n>=9\"",
+        "\"maximal graph number convex sets minus star n nine\""
+      ]
+    },
+    "rationale": "The inspected closest 2026 primary paper proves the leading star extremal count, not the unique nonstar broom maximizer for all orders at least nine. The stronger second-maximum claim is not a corollary of its top bound, and targeted literature and equivalent-formulation searches identified no dominant theorem. Priority remains qualified where historical full texts or alternate terminology could conceal coverage.",
+    "residual_risks": [
+      "An older result may use terminology such as two-neighbor bootstrap-closed sets or an equivalent generating-function comparison without naming P3-convexity.",
+      "The older P4-sparse article was not inspected in full; its accessible abstract does not decide complete historical coverage.",
+      "Search noncoverage does not prove historical novelty, and no independent literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 11 supplies the top star bound but does not determine the nonstar maximum or the broom equality class. The computational Section 2 tree recursion does not subsume the optimization theorem.",
+        "evidence": [
+          "Theorem 11: c(G)<=2^(n-1)+n, equality stars or paths at n=4,5.",
+          "Section 2 ends after the connected maximum classification; no second-best or broom theorem appears."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.04706v1",
+        "material_read": "Introduction, definitions, complete Section 2 (trees, stars, paths, connected-extremal proof), paper abstract and section outline",
+        "method": "Direct primary HTML full-text inspection with targeted theorem and phrase searches",
+        "title": "Counting P3-convex sets in graphs",
+        "trigger": "Same invariant and connected extremal theorem"
+      },
+      {
+        "assessment": "The accessible abstract addresses convexity parameters/algorithms for P4-sparse graphs, not global second-maximal numbers of convex sets. Incomplete full-text access is a priority risk.",
+        "evidence": [
+          "Abstract describes structural graph classes and algorithms for convexity parameters, with no explicit second-extremal enumeration."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/237008480_Graphs_with_few_P_4_%27s_under_the_convexity_of_paths_of_order_three",
+        "material_read": "Accessible abstract and reference context only; primary full text not available through inspected material",
+        "method": "Bibliographic and abstract inspection",
+        "title": "Graphs with few P4s under the convexity of paths of order three",
+        "trigger": "Older research on the same path convexity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7e7b47cc-faf5-4a69-bacd-816332262bb8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem fully classifies the sharp second extremal order of the same natural convex-subset count recently maximized by stars. Its exact all-order bound and unique equality class supply a meaningful near-extremal stability refinement, with a sharp transition at n=9 and a structural rooted defect mechanism, not an arbitrary isolated graph evaluation.",
+    "status": "PASS"
+  }
+}
