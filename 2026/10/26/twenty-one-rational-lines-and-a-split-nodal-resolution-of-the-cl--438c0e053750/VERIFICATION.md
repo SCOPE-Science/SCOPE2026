@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific limits
+# Independent mathematical audit
 
-The complete standalone Python 3 program is `verify.py`. Invoke `python3 verify.py` in the directory containing that file. It uses only the Python standard library and exact finite-field arithmetic. Successful output includes the projective-point counts for \(q=5,25\), the six directions and full conic counts, the exhaustive \(806\)-candidate line enumeration over \(\mathbb F_5\), the \(21=6+15\) line split, the \(15\) diagonal lines, and the \(120\) distinct ordered triples in the \(S_5\) action, ending in `VERIFY_OK`.
+## correctness
 
-The program enumerates **rational** lines and points only over the two explicitly implemented finite fields; it does not enumerate all extensions or certify geometric lines over an algebraic closure. Those stronger statements are proved in `RESULT.md` by the gradient, Bézout, blowup, adjunction and arithmetic arguments. No external or independent audit has been performed.
+PASS
+
+The characteristic-five partial derivatives force all five coordinates equal, producing the single A1 node; the nondegenerate tangent quadratic establishes normality. Transversality of Q=sum u_i^2 and G=sum u_i^3 at the six permutation/scaling directions plus Bezout proves the reduced six-point base locus. The cubic inverse [G e-3Q v] extends after the blow-up. -K degree and adjunction make any nonexceptional line a (-1)-curve; Cauchy bounds its degree to one or two, yielding 15 chords and excluding a conic through exactly five of six on Q. Replacing the split (-2)-conic by its rational node gives the count for all extensions. The 120 coordinate permutations act simply transitively on ordered triples of the six directions. Independent check: Independent exact finite-field enumeration: 156 F5 projective points, 56 X(F5) points, all 806 P3(F5) lines with 21 contained and 6 node-lines, 6 simple base directions and 120 distinct ordered triples under S5. Source verify.py additionally inspects F25 and the 15 classical diagonal lines. This supports but cannot alone establish the geometric or all-extension claims.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority qualified by primary-source comparisons and explicit antecedent/corollary limits; The literal p=5 Clebsch diagonal cubic has a unique split A1 node; its resolution blows up all six rational points of a conic, it has exactly 21 geometric lines all F5-rational, S5 acts sharply three-transitively on the six node-lines, and N(F_{5^m})=q^2+6q+1 for all m>=1. is not supplied in the compared prior statements.
+
+## value
+
+PASS
+
+An explicit exceptionally symmetric singular reduction, with all geometric lines rational and a closed zeta function, provides a natural arithmetic test object; the exact split resolution and S5-action distinguish it from merely reiterating the standard 21-line count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
