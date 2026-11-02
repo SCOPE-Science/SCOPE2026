@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Gap identity follows by binary carry through Cantor positions; every rotation belongs to a leading-zero group or the leading-one group; a finite earliest-gap comparison establishes exact ordered BWT segments, including terminal gap zero; counting gives 4k for all k>=2. Two distinct cyclic-rotation sorting implementations confirm finite cases, but are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2202.02609 Theorems 4.1 and 4.2 provide growing-nonprimitive-morphism logarithmic run bounds.",
+        "CPM 2023 paper DOI 10.4230/LIPIcs.CPM.2023.10 studies general morphism effects."
+      ],
+      "reasoning": "Generic logarithmic upper and lower bounds cover asymptotic order, not exact value 4k or the sequential 1^(H-1)0^(H-1)1 group outputs. The claimed novelty is narrowed to the latter exact all-level result.",
+      "searches": [
+        "Frosini Mancini Rinaldi logarithmic equal letter runs BWT purely morphic words theorem 4.1 4.2",
+        "Burrows Wheeler transform run count Cantor sequence finite ternary substitution iterates",
+        "On the Impact of Morphisms on BWT-Runs Theorem 14 17"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.tcs.2015.12.022",
+      "doi:10.1007/978-3-030-25005-8_32",
+      "arxiv:2202.02609",
+      "doi:10.4230/LIPIcs.CPM.2023.10"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 theorem permits linear growth in substitution depth but does not fix the coefficient.",
+        "2019 DOI 10.1007/978-3-030-25005-8_32 studies explicit BWT of Thue–Morse, Fibonacci and related words.",
+        "2016 DOI 10.1016/j.tcs.2015.12.022 addresses permutation complexity of the Cantor sequence."
+      ],
+      "reasoning": "An order-bound theorem does not imply exact 4k, and permutation complexity is not BWT run complexity. The derivation of exact preceding-character groups is independent of generic asymptotic theorems.",
+      "searches": [
+        "arxiv 2202.02609 growing nonprimitive morphisms equal-letter runs full paper",
+        "Burrows Wheeler transform run count Cantor sequence finite ternary substitution iterates",
+        "Cantor sequence Burrows Wheeler transform cyclic conjugates lexicographic run length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Cantor binary sequence has substitution 1->101 and 0->000 (Lü et al., 2016).",
+        "Frosini et al., arXiv:2202.02609, classify nonprimitive-morphism BWT run asymptotics, but do not give this exact ordered Cantor-group decomposition."
+      ],
+      "reasoning": "Equivalent candidate phrasing includes Sierpinski ternary word, Cantor substitution, run-length BWT, circular conjugate sorting, and r_bwt. Exact leading-zero block formula is a much stronger formulation than global O(log n) or Theta(log n).",
+      "searches": [
+        "Burrows Wheeler transform run count Cantor sequence finite ternary substitution iterates",
+        "BWT Cantor word 1 0 1 000 number runs 4 k",
+        "Cantor sequence Burrows Wheeler transform cyclic conjugates lexicographic run length",
+        "run-length BWT morphic Cantor-like finite words 101 000",
+        "circular BWT morphic word equal-letter runs exact Cantor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct cyclic suffix sorting corroborates k=2,...,9, but only the new gap proof establishes all k.",
+        "No exact Cantor BWT sequence was identified among actual semantic search hits; closest IDs relate to other morphisms or distinct invariants."
+      ],
+      "reasoning": "No known preexisting exact database table yielding the infinite run identity or complete BWT-block statement was identified; missing indexed result remains possible.",
+      "searches": [
+        "BWT Cantor word 1 0 1 000 number runs 4 k",
+        "Cantor sequence Burrows Wheeler transform cyclic conjugates lexicographic run length",
+        "run-length BWT morphic Cantor-like finite words 101 000"
+      ]
+    },
+    "rationale": "The 2022 growing nonprimitive morphism result already covers the Theta(k) asymptotic; exact 4k equality and the exact leading-zero BWT block pattern are strictly more precise and not entailed by an asymptotic bound. Compared accessible exact morphic BWT results in 2019 and 2023 and Cantor permutation-complexity research from 2016. No covering statement in inspected full text or semantic mathematical records; priority risk explicitly retained.",
+    "residual_risks": [
+      "An earlier exact Cantor BWT result may be unindexed or use alternate Sierpinski-word terminology.",
+      "Full 2016 permutation-complexity paper inaccessible, notwithstanding its different stated invariant.",
+      "No independent external mathematical priority certification; semantic search failures do not establish global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS order Theta(k) but does not determine the exact 4k constant or group decomposition",
+        "evidence": [
+          "arXiv:2202.02609, 2022, §4, Theorems 4.1 and 4.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.02609",
+        "material_read": "Full public text, including introduction, growing nonprimitive morphism hypotheses, Theorems 4.1 and 4.2, and examples",
+        "method": "Full-text comparison of conclusions, hypotheses, and morphism classes",
+        "title": "Logarithmic equal-letter runs for BWT of purely morphic words",
+        "trigger": "Most direct potentially dominating general theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: treats Thue–Morse, Fibonacci-related and combined morphisms, not this exact Cantor iterate decomposition",
+        "evidence": [
+          "Brlek et al. (2019), DOI 10.1007/978-3-030-25005-8_32"
+        ],
+        "identifier_or_url": "https://flore.unifi.it/retrieve/e398c380-dd2e-179a-e053-3705fe0a4cff/BWT-morphism_%20Last.pdf",
+        "material_read": "Full lawful author preprint, 12 pages, abstract, background, main sections and theorems",
+        "method": "Read the source and compare morphisms and output formulas",
+        "title": "Burrows-Wheeler transform of words defined by morphisms",
+        "trigger": "Earlier explicit constructions under morphisms"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected text: generic changes of run count, not exact Cantor-level BWT group outputs",
+        "evidence": [
+          "Fici et al. (2023), CPM, Theorems 14 and 17"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2023.10",
+        "material_read": "Full open-access conference text; abstract, sections 3 and 4, relevant theorems and conclusion",
+        "method": "Read key results and check transfer mechanisms against Cantor substitution",
+        "title": "On the Impact of Morphisms on BWT-Runs",
+        "trigger": "Potential general exact run-count transfer under morphisms"
+      },
+      {
+        "assessment": "Plausibly not covering: permutation complexity differs from BWT runs, but inaccessible full sections leave priority risk",
+        "evidence": [
+          "Lü et al. (2016), Theoretical Computer Science 616:100-110; earliest evidenced public date 2016-01-21"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2015.12.022",
+        "material_read": "Accessible abstract, publisher preview and permutation/factor-complexity discussion, not full article",
+        "method": "Compare named invariant, definitions, and accessible conclusions",
+        "title": "On the permutation complexity of the Cantor-like sequences",
+        "trigger": "Same underlying Cantor substitution and archival source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "99391dfe-86b4-476a-b4e9-f8cd33cdd1d5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines an exact all-iteration run count and complete leading-zero BWT block structure for the classical Cantor morphism, sharpening already known asymptotic run bounds. Provides an explicit compression and lexicographic-order benchmark, not an arbitrary finite census or routine substitution of a known exact formula.",
+    "status": "PASS"
+  }
+}
