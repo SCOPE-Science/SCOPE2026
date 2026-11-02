@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The exact marked-block deletion identity gives equation (1), independently of asymptotics. The key structural lemma is proved by log-concavity of the positive-factorial weight sequence, preservation under discrete convolution via totally nonnegative Toeplitz matrices, and a strict monotone-likelihood-ratio comparison. This establishes the finite sign order and positive endpoint. Fixed-block-number inclusion–exclusion establishes the macroscopic threshold. Exhaustive exact-rational enumeration and independent Stirling recurrence comparisons support, but do not replace, these analytical steps.
+## correctness
 
-**Originality (O): PASS on inspected evidence, with priority risk.** Arratia–DeSalvo's full text studies the same conditioning but focuses on Poisson component profiles when the number of excess elements is of square-root order, not on this exact all-size, all-parameter covariance transition or the fixed-number-of-blocks macroscopic cutoff. Timashev's article establishes marginal count results for exactly this model, and the accessible Russian text of its principal statements was inspected; the unexamined English translation and older conditional occupancy theory remain residual risks. Mutafchiev–Savov and the published Lambert-W covariance finding treat *unconditioned* partitions or covariance with random total block count, which do not imply the conditioned singleton/size-\(s\) result. The same form of question for noncrossing partitions has distinct profile weights and does not imply this statement. Standard Bell-polynomial calculus already determines the mixed moments; no novelty is claimed for marking a block alone.
+PASS
 
-**Value (V): PASS.** Conditioning on a fixed number of blocks is a standard probabilistic model (uniform surjections/equiprobable clustering). The theorem classifies the *entire* singleton-versus-other-size dependence sign spectrum, proves absence of multiple sign reversals, determines its nontrivial sharp macroscopic location for each fixed block count, and exhibits zero covariance without independence. The answer requires a strict shape theorem for conditional occupancies, not merely a routine Stirling substitution. It also distinguishes fixed-block conditioning from the known unconditioned Lambert-W transition.
+Marking one size-s block and deleting it is a uniform (n-s,k-1) partition, so the conditional expected singleton count is F_(k-1)(n-s), giving the exact covariance. The ordered fiber-size distribution for a random uniform surjection onto b blocks has weight product_i 1/j_i!. Log-concavity of 1/j! for positive j and preservation under convolution imply the conditional single-fiber distributions are monotone-likelihood-ratio ordered as total m increases; the new largest supported j is strictly positive, hence F_b(m) strictly decreases for all m>=b. Decreasing residual n-s thus gives strict bracket increase, and the maximal-s endpoint is positive as not all partitions at n>=k+2 have k-1 singletons. Fixed-b inclusion-exclusion Stirling asymptotics F_b(m)~m*b/(b-1)*((b-1)/b)^m yield the macroscopic boundary. Independent exact Stirling covariance comparisons, sign monotonicity and (6,3,3) zero case passed. The fixed-k theorem does not follow merely from unconditioned Bell ratios.
 
-**Risks and scope.** Possible earlier equivalent inequalities in specialized Stirling or generalized allocation literature; unavailable full English text of Timashev's paper. No assertion of uniqueness of the research result or independent expert certification. The result does not classify pairs of non-singleton counts or the regime where block count grows with the set size.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Unlike the closely related published Bell-partition result, which concerns Cov(total number of blocks, X_s) in an unconditioned model and a logarithmic threshold, this claim concerns Cov(X1,X_s) at exactly k blocks and a positive-fraction threshold. General factorial moment methods imply its raw moments but not plainly the strict one-crossing inequality.
+
+## value
+
+PASS
+
+The fixed-block occupancy model is fundamental in combinatorial probability; a complete covariance sign classification and a sharp linear-scale transition for singleton counts versus large blocks give a natural, reusable dependence threshold. The zero-covariance but nonindependent example clarifies the scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
