@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each fixed signed overlap motif, a chosen pair requires two coloured directed path arcs. Mixed factorial moments have leading contributions from vertex-disjoint motifs and only lower-order contributions from intersecting motifs, giving independent unit Poisson limits. On an event tending to one, no motifs meet, all order endpoints are distinct, and no motif touches an endpoint; its row-mask signature supports depend exactly on the signed collision-presence bits. The two-round Ehrenfeucht–Fraïssé argument proves that signature support determines all rank-two first-order sentences; explicit rank-two witnesses separate different collision bits. The all-size conclusions follow mathematically, not by extrapolation from enumeration.
+## correctness
 
-## Originality — PASS, qualified
-The 2026 Jeż–Michaliszyn–Witkowski successor satisfiability result defines comparable successor masks and treats satisfiability over finite structures, not independent uniform sampling and full rank-two limiting theories. Its predecessor concerns satisfiability with multiple successors; Müller–Skerman–Verstraaten study random permutations in one-bijection or two-full-order languages. Existing common-adjacency Poisson observations and two-round back-and-forth methods are not claimed as original separately. Searches for adjacent/reversed directed path coincidences and logical limit laws, the published record database, and accessible prior research claims did not produce a stronger implication covering the combined all-\(r\) limit-type theorem. A general unlocated theorem on multiple random successor structures remains a genuine residual historical-priority risk; failed search is not proof of priority.
+PASS
 
-## Value — PASS
-The result is a complete, exact asymptotic classification of the first logical rank at which relations between two distinct successor orders are observable. The count \(2^{r(r-1)}\) and explicit nontrivial class weights answer a natural, model-theoretically motivated question about independently traversed finite domains, giving information beyond individual adjacency statistics.
+For fixed r independent uniform Hamiltonian paths, any prescribed directed chain collection of s distinct arcs occurs with probability 1/(n)_s. Expanding each fixed mixed factorial moment of the 2*binom(r,2) signed common-adjacency counts, vertex-disjoint motifs contribute 1+O(1/n). Every overlapping connected component has more prescribed coloured arcs than vertices (two motifs on one pair require >=3 arcs; connected >=3-vertex components require >=2(v-1)>v), so its total is O(1/n); all mixed factorial moments tend to 1, identifying independent Poisson(1) limits. In the two-round EF game for loopless binary relations, the set of vertex supports of directed pair-masks is a complete invariant. With high probability all endpoints are distinct, collision motifs are separated and avoid endpoints, and there exist generic vertices. The only support changes are one missing endpoint singleton or the two merged masks from each collision sign, so the support set depends exactly on its positivity bit vector. Each bit is detectable by an existential rank-two sentence, giving precisely 2^K positive limit types and the stated weights. No extension to higher quantifier rank is inferred.
 
-## Scope and limitations
-Pure directed successor vocabulary; fixed finite \(r\); quantifier rank at most two; uniform independent orders. No higher-rank convergence law, growing-number-of-orders result, or independent priority certification is asserted. Finite computations support but do not prove the asymptotics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct statement: combining joint signed adjacency-collision Poisson limits with the complete rank-two theory distribution for multiple independent random order successors is not shown as a corollary of the compared satisfiability and permutation-limit papers. Overlapping-motif Poisson counting and EF games are classical and not claimed as standalone novelties.
+
+## value
+
+PASS
+
+The mathematical object is a natural random multiorder successor structure and the invariant is its complete bounded-quantifier logical limit. The theorem turns sparse signed adjacency coincidences into all 2^K limit-type probabilities, supplying exact probabilities of every rank-two first-order sentence. This is more than a single routine Poisson count or variable renaming: it proves a complete local-logic classification across arbitrary fixed r.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

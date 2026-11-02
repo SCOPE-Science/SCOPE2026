@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:02:40Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Only fixed finite r and quantifier rank at most two; no full first-order convergence theorem or growing-r regime."
+      ],
+      "rationale": "For fixed r independent uniform Hamiltonian paths, any prescribed directed chain collection of s distinct arcs occurs with probability 1/(n)_s. Expanding each fixed mixed factorial moment of the 2*binom(r,2) signed common-adjacency counts, vertex-disjoint motifs contribute 1+O(1/n). Every overlapping connected component has more prescribed coloured arcs than vertices (two motifs on one pair require >=3 arcs; connected >=3-vertex components require >=2(v-1)>v), so its total is O(1/n); all mixed factorial moments tend to 1, identifying independent Poisson(1) limits. In the two-round EF game for loopless binary relations, the set of vertex supports of directed pair-masks is a complete invariant. With high probability all endpoints are distinct, collision motifs are separated and avoid endpoints, and there exist generic vertices. The only support changes are one missing endpoint singleton or the two merged masks from each collision sign, so the support set depends exactly on its positivity bit vector. Each bit is detectable by an existential rank-two sentence, giving precisely 2^K positive limit types and the stated weights. No extension to higher quantifier rank is inferred.",
+      "status": "PASS",
+      "verification": [
+        "Independent exhaustive enumeration fixing one order and varying the second: n=5,6,7 yields E[C+]=E[C-]=(n-1)/n and E[C+C-]=3/10,2/5,10/21 respectively; direct mask support calculation corroborates the clean-event signature argument for tested cases.",
+        "Inspected frozen RESULT.md SHA 63a4662d7c38982afd8269db44d5e607565dc53c and check_rank2_successors.py SHA 1f7c2ad78e421ed8b700b8b25d3bfc8f5dfb2443; fresh finite checks are independent and do not constitute the Poisson/EF proof."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Müller–Skerman–Verstraaten logical limit laws concern Mallows random permutations using the different underlying order/bijection vocabularies, not several independent successor-only Hamiltonian paths."
+        ],
+        "reasoning": "A stronger logical law in another structure does not automatically imply this successor-collision product law; no matching multisuccessor probability theorem found in the inspected results.",
+        "searches": [
+          "independent random linear order successor directed adjacencies common consecutive pair Poisson first-order quantifier rank two limit law Ehrenfeucht Fraisse collision",
+          "arXiv:2302.10148v3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.09758v1",
+        "https://arxiv.org/abs/2610.19943",
+        "https://arxiv.org/abs/2302.10148",
+        "https://arxiv.org/abs/1601.04469",
+        "Resultary:2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite-model matching of successor requirements supplies local combinatorial vocabulary; its theorem establishes 2-NEXPTIME decidability rather than stochastic EF-type weights."
+        ],
+        "reasoning": "The final theorem needs both the fixed-r joint Poisson law and complete two-round mask-support classification; neither follows from the examined papers’ stated conclusions merely by changing notation.",
+        "searches": [
+          "independent random linear order successor directed adjacencies common consecutive pair Poisson first-order quantifier rank two limit law Ehrenfeucht Fraisse collision",
+          "arXiv:2610.09758v1",
+          "arXiv:2302.10148v3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Michaliszyn–Witkowski study satisfaction in two-variable successor logic, not random probability distributions; Jeż–Michaliszyn–Witkowski analyze finite satisfiability and local successor requirements."
+        ],
+        "reasoning": "Same successor-only relations and star/mask types occur, but deciding finite/infinite satisfiability of FO^2 formulas is logically different from deriving the distribution of q-rank<=2 complete theories under independent uniform permutations. The present quantifier-rank restriction allows unrestricted variable names; FO^2 work is not a dominating probabilistic theorem.",
+        "searches": [
+          "independent random linear order successor directed adjacencies common consecutive pair Poisson first-order quantifier rank two limit law Ehrenfeucht Fraisse collision",
+          "arXiv:2610.09758v1",
+          "arXiv:2610.19943v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary directed-path item classifies rank thresholds for one deterministic path; the permutation-adjacency source concerns adjacency-count distributions."
+        ],
+        "reasoning": "Neither a one-path threshold table nor a two-order common-adjacency distribution enumerates the 2^K complete rank-two theories or joint K-variable independence for all fixed r.",
+        "searches": [
+          "independent random linear order successor directed adjacencies common consecutive pair Poisson first-order quantifier rank two limit law Ehrenfeucht Fraisse collision",
+          "Resultary:2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112",
+          "arXiv:1601.04469"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct statement: combining joint signed adjacency-collision Poisson limits with the complete rank-two theory distribution for multiple independent random order successors is not shown as a corollary of the compared satisfiability and permutation-limit papers. Overlapping-motif Poisson counting and EF games are classical and not claimed as standalone novelties.",
+      "residual_risks": [
+        "A broader unpublished or less-indexed multisuccessor logical limit law could subsume this classification.",
+        "Primary full-text assessment of older common-adjacency literature was bounded; its Poisson constituents are standard."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes satisfiability decision bounds and finite certificates, not the random joint Poisson / complete rank-two limit distribution.",
+          "evidence": [
+            "Abstract: 2-NEXPTIME bound for satisfiability; Sections 3–5 finite certificates and star matching."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.09758v1",
+          "material_read": "Accessible HTML article: abstract, preliminaries, star types, certificate construction, complexity theorems and conclusion.",
+          "method": "Read primary HTML sections via web opening and in-page passage inspection.",
+          "title": "Two-Variable Logic with Arbitrarily Many Successor Relations",
+          "trigger": "Exactly the same immediate-successor vocabulary and overlapping-star motifs."
+        },
+        {
+          "assessment": "In examined sections the conclusion concerns model existence/size rather than probabilistic rank-two theories.",
+          "evidence": [
+            "Finite satisfiability and model-size constructions for FO^2 successor systems."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.19943",
+          "material_read": "Accessible full-text rendering: introductions, path profiles, main finite-satisfiability result, technical sections used for its construction.",
+          "method": "Examined online full-text rendering from scholarly source, checking named main results.",
+          "title": "Finite Satisfiability of Two-Variable Logic with Arbitrarily Many Successors",
+          "trigger": "Same successor masks and local path interactions."
+        },
+        {
+          "assessment": "Different random permutation vocabulary/distribution; specialist full-text equivalence not exhaustively ruled out.",
+          "evidence": [
+            "Mallows laws, order/bijection language; no positive-eigen mask enumeration in material inspected."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.10148",
+          "material_read": "Abstract and publicly available result description; not a full-text noncoverage assertion.",
+          "method": "Read abstract and statement-level comparison.",
+          "title": "Logical limit laws for Mallows random permutations",
+          "trigger": "Potential dominating logical convergence theorem for random permutations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "No claim about higher-rank full convergence; usefulness is confined to the specified language and rank."
+      ],
+      "rationale": "The mathematical object is a natural random multiorder successor structure and the invariant is its complete bounded-quantifier logical limit. The theorem turns sparse signed adjacency coincidences into all 2^K limit-type probabilities, supplying exact probabilities of every rank-two first-order sentence. This is more than a single routine Poisson count or variable renaming: it proves a complete local-logic classification across arbitrary fixed r.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.09758v1",
+    "https://arxiv.org/abs/2610.19943",
+    "https://arxiv.org/abs/2302.10148",
+    "https://arxiv.org/abs/1601.04469",
+    "Resultary:2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All C/O/V conclusions assume uniform independent linear orders, fixed r, and no predicates besides successor and equality.",
+    "Finite enumeration and source-file verification alone do not certify the Poisson limit or originality."
+  ],
+  "residual_risks": [
+    "A broader unpublished or less-indexed multisuccessor logical limit law could subsume this classification.",
+    "Primary full-text assessment of older common-adjacency literature was bounded; its Poisson constituents are standard."
+  ],
+  "schema_version": 1
+}
