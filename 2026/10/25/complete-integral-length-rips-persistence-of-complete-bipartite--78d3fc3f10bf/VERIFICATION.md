@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The theorem concerns the inclusive unordered symmetrized \(\ell^1\)–Rips simplicial complex, not the ordered simplicial set.
+# Independent mathematical audit
 
-## Exact mathematical checks
-The minimum Hamiltonian path weight counts unavoidable same-part adjacencies, with equality from a maximally alternating ordering. The weight inequalities imply the two literal filtered-complex identities. Top homology of joins of simplex skeleta is torsion-free. The image of the top integral boundary has precisely the claimed rank in each even stage, and the CW connectivity argument upgrades this to a sphere-wedge homotopy type. Inclusion homomorphisms vanish because the reduced homology of consecutive integer stages lives in distinct dimensions.
+## correctness
 
-## Reproducibility
-Run `python3 verification/verify_bipartite.py` (only the Python standard library is needed). The code independently enumerates every Hamiltonian ordering on subsets from nine small complete bipartite graphs to test 187 weights; then independently builds all admissible simplices and computes binary boundary ranks for 92 integer stages with both part sizes at most four. The observed result was `PASS: exhaustive path weights 187 and independent binary homology stages 92`. The finite checks are not a proof of the all-parameter theorem and do not test integral torsion. Integral claims instead rest on the explicit free-chain and CW-homotopy proof in RESULT.md.
+PASS
 
-## Boundaries and integrity
-All binomial expressions use zero outside the natural range. For zero sphere multiplicity, the complex is contractible. Reduced degree-zero homology is used at the initial scale. The computation does not establish novelty, independent validation, or results for arbitrary bipartite graphs, \(p\ne1\), or the ordered simplicial set. No independent audit has been performed.
+For arbitrary m,n>=1, prove the exact Hamiltonian-path weight max(a+b-1,2max(a,b)-2) by alternating the two parts; infer literal L_(2s+1)=K_s(A)*K_s(B), L_(2s)=sk_(2s) of that join. Skeleta of simplices are wedges, top integral boundary has rank binom(m,s+1)binom(n,s+1)-binom(m-1,s+1)binom(n-1,s+1); connectivity and integral Hurewicz/Whitehead promote even-stage homology to wedges (special s=0 handled). Adjacent homological degrees differ, so all reduced inclusion maps vanish; terminal scale 2min(m,n)-1 checked. Independently enumerated 187 exact Hamiltonian subset paths for part sizes <=3, matching weight (not extrapolated as infinite proof).
+
+## originality
+
+PASS
+
+Best-of-knowledge distinction from named prior results, comparing the precise final claim, hypothesis domain and representations rather than keywords; checks below and risks explicitly limit global priority claims.
+
+## value
+
+PASS
+
+The complete integral homotopy and persistence filtration of a canonical unbounded bipartite shortest-path metric family is a reusable closed classification; nonstandard length–Rips behaves radically differently from diameter Rips, remaining in high dimensions after scale two. Even/odd alternating skeleton mechanism is structural and meaningful, not just a tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed weight is the shortest Hamiltonian path through any chosen subset. Counting unavoidable same-part consecutive pairs gives the exact formula, and an alternating ordering attains it, including empty-part boundary cases. Integer-stage complexes are **literally** the join of simplex skeleta and its next-to-top skeleton. The known simplex-skeleton wedge formula gives odd stages; the integral chain complex, vanishing lower homology, and top-boundary rank give even-stage sphere multiplicities. Connectivity and Hurewicz/Whitehead upgrade integral homology to homotopy type. Adjacent reduced homology groups occur in distinct degrees, forcing one-unit persistence intervals. The verification program independently checked 187 weights and 92 binary homology stages. The finite checks are illustrative, not the proof of the universal theorem.
+## correctness
 
-## Originality — PASS, with residual search risk
-The closest directly comparable prior indexed result is *Complete length–Rips persistence of well-separated two-level ultrametrics*. Its cross-cluster distance exceeds its within-cluster distance (with a stronger separation hypothesis); the shortest-path metric of \(K_{m,n}\) has the **opposite** distance inequality and is not an ultrametric. Consequently that classification neither subsumes nor implies the stated join-skeleton filtration. Ivanov–Xu establish the general finite-subset construction, not this computed family. Blaser et al. treat stability of ordered simplicial sets; their results do not imply the present unordered homotopy classification. Own earlier recoverable claims and published records were searched for the exact graph family, length weights, join-skeleton equivalents and more general coverage; no covering statement was found. Unindexed work could still contain it, so independent novelty has not been certified.
+PASS
 
-## Value — PASS
-This is a natural first highly symmetric diameter-two graph-metric family for which the recently formalized unordered \(\ell^1\)-Rips theory can be computed in **every homological degree and every scale**. Its filtration unexpectedly oscillates between two combinatorially different wedge dimensions, giving arbitrarily high-degree integral homology even though the usual diameter-Rips complex becomes contractible at scale two. The formula supplies exact benchmark barcodes and exposes a substantive difference between the unordered complex and familiar diameter or ordered constructions. It is not a one-parameter finite extension or merely a numerical computation.
+For arbitrary m,n>=1, prove the exact Hamiltonian-path weight max(a+b-1,2max(a,b)-2) by alternating the two parts; infer literal L_(2s+1)=K_s(A)*K_s(B), L_(2s)=sk_(2s) of that join. Skeleta of simplices are wedges, top integral boundary has rank binom(m,s+1)binom(n,s+1)-binom(m-1,s+1)binom(n-1,s+1); connectivity and integral Hurewicz/Whitehead promote even-stage homology to wedges (special s=0 handled). Adjacent homological degrees differ, so all reduced inclusion maps vanish; terminal scale 2min(m,n)-1 checked. Independently enumerated 187 exact Hamiltonian subset paths for part sizes <=3, matching weight (not extrapolated as infinite proof).
 
-## Closest sources, domain and limits
-Definitions and distinction between ordered and unordered constructions: Ivanov and Xu, *On \(\ell_p\)-Vietoris–Rips complexes* (arXiv:2411.01857v1; full open-access journal HTML inspected in sections 1 and 2 and by relevant full-text searches). Neighboring directed/ordered framework: Blaser et al., *Monoidal Rips* (arXiv:2503.14019v1; full open-access publisher HTML inspected for contributions and relevant constructions). Strongest related published exact example: *Complete length–Rips persistence of well-separated two-level ultrametrics* (complete result text inspected through public research repository). This claim is for shortest-path metrics of complete bipartite graphs only. The classification does not transfer automatically to ordered simplicial sets or to arbitrary weighted metrics. No external independent validation is represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinction from named prior results, comparing the precise final claim, hypothesis domain and representations rather than keywords; checks below and risks explicitly limit global priority claims.
+
+## value
+
+PASS
+
+The complete integral homotopy and persistence filtration of a canonical unbounded bipartite shortest-path metric family is a reusable closed classification; nonstandard length–Rips behaves radically differently from diameter Rips, remaining in high dimensions after scale two. Even/odd alternating skeleton mechanism is structural and meaningful, not just a tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
