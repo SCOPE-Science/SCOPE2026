@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The binary length-four antipodal edge pairs yield exactly \(3^8=6561\) compatible edge supports. Exact exhaustive reachability finds \(20\) nonempty strongly connected supports and six inclusion-maximal template subgraphs. Their nonconstant cyclic languages are disjoint; both constants occur in three templates. Transfer matrices have determinants \(1-z-z^3\) (two) and \(1-z-z^7\) (four). The all-length coefficient formula follows by the trace identity. Direct enumeration to length \(16\) and trace comparison through length \(36\) independently corroborate. The lemma is a small complete finite calculation, not an extrapolation from partial samples.
+## correctness
 
-**Originality — PASS, with risk.** Currie et al., arXiv:2209.09598 (first public 2022), develop complementary-factor avoidance and repetition thresholds, including CAL4, and their 2025 journal article retains this scope. Sawada et al. (2011) construct complement-free de Bruijn cycles with a different coverage requirement. The inspected materials do not state the six-family periodic census, the rational dynamical generating function or exact necklace counts. An unindexed symbolic-dynamics or sequence-database derivation remains possible. Search failure is not a novelty proof.
+PASS
 
-**Mathematical value — PASS.** The result is an exact structural classification of periodic points for a natural complement-avoidance shift, with closed formulas for every circumference, including primitive and rotation-identified counts, and a sharp growth constant. It isolates a subtle gap-seven renewal contribution beyond the dominant gap-three language, rather than only recomputing familiar hard-core sequence counts.
+Independently enumerated all 3^8=6561 complement-compatible edge support choices of the order-three binary de Bruijn graph using two-way reachable vertex tests, found exactly 20 nonempty strongly connected supports with six maximal support sets identical to the listed hexadecimal templates. Every nonconstant support belonged to exactly one maximal set, while 0000 and 1111 singleton loops each lay in three; the correction -4 is necessary. Their determinant polynomials are 1-z-z^7 (four) and 1-z-z^3 (two). A closed walk yields an n-periodic word even for n<4; trace/determinant gives all n; labelled cyclic gaps give p_m(n). Independently enumerated every binary n-word for n<=15 and checked exact c_n; this does not substitute for exhaustive finite SUPPORT classification and transfer algebra supporting infinite n.
 
-Scientific limitations: the theorem treats one binary length-four restriction and does not establish formulas for arbitrary factor lengths or impose power-freeness. The original-source comparison may miss an equivalent result under alternate terminology. The finite structural certificate can be replayed as supplied, but no independent mathematical audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Complement-avoiding bi-infinite words were studied by Currie et al., but the closest length-four results impose additional power-freeness and ask infinite-language complexity; they do not give this all-periodic-point census with all short wraparound cases. Construction of special de Bruijn cycles choosing one of each complementary pair is not enumeration of all admissible periodic points.
+
+## value
+
+PASS
+
+The six maximal strongly connected factor-support templates give a complete, unexpectedly small symbolic-dynamical decomposition of a naturally defined forbidden-pair subshift. The resulting exact circular counts, necklaces, primitive periods and zeta are useful intrinsic invariants, not arbitrary finite recomputations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

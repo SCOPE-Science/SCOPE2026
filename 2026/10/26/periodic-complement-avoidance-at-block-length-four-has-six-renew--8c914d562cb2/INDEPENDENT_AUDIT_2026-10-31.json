@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:46:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently enumerated all 3^8=6561 complement-compatible edge support choices of the order-three binary de Bruijn graph using two-way reachable vertex tests, found exactly 20 nonempty strongly connected supports with six maximal support sets identical to the listed hexadecimal templates. Every nonconstant support belonged to exactly one maximal set, while 0000 and 1111 singleton loops each lay in three; the correction -4 is necessary. Their determinant polynomials are 1-z-z^7 (four) and 1-z-z^3 (two). A closed walk yields an n-periodic word even for n<4; trace/determinant gives all n; labelled cyclic gaps give p_m(n). Independently enumerated every binary n-word for n<=15 and checked exact c_n; this does not substitute for exhaustive finite SUPPORT classification and transfer algebra supporting infinite n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sawada et al. construct particular complement-free de Bruijn cycles, whereas Currie et al. study threshold existence and factor/critical-exponent complexity of infinite words."
+        ],
+        "reasoning": "A construction/complexity bound for selected infinite words does not dominate the full period-spectrum enumeration of all circular words satisfying no paired complementary length-4 factors.",
+        "searches": [
+          "binary circular words avoid complementary factors length 4 exact periodic point counts de Bruijn subshift zeta renewal six families",
+          "Sawada Stevens Williams complement free de Bruijn sequences WALCOM 2011",
+          "Currie et al. complexity thresholds length four"
+        ]
+      },
+      "checked_sources": [
+        "Currie et al., arXiv:2209.09598, full PDF Theorems 14–17",
+        "Sawada–Stevens–Williams, WALCOM 2011 metadata and abstract",
+        "Frozen RESULT.md and verify.py exact support tables"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published Theorem 16 refers to bi-infinite words that are 11/3-power-free in addition to avoiding complementary 4-factors; the audited class includes periodic all-zero and other highly periodic words."
+        ],
+        "reasoning": "The extra power-freeness prevents any direct implication for the unrestricted periodic census; transfer-matrix determinant identities arise from a new complete support partition.",
+        "searches": [
+          "binary circular words avoid complementary factors length 4 exact periodic point counts de Bruijn subshift zeta renewal six families",
+          "arXiv:2209.09598 theorem 16 17 complementary length 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Currie et al. define CAL_ell for bi-infinite words, with Theorem 16 adding 11/3-power-freeness in length-four analysis; the audited language has NO power-free restriction and includes periodic words of all n."
+        ],
+        "reasoning": "The common forbidden complementary factor relation is the same input constraint, but the published infinite-word statements do not equal or entail exact period-n fixed-point counts, which may be very different for additional recurrence/power constraints.",
+        "searches": [
+          "binary circular words avoid complementary factors length 4 exact periodic point counts de Bruijn subshift zeta renewal six families",
+          "Currie Dvorakova Ochem Opocenska Rampersad Shallit Complement Avoidance in Binary Words 2209.09598"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching c_n sequence or six-template 20-support classification found in the checked primary sections. The exact 6561-support census was independently regenerated directly from the assigned local certificate algorithm specification."
+        ],
+        "reasoning": "Exact database/table comparison is applicable because the claim includes all-n enumeration. A known fixed-n sequence under a different name is possible but did not appear in the inspected sources.",
+        "searches": [
+          "binary circular words avoid complementary factors length 4 exact periodic point counts de Bruijn subshift zeta renewal six families",
+          "CAL_4 circular word enumeration periodic point zeta function de Bruijn complement"
+        ]
+      },
+      "rationale": "Complement-avoiding bi-infinite words were studied by Currie et al., but the closest length-four results impose additional power-freeness and ask infinite-language complexity; they do not give this all-periodic-point census with all short wraparound cases. Construction of special de Bruijn cycles choosing one of each complementary pair is not enumeration of all admissible periodic points.",
+      "residual_risks": [
+        "Earlier unindexed symbolic dynamics or periodic-point zeta calculation may coincide under a differently named forbidden-pair shift.",
+        "Sawada–Stevens–Williams full conference text was not accessed; no whole-text noncoverage claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_CLASS_NOT_SAME_PERIOD_CENSUS",
+          "evidence": "Theorem 16 demands 11/3-power-freeness; it classifies factor sets rather than labelled period-n words without repetition restrictions.",
+          "identifier_or_url": "arXiv:2209.09598, Electronic Journal of Combinatorics 32(4) (2025) P4.24",
+          "material_read": "Public 23-page PDF read across statements and §§1–5, especially Theorems 14–17, power-free hypotheses and factor-complexity section; page image of Theorem 16 checked",
+          "method": "Read arXiv PDF plus screenshot",
+          "title": "Complement Avoidance in Binary Words",
+          "trigger": "Identical forbidden-factor operation and length 4"
+        },
+        {
+          "assessment": "PLAUSIBLE_BUT_FULL_TEXT_NOT_READ",
+          "evidence": "Construction of particular complement-free de Bruijn sequences is mathematically different from counting every length-n periodic word; without complete text, stronger implicit coverage remains a residual risk.",
+          "identifier_or_url": "Sawada–Stevens–Williams, WALCOM 2011, DOI:10.1007/978-3-642-19094-0_19",
+          "material_read": "Published bibliographic/abstract-level discoverable account and quoted source relationship; full article not obtained",
+          "method": "Public metadata and abstract only",
+          "title": "De Bruijn Sequences for the Binary Strings with Maximum Density",
+          "trigger": "Potential complement-pair cycle implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The six maximal strongly connected factor-support templates give a complete, unexpectedly small symbolic-dynamical decomposition of a naturally defined forbidden-pair subshift. The resulting exact circular counts, necklaces, primitive periods and zeta are useful intrinsic invariants, not arbitrary finite recomputations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all n>=1 circular labelled binary words with no complementary pair of cyclic length-four factors, c_n=2p_3(n)+4p_7(n)-4 where p_m(n) counts cyclic words with at least m-1 zeros between ones; the exact dynamical zeta is (1-z)^4/((1-z-z^3)^2(1-z-z^7)^4), with Burnside necklace and Möbius primitive-period formulas and growth c_n~2lambda^n.",
+  "limitations": [
+    "Binary bitwise complement, cyclic length-four factors only, labelled positive n including wraparound n<4; not reverse complement or higher alphabets."
+  ],
+  "schema_version": 1
+}
