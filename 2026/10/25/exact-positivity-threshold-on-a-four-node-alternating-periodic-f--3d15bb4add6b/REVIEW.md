@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The consistent mass and stiffness matrices are stated explicitly. The transition entries share a positive denominator; every diagonal and edge-class numerator is positive for positive step size, while the only potentially negative entries are the opposite-node entries. Their sign is governed by a strictly increasing quadratic with one positive root, yielding the exact necessary-and-sufficient threshold.
+## correctness
 
-**Originality — PASS, with a documented literature-access risk.** The result is restricted to the four-node periodic alternating mesh and gives an explicit contrast-dependent formula. The equal-cell specialization is not claimed as new. The accessible primary literature discusses finite-element positivity thresholds and sufficient timestep bounds, but the inspected material does not state this exact periodic formula. The full text of the closest 2015 heat-equation article could not be retrieved, so a possible uninspected special-case overlap remains a residual risk.
+PASS
 
-**Value — PASS.** The formula quantifies when a common maximum-cell sufficient restriction is conservative on the smallest nonuniform periodic mesh. As the ratio of the shorter to the longer cell tends to zero, the exact threshold divided by the longer cell length squared tends to zero. This gives a concrete, mathematically proved contrast effect relevant to step-size selection, without asserting a general mesh theorem.
+Reassembled periodic M and K from edges, then independently computed exact 4×4 symbolic inverse product. Every denominator factor in D_τ=(ab+12τ)(a²+3ab+12τ)(3ab+b²+12τ) is >0. Diagonals and edge classes are >0 for τ>0, while opposite-node entries equal 6τq(τ)/D_τ with q=72τ²+12abτ−ab(a+b)². Since q(0)<0 and q′>0 for τ>=0, a unique positive root determines positivity. τ=0 gives I. Uniform a=b=h recovers h²/6. Exact symbolic matrix algebra verifies all positive real a,b,τ in the domain; spot checks are supplementary.
 
-**Closest literature and limitations.** P. Chatzipantelidis, Z. Horváth, and V. Thomée (2015), DOI 10.1515/cmam-2015-0018, study heat-equation positivity for piecewise-linear finite elements with homogeneous Dirichlet boundary conditions. B. Jin, R. Lazarov, V. Thomée, and Z. Zhou (arXiv:1510.02825; 2017 journal version) study broader nonnegativity-preservation questions and timestep bounds. The result here is only for the stated four-node periodic mesh. The closest 2015 article's full text remains inaccessible, and independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Four-node alternating periodic exact contrast-dependent threshold was not located in searched primary literature. The uniform threshold and general positivity/M-matrix results are previously known and explicitly excluded as novelty. Very relevant 2015 heat-FEM paper remains inaccessible after authorized access reported disconnected VPN; best-of-knowledge PASS retains meaningful priority risk.
+
+## value
+
+PASS
+
+Exact positivity preservation under consistent mass is a natural and practically meaningful mesh-dependent invariant. The simplest truly nonuniform periodic stencil shows a nontrivial contrast-sensitive sharp threshold, quantifying conservatism of the standard max-cell sufficient bound and its singular high-contrast limit. This motivates the precise four-node case rather than an arbitrary tiny computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

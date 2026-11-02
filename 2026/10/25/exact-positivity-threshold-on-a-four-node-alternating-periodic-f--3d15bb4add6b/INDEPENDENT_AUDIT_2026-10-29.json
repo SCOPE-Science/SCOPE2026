@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T23:41:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassembled periodic M and K from edges, then independently computed exact 4×4 symbolic inverse product. Every denominator factor in D_τ=(ab+12τ)(a²+3ab+12τ)(3ab+b²+12τ) is >0. Diagonals and edge classes are >0 for τ>0, while opposite-node entries equal 6τq(τ)/D_τ with q=72τ²+12abτ−ab(a+b)². Since q(0)<0 and q′>0 for τ>=0, a unique positive root determines positivity. τ=0 gives I. Uniform a=b=h recovers h²/6. Exact symbolic matrix algebra verifies all positive real a,b,τ in the domain; spot checks are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard sufficient τ≥max(a²,b²)/6 follows from off-diagonal nonpositivity of M+τK.",
+          "Exact root is strictly smaller than that sufficient threshold when a≠b."
+        ],
+        "reasoning": "Published sufficient M-matrix bounds do not dominate the exact necessary threshold; bounded-domain theorems may apply to other topology. A comprehensive statement in inaccessible article remains a risk.",
+        "searches": [
+          "finite element backward Euler consistent mass positivity alternating periodic four element mesh sharp time step threshold",
+          "arxiv:1510.02825",
+          "doi:10.1515/cmam-2015-0018"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1510.02825",
+        "doi:10.1515/cmam-2015-0018",
+        "Resultary semantic query",
+        "frozen RESULT.md / verify.py and reconstructed matrices"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform-mesh τ=h²/6 is an immediate known specialization.",
+          "As b/a→0, τ*/a²→0, while the standard max-edge sufficient restriction remains a²/6."
+        ],
+        "reasoning": "Known uniform and sufficient positivity laws cannot determine exact mixed-mesh contrast root without evaluating the opposite-node Green function. This is the narrow surviving result.",
+        "searches": [
+          "finite element backward Euler consistent mass positivity alternating periodic four element mesh sharp time step threshold",
+          "arxiv:1510.02825"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent problem is sign of opposite-node entry of (M+τK)^−1M, not merely M-matrix sign of M+τK.",
+          "The cited subdiffusion work studies matrix positivity thresholds but does not give this exact 4-periodic alternating formula in inspected theorem sections."
+        ],
+        "reasoning": "Search includes backward Euler, mass-matrix, positivity and discrete maximum principle aliases; no exact equivalent root located. Inaccessible heat-equation text cannot be used to assert global noncoverage.",
+        "searches": [
+          "finite element backward Euler consistent mass positivity alternating periodic four element mesh sharp time step threshold",
+          "arxiv:1510.02825",
+          "doi:10.1515/cmam-2015-0018"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hits concern filtered Crank–Nicolson lattice positivity, Richardson positivity, and related time-stepping, not this FE mesh exact root."
+        ],
+        "reasoning": "The claimed object is analytic, not a table. A negative database result alone is not used to infer priority.",
+        "searches": [
+          "finite element backward Euler consistent mass positivity alternating periodic four element mesh sharp time step threshold",
+          "Resultary exact 4-node alternating mesh positivity search"
+        ]
+      },
+      "rationale": "Four-node alternating periodic exact contrast-dependent threshold was not located in searched primary literature. The uniform threshold and general positivity/M-matrix results are previously known and explicitly excluded as novelty. Very relevant 2015 heat-FEM paper remains inaccessible after authorized access reported disconnected VPN; best-of-knowledge PASS retains meaningful priority risk.",
+      "residual_risks": [
+        "Highly relevant 2015 Chatzipantelidis–Horváth–Thomée full paper inaccessible; authorized Oxford retrieval reported vpn_disconnected and was not bypassed.",
+        "Some prior small periodic FEM calculation may contain same formula unindexed.",
+        "Result limited to a four-node alternating mesh, not arbitrary nonuniform or larger meshes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General threshold and sufficient M-matrix bounds, not the exact alternating four-node periodic root in inspected statements.",
+          "evidence": "Jin–Lazarov–Thomée–Zhou (2017), Sections 3–4, arxiv:1510.02825.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.02825",
+          "material_read": "Original 17-page PDF, introduction and Theorems 4.1–4.3 with original page images, including matrix-sign and threshold arguments",
+          "method": "Read primary article relevant mathematical statements and checks on mesh assumptions",
+          "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+          "trigger": "General FEM positivity and timestep criteria"
+        },
+        {
+          "assessment": "Cannot decide whether unseen text has a periodic four-node special case. Literature access is a priority risk, not mathematical failure.",
+          "evidence": "Chatzipantelidis–Horváth–Thomée (2015), DOI 10.1515/cmam-2015-0018, abstract states Dirichlet setting; authorized access status vpn_disconnected.",
+          "identifier_or_url": "https://doi.org/10.1515/cmam-2015-0018",
+          "material_read": "Abstract and bibliographic metadata only; complete article not retrieved",
+          "method": "Searched arXiv/preprint/lawful open copies first, then invoked authorized institutional retrieval; returned vpn_disconnected requiring manual reauthorization",
+          "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+          "trigger": "Closest specialized heat FEM positivity paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact positivity preservation under consistent mass is a natural and practically meaningful mesh-dependent invariant. The simplest truly nonuniform periodic stencil shows a nontrivial contrast-sensitive sharp threshold, quantifying conservatism of the standard max-cell sufficient bound and its singular high-contrast limit. This motivates the precise four-node case rather than an arbitrary tiny computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For alternating periodic 1D linear-FE four-node mesh a,b,a,b, consistent M, stiffness K and one backward Euler step, P_τ=(M+τK)^−1M is entrywise >=0 iff τ=0 or τ≥(sqrt(a²b²+2ab(a+b)²)−ab)/12.",
+  "limitations": [
+    "Only four periodic nodes with a,b,a,b, unit diffusivity, consistent linear FE and one backward-Euler step.",
+    "General 1D nonuniform meshes, larger rings, and other time integrators not classified."
+  ],
+  "schema_version": 1
+}
