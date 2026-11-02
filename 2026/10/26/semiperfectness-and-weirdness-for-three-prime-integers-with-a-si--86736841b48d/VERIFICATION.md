@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-## Mathematical checks
-The proof uses strict divisor-sum upper bounds to exclude all but the pairs \((5,7),(5,11),(5,13)\), proves weirdness at \(70\) by the excluded-sum obstruction, and supplies four exact complementary-divisor sets. Every other surviving case contains a certified semiperfect seed. Proper-divisor analysis proves seed primitivity. The inequality and inclusion arguments apply to all positive exponents; no finite exploration is substituted for these arguments.
+## correctness
 
-## Standalone executable
-Run `python3 verify.py` with Python 3 and the standard library. It recomputes each seed's divisor sum and excluded subset, directly tests all proper divisors of each seed for semiperfectness, checks \(70\) is weird, and independently compares all \(550\) parameter combinations in the bounded search with the predicted closed criterion. During package preparation the script returned:
+PASS
 
-`VERIFY_OK: four exact divisor-complement certificates; four primitive seeds; 550 independent finite semiperfect cases; unique weird instance 70 below 20000.`
+For n=2p^a q^b, p<q odd primes, sigma(n)/n=(3/2)(sum_{i=0}^a p^{-i})(sum_{j=0}^b q^{-j}). If p>=7 q>=11 then upper bound <=77/40<2; if p=5 q>=17 it is <=255/128<2; p=5,a=1,q=11 or13 gives upper bound <=99/50<2. Thus only p=3 or (5,7),(5,11),(5,13) remain. Every p=3 n is multiple of semiperfect 6. The lone squarefree odd-part case 70 has sigma=144 but is not semiperfect: an excluded set would total sigma−2n=4, whereas available proper divisors <=4 are only 1,2. Exact divisor-complement seed certificates: 350 exclusion 2+7+10+25=44; 490 exclusion 1+10+35=46; 550 exclusion 1+5+10=16; 650 exclusion 2=2. Complements of excluded proper divisors sum each seed. Semiperfectness passes to multiples, and all surviving families have one seed as divisor. Every proper divisor of the seeds is deficient or equals 70,110,130, all nonsemiperfect, so seeds are primitive. All other semiperfect members contain a proper semiperfect divisor. Independent subset-sum and classification checks for 495 parameter instances n<=15000 confirmed; proof applies to unbounded exponents.
 
-## Limits
-The finite test covers only the explicitly coded range and does not certify any assertion about arbitrarily large primes or exponents; the written proof provides that. Originality is a best-knowledge comparison against the inspected materials and cannot rule out an unlocated stronger historical classification. Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precisely delimited final claim after comparing exact object/parameter theorem implications; known tools and antecedents are credited. Primary full-text coverage where available and access exceptions are disclosed. Benkoski–Erdős gives examples and general groundwork; Amato et al. gives other factor-bound results. The exact universal 2p^a q^b classification is not a direct consequence of either inspected statement without new argument.
+
+## value
+
+PASS
+
+The natural fixed-support, v2(n)=1 family is completely classified for all exponents, including the unique weird exception and all primitive semiperfect members. Though seeds and 70 are classical, proving there are no other members in the infinite class is a motivated exact number-theoretic boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
