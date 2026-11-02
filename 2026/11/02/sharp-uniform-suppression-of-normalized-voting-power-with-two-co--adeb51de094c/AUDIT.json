@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The proxy event has a disjoint binomial complement, and the delegator event is exactly the mixture of opposite-proxy and same-proxy tie probabilities. Exact-rational exhaustive counterfactual enumeration checks both independently for m=1,3,5,7 and five values of p. Monotone likelihood/binomial factor arguments prove sharp finite-m optimization; central binomial asymptotics and an exponentially vanishing fixed-p correction prove the limit. The proof handles all parameter boundaries and asserts no even-m case.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2301.02462, Proposition 2 and Theorem 3: general finite-instance summation and pseudo-polynomial evaluation on directed bipartite proxy graphs.",
+        "arXiv:2301.02462, §6 and Appendix A.5: finite-N numerical comparison of differing numbers of proxies; Appendix A.4 covers an all-delegation alternative."
+      ],
+      "reasoning": "The broad algorithm covers input evaluation and contains this model as a subcase, but it does not state an exact all-odd-size sharp bound uniform over every delegation propensity or prove the large-m normalized law. The conditional two-proxy tie term supplies a new analytic comparison, not a computational complexity claim.",
+      "searches": [
+        "Colley Delemazure Gilbert delegating voters proxy 2 pivotality binomial asymptotic",
+        "two proxy voting Banzhaf Penrose liquid democracy equal two guru star majority binomial asymptotic sqrt m",
+        "Colley Delemazure Gilbert two proxies unequal delegation probabilities exact criticality"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2301.02462 (v1 public 2023-01-06)",
+      "https://arxiv.org/pdf/2301.02462 (sections 2, 4, 6, appendices A.4–A.5)",
+      "https://ojs.aaai.org/index.php/AAAI/article/download/16729/16536 (2021 fixed-delegation metric)",
+      "https://www.emergentmind.com/papers/2608.13188 (2026 abstract: expected voting-weight centrality, distinct measure)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known one-proxy theorem assumes exactly one permanent representative, while this claim assumes exactly two and uses their independent signs.",
+        "Colley et al. prove a general formula for computing pivotality but do not infer a parameter-uniform, all-size power concentration limitation."
+      ],
+      "reasoning": "One-proxy concentration cannot imply two-proxy suppression: in the latter, opposite permanent votes generate a nonzero fair-binomial tie event that yields each delegator an order-1/sqrt(m) pivotal contribution, overturning monopoly. No direct stronger theorem asserting the present uniform bound was identified.",
+      "searches": [
+        "Two permanent proxy voters, each voter independently directly votes or delegates to either, exact Banzhaf pivotality and normalized power one over square root m",
+        "two competing gurus leaf voters random delegation cancellation dominates normalized pivotality",
+        "liquid democracy proxy voting single universal delegatee star delegation Penrose Banzhaf power exact binomial formula threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Colley–Delemazure–Gilbert, arXiv:2301.02462, Definition 4 and Proposition 2 define/evaluate the same a-priori pivotality functional.",
+        "Zhang–Grossi, doi:10.1609/aaai.v35i6.16729, pp. 1–3, defines a distinct delegative index for a fixed delegation graph."
+      ],
+      "reasoning": "The binary-vote pivotality functional is equivalent to the one in Colley et al., so it is credited as known; the explicit two-proxy binomial formulas, monotonicity and uniform normalized upper envelope are additional statements not found in the inspected portions. Fixed-profile indices do not identify this random-delegation average.",
+      "searches": [
+        "\"two proxies\" \"Banzhaf\" delegation majority asymptotic",
+        "\"two gurus\" \"voting power\" \"Banzhaf\" asymptotic",
+        "Two permanent proxy voters, each voter independently directly votes or delegates to either, exact Banzhaf pivotality and normalized power one over square root m"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2301.02462, Table 1 and Figures 2/8 present specific weight and electorate examples, including the case of 100 voters with variable proxy count.",
+        "The 2021 AAAI fixed-profile index examples do not enumerate the present independent random choices over arbitrarily many delegators."
+      ],
+      "reasoning": "A finite numerical table or algorithmically obtainable row does not equal the closed formulas for all odd m, all real p in [0,1], or the sharp uniform asymptotic. No exact table covering these quantified statements was located.",
+      "searches": [
+        "\"two proxies\" \"Banzhaf\" delegation majority asymptotic",
+        "two proxy voting Banzhaf Penrose liquid democracy equal two guru star majority binomial asymptotic sqrt m"
+      ]
+    },
+    "rationale": "The original bipartite proxy model and its general evaluation algorithm are properly credited. The new result is not a restatement of computability: it proves explicit two-proxy all-parameter binomial formulas and a sharp uniform-in-delegation-propensity normalized upper envelope with an all-size limit. Fixed-delegation power and one-proxy power have different hypotheses and do not entail the disagreement/tie-mode argument. Searches did not yield a statement covering the exact analytic theorem; this is evidence, not a logical proof of novelty.",
+    "residual_risks": [
+      "A specialized publication deriving the same two-proxy closed forms or an equivalent sharp uniform power bound may have escaped the indexed and direct literature searches.",
+      "A future comparison may reveal that the sharp asymptotic bound has already been extracted from general bipartite proxy-voting recurrences; the prior computation theorem alone did not state that consequence.",
+      "The 2026 network-centrality item was compared at summary level only and concerns expected delegation weight, rather than the present pivotality functional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines this pivotality and gives general instance evaluation and finite experiments, but inspected material does not state the sharp two-proxy uniform asymptotic envelope.",
+        "evidence": [
+          "Definition 4 and Proposition 2, PDF pp. 6 and 10",
+          "Figure 8 and discussion, PDF p. 34",
+          "Appendix A.4, PDF pp. 24–26"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.02462",
+        "material_read": "Definitions 1–4 and Theorem 1; section 4 Proposition 2, Theorem 3; section 6 numerical discussions; Appendix A.4 alternative model and Appendix A.5 numerical figures and discussion.",
+        "method": "Open-access full-PDF text inspection with visual page checks",
+        "title": "Measuring a Priori Voting Power—Taking Delegations Seriously",
+        "trigger": "Same model and direct potential dominating prior result"
+      },
+      {
+        "assessment": "Studies realized fixed delegation profiles and their delegative Banzhaf index, not the independent random a-priori two-proxy ensemble or its normalized all-size bound.",
+        "evidence": [
+          "AAAI 2021, pp. 5822–5824, fixed delegation profiles and index definition"
+        ],
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/download/16729/16536",
+        "material_read": "Introduction, model, and delegative Banzhaf index definition and mechanism, PDF pp. 1–3.",
+        "method": "Open-access full-PDF text plus page-image inspection",
+        "title": "Power in Liquid Democracy",
+        "trigger": "Potential equivalent delegative Banzhaf power measure"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "adeb51de-094c-446f-9fc5-e988c1ff8875",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two independently voting representatives form the smallest nontrivial competition for delegated votes. Although each receives linearly many delegated votes for fixed positive propensity, its normalized Penrose–Banzhaf power is universally forced to vanish; the exact optimal constant and all-size formulas identify the structural dilution mechanism. This meaningfully separates weight accumulation from decisive influence and contrasts one-representative concentration rather than merely substituting into a general numerical recurrence.",
+    "status": "PASS"
+  }
+}
