@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For all \\(n\\ge3\\) and \\(1\\le r\\le n-1\\), derive and simplify the exact mixed leaf/root-degree EGF coefficient. Lagrange inversion proves positivity, endpoints and strict regression increment. A separate conditional covariance recursion telescopes; second moments give correlation decay. The bundled separately implemented tree enumerator and exact dynamic program passed 7,374 assertions, not offered as a replacement for the infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson arXiv:0803.1129, Sections 1–3: root degree equals number of top-level factors of Stirling permutation, leaves equal plateau count; its exact covariance theorem concerns ascent/descent/plateau triple, not factor count; Acan–Hitczenko arXiv:1411.5756, first posted 2014-11-21, abstract and full manuscript: limiting covariances of counts by outdegree, not a single root degree versus global leaves",
+        "Janson DOI:10.1002/rsa.20046, accessible abstract: asymptotic covariances of degree-class counts",
+        "Mahmoud–Smythe–Szymański 1993 primary mathematical sections, pages 1–24 of the 26-page manuscript inspected"
+      ],
+      "reasoning": "A fixed outdegree class count aggregates all vertices, while the distinguished root degree is a label-specific variable of order square-root n. The Stirling-permutation duality translates the claim to the plateau count conditioned on number of top-level factors; Janson (2008) does not state this two-variable law. The prior global degree-count covariance and central limit results do not directly specialize to the root/leaf joint conditional mean. General increasing-tree EGFs might contain an implicit route, but no directly covering derived theorem was located.",
+      "searches": [
+        "Acan Hitczenko On the covariances of outdegrees in random plane recursive trees arxiv 1411.5756",
+        "Pólya urn root degree leaf count covariance increasing plane tree",
+        "plane recursive tree root outdegree leaves covariance sqrt pi n 3 conditional leaf abundance"
+      ]
+    },
+    "checked_sources": [
+      "Mahmoud–Smythe–Szymański (1993), DOI:10.1002/rsa.3240040204",
+      "Janson (2008), arXiv:0803.1129",
+      "Acan–Hitczenko (2014), arXiv:1411.5756",
+      "Kuba–Panholzer (2006), accessible HTML text",
+      "Janson (2005), DOI:10.1002/rsa.20046 (abstract only)",
+      "published-finding corpus semantic database queries described in the four checks",
+      "Related published mathematical findings for distinct tree models"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "1993 paper Theorem 1 (root mean), Theorem 2 (leaf mean/variance), Theorem 4 (Eulerian marginal leaf law), no conditional root-degree leaf law in inspected main mathematical sections",
+        "2014 arXiv:1411.5756 treats asymptotic covariance among vertex degree frequency statistics",
+        "Janson 2008 arXiv:0803.1129, Sections 1–3: plateau count and number of top-level factors discussed separately, not their joint conditional moments",
+        "Kuba–Panholzer 2006 root degree generating functions, not joint leaf regression"
+      ],
+      "reasoning": "The reported claim is the all-n root-conditioned leaf expectation, strict r-monotonicity, sharp perfect-square sign boundary and exact root/leaf covariance. Earlier root and leaf marginal formulas are strictly weaker, and the later global degree-count covariance matrices are not stronger in these parameters. Possible derivation via prior general multivariate constructions remains a residual historical risk, not established implication.",
+      "searches": [
+        "plane oriented recursive tree increasing ordered tree root outdegree leaf count conditional expectation positive covariance",
+        "plane oriented recursive trees conditioned root degree r expected leaves exact rational threshold (r+1)^2 4(n-1)",
+        "\"plane recursive trees\" root degree leaves joint distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mahmoud–Smythe–Szymański 1993, Sections 2–3: separate exact root-degree and leaf marginals; https://doi.org/10.1002/rsa.3240040204",
+        "Janson 2008 arXiv:0803.1129, Section 1 Example 1.6: root degree corresponds to top-level Stirling-permutation factor count; leaves correspond to plateaux.",
+        "Kuba–Panholzer 2006: increasing-tree degree generating functions; https://paperzz.com/doc/7154780/on-the-degree-distribution-of-the-nodes-in-increasing-trees"
+      ],
+      "reasoning": "Checked the equivalent formulation as the coefficient of the root-degree marker in the leaf-marked increasing-tree bivariate EGF and as a covariance with the distinguished root. The exact Stirling-permutation equivalent was checked against Janson 2008, whose three-statistic urn excludes the top-level factor count. The 1993 marginals cannot determine their joint law; the 2006 generating-function results give the root-degree law but not the mixed leaf marker. This new coefficient ratio is not a mere renamed marginal.",
+      "searches": [
+        "plane oriented recursive tree increasing ordered tree root outdegree leaf count conditional expectation positive covariance",
+        "plane recursive tree root children and terminal vertices joint distribution, conditional leaf expectation",
+        "\"plane-oriented recursive trees\" \"degree of the root\" \"number of leaves\" covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record “Equal-share covariance of root degree and leaves in a random recursive tree”: (n-2)/(2(n-1)) covariance in the UNIFORM recursive-tree model",
+        "Mathematical claims in related published tree findings were compared by statement implication for different attachment models"
+      ],
+      "reasoning": "The closest archived root-degree/leaf claim uses uniform-parent attachment, for which root weight is 1 per vertex; the present plane-recursive weight is outdegree plus one and produces covariance of order square-root n. Previous own plane Catalan/attachment variants have different tree measures and observables. No exact matching table or statement found in the actual searches; absence is not proof of uniqueness.",
+      "searches": [
+        "plane oriented recursive trees conditioned root degree r expected leaves exact rational threshold (r+1)^2 4(n-1)",
+        "root degree terminal node count conditional mean sign crossing square root random increasing plane tree",
+        "plane recursive tree root children and terminal vertices joint distribution, conditional leaf expectation"
+      ]
+    },
+    "rationale": "Published same mathematical model primary full text from 1993 and 2014, degree generating-function literature and actual published-finding corpus/own-claim searches were compared by implication. Marginal leaf and distinguished-root laws, and limiting global degree-class count covariances, do not state or imply this mixed finite conditional regression without additional argument. Historical implicit coverage in general generating function literature remains a specifically disclosed risk.",
+    "residual_risks": [
+      "A general multivariate increasing-tree generating-function theorem may implicitly specialize to the mixed regression, though the inspected primary statements did not show it.",
+      "Janson (2005) was assessed at abstract level, not whole paper.",
+      "Full historical priority and independent validation have not been established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes plane-recursive insertion, marginal root degree and leaf count, and leaf distribution in branches; no displayed conditional mean of global leaves given root degree or sharp square-root threshold",
+        "evidence": [
+          "Theorem 1 root-degree mean; Theorem 2 leaf mean/variance; Theorem 4 leaf distribution; Sections 4–7 study subtree size and leaves"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240040204",
+        "material_read": "Main mathematical text (pages 1–24 of a 26-page publisher file), especially Sections 2, 3 and 6; bibliography pages not fully inspected",
+        "method": "Full-text mathematical sections of the primary publisher article, read and compared directly",
+        "title": "On the Structure of Random Plane-oriented Recursive Trees and Their Branches",
+        "trigger": "Same random tree model and the most plausible pre-existing joint leaf/root analysis"
+      },
+      {
+        "assessment": "Relates leaves to plateaux and the root degree to top-level Stirling-permutation factors, but its joint urn covariance is for ascent/descent/plateau statistics, with no top-level-factor conditional law",
+        "evidence": [
+          "Example 1.6 describes root factor count, Equation (1.2) gives leaves as plateaux, Theorem 2.5 treats a different covariance triple"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0803.1129",
+        "material_read": "Complete publicly readable arXiv HTML text, Sections 1–3 including Example 1.6 and Theorem 2.5",
+        "method": "Public arXiv HTML full scientific text and theorem-by-theorem comparison",
+        "title": "Plane recursive trees, Stirling permutations and an urn model",
+        "trigger": "Provides a direct combinatorial dual description of both root-degree and leaves"
+      },
+      {
+        "assessment": "Simplifies limiting covariance matrix of global degree-class counts; no distinguished root/leaf conditional mean or its sign threshold",
+        "evidence": [
+          "First public preprint timestamp 2014-11-21; 4-page outdegree-count covariance focus"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1411.5756",
+        "material_read": "arXiv manuscript and its abstract, downloaded/examined as text",
+        "method": "Public arXiv HTML/text and bibliographic record",
+        "title": "On the covariances of outdegrees in random plane recursive trees",
+        "trigger": "Same model with covariance and leaves among outdegree statistics"
+      },
+      {
+        "assessment": "Gives degree distributions and generating functions; no root-degree-conditioned leaf regression stated in material inspected",
+        "evidence": [
+          "Increasing-tree degree and root distributions, not joint leaf/root generating function"
+        ],
+        "identifier_or_url": "https://paperzz.com/doc/7154780/on-the-degree-distribution-of-the-nodes-in-increasing-trees",
+        "material_read": "Accessible HTML text including introductory model and root-degree coefficient analysis",
+        "method": "Public readable text, statement and derivation comparison",
+        "title": "On the Degree Distribution of the Nodes in Increasing Trees",
+        "trigger": "Possible general or distinguished-label root degree theorem"
+      },
+      {
+        "assessment": "Abstract concerns limiting degree-class count covariance; plausible stronger implicit coverage not excluded",
+        "evidence": [
+          "Abstract explicitly describes outdegree class counts and urn-based functional limits"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20046",
+        "material_read": "Publisher abstract only",
+        "method": "Public publisher abstract; full text not claimed inspected",
+        "title": "Asymptotic degree distribution in random recursive trees",
+        "trigger": "More general asymptotic joint degree-class statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7b9584f7-d03d-45b4-aad3-e1e94c44c062",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The relation between a distinguished root hub and global leaf abundance is a natural model feature. A sharp all-finite-size \\(\\sqrt{n}\\) conditioning threshold, the rare exact neutral square cases, strict regression, and covariance/correlation contrast characterize dependence not available from marginals. It is an exact structural finite-sample classification, not an arbitrary small numerical gain.",
+    "status": "PASS"
+  }
+}
