@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T04:19:15.732196Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified exact pinned RESULT.md. For invariant mu with Lebesgue X marginal, conditioning the next state on x produces uniform inverse doubling branches and c(x)=cos(2pi x); m=c+alpha Pm and s=c^2+2alpha c Pm+alpha^2 Ps. Pcos(2pi x)=0, Pcos(4pi x)=cos(2pi x), P1=1 imply unique L2 solutions m=c and s=1/[2(1-alpha^2)]+(alpha^2/2)c+(1/2)cos(4pi x). Explicit independent SymPy branch averaging and substitution checked Pm=0, both moment residuals=0 and s-m^2=(alpha^2/2)(1/(1-alpha^2)+c). Since |alpha|<1, ||P||L2<=1 and Neumann inverse is valid; bounded attracting strip gives finite moments. Integrating s and m gives mean zero/global variance 1/[2(1-alpha^2)]; using -1<=c<=1 gives exact min alpha^4/[2(1-alpha^2)] and max alpha^2(2-alpha^2)/[2(1-alpha^2)]. At alpha=0 variance is identically zero and m=c, so positivity explicitly only for alpha!=0; alpha negative is covered. Does not extend to arbitrary non-Lebesgue invariant marginals or infinite second moments. The simple packaged verify.py alone is not taken as proof. Reconstructed eight pinned Git blob SHAs into matching Git tree 05b17d974604237c7f1be798f629fcc8e7bec5c1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Graham 1983, Phys Rev A 28, 1679, abstract explicitly describes Kaplan–Yorke-introduced two-dimensional maps with exact moments, correlations and probability densities; full text unavailable (publisher authentication; Oxford VPN disconnected).",
+          "Beck, Higher correlation functions of chaotic dynamical systems—A graph theoretical approach, Nonlinearity 4 (1991), DOI 10.1088/0951-7715/4/4/006: accessible abstract says higher-dimensional extensions of Kaplan–Yorke type and higher-order correlations, without a displayed same mathematical model conditional variance.",
+          "Liang 2016 derives general Frobenius–Perron machinery and the same map application; generic operator identity is not by itself a separately solved fiberwise variance classification."
+        ],
+        "reasoning": "A closed joint stationary density for exactly the same deterministic map would implication-wise determine the conditional moments, even without identical wording; the Graham abstract therefore poses a material possible stronger-coverage risk and is not dismissed. Its actual model, noise limit and density/moment scope cannot be resolved from abstract alone. No accessible, read full-text stronger theorem that actually implies the claimed formula was verified.",
+        "searches": [
+          "web: Robert Graham 1983 exact solution discrete stochastic models chaos Kaplan Yorke moments covariance probability densities",
+          "web: Exact solution of some discrete stochastic models with chaos Graham pdf 1983",
+          "web: Higher correlation functions of chaotic dynamical systems Kaplan Yorke Beck",
+          "Resultary search: Robert Graham 1983 exact solution discrete stochastic models chaos Kaplan Yorke moments covariance probability densities"
+        ]
+      },
+      "checked_sources": [
+        "X. San Liang, Phys Rev E 94, 052201 (2016), DOI 10.1103/PhysRevE.94.052201, publisher open HTML Section III.C examined.",
+        "R. Graham, Phys Rev A 28, 1679–1691 (1983), DOI 10.1103/PhysRevA.28.1679, abstract only; full source inaccessible.",
+        "J. L. Kaplan and J. A. Yorke, LNM 730, 204–227 (1979), DOI 10.1007/BFb0064319, publisher preview only.",
+        "C. Beck, Nonlinearity 4, 1131–1158 (1991), DOI 10.1088/0951-7715/4/4/006, abstract/bibliographic material only.",
+        "Resultary 2026 semantic searches on stationary Kaplan–Yorke conditional variance and transfer moment equations; the matching SCOPE record itself excluded as independent evidence."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "X. S. Liang, Information flow and causality as rigorous notions ab initio, Phys Rev E 94 052201 (2016), section III.C: same Kaplan–Yorke map, Frobenius–Perron calculation and information flow, with no conditional-variance function stated in accessible full text.",
+          "R. Graham, Exact solution of some discrete stochastic models with chaos, Phys Rev A 28 1679 (1983), abstract: exact solutions, moments and densities for Kaplan–Yorke-introduced maps; cannot assess same-force specialization or closed conditional moments without primary full text.",
+          "J. L. Kaplan and J. A. Yorke (1979), LNM 730, 204–227: publisher record shows founding multidimensional chaos source; preview does not determine moment-coverage.",
+          "Beck 1991 abstract studies graph calculations of higher-order correlations for Kaplan–Yorke-type dynamics; no inspected statement directly identifies stationary fiberwise variance."
+        ],
+        "reasoning": "A universal transfer-operator framework or global variance is not itself an explicit solved fiberwise profile. Nevertheless a genuinely explicit same-object joint density or complete mixed-moment formula would imply the new profile, so Graham (1983) is a flagged high-priority equivalence/coverage uncertainty. Available evidence does not justify claiming that full Graham or original Kaplan–Yorke paper lacks it.",
+        "searches": [
+          "full text X. S. Liang Phys Rev E 94 052201 (2016), section III.C",
+          "Robert Graham Phys Rev A 28 1679 (1983), publisher abstract and PDF access status",
+          "Kaplan and Yorke LNM 730 (1979), publisher chapter preview",
+          "C. Beck Nonlinearity 4 (1991) 1131-1158 published abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same claim equivalently solves (I-alpha P)m=c and (I-alpha^2 P)s=c^2 for c(x)=cos(2pi x), P the doubling transfer operator, using P c=0 and P cos(4pi x)=c.",
+          "Liang 2016, Phys Rev E 94, 052201, section III.C, DOI 10.1103/PhysRevE.94.052201, states the same map/transfer equation but not the closed conditional moment identities in the inspected accessible article text.",
+          "Resultary exact-title top result was the assessed entry itself (2026/10/11/SCOPE-exact-conditional-variance-profile-of-the-kaplan-yorke-stationar--2cc33694c056), which cannot independently prove priority."
+        ],
+        "reasoning": "Reformulated as the solved first two stationary Perron-operator moment equations and searched under conditional expectation, fiber variance, stationary moments, skew product and invariant density aliases. Same-title indexed hit is not independent; no accessible exact match was established. Graham 1983 remains high-risk and is not declared non-covering.",
+        "searches": [
+          "web: Kaplan Yorke map x doubling y alpha y cos(4 pi x) conditional variance stationary measure",
+          "web: Kaplan Yorke map invariant measure fiber conditional moments conditional expectation variance",
+          "web: Kaplan Yorke map stationary conditional variance fiberwise second moment cosine 4pi alpha invariant measure",
+          "Resultary search: Kaplan Yorke map stationary conditional variance fiberwise second moment cosine 4pi alpha invariant measure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query on Kaplan–Yorke stationary fiber variance returned the assessed record as the top match. Other hits concerned expanding-map pair correlations and unrelated stationary variance/covariance settings.",
+          "Resultary query on skew-product transfer moments likewise found no distinct exact-table entry for the stated same-map conditional moments."
+        ],
+        "reasoning": "This is a functional profile for a one-parameter dynamical system, not a finite database invariant or named coefficient table. The applicable search was for independent cached exact same mathematical model profiles; the self-entry is excluded as priority evidence.",
+        "searches": [
+          "Resultary search: Kaplan Yorke map stationary conditional variance fiberwise second moment cosine 4pi alpha invariant measure",
+          "Resultary search: Kaplan-Yorke skew product transfer operator exact conditional moments m(x) s(x)",
+          "web: Kaplan Yorke map conditional variance invariant measure cos 4 pi x"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified PASS for the exact conditional mean/variance profile, not for the map, transfer operator, or global variance. The fully accessible Kaplan-Yorke application in Liang 2016, section III.C, formulates the map and transfer operator for information-flow calculations, but does not present the stationary conditional moment profile and says its generic density integrals cannot be explicitly evaluated without specifying the density. Kaplan-Yorke 1979 publisher preview is the foundational chaotic-attractor source, not a checked conditional-moment theorem. A serious unclosed priority risk is R. Graham 1983, whose publisher abstract states that exact solutions for maps introduced by Kaplan and Yorke are used to calculate moments, correlations and probability densities. The protected PDF was not available and authorized Oxford access was VPN-disconnected; the abstract does not reveal whether the identical forcing, joint stationary distribution and fiberwise second moments were actually treated. Beck 1991 addresses higher-order correlations in Kaplan-Yorke-type extensions, but available abstract does not state the assessed fiber variance. This is an explicit qualified assessment rather than a claim of exhaustive priority or that inaccessible work is non-covering.",
+      "residual_risks": [
+        "Highest priority: Graham (1983) gives exact solutions and moments/probability densities for Kaplan–Yorke-introduced maps; inaccessible full text may mathematically cover or imply the claimed conditional profile. Full primary inspection needed before a confident priority declaration.",
+        "Graham (1983) 1984 erratum may change a covered formula; only existence and title were seen, not its technical content.",
+        "Foundational 1979 Kaplan–Yorke chapter and Beck 1991 full text were not available to inspect; no whole-document negative coverage claim can be made.",
+        "Unindexed classic transfer-operator notes or a density formula specialized to cosine skew forcing could independently imply the elementary Fourier calculation.",
+        "No originality asserted for the map, invariant marginal, unconditional vertical variance, doubling Perron operator or Neumann series."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Derives information flows, not the claimed stationary conditional mean/variance profile; the generic transfer equation alone does not state solved fiber moment functions.",
+          "evidence": [
+            "Section III.C computes F-P operator and information flow from x to y. It states certain integrals cannot be explicitly evaluated without specifying density.",
+            "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.94.052201"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.94.052201",
+          "material_read": "Publisher-open full HTML text, especially Section III.C Application: Kaplan-Yorke map, its map definition, F-P operator derivation, and equations (17)–(23).",
+          "method": "Direct HTML full-section reading, statement comparison and search for variance/moment/conditional analogues.",
+          "title": "Information flow and causality as rigorous notions ab initio",
+          "trigger": "Accessible same-map primary derivation of the Frobenius–Perron operator and associated probability-density integrals."
+        },
+        {
+          "assessment": "Plausible stronger prior coverage; genuinely not determined whether same forcing or full conditional profile occurs. Never assert the whole work is non-covering.",
+          "evidence": [
+            "Abstract: exact stochastic-map solutions used for moments, correlations and probability densities; Phys Rev A 28, 1679–1691 (1983).",
+            "Publisher authentication/PDF unavailable; Oxford institutional access returned vpn_disconnected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.28.1679",
+          "material_read": "Publisher abstract, bibliographic metadata and access notice only; article PDF not obtained.",
+          "method": "Read publisher abstract; check openly available PDF locations, then authorized Oxford download after OA/arXiv attempts, which returned vpn_disconnected.",
+          "title": "Exact solution of some discrete stochastic models with chaos",
+          "trigger": "High-priority earlier paper on the Kaplan–Yorke-introduced two-dimensional maps and exact moments/densities, potentially dominating this profile."
+        },
+        {
+          "assessment": "Establishes historical map-family context, but full original chapter has not been assessed for conditional-moment results.",
+          "evidence": [
+            "Lecture Notes in Mathematics 730 (1979), pages 204–227; full subscription content unavailable from publisher preview."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BFb0064319",
+          "material_read": "Springer chapter landing page, bibliographic data, references, preview/access description; no complete chapter.",
+          "method": "Publisher page inspection.",
+          "title": "Chaotic behavior of multidimensional difference equations",
+          "trigger": "Original Kaplan–Yorke 1979 chapter and possible earlier exact stationary-statistics discussion."
+        },
+        {
+          "assessment": "Kaplan–Yorke-type generalizations and higher-order correlations, not a verified same-map conditional stationary variance formula; coverage not excluded without full source.",
+          "evidence": [
+            "Nonlinearity 4 (1991), 1131–1158, abstract describes graph method for higher-order correlations of Bernoulli-shift conjugates and Kaplan–Yorke-type extensions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/0951-7715/4/4/006",
+          "material_read": "Bibliographic record and accessible article abstract only; not the complete primary article.",
+          "method": "Read available scientific summary and cross-check scope and object.",
+          "title": "Higher correlation functions of chaotic dynamical systems—a graph theoretical approach",
+          "trigger": "Published broader Kaplan–Yorke-type correlation calculations that might imply stationary mixed second moments."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first two conditional moments as explicit functions of the expanding coordinate are a natural statistical invariant of a canonical fractal-skew-product stationary law, beyond global variance and Lyapunov dimension. The nonconstant conditional variance measures a genuine heteroscedastic location dependence; its sharp finite min/max and degenerate alpha=0 boundary give concrete benchmarks for invariant-density estimates and conditional-statistics computations. This is mathematically motivated by the named canonical map and natural moment functions, not an arbitrary finite slice. Scientific modesty: it is an elementary closed Fourier-mode consequence of transfer-operator invariance, supplies no full conditional distribution, entropy, dimension theorem or new operator mechanism, and should not be advertised as a major general dynamical theorem. Value does not rely on code reproducibility or possible priority alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "X. San Liang, Phys Rev E 94, 052201 (2016), DOI 10.1103/PhysRevE.94.052201, publisher open HTML Section III.C examined.",
+    "R. Graham, Phys Rev A 28, 1679–1691 (1983), DOI 10.1103/PhysRevA.28.1679, abstract only; full source inaccessible.",
+    "J. L. Kaplan and J. A. Yorke, LNM 730, 204–227 (1979), DOI 10.1007/BFb0064319, publisher preview only.",
+    "C. Beck, Nonlinearity 4, 1131–1158 (1991), DOI 10.1088/0951-7715/4/4/006, abstract/bibliographic material only.",
+    "Resultary 2026 semantic searches on stationary Kaplan–Yorke conditional variance and transfer moment equations; the matching SCOPE record itself excluded as independent evidence."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Originality is explicitly qualified; the uninspected Graham 1983 stronger-scope paper is a high-priority risk, not negative evidence.",
+    "Only first two conditional moments determined; no full conditional law, higher cumulant, invariant dimension or universal non-Lebesgue marginal result.",
+    "Publication withheld, no sanitized replacements staged, no repository edits or dispatcher closeout performed.",
+    "Current new rows inspected; historical ledger rows and known gaps preserved unchanged."
+  ],
+  "schema_version": 1
+}

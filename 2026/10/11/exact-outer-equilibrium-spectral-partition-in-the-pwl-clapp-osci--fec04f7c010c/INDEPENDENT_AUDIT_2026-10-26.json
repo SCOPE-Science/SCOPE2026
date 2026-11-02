@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T14:22:53.802930Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed from actual PWL Case II vector field (Petrzela equations (6),(8),(10),(11)): at an outer equilibrium with C1=C2=C3=L=y11=1, y12=1/10 and transconductance derivative a, Jacobian rows are (-1,-1/10,0,1),(-a,0,0,-1),(0,0,0,1),(-1,1,-1,0). Direct symbolic det(λI−J) gives q_a(λ)=λ^4+λ^3+(3−a/10)λ²+(a+21/10)λ−a/10 exactly. Independent SymPy discriminant agrees identically with P(a)/50000; Δ2=(9−11a)/10>0 and Δ3=−(110a²+131a−189)/100. Thus Routh first column (1,1,Δ2,Δ3/Δ2,−a/10) yields unstable dimension 2 below a_H and 0 above. At a_H, q factors into (λ²+ω²)(λ²+λ+c) with ω²=A3>0, c>0, proving a simple imaginary pair and stable complement. Independent exact rational polynomial root-isolation and Sturm/count_roots computed exactly two simple discriminant zeros inside [-10,-1], alpha∈(-4.871964812,-4.871964811), beta∈(-1.009024345,-1.009024344); root counts of q at -10,-4,-2,-1 respectively (positive,negative)=(2,0),(0,0),(0,0),(0,2). These and no further collisions establish all four regimes; double coalescence sign follows continuous eigenvalues and simple discriminant crossing. Endpoints -10 and -1 included; alpha/a_H/beta boundaries separately described. The polynomial and assumptions concern local linear spectra only, no nonlinear periodic or chaotic claims. Reconstructed full 8-entry Git tree identity exactly, and inspected RESULT.md/verify.py independently of VERIFY_OK log.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Petrzela 2022 gives the full vector field and computes eigenvalues numerically; its printed source parameters cover the assessed slice, but no exact discriminant or three-threshold partition appears in inspected relevant text.",
+          "Published SCOPE/Resultary Case I cubic Clapp result (2026/10/4/...9d63b87fc7ce/RESULT.md) treats stationary barycenter, a cubic moment law and threshold crossing for invariant measures of the polynomial rather than PWL variant."
+        ],
+        "reasoning": "General Routh-Hurwitz/Sturm theory supplies computational machinery but neither gives precomputed exact model-specific thresholds without applying it to this quartic. Same-source cubic invariant-measure theorems do not dominate local eigenvalue partitions of the distinct PWL Case II system.",
+        "searches": [
+          "Resultary: exact eigenvalue transition quartic Jacobian Clapp circuit outer piecewise linear",
+          "Resultary: Clapp oscillator Case I cubic stationary invariants equilibrium-axis barycenter 2026",
+          "Petrzela 2022 Section 3 Case II outer-equilibrium discussion",
+          "web: Clapp oscillator spectral bifurcation outer equilibrium PWL parameter slope y21 out -4.87 2022"
+        ]
+      },
+      "checked_sources": [
+        "Petrzela (2022), Mathematics 10(11), 1868, doi:10.3390/math10111868, relevant original Sections 2 and 3",
+        "Resultary 2026/10/4/SCOPE-equilibrium-axis-barycenter-rigidity-in-the-cubic-clapp-oscillat--9d63b87fc7ce/RESULT.md",
+        "Resultary semantic searches for exact outer Clapp spectrum; self-match excluded",
+        "Exact analytic Routh-Hurwitz and Sturm calculations for q_a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary model lets one derive q_a by taking the outer derivative -a in the 4x4 Jacobian, but it only prints the approximate local-geometry changes.",
+          "A direct determinant computation gives q_a(λ); its discriminant has two simple zeros in [-10,-1] and Routh Δ3 one zero, yielding a refinement not literally reported by that paper.",
+          "The Case I result gives ∫v1^3 dμ=ρ²∫v1 dμ, not any eigenvalue counts for q_a."
+        ],
+        "reasoning": "The novel statement is an exact three-threshold classification obtained using standard algebra from source-specific data. The source implies that the classification is calculable but its printed assertions (numeric two-threshold account) do not supply the exact early node-focus collision or four-regime partition; compared Case I stationary theorem has different parameters, invariant and assumptions. Mathematical contribution is narrow and must not be oversold.",
+        "searches": [
+          "Petrzela, Chaotic and Hyperchaotic Dynamics of a Clapp Oscillator (2022), DOI:10.3390/math10111868, equations (6)-(11), Section 3",
+          "Resultary 2026/10/4/SCOPE-equilibrium-axis-barycenter-rigidity-in-the-cubic-clapp-oscillat--9d63b87fc7ce/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The result matching all three transition values in Resultary is the assessed record itself and is excluded as independent prior art.",
+          "Petrzela Eq. (10) is the quartic with inner slope b; Section 3 explicitly substitutes a for b at outer fixed points, with only approximate local geometry changes near -2 and -1.",
+          "Independent exact computation adds discriminant P(a)/50000 with a zero near -4.872, a threshold not stated in the inspected primary sections."
+        ],
+        "reasoning": "The prior statement of an input polynomial and approximate two-threshold narratives does not itself state the identical exact four-regime classification, although it gives all data from which it can be derived; a complete earlier same-parameter spectral table would cover the claim regardless of wording. No such independent direct match was found in the actual searches.",
+        "searches": [
+          "Resultary: piecewise linear Clapp oscillator Case II outer equilibria exact eigenvalue spectral partition quartic discriminant roots Hopf node focus",
+          "Resultary: Clapp oscillator Petrzela 2022 outer transconductance slope -4.87196 eigenvalue collision -2.03516",
+          "web: Clapp oscillator Case II outer equilibrium exact spectral discriminant a -4.871964811954576",
+          "DOI 10.3390/math10111868 (equations 8, 10, 11, numerical results Section 3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table of these three algebraic transitions surfaced from the recorded searches.",
+          "Primary 2022 Section 3 uses narrative approximations about -2 and -1, not a table containing the root alpha."
+        ],
+        "reasoning": "An exact database of characteristic roots or local types indexed by a would cover the claim even without a theorem label; only a numerical/approximate antecedent and the assessed record were located. Negative search is evidence of limits, not proof of novelty.",
+        "searches": [
+          "web: Clapp oscillator Case II outer equilibrium exact spectral discriminant a -4.871964811954576",
+          "web: Clapp oscillator spectral bifurcation outer equilibrium PWL parameter slope y21 out -4.87 2022",
+          "web: Clapp oscillator 2022 10.3390/math10111868 pdf",
+          "Resultary: Clapp oscillator Petrzela 2022 outer transconductance slope -4.87196 eigenvalue collision -2.03516"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS: Petrzela (Mathematics 2022, DOI 10.3390/math10111868) prints the Case II model and the outer-characteristic substitution and explicitly describes only approximate spectral transitions near a=-2 and a=-1. Its actually inspected Sections 2.1, 2.2, and 3 contain neither the computed discriminant P nor the earlier positive-real to complex collision a≈-4.871965; targeted published Resultary search returned only the audited finding as exact same-claim match. Existing Case I cubic-Clapp work proves invariant-measure moments, not this Case II quartic-root partition. This is a narrow but motivated new explicit calculation, with residual risk of unindexed self-review analysis. No claim of absolute bibliographic priority.",
+      "residual_risks": [
+        "The publisher site returned HTTP 429 on direct open; relevant Sections 2 and 3 were available through indexed full-text extracts, not a single fetched full document.",
+        "A separate unindexed exact same mathematical model spectral classification or table may exist despite negative queries.",
+        "The polynomial and general Routh/Sturm tools are previously known; claimed new content is narrowly the complete exact Clapp-specific partition, not general bifurcation theory.",
+        "No nonlinear Hopf criticality or chaos/hyperchaos mechanism is proven."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_ONLY on inspected mathematically relevant sections: exact source polynomial and approximate narrative, but no printed full three-transition classification or extra early positive-real-pair collision.",
+          "evidence": "Section 3 explicitly: replace b by a in (10), a in (-10,-1); then describes approximations a≈-2 and a≈-1 and says the cause of chaos-hyperchaos remains unknown. Section 2.2 gives outer equilibria ±(a-b)/a and Eq. (10) gives inner quartic.",
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/10/11/1868 (DOI:10.3390/math10111868)",
+          "material_read": "Publisher-indexed full-text extracts of introduction; Section 2 equations (6)-(11), including PWL transconductance equation (8), quartic (10), and outer equilibria (11); Section 3 Numerical Results, specifically paragraph replacing b by a for outer Jacobians and approximate local geometry near -2,-1; Case II Figures 6-8 captions and Section 4 excerpt.",
+          "method": "Direct scientific comparison of accessible publisher-indexed full-text material obtained via indexed searches of the publisher page; direct web open received HTTP 429, so no assertion about unread sections.",
+          "title": "Chaotic and Hyperchaotic Dynamics of a Clapp Oscillator",
+          "trigger": "Same physical model and defining antecedent, including the numerical spectral partition that the assessed result sharpens."
+        },
+        {
+          "assessment": "NOT_COVERING: polynomial Case I stationary integral/barycenter identities, not PWL Case II local Jacobian quartic spectrum.",
+          "evidence": "Defines cubic law C2 dv2/dt=κv1(v1²−ρ²)−i; proves compact-stationary ∫v1³dμ=ρ²m1, and explicitly excludes PWL case.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-equilibrium-axis-barycenter-rigidity-in-the-cubic-clapp-oscillat--9d63b87fc7ce/RESULT.md",
+          "material_read": "Complete published RESULT.md including assumptions, finding, proof, verification, prior-work relationships, limitations.",
+          "method": "GitHub connected read of published result bytes plus statement/implication comparison.",
+          "title": "Equilibrium-axis barycenter rigidity in the cubic Clapp oscillator",
+          "trigger": "Related published same-source finding from Resultary corpus."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A piecewise-linear circuit oscillator is a motivated natural system whose local outer-equilibrium spectra were used in its defining article to discuss transitions while trajectories repeatedly visit outer regions. The exact partition gives all three algebraic boundaries, including a previously omitted positive-real to unstable-focus transition at a≈-4.872 well inside the scanned interval, and separates node-focus collisions at alpha/beta from the unique change of unstable dimension at a_H≈-2.035. This corrects/refines a concrete mathematical phase portrait rather than an arbitrary parameter slice or mere extra decimal digits. It is an exact, finite-parameter full classification, although the proof uses standard Routh/Sturm algebra and supplies no new general spectral theorem or nonlinear chaos mechanism.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Petrzela (2022), Mathematics 10(11), 1868, doi:10.3390/math10111868, relevant original Sections 2 and 3",
+    "Resultary 2026/10/4/SCOPE-equilibrium-axis-barycenter-rigidity-in-the-cubic-clapp-oscillat--9d63b87fc7ce/RESULT.md",
+    "Resultary semantic searches for exact outer Clapp spectrum; self-match excluded",
+    "Exact analytic Routh-Hurwitz and Sturm calculations for q_a"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Qualified originality; exact same mathematical model prior art may exist beyond inspected sources.",
+    "Primary publisher direct open returned 429; sections 2 and 3 read from indexed full text, not all pages retrieved by one request.",
+    "Statement is local linear only; no nonlinear Hopf, attractor, or chaos/hyperchaos transition mechanism certified.",
+    "Original public METADATA/AUDIT include provenance/identifiers and misleading inherited first_public_date; publication is withheld."
+  ],
+  "schema_version": 1
+}
