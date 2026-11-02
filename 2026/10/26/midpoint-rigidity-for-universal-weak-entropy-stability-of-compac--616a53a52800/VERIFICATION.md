@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The `checker.py` script uses the standard-library rational number implementation; execute with `python checker.py` from the directory containing the script. Its successful execution checks 320 exact coefficient/entropy identities, one explicit strongly convex counterexample with defect \(-1/3072\), 16 rational members of the universally failing non-midpoint class, three midpoint Courant-bound counterexamples, and the full-update Fourier determinant formula. The code is a finite independent algebraic check, not a substitute for the proof of the universally quantified entropy claims. The negative construction and all-convex positive result are proved in RESULT.md; neither relies on numerical extrapolation. No independent scientific audit has been performed.
+## correctness
+
+PASS
+
+Derived γ-parameterized weights; the physical step equals u+τF(u)+(τ²/2)FG(u) independent of γ. For midpoint, subcell Jensen on lengths 1−r,r proves all finite convex entropies at 0≤r≤1; constant-cell quadratic counterexample rules out r>1. For γ>1/2 quartic hinge η=(z−t)_+^4 yields δ^4(δ/10−rw1)<0 and survives adding μz²/2. Independent exact check yields −1/3072 and confirms alternating-mode determinant 1−2r+6r².
+
+## originality
+
+PASS
+
+The exact all-convex tableau rigidity concerns stage-averaged entropy flux; earlier cRKDG work provides sufficient restricted-entropy flux conditions and physical-update equivalence, which do not logically imply the stated iff classification. Full Sun paper inaccessible; prior equivalent necessary-condition theorem remains a risk.
+
+## value
+
+PASS
+
+Classifies a meaningful universal weak entropy property and exposes a nontrivial distinction between entropy budget and unstable full polynomial update.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
