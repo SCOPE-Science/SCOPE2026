@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The phase-extraction step is an exact application of unique ergodicity of the totally irrational torus rotation to bounded Riemann-integrable functions, not a numerical convergence assumption. The two Fourier coefficients have explicitly evaluated, nonzero multipliers because the two slopes are irrational. Thus equal parity outputs have identical phases. At a fixed phase, the elementary mechanical-word boundary calculation proves that the only possible nontrivial parity collision is the simultaneous flip of the same two consecutive sites in both factors. Exactly one joint singular torus orbit permits that; its four ordered input pairs produce two outputs with fibre multiplicity two. The separate output orbits are distinguished by their recovered phases and their disagreement at two sites. Product minimality, uniqueness of the invariant measure, and pure point spectrum follow from joint irrationality and the almost-everywhere one-to-one phase map. Boundary sites are treated explicitly. The finite checks are corroborative, not a proof of the quantified theorem.
+## correctness
 
-## Originality — PASS subject to historical-priority uncertainty
-The closest relevant full-text source, Bédaride (2012, arXiv:1205.5093), classifies complexity of the three-letter cube-billiard coding of torus rotations; its main theorem does not give a binary coordinatewise-parity generating factor, recoverable coordinate phases, or exceptional-fibre orbits. Frid and Jamet (2013, arXiv:1302.3722) count words from one circle rotation and study pairs of Sturmian words sharing one slope, not the factor of two rationally independent rotation slopes. Berstel and Vuillon's 2002 coding paper likewise treats one common rotation angle in available metadata; its full text was not retrieved. The nearest indexed research results on polygonal generators concern a rotation coupled to an expanding circle map, not a minimal two-frequency torus rotation or the precise topological fibre census. Searches for XOR/Sturmian products, checkerboard coding, and exceptional two-to-one fibres identified no equivalent result. Neither an unsuccessful search nor the research partition proves priority; an implicit old result remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The question asks whether the canonical four-symbol product of two Sturmian systems can be compressed to the natural *single parity bit* without losing its two independent irrational phase coordinates, and, more sharply, whether any remaining symbolic ambiguity can be located exactly. The theorem answers both for an unrestricted family of irrationally independent angles. It gives a pair of explicit inverse observables and a complete description of the only two exceptional orbits; this is more informative than the general existence of finite generators or the isolated fact that the factor is almost everywhere injective. It produces a strictly ergodic binary system with a rank-two pure point spectrum and exactly characterized non-injective topological factor fibres. No finite-block complexity formula, robustness theorem, or parameter recovery is claimed.
+The critical boundary lemma is verified directly from the floor mechanical coding: a Sturmian singular phase has precisely two labels, differing at j-1,j with 01 and 10 exchanged; a nonsingular phase has only one. For w_n=u_n XOR v_n, the sign is g_alpha(x+n alpha)g_beta(y+n beta), apart from finitely many boundary terms. Equidistribution for (alpha,beta) on the torus gives A_alpha=e^(2pi ix)*(1-e^(2pi i alpha))/(pi i)*(1-2beta) and the symmetric A_beta; irrationality makes both constants nonzero. Equal output therefore forces both phases equal. Two labeled input pairs cancel only when both phases are singular at the same index j, which yields exactly two parity classes, each of cardinality two, along one joint-phase orbit; their two output orbits differ at sites -1,0 and cannot coincide under a nonzero shift because of rational independence. Almost-everywhere injective factor of the uniquely ergodic torus rotation establishes the measure spectrum, with topological minimality from joint irrationality and open phase cylinders. The 101-site and 30000-term checks are illustrative, not a proof of global fibres.
 
-## Evidence and remaining limits
-The proof is self-contained aside from classical Kronecker equidistribution and the Sturmian phase-cut description, both spelled out where used. The verifier checks a concrete irrationally independent example and the exceptional XOR identities. The source comparison was against accessible primary HTML text and indexed search results; historical priority and independent expert examination remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the explicit binary parity factor, two-frequency inversion, and exactly two exceptional double-fibre shift orbits, not for general Sturmian phase coding or existence of finite generators. Full original preprints Bédaride (torus cube-billiard triple code) and Frid–Jamet (one-circle rotation word counting) do not imply this exact parity-fibre classification. No directly covering Resultary record surfaced. Unindexed coding-of-tori equivalences remain a genuine priority risk.
+
+## value
+
+PASS
+
+The natural information-loss question for parity compression of a four-symbol Sturmian product is answered completely, including explicit inverse phase observables and exact exceptional symbolic fibres. This result is an intrinsically meaningful factor and generating-partition classification for all independent slope pairs, not simply a rename of one-slope complexity or a finite-word experiment; no finite-data robustness is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
