@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:53:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed Fourier normalization, radial transform, homogeneous-distribution coefficient 2^(d+alpha)π^(d/2)Γ((d+alpha)/2)/Γ(-alpha/2), and derivative at alpha=2 C_d=2^(d+1)π^(d/2)Γ((d+2)/2)>0. With a smooth cutoff at the origin, the p-derivative of e^(-|x|^p) at p2 has a negative r^(-d-2) tail and error O(r^(-d-4)log r); the second exponent derivative is bounded uniformly for q∈[2,2+eps0], r>=2 by O(r^(-d-2)(1+log²r)), yielding uniform Taylor control. At r_±²/4=L+(d+2)/2 log L+log(2/Γ((d+2)/2))±δ the Gaussian-to-negative-tail ratio tends to e^(∓δ). It is monotone decreasing past fixed large r, while compact r remains positive by convergence to the strictly positive Gaussian. This excludes earlier zeros and brackets the first. Fresh independent high-precision differentiation verified C_d for d=1..6, not a proof of the uniform cutoff bound. The standard cutoff lemma is the main analytic dependency and the proof states its required range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Paris treats fixed integer n>2; Pogány has all real κ>1 transform formula in 1D; Dytso provides existence of zero for p>2."
+        ],
+        "reasoning": "These are overlapping component statements but do not provide the two-term d-dependent first-zero asymptotic or its uniform no-early-zeros argument; no dominating stronger range found.",
+        "searches": [
+          "Paris 2012 cosine integral Fourier zeros",
+          "Pogány–Nadarajah 2010 Fox–Wright CHF",
+          "Dytso et al. 2018 zero theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://www.numdam.org/item/10.1016/j.crma.2009.12.010.pdf",
+        "https://www.ejpam.com/ejpam/article/view/1206/264",
+        "https://link.springer.com/article/10.1186/s40488-018-0088-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gaussian transform π^(d/2)e^(-r²/4) and first p-derivative tail -eps*C_d r^(-d-2) balance at L+(d+2)/2 log L+log(2/Gamma((d+2)/2))."
+        ],
+        "reasoning": "Obtaining the asserted first zero from older fixed-p tails requires a uniform derivative/remainder estimate and interval positivity; that is not a corollary of the zero-existence theorem alone.",
+        "searches": [
+          "Paris 2012 fixed-integer exponent analysis",
+          "Dytso 2018 Thm3 and fixed-p tail analysis",
+          "Pogány–Nadarajah 2010 Thm2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact near-Gaussian first-zero equation is not stated in the inspected primary sources; Dytso Thm3 proves crossing existence only."
+        ],
+        "reasoning": "A fixed-exponent large-r tail or existence of a zero is not an asymptotic of the first zero in the coupled limit eps=p-2↓0, r∼2√log(1/eps).",
+        "searches": [
+          "Resultary: First Fourier real zero generalized Gaussian exp(-|x|^p) as p tends to 2 positive logarithmic asymptotics higher dimension",
+          "web: generalized Gaussian characteristic function first real zero as exponent tends to 2 asymptotic",
+          "Dytso et al. 2018 Thm3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Plots and qualitative crossing/noncrossing threshold known; no exact logarithmic boundary table or asymptotic constant located."
+        ],
+        "reasoning": "A numerical first-zero chart would not prove the uniform no-earlier-zero property; the result gives a theorem with a closed analytic constant.",
+        "searches": [
+          "Dytso et al. 2018 Figure2 characteristic-function zeros",
+          "web: first zero generalized Gaussian Fourier p approaching 2"
+        ]
+      },
+      "rationale": "Best-of-knowledge original singular near-Gaussian first-zero location, with dimension-dependent log-log correction and constant. Complete lawful OA 2010 source read (not merely abstract), 2012 integer-exponent zero-asymptotics and 2018 qualitative crossing theorem compared directly by hypotheses and quantifiers.",
+      "residual_risks": [
+        "A different general uniform small-parameter characteristic-function zero theorem could subsume the result.",
+        "Uniform cutoff derivative estimates are standard analytic lemmas but are stated concisely rather than proven with a detailed frequency-dependent constant construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies transform expression in d=1, but no Fourier-zero theorem or p↓2 logarithmic boundary asymptotic.",
+          "evidence": "Pogány–Nadarajah 2010 Theorems2.1–2.2",
+          "identifier_or_url": "https://www.numdam.org/item/10.1016/j.crma.2009.12.010.pdf",
+          "material_read": "Lawful Numdam four-page primary PDF pages 203–206, Theorem 2.1 Fox–Wright transform, Theorem 2.2 rank correlation, derivations and refs; screenshot inspected",
+          "method": "Read full primary to check for zeros and exponent tending 2",
+          "title": "On the characteristic function of the generalized normal distribution",
+          "trigger": "Most plausible early formula on exactly same one-dimensional characteristic function"
+        },
+        {
+          "assessment": "Treats exponent n as integer >2 (including special even cases) and large-index/fixed-parameter zeros of related integrals. Does not provide a joint p→2+ first-zero law for fixed Euclidean d.",
+          "evidence": "Paris 2012 equations(1)–(3), §§1,4–5",
+          "identifier_or_url": "https://www.ejpam.com/ejpam/article/view/1206/264",
+          "material_read": "22-page OA primary PDF, introduction §1, Wright-function setup §2, real/complex zero regimes and stated integer-exponent restrictions §§3–5, page-image inspected",
+          "method": "Compare exponent quantifiers, Fourier dimension, and zero index",
+          "title": "On the Asymptotics and Zeros of a Class of Fourier Integrals",
+          "trigger": "Strong zero-asymptotics title, possible dominating estimates"
+        },
+        {
+          "assessment": "Thm3 proves existence and p≤2 positivity (one-dimensional case) and tail information, but no location, log-log coefficient, or fixed-d multivariate generalization.",
+          "evidence": "Dytso et al. 2018 Thm3, Appendix H",
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s40488-018-0088-5",
+          "material_read": "Full open primary HTML §§5.3–5.4, Thm3 and Appendix H proof",
+          "method": "Contrast existence of positive-to-negative zero crossing for all p>2 with location of FIRST zero as p↓2",
+          "title": "Analytical properties of generalized Gaussian distributions",
+          "trigger": "Same characteristic-function zero threshold p=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies the singular escape of the first real zero precisely as positivity at p=2 breaks down, including sharp dimensional log-log and constant terms. This is a natural phase-boundary invariant and materially strengthens known existence/absence results, not a numeric first-zero census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.numdam.org/item/10.1016/j.crma.2009.12.010.pdf",
+    "https://www.ejpam.com/ejpam/article/view/1206/264",
+    "https://link.springer.com/article/10.1186/s40488-018-0088-5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed dimension d>=1, eps=p-2→0+, Euclidean radial Fourier convention no 2π; only first positive zero, no simplicity or later zeros."
+  ],
+  "residual_risks": [
+    "Uniform homogeneous-distribution derivative cutoff estimates require standard Fourier analysis and were not formally mechanized."
+  ],
+  "schema_version": 1
+}
