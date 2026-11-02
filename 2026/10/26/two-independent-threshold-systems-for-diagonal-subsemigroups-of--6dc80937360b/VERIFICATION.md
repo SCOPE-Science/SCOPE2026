@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Executed the standalone standard-library `verify.py`, extracted from the new finding package. For n=1,2,3,4 it enumerates **all** reflexive binary relations, checks coordinatewise minimum closure, counts symmetric/equivalence relations, and compares their full rank profiles with the theorem. Exact diagonal counts were 1, 4, 36, 576; symmetric counts 1, 2, 6, 24; congruences 1, 2, 4, 8. It checks that reconstruction from every threshold tuple agrees with the complete exhaustive set. For n=5 it constructs all 14,400 threshold pairs, checks each is closed and all are distinct, and validates the generating-polynomial total. The checker ended with `VERIFY_OK`.
+## correctness
 
-These computations cannot exclude exotic relations for n>5; the independently written mathematical necessity/sufficiency proof establishes that no such exceptions exist. Originality comparisons used the actual motivating full text, older 1983 primary paper, and actual semantic/database queries. Older unpublished/unindexed equivalents remain a residual risk. Independent audit has not been performed.
+PASS
+
+For meet semilattice C_n={0,…,n−1}, if (i,j),i<j is in reflexive meet-compatible R, meeting with (k,k) for i<k≤j forces (i,k), and likewise lower-directed entries. Thus all off-diagonal pairs uniquely comprise two independent row/column interval thresholds u_i,v_i. Conversely any two arbitrary thresholds yield meet closure: comparable pairs meet to one operand, crossed pairs force the meet by the upper interval of one pair or lower interval of the other. Coordinatewise threshold order gives lattice (∏_{k=1}^n C_k)^2, exactly (n!)² relations and rank generating polynomial ∏_{k=1}^n(1+…+z^{k−1})². Symmetry requires u=v (n! choices); congruences are consecutive-interval partitions (2^{n−1}). Therefore χ(C_n)=2^{n−1}/(n!)² including n=1, and Stirling gives the stated asymptotic. Independent exhaustive enumeration of every reflexive binary relation for n≤4 verified counts 1,4,36,576 and compatibility independently, not relied on for all n.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Chajda–Nieminen–Zelinka 1983 Theorem 7 supplies one-sided compatible-order intervals, and Barber–Ruškuc 2026 define DSC coefficient and study Rees/Clifford, explicitly not giving its possible values over semilattices. Two independent upper/lower threshold systems, full inclusion lattice/rank polynomial and χ chain sequence are not supplied by those inspected full texts; one-sided theory is explicitly prior credited. Older semilattice compatible-relation classifications remain residual risk.
+
+## value
+
+PASS
+
+The full two-direction lattice decomposition and exact DSC coefficient resolve a naturally prompted missing subfamily of the semilattice coefficient problem; rank enumerator and count (n!)² are natural useful invariants, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

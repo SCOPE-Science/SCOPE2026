@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T09:58:32.591262Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For meet semilattice C_n={0,…,n−1}, if (i,j),i<j is in reflexive meet-compatible R, meeting with (k,k) for i<k≤j forces (i,k), and likewise lower-directed entries. Thus all off-diagonal pairs uniquely comprise two independent row/column interval thresholds u_i,v_i. Conversely any two arbitrary thresholds yield meet closure: comparable pairs meet to one operand, crossed pairs force the meet by the upper interval of one pair or lower interval of the other. Coordinatewise threshold order gives lattice (∏_{k=1}^n C_k)^2, exactly (n!)² relations and rank generating polynomial ∏_{k=1}^n(1+…+z^{k−1})². Symmetry requires u=v (n! choices); congruences are consecutive-interval partitions (2^{n−1}). Therefore χ(C_n)=2^{n−1}/(n!)² including n=1, and Stirling gives the stated asymptotic. Independent exhaustive enumeration of every reflexive binary relation for n≤4 verified counts 1,4,36,576 and compatibility independently, not relied on for all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barber–Ruškuc 2026 Section4 Theorem4.2 states 0<χ(S)≤χ(Y) for Clifford semigroups over semilattice Y, and expressly says possible χ(Y) unknown. Chajda 1983 Theorem7 controls one side in tree semilattices."
+        ],
+        "reasoning": "General Clifford coefficient bounds do not determine exact χ(C_n); tree-semilattice one-side interval closure does not by itself prove all upper/lower thresholds independent. The source provides that missing sufficiency.",
+        "searches": [
+          "https://arxiv.org/html/2602.17286",
+          "https://dml.cz/dmlcz/107165"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Git blob af5d5a868b9d3340c7605f7183e6a81583a136aa and seven-entry source tree b615718831b5440e9fbbd77a5b4078c957099b4a.",
+        "Independently enumerated all reflexive relations n=1,2,3,4 in /mnt/data/verify_misc_4489.py; compatible counts 1,4,36,576.",
+        "Resultary semantic search; Barber–Ruškuc full arXiv HTML v2 §4; Chajda–Nieminen–Zelinka full 1983 PDF Theorem7."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 1983 one-direction interval property supplies necessity but leaves the independent two-direction meet-closure case to prove; 2026 paper lacks exact chain χ."
+        ],
+        "reasoning": "If one were to derive both-direction independence using an extra simple crossing-pair lemma, the claim could be viewed as a short corollary, but that key lemma is not stated or implied solely by the 1983 theorem. Full cited texts inspected.",
+        "searches": [
+          "Barber Ruskuc semilattice chi coefficient Section 4 question 2026",
+          "Chajda Nieminen Zelinka 1983 Theorem 7 compatible order"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chajda et al. 1983 Theorem 7 gives interval closure for a reflexive binary relation constrained to a single semilattice ordering; two directions are not jointly counted there."
+        ],
+        "reasoning": "The prior one-sided relation is the upper or lower half of current R; neither alone yields the independent product lattice. An equivalent terminology is compatible reflexive relations or diagonal subalgebras of C_n².",
+        "searches": [
+          "Resultary: diagonal subsemigroups chain semilattice compatible reflexive binary relations threshold rank polynomial",
+          "https://dml.cz/dmlcz/107165"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Barber–Ruškuc gives rational coefficient framework without n-indexed chain table; Chajda gives interval relation criterion without both-direction count table."
+        ],
+        "reasoning": "An infinite factorial-square rank generating function and exact χ are not a recomputation of a known finite table in the inspected sources. Broader older semigroup-algebra databases may nevertheless tabulate it.",
+        "searches": [
+          "Resultary: chain semilattice compatible reflexive relations factorial square count",
+          "https://arxiv.org/html/2602.17286",
+          "https://dml.cz/dmlcz/107165"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Chajda–Nieminen–Zelinka 1983 Theorem 7 supplies one-sided compatible-order intervals, and Barber–Ruškuc 2026 define DSC coefficient and study Rees/Clifford, explicitly not giving its possible values over semilattices. Two independent upper/lower threshold systems, full inclusion lattice/rank polynomial and χ chain sequence are not supplied by those inspected full texts; one-sided theory is explicitly prior credited. Older semilattice compatible-relation classifications remain residual risk.",
+      "residual_risks": [
+        "Unindexed old semilattice relation-enumeration literature could have independently coupled both one-sided threshold systems.",
+        "Only finite chains with meet operation; not arbitrary finite semilattices or richer signatures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not give χ(C_n) nor the full lattice; explicitly notes uncertainty of semilattice χ values.",
+          "evidence": "Barber and Ruškuc arXiv:2602.17286v2 (2026-10-07), Theorem4.2 and concluding discussion.",
+          "identifier_or_url": "https://arxiv.org/html/2602.17286",
+          "material_read": "Full HTML paper, introduction and Section4 Theorem4.2, concluding open question, relevant Rees/Clifford scope.",
+          "method": "arXiv HTML full-text reading",
+          "title": "Comparing numbers of diagonal subsemigroups and congruences for semigroups",
+          "trigger": "Defines exact χ and asks about semilattices"
+        },
+        {
+          "assessment": "Theorem7 yields order-constrained interval closure, acknowledged partial prior coverage; not full independently directed pair product.",
+          "evidence": "Chajda, Nieminen, Zelinka, Archivum Mathematicum 19 (1983) 125–131, Theorem7 p.129.",
+          "identifier_or_url": "https://dml.cz/dmlcz/107165",
+          "material_read": "Primary 8-page PDF text; Theorems 2,6,7 and relevant rendered page 5 read; not just snippets.",
+          "method": "PDF primary full text and rendered page inspection",
+          "title": "Tolerances and orderings on semilattices",
+          "trigger": "Earlier one-sided compatible relation and interval rules on chains/trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full two-direction lattice decomposition and exact DSC coefficient resolve a naturally prompted missing subfamily of the semilattice coefficient problem; rank enumerator and count (n!)² are natural useful invariants, not an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md Git blob af5d5a868b9d3340c7605f7183e6a81583a136aa and seven-entry source tree b615718831b5440e9fbbd77a5b4078c957099b4a.",
+    "Independently enumerated all reflexive relations n=1,2,3,4 in /mnt/data/verify_misc_4489.py; compatible counts 1,4,36,576.",
+    "Resultary semantic search; Barber–Ruškuc full arXiv HTML v2 §4; Chajda–Nieminen–Zelinka full 1983 PDF Theorem7."
+  ],
+  "disposition": "passed",
+  "limitations": "n≥1 finite chain meet only, relation reflexive but no transitivity or symmetry; infinite-family correctness via proof, not n≤4 enumeration.",
+  "residual_risks": [
+    "Unindexed old semilattice relation-enumeration literature could have independently coupled both one-sided threshold systems.",
+    "Only finite chains with meet operation; not arbitrary finite semilattices or richer signatures."
+  ],
+  "schema_version": 1
+}
