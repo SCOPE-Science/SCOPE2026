@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:11:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob 3738e23a5e71203f6bc135cb17890afd38fa7f1b",
+        "frozen verify.py blob 965358d1b6a23bc7d96ed28e649ee5bc978508e6",
+        "independent_checks.py SAV exact rational symbolic proof corroboration",
+        "Huang et al arxiv:2610.01063v1 Section 2 exact sign criterion"
+      ],
+      "rationale": "Eliminate x+ from the original implicit state update to get r+=B(h)/A(h), where A(h)=1+[h/(2Q^2)] ghat^T(I+hS)^-1 ghat>0 and 2Q B(h)=F(h)=2rQ-sum_{i=1}^m c_i h lambda_i/(1+h lambda_i). Multiplying by positive product prod(1+h lambda_i) yields degree <=m numerator with positive value at h=0; k positivity components require at least 2(k-1) positive root multiplicities, proving floor(m/2)+1 bound including tangencies. For arbitrary distinct roots t_j and distinct positive eigenvalues lambda_i, the proposed residue coefficients c_i make F(h) identically 2prod(1-h/t_j)/prod(1+h lambda_i) because poles and value at zero match. Set x=1,G=I,L=diag(lambda),r=Q=1,E_N(z)=1+c^T(z-1)+kappa||z-1||^2, kappa>||c||^2/4; this is everywhere strictly positive and strictly convex, with consistent auxiliary starting data. Independent exact sympy interpolation through m=6, and direct elimination for m=2 gave r+(h)=16(h-1)(h-2)/(609h^2+449h+32) with global minimum E_N=31/320>0.",
+      "residual_risks": [
+        "Finite spectral mode count and fixed starting state with variable first stepsize; no claim on a single adaptive trajectory or positive state coordinates.",
+        "The source one-step sign criterion is prior work, not independently new."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang et al Section 2, Proposition 1 and Example 1 give one-mode threshold loss; their formula is broad enough to start the root-count argument.",
+          "Zhang-Shen arxiv:2606.18551 concerns modified pullback-corrected SAV scheme rather than the unmodified original update."
+        ],
+        "reasoning": "A general rational zero-count theorem gives the upper bound almost immediately, but the arbitrary-root realization with a genuinely positive convex energy requires compatibility of residues with the SAV model. The same-model source does not state it in inspected detailed Section 2.",
+        "searches": [
+          "Resultary semantic search: scalar auxiliary variable backward Euler positivity as a function of time step spectral modes reentrant sign changes convex quadratic energies",
+          "https://arxiv.org/html/2610.01063v1",
+          "https://arxiv.org/abs/2606.18551"
+        ]
+      },
+      "checked_sources": [
+        "Huang et al arxiv:2610.01063v1 original full Section 2",
+        "Zhang-Shen arxiv:2606.18551 limited metadata only",
+        "Resultary query scalar auxiliary variable backward Euler positivity as a function of time step spectral modes reentrant sign changes convex quadratic energies"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Eq (2.10) supplies h-dependent iff sign test but no bound in m or arbitrary prescribed roots; source §2.2 Example 1 uses one scalar mode and thus no reentrance.",
+          "Source §2.3 describes structural sign-indeterminacy but not positivity restoring at larger stepsizes."
+        ],
+        "reasoning": "An inequality evaluated at one h cannot alone deliver the sharp global positivity-set topology; the polynomial degree reasoning and convex arbitrary-zero example supply the additional information. Generic rational interpolation is known, so originality is applied to a motivated SAV compatibility problem.",
+        "searches": [
+          "Resultary semantic search: scalar auxiliary variable backward Euler positivity as a function of time step spectral modes reentrant sign changes convex quadratic energies",
+          "https://arxiv.org/html/2610.01063v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang et al arxiv:2610.01063v1 Eq (2.10) is the exact iff original SAV-BE sign inequality; diagonalizing their self-adjoint S gives rational F(h).",
+          "The interpolation is a rational partial-fraction inverse problem placing arbitrary real zeros."
+        ],
+        "reasoning": "The one-step criterion and spectral resolvent representation are equivalent, already known. The assessed new mathematical statement is the sharp connected-component bound and realization under globally positive strictly convex consistent energy, not the criterion itself.",
+        "searches": [
+          "Resultary semantic search: scalar auxiliary variable backward Euler positivity as a function of time step spectral modes reentrant sign changes convex quadratic energies",
+          "https://arxiv.org/html/2610.01063v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Huang source Example 1 lists a scalar sign-loss point r1=-1/2 at h=0.1, not a two-mode reentry table.",
+          "Resultary nearest hits 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1 and 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac address different BE/extrapolation compositions."
+        ],
+        "reasoning": "This is an infinite interpolation theorem, not a precomputed sign table; no same mathematical model reentrant root-placement classification was located in checked source records.",
+        "searches": [
+          "Resultary semantic search: scalar auxiliary variable backward Euler positivity as a function of time step spectral modes reentrant sign changes convex quadratic energies",
+          "Resultary id 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1"
+        ]
+      },
+      "rationale": "Huang-Liu-Wang-Yan October 2026 establishes the exact original SAV-BE one-step sign criterion (2.10), sufficient positivity condition and one-mode counterexample. It does not classify the topology of all positive stepsizes or construct arbitrary prescribed alternating sign thresholds within positive convex energies. The new sharp mode-count bound and realization are algebraically nontrivial though they use the prior criterion; possible implicit rational-interpolation restatements remain a priority risk.",
+      "residual_risks": [
+        "Earlier rational-approximation/linear multistep positivity literature might implicitly provide the same root-component mechanism.",
+        "The original sign criterion is unambiguously prior; only its sharp global topology/realization is claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same mathematical model sign criterion and one-mode failure are prior; no multi-mode root-component classification or globally positive convex root-placement in sections inspected.",
+          "evidence": [
+            "Equations (2.7)-(2.10) show positive denominator and exact sign criterion; Example 1 Eq (2.24) has r1=-1/2 for a single mode."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01063v1",
+          "material_read": "Full lawful arXiv HTML mathematical Section 2, scheme (2.3)-(2.8), exact criterion (2.10), Proposition 1, Example 1, Remark 2, Section 2.3 structural analysis.",
+          "method": "Opened primary full text, compared formula and scalar counterexample/equation numbers directly.",
+          "title": "Positivity-preserving scalar auxiliary variable schemes for gradient flows via a quadratic reformulation",
+          "trigger": "Exactly same original SAV-BE method and sign criterion"
+        },
+        {
+          "assessment": "Different corrected scheme versus original uncorrected step map; not proof of total noncoverage.",
+          "evidence": [
+            "Title and method focus on pullback-corrected SAV schemes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.18551",
+          "material_read": "Title, abstract, and relation described in primary source references; direct original PDF retrieval failed in this execution.",
+          "method": "Metadata-level comparator only; did not claim full-text NOT_COVERING.",
+          "title": "Scalar-Tracking SAV Schemes with Pullback Corrections for Gradient Flows",
+          "trigger": "Related SAV stabilization/energy modification might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Huang et al 2026 motivation of original SAV sign-indeterminacy",
+        "independent exact rational interpolation and two-mode witness"
+      ],
+      "rationale": "Nonmonotone positivity in numerical gradient-flow schemes has direct mathematical and numerical significance: the positive stepsize set can fragment and then recover positivity. The sharp spectral-mode upper bound, minimum two-mode witness, and arbitrary-root interpolation within globally strictly convex positive energies demonstrate a structural pathology, not a trivial scalar sign check.",
+      "residual_risks": [
+        "Not a guarantee of nonlinear trajectory reentrance under adaptive stepping; initial data are held fixed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem says nothing about state-coordinate positivity or convergence order.",
+    "Finite-dimensional SPD/PSD hypotheses and number of active distinct positive modes are essential.",
+    "Five frozen source directory entries and all immediate file blobs were checked at exact commit and current main at inspection; later branch changes are not excluded.",
+    "The record remains not_ready for publication due inherited private operational metadata and unverified initial public dates; this is a transport/confidentiality hold, NOT scientific rejection.",
+    "No GitHub writes or dispatcher closeout writes."
+  ],
+  "schema_version": 1
+}
