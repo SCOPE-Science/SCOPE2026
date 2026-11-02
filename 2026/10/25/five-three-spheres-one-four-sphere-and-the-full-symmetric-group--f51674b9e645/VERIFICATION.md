@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction
 
-Execute `python3 verify.py` from this directory with a standard Python 3 interpreter. The script needs no third-party library or network access. Its output is recorded in `verification_output.txt`; success ends with `VERIFY_OK`.
+# Independent mathematical audit
 
-The verifier independently defines the faces by forbidden Petersen open neighborhoods, by complementary total dominating vertex sets, and by forbidden triangles in the original graph on five labels. It enumerates every possible graph edge set, proves acyclicity of the supplied discrete-Morse matching by topological sort of all face–coface incidences, computes the exact signed integer four-to-three Morse boundary using oriented cancellations, and checks the full mod-two simplicial homology independently. It evaluates the signed Lefschetz formula under each of the 120 five-label permutations. The final rational character decomposition follows because a rank-one action of the symmetric group is either sign or trivial and the sign hypothesis gives an impossible negative trivial multiplicity in degree three.
+## correctness
 
-The program establishes no statement outside five labeled graph vertices. It does not eliminate potential identical prior results from literature inaccessible in full and is not an independent expert audit.
+PASS
+
+Independently reconstructed the triangle-forbidden predicate for all 2^10 graphs, exactly 388 augmented faces and nonempty f=(10,45,110,140,72,10); compared total-domination-complement description, obtaining the same simplices and exactly 12 additional pentagons beyond the bipartite complex. Rebuilt deterministic toggle Morse matching, verified all 387-cell orientation cover graph acyclic with 1400 incidences and critical cells of dimensions 0, 3×5 and 4×1. Exact oriented Morse 4→3 boundary vector is (0,0,0,0,0); Hurewicz gives null attaching map and integral wedge of five S3 and one S4. Independently evaluated signed Lefschetz characters for all 120 S5 permutations: reduced L on cycle types (1^5,2 1^3,2²1,31²,32,41,5) is (-4,4,0,-1,1,2,1), forcing H4 trivial and H3=sgn⊗Q^5.
+
+## originality
+
+PASS
+
+Target is a specific integral mixed-degree homotopy type together with an S5 representation, distinct from established t-colorable graph complexes and from triangular-graph four-cut complexes. One directly relevant Jonsson chapter remains inaccessible, a material priority risk.
+
+## value
+
+PASS
+
+Five vertices is first graph order where triangle-free and two-colorable differ, and this exact mixed-degree integral sphere wedge with full natural symmetric-group module is mathematically motivated topology of a canonical complex. It refines more than mere enumeration, with nontrivial H4 and sign-twisted H3.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

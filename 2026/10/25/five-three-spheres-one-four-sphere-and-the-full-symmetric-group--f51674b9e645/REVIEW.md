@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The face predicate was checked under three equivalent mathematical descriptions for every one of the \(2^{10}\) edge subsets. A sequential-toggle discrete-Morse matching leaves only a critical vertex, five dimension-three cells and one dimension-four cell, and all 1,400 nonempty face incidences were examined in a full directed acyclicity check. The exact signed Morse boundary of the four-cell is zero on all five critical three-cells. Hurewicz then shows that the attaching map is null, establishing the **integral homotopy type**, not just finite-field Betti numbers. An independent mod-two chain reduction and all 120 signed simplicial Lefschetz numbers confirm critical parts of the calculation. The representation follows from the complete character and the impossibility of a negative invariant multiplicity.
+## correctness
 
-## Originality — PASS with material residual risk
-The natural equivalent objects are the triangle-free edge-set complex on five labeled vertices, the independence complex of the hypergraph of ten triangle edge sets, and the Alexander dual of the closed-neighborhood complex of the triangular graph. The **closed** versus **open** neighborhood distinction is essential. Directly indexed results on the ordinary four-cut complex of the triangular graph and the ordinary total three-cut complex of the Petersen graph have different simplicial predicates; neither implication reproduces the stated mixed \(3/4\)-dimensional homotopy type. The bipartite-graph complex is a proper subcomplex with twelve five-cycle faces missing, so its established homology is not already the answer. The original book chapter by Jonsson **explicitly titled “Triangle-Free Graphs”** could not be read in full through the lawful accessible sources, which leaves a significant uncertainty of earlier exact coverage. This was not treated as a negative full-text search. No reviewed accessible theorem or indexed exact-result match has been found that settles the complete claim.
+PASS
 
-## Value — PASS
-Five is the first graph order at which triangle-free differs from two-colorable. The twelve new pentagon four-simplices alter a canonical previously analyzed sphere wedge of sixteen three-spheres into a mixed wedge of five three-spheres and one four-sphere. The complete natural symmetric-group action further identifies a genuinely invariant fourth-homology line and no invariant third-homology classes. This is a natural, complete first-cutoff topological classification, rather than an arbitrary numerical slice.
+Independently reconstructed the triangle-forbidden predicate for all 2^10 graphs, exactly 388 augmented faces and nonempty f=(10,45,110,140,72,10); compared total-domination-complement description, obtaining the same simplices and exactly 12 additional pentagons beyond the bipartite complex. Rebuilt deterministic toggle Morse matching, verified all 387-cell orientation cover graph acyclic with 1400 incidences and critical cells of dimensions 0, 3×5 and 4×1. Exact oriented Morse 4→3 boundary vector is (0,0,0,0,0); Hurewicz gives null attaching map and integral wedge of five S3 and one S4. Independently evaluated signed Lefschetz characters for all 120 S5 permutations: reduced L on cycle types (1^5,2 1^3,2²1,31²,32,41,5) is (-4,4,0,-1,1,2,1), forcing H4 trivial and H3=sgn⊗Q^5.
 
-## Closest literature and limits
-Jonsson's book (2007/2008), Chapter 26.7, discusses the same complex family but its full chapter was inaccessible. Linusson–Shareshian (2003) treats two-colorable graphs, a proper subfamily. Bayer et al. (arXiv:2209.13503) concerns different total cut complexes. The published indexed results on cut and neighborhood complexes of Petersen/triangular graphs are not logically equivalent. Possible full-text prior coverage in Jonsson or other unindexed literature is an outstanding originality risk; independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Target is a specific integral mixed-degree homotopy type together with an S5 representation, distinct from established t-colorable graph complexes and from triangular-graph four-cut complexes. One directly relevant Jonsson chapter remains inaccessible, a material priority risk.
+
+## value
+
+PASS
+
+Five vertices is first graph order where triangle-free and two-colorable differ, and this exact mixed-degree integral sphere wedge with full natural symmetric-group module is mathematically motivated topology of a canonical complex. It refines more than mere enumeration, with nontrivial H4 and sign-twisted H3.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
