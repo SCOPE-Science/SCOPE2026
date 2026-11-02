@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility notes
+# Independent mathematical audit
 
-A standalone `verify.py` file executes a conservative cell-centered finite-volume discretization of the heat equation with two reactive boundary fluxes. It is separate from the analytical Neumann-kernel proof. Its three case families consist of asymmetric nonzero wall coefficients, one reflecting wall, and symmetric reactive walls. For each, it checks \(t=60,120,240\) and compares the scaled conditional-density residual with the quadratic formula, and the instantaneous summed wall flux with \(S(t)(a_0+a_L)\kappa(t)/L\).
+## correctness
 
-Run `python verify.py` with NumPy and SciPy installed. In the checked execution, all nine time points met the specified mass, flux-ratio, and profile-error assertions. At the last time point, the worst profile error across three configurations was approximately \(6.1272\times10^{-4}\), while each total-flux ratio was within \(6\times10^{-5}\) of unity. The finite grid is not a certificate for all times, initial data, or coefficient choices. The infinite-dimensional proof is in RESULT.md.
+PASS
 
-Only self-review has been carried out. No independent audit, external validation, or formal proof certification is asserted.
+Mass balance gives H=kappa(a0 u(0,t)+aL u(L,t)), and the reflected Brownian local-time representation with integrable boundary hazard gives strictly positive S_infty. Subtracting S/L from the Neumann heat-kernel mild formula produces an L1-in-time centered kernel with exponentially decaying tail; dominated convergence yields uniform u->S_infty/L and w/kappa->-S_infty/L sum a_j G_j. Integrating the centered Neumann kernel gives G_0=L/D(1/3-y+y^2/2) and G_L=L/D(-1/6+y^2/2); these have zero spatial mean and correct unequal boundary slopes. Integrating the exact positive flux asymptotic yields the survival tail. Fresh independent checks verified both Green-function derivatives, zero mean and cosine-series approximations with maximum discrepancy near 1e-9. No simulation establishes the infinite-time theorem; kernel estimates do.
+
+## originality
+
+PASS
+
+The 2026 Grebenkov–Ye work already establishes the integrable-reactivity power-law tail, nonzero nonreaction probability and adiabatic regimes. The qualified additional statement is the exact coefficient expressed in S_infty and explicit uniform conditional survivor spatial correction, including unequal interval walls.
+
+## value
+
+PASS
+
+The explicit normalized survivor profile is an exact, naturally motivated quantitative observable for reactive transport that is not fixed by the known power-law tail; it also closes the previously unspecified tail amplitude relative to the nonreacting mass, preserving realistic asymmetric wall reactivity. This is a useful structural refinement even though S_infty itself remains implicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

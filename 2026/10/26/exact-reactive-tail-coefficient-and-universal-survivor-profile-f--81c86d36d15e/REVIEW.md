@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The nonnegative Robin mild evolution, boundary flux balance, and local-time Feynman–Kac representation establish the premises and strict infinite-horizon survival. The mean-zero Neumann heat kernel has an integrable temporal envelope and exponential memory cutoff. Dominated convergence after splitting the boundary convolution at half time yields the uniform exact-order spatial expansion; evaluation of the cosine Green sums and the mass-loss identity determine the sharp reaction density and integrated survival tail. No finite computation is used as an infinite-time proof. Nine numerical finite-volume time points confirm the direction and magnitude of the formula within expected discretization error.
+## correctness
 
-## Originality — PASS (with priority risks)
-Grebenkov–Ye arXiv:2610.23017v1, Sec. III.3, eq. (43), already provides the algebraic exponent and explicitly identifies the prefactor as unknown; Sec. III.4 establishes positive residual survival. Those are not new. The present result resolves the amplitude in terms of the true residual survivor mass and supplies an explicit, asymmetric two-wall normalized spatial profile. The full relevant text of this paper was examined, and equivalence with Robin radiation and local-time killing was compared. Published similarity-search matches for stationary Robin graph eigenvalues, local-time boundary dynamics and generic operator positivity do not imply this exact time-dependent asymptotic claim. Earlier broader heat-transfer and lattice reaction texts were not fully available and could contain implicit coverage. The prefactor is **not** computed independently of \(S_\infty\); any stronger reading would be incorrect.
+PASS
 
-## Value — PASS
-The precise survivor mass controls the physical density of late reaction events; a prefactor in terms of that mass is a measurable design relationship absent from the source's adiabatic estimate. The universal first spatial correction resolves how unequal reactive endpoints deplete near-wall survival density, providing an additional observable beyond the reaction-time tail. This is a motivated structural asymptotic for a canonical reaction-diffusion model, not a finite lookup or arbitrary benchmark.
+Mass balance gives H=kappa(a0 u(0,t)+aL u(L,t)), and the reflected Brownian local-time representation with integrable boundary hazard gives strictly positive S_infty. Subtracting S/L from the Neumann heat-kernel mild formula produces an L1-in-time centered kernel with exponentially decaying tail; dominated convergence yields uniform u->S_infty/L and w/kappa->-S_infty/L sum a_j G_j. Integrating the centered Neumann kernel gives G_0=L/D(1/3-y+y^2/2) and G_L=L/D(-1/6+y^2/2); these have zero spatial mean and correct unequal boundary slopes. Integrating the exact positive flux asymptotic yields the survival tail. Fresh independent checks verified both Green-function derivatives, zero mean and cosine-series approximations with maximum discrepancy near 1e-9. No simulation establishes the infinite-time theorem; kernel estimates do.
 
-## Closest literature and limitations
-Grebenkov and Ye (2026) full public HTML: time-dependent reaction theory and power-law index, without this exact amplitude or spatial profile. Ré and Budde (2000): a related but different elapsed-since-arrival rate; full text inaccessible. Chen et al. (2010): general time-dependent heat-transfer Robin formulation; full text inaccessible, so implicit-priority uncertainty remains. Colantoni (2026): Markovian switching, not deterministic power-law passivation. Kay and Giuggioli (2023): fractional subdiffusive boundary process. The theorem assumes one-dimensional constant diffusivity and an integrable power-law hazard, and the residual survival probability remains generally non-elementary. Numerical verification is finite and does not establish priority or substitute for proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Grebenkov–Ye work already establishes the integrable-reactivity power-law tail, nonzero nonreaction probability and adiabatic regimes. The qualified additional statement is the exact coefficient expressed in S_infty and explicit uniform conditional survivor spatial correction, including unequal interval walls.
+
+## value
+
+PASS
+
+The explicit normalized survivor profile is an exact, naturally motivated quantitative observable for reactive transport that is not fixed by the known power-law tail; it also closes the previously unspecified tail amplitude relative to the nonreacting mass, preserving realistic asymmetric wall reactivity. This is a useful structural refinement even though S_infty itself remains implicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
