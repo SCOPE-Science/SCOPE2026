@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:49:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 82f90c94f1da2775f1f497cc683b4c8ec44678e8",
+        "Frozen verify.py blob 12e6c713da4506cffbb6a8bef7e9e2d49b7e6358",
+        "Independent scipy adaptive integration at six angular parameters (2026-10-28)",
+        "Eriksson 1990 solid-angle identity as standard geometric tool"
+      ],
+      "rationale": "By half-normal Gaussian direction representation the spherical centroid is proportional to (1,...,1). In d=3 all normals perpendicular to centroid reduce by permutations and sign reversal to (a,1-a,-1), a in [0,1], with boundary zero normal giving 1/2. The complementary spherical triangle has rays (0,0,1),(1,0,a),(0,1,1-a), and solid-angle formula yields P=1-(4/pi)atan[(sqrt(1+a²)-a)(sqrt(1+(1-a)²)-(1-a))]. Independently the spherical-coordinate integral is (2/pi)∫q/sqrt(1+q²), whose second derivative is strictly negative; symmetry gives unique maximum at a=1/2 and exact minimum by normal reversal. For all d, H_d≤mean(H1..H_{d-1}) gives E erf(mean/√2), strictly rising by leave-one-out sample means and strict Jensen concavity, converging by SLLN. Independent quadrature agreed at six parameters; exact minimum 0.46455905439754 and canonical limit erf(1/√pi). The d>=4 assertion is confined to specified normals.",
+      "residual_risks": [
+        "Global optimization is proven only for d=3, not higher dimensional normals.",
+        "Proof uses classical spherical solid-angle formula and Gaussian spherical representation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Grünbaum lower bound (1−1/d)^(d−1) in d=3 is 4/9, strictly below the sharp octant 0.464559... .",
+          "Spherical Winternitz reduction gives existence/structure but not the complete fixed all-right triangle extremizing normals."
+        ],
+        "reasoning": "Neither dominating universal theorem implies an exact octant sharp constant or all equality directions; no broader theorem found yielding the entire result.",
+        "searches": [
+          "Centroidal hemisphere cuts spherical orthant all-right spherical triangle exact sharp proportion solid angle",
+          "The Spherical Grünbaum Inequality arXiv:2607.16924",
+          "Steiner symmetrization on the sphere arXiv:2406.10614"
+        ]
+      },
+      "checked_sources": [
+        "Myroshnychenko–Ryabogin–Tatarko–Yaskin, arXiv:2607.16924, full relevant text",
+        "Basit–Hoehner–Lángi–Ledford, arXiv:2406.10614, relevant Section 4",
+        "Resultary query: Centroidal hemisphere cuts spherical orthant all-right spherical triangle exact sharp proportion solid angle",
+        "Targeted spherical octant centroid hemisphere solid angle searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For d=3 the general bound gives only P>=4/9 while this theorem proves strict stronger m=0.464559..., with complete maximizers.",
+          "The d-family strictly rising p_d to erf(1/sqrt(pi)) is not a consequence of a fixed-d uniform bound."
+        ],
+        "reasoning": "The new theorem is mathematically more specific, not a merely restated general inequality; it quantifies this exact convex body.",
+        "searches": [
+          "Myroshnychenko arXiv:2607.16924",
+          "Basit arXiv:2406.10614 Section 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All-right spherical triangle centroid normal reduces to a half-normal comparison and exact complementary spherical triangle.",
+          "General spherical centroid inequality is an all-body bound, not an exact fixed-body profile."
+        ],
+        "reasoning": "Equivalent aliases include spherical halfspace depth, spherical orthant Grünbaum ratio and octant solid-angle cut; no identical full 3D profile established in inspected sources.",
+        "searches": [
+          "Centroidal hemisphere cuts spherical orthant all-right spherical triangle exact sharp proportion solid angle",
+          "spherical octant centroid halfspace depth exact solid angle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact arctan parameter profile and monotonic error-function family are analytic statements for continuously many angles/dimensions.",
+          "The closest retrieved numerical and simplex records involve other section or measure invariants."
+        ],
+        "reasoning": "A conventional spherical triangle solid-angle table could hide an equivalent fixed-shape formula; no decisive full-coverage table found.",
+        "searches": [
+          "Centroidal hemisphere cuts spherical orthant all-right spherical triangle exact sharp proportion solid angle",
+          "spherical all right triangle centroidal cut closed formula octant table"
+        ]
+      },
+      "rationale": "Materially inspected spherical Grünbaum and spherical Winternitz results give body-uniform inequalities and reductions, not the exact all-right spherical triangle normal profile or strict dimension-family cut asymptotic. Best-knowledge sharp model-case contribution; the solid-angle and Jensen methods themselves are prior art.",
+      "residual_risks": [
+        "Classical treatises may contain the same all-right triangle calculation with an equivalent normal parameter.",
+        "Only one canonical direction per d>3 is optimized against its own sequence, not global across directions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING precise fixed-orthant optimum",
+          "evidence": "The body-uniform bound is (1−1/d)^(d−1); no claimed fixed-octant angular spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.16924",
+          "material_read": "Materially inspected full accessible article, the main universal ratio and equality geometry",
+          "method": "Full text/preprint",
+          "title": "The Spherical Grünbaum Inequality",
+          "trigger": "Same centroidal hemisphere-cut property"
+        },
+        {
+          "assessment": "DIFFERENT bound and reduction",
+          "evidence": "Existential/general geometric reduction does not calculate arctan octant normal profile.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.10614",
+          "material_read": "Relevant full HTML and Section 4 on spherical Winternitz reduction",
+          "method": "Full text/preprint",
+          "title": "Steiner symmetrization on the sphere",
+          "trigger": "Possible stronger spherical Winternitz general theorem"
+        },
+        {
+          "assessment": "PRIOR FORMULA; priority of precise application unverified",
+          "evidence": "Formula for solid angle of arbitrary triangular cone is standard and used as proof tool.",
+          "identifier_or_url": "https://doi.org/10.1080/0025570X.1990.11977515",
+          "material_read": "Standard cited solid-angle identity and secondary description; no whole-document historical comparison claimed",
+          "method": "Classical formula citation",
+          "title": "On the measure of solid angles",
+          "trigger": "Solid-angle formula could imply triangle calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof and exact normal reduction",
+        "General spherical Grünbaum bound 4/9 in three dimensions"
+      ],
+      "rationale": "A complete sharp directional classification for the canonical spherical orthant strengthens the broad Grünbaum benchmark in a natural fixed-body case and identifies all normal orbits. The independent strict dimension-monotonic cut law and limiting constant supply a meaningful geometric comparison without overstating higher-dimensional global optimality.",
+      "residual_risks": [
+        "There may exist an earlier explicit classroom octant solid-angle example, but equality classification and infinite-dimensional sequence are stronger demands."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Global sharpness only d=3; d>=4 evaluates a distinguished normal family.",
+    "The spherical centroid means normalized surface-moment direction; no claim for Euclidean interior centroid.",
+    "All exact bounds analytical, numerical quadrature corroborative."
+  ],
+  "schema_version": 1
+}

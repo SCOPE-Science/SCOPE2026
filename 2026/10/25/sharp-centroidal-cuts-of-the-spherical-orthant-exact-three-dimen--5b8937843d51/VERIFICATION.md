@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-From the package directory, run `python3 verify.py` with Python 3, NumPy, and SciPy. This checks the closed spherical-triangle formula against independently parameterized surface-area quadrature for seven parameter values (including both endpoints); evaluates the signed second derivative; and checks uniform orthant sampling with absolute Gaussian vectors. The deterministic seeded trials run at four angular values and at six dimensions (two, three, four, six, ten, thirty); the observed fractions agree with the analytic benchmarks within sampling error. All checks were actually executed successfully before packaging.
+## correctness
 
-The analytic proof in `RESULT.md`, not simulation, establishes global optimality and the infinite-dimensional-index monotonicity assertion. In particular, the strict concavity identity for the full cut-normal parameter and the leave-one-out Jensen argument are the controlling certificates. The numerical program is not an exhaustive search or external audit.
+PASS
 
-The 2026 universal spherical Grünbaum bound is \(4/9\) in dimension three; the exact sharp octant minimum is approximately \(0.4645590544\). No higher-dimensional global minimum is asserted.
+By half-normal Gaussian direction representation the spherical centroid is proportional to (1,...,1). In d=3 all normals perpendicular to centroid reduce by permutations and sign reversal to (a,1-a,-1), a in [0,1], with boundary zero normal giving 1/2. The complementary spherical triangle has rays (0,0,1),(1,0,a),(0,1,1-a), and solid-angle formula yields P=1-(4/pi)atan[(sqrt(1+a²)-a)(sqrt(1+(1-a)²)-(1-a))]. Independently the spherical-coordinate integral is (2/pi)∫q/sqrt(1+q²), whose second derivative is strictly negative; symmetry gives unique maximum at a=1/2 and exact minimum by normal reversal. For all d, H_d≤mean(H1..H_{d-1}) gives E erf(mean/√2), strictly rising by leave-one-out sample means and strict Jensen concavity, converging by SLLN. Independent quadrature agreed at six parameters; exact minimum 0.46455905439754 and canonical limit erf(1/√pi). The d>=4 assertion is confined to specified normals.
+
+## originality
+
+PASS
+
+Materially inspected spherical Grünbaum and spherical Winternitz results give body-uniform inequalities and reductions, not the exact all-right spherical triangle normal profile or strict dimension-family cut asymptotic. Best-knowledge sharp model-case contribution; the solid-angle and Jensen methods themselves are prior art.
+
+## value
+
+PASS
+
+A complete sharp directional classification for the canonical spherical orthant strengthens the broad Grünbaum benchmark in a natural fixed-body case and identifies all normal orbits. The independent strict dimension-monotonic cut law and limiting constant supply a meaningful geometric comparison without overstating higher-dimensional global optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
