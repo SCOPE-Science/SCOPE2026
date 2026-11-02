@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The formal identity \\(B_m(q)=(1-q)^{-1}B_m(q^m)\\), coefficient extractor \\(U_m\\), and binomial-polynomial transition give the exact fourth-stage coefficients \\(C_1,\\ldots,C_4\\). The bundled standard-library verifier reconstructs by a distinct exact calculation their polynomial identities over \\(\\mathbb Q[m]\\). For primes \\(p\\ge5\\), the denominator factors are units and \\(C_1(p)/p^4\\equiv8^{-1}\\pmod p\\) while the other coefficients are divisible by \\(p^5\\); for three the coefficients are exactly \\((-729,21627,-74358,59049)\\) and have minimal 3-adic valuation five. The \\(h_1,\\ldots,h_4\\) first-coefficient matrix has determinant one, and \\(B_p(q)\\) is an integral power-series unit, so the gcd of every progression term equals \\(\\gcd(C_1(p),\\ldots,C_4(p))\\). The fourth coefficient \\(C_4=p^{10}\\) excludes other prime divisors. Numerical recurrence checks at bases 3, 5, 7, 11 are independent supporting tests, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Żmija (2024), Theorem 1.3 lower bound is \\(p^4\\) for p≥5 and p^2 for p=3 at depth five; Section 2 gives recursive generating machinery and examples only up to third extraction.",
+        "Rødseth–Sellers (2001), Theorem 1 delivers \\(m^4\\) for odd m on this same progression.",
+        "Sun–Zhang (2017), Theorem 1.2 is a general digit-dependent summation, without a fifth-layer sharp prime-residue classification.",
+        "Ulas–Żmija (2018), abstract and introduction, study colored partition powers at exponents of the form (p-1)(p^s-1); this does not include the one-color ordinary partition function."
+      ],
+      "reasoning": "The cited theorems cover weaker divisibility and provide general methods, but neither establishes the additional ternary modulus or the exact first residue of the quotient at every larger odd prime. The known operator supplies an algorithmic route; the fourth-step algebra and its exceptional valuation are independent new content, not a theorem explicitly reproduced in the sources.",
+      "searches": [
+        "m-ary partition function b_p(p^5 n-1) sharp gcd odd primes p, exceptional p=3 with divisibility 243; 2024 Zmija Rødseth Sellers",
+        "B. Żmija, High order congruences for M-ary partitions, arxiv:2403.04495v1 (2024-03-07), DOI:10.1007/s10998-024-00579-0, Theorem 1.3 and Section 2.",
+        "L. H. Sun and M. Zhang, On the Enumeration and Congruences for m-ary Partitions, arxiv:1706.07148v1 (2017), Theorems 1.1–1.2."
+      ]
+    },
+    "checked_sources": [
+      "B. Żmija, High order congruences for M-ary partitions, arxiv:2403.04495v1 (2024-03-07), DOI:10.1007/s10998-024-00579-0, Theorem 1.3 and Section 2.",
+      "Ø. J. Rødseth and J. A. Sellers, On m-ary partition function congruences: A fresh look at a past problem, DOI:10.1006/jnth.2000.2594 (2001), Theorem 1 and Section 2.",
+      "L. H. Sun and M. Zhang, On the Enumeration and Congruences for m-ary Partitions, arxiv:1706.07148v1 (2017), Theorems 1.1–1.2.",
+      "Published mathematical-record search for the exact progression and 243 exception; no equivalent identified",
+      "Ulas–Żmija 2018, DOI:10.1007/s00605-018-1227-2, one-color versus colored-function comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Same progression \\(b_p(p^5n-1)\\): old universal modulus p^4, new p^5 for p=3 and normalized quotient at p>=5.",
+        "At p=3 the inspected 2024 M-ary theorem gives only \\(3^2\\), while the original 2001 odd-base theorem gives 3^4.",
+        "The exact new fourth-step coefficient at p=3 has common 3-adic valuation 5, witnessed sharply at n=1."
+      ],
+      "reasoning": "The old prime-power bound is not a dominating statement. Distinct exponents and quotient residues carry information the prior bound does not logically imply. The new algebra rests on the known operator, which is credited rather than claimed original.",
+      "searches": [
+        "m-ary partition function b_p(p^5 n-1) sharp gcd odd primes p, exceptional p=3 with divisibility 243; 2024 Zmija Rødseth Sellers",
+        "high order congruence ternary partitions exceptional fifth layer 3-adic 243 instead of 81 exact gcd sharpness",
+        "B. Żmija, High order congruences for M-ary partitions, arxiv:2403.04495v1 (2024-03-07), DOI:10.1007/s10998-024-00579-0, Theorem 1.3 and Section 2.",
+        "Ø. J. Rødseth and J. A. Sellers, On m-ary partition function congruences: A fresh look at a past problem, DOI:10.1006/jnth.2000.2594 (2001), Theorem 1 and Section 2."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rødseth–Sellers (2001), pp. 2–3: b_m(mN-1)=...=b_m(mN-m); Theorem 1 gives m^4 divisibility on the same \\(p^5n-1\\) progression for odd m."
+      ],
+      "reasoning": "The old progression with endpoint minus p is identical to minus one, not a different case. Its stated \\(p^4\\) modulus matches the present p≥5 lower bound but does not imply the exceptional p=3 factor p^5, exact content, or first quotient residue.",
+      "searches": [
+        "m-ary partition function b_p(p^5 n-1) sharp gcd odd primes p, exceptional p=3 with divisibility 243; 2024 Zmija Rødseth Sellers",
+        "Ø. J. Rødseth and J. A. Sellers, On m-ary partition function congruences: A fresh look at a past problem, DOI:10.1006/jnth.2000.2594 (2001), Theorem 1 and Section 2."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching fifth-layer partition result appeared in returned mathematical-record or web literature searches. Ranked hits were predominantly unrelated ternary codes and p-adic questions; no claim of exhaustive indexing is made."
+      ],
+      "reasoning": "The exact progression and its first term were queried along with aliases and parameters. Failure to locate a sequence table is limited negative evidence and cannot certify uniqueness; primary mathematical implications carry the stronger comparison.",
+      "searches": [
+        "3-ary partitions b_3(243n-1) congruent 0 modulo 243 all n, coefficient generating function 243q(23+137q+80q²+3q³)/(1-q)^5 B_3(q)",
+        "high order congruence ternary partitions exceptional fifth layer 3-adic 243 instead of 81 exact gcd sharpness",
+        "\"b_3(243n-1)\" OR \"b_3(243 n - 1)\" m-ary",
+        "\"5589\" \"3-ary partitions\"",
+        "3-adic congruence ternary partition function b_3(243 n - 1) divisible by 243"
+      ]
+    },
+    "rationale": "The closest exact-progression prior theorem (Rødseth and Sellers 2001) gives divisibility by \\(p^4\\), weaker at three, and does not determine the quotient residue modulo \\(p\\). Żmija (2024) introduces the general extraction recurrence and a weaker divisibility theorem, but does not state the sharp fifth-layer prime dichotomy or its normalized quotient law. Sun and Zhang (2017) provide base-digit enumeration rather than this congruence. Targeted published-record and primary-literature comparisons found no equivalent. The result uses prior operator methods, so an unindexed or implicit earlier specialization is a remaining priority risk.",
+    "residual_risks": [
+      "The new exact fifth-layer specialization uses the published extraction method; an earlier unindexed specialization or stronger congruence may exist.",
+      "Search ranking and accessible historical data are not a uniqueness proof.",
+      "No independent expert or formal theorem prover has evaluated the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Method and lower bounds covered, but neither extra ternary fifth layer nor explicit normalized quotient was printed in the inspected portions.",
+        "evidence": [
+          "Theorem 1.3; Lemma 2.2; Example 2.4 lists first three steps."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10998-024-00579-0",
+        "material_read": "Open-access full HTML: abstract, introduction, Theorem 1.3, Corollary 1.4, Lemmas 2.1–2.3, Example 2.4, recurrence and its proof discussion",
+        "method": "Read primary mathematical article in full-text HTML; compared the progression, moduli and fourth-step specialization",
+        "title": "High order congruences for M-ary partitions",
+        "trigger": "Primary source on deep M-ary partition congruences and extraction operations"
+      },
+      {
+        "assessment": "Already proves the basic p^4 modulus on the same progression via equality of residue-block values, not the exceptional 3^5 modulus or explicit first quotient residue.",
+        "evidence": [
+          "Theorem 1; identities (1)–(7); Lemmas 1–4."
+        ],
+        "identifier_or_url": "https://www.d.umn.edu/~jsellers/p14.pdf",
+        "material_read": "Primary PDF abstract, introduction, Theorems 1–2, preliminaries, coefficient lemmas, final theorem proof",
+        "method": "Text extracted by document viewer with inspected page image of page 2",
+        "title": "On m-ary partition function congruences: A fresh look at a past problem",
+        "trigger": "Classical stronger odd-base congruence on an equivalent progression"
+      },
+      {
+        "assessment": "Gives exact digit-dependent nested sums and modulo-m characterization, not the claimed fifth-layer sharp quotient classification.",
+        "evidence": [
+          "Theorem 1.2 and Eq. (1.5)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.07148",
+        "material_read": "Public arXiv full HTML: Introduction, Theorems 1.1–1.2, Section 2 recurrence and proof, restricted-partition Section 3 scope",
+        "method": "Read mathematical paper full-text HTML and inspect statements",
+        "title": "On the Enumeration and Congruences for m-ary Partitions",
+        "trigger": "Possible dominating base-digit exact enumeration"
+      },
+      {
+        "assessment": "Its exact valuations are for colored products with larger exponents, not the one-color p-ary partition progression. No direct covering implication identified.",
+        "evidence": [
+          "Abstract and Section 1 study k=(p-1)(p^s-1); Section 2 uses coefficients of powers of F_p."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00605-018-1227-2",
+        "material_read": "Open-access full HTML: abstract, introduction, definition of colored partition powers, overview of main theorems and Lemmas 2.1–2.3",
+        "method": "Read open-access mathematical article and compare parameter k=1 against its explicitly studied colored exponents",
+        "title": "On p-adic valuations of colored p-ary partitions",
+        "trigger": "A plausible stronger p-adic valuation theorem for prime-power partition functions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b9719ddb-a961-458a-b1fc-2988c634b831",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Deep divisibility of the natural p-ary partition function is a documented research topic. This result determines the exact optimal modulus at the first anomalous ternary depth (previous levels 1 through 4 attain their ordinary valuations), detects a sharp discontinuity between p=3 and all other odd primes, and gives an explicit p-adic quotient congruence across infinitely many primes and every index. Its natural prime-depth parameter is not an arbitrary finite slice: depth five is the first exceptional layer. No unproved generalization to other depths is claimed.",
+    "status": "PASS"
+  }
+}
