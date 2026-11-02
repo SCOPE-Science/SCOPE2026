@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T11:13:52.104175Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The state F(v,S)=1+deg(v)^(-1) sum over unvisited neighbors of F(w,S union {w}) exactly counts the current infected and future distinct infections; strict |S| growth makes recursion finite and unique. Direct survival-path expansion yields hub and peripheral expectations for K_(2,m): 3-1/(2m) and 4-3/m+1/m²; after adding the hub edge: (3m+2)/(m+1) and (8m²+9m+3)/(2(m+1)²). Independently simplified uniform-seed averages give (4m+3)/(m+2) and (8m³+21m²+23m+8)/(2(m+1)²(m+2)), with difference -(m²-3m-2)/(2(m+1)²(m+2)); its sign reverses at integer m=4. For m=4 these means are 19/6 and 79/25, decrease 1/150. An independent fresh exact-Fraction script enumerated every labelled connected graph n=2..5 (1,4,38,728), all missing edges (0,3,84,3140, total 3227), compared Bellman and a distinct path-survival sum on both graph endpoints of every insertion, and found no smaller-order decrease. It also checked both analytic families for m=1..10; the m bound is a regression, not used to infer the infinite algebraic theorem. Every connected simple graph n<=5 occurs in the labelled search, so finite no-decrease result is exhaustive within its stated domain. No claims about larger graph classification or nonuniform seed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kenah–Robins: epidemic percolation networks represent distributions of SIR outcomes. Such representation alone neither asserts monotonicity under changing neighbor-selection probabilities nor provides the specific exact smallest-order counterexample.",
+          "Enright–Kao: exact expected outbreak algorithms for outbreak-invariant dynamic contagion networks; model assumptions and statements inspected do not directly imply the budgeted single-contact undirected walk formula or the lower-order exhaustive no-decrease property.",
+          "Yi, Shan, Paré and Johansson 2022 edge-deletion epidemic-spread optimization concerns a broader intervention question but the accessible abstract does not establish a single-contact graph minimum; no whole-text noncoverage claim."
+        ],
+        "reasoning": "General SIR representations and exact computation methods could be used to analyze this instance but do not themselves entail the new symbolic family sign threshold plus a certified full finite first-order boundary. The edge-deletion literature has different transmission assumptions or was available only at abstract level.",
+        "searches": [
+          "Resultary: degree-normalized contact budget one contact epidemic final infection count nonmonotone graph edge addition, expected self-avoiding walk length",
+          "Kenah–Robins, Second look at the spread of epidemics on networks, DOI:10.1103/PhysRevE.76.036113",
+          "Enright–Kao, A fast algorithm for calculating an expected outbreak size on dynamic contagion networks, DOI:10.1016/j.epidem.2016.05.002",
+          "web: Edge Deletion Algorithms for Minimizing Spread in SIR Epidemic Models, DOI:10.1137/20M1377011"
+        ]
+      },
+      "checked_sources": [
+        "https://courses.washington.edu/b578a/readings/KenahRobins2007b.pdf",
+        "https://webs-deim.urv.cat/~sergio.gomez/papers/Gomez-Discrete-time_Markov_chain_approach_to_disease_spreading_in_CN.pdf",
+        "https://eprints.gla.ac.uk/131522/1/131522.pdf",
+        "https://www.nature.com/articles/srep14462",
+        "https://doi.org/10.1137/20M1377011",
+        "Resultary: 2026/9/14/SCOPE021 (2-patch SEIR reproduction threshold)",
+        "Resultary: 2026/9/16/SCOPE013 (deterministic two-neighbor burning)",
+        "Resultary: 2026/10/4/SCOPE-the-finite-population-contact-law-in-a-stochastic-covid-model-is--d78b1ebd8fb7",
+        "Resultary: 2026/9/20/SCOPE-quantitative-path-stability-graph-indexed-ranges--fc2d9220df63",
+        "Resultary: 2026/9/19/SCOPE-height-function-range-complete-bipartite--c645403cd639",
+        "Original source RESULT.md, REVIEW.md, VERIFICATION.md, contact_outbreak_check.py from assigned commit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gómez et al. uses degree-normalized one-neighbor contact selection but an SIS reinfectious stationary-prevalence/threshold observable; those statements do not imply the stopped first-repeat walk expectation.",
+          "Holme treats temporal/static contact-pattern representations and SIR outbreak predictability, not the uniform-root finite graph single-contact budget sign threshold.",
+          "Published SCOPE source on threshold-2 burning concerns a deterministic optimal ignition parameter, and the contact-law inconsistency source tests hypergeometric/multinomial sampling: neither yields the claimed expected size."
+        ],
+        "reasoning": "Both components are tested for prior implication: an infinite explicit K_(2,m) rational sign identity and minimality among every connected simple graph order n<6. The inspected mathematical statements have distinct dynamics or target statistics, and do not dominate these conclusions without fresh arguments and complete enumeration.",
+        "searches": [
+          "Gómez et al., Discrete-time Markov chain approach to contact-based disease spreading in complex networks, DOI:10.1209/0295-5075/89/38009",
+          "Holme, Information content of contact-pattern representations and predictability of epidemic outbreaks, DOI:10.1038/srep14462",
+          "Resultary: 2026/9/16/SCOPE013 edge addition increases optimal 2-burning source number",
+          "Resultary: 2026/10/4/SCOPE-the-finite-population-contact-law-in-a-stochastic-covid-model-is--d78b1ebd8fb7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First-repeat stopped nearest-neighbor simple random walk is exactly the stated single-infection-lineage process: each accepted step infects a previously unvisited vertex; a revisited vertex terminates.",
+          "The process can also be generated by an independent uniform one-out neighbor map and following its trajectory until first cycle, but this equivalence does not itself calculate the edge-insertion comparison.",
+          "The closest Resultary graph-indexed walk ranges result, 2026/9/20/SCOPE-quantitative-path-stability-graph-indexed-ranges--fc2d9220df63, concerns a different stochastic object.",
+          "Kenah and Robins, DOI:10.1103/PhysRevE.76.036113, presents epidemic-percolation couplings rather than this exact stopping-time edge-insertion census."
+        ],
+        "reasoning": "Equivalent first-self-intersection and one-out-walk descriptions were explicitly searched and compared. Neither the inspected random-walk range result nor the general epidemic-percolation representation computes the K_(2,m) sign reversal or proves all smaller connected graphs monotone.",
+        "searches": [
+          "Resultary: One-contact one-generation SIR random neighbor per infective, stopped random walk at first repeat, expected outbreak size can decrease when adding a graph edge, minimum six vertices, K_(2,m) book graph hub edge",
+          "Resultary: random walk until first repeated vertex expected path length nonmonotone edge insertion complete bipartite graphs K_2_m",
+          "web: random walk until first repeat expected length non-monotone graph adding edge",
+          "web: self-intersection time adding edges random walk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identified indexed table contains the precise uniform-seed one-contact expected outbreak for all connected graphs n<=5 under edge insertion. This negative retrieval is not a claim of exhaustive bibliographic absence.",
+          "The submitted certificate computes from all 1, 4, 38, 728 labelled connected graphs and all 0, 3, 84, 3140 possible edge insertions, rather than selecting a handful of samples. The two separately coded rational calculations agreed on the bounded domain.",
+          "The Resultary item on a Loewner ellipsoid under a book graph hub join studies unrelated geometric invariants on the same graph family."
+        ],
+        "reasoning": "The natural exact finite classification of the first possible order was searched as a table or prior census, and no equivalent published table was identified; the current exhaustive enumeration supplies that precise finite fact.",
+        "searches": [
+          "Resultary: One-contact one-generation SIR random neighbor per infective, stopped random walk at first repeat, expected outbreak size can decrease when adding a graph edge, minimum six vertices, K_(2,m) book graph hub edge",
+          "web: K_{2,m} epidemic book graph outbreak size exact",
+          "web: self-avoiding random walk first revisit graph edge addition complete bipartite six vertex",
+          "2026/10/11/SCOPE-a-sharp-l-wner-ellipsoid-edge-invisibility-threshold-for-book-gr--87e035ae5886"
+        ]
+      },
+      "rationale": "Best-of-knowledge and qualified: searched stopped-first-revisit walks, one-out functional graph epidemics, contact-limited SIR, and degree-normalized edge modifications; compared primary Kenah–Robins epidemic percolation, Gómez SIS contact kernel, Enright–Kao exact outbreak algorithms, Holme contact-pattern SIR, and a broader edge-deletion abstract. None of the materially inspected statements implies both the symbolic hub-edge sign law and all-order-smaller minimum six. Independent Resultary queries yielded distinct epidemic objectives and graph-indexed walk problems, not this first-repeat event. Inaccessibility/partial access was not treated as proof of novelty; risks preserved.",
+      "residual_risks": [
+        "Unindexed or differently named stopped-first-revisit walk and one-out random mapping literature may contain this exact minimum counterexample; negative indexed searches are not novelty proof.",
+        "Holme 2015 was inspected in part; the Yi–Shan–Paré–Johansson 2022 edge-deletion paper only at abstract/metadata level, so no whole-document noncoverage is asserted for either.",
+        "Only the specified one-contact one-generation, uniform-seed model is proven; standard independent-edge SIR monotonicity intuitions cannot be transferred.",
+        "The first decrease 1/150 is small, so the result is a qualitative structural counterexample, not a claim of practical epidemiological magnitude."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General distributional framework; no inspected theorem entails the exact book-graph sign threshold plus sharp first connected-graph order.",
+          "evidence": [
+            "DOI:10.1103/PhysRevE.76.036113",
+            "https://courses.washington.edu/b578a/readings/KenahRobins2007b.pdf"
+          ],
+          "identifier_or_url": "https://courses.washington.edu/b578a/readings/KenahRobins2007b.pdf",
+          "material_read": "Primary full 12-page PDF accessed; introduction, model construction, epidemic percolation sections, and Appendix on SIR were examined, with rendered title page inspection.",
+          "method": "Inspected actual PDF text and page render, compared independent transmission and percolation-out-component statements against first-repeat nearest-neighbor contact allocation.",
+          "title": "Second look at the spread of epidemics on networks",
+          "trigger": "A general SIR epidemic-percolation representation could in principle subsume a constrained one-contact model."
+        },
+        {
+          "assessment": "Contact kernel aligns, but SIS reinfection and stationary prevalence/epidemic thresholds differ from expected permanent-infection first-repeat counts.",
+          "evidence": [
+            "DOI:10.1209/0295-5075/89/38009",
+            "https://webs-deim.urv.cat/~sergio.gomez/papers/Gomez-Discrete-time_Markov_chain_approach_to_disease_spreading_in_CN.pdf"
+          ],
+          "identifier_or_url": "https://webs-deim.urv.cat/~sergio.gomez/papers/Gomez-Discrete-time_Markov_chain_approach_to_disease_spreading_in_CN.pdf",
+          "material_read": "Full six-page primary PDF accessed and inspected, including contact-selection kernel and Markov chain stationary SIS equations; title page visually checked.",
+          "method": "Compared degree-normalized neighbor probabilities and disease-state transition assumptions to one-shot SIR first-return stopping.",
+          "title": "Discrete-time Markov chain approach to contact-based disease spreading in complex networks",
+          "trigger": "Uses one-neighbor probability proportional to 1/degree; possible direct model antecedent."
+        },
+        {
+          "assessment": "Provides exact expected outbreak methods in a different model, not the symbolic book-family identity or sharp n=6 edge-addition boundary.",
+          "evidence": [
+            "DOI:10.1016/j.epidem.2016.05.002",
+            "https://eprints.gla.ac.uk/131522/1/131522.pdf"
+          ],
+          "identifier_or_url": "https://eprints.gla.ac.uk/131522/1/131522.pdf",
+          "material_read": "Complete seven-page primary PDF accessible; introduction, model assumptions, method, algorithm, examples, and conclusions inspected; first page rendered.",
+          "method": "Checked outbreak-invariant time-expanded contagion assumptions and their implications for stochastic one-out neighbor selection.",
+          "title": "A fast algorithm for calculating an expected outbreak size on dynamic contagion networks",
+          "trigger": "An exact expected-outbreak algorithm might dominate the proposed statistic."
+        },
+        {
+          "assessment": "No equivalent exact theorem in material inspected; uninspected sections remain a small literature-access limitation.",
+          "evidence": [
+            "DOI:10.1038/srep14462",
+            "https://www.nature.com/articles/srep14462"
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/srep14462",
+          "material_read": "Accessible primary HTML abstract and introductory/background/model-description portions, including contact-pattern representation objectives; no full-document noncoverage claimed.",
+          "method": "Compared stated SIR prediction problem and temporal contact representation to fixed one-contact before recovery and exact graph insertion.",
+          "title": "Information content of contact-pattern representations and predictability of epidemic outbreaks",
+          "trigger": "Could describe effects of changing network contacts on SIR final outbreak size."
+        },
+        {
+          "assessment": "Potentially relevant to general intervention but insufficient full-text evidence to assert whole-document noncoverage; retained as residual risk.",
+          "evidence": [
+            "DOI:10.1137/20M1377011"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/20M1377011",
+          "material_read": "Publication abstract and metadata, not full text.",
+          "method": "Screened objective and transmission assumptions; did not make a whole-document novelty judgment.",
+          "title": "Edge Deletion Algorithms for Minimizing Spread in SIR Epidemic Models",
+          "trigger": "Broader network intervention work could entail an edge-nonmonotonicity example."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural structural counterexample to the tempting extension of independent-contact-edge epidemic monotonicity into a fixed-contact-budget SIR process. Inserting an edge dilutes contact probabilities at its endpoints. The explicit book-family K_(2,m) has an exact nontrivial integer sign threshold m=4, and the global sharp smallest witness six vertices is certified by exhaustive lower-order classification, not an arbitrary small-slice output. The invariant is expected cumulative distinct infections under a completely specified finite random-walk process; researchers comparing contagion contact rules can use the precise counterexample. Magnitude 1/150 at the smallest witness is small; no real-world significance or larger-order classification is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed or differently named stopped-first-revisit walk and one-out random mapping literature may contain this exact minimum counterexample; negative indexed searches are not novelty proof.",
+    "Holme 2015 was inspected in part; the Yi–Shan–Paré–Johansson 2022 edge-deletion paper only at abstract/metadata level, so no whole-document noncoverage is asserted for either.",
+    "Only the specified one-contact one-generation, uniform-seed model is proven; standard independent-edge SIR monotonicity intuitions cannot be transferred.",
+    "The first decrease 1/150 is small, so the result is a qualitative structural counterexample, not a claim of practical epidemiological magnitude."
+  ],
+  "schema_version": 1
+}
