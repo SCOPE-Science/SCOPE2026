@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The exact geometric-sum Erlang MGF is (1-p)/((1-t/lambda)^s-p), yielding explicit mu1..mu4. The derivative of H3=B2 B4/B3^2 has numerator 2s(s-1)(s+1)Q_s with Q_s strictly positive for s>=3,x>=0, proving strict monotonicity and exact range. Its tail derivative integrates to the displayed cubic constant, and the inverse derivative follows by chain rule. Nonreal poles for p>0,s>=3 rule out finite acyclic PH representations. The standalone standard-library rational verifier passed 132 parameter cases and additional derivative checks; the universal algebraic factorization, not finite checking, is the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "He–Horváth–Horváth–Telek (2019), DOI:10.1017/apr.2019.7, author manuscript §§1–3",
+        "Yu–Zhu–Weng (2026), arXiv:2610.37425v1, §4.3",
+        "The 2026 work proves all higher-order bounds for acyclic PH and H2 for arbitrary PH, but explicitly leaves the cyclic H3 case unresolved in general."
+      ],
+      "reasoning": "A general s-state H3 lower bound would imply the lower endpoint but not the strict monotonicity, complete image, feedback inverse, or cubic endpoint law. The acyclic theorem is inapplicable for p>0, s>=3: complex nonreal Laplace poles prohibit finite acyclic representation. The 2019 stochastic-order bounds are different inequalities and do not dominate the inverse map. We do not claim a general cyclic moment-ratio theorem.",
+      "searches": [
+        "arxiv:2610.37425v1 §4.3 moment ratio for general cyclic PH",
+        "He Horvath Horvath Telek 2019 PH moment bounds general Erlang",
+        "phase-type PH moment fitting cyclic s-stage Erlang feedback loop exact fourth-moment ratio calibration map unique inversion cubically ill-conditioned"
+      ]
+    },
+    "checked_sources": [
+      "Sherzer–Resheff–Telek (2025), arXiv:2505.20379, §§2–4, 6–9",
+      "He–Horváth–Horváth–Telek (2019), DOI:10.1017/apr.2019.7, author manuscript §§1–3",
+      "Yu–Zhu–Weng (2026), arXiv:2610.37425v1, §4.3",
+      "Searches for renewal/geometric Erlang feedback and fourth-moment-ratio calibration"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sherzer–Resheff–Telek (2025), arXiv:2505.20379, §§2–4, 6–9",
+        "He–Horváth–Horváth–Telek (2019), DOI:10.1017/apr.2019.7, author manuscript §§1–3",
+        "Yu–Zhu–Weng (2026), arXiv:2610.37425v1, §4.3"
+      ],
+      "reasoning": "The 2025 numerical optimizer can fit moments and compute arbitrary PH moments, but has no guaranteed unique solution in its full nonconvex parameter space and does not logically yield a sharp one-parameter calibration range. The 2026 acyclic Schur inequality cannot cover this cyclic family except p=0, and its general H2 result is a different moment index. A standard two-moment identity already identifies p affinely, so the theorem does NOT claim that four moments are necessary for parameter identification or that cubic conditioning is an unavoidable fitting barrier. The new scientific comparison is specific H3 geometry and sensitivity.",
+      "searches": [
+        "arxiv:2505.20379 §4 nonconvex PH fitting",
+        "arxiv:2610.37425v1 §4.3 cyclic H3 bound",
+        "He et al moment bounds phase type §2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sherzer–Resheff–Telek (2025), arXiv:2505.20379, §§2–4, 6–9",
+        "He–Horváth–Horváth–Telek (2019), DOI:10.1017/apr.2019.7, author manuscript §§1–3",
+        "The geometric sum of iid Erlang circuit times is equivalent to a homogeneous s-state feedback-loop PH representation."
+      ],
+      "reasoning": "Compared the direct renewal representation, rational moment-generating-function identity, raw moments, H3 normalized ratio, and a feedback-probability inverse. The source fit paper provides general PH optimization and existing three/five moment-fitting algorithms, but does not assert a strict monotonic H3 map or its cubic flattening for this loop. The 2019 general moment upper bounds do not invert this ratio. Standard PH formulas imply moments but not this sharp calibration classification without further comparison.",
+      "searches": [
+        "phase-type PH moment fitting cyclic s-stage Erlang feedback loop exact fourth-moment ratio calibration map unique inversion cubically ill-conditioned",
+        "cyclic phase-type absorption moment H3 mu2 mu4 / mu3 squared sharp bound identification return probability",
+        "geometric sum of Erlang distributions fourth moment ratio monotonic recycling probability phase-type numerical moment fitting",
+        "geometric Erlang phase-type moment matching fourth-moment ratio exact",
+        "arxiv:2505.20379 §2 Literature"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sherzer–Resheff–Telek (2025), arXiv:2505.20379, §§2–4, 6–9",
+        "The published fitting experiments report approximate moment-target accuracy for general/Coxian/Hyper-Erlang examples, not a table for this exact cyclic s-stage feedback ratio."
+      ],
+      "reasoning": "Checked the closely related 2025 fitting datasets/results and exact moment formulas in general PH references. No checked table or parameterization reports the stated image, strict inverse and exact cubic constant; this absence alone is not proof of global novelty.",
+      "searches": [
+        "geometric sum of Erlang distributions fourth moment ratio monotonic recycling probability phase-type numerical moment fitting",
+        "cyclic phase type moment matching closed form erlang",
+        "arxiv:2505.20379 §6–7 numerical moment-fitting tables"
+      ]
+    },
+    "rationale": "The exact fourth-moment shape-ratio range, strict inverse and cubic endpoint sensitivity for this genuinely cyclic homogeneous feedback family are not given by the checked broad fitting paper, general moment upper bounds or later acyclic ratio theorem. Literature-priority uncertainty remains, notably unindexed Erlang feedback/renewal studies. No claim of uniqueness of discovery.",
+    "residual_risks": [
+      "An older feedback-Erlang renewal formula may already encode the same ratio and derivative, despite not being retrieved.",
+      "More general specialized PH moment inequalities or a parameter-calibration treatment not found in the inspected sources could imply the result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering exact inverse calibration map or sharp conditioning for a homogeneous feedback cycle",
+        "evidence": "arXiv:2505.20379, §§2–4 and 6–9; published 2025-05-26",
+        "identifier_or_url": "https://arxiv.org/abs/2505.20379",
+        "material_read": "Abstract, Introduction, literature review, §3 PH representation and moment formulas, §4 nonconvex formulation, §§6–9 fitting experiments and conclusions, including prior matching references",
+        "method": "Public HTML full-text inspection and searches for moment bounds, Coxian, fit and optimization",
+        "title": "An Unconstrained Optimization Approach to Moment Fitting with Phase Type Distributions",
+        "trigger": "Eligible optimization/moment-fitting motivating source; same class of PH fitting objective"
+      },
+      {
+        "assessment": "Its stochastic-order upper bounds and lower SCV statements do not give the special strict H3 feedback calibration function or inverse flatness",
+        "evidence": "He–Horváth–Horváth–Telek 2019, DOI:10.1017/apr.2019.7, §§1–3",
+        "identifier_or_url": "https://webspn.hit.bme.hu/~telek/cikkek/he18a.pdf",
+        "material_read": "Author manuscript, 21-page PDF: abstract, introduction, §2 on infinite-support PH moment and stochastic bounds, §3 finite-support bounds, including Eq. (9) and named lemmas",
+        "method": "Author-hosted manuscript text and visual PDF page inspection; matching moment-bound and ratio terminology",
+        "title": "Moment bounds of PH distributions with infinite or finite support based on the steepest increase property",
+        "trigger": "Prior general moment bound that could imply H3 inequality"
+      },
+      {
+        "assessment": "The general cyclic H3 problem is identified as open; the acyclic theorem does not imply the present genuinely cyclic inverse formula. This later work is context only, not the dated motivating source.",
+        "evidence": "arXiv:2610.37425v1, §4.3",
+        "identifier_or_url": "https://arxiv.org/html/2610.37425v1",
+        "material_read": "§4, especially definitions (4.1)-(4.4), Theorems 4.1,4.2 and 4.4, acyclic proof and paragraph on cyclic numerical tests",
+        "method": "Public arXiv HTML full text, direct statement/implication comparison",
+        "title": "Phase-type representations for Strong Stability Preserving Runge–Kutta methods",
+        "trigger": "More recent closely related cyclic PH high-order ratio conjecture"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d528d177-e005-4eb5-b40f-436555230ac5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The canonical fixed-length feedback cycle is genuinely non-acyclic and supplies a natural exactly solvable test family for higher-order PH moment inequalities and for PH moment-fitting consistency. Its exact H3 range and cubic flattening determine when H3-only inversion is feasible and numerically unreliable; this clarifies a concrete optimization objective near an exponential boundary. The lower-order H1 ratio already identifies p affinely, so cubic sensitivity is not claimed intrinsic to all full-moment estimators.",
+    "status": "PASS"
+  }
+}
