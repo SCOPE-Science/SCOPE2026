@@ -1,11 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly specifies stationary conditional Gaussian particles and a bounded Markov-modulated conditional variance. Two independent linear moment systems establish the mean and variance; a closed four-dimensional two-time evolution and its scalar annihilator give all three exponents. Initial derivative constraints fix every coefficient. Algebra establishes both the harmonic-mean rate boundary and positive long-time coefficients, with a separate explicit double-pole residue at equality. The bundled standalone checker reproduced 2,817 symbolic, rational and matrix-exponential comparisons. Sampling is not used to infer all-parameter assertions.
+## correctness
 
-**Originality — PASS, subject to residual scholarly priority risk.** The most directly relevant source (Biroli et al., arXiv:2312.02570v1) explicitly analyzes the same switching-harmonic-trap model and *equal-time* correlations and stationary laws. The specific two-time cross-squared covariance, relaxation crossover and nonzero collision pole are not provided by the relevant sections of that work. Available studies of continuously fluctuating stiffness or semi-Markovian switching were compared at the level of the underlying stochastic mechanisms; the latter source's full-text comparison was incomplete. Generic Markov-modulated linear-system theory provides methods that can generate these formulas but was not shown to state this sharp joint-physics result. An equivalent older specialized computation may still exist, so independent scholarly priority review is warranted.
+PASS
 
-**Scientific value — PASS.** The particle gas has finite-N correlations induced only by a common dynamical environment. The result reveals which of two distinct relaxation mechanisms controls their long-lag persistence and identifies a sharp experimentally interpretable switching-rate threshold where a polynomial prefactor changes the asymptotics. The time-dependent result is not simply a stationary variance or a relabeling of an equal-time table. This is an exact finite-N benchmark, not a claim of a many-body thermodynamic transition.
+For a stationary symmetric 2-state CTMC and a,b,D,r>0 with a != b, independent Brownian particles are conditionally Gaussian with common bounded variance V(t)=2D ∫exp(-2∫mu), satisfying Vdot=2D-2mu_S V. Conditional independence makes distinct-particle C(t)=Cov(V0,Vt), valid for N>=2 and fixed-lag N→∞ empirical limits. Reconstructed phase-resolved stationary m=-2D(Q-2diag)^{-1}pi and z=-4D(Q-4diag)^{-1}m and verified C0=D²(a-b)²P/(K²J), W=E[Vdot²]=4D²r(a-b)²(a+b+r)/(KJ); C′(0)=0, C′′(0+)=-W. The 4-component two-time system u′=Qu, w′=(Q-2diag)w+2Du yields characteristic exponents 2r and a+b+r ± sqrt(r²+(a-b)²); exact residues follow from the 3 initial conditions. Algebra confirms A_s=D²(a-b)²/[K(2ab-r(a+b))] and the ordering/strict positive slowest residues either side of r*=2ab/(a+b). At equality the direct Laplace transform has a NONZERO genuine second-order pole and T=D²(a-b)²/[K(a+b-r*)]>0, yielding t e^{-2r*t}. Independently recomputed symbolic C0, W, environment residue, collision T and exact rational a=2,b=2/3,r=1,D=1 sample (79/600+t/5)e^{-2t}-19/1600 e^{-16t/3}. A separately formed block-matrix exponential matched the scalar law in 900 independent random positive-parameter/lag comparisons; max absolute error 3.64e-12. Finite tests only corroborate analytic identities. Boundaries: equal a=b gives zero collective covariance; r>0, a,b,D>0 and stationary initialization are essential; no asymmetric switching or interacting particles.
 
-**Limits.** Positive unequal trap rates and equal switching rates are required. No claims are made about asymmetric switching, nonlinear potentials, particle-particle interactions, or finite-sample inference.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge separate from source self-review: direct full-text comparisons with two same-switching-trap studies, a broader 2026 semi-Markov formulation and continuous-stiffness work show earlier equal-time stationary covariance and generic variance PDMP methods, not the complete lagged cross-square spectrum with sharp positive harmonic-mean double-pole term. Six actual Resultary semantic searches and a repository code search found adjacent but not exact coverage. A failed search is not a novelty proof; older Markov-modulated-filter formulae and equivalent general semigroup deductions remain live priority risks.
+
+## value
+
+PASS
+
+The observable is the natural interparticle energy covariance of a single fluctuating environment even though particle Brownian drivers are independent. The exact harmonic-mean threshold separates environment-limited from trap-limited collective memory, and a nonremovable t times exponential at resonance gives a sharp measurable signature not determined by equal-time covariance. Closed residues and positive leading coefficients yield a useful benchmark at every finite N>=2 and the fixed-time empirical mean-square limit. A structurally motivated exact critical spectral classification is not a mere normalization or parameter substitution; no thermodynamic singularity or experimental-estimation claim is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
