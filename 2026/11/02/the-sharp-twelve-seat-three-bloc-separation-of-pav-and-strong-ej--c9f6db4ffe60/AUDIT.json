@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "All size-k committees are one-out replacements since there are k+1 candidates; score changes are p/(r+1)-q/k for C replacement, -h/r-q/k for A replacement. Every payment coalition is described exactly by three ballot-type counts; groups including q-type have a strictly larger-than-k/n witness; remaining coalitions have minimum maximum payment r/(p+h)+1/p. Necessary AM-GM inequality yields k>=r/(1-1/sqrt(r+1))^2 >=12. For all k>=12, r=2,p=6,h=10,q=2k+1 gives strict unique PAV optimality and an exact strong-EJR+ violation, with gap 1/984 at k=12. Core proof uses p*k/n<r+1. Exact rational checker was executed successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Skowron 2026 Section 3.3 Example 4 supplies a core/EJR+ counterexample, without proving it is PAV-optimal; Sections 5.1–5.3 relate marginal PAV scores to weak EJR+ instead."
+      ],
+      "reasoning": "A general theorem that PAV does not satisfy strong EJR+ would subsume mere existence but not the precise parameter if-and-only-if conditions or within-three-bloc sharp seat bound. The inspected primary source does not assert such general nonimplication for PAV.",
+      "searches": [
+        "Proportional Approval Voting does not satisfy Skowron 2026 strong EJR+ up-to-one despite core; three voter types shared approvals; sharp 12 seat threshold",
+        "strong EJR plus additive utilities proportional approval voting counterexample minimum candidates voters committee size",
+        "Skowron 2026 strong EJR plus PAV core counterexample small election",
+        "Skowron 2026 strong EJR+ versus weak EJR+ PAV core"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.15516 (Oct 11 2026 first version; Sections 2,3,5,6 fully inspected)",
+      "PaperPeel full-text rendering https://www.paperpeel.com/paper/2610.15516"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Skowron 2026, definition and Theorem 4: strong payment axiom; Example 4: EJR+ and core are insufficient; Section 5: PAV/weak EJR+ discussion."
+      ],
+      "reasoning": "Existing PAV⇒ordinary EJR+ and the published core⇏strong EJR+ example do not logically settle PAV⇏strong EJR+, since a PAV optimum need not be the particular core counterexample. The new proof explicitly compares all k+1 committees and verifies strict unique optimality. The 12 bound is only for the stated template, not contradicted by unrestricted smaller cases.",
+      "searches": [
+        "https://arxiv.org/abs/2610.15516",
+        "\"PAV\" \"strong EJR+\" Skowron 2026 counterexample",
+        "Proportional Approval Voting does not satisfy Skowron 2026 strong EJR+ up-to-one despite core; three voter types shared approvals; sharp 12 seat threshold",
+        "unique PAV-optimal committee fails strong payment-based extended justified representation plus in three bloc approval election"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Skowron 2026, Sections 3.2–3.3: payment-based strong EJR+ up-to-one is distinct from classical EJR+; Section 5 considers a weak-axiom harmonic-mean condition."
+      ],
+      "reasoning": "Re-expressing the new claim as a failure of the payment inequality, or as a failure by a uniquely PAV-maximizing core outcome, does not make it the published core-versus-strong example: the additional unique-PAV property and the exact three-bloc parameter classification require new comparisons.",
+      "searches": [
+        "\"PAV\" \"strong EJR+\" Skowron 2026 counterexample",
+        "\"proportional approval voting\" \"strong EJR+\" \"does not\"",
+        "unique PAV-optimal committee fails strong payment-based extended justified representation plus in three bloc approval election",
+        "https://arxiv.org/abs/2610.15516"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest original paper example is the 1000-voter 30-candidate table in Skowron Section 3.3, structurally different from the one-challenger, 41-voter 13-candidate construction."
+      ],
+      "reasoning": "No matching published exact threshold, parameter table, or 41-voter counterexample was identified by the actual keyword and semantic searches. This is evidence of limited coverage, not a uniqueness proof.",
+      "searches": [
+        "PAV committee size 12 strong EJR plus counterexample approval utilities two universal candidates and competing approval blocks",
+        "Ordinary EJR+ strong payment-based EJR+ sharp small elections five classes n plus m eight Skowron 2026",
+        "PAV violates strong EJR+ up-to-one minimal approval profile",
+        "three-bloc PAV unique committee strong EJR+ 12 seats 41 voters exact table"
+      ]
+    },
+    "rationale": "The first public 2026 primary paper introduces strong payment EJR+ and exhibits core-versus-strong separation, but inspected Section 3.3/5 material does not assert strict unique PAV-versus-strong incompatibility or the within-three-bloc if-and-only-if and sharp k=12 threshold. Earlier classical EJR+ satisfaction by PAV is weaker and cannot imply this result. Some unindexed prior counterexample remains possible.",
+    "residual_risks": [
+      "A prior unindexed counterexample or theorem could pre-empt the PAV/non-strong incompatibility.",
+      "An independently unread primary reference could contain a more general implication or a hidden equivalent.",
+      "Only this three-bloc family is proven minimal at 12 seats; no worldwide minimality is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Axiom verified; published core/EJR+ separation is not established as PAV optimal and no exact three-bloc threshold given",
+        "evidence": [
+          "Original strong axiom formula and Example 4, Sections 3.2–3.3",
+          "PAV discussion uses weak EJR+ harmonic mean, Section 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.15516",
+        "material_read": "Full text, sections 2, 3.1–3.3, 3.4, 5.1–5.3 and conclusion; axiomatic formulas and Example 4 compared",
+        "method": "Read HTML/PDF-derived full-text rendering and arXiv full-text representation, including displayed conditions",
+        "title": "Robust Proportionality Axioms for Additive Utilities",
+        "trigger": "Primary text introducing the payment-based strong EJR+ up-to-one axiom and discussion of PAV"
+      },
+      {
+        "assessment": "Cannot certify original content absent direct inspection; standard EJR+ definition is explicitly weaker than the present strong axiom",
+        "evidence": [
+          "Skowron 2026 Sections 1 and 3.3 distinguish the axioms"
+        ],
+        "identifier_or_url": "Cited in arXiv:2610.15516, bibliography reference [5]",
+        "material_read": "Only secondary discussion in Skowron 2026; independent original full text not inspected",
+        "method": "Primary-paper citation/context comparison only",
+        "title": "Prior EJR+ literature of Brill and Peters",
+        "trigger": "Potential standard EJR+ coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c9f6db4f-fe60-48f1-94f9-8128a30f9e2f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A new proportionality axiom naturally raises a concrete compatibility question for the classical PAV rule. Strict uniqueness prevents a tie-breaking artifact; exact parameter conditions, core and EJR+ compatibility, and sharp 12-seat within-template obstruction explain why the payment criterion is stronger in a structured but natural shared-project versus bloc-choice approval market. The result includes an infinite family and an all-parameter analytic classification, not just a small numerical witness.",
+    "status": "PASS"
+  }
+}
