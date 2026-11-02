@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-The accompanying `checker.py` runs with standard Python 3; execute `python checker.py`. It enumerates all total row relations on two rooted stars for each pair of leaf counts \(1\le k,\ell\le3\). The tests compare direct confluence against the two-case normal form, verify that every proposed isotone-map graph is a subrelation, prove computationally that their union is exact, and compare all rank-count predictions against the enumeration. For \(k,\ell\le2\), an exhaustive dynamic-programming set-cover calculation independently verifies rank minimality. A numerical sanity test probes the critical-window Poisson approximation. The observed terminal line is `ALL_CHECKS_OK 88784`.
+## correctness
 
-# Limits
+PASS
 
-Finite enumeration through three leaves is not a proof for arbitrary parameters. The symbolic normal-form, cover-construction, counting and normalized-generating-function arguments provide the unrestricted proof. No external or independent audit is asserted. Research on older multivalued order-preserving relations may reveal an equivalent earlier result.
+For reflexive rooted stars P_k and Q_l, k,l>=1, both forward and backward confluence on comparisons r<=a_i force exactly two disjoint cases: root s in S=R(r), all nonempty U_i contain the selected target-leaf core C; or s absent, nonempty S=C and every U_i=C. Isotone maps with root at a target leaf b_j are constant, while root-s maps can independently choose any element of each nonempty U_i; hence exact minimal functional cover rho=c+max(1,max_i|U_i\C|) when s is present, otherwise c, with tight upper bound l+1. Independent algebraic enumeration of each case yields N_(k,l)=(2^(l+1)-1)^k+sum_c binom(l,c)2^(k(l+1-c))+2^l-1 and cumulative A_(k,l)(t) with the stated binomial cutoff. The core PGF is (2^(l+1)-1)^k+2^(k(l+1))((1+z2^-k)^l-1)+((1+z)^l-1); dividing by N and assuming l2^-k->lambda>0 yields e^(lambda(z-1)) and P(s in S)->1. Independent confluence enumeration and rank spectrum agreed in five (k,l) cases, including (2,2) distribution 11,46,31; finite checks do not prove the general normal form/Poisson limit.
+
+## originality
+
+PASS
+
+Fernandez-Duque arXiv:2609.27078v2, inspected in its actual full primary PDF through authorized lawful retrieval, defines expansive = both confluences and Proposition 2.4 proves closure under unions, composition and closure; this is not a universal homomorphism-cover decomposition or a minimal number of isotone graph maps. Related Resultary endpoint normal form for strict chains and weak-order map-space recurrence use different geometries or count single-valued maps rather than multivalued rooted-star relations. The particular sharp rank distribution and common-core Poisson scale are additional, and possible old order-preserving multifunction literature priority remains.
+
+## value
+
+PASS
+
+The natural modal-confluence notion on the smallest branching posets is fully classified, and its optimal isotone-map generation rank is a meaningful structural invariant. The explicit complete labelled rank census and rare-event Poisson window k~log_2(l) provide reusable finite-model benchmarks and a genuine asymptotic transition, not arbitrary small finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

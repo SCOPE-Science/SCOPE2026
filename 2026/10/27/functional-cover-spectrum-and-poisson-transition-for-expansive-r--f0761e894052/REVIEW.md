@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Both confluence conditions reduce to comparisons from the root to each source leaf. The two-case classification is necessary and sufficient, since target leaves have no strictly larger points and the target root is below every point. The lower cover-rank bound counts compulsory constant maps and independently required extra images at each source leaf; explicit isotone selections attain it. Disjoint-case enumeration yields the exact cumulative rank law, and normalized probability-generating functions give the Poisson limit. The checker exhaustively verified cases with up to three leaves per side and an independent set-cover algorithm verified minima through two leaves per side (`ALL_CHECKS_OK 88784`). All-size assertions rely on symbolic proofs.
+PASS
 
-## Originality — PASS within inspected evidence
+For reflexive rooted stars P_k and Q_l, k,l>=1, both forward and backward confluence on comparisons r<=a_i force exactly two disjoint cases: root s in S=R(r), all nonempty U_i contain the selected target-leaf core C; or s absent, nonempty S=C and every U_i=C. Isotone maps with root at a target leaf b_j are constant, while root-s maps can independently choose any element of each nonempty U_i; hence exact minimal functional cover rho=c+max(1,max_i|U_i\C|) when s is present, otherwise c, with tight upper bound l+1. Independent algebraic enumeration of each case yields N_(k,l)=(2^(l+1)-1)^k+sum_c binom(l,c)2^(k(l+1-c))+2^l-1 and cumulative A_(k,l)(t) with the stated binomial cutoff. The core PGF is (2^(l+1)-1)^k+2^(k(l+1))((1+z2^-k)^l-1)+((1+z)^l-1); dividing by N and assuming l2^-k->lambda>0 yields e^(lambda(z-1)) and P(s in S)->1. Independent confluence enumeration and rank spectrum agreed in five (k,l) cases, including (2,2) distribution 11,46,31; finite checks do not prove the general normal form/Poisson limit.
 
-The motivating September 2026 paper defines expansive relations and proves their closure under arbitrary unions, but the inspected definition, propositions, results and section index do not supply a rooted-star functional decomposition with a sharp rank and its exact spectrum. The closest published finite-chain classification is a strict-chain endpoint theorem, which does not cover branching rooted stars. A separate recurrence for maps between weak orders counts functions rather than unions of order-preserving graphs. Both were compared by their reported mathematical implications, not just their titles. Full texts of some records were not retrievable, and older multivalued isotone map literature may contain equivalent specializations; no uniqueness certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The characterization supplies a constructive, optimally economical selection decomposition for an order-theoretic confluence notion used in contemporary modal semantics. The complete parameter-uniform distribution measures the extra complexity of multivalued relations beyond mere functional maps. The sharp Poisson threshold shows a genuinely different asymptotic behavior as source branching crosses a logarithmic scale. These structural and asymptotic facts are not mere small-instance counts.
+Fernandez-Duque arXiv:2609.27078v2, inspected in its actual full primary PDF through authorized lawful retrieval, defines expansive = both confluences and Proposition 2.4 proves closure under unions, composition and closure; this is not a universal homomorphism-cover decomposition or a minimal number of isotone graph maps. Related Resultary endpoint normal form for strict chains and weak-order map-space recurrence use different geometries or count single-valued maps rather than multivalued rooted-star relations. The particular sharp rank distribution and common-core Poisson scale are additional, and possible old order-preserving multifunction literature priority remains.
 
-## Scope and independent status
+## value
 
-The claims are confined to two-height rooted stars with reflexive orders and nonempty relation rows. They do not imply modal completeness or analogous results on arbitrary posets. Finite experiments corroborate rather than certify the symbolic proof. Priority remains subject to comprehensive expert literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural modal-confluence notion on the smallest branching posets is fully classified, and its optimal isotone-map generation rank is a meaningful structural invariant. The explicit complete labelled rank census and rare-event Poisson window k~log_2(l) provide reusable finite-model benchmarks and a genuine asymptotic transition, not arbitrary small finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
