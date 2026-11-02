@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The feature-map proof identifies the unique normal to two distinct site features, projects the kernel mean feature onto that normal, and averages first over common rotation and then over the site separation. The RP residual density is computed directly from the original Schur-complement pivot rule and normalized explicitly; the iid expectations reduce to an elementary exact trigonometric integral. Algebraic factorization gives the full strict/equality boundary at kernel amplitude \(b=8\) and the density-modulation threshold \(t=\sqrt{8/b}\) for \(b>8\). The standalone numerical verifier passed its 3,170 assertions; analytical identities, not those tests, support the all-parameter statements.
+PASS
 
-## Originality — PASS with residual uncertainty
+The RKHS feature map Φ=(1,√b cosθ,√b sinθ) makes optimal unrestricted-weight error the squared orthogonal distance from mean feature to the span of two sampled features. A normal vector (−√b cos(Δ/2),cosψ,sinψ) yields the exact conditional orientation-averaged error b[a² cos²(Δ/2)+(u²+v²)/8]/[1+b cos²(Δ/2)]. Under constant diagonal, RP residual gives difference density q_b=4(1−cosΔ)(1+b cos²(Δ/2))/(b+4); iid difference is uniform. Integrating yields RP b/(b+4)(a²+(u²+v²)/2), iid (1−1/√(1+b))a²+b(u²+v²)/(8√(1+b)). Algebraic subtraction factors into ((√(1+b)−1)(√(1+b)−3)/(√(1+b)(b+4)))(a²−b(u²+v²)/8), establishing b=8 and t=√(8/b) exact sign classifications for nonnegative g=1+t cos. An independent numerical integration check covered 28 parameter-target combinations, not an infinite proof.
 
-The 2023 RPCholesky quadrature paper already defines the sampling and optimal weights and empirically compares iid and RPCholesky, without deriving the two-point, target-dependent sharp comparison. A particularly strong prior result, the 2020 continuous volume sampling expected interpolation-error formula, **already covers the RP-only risk** because these two-node laws coincide for the stationary circle kernel. The new assessed claim is precisely the iid-versus-RP comparison and its uniform positive-density dominance boundary and reversal. No covering statement was identified by the recorded published-finding corpus searches or inspected source texts; unlocated specialized two-node Fourier examples remain a priority risk. No claim of discovering volume sampling or RPCholesky is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2023 source directly motivates empirical comparison against iid optimally weighted kernel quadrature. The complete sharp calculation for the first nontrivial finite-rank translation-invariant kernel shows that numerical rankings depend jointly on kernel amplitude and target-density modulation. It gives an exact, reproducible positive-density benchmark and a natural failure boundary for uniform superiority rather than an arbitrary slice or negligible constant improvement. This is a narrow two-node classification, not a general error-rate theorem.
+Epperly–Moreno developed continuous RPCholesky and optimal-weight kernel quadrature, while Belhadji–Bardenet–Chainais derived general volume-sampling expected projection errors. For this stationary kernel, RP-only risk is derivable from prior volume-sampling theory and is not novel by itself. The new narrowly specified content is the joint exact iid comparison and density-dependent sign reversal at b=8; that implication is not stated in the inspected passages.
 
-## Limits and closest work
+## value
 
-The comparison concerns only expected **squared worst-case RKHS error**, optimal unrestricted weights, two nodes, and a rank-three circle kernel. Belhadji–Bardenet–Chainais, Theorem 4 (2020), covers the separate volume-sampling risk but not the iid difference law or crossover. Epperly–Moreno (2023), Sections 3–5, covers both sampling methods and numerical comparisons but not the stated exact formulas. Potential equivalent specialized Fourier calculations have not been excluded comprehensively.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact comparison between two major data-adaptive quadrature sampling schemes matters because general error bounds do not specify which is better on a given kernel/target; the unusual b=8 and modulation-dependent reversal gives a sharp, interpretable counterexample to uniform sampler dominance. Its restricted finite-rank setting is expressly stated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

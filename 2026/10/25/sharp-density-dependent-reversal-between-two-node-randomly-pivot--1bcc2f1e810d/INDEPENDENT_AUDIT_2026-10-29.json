@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T01:51:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py",
+        "Independent angle quadrature against exact RP/iid risk expressions"
+      ],
+      "rationale": "The RKHS feature map Φ=(1,√b cosθ,√b sinθ) makes optimal unrestricted-weight error the squared orthogonal distance from mean feature to the span of two sampled features. A normal vector (−√b cos(Δ/2),cosψ,sinψ) yields the exact conditional orientation-averaged error b[a² cos²(Δ/2)+(u²+v²)/8]/[1+b cos²(Δ/2)]. Under constant diagonal, RP residual gives difference density q_b=4(1−cosΔ)(1+b cos²(Δ/2))/(b+4); iid difference is uniform. Integrating yields RP b/(b+4)(a²+(u²+v²)/2), iid (1−1/√(1+b))a²+b(u²+v²)/(8√(1+b)). Algebraic subtraction factors into ((√(1+b)−1)(√(1+b)−3)/(√(1+b)(b+4)))(a²−b(u²+v²)/8), establishing b=8 and t=√(8/b) exact sign classifications for nonnegative g=1+t cos. An independent numerical integration check covered 28 parameter-target combinations, not an infinite proof.",
+      "residual_risks": [
+        "No constraint on quadrature weights, no higher sampling count claim and no expected unsquared error comparison.",
+        "The sampler coincidence is only for the stated 2-node constant-diagonal kernel."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General RPCholesky performance bounds and iid empirical comparisons were published earlier.",
+          "General volume sampling expected error covers the RP-only side but not automatically the iid result with a first-harmonic target-density sign chart."
+        ],
+        "reasoning": "Broader sampler theory overlaps substantial premises but cannot alone yield this exact RP-iid difference without another integral.",
+        "searches": [
+          "randomly pivoted Cholesky continuous kernel quadrature versus iid rank three cosine kernel mean squared error",
+          "arXiv:2306.03955 Sections 3-5",
+          "arXiv:2002.09677 Theorem 4 and appendix"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py; independently integrated RP and iid densities in 28 numerical cases",
+        "Resultary query: randomly pivoted Cholesky continuous kernel quadrature versus iid rank three cosine kernel mean squared error",
+        "Epperly–Moreno 2023 primary full PDF; Belhadji–Bardenet–Chainais 2020 primary PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new iid expression comes from uniform angle integral E[(1+b cos²(Δ/2))^-1]=(1+b)^-1/2, distinct from volume-sampling RP expectation 4/(b+4).",
+          "Subtracting yields the exact factored sign (sqrt(1+b)-3)(1-b t²/8)."
+        ],
+        "reasoning": "Neither known general bound alone determines the sharp b=8 reversal and t=√(8/b) density threshold; formulas require the two explicit distributions.",
+        "searches": [
+          "Epperly Moreno arXiv:2306.03955 RPCholesky definition and discussion",
+          "Belhadji et al. arXiv:2002.09677 expected projection error",
+          "iid optimal real weights versus volume sampled first harmonic b threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With constant diagonal and first pivot uniform, the two-node RPCholesky difference law q_b is proportional to the 2x2 Gram determinant: continuous volume sampling for this kernel.",
+          "The RP expected risk follows from volume-sampling projection-error identities."
+        ],
+        "reasoning": "Identify and credit the equivalent volume-sampling special case, then compare the remaining iid risk and sign threshold rather than mislabel RP formula as original.",
+        "searches": [
+          "randomly pivoted Cholesky continuous kernel quadrature versus iid rank three cosine kernel mean squared error",
+          "Epperly Moreno arXiv:2306.03955 sampling residual kernel",
+          "Belhadji Bardenet Chainais arXiv:2002.09677 Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned general pivoted sampling and numerical quadrature findings, no target-dependent b=8 comparison table."
+        ],
+        "reasoning": "No exact published crossover table was found in the searched records; failed search never establishes mathematical priority.",
+        "searches": [
+          "randomly pivoted Cholesky continuous kernel quadrature versus iid rank three cosine kernel mean squared error",
+          "Resultary random pivot Cholesky kernel quadrature first harmonic circle density sign reversal"
+        ]
+      },
+      "rationale": "Epperly–Moreno developed continuous RPCholesky and optimal-weight kernel quadrature, while Belhadji–Bardenet–Chainais derived general volume-sampling expected projection errors. For this stationary kernel, RP-only risk is derivable from prior volume-sampling theory and is not novel by itself. The new narrowly specified content is the joint exact iid comparison and density-dependent sign reversal at b=8; that implication is not stated in the inspected passages.",
+      "residual_risks": [
+        "A simple worked example in an uninspected appendix or later RPCholesky paper may explicitly contain b=8 comparison.",
+        "Claim concerns expected SQUARED worst-case RKHS error only; no samplewise or constrained-weight dominance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR METHOD AND BOUNDS; EXACT RANK-THREE SIGN LAW NOT FOUND IN READ SECTIONS",
+          "evidence": "Residual-diagonal pivoting definition and general comparisons are already established; no stated first-harmonic density crossing at b=8 in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.03955",
+          "material_read": "Primary full 19-page PDF available; definitions and methods Sections 2–5 and selected theorem/experiment passages inspected with screenshots",
+          "method": "ArXiv/NeurIPS full PDF parsed text and page images",
+          "title": "Kernel Quadrature with Randomly Pivoted Cholesky",
+          "trigger": "The original sampling scheme and iid optimal quadrature comparison"
+        },
+        {
+          "assessment": "COVERS RP EXPECTED-ERROR FOUNDATION, NOT EXPLICIT IID CROSSOVER",
+          "evidence": "Theorem 4 supplies general continuous volume sampling error formula, which may imply RP-only risk, without the density-dependent comparison to iid two-node quadrature.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.09677",
+          "material_read": "Primary 41-page arXiv PDF, Theorem 4 and associated expected-error discussion and page image examined",
+          "method": "Primary PDF text and screenshot",
+          "title": "Kernel Interpolation with Continuous Volume Sampling",
+          "trigger": "General 2-point volume sampling may subsume the RP risk"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py",
+        "Independent angle quadrature against exact RP/iid risk expressions",
+        "https://arxiv.org/abs/2306.03955"
+      ],
+      "rationale": "Exact comparison between two major data-adaptive quadrature sampling schemes matters because general error bounds do not specify which is better on a given kernel/target; the unusual b=8 and modulation-dependent reversal gives a sharp, interpretable counterexample to uniform sampler dominance. Its restricted finite-rank setting is expressly stated.",
+      "residual_risks": [
+        "Significance is for the exact stated setting and does not imply broader classifications."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For b>0 and rank-three first-harmonic circle kernel, two-node RPCholesky vs iid unrestricted optimal weights have explicit expected squared RKHS errors and factored risk difference; for nonnegative first-harmonic densities, b=8 is the exact crossover, with modulation threshold t=√(8/b) for b>8.",
+  "limitations": [
+    "No constraint on quadrature weights, no higher sampling count claim and no expected unsquared error comparison.",
+    "The sampler coincidence is only for the stated 2-node constant-diagonal kernel.",
+    "A simple worked example in an uninspected appendix or later RPCholesky paper may explicitly contain b=8 comparison.",
+    "Claim concerns expected SQUARED worst-case RKHS error only; no samplewise or constrained-weight dominance.",
+    "Source access and priority constraints expressly recorded under axes.originality; inaccessible articles alone not treated as C/O/V failure.",
+    "No GitHub writes or external expert/Lean attestation claimed."
+  ],
+  "schema_version": 1
+}
