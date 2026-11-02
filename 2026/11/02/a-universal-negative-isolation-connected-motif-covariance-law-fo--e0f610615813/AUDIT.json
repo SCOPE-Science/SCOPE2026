@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The matching model and induced-count normalization are fully defined. Conditioning on a fixed isolated chord gives two independent uniform submatchings, so connected induced motifs cannot cross the split; count endpoint pairs to derive the exact finite sum. Vandermonde gives termwise strict negativity. Adjacent chords dominate the fixed-r asymptotic and an explicit ratio bound controls the nonadjacent remainder. The extracted executable checker passed 684 exact assertions through all 10,395 six-chord matchings; these finite checks are corroborative, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet and Noy derive separately component and crossing moments and limit laws; this is not an exact mixed isolation-versus-connected-motif theorem.",
+        "Paguyo studies marginal normal/Poisson approximation for crossings and simple chords, while simple chords are strictly a subset of all isolated chords.",
+        "The historical simple-chord/crossing generating polynomial yields a covariance for adjacent chords only, not nonadjacent isolated chord events or arbitrary connected induced motifs.",
+        "An existing fixed-edge-count Erdős–Rényi isolation/motif covariance identity concerns an independent-edge graph model rather than correlated circle-graph edges and hence does not imply the present formula."
+      ],
+      "reasoning": "A stronger model-level theorem would need joint isolated-component and arbitrary connected induced-motif information; the inspected component, crossing, simple-chord and unrelated random-graph results do not supply that joint law.",
+      "searches": [
+        "random perfect matchings isolated chord counting joint clique counts",
+        "random circle graph isolated vertices connected induced subgraph counts covariance",
+        "uniform random chord diagram number of isolated vertices intersection graph versus total crossings covariance",
+        "P. Flajolet and M. Noy Analytic Combinatorics of Chord Diagrams INRIA RR-3914 §1 §2",
+        "J. E. Paguyo arxiv:2104.01134 simple chords crossings"
+      ]
+    },
+    "checked_sources": [
+      "H. Acan, arXiv:1501.01489v1, §§1–3 and relevant overview of §§4–7; arXiv HTML and PDF",
+      "P. Flajolet and M. Noy, INRIA RR-3914, sections on component and crossing moments; accessible complete 14-page PDF",
+      "J. E. Paguyo, arXiv:2104.01134, abstract/introduction and selected limit-law sections; accessible PDF",
+      "Acan and Pittel, arXiv:1406.2867, abstract and scope on sparse-crossing giant components",
+      "OEIS A018225, A018192 and A336598: connected diagram, isolated-chord occurrence and marked-chord counts respectively",
+      "A. Stoimenow, Discrete Mathematics 218 (2000), 209–233; abstract and section outline only, full text unavailable"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flajolet–Noy establishes component and crossing marginal laws, but separate marginals cannot determine covariance without extra joint conditioning.",
+        "Acan establishes the random chord model, degree/monolithic properties and independent arcs under restricted events, but the exact connected-motif conditional expectation and uniform sign are additional deductions not stated in the inspected results.",
+        "The closest recoverable prior simple-chord formula treats the statistic of cyclically adjacent pairs, whereas the present isolated-chord statistic includes arbitrarily long noncrossed chords.",
+        "An unrelated exact isolation-versus-motif result for G(n,m) relies on independent graph edges; it is not an implication for chord-intersection graphs."
+      ],
+      "reasoning": "Both statement equivalence and stronger implication were evaluated, not just matching titles. The current finite sum involves chord-specific arc splitting, with a universal induced connected H distribution; none of the compared results supplies this exact law as a direct special case.",
+      "searches": [
+        "arxiv:1501.01489v1 degree of a random chord monolithic chord diagrams §§2–3",
+        "INRIA-RR-3914 components crossings moments Flajolet Noy",
+        "random chord diagrams chord components isolated chords count and crossings covariance",
+        "A. Stoimenow On the number of chord diagrams 2000 PDF",
+        "published-finding corpus: uniform random chord diagram intersection graph isolated vertex count covariance with induced connected subgraph motif counts exact universal negative"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acan 2015 defines the same random circle-graph model, analyzes zero-degree vertices and monolithic components, but has no connected induced motif covariance in the relevant inspected chapters.",
+        "The isolated-chord event forces independent perfect matchings on two arcs; the proposed shape-invariance holds after this conditioning rather than from any simple-chord count alone."
+      ],
+      "reasoning": "Searches include isolated chord/zero-degree/isolated vertex, connected motif/induced subgraph, and arc-splitting formulations. The closest published material considers marginal degree/component distributions, not this exact mixed-moment law.",
+      "searches": [
+        "uniform random chord diagram intersection graph isolated vertex count covariance with induced connected subgraph motif counts exact universal negative",
+        "chord intersection graph connected induced pattern occurrences conditioned isolated chord splitting two arcs",
+        "random chord diagrams isolated chords crossings covariance connected induced subgraph counts",
+        "arxiv:1501.01489v1 §§2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A018225 enumerates connected chord diagrams; A018192 counts diagrams with at least one isolated chord; A336598 concerns counts classified by crossings of a marked chord.",
+        "These tables do not encode the full normalized covariance across all induced connected circle-graph motifs."
+      ],
+      "reasoning": "Exact counting tables for connected, isolated and degree-refined diagrams have different observables and do not by themselves contain or dominate the full parameterized mixed-moment theorem.",
+      "searches": [
+        "site:oeis.org chord diagram isolated vertex crossings covariance sequence",
+        "site:oeis.org connected induced motif isolated chords random matching moment",
+        "OEIS:A018225",
+        "OEIS:A018192",
+        "OEIS:A336598"
+      ]
+    },
+    "rationale": "Source-level comparisons do not identify the exact universal conditional connected-motif covariance law, normalized shape-invariance, and strict sign as preexisting; nearest marginal and simple-chord results are mathematically different. Priority remains conditional on fuller access to some older enumerative work.",
+    "residual_risks": [
+      "The full text of Stoimenow (2000) was inaccessible; a stronger historical generating-function result could conceivably imply some identity.",
+      "No search guarantees global priority, and relevant older chord-diagram monographs or unpublished notes may contain an equivalent mixed-moment argument.",
+      "Existing marginal/adjacent-chord results are not asserted to be novel; only the explicit general induced connected-motif covariance is assessed here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING within inspected relevant sections; component and degree laws do not give the stated mixed connected-motif covariance",
+        "evidence": [
+          "2015-01-07 arXiv version 1; primary 2010 MSC 60C05",
+          "Sections 2–3 are about degree distributions and monolithic diagrams; no induced connected-motif covariance theorem in inspected material"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+        "material_read": "Full introduction, section 2, monolithic section 3, selected text in later sections and references; 27-page PDF and arXiv HTML",
+        "method": "Read searchable full text and representative PDF pages",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Direct model and isolated-chord estimates"
+      },
+      {
+        "assessment": "NOT_COVERING; component counts and crossing moments are marginal results",
+        "evidence": [
+          "Abstract describes component, largest component and crossing limit laws and separate moment calculations",
+          "Component OGF and crossing moment sections do not give induced connected-motif mixed isolation covariance"
+        ],
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Sections on components and crossing moments, theorem statements, and full 14-page PDF searched for relevant parameters",
+        "method": "Read extracted searchable PDF text and visual page inspections",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Classical component/crossing moment baseline"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected relevant material; treats marginal convergence rates",
+        "evidence": [
+          "Poisson approximation for simple chords, Gaussian approximation for crossings; no general induced connected-motif law in inspected parts"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.01134",
+        "material_read": "Abstract, introduction and relevant PDF sections on simple-chord Poisson/crossing CLT",
+        "method": "Read full-text excerpts and representative PDF pages",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Possible joint simple-chord/crossing theory"
+      },
+      {
+        "assessment": "UNRESOLVED residual priority risk, not claimed NOT_COVERING",
+        "evidence": [
+          "Contents emphasize enumeration of linearized/cyclic/symmetric chord diagrams and Vassiliev relations; abstract does not address mixed connected-motif covariances"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0012-365X(99)00347-7",
+        "material_read": "Bibliographic abstract and section outline; full text inaccessible",
+        "method": "Bibliographic and abstract inspection only",
+        "title": "On the number of chord diagrams",
+        "trigger": "Historical potentially stronger chord enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e0f61061-5813-411b-b0e3-a6305f7459e1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem determines the exact finite-size normalized dependence, shared by every connected realizable induced circle-graph motif of the same size, with a universal strict negative sign and leading rate. A disconnected-motif counterexample proves connectivity is not a cosmetic condition; this is a general local-global dependence law rather than a single routine case.",
+    "status": "PASS"
+  }
+}
