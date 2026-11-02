@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:51:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N>=7, t>0 and rho>=0 the DFT of K=e^{t cos(theta)+rho t cos(2theta)} equals N e^{(1+rho)t} times the continuous-time cyclic random walk mass with jumps ±1,±2, ensuring positive eigenvalues. Symmetric radial decreasing arc functions form a convolution cone; Euler approximation proves weak spectral ordering for rho<=1. For rho<1, factor off a positive-time strictly decreasing nearest-neighbor heat kernel to prove strict inequalities. For rho>1, the one-jump expansions p_t(2)-p_t(1)=(rho-1)t/2+O(t²)>0. For large t, strict convexity of x+rho(2x²−1) on frequencies x in [-d_N,c_N] makes k=1 or antipodal endpoint dominant; equality is handled by the combined leading coefficient, yielding sharp rho*=1/[2(d_N-c_N)], parity asymptotics N²/(4π²) even and N²/(3π²) odd. Independently recomputed exact arc-convolution differences for small cycles and sample high-precision spectral/endpoint signs at N=7,8,9,10,13,17,29. These checks support but do not replace the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lyons–White study walk monotonicity with respect to rates/parameters, not the complete adjacent-state radial order for this jump process.",
+          "The nearest-neighbor heat kernel is a proper rho=0 subfamily of the two-harmonic walk."
+        ],
+        "reasoning": "A general unimodality preservation theorem might imply the rho<=1 sufficient half; no inspected stronger result implied the sharp eventual threshold and parity boundary.",
+        "searches": [
+          "Generalized von Mises two-harmonic cyclic sampled Fourier eigenvalue ordering unimodality heat kernel jumps plus minus one two",
+          "Lyons White Monotonicity for continuous-time random walks arXiv:2109.10386",
+          "Chinta Jorgenson Karlsson Smajlović 2024"
+        ]
+      },
+      "checked_sources": [
+        "Salvador–Gatto 2021 doi:10.1007/s00180-021-01147-7 (full HTML material)",
+        "Chinta–Jorgenson–Karlsson–Smajlović arXiv:2409.14344 (primary PDF)",
+        "Lyons–White arXiv:2109.10386 (abstract)",
+        "Actual source RESULT.md and check.py, Git tree 1e73c8a7a4acbce23858393ff664fe93f22c81ff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing spatial-GvM bimodality results do not imply sampled Fourier eigenmode order.",
+          "Classical nearest-neighbor cyclic kernel does not imply behavior under ±2 jumps; extrapolation in rho is invalid.",
+          "The convex frequency-endpoint competition is a new condition relative to the inspected assertions."
+        ],
+        "reasoning": "The union of previously known ingredients supports the proof technique but did not yield an identified statement subsuming both sharp thresholds. Residual classical circular-unimodality literature is unexhausted.",
+        "searches": [
+          "Salvador Gatto 2021 doi:10.1007/s00180-021-01147-7",
+          "Chinta et al arxiv:2409.14344",
+          "Lyons White arXiv:2109.10386"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Discrete Gaussian work treats the nearest-neighbor rho=0 cyclic heat kernel; it does not itself supply the ±2 jump competition.",
+          "Spatial generalized-von-Mises symmetry and bimodality thresholds differ from monotonicity of sampled Fourier eigenvalues."
+        ],
+        "reasoning": "The appropriate aliases are cycle heat-kernel distance-unimodality and circulant Fourier coefficient order, not merely density modality. The source comparisons are at statement level.",
+        "searches": [
+          "Generalized von Mises two-harmonic cyclic sampled Fourier eigenvalue ordering unimodality heat kernel jumps plus minus one two",
+          "Chinta et al The discrete analogue of the Gaussian arXiv:2409.14344",
+          "Salvador Gatto generalized von Mises 2021"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The formulas apply to every N>=7 and all rho>=0, not finitely many tabulated cases."
+        ],
+        "reasoning": "A fixed spectrum table cannot cover all times and grids; independent checks are illustrative only.",
+        "searches": [
+          "Generalized von Mises two-harmonic cyclic sampled Fourier eigenvalue ordering unimodality heat kernel jumps plus minus one two",
+          "discrete cyclic heat kernel Fourier spectrum"
+        ]
+      },
+      "rationale": "Generalized von Mises spatial bimodality and ordinary nearest-neighbor cyclic heat kernels are established, but neither identifies the two sharp thresholds for the sampled two-harmonic Fourier eigenvalue sequence. Spatial density modality starts changing already at rho>1/4, unlike the Fourier eigenvalue ordering threshold rho=1. Comparing asymptotic Fourier exponents adds a second parity-dependent threshold beyond classical unimodal-convolution closure.",
+      "residual_risks": [
+        "Older finite-cycle symmetric-unimodality literature may establish a stronger general heat-kernel comparison.",
+        "Finite numeric checks alone cannot certify eventual inequalities for all t or all N."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Spatial circular density modality; no equivalent universal sampled Fourier eigenvalue monotonicity theorem identified in read sections",
+          "evidence": "Salvador–Gatto, Computational Statistics (2021)",
+          "identifier_or_url": "https://doi.org/10.1007/s00180-021-01147-7",
+          "material_read": "Accessible primary full article HTML: parameter definitions, density symmetry and modality statements, relevant analytic discussion",
+          "method": "primary full-text web reading",
+          "title": "Bayesian tests of symmetry for generalized von Mises distribution",
+          "trigger": "same circular two-harmonic density"
+        },
+        {
+          "assessment": "Nearest-neighbor heat kernel; the submitted ±2 jump two-threshold result is not a direct quoted theorem",
+          "evidence": "Chinta, Jorgenson, Karlsson, Smajlović (2024)",
+          "identifier_or_url": "https://arxiv.org/abs/2409.14344",
+          "material_read": "Accessible primary PDF: abstract, kernel construction and circle heat-kernel identities, inspected page rendering",
+          "method": "OA PDF full-text inspection",
+          "title": "The discrete analogue of the Gaussian",
+          "trigger": "same cyclic heat kernel family with rho=0"
+        },
+        {
+          "assessment": "Different monotonicity variable; complete general-coverage exclusion not asserted",
+          "evidence": "Lyons–White (2021)",
+          "identifier_or_url": "https://arxiv.org/abs/2109.10386",
+          "material_read": "Public manuscript summary/abstract, not complete proof text",
+          "method": "primary metadata and web search",
+          "title": "Monotonicity for continuous-time random walks",
+          "trigger": "potential broader continuous-time walk monotonicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete all-time and eventual sharp order regions, including a nontrivial mode-order healing window 1<rho<rho*(N), describe natural spectra of a common positive definite sampled circular kernel. They distinguish two concepts often conflated: spatial bimodality and Fourier-mode ordering, and give exact parity-sensitive parameter boundaries.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Salvador–Gatto 2021 doi:10.1007/s00180-021-01147-7 (full HTML material)",
+    "Chinta–Jorgenson–Karlsson–Smajlović arXiv:2409.14344 (primary PDF)",
+    "Lyons–White arXiv:2109.10386 (abstract)",
+    "Actual source RESULT.md and check.py, Git tree 1e73c8a7a4acbce23858393ff664fe93f22c81ff"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "N>=7, rho>=0, equally spaced cyclic grid only.",
+    "No claim about count or uniqueness of intermediate eigenmode crossings."
+  ],
+  "residual_risks": [
+    "Older finite-cycle symmetric-unimodality literature may establish a stronger general heat-kernel comparison.",
+    "Finite numeric checks alone cannot certify eventual inequalities for all t or all N."
+  ],
+  "schema_version": 1
+}
