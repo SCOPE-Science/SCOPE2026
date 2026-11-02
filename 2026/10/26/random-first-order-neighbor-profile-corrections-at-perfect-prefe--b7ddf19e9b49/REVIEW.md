@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact conditional origin/neighbor laws yield a strongly growing origin count, summable drift and conditional variance for the directional ratios, and convergence of their random limits. The conditional binary-path decomposition establishes coordinate nondegeneracy. The accompanying finite rational verifier checks the critical one-step identities; infinite limits rest on proof.
+## correctness
 
-**Originality — PASS, qualified.** Armfield–Mailler's open-interval localization theorem and Boyer et al.'s qualitative stationary endpoint profile do not give the almost-sure logarithmic random directional corrections. A previously known sharp scalar origin-count result concerns the total origin mass only. A general unlocated reinforced-urn result could imply the law; independent priority evaluation remains useful.
+PASS
 
-**Value — PASS.** Random neighbor-to-neighbor imbalance persists at exactly the scale of the deterministic origin deficit. This supplies a new, sample-dependent second-order description of a model whose leading profile is uniform on neighbors.
+At exact off-origin relocation probability one, only the origin and m=2d neighbors are visited. With K=n+1, b_n=1-(1-xi0)*J_n and C_n=#origin visits, q0=b_n*C_n/K and qj=b_n*N_j/K+(1-xi0)*J_n/m. f=C/K is nonnegative supermartingale tending 0. Log C drift/variance yield C_n>=K^eta and then log C/log K->1. For Q=K/C, E Delta Q=(1-xi0)*J_n/C_n+summable remainder and conditional variances summable after C_n>=K^3/4, proving C_n log K/K->1/(1-xi0). D_j=N_j-(K-C)/m and R_j=D_j/C have E Delta R=b_n*R/[K(C+1)] and summable drift/variance, hence finite R_j,infty almost surely. Conditional on autonomous binary origin path, the first new neighbor U is uniform, and positive convergent random multipliers of the neighbor-label martingale give nondegenerate conditional means; sum_j R_j=0. Independent rational checks tested q and drift identity across many finite count vectors and xi0 choices, not the a.s. limit.
 
-**Limitations.** The argument requires perfect off-origin relocation and initial position at the impurity. The joint law and moments of the vector are not derived. The finite computer checks are not an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Armfield–Mailler 2026 prove occupation localization for off-origin parameter xi<1 in an open neighborhood below the perfect endpoint, not at xi=1 or with random order-1/log n directional corrections. Boyer et al. predict the leading equal-neighbor profile but not this random first-order pathwise effect. Full Armfield thesis was inaccessible, so possible prior endpoint development is a concrete priority risk, not ignored or automatic failure.
+
+## value
+
+PASS
+
+At the natural singular perfect-resetting boundary, the first-order logarithmic correction is genuinely random and distinct from deterministic origin-mass loss. Its precise pathwise normalization and nondegeneracy refine the established leading occupation profile in a way useful for fluctuations of memory walks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

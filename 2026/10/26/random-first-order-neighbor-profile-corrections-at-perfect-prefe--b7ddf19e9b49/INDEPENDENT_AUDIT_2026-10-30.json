@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:55:37.879146Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At exact off-origin relocation probability one, only the origin and m=2d neighbors are visited. With K=n+1, b_n=1-(1-xi0)*J_n and C_n=#origin visits, q0=b_n*C_n/K and qj=b_n*N_j/K+(1-xi0)*J_n/m. f=C/K is nonnegative supermartingale tending 0. Log C drift/variance yield C_n>=K^eta and then log C/log K->1. For Q=K/C, E Delta Q=(1-xi0)*J_n/C_n+summable remainder and conditional variances summable after C_n>=K^3/4, proving C_n log K/K->1/(1-xi0). D_j=N_j-(K-C)/m and R_j=D_j/C have E Delta R=b_n*R/[K(C+1)] and summable drift/variance, hence finite R_j,infty almost surely. Conditional on autonomous binary origin path, the first new neighbor U is uniform, and positive convergent random multipliers of the neighbor-label martingale give nondegenerate conditional means; sum_j R_j=0. Independent rational checks tested q and drift identity across many finite count vectors and xi0 choices, not the a.s. limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Their localization/profile results give zero-order mass behavior and open interior parameter regime; the random correction and its almost-sure normalized limit are stronger in the endpoint setting."
+        ],
+        "reasoning": "Endpoint case is not a corollary of an open-interval theorem absent uniform estimates.",
+        "searches": [
+          "monkey walk preferential relocation impurity perfect resetting origin nearest-neighbor first-order random occupation asymptotics",
+          "Armfield–Mailler 2026; Boyer et al arXiv:1902.00817"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.21864v1: https://www.paperpeel.com/paper/2610.21864 ; https://arxiv.org/abs/2610.21864",
+        "arXiv:1902.00817: https://arxiv.org/abs/1902.00817",
+        "University of Bath thesis, April 2026: https://researchportal.bath.ac.uk/files/388221476/384412398_Redacted.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Leading deterministic nearest-neighbor fractions do not determine the random logarithmic fluctuations or conditional nondegeneracy; origin-count asymptotics alone also cannot derive neighbor ratios without the separate martingale."
+        ],
+        "reasoning": "Full thesis and other general urn sources remain risks, but inspected theorems do not dominate the claim.",
+        "searches": [
+          "monkey walk preferential relocation impurity perfect resetting origin nearest-neighbor first-order random occupation asymptotics",
+          "Armfield–Mailler 2026 Theorem 1.1; Boyer et al 2019 stationary profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same model can be framed as a measure-valued Polya process or reinforced random walk; exact endpoint occupation fluctuations require separate martingale ratio analysis."
+        ],
+        "reasoning": "The primary theorem excludes the endpoint xi=1 and so is not equivalent in stated parameter domain.",
+        "searches": [
+          "monkey walk preferential relocation impurity perfect resetting origin nearest-neighbor first-order random occupation asymptotics",
+          "Armfield–Mailler arXiv:2610.21864 Section 1 and Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact joint directional fluctuation law or limiting distribution table located; no claimed explicit law for R_infty."
+        ],
+        "reasoning": "Specific first-order assertion is not a routine known count table.",
+        "searches": [
+          "monkey walk preferential relocation impurity perfect resetting origin nearest-neighbor first-order random occupation asymptotics",
+          "Resultary targeted monkey-walk query 4; Boyer et al 2019"
+        ]
+      },
+      "rationale": "Armfield–Mailler 2026 prove occupation localization for off-origin parameter xi<1 in an open neighborhood below the perfect endpoint, not at xi=1 or with random order-1/log n directional corrections. Boyer et al. predict the leading equal-neighbor profile but not this random first-order pathwise effect. Full Armfield thesis was inaccessible, so possible prior endpoint development is a concrete priority risk, not ignored or automatic failure.",
+      "residual_risks": [
+        "Armfield 2026 University of Bath thesis is topically close and full text was inaccessible (repository PDF HTTP 403); prior treatment of the exact endpoint cannot be excluded.",
+        "A general reinforced-urn theorem under a different encoding might imply the nondegenerate correction; no full equivalence located.",
+        "No explicit distribution or moment bounds for R_infty, and no uniformity as xi_off approaches 1 from below."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The occupation-measure localization theorem assumes off-origin relocation in an open interval below one (xi<1), rather than the singular perfect-relocation endpoint xi=1; it does not assert the random logarithmic first-order directional correction.",
+          "evidence": "https://www.paperpeel.com/paper/2610.21864 ; https://arxiv.org/abs/2610.21864",
+          "identifier_or_url": "arXiv:2610.21864v1",
+          "material_read": "Complete publicly accessible HTML rendering: model and Theorem 1.1 in Section 1, framework in Sections 2–3, and detailed proof in Section 4.",
+          "method": "Full-text HTML reading via PaperPeel",
+          "title": "Wilfred Armfield and Cécile Mailler, Localisation of the monkey walk with an impurity at the origin",
+          "trigger": "Same impurity preferential-relocation process and parameters close to perfect off-origin relocation."
+        },
+        {
+          "assessment": "Predicts the limiting localization profile, not the pathwise random first-order correction at logarithmic speed. Full-text undiscovered claims remain a residual risk.",
+          "evidence": "https://arxiv.org/abs/1902.00817",
+          "identifier_or_url": "arXiv:1902.00817",
+          "material_read": "Open abstract and stationary-profile discussion; not full article.",
+          "method": "Abstract and accessible public overview",
+          "title": "Boyer, Falcón-Cortés, Giuggioli, Majumdar, Anderson-like localization transition of random walks with resetting",
+          "trigger": "Earliest impurity-resetting stationarity prediction including equal nearest-neighbor fractions."
+        },
+        {
+          "assessment": "No scientifically defensible whole-thesis noncoverage conclusion; potential earlier endpoint analysis is retained as an explicit priority risk.",
+          "evidence": "https://researchportal.bath.ac.uk/files/388221476/384412398_Redacted.pdf",
+          "identifier_or_url": "University of Bath thesis, April 2026",
+          "material_read": "Thesis repository abstract and bibliographic description; linked redacted full PDF denied access (HTTP 403).",
+          "method": "University repository metadata and blocked full text",
+          "title": "Wilfred Armfield, An Analysis of Learning Processes Through Reinforced Random Walks",
+          "trigger": "Highly plausible dissertation on the same walk and its endpoint."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the natural singular perfect-resetting boundary, the first-order logarithmic correction is genuinely random and distinct from deterministic origin-mass loss. Its precise pathwise normalization and nondegeneracy refine the established leading occupation profile in a way useful for fluctuations of memory walks.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned Git source: 2026/10/26/random-first-order-neighbor-profile-corrections-at-perfect-prefe--b7ddf19e9b49/RESULT.md blob 787b120317575e4264798fcfa50d779ca02b9fe7",
+    "Pinned package verifier: verify.py with independently reconstructed tests",
+    "Resultary query: monkey walk preferential relocation impurity perfect resetting origin nearest-neighbor first-order random occupation asymptotics",
+    "arXiv:2610.21864v1",
+    "arXiv:1902.00817",
+    "University of Bath thesis, April 2026"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Single origin impurity, xi0 in (0,1), xi_off exactly 1, dimension d>=1.",
+    "Independent finite rational checks of conditional identities only, almost-sure claims justified by martingale arguments."
+  ],
+  "residual_risks": [
+    "Armfield 2026 University of Bath thesis is topically close and full text was inaccessible (repository PDF HTTP 403); prior treatment of the exact endpoint cannot be excluded.",
+    "A general reinforced-urn theorem under a different encoding might imply the nondegenerate correction; no full equivalence located.",
+    "No explicit distribution or moment bounds for R_infty, and no uniformity as xi_off approaches 1 from below."
+  ],
+  "schema_version": 1
+}
