@@ -1,15 +1,21 @@
-# Scientific review: order-thirteen short zero-sum classification
+# Independent mathematical audit
 
-## Correctness — PASS
-For all primes \(p\) for which \(13\mid p-1\), and every \(q\in\mathbb F_p^\times\) of order \(13\), the invariant \(m(q,p)\) is the least number of (repeated allowed) subgroup elements summing to zero. The lower bound \(m\ge3\) follows since \(-1\) cannot lie in an odd-order subgroup. For each length \(3\) and \(4\), the verifier constructs **every** exponent multiset of residues modulo \(13\), partitions them into complete disjoint affine orbits, and computes the exact cyclotomic integral resultants of the representatives. The orbit sizes exhaust \(455\) and \(1820\) multisets. Because \(\Phi_{13}\) splits into the twelve primitive roots for \(p\equiv1\pmod{13}\), an admissible prime divides a representative resultant exactly when a short vanishing sum exists. Exact prime-factor calculations yield the nine stated primes, and direct modular witnesses corroborate sufficiency. Symbolic polynomial resultants independently matched all 21 determinant calculations. The result is an exact finite certificate for all possible length-three and length-four patterns, not a range-limited experimental inference. The original norm arithmetic and every prerequisite are reproducible with the included Python verifier.
+## correctness
 
-## Originality — PASS within available literature
-Jacob and Külshammer, *Congruences for sums of powers of an integer* (arXiv:2204.09403, 2022), Example 16(ii), identify three short-sum order-13 sample primes: \(53\) at length three and \(79,131,157\) at length four; Proposition 11 and Corollary 13 give general finiteness tools. Their inspected passages do not assert a complete order-13 prime spectrum. Breuer, Héthelyi, Horváth and Külshammer (arXiv:1912.03065, 2019) provide general methods and finite tables but no explicit exhaustive list for the present parameter. The new theorem determines all exceptional primes, adds \(2731,1327,2003,7229,398581\), and proves no further primes occur. An analogous classification for **order eleven** concerns a different cyclic subgroup and cannot imply an order-thirteen classification. Targeted mathematical-record and primary-literature searches found no equivalent result, although unseen or implicit earlier derivations remain possible. A general algorithm making this computable does not by itself supply the numerical, exhaustive classification; priority is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The invariant is explicitly motivated in the 2022 source, whose order-13 examples leave a natural finite-length classification open. This theorem upgrades three reported example primes to a complete universal order-13 classification, including exclusion of all other primes for three- and four-term sums. Its exact nine-prime spectrum and complete 21-orbit certificate are naturally useful as a benchmark and as arithmetic data for the minimum zero-sum length. It is neither a cutoff in \(p\) nor an arbitrary extra small instance: \(13\) is the next prime order after the analogous order-11 classification, and lengths three/four are a concrete first nontrivial threshold.
+For ord_p(q)=13, subgroup has odd order, so no 1- or 2-term vanishing. Each t-summand zero is some primitive 13th root of Phi13 shared with positive coefficient polynomial P_E. Since p≡1 mod13, Phi13 splits squarefree, so p divides cyclotomic resultant iff an admissible primitive root zero exists; choosing another subgroup generator merely permutes primitive roots. Independently enumerated all C(15,3)=455 and C(16,4)=1820 exponent multisets under affine group AGL(1,13), yielding exactly five and sixteen disjoint orbits; computed all 21 absolute norms via symbolic SymPy cyclotomic resultants (different method than source Bareiss 12x12 determinant), factored exactly. Candidate p for k3 are {53,2731}; for k4 {53,79,131,157,1327,2003,7229,398581}; removing already k3 gives claimed minimum=4 primes. Thus unlisted admissible primes have m≥5, not an asserted exact value.
 
-## Limits and residual risks
-The classification does not determine \(m(q,p)\) when it is at least five and does not handle composite moduli. The proof includes a reproducible exhaustive **finite pattern** certificate and independently checked resultants; no independent mathematical audit of the whole theorem has occurred. Potential prior derivations via general short vanishing-sum/cyclotomic techniques, non-indexed theses, and implicit consequences of older general methods remain originality risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jacob–Külshammer Example 16(ii) explicitly lists order-13 examples p53 m3 and p79,131,157 m4, while older Breuer et al gives underlying finite procedures and examples. Those prior examples and general method do not state or logically determine without substantial evaluation the entire 21-orbit resultant/norm table or all nine exceptional primes including 2731,1327,2003,7229,398581. Dvornicich–Zannier 2002 has highly relevant title but full text inaccessible after lawful OA searches and institution storage-limit response; retain material priority risk.
+
+## value
+
+PASS
+
+A complete exact finite-exception classification for a natural arithmetic invariant over all admissible primes at a fixed small multiplicative order, not bounded prime testing. The previously unresolved exceptional prime list and exact 21-orbit certificate are independently useful when studying short additive relations in cyclic multiplicative subgroups. This is a meaningful natural cutoff rather than an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
