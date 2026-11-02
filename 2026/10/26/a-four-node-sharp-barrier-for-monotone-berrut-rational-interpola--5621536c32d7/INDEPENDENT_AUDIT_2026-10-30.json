@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T11:47:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a cell nx=m+t, 0<t<1, write central weight sum u=t^−1+(1−t)^−1 and alternating left/right tails a,b, with 0≤a≤(1+t)^−1, 0≤b≤(2−t)^−1. The normalized barycentric denominator D=u−a−b>5/2 has no pole. Every monotone sample decomposes into nonnegative step jumps, and normalized suffix responses H_k satisfy −b/D≤H_k≤1+a/D by alternating partial/suffix bounds. The sharp local range defect equals max(a,b)/D. Monotonicity in both tails reduces every grid to the envelope F(t), equal to t(t−1)(t−2)/[2(t²−t+1)] for 0<t≤1/2, symmetric under t↦1−t. F has one interior maximizer t*=0.4404585133... since its derivative numerator t^4−2t^3+4t²−6t+2 crosses zero exactly once. The polynomial resultant gives the unique positive algebraic defect; n=3 with one-tail terms attains both signs via complementary step data. Independently checked 680 exact (n,cell,rational t) cases and the symbolic derivative/resultant.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nguyen–Cuyt–Salazar Celis 2011 studies constructive comonotone/coconvex rational interpolation",
+          "Resultary Floater–Hormann and cubic Lagrange exact four-point defects are for different operators"
+        ],
+        "reasoning": "Shape-preservation under redesigned weights and other interpolation bases is not a broader theorem for unmodified Berrut alternating weights.",
+        "searches": [
+          "Resultary semantic: Berrut rational interpolation equidistant monotone data sharp range overshoot four node",
+          "DOI:10.1007/s11075-010-9445-2",
+          "Resultary:2026/10/4/SCOPE-sharp-monotone-range-defect-of-four-point-degree-one-floater-hor--588356639a12"
+        ]
+      },
+      "checked_sources": [
+        "https://www.inf.usi.ch/hormann/papers/Bos.2011.OTL.pdf",
+        "https://doi.org/10.1016/0898-1221(88)90067-3",
+        "https://doi.org/10.1007/s11075-010-9445-2",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-monotone-range-defect-of-four-point-degree-one-floater-hor--588356639a12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bos et al. Theorem 1 bounds Lebesgue growth for all sample vectors",
+          "This proof exploits suffix sums and nonnegative step decomposition specific to monotone samples"
+        ],
+        "reasoning": "A bound on the unrestricted sum of absolute barycentric coefficients cannot yield the exact constant/attainment over the monotone cone.",
+        "searches": [
+          "Resultary semantic: Berrut rational interpolation equidistant monotone data sharp range overshoot four node",
+          "Bos De Marchi Hormann 2011 full manuscript"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bos–De Marchi–Hormann 2011 gives unrestricted Lebesgue constant ≍log n",
+          "The assessed monotone cone sharp defect is constant δ* and achieved on four nodes"
+        ],
+        "reasoning": "Unrestricted norm growth does not determine monotone-data response, so the stated logarithmic result neither contradicts nor implies the sharp monotone envelope.",
+        "searches": [
+          "Resultary semantic: Berrut rational interpolation equidistant monotone data sharp range overshoot four node",
+          "Bos De Marchi Hormann 2011 DOI:10.1016/j.cam.2011.04.004"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary 2026/10/4 Floater–Hormann δ≈0.184413 and cubic Lagrange δ≈0.06415, both distinct interpolants",
+          "No known tabulated exact δ*≈0.255032 in inspected references"
+        ],
+        "reasoning": "Precise comparison rules out conflating different four-node operators; no exact Berrut monotone table found, not proof of absence.",
+        "searches": [
+          "Resultary semantic: Berrut rational interpolation equidistant monotone data sharp range overshoot four node"
+        ]
+      },
+      "rationale": "Berrut 1988 introduced the exact original alternating barycentric interpolant. Bos–De Marchi–Hormann 2011 proved logarithmic growth of its unrestricted Lebesgue constant; a universal sharp range defect restricted to monotone step data is a different norm and is not implied by a logarithmic unrestricted bound. Nguyen–Cuyt–Salazar Celis 2011 develop comonotone/coconvex interpolation with designed rational weights, not the assessed fixed weights in inspected accessible descriptions. Published Resultary exact four-point range defects concern degree-one Floater–Hormann, cubic Lagrange, Catmull–Rom and Akima operators, which have different weights/bases. An inaccessible original Berrut full text and unexamined comonotone article remain possible priority sources.",
+      "residual_risks": [
+        "Original 1988 Berrut full text and the 2011 comonotone article were not inspected completely.",
+        "An earlier unnamed stability theorem for all equispaced Berrut nodes could supply the same sharp shape constant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING monotone-restricted all-grid sharp algebraic defect",
+          "evidence": "Studies unrestricted operator norm, which grows logarithmically; no monotone step-data extremal envelope.",
+          "identifier_or_url": "https://www.inf.usi.ch/hormann/papers/Bos.2011.OTL.pdf",
+          "material_read": "Full seven-page open author manuscript including interpolatory weights, Lebesgue-function proofs, stated bounds and numerical experiments",
+          "method": "read PDF and inspected first-page screenshot",
+          "title": "On the Lebesgue constant of Berrut’s rational interpolant at equidistant nodes",
+          "trigger": "Same nodes and same original Berrut operator"
+        },
+        {
+          "assessment": "PRIORITY_RISK; cannot rule out original shape claim",
+          "evidence": "Original Berrut weights established; no claim about unread full-text content.",
+          "identifier_or_url": "https://doi.org/10.1016/0898-1221(88)90067-3",
+          "material_read": "Bibliographic citation and summaries; full paper not available",
+          "method": "bibliographic/abstract only",
+          "title": "Rational functions for guaranteed and experimentally well-conditioned global interpolation",
+          "trigger": "Original 1988 Berrut definition and historical priority"
+        },
+        {
+          "assessment": "PRIORITY_RISK; might contain a universal bound for the original Berrut operator",
+          "evidence": "General comonotone interpolation is related but not shown equivalent to fixed alternating weights.",
+          "identifier_or_url": "https://doi.org/10.1007/s11075-010-9445-2",
+          "material_read": "Accessible descriptive information about alternate shape-preserving rational constructions; complete article not reliably inspected",
+          "method": "metadata and partial accessible descriptions, no entire-document assertion",
+          "title": "Comonotone and coconvex rational interpolation and approximation",
+          "trigger": "Potential same shape objective for rational interpolation"
+        },
+        {
+          "assessment": "DIFFERENT_OPERATOR; not covering Berrut original alternating weights",
+          "evidence": "Reported δ=0.1844131164 for FH degree one rather than δ=0.255032 for Berrut original.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-monotone-range-defect-of-four-point-degree-one-floater-hor--588356639a12",
+          "material_read": "Published title and short mathematical summary, not full repository proof",
+          "method": "Resultary semantic search result",
+          "title": "Sharp monotone range defect of four-point degree-one Floater–Hormann interpolation",
+          "trigger": "Nearest published Resultary four-point shape-invariant result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This theorem is the all-n sharp shape defect of the canonical simple pole-free barycentric rational interpolant under the natural monotone-data cone, with a finite four-node universal extremizer despite growing unrestricted Lebesgue constants. The exact algebraic constant is a motivated, independent numerical invariant of a standard approximation operator, useful for quantitative shape-preserving error control.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The original alternating-weight Berrut rational interpolant on every equispaced grid has sharp range [−δ*,1+δ*] on monotone samples in [0,1], with δ*=0.255032152490845... the unique positive root of 12z^4+24z^3+32z²−6z−1, attained at n=3 (four nodes).",
+  "limitations": [
+    "Not monotonicity preservation of the interpolant; requires original weights and equally spaced nodes.",
+    "Finite grid tests are not an exhaustive proof for arbitrary n or continuum t.",
+    "Original 1988 Berrut full text and the 2011 comonotone article were not inspected completely.",
+    "An earlier unnamed stability theorem for all equispaced Berrut nodes could supply the same sharp shape constant."
+  ],
+  "schema_version": 1
+}
