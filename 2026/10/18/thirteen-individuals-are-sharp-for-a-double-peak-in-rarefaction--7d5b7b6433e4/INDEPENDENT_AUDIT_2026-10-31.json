@@ -1,0 +1,306 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:34:49.330423Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Source frozen Git tree f71512fe43b7e311844aa7843216a575855daaab; RESULT.md SHA 43a2a36cb235bb23a09387f002a70744acadb99b; verify_rarefaction_peaks.py SHA 25815deda902a26cdb837fcb5b0018215387e1bc",
+        "Independent exhaustively enumerated EVERY labelled subset per nondecreasing positive abundance partition for N=1..13, computed exact integer first and second species counts, checked partition counts p(1)..p(13), and found exactly (1,6,6) with strict maxima (3,6) at N=13; independent_rarefaction_audit_check.py in archive.",
+        "Source RESULT.md theorem/scope/indicator-covariance proof and full verify_rarefaction_peaks.py implementation"
+      ],
+      "rationale": "The actual theorem concerns any fixed positive-integer species abundance multiset with total N<=13 under uniform fixed-m without-replacement samples. For species presence indicators I_i, P(I_i=0)=C(N-a_i,m)/C(N,m) and P(I_i=I_j=0)=C(N-a_i-a_j,m)/C(N,m); expansion of Var(sum I_i) gives the stated source equation (1) with q_ij-q_iq_j. Nondecreasing positive integer partitions enumerate each species-label permutation class once; the partition recursion is exhaustive by induction on remaining total. Independently and without importing the source verifier, enumerated all 2^N subsets of the N labelled individuals for every partition of N=1..13, accumulated exact E[K_m],E[K_m^2], used rational arithmetic for every m, and tested BOTH strict inequalities at each possible m=2..N-1. Partition counts for N=3..13 were 3,5,7,11,15,22,30,42,56,77,101 (total 369), none below N=13 double peaked, and only (1,6,6) among the 101 profiles of N=13 gave >=2 strict local maxima at m=(3,6). Exact witness rational sequence matched all 13 source fractions; N=1,2 impossible by number of interior positions. Source verifier uses independent hypergeometric convolution checking every cell; its code and scope were inspected, but not blindly treated as a proof merely from its success statement. This is a complete finite sharp-cutoff proof, not an assertion about all larger N.",
+      "residual_risks": [
+        "No infinite-family or N>13 classification; exhaustive finite enumeration is bounded by N<=13.",
+        "Independent subset enumeration constitutes a computational exhaustive proof with transparent finite domain, not a human/formal proof assistant certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nipperess–Matsen full article states moment identities on marked rooted/unrooted trees, explicitly including star trees whose rooted PD equals observed species richness, but supplies no all-partition N<=13 shape/cutoff theorem.",
+          "Tong PMID 6671130 abstract discusses majorization across communities with fixed same sample sizes and large-n asymptotic normality, which does not constrain local extrema in m within one fixed community.",
+          "Resultary published richness–Gini covariance and frequency-count covariance sign laws concern different statistics/models."
+        ],
+        "reasoning": "Broader variance formula subsumes calculation of each V_m but does not, as a stated theorem or immediate mathematical implication, yield the sharp minimum and uniqueness: these require proving exhaustive exclusions of 369 positive integer partitions through total 13. The older comparison/ordering theorems change abundance profiles at fixed m, not m at fixed profile. Residual possibility of a broader uninspected shape theorem is retained.",
+        "searches": [
+          "Nipperess Matsen 2013 rooted phylogenetic diversity variance mark multiplicity star tree species richness",
+          "Tong 1983 species diversity majorization sample sizes stochastic ordering",
+          "Olszewski 2004 richness rarefaction curves evenness slope",
+          "Resultary semantic: rarefaction richness diversity sampling variance curve hypergeometric partitions nonunimodality multimodality sharp threshold",
+          "https://doi.org/10.1111/2041-210X.12042",
+          "https://doi.org/10.2307/2531334"
+        ]
+      },
+      "checked_sources": [
+        "Nipperess and Matsen 2013 full-text DOI:10.1111/2041-210X.12042, rooted star-tree specialization, exact moment formulas, results and discussion.",
+        "Heck et al. 1975 DOI:10.2307/1934716 publisher abstract and bibliographic material; full text unavailable.",
+        "Tong 1983 PubMed PMID 6671130 abstract; full text unavailable.",
+        "Simberloff 1972 DOI:10.1086/282781 bibliographic landing; full text unavailable.",
+        "Chao and Jost 2012 DOI:10.1890/11-1952.1 title and abstract.",
+        "Resultary semantic query on strict rarefaction double-peak and broad richness variance; first 30 results for each query; examined published RESULT.md of two nearest occupancy/richness covariance results.",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Heck 1975 establishes fixed-census expectation and variance (publisher abstract); Nipperess–Matsen 2013 generalizes them and explicitly shows star-tree equivalence in full text.",
+          "Resultary covariance sign theorems have different sampling assumptions/statistical objects; Chao–Jost coverage standardization and Tong cross-population majorization do not state a within-profile strict peak-count bound."
+        ],
+        "reasoning": "The new finite theorem is derivable by combining old moment identities with new exact finite exhaustive partition enumeration; that need for exhaustive computation does not by itself make the existing formula a prior published sharp-threshold classification. None of the inspected full statements immediately implies every N<=12 census has at most one strict peak and N=13 uniquely (1,6,6); the 1972/1975/1983 uninspected full works are recorded as unresolved priority checks, not falsely ruled out.",
+        "searches": [
+          "https://doi.org/10.2307/1934716",
+          "https://doi.org/10.1111/2041-210X.12042",
+          "https://doi.org/10.1890/11-1952.1",
+          "https://doi.org/10.2307/2531334",
+          "https://doi.org/10.1086/282781",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "\"variance of species richness\" \"sample size\" \"unimodal\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For fixed abundance vector a, K_m counts nonempty species in a multivariate hypergeometric sample; this is also star-tree rooted phylogenetic diversity with all tip lengths 1 (Nipperess–Matsen 2013 Materials and methods).",
+          "The searched identities and research records do not give the quantified earliest census and unique two-peak witness; exact variance formulas are shared old knowledge."
+        ],
+        "reasoning": "The theorem is not the Heck–Simberloff variance expression, which is background, but the sharp universal finite cutoff and first-layer uniqueness for TWO DISTINCT STRICT local maxima as integer sample depth m varies. With-replacement iid occupancy and continuous-smoothed rarity curves are not equivalent to this without-replacement conditional model.",
+        "searches": [
+          "\"rarefaction\" \"variance\" \"two peaks\"",
+          "\"variance of species richness\" \"sample size\" \"unimodal\"",
+          "\"1,6,6\" \"rarefaction\" variance",
+          "Resultary semantic: strict local maxima hypergeometric rarefaction species richness variance sample size double peaks (1,6,6) 13",
+          "https://doi.org/10.2307/1934716",
+          "https://doi.org/10.1111/2041-210X.12042"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No located indexed exact table identifies (1,6,6), m=3,6 and the 369-profile exhaustive exclusion.",
+          "vegan rarefy and published moment identities calculate variances but do not assert or list this first two-peak census classification."
+        ],
+        "reasoning": "A database or routine can let a researcher recompute the numbers, but the audit found no existing table that actually contains the sharp N=13 threshold, full uniqueness and peak indices. Failed targeted searches alone do not prove novelty; unindexed tables or demonstrations remain residual risks.",
+        "searches": [
+          "species richness variance over rarefaction sample sizes unique 13 individual 1 6 6 first double peak",
+          "Peaks of species richness hypergeometric variance fixed community 1 6 6",
+          "\"rarefaction\" \"variance\" \"nonunimodal\"",
+          "R vegan rarefy exact conditional variance table",
+          "Resultary query nearest 30 published research records"
+        ]
+      },
+      "rationale": "Best-of-knowledge sharp-threshold and uniqueness classification appears new relative to inspected primary sources and published research records. Exact moment formulas have been known since 1975 and are not claimed new. The full Nipperess–Matsen 2013 marked-tree variance theorem specializes to the exact old abundance-census moment identity, but does not state/exhibit the all-integer-partition first two-peak cutoff. Tong 1983 majorization statements compare populations at the same sample depth; the independent occupancy published results use iid draws and different covariance objects. Published prior tables do not demonstrate the unique (1,6,6) two-peak witness in the checked sources. Priority remains qualified because some older full texts were inaccessible and search is nonexhaustive.",
+      "residual_risks": [
+        "Heck–van Belle–Simberloff Ecology 1975 (DOI:10.2307/1934716) three-page complete source unavailable. Authorized retrieval interrupted with expired verification tab; no automated CAPTCHA/MFA or repeat attempt. An example might exhibit (1,6,6) or a stronger variance-shape fact.",
+        "Simberloff 1972 Properties of the Rarefaction Diversity Measurement (DOI:10.1086/282781) older full paper not read; plausible shape observation.",
+        "Tong Biometrics 1983 (DOI:10.2307/2531334) full text unavailable, although abstract speaks primarily about between-community majorization and asymptotics.",
+        "No database/index/search exhausts unpublished materials or unindexed ecological worked tables. Best-of-knowledge novelty is conditional on inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the source moment identity via rooted star-tree specialization; no statement or table of smallest N supporting two strict local maxima, no complete N<=13 integer-abundance partition census, and no uniqueness of (1,6,6) in article.",
+          "evidence": [
+            "Publisher full-text Materials and methods explains that rooted star with unit tip lengths and mark multiplicities reduces phylogenetic diversity to species richness; main results calculate moments and ecological applications, not first two-peak threshold.",
+            "2013 Methods Ecol Evol 4:566-572; public full HTML lines 110-182, 194-229."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12042",
+          "material_read": "Complete accessible Wiley HTML article: Introduction, Materials and methods, equations (1)-(5), rooted covariance and unrooted development, star-tree species-richness specialization, three applications, Results, Discussion, Appendix as exposed in the full HTML.",
+          "method": "Publisher lawful free full-text HTML (https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12042), especially rooted star-tree specialization and exact variance formulas.",
+          "title": "The mean and variance of phylogenetic diversity under rarefaction",
+          "trigger": "Most relevant stronger result: marked-tree rarefaction variance, potentially specializing to repeated-species richness."
+        },
+        {
+          "assessment": "Explicitly provides the known exact expectation and variance, and its abstract describes sample-size planning, but full paper was not read: shape/exception examples remain priority risks, no claim of whole-paper noncoverage.",
+          "evidence": [
+            "1975 Ecology 56:1459-1461 abstract says explicit expected richness and variance and an example on sufficient sampling size.",
+            "No full technical inspection; this source alone does not demonstrate the N=13 sharp classification, but may contain unexpected worked profiles."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/1934716",
+          "material_read": "Publisher title, authors, bibliographic data, abstract (three-page Ecology 1975 paper), not full article.",
+          "method": "Wiley publisher abstract; searches for same-paper preprint/arXiv and lawful OA. Authorized institutional retrieval returned interrupted job ad526f2e0f00b42b60ea59a23cbde496 with expired verification tab; no access bypass or second attempt.",
+          "title": "Explicit Calculation of the Rarefaction Diversity Measurement and the Determination of Sufficient Sample Size",
+          "trigger": "Original exact finite-census species-richness variance paper; plausible priority coverage."
+        },
+        {
+          "assessment": "Abstract proves stochastic ordering ACROSS populations at a fixed sample size under majorization, and asymptotic normality; these do not directly imply changes of variance within one fixed population as sample size increases. Whole-document noncoverage not asserted.",
+          "evidence": [
+            "PubMed PMID:6671130 abstract specifies majorization and fixed sample sizes for comparisons, plus large-sample normality."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/2531334",
+          "material_read": "PubMed record PMID 6671130, complete abstract only; full Biometrics 1983 text not located as lawful OA or arXiv.",
+          "method": "PubMed abstract and cross-referenced bibliographic lookup; full paper not accessed.",
+          "title": "Some Distribution Properties of the Sample Species-Diversity Indices and Their Applications",
+          "trigger": "Older distributional and majorization theorem may be stronger than a specific fixed-census variance result."
+        },
+        {
+          "assessment": "No mathematical noncoverage inference from the metadata; residual risk if this 1972 paper studies rarefaction-variance shape.",
+          "evidence": [
+            "American Naturalist 106 (1972), 414-418, DOI:10.1086/282781."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/282781",
+          "material_read": "Journal landing-page title, date, volume and references; technical content and full text unavailable (403/no access).",
+          "method": "University of Chicago Press landing and bibliographic source cross-check.",
+          "title": "Properties of the Rarefaction Diversity Measurement",
+          "trigger": "Early rarefaction properties article potentially treating curvature or extrema."
+        },
+        {
+          "assessment": "Coverage matching and extrapolation/estimation of richness do not state the within-census conditional variance strict two-peak cutoff. Full technical absence is not asserted.",
+          "evidence": [
+            "Chao and Jost, Ecology 93 (2012), 2533-2547; named coverage-based, rather than first double-variance-peak census."
+          ],
+          "identifier_or_url": "https://doi.org/10.1890/11-1952.1",
+          "material_read": "Publisher abstract and high-level scope of coverage-based estimation; no whole-body inspection.",
+          "method": "DOI/publisher search results and citations in Nipperess–Matsen full paper.",
+          "title": "Coverage-based rarefaction and extrapolation: standardizing samples by completeness rather than size",
+          "trigger": "Closely related sampling-depth statistical framework."
+        },
+        {
+          "assessment": "Different sampling model (iid with replacement) and covariance between two statistics at ONE n, not variance of richness across all without-replacement sample sizes from a fixed integer census.",
+          "evidence": [
+            "Published formula Cov(K_n,Ghat_n)=2s2*A_n-(1+s2)*B_n and positivity in iid categorical model, not the local extrema of Var(K_m)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+          "material_read": "Published RESULT.md theorem, assumptions and opening proof section about independent categorical draws, richness, unbiased Simpson U-statistic and covariance formula.",
+          "method": "Resultary semantic search and GitHub primary published RESULT.md.",
+          "title": "Universal positive covariance of sample richness and unbiased Gini–Simpson diversity",
+          "trigger": "Nearest published research record involving richness and diversity covariance."
+        },
+        {
+          "assessment": "Its single sign change is in frequency-index r and applies to iid uniform occupancy, not strict local sample-depth peaks of fixed-census hypergeometric richness variance.",
+          "evidence": [
+            "Explicit model throws n independent balls in m boxes; sign of Cov(K,K_r) switches with occupancy count r, a distinct assertion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "material_read": "Published RESULT.md theorem, hypotheses and proof of covariance sign switch for counts K_r in uniform independent balls-in-boxes.",
+          "method": "Resultary semantic search and GitHub published RESULT.md.",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Nearest published research record involving occupancy richness and a discrete sign change."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Source frozen Git tree f71512fe43b7e311844aa7843216a575855daaab; RESULT.md SHA 43a2a36cb235bb23a09387f002a70744acadb99b; verify_rarefaction_peaks.py SHA 25815deda902a26cdb837fcb5b0018215387e1bc",
+        "Independent exhaustively enumerated EVERY labelled subset per nondecreasing positive abundance partition for N=1..13, computed exact integer first and second species counts, checked partition counts p(1)..p(13), and found exactly (1,6,6) with strict maxima (3,6) at N=13; independent_rarefaction_audit_check.py in archive.",
+        "https://doi.org/10.1111/2041-210X.12042",
+        "https://doi.org/10.2307/1934716"
+      ],
+      "rationale": "Finite rarefaction is an established mathematically meaningful model: the variance of observed richness versus sample depth is a natural uncertainty invariant for a fixed census. It need not have a single peak even though expected richness rises. Establishing the FIRST census where strict variance re-rise occurs and proving UNIQUE first-layer abundance multiset and both sample-depth peaks is a natural complete sharp finite classification, not a random unmotivated numeric slice or textbook substitution. The example (1,6,6) has one singleton and two equal abundant species, explaining competing early and intermediate sources of variance; m>=8 collapses to the singleton Bernoulli variance m(13-m)/169. This exact boundary can prevent an unjustified single-peak heuristic in rarefaction-depth uncertainty planning. No downstream theorem, asymptotic family, or claimed broad ecological application is needed for the bounded standalone result.",
+      "residual_risks": [
+        "Only a sharp finite boundary, not a general classification of all abundance profiles or empirical species-sampling validation.",
+        "Its numerical cutoff is scientifically useful as a first counterexample boundary but not a universal sampling-planning rule."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Source frozen Git tree f71512fe43b7e311844aa7843216a575855daaab; RESULT.md SHA 43a2a36cb235bb23a09387f002a70744acadb99b; verify_rarefaction_peaks.py SHA 25815deda902a26cdb837fcb5b0018215387e1bc",
+    "Independent exhaustively enumerated EVERY labelled subset per nondecreasing positive abundance partition for N=1..13, computed exact integer first and second species counts, checked partition counts p(1)..p(13), and found exactly (1,6,6) with strict maxima (3,6) at N=13; independent_rarefaction_audit_check.py in archive.",
+    "Nipperess and Matsen 2013 full-text DOI:10.1111/2041-210X.12042, rooted star-tree specialization, exact moment formulas, results and discussion.",
+    "Heck et al. 1975 DOI:10.2307/1934716 publisher abstract and bibliographic material; full text unavailable.",
+    "Tong 1983 PubMed PMID 6671130 abstract; full text unavailable.",
+    "Simberloff 1972 DOI:10.1086/282781 bibliographic landing; full text unavailable.",
+    "Chao and Jost 2012 DOI:10.1890/11-1952.1 title and abstract.",
+    "Resultary semantic query on strict rarefaction double-peak and broad richness variance; first 30 results for each query; examined published RESULT.md of two nearest occupancy/richness covariance results."
+  ],
+  "disposition": "passed",
+  "final_claim": "For every positive integer abundance vector a with total N<=12, the conditional without-replacement species-richness variance curve V_m(a)=Var(K_m) at integer depths m=1..N has at most one strict interior local peak. At N=13 exactly one abundance multiset up to relabeling, (1,6,6), has at least two strict interior peaks; it has exactly two, at depths 3 and 6. The variance values are the 13 exact rationals displayed in source RESULT.md. No assertion about larger N or nonstrict plateaus.",
+  "limitations": [
+    "Heck–van Belle–Simberloff Ecology 1975 (DOI:10.2307/1934716) three-page complete source unavailable. Authorized retrieval interrupted with expired verification tab; no automated CAPTCHA/MFA or repeat attempt. An example might exhibit (1,6,6) or a stronger variance-shape fact.",
+    "Simberloff 1972 Properties of the Rarefaction Diversity Measurement (DOI:10.1086/282781) older full paper not read; plausible shape observation.",
+    "Tong Biometrics 1983 (DOI:10.2307/2531334) full text unavailable, although abstract speaks primarily about between-community majorization and asymptotics.",
+    "No database/index/search exhausts unpublished materials or unindexed ecological worked tables. Best-of-knowledge novelty is conditional on inspected evidence.",
+    "Finite classification applies only N<=13 for the sharp cutoff/first layer. It does not classify higher N, characterize plateau maxima, or apply to with-replacement sampling or estimated ecological diversity.",
+    "No Lean formalization or external expert attestation. Independent exact enumeration is strong for finite domain but is not a substitute for bibliographic priority verification."
+  ],
+  "residual_risks": [
+    "Heck–van Belle–Simberloff Ecology 1975 (DOI:10.2307/1934716) three-page complete source unavailable. Authorized retrieval interrupted with expired verification tab; no automated CAPTCHA/MFA or repeat attempt. An example might exhibit (1,6,6) or a stronger variance-shape fact.",
+    "Simberloff 1972 Properties of the Rarefaction Diversity Measurement (DOI:10.1086/282781) older full paper not read; plausible shape observation.",
+    "Tong Biometrics 1983 (DOI:10.2307/2531334) full text unavailable, although abstract speaks primarily about between-community majorization and asymptotics.",
+    "No database/index/search exhausts unpublished materials or unindexed ecological worked tables. Best-of-knowledge novelty is conditional on inspected evidence.",
+    "Finite classification applies only N<=13 for the sharp cutoff/first layer. It does not classify higher N, characterize plateau maxima, or apply to with-replacement sampling or estimated ecological diversity.",
+    "No Lean formalization or external expert attestation. Independent exact enumeration is strong for finite domain but is not a substitute for bibliographic priority verification."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS the source moment identity via rooted star-tree specialization; no statement or table of smallest N supporting two strict local maxima, no complete N<=13 integer-abundance partition census, and no uniqueness of (1,6,6) in article.",
+      "evidence": [
+        "Publisher full-text Materials and methods explains that rooted star with unit tip lengths and mark multiplicities reduces phylogenetic diversity to species richness; main results calculate moments and ecological applications, not first two-peak threshold.",
+        "2013 Methods Ecol Evol 4:566-572; public full HTML lines 110-182, 194-229."
+      ],
+      "identifier_or_url": "https://doi.org/10.1111/2041-210X.12042",
+      "material_read": "Complete accessible Wiley HTML article: Introduction, Materials and methods, equations (1)-(5), rooted covariance and unrooted development, star-tree species-richness specialization, three applications, Results, Discussion, Appendix as exposed in the full HTML.",
+      "method": "Publisher lawful free full-text HTML (https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12042), especially rooted star-tree specialization and exact variance formulas.",
+      "title": "The mean and variance of phylogenetic diversity under rarefaction",
+      "trigger": "Most relevant stronger result: marked-tree rarefaction variance, potentially specializing to repeated-species richness."
+    },
+    {
+      "assessment": "Explicitly provides the known exact expectation and variance, and its abstract describes sample-size planning, but full paper was not read: shape/exception examples remain priority risks, no claim of whole-paper noncoverage.",
+      "evidence": [
+        "1975 Ecology 56:1459-1461 abstract says explicit expected richness and variance and an example on sufficient sampling size.",
+        "No full technical inspection; this source alone does not demonstrate the N=13 sharp classification, but may contain unexpected worked profiles."
+      ],
+      "identifier_or_url": "https://doi.org/10.2307/1934716",
+      "material_read": "Publisher title, authors, bibliographic data, abstract (three-page Ecology 1975 paper), not full article.",
+      "method": "Wiley publisher abstract; searches for same-paper preprint/arXiv and lawful OA. Authorized institutional retrieval returned interrupted job ad526f2e0f00b42b60ea59a23cbde496 with expired verification tab; no access bypass or second attempt.",
+      "title": "Explicit Calculation of the Rarefaction Diversity Measurement and the Determination of Sufficient Sample Size",
+      "trigger": "Original exact finite-census species-richness variance paper; plausible priority coverage."
+    },
+    {
+      "assessment": "Abstract proves stochastic ordering ACROSS populations at a fixed sample size under majorization, and asymptotic normality; these do not directly imply changes of variance within one fixed population as sample size increases. Whole-document noncoverage not asserted.",
+      "evidence": [
+        "PubMed PMID:6671130 abstract specifies majorization and fixed sample sizes for comparisons, plus large-sample normality."
+      ],
+      "identifier_or_url": "https://doi.org/10.2307/2531334",
+      "material_read": "PubMed record PMID 6671130, complete abstract only; full Biometrics 1983 text not located as lawful OA or arXiv.",
+      "method": "PubMed abstract and cross-referenced bibliographic lookup; full paper not accessed.",
+      "title": "Some Distribution Properties of the Sample Species-Diversity Indices and Their Applications",
+      "trigger": "Older distributional and majorization theorem may be stronger than a specific fixed-census variance result."
+    },
+    {
+      "assessment": "No mathematical noncoverage inference from the metadata; residual risk if this 1972 paper studies rarefaction-variance shape.",
+      "evidence": [
+        "American Naturalist 106 (1972), 414-418, DOI:10.1086/282781."
+      ],
+      "identifier_or_url": "https://doi.org/10.1086/282781",
+      "material_read": "Journal landing-page title, date, volume and references; technical content and full text unavailable (403/no access).",
+      "method": "University of Chicago Press landing and bibliographic source cross-check.",
+      "title": "Properties of the Rarefaction Diversity Measurement",
+      "trigger": "Early rarefaction properties article potentially treating curvature or extrema."
+    },
+    {
+      "assessment": "Coverage matching and extrapolation/estimation of richness do not state the within-census conditional variance strict two-peak cutoff. Full technical absence is not asserted.",
+      "evidence": [
+        "Chao and Jost, Ecology 93 (2012), 2533-2547; named coverage-based, rather than first double-variance-peak census."
+      ],
+      "identifier_or_url": "https://doi.org/10.1890/11-1952.1",
+      "material_read": "Publisher abstract and high-level scope of coverage-based estimation; no whole-body inspection.",
+      "method": "DOI/publisher search results and citations in Nipperess–Matsen full paper.",
+      "title": "Coverage-based rarefaction and extrapolation: standardizing samples by completeness rather than size",
+      "trigger": "Closely related sampling-depth statistical framework."
+    },
+    {
+      "assessment": "Different sampling model (iid with replacement) and covariance between two statistics at ONE n, not variance of richness across all without-replacement sample sizes from a fixed integer census.",
+      "evidence": [
+        "Published formula Cov(K_n,Ghat_n)=2s2*A_n-(1+s2)*B_n and positivity in iid categorical model, not the local extrema of Var(K_m)."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+      "material_read": "Published RESULT.md theorem, assumptions and opening proof section about independent categorical draws, richness, unbiased Simpson U-statistic and covariance formula.",
+      "method": "Resultary semantic search and GitHub primary published RESULT.md.",
+      "title": "Universal positive covariance of sample richness and unbiased Gini–Simpson diversity",
+      "trigger": "Nearest published research record involving richness and diversity covariance."
+    },
+    {
+      "assessment": "Its single sign change is in frequency-index r and applies to iid uniform occupancy, not strict local sample-depth peaks of fixed-census hypergeometric richness variance.",
+      "evidence": [
+        "Explicit model throws n independent balls in m boxes; sign of Cov(K,K_r) switches with occupancy count r, a distinct assertion."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+      "material_read": "Published RESULT.md theorem, hypotheses and proof of covariance sign switch for counts K_r in uniform independent balls-in-boxes.",
+      "method": "Resultary semantic search and GitHub published RESULT.md.",
+      "title": "A one-switch covariance law for occupancy richness and frequency counts",
+      "trigger": "Nearest published research record involving occupancy richness and a discrete sign change."
+    }
+  ]
+}
