@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T00:08:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, actual pinned source blob 1949d4e9df6df3a282bbb7a47e432bcde677c77a",
+        "Assigned verify.py inspected but independent script implemented separately",
+        "Independent chord results: independent_chord_results.json"
+      ],
+      "rationale": "The regular polygon is the intersection of equally spaced supporting halfplanes at apothem r=R cos(pi/n). Along a ray the positive first intersection is r sec(t) for nearest-side-normal gap |t|<=pi/n; for even n the opposite ray shares the gap, for odd n it has complementary gap b-t. Uniform angular measure gives U uniform on [0,1]. Folding the odd secant sum about 1/2 proves an increasing quantile; secant addition and the even 2n quantile yield the stated rational monotone transport with positive denominator. Elementary secant and tangent integration gives exact moments, including cross-term -2 log(cos b)/sin b. The uniform Taylor remainder for b=pi/n yields coupled all-Lp deficiency limits 1-U^2 and 1/2+U-U^2, hence variance constants 4/45 and 1/180. Valid n>=3, R>0; boundary rays through vertices have angular measure zero. Independently reconstructed actual polygon-edge intersections matched 4,114 ray results (error <=2.23e-15); 1,809 transport comparisons, 34 high-precision quadrature checks, and symbolic leading-moment checks passed. Finite tests are only corroboration; analytic argument proves arbitrary integer n.",
+      "residual_risks": [
+        "No extension to arbitrary nonregular polygons, off-center lines, or motion-invariant random line measure.",
+        "Floating-point ray/transport comparisons have finite sample support only; proof is analytic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bäsel 2012, Section 2, equations (4)–(15), culminates in Lemma 1: complete piecewise d_n(s,phi) covering angular sectors, all chord lengths and both parities, not just its integral over offsets.",
+          "Bäsel 2012, Section 3 integrates these already determined functions over angular directions to produce its motion-invariant F(s).",
+          "Harutyunyan–Ohanyan 2009, pp. 358–359 defines dmu=dp dphi and integrates over offsets, which alone does not dominate the p=0 conditional."
+        ],
+        "reasoning": "The piecewise angular chord-offset geometry is a stronger solved parameter family: restriction to center-passing lines and angular pushforward yields this submission. Its parity limit and inter-polygon transform are routine explicit consequences of the resulting solved secant parametrizations, not an independent new geometric law under the stated implication bar.",
+        "searches": [
+          "https://arxiv.org/pdf/1204.2707",
+          "https://doi.org/10.1239/aap/1246886615",
+          "Resultary: regular polygon isotropic origin-centred section length variance asymptotic distribution n squared diameter deficiency",
+          "Bäsel 2012 Lemma 1 distance function d(s,phi) for every regular n polygon"
+        ]
+      },
+      "checked_sources": [
+        "Uwe Bäsel, arXiv:1204.2707 (2012), primary equations (4)–(15), Lemma 1 and Section 3.",
+        "H. S. Harutyunyan & V. K. Ohanyan, Advances in Applied Probability 41 (2009), 358–366, DOI 10.1239/aap/1246886615, p.358–360 primary model/derivation.",
+        "Three Resultary semantic queries of published findings (self-match excluded, adjacent width/perimeter/convex-hull records compared at available abstract level).",
+        "Gardner (1987), DOI 10.1112/jlms/s2-36.2.314, abstract/bibliographic metadata only (full text inaccessible)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bäsel 2012 Eq. (5) expresses a side-pair chord’s signed geometric distance via an explicitly linear equation q_k(s,psi); Eqs. (7),(11),(14),(15) select the valid side pairs by angular sector and Lemma 1 covers all n. Choosing the correct p=0 side pair gives the complete directional center-chord function.",
+          "The submitted even/odd nearest-normal angular gap formula simply parameterizes this same central slice. The n-to-2n rational expression follows by eliminating the common angular quantile parameter; the moments and limiting variances are elementary integrations/Taylor expansions from the derived functions.",
+          "Harutyunyan–Ohanyan 2009 Eq. (1.1) and Bäsel 2012 Eq. (1) alone specify integrated offset CDFs; none of these marginal distributions by itself implies central conditioning."
+        ],
+        "reasoning": "The decisive logical route is fully solved ANGLE-RESOLVED polygon chord geometry (Bäsel Lemma 1) -> select zero-offset chord on each angle -> elementary secant parametrization -> odd/even distribution, rational quantile transform, moment integrations, n→∞ Taylor limits. This is stronger than mere matching n. While the elegant rearrangement is not displayed in the earlier publication, all the claimed statistical values and coupling are determined by the prior angle-resolved formula without a new substantive geometric principle.",
+        "searches": [
+          "https://arxiv.org/pdf/1204.2707",
+          "https://doi.org/10.1239/aap/1246886615",
+          "Resultary: regular polygon random central chord distribution through circumcenter uniform orientation even odd radial secant quantile",
+          "Resultary: regular odd n-gon central chord length law monotone transport regular 2n-gon parity factor sixteen variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted central chord is rho_n(u)+rho_n(-u) where rho_n is the regular polygon radial function, equivalent to the p=0 slice of the directional chord map s_n(p,phi).",
+          "Bäsel 2012, pp. 2–6: equation (5) gives q_k(s,psi), the distance of a side-pair chord from the center, as an affine function of s; Lemma 1 assembles q_k to the angle-dependent function d_n(s,phi) for all n and directions. The center slice uses the relevant q_k=0."
+        ],
+        "reasoning": "The motion-invariant random-line CDF of Bäsel/Harutyunyan–Ohanyan is not equivalent to the central law, since offset zero has zero measure. However the PRE-INTEGRATION all-angle side-pair chord-distance formulas of Bäsel are mathematically stronger than that marginal and determine the center-angular profile. The secant quantile is an explicit reparametrization of this special case.",
+        "searches": [
+          "Resultary: regular polygon random central chord distribution through circumcenter uniform orientation even odd radial secant quantile",
+          "Resultary: regular odd n-gon central chord length law monotone transport regular 2n-gon parity factor sixteen variance",
+          "regular polygon chord through center uniform random direction length distribution formula",
+          "https://arxiv.org/pdf/1204.2707"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Three actual Resultary semantic searches returned the assigned finding as the exact self-match; it was excluded from independent priority evidence.",
+          "Other ranked published findings concern width distributions, boundary-arc division, and convex-hull chord-width products rather than the conditional center-chord law. The file texts for those auxiliary records were not accessible for full inspection.",
+          "Bäsel 2012 already contains explicit Lemma 1 that is stronger geometric data; no matching standalone exact central-chord table is needed for the coverage finding."
+        ],
+        "reasoning": "No separate exact central-chord table was confirmed by these searches; this is not novelty proof. Independent exclusion follows from the primary directional chord theorem, not from an unverified record summary.",
+        "searches": [
+          "Resultary: regular polygon random central chord distribution through circumcenter uniform orientation even odd radial secant quantile",
+          "Resultary: regular odd n-gon central chord length law monotone transport regular 2n-gon parity factor sixteen variance",
+          "Resultary: regular polygon isotropic origin-centred section length variance asymptotic distribution n squared diameter deficiency",
+          "published mathematical findings: inverse classification of projection-width distributions for tangential symmetric polygons; exact directional perimeter Winternitz law for regular polygons; exact translative convex-hull profile of every regular polygon",
+          "random central chord regular polygon distribution mean variance oriented line through centroid",
+          "regular polygon radial function distribution isotropic direction 1 cos secant"
+        ]
+      },
+      "rationale": "Uwe Bäsel (2012), Section 2 equations (5), (7), (11), (14), (15) and Lemma 1, already proves an explicit all-direction, all-chord-length offset-threshold function d_n(s,phi) for EVERY regular n-gon before integrating offsets. In each angular sector those formulas solve the endpoint-side geometry as an affine equation q_k(s,psi) in s, thus specifying which chord length occurs at offset zero. Restricting that stronger directional geometry to p=0 yields the exact central angular chord profile. Pushing uniform direction through that profile, taking elementary secant sums and folding, gives the submitted odd/even laws; algebra on the two laws gives the monotone n-to-2n transport, moments and uniform Taylor variance limits. The older paper does not print the latter formulas, but its non-marginal directional theorem supplies the mathematical determination already. Its final offset-INTEGRATED CDF alone would NOT determine the center-conditioned distribution; the implication rests instead on Bäsel’s more informative, explicit Lemma 1. This is prior mathematical coverage by a stronger family of directional geometric formulas, not simply title or parameter matching.",
+      "residual_risks": [
+        "Bäsel does not explicitly print the cross-n rational transform or the two asymptotic variance constants; the coverage judgment follows from reduction to his all-angle chord geometry and elementary subsequent operations.",
+        "The full Gardner (1987) source remained inaccessible following an authorized Oxford request requiring manual VPN reconnection. No noncoverage claim is made.",
+        "Resultary adjacent records were assessed at summary level only because direct primary file fetches were unavailable; they were not used for a decisive noncoverage claim.",
+        "No claim is made that the offset-integrated chord-length CDF alone determines a probability law conditioned on offset zero."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING BY STRONGER DIRECTIONAL GEOMETRY, not by its offset-averaged chord CDF alone",
+          "evidence": "Bäsel Eq. (5) is the explicit affine-in-s geometric distance q_k(s,psi) for a side-pair chord; Eqs. (7),(11),(14),(15) and Lemma 1 give the full directional d_n(s,phi) for odd/even n before Eq. (2) integrates across orientations/offsets; arXiv pp. 4–7.",
+          "identifier_or_url": "Uwe Bäsel, arXiv:1204.2707v2 (2012), https://arxiv.org/pdf/1204.2707",
+          "material_read": "Primary full-text PDF: abstract, introduction, section 2 (pp. 3–6, Eqs. (4)–(15), including complete Lemma 1) and Section 3 integration setup; actual PDF page 6 inspected visually to verify branch structure and Lemma 1.",
+          "method": "lawful arXiv primary PDF read with text and page-image verification",
+          "title": "Random chords and point distances in regular polygons",
+          "trigger": "Most directly relevant prior general-n polygon chord paper, including angularly resolved side-pair geometry"
+        },
+        {
+          "assessment": "Only the stated marginal random-line law is confirmed, not a full p=0 central angular law. It does not independently establish the present coverage reason.",
+          "evidence": "p. 358 defines dmu=dp dphi; p. 359 Eq. (1.1) integrates both line offset and orientation for CDF. A marginal alone cannot identify conditional distribution at zero offset.",
+          "identifier_or_url": "Harutyunyan & Ohanyan, Advances in Applied Probability 41 (2009), DOI 10.1239/aap/1246886615, https://doi.org/10.1239/aap/1246886615",
+          "material_read": "Primary nine-page PDF: introduction/model (pp. 358–359), Sections 2–3 and derivation of Eq. (1.1); first page visually inspected.",
+          "method": "publisher primary PDF text and screenshot",
+          "title": "The chord length distribution function for regular polygons",
+          "trigger": "Earlier general-n exact chord distribution but potentially different random-line model"
+        },
+        {
+          "assessment": "UNINSPECTED FULL TEXT; historical priority uncertainty recorded, not the reason for FAIL",
+          "evidence": "Oxford institutional reader returned vpn_disconnected and manual reconnection requirement; no full text was obtained.",
+          "identifier_or_url": "R. J. Gardner, Journal of London Mathematical Society (1987), DOI 10.1112/jlms/s2-36.2.314",
+          "material_read": "Bibliographic information and available abstract only; not full paper.",
+          "method": "arXiv/preprint and lawful open-access search unsuccessful; authorized institutional full-text attempt yielded VPN_disconnected and a manual-login requirement; no bypass",
+          "title": "Chord Functions of Convex Bodies",
+          "trigger": "Plausible broad historical radial/section chord-function equivalence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md and mathematical scope",
+        "Bäsel 2012 center-vs-offset geometry",
+        "Harutyunyan & Ohanyan 2009 line-measure distinction"
+      ],
+      "rationale": "The uniform angular central-section distribution is a natural geometric invariant of regular polygons. Complete quantiles, an explicit odd-to-even cross-polygon coupling, and exact parity-separated fluctuation constants provide meaningful benchmarks for isotropic central-section measurements and convergence to the Euclidean disk. Value is intrinsic to the motivated continuum family, notwithstanding the prior mathematical determination via stronger directional chord formulas. The result is not an arbitrary small numerical instance or a mere count.",
+      "residual_risks": [
+        "Scientific usefulness does not establish research originality; result rejected on O."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For every centered regular n-gon n>=3 of circumradius R>0, uniformly angular center-through unoriented lines have even quantile 2R cos(pi/n) sec(pi u/n), and odd quantile R cos(pi/n){sec[pi(1+u)/(2n)]+sec[pi(1-u)/(2n)]}; for odd n the quantile is a monotone rational transform of the central-chord quantile of the regular 2n-gon, with exact first and second moments and n^2-scaled diameter deficiency limits yielding variance coefficients 4/45 even, 1/180 odd.",
+  "limitations": [
+    "Inaccessibility of Gardner 1987 full text remains a historical risk, not evidence of prior noncoverage.",
+    "Bäsel 2012 provides the directional chord geometry but not a printed standalone odd-to-even transport or final asymptotic variance formulas.",
+    "Source-file audit and metadata contain operational provenance unsuitable for direct public release; preserve originals pending sanitization.",
+    "The review does not claim formal Lean verification or independent expert attestation."
+  ],
+  "schema_version": 1
+}
