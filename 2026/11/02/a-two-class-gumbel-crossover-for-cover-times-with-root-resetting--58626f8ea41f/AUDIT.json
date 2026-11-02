@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The reset coin sequence determines the two-state part chain. Uniform destinations of genuine cross-part steps are independent coupon streams, with stationary step rates gamma/(1+gamma) into B and gamma^2/(1+gamma) into A, both count variances O(t). At t=s_n(log n+x), random count errors are o_P(n), so the joint exact conditional coupon coverage formula gives independent Poisson missing-count limits with means e^{-x} and gamma exp(lambda/gamma)e^{-x}. This proves the Gumbel and last-class laws. Exact rational finite-state independent-recursion assertions passed; they do not replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chupeau–Bénichou–Voituriez 2015 provides wide Gumbel cover laws; their inspected discussion does not produce competing reset-dependent part intensities.",
+        "Linn–Lawley 2024 Sec. 4 fixes the network and lets resetting become frequent; here r is fixed and both part sizes diverge.",
+        "The classical independent nonuniform coupon collector can furnish related limits, but this particular model uses a correlated part-choice clock."
+      ],
+      "reasoning": "Broader results are not ruled out merely by titles. The examined theorems have different hypotheses or limiting regimes and neither directly dominates the two-class n/log n crossover; a more general fast-mixing occupancy theorem might imply a special case, recorded as residual risk.",
+      "searches": [
+        "Cover time random walk with resetting on complete bipartite graph exact stationary visitation rates asymptotic first order",
+        "arxiv:2406.12154 Cover times with stochastic resetting limit n to infinity fixed reset probability complete bipartite part sizes",
+        "https://arxiv.org/abs/1511.06173",
+        "https://arxiv.org/abs/2406.12154"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2208.06212",
+      "https://arxiv.org/abs/2406.12154",
+      "https://arxiv.org/abs/2310.03203",
+      "https://arxiv.org/abs/1511.06173"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier unreset complete-bipartite terminal-class result concerns an unreset walk and equal long-run class arrival rates; it has a related logistic scale but not the changed root-reset dynamics.",
+        "An earlier controlled/bias result concerns a chosen-neighbor policy and Gaussian, not Gumbel, completion regimes.",
+        "The relevant published reset-coupon rate result concerns repeatedly restarted collection attempts, not a walker retaining already visited vertices after returns to the root."
+      ],
+      "reasoning": "The unreset and controlled-walk claims do not imply the reset-root transition matrix or its two fresh-sample rates. Position reset and memory reset are different kernels. A general theorem in the remaining unexplored literature remains a priority risk.",
+      "searches": [
+        "Random walks with constant probability stochastic resetting to a distinguished vertex on complete bipartite graph K_{a,b}: cover time Gumbel limit and class competition when a/(b) equals 1-r",
+        "Coupon collector covering complete bipartite graph random walk resetting to root; phase transition in cover time distribution and extreme value limiting law",
+        "arxiv:2208.06212 random walks on complex networks under time dependent stochastic resetting full cover time on complete bipartite graphs",
+        "two-class coupon collector Markov modulated Poisson Gumbel maxima competing partition with stationary visitation weights",
+        "arxiv:2310.03203"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two intensity parameters arise from independent coupon-label streams with rates gamma/(1+gamma) and gamma^2/(1+gamma), a special Markov-modulated collection model.",
+        "Chen–Ye 2022 analyzes reset Markov-walk occupation and single-target first passage, not joint cover completion.",
+        "Linn–Lawley 2024 studies cover-time moments in a different frequent-resetting limit."
+      ],
+      "reasoning": "A restatement as a two-group, random-time-change coupon collector or an exponential race is mathematically equivalent and therefore was searched. The inspected articles and returned records do not assert the specific joint limit, location parameter, and logistic terminal-side formula; general coupon-collector theory could still cover it.",
+      "searches": [
+        "Random walks with constant probability stochastic resetting to a distinguished vertex on complete bipartite graph K_{a,b}: cover time Gumbel limit and class competition when a/(b) equals 1-r",
+        "Coupon collector covering complete bipartite graph random walk resetting to root; phase transition in cover time distribution and extreme value limiting law",
+        "two-class coupon collector Markov modulated Poisson Gumbel maxima competing partition with stationary visitation weights",
+        "complete bipartite graph reset-to-root simple random walk cover time last-visited vertex class logistic 1/log n critical scaling",
+        "arxiv:2208.06212",
+        "arxiv:2406.12154"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Research-record searches returned a nonuniform reset-coupon rate finding about exponential delays, not a reset-root walk on K_{a,b}.",
+        "A discounted hitting domination theorem on complete bipartite graphs gives a static optimization threshold, not a cover-time distribution or last-covered-side law."
+      ],
+      "reasoning": "The reported formulas are asymptotic in growing graph size and cannot be inferred from a finite table alone. No located exact database entry states their two-class probabilities; absence of a match is not a proof of uniqueness.",
+      "searches": [
+        "Coupon collector covering complete bipartite graph random walk resetting to root; phase transition in cover time distribution and extreme value limiting law",
+        "Stochastic resetting changes complete bipartite random walk cover time Gumbel crossover at part-size ratio",
+        "Cover time random walk with resetting on complete bipartite graph exact stationary visitation rates asymptotic first order"
+      ]
+    },
+    "rationale": "Inspected primary articles on position-reset walks, resetting cover times, memory-reset self-avoiding walks, and broad Gumbel search limits. None of their stated results supplies the fixed-r growing-biclique two-intensity Gumbel law and n/log n last-side crossover. Semantic research-record and prior-claim comparisons revealed no implication-equivalent record. This is a best-knowledge originality assessment; general heterogeneous Markov-modulated collection theorems remain a priority risk.",
+    "residual_risks": [
+      "A broad Markov-modulated or heterogeneous coupon-collector theorem may already imply this specialization without mentioning bipartite graphs.",
+      "Semantic searches and inspected primary papers cannot establish absolute publication priority.",
+      "Related classical fast-mixing cover-time theory may give a stronger unified result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state joint complete coverage of a growing biclique or part-size crossover",
+        "evidence": "Initially public 2022-08-12; study emphasizes stationary occupation probabilities and mean first-passage times.",
+        "identifier_or_url": "https://arxiv.org/abs/2208.06212",
+        "material_read": "Full accessible HTML main text, including stationary occupation and first-passage derivations and conclusions",
+        "method": "Read accessible primary arXiv HTML sections and compared observables and limiting parameters",
+        "title": "Random walks on complex networks under time-dependent stochastic resetting",
+        "trigger": "Same position-reset Markov-walk mechanism and fixed-rate baseline"
+      },
+      {
+        "assessment": "Distinct asymptotic parameter; no identified two-class Gumbel crossover",
+        "evidence": "Initially public 2024-06-17; Sec. 4 assumes fixed target network and takes fast-resetting limit.",
+        "identifier_or_url": "https://arxiv.org/abs/2406.12154",
+        "material_read": "Accessible primary HTML introduction, finite-network Sec. 4, proofs and discussion Sec. 5",
+        "method": "Compared the paper’s fixed-network fast-reset limit and moment results with fixed-r, n→infinity regime",
+        "title": "Cover times with stochastic resetting",
+        "trigger": "Directly named resetting cover-time theory, potentially dominating claim"
+      },
+      {
+        "assessment": "Its reset clears trajectory memory, rather than teleporting position to a fixed root; model does not imply the claim",
+        "evidence": "Initially public 2023-10-04; abstract explicitly calls the reset a memory reset.",
+        "identifier_or_url": "https://arxiv.org/abs/2310.03203",
+        "material_read": "Primary arXiv abstract and accessible full journal text sections on model, coverage and discussion",
+        "method": "Compared the resetting operation and cover-time quantities",
+        "title": "Efficient network exploration by means of resetting self-avoiding random walkers",
+        "trigger": "Resetting and network cover times"
+      },
+      {
+        "assessment": "Supplies Gumbel context but not the explicit reset-biclique critical-window law",
+        "evidence": "Initially public 2015-11-19; generalized random-search cover-time fluctuations.",
+        "identifier_or_url": "https://arxiv.org/abs/1511.06173",
+        "material_read": "Accessible HTML text, main model and limit discussion",
+        "method": "Compared the general cover-time Gumbel statements with the two competing class intensities from resetting",
+        "title": "Cover times of random searches",
+        "trigger": "Plausible broader extreme-value/Gumbel coverage theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "58626f8e-a41f-49ed-8f73-a7e9cf5b1359",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Root resetting breaks alternation by adding returns to an already visited root, creating unequal genuine coupon arrival rates. Their competition moves the bottleneck threshold from equal class sizes to ratio 1-r, with an n/log n perturbation creating an explicit logistic last-covered-side transition. This is a naturally motivated structural fluctuation result for exhaustive search, not a parameter substitution or known-table evaluation.",
+    "status": "PASS"
+  }
+}
