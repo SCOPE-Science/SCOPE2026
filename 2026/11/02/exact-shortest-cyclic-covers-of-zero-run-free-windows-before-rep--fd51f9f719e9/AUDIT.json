@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The proof enumerates exactly the indegree/outdegree defects, including the k=2h balanced overlap correction. The two occurrences of 0^(h-1) exclude any source-to-target path shorter than k-h; appending the target tail constructs such a path for every pair. Integral flow decomposition gives an exact lower bound, and any bijection followed by an Euler tour attains it. A completely separate BFS/assignment-DP and literal cyclic-cover checker verified 37 finite parameter triples (not used as infinite proof).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bernardini et al. 2022, PDF pp. 2-3 and Section 1, general z-shortest edge-covering walks via postman",
+        "Chee et al. 2024, full HTML Sections 1-2, maximum edge-simple RLL circuits, prohibited repetitions",
+        "Previously established binary no-adjacent-ones cyclic-cover identity (special subfamily q=2,h=2)"
+      ],
+      "reasoning": "General algorithms can solve each finite graph but do not provide this parameter-uniform closed formula or characterize shortest balancing paths without specialized deductions. The existing binary h=2 result covers a strict subfamily q=2,h=2 but not q>=3 or h>=3. Chee et al. optimize a different direction (maximum number of distinct windows with no repeats); their theorem does not imply a shortest traversal containing every legal window, for which repeats are mandatory.",
+      "searches": [
+        "published-finding corpus: Minimum length constrained de Bruijn covering all words avoiding runs of three equal bits, spectrum and optimal traversal",
+        "web: general shortest factor-set equivalent string directed Chinese postman Bernardini Conte Gabory 2022",
+        "web: Maximum Length RLL Sequences in de Bruijn Graph Chee Etzion 2024"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2403.01454v1/v2",
+      "DOI:10.4230/LIPIcs.CPM.2022.16",
+      "Moreno 2005 thesis (abstract only)",
+      "published-finding corpus semantic searches on forbidden-run cyclic covers",
+      "Known binary h=2 constrained-cover formula for logical subcase comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "CPM 2022 Theorems 1-4 provide algorithms and general complexity bounds, not closed minima for the specified forbidden-run graphs",
+        "Chee et al. 2024 Lemmas 2.1-2.2 identify binary input/output deficient vertices, but optimize deletion of edges from distinct-window tours, not optimal duplication",
+        "Moreno 2005 thesis repository https://theses.hal.science/tel-00628709 provides an abstract on restricted-language universal cycles; full material inaccessible here"
+      ],
+      "reasoning": "The explicit count comes from proving that every unbalanced source-to-target distance equals at least k-h for h<=k<=2h and each endpoint pair has a unique k-h-edge bridge. Neither a general postman reduction nor maximum edge-simple circuit result states that distance fact or its matched augmentation consequence. Moreno is a nonzero residual equivalence risk, but the accessible abstract discusses de Bruijn sequences with exact-once windows, a different objective from this repeat-allowed minimum; no decisive claim of coverage is demonstrated.",
+      "searches": [
+        "published-finding corpus: shortest circular superstring 0^h avoiding forbidden run full q alphabet matching source target Eulerian augment",
+        "web: Moreno De Bruijn graphs and sequences in languages with restrictions 2005 thesis",
+        "web: On Strings Having the Same Length-k Substrings CPM 2022 shortest Eulerian walks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2403.01454, Sections 1-2, distinguishes edge-simple RLL sequences from repeated-edge cyclic covering",
+        "CPM 2022 DOI:10.4230/LIPIcs.CPM.2022.16, Section 1, characterizes factor-set reconstruction by Eulerian walks"
+      ],
+      "reasoning": "The exact same claim might be called a minimum RLL universal cover, a cyclic superstring of a factorial language, or a directed postman augmentation of an induced de Bruijn subgraph. published-finding corpus and web searches with these aliases revealed adjacent generic and maximum-simple-trail results, not an equal-length all-parameter minimum theorem. Absence of a match is not itself novelty proof.",
+      "searches": [
+        "published-finding corpus: exact shortest circular superstring of all q-ary words avoiding a homogeneous run 0^h, window h<k<=2h, Chinese postman graph minimal length (k-h)(q-1)q^(k-h-1)",
+        "published-finding corpus: forbidden zero-run words de Bruijn graph minimum Eulerian augmentation, optimal cyclic cover, near-threshold window length and q-ary alphabet",
+        "web: shortest cyclic superstring of all words avoiding 0^h consecutive zeros length forbidden runs Eulerian augmentation",
+        "web: shortest cyclic superstring cover run length limited q-ary zero^h"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned related but non-equivalent small code-size, graph and universality records; no exact same q,h,k family in top results",
+        "Finite checks in verify.py computed optimal extras for q=2..4 h=2..5; these are verification, not evidence of novelty"
+      ],
+      "reasoning": "No matching exact source or table was found. There is no assertion that the result is absent from every database or unpublished table; generic OEIS sequence matching cannot certify a different combinatorial interpretation.",
+      "searches": [
+        "published-finding corpus: 0^h-free k-grams minimum cyclic covering sequence Chinese postman perfect matching imbalance",
+        "web: \"shortest\" \"RLL\" \"de Bruijn\" \"cover\" forbidden zeros",
+        "web: \"all\" \"run-length limited\" \"k-mers\" \"superstring\" cyclic"
+      ]
+    },
+    "rationale": "The claim is the explicit q-ary/h-parameter minimum cyclic covering length and the exact optimal path-decomposition description in the first overlap regime. Chee et al. study maximum distinct-window trails, while Bernardini et al. provide general postman algorithms but not this resolved closed-form family. The accessible previous exact binary forbidding-two-adjacencies cover proves only q=2,h=2, not the full theorem. Moreno's old thesis is an explicit uninspected residual risk, not a claim of demonstrated non-coverage.",
+    "residual_risks": [
+      "Moreno 2005 restricted-language thesis full text was not accessible; may contain equivalent specialization.",
+      "Other older postman specializations or tables may contain this closed formula under different nomenclature.",
+      "No independent scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MAXIMUM circuit length without repeated windows, not minimum all-window covering length. Degree data overlap; optimal bridge classification not stated.",
+        "evidence": [
+          "arxiv:2403.01454v1 March 3 2024",
+          "https://arxiv.org/html/2403.01454v2, Section 2 and Lemmas 2.1-2.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.01454v2",
+        "material_read": "Full HTML introduction and Sections 1-2 through Lemmas 2.1-2.14; PDF page 7 visually inspected; publication history verified on arXiv abstract",
+        "method": "Full article HTML reading plus PDF screenshot",
+        "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+        "trigger": "Identical forbidden-run overlap graph and non-Eulerian degree observations"
+      },
+      {
+        "assessment": "General shortest-walk algorithm and bounds, not the explicit restricted-run parameter formula. Generic reduction is prior and expressly acknowledged.",
+        "evidence": [
+          "DOI:10.4230/LIPIcs.CPM.2022.16, pp. 16:1-16:3"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol223-cpm2022/LIPIcs.CPM.2022.16/LIPIcs.CPM.2022.16.pdf",
+        "material_read": "PDF pages 1-3, including Theorems 1-4 and proof setup, and related-work text; PDF page 3 screenshot inspected",
+        "method": "Primary full-text PDF rendered and text inspected",
+        "title": "On Strings Having the Same Length-k Substrings",
+        "trigger": "General shortest factor-covering directed postman equivalence"
+      },
+      {
+        "assessment": "Unknown full-text coverage. Its stated focus is exact-once universal cycles and forbidden words, so it is a plausible but not decisive equivalence risk.",
+        "evidence": [
+          "https://www.scivora.io/articles/de-bruijn-graphs-and-sequences-in-languages-with-restrictions-2005",
+          "https://theses.hal.science/tel-00628709"
+        ],
+        "identifier_or_url": "https://theses.hal.science/tel-00628709",
+        "material_read": "Repository abstract and bibliographic metadata only; PDF inaccessible (403 and repository anti-bot challenge)",
+        "method": "Abstract review plus bounded attempts to open two lawfully public repositories",
+        "title": "De Bruijn graphs and sequences in languages with restrictions",
+        "trigger": "An old thesis directly about forbidden-factor de Bruijn graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fd51f9f7-19e9-4a9e-b750-5416bf812288",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first nontrivial obstruction to a constrained de Bruijn cycle is a degree imbalance that demands repeated legal windows. The theorem resolves the entire pre-overlap region h<=k<=2h across arbitrary labeled alphabets and run thresholds, gives the exact cyclic test-sequence size and complete optimal bridge decomposition, and identifies the sharp arithmetic correction when k=2h. This is a motivated structural specialization of directed postman optimization, not an arbitrary fixed-size census; no downstream independent consequence is claimed.",
+    "status": "PASS"
+  }
+}
