@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For normalized two-ball monomials the exact map is a one-to-one orthogonal weighted shift with coefficient \\(e^{-\\epsilon u-\\epsilon^a v}\\) (u+v)/(u+v+k) times the stated factorial ratio, including the zero constant monomial. The coefficient is uniformly (v/(u+v))^{k/2}(1+O_k(1/v)) for \\(v\\ge1\\). Fixed-v contributions are strictly lower order. Positive inner sums are within one of their monotone integrals; the resulting H_q Laplace integral has Gamma, logarithmic and finite-integral limits according to \\(q=kp/2\\). Riemann sums at v~epsilon^{-a} give exactly the three leading coefficients with negligible error \\(O(\\epsilon^{-a})\\). The proof covers all quantified \\(k\\ge1\\), fixed \\(0<a<1\\) and \\(p>0\\), and specifically excludes endpoints. A standalone checker passed 8712 exact rational norm and shift identities, plus finite partial sums, but the infinite statements rely on the written dominated-convergence proof rather than those finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dong-Xu Proposition 4.8 obtains compactness and generic exponentially decaying singular-value bounds for each relatively compact self-map; no epsilon-uniform constants are given. Their ellipsoid example uses a noncompact fixed-coordinate projection.",
+        "Almoka-Arroussi-Virtanen work on the disc with rapidly decreasing Bergman weights and integral-transform membership, not an anisotropically dilated ordinary two-ball.",
+        "Mengestie provides membership and transform-norm comparabilities on the one-variable Fock space, with different monomial geometry.",
+        "Liu-Yuan-Zeng treat the Volterra operator involving differentiation of its symbol rather than this companion operator."
+      ],
+      "reasoning": "The most relevant general compact-range theorem gives membership for each positive epsilon; its constants are allowed to depend on epsilon and thus it does not dominate an explicit normalized limit. Neither the fixed-rank ellipsoid model nor one-variable Fock/rapid-weight theory contains the simultaneous two-scale limiting theorem.",
+      "searches": [
+        "arXiv:2609.27584v1 Proposition 4.8 and ellipsoid example",
+        "arXiv:2507.16437v1 Theorems 1.1 and 1.2",
+        "arXiv:1507.03536 Theorem 1.1",
+        "doi:10.3934/cpaa.2022108 abstract and displayed criteria",
+        "Semantic mathematical-record search: monomial generalized Volterra composition diagonal contractions Schatten p anisotropic boundary layer"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.27584v1 (introduction, §§3.3,4.2,4.3)",
+      "arXiv:2507.16437v1 (introduction, Theorems 1.1–1.2)",
+      "arXiv:1507.03536 (introduction, Theorem 1.1)",
+      "doi:10.3934/cpaa.2022108 (public abstract, access restriction)",
+      "doi:10.1112/S0024610704005605 (public abstract)",
+      "Semantic mathematical-record searches covering operator names, monomial shift equivalence, anisotropic norm scaling, and critical logarithmic crossover"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Every epsilon>0 gives a relatively compact contraction, so membership in every Schatten class follows from existing Proposition 4.8, but that fact alone supplies no divergence exponent or coefficient.",
+        "In Dong-Xu, a distinct fixed map \\((z,w)\\mapsto(z,0)\\) has a criterion \\(sk>2m\\) tied to a singular support measure; here each map is compact-range, all exponents \\(p>0\\) are permitted, and \\(kp=2\\) instead marks a crossover in rates as epsilon approaches zero.",
+        "The new coefficients are \\(\\Gamma(1-q)\\Gamma(1+q)/p^2\\) for q<1, \\((1-a)/p^2\\) at q=1, and \\(1/[p^2(q-1)]\\) for q>1, proved by an additional two-scale lattice-sum argument."
+      ],
+      "reasoning": "Published operator-class membership and qualitative singular-value decay cannot be specialized to yield these exact asymptotics without a separate limit argument controlling both damping scales. Standard Laplace transforms are explicitly acknowledged as tools rather than claimed original facts.",
+      "searches": [
+        "arXiv:2609.27584v1 exact §§3.3 and 4.3",
+        "arXiv:2507.16437v1 §1",
+        "arXiv:1507.03536 §1",
+        "Web: 2026 Dong Xu generalized Volterra companion Bergman Schatten monomial anisotropic phi g operator norm epsilon",
+        "Web: Bergman composition operator anisotropic dilation Schatten norm asymptotic near identity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The proposed companion is exactly the orthogonal monomial weighted shift with squared coefficients \\(e^{-2\\epsilon u-2\\epsilon^a v}\\)(u+v)^2/(u+v+k)^2 times the factorial ratio (v+k)! (u+v+2)!/[v!(u+v+k+2)!].",
+        "Dong-Xu §§3.3,4.3 analyze compact-range membership and an ellipsoid with fixed \\(\\varphi(z,w)=(z,0)\\), not the two-rate near-identity limit.",
+        "Semantic searches returned no record with this operator and the three exact epsilon-asymptotic constants."
+      ],
+      "reasoning": "Changes of notation from radial integral to two-index weighted shifts, from norm to singular-value power sum, and from contraction radii to logarithmic damping parameters were compared. The known fixed-map ellipsoid threshold may share the angular exponent \\(kp=2\\) but does not imply the epsilon-to-zero rates or constants. A search failure is not a mathematical uniqueness proof.",
+      "searches": [
+        "Semantic mathematical-record search: Volterra companion generalized Cesaro composition monomial symbol radial dilation singular value asymptotic ball Bergman Weyl constant",
+        "Semantic mathematical-record search: two-scale anisotropic near-identity dilation Bergman Volterra companion Schatten p norm critical logarithmic gamma",
+        "Web: 2026 2025 generalized Volterra companion operators ball Schatten exact norm anisotropic dilations",
+        "Web: Bergman ball Volterra composition Schatten norm asymptotic two dilation parameters power symbol",
+        "arXiv:2609.27584v1, §§3.3,4.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "One close indexed result studies the one-index generalized Cesàro matrix on a sequence space and its singular-value coefficient, with no Bergman-ball monomial dilation.",
+        "Another close indexed result studies singular-value majorization for reflection-symmetric weighted integration, not two-coordinate analytic Bergman companions.",
+        "No table found in the inspected public primary literature gives the three explicit anisotropic near-identity limits for these weighted-shift coefficients."
+      ],
+      "reasoning": "No exact two-parameter asymptotic table or equivalent claim was recovered. Database coverage is incomplete and is not used as proof of novelty.",
+      "searches": [
+        "Semantic mathematical-record search: anisotropic approaching identity Volterra companion Bergman Schatten norm phase transition critical \\(kp=2\\) logarithm",
+        "Semantic mathematical-record search: Bergman ball companion integral g=z_2^k phi=(r_1 z_1,r_2 z_2) exact singular values Schatten phase transition",
+        "Semantic mathematical-record search: radial primitive derivative composition holomorphic unit ball monomial z2^k Schatten trace singular spectrum",
+        "Semantic mathematical-record search: Schatten p asymptotic of Bergman composition derivatives boundary layer epsilon delta"
+      ]
+    },
+    "rationale": "Compared the precise two-rate limit and constants against the original 2026 companion manuscript, its compact-range theorem and fixed-map ellipsoid model, prior Fock/rapid-Bergman companion literature, ordinary Volterra-on-ball theory, indexed mathematical research records, and accessible earlier scientific claims. Closest results establish membership for each fixed compact-range map or a separate fixed singular map; neither implies exact Gamma/logarithmic/reciprocal divergence constants for anisotropic near-identity dilations. This is best-knowledge originality, not a proof of publication priority. The 2022 ball-Volterra full text and the 2004 weighted-composition full text were not fully accessible; their abstracts do not present a decisive identical claim.",
+    "residual_risks": [
+      "An older exact two-parameter weighted-shift lattice-sum result may exist under different terminology and imply the asymptotics.",
+      "Full-text comparison to the 2022 ordinary Volterra-on-ball study is limited by publisher access; its stated operator is nonetheless structurally different.",
+      "Publication-priority or independent expert validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the near-identity three-regime constants; direct overlap limited to operator definition, qualitative compact-range membership, and angular Schatten threshold in a different fixed-map model",
+        "evidence": "First public September 23, 2026; the ellipsoid map is fixed to (z,0) with a singular pullback measure, whereas the proposed map has both contractions \\(e^{-\\epsilon}\\), \\(e^{-\\epsilon^a}\\) and is compact-range for every positive epsilon. Proposition 4.8 has unspecified constants dependent on compact map.",
+        "identifier_or_url": "arXiv:2609.27584v1 | https://arxiv.org/abs/2609.27584",
+        "material_read": "Accessible full-text rendering; actually inspected the introduction, §3.3 examples, §4.2 Schatten results, and §4.3 compact-range operator statement and proof",
+        "method": "Read main article text, compared operator formulas and the hypotheses/conclusions of Proposition 4.8 and the ellipsoid example",
+        "title": "Generalized Volterra Companion Operators on Bergman Spaces over Convex Domains of Finite Type",
+        "trigger": "Exact same radial companion definition, Schatten criterion, and monomial ellipsoid example"
+      },
+      {
+        "assessment": "NOT_COVERING as inspected; disc with rapidly decreasing radial weights and operator-class criteria rather than ordinary two-ball anisotropic exact constants",
+        "evidence": "Their §1 defines weighted disc spaces and one-variable Volterra/composition variants; Theorem 1.2 gives generalized Berezin transform tests for Schatten membership, with no two-ball anisotropy parameter.",
+        "identifier_or_url": "arXiv:2507.16437v1 | https://arxiv.org/abs/2507.16437",
+        "material_read": "Accessible full-text rendering; actually inspected the definitions and introduction, Theorems 1.1–1.2, and the proof-section overview",
+        "method": "Compared underlying analytic space, operator placement of derivative, and theorem outputs",
+        "title": "Composition and Volterra type operators on large Bergman spaces with rapidly decreasing weights",
+        "trigger": "Closely named generalized Volterra companions and Schatten membership results"
+      },
+      {
+        "assessment": "NOT_COVERING as inspected; one-variable Gaussian Fock theory, no same two-ball parameterized singular-value sum",
+        "evidence": "The paper uses entire functions in Gaussian Fock space and Schatten norm comparabilities from transform integrals, rather than factorial monomial ratios of the Bergman ball.",
+        "identifier_or_url": "arXiv:1507.03536 | https://arxiv.org/abs/1507.03536",
+        "material_read": "Accessible full-text rendering; actually inspected the abstract, §1 definitions and Theorem 1.1",
+        "method": "Compared Fock monomial weights and Berezin-transform norm comparison with the two-ball problem",
+        "title": "Schatten class generalized Volterra companion integral operators",
+        "trigger": "Earlier generalized Volterra companion Schatten theory with asymptotic norm estimates"
+      },
+      {
+        "assessment": "LIMITED_ACCESS, likely different operator: its abstract gives conditions on the symbol derivative for T_g and not the radial companion with composition; whole-paper noncoverage is not asserted",
+        "evidence": "2022 paper describes ordinary Volterra symbol derivative and Hilbert-Schatten criteria, whereas the new operator differentiates the input after composition.",
+        "identifier_or_url": "doi:10.3934/cpaa.2022108 | https://www.aimsciences.org/article/doi/10.3934/cpaa.2022108",
+        "material_read": "Publisher abstract and displayed numbered criteria only; full text access restricted at publisher",
+        "method": "Inspected publicly accessible statement and attempted full-text HTML",
+        "title": "Schatten classes of Volterra operators on Bergman-type spaces in the unit ball",
+        "trigger": "Same ambient ball and Schatten–Volterra keywords"
+      },
+      {
+        "assessment": "LIMITED_ACCESS, structurally different weighted compositions and qualitative class criteria; no positive claim about its inaccessible full contents",
+        "evidence": "Generalized Berezin transforms characterize class membership for weighted composition; the source summary does not give the two-scale Bergman Volterra companion norm limit.",
+        "identifier_or_url": "doi:10.1112/S0024610704005605 | https://doi.org/10.1112/S0024610704005605",
+        "material_read": "Publisher abstract and main claims only; not the full article",
+        "method": "Reviewed accessible 2004 paper summary for the hypotheses and conclusions",
+        "title": "Weighted Composition Operators on the Bergman Space",
+        "trigger": "General weighted-composition Schatten criteria potentially dominating companion special cases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c9ce6ba5-2cd3-4007-8b0b-5197065ca766",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives a natural full parameter-space inverse quantitative answer to how Schatten norms deteriorate when a new compact-range companion approaches a known noncompact operator anisotropically. The angular vanishing degree k and Schatten exponent p collapse to the meaningful threshold \\(kp=2\\), with different sharp divergence powers and a logarithmic critical boundary. Coefficients are exact and depend nontrivially on the time-scale separation \\(0<a<1\\). General compact-range membership theorems are qualitative; they do not give these sensitivity constants. This is mathematically motivated rather than an arbitrary small numerical calculation; the analytic reduction and proof cover infinitely many integer degrees and all positive exponents.",
+    "status": "PASS"
+  }
+}
