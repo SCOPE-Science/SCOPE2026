@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fourier–Plancherel convention yields the exact sinc concentration kernel \(W\operatorname{sinc}(\pi W(x-y))\), with top eigenvalue equal to the maximal energy fraction. After normalization the zero-bandwidth operator is rank one with a unit spectral gap. The uniformly convergent sinc series and analytic Schur complement justify Taylor coefficients through the third power of \(\varepsilon=(\pi W)^2\) and a fourth-power remainder. The exact moment contractions were reconstructed algebraically, including the \(23\mu_3^2/945\) contribution. The eigenfunction correction follows from the off-diagonal first perturbation. The interval comparison uses the sharp one-dimensional moment rearrangement. A finite quadrature checker independently tests two shapes, but serves only as a numerical sanity check.
+PASS
 
-## Originality — PASS (best-knowledge comparison)
+PASS. Under the 2pi Fourier convention, restricting a W-bandlimited function to E gives the integral operator W*sinc(pi W(x-y)); normalizing by mW on L²(E,dx/m) leaves B_epsilon, epsilon=(pi W)^2, with rank-one limit P and spectral gap one. For bounded measurable E and essential diameter D, the kernel Taylor series converges uniformly with operator-norm O(epsilon^4 D^8). Schur-complement perturbation with centered coordinate X and v_1=-(X²-mu_2)/6 gives the coefficients of epsilon, epsilon², and epsilon³, including +23 mu_3²/945, and the eigenvector quadratic term. An independently implemented symbolic moment expansion verified the displayed scalar coefficients and optimizer correction, not just quadrature. Centered-interval rearrangement yields mu_2>=m²/12, strict off intervals, proving the leading W³ shape gap. Uniformity is for WD small; no claim for growing diameters.
 
-The actual literature examination included the open full text of Baeza-Guasch (arXiv:2307.04558v1), Bonami–Karoui (arXiv:1012.3881), Faou–Le Hénaff (arXiv:2410.01465), and Andén–Romero (arXiv:1812.03225); their stated theorem regimes or computed quantities do not imply the full fixed-geometry seventh-order centered-moment formula. The closest indexed detachment-crossover finding treats a shrinking detached component at fixed frequency scale, not all fixed bounded measurable observation sets as bandwidth tends to zero. No equivalent claim was identified by searches for small-bandwidth spectral perturbation, moment invariants, skewness, Slepian operators, and arbitrary disconnected spatial masks. Residual risk persists in older small-parameter prolate literature and incompletely accessible neighboring accounts; a failed search is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves the quantitative small-bandwidth response of **arbitrary bounded, possibly nonsymmetric and disconnected** spatial masks through the first four nonzero orders, and identifies the leading optimizer profile. The unusual squared-skewness coefficient depends on spectral reoptimization, not merely the Taylor expansion of a single constant test function; it is material when comparing observation geometries. The cubic-order interval deficit supplies a concrete geometry-sensitive constraint for irregular time-window design. Neither a paper-sized theorem nor any unsupported global inequality is claimed.
+PASS, best-of-knowledge. The prolate-interval work of Bonami–Karoui studies spectral decay and approximants for the standard interval sinc operator, not a sixth-order centered-moment expansion uniformly over arbitrary bounded measurable sets. Baeza-Guasch studies time-frequency concentration and interval/aliasing comparison at different bandwidth regimes; Faou–Le Hénaff analyze general mask operators but not the assessed explicit asymmetric-set moment polynomial. None of the inspected results yields the presented mu_3² and mu_6 coefficients as a stated or direct closed formula. Older small-bandwidth prolate perturbation literature may overlap, retained as risk.
 
-## Scientific limitations
+## value
 
-All bounds are asymptotic for fixed bounded sets. Independent mathematical audit is outstanding, and historical-priority uncertainty remains for unindexed literature. Numerical examples cannot certify the infinite-dimensional theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Sharp time-bandwidth concentration is a natural spectral invariant; identifying the first three relative corrections for arbitrary disconnected or nonsymmetric measurable windows, including skewness squared, provides geometric information inaccessible from a bare leading mW approximation. The leading optimizer correction and interval shape gap are mathematical applications, independent of any downstream publication-sized theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
