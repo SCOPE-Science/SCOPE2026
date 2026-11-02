@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:13:49.706647Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each finite nonempty pure graded P with rank sizes 1 or 2, h ranks and m=n-h doubleton ranks, use standard irredundant facets: gap G=n+number_of_maximal_chains-(min+max)-number_of_Hasse_edges. Adding a missing adjacent-rank cover u<v creates L(u)U(v) chains and one edge; the gap increases by L(u)U(v)-1>=0. Full layered completion has rank indicators x_i in {0,1} and G=2^m-m-1-sum_i x_i x_{i+1}. The minimum adjacency among m ones in h slots is max(0,2m-h-1), giving the fixed h,m formula and sharp constructions. For h>=3 any optimal incomplete cover is impossible: if the profile has adjacent doubletons then complete all but one missing cover, and its last insertion creates 2^(m-2) chains, gain 2^(m-2)-1>0 for m>=3; optimal m<=2 has no adjacent doubletons. h<=2 all gaps vanish. Optimize m<=floor(n/2) to obtain even M_n=2^(n/2)-n and odd M_n=2^((n-1)/2)-n+2, with exactly the stated complete-layer equality classes for n>=5. Independent binary rank-profile checks covered 62 cases. Source verifier enumerates 206,516 pure cover arrangements to h=7, inspected as code but not independently replayed end-to-end. These are not universal proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhandari et al. examine facet gaps and several constructions; no all-height rank-thin optimum in examined theorem statements.",
+          "Ahmad--Fourier--Joswig Theorem 4.1 concerns f-vector inequalities of chain-order polytopes of maximal ranked posets, not the exact maximum among all rank-thin pure posets.",
+          "Fourier abstract: local formula/general small gap classification; full text inaccessible."
+        ],
+        "reasoning": "A dominating statement must bound the facet difference with a sharp equality classification, not just provide the facet formula, monotonicity, or isolated rank profile. Comparisons cannot rule out a hidden fuller Fourier consequence.",
+        "searches": [
+          "facet gaps order chain polytopes pure graded width two rank thin posets maximization",
+          "arxiv:2309.01626 maximal ranked posets f vector monotonicity",
+          "doi:10.1007/s00026-025-00776-9 facet gap"
+        ]
+      },
+      "checked_sources": [
+        "Bhandari et al. 2025 DOI:10.1007/s00026-025-00776-9 primary publisher text",
+        "Fourier arXiv:2608.19989 primary abstract ONLY (full PDF inaccessible; institutional storage-limit error)",
+        "Ahmad--Fourier--Joswig arXiv:2309.01626 primary Theorem 4.1",
+        "Stanley 1986 classical facet formulas as quoted in sources",
+        "Resultary semantic search on rank-thin and graded facet gaps"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fourier local gap theorem would compute a particular P once its covers are known; source statement on the abstract does not give maximum over all pure rank-thin P.",
+          "The claim requires monotonicity of completed cover graphs, strict equality, binary placement and an outer optimization over surplus rank count."
+        ],
+        "reasoning": "A local formula plus available elementary combinatorics makes the new theorem accessible, but not automatically covered by prior small-gap classification. Unread full Fourier proof is a named residual coverage risk.",
+        "searches": [
+          "facet gaps order chain polytopes pure graded width two rank thin posets maximization",
+          "arxiv:2608.19989v1 abstract facet gap=2 star",
+          "arxiv:2309.01626 Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stanley standard facet formulas yield a local chain/edge expression.",
+          "Fourier arXiv:2608.19989 abstract says exact local formula and classification gap=2."
+        ],
+        "reasoning": "Local identities can be equivalent to the initial expression G but do not alone state the doubleton-rank extremum and all equality cases. Full Fourier paper was inaccessible, so an equivalent complete maximizer result cannot be excluded by its abstract.",
+        "searches": [
+          "facet gaps order chain polytopes pure graded width two rank thin posets maximization",
+          "G(P)=n+c(P)-min(P)-max(P)-e(P) rank thin binary layers facet gap",
+          "Fourier facet gaps local formula star elements rank two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source exhaustive verifier checks only h<=7, 206516 cover arrangements; the proof applies arbitrary h.",
+          "Bhandari/Fourier papers provide local and selected cases rather than the claimed table over every h and m in portions read."
+        ],
+        "reasoning": "This is an infinite two-parameter extremal classification, not recomputation of a finite table; a known complete table under another name remains a bibliographic risk.",
+        "searches": [
+          "facet gaps order chain polytopes pure graded width two rank thin posets maximization",
+          "tables maximum f_chain-f_order rank thin width two posets small order",
+          "poset rank profile 2^m-m-1 binary adjacent doubletons"
+        ]
+      },
+      "rationale": "Qualified PASS for the exact two-parameter facet-gap maximum and complete equality classes for pure rank-thin posets. Stanley facet formulas, Bhandari et al. gap constructions, Fourier general local gap formula and small-gap cases, and Ahmad et al. rank-poset f-vector monotonicity are prior work. Their inspected statements do not yield the global height-and-size extremum directly, though Fourier full text could not be read; a possible stronger implication in that paper remains a priority risk, not automatic failure.",
+      "residual_risks": [
+        "Fourier 2026 full article not accessible: direct local formula may imply this optimization through a less explicit corollary; risk recorded rather than guessed away.",
+        "Other ranked-poset extremal results may dominate with different terminology.",
+        "Independent finite profile checks are not complete cover-graph enumeration; the all-h proof relies on the missing-cover completion argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background facet identities and selected extremal constructions overlap; the full height/order rank-thin classification not in inspected results",
+          "evidence": [
+            "Bhandari--Cunningham--Morrell--Oh--Smith 2025, Theorem 10 and examples"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00026-025-00776-9",
+          "material_read": "Open-access Springer HTML definitions, facet-gap formulas, theorem statements including Theorem 10 and examples",
+          "method": "primary publisher full-text HTML",
+          "title": "Gap Between the Number of Facets of the Two Poset Polytopes",
+          "trigger": "Directly relevant facet-gap generalities and constructions"
+        },
+        {
+          "assessment": "Priority uncertain; cannot declare full paper NOT_COVERING based on abstract",
+          "evidence": [
+            "Abstract lists local formula and gap=2 classification; full manuscript not read"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.19989",
+          "material_read": "arXiv abstract only: exact local gap formula, gap=2 classification by star elements, marked chain-order facet differences; full PDF/HTML inaccessible",
+          "method": "primary abstract; arXiv/OA then authorized institutional attempt returned storage-limit blocker",
+          "title": "On facet gaps of order and chain polytopes",
+          "trigger": "2026 exact local gap formula could dominate"
+        },
+        {
+          "assessment": "Examined theorem relates f-vectors of maximal ranked posets, not explicit rank-thin facet-gap maximization",
+          "evidence": [
+            "Theorem 4.1 f-vector comparison; no max gap stated in inspected material"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.01626",
+          "material_read": "Introduction, page 2 and stated Theorem 4.1 on f-vector monotonicity",
+          "method": "primary arXiv PDF text/screenshot",
+          "title": "Order and chain polytopes of maximal ranked posets",
+          "trigger": "Ranked posets and chain/order face comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated sharp classification of a natural difference of facet counts of two classical polytopes, establishing both an explicit fixed-height/order extremum and a parity-dependent fixed-size extremum with all maximizers. Completing cover graphs and minimizing doubleton adjacency provide a structural extremal explanation, not merely enumerating small cases.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bhandari et al. 2025 DOI:10.1007/s00026-025-00776-9 primary publisher text",
+    "Fourier arXiv:2608.19989 primary abstract ONLY (full PDF inaccessible; institutional storage-limit error)",
+    "Ahmad--Fourier--Joswig arXiv:2309.01626 primary Theorem 4.1",
+    "Stanley 1986 classical facet formulas as quoted in sources",
+    "Resultary semantic search on rank-thin and graded facet gaps"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Pure graded posets with each rank of size 1 or 2; not arbitrary posets.",
+    "Complete equality proof for h>=3, with h<=2 exceptions; n<=4 gaps zero.",
+    "Fourier full text unavailable; no stronger negative prior-art conclusion can be made from abstract alone.",
+    "Fourier 2026 full article not accessible: direct local formula may imply this optimization through a less explicit corollary; risk recorded rather than guessed away.",
+    "Other ranked-poset extremal results may dominate with different terminology.",
+    "Independent finite profile checks are not complete cover-graph enumeration; the all-h proof relies on the missing-cover completion argument."
+  ],
+  "schema_version": 1
+}
