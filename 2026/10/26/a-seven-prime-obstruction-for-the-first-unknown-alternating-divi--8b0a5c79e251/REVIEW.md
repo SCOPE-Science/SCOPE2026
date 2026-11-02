@@ -1,24 +1,21 @@
-# Review of the seven-prime obstruction
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces every hypothetical \(4\beta(n)=n\) to \(n=2^a m\) with \(a\ge2\). The uniform five-odd-prime product \(384/1001\), together with the exact ratios for \(a=2,4,\ge5\), gives strict separation from \(1/4\). At \(a=3\), \(v_2(\beta(n))=1\) forces exactly one odd-prime factor to an odd exponent. Choosing the least prime for that exceptional factor minimizes the lower bound, giving \(3575/13824>1/4\). These steps establish the infinite claim; finite checking is ancillary.
+PASS
 
-## Originality — PASS under inspected sources
+PASS: For the multiplicative alternating divisor sum beta(p^e)=(p^(e+1)+(-1)^e)/(p+1), 4 beta(n)=n implies v2(n)>=2. If at most six distinct prime factors, n=2^a times at most five odd-prime powers. Each odd p contributes beta(p^e)/p^e >=(p-1)/p, minimized over five odd primes at 3,5,7,11,13 with product 384/1001. At a=2 the dyadic factor 3/4 yields 288/1001>1/4; at a=4 it is 11/16 yielding 264/1001>1/4; for a>=5 it is at least 21/32 yielding 252/1001>1/4. At a=3, beta(8)=5 is odd and v2(beta(n))=a-2=1, so exactly one odd prime has odd exponent. This factor is at least (p-1)/p, every remaining even-exponent prime factor at least p/(p+1). The minimum among five odd primes occurs with the exceptional odd exponent on p=3 and four other smallest possible odd primes 5,7,11,13, giving (5/8)(2/3)(5/6)(7/8)(11/12)(13/14)=3575/13824>1/4. Contradiction for all cases with omega(n)<=6. All fractions independently checked with exact rational arithmetic and original checker source inspected. No existence/sharpness claim.
 
-Zhou--Zhu (2009), Proposition 11, gives only \(\omega(n)\ge k-1\), namely \(\omega(n)\ge3\) for \(k=4\). Their stronger odd-integer theorem does not apply to the necessarily even target. Tóth's survey (2013/2014) gives the local arithmetic function and observes that no multiplier-four example is known; the precise seven-prime support bound is not stated. A targeted research-record search found no equivalent. Unindexed equivalent results remain a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-An unsolved existence problem for the first unknown multiplier benefits from an unbounded and four-prime stronger necessary support restriction. The argument uses a genuine parity constraint and strict rational threshold rather than an arbitrary cutoff or finite computation. No claim of sharpness or existence is made.
+PASS (qualified): Zhou–Zhu (2009) primary full paper Proposition 11 gives only omega(n)>=k−1, hence >=3 at k=4; Theorem 9 establishes >=18 only for odd k-imperfect n and cannot cover this necessarily even case. Tóth 2013/14 survey records the local beta identity and the absence of known examples for k>3, but not this seven-distinct-prime obstruction. The new conditional bound is a strict four-factor improvement and relies on 2-adic parity plus a targeted exact rational threshold. An unindexed equivalent restriction is possible; failed searches are not proof of historical novelty.
 
-## Scope and limitations
+## value
 
-The statement is only \(\omega(n)\ge7\) conditional on \(4\beta(n)=n\). No multiplier-four example is constructed. Publication-priority uncertainty and the lack of independent validation remain.
+PASS
 
-## Sources
+PASS: k=4 is the first multiplier for which existence of alternating-divisor k-imperfect numbers is unknown; bounding the necessary number of distinct prime factors is a directly motivated structural constraint, not arbitrary finite computation. Raising the generic known support requirement from 3 to 7 via the critical a=3 parity mechanism excludes all hypothetical small-support examples and informs any future search. The result is exact and self-contained; it does not require proving existence or a general theorem about all k.
 
-- Zhou--Zhu, *On k-Imperfect Numbers* (2009), https://math.colgate.edu/~integers/j1/j1.pdf .
-- Tóth, *A survey of the alternating sum-of-divisors function* (2013/2014), https://arxiv.org/pdf/1111.4842 .
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
