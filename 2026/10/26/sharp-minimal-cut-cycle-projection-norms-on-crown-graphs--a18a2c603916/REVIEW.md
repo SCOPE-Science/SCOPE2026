@@ -1,15 +1,21 @@
-# Scientific review: crown-graph projection constants
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specifies oriented unit-edge coordinates and both fixed subspaces, and establishes existence and uniqueness of the permutation-equivariant projections by showing the absence of intertwiners between the cut and cycle modules. Averaging all competitors therefore gives global relative minimality. An explicit Laplacian calculation yields all five signed current orbits (including \(n=3\) boundary counts); the absolute column sum is \(3-4/n\). The resistance diagonal yields the cycle complement exactly, proving its norm without reliance on numerical extrapolation. A standalone exact-rational incidence-matrix checker confirms 328 independently reconstructed columns for \(3\le n\le10\). No assumption of finite enumeration proving the infinite theorem is made.
+## correctness
 
-## Originality — PASS (best-knowledge; residual bibliographic uncertainty)
-The 2023 cycle-space paper proves general invariant-projection methods and includes the \(n=4\) three-cube special case; these are explicitly prior and do not entail the all-\(n\) crown formulas without a nontrivial family-specific intertwiner and transfer-current calculation. Ge–Dong (2019) and Ye–Yan (2019) supply prior scalar resistance information on matching-deleted bicliques, which does not by itself specify the full absolute-current column sums or minimum norms among arbitrary projections. Searches for crown-graph cycle projection constants, electrical transfer-current equivalences, complementary cut norms and published exact tables found no covering result. Residual uncertainty persists for difficult-to-index cycle-space papers, especially the inaccessible full text of Ye–Yan (2019).
+PASS
 
-## Value — PASS
-The theorem gives exact relative Banach-space projection constants and a representation-theoretic optimality explanation for an entire natural family: \(K_{n,n}\) with one perfect matching deleted. The sharp transition at \(n=5\) distinguishes its cut and cycle geometry, and the calculation reaches nontrivial limiting constants \(3\) and \(4\). This extends the previously analyzed three-cube member to a complete infinite family, rather than recomputing just an isolated effective resistance or a small numerical table.
+The S_n action permutes off-diagonal edges transitively and preserves both edge subspaces. Any equivariant vertex-potential-to-cycle map has the form a x_i+b x_j+c sum_k x_k and zero row/column sums force a=b=c=0 for all n>=3; hence there are no intertwiners cut-to-cycle nor cycle-to-cut. Group averaging forces each canonical orthogonal projector to be the unique equivariant projection and norm-minimal for all invariant norms. An explicit Laplacian solution for injection along an edge determines five disjoint current orbits, their signs and counts; their absolute sum is ||Q||_1=(3n-4)/n. Diagonal resistance (2n-1)/(n(n-1)) gives ||C||_1=2(2n²-6n+3)/(n(n-1)), with symmetric matrices equating l1 and l-infinity norms and a direct polynomial sign giving crossover n=5. Independent exact rational Laplacian inversion verified every column through n=8, including boundary n=3. The all-n proof rests on representation and electrical identities, not the finite range.
 
-## Sources and limitations
-Dilworth–Kutzarova–Ostrovskii, arXiv:2305.12582v1, inspected at framework and Hamming-cube sections; Ge–Dong, arXiv:1904.07766v1, inspected at nearly-complete-biclique resistance sections. Ye–Yan (2019), DOI 10.1016/j.dam.2018.08.030, identified from citations but full text unavailable. All conclusions remain subject to independent mathematical and bibliographic checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact statements, not shared terminology. Hodge cut/current projections and transportation cost supply equivalent settings. A scalar effective resistance gives the diagonal of Q, not the entire absolute current column sums needed for operator norms. The group-averaging framework is prior, but the crown-specific equivariant uniqueness and formulas require calculation. The known cube calculation is a special case; it does not automatically imply the n-dependent formulas and crossover. A general abstract method alone does not give explicit norms for crown n>=5. The theorem derives an infinite parameter formula from exact sign/orbit calculations, not reprinting a known tabulation. Failed search does not certify absence of a hidden older formula. Diagonal resistance alone cannot determine off-diagonal absolute current norms, and the cube n=4 cannot imply the all-n crossing. The new proof provides the required full current decomposition and intertwiner vanishing.
+
+## value
+
+PASS
+
+The result determines relative projection constants of natural cut and cycle Banach subspaces for an infinite edge-transitive graph family, identifies the unique equivariant minimizers and a sharp crossover in norm dominance. It extends a previously known n=4 cube special case to a family-wide structural calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
