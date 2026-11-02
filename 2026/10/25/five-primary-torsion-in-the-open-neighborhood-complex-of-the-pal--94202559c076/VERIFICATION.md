@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact reproducibility record
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing `morse_matrix.json`. The verifier requires Python 3 and SymPy (see `requirements.txt`). The run saved as `verification_output.txt` finished with `VERIFY_OK_PALEY25_NEIGHBORHOOD_FIVE_TORSION`.
+## correctness
 
-It reconstructs the order-25 Paley graph over the field \(\mathbb F_5[u]/(u^2-2)\), checks graph degree and pairwise intersection parameters, enumerates 93,350 nonempty neighborhood simplices, tests all 43,546 free-face elementary collapses, constructs the 2,967-pair acyclic matching and topologically sorts all 6,258 nodes against 24,126 directed incidences.
+PASS
 
-It then recomputes the signed critical-four-to-critical-three boundary with 262 rows, 61 columns and 923 nonzero entries and compares the canonical `morse_matrix.json` byte-for-byte. Exact integral Smith normal form gives 56 unit factors and one factor five, proving \(H_3\cong\mathbb Z^{205}\oplus\mathbb Z/5\mathbb Z\) and \(H_4\cong\mathbb Z^4\). Direct sparse boundary ranks on the collapsed complex are separately checked over both \(\mathbb F_2\) and \(\mathbb F_5\), with a one-rank difference in the degree-four boundary.
+Construct F25=F5[u]/(u²−2) and the 12 nonzero quadratic residues, then P25 neighbors by nonzero square differences. Independently regenerated srg parameters (25,12,5,6) and union of all subsets of open neighborhoods: exactly 93,350 nonempty faces with stated f-vector through dimension 11. Rebuilt legal free-face collapse algorithm to 6,258 faces in 43,546 exact elementary collapses; then entire oriented 6,258-vertex Hasse digraph for 2,967 Morse pairs with one critical vertex, 262 critical 3-cells and 61 critical 4-cells. Independently reconstructed signed gradient-path differential (262 rows,61 columns,923 nonzeros) and computed exact integer Smith normal form using SymPy: 56 factors 1, one factor 5 (rank 57). Therefore Htilde3=Z^(262−57)⊕Z/5=Z^205⊕Z/5, Htilde4=Z^(61−57)=Z^4, remaining reduced homology 0. Correctly uses *open* neighborhoods; mod2/mod5 ranks alone would not prove integral torsion type.
 
-The finite enumeration is exhaustive for this graph. The computation makes no statement about larger graphs, all possible literature, any uncomputed attaching maps beyond homology, or independent mathematical certification.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: exact integral homology of the *open neighborhood complex* for nonprime-square Paley 25 has genuine order-five torsion in degree three, distinguished from prior Paley 13/17 cases and generic random-neighborhood/topological coloring theorems. Exact integer SNF is not a generic strong-regularity identity.
+
+## value
+
+PASS
+
+Order-five torsion in a natural, highly symmetric square-field Paley graph neighborhood complex is a meaningful new primary torsion example beyond smaller prime Paley graphs. The exact integral group and simultaneous free H4 are a reusable topological finite benchmark, not arbitrary numerical variation; the claim is intentionally confined to P25.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
