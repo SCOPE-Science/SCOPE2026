@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The volume/equality chain is reconstructed from primitive first-minimum vectors, concave interval fibers, the polar integration of their radial deficit, and projected lattice covering density. Every equality body has a planar lattice-tile projection; piecewise affine fibers yield six or eight vertices. The canonical hexagon's gradient jump certificate, area, and integer-lattice packing condition are rationally checked in `verify_hexagon.py`. The sharp interval is a necessary and sufficient convexity criterion. The script does not claim to prove Fedorov's theorem, which is cited.
+## correctness
 
-## Originality — PASS, with residual literature risk
-Williams [1] proves the underlying inequality and supplies a six-vertex cubical-quotient equality family, without the dimension-three classification or a nonplanar hexagonal branch. The classical Rogers–Shephard equality condition [2] and Fedorov's planar lattice-tile theorem [3] are important prior ingredients and are explicitly credited. Comparison by implication found no covering statement for the combined vertex theorem and sharp hexagonal warp moduli in the inspected primary sources or bounded database searches. A priority search is not exhaustive.
+PASS
 
-## Value — PASS
-The work answers a natural equality-classification question for a recent sharp theorem, not an arbitrary small slice: equality forces exactly two polyhedral vertex counts, and all nonplanar hexagonal deformations are described by one sharp scalar interval. It shows why cubical sharpness examples are not structurally exhaustive.
+Williams' mixed inequality follows by integrating fiber concavity g(y)≥2a(1-p_B(y)) to get volume≥(2a/3)area(B), and projected covering-density bound ρ²area(B)≥detΣ. Both are equal iff every fiber length has the specified radial profile and ρ B+Σ lattice-tiles onefold. Fedorov gives planar B a parallelogram or centrally symmetric hexagon; affine radial fibers force K to have exactly 6 or 8 extreme vertices. For normalized hexagonal tile H with q=max(|2u+w|,|u+2w|,|u-w|), exact rational fan gradients show q±τf convex iff |τ|≤1; the odd fan centers are uniquely linear shear ℓ plus τf. Area(H)=1 and q(z)≥2 for every nonzero integer lattice point establish tiling, λ1=ρ=1; volume=2/3. Nonzero τ yields noncoplanar 6-vertex equator. Independently computed all six rational fan vertices, polygon area, gradients/convexity for τ=-1,0,1,±3/2, and lattice obstruction in a 31×31 integer box; the infinite tiling exclusion follows from the three integral linear forms argument.
 
-## Closest literature and limitations
-The nearest mathematical result is Williams' quotient Minkowski–covering theorem [1]; the structural ingredients are [2] and [3]. The proof applies only in three dimensions with the first successive minimum. Some literature may be unindexed; no independent audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Williams proved the general sharp inequality and a cubical-quotient family of equality bodies, including a six-vertex three-dimensional example; that is fully credited. The current equality characterization plus complete hexagonal tile warp modulus and explicit noncoplanar eight-vertex extremizers are not contained in the inspected source theorem or sharp cubical family. Classical Fedorov and Rogers–Shephard results are explicitly used, not represented as original.
+
+## value
+
+PASS
+
+Exact equality/moduli classifications sharpen universal geometry-of-numbers inequalities and can distinguish inequivalent extremizers. Here the complete six/eight-vertex dichotomy and sharp nontrivial one-parameter hexagonal warp exhibit equality geometry not visible in the already known six-vertex example; this is motivated by a precise source theorem, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
