@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "At every cap the signed-mass formula gives a continuous piecewise-linear b with endpoint zeros, hence at most m-2 strict sign reversals. The explicit alternating vertices yield rational centered laws attaining all m-2 crossings. The denominator 4m-5 is odd, preventing zero plateaus and proving unique mean-field roots. Monotonicity and 1-Lipschitzness give the global eta in (0,2) population-map contraction inequality. Exact verifier at m=3..80 checks finite identities, while general quantifiers are handled analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Koloskova et al. (2023) construct Bernoulli quadratic fixed points for a prescribed cap and provide norm bounds of order min(sigma,sigma^2/c); no fixed-law multicap sign count appears in the inspected proof.",
+        "Chen et al. (2020) Examples 1-2 establish clipping bias and flat equilibrium intervals at one cap; their symmetry-based bounds address different coverage.",
+        "Qian et al. (2021) give sufficient convergence/gradient alignment conditions, not sharp arbitrary threshold oscillations."
+      ],
+      "reasoning": "A uniform upper bound on the magnitude of clipping error cannot imply any monotonic sign behavior, much less an exact m-2 number with sharp witnesses. The one-cap examples use no three-magnitude (or higher) reversal construction.",
+      "searches": [
+        "arxiv:2305.01588 section 3.1 and appendix C.5",
+        "arxiv:2006.15429 introduction, Examples 1-2, section 2",
+        "pmlr:130/qian21a sections 3-4",
+        "gradient clipping bias direction changes sign with clipping threshold asymmetric noise distribution",
+        "non monotonic clipping bias versus clipping threshold bias sign flip stochastic gradient"
+      ]
+    },
+    "checked_sources": [
+      "https://proceedings.mlr.press/v202/koloskova23a/koloskova23a.pdf",
+      "https://arxiv.org/pdf/2006.15429",
+      "https://proceedings.mlr.press/v130/qian21a/qian21a.pdf",
+      "published-finding corpus semantic searches on clipped bias, Huber paths and scalar clipped fixed points",
+      "Related published mathematical findings on gradient clipping and stochastic algorithm dynamics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper demonstrates one-cap stochastic clipping bias using Bernoulli support; the present theorem proves that two magnitudes cannot produce a sign reversal, while three are sufficient.",
+        "A sharp uniform m-2 crossing bound and witnesses for every m do not follow as special cases of either inspected fixed-cap lower bound or prior heavy-ball-cycle classifications."
+      ],
+      "reasoning": "The stronger new statement varies the cap while keeping the probability law fixed; it both forbids too many crossings and produces all permitted counts, with unique roots and population descent convergence. Nothing in the cited one-cap fixed-point claims logically supplies those quantified threshold/path conclusions.",
+      "searches": [
+        "arxiv:2305.01588 Theorems 3.1-3.3, Appendix C.5",
+        "arxiv:2006.15429 Examples 1-2",
+        "gradient clipping threshold sign reversal bias repeatedly oscillates zero as clip radius increases, finitely supported zero mean stochastic gradients sharp maximum number of crossings m-2",
+        "clipped stochastic gradient drift fixed point scalar quadratic three point noise sign changes clipping threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Huber location M-estimation solves an equation with the score clip_c(x+z); therefore the mean-field equilibrium can be interpreted as a Huber location estimator.",
+        "The basic Huber score and piecewise-linear form are classical; inspected sources show no sharp m-2 support oscillation theorem."
+      ],
+      "reasoning": "Equivalence of the underlying score is not mathematical novelty, and is fully disclosed. The specific number of threshold-driven sign changes and sharp all-support realization require a further support-complexity argument; a generic Huber-score definition does not state that comparison.",
+      "searches": [
+        "Huber M estimator location path tuning parameter crossings sample mean sign oscillations support complexity",
+        "Huber location M estimator path as tuning parameter changes sign crosses sample mean median nonmonotone example",
+        "Huber estimator tuning constant path oscillations multiple crossings mean three point distribution",
+        "Huber M-estimator path piecewise linear breakpoint local minima maximum number",
+        "Huber (1964), Robust Estimation of a Location Parameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible related records address heavy-ball clipping cycles, capped stochastic Polyak steps, or Signum; the inspected titles and summaries do not report a finite-support stochastic clipping-bias reversal table or m-2 classification.",
+        "Accessible prior mathematical claims on Bernoulli-noise proximal-gradient laws and heavy-ball reshuffling address different objects and do not imply this clipping-cap classification."
+      ],
+      "reasoning": "No matching or dominating database/table result was identified from these actual semantic queries and claims; database nonappearance is not treated as uniqueness proof.",
+      "searches": [
+        "gradient clipping threshold sign reversal bias repeatedly oscillates zero as clip radius increases, finitely supported zero mean stochastic gradients sharp maximum number of crossings m-2",
+        "Huber M estimator location path tuning parameter crossings sample mean sign oscillations support complexity",
+        "clipped stochastic gradient drift fixed point scalar quadratic three point noise sign changes clipping threshold"
+      ]
+    },
+    "rationale": "The sharp m-2 sign-reversal bound, all-m attainment with odd-denominator laws, and unique globally convergent mean equilibria are not stated in the specifically inspected primary clipped-SGD papers or the closest available research records. Scalar clipping is equivalent to a classical Huber score; that background is explicitly not claimed. Specialized Huber path-complexity work remains an unresolved but nondecisive priority risk.",
+    "residual_risks": [
+      "A specialized Huber location-path complexity theorem in classical robust statistics could already imply the m-2 bound; no exhaustive historical theorem search is claimed.",
+      "Results for multiple dimensions or infinite-support noise are outside scope; finite-dimensional score-equation equivalence does not transfer the bound without new analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes fixed-cap bias lower bounds and general gradient-norm guarantees, but the inspected passages do not classify sign reversals over thresholds for a fixed finite law.",
+        "evidence": [
+          "PDF Eq. (2)-(3), Theorems 3.1-3.3, Appendix C.5 Eq. (40)-(43)"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v202/koloskova23a/koloskova23a.pdf",
+        "material_read": "Introduction and algorithm definition; noise assumptions; Sections 3.1-3.2; Appendix C.5 Bernoulli quadratic construction (PDF pages 1-7,20, relevant text and rendered page images).",
+        "method": "Opened complete lawful OA PDF, searched and read relevant sections and inspected source-page renderings.",
+        "title": "Revisiting Gradient Clipping: Stochastic bias and tight convergence guarantees",
+        "trigger": "The motivating 2023 primary study directly defines clipped stochastic gradients and characterizes bias."
+      },
+      {
+        "assessment": "Shows fixed-cap distortion and flat stationary intervals, not count of direction reversals as a fixed centered noise law has its cap varied.",
+        "evidence": [
+          "Examples 1-2 on PDF page 2; stochastic clipped update equation (3) on PDF page 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2006.15429",
+        "material_read": "Introduction, Examples 1-2, algorithm definition and geometric bias setup in Section 2 (PDF pages 1-4, rendered pages 2 and 4).",
+        "method": "Opened lawful preprint PDF, read relevant source text and rendered pages.",
+        "title": "Understanding Gradient Clipping in Private SGD: A Geometric Perspective",
+        "trigger": "Prior direct scalar examples of nonzero clipping bias and symmetric flat equilibria."
+      },
+      {
+        "assessment": "Focuses on convergence with gradient alignment/relaxed smoothness; does not state finite-support cap-reversal count.",
+        "evidence": [
+          "Abstract; Section 4 final discussion"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v130/qian21a/qian21a.pdf",
+        "material_read": "Abstract, definitions, Section 3 convergence passage and Section 4 conclusion (PDF pages 1 and 8 rendered plus searchable section text).",
+        "method": "Opened and inspected lawful OA PDF and selected page renderings.",
+        "title": "Understanding Gradient Clipping In Incremental Gradient Methods",
+        "trigger": "Related convergence claims and distributional asymmetry of clipped component gradients."
+      },
+      {
+        "assessment": "No claim of primary-text noncoverage. An equivalent sharp sign-path theorem may exist in classical robust-statistics literature.",
+        "evidence": [
+          "Classical Huber score uses saturation at a tuning threshold"
+        ],
+        "identifier_or_url": "Huber, Ann. Math. Statist. 35 (1964), 73-101",
+        "material_read": "No primary full text examined; only the classical Huber clipping-score formulation verified from secondary descriptions.",
+        "method": "Compared the standard M-estimator definition and targeted web searches; retained as explicit priority risk.",
+        "title": "Robust Estimation of a Location Parameter",
+        "trigger": "Classical equivalent score equation could conceal a stronger path-complexity statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ef07720b-3175-4bf0-aa85-f0de8a689a35",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The support-complexity count answers a natural tuning question: can less aggressive clipping monotonically correct stochastic-gradient drift? It demonstrates sharp arbitrarily many directional reversals under a single fixed, bounded, centered law and determines the smallest number of gradient-noise levels needed for each count. Uniqueness and global convergence of the population fixed points make the reversals operationally interpretable, without claiming sample-path guarantees or broad performance gains.",
+    "status": "PASS"
+  }
+}
