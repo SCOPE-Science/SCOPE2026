@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** The dimension-normalizing radial moments are obtained by integrating the explicit intersection volume of two unit balls. The independent spherical direction has squared-coordinate Dirichlet law; its generating function reconstructs the exact characteristic polynomial of squared semiaxes. Varying a constant term while keeping simple real roots proves generic failure of fewer moments. Rouché's theorem on components of root-neighborhood disks proves a uniform exponent \(1/d\); fixed real-root perturbations at the ball show that no larger exponent can hold. Direct independent rational moment expansions pass in dimensions \(2\) through \(5\). Risk: the theorem uses population moments and is not an error analysis for empirical moments.
+
+## Originality
+**PASS under checked evidence, with residual historical risk.** The 2020 convex-body paper treats the expected distance and records an ellipsoid first-moment integral; its inspected main statements and historical section do not give a finite inverse cutoff or stability. The 2022 covariogram paper gives a forward distribution/moment integral for general bodies; its inspected text treats disk, ball and triangle and does not prove ellipsoid identification. A 2001 spherical-quadratic-form density paper may contain an implicit equivalent, but its complete text was not accessible. The full published theorem on inverse-square moments of random central sections was inspected and proves the same Dirichlet polynomial inversion and generic d-moment minimality for its different, determinant-scaled observable. It does not state the raw pair-distance moment inversion, its geometric radial normalization or the sharp Hölder inverse modulus. This strong methodological overlap materially limits originality; the present value lies in a distinct natural measurement model and sharp stability theorem. The actual similarity checks and specific comparisons are recorded in the accompanying structured review. This is an originality judgment, not a claim that absence from search establishes novelty.
+
+## Mathematical value
+**PASS.** When only anonymized pairwise lengths are measurable, the side-axis geometry of a solid ellipsoid is a natural inverse quantity. This gives an all-dimensional finite-data identifiability theorem, an explicit exact inversion algorithm, the generic minimum number of moments, and an optimal worst-case inverse continuity exponent. No extra general theorem for arbitrary convex bodies is claimed. Risk: the recovery involves ill-conditioned high-order moments near a sphere, and no sampling-error guarantee is asserted.
+
+## Prior-art limitations
+The Dirichlet quadratic-form generating function and forward covariogram formulas are established tools, not independent discoveries. Historical priority is uncertain for the precisely stated finite-moment reconstruction in the classical spherical-quadratic-form literature. The reported statement is limited to the specified observables, hypotheses and sharpness regimes.
+
+Self-review: passed. Independent audit: not yet performed.
