@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** An exact count of perfect matchings with a fixed number of cross-cut edges gives the displayed conditional mass function; factorial division proves a likelihood ratio increasing in crossing count for every two-step length increase. Shared parity supports and a new maximal crossing count imply strict stochastic domination. Parity at zero and the exact top-tail ratio prove both failures of domination at adjacent positive lengths. The indicator calculation independently proves strictly increasing means. The provided `verify.py` enumerates all perfect matchings through 14 endpoints and checks exact formulas. No finite test is offered as a proof of all sizes.
+## correctness
 
-**Originality: PASS (provisional historical priority).** Acan's thesis (2013), Chapter 3.1, and 2015 preprint arXiv:1501.01489v1, Section 2, study the identical conditional crossing-degree statistic but present its moments and an asymptotic marginal law, not the stated parity-wise likelihood-ratio comparison or adjacent stochastic incomparability. Acan–Pittel (2014) concerns aggregate crossings and graph components. A related prior exact cut-crossing covariance/inverse-covariance/process-limit theorem deals in first and second moments, which cannot determine the full finite distributions or stochastic orders. Searches for parity-conditioned degree ordering, random pairing cut distributions, and likelihood-ratio ordering found no directly covering result. Since the factorial counting law is elementary, an older or implicit result in matching-distribution literature remains possible.
+PASS
 
-**Value: PASS.** Conditional chord degree is a natural local statistic of the random intersection graph. The sharp parity dichotomy connects finite-size tail risk to an observable geometric parameter: monotone-likelihood-ratio control at every two-step increase, versus a complete absence of first-order comparison at consecutive positive lengths even though the conditional mean rises. The proof supplies an all-size classification for these natural neighboring comparisons, not a recomputation of a table.
+Exactly fixing the partner of marked endpoint 1 leaves N=2n−2 labeled endpoints in a uniform perfect matching. Choosing h across-cut pairs yields p_{n,k}(h) from binomial choices, h! bijections and two internal double-factorial pairings, supported on h≡k mod2. Dividing k+2 and k pmfs yields [(k+2)(k+1)(N−k−h)]/[(N−k)(N−k−1)(k+2−h)]; the derivative in h has sign N−2k−2>0, with extra mass at top h=k+2, proving strict MLR and stochastic order for each same-parity step. For adjacent k≥1, parity at zero and opposing top tails (including ratio (N−2k)/(N−k)<1 for even k) prevent either first-order ordering; k=0→1 is deterministic. Direct indicator expectation k(N−k)/(N−1) increases across allowed adjacent k. Independently enumerated all labeled pairings through 12 endpoints and verified every conditional mass; the infinite assertion uses counting/inequalities rather than enumeration.
 
-**Limitations and priority risks.** Uniform fixed-size matchings only; no arbitrary opposite-parity long-gap classification. Older exact matching enumeration might subsume the result in uninspected literature. This review is not independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for full-law parity-preserving likelihood-ratio order and adjacent stochastic incomparability, explicitly excluding the previously published chord-degree moment and asymptotic distribution results.
+
+## value
+
+PASS
+
+Conditional crossing degree of a distinguished chord given shorter circular span is a natural statistic of a uniformly random chord intersection graph. The theorem separates strong parity-preserving tail order from every adjacent-length stochastic incomparability despite increasing means, a sharp all-size structural classification, not a recomputed moment or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
