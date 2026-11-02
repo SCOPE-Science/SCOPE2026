@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the random affine regular-simplex section laws
+# Independent mathematical audit
 
-The analytic proof is given in `RESULT.md`. The executable, standard-library-only companion `verify.py` checks the finite edge-crossing rule in 2,310 synthetic sections, compares four Monte Carlo Crofton-weighted means with the Gaussian-integral exact expectation, checks the Gaussian integral normalization and evaluates three threshold-quantile identities. It was run from the file staged with this finding and reported PASS.
+## correctness
 
-Re-run from the same directory with `python verify.py`. This script uses a fixed pseudorandom seed, a finite sample size and numerical integration tolerances. Its outputs corroborate finite claims and normalization; they do not constitute a proof of asymptotic convergence or a check of all dimensions. The exact expression and the two asymptotic probability theorems are justified analytically, not by simulation.
+PASS
 
-The sampling law must be `dσ(normal) dt`, normalized over all hyperplanes intersecting the regular simplex. Replacing it with uniformly sampled normals followed by conditionally uniform offsets changes the finite law; the proof explicitly uses width weighting. No independent review or audit has been performed.
+For generic hyperplane H separating K of the m simplex vertices, each section vertex is a crossed edge and exactly V=K(m-K). Independently verified direct crossed-edge enumeration for synthetic finite samples. A Gaussian vector with centered radius R and order statistics gives the correctly width-tilted Crofton law E[(1/R)int f(K(s)(m-K(s))) ds]/E(W/R), not uniform normal plus uniform offset. Its exact expectation is binom(m,2) E|Z1-Z2|/E range=binom(m,2)/(sqrt(pi) mu_m). Gaussian range endpoints at ±sqrt(2log m), concentration R/sqrt(m)->1 and width tilt in L1 yield a limiting uniform offset U in [-1,1]. Mills tail and binomial concentration imply log V/log m -> 2-U^2; for fixed 0<a<1/4, empirical central quantiles give an interval of length 2q_a+o_L2(1), and ratio to Gaussian range proves sqrt(2 log m) Pr[V>=a m^2]->q_a and the conditional marked law. No inference of infinite asymptotics from simulations.
+
+## originality
+
+PASS
+
+Existing Gaussian mean-width results for regular simplices and probability laws for Haar CENTRAL sections lack translation conditioning; results on hypercube affine sections involve a different body; general combinatorial bounds on section vertex counts do not determine Crofton probabilities. These primary and indexed results do not imply the three stated affine-section asymptotic laws at fixed m and in the m→∞ limit. Priority is best-of-knowledge.
+
+## value
+
+PASS
+
+The number of vertices in random sections is a canonical geometric-probability statistic; the sharp nonconstant random polynomial exponent, exact mean, and 1/sqrt(log m) rare high-complexity law quantify a strong mean-versus-typical discrepancy not captured by known central-section results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

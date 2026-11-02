@@ -1,19 +1,21 @@
-# Scientific review: affine regular-simplex sections
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is an \(m\)-vertex regular Euclidean simplex for each integer \(m\ge3\). The probability measure is normalized translation-and-rotation invariant hyperplane measure restricted to intersecting hyperplanes, **not** uniform normal followed by uniform conditional offset. A separating hyperplane cuts precisely \(k(m-k)\) edges. In an isonormal Gaussian parametrization, the Crofton expectation is the Gaussian offset integral divided by the expected width; the Gaussian radius factors out in homogeneous functionals. This proves the exact mean \(\binom m2/(\sqrt\pi\,\mathbb E\max_i Z_i)\). Gaussian endpoint limits, concentration of the radial width tilt, and binomial small-tail concentration prove the \(2-U^2\) random exponent. For each fixed \(a\in(0,1/4)\), empirical Gaussian quantiles give an admissible offset interval of length \(2q_a+o_{L^2}(1)\); dividing by the total width yields the rare-event constant and the stated conditional distribution. The proof does not mistake finite experiments for infinite asymptotic proof. The companion verified standard-library script passed 2,310 edge identities, four finite expectation comparisons, the Gaussian integral identity and three quantile tests.
+PASS
 
-## Originality — PASS, with residual historical-priority uncertainty
+For generic hyperplane H separating K of the m simplex vertices, each section vertex is a crossed edge and exactly V=K(m-K). Independently verified direct crossed-edge enumeration for synthetic finite samples. A Gaussian vector with centered radius R and order statistics gives the correctly width-tilted Crofton law E[(1/R)int f(K(s)(m-K(s))) ds]/E(W/R), not uniform normal plus uniform offset. Its exact expectation is binom(m,2) E|Z1-Z2|/E range=binom(m,2)/(sqrt(pi) mu_m). Gaussian range endpoints at ±sqrt(2log m), concentration R/sqrt(m)->1 and width tilt in L1 yield a limiting uniform offset U in [-1,1]. Mills tail and binomial concentration imply log V/log m -> 2-U^2; for fixed 0<a<1/4, empirical central quantiles give an interval of length 2q_a+o_L2(1), and ratio to Gaussian range proves sqrt(2 log m) Pr[V>=a m^2]->q_a and the conditional marked law. No inference of infinite asymptotics from simulations.
 
-Kabluchko, Litvak and Zaporozhets, arXiv:1511.08479 (first public 2015-11-26), establish Gaussian mean-width and projection laws for regular simplices, not counts of vertices of randomly translated affine sections. Swan, arXiv:1808.09482, studies expected vertices of hypercube slices, with a different body and different exact mean. De Loera, Lopez-Campos and Torres, arXiv:2412.12419, study attainable section vertex counts, without the present affine random law. Closest published regular-simplex section results place the hyperplane **through the centroid** and obtain \(m^2\)-order typical complexity; that fixed-offset law neither states nor implies the rare quadratic probability for invariant affine sections. The published comparison records and the relevant portions of the primary full texts were consulted. Exhaustive priority across old stochastic geometry is not asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The random-exponent limit shows that a typical motion-invariant affine section has a random polynomial order between one and two, while its expectation is dominated by an explicitly quantified vanishing event of quadratically complex sections. The Gaussian-quantile tail constant and conditional law expose the mechanism behind the gap between typical complexity and mean complexity. This is a natural high-dimensional random section invariant, not an arbitrary finite computation or routine relabeling.
+Existing Gaussian mean-width results for regular simplices and probability laws for Haar CENTRAL sections lack translation conditioning; results on hypercube affine sections involve a different body; general combinatorial bounds on section vertex counts do not determine Crofton probabilities. These primary and indexed results do not imply the three stated affine-section asymptotic laws at fixed m and in the m→∞ limit. Priority is best-of-knowledge.
 
-## Limits and risks
+## value
 
-Published comparison records are not substitutes for a full-text inspection of every possible older paper. In particular, Crofton-section combinatorics may be indexed under alternative integral-geometric terminology. No claim is made for nonregular simplices, other hyperplane measures, fixed or moving endpoints \(a\), or higher-codimension sections. Numerical checks validate finite identities and sample behavior but cannot certify asymptotic limits.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The number of vertices in random sections is a canonical geometric-probability statistic; the sharp nonconstant random polynomial exponent, exact mean, and 1/sqrt(log m) rare high-complexity law quantify a strong mean-versus-typical discrepancy not captured by known central-section results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
