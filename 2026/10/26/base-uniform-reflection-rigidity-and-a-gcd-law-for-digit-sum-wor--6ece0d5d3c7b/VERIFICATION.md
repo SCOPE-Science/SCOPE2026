@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter; no nonstandard packages are used. Successful completion emits the marker `GENERALIZED_BASE_REFLECTION_PASS`.
+## correctness
 
-The script performs exact finite modular-set tests for 104 base/modulus pairs (bases 3 through 10, moduli 3 through 15), comparing full predicted length-two, length-three and length-four factor sets with their gcd formulas, and checking reversal incompatibility. Separately, it generates digit-sum prefixes of lengths appropriate to 13 smaller base/modulus pairs, tests complete equality of 39 directly observed length-two/three/four factor sets with the symbolic predictions, and checks sampled length-five-through-eight reversal absence.
+PASS
 
-Those experiments cannot prove factor completeness or reversal avoidance throughout an infinite sequence. The unbounded result instead follows from the constructive adjacency-realization lemma and the proof that each length-four factor has at least two internal increments equal to \(+1\). Existing full-length factor-complexity values are attributed to Starosta (arXiv:1104.2476). Unindexed overlapping literature remains possible. No independent audit has been performed.
+PASS: Reconstructed base-b carry identity t(bq+j)=t(q)+j and exact adjacent-pair relation c−a≡1 mod gcd(b−1,m), including a constructive realization using trailing (b−1) digits. Every four-window at b≥3 crosses at most one substitution-block boundary, hence two of its three adjacent increments equal +1; its reversal would require two −1 increments, impossible in one four-window for m≥3. Length-three reverse companions must be palindromes. Explicit three- and four-factor families have sizes 2m²/d−m and 3m²/d−2m by inclusion-exclusion; reversal of length-two pairs occurs exactly for d|2, giving displayed gcd trichotomy. Independent direct-prefix tests across 20 base/modulus combinations and three lengths were honest subset checks; 48/60 prefix counts were complete, 12 were not because prefixes do not necessarily realize the full infinite language. All 60 avoided contradictory reversals. Infinite result rests on constructive adjacency and substitution boundary proof.
+
+## originality
+
+PASS
+
+PASS qualified: Allouche–Campbell–Li–Shallit–Stipulanti (2024) Question62 explicitly raises generalized reflection complexity and gives a base2/modulus3 instance; Starosta (2011) establishes ordinary factor complexity and short factor sets for generalized Thue–Morse, and Allouche–Shallit (2000) treats ordinary palindromes. Factor complexity and palindrome absence alone cannot determine the number of distinct reversal-orbit classes. The new short +1 increment argument covers every b,m≥3, including periodic ones.
+
+## value
+
+PASS
+
+PASS: A published reflection-complexity question motivates precisely these digit-sum words. The complete base≥3 all-modulus classification includes a nontrivial gcd(b−1,m) trichotomy for short factors and an all-length ordinary-reversal obstruction; it distinguishes periodic from aperiodic families. The +1-increment argument is elementary but solves a substantive natural family-wide invariant, not an arbitrary tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
