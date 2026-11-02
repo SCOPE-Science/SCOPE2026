@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The exact stationary Poisson-age representation gives covariance (2D/r)(g_N-(1-pi/4)a_N^2). Joint Gaussian order-density integration gives E[A_N B_N]=0,-sqrt(3)/pi,-3/pi for N=2,3,4 and exact means a_2,a_3,a_4. A Gaussian Ornstein-Uhlenbeck interpolation, coordinatewise positive association and opposite-monotone covariance imply 0<=g_N<=1/N for every N>=2; since a_4>1 and 1-pi/4>1/5, all N>=5 are strictly negative. Classical normal maximum bounds plus Gaussian Poincare prove the covariance and correlation limits. Proof covers all quantified physical parameters; standard-library diagnostic quadratures check N=2 through 8 and all exact small-N identities. No finite enumeration is used as proof of the universal statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2307.15351 develops c.i.i.d. mixture methods broad enough to encode the entire joint gas law; https://arxiv.org/pdf/2307.15351",
+        "arXiv:2509.06658 includes arbitrary resetting protocols and stationary c.i.i.d. joint densities; https://arxiv.org/pdf/2509.06658",
+        "The initial Gaussian mixture is equation (3) of arXiv:2211.00563; https://arxiv.org/pdf/2211.00563"
+      ],
+      "reasoning": "The broad joint distribution mathematically determines moments via integration, but its published derived claims do not provide a sign classification for opposite extreme covariance. There is no found stronger known inequality or finite-particle phase boundary dominating the proposed result; proving a general formula for a distribution is not the same as having evaluated its nontrivial sign across all N. Subsequent non-Poisson paper is broader in resets but not stronger on this specific covariance classification.",
+      "searches": [
+        "Brownian particle gas with simultaneous Poisson resetting: joint rightmost and leftmost position asymptotics, range and midrange, rescaled asymmetry logistic law with independent Rayleigh extent",
+        "Maximum and minimum of simultaneously resetting Brownian gas: sign reversal covariance at fourth particle, Gaussian scale-mixture extreme order",
+        "Brownian particle gas with simultaneous Poisson resetting: joint rightmost and leftmost position asymptotics, range and midrange, rescaled asymmetry logistic law with independent Rayleigh extent"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2211.00563",
+      "https://arxiv.org/pdf/2307.15351",
+      "https://arxiv.org/pdf/2509.06658",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-three-draw-counterexample-to-uniform-probability-extremality-f--72e2dab2ac87",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-phase-diagram-for-sample-mean-sample-range-covariance--80a210c3d4ea",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-extreme-particle-pinning-thresholds-for-alpha-wiener-mean-field--5a24bf7e98db"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary source https://arxiv.org/pdf/2211.00563 equation (3) specifies the Gaussian mixture and section on maximum provides the one-sided asymptotic.",
+        "General c.i.i.d. framework https://arxiv.org/pdf/2307.15351 treats known extreme-value laws; it has no searched covariance statement.",
+        "The 2025 source https://arxiv.org/pdf/2509.06658 explicitly has no searchable covariance term and treats one-sided order statistics in inspected portions."
+      ],
+      "reasoning": "The new assertion implies a positive sign for N=2,3, negative for N>=4, and logarithmic anticorrelation. Prior Gaussian mixture formulas imply a calculable integral but do not logically imply this sign classification without added nonstandard integration and the uniform bound. The large-N marginal Rayleigh limit is already published, whereas its joint opposite-edge correlation -1 and finite-N threshold are not identified among inspected claims.",
+      "searches": [
+        "Poisson resetting Brownian gas rightmost leftmost covariance positive for two or three particles but negative from four particles, exact Gaussian scale mixture phase boundary and -log N anticorrelation",
+        "Gaussian extrema covariance inequality Cov(max_i Z_i,min_i Z_i) <= 1/N via Ornstein Uhlenbeck interpolation and positive correlation",
+        "Brownian gas correlated by resetting joint extremes covariance maximum minimum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary Brownian resetting paper derives one-sided ordered-position PDFs and consecutive spacings, not the same-time covariance of both endpoint order statistics (https://arxiv.org/pdf/2211.00563).",
+        "The general c.i.i.d. paper covers marginal extremes and sums (https://arxiv.org/pdf/2307.15351).",
+        "The 2025 extension lists one-sided extremes and adjacent spacings (https://arxiv.org/pdf/2509.06658)."
+      ],
+      "reasoning": "Equivalents searched include max/min, rightmost/leftmost, opposite-edge covariance, common Gaussian scale mixture, range/midrange and sign reversal. Each has the same model and stationary observation but involves two opposite extremes simultaneously. Retrieved primary results compute the common joint law and individual extreme marginals, not this joint sign theorem.",
+      "searches": [
+        "Simultaneously reset one-dimensional Brownian particle gas leftmost rightmost extreme covariance N=4 sign flip",
+        "Poisson resetting Brownian gas rightmost leftmost covariance positive for two or three particles but negative from four particles, exact Gaussian scale mixture phase boundary and -log N anticorrelation",
+        "Brownian resetting gas universal logistic midrange sample range asymmetry 8 log N"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published discrete-order-statistic records https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-three-draw-counterexample-to-uniform-probability-extremality-f--72e2dab2ac87 and https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-phase-diagram-for-sample-mean-sample-range-covariance--80a210c3d4ea concern fixed finite-support laws, not a stationary continuum resetting gas.",
+        "The published Gaussian maximum pinning study https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-extreme-particle-pinning-thresholds-for-alpha-wiener-mean-field--5a24bf7e98db concerns a bridge model and a one-sided maximum, not an opposite-edge pair."
+      ],
+      "reasoning": "No indexed table of the exact three covariance values or the N=4 sign boundary was recovered. Published discrete i.i.d. min-max correlations do not specialize to the common-scale Gaussian resetting distribution; their sample means/ranges cannot imply the claimed sign by parameter substitution.",
+      "searches": [
+        "arXiv 2211.00563 Biroli Larralde Majumdar Schehr Extreme statistics spacing Brownian gas correlated by resetting, joint extremes sign of covariance N=4",
+        "Poisson-reset independent Brownian particles stationary joint extremes max min positive covariance N=2 N=3 negative N>=4"
+      ]
+    },
+    "rationale": "The common-age conditional Gaussian joint law, marginal extremes, and adjacent spacing laws are credited to Biroli et al. (2022/2023), the general c.i.i.d. framework to Biroli et al. (2023), and non-Poisson generalization to de Mauro et al. (2025). The inspected substantive sections and targeted search did not locate the sharp simultaneous-max/min covariance sign reversal at N=4 or its all-N proof. Generic JPDF formulas require genuinely additional Gaussian order-moment evaluation and a uniform covariance inequality to determine the sign. Earlier public studies of discrete order-statistic correlations and Gaussian maximum pinning involve distinct objects. Publication priority is qualified, not independently certified.",
+    "residual_risks": [
+      "Some general order-statistic or elliptical-mixture covariance results may already entail the sign boundary without naming the reset model; targeted search and inspected primary sections did not locate one.",
+      "A joint-density representation in existing literature implicitly permits computation of the covariance, so publication priority of its explicit sign evaluation needs independent review.",
+      "Public titles/summaries, not full text, were inspected for tangential discrete and bridge literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Common-reset mixture, one-sided order distributions and nearest-neighbor gaps are covered; no explicit min/max covariance sign threshold found in material inspected.",
+        "evidence": [
+          "Eq. (3) stationary conditional Gaussian law; main article section on maximum; supplemental sections I-II"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2211.00563",
+        "material_read": "Full 13-page source opened; inspected model and equations in main article, maximum and spacing derivations, and supplementary sections on maximum and consecutive gaps, plus exact-term searches.",
+        "method": "arXiv PDF extracted text and page image",
+        "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+        "trigger": "Identical stationary gas, dynamics and order statistics"
+      },
+      {
+        "assessment": "General conditional-independence theory and marginal extreme statistics, but no explicit opposite-edge stationary covariance classification found in relevant portions.",
+        "evidence": [
+          "Introduction common parameter Y; sections on marginal extreme/order laws"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2307.15351",
+        "material_read": "Opened 26-page PDF; read introduction, generic conditional-iid derivation and relevant marginal extremes and sum sections with text searches.",
+        "method": "arXiv full PDF extracted text, page image, targeted term searches",
+        "title": "Exact extreme, order and sum statistics in a class of strongly correlated system",
+        "trigger": "Potentially dominating universal conditionally i.i.d. method"
+      },
+      {
+        "assessment": "Covers broader reset protocols and correlation of individual squared coordinates, but not the claimed pair of opposite extrema and sharp finite-N sign.",
+        "evidence": [
+          "Stationary JPDF equations (35)-(38); main list of observables; C2 squared-particle correlation rather than extreme-edge covariance"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2509.06658",
+        "material_read": "Opened 35-page PDF; inspected introductory observables, stationary joint density, correlation and extreme statistics passages, and searched covariance and minimum/maximum wording.",
+        "method": "arXiv PDF page image, extracted text and targeted term searches",
+        "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+        "trigger": "Same particles with a strictly broader family of reset-time distributions"
+      },
+      {
+        "assessment": "Finite-support discrete i.i.d. draws with varied atom weights, not Brownian common-scale Gaussian mixture; indirect conceptual comparison only.",
+        "evidence": [
+          "Summary reports three-point lattice covariance/correlation, not a common-reset gas"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-three-draw-counterexample-to-uniform-probability-extremality-f--72e2dab2ac87",
+        "material_read": "Public title and summary; full text not inspected",
+        "method": "Published public metadata search",
+        "title": "A three-draw counterexample to uniform-probability extremality for discrete order-statistic correlation",
+        "trigger": "Published result mentioning min-max correlation"
+      },
+      {
+        "assessment": "Gaussian bridge mean-field pinning and a one-sided maximum; not a two-sided stationary reset covariance.",
+        "evidence": [
+          "Summary states maximum-deviation pinning threshold rather than left/right edge covariance"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-extreme-particle-pinning-thresholds-for-alpha-wiener-mean-field--5a24bf7e98db",
+        "material_read": "Public title and summary; full text not inspected",
+        "method": "Published public metadata search",
+        "title": "Extreme-particle pinning thresholds for alpha-Wiener mean-field bridges",
+        "trigger": "Published correlated Gaussian particle extreme result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e490cb7a-1b9a-470c-91a7-807ce582db07",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the same stationary physical gas, the natural macroscopic observables are leftmost/rightmost particle positions. Although coordinates remain linearly uncorrelated, their extrema change from positive to strictly negative covariance at an exact and unexpectedly small particle number N=4. The all-N proof and asymptotic correlation -1 quantify common-age-driven anticorrelation in the thermodynamic limit, beyond a textbook identity or arbitrary numerical slice. The result is a precise finite-size effect relevant to interpreting extreme spatial fluctuations under global resetting, without claiming a dynamical phase transition.",
+    "status": "PASS"
+  }
+}
