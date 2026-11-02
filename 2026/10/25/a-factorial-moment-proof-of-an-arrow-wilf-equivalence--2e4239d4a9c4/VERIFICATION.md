@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `verify.py` script independently computes both avoidance classes using the explicit Foata transformation and tests direct arrow containment through permutation length seven, with the decreasing-subsequence test through length eight. It also validates the two unrelated cycle-decomposition counts and their common formal generating series through order eighteen. The output file `verify_output.txt` records the actual local run. Execute `python3 verify.py` with Python 3 and the standard library.
+# Independent mathematical audit
 
-The finite enumeration checks are not offered as proof for unbounded permutation size. The unrestricted claim is supported by the cycle-reconstruction and formal factorial-moment proof in `RESULT.md`. Separate primary full text of Zhou and Yu (arXiv:2609.29392) remained inaccessible; priority against unknown literature is not independently certified.
+## correctness
+
+PASS
+
+Reconstructed theta standard-cycle convention (maximum first, increasing maxima), literal fixed-point arrow conditions, and both structural counts. In class 1 largest fixed point f forces below-f word decreasing; reinsertion after b surviving greater letters has binomial factor with j formerly fixed singleton slots nonempty, and the rencontres series yields F12=z/q D(z/q) for q=1-z-z². In class 2 smallest fixed point f forces all greater letters into one descending cycle; T_{a,b}=sum_r C(a,r)d_{a-r} b^(rising r) equals L((t-1)^a t^b)/b!. The polynomial factorial-moment transform L(e^{zt}R)=L(R(t/(1-z)))/(1-z) reduces F23 to the same formal series; finite orders are not the proof. New independent exact integer summation of both expressions checked all n=1..16; source verify.py independently describes literal arrow brute checks to n=8, not executed as source code.
+
+## originality
+
+PASS
+
+Strong best-of-knowledge novelty: the September 24 2026 full primary follow-up explicitly poses this exact cross-class equality as an unsolved problem despite separate enumerations, and the present factorial-moment identity resolves it. Risk remains that an unindexed late-October proof exists.
+
+## value
+
+PASS
+
+Resolves a specifically published open arrow-Wilf equivalence by an all-size factorial-moment proof, not a short numeric coincidence or a renaming. The result advances two natural, separately enumerated arrow-avoidance classes and supplies a reusable algebraic connection; a direct bijection is not asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
