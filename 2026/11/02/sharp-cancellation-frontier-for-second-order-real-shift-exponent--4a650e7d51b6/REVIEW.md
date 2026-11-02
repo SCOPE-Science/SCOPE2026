@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The final claim has exactly three Taylor moment constraints and optimizes signed-measure total variation, not global approximation. A direct two-branch quadratic dual certificate \(q(s)=1-2((s-u)/\rho)^2\), bounded in absolute value by one on the entire allowed interval, matches the corresponding feasible two- or three-atom signed measure at every nonzero support point. Explicit moment substitution and phase inequalities establish equality and uniqueness, including the boundary regime and endpoint times. The finite verifier independently checks rational moments, dual objective, domain endpoints, and signs for 2,560 cases; it is supplementary, not the infinite-domain proof.
+
+## Originality — PASS (best-knowledge scientific comparison)
+Güttel–Shao (2026) provides the simple negative-real-pole partial-fraction setting and Theorem 4.2's residue-roundoff upper bound, but its inspected sections 1, 3, 4, 4.4 and 5 do not state an exact optimum of coefficient total variation under Taylor order-two constraints. Their Section 4.4 instead discusses Cauchy singular values, noting a missing lower bound for optimal Zolotarev Cauchy matrices. Güttel–Shao (2025) treats concentrated repeated-pole asymptotic approximation. Yu–Townsend (2022), Theorem 4.3, provides an upper condition bound for perturbed Fourier-grid quadrature, not the signed quadratic moment optimum. Closest semantic research records study different positivity barriers or global approximation, and accessible prior numerical claims do not have this statement or a dominating implication. All these comparisons are by assumptions and implication rather than by title. General signed Hausdorff moment duality remains a meaningful historical priority risk; absence of a search result is not a proof of novelty.
+
+## Mathematical value — PASS
+The exact frontier quantifies a nonremovable accuracy-versus-roundoff conditioning cost of real shifted parallel exponential propagators, a limitation that their new floating-point analysis makes particularly relevant. The tight symmetric shift-band cost is quadratic in inverse relative bandwidth, and the phase transition identifies the optimal two- versus three-shift designs. This is a motivated complete optimization classification, not an arbitrary parameter slice or simply the observation that some coefficients must be negative. It does not purport to predict a global spectral approximation error.
+
+## Literature, boundaries and risks
+The main paper's Section 4.2 makes termwise residue amplification an explicit numerical issue; the present theorem isolates the associated Taylor-order-two algebraic restriction. The primary source dates and its relevant sections were inspected in parsed full text. Priority may still be affected by older general extremal signed-moment results that are difficult to locate by a method-specific query; independent source review is advised. Claim does not extend automatically to complex or repeated poles, polynomial terms, prescribed pole grids, or uniform-error minimax approximation.
+
+Self-review: passed. Independent audit: not yet performed.
