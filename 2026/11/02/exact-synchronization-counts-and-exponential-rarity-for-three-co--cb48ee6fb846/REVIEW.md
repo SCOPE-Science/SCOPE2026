@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness (PASS).** The irrotationality theorem of Gravner–Lyu–Sivakoff supplies synchronization if and only if vanishing edge circulation; the rook graph has diameter two. The proof reconstructs the unique normalized integer height for each irrotational coloring, partitions its \(\{0,1,2\}\)-arrays by the support of zero entries, counts full-support matrices by inclusion–exclusion, and establishes a uniform error bound including both bounded and growing minimum side lengths. The formula and asymptotic hold for all integers \(m,n\ge2\), and seven small graphs have an independent exhaustive transition-graph check. The compiled checker and scripts reproduce their outputs. No unverified computational enumeration is used as a proof for unbounded dimensions.
+
+**Originality (PASS, with residual risk).** The fully general irrotationality criterion, the generic Widom–Rowlinson homomorphism representation, and the corresponding sum over connected components are prior facts, not proposed as new. The closest general published formula \(\sum_Z2^{c(G-Z)}\) is exact for every graph but requires exponentially many vacancy-set terms and does not evaluate the explicit rook-graph binomial sum nor prove its uniform \(3\cdot2^{mn}\) asymptotic. Searches for alternative names (line graph of a complete bipartite graph; rook/Hamming graphs; row/column height matrices) found no dominating specialization. A potentially overlooked specialized partition-function computation remains a genuine risk.
+
+**Value (PASS).** The rook graphs are a canonical infinite family of diameter-two Cartesian products of cliques. An explicit polynomial-arithmetic count and its uniform exponential rarity identify an exact natural dynamical basin invariant beyond qualitative synchronization criteria, and connect the dynamical count with a statistical-mechanical partition function. The result is not a merely finite census or a relabeling of the prior generic formula: the support factorization and asymptotic require additional arguments.
+
+**Limits.** No classification of non-synchronizing recurrent periods is claimed. The operation bound is arithmetic rather than bit complexity. Independent external audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.

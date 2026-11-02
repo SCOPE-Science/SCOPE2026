@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs unique normalized integral height from established irrotationality criterion; row/column 1-Lipschitz arrays precisely characterize synchronizing inputs. Exhaustive support partition, inclusion-exclusion, \\(O(m^2n^2)\\) operation count, and a two-case uniform asymptotic bound prove the all-m,n statement. Separate count and transition-graph algorithms pass all tested cases totaling 1,148,985 states; finite tests not presented as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General CCA theorem in Gravner–Lyu–Sivakoff, arXiv:1610.07320v1, applies to all finite connected graphs and covers the qualitative criterion and diameter bound.",
+        "Published exact metric-type/Widom–Rowlinson note gives N(G)=sum_{Z subset V} 2^{c(G-Z)} for all graphs, but does not provide a compressed evaluation for rook graphs or exponential-rate asymptotic.",
+        "Cohen–Perkins–Tetali, arXiv:1512.06398v2, studies occupancy fractions and graph homomorphism extremal inequalities, not the formula in this result."
+      ],
+      "reasoning": "Both broader theorems are acknowledged. The newly assessed claim is confined to a polynomial-arithmetic algorithmic expression and a uniform two-parameter asymptotic for this graph family; the closest general formulas have exponential vacancy-set expansions with no comparable specialized evaluation. No stronger theorem explicitly implying the compressed expression and limit was identified.",
+      "searches": [
+        "irrotational graph colorings complete graph Cartesian products zero winding enumeration synchronization",
+        "three-color cyclic automata row-column clique grid rook graph synchronizing configurations 3 times two to mn",
+        "graph homomorphism count from Cartesian product K_m box K_n to reflexive path P3 exact formula"
+      ]
+    },
+    "checked_sources": [
+      "Gravner–Lyu–Sivakoff, arXiv:1610.07320v1, Theorem 3 and Section 2",
+      "Cohen–Perkins–Tetali, arXiv:1512.06398v2, introductory definitions and main problem",
+      "Gravner–Sivakoff–Slivken, arXiv:1609.07202v1, model definitions",
+      "Published Widom–Rowlinson / generic diameter-three type-count result, 2026-10-04, complete RESULT.md",
+      "Relevant published mathematical abstracts on rook-graph homology, complete bipartite height functions and prism-ladder excitation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior homomorphism identity N(G)=sum_{Z}2^{c(G-Z)} specializes to rook graphs but by itself retains exponentially many terms; it determines the exact integer logically, so that generic count is not claimed as novel.",
+        "The proof supplies an independent full-support matrix expansion with \\(O(m^2n^2)\\) arithmetic steps and proves uniform \\(S_{m,n}/(3\\cdot 2^{mn})\\to1\\).",
+        "Gravner–Lyu–Sivakoff proves only dynamical criterion and qualitative time bound; exact count on this family is not stated there."
+      ],
+      "reasoning": "The general homomorphism formula already defines this number for every graph. Novelty rests specifically on the closed low-complexity binomial evaluation and uniform asymptotic rarity, neither given by those references as a specialized theorem. If an unindexed proof has already simplified the general sum on rook graphs, originality would fail; this is recorded as a residual risk. A final exact-equation, line-graph, and fully-looped-path query returned the same closest generic partition-function result and no specialized rook evaluation.",
+      "searches": [
+        "Widom Rowlinson three state partition function on rook graph line graph of K_m,n explicit exact double sum",
+        "graph homomorphism count from Cartesian product K_m box K_n to reflexive path P3 exact formula",
+        "diameter two cyclic cellular automata synchronization basin equals Widom Rowlinson homomorphism count minus binary colorings",
+        "Widom Rowlinson partition functions as 1-type polynomials of generic diameter-3 metric space vacancy-set sum over connected components"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "General homomorphism equivalence for the fully looped three-vertex path appears in the published Widom–Rowlinson type-count result; no direct polynomial-size rook-graph evaluation or uniform asymptotic occurs in its full mathematical result.",
+        "arXiv:1610.07320v1, Theorem 3, provides zero circulation iff synchronizing but no enumeration on rook graphs."
+      ],
+      "reasoning": "Rook graph R_{m,n} is the line graph L(K_{m,n}), equivalently \\(K_m\\square K_n\\). The general Widom–Rowlinson identification implies the basin count as a generic exponential vacancy sum; this general identity is acknowledged and expressly excluded from the novelty claim. The derived \\(O(m^2n^2)\\) binomial evaluation and growing-rectangle asymptotic are additional propositions, not a restatement of the generic graph-hom count.",
+      "searches": [
+        "three-state cyclic cellular automaton on rook graphs K_m Cartesian product K_n exact synchronization count height functions",
+        "exact number of zero-circulation three-colour graph labelings on Hamming graphs \\(K_m\\square K_n\\) with row column Lipschitz integer height functions",
+        "Widom Rowlinson three state partition function on rook graph line graph of K_m,n explicit exact double sum",
+        "graph homomorphism count from Cartesian product K_m box K_n to reflexive path P3 exact formula",
+        "diameter two cyclic cellular automata synchronization basin equals Widom Rowlinson homomorphism count minus binary colorings",
+        "rook graphs K_m square K_n three state cyclic cellular automaton exact synchronization S=3(2^(mn)-1+full support zeros twos) asymptotic",
+        "Widom Rowlinson partition function line graph complete bipartite explicit binomial polynomial time row column matrices",
+        "fully looped three vertex path homomorphisms rook graph asymptotic 2^(mn) leading term"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The corpus hit concerning complete bipartite height-range laws addresses K_{a,b} itself, not the rook line graph K_a square K_b.",
+        "The published record on three-cut homology of rook graphs concerns a different topological invariant.",
+        "Prior local records on CCA prism ladders address C_n square K_2, a strict family overlap only at n=3, and do not assert the rook graph all-parameter count or its asymptotic."
+      ],
+      "reasoning": "Direct synonyms and related tables were checked, not merely matching titles. Neither a table of exact rook-graph CCA synchronization values nor a generalized row-column height-count formula was identified. The prism-ladder and other graph-specific histories do not imply the full \\(K_m\\square K_n\\) family.",
+      "searches": [
+        "three-state cyclic cellular automaton on rook graphs K_m Cartesian product K_n exact synchronization count height functions",
+        "three-color cyclic automata complete multipartite synchronization count triangle square graph height lift",
+        "bicolored incidence matrices avoid red and blue edges sharing row or column count rook graph dynamical synchronization",
+        "Widom Rowlinson three state partition function on rook graph line graph of K_m,n explicit exact double sum"
+      ]
+    },
+    "rationale": "General 2016 CCA synchronization and general Widom–Rowlinson graph homomorphism/component-sum results are explicitly prior. New claim is only polynomial-arithmetic closed evaluation on rook graphs and the uniform asymptotic synchronization probability, supported by source and mathematical-implication comparisons. Unindexed rook-graph WR partition studies remain a risk.",
+    "residual_risks": [
+      "A specialized published or unpublished Widom–Rowlinson partition count for rook graphs under line-graph terminology might already imply the binomial formula and asymptotic.",
+      "Searches cannot establish priority against unindexed historical literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS general irrotationality iff synchronization and diameter bound, not specialized rook-graph enumeration or asymptotic.",
+        "evidence": [
+          "Theorem 3, page 4 in arXiv version: irrotational iff synchronizes; bound by graph diameter."
+        ],
+        "identifier_or_url": "arXiv:1610.07320v1",
+        "material_read": "Entire relevant setup and Section 2 including Theorem 3 and its proof; searched full document for rook, Cartesian and complete-graph specializations.",
+        "method": "Open-access PDF text and page-image inspection",
+        "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+        "trigger": "Direct primary source of cyclic-excitation synchronization criterion"
+      },
+      {
+        "assessment": "COVERS the standard model representation and general context; does not state the rook-graph exact sum or uniform rate.",
+        "evidence": [
+          "Definition of WR admissible assignments and graph-homomorphism interpretation in the introductory material."
+        ],
+        "identifier_or_url": "arXiv:1512.06398v2",
+        "material_read": "Definition of Widom–Rowlinson configurations/homomorphism representation and main regular-graph inequality in the publicly available paper.",
+        "method": "Open-access PDF text and page-image inspection",
+        "title": "On the Widom–Rowlinson occupancy fraction in regular graphs",
+        "trigger": "Fully looped P3 homomorphism representation and broad partition-function antecedent"
+      },
+      {
+        "assessment": "DIFFERENT irreversible threshold-growth rule; cannot imply count for cyclic three-color dynamics.",
+        "evidence": [
+          "Early setup defines monotone occupation/growth on Hamming plane, rather than the three-color cyclic rule."
+        ],
+        "identifier_or_url": "arXiv:1609.07202v1",
+        "material_read": "Abstract, model definition, early main statements and relevant geometric setup; document searched for CCA coupling.",
+        "method": "Author open-access PDF and page-image inspection",
+        "title": "Neighborhood growth dynamics on the Hamming plane",
+        "trigger": "Potential overlap on Cartesian/Hamming geometry and cellular excitation terminology"
+      },
+      {
+        "assessment": "COVERS general WR graph-homomorphism count, not novel here; no rook-specific polynomial-size evaluation or asymptotic occurs in inspected result.",
+        "evidence": [
+          "Generic identity N(A_G)=hom(G,P3loop)=sum_{Z subset V}2^{c(G-Z)} and proof by connected components."
+        ],
+        "identifier_or_url": "public mathematical note, 2026-10-04; result blob sha 8a8c69f0deb6e47fd7396c42c176840a5aa3aa7e",
+        "material_read": "Complete RESULT.md, including the full graph-homomorphism and component-sum proof and extremal discussion.",
+        "method": "Read public full text via repository file content endpoint",
+        "title": "Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space",
+        "trigger": "Strongest result-record analogue: exact graph-wide homomorphism and component formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cb48ee6f-b846-4d0b-8e46-9fea0bc4db45",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Rook graphs are canonical diameter-two line graphs of complete bipartite graphs. Compressing generic exponential homomorphism evaluation to \\(O(m^2n^2)\\) integer arithmetic and proving uniform exponential basin rarity identifies a motivated natural invariant with useful cross-model structure, beyond an isolated finite census or simple special-case substitution.",
+    "status": "PASS"
+  }
+}
