@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For any complement to TV, unique lifts normalize by a T-commuting module automorphism to span{e1,Pe1+e2}; the map is well-defined and invertible because the diagonal polynomials have nonzero constants. For r>=1, a quotient of the d-step Krylov column matrix is Hankel H_ij=b_(1+i+j), with 2r-1 independent coefficients. Dwivedi--Grinberg Theorem 1.1 gives q^(2r-2) singular arrays among q^(2r-1), yielding exactly (q-1)q^(4d-5) splitting complements. Equal blocks all split by the free-module basis criterion. Exact normalized enumeration (d=3,4) and separate all-subspace enumeration (d=3 over F2) agree. The theorem covers prime powers via field algebra; tests over prime fields corroborate but are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 paper conditions its explicit closed formulas on deg smallest invariant factor >=d-1; for r>=2 the degree is d-r<=d-2.",
+        "The 2022 arbitrary-operator case is restricted to splitting length two.",
+        "The 2024 thesis relevant chapters repeat these restrictions in inspected theorem statements."
+      ],
+      "reasoning": "Known broad frameworks give recurrences or positivity, but an evaluated uniform q-expression for every r>=2 does not follow by specialization from the inspected explicit theorems. General methods may compute the value with further work and do not alone dominate the stated closed law.",
+      "searches": [
+        "arXiv:2012.08411 (operator similarity-type and splitting counts)",
+        "arXiv:2105.15155 (Theorems 1.2--1.3, Corollaries 4.3--4.5)",
+        "arXiv:2205.11076 (two-step arbitrary-operator formulas)",
+        "Aggarwal-2024-thesis (splitting formulas)",
+        "splitting subspaces dimension 2 arbitrary d operator explicit formula nilpotent Jordan 2023 2024"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2012.08411 full PDF",
+      "arXiv:2105.15155 full PDF",
+      "arXiv:2205.11076 full PDF",
+      "arXiv:2109.05415 full PDF",
+      "Aggarwal 2024 thesis full PDF selected relevant chapters",
+      "Prasad--Ram 2022 publicly hosted Sage worksheet full splitting_subspaces function",
+      "published-finding corpus research semantic searches for Jordan two-block splitting and Krylov aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equal blocks (r=0) and imbalance one (r=1) already match Aggarwal--Ram 2021 explicit regimes; neither is new.",
+        "For r>=2 the least invariant factor is t^(d-r), which falls strictly outside those explicit cases.",
+        "Published Hankel singular counts provide a needed lemma, not the link from splitting spaces to this Hankel shape."
+      ],
+      "reasoning": "A general Hankel theorem plus a new explicit bridge yields the count, but the prior Hankel theorem alone is not the claimed statement. The novel part is the r>=2 uniform expression and reduction, not known r=0 or r=1 or generic Krylov definitions.",
+      "searches": [
+        "arXiv:2105.15155 Theorems 1.2 and 1.3 / Cor.4.3",
+        "arXiv:2205.11076 principal two-step case",
+        "arXiv:2109.05415 Theorem 1.1",
+        "\"splitting subspaces\" \"Hankel\" Jordan blocks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aggarwal--Ram (2021), Proposition 2.6 relates ordered Krylov success to sigma via |GL_2(q)| sigma/q^(4d).",
+        "published-finding corpus nearest Jordan-related records count nilpotent lifts or matrix tensor fixed spaces, not splitting subspaces."
+      ],
+      "reasoning": "The theorem is equivalent to an exact all-imbalance two-vector d-step Krylov success probability and to a nilpotent Jordan partition (d+r,d-r) anti-invariant-space count. Searching these aliases found no matching r>=2 formula; title mismatch alone is not used as evidence.",
+      "searches": [
+        "splitting subspace count sigma(2,d,T) for nilpotent Jordan two blocks (d+r,d-r) with 2<=r<d, all finite fields q, Hankel determinant",
+        "number of 2-dimensional d-step Krylov splitting spaces of nilpotent Jordan type (5,1) or (6,2), noncyclic",
+        "linear operator Jordan type two unequal blocks splitting subspaces Hankel matrices counting",
+        "arXiv:2105.15155 (Krylov probability relation and similarity type)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Dwivedi--Grinberg gives exact Hankel rank counts, not a table of splitting-subspace counts.",
+        "The Prasad--Ram companion routine counts W⊕TW in dimension 2m, not a 2-dimensional W spanning d>=3 successive powers.",
+        "published-finding corpus search returned no entry with the object sigma(2,d;J_(d+r) ⊕ J_(d-r)) and exact uniform expression."
+      ],
+      "reasoning": "The Hankel table is not itself the sought splitting-space census: the structural normalization proving its relevance is an additional step. No exact published sigma table was located; absence in search is not proof of universal novelty.",
+      "searches": [
+        "splitting subspace count sigma(2,d,T) for nilpotent Jordan two blocks (d+r,d-r) with 2<=r<d, all finite fields q, Hankel determinant",
+        "number of 2-dimensional d-step Krylov splitting spaces of nilpotent Jordan type (5,1) or (6,2), noncyclic",
+        "linear operator Jordan type two unequal blocks splitting subspaces Hankel matrices counting",
+        "arXiv:2109.05415 (Hankel rank theorem)",
+        "Prasad-Ram 2022 Sage worksheet splitting_subspaces function",
+        "published-finding corpus nearest IDs: 2026/10/4/SCOPE-exact-nilpotency-index-distribution-for-jordan-lifts-over-finite--a669645ca0b7, 2026/10/4/SCOPE-the-dimension-two-fixed-tensor-distribution-over-every-finite-fi--568adf24efd6"
+      ]
+    },
+    "rationale": "Compared the same sigma(2,d;T) invariant, ordered Krylov equivalent, two-block Jordan partition parameters and Hankel formulation. The new regime r>=2 lies outside the specific degree d and d-1 formula hypotheses in Aggarwal--Ram 2021; the general two-step result applies to d=2 only; the Hankel rank theorem is prior and cited. No inspected publication or published-finding corpus record gives the uniform closed r>=2 expression. This is a conditional priority assessment, not a proof by unsuccessful search.",
+    "residual_risks": [
+      "An equivalent formula could be in finite-field controllability, module-subspace, Hall polynomial, or Krylov literature under unfamiliar terminology.",
+      "The most relevant general theoretical sources have recurrences that might algebraically simplify to the formula after nontrivial computation; this proof does not assert logical independence from every general framework.",
+      "No external independent mathematical assessment was obtained."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the general problem and cyclic results; no inspected theorem provides the all-imbalance two-block expression.",
+        "evidence": "Operator similarity-type dependence and cyclic nilpotent formulas do not by themselves determine arbitrary two-block counts.",
+        "identifier_or_url": "arXiv:2012.08411",
+        "material_read": "Full PDF sections defining splitting spaces, operator-type polynomiality and cyclic cases, including statements/conditions of principal results.",
+        "method": "Open-access arXiv full PDF, searched and inspected rendered pages and paper text.",
+        "title": "Splitting Subspaces of Linear Operators over Finite Fields",
+        "trigger": "Primary foundational paper for the same splitting-subspace invariant and cyclic nilpotent boundary."
+      },
+      {
+        "assessment": "The least nonconstant invariant factor must have degree d or d-1 for cited explicit formulas; in the new range r>=2 it has degree d-r<=d-2.",
+        "evidence": "Theorem 1.2 assumes deg(p1)=d; Theorem 1.3 / Corollary 4.3 assumes deg(p1)=d-1. Equal and r=1 cases are prior-covered and excluded from novelty.",
+        "identifier_or_url": "arXiv:2105.15155",
+        "material_read": "Full PDF introduction, Theorems 1.2--1.3, Theorem 3.2, Corollaries 4.3--4.5 and conditions in associated proofs.",
+        "method": "Open-access arXiv PDF full text and rendered pages 4 and 9.",
+        "title": "Polynomial Matrices, Splitting Subspaces and Krylov Subspaces over Finite Fields",
+        "trigger": "Most directly competing exact formula for splitting subspaces and equivalent Krylov probabilities."
+      },
+      {
+        "assessment": "The arbitrary-operator counting result is for two-step splitting and does not state the all d>=3 count here.",
+        "evidence": "Paper identifies the two-step case in its main formulation; distinct from d-step spaces for every d>=3.",
+        "identifier_or_url": "arXiv:2205.11076",
+        "material_read": "Full PDF overview, principal results and scope of dimension/two-step case.",
+        "method": "Open-access arXiv PDF including rendered first page.",
+        "title": "Splitting Subspaces and a Finite Field Interpretation of the Touchard--Riordan Formula",
+        "trigger": "General finite-field operator enumeration could dominate a two-block specialization."
+      },
+      {
+        "assessment": "Proves the q^(2r-2) singular count for an r-by-r Hankel array, but contains no nilpotent splitting subspace classification.",
+        "evidence": "Theorem 1.1 says the number of (m+n+1)-tuples yielding rank <= s is q^(2s) for s<=min(m,n); take m=n=r-1 and s=r-1.",
+        "identifier_or_url": "arXiv:2109.05415",
+        "material_read": "Full PDF first results section, Theorem 1.1 and its finite-field rank-count specialization.",
+        "method": "Open-access arXiv PDF text and rendered page 2.",
+        "title": "On the Rank of Hankel Matrices over Finite Fields",
+        "trigger": "Its singular Hankel matrix counts are the central nonstandard input to the proof."
+      },
+      {
+        "assessment": "The program computes a splitting into two summands for an even-dimensional operator, taking subspace dimension to be half the operator dimension, and is not the d-step dimension-two invariant for d>=3.",
+        "evidence": "The code sets m=tau.size()/2 and forms a two-step invariant from an invariant-subspace generating function; its parity guard tau.size()%2 verifies the restriction.",
+        "identifier_or_url": "https://www.imsc.res.in/~amri/splitting_subspaces/",
+        "material_read": "Entire displayed worksheet function splitting_subspaces and its parameters, comments and examples; specifically code lines 124--154.",
+        "method": "Original author-hosted publicly accessible HTML source code and explanatory examples.",
+        "title": "Companion Sage worksheet for splitting subspaces and the Touchard--Riordan formula",
+        "trigger": "Public executable formula potentially producing exact splitting counts under the same function name."
+      },
+      {
+        "assessment": "Relevant chapter reiterates degree d or d-1 explicit conditions and develops separate two-step formulations; no inspected formula matches the proposed r>=2 uniform family.",
+        "evidence": "The large-d splitting results retain least-invariant-factor degree restrictions, while later two-step results do not cover d>=3.",
+        "identifier_or_url": "IIIT Delhi 2024 doctoral thesis / institutional repository TH0152.pdf",
+        "material_read": "Thesis table of contents, chapters developing splitting-subspace formulas and related extensions; relevant theorem conditions and concluding scope sections.",
+        "method": "Institutional full PDF text and rendered selected pages.",
+        "title": "Splitting Subspaces, Krylov Subspaces and Polynomial Matrices over Finite Fields",
+        "trigger": "A later comprehensive treatment by a primary author could include an equivalent exact two-block count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1981dffc-7e02-40aa-8a83-0a69c423a045",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The splitting-space count is a natural operator invariant governing two-vector block Krylov success. The result covers every nilpotent two-block Jordan similarity type at fixed even dimension and all prime-power fields, exhibits surprising complete independence of positive block imbalance, and provides a uniform exact success probability not resolved by the previously displayed degree-restricted formulas. A full infinite family and a structural Hankel explanation—not an isolated small numerical table—support mathematical value.",
+    "status": "PASS"
+  }
+}
