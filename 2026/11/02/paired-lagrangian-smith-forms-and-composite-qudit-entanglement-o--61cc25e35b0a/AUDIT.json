@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Exact graph-state character sum gives flat nonzero spectrum with cardinality equal to the modular cross-image. The cut-matrix row-sum decomposition and \\(H=Z\\operatorname{diag}((-2)^{|T|-1})Z^{\\top}\\) are integer identities; the constant-vector intersection follows from \\(H(2H-J)=2^{m-1}I\\) and \\(H\\mathbf1=2^{m-1}\\mathbf1\\). The derived modular rank for every integer dimension determines the complete rectangular Smith form. Reproducibility checker passed 32 explicit tests, including independent exact Smith calculations and a full 15-qubit spectrum; the theorem is analytically proved for unbounded m and D.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Looi et al. construct graph states for arbitrary local dimension; their general formalism allows cut computations (arxiv:0712.1979).",
+        "Helwig theorem 7 is a prime-dimensional full-rank criterion, not a formula for this family (arxiv:1306.2879).",
+        "Hein et al. establish general graph-state multipartite entanglement methods (arxiv:quant-ph/0307130)."
+      ],
+      "reasoning": "General-purpose entanglement reduction correctly implies that cross-matrix image sizes matter; it neither identifies the chosen symplectic paired cut nor evaluates its Smith factors and composite-dimension spectra. The new result is a nontrivial explicit specialization, not a new general rank principle.",
+      "searches": [
+        "graph state bipartition rank prime and composite qudit general character sum",
+        "arxiv:0712.1979",
+        "arxiv:1306.2879",
+        "arxiv:quant-ph/0307130"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:quant-ph/0701211",
+      "arxiv:1412.2945",
+      "doi:10.3906/mat-1112-18",
+      "arxiv:0712.1979",
+      "arxiv:1306.2879",
+      "arxiv:quant-ph/0307130"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hacioglu 2013 theorem determines SNF of H, equivalent to the zeta diagonalization used in the proof.",
+        "General graph-state literature reduces spectrum to modular images, but does not evaluate the joint image-pair constant intersection.",
+        "The paired matrix at \\(m=2\\) has Smith factors \\(1,1,1,1,2\\), while the single design matrix has \\(1,1,2\\), so the statements are not identical."
+      ],
+      "reasoning": "Single-context SNF plus general graph-state machinery is not by itself the paired-cut formula: the additional overlap group I_D intersect constant vectors must be computed at each modulus, and the top invariant factor is thereby removed. This gives the explicit new implication, while acknowledging that a stronger unlocated theorem could dominate it.",
+      "searches": [
+        "Smith normal form binary dot-product Hadamard design nonempty subsets",
+        "paired complementary Lagrangian graph-state entanglement Smith form arbitrary local dimensions",
+        "arxiv:0712.1979",
+        "doi:10.3906/mat-1112-18"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Planat and Saniga discuss Pauli maximal totally isotropic commuting contexts and their graph geometry (arxiv:quant-ph/0701211).",
+        "Abiad and Haemers define the same noncommutation graph and compute global binary adjacency ranks (arxiv:1412.2945)."
+      ],
+      "reasoning": "Commutation versus noncommutation graphs, transverse context pairs, and the distinction between global adjacency rank and paired cross-matrix Smith form were compared. The cited geometry/rank statements do not give the same rectangular invariant factors.",
+      "searches": [
+        "binary symplectic noncommutation graph paired Lagrangian cut graph-state Schmidt rank",
+        "symplectic graph Sp(2m,2) paired Lagrangian contexts complement bipartite adjacency integer rank invariant factors",
+        "arxiv:quant-ph/0701211",
+        "arxiv:1412.2945"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hacioglu 2013 computes the square Sylvester-Hadamard design incidence Smith form, including the auxiliary matrix H.",
+        "The examined full text separately lists derived and residual incidence matrices, but not the paired row-sum cross matrix indexed by two nonzero components."
+      ],
+      "reasoning": "The existing exact table covers the prerequisite \\(H\\), not the \\(2n\\)-by-\\(n^2\\) matrix for two complementary maximal isotropic contexts. The new invariant-factor list has doubled binomial multiplicities minus one top factor, with a distinct rectangular rank. No published exact table containing these paired-cut spectra was found; a missing specialist table remains a residual risk.",
+      "searches": [
+        "paired maximal totally isotropic contexts symplectic graph induced cut matrix rank even odd local dimension Smith normal form",
+        "derived and residual Sylvester Hadamard designs Smith normal form Hacioglu",
+        "doi:10.3906/mat-1112-18"
+      ]
+    },
+    "rationale": "Full examined single-Hadamard design incidence results (DOI:10.3906/mat-1112-18) and general graph-state cut theorems (arxiv:0712.1979, 1306.2879, quant-ph/0307130) do not state the paired transverse-Lagrangian rectangular Smith form and its all-composite-dimensional entanglement spectrum. The paired constant-vector compatibility and the deletion of one highest invariant factor require an additional proof. Residual historical-priority risk is acknowledged.",
+    "residual_risks": [
+      "Historical priority beyond examined symplectic graph, qudit graph state and Hadamard-design incidence sources remains unverified.",
+      "An unlocated theorem on paired Sylvester-Hadamard incidence matrices could imply the rectangular Smith form.",
+      "The known Hacioglu square-design Smith form is a major premise and is not novel.",
+      "A full-text exclusion claim is not made for any uninspected sections of foundational graph-state literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides geometry and context motivation, but not graph-state entanglement spectrum of a complementary two-context cut.",
+        "evidence": [
+          "arxiv:quant-ph/0701211"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0701211",
+        "material_read": "Sections on qubit Pauli graphs and maximal commuting sets, including symplectic polar space discussion.",
+        "method": "Read full accessible primary PDF, including the relevant geometry section.",
+        "title": "On the Pauli graphs of N-qudits",
+        "trigger": "Binary symplectic Pauli graph and maximal isotropic contexts are exactly the underlying geometry."
+      },
+      {
+        "assessment": "Global adjacency binary rank and switched graph constructions do not assert the rectangular paired-Lagrangian integer Smith form.",
+        "evidence": [
+          "arxiv:1412.2945"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1412.2945",
+        "material_read": "Graph definition in section 1.1, global binary adjacency-rank and switching theorems and discussion.",
+        "method": "Inspected accessible original PDF including symplectic-graph definition and main results.",
+        "title": "Switched symplectic graphs and their 2-ranks",
+        "trigger": "Same binary symplectic noncommutation adjacency graph."
+      },
+      {
+        "assessment": "Square H invariant factors are explicitly known and must be credited; paired two-context row-sum cross matrix and its composite-qudit spectrum are not stated.",
+        "evidence": [
+          "doi:10.3906/mat-1112-18"
+        ],
+        "identifier_or_url": "https://doi.org/10.3906/mat-1112-18",
+        "material_read": "Complete six-page open transcription with theorem for Sylvester-Hadamard design and derived/residual incidence Smith forms, and explicit hypotheses.",
+        "method": "Read full accessible extracted article text and compared its matrices with the proposed two-context cross matrix.",
+        "title": "Derived and residual Sylvester-Hadamard designs and the Smith normal form",
+        "trigger": "Direct coverage of the requisite binary parity dot-product matrix H; major priority risk."
+      },
+      {
+        "assessment": "Supports the correct arbitrary-D normalization and preparation model; no paired-Lagrangian cut specialization.",
+        "evidence": [
+          "arxiv:0712.1979"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0712.1979",
+        "material_read": "Definition of generalized controlled-phase gate, graph-state construction and graph basis in sections II and III.",
+        "method": "Read relevant primary full-text sections and equations (5)–(9).",
+        "title": "Quantum-error-correcting codes using qudit graph states",
+        "trigger": "Graph state definition for arbitrary integer local dimension, including composite dimensions."
+      },
+      {
+        "assessment": "General and prime-dimensional full-rank criterion; does not evaluate the named paired cut or composite-dimensional Smith form.",
+        "evidence": [
+          "arxiv:1306.2879"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1306.2879",
+        "material_read": "Graph-state construction, entanglement criteria in section 3, especially Theorem 7 and prime-dimension linear independence criterion.",
+        "method": "Read relevant primary PDF and theorem statement.",
+        "title": "Absolutely maximally entangled qudit graph states",
+        "trigger": "Potentially stronger general graph cut spectrum theorem."
+      },
+      {
+        "assessment": "Credit general graph-state entanglement method; not used as whole-document exclusion evidence.",
+        "evidence": [
+          "arxiv:quant-ph/0307130"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/quant-ph/0307130",
+        "material_read": "Accessible abstract and detailed research summary; full-text theorem not relied upon for a negative coverage claim.",
+        "method": "Reviewed accessible source summary and treated uninspected sections as residual priority risk.",
+        "title": "Multiparty entanglement in graph states",
+        "trigger": "Foundational graph-state cut-rank implication for qubits."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61cc25e3-5b0a-46bd-83f9-a47261db3daf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A canonical union of two complementary maximal binary commuting contexts defines a natural nontrivial cut in the binary symplectic noncommutation network. It has an all-dimensional exact entanglement spectrum and an integral invariant-factor classification, not a finite numerical slice. Odd-dimensional graph states lose exactly one dit while qubit entropy is only \\(2m\\) bits out of \\(2(2^m-1)\\), providing a structural dyadic separation. The compatibility lemma is mathematically meaningful beyond the known single-context incidence SNF.",
+    "status": "PASS"
+  }
+}
