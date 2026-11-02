@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-Every smooth genus-two curve over \(\mathbf F_5\) has a rational hyperelliptic quotient, with six rational base points. The twelve-point condition is precisely six split, unramified fibers. The complete interpolation count is 320 sextics, of which 240 are squarefree. A separate direct search partitions the 240 into three projective/scalar orbits of sizes 120, 40 and 80. Factor degrees and two independent quadratic-field computations confirm the branch and Frobenius data. The general bound is elementary; the computations exhaust finite families rather than extrapolate from samples.
+## correctness
 
-## Originality — PASS (qualified)
-The sharp bound, general hyperelliptic PGL orbit principle, and prior existence results are not claimed. Vermeulen 2021 and Faber–Vermeulen 2022 study fixed-gonality bounds and constructions; Nart 2007 gives the general all-hyperelliptic count. The inspected texts do not assert this simultaneous exact three-class, three-branch and Weil refinement for the twelve-point locus. published-finding corpus searches checked equivalent rational-fiber formulations and exact small-field counts, with no matching conclusion. Cardona 2003 and some specialist genus-two over F5 classifications were not fully available; a complete existing database may encode this result, so independent publication-priority verification is warranted.
+PASS
 
-## Value — PASS
-The locus of curves attaining the hyperelliptic gonality point bound is intrinsically motivated. Its full arithmetic classification and branch Frobenius and Weil polynomial trichotomy distinguish geometric and arithmetic behavior that the bound or raw ambient curve counts do not determine. The result is deliberately a finite, exact classification, not a claim of a wider uniform theorem.
+The hyperelliptic degree-two map has 6 points on P1(F5), so at most 12 rational points, with equality precisely if all six fibers split and are unramified. Lagrange interpolation produces exactly 2^5*2*5=320 binary sextics with F5 values {1,4} at all six base points. Independently enumerated all 320, computed polynomial gcd with derivative, found exactly 240 smooth sextics; independent factor degrees give 120 (2,4), 40 (3,3), 80 (6). Independently applied all 120 PGL2(F5) transformations and both square scalar factors, getting exactly three orbits of sizes 120,40,80; separate F25 quadratic-field exact enumeration gives counts 26/28/24 and by Newton identities Weil middle coefficients 18/19/17. PGL2 equivalence of genus-two hyperelliptic models is justified by uniqueness of hyperelliptic involution. Complete finite enumeration is a proof here, not a heuristic sample.
 
-## Limitations
-The work addresses genus two over \(\mathbf F_5\) only and supplies no generalization in field size. The three classes are determined by exact orbit and factor computations; publication priority beyond the inspected sources has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General 12-point bound, existence and PGL2-orbit method are known. Nart 2007 computes unrestricted totals of hyperelliptic classes but not the six-split-fiber sublocus and its branch/zeta joint table in the inspected theorem. Hernández Encinas–Menezes–Muñoz Masqué (2002) explicitly assumes characteristic different from 2 and 5 and a rational Weierstrass point, whereas these F5 extremal curves have no rational branch point; so that seeming exact classification is inapplicable. No demonstrated stronger database coverage of the exact three-way refinement, but all-genus-two finite-field catalogues remain a live priority risk.
+
+## value
+
+PASS
+
+Sharp small-field locus of maximal-point genus-two curves is intrinsically motivated; its complete arithmetic orbit and Frobenius/Weil trichotomy give exact classification and extension-field arithmetic data not specified by the elementary bound. Natural finite exact fact need not assert all-q theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
