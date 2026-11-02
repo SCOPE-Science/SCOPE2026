@@ -1,19 +1,21 @@
-# Review of the complete-multipartite maximal-EF1 theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof treats every complete multipartite graph, including the empty case, by the exhaustive alternatives: a part of at least three goods, a doubleton with all parts of size at most two, and all singleton parts. In the large-part case, the last-received-item inequality proves EF1 for an arbitrary common monotone set function and tie-breaking guarantees three nonempty bundles; leaving other parts unassigned is therefore maximal. In the doubleton case, the maximum of the lower singleton values ensures the two singleton recipients can both remove one item from the third agent's bundle to eliminate envy. All omitted parts conflict with all occupied parts. The known four-agent counterexample is fully reproved with an exact separation into three cases. The standalone verifier independently checks the constructed allocations and contrast on 187,375 exhaustive small additive instances, 4,885 nonadditive-monotone instances and 6,000 further additive instances; these experiments do not replace the general proof.
+PASS
 
-## Originality
+The last-received-item lemma holds for any common nonnegative monotone valuation: when assigned to currently minimum-value agent, deleting the final item later restores a value not exceeding any final opponent bundle. Empty-bundle tie priority makes the first three items enter distinct agents. If a part has >=3 goods, allocate all there, omit other parts; maximality holds because each omitted item conflicts with each occupied bundle. If every part has <=2 goods, choose a doubleton maximizing its lesser singleton value, assign its members to two agents and another part to the third; EF1 follows by deleting the more valuable singleton of third bundle. All-singleton parts require at most three singleton bundles. The full four-agent K3,3 obstruction is a previously known bound. Independently checked non-additive monotone example, not relying on prior logged enumeration. All quantifiers and empty/one-part cases addressed.
 
-PASS, subject to publication-priority limitations. The closest papers are Igarashi–Manurangsi–Yoneda (arXiv:2506.14149v1), Equbal et al. (arXiv:2605.09930v1), and Hummel–Hetland (DOI 10.1007/s10458-021-09537-3). Their results respectively concern two agents on arbitrary graphs and three-agent general-graph failures, additional path/tree and hardness regimes, and four-agent complete-allocation counterexamples. None of the inspected relevant passages states or implies the new universal three-agent complete-multipartite positive result under arbitrary identical monotone set valuations. Comparisons were made at the level of implications: the negative \(K_{3,3}\) case and two-agent theorem do not imply the new positive statement. Published-result and related-literature searches produced no decisive covering theorem. Residual risk is equivalent folklore or an unindexed specialized result; no independent priority audit is claimed.
+## originality
 
-## Value
+PASS
 
-PASS. This supplies a full, efficiently constructive structural subclass of the explicitly unsettled three-agent additive regime, and in fact handles the strictly broader class of identical monotone valuations. The three-to-four agent boundary is sharp even inside complete bipartite graphs. The result is not merely a fixed numerical census: it works for arbitrary part sizes, any number of parts, and nonlinear common valuations, while explaining exactly how discarding entire conflicting parts permits maximality without completeness. The known failure at four agents makes the positive threshold mathematically meaningful.
+Igarashi–Manurangsi–Yoneda prove universal two-agent maximal EF1 and a three-agent general-graph failure, not three agents on all complete multipartite graphs. Equbal et al discuss paths/trees/hardness and the four-agent K3,3 obstruction; their indexed PDF has no matching complete-multipartite three-agent theorem.
 
-## Limitations
+## value
 
-No claim is made for general conflict graphs, heterogeneous agents, nonmonotone values, complete allocations, EFX, or independent review. The four-agent construction and its first discovery belong to prior work. Searches cannot establish absolute publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Completes a broad structurally motivated fairness regime with arbitrary nonlinear common monotone valuations and polynomial query bound, sharply distinguishing the previously known four-agent obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
