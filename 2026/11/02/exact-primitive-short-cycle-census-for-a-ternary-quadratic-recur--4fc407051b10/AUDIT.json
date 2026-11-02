@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs T as an invertible finite-field shift; analyses r=0,2 by zero-indicator elimination; r=1,3 by exact one-zero-column and boundary row-shift counting; derives 4|m from uniform zeros and applies Möbius inversion. Direct independent exact iteration across all 797157 delay states for k=2..12 checked 34 divisor cases and primitive cycle counts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Finch Theorem 8 handles 4k fixed states, not fixed states of T_k^{4d} at reduced lags.",
+        "Generic Möbius inversion applies only when all divisor fixed counts are already known."
+      ],
+      "reasoning": "An aggregate 4k-periodic-state count does not determine primitive periods at proper divisors. The separate r=3 branch supplies previously absent arithmetic data; no stronger paper covering the same full divisor spectrum was identified.",
+      "searches": [
+        "Exact primitive period counts and Möbius inversion for Steven Finch recurrence B over Z/3: x_n=x_{n-k}+x_{n-1}^2, periodic states of T^{4d} for d dividing k; 4k cycles",
+        "quadratic recurrence modulo 3 periodic points exact period 4k",
+        "x_n=x_n-k+x_n-1 squared modulo 3 short cycles primitive"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.34300v1",
+      "https://arxiv.org/abs/2610.34300",
+      "https://mathoverflow.net/questions/50678/finchs-sequence-over-mathbbf-3",
+      "https://www.maths.tcd.ie/EMIS/journals/EM/expmath/volumes/4/4.html",
+      "2026/10/4/SCOPE-sharp-period-size-bound-and-extremal-structure-for-shifted-euler--02d25ffc40ae",
+      "2026/10/11/SCOPE-complete-cycle-census-for-additive-affine-helical-yang-baxter-au--69b4a05d6a01"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original Theorem 8: only Fix(T_k^{4k}).",
+        "New theorem: Fix(T_k^{4d}) for every divisor d|k and explicit cycles with minimal period 4d.",
+        "For k=12, 16 fixed states at iterate 16 and 4080 primitive states at iterate 48 are not determined from aggregate 4097 alone."
+      ],
+      "reasoning": "The originating fixed-count theorem is recovered at d=k as one boundary, and follows from the new theorem, whereas the reverse implication alone fails without the new reduced-lag classification. Other reported recurrences A and C have different lag placements and cannot imply the B classification.",
+      "searches": [
+        "Exact primitive period counts and Möbius inversion for Steven Finch recurrence B over Z/3: x_n=x_{n-k}+x_{n-1}^2, periodic states of T^{4d} for d dividing k; 4k cycles",
+        "Steven Finch Three Quadratic Recurrences Modulo 3 primitive orbit short cycles count",
+        "https://arxiv.org/html/2610.34300v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Finch 2026 uses the same recurrence T_k and counts only Fix(T_k^{4k}).",
+        "Closest published-finding corpus hits concern unrelated shifted Euler cycles and additive-affine Yang–Baxter automata, not the ternary delay rule."
+      ],
+      "reasoning": "The new fixed count is formulated for each proper divisor d of the delay k and distinguishes the reduced delay k/d modulo four; equivalent formulations in two-sided words and finite-state permutations were compared. No exact primitive-period census found.",
+      "searches": [
+        "Quadratic recurrence modulo 3 x_n=x_{n-k}+x_{n-1}^2 permutation finite field length 4k periodic cycles k powers of two all cycles exact length 4k",
+        "Steven Finch Three Quadratic Recurrences Modulo 3 primitive cycle census power two delay 2^a, 2^k periodic points short orbit",
+        "Exact primitive period counts and Möbius inversion for Steven Finch recurrence B over Z/3: x_n=x_{n-k}+x_{n-1}^2, periodic states of T^{4d} for d dividing k; 4k cycles",
+        "Steven Finch Three Quadratic Recurrences Modulo 3 primitive orbit short cycles count",
+        "quadratic recurrence modulo 3 periodic points exact period 4k"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest record 2026/10/4/SCOPE-sharp-period-size-bound-and-extremal-structure-for-shifted-euler--02d25ffc40ae concerns Euler totient iterations, not ternary nonlinear delay recurrences.",
+        "The other close cycle census 2026/10/11/SCOPE-complete-cycle-census-for-additive-affine-helical-yang-baxter-au--69b4a05d6a01 concerns Yang–Baxter automata.",
+        "Finch 2026 source table lists the orbit length only for one initial state, not all short-orbit primitive counts."
+      ],
+      "reasoning": "Compared database hits by evolution law, state space and period-statistic definitions; none matched the finite-state map or its primitive census. This search is not proof of global uniqueness.",
+      "searches": [
+        "Quadratic recurrence modulo 3 x_n=x_{n-k}+x_{n-1}^2 permutation finite field length 4k periodic cycles k powers of two all cycles exact length 4k",
+        "Steven Finch Three Quadratic Recurrences Modulo 3 primitive cycle census power two delay 2^a, 2^k periodic points short orbit",
+        "Exact primitive period counts and Möbius inversion for Steven Finch recurrence B over Z/3: x_n=x_{n-k}+x_{n-1}^2, periodic states of T^{4d} for d dividing k; 4k cycles"
+      ]
+    },
+    "rationale": "The fully inspected Oct 2026 paper only counts states with period dividing 4k, without the necessary reduced-delay fixed-point cases or full primitive cycle census. Targeted published-finding corpus and online literature searches did not identify the same classification; 1995 archival full text was inaccessible and remains an explicit residual risk.",
+    "residual_risks": [
+      "Historical Cassaigne–Finch 1995 primary full PostScript not inspected; possible implicit prior statement cannot be excluded.",
+      "Generic finite-field orbit enumeration may have an unindexed earlier treatment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 8 supplies fixed counts only at 4k, not general fixed counts at 4d for d|k, or the Möbius primitive cycle census",
+        "evidence": [
+          "Section 3 Theorem 8: 1+4 sum_{j=3-k mod 4} binom(k,j) fixed by T^{4k}.",
+          "Section 5 summary explicitly describes only exact count of states of period dividing 4k for B."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.34300v1",
+        "material_read": "Full article: recurrence (B), Proposition 7, Theorem 8, proof, Corollary 9, summary, addenda and references",
+        "method": "read primary HTML full text and compare exact quantified statements and proof mechanisms",
+        "title": "Three Quadratic Recurrences Modulo 3: What We Can Prove and What We Can Guess",
+        "trigger": "same ternary quadratic recurrence and exact period-dividing-four-delay fixed count"
+      },
+      {
+        "assessment": "Discusses rule A, x_n=x_{n-1}+x_{n-k}^2, not rule B x_n=x_{n-k}+x_{n-1}^2; not implying this census",
+        "evidence": [
+          "MathOverflow question, Dec 29 2010, recurrence and initial conditions."
+        ],
+        "identifier_or_url": "https://mathoverflow.net/questions/50678/finchs-sequence-over-mathbbf-3",
+        "material_read": "Entire question and comments, including displayed recurrence",
+        "method": "compare the recurrence equation and delay placement",
+        "title": "Finch’s sequence over F_3",
+        "trigger": "plausible earlier discussion of the same author and quadratic recurrences over F3"
+      },
+      {
+        "assessment": "Priority risk remains; no whole-document NOT_COVERING assertion",
+        "evidence": [
+          "1995 archival Volume 4 issue 1 listing; PostScript full-text link could not be opened as text."
+        ],
+        "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/EM/expmath/volumes/4/4.html",
+        "material_read": "Archived issue title and bibliographic citation only; historical full text served as PostScript could not be read",
+        "method": "archival index checked; original PostScript link attempted and unsupported",
+        "title": "A Class of 1-Additive Sequences and Quadratic Recurrences",
+        "trigger": "Finch 2026 reference to Cassaigne–Finch 1995 quadratic-recurrence paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4fc40705-1b10-4779-a662-fbb20ab3bcf7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source introduces a natural orderly short-orbit sector but gives only its total state count. Exact divisor-by-divisor minimal periods with arithmetic branch changes and power-of-two rigidity is a complete structural classification of that sector; concrete k=9,10,12 cases show proper short cycles, so the result is not merely a renamed count or a routine next-parameter computation. The theorem does not attempt to classify longer cycles.",
+    "status": "PASS"
+  }
+}
