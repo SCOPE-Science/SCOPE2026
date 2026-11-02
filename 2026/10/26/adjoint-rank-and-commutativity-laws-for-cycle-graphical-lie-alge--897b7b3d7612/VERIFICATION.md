@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The included `verify.py` is a standalone Python 3 program without third-party dependencies. Run `python3 verify.py` in a directory containing the extracted file. It constructs every tested edge-bracket matrix directly, computes ranks by modular Gaussian elimination, and separately derives the support-component formula. It also builds and multiplies the transfer matrix over integer-coefficient polynomials, checks cyclic binary-word weights independently, and checks the exact mean and variance formulas using rational arithmetic.
+## correctness
 
-The executed program returned `VERIFY_OK 14 direct matrix checks, 35 symbolic transfer checks`. Direct matrices were enumerated for cycles, paths, stars, disconnected forests and a triangle-with-leaf configuration over prime fields of orders two and three. Pattern coefficient checks covered field orders two, three, four, five and nine. The nonprime-order checks use the proven support-independence to count multiplicities and do not purport to implement extension-field arithmetic directly. Exhaustive enumeration at finite sizes is not an infinite proof; the universal argument, characteristic-polynomial calculation and finite-dependent CLT are given in `RESULT.md`.
+PASS
 
-The same mathematical argument works in characteristic two because the edge bracket is alternating, and all kernel equations compare nonzero vertex coefficients by field division. The cyclic formulas require a simple cycle of length at least four and a distinct central basis label for each edge. Independent verification has not been performed.
+PASS: For support S of the vertex component, each connected component of G[S] contributes one proportionality coordinate to ker ad_x, every external neighbor is forced zero, and vertices outside N[S] are unconstrained, giving rank |N[S]|-c(G[S]). On the cycle, proper nonempty supports have rank |S|+number of zero-runs of length >=2, recorded by cyclic 100 patterns; all-one support has rank n-1. The four-state transfer trace weights each indexed cyclic binary word, with the displayed all-one correction and q^n central multiplicity. At t=1/q, the transfer characteristic polynomial is λ(λ-p)(λ²-λ-p), yielding the exact commutativity degree. The bounded stationary 2-dependent Bernoulli triple statistic has positive variance pr(5p^4-15p³+21p²-14p+4) and a genuine m-dependent CLT; the cyclic and all-one corrections are bounded. Independent direct bracket-matrix finite-field elimination for q=2,3 and n<=6 exactly reproduced support ranks and moments (C1_OK). The finite tests are not the all-n proof.
+
+## originality
+
+PASS
+
+PASS, qualified: Godoy Molina–Lagos gives the edge-distinct graph Lie construction, Shamsaki–Erfanian–Parvizi the general element commutativity-degree framework. The close published Resultary cycle graphical-group result concerns ranks of an n-by-n edge-WEIGHTED skew-adjacency matrix; here one counts ranks of an edge-by-vertex adjoint map varying VERTEX coordinates. Filiform adjoint ranks concern nonisomorphic nilpotency-class-growing algebras. The verified different matrix maps do not yield this cycle distribution by direct specialization. Generic breadth/centralizer graph-polynomial formulations remain a specific potential equivalent source.
+
+## value
+
+PASS
+
+PASS: Inner-derivation rank spectrum and element commuting probability are intrinsic centralizer measures for a canonical infinite class-two graphical-Lie family. The full exact distribution, finite-n correction, explicit rate, Gaussian fluctuations and support-combinatorial interpretation go beyond a small example or relabeling of the known general adjoint kernel formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
