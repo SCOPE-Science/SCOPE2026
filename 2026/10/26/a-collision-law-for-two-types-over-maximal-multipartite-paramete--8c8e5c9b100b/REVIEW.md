@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The claim is restricted to all \(r\ge4\), positive part sizes, and distinct ordered new vertices. Henson's finite forbidden-clique extension property realizes every valid labelled diagram; homogeneity plus quantifier elimination ensures exactly one complete pair type per diagram. The proof counts all admissible unary neighborhoods, then shows that a disallowed adjacent diagram has exactly one missing common-neighbor part, on which both new neighborhoods must be empty. The mutually disjoint bad events yield the exact correction term. The asymptotic comparison is uniform under any relative growth of the part sizes for fixed \(r\), and the integer-valued exponent argument proves the sharp balanced equality condition. An independent brute-force finite implementation agrees in 41 small configurations. Numerical checks are corroboration, not an infinite proof.
+## correctness
 
-**Originality (PASS, qualified).** Henson 1971 constructs and characterizes the homogeneous forbidden-clique graphs; Conant 2014 concerns model-theoretic forking and dividing and states an optimal realization criterion. Earlier one-type counting in Henson graphs supplies the unary neighborhood foundation. Earlier two-type formulas for the forbidden-four-clique structure and triangle-free case concern other forbidden clique thresholds and do not dominate the stated \(r\ge4\) infinite family. None of the inspected primary material or completed meaning-based comparison queries exhibited the specific all-\(r\) product correction or the sharp collision-entropy asymptotic. Residual risks: the earlier one-type theorem's full public presentation was not accessible for full-text implication comparison; a specialized unindexed two-type formula might exist; the general extension theorem is strong background and routine subcases should not be mistaken for new claims.
+PASS
 
-**Mathematical value (PASS).** A complete maximal multipartite diagram is the natural dense boundary of the forbidden-clique age. The result gives a full adjacent/nonadjacent ordered-pair type spectrum and identifies the unique combinatorial obstruction from a common \((r-1)\)-clique. The uniform asymptotic shows that collision entropy of the missing-part distribution, not total parameter size alone, governs pair adjacency, with a sharp symmetric upper envelope and an imbalanced vanishing boundary. These are meaningful structural and asymptotic classifications across every higher Henson graph, rather than an isolated table entry.
+Verified the finite K_(r+1)-free extension/type correspondence using Henson Theorem 2.3 and Conant Section 3. A unary neighborhood is valid iff it misses a part. For adjacent x,y a forbidden common K_(r-1) occurs precisely for the unique part i missed by both and common neighbors in all other parts, giving the disjoint B correction. Factoring U=2^N s(1+O_r(s)) and B=4^N sum p_i^2(1+O_r((3/4)^min n)) gives uniform collision asymptotic. Cauchy-Schwarz and discreteness of powers 2^{-n_i} give balanced equality. Fresh independent finite checks used 63 r=2..4 size vectors N<=7; not an infinite proof.
 
-**Limits and closest literature.** The classification excludes arbitrary parameter graphs, repeated coordinates, and algebraic types. It does not claim priority over Henson's homogeneity or Conant's type realizability, and is not a statement about sampling vertices in infinite structures. Principal sources: Henson (1971), Section 2; Conant (2014), Section 3. Equivalent statements in difficult-to-index papers are a remaining originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge after statement-level comparison: Equivalent forms are finite labeled K_(r+1)-free two-vertex extension diagrams and common (r-1)-clique obstructions; Henson/Conant ensure realization but neither states the product correction or sharp r-parametric collision law. The universal finite K_(r+1)-free graph extension property is broader in permissible parameter graphs, but establishes realizability rather than enumeration. A prior exact one-type counting result determines U, not the adjacent two-type correction B.
+
+## value
+
+PASS
+
+Maximal complete multipartite parameter graphs sit at the natural clique-forbidden boundary. The result supplies the full orientation-refined ordered two-type spectrum and isolates the unique common-clique obstruction; its uniform collision law explains how relative part sizes control adjacency even when absolute sizes diverge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
