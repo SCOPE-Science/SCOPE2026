@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Direct reconstruction: all primitive two-cycles have positions +/-r and fixed memory lambda²r²; J_- J_+=(R J_+)², whose sign-conjugated factor has trace t=-1+3beta+4(1-beta)epsilon/(h lambda) and determinant beta. Strict Schur inequalities 1+beta+/-t>0 hold for any h>2epsilon/lambda. Hence both F² multipliers have modulus <1. Their product fixes a lower spectral-radius bound beta, attained precisely for |t|<=2sqrt(beta); monotone t and factorization 1-3beta-2sqrt(beta)=(1-3sqrt(beta))(1+sqrt(beta)) establish the two sharp gain regimes. Exact rational and 720 diagnostic tests executed from the embedded checker; boundary Jordan nonsemisimplicity and global-basin limitations recorded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The first source proves supercritical existence, writes a general-dimensional block-Jacobian and its sign-conjugated square (equations (43)–(44)), and proves an attracting branch only for h slightly greater than h*; one-dimensional all-supercritical behavior is reported computationally, not established for all h by its stated stability theorem.",
+        "The second source establishes minimizer convergence in the subcritical learning-rate regime and does not supply supercritical Floquet eigenvalues.",
+        "The third source addresses a central-flow/averaged dynamics model, not an exact finite-step two-cycle spectrum."
+      ],
+      "reasoning": "The present assertion is a strict full-h interval for one scalar algorithm and a sharp rate-optimal phase diagram. Neither a sufficiently-small-above-threshold stability theorem nor a below-threshold convergence theorem is a stronger statement covering this interval and its rate information.",
+      "searches": [
+        "arXiv:2610.30078v1, Theorems 4.4, 5.3, 5.7 and Sec. 8.3.1",
+        "arXiv:2603.15823v2, theorem 1",
+        "https://centralflows.github.io/part3/",
+        "RMSprop quadratic scalar period two cycles explicit Floquet multiplier stability for all learning rates memory beta 2026"
+      ]
+    },
+    "checked_sources": [
+      "Loh et al., arXiv:2610.30078v1 (2026)",
+      "Dimitrieski et al., arXiv:2603.15823v2 (2026)",
+      "Cohen et al., Understanding Optimization in Deep Learning with Central Flows, Part III",
+      "Semantic mathematical-results searches for scalar optimizer two-cycles and Floquet stability",
+      "Online search for one-dimensional RMSProp period-two spectra and memory thresholds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published scalar antipodal existence criterion h>2epsilon/lambda and general Jacobian formula are premises, not proposed novelties.",
+        "The earlier critical-gain claim addresses h=h*, with polynomial relaxation toward zero; our claim assumes strictly h>h* and studies nonzero cycle multipliers.",
+        "Published local stability sufficiently close to h* does not exclude later loss of cycle stability; the new Schur calculation is what proves no loss at any finite h."
+      ],
+      "reasoning": "The 2026 source and recovered earlier claim have different quantified parameter regions or weaker conclusions. The fully explicit discriminant regime, optimization over the gain, and sharp memory split are not logical consequences of the earlier statements without the new scalar trace/Schur and gain-optimization analysis based on their general Jacobian.",
+      "searches": [
+        "arXiv:2610.30078v1, Theorem 5.3 existence, Theorem 5.7 local stability, Sec. 8.3.1 numerical dimension-one computations",
+        "arXiv:2603.15823v2, global minimizer stability",
+        "earlier recoverable critical-gain RMSProp claim, exact h=h*",
+        "The Dynamics of RMSProp Beyond the Stability Threshold Loh Mireles James Xu Tao scalar two cycle spectral trace beta Floquet plateau"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper uses scaled variables X=h^{-1} x and W=h^{-1}sqrt(v), giving the same epsilon-outside scalar update under an invertible scaling. Its general block-Jacobian and symmetry factorization (equations (43)–(44)) are already established and specialize to the present K. Its period-two reduction and existence threshold therefore imply the orbit, but the inspected paper does not state the all-gain scalar Schur classification, optimal plateau, or beta=1/9 transition.",
+        "The scalar two-step Jacobian is conjugate to (R J_+) squared, whose characteristic roots obey z²−t z+beta=0."
+      ],
+      "reasoning": "Coordinate normalizations and the sign symmetry do not change the Floquet spectral radius, so the exact comparison is by implication: a local-in-gain stability result plus existence of a cycle does not imply attraction for every supercritical gain nor the optimal-rate interval. Literature searches included equivalent terms symmetric cycle, Floquet eigenvalues, stable period two, and RMSProp.",
+      "searches": [
+        "RMSprop quadratic scalar period two cycles explicit Floquet multiplier stability for all learning rates memory beta 2026",
+        "RMSprop 1D quadratic 2 cycle spectral radius beta complex eigenvalues learning rate",
+        "RMSProp period two bifurcation one dimensional beta 1/9 focus node 2026",
+        "scalar RMSProp quadratic epsilon outside symmetric two cycle exponentially attracting all learning rates beta full stability formula Floquet eigenvalues",
+        "RMSProp one dimensional period 2 multiplier trace determinant characteristic polynomial critical no Neimark Sacker",
+        "arXiv:2610.30078v1, Section 5, Theorems 5.2, 5.3 and 5.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "In the mathematical-results searches, closest nonidentical entries concerned scalar Lion two-cycle rate plateaux, scalar Padam max-memory cycles, and scalar Polar-Express flip dynamics; each uses a different map.",
+        "No retrieved indexed table/claim stated the RMSProp two-step scalar spectral radius or the gain-plateau endpoints."
+      ],
+      "reasoning": "Comparing dynamical update maps and quantifiers, none of the returned nearby claims implies the exact epsilon-outside RMSProp full-gain stability and beta=1/9 plateau law. Absence of a match is evidence of a limited-search result, not a certificate of historical uniqueness.",
+      "searches": [
+        "scalar RMSProp quadratic epsilon outside symmetric two cycle exponentially attracting all learning rates beta full stability formula Floquet eigenvalues",
+        "one dimensional RMSProp period 2 orbit stability all steps memory decay exact Jury Schur",
+        "RMSProp one dimensional period 2 multiplier trace determinant characteristic polynomial critical no Neimark Sacker",
+        "The Dynamics of RMSProp Beyond the Stability Threshold Loh Mireles James Xu Tao scalar two cycle spectral trace beta Floquet plateau",
+        "scalar quadratic epsilon-outside RMSProp period two stable all gains 1/9 transition trace determinant beta",
+        "RMSProp recurrence v'=beta v+(1-beta)lambda^2 x^2 x'=x-h lambda x/(sqrt(v')+epsilon)",
+        "Global stability and universal critical slowdown of epsilon-outside RMSProp beyond critical step scalar period-two rate plateau 1/9 memory",
+        "RMSProp scalar two cycle full gain Floquet phase plateau one ninth",
+        "RMSProp period two bifurcation one dimensional beta 1/9 focus node 2026"
+      ]
+    },
+    "rationale": "The inspected 2026 source establishes existence of the supercritical period-two branch and stability only near the threshold (Theorem 5.7), with numerical observations in dimension one (Section 8.3.1). Direct algebra supplies a separate all-gain Schur classification and a sharp closed-form optimal spectral plateau with a memory transition at beta=1/9. The earlier RMSProp theorem addresses convergence to the minimizer at subcritical steps. Nearby retrieved results concern different optimizer recurrences. Remaining priority uncertainty is explicitly retained.",
+    "residual_risks": [
+      "Unindexed literature, non-English or unpublished material may contain equivalent scalar two-cycle Floquet calculations.",
+      "The mathematical-results search returns finite ranked hits, not an exhaustive bibliography.",
+      "The primary paper already gives the fully general two-step factorization and Jacobian matrix; the independent-originality question is whether the scalar all-gain Schur and exact memory-transition spectral optimization exceed a routine unstated corollary.",
+      "The 2026 main source reports scalar attraction computationally; the exact all-gain analytical proof is separate, but its qualitative numerical observation is prior work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves existence of the cycle, attraction of a branch near threshold, and numerical convergence observations in dimension one. No theorem in the inspected relevant material gives the full-gain scalar Floquet spectrum or beta=1/9 spectral-rate transition.",
+        "evidence": [
+          "arXiv:2610.30078v1 p. 13, Theorem 5.3: existence iff h>h*",
+          "arXiv:2610.30078v1 p. 16, Theorem 5.7 explicitly restricts to h near h*",
+          "arXiv:2610.30078v1 p. 28, Sec. 8.3.1 calls d=1 attraction a computational finding"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.30078",
+        "material_read": "Full-text sections 3.1–3.2, 5 (including Theorems 5.2, 5.3, 5.7 and proof), and 8.3.1, together with relevant introductory context and abstracts",
+        "method": "Read lawful arXiv full PDF text and inspected page rendering around the reported one-dimensional experiments",
+        "title": "The Dynamics of RMSProp Beyond the Stability Threshold",
+        "trigger": "Exact same discrete optimizer and full supercritical period-two dynamics"
+      },
+      {
+        "assessment": "Convergence to minimizer under stable/subcritical steps does not cover stability and rate of the nontrivial two-cycle above threshold.",
+        "evidence": [
+          "arXiv:2603.15823v2 Theorem 1 and its step-size condition"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.15823",
+        "material_read": "Accessible full HTML introduction, main stability theorem and contextual algorithm and step-size scope",
+        "method": "Inspected open-access source sections and compared the quantified step region and target attractor",
+        "title": "Global Stability and Step Size Robustness of RMSProp",
+        "trigger": "Same optimizer and apparently broader global stability title"
+      },
+      {
+        "assessment": "Its approximate continuous-time or time-averaged picture cannot imply exact two-step scalar Floquet eigenvalues or the closed plateau.",
+        "evidence": [
+          "The central-flow construction averages fast oscillations and does not state the present all-step Jacobian classification"
+        ],
+        "identifier_or_url": "https://centralflows.github.io/part3/",
+        "material_read": "Relevant Part III discussion of RMSProp central flows and oscillations",
+        "method": "Inspected freely accessible HTML exposition, compared discrete finite-step vs continuous/averaged flows",
+        "title": "Understanding Optimization in Deep Learning with Central Flows, Part III",
+        "trigger": "RMSProp oscillatory dynamics and adaptive edge-of-stability literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d3e0da43-b0d1-4823-ae8a-f96f9bc1fe23",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating study identifies full-parameter scalar attraction numerically but proves only attraction near the flip threshold. The present calculation resolves the all-supercritical local stability question and exactly optimizes the two-step spectral rate over an unbounded learning-rate parameter, finding the structurally sharp transition at beta=1/9 and an actual reentrant slowdown. This is a motivated control of the model’s local dynamical robustness, not a gratuitous finite numerical example.",
+    "status": "PASS"
+  }
+}
