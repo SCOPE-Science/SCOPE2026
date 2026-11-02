@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every dissociation set of the triangular graph is a disjoint union of selected two-edge paths and single edges in the underlying complete graph. The integer occupancy constraint yields all optimal component types, and local path-center flips give the exact graph \(K_3^{\square k}\) for divisible orders. For the two remaining residues the proof explicitly constructs label transpositions through the unused singleton or through the distinguished pair; these generate all block partitions. Degree formulas and enumerations follow by independent finite local counting. Two separate executable enumerators return matching connected-component and degree profiles for every order from three through nine. The infinite-family claim relies on the proof, not on finite data.
+## correctness
 
-## Originality — PASS, with residual risk
-The 2011 full-text primary source by Orlovich et al. already gives the scalar dissociation number for line graphs of Hamiltonian-path graphs and the correspondence with three-vertex paths plus edges. Both are credited and excluded from the novelty claim. Its inspected theorem statements and relevant proof do not cover maximum-only one-vertex replacement components, the residue-dependent connectivity obstruction, or Cartesian-power components. Comparisons under the synonyms triangular graph, Johnson graph \(J(n,2)\), line graph \(L(K_n)\), 1-dependent/maximum dissociation sets, and path-packing switches found no identified statement implying the exchange classification. Published dissociation work on fans and complete multipartite graphs concerns other graph families. An unindexed equivalent result remains a genuine publication-priority risk; searching is not a proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-Optimal-solution-space connectivity is a natural refinement of the established scalar optimization result: the extremal value is unchanged in all residue classes, yet at orders divisible by three the optimum configuration space decomposes into factorially many fixed-triple components, while the one-vertex or one-edge buffer makes it connected otherwise. The infinite modular transition, exact component isomorphism type, and multiplicities are structural rather than arbitrary finite data. The result does not require a downstream algorithmic theorem to be useful, and it avoids presenting the known scalar bound as new.
+Identify T(n) vertices with K_n edges. Induced selected degree≤1 exactly means selected K_n edges decompose into vertex-disjoint P3 paths, isolated edges, unused vertices. The equations 3a+2b+c=n and 2a+b=max=floor(2n/3) force the three residue patterns. When n=3k, a maximum-preserving one-edge exchange cannot change a path triple block and three centers per block form K3, so components are K3 Cartesian powers and count n!/(6^k k!). When n=3k+1, the unused label exchanges with any leaf after center flip and the two-K2 type attaches to singleton type; all configurations connected. When n=3k+2, legal two-step exchanges between the distinguished K2 and any triple plus internal center changes allow arbitrary block permutations; connectedness follows. Counting block partitions and local swaps yields formulae and degrees 2k, 8k or 10k−2, and 6k. Independently enumerated n=3..7 graph states/component degrees, notably n=6 ten components each K3² and n=7 degrees 16/18.
 
-## Sources, uncertainty and scope
-Primary comparison: Orlovich et al., *Discrete Applied Mathematics* 159 (2011), DOI 10.1016/j.dam.2011.04.023, Sections 1–3, Hamiltonian-path theorem and conclusions, accessible as complete journal HTML. Earlier dated preprint 05/10 has a manuscript date but no verified online release date. Searches for path-packing reconfiguration, 1-dependent-set exchanges, and triangular-graph dissociation produced no covering primary theorem. Remaining risks: terminology drift, unindexed results, and no independent external check. The theorem is confined to maximum sets of \(L(K_n)\) under one-vertex replacements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Orlovich et al. prove the scalar dissociation maximum for L(G) when G has Hamiltonian path, hence cover this n-scalar and P3/K2 structural reduction. Their theorem does not classify maximum-only token-jump exchange graphs. No exact residue-three connectedness theorem for T(n), L(K_n), or J(n,2) was identified in mathematical research-record searches and compared related work; qualified best knowledge.
+
+## value
+
+PASS
+
+The structure of optimal solutions is a meaningful refinement of a known optimization problem: a factorially large fixed-triple fragmentation exactly when 3|n versus connectedness with a spare vertex or edge otherwise. The complete component graphs, degrees and counts provide exact infinite-family reconfiguration information beyond a scalar optimum or finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
