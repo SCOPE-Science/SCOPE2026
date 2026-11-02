@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T22:54:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed limiting delta in (-1,1), exact random-priority exchangeability gives orientation probabilities a*C(b,3)/(a*C(b,3)+b*C(a,3)) and b*C(a,3)/(sum), with decrements (1,3)/(3,1). In s=(a+b)/N, d=(a-b)/N, accepted-step time k/N, s(t)=1-4t and interior drift ḋ=-4sd/(s^2+d^2); bounded increments plus uniform compact-interior drift, martingale concentration and Gronwall give the fluid limit. Differentiating |d|exp(-s^2/(2d^2)) along the ODE gives zero, and the first boundary s=|d| yields F(delta)=|delta| exp((1-delta^-2)/2). Once minority count <=epsilon*N, at most epsilon*N additional stars can be placed, controlling the terminal layer by 4epsilon; when delta=0 the symmetric fluid path d(t)=0 can be followed arbitrarily close to t=1/4, proving zero limit. Bounded U/N gives L1 convergence. The smooth flatness follows from e^(-1/(2delta^2)); m A-center and 9m B-center stars cover K_(28m,12m) although its jamming limit equals (2/5)e^(-21/8)>0. Independent finite rational physical-star versus count-chain distributions agree in 36 cases 1<=a,b<=6, symbolic derivative vanishes and exact finite-N means tend toward F; finite testing is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bennett–Bohman arXiv:1210.3581 Theorem 1.1 assumes vertex-regular r-uniform hypergraphs and gives general matching bounds, not an exact nonregular two-class jamming function.",
+          "Bal–Bennett 2023 Theorem 2 treats sparse random bounded-degree-sequence hypergraphs, with maximum degree o(n^(1/3)) under its stated model; complete bipartite 3-star hyperedges have vertex degree of order N^3.",
+          "The positive F(delta) for every fixed nonzero delta is not a numerical special case of a regularity theorem asserting o(1) unsaturation under its assumptions."
+        ],
+        "reasoning": "The objects and quantitative hypotheses of the two strongest plausible general greedy matching theorems fail here; neither dominates the claimed terminal limit.",
+        "searches": [
+          "Bennett Bohman arxiv:1210.3581 Theorem 1.1",
+          "random greedy hypergraph matching nonregular complete bipartite star factors fluid differential equations",
+          "Bal Bennett matching process random hypergraphs specified degree sequence 2023"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree 2a4c56dfb076c2abc29dc0533b3350f57bd80145: seven mode-100644 source files fetched at commit 359233893f22559a64d1a2a83158566d85606adf; current main file blob identifiers agree exactly.",
+        "RESULT.md, sections Finding, Assumptions and scope, Proof 1–5; verify.py and VERIFICATION.md; AUDIT.json, METADATA.json, SLOGAN.txt and REVIEW.md, all examined as source evidence.",
+        "Independent finite-state implementation: 36 exact physical-star versus two-count-chain terminal distributions (1<=a,b<=6), symbolic invariant and drift identity, exact-rational mean vacancy at N=60,120,240 with imbalance 2/5, combinatorial perfect-factor counts.",
+        "Bennett and Bohman, A natural barrier in random greedy hypergraph matching, arXiv:1210.3581, manuscript introduction, Theorems 1.1 and 2.1, hypotheses and selected proof sections.",
+        "Bal and Bennett, The Matching Process and Independent Process in Random Regular Graphs and Hypergraphs, Electronic Journal of Combinatorics 30 (2023), P1.11, primary full-text introduction and Theorem 2 assumptions.",
+        "Hell and Kirkpatrick, Packings by Complete Bipartite Graphs, DOI:10.1137/0607024, publisher abstract and bibliographic metadata; complete text inaccessible.",
+        "de Oliveira and Tome, Inhomogeneous random sequential adsorption on bipartite lattices, DOI:10.1103/PhysRevE.50.4523, publisher abstract.",
+        "Three Resultary semantic searches on greedy K1,3 complete-bipartite adsorption and exact vacancy laws; nearest published records on deterministic packing and random greedy MIS differ in objects and statistics.",
+        "GitHub repository code search (default branch) for random greedy, three-leaf-star, adsorption, jamming; zero matches returned, a limited index check only."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hell–Kirkpatrick 1986 abstract addresses existence and optimization of static complete-bipartite-graph factors, not the law of a random priority greedy process; complete text remains inaccessible.",
+          "De Oliveira–Tome 1994 abstract addresses deposition on spatial bipartite lattices, not dense K_(a,b) with uniform 4-star candidates.",
+          "Bennett–Bohman theorems give non-exact bounds under D-regularity, not the claimed two-class F(delta).",
+          "Pippenger 1989 abstract concerns adsorption on graphs; no whole-document exclusion claim is made without full text."
+        ],
+        "reasoning": "Existence of a perfect deterministic star packing does not imply random greedy saturation: this theorem constructs feasible factors with a strictly positive stochastic vacant fraction. Spatial lattice site adsorption and regular/sparse random hypergraph matching cannot directly imply this exact limiting formula.",
+        "searches": [
+          "doi:10.1137/0607024 Packings by Complete Bipartite Graphs",
+          "doi:10.1103/PhysRevE.50.4523 Inhomogeneous random sequential adsorption on bipartite lattices",
+          "arxiv:1210.3581 random greedy hypergraph matching",
+          "Nicholas Pippenger Random Sequential Adsorption on Graphs 1989"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each (center, 3 leaves) star is a 4-uniform hyperedge of composition (1,3) or (3,1), so the problem is precisely random-priority greedy matching in a highly structured 4-uniform hypergraph.",
+          "For remaining part sizes (a,b), available star counts are a*C(b,3) and b*C(a,3); the terminal imbalance formula is tied to both orientations, not to a single 3-vertex path adsorption law.",
+          "Resultary search nearest titles: Exact uniform released packing on complete bipartite graphs (deterministic capacity optimization) and Sharp variance of random greedy maximal independent sets on complete multipartite graphs (different greedy process)."
+        ],
+        "reasoning": "The hypergraph representation is exactly equivalent and was searched explicitly. The indexed deterministic packing and random greedy MIS results operate on different constraints and do not imply the stochastic K1,3 endpoint; no equivalent formula was located, without asserting exhaustive search.",
+        "searches": [
+          "random greedy 3-leaf star K1,3 packing complete bipartite graph exact asymptotic jamming vacancy density essential singularity",
+          "random sequential adsorption 4-vertex stars complete bipartite graph random hypergraph matching imbalance",
+          "random greedy packing stars complete bipartite graph kinetic adsorption essential singularity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned Resultary results concern neighboring but different deterministic complete-bipartite packing and random greedy MIS quantities; none returned an exact stochastic 4-star terminal-density table.",
+          "The GitHub code-search queries returned zero indexed file hits; this has limited evidentiary force, especially for indexed or not-yet-public records."
+        ],
+        "reasoning": "No exact table or database result dominating F(delta) was identified, but limited semantic/code-search coverage does not establish bibliographic novelty.",
+        "searches": [
+          "Resultary: random greedy 3-leaf star K1,3 packing complete bipartite graph exact asymptotic jamming vacancy density essential singularity",
+          "Resultary: random sequential adsorption 4-vertex stars complete bipartite graph random hypergraph matching imbalance",
+          "Resultary: random greedy hypergraph matching nonregular complete bipartite star factors fluid differential equations",
+          "GitHub SCOPE-Science/SCOPE2026 code search: random greedy; three-leaf-star; adsorption; jamming"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact density for random greedy 3-leaf-star packing on dense unequal complete bipartite graphs. Unlike the regular-hypergraph bound and the sparse random-degree-sequence matching process, this has two nonregular macroscopic classes, a positive exact jamming fraction, and an infinitely flat balanced-limit response. Static star-factor theorems, lattice site RSA, deterministic released-packing invariants and complete-multipartite greedy independent sets do not imply this law. The inaccessible plausible 1986 article and an unindexed specialist solution remain priority risks rather than automatic disproof.",
+      "residual_risks": [
+        "An older or unindexed direct stochastic K1,3 greedy-adsorption formula, including one under the equivalent language of four-uniform star-hypergraph matching, might establish the same function; bibliographic search is not exhaustive.",
+        "Hell–Kirkpatrick 1986 full article was not read; its abstract treats static packings, but full contents remain a bounded priority risk. Authorized Oxford retrieval failed with VPN disconnected; no authentication bypass attempted.",
+        "A formal proof assistant has not verified the theorem and no external expert attestation was available; computer enumeration establishes only finite cases.",
+        "No terminal fluctuation law, quantitative convergence rate, or joint imbalance window delta_N->0 is proved; exact limiting law concerns only fixed limiting delta."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering: D-regular hypotheses and matching bounds differ from dense nonregular two-class exact limit.",
+          "evidence": [
+            "arXiv:1210.3581 Theorem 1.1 regularity assumption and bounded unmatched-size conclusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1210.3581",
+          "material_read": "Primary full-text PDF abstract/introduction and formal Theorems 1.1 and 2.1 with hypotheses, plus selected explanatory proof pages; first and third page images inspected.",
+          "method": "Read arXiv PDF parsed text and page screenshots; compare vertex-regularity and exact conclusion.",
+          "title": "A natural barrier in random greedy hypergraph matching",
+          "trigger": "General-random-greedy hypergraph matching result with potentially dominating theorem"
+        },
+        {
+          "assessment": "Not dominating: sparse random bounded-degree regime differs from deterministic complete-bipartite star hypergraph with Theta(N^3) incident stars per vertex.",
+          "evidence": [
+            "Electronic Journal of Combinatorics 30 (2023), P1.11, Theorem 2."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v30i1p11",
+          "material_read": "Primary PDF introduction and explicit Theorem 2 with sparse degree-sequence assumptions.",
+          "method": "Read accessible primary PDF theorem text and page image; compare degree scaling.",
+          "title": "The Matching Process and Independent Process in Random Regular Graphs and Hypergraphs",
+          "trigger": "General greedy matching dynamics with a possibly applicable differential equation method"
+        },
+        {
+          "assessment": "Abstract indicates static B-factor existence/max packing, not random process. Cannot rule out unseen full-text consequences; residual priority risk retained.",
+          "evidence": [
+            "SIAM J Algebraic Discrete Methods 7 (1986), 199–209, DOI:10.1137/0607024 abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0607024",
+          "material_read": "Publisher-indexed abstract and bibliographic details; complete article not accessed.",
+          "method": "Searched open-access/preprint sources without complete text; authorized Oxford download returned vpn_disconnected, job e0cd7f574a0dbca21c92c30d48832b8d.",
+          "title": "Packings by Complete Bipartite Graphs",
+          "trigger": "Highly relevant K1,3 factor terminology and complete bipartite substrate"
+        },
+        {
+          "assessment": "Abstract describes spatial bipartite site deposition rather than a dense complete-bipartite uniform 4-star hypermatching; no whole-paper exclusion asserted.",
+          "evidence": [
+            "Physical Review E 50 (1994), 4523, title and abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.50.4523",
+          "material_read": "Publisher/index abstract and metadata, not complete paper.",
+          "method": "Read abstract and compare graph type and depositing shapes.",
+          "title": "Inhomogeneous random sequential adsorption on bipartite lattices",
+          "trigger": "Bipartite random-sequential adsorption precedent"
+        },
+        {
+          "assessment": "Not proven to cover or exclude specific result because complete text uninspected; retained as limited background.",
+          "evidence": [
+            "Nicholas Pippenger, Random Sequential Adsorption on Graphs, SIAM Journal on Discrete Mathematics 2 (1989), 393–401, DOI:10.1137/0402034; publisher abstract describes random vertex or edge occupation on regular sparse graphs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Publisher abstract and bibliographic metadata only, not full paper.",
+          "method": "Search-index abstract and comparison to graph versus 4-uniform star-hypergraph model.",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Broad classical RSA formulation potentially stronger than graph-specific result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact universal fixed-imbalance vacancy function is a motivated kinetic invariant for a natural four-vertex star adsorption process, not an arbitrary parameter slice. Its C-infinity but nonanalytic flatness at balance sharply distinguishes it from power-law responses of three-vertex path deposition. The concrete perfect-cover witness quantifies an extensive failure of irreversible random greedy coverage despite deterministic packability. The explicit structural boundary between static matching capacity and kinetic adsorption has value even without fluctuations, finite-size error exponents, or a critical-window theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git tree 2a4c56dfb076c2abc29dc0533b3350f57bd80145: seven mode-100644 source files fetched at commit 359233893f22559a64d1a2a83158566d85606adf; current main file blob identifiers agree exactly.",
+    "RESULT.md, sections Finding, Assumptions and scope, Proof 1–5; verify.py and VERIFICATION.md; AUDIT.json, METADATA.json, SLOGAN.txt and REVIEW.md, all examined as source evidence.",
+    "Independent finite-state implementation: 36 exact physical-star versus two-count-chain terminal distributions (1<=a,b<=6), symbolic invariant and drift identity, exact-rational mean vacancy at N=60,120,240 with imbalance 2/5, combinatorial perfect-factor counts.",
+    "Bennett and Bohman, A natural barrier in random greedy hypergraph matching, arXiv:1210.3581, manuscript introduction, Theorems 1.1 and 2.1, hypotheses and selected proof sections.",
+    "Bal and Bennett, The Matching Process and Independent Process in Random Regular Graphs and Hypergraphs, Electronic Journal of Combinatorics 30 (2023), P1.11, primary full-text introduction and Theorem 2 assumptions.",
+    "Hell and Kirkpatrick, Packings by Complete Bipartite Graphs, DOI:10.1137/0607024, publisher abstract and bibliographic metadata; complete text inaccessible.",
+    "de Oliveira and Tome, Inhomogeneous random sequential adsorption on bipartite lattices, DOI:10.1103/PhysRevE.50.4523, publisher abstract.",
+    "Three Resultary semantic searches on greedy K1,3 complete-bipartite adsorption and exact vacancy laws; nearest published records on deterministic packing and random greedy MIS differ in objects and statistics.",
+    "GitHub repository code search (default branch) for random greedy, three-leaf-star, adsorption, jamming; zero matches returned, a limited index check only."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The theorem establishes fixed nondegenerate imbalance delta, not a delta_N approaching zero joint limit, a distributional fluctuation result, or quantitative rates.",
+    "No formal Lean check or expert attestation is asserted; finite verification does not replace the proof.",
+    "No full text for Hell–Kirkpatrick 1986; the available abstract addresses static factors, so originality remains best-of-knowledge subject to an inaccessible plausible source.",
+    "No GitHub publication, independent certificate, or server-side import was made; ready means a guarded change set is staged for authorized intake."
+  ],
+  "residual_risks": [
+    "An older or unindexed direct stochastic K1,3 greedy-adsorption formula, including one under the equivalent language of four-uniform star-hypergraph matching, might establish the same function; bibliographic search is not exhaustive.",
+    "Hell–Kirkpatrick 1986 full article was not read; its abstract treats static packings, but full contents remain a bounded priority risk. Authorized Oxford retrieval failed with VPN disconnected; no authentication bypass attempted.",
+    "A formal proof assistant has not verified the theorem and no external expert attestation was available; computer enumeration establishes only finite cases.",
+    "No terminal fluctuation law, quantitative convergence rate, or joint imbalance window delta_N->0 is proved; exact limiting law concerns only fixed limiting delta."
+  ],
+  "schema_version": 1
+}
