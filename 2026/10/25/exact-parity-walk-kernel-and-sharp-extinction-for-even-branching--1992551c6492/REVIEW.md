@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polynomial resolvent proof explicitly treats each vertex position relative to the root-to-target path. Every cancellation uses characteristic two and the hypothesis that each nonleaf has even child count. The equality \(S_r+z^2S_{r-1}=1\) also holds at the root by setting \(S_{-1}=0\). These checks prove the complete adjacency-power kernel for every finite permitted tree. Its top coefficient is the nonzero outer product \(\ell\ell^{\mathsf T}\) and its next coefficient is zero, so the index and last-step fraction follow with exact quantifiers, including the one-vertex case. The attached standalone test is corroborative only.
+PASS
 
-## Originality — PASS (bounded)
+Independently verified the exact resolvent column g_u=z^(d(u,v)) S_(depth LCA(u,v)) where S_r=sum_(s=0)^r z^(2s) in F2[z]. For u off the root-to-v path, parent relation g_u=z g_parent and even child count cancel; for proper ancestors of v the toward-v child and an odd number of off-path children cancel using S_r+z^2 S_(r-1)=1; at u=v the same identity yields 1. Thus (I+zA)g=e_v and all walk parities follow for every finite permitted tree and every time. Top degree i+j<=2h gives A^(2h)=ell ell^T nonzero and A^(2h+1)=0, including h=0; exactly half of states have deepest-layer parity 1. An independently constructed irregular 11-vertex even-child tree verified the whole matrix-power kernel and nilpotent cutoff, not used as infinite proof.
 
-The inspected full-text literature on infinite regular rooted-tree shifts and Cayley-tree automata does not establish this undirected finite-tree walk-parity kernel. ArXiv 1205.6785 develops tree-shift and surjectivity theory; arXiv 1211.7362 treats entropy and reversibility of Cayley-tree rules. General adjacency-powers counting walks does not by itself produce these characteristic-two cancellations. The equivalence of the kernel to a resolvent, a walk-parity formula and all matrix powers was checked in the comparison. Prior characteristic-two parity classifications on different graph families cannot specialize to these arbitrary shapes. Search coverage is not exhaustive; unindexed earlier tree-walk or binary spectral results might overlap, and a revised version rather than the 2012 original of one source was available for full-text reading.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural object is arbitrary *finite rooted even-branching trees*, not a cherry-picked finite range or a tabulated small instance. The finding gives one universal exact formula for every pair of vertices and every time, a sharp all-input extinction law, and a precise last-step half-population phenomenon. The surprising invariance under changes from two to four or more children is explained by the proof, enabling direct use as a walk-parity propagation identity.
+Ceccherini-Silberstein et al arXiv:1205.6785 study automata on infinite regular rooted trees and associated shift properties. Akın/Cayley tree papers focus on entropy/reversibility. A general GF2 adjacency power equals walk-parity fact is elementary but does not itself supply the depth-LCA closed formula or arbitrary even-child extinction theorem. Resultary related entries concern modular Laplacian or complete-multipartite parity automata on different graph families; no implication established. Older binary-tree spectral/walk formulas remain a bounded risk.
 
-## Boundaries
+## value
 
-No assertion covers general trees, non-binary dynamics, or non-neighbour-XOR rules. The small verification calculations do not establish the infinite theorem independently. Human-independent checking of correctness and historical originality remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full time-and-pair walk-parity kernel is a structural invariant on an unrestricted class of finite rooted trees whose nonleaf branching can vary arbitrarily among positive even values. Branch multiplicity disappears from the formula, and the exact sharp extinction time and half-state last step are novel motivated propagation features useful for finite-field graph dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
