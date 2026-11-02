@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T12:51:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/sharp-bounded-error-amplification-and-direction-switching-on-ani--5af2045a6f93/RESULT.md",
+        "2026/10/26/sharp-bounded-error-amplification-and-direction-switching-on-ani--5af2045a6f93/verify.py",
+        "/mnt/data/scope_worker-06_20261030T123400Z/independent_checks.py"
+      ],
+      "rationale": "Diagonalize L=c L(K_a)⊗I_b+d I_a⊗L(K_b) in three mutually orthogonal nonconstant sectors with eigenvalues ac, bd, ac+bd. Edge differences of L† yield same-direction entries with a strictly positive scalar factor and D_{uu′;ss′} incidence signs: the absolute complete-graph D mass is 2(a−1), and the sum of factors across b fibers is 1/a. Transverse entries are supported exactly on 2(b−1) incident opposite-direction edges of common absolute magnitude κ, yielding RA and RB; swapping factors gives the other row. The ℓ∞ norm of a matrix is its largest absolute row sum with a sign-pattern witness. κ(r)=√r/(ar+b) has strict AM–GM maximum 1/(2√ab) precisely at r=b/a. RA−RB=2(b−a)(κ−1/(ab)) gives two distinct positive switching roots for a<b, and permanent tie for a=b. Independently inverted rational anchored Laplacians of several K_a□K_b configurations, verified exact projection row sums and idempotence; these finite tests do not establish arbitrary real positive weights, which follows from the algebraic tensor proof.",
+      "residual_risks": [
+        "The theorem applies only weights constant on each coordinate direction and conductance-normalized edge coordinates; physical-current ℓ∞ norm is different."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General weighted graph Hodge projection and transfer-current kernel works cover P’s construction on every graph; the nearby cactus basis projection has a different edge operator/graph class."
+        ],
+        "reasoning": "A general formula for Green differences does not directly imply a sharp ℓ∞ constant without computing all signs and multiplicities. Cactus and complete multipartite results have different geometry; the shared four-cycle is only a small special case.",
+        "searches": [
+          "arXiv:0811.1067 Section 5, Theorem 5.1",
+          "arXiv:1312.2946 Section 2 Green-function formula",
+          "Resultary 2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd"
+        ]
+      },
+      "checked_sources": [
+        "\"weighted rook graph Cartesian product complete graphs gradient projection infinity norm conductance direction switching\"",
+        "Jiang–Lim–Yao–Ye arXiv:0811.1067",
+        "Kassel–Wu arXiv:1312.2946",
+        "arXiv:0811.1067 Section 5, Theorem 5.1",
+        "arXiv:1312.2946 Section 2 Green-function formula",
+        "Resultary 2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd",
+        "Resultary: weighted rook graph Cartesian product complete graphs gradient projection infinity norm conductance direction switching",
+        "rook graph K_a Cartesian K_b edge gradient projection exact ℓ infinity operator norm",
+        "arXiv:0811.1067 Theorem 5.1 Hodge projection",
+        "arXiv:1312.2946 Section 2 transfer-current identities",
+        "arXiv:0811.1067",
+        "arXiv:1312.2946"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known graph Hodge decomposition implies Hilbert-norm projector behavior, and Kassel–Wu represent entries using Green-function differences. Neither gives the maximum absolute edge-row sum."
+        ],
+        "reasoning": "The triple-sector tensor inversion plus sign support counting and κ optimization supply the missing implications. Earlier formulas for the Boolean four-cycle cover that special case but not general unequal a,b.",
+        "searches": [
+          "arXiv:0811.1067 Theorem 5.1 Hodge projection",
+          "arXiv:1312.2946 Section 2 transfer-current identities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matrix P=ML†Mᵀ is the weighted gradient Hodge projector, while its entries are transfer-current/Green differences; these are aliases to investigate."
+        ],
+        "reasoning": "The general identities are known, but no inspected formula evaluates the absolute row norms for this anisotropic Cartesian product or the two switching thresholds.",
+        "searches": [
+          "\"weighted rook graph Cartesian product complete graphs gradient projection infinity norm conductance direction switching\"",
+          "Jiang–Lim–Yao–Ye arXiv:0811.1067",
+          "Kassel–Wu arXiv:1312.2946"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary similar reports concern cactus transportation bases, graph zonotopes and weighted ladders, not these exact R_A/R_B and conductance thresholds."
+        ],
+        "reasoning": "No matching exact anisotropic rook projection table was located; an earlier electrical network transfer-current computation is possible.",
+        "searches": [
+          "Resultary: weighted rook graph Cartesian product complete graphs gradient projection infinity norm conductance direction switching",
+          "rook graph K_a Cartesian K_b edge gradient projection exact ℓ infinity operator norm"
+        ]
+      },
+      "rationale": "The exact all-parameter claim was compared by statement and implication against all identified strongly related primary works; known constructions, setup theorems and restricted subclasses are acknowledged as prior. The four structured comparisons and source inspections distinguish unproven priority from a concrete known coverage implication. Under a best-of-knowledge standard the unlocated stronger result is a stated risk, not an invented negative full-text finding.",
+      "residual_risks": [
+        "Older weighted Cartesian-product electrical network or transfer-current norms may imply the full formula under a different name.",
+        "The theorem applies only weights constant on each coordinate direction and conductance-normalized edge coordinates; physical-current ℓ∞ norm is different."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL GRADIENT PROJECTION, not evaluated ℓ∞ rook-graph norm",
+          "evidence": "Theorem 5.1 supplies orthogonal Hodge decomposition, not induced coordinate maximum norm",
+          "identifier_or_url": "arXiv:0811.1067",
+          "material_read": "Accessible primary full PDF, sections 4–5, Theorem 5.1, with page-image inspection",
+          "method": "arXiv full PDF and page image",
+          "title": "Statistical Ranking and Combinatorial Hodge Theory",
+          "trigger": "Weighted edge-gradient least-squares and graph Hodge operator"
+        },
+        {
+          "assessment": "GENERAL GREEN KERNEL; no claimed evaluated anisotropic Cartesian-product phase diagram",
+          "evidence": "Section 2 gives entrywise transfer-current representation",
+          "identifier_or_url": "arXiv:1312.2946",
+          "material_read": "Accessible full primary PDF, Section 2 and displayed Green/current formula, page-image inspection",
+          "method": "arXiv full PDF and page image",
+          "title": "Transfer Current and Pattern Fields in Spanning Trees",
+          "trigger": "Transfer-current/Green difference interpretation of edge projection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/sharp-bounded-error-amplification-and-direction-switching-on-ani--5af2045a6f93/RESULT.md",
+        "arXiv:0811.1067",
+        "arXiv:1312.2946"
+      ],
+      "rationale": "The natural graph Hodge least-squares projection always has ℓ² norm 1, but its worst-coordinate edge-error amplification depends substantially on conductances and aspect ratio. The exact maximizing ratio, two reentrant worst-edge-direction switches, and √b divergence on K₂□K_b provide a complete and meaningful robustness phase diagram, not just a reparameterized matrix norm.",
+      "residual_risks": [
+        "Older weighted Cartesian-product electrical network or transfer-current norms may imply the full formula under a different name.",
+        "The theorem applies only weights constant on each coordinate direction and conductance-normalized edge coordinates; physical-current ℓ∞ norm is different."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "On the weighted rook graph K_a□K_b with 2≤a≤b and directionwise positive conductances c,d, the conductance-normalized edge-gradient orthogonal projector has coordinate-∞ norm max{2(a−1)/a+2(b−1)κ, 2(b−1)/b+2(a−1)κ}, κ=√(cd)/(ac+bd); uniquely maximized at c/d=b/a, with two sharp worst-row direction switches for a<b.",
+  "limitations": [
+    "Older weighted Cartesian-product electrical network or transfer-current norms may imply the full formula under a different name.",
+    "The theorem applies only weights constant on each coordinate direction and conductance-normalized edge coordinates; physical-current ℓ∞ norm is different."
+  ],
+  "schema_version": 1
+}

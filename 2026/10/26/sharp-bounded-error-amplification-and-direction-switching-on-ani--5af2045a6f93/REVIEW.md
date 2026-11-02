@@ -1,19 +1,21 @@
-# Review of sharp weighted-rook edge-gradient stability
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is every rectangular rook graph \(K_a\mathbin{\square}K_b\), with \(2\le a\le b\) integers and strictly positive directionwise conductances. The operator is the **Euclidean** orthogonal projector onto energy-normalized edge gradients, with its norm measured in coordinate \(\ell^\infty\). The proof diagonalizes the weighted vertex Laplacian into three nonconstant tensor eigenspaces, obtains its Moore–Penrose inverse, and computes both classes of absolute projection row sums by finite combinatorial counts. The cross-direction entries have support of exactly \(2(b-1)\) or \(2(a-1)\) edges and common magnitude \(\kappa\). Strict arithmetic–geometric mean determines the unique conductance-ratio maximizer, and the quadratic threshold equation determines the two worst-direction switches. Direct exact-rational checks on independently constructed matrices passed 39,265 assertions across 55 configurations. Numerical/finite testing is not treated as a proof of universal claims.
+PASS
 
-## Originality — PASS within inspected material
+Diagonalize L=c L(K_a)⊗I_b+d I_a⊗L(K_b) in three mutually orthogonal nonconstant sectors with eigenvalues ac, bd, ac+bd. Edge differences of L† yield same-direction entries with a strictly positive scalar factor and D_{uu′;ss′} incidence signs: the absolute complete-graph D mass is 2(a−1), and the sum of factors across b fibers is 1/a. Transverse entries are supported exactly on 2(b−1) incident opposite-direction edges of common absolute magnitude κ, yielding RA and RB; swapping factors gives the other row. The ℓ∞ norm of a matrix is its largest absolute row sum with a sign-pattern witness. κ(r)=√r/(ar+b) has strict AM–GM maximum 1/(2√ab) precisely at r=b/a. RA−RB=2(b−a)(κ−1/(ab)) gives two distinct positive switching roots for a<b, and permanent tie for a=b. Independently inverted rational anchored Laplacians of several K_a□K_b configurations, verified exact projection row sums and idempotence; these finite tests do not establish arbitrary real positive weights, which follows from the algebraic tensor proof.
 
-The 2008 Jiang–Lim–Yao–Ye paper supplies graph Hodge least-squares projection, and the 2013 Kassel–Wu paper supplies the transfer-current/Green-function correspondence. Their relevant full-text sections do not state the specific weighted Cartesian-product row norms, the unique optimal conductance ratio, or the twice-switching worst output direction. Published mathematical records on cactus transportation spaces and edge Riesz transforms concern different operators or norms. Previously documented exact edge projections for complete multipartite graphs or weighted Boolean cubes do not cover this two-factor complete-graph product in general; the four-cycle is a shared special case, not the full theorem. The literature search was targeted but not exhaustive, and an older equivalent electrical-network or line-graph formula remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Uniformly bounded edge errors under weighted least-squares gradient fitting are measured exactly by the induced maximum-coordinate norm, rather than by the automatic Hilbert norm one. A natural two-direction family exhibits explicit conductance-tuning and two stability transitions; its optimally weighted amplification grows like \(\sqrt{b/2}\) on \(K_2\mathbin{\square}K_b\) while its equal-conductance amplification remains below four. The graph aspect ratio and conductance contrast therefore control a substantive, non-Hilbertian stability phenomenon. This is a complete natural classification, not merely a reparameterization or isolated small example.
+The exact all-parameter claim was compared by statement and implication against all identified strongly related primary works; known constructions, setup theorems and restricted subclasses are acknowledged as prior. The four structured comparisons and source inspections distinguish unproven priority from a concrete known coverage implication. Under a best-of-knowledge standard the unlocated stronger result is a stated risk, not an invented negative full-text finding.
 
-## Limitations and residual risk
+## value
 
-The result concerns conductance weights constant per edge direction, and its priority has not been independently established. The reviewed full texts give the general framework, not an independent uniqueness guarantee. The standalone checker does not certify infinite families. Arbitrary edge-dependent weights and higher Cartesian products remain outside the claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural graph Hodge least-squares projection always has ℓ² norm 1, but its worst-coordinate edge-error amplification depends substantially on conductances and aspect ratio. The exact maximizing ratio, two reentrant worst-edge-direction switches, and √b divergence on K₂□K_b provide a complete and meaningful robustness phase diagram, not just a reparameterized matrix norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
