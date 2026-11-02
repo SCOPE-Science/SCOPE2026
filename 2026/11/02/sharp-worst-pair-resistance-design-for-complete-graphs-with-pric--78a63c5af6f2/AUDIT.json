@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The proof defines the entire unrestricted conductance feasible class and full budget, invokes established convexity of each resistance to average over the price-preserving wreath-product automorphism group, and computes exactly two positive Laplacian eigenspaces (m antisymmetric eigenvalues 2x+(2m-2)y, m-1 pair-constant eigenvalues 2my). Hence matched resistance equals 2/lambda_a and nonmatched equals 1/lambda_a+1/lambda_b. The active worst-pair switches at t=x/y=1. Both scalar derivatives and their boundary signs are explicitly checked, yielding the three cases, the r=2 degeneracy and the exact optimum; averaging plus uniqueness of orbit solutions gives the two unrestricted support implications. The t=0 support remains connected for m>=2. The packaged checker reports 2497 exact/numerical assertions including rational full-matrix inverses and symbolic identities; random tests do not substitute for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh--Boyd--Saberi (2008) §8 lists the general minimax SDP and §§5--6 treat other graph families; it does not provide this parameter-specific minimizer (https://stanford.edu/~boyd/papers/pdf/eff_res.pdf).",
+        "Accessible previous claim a63eab52-c968-4581-91c7-ed2c8de102f2 concerns total resistance and one priced edge of a clique; b65b2ff4-0797-4068-8a88-d9ef21bbd9bd concerns total resistance and determinant on a priced-matching biclique."
+      ],
+      "reasoning": "An abstract convex/SDP specification valid on any graph is an algorithmic framework, not a closed formula implying the three exact support regimes. Prior sum-objective conclusions cannot be substituted for a minimax objective, and their special topologies do not contain the present priced-matching clique optimization.",
+      "searches": [
+        "weighted complete graph perfect matching edge cost conductance budget Kirchhoff index global optimal allocation support deletion threshold",
+        "robust network design worst case effective resistance exact cost plateau price insensitive optimum complete graph matching"
+      ]
+    },
+    "checked_sources": [
+      "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+      "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "https://doi.org/10.1155/2014/241723",
+      "https://mathworld.wolfram.com/CocktailPartyGraph.html",
+      "Accessible local claim a63eab52-c968-4581-91c7-ed2c8de102f2 (mean resistance with one clique edge)",
+      "Accessible local claim b65b2ff4-0797-4068-8a88-d9ef21bbd9bd (mean resistance/determinant on a biclique matching)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "MTNS 2006 p. 1195 §VII: minimizing maximum effective resistance is an SDP; the worked analytical example is a barbell under total resistance, not this diameter problem.",
+        "SIAM Review 2008 p. 64 §8: general minimax extension without the exact one-factor price classification.",
+        "Raghavan Unnithan et al. 2014 §3.4: shortest-path betweenness for cocktail-party graphs, no weighted electrical design."
+      ],
+      "reasoning": "The new theorem needs a pair-antisymmetric/pair-constant eigen decomposition, exact matching and nonmatching pair resistances and a nonsmooth minimax derivative analysis. General convexity, conventional graph spectra, unpriced graph combinatorics, and earlier average/determinant allocators alone do not imply the piecewise minimum and robust uniform-weight interval. Distinct indexed statements are not assumed novel solely because terminology differs.",
+      "searches": [
+        "minimize maximum pairwise effective resistance under budget heterogeneous edge prices cocktail party graph complete graph distinguished perfect matching optimal uniform plateau",
+        "electrical effective resistance diameter minimization all-pairs max resistance budget optimization cross polytope graph perfect matching omitted matching 1-factor priced edges"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh--Boyd--Saberi, MTNS 2006 §VII explicitly defines max_{i,j} R_ij as convex optimization but not a matching-price closed solution (https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf).",
+        "Raghavan Unnithan et al. (2014) §3.4 identifies cocktail-party graphs as K_{2m} minus a perfect matching and studies geodesic betweenness, not weighted minimax resistance (https://doi.org/10.1155/2014/241723)."
+      ],
+      "reasoning": "The aliases designate the zero-matching support graph. No equivalent statement of the priced maximum effective resistance minimum or its sharp transition was located; graph definitions, geodesic diameters and quantum transfer results do not imply resistance design.",
+      "searches": [
+        "minimize maximum pairwise effective resistance under budget heterogeneous edge prices cocktail party graph complete graph distinguished perfect matching optimal uniform plateau",
+        "electrical effective resistance diameter minimization all-pairs max resistance budget optimization cross polytope graph perfect matching omitted matching 1-factor priced edges"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus candidate 2026/10/4/SCOPE-exact-global-transfer-optimum-on-odd-dimensional-cross-polytopes--807100de0f76 concerns quantum state-transfer probability, not electrical resistance.",
+        "published-finding corpus candidate 2026/10/11/SCOPE-exact-euclidean-radii-and-contact-facet-phase-of-complete-graph-matching-polytopes--68b58451aad7 concerns convex polytopes rather than graph conductance or resistance.",
+        "No exact minimax-price entry was returned among the examined closest semantic results; this is limited evidence rather than completeness of a database."
+      ],
+      "reasoning": "Matching/cross-polytope query hits involve different mathematical objects or objectives; no found table provides the cost thresholds or minimum maximum pair resistance. Semantic retrieval is not exhaustive.",
+      "searches": [
+        "weighted complete graph perfect matching edge cost conductance budget Kirchhoff index global optimal allocation support deletion threshold",
+        "minimize maximum pairwise effective resistance under budget heterogeneous edge prices cocktail party graph complete graph distinguished perfect matching optimal uniform plateau",
+        "minimax resistance design weighted complete multipartite two vertices per part matching costs three phase transition",
+        "electrical effective resistance diameter minimization all-pairs max resistance budget optimization cross polytope graph perfect matching omitted matching 1-factor priced edges"
+      ]
+    },
+    "rationale": "The explicit minimax diameter for price-marked K_{2m}, its three closed cost regimes, uniform-conductance plateau and universal P/Q=2 support threshold were not provided by inspected primary work. Ghosh--Boyd--Saberi (2006 §VII; 2008 §8) establish convexity and an SDP for maximum effective resistance, which do not state or analytically imply the phase law without the new spectral and scalar minimax solution. Known cocktail-party graph betweenness is a different invariant. The accessible previous local claims address sum resistance or determinant objectives and different distinguished graph topologies. Specialized historical coverage cannot be ruled out.",
+    "residual_risks": [
+      "Unindexed historical papers, graph-optimization theses or unpublished notes might already contain an exact matching-price minimax solution.",
+      "Searchable published-finding corpus returns semantically closest findings, not an exhaustive originality certificate.",
+      "The expanded journal paper was inspected by topic, search and selected pages rather than every line independently checked; a buried equivalent specialization remains a small coverage risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convexity and max-resistance SDP known; no explicit two-price matching-clique theorem in inspected material",
+        "evidence": "TuP12.2; proceedings 24--28 July 2006; §§IV, V and VII, especially p. 1195.",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Proceedings cover and §§I, II, IV, V, VII, including the full maximum-effective-resistance extension and analytical barbell example; searched the 12-page parsed text for matching/complete-graph classes",
+        "method": "Lawful author-hosted proceedings PDF; parsed text and source page images, including page 1 and page 9",
+        "title": "Minimizing Effective Resistance of a Graph (MTNS 2006)",
+        "trigger": "Primary early source explicitly formulates minimizing worst pair effective resistance"
+      },
+      {
+        "assessment": "Expanded full version describes general minimax SDP but not identified exact matching-price plateau or support threshold",
+        "evidence": "SIAM Review 50(1), pp. 37--66, §8 on minimax resistance; §§5--6 treat other families.",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Abstract, contents/intro, §§2, 5--6 and §8, with whole-document keyword search for matching and multipartite; page images inspected",
+        "method": "Author-hosted lawful PDF, parsed text and selected page images",
+        "title": "Minimizing Effective Resistance of a Graph (SIAM Review 2008)",
+        "trigger": "Expanded version may contain fuller graph-specific analytical minimax cases"
+      },
+      {
+        "assessment": "Identifies matched-deleted graph and geodesic betweenness, not conductance-budget or effective resistance minimax",
+        "evidence": "§3.4 defines the cocktail-party graph and proves its vertex betweenness value 1/2.",
+        "identifier_or_url": "https://doi.org/10.1155/2014/241723",
+        "material_read": "Open-access HTML abstract, definitions, §§3.2--3.5 and especially §3.4 theorem/proof",
+        "method": "Full-text primary HTML",
+        "title": "Betweenness Centrality in Some Classes of Graphs",
+        "trigger": "Cocktail-party graphs are exactly the positive support after matching deletion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "78a63c5a-f6f2-4630-86f8-ad0530e1c96f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimizing the maximum pairwise effective resistance is an independently motivated robustness design objective for adversarial terminal placement. The theorem identifies a positive-length interval where all optimal orbit weights stay identical despite differing link prices, a universal cost ratio two at which a full matching becomes dispensable, and an explicit first-order critical-window response. It is an exact natural classification and sharp support boundary on an infinite graph family; these facts are not routine consequences of knowing the graph spectrum or the generic SDP formulation.",
+    "status": "PASS"
+  }
+}
