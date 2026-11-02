@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone standard-library Python 3 file `verify_heawood_convex.py` constructs the Fano plane from binary vector triples and checks every one of the \(2^{14}=16,384\) vertex subsets using the definition that each unselected vertex has at most one selected neighbor. A separately implemented join/meet rule is tested on the same universe. All bivariate coefficients, the univariate polynomial, and the 49 maximal proper convex sets are cross-checked against the geometric classification.
+## correctness
 
-Command: `python3 verify_heawood_convex.py`.
+PASS
 
-Observed output is embedded in `verification_output.txt`; its first line is `VERIFY_OK`. In particular, there are 366 convex sets and the maximal proper counts are \(21\) for the \((3,3)\) point–line type and \(28\) for the \((4,4)\) type.
+A vertex outside a subset in a bipartite Fano incidence graph has at most one selected neighbor precisely if every selected point pair forces its joining line and every selected line pair forces their intersection point. The Fano axioms classify the selected point sets X into 0,1,2, collinear/noncollinear 3, four consisting of a line and exterior point, the full 7, with no other feasible larger proper X. For each class, the permitted Y are enumerated by mutually incident pencils/mandatory joining lines, yielding all displayed bivariate coefficients. Inclusion maximality then leaves exactly 21 (3,3) line-pencil flags and 28 (4,4) line-plus-exterior point configurations. Independently checking every one of 2^14=16384 subsets by the outsider-neighborhood condition produced exactly 366 convex sets, all bivariate coefficients and 49 proper maximal sets, matching the structural proof.
 
-The checker exhausts this one finite labeled graph only. The general mathematical proof and its classification table appear in `RESULT.md`. No external independent audit or generalization to other projective planes has been performed.
+## originality
+
+PASS
+
+The 2026 Dourado–Grippo–Lin–Protti primary paper establishes general P_3-convex enumeration algorithms and classes such as trees/threshold graphs, but the inspected material does not assert the Heawood/Fano bivariate polynomial or classify its 49 maximal proper sets. Published Resultary Heawood records concern total-cut complexes and magnitude homology, not P_3-convexity. A general algorithm could compute the scalar count with an input graph, but it does not by itself publish this complete incidence-geometric classification.
+
+## value
+
+PASS
+
+The Fano plane is the smallest projective plane and its Levi graph the canonical Heawood graph. A complete, geometrically explained P_3-convex lattice, bivariate profile and maximal proper configurations form a meaningful exact structural example of an algorithmically studied convexity notion; it is not a random tiny graph number. The result is appropriately limited to this natural fixed object.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

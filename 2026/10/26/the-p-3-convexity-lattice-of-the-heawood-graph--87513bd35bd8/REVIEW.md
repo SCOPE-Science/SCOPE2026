@@ -1,11 +1,21 @@
-# Review of the Heawood \(P_3\)-convexity classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim has a finite, complete geometric proof based on point-pair joins and line-pair meets in the seven-point projective plane. All cases of selected point sets are enumerated, including quadrangles, the forbidden five-/six-point cases, and the full plane. Summing the case polynomials gives 366. A separate standard-library checker confirms every coefficient by all 16,384 masks, both closure characterizations, and the 21+28 maximal proper classes. The proof does not infer general claims from finite testing.
+## correctness
 
-**Originality — PASS under the searched evidence.** Dourado–Grippo–Lin–Protti (arXiv:2603.04706, inspected in full-text form at the pertinent definitions, theorems, and general algorithms) prove general counting/complexity results, but do not present this Fano-plane bivariate polynomial, the 49 maximal proper convex configurations, or the cardinality gaps. Brešar–Valencia-Pabon address hull numbers in Hamming graphs. Relevant indexed published-finding corpus entries concern other parameters of the Heawood graph (cut-complex homotopy, total domination) or \(P_3\)-convexity on other graphs. Dedicated equivalent-form, numerical, and object-name searches found no explicit covering result. This does not prove absolute historical priority; unindexed finite-geometry calculations remain a residual risk.
+PASS
 
-**Value — PASS.** The Heawood graph is the unique smallest 3-regular graph of girth six, and the Levi graph of the smallest projective plane. It is a canonical, highly symmetric test for the recently studied counting problem. The result is not merely a scalar recomputation: it identifies every convex set by geometric type, yields the complete bivariate enumerator, and classifies a **nonpure** family of maximal proper closed sets with 21 size-six and 28 size-eight members; cardinalities seven and nine through thirteen are absent. This sharp geometric closure boundary is a natural finite baseline for incidence-graph convexity, although no general-order projective-plane theorem is asserted.
+A vertex outside a subset in a bipartite Fano incidence graph has at most one selected neighbor precisely if every selected point pair forces its joining line and every selected line pair forces their intersection point. The Fano axioms classify the selected point sets X into 0,1,2, collinear/noncollinear 3, four consisting of a line and exterior point, the full 7, with no other feasible larger proper X. For each class, the permitted Y are enumerated by mutually incident pencils/mandatory joining lines, yielding all displayed bivariate coefficients. Inclusion maximality then leaves exactly 21 (3,3) line-pencil flags and 28 (4,4) line-plus-exterior point configurations. Independently checking every one of 2^14=16384 subsets by the outsider-neighborhood condition produced exactly 366 convex sets, all bivariate coefficients and 49 proper maximal sets, matching the structural proof.
 
-Closest direct source: Dourado, Grippo, Lin, Protti, *Counting \(P_3\)-convex sets in graphs*, arXiv:2603.04706v1 (2026). Broader tools in that paper could calculate the count for a graph supplied as input, but the explicitly enumerated classes and maximality classification are not theorems there. Other cited structural/algorithmic literature concerns distinct graph classes or parameters. No outside audit or certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Dourado–Grippo–Lin–Protti primary paper establishes general P_3-convex enumeration algorithms and classes such as trees/threshold graphs, but the inspected material does not assert the Heawood/Fano bivariate polynomial or classify its 49 maximal proper sets. Published Resultary Heawood records concern total-cut complexes and magnitude homology, not P_3-convexity. A general algorithm could compute the scalar count with an input graph, but it does not by itself publish this complete incidence-geometric classification.
+
+## value
+
+PASS
+
+The Fano plane is the smallest projective plane and its Levi graph the canonical Heawood graph. A complete, geometrically explained P_3-convex lattice, bivariate profile and maximal proper configurations form a meaningful exact structural example of an algorithmically studied convexity notion; it is not a random tiny graph number. The result is appropriately limited to this natural fixed object.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
