@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For the exact real map \\(T_h(x)=x-hx/(1+x^2)\\), \\(h>0\\), \\(T_h^2(x)-x\\) is a rational function with everywhere-positive denominator and numerator \\(-hx[2(1+x^2)-h][(1+x^2)^2-hx^2]\\). Its three factors give all fixed and prime-two points without finite search; the quartic branch has positive reciprocal roots precisely for \\(h>4\\). Multipliers are \\((3-8/h)^2\\) (symmetric) and \\(9-2h\\) (each asymmetric), with strict stability ranges \\(2<h<4\\) and \\(4<h<5\\). The included verify.py was executed and passed exact integer-polynomial expansion and exact rational sample checks. Boundaries h=2,4,5 and nonhyperbolic multiplier behavior are explicitly stated; no unproved claim about higher periods or nonlinear marginal stability is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ma–Kunin–Wu–Ying, arXiv:2204.11326, §4.1 Theorem 1 assumes f'' strictly decreasing with |x|, giving convergence to a symmetric cycle; here \\(f\\'\\'(x)=(1-x^2)/(1+x^2)^2\\) has its minimum at |x|=\\(\\sqrt{3}\\) and increases afterwards, so that theorem cannot imply this diagram.",
+        "Yuan–Wen, Preprints.org 202610.0191v2, §§1-2 analyzes clipped gradient maps, flip contact, and neutral fully clipped cycles, not the smooth un-clipped rational map or its two additional prime-two cycles."
+      ],
+      "reasoning": "A stronger general theorem might imply the result, but the specific inspected global-attraction theorem fails on the actual logarithmic potential and the switching result concerns a different dynamical family; generic local flip theory gives neither exact global enumeration nor \\(h=5\\).",
+      "searches": [
+        "arXiv:2204.11326 Theorem 1 global convergence symmetric two-cycle curvature decreasing",
+        "Separation Laws for Flip Bifurcations and Endogenous Switching Boundaries in Gradient Maps 2026",
+        "https://arxiv.org/abs/2204.11326",
+        "https://www.preprints.org/manuscript/202610.0191"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.27321v1, relevant sections and Appendix A read",
+      "arXiv:2204.11326, §4.1 and §4.3 read",
+      "Preprints.org 202610.0191v2, abstract and main theorems read",
+      "arXiv:2505.13196, §§1 and 3 read",
+      "2026/10/11/SCOPE-complete-prime-period-two-spectrum-and-the-sharp-sink-boundary-o--2ce947f222b3",
+      "2026/10/11/SCOPE-exact-prime-two-orbit-census-and-coexistence-wedge-for-the-ratio--7ffcf1ae63a3",
+      "2026/10/11/SCOPE-a-unique-inverse-power-two-cycle-and-its-sharp-stability-boundar--71916f1b4c2a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Itin proves z*²=h/2-1 and its \\(2<h<4\\) stability, but explicitly limits uniqueness to symmetric orbits (Appendix A).",
+        "Itin reports post-\\(h=4\\) symmetry-breaking and period doubling numerically (Fig.1), without a proved exact \\(h=5\\) asymmetric threshold.",
+        "Vaidhyanathan and coauthors introduce VRAdam with momentum/adaptive damping but do not give the entire period-two orbit census for the reduced map in inspected §3."
+      ],
+      "reasoning": "Existence and symmetry breaking are covered by the motivating work. Exact coordinates for both asymmetric cycles, the common multiplier \\(9-2h\\), sharp \\(h=5\\) boundary, and proof of no other prime-two orbit are not implications of the inspected symmetric-orbit theorem or algorithm-level convergence analyses. A historical exact rational-map classification could still dominate.",
+      "searches": [
+        "arXiv:2610.27321 §3 Corollary 3 and Appendix A symmetric two-orbit",
+        "arXiv:2505.13196 §3 velocity-dependent adaptive step",
+        "arXiv:2204.11326 §4.1 Theorem 1",
+        "Preprints.org 202610.0191v2 §1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Itin, arXiv:2610.27321, §2.2 defines phi(z)=z/(1+z^2), and eq. (4) with zero EMA momentum b=0 gives the same T_h on a rescaled real coordinate.",
+        "Itin, Fig.1 caption and Appendix A: symmetric orbit and asymmetry after \\(h=4\\) are discussed; exact coordinates and the asymmetric multiplier were not present in inspected passages."
+      ],
+      "reasoning": "The normalization is explicitly matched to the primary paper; the proposed claim is not just a parameter change or reformulation of its symmetric-orbit theorem. The symmetric branch and qualitative existence after \\(h=4\\) are prior results and excluded from the originality assertion.",
+      "searches": [
+        "VRAdam velocity regularized kinetic scalar map y next = y - a y/(1+y squared), asymmetric period-two cycles pitchfork critical parameter four multiplier nine minus twice a",
+        "rational gradient descent map x_{n+1}=x_n (1-a/(1+x_n^2)); exact period two cycles and stability parameter 4 5",
+        "\"x - a x/(1+x^2)\" \"period\" bifurcation rational map",
+        "\"x/(1+x²)\" \"two-cycle\" gradient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record 2026/10/11/SCOPE-complete-prime-period-two-spectrum-and-the-sharp-sink-boundary-o--2ce947f222b3 classifies a two-dimensional Duffing map F(x,y)=(y,ay-y^3-bx), not the scalar rational kinetic map.",
+        "Published record 2026/10/11/SCOPE-exact-prime-two-orbit-census-and-coexistence-wedge-for-the-ratio--7ffcf1ae63a3 treats the two-dimensional rational Rulkov neuron map, not T_h.",
+        "Published record 2026/10/11/SCOPE-a-unique-inverse-power-two-cycle-and-its-sharp-stability-boundar--71916f1b4c2a treats \\(x\\mapsto ax+b/x^p\\) on positive states, whose defining map and orbit algebra are different."
+      ],
+      "reasoning": "Three parameter/alias-aware ranked record searches returned neighboring period-two results but no recovered matching T_h statement. Database search absence is not used as a proof of novelty, and inaccessible/unindexed records remain a risk.",
+      "searches": [
+        "VRAdam velocity regularized kinetic scalar map y next = y - a y/(1+y squared), asymmetric period-two cycles pitchfork critical parameter four multiplier nine minus twice a",
+        "rational gradient descent map x_{n+1}=x_n (1-a/(1+x_n^2)); exact period two cycles and stability parameter 4 5",
+        "odd rational map x - a x/(1+x²) period 2 asymmetric attracting bifurcation classification",
+        "2026/10/11/SCOPE-complete-prime-period-two-spectrum-and-the-sharp-sink-boundary-o--2ce947f222b3",
+        "2026/10/11/SCOPE-exact-prime-two-orbit-census-and-coexistence-wedge-for-the-ratio--7ffcf1ae63a3",
+        "2026/10/11/SCOPE-a-unique-inverse-power-two-cycle-and-its-sharp-stability-boundar--71916f1b4c2a"
+      ]
+    },
+    "rationale": "The main 2026 paper identifies the same momentum-free rational kinetic map, computes the symmetric branch and stability range, and mentions asymmetric branches after \\(h=4\\) but does not state the complete explicit asymmetric point formulas, their exact shared multiplier \\(9-2h\\), the second sharp \\(h=5\\) boundary, or an exhaustive all-real prime-two classification. Comparison against original VRAdam work, general smooth subquadratic-gradient results, gradient clipping literature and nearest published mathematical records did not yield a statement implying this exact claim. Priority is assessed only from consulted literature, not certified universally.",
+    "residual_risks": [
+      "Unindexed or inaccessible historical work on rational iteration may already contain these exact algebraic branches.",
+      "Generic bifurcation theory describes the local qualitative mechanisms but does not by itself establish the exact h=5 value; nondegeneracy and existence of a four-cycle at that boundary are not claimed.",
+      "The model omits optimizer momentum, clipping floors and stochastic gradients; conclusions cannot be transferred to the full optimizer without further work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME MODEL: source covers symmetric orbit and qualitatively notes asymmetric ones; no exact asymmetric period-two census or multiplier at \\(h=5\\) in inspected primary claims and proof appendix",
+        "evidence": [
+          "Section 2.2: phi(z)=z/(1+z²).",
+          "Fig.1: symmetric attraction \\(2<h<4\\) and numerical symmetry-breaking/period-doubling.",
+          "Appendix A explicitly says uniqueness among symmetric orbits only; asymmetric orbits exist for \\(h>4\\)."
+        ],
+        "identifier_or_url": "arXiv:2610.27321v1",
+        "material_read": "§2.2 map definition; Fig.1 caption; §3 reduced model and Corollary 3; Appendix A including symmetry uniqueness restriction",
+        "method": "Lawful public full text as HTML-readable arXiv rendering",
+        "title": "Physics-Inspired Optimizers beyond the Edge of Stability: Period-Two Orbits and Delayed Instability",
+        "trigger": "Same reduced zero-momentum VR kinetic map, plausible exact period-two coverage"
+      },
+      {
+        "assessment": "DIFFERENT COVERAGE: curvature-monotonic global-attraction hypotheses fail for the logarithmic potential; boundedness theorem does not enumerate period-two orbits",
+        "evidence": [
+          "Theorem 1 requires \\(f\\'\\'(s)<f\\'\\'(t)\\) for \\(|s|>|t|\\).",
+          "Here f''(x) reverses monotonicity beyond \\(\\sqrt{3}\\)."
+        ],
+        "identifier_or_url": "arXiv:2204.11326",
+        "material_read": "§4.1 theorem 1 hypotheses and proof; §4.3 more general boundedness theorem",
+        "method": "Lawful public arXiv rendered full text",
+        "title": "Beyond the Quadratic Approximation: the Multiscale Structure of Neural Network Loss Landscapes",
+        "trigger": "Strong earlier global theorem for one-dimensional subquadratic gradient dynamics"
+      },
+      {
+        "assessment": "NOT COVERING: clipped and unclipped transition theory, no T_h explicit asymmetry and sharp \\(h=5\\)",
+        "evidence": [
+          "§1.1: coefficient of first clipping contact and unit multiplier for fully clipped cycles."
+        ],
+        "identifier_or_url": "https://www.preprints.org/manuscript/202610.0191",
+        "material_read": "Public full-text abstract, §§1.1–2.1 and main-results exposition",
+        "method": "Publisher open HTML",
+        "title": "Separation Laws for Flip Bifurcations and Endogenous Switching Boundaries in Gradient Maps",
+        "trigger": "Nearby 2026 exact two-cycle and gradient-map instability theorem"
+      },
+      {
+        "assessment": "NOT COVERING in inspected material: introducing optimizer with velocity-based damping rather than a global real prime-two census",
+        "evidence": [
+          "§3 introduces finite-step damping eta_t=alpha0/(1+min(beta3||v||²,alpha1)) and studies optimizer/momentum dynamics."
+        ],
+        "identifier_or_url": "arXiv:2505.13196",
+        "material_read": "Public rendered full-text §§1 and 3 including motion and adaptive-step equations",
+        "method": "Lawful public arXiv rendered full text",
+        "title": "A Physics-Inspired Optimizer: Velocity Regularized Adam",
+        "trigger": "Original damping mechanism and potential prior formula for period-two reduction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b7fff225-ebd0-403a-a30d-c5b7feefb297",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The same reduced VR model motivates a natural missing quantitative question after its numerically reported symmetry breaking. The result provides an exact COMPLETE real prime-period-two classification and proves the second boundary \\(h=5\\), a precise stability limit for newly born asymmetric cycles not supplied by the symmetric-branch theorem. These statements are useful as an exact reference for post-edge optimizer dynamical diagrams and avoid guessing from finite simulations; not a routine parameter substitution or arbitrary finite sample.",
+    "status": "PASS"
+  }
+}
