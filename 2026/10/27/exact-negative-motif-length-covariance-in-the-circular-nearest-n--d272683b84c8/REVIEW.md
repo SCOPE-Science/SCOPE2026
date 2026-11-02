@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Exponential spacings reduce the pair-count versus length interaction to four local overlap classes. The joint expectations \(1/9\) and \(5/24\) imply the exact covariance \(-1/36\). A separate local second-moment calculation supplies the correlation normalization. Exact rational checks of cyclic gap ranks cover four small sample sizes, while the integration proof covers all \(n\ge5\).
+## correctness
 
-**Originality (O): PASS on inspected evidence; historical-priority risk remains.** Bahadır–Ceyhan, arXiv:1605.01940, includes the known separate reflexive-pair count moments for interval samples. Penrose–Wade, arXiv:math/0603561, gives static interval nearest-neighbor length moments and online graph limit theory. Neither inspected result gives their *mixed* covariance for uniform points on a circle, which cannot be inferred from separate marginals. Wilsher–Dettmann–Ganesh, arXiv:2202.08044, analyzes independent probabilistic connections and isolated-node counts on a torus. Equivalent formulations (reflexive pairs, reciprocal two-cycles, component count), broader implications, exact tables and database entries were searched. Prior priority beyond these sources remains possible.
+PASS
 
-**Value (V): PASS.** Both quantities are natural observables of a stochastic geometric network: component count and aggregate directed edge cost. Their exactly constant negative covariance and limiting nonzero negative correlation expose persistent structural dependence; neither follows from the established separate statistics.
+For n>=5 independent unit-rate exponential circular gaps E_i and T=sum E_i, Dirichlet normalization makes the reciprocal-pair count R=sum 1{E_i < E_(i-1), E_i < E_(i+1)} and directed length L=(sum min(E_(i-1),E_i))/T. T is independent of both R and L. The four nonzero indicator/minimum overlap covariances per i are two -1/18 and two +1/24; other pairs use disjoint exponentials, giving Cov(R,Q)=-n/36 and Cov(R,L)=-1/36. Adjacent local minima are mutually exclusive and distance-two joint probability 2/15, yielding VarR=2n/45. Each minimum of two exponentials has mean 1/2, variance 1/4, adjacent minimum covariance 1/12; using T Gamma(n,1) yields EL=1/2 and VarL=1/[6(n+1)]. These imply the claimed correlation -sqrt(15)/12 * sqrt((n+1)/n). Independent exact rational gap-order enumeration over all 5!,6!,7!,8! permutations checks all moments, not extrapolated as proof.
 
-**Scientific limits.** The circle is intrinsically metrized and has fixed circumference one; the sample is iid uniform; the graph has precisely one directed outgoing arc per vertex; the theorem concerns integers \(n\ge5\). Statements for undirected edge sums or other domains are not established. Exact finite checks do not prove the general identity. Independent historical-priority and mathematical audits remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Reflexive/mutual pair counts, weak component counts, and local minima are aliases; Bahadır–Ceyhan give separate reciprocal-count moments for interval samples. Penrose–Wade give total nearest-neighbor length results on intervals and online graph processes. Wilsher–Dettmann–Ganesh examine a probabilistic soft-geometric graph on a circle, not deterministic nearest neighbor links. Even exact knowledge of both marginal laws does not determine the mixed covariance. A fresh Resultary query did not surface this exact joint observable, though a broader stabilization covariance theorem or older stochastic geometry tables remain a residual risk.
+
+## value
+
+PASS
+
+Reciprocal pairs equal connected components, and directed total length measures network wiring cost. Their exact negative covariance independent of n and nonzero limiting correlation are intrinsic, quantitatively useful dependency facts for circular stochastic geometric graphs, rather than a recomputation of known marginals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
