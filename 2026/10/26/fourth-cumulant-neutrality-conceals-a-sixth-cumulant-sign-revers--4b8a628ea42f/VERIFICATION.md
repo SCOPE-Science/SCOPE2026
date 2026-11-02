@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python checker.py` with Python 3, NumPy, SciPy and SymPy installed. The checker printed `PASS: 33 symbolic/numerical checks; sample sixth-cumulant zero at t=0.898364443` on the inspected copy. It builds the symbolic tilted matrix and, separately, an eight-order differential system for finite-time moments; the latter is not based on differentiating the leading eigenvalue. It checks the analytic growth formulas against independent finite-time evaluations.
+## correctness
 
-The universal sign statements and the existence of a sixth-cumulant crossing are proved analytically in `RESULT.md`; tests at finitely many parameters and observation times cannot establish them alone. The threshold does not imply that there are no crossings below it or exactly one crossing above it. For each fixed parameter vector satisfying the assumptions, the stationary Markov spectral gap gives existence of all fixed-order growth limits. The independent audit channel has not been performed.
+PASS
+
+Starting from the actual Q generator on +,−,0, direct determinant expansion yields λ(λ+a+b)(λ+a+2h)=(λ+b)v²q²; the simple principal eigenvalue controls fixed-order cumulant growth by finite-state Feynman–Kac analyticity and its uniform spectral gap. Matching powers of s=v²q² gives neutrality ac=b(a+b), A=1/L, C2=0, C3=−1/(bL^4), C4=1/(b²L^5). Hence κ6/T=−720v^6/(bL^4) and κ8/T=40320v^8/(b²L^5), while Brownian diffusion changes only κ2. Stationarity makes instantaneous velocity ±v with probability p/2 and zero otherwise; its sixth cumulant is v^6p(1−15p+30p²), yielding the exact threshold and positive short-time sign. Continuity plus negative long-time sign gives existence, not uniqueness, of T*>0. Independent symbolic cubic and threshold identities passed; finite-time numerical zero is not used as a proof.
+
+## originality
+
+PASS
+
+The same three-phase intermittent propagation and fourth-order cumulant theory are already developed by Santra–Olsen–Gupta; neutral tuning follows from those antecedents. The narrower final result is the exact sixth/eighth order rates on this neutral locus and an analytical sufficient threshold for a strict sixth-cumulant time-sign change. A published all-cumulant characteristic transform makes the coefficients mechanically accessible and is the main originality risk, but the inspected source does not state this additional sign-classification result. Qualified best-of-knowledge PASS, not novelty certification.
+
+## value
+
+PASS
+
+Eliminating long-time excess kurtosis is a physically motivated diagnostic of apparently Gaussian motion. A rigorous concealed sixth/eighth cumulant signature and forced finite-time sign reversal show why that fourth-order diagnostic can fail; the sharp parameter surface is a meaningful structural boundary, not an arbitrary finite-order substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

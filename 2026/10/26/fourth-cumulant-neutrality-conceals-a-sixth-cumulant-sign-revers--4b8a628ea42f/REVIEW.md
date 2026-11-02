@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim follows from the exact tilted three-state Markov generator and its cubic characteristic polynomial. On the fourth-neutral surface, matching coefficients through fourth order in the squared tilt proves strictly negative sixth and strictly positive eighth cumulant rates. The short-time sign is the sixth cumulant of the stationary three-valued instantaneous velocity and gives a sharp reorientation threshold. Analytic spectral separation and finite-time moment continuity justify the two asymptotics and the intermediate-value conclusion. A separate block-matrix moment calculation corroborated the formulas for nonzero diffusion; 33 checker assertions passed. The one or more finite-time crossings are proven, but uniqueness is not.
+## correctness
 
-**Originality — PASS, subject to independent priority scrutiny.** Peruani–Chaudhuri (arXiv:2306.05647) and Datta–Beta–Großmann (arXiv:2406.15277) establish related intermittent transport. Santra–Olsen–Gupta (arXiv:2408.16643, Section 4.2, equation (54)) directly covers the *fourth-cumulant* behavior in a corresponding three-phase model and provides a general transform. That antecedent is excluded from the new claim. The inspected treatment does not state the strict paired sixth/eighth rates on fourth-neutrality or the critical finite-time sixth-cumulant sign-reversal threshold. The general transform permits further differentiation, so possible implicit coverage is the leading residual priority risk.
+PASS
 
-**Scientific value — PASS.** Fourth-cumulant or excess-kurtosis cancellation is a natural diagnostic for apparent Gaussian transport. The result proves that this tuning conceals higher-order non-Gaussian rates of fixed opposite signs, and—in a sharply defined parameter regime—forces an observable time-dependent sixth-cumulant reversal. These are model-specific physical fluctuation signatures, not arbitrary parameter substitutions; they matter when transport is characterized beyond variance and kurtosis. Their applicability outside stationary exponential stop-and-go models is unproved.
+Starting from the actual Q generator on +,−,0, direct determinant expansion yields λ(λ+a+b)(λ+a+2h)=(λ+b)v²q²; the simple principal eigenvalue controls fixed-order cumulant growth by finite-state Feynman–Kac analyticity and its uniform spectral gap. Matching powers of s=v²q² gives neutrality ac=b(a+b), A=1/L, C2=0, C3=−1/(bL^4), C4=1/(b²L^5). Hence κ6/T=−720v^6/(bL^4) and κ8/T=40320v^8/(b²L^5), while Brownian diffusion changes only κ2. Stationarity makes instantaneous velocity ±v with probability p/2 and zero otherwise; its sixth cumulant is v^6p(1−15p+30p²), yielding the exact threshold and positive short-time sign. Continuity plus negative long-time sign gives existence, not uniqueness, of T*>0. Independent symbolic cubic and threshold identities passed; finite-time numerical zero is not used as a proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The same three-phase intermittent propagation and fourth-order cumulant theory are already developed by Santra–Olsen–Gupta; neutral tuning follows from those antecedents. The narrower final result is the exact sixth/eighth order rates on this neutral locus and an analytical sufficient threshold for a strict sixth-cumulant time-sign change. A published all-cumulant characteristic transform makes the coefficients mechanically accessible and is the main originality risk, but the inspected source does not state this additional sign-classification result. Qualified best-of-knowledge PASS, not novelty certification.
+
+## value
+
+PASS
+
+Eliminating long-time excess kurtosis is a physically motivated diagnostic of apparently Gaussian motion. A rigorous concealed sixth/eighth cumulant signature and forced finite-time sign reversal show why that fourth-order diagnostic can fail; the sharp parameter surface is a meaningful structural boundary, not an arbitrary finite-order substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
