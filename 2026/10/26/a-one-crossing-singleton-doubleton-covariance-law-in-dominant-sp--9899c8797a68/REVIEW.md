@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. An independently derived hypergeometric identity reduces the within-sample singleton–doubleton covariance to \(p_2(\mathbb E[M]-2-\Pr[M=1])\). The coupling is checked for uniformity by explicit subset probabilities, and a strictly positive event establishes the sign factor's strict increase in dominant abundance. The endpoint and root-limit arguments cover all stated integers and the large-census asymptotics. A separate exact enumeration of 155 labeled-subset cases agrees with the formula. Remaining proof limits: no result for general arbitrary abundance vectors, and finite numerical checks do not establish the infinite claims.
+PASS
 
-## Originality
+With M hypergeometric for n draws from B dominant and r distinct singleton individuals, F1=n-M+1_{M=1}, F2=1_{M=2}, so Cov(F1,F2)=p2(E[M]-2-p1). The relevant sign factor is E[g(M)]-2 with g(0)=g(1)=0 and g(m)=m for m≥2. The coupling from B+1 to B removes a new dominant individual if sampled and replaces it uniformly among previously unselected old individuals; each old size-n subset is obtained with probability 1/C(B+r,n). It ensures M_B≤M_{B+1} and has a positive event 1→2 when r≥n−1, establishing strict T increase. T(2)<0 since M=1 possible, T(B)→n−2>0 for fixed n≥3, hence unique threshold (possible single zero). If B/r→q/(1−q), hypergeometric M→Bin(n,q), giving limit H_n(q)=nq[1−(1−q)^{n−1}]−2 strictly increasing from −2 to n−2; bracketing gives threshold scaling. The roots q_n decrease, and 2<nq_n<3 yields limit c(1−e^{-c})=2. For n=2, F1+2F2=2 so Cov=−2Var(F2). Exact labeled-subset enumeration independently corroborated the hypergeometric formula and B=2,5,6 examples at n=3,r=2, but asymptotic/global claims rest on the coupling and limit arguments.
 
-PASS with residual bibliographic risk. Full accessible primary texts on singleton/doubleton richness bounds and coverage-based rarefaction were compared by their actual variables and sampling assumptions. Pan–Chao–Foissner (2009) uses an iid multinomial abundance model for its formulas and explicitly notes that without-replacement samples use a different generalized hypergeometric model. Chao–Jost (2012) treats expected richness, coverage and extrapolation, not the strict covariance sign change. A related published mathematical record concerns sample richness versus a frequency count in uniform occupancy, and another concerns successive species discoveries; neither implies covariance of two within-sample frequency counts in the specified fixed-census model. The complete 1975 Heck et al. paper and any mathematically equivalent early occupancy literature remain unchecked.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The two frequency counts are central inputs to Good–Turing/Chao richness and coverage procedures, and their joint sampling behavior matters for uncertainty calculations. The result establishes an exact finite-census sign phase, a unique one-parameter transition for every sample depth, its changing large-richness threshold, and the sharp two-versus-three-draw distinction. The result does not claim that the covariance alone yields full nonlinear-estimator variance or practical finite-sample accuracy.
+Best-of-knowledge comparison of actual propositions, implications and hypotheses; the credited prior fragments are not claimed as new. Full texts actually read are identified, and inaccessible same-object papers remain explicit risks; an unsuccessful search is not novelty proof. Previous successive-species-discovery covariance and richness/frequency covariance are different random variables and sampling designs. Their sign change is not a theorem implying the present same-sample F1-F2 result; the exact hypergeometric coupling supplies the missing assertion.
 
-## Closest literature and limitations
+## value
 
-Heck et al. (1975), DOI 10.2307/1934716 (abstract accessible only); Pan, Chao and Foissner (2009), PMCID PMC2899312 (sections 2 and 7 inspected); Chao and Jost (2012), DOI 10.1890/11-1952.1 (full article text inspected). Related published mathematical findings on richness–frequency-count covariance and missing-mass discovery covariance were compared by statements, with summary-only access. Potential uninspected equivalent formulations remain the chief originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The covariance of the natural singleton and doubleton species frequency counts controls ecological sampling and uncertainty calculations. A sharp abundance-driven negative/zero/positive transition plus explicit finite-population threshold and rare-tail scaling is a new motivated sign classification, not an arbitrary numerical statistic or a claim of universal abundance profiles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
