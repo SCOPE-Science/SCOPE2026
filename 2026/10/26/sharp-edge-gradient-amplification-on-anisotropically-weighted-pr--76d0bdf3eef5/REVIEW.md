@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The weighted graph Laplacian separates into commuting coordinate heat semigroups. A dipole on a single coordinate has an explicit factorized potential; positivity and stochastic normalization of the remaining heat kernels give the complete directional absolute row masses. Arithmetic–geometric mean yields a sharp upper bound on every cross-direction contribution, with equality in all directions if and only if the rates \(q_ic_i\) coincide. Explicit positive differences identify the shortest alphabet and establish the equal-conductance ordering. Finite exact-rational transfer-current matrix reconstructions provide a second calculation for small instances, but the proof is analytical. The conditions \(d\ge3\), \(q_i\ge2\), \(c_i>0\) and the energy-weighted edge normalization are essential to the stated theorem.
+## correctness
 
-**Originality — PASS on presently accessible evidence, subject to historical risk.** Jiang–Lim–Yao–Ye and Kassel–Wu supply the general Hodge projection and transfer-current frameworks, without the higher-factor product norm or weight optimization in the examined full text. Hibino–Lee–Obata treat product graph spectra rather than edgewise endpoint-norm extremizers. Bollobás–Brightwell address resistances and random walks in graph products, not the present sharp amplification formula in the accessible abstract; its full article was not inspected. An earlier exact formula for two-factor rook graphs is mathematically subsumed and is *not* claimed as new. The additional higher-factor pairwise decomposition, unique simultaneous conductance-rate balancing, and exact maximizer directions are not implied by simply knowing a two-factor value without a tensorization argument. An earlier calculation under different terminology remains a possible priority risk. No negative novelty claim rests solely on search absence.
+PASS
 
-**Value — PASS.** Coordinatewise sensitivity of Hodge least-squares recovery is an operational invariant of noisy edge comparisons. A product of cliques is a canonical multi-attribute comparison network, and the result shows that worst-case amplification decomposes into pairwise rather than genuinely higher-order terms. The sharp and uniquely rate-balanced global worst case solves a nontrivial anisotropic design problem; the smallest-alphabet rule and \((d+1)/2\) hypercube law identify vulnerable directions and dimension dependence. This goes beyond an arbitrary parameter substitution into the known two-factor case.
+For every d>=3, q_i>=2, c_i>0, the energy-normalized gradient projection is symmetric idempotent. Starting from the zero-sum edge dipole, the product heat kernel integrates to a strictly positive h_i. Counting its signed gradients: coordinate i contributes 2(q_i-1)/q_i, and each j!=i contributes 2(q_j-1)sqrt(c_i*c_j)/(q_i*c_i+q_j*c_j), with monotone heat-kernel differences justifying absolute values. Thus row and column norms equal max_i R_i. Pairwise AM-GM proves R_i<=F_i; a maximizing row requires q_i*c_i=q_j*c_j for all j, so the maximizing ratios are unique up to scale. The explicit F_i-F_j formula is positive for q_i<q_j; equal conductances likewise favor smallest alphabet. This is universal analytic reasoning, not inferred from four finite matrix tests.
 
-**Limitations and risks.** No arbitrary within-factor edge weights or minimization of the amplification is covered. The computation is not an infinite-dimensional certificate; the printed tests check finite instances. Exact historical priority cannot be guaranteed without wider specialist literature and independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two-factor rook-graph formula is acknowledged as covered and excluded. Kassel–Wu gives the transfer-current projection, Jiang–Lim–Yao–Ye the general Hodge framework, and Hibino–Lee–Obata the spectral context. None of their inspected statements evaluates arbitrary mixed d>=3 row-sum norms, proves the pairwise absolute flow formula or uniquely optimizes all positive c_i. Prior equivalence remains possible in uninspected electrical-resistance literature.
+
+## value
+
+PASS
+
+For a canonical multiattribute product-of-cliques comparison graph, the exact worst coordinatewise sensitivity of energy-normalized least-squares gradient recovery is an important operator invariant. The fact that all higher-dimensional edge responses split pairwise, with a unique jointly worst rate balance and a precise smallest-alphabet sensitivity rule, is a nontrivial structural and optimization result rather than a renaming of d=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
