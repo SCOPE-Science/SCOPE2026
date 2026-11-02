@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T12:55:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The completed linear two-stage Radau IIA stability map r(z)=(6+2z)/(6-4z+z²) has Taylor coefficients a_1..a_5=1,1/2,1/6,1/36,-1/108. For any row Markov generator with n≤5, the first nonzero (i,j) power is exactly a positive path-sum at the shortest directed distance d≤n−1≤4; unreachable entries are identically zero, and diagonal entries tend to one. Thus every fixed such generator has a (not uniform in Q) positive small-step interval. The irreducible directed six-cycle first reaches displacement five at order h⁵, giving -h⁵/108+O(h⁶); longer directed cycles share this local sign failure. A direct rational-inverse computation for P⁶=I verifies the common positive denominator, four strictly positive offdiagonal numerators, the positive diagonal via Bernstein and shifted certificates, and N_5=h⁵(h⁵+15h⁴+60h³+90h²+36h−12). The latter polynomial has strictly positive derivative on h≥0 and a unique positive root τ≈0.208608859735, so six-cycle entrywise positivity holds exactly for h=0 or h≥τ; the h=1/10 negative witness is -743849/19268401151106. Exact rational checks independently reconstructed every 2..6-cycle class; irreducible cycle diagonalization yields eventual positivity for n≥6. These calculations prove only the explicit finite rational identities, not the general generator theorem, which follows from the shortest-path argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SSP/absolute monotonicity controls uniform monotonicity over broad spatial discretizations; this theorem is generator-dependent and state-count sensitive.",
+          "The universal shortest-path lemma is reconstructed directly from positivity of the first four Taylor coefficients."
+        ],
+        "reasoning": "Generic SSP obstructions allow a bad spatial operator but do not by themselves classify the least conservative Markov dimension nor certify the polynomial positivity return set. A stronger coefficient-sign theorem remains possible and is recorded as a risk.",
+        "searches": [
+          "Gottlieb-Shu-Tadmor 2001 strong stability preserving",
+          "Lóczi Ketcheson 2014 Rational functions with maximal radius of absolute monotonicity",
+          "Blanes Iserles Macnamara 2022 positivity preserving methods"
+        ]
+      },
+      "checked_sources": [
+        "Read complete assigned RESULT.md at Git blob 2227681f345b7a3de94fe667cf0e3479991634a5; verified shortest-path coefficient argument and six-cycle rational identities.",
+        "Independent SymPy rational matrix reductions for directed cycles n=2..6, exact witness h=1/10, Maclaurin coefficients, polynomial signs; BATCH4979_INDEPENDENT_BOUNDED_CHECKS_OK.",
+        "Zappavigna, Colaneri, Kirkland & Shorten (2012), Essentially Negative News about Positive Systems, Linear Algebra Appl. 436, DOI 10.1016/j.laa.2011.12.021; inspected full-text relevant positivity/counterexample sections.",
+        "Gottlieb, Shu & Tadmor, Strong Stability-Preserving High-Order Time Discretization Methods, SIAM Review 43 (2001), inspected the SSP conditions and general nonnegativity limitations.",
+        "Resultary hit 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab concerns fourth-order [2/2] Padé, not Radau [1/2]."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work establishes related negativity mechanisms for diagonal Padé [2/2].",
+          "Assigned result treats Radau [1/2] and an irreducible six-cycle with a complete positivity return set."
+        ],
+        "reasoning": "Different Taylor coefficient sequences and concrete generators prevent direct implication of the sharp six-state Radau theorem from the cited eight-state [2/2] threshold. General qualitative instability alone is strictly weaker than a sharp dimension and exact positive-time set.",
+        "searches": [
+          "Zappavigna et al. 2012 DOI 10.1016/j.laa.2011.12.021",
+          "Resultary 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a rational end-step r(hQ), small-step entrywise signs are governed by the first nonzero Taylor coefficient at the shortest graph distance.",
+          "The 2012 paper examines a different rational [2/2] map, despite sharing Metzler graph dynamics."
+        ],
+        "reasoning": "Under the algebraic aliases Markov generator, Metzler matrix, rational stability map and absolute-monotonicity radius, the retrieved [2/2] example has an order-five coefficient and a different eight-state threshold; a method-independent statement cannot be conflated with the specific [1/2] Radau threshold and all-step six-cycle sign polynomial.",
+        "searches": [
+          "Resultary query: two stage Radau IIA Runge Kutta Markov transition matrix minimum states six small step nonnegative negative stability cycles entrywise",
+          "Zappavigna et al. 2012 DOI 10.1016/j.laa.2011.12.021"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numipedia identifies the method rational stability function, not the all-h Markov six-cycle matrix.",
+          "Resultary eight-state [2/2] Padé finding pertains to a different method."
+        ],
+        "reasoning": "No checked exact table gives the six-cycle τ, rational witness and all-conservative-generator dimension five certificate; a failed retrieval cannot establish absolute priority.",
+        "searches": [
+          "Resultary same query and eight-state Padé hit",
+          "Numipedia two-stage Radau IIA2 stability function https://ketch.github.io/numipedia/methods/RadauIIA2.html"
+        ]
+      },
+      "rationale": "Best-of-knowledge original contribution as delimited by the final assigned theorem, not novelty of its foundational method. Direct original statements and implications were compared against the checked primary results and the published-finding search. Highly relevant inaccessible works remain named as residual priority risks; no failed search or abstract alone proves whole-document noncoverage.",
+      "residual_risks": [
+        "A broader general theorem on rational approximations of Metzler semigroups might imply the sharp coefficient-sign minimal dimension as a corollary even without the same method name.",
+        "No exhaustive survey of unindexed numerical-integration notes or all specialized Radau positivity tables was possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses a distinct fourth-order diagonal Padé function; its nilpotent/Metzler example does not give the exact six-cycle third-order Radau threshold.",
+          "evidence": [
+            "Padé [2/2] rather than r(z)=(6+2z)/(6−4z+z²)."
+          ],
+          "identifier_or_url": "doi:10.1016/j.laa.2011.12.021",
+          "material_read": "Full text, relevant rational map, Metzler/Hurwitz example, and discussion of coefficient signs",
+          "method": "Lawful OA PDF opened with page screenshot and relevant proof inspection",
+          "title": "Essentially negative news about positive systems",
+          "trigger": "Closest prior negative positivity assertion for rational Padé steps"
+        },
+        {
+          "assessment": "General SSP restrictions do not determine dimension-dependent CTMC endpoint positivity or the exact six-cycle return threshold.",
+          "evidence": [
+            "SSP positivity is a different, global method-wide guarantee."
+          ],
+          "identifier_or_url": "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+          "material_read": "Relevant SSP definitions, positivity constraints and general method framework in full PDF",
+          "method": "Primary PDF text and screenshot",
+          "title": "Strong stability-preserving high-order time discretization methods",
+          "trigger": "General stability/positivity obstruction for Runge–Kutta methods"
+        },
+        {
+          "assessment": "Motivates tailored positivity methods, without the exact Radau rational classification.",
+          "evidence": [
+            "Blanes–Iserles–Macnamara (2022), ESAIM:M2AN 56."
+          ],
+          "identifier_or_url": "https://personales.upv.es/serblaza/2022_M2AN.pdf",
+          "material_read": "Introductory discussion and model properties in complete accessible PDF",
+          "method": "Primary PDF text and screenshot",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Related Markov/graph-Laplacian positivity motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest Markov state space permitting loss of end-step positivity at arbitrarily small positive steps is a natural dimension threshold for high-order time integration; an exact six-cycle return interval is a meaningful quantitative complement to generic SSP obstructions. The result is not merely a negative example: it supplies an all-generator five-state guarantee and a sharp classification for the six-state witness, clarifying what step-size reduction can and cannot fix.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Read complete assigned RESULT.md at Git blob 2227681f345b7a3de94fe667cf0e3479991634a5; verified shortest-path coefficient argument and six-cycle rational identities.",
+    "Independent SymPy rational matrix reductions for directed cycles n=2..6, exact witness h=1/10, Maclaurin coefficients, polynomial signs; BATCH4979_INDEPENDENT_BOUNDED_CHECKS_OK.",
+    "Zappavigna, Colaneri, Kirkland & Shorten (2012), Essentially Negative News about Positive Systems, Linear Algebra Appl. 436, DOI 10.1016/j.laa.2011.12.021; inspected full-text relevant positivity/counterexample sections.",
+    "Gottlieb, Shu & Tadmor, Strong Stability-Preserving High-Order Time Discretization Methods, SIAM Review 43 (2001), inspected the SSP conditions and general nonnegativity limitations.",
+    "Resultary hit 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab concerns fourth-order [2/2] Padé, not Radau [1/2]."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite independent checks verify the stated bounded mathematical identities, not infinite generality or external formal certification.",
+    "Originality remains a best-of-knowledge priority assessment with explicit uninspected sources and possible stronger general implications.",
+    "Source public metadata retain private provenance and misleading date claims; the package is not sanitized for publication."
+  ],
+  "residual_risks": [
+    "A broader general theorem on rational approximations of Metzler semigroups might imply the sharp coefficient-sign minimal dimension as a corollary even without the same method name.",
+    "No exhaustive survey of unindexed numerical-integration notes or all specialized Radau positivity tables was possible."
+  ],
+  "schema_version": 1
+}
