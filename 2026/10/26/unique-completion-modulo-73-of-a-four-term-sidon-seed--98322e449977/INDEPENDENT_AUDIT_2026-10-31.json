@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:50:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md frozen blob f435b740681b92ad7e4443c8d00dd26089be29f2",
+        "verify.py frozen blob 652a870912aefa6af76e30f4e897fb8f76f85b97",
+        "independent exact enumeration of 72 differences and 584 orbit images",
+        "Niu 2026 §2.1 citing Hall 1947 affine-orbit completeness"
+      ],
+      "rationale": "B=<2> modulo 73 has nine elements, its 9*8 ordered nonzero differences fill 1..72 exactly. Its affine stabilizer consists of nine multipliers in B and no nonzero translation, yielding 72*73/9=584 distinct orbit images. The affine signature of A is (0,1,3,7); exactly nine of B's 126 four-subsets have this signature and each is 2^j A; A has trivial affine stabilizer. Therefore exactly nine affine maps whose image contains A, constituting just one distinct B image after dividing by 9. An independent integer implementation exhaustively generated the 584 orbit images and directly found exactly one containing A. The implication for EVERY perfect difference set additionally and explicitly uses Hall/Niu classification of all cyclic (73,9,1) sets as this orbit; the finite orbit calculation does not prove that classification independently.",
+      "residual_risks": [
+        "Global all-PDS statement depends on correct external cyclic projective-plane classification, not an independent census of all 73 choose 9 subsets.",
+        "No claim of uniqueness for different modulus or other four-subsets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hall/Niu classification gives all 584 cyclic perfect difference sets modulo 73, up to affine equivalence; B is a Singer representative."
+        ],
+        "reasoning": "Classification alone enumerates the total universe, not which of those sets contain A. The new exact orbit-filter calculation specializes that known complete universe; global completeness was credited, not claimed new.",
+        "searches": [
+          "Marshall Hall Jr. (1947), Cyclic projective planes, Duke Math. J. 14:1079–1090",
+          "Niu arXiv:2604.25214 §2.1 order-eight complete affine orbit"
+        ]
+      },
+      "checked_sources": [
+        "Alexeev–Mixon arXiv:2510.19804 full text",
+        "Niu arXiv:2604.25214 abstract and reported orbit information",
+        "Hall 1947 cited classification (via Niu)",
+        "Resultary 73/Sidon seed semantic search",
+        "independent exact affine incidence checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior says A is extendible modulo73 and all PDS are among 584 images; present checker shows exactly one among those 584 contains A."
+        ],
+        "reasoning": "Neither existence plus total orbit size alone logically determines the incidence count. Actual full finite orbit test determines the extra fact. The external global classification is used as a premise.",
+        "searches": [
+          "Alexeev–Mixon arXiv:2510.19804 Theorem 8 and explicit 73 extension",
+          "Niu 2026 Singer-affine orbit and Hall 1947 classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unique completion is equivalent to a single Singer affine orbit member containing the given seed, or nine affine maps given stabilizer order 9.",
+          "Alexeev–Mixon display seed A and B but do not explicitly calculate the number of containing images in the inspected material."
+        ],
+        "reasoning": "Same displayed extension is not the same as unique extension. Distinguish existence from incidence multiplicity; the affine quotient requires an exact four-subset check.",
+        "searches": [
+          "Resultary semantic search: cyclic (73,9,1) perfect difference set unique four element Sidon subset {1,2,4,8} completion Singer affine",
+          "Alexeev–Mixon arXiv:2510.19804v2, full paper, discussion of 73 example",
+          "Niu arXiv:2604.25214 abstract/available sections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Niu reports Singer orbit enumeration and empirical nonextending seeds {0,1,3,11} and {0,1,4,11}; its accessible abstract does not report one-completion multiplicity for A={1,2,4,8}."
+        ],
+        "reasoning": "A table of exact containment counts would dominate this finite result; none verified. Full Niu body unavailable, so residual priority risk is explicit; an unsuccessful search is not a proof of priority.",
+        "searches": [
+          "Niu arXiv:2604.25214 size-four Sidon extension computations up to v=133, 584 at v=73",
+          "Resultary published SCOPE semantic search using seed and modulus 73"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge. Alexeev–Mixon (2025/2026) previously give the seed and the same B extension, while Niu (2026) gives the total 584 Singer orbit; those numerical facts are not new. The exact one-completion containment count is a separate finite incidence datum, not a consequence of the orbit cardinality alone. Bounded full-material comparison and primary searches found no assertion of that unique completion, but Niu complete text was not accessible; risk retained.",
+      "residual_risks": [
+        "Niu complete body inaccessible: it could contain this exact completion count.",
+        "Hall 1947 uniqueness classification was not independently reproved.",
+        "Single-modulus exact finite result has limited scope; value rests on central Sidon-extension seed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers seed and existence but no verified statement of unique 73 completion.",
+          "evidence": "Seed {1,2,4,8}, exhibited B subset Z/73 in 2025 work.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.19804",
+          "material_read": "Main accessible full 15-page text and discussion of explicit extension, Theorem 8 and restrictions; related PDF was viewed with page screenshot.",
+          "method": "Primary full-text HTML/PDF inspection",
+          "title": "Forbidden Sidon subsets of perfect difference sets, featuring a human-assisted proof",
+          "trigger": "Same four-term seed and modulus 73"
+        },
+        {
+          "assessment": "Cannot assert full-paper noncoverage; exact-count duplication remains plausible.",
+          "evidence": "Reports 584 affine images, certified order-eight Singer orbit and size-four seed examples, but abstract focuses on other nonextension seeds.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.25214",
+          "material_read": "Accessible abstract and indexed descriptions of §2.1 and §3.2; no complete document text available.",
+          "method": "Primary abstract/indexed discussion, arXiv and lawful OA attempted",
+          "title": "Size-4 Counterexamples to the Sidon-Extension Conjecture",
+          "trigger": "Same cyclic (73,9,1) universe and Singer affine orbit"
+        },
+        {
+          "assessment": "Do not claim independent validation of 1947 classification.",
+          "evidence": "All cyclic order-eight difference sets represented by Singer affine orbit per Niu.",
+          "identifier_or_url": "Marshall Hall Jr., Duke Math. J. 14 (1947) 1079–1090",
+          "material_read": "Classification only via Niu's explicit report, original 1947 complete text not read.",
+          "method": "Secondary trace to primary historical theorem",
+          "title": "Cyclic projective planes",
+          "trigger": "Completeness premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Alexeev–Mixon 2025 Sidon-extension conjecture context",
+        "Niu 2026 size-four extension-search motivation",
+        "exact affine containment calculation"
+      ],
+      "rationale": "The seed {1,2,4,8} is the natural powers-of-two four-term example central to the Sidon-extension question; deciding whether the exhibited order-eight PDS completion is unique is a canonical rigidity question about a nonarbitrary seed. The exact one-completion result is not mechanically determined by PDS existence or total orbit size and can inform extension/counterexample studies. Its finite specificity and dependence on a known classification are material qualifications, not automatic worthlessness.",
+      "residual_risks": [
+        "No general all-moduli extension theorem or classification of all seed types."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the four-term Sidon seed A={1,2,4,8} in Z/73, B={1,2,4,8,16,32,37,55,64} is the unique cyclic (73,9,1) perfect difference set containing A, assuming the published complete affine-orbit classification; the Singer affine orbit has 584 sets, and only B contains A.",
+  "limitations": [
+    "Covers fixed modulus 73 and fixed seed A; no statement about other moduli.",
+    "All-PDS completeness is a published premise, not independently enumerated.",
+    "Niu full text not read; qualified best-knowledge priority assessment."
+  ],
+  "schema_version": 1
+}
