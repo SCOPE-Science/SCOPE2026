@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `verify.py` independently generates all recursive trees at sizes \(3\)–\(8\), computes root-protection indicators from direct parent lists, and compares the conditional and unconditional means to the derived harmonic formulas using exact fractions. It also tests the exact difference identity for \(2\le N\le125\), confirms strict positivity on that finite range, and numerically checks the asymptotic expansion at four larger \(N\). The run reported 282 passed checks. No finite computation was treated as an infinite proof. The proof depends instead on exact forest generating functions, alternating-series pairing, and factorially controlled harmonic expansion.
+# Independent mathematical audit
 
-Independent audit has not been performed.
+## correctness
+
+PASS
+
+PASS: Deleting the root in a uniform random recursive tree yields a labeled set of increasing rooted branches, with each size-s branch (s−1)! structures and EGF z^s/s. Root protected iff no size-one branch; F(z)=e^(−z)/(1−z) and Pr(R_n)=f_(n−1). Marking internal path length s(H_s−1) gives conditional mean N+(1/f_N) sum_(s=2..N) (H_s−1)f_(N−s), while unconditional mean is n(H_n−1). Pair even/odd alternating partial sums f_j−f_N with decreasing positive harmonic weights to obtain strict positive Delta_n for all N≥2. The generating function for ε_j=f_j−e^(−1), with sum ε_j=e^(−1) and sum j ε_j=−e^(−1)/2, proves Delta_n=H_N−1+1/(2N)+O(N^(−2)). Independently enumerated every recursive-tree parent map n3..8 and checked exact probabilities and conditional mean. Finite enumeration is corroborative, not the all-n proof.
+
+## originality
+
+PASS
+
+PASS (qualified): Root protection probabilities, recursive-tree total path length, and protected fringe node statistics are known separately. In accessible Devroye–Janson 2013 full paper the recursive-tree section treats protected-node distributions rather than the exact global total path length conditional on the root protection event. Published root-attachment/path-length covariance is for different conditioning. General recursive-tree generating function techniques could recover the formula with new marked calculation, so priority is best-of-knowledge.
+
+## value
+
+PASS
+
+PASS: Root protection is a canonical local tree-shape event, total path length is a canonical global search-cost statistic. A strict positive conditional shift growing as log n, with explicit finite formula and 1/(2N) correction, quantifies their nontrivial dependence and is not a routine textbook mean formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

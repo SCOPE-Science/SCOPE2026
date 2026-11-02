@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T10:13:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Deleting the root in a uniform random recursive tree yields a labeled set of increasing rooted branches, with each size-s branch (s−1)! structures and EGF z^s/s. Root protected iff no size-one branch; F(z)=e^(−z)/(1−z) and Pr(R_n)=f_(n−1). Marking internal path length s(H_s−1) gives conditional mean N+(1/f_N) sum_(s=2..N) (H_s−1)f_(N−s), while unconditional mean is n(H_n−1). Pair even/odd alternating partial sums f_j−f_N with decreasing positive harmonic weights to obtain strict positive Delta_n for all N≥2. The generating function for ε_j=f_j−e^(−1), with sum ε_j=e^(−1) and sum j ε_j=−e^(−1)/2, proves Delta_n=H_N−1+1/(2N)+O(N^(−2)). Independently enumerated every recursive-tree parent map n3..8 and checked exact probabilities and conditional mean. Finite enumeration is corroborative, not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dobrow–Fill gives unconditional total path length; Mahmoud–Ward studies protected nodes; Devroye–Janson studies fringe protection.",
+          "Root-attachment covariance from published mathematical records is conditioned on a single arrival’s parent, not the conjunction that all root children have children."
+        ],
+        "reasoning": "None of the inspected statements implies the sharp mixed root-event conditional expectation without additional marked component analysis.",
+        "searches": [
+          "random recursive tree protected root no leaf children conditional total path length mean logarithmic excess global path length",
+          "Dobrow Fill 1999 Total Path Length for Random Recursive Trees",
+          "Mahmoud Ward 2015 Asymptotic Properties of Protected Nodes",
+          "Resultary root attachments negative path length profile"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md blob c618f76403ac95545f7db3749e38a3694676a2ed",
+        "assigned verify.py blob 02470ac4f6915fb1949cddfc85f6064d033d2971",
+        "arXiv:1310.0665",
+        "DOI:10.1017/S0963548399003855",
+        "DOI:10.1239/jap/1429282623",
+        "Resultary root-attachment path-length search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known unconditional E[P_n]=n(H_n−1) and protected root probability f_N are marginal facts.",
+          "A mixed expectation E[P_n 1_R] is not determined from marginals; the marking-of-branches EGF provides the extra covariance information."
+        ],
+        "reasoning": "The claimed exact positive logarithmic displacement is not a corollary of the two marginal identities without a separate structural weighted enumeration.",
+        "searches": [
+          "DOI:10.1017/S0963548399003855",
+          "DOI:10.1239/jap/1429282623",
+          "arXiv:1310.0665"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Protected root means no singleton branch after deleting root; the total depth splits into N plus internal branch depths.",
+          "The explicit weighted-forest coefficient is an equivalent mixed statistic, not simply the unweighted root-protection probability."
+        ],
+        "reasoning": "Used both protected-node/fringe-subtree and conditioned global path-length terminology to seek aliases; exact mixed mean not found in inspected theorems.",
+        "searches": [
+          "random recursive tree protected root no leaf children conditional total path length mean logarithmic excess global path length",
+          "protected root conditional internal path length random recursive tree",
+          "arXiv:1310.0665"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest result gives exact root-attachment/path-length profile; different event.",
+          "Alternating derangement partial sums f_N and harmonic numbers are classical sequences but their convolution is the target."
+        ],
+        "reasoning": "No direct table or database entry for the claimed all-n joint conditional statistic was identified, but absence of records is not novelty proof.",
+        "searches": [
+          "random recursive tree protected root no leaf children conditional total path length mean logarithmic excess global path length",
+          "Resultary published protected root total path length",
+          "Devroye Janson 2013 protected nodes"
+        ]
+      },
+      "rationale": "PASS (qualified): Root protection probabilities, recursive-tree total path length, and protected fringe node statistics are known separately. In accessible Devroye–Janson 2013 full paper the recursive-tree section treats protected-node distributions rather than the exact global total path length conditional on the root protection event. Published root-attachment/path-length covariance is for different conditioning. General recursive-tree generating function techniques could recover the formula with new marked calculation, so priority is best-of-knowledge.",
+      "residual_risks": [
+        "General recursive-tree path-length recurrence literature may already imply the same mixed conditional statistic; 1999/2015 primary bodies not fully inspected.",
+        "Strictly larger conditional mean is not stochastic domination.",
+        "The model is uniform recursive trees only, not arbitrary tree ensembles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_INSPECTED_MIXED_STATISTIC",
+          "evidence": [
+            "Distribution of protected nodes and limits, not root-protection-conditioned total path length."
+          ],
+          "identifier_or_url": "arXiv:1310.0665",
+          "material_read": "Full open-access PDF, protected-node definitions and recursive-tree/fringe-subtree sections, searched path length",
+          "method": "Read primary PDF",
+          "title": "Protected nodes and fringe subtrees in some random trees",
+          "trigger": "Canonical recursive-tree root protection and fringe subtree results"
+        },
+        {
+          "assessment": "BACKGROUND_ACCESS_RISK",
+          "evidence": [
+            "Gives path-length expectation and decomposition, which alone does not evaluate mixed root-protection moment; cannot exclude other body material."
+          ],
+          "identifier_or_url": "DOI:10.1017/S0963548399003855",
+          "material_read": "Primary abstract and bibliographic theorem summary; full original not obtained",
+          "method": "Abstract-only comparison",
+          "title": "Total Path Length for Random Recursive Trees",
+          "trigger": "Closest global observable"
+        },
+        {
+          "assessment": "BACKGROUND_ACCESS_RISK",
+          "evidence": [
+            "Protected-node counts/probabilities, not an asserted joint conditional global path-length mean in accessible text."
+          ],
+          "identifier_or_url": "DOI:10.1239/jap/1429282623",
+          "material_read": "Primary abstract and bibliographic source; full paper not independently read",
+          "method": "Abstract-only comparison",
+          "title": "Asymptotic Properties of Protected Nodes in Random Recursive Trees",
+          "trigger": "Closest local protected-root event"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Root protection is a canonical local tree-shape event, total path length is a canonical global search-cost statistic. A strict positive conditional shift growing as log n, with explicit finite formula and 1/(2N) correction, quantifies their nontrivial dependence and is not a routine textbook mean formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned RESULT.md blob c618f76403ac95545f7db3749e38a3694676a2ed",
+    "assigned verify.py blob 02470ac4f6915fb1949cddfc85f6064d033d2971",
+    "arXiv:1310.0665",
+    "DOI:10.1017/S0963548399003855",
+    "DOI:10.1239/jap/1429282623",
+    "Resultary root-attachment path-length search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General recursive-tree path-length recurrence literature may already imply the same mixed conditional statistic; 1999/2015 primary bodies not fully inspected.",
+    "Strictly larger conditional mean is not stochastic domination.",
+    "The model is uniform recursive trees only, not arbitrary tree ensembles.",
+    "Publication is withheld pending public metadata sanitization; this is an operational limitation, not a scientific FAIL.",
+    "No Lean or expert attestation claimed; no GitHub changes or dispatcher closeouts."
+  ],
+  "schema_version": 1
+}
