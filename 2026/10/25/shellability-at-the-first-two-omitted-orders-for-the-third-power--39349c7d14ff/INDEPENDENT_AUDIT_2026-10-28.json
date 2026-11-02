@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:04:59.369467Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 2f5ae738fba0fadd19b3403d26a2a3cea42fe8fd",
+        "Frozen shellings.json blob 4510997c895e342d9056885fc6f2251696da737f",
+        "Frozen check_shelling.py blob ac82c61596c97a9d93f2c88390c49b9bfcc8df38",
+        "Frozen independent checker blob ddbb693dd1f84035a7bed123f4fc1aa902d1e6a0",
+        "https://arxiv.org/pdf/2603.23155",
+        "https://arxiv.org/html/2406.01979"
+      ],
+      "rationale": "Definitions and normalization were checked: C_n^3 connects residues of cyclic distance <=3; the ordinary three-cut facets are complements of disconnected induced 3-sets, not of independent sets alone. Every facet has n-3 vertices. The exact 169 masks at n=13 and 238 masks at n=14 in shellings.json were independently recomputed by graph-traversal connectivity and matched uniquely as the complete facet sets. For every facet after the first, independently computed its prior ridges and verified nonempty intersection and for every earlier facet a containing earlier ridge; zero failed checks. The complete down-closures had 7904 and 16067 nonempty faces. Exactly 1 and 8 facets have full restriction sets, proving respectively S^9 and wedge_8 S^10 via pure shellability. The cited Chauhan–Shukla Theorem 1.4 actually covers n>=6p-3, so p=3 covers n>=15. Combining the exact finite proofs with that published theorem yields shellability for every n>=13 and sphere multiplicity (n^2-13n+2)/2. No inference from finite enumeration to n>=15 is made.",
+      "residual_risks": [
+        "For n>=15 the theorem explicitly depends on the published general result; no result is asserted for 9<=n<=12 or p>=4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 states shellability for p>=2 and n>=6p-3, p=3 n>=15.",
+          "The Resultary homology character result uses the same stable range n>=6p-3, not the two omitted orders."
+        ],
+        "reasoning": "A general theorem with stronger formal quantifiers would cover special finite cases, but its n>=15 hypothesis excludes n=13,14. The earlier conjecture predicts shellability but is not itself proof.",
+        "searches": [
+          "arXiv:2603.23155 Chauhan–Shukla 2026, Theorem 1.4",
+          "arXiv:2406.01979 Chauhan–Shukla–Vinayak Conjecture 4.2",
+          "Resultary rational cyclic homology representation of three-cut cycle powers"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2603.23155",
+        "https://arxiv.org/html/2406.01979",
+        "Resultary search third power cycle graph ordinary three cut complex shellability n=13 n=14 conjecture"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known integral homology ranks are consistent with shellability but cannot exclude extra unstable attaching phenomena or non-shellable pure complexes.",
+          "Exhaustive certificates check every ridge intersection for 169 and 238 facets."
+        ],
+        "reasoning": "Neither prior n>=15 theorem nor n=13/14 homology tables logically imply n=13/14 shellability. The certified finite bridge fills exactly the conjectured p=3 positive range.",
+        "searches": [
+          "arXiv:2603.23155 Theorem 1.4 n>=15",
+          "arXiv:2406.01979 Table 2 and Conjecture 4.2(ii)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary 2024 paper explicitly distinguishes ordinary from total 3-cut complexes, Conjecture 4.2(ii) states shellability n>=4p+1 (p>=3).",
+          "For p=3 this starts at n=13, exactly the missing two finite cases."
+        ],
+        "reasoning": "Check equivalent terms cycle-power graph C_n^p, ordinary cut complex, complements of disconnected triples. Total cut complexes requiring independent triples differ. Mere equivalence of homology ranks does not imply shellability.",
+        "searches": [
+          "Resultary semantic search: third power cycle graph ordinary three cut complex shellability n=13 n=14 conjecture",
+          "web: third power cycle graph ordinary three cut shellability n=13 n=14",
+          "arXiv:2406.01979 Conjecture 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two homology ranks at n=13 and n=14 appear in the earlier published Table 2 and are explicitly NOT claimed new.",
+          "The two stored full facet orders and independent acyclicity/ridge-cover checks prove the stronger shellability property."
+        ],
+        "reasoning": "Do not mistake a known rank table or previous guessed sphere wedge for a pure shelling. The exact finite certificate is the substantive additional fact.",
+        "searches": [
+          "arXiv:2406.01979 Table 2",
+          "arXiv:2603.23155 table of previous homology",
+          "Resultary third power cycle graph ordinary three cut complex shellability n=13 n=14 conjecture"
+        ]
+      },
+      "rationale": "The two exact finite cases n=13 and n=14 are the only newly established shellability claims. Homology and expected wedge counts were in a prior Table 2, while published shellability proved p=3 only for n>=15; therefore shellability of the two omitted orders is a mathematically sharper, not redundant, result.",
+      "residual_risks": [
+        "Previously unindexed explicit shellings for n=13 or n=14 might affect priority.",
+        "No new general construction for n>=15 is offered; the all-n statement uses a known theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING n=13,14; establishes p=3 only n>=15",
+          "evidence": "Theorem 1.4: for p>=2 and n>=6p-3, shellable with stated top-sphere count.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.23155",
+          "material_read": "Complete relevant primary article including Theorem 1.4 and the formula and n-range hypotheses",
+          "method": "Public arXiv PDF text and rendered-page inspection",
+          "title": "Shellability of 3-cut complexes of powers of cycle graphs",
+          "trigger": "Same graph power and ordinary three-cut complex, strongest published range"
+        },
+        {
+          "assessment": "COVERS old homology numbers, DOES_NOT_PROVE the two new shellings",
+          "evidence": "Conjecture 4.2(ii): p>=3, n>=4p+1; Table 2 has the n=13 and n=14 homology calculations.",
+          "identifier_or_url": "https://arxiv.org/html/2406.01979",
+          "material_read": "Full accessible primary HTML including Conjecture 4.2 and Table 2",
+          "method": "Lawful full-text HTML reading",
+          "title": "Shellability of 3-cut complexes of squared cycle graphs",
+          "trigger": "Contains conjectured boundary and earlier numerical table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 2f5ae738fba0fadd19b3403d26a2a3cea42fe8fd",
+        "Frozen shellings.json blob 4510997c895e342d9056885fc6f2251696da737f",
+        "Frozen check_shelling.py blob ac82c61596c97a9d93f2c88390c49b9bfcc8df38",
+        "Frozen independent checker blob ddbb693dd1f84035a7bed123f4fc1aa902d1e6a0",
+        "https://arxiv.org/pdf/2603.23155",
+        "https://arxiv.org/html/2406.01979"
+      ],
+      "rationale": "The published natural conjecture begins exactly at n=4p+1, whereas the existing proved p=3 range begins at n=15. Exhaustively certifying n=13 and n=14 therefore completes the p=3 positive conjectural range, a mathematically motivated sharp finite cutoff, rather than re-tabulating known Betti ranks. Full shellability is strictly stronger than homology and yields integral sphere-wedge homotopy.",
+      "residual_risks": [
+        "The negative half of the conjecture and higher cycle powers remain open/outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 2f5ae738fba0fadd19b3403d26a2a3cea42fe8fd",
+    "Frozen shellings.json blob 4510997c895e342d9056885fc6f2251696da737f",
+    "Frozen check_shelling.py blob ac82c61596c97a9d93f2c88390c49b9bfcc8df38",
+    "Frozen independent checker blob ddbb693dd1f84035a7bed123f4fc1aa902d1e6a0",
+    "https://arxiv.org/pdf/2603.23155",
+    "https://arxiv.org/html/2406.01979"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "New finite shellings precisely n=13,14; all n>=15 from published Theorem 1.4",
+    "The finite 169/238-facet lists checked completely, not guessed from homology ranks",
+    "No statement for n<13 or p>=4."
+  ],
+  "schema_version": 1
+}
