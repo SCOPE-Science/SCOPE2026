@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:51:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The independent edge-bracket basis gives [x,y]=0 iff x_u y_v-x_v y_u=0 for every graph edge. For S=supp(x), edge equations force y=0 on N(S)\\S, constant ratio y_u/x_u on each connected component of G[S], and arbitrary coordinates outside N[S]; therefore dim C_W(x)=c(G[S])+|V\\N[S]|. A projective line [x] has no other commuting projective line iff this dimension is one, equivalent to S connected dominating. Decompose the complement graph into components H_i on blocks V_i. The original graph is the complete join of its induced block graphs: any multi-block support is connected dominating and isolated, and no commuting edge crosses different block supports. Each nonisolated block-supported projective point reaches a basis line in its block within at most two commuting edges (by a non-neighbor if its support fails to dominate, or by restriction to a disconnected support component otherwise). The basis lines reproduce connected H_i, giving one nontrivial component for each |V_i|>=2, of size [m_i]_q-D_i(q) and diameter <=4+diam(H_i). Supports have (q-1)^(|S|-1) projective lines, giving the weight D_i. In any tree, connected dominating sets are exactly the sets containing all non-leaves; summing over leaf additions gives q^ell(q-1)^(n-ell-1) isolates. Independent actual determinant-based commutation counts agreed with connected-domination prediction across 92 graph/field instances with n<=4, q=2,3; finite tests supplement the all-size proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sriwongsa Theorem 2.12 is exact abstract coverage of the local centralizer test.",
+          "Ha et al. study elementwise commuting graphs L\\Z(L), not the finite projective central quotient; graph algebras are an input construction."
+        ],
+        "reasoning": "Neither broader general centralizer theory nor elementwise graph diameter bounds supplies the claimed precise co-component factorization with weighted component cardinalities on all graphs.",
+        "searches": [
+          "arXiv:2505.00726 complete 18-page source, Theorem 2.12 and 2.13",
+          "arXiv:2405.06521 Lie algebra elementwise commuting graphs",
+          "arXiv:2308.00272 graphical Lie algebra constructions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py",
+        "Independent determinant-count 92 graph/prime-field cases n<=4",
+        "Songpon Sriwongsa 2025 arXiv:2505.00726 Theorem 2.12 (full primary PDF read)",
+        "Ha et al. 2024 arXiv:2405.06521",
+        "Godoy Molina–Lagos 2023 arXiv:2308.00272",
+        "Resultary projective graphical Lie algebra query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.12 proves only dominance of a single noncommuting projective graph vertex (isolation after complementation), not connectivity among all other commuting lines.",
+          "The new proof uses complete-join co-block constraints and two-step paths to basis points; no such connectivity theorem is in the inspected Sriwongsa statements."
+        ],
+        "reasoning": "The connected-domination support criterion follows from prior + a computation, but the full component partition, count [m_i]_q-D_i(q), diameter bounds, and tree leaf recovery do not follow without further graph-specific arguments.",
+        "searches": [
+          "Sriwongsa arXiv:2505.00726 Theorem 2.12 and 2.13",
+          "Ha et al. arXiv:2405.06521, elementwise commuting graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sriwongsa defines the graph on P(L/Z(L)) with NONCOMMUTING adjacency and proves dominating vertex iff centralizer line plus center; this is exactly the isolated-point test after edge complementation.",
+          "The new decomposition determines every nontrivial component of the COMPLEMENTARY commuting graph for independent-edge graph algebras, together with sizes and a diameter bound."
+        ],
+        "reasoning": "The general isolated criterion is not novel; the graph-induced block structure and weighted connected-domination enumerator are additional conclusions not implied by complementing an isolated-vertex criterion.",
+        "searches": [
+          "Resultary: graphical Lie algebra projective commuting graph central quotient components connected dominating sets complement",
+          "arXiv:2505.00726 Theorem 2.12",
+          "arXiv:2308.00272 Lie algebras associated with labeled directed graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned Resultary related examples involve extraspecial-group or symplectic graphs, not a connected-domination polynomial for all graphical Lie algebras.",
+          "The theorem applies to arbitrary graph size and all prime-power q, unlike any finite component table."
+        ],
+        "reasoning": "An infinite graph-to-algebra correspondence and leaf formula are not mere lookup; absence of a direct database match alone is not novelty proof.",
+        "searches": [
+          "Resultary: graphical Lie algebra projective commuting graph central quotient components connected dominating sets complement",
+          "Web: graph indexed Lie algebra projective commuting connected components graph complement"
+        ]
+      },
+      "rationale": "PASS restricted to complete co-component decomposition and exact weighted counts, not the general projective-isolation centralizer criterion: Sriwongsa 2025 Theorem 2.12 already states the complementary noncommuting-graph dominating-vertex criterion for arbitrary Lie algebras.",
+      "residual_risks": [
+        "The isolated-vertex criterion is conclusively prior art and must never be claimed novel.",
+        "An earlier support-centralizer decomposition under graph-algebra or commutation-geometry synonyms could cover the component theorem; this was not exhaustively ruled out.",
+        "Only independent edge-bracket generators and input graphs without isolated vertices are treated; prime-field numerics do not verify all prime powers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS isolate/centralizer criterion; not observed to cover graphical co-component decomposition",
+          "evidence": [
+            "Theorem 2.12 says {[x]} dominates the projective noncommuting graph iff C_L(x)=<x>+Z(L), the exact complementary isolation test. The theorem contains no independent-edge G hypothesis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.00726",
+          "material_read": "Primary 18-page PDF opened; definitions, Section 2 Theorem 2.12/2.13 with proofs, relevant structural theorems and downstream pages read; rendered p10 screenshot",
+          "method": "Original arXiv PDF text search plus screenshot",
+          "title": "Non-commuting graphs of projective spaces over central quotients of Lie algebras",
+          "trigger": "Exact same projectivization and complementary adjacency"
+        },
+        {
+          "assessment": "COVERS construction/background, not established full projective component theorem",
+          "evidence": [
+            "Focus is graph-indexed construction of the two-step algebra, not projective commuting co-component census."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.00272",
+          "material_read": "Primary abstract, bibliographic description and submitted package relation to source, not full source text",
+          "method": "Targeted arXiv record lookup",
+          "title": "Lie algebras associated with labeled directed graphs",
+          "trigger": "Same independent-edge graph Lie algebra input"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph-algebra construction is motivated by transferring combinatorial invariants to Lie-theoretic commutation geometry. Computing all projective commuting components (including exact weighted sizes and a diameter bound) for arbitrary input graphs is substantially richer than a routine centralizer test; the tree specialization encodes a natural leaf invariant. The result is an exact structural classification, not just code correctness or novelty by renaming.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verify.py",
+    "Independent determinant-count 92 graph/prime-field cases n<=4",
+    "Songpon Sriwongsa 2025 arXiv:2505.00726 Theorem 2.12 (full primary PDF read)",
+    "Ha et al. 2024 arXiv:2405.06521",
+    "Godoy Molina–Lagos 2023 arXiv:2308.00272",
+    "Resultary projective graphical Lie algebra query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Graph G finite simple with no isolates and algebra having independent central generators for graph edges; excludes dependent brackets and extra central vertex directions.",
+    "Exact diameters/internal spectra of components not computed; tree isolates recover leaf count at known q,n, not full tree isomorphism type."
+  ],
+  "residual_risks": [
+    "The isolated-vertex criterion is conclusively prior art and must never be claimed novel.",
+    "An earlier support-centralizer decomposition under graph-algebra or commutation-geometry synonyms could cover the component theorem; this was not exhaustively ruled out.",
+    "Only independent edge-bracket generators and input graphs without isolated vertices are treated; prime-field numerics do not verify all prime powers."
+  ],
+  "schema_version": 1
+}
