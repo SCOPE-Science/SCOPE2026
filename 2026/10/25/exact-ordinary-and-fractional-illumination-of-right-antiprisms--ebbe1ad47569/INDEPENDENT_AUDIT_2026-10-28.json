@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T11:40:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md (normal-cone equations (1)-(5)), SLOGAN.txt, and verify.py at https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/exact-ordinary-and-fractional-illumination-of-right-antiprisms--ebbe1ad47569/RESULT.md",
+        "Independent rederivation and tests /mnt/data/scope_worker06_independent_checks.py (CHECK1_PASS)"
+      ],
+      "rationale": "For n>=3, h>0 the upper/lower bases and three adjacent side facets give exactly four active facet normals per vertex: (0,0,+1), (e_j,-k), (c e_j +/-q t_j,+k) on top, with vertical signs reversed below; k=(1-c)/(2h), c=cos(pi/n), q=sin(pi/n). An illuminating direction at the upper base requires negative vertical component and the lower base requires positive: it cannot cover both layers. Eliminating the vertical component gives the strict necessary angular condition |angle(e_j,-w)|<pi/2-pi/(2n), so one direction covers at most floor(n/2) top (or bottom) vertices. Conversely each consecutive block of <=floor(n/2) vertices admits a vertical parameter strictly between max(0,-c cos(alpha)+q sin(alpha)) and cos(alpha), producing one direction. Disjoint consecutive block partitions prove I=2ceil(n/floor(n/2)); cyclic maximal blocks weighted by 1/floor(n/2) per direction attain I*=2n/floor(n/2), matching vertex-sum lower bound. Vertex illumination implies face illumination since each face has fewer active facet constraints than an incident vertex. Independent facet-plane and constructed-block tests checked n=3,4,5,7,8,9,12 at two nonzero heights; the symbolic all-n cap and interval, not finite tests, establish universality.",
+      "residual_risks": [
+        "Independent numerical checks cover only finitely many n and h; arbitrary n,h correctness relies on the explicit open-arc proof and sharp construction, not floating-point support checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general fractional bound I*(K)<=2^3=8 is less precise than 2n/floor(n/2); Naszódi develops the fractional illumination framework."
+        ],
+        "reasoning": "The broad body-class theorem yields an inequality, not the exact integer/fractional antiprism invariants; existing results on planar equiangular polygons concern 2D normal fans, while this is a 3D two-base problem.",
+        "searches": [
+          "Resultary semantic query: ordinary fractional illumination number right antiprism uniform antiprism X-ray 3 dimensional even odd height",
+          "https://arxiv.org/abs/2609.23913",
+          "https://cdm.ucalgary.ca/article/view/62022"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-every-uniform-antiprism-has-x-ray-number-three--8163a250996c",
+        "https://cdm.ucalgary.ca/article/view/62022",
+        "https://arxiv.org/abs/2609.23913",
+        "Resultary semantic query: ordinary fractional illumination number right antiprism uniform antiprism X-ray 3 dimensional even odd height"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "X-ray result X=3 implies at most six directed choices if every undirected line is doubled, not the even-case lower optimum of four; universal I*<=8 is slack for this family."
+        ],
+        "reasoning": "Neither prior statement, nor their joint implication, gives the all-height sharp cyclic m-block fractional cover or the even/odd ordinary minimum.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-every-uniform-antiprism-has-x-ray-number-three--8163a250996c",
+          "https://arxiv.org/abs/2609.23913"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full X-ray note has X=3 for unit-edge antiprisms but defines undirected lines, whereas the present claim requires directed vectors and fractional weights."
+        ],
+        "reasoning": "The polar normal-fan line criterion is closely related, but identifying opposite vectors is not valid for directed illumination: upper vertices require negative vertical direction and lower positive, hence X=3 does not determine I=4 or 6, nor I*. The source also fixes one uniform height.",
+        "searches": [
+          "Resultary semantic query: ordinary fractional illumination number right antiprism uniform antiprism X-ray 3 dimensional even odd height",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-every-uniform-antiprism-has-x-ray-number-three--8163a250996c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact same-object result supplies X-ray number only. No checked table contains the right-antiprism directed/fractional pair (I,I*) for all n and h."
+        ],
+        "reasoning": "Exact name and objects were checked in a relevant published-finding database. This negative result is qualified evidence, not a proof of global historical novelty.",
+        "searches": [
+          "Resultary semantic query: ordinary fractional illumination number right antiprism uniform antiprism X-ray 3 dimensional even odd height",
+          "Resultary: Every uniform antiprism has X-ray number three; Exact fractional illumination and an angular plateau for convex polygons"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes for the exact directed/fractional antiprism classification and parity gap, after distinguishing undirected X-ray lines and universal convex-body upper bounds from the precise two-layer illumination constraints. A very closely related antiprism full primary research note was read; it proves a different invariant, not the asserted parity or fractional values.",
+      "residual_risks": [
+        "Full original X-ray paper inspected, but a separate older antiprism-directed illumination or other alias may have been missed; database search is not a novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_INVARIANT; NOT_COVERING_DIRECTED_OR_FRACTIONAL",
+          "evidence": "X(A_n)=3 for the uniform-height subfamily; directed ordinary illumination counts u and -u separately; no fractional cover or arbitrary-height parity result appears in its inspected theorem/proof.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-every-uniform-antiprism-has-x-ray-number-three--8163a250996c",
+          "material_read": "Full accessible RESULT.md theorem, assumptions (undirected lines), explicit three-line X-ray construction, facet normals and proof, relationship to illumination",
+          "method": "Read accessible primary RESULT.md or full-text HTML mathematical statements and proof",
+          "title": "Every uniform antiprism has X-ray number three",
+          "trigger": "Exact same regular-antiprism polyhedron and normal-fan method"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY; NO_FULL_TEXT_NONCOVERAGE_INFERENCE",
+          "evidence": "Introduces fractional illumination/weighted coverings, but abstract alone does not establish exact antiprism number.",
+          "identifier_or_url": "https://cdm.ucalgary.ca/article/view/62022",
+          "material_read": "Journal landing-page abstract and bibliographic identification of fractional covering definition",
+          "method": "Read journal abstract and bibliographic entry",
+          "title": "Fractional illumination of convex bodies (Naszódi, 2009)",
+          "trigger": "Origin of weighted/fractional illumination invariant"
+        },
+        {
+          "assessment": "GENERAL_BOUND_NOT_EXACT",
+          "evidence": "Universal I*(K)<=2^d does not imply 2n/floor(n/2), even/odd I, or height independence.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23913",
+          "material_read": "ArXiv abstract/general dimension-d upper bound",
+          "method": "Read arXiv abstract; no whole-paper noncoverage assertion",
+          "title": "Fractional illumination and the optimal exponential rate in Hadwiger's covering conjecture (Gorodzha, 2026)",
+          "trigger": "Potential universal theorem implying a special body estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact facet-cap theorem from assigned RESULT.md",
+        "Naszódi 2009 fractional-illumination conceptual framework",
+        "Related published X-ray result displays distinction between lines and oriented directions."
+      ],
+      "rationale": "Ordinary versus fractional illumination is an established convex-geometric covering invariant. The exact integral/fractional gap for a natural infinite family, abrupt even/odd dichotomy, and independence from positive aspect ratio provide meaningful structural information; no downstream theorem is necessary for this exact classification.",
+      "residual_risks": [
+        "Novelty, correctness and reproducibility alone do not establish value; here the mathematical purpose and natural invariant are separately articulated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n>=3 and h>0, the directed ordinary illumination of the two half-step rotated regular n-gon antiprism is 4 for even n and 6 for odd n; its finite fractional illumination number is 2n/floor(n/2), independent of h.",
+  "limitations": [
+    "No assertion that any particular optimizer is unique. The weighted definition uses finite nonnegative direction weights, not X-ray undirected lines.",
+    "Historical priority remains qualified; no publication attempt while public operational metadata is unsanitized."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of exact ordinary and fractional illumination of right antiprisms
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex and facet definitions are explicit, including the open height domain \(h>0\). The proof obtains four outward normals at each vertex from the two bases and three adjacent side triangles; their supporting equalities use \(2hk=1-\cos(\pi/n)\). Strict illumination at an upper vertex forces downward vertical velocity and the simultaneous inequalities in (2). Eliminating the vertical parameter bounds every illuminated upper azimuth to an open arc of length \(\pi-\pi/n\), containing at most \(\lfloor n/2\rfloor\) equally spaced vertices; lower vertices require the opposite sign of vertical velocity. The exact construction realizes every consecutive admissible block by selecting a vertical parameter in a demonstrably nonempty interval. A partition and cyclic equal-weight averaging attain both lower bounds, for all integers \(n\ge3\) and real \(h>0\). The boundary reduction uses inclusion of active-facet sets, so it applies to ordinary and fractional illumination. Independent numerical regression checks 143208 geometric and combinatorial assertions for a finite grid only; the infinite proof rests on the strict analytic inequalities. No claim of machine certification or independent audit is made.
+## correctness
 
-## Originality — PASS under inspected evidence
-The closest same-object published research note, *Every uniform antiprism has X-ray number three*, was read in full and concerns **undirected X-ray lines**, not exact ordinary or weighted directed illumination. In particular, three lines furnish at most six directed rays, so the X-ray result provides an upper bound of six, but cannot entail the even-antiprism optimum four, exact fractional rational values, or an arbitrary positive height theorem. The full exposition of *Exact fractional illumination of every equiangular polygon* was also examined: its equispaced arcs are a two-dimensional normal-fan calculation, not a theorem about the extra opposite-height constraints of antiprisms. The full published treatment of products of simplices does not contain these geometric objects. Gorodzha's recent general fractional illumination bound and Naszódi's foundational definitions were examined without finding the claimed exact values. Targeted research searches included the terms antiprism, prismatoid, X-ray, ordinary and fractional illumination, parity and cyclic-block equivalents. Historical priority may be affected by unindexed older literature; failed searches alone were not regarded as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The theorem evaluates two natural invariants in an infinite three-dimensional family encompassing Archimedean antiprisms and all vertical deformations. It identifies a sharp even/odd ordinary obstruction and an explicit growing fractional-integral separation for odd base counts. The geometric reason for the gap—the polarity of the vertical component and the capacity of a strict angular window—is structural and can guide other prismatoid illumination problems. The ordinary and fractional solutions are both achieved by reproducible constructive families, not isolated computer searches.
+For n>=3, h>0 the upper/lower bases and three adjacent side facets give exactly four active facet normals per vertex: (0,0,+1), (e_j,-k), (c e_j +/-q t_j,+k) on top, with vertical signs reversed below; k=(1-c)/(2h), c=cos(pi/n), q=sin(pi/n). An illuminating direction at the upper base requires negative vertical component and the lower base requires positive: it cannot cover both layers. Eliminating the vertical component gives the strict necessary angular condition |angle(e_j,-w)|<pi/2-pi/(2n), so one direction covers at most floor(n/2) top (or bottom) vertices. Conversely each consecutive block of <=floor(n/2) vertices admits a vertical parameter strictly between max(0,-c cos(alpha)+q sin(alpha)) and cos(alpha), producing one direction. Disjoint consecutive block partitions prove I=2ceil(n/floor(n/2)); cyclic maximal blocks weighted by 1/floor(n/2) per direction attain I*=2n/floor(n/2), matching vertex-sum lower bound. Vertex illumination implies face illumination since each face has fewer active facet constraints than an incident vertex. Independent facet-plane and constructed-block tests checked n=3,4,5,7,8,9,12 at two nonzero heights; the symbolic all-n cap and interval, not finite tests, establish universality.
 
-## Closest literature and limits
-The most material coverage risk is an unindexed equivalence in classical directed-illumination or antiprism geometry. The prior antiprism X-ray work does not establish the new directed result by implication. The present theorem does not cover unequal radii, offset axes, arbitrary relative rotations, or nonregular bases; nor does it describe uniqueness of every optimal support. The independent review channel remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes for the exact directed/fractional antiprism classification and parity gap, after distinguishing undirected X-ray lines and universal convex-body upper bounds from the precise two-layer illumination constraints. A very closely related antiprism full primary research note was read; it proves a different invariant, not the asserted parity or fractional values.
+
+## value
+
+PASS
+
+Ordinary versus fractional illumination is an established convex-geometric covering invariant. The exact integral/fractional gap for a natural infinite family, abrupt even/odd dichotomy, and independence from positive aspect ratio provide meaningful structural information; no downstream theorem is necessary for this exact classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
