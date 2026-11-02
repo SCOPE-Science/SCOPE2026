@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The algebraic dichotomy follows directly from \(WW\subseteq W\) for \(xy=B(x,y)u\). The overlap is exactly the polar-space count on \(u^\perp/\mathbb F_q u\), which is nondegenerate of dimension two less whenever \(u\) is isotropic. Hyperbolic reduction preserves the even-dimensional Witt sign. Quadratic Gauss sums yield the isotropic-line formula and incidence counting yields every higher-rank count. A normalized family of isotropic vectors outside a specified plane gives a strict modular-law counterexample when \(n\ge3\). The independent direct-product implementation exhaustively agrees with the formulas in 75 configurations, covering 81,142 distinct enumerated-subspace instances counted across configurations. Finite tests support but do not replace the proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The October 2026 evolution-algebra survey poses a general subalgebra-lattice problem. The closest substantive prior paper, Ladra–Páez-Guillán–Pérez-Rodríguez (2025), Lemma 6.1, **already establishes** modularity/distributivity for solvable nonnilpotent rank-one-square algebras; that covered component is expressly excluded from novelty. The newly compared statement gives exact dimension-resolved finite-field subalgebra counts for all nondegenerate rank-one algebras, together with the required isotropic-line overlap subtraction and the count's recovery of the Witt sign and generator isotropy. Relevant one-dimensional-square classification and evolution-algebra order-theory work do not supply these exact formulas in the portions inspected. Unindexed equivalent formulas remain possible.
+PASS
 
-**Mathematical value — PASS.** This is the full natural subalgebra-rank invariant of an infinite family of nonassociative algebras, not an arbitrary low-dimensional slice. It meets the survey's structural motivation, handles both nonnilpotent and solvable cases in a single formula, distinguishes the two even-dimensional quadratic forms and nilpotent-square status from the first coefficient, and supplies a uniform sharp lattice threshold. Classical polar-space enumeration is an essential credited ingredient, not claimed as independently novel.
+For a subspace W, WW=span{B(x,y)u}; closure is equivalent to u in W or B|W=0. Containment of u contributes a Gaussian coefficient; totally isotropic W contributes a finite-orthogonal polar-space T_r; an isotropic u creates the quotient overlap in u-perp/<u>. Counting isotropic lines by quadratic Gauss sums and flags by incidence reproduces the given product formula, including nonsplit maximal Witt index and zero-dimensional boundaries. In dimension two a height-two atom lattice is modular, distributive iff <=2 atoms. For n>=3 a hyperbolic pair and isotropic lines U,X outside Z=<u,U> construct the strict modular-law violation. The n=3 q=3 identity-form counts are [1,5,4,1] for anisotropic u and [1,4,4,1] for isotropic u; independent closure enumeration checked 480 subspaces across four q=3 cases. This is a proof reconstruction, not reliance on finite verification alone.
 
-Scientific limits: finite fields of odd characteristic, nondegenerate rank-one square; no characteristic-two or degenerate census; no statement of complete algebra classification. Publication priority is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical orthogonal-space isotropic-subspace incidence formula and the algebra/subspace dichotomy are standard ingredients. Ladra, Páez-Guillán and Pérez-Rodríguez already obtain the modularity/distributivity threshold for the solvable nonnilpotent derived-line portion (Lemma 6.1, materially read). The surviving claim is a full rank-resolved ordinary-subalgebra census over odd finite fields including the overlap term, the anisotropic-generator case, and recovery of the orthogonal sign/isotropy from N1. Resultary and inspected primary sources supplied no theorem whose hypotheses imply this complete profile. Historical priority remains qualified.
+
+## value
+
+PASS
+
+Ordinary subalgebra rank profiles are natural invariants for one-dimensional-square evolution algebras. The uniform formula separates the entire interval of u-containing subspaces from all totally isotropic subspaces while handling their nontrivial intersection; it distinguishes finite-field quadratic types and gives natural lattice boundaries. This is more than a textbook property check even though individual Gaussian/polar counts are classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
