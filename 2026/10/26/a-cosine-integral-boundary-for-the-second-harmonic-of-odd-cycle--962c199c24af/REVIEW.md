@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The character calculation, exact values at exponents zero/one/two, coefficient sign-variation argument (at most two real roots), and bracketing Riemann asymptotic constitute an analytic proof for all odd sizes. The explicit cosine zero is a nontrivial quadratic-form witness. Independent arithmetic checks confirm finite instances and do not replace the proof.
+## correctness
 
-## Originality
-Relevant earlier work provides the strict one-negative-type cycle gap (Wolf, 2010), finite-space determinant criteria (Sanchez, 2011), and a vertex-transitive framework (Murugan, 2011). The compared results do not contain the exact second-frequency uniqueness statement and the cosine-integral transition constant, although equivalent unindexed results remain possible. The latter source's inaccessible complete text leaves a specific bounded residual risk.
+PASS
 
-## Mathematical value
-Wolf's strict one-negative-type result raises the natural question of how the admissible powered-distance window collapses with cycle size. The second Fourier character is the first even nontrivial harmonic, and its exactly computable obstruction gives an explicit universal upper bound with a previously unquantified inverse-square scale and special-function coefficient. This is a substantive infinite-family spectral boundary, not a general-roundness equality claim or routine finite table.
+For odd N=2m+1>=5 the shortest-path distance matrix is circulant, and the real character of frequency two has eigenvalue F_N(s)=2 sum_{r=1}^m r^s cos(4πr/N). Recomputed geometric-sum identities F_N(0)=-1, F_N(1)=-1/[4cos²(π/N)], F_N(2)=N cos(2π/N)/[2sin²(2π/N)]. Ordered cosine coefficients have exactly one sign change for N=5,7 and exactly two (+,-,+) for N>=9. The generalized Descartes bound for exponential polynomials and signs at -infinity, 0, 1, 2 prove a unique simple root sigma_N in (1,2) and no other nonnegative roots. Differentiation at s=1 gives F'_N(1)/N²→L=[γ+log(2π)-Ci(2π)]/(8π²)>0; F''_N(s)=O(N²log²N) in 1<=s<=1+c/N². Uniform Taylor bracketing implies N²(sigma_N-1)→1/(4L)=8.0976273568665367..., with the exact C5 root log2((3+sqrt5)/2). For s>sigma_N the real mean-zero cosine eigenvector has positive distance quadratic form, disproving CND, and derivative of e^{-td^s} at t=0 is negative in this sector. Recomputed multipliers at N=5,7,9,11,31,101,301,1001 and the integral constant independently; those finite examples corroborate, not replace, the infinite proof.
 
-## Limitations
-No assertion about the other Fourier modes' ordering or about an exact all-frequency positive-definiteness threshold. Independent validation is outstanding, and the literature search is bounded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of actual propositions, implications and hypotheses; the credited prior fragments are not claimed as new. Full texts actually read are identified, and inaccessible same-object papers remain explicit risks; an unsuccessful search is not novelty proof. The previous C5 p-negative type identity coincides with sigma5. General determinant and vertex-transitive criteria imply the witness method but do not furnish unique sector roots or the asymptotic coefficient without additional analysis.
+
+## value
+
+PASS
+
+Sharp, dimension-dependent obstruction in a canonical Fourier sector of powered odd-cycle distance matrices. The all-odd unique exponent threshold and exact Ci(2π) N^{-2} asymptotic quantify loss of negative type beyond 1, a natural metric embedding invariant. Does not claim the exact full supremal negative-type exponent; the known C5 result alone does not imply the asymptotic constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
