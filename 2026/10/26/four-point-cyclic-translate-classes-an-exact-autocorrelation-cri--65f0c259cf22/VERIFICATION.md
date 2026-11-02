@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical proof in `RESULT.md` establishes the result for every integer \(n\ge8\). This document reports checks of the submitted code and does not claim external scientific validation.
+## correctness
 
-Execute `python3 verify_four_shifts.py` in the same directory as this document. The script computes all distinct cyclic translates, then tests shattered-tree depths directly from the Boolean incidence table using a recursive version-space predicate, not the stated autocorrelation formula. The stated formula is computed separately from the stabilizer and nonzero pair overlaps. Every four-element set in \(\mathbb Z/n\mathbb Z\), for every \(8\le n\le20\), is checked: 20,293 input sets in total. Explicit trees are constructed and each of their paths verified against an actual hypothesis for seven representative cases.
+PASS
 
-The bundled `verification_output.txt` contains the successful `EXHAUSTIVE_OK 20293 input sets` and `ALL_CHECKS_OK` markers. The verifier is finite: it does not establish the universal theorem, nor does it prove bibliographic originality. Independent audit status remains not performed.
+The stabilizer H has order q dividing 4; quotienting by H produces 4/q positive hypotheses at every query and n/q distinct translates. q=4 leaves one positive hypothesis so Ldim=1; q=2 gives exactly two positive and at least two negative, yielding depth 2 but forbidding 3. If q=1, every root positive branch contains four hypotheses and negative contains n-4>=4, forcing Ldim<=3 and >=2. To shatter depth three the four-element positive space must split 2/2 on its second query, equivalently a nonzero overlap lambda_A(t)=2. Conversely a split of size 2 yields all four second-level cells cardinalities 2,2,2,n-6>=2 and a third separating query in each, so Ldim=3. Explicit difference lists for A and overlap for B show the infinite equal-size contrast. Fresh independent recursion over actual Boolean incidence tables confirms all 1,231 four-subsets for n=8..12 and both n=15 witnesses. Finite tests do not establish n unbounded; analytic version-space argument does.
+
+## originality
+
+PASS
+
+Best-of-knowledge sharp Littlestone dimension trichotomy not implied by general closure theorems, unions-of-translates literature, or published four-point Fourier/difference-set classifications. Their different statements and objects are explicitly distinguished. Specialized older combinatorial-learning results may still hide an equivalent, a residual risk.
+
+## value
+
+PASS
+
+Complete all-n structural classification of a natural online-learning invariant for cyclic translate hypothesis classes. The criterion links adaptively shattered trees to one elementary autocorrelation multiplicity and distinguishes Sidon supports from intervals even when hypothesis count and support size agree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
