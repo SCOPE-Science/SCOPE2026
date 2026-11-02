@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Finite graph Q5 has 80 edges. The exact compatibility relation is reconstructed by checking third edges, yielding 1120 forbidden pairs; the verified C++17 ordered backtracking with a provably sound greedy-coloring clique bound counts 80 twelve-cliques and zero thirteen-cliques. Every larger clique would contain a thirteen-clique, so the upper bound is exact. A four-center geometric construction yields twelve legal edges; separate exhaustive-vs-geometric set equality, the symbolic 32*10*2/8 census and automorphism action establish every extremizer and one orbit. The supplied program compiled and ran with VERIFY_OK. No result outside Q5 is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2406.04020 Section 5.1 Table 1: lower bound 10 at n=5; Theorem 5.10: exact 2^(n-1) only if n is a positive power of two.",
+        "arXiv:2403.00750 Section 4.1: general rho_e^o(G)<=|E(G)|/delta(G) gives only 80/5=16 for Q5.",
+        "An injective seven-color edge partition of Q5, if available, implies only existence of an edge-open-packing of size at least 12 from an 80-edge pigeonhole argument; it gives no maximum bound."
+      ],
+      "reasoning": "Neither the 2024 all-power-of-two theorem nor the general upper bound dominates the exact Q5 assertion, because 5 is not a power of two and 16>12. The historical edge-color bound gives a matching lower bound only, not the asserted full theorem.",
+      "searches": [
+        "Literature query: \"edge open packing\" \"hypercube\" 12 2025",
+        "Semantic mathematical-record query: edge open packing number of hypercube Q_n when n not a power of two, Hamming codes induced star forest extremizers",
+        "arXiv:2406.04020 Section 5.1 Theorem 5.10"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.04020, intro and Section 5.1 through Theorem 5.10",
+      "arXiv:2403.00750, introductory and Sections 2-4 material",
+      "Chelladurai et al. 2022 Numdam abstract/metadata only",
+      "Mathematical-record queries listed in named checks, including Q5, induced star forest and edge-open-packing aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "From arXiv:2406.04020, Corollary 5.8 gives 5 rho_3(Q5)=10, while power-of-two Theorem 5.10 does not cover n=5.",
+        "arXiv:2403.00750 gives upper bound 16.",
+        "An auxiliary seven-color injective edge partition, if supplied, yields a 12-edge packing by pigeonhole; it supplies no restriction on possible 13-edge packings or the number/orbit of maximizers."
+      ],
+      "reasoning": "The new statement strictly strengthens both the source lower bound and any separate lower-bound consequence: a proven upper bound 12, complete 80-extremizer census, and uniqueness up to cube automorphisms. The new result is not a corollary of matching lower12 or general upper16 alone.",
+      "searches": [
+        "arXiv:2406.04020 Section 5.1 Corollary 5.8 and Theorem 5.10",
+        "arXiv:2403.00750 Sections 1,4.1",
+        "Semantic mathematical-record query: edge open packing number of the five-dimensional hypercube Q5 equals 12, induced star forest 12 edges finite extremal count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2406.04020, Introduction: an edge-open-packing induces disjoint stars.",
+        "arXiv:2403.00750, Introduction: injective edge-color classes are exactly edge-open-packings.",
+        "The nearest indexed work found here concerns the dodecahedral independence complex, not the same graph invariant."
+      ],
+      "reasoning": "Examined the aliases maximum induced star forest of Q5 and largest class in injective edge colorings. They describe the same combinatorial object but retrieved equivalent-terminology sources did not establish the exact bound plus optimizer census.",
+      "searches": [
+        "Semantic mathematical-record query: largest induced star forest in 5-cube hypercube 12 edges",
+        "Literature query: \"induced star forest\" hypercube Q5 maximum edges",
+        "Literature query: \"Q_5\" \"induced star forest\" 80"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2406.04020 Table 1 explicitly labels the Q5 entry a lower bound 10, not a computed exact value.",
+        "Semantic-index searches returned no exact Q5 edge-open-packing 12/80 result; a close indexed hit on uniform released packing of complete bipartite graphs does not cover this edge-open-packing assertion."
+      ],
+      "reasoning": "Checked known-value table and targeted database/index phrases including value, object, and optimum count. The table does not list 12 or 80; absence in search results is evidence of limited retrieval, not proof of novelty.",
+      "searches": [
+        "Literature query: \"edge-open packing number\" \"5-dimensional hypercube\"",
+        "Literature query: \"80\" \"edge open packing\" \"hypercube\"",
+        "Semantic mathematical-record query: Q5 edge open packing exact 12 versus lower bound 10 Brešar Dravec Hedžet Samadi 2024"
+      ]
+    },
+    "rationale": "The directly comparable 2024 full-text Section 5.1, Table 1 records only rho_e^o(Q5)>=10 and Theorem 5.10 proves equality for dimensions 2^k; it neither excludes 13 edges in Q5 nor classifies 12-edge maximizers. Even the stronger auxiliary fact of a seven-color injective edge partition, if supplied, would imply only a lower bound 12 by pigeonhole, not an upper bound or an 80-element single orbit. The complete 13-free certificate and optimizer orbit are non-implied additions. Targeted mathematical-record and literature searches found no stronger covering statement; unresolved unindexed priority remains a risk.",
+    "residual_risks": [
+      "The foundational 2022 paper was not inspected in full; no absence claim about its unseen content is made.",
+      "An unindexed prior computation of Q5 or a rephrased induced-star-forest classification may exist.",
+      "The finite completeness statement requires the given exhaustive source program to be executed and its pruning rule to be read, not merely accepting a log line."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the precise five-cube upper bound and optimizer census: the Q5 entry is explicitly lower-bound-only 10, and exact theorem assumes n is a power of two.",
+        "evidence": [
+          "Section 5.1 Table 1 Q5: rho_e^o>=10.",
+          "Theorem 5.10: rho_e^o(Q_{2^k})=2^{2^k-1}.",
+          "Introduction characterizes the induced star-forest interpretation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.04020",
+        "material_read": "Full rendered arXiv introduction and entire Section 5.1, including definitions, Lemma 5.7, Corollary 5.8, Proposition 5.9, Table 1, and Theorem 5.10 with proof.",
+        "method": "Opened lawfully accessible full-text arXiv rendition; inspected relevant displayed statements, proofs and table.",
+        "title": "Induced matching vs edge open packing: trees and product graphs",
+        "trigger": "Direct 2024 predecessor tabulates edge-open-packing lower bounds for hypercubes and proves exact values for a subfamily."
+      },
+      {
+        "assessment": "NOT_COVERING for exact Q5: general upper bound gives 16; complexity/trees/edge deletion results do not fix its sharp value or optimizers.",
+        "evidence": [
+          "Theorem 3.6 concerns trees.",
+          "Theorem 4.1 concerns equality in general m/delta bound.",
+          "Section 4.1 yields 80/5=16 for Q5, which is not 12."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.00750",
+        "material_read": "Full arXiv rendered text introduction, Section 2 framing, Section 3 tree algorithm conclusion, Sections 4.1 and 4.2 statements and proofs, including bound m/delta.",
+        "method": "Opened accessible arXiv full text and inspected all sections and key theorems.",
+        "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+        "trigger": "General upper bound and algorithms might imply or supersede Q5 claim."
+      },
+      {
+        "assessment": "Provides the exact original definition; no whole-document claim of noncoverage inferred from abstract. Relevant absence risk retained.",
+        "evidence": [
+          "The abstract specifies a third edge distinct from both selected edges.",
+          "Publisher journal contents reports online publication 2022-11-01."
+        ],
+        "identifier_or_url": "https://www.numdam.org/articles/10.1051/ro/2022171/",
+        "material_read": "Publisher-linked bibliographic record, abstract and references only; original full paper not read for negative coverage claims.",
+        "method": "Inspected accessible Numdam abstract and bibliographic page; verified published-online date 2022-11-01 on RAIRO journal contents.",
+        "title": "Edge open packing sets in graphs",
+        "trigger": "Foundational definition and earliest verified public source date."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96aea613-0e79-4c03-b5cd-449b052059b9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2024 primary Table 1 gives only a lower bound 10 for Q5, while its exact hypercube theorem applies at power-of-two dimensions. The precise small five-cube packing and all 80 optimizer configurations close a natural first post-Q4 finite case and clarify extremal induced-star forest and injective edge-coloring geometry. The strict upper bound and orbit are not implied by the already known 12-edge lower consequence. An exact natural finite invariant needs no unsupported infinite extension.",
+    "status": "PASS"
+  }
+}
