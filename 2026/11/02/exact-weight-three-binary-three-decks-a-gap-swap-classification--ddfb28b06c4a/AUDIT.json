@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every n and ordered 1-positions p<q<r, each of the eight length-three subsequence multiplicities is reconstructed exactly from (n,L=2p+q,T=r-p,Q=p^2+q^2+r^2), and conversely three displayed multiplicities recover all three statistics. Fixing L,T makes Q a quadratic in p with at most two integer roots; Vieta gives the unique possible swapped-gap partner. Orient each distinct pair by a>b, set a=b+3h, and count p satisfying p+2b+4h<=n-1. The resulting double sum yields the proposed rational generating function without extrapolating finite data. A separate two-route exhaustive checker verifies all equivalence classes through n=22 and literal deck counts through n=15, reporting VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chrisnata et al. 2021 Corollary 28 establishes Theta(n^3), but Conjecture 1 is left open.",
+        "Nilforoushan–Parvaresh 2026 abstract establishes Theta(n^9) for total number of binary 3-decks, without an exact fixed-weight-three count."
+      ],
+      "reasoning": "Global total-deck asymptotics neither yield the fixed-weight-three generating function nor identify all fibers. A previous search result involving three deletions measures pairwise trace overlap rather than equality of entire length-three deck profiles. The 2026 paper full text was not available through the attempted open route, so undisclosed stronger coverage remains an explicitly recorded risk.",
+      "searches": [
+        "2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d",
+        "Chrisnata Kiah Karingula Vardy Yaakobi Yao 2021 Conjecture 1 D_{3,3}(n) generating function exact proof fixed weight three three deck",
+        "https://arxiv.org/abs/2609.23106",
+        "https://doi.org/10.3934/amc.2021032"
+      ]
+    },
+    "checked_sources": [
+      "Rigo–Salimov (2013), introductory definitions and infinite-word binomial complexity, https://orbi.uliege.be/handle/2268/149313",
+      "Chrisnata et al. (online 2021), section 5.3, Theorem 27, Corollary 28 and Conjecture 1, https://doi.org/10.3934/amc.2021032",
+      "Nilforoushan–Parvaresh (2026), abstract for overall deck-growth exponent, https://arxiv.org/abs/2609.23106"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 27 and Corollary 28 in Chrisnata et al. 2021 yield a lower bound and growth order; their Conjecture 1 asserts precisely the counting formula but is explicitly conjectural.",
+        "Rigo–Salimov 2013 investigates infinite-word factor complexity, not this finite fixed-content deck map."
+      ],
+      "reasoning": "Neither growth order nor empirical agreement of 20 coefficients logically implies a rational exact series for all lengths. The positional quadratic proves each fiber has at most two members and identifies its mate, leading to an independent exact pair count. The prior published conjecture predicts the same formula but does not entail its truth.",
+      "searches": [
+        "three ones three-deck equivalence quadratic involution swap zero gap lengths modulo three",
+        "fixed weight three subsequence three-deck ambiguity at most two, first length seven",
+        "Chrisnata Kiah Karingula Vardy Yaakobi Yao 2021 Conjecture 1 D_{3,3}(n) generating function exact proof fixed weight three three deck",
+        "https://doi.org/10.3934/amc.2021032",
+        "https://orbi.uliege.be/handle/2268/149313"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rigo–Salimov 2013 defines binomial equivalence for multiplicities of scattered subwords; Chrisnata et al. 2021 define D_{k,w}(n) as number of fixed-weight k-deck classes in section 5 and state Conjecture 1 for D_{3,3}."
+      ],
+      "reasoning": "On fixed n and weight three, having all length-three pattern counts is equivalent to three-binomial equivalence, since shorter-count identities follow by summing extensions. The result searches and compares both terminology families; the exact conjectured generating function is acknowledged as prior, while its proof and full equivalence-class structure are the new claims.",
+      "searches": [
+        "binary Hamming weight three 3-binomial equivalence classes exact collision pairs generating function z^7/((1-z)^2(1-z^2)(1-z^4))",
+        "three ones three-deck equivalence quadratic involution swap zero gap lengths modulo three",
+        "fixed weight three subsequence three-deck ambiguity at most two, first length seven",
+        "https://orbi.uliege.be/handle/2268/149313",
+        "https://doi.org/10.3934/amc.2021032"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chrisnata et al. 2021 Conjecture 1 reports a 20-coefficient finite check but not a proof of the infinite generating function. The same manuscript tabulates overall D_k(n), not the all-length weight-three closed form."
+      ],
+      "reasoning": "The finite values agree with the previously conjectured series, which is not claimed as a newly discovered numerical sequence. The structural gap-swap bijection and exact all-length proof do not follow from a checked finite table. No actual published-finding corpus matched a proof or complete fiber classification.",
+      "searches": [
+        "binary Hamming weight three 3-binomial equivalence classes exact collision pairs generating function z^7/((1-z)^2(1-z^2)(1-z^4))",
+        "Chrisnata Kiah Karingula Vardy Yaakobi Yao 2021 Conjecture 1 D_{3,3}(n) generating function exact proof fixed weight three three deck",
+        "2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d",
+        "https://doi.org/10.3934/amc.2021032"
+      ]
+    },
+    "rationale": "The directly on-point primary manuscript Chrisnata et al. (2021 early access), section 5.3, explicitly proposes precisely the derived generating function as Conjecture 1, verifies only its first 20 coefficients, and proves only order Theta(n^3). The current result proves it for every n and classifies all fibers by a unique gap swap. Rigo–Salimov (2013) gives the language of binomial equivalence but no such fixed-weight theorem. Actual searches of the mathematical record and the accessible historical corpus returned related but non-dominating results; unindexed later priority remains a risk.",
+    "residual_risks": [
+      "Search indexes do not establish universal novelty; a different or unpublished proof may exist.",
+      "The complete September 2026 general-deck paper was not accessible in full via the attempted HTML route; comparison relied on the author abstract.",
+      "The older Manvel et al. (1991) source is summarized by the inspected 2021 full text rather than itself inspected in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the underlying equivalence, studies infinite-word factor complexity, and does not state the fixed-weight-three all-length counting result.",
+        "evidence": [
+          "ORBi public record and downloadable full preprint, 2013; description and definitions of m-binomial equivalence."
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/handle/2268/149313",
+        "material_read": "Repository metadata and accessible full-text preprint, including setup and definitions.",
+        "method": "Read the repository original-public-availability date (27 May 2013), definitions and manuscript scope; compared the objects and quantified conclusions.",
+        "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+        "trigger": "Earliest date-verified public foundational study of binomial equivalence and archive ownership."
+      },
+      {
+        "assessment": "Conjecture 1 is exactly the new generating-function identity; prior authors checked twenty coefficients but did not prove it, and did not characterize every three-deck equivalence class.",
+        "evidence": [
+          "Full-text page 17: explicit Conjecture 1 with z^3/(1-z)^4 minus z^7/((1-z)^2(1-z^2)(1-z^4)); preceding Corollary 28 is only Theta(n^3).",
+          "Publisher early access date: 30 August 2021."
+        ],
+        "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2022/08/60_k_Decks_Disc_Math21.pdf",
+        "material_read": "Primary full-text section 5, especially pages 11 and 15–17, including Theorem 27, Corollary 28, Conjecture 1 and equations, plus relevant introductory definitions and references.",
+        "method": "Read searchable PDF text and page screenshot of the typeset Conjecture 1 and surrounding proof; independently reconstructed the conjectured rational expression.",
+        "title": "On the number of distinct k-decks: Enumeration and bounds",
+        "trigger": "Directly on-point fixed-weight-three deck enumeration and possible dominating work."
+      },
+      {
+        "assessment": "Abstract states total D_{2,3}(n)=Theta(n^9), not the exact fixed-weight-three formula; whole-paper absence remains a residual historical-priority risk.",
+        "evidence": [
+          "arXiv 2609.23106 public abstract (19 September 2026), exact object overall number of decks over binary alphabet rather than fixed-weight fibers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.23106",
+        "material_read": "Public abstract only; full HTML attempt unavailable.",
+        "method": "Compared abstract statement and parameters with the fixed-weight-three exact generating function; recorded full-text access restriction.",
+        "title": "Improved upper bound on the number of distinct k-decks for any k and alphabet size by counting the independent parameters",
+        "trigger": "Recent broad result on global binary three-deck enumeration that could imply a dominating theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ddfb28b0-6c4a-4e25-9f1c-1dd8ca9a8ab0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Solves the explicit fixed-weight-three 3-deck counting conjecture in Chrisnata et al., which was supported by only finite coefficients and an asymptotic order bound. The result gives full equivalence-class structure, an all-length exact rational series and direct optimal fixed-content readout code size. A sharp natural sequence-reconstruction problem, not a routine increment or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
