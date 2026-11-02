@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T13:04:20.818428Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p in (0,1), h,t>0 and d>sqrt(h^2+t^2), orthogonal Q rotates e1,e3; H=[d,h,0;h,d,t;0,t,d] has eigenvalues d,d±w, A=QHQ^T is SPD. V=[Qe1,Qe2] is genuinely K2(A,Qe1) since h>0. Exhausting three two-coordinate rows gives uniquely optimal {1,2}: singular minima c, pc and 0; DEIM and Q-DEIM choose it. The sampled projection is M=[d,h-pt;h,d], with real/defective/conjugate spectral transition at h=pt. At d=3w full condition number equals 2. Completing square in k=h/t verifies exact maximum imaginary/w=sqrt((sqrt(1+p^2)-1)/2), attained k=p/(1+sqrt(1+p^2)); it scales as sqrt(delta)/2 for delta=p^2/(1+p^2). Independently constructed rational witness p=3/4,h=5/13,t=12/13,d=3: A spectrum {2,3,4}, M eigenvalues 3±2sqrt5 i/13; separate exact symbolic envelope gap identity checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nakatsukasa–Tropp and Liu–Liu recognize general nonreal sketched Ritz values, but do not impose globally E-optimal two-row deterministic DEIM/QDEIM selection and condition-two true Krylov input with sharp imaginary envelope."
+        ],
+        "reasoning": "General nonreal possibility does not imply exact joint optimization and attained sharp bound in this parameterized family.",
+        "searches": [
+          "Resultary semantic query: deterministic sketched Rayleigh Ritz E-optimal DEIM Q-DEIM complex Ritz SPD non-real two rows condition number",
+          "https://arxiv.org/abs/2111.00113",
+          "https://arxiv.org/abs/2610.22261"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2604.07158v1",
+        "https://arxiv.org/abs/2111.00113",
+        "https://arxiv.org/abs/2610.22261",
+        "https://arxiv.org/abs/2601.10248",
+        "Resultary semantic query: deterministic sketched Rayleigh Ritz E-optimal DEIM Q-DEIM complex Ritz SPD non-real two rows condition number"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Similarity-restored randomized Krylov methods remove the oblique error by modifying Arnoldi; the current result keeps unmodified dsRR. Prior nonreal caution has no unique E-optimal pivot or sharp imaginary asymptotic."
+        ],
+        "reasoning": "The prior techniques do not logically force the new constrained witness/envelope.",
+        "searches": [
+          "Resultary semantic query: deterministic sketched Rayleigh Ritz E-optimal DEIM Q-DEIM complex Ritz SPD non-real two rows condition number",
+          "https://arxiv.org/abs/2601.10248",
+          "https://arxiv.org/abs/2111.00113"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deterministic sketched RR is the oblique generalized eigenprojection (SV)^{-1}SAV, not symmetric V^TAV. Unique largest sigma_min(SV) is E-optimal coordinate row selection."
+        ],
+        "reasoning": "Compared same algorithm/normalization, including DEIM/Q-DEIM, not just nonreal eigenvalue titles.",
+        "searches": [
+          "Resultary semantic query: deterministic sketched Rayleigh Ritz E-optimal DEIM Q-DEIM complex Ritz SPD non-real two rows condition number",
+          "https://arxiv.org/html/2604.07158v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bergermann has numerical examples/algorithm tables rather than this exact three-parameter discriminant and symbolic maximum."
+        ],
+        "reasoning": "The theorem is analytic geometry of a natural algorithmic minimal family, not a table entry.",
+        "searches": [
+          "Resultary semantic query: deterministic sketched Rayleigh Ritz E-optimal DEIM Q-DEIM complex Ritz SPD non-real two rows condition number",
+          "https://arxiv.org/abs/2604.07158"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS limited to the simultaneous exact E-optimality, DEIM and Q-DEIM selection, genuine Krylov basis, condition-two SPD family, complete degeneracy frontier and attained envelope. Qualitative complex sketched Ritz values for Hermitian/SPD inputs are expressly previously known and not part of originality; similarity-restored methods are different algorithms.",
+      "residual_risks": [
+        "Earlier specialized DEIM/optimal row-subset adversarial witnesses could be unindexed.",
+        "Universal dimension-independent spectral bounds are not claimed; envelope only covers stated explicit SPD family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm/background covered; no exact new condition-two optimal-pivot spectral transition",
+          "evidence": "Section 4 row subset sigma_min objective and 5.3 dsRR",
+          "identifier_or_url": "https://arxiv.org/html/2604.07158v1",
+          "material_read": "Full accessible HTML, Sections 2.4, 3, 4.1, 5.3 and experiments",
+          "method": "Primary full-text web HTML",
+          "title": "Deterministic sketching for Krylov subspace methods",
+          "trigger": "Defines exactly the deterministic sketch and DEIM/Q-DEIM objective"
+        },
+        {
+          "assessment": "Already recognizes general nonreal Ritz estimates for symmetric input; sharper joint construction not located",
+          "evidence": "Section 6.8 cautions about sketched non-Hermitian projection",
+          "identifier_or_url": "https://arxiv.org/abs/2111.00113",
+          "material_read": "Full accessible HTML primary, eigenvalue sections 6.7–6.8",
+          "method": "Primary full-text HTML",
+          "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Prior sketched eigenvalue pollution"
+        },
+        {
+          "assessment": "Adopts real-Schur treatment for known nonreal issue rather than establishing E-optimal extremizer",
+          "evidence": "Section 3.1 motivates real arithmetic",
+          "identifier_or_url": "https://arxiv.org/abs/2610.22261",
+          "material_read": "Full accessible HTML §3.1",
+          "method": "Primary full-text HTML",
+          "title": "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices",
+          "trigger": "Close recent discussion of nonreal eigenvalues"
+        },
+        {
+          "assessment": "Restores similarity by a changed Arnoldi relation; not the unmodified sample Ritz operator",
+          "evidence": "Different algorithmic premises",
+          "identifier_or_url": "https://arxiv.org/abs/2601.10248",
+          "material_read": "Full accessible HTML Sections 2–3",
+          "method": "Primary full-text HTML",
+          "title": "Restoring similarity in randomized Krylov methods with applications to eigenvalue problems and matrix functions",
+          "trigger": "Potential stronger stability scheme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharply quantified counterexample to a natural numerical assumption (excellent basis embedding assures real SPD Ritz output), with fully optimal sketch and arbitrarily small squared embedding error and an attained sharp pollution envelope. This is more informative than renaming the known qualitative phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2604.07158v1",
+    "https://arxiv.org/abs/2111.00113",
+    "https://arxiv.org/abs/2610.22261",
+    "https://arxiv.org/abs/2601.10248",
+    "Resultary semantic query: deterministic sketched Rayleigh Ritz E-optimal DEIM Q-DEIM complex Ritz SPD non-real two rows condition number"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier specialized DEIM/optimal row-subset adversarial witnesses could be unindexed.",
+    "Universal dimension-independent spectral bounds are not claimed; envelope only covers stated explicit SPD family."
+  ],
+  "schema_version": 1
+}

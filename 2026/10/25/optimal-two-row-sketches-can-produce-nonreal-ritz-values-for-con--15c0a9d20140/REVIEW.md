@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Orthogonality, the actual two-step Krylov relation, and SPD eigenvalues follow by exact matrix factorization. Direct comparison of all three two-row coordinate samplers proves global optimality and the prescribed DEIM/Q-DEIM selections. The sketched matrix is derived directly from the specified algorithm, its discriminant gives the complete three-regime classification, and a nonnegative-square identity proves the sharp fixed-width imaginary envelope. The rational condition-two example and symbolic checker agree. The proof does not extrapolate numerical samples to continuous parameters.
+## correctness
 
-**Originality — PASS, subject to the stated residual risk.** Nakatsukasa–Tropp already prove that symmetric sRR may produce nonreal eigenvalues, so this is not claimed as a novelty. Bergermann defines precisely the deterministic optimal-sampling objective and dsRR but does not derive the simultaneous optimal-selection, condition-two SPD, and sharp phase-envelope statements. Liu–Liu address the known nonreal phenomenon by real Schur; Grigori–Kressner–Shao–Simunec restore a different projected similarity relation. Relevant published records and mathematical literature were compared by implication. A previously unlocated equivalent specialized example or estimate remains a bibliographic risk.
+PASS
 
-**Value — PASS.** Near-optimal embeddings are used to justify deterministic sketching in eigensolvers. Demonstrating that the *globally best* minimum-singular-value coordinate subset still admits defective and nonreal spectra, even at full-matrix condition number two, identifies a precise limit of that design criterion. The complete parameter boundary and sharp imaginary-part envelope quantify the phenomenon and distinguish it from a generic warning about nonsymmetric projections.
+For p in (0,1), h,t>0 and d>sqrt(h^2+t^2), orthogonal Q rotates e1,e3; H=[d,h,0;h,d,t;0,t,d] has eigenvalues d,d±w, A=QHQ^T is SPD. V=[Qe1,Qe2] is genuinely K2(A,Qe1) since h>0. Exhausting three two-coordinate rows gives uniquely optimal {1,2}: singular minima c, pc and 0; DEIM and Q-DEIM choose it. The sampled projection is M=[d,h-pt;h,d], with real/defective/conjugate spectral transition at h=pt. At d=3w full condition number equals 2. Completing square in k=h/t verifies exact maximum imaginary/w=sqrt((sqrt(1+p^2)-1)/2), attained k=p/(1+sqrt(1+p^2)); it scales as sqrt(delta)/2 for delta=p^2/(1+p^2). Independently constructed rational witness p=3/4,h=5/13,t=12/13,d=3: A spectrum {2,3,4}, M eigenvalues 3±2sqrt5 i/13; separate exact symbolic envelope gap identity checked.
 
-**Scope and limits.** Three real coordinates, a two-dimensional genuine Krylov subspace, exact E-optimal two-row sampling, DEIM and Q-DEIM, exact arithmetic, and the specified symmetric Jacobi family. The bound is not universal for all sketches; general nonreal sRR behavior and remedies are prior results. No independent validation is represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS limited to the simultaneous exact E-optimality, DEIM and Q-DEIM selection, genuine Krylov basis, condition-two SPD family, complete degeneracy frontier and attained envelope. Qualitative complex sketched Ritz values for Hermitian/SPD inputs are expressly previously known and not part of originality; similarity-restored methods are different algorithms.
+
+## value
+
+PASS
+
+A sharply quantified counterexample to a natural numerical assumption (excellent basis embedding assures real SPD Ritz output), with fully optimal sketch and arbitrarily small squared embedding error and an attained sharp pollution envelope. This is more informative than renaming the known qualitative phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
