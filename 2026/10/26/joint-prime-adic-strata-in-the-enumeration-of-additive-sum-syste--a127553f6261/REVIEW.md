@@ -1,9 +1,21 @@
-# Scientific assessment: joint prime-adic strata in sum-system counts
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof starts from the positive proper-factorization expansion verified in Huxley–Lettington–Schmidt (2026), and derives the marked Dirichlet series independently. The rational Stirling generating function has residue \(m/(m-1)^2\) in the difference-to-critical-point coordinate. Extracting a fixed multivariate coefficient yields an order-\(E+1\) pole with multinomial leading factor. The boundary has no other singularities because at least two multiplicatively independent primes remain outside any finite excluded set. Nonnegative coefficients permit the precise Delange theorem used by Hwang–Janson (2009), with \(\Gamma(E+1)=E!\). The supplied bounded exact-arithmetic verifier passes, but does not substitute for this analytic proof.
+## correctness
 
-**Originality — PASS, with risk.** The 2026 preprint contains the unrestricted Dirichlet series, not the stated joint finite prime-valuation vector asymptotic. The 2025 multifactorization study treats individual sizes and sums over divisors. The 2009 Hwang–Janson paper supplies a general ordered-factorization Tauberian method, and includes special cases of the zero-valuation, two-part leading asymptotic. Its examined main results do not give the asserted all-part, all-finite-support joint constant and logarithmic exponent. A sufficiently broad unindexed weighted-factorization result could implicitly cover this deduction. Novelty concerns the precise vector law, not the established starting formulas or Delange theorem.
+PASS
 
-**Mathematical value — PASS.** Fixing the valuations at finitely many primes is a canonical local arithmetic filtration of a global combinatorial counting problem. The result proves a sharp change of power-law exponent and determines the full factorial dependence on the valuation vector; it also gives a concrete concentration phenomenon for typical sum systems. This is an infinite family of exact asymptotics, not an arbitrary finite computation. It does not settle uniform growing-valuation regimes.
+PASS. The claimed asymptotic is for fixed m>=2, a nonempty finite S of excluded primes, fixed e_p>=0 and X→∞. Reconstructed the labelled sum-system/proper-factorization bijection, H_m(t)=m!t^m/prod_{j=1}^{m-1}(1-jt), the simple pole B_m=m/(m-1)^2 at t*=1/(m-1), and the independent multivariate marking T_S=Z_S(s)prod(1-u_p p^{-s})^{-1}-1. At Z_S(rho)=m/(m-1), alpha=-Z'_S(rho)>0, extracting total u-degree E gives exact Laurent coefficient B_m E! alpha^{-(E+1)} prod_p (Q_m p^{-rho})^{e_p}/e_p!. Distinct prime logarithms outside any finite S exclude all other boundary equality phases. Delange's nonnegative-Dirichlet-series theorem yields K/(rho Gamma(E+1)) X^rho(log X)^E, matching the claimed constant; rho<r_m yields divergence in probability of every fixed p-valuation. Independent standard-library integer enumeration separately matched all properly coloured ordered factorization words with Stirling-weighted factorization counts for 2<=m<=4 and 1<=n<=112. The finite checks prove coefficient normalization only, not unbounded asymptotics.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, qualified best-of-knowledge. The local prime-valuation vector asymptotic, including its E-dependent logarithmic power and factorial-product constant for arbitrary fixed finite S and labelled m, is not the unrestricted sum-system formula nor a verbatim theorem of the materially inspected Tauberian source. Found foundational tools that partially imply the calculation when combined with the new coefficient extraction; originality is restricted to the specified joint local law. General multivariate Dirichlet/Tauberian machinery could give implicit coverage, so priority is qualified.
+
+## value
+
+PASS
+
+PASS. Simultaneous fixed p-adic valuation strata are canonical local arithmetic invariants of the sum-system counting problem. The sharp exponent drop rho_{m,S}<r_m, exact valuation-dependent logarithmic order and joint divergence in probability give a nontrivial global-to-local asymptotic classification; this is more informative than tabulating finite cases or renaming the unrestricted factorization identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
