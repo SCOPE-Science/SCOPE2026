@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:45:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md complete Markov inverse, PF and Fourier proof sha be1ffbf40f194bb0bed1fde14f93581cbfa8c918",
+        "Assigned check.py sha 2c2a0b2a320dea160088634432fc83a4962ed0e7",
+        "Independent exact rational inversions and spectral monotonicity tests (240 modifications)"
+      ],
+      "rationale": "Gauss–Markov innovations factorization K=L diag(1,1-a1²,...,1-a_(n-1)²)L^T establishes SPD, and precision Q=K^-1 has explicit tridiagonal coefficients. All K entries are nondecreasing in each a_i and some strictly; its Perron vector is strictly positive, so λmax(K) strictly rises. Sign conjugation DQD makes all entries nonnegative with strictly positive immediate offdiagonals; each entry is nondecreasing and some strictly, hence its Perron root λmax(K^-1) strictly rises as well. Their product κ2 rises in each a_i, proving unique equal-minimum-gap maximizer for fixed n, including n2. The Toeplitz Fourier symbol (1-r²)/(1-2r cosθ+r²) bounds eigenvalues strictly for every finite vector by positive-frequency integral. Constant and alternating trial vectors asymptotically attain upper/lower symbol edges as n grows; ratio supremum coth²(h/(2ell)), never attained at finite n. Solve inequality in r to get exact all-cardinality Γ threshold. Independently verified exact product kernel/precision inversions and eigen extreme monotonicity in 240 small synthetic configurations, distinct from proof.",
+      "residual_risks": [
+        "The global constant is a supremum over unbounded n and no fixed interval length; it is not attained for finite n.",
+        "No claim for Gaussian/higher-Matérn kernels or arbitrary dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing separation bounds are dimensional or kernel-independent sufficient bounds, not exact fixed-n optimal geometry under all irregular gaps.",
+          "The regular Toeplitz limiting symbol gives a constant for equally spaced sites, not proof that every irregular configuration is dominated."
+        ],
+        "reasoning": "No stronger general comparison implying both monotone spectral factors and sharp equality geometry was identified in inspected primary statements.",
+        "searches": [
+          "Avesani Iske Multerer Wenzel Greedy multiscale kernel algorithms 2026 Section 4.5",
+          "Terenin Numerically Stable Sparse Gaussian Processes via Minimum Separation arXiv:2210.07893 Appendix A",
+          "Higham 2021 KMS spectral norm inverse"
+        ]
+      },
+      "checked_sources": [
+        "Higham 2021 full article",
+        "Avesani–Iske–Multerer–Wenzel 2026 arXiv:2610.21615v1, Sections 4.5 and 5.1",
+        "Fikioris arXiv:1804.08140 classical regular KMS",
+        "Terenin et al arXiv:2210.07893 general separation",
+        "Resultary semantic search for OU irregular covariance and monotonicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Toeplitz symbol proves n→∞ bound for regular spacing only.",
+          "General point-separation bounds do not show strict coordinatewise condition-number monotonicity or uniqueness for every fixed n."
+        ],
+        "reasoning": "The claimed strict irregular comparison supplies the missing implication from gapwise constraints to exact optimal KMS worst case; standard PF then proves it with explicit precision structure.",
+        "searches": [
+          "Higham What Is Kac-Murdock-Szego Matrix 2021 Toeplitz inverse",
+          "Avesani et al 2610.21615 Sections 4.5 and 5.1",
+          "Terenin 2210.07893 minimum separation stability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Higham (2021) details regular Kac–Murdock–Szegő matrix and inverse; irregular adjacent-correlation monotonicity is not stated there.",
+          "Avesani et al arXiv:2610.21615 discusses greedy multiscale separation estimates and does not specify exact equal-spacing worst case."
+        ],
+        "reasoning": "Aliases OU covariance, Matérn ν=1/2 Gram, irregular Markov covariance, minimum-separation condition number and KMS Toeplitz were compared at statement level.",
+        "searches": [
+          "Resultary: Ornstein Uhlenbeck exponential covariance irregular sites condition number equal spaced spectral monotonicity",
+          "exponential kernel irregular grid Toeplitz worst conditioning by minimum gap",
+          "Gaussian Markov covariance Kac Murdock Szego irregular mesh eigenvalue comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches involve other OU sampling, Riesz and spectral-spacing tasks, none the exact 1D exponential covariance comparison.",
+          "Classical KMS regular matrix eigenvalues and inverse are known; those tables are only the benchmark branch of the result."
+        ],
+        "reasoning": "No exact database table for arbitrary irregular-grid condition-number supremum was identified; ordinary KMS symbol is a prior input, not the complete theorem.",
+        "searches": [
+          "Resultary exponential OU covariance irregular mesh equal spacing optimal condition",
+          "Kac Murdock Szego irregular correlation matrix condition number",
+          "Toeplitz exponential kernel minimum gap extremizer"
+        ]
+      },
+      "rationale": "Classical Kac–Murdock–Szegő Toeplitz spectral calculations already yield the equally-spaced benchmark; earlier general kernel separation work gives useful uniform bounds. What is not supplied by inspected sources is the strict factorwise monotonicity under *each irregular adjacent gap*, which proves unique equal-spacing worst configuration and the optimal uniform separation rule.",
+      "residual_risks": [
+        "An older Gaussian-Markov matrix comparison or total-positivity theorem could imply gapwise condition-number monotonicity as a known corollary.",
+        "Finite search and inspection do not certify all historical numerical-linear-algebra results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING the regular equally spaced benchmark, NOT the arbitrary-gap extremizer",
+          "evidence": "Regular Toeplitz structure assumes a_i=r identically; claim compares any a_i<=r and gives strict uniqueness.",
+          "identifier_or_url": "https://nhigham.com/2021/07/06/what-is-the-kac-murdock-szego-matrix/",
+          "material_read": "Full author exposition including KMS definition, inverse, eigenproperties and bounding discussion",
+          "method": "Opened complete webpage and read formula and prose",
+          "title": "What Is the Kac–Murdock–Szegö Matrix?",
+          "trigger": "Classical exact covariance inverse, regular-grid case"
+        },
+        {
+          "assessment": "GENERAL_BOUND_ONLY, no exact irregular exponential configuration extremum",
+          "evidence": "Kernel-dependent bounds for multiscale interpolation do not prove the all-n optimal coth² or fixed-n strict equality.",
+          "identifier_or_url": "https://arxiv.org/html/2610.21615v1",
+          "material_read": "Full text through lawfully available rendered HTML including Sections 4.5 and 5.1, Proposition 4.10 and assumptions",
+          "method": "Read primary text, compared kernel/support/separation and type of bounds",
+          "title": "Greedy multiscale kernel algorithms",
+          "trigger": "Recent highly relevant point separation and conditioning estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned Gauss–Markov inverse/Perron strict comparison and Toeplitz Fourier edge argument",
+        "Avesani et al 2026 practical separation-stability motivation"
+      ],
+      "rationale": "Minimum site separation is a natural kernel-interpolation stability design constraint. The precise worst irregular geometry and necessary-and-sufficient uniform all-cardinality Γ rule are directly useful sharp facts; the result is not merely regular Toeplitz algebra because strict comparison over arbitrary nonuniform sites is the structural step.",
+      "residual_risks": [
+        "Limited to 1D Matérn-half exponential kernel; geometric fixed-span designs require another analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For 1D exponential covariance kernel K_ij=exp(-|x_i-x_j|/ell), each adjacent correlation a_i strictly increases both λmax(K) and λmax(K^-1), so minimum gap h implies κ2(K)<=κ2(T_n(exp(-h/ell))) with equality iff all gaps h. Finite n condition number is strictly below coth²(h/(2ell)), an unattained sharp all-n supremum, yielding necessary-and-sufficient uniform separation threshold for target Γ>1.",
+  "limitations": [
+    "The global constant is a supremum over unbounded n and no fixed interval length; it is not attained for finite n.",
+    "No claim for Gaussian/higher-Matérn kernels or arbitrary dimensions.",
+    "An older Gaussian-Markov matrix comparison or total-positivity theorem could imply gapwise condition-number monotonicity as a known corollary.",
+    "Finite search and inspection do not certify all historical numerical-linear-algebra results.",
+    "Limited to 1D Matérn-half exponential kernel; geometric fixed-span designs require another analysis.",
+    "Scientific acceptance is a best-of-knowledge completed assessment, not a publication, certification, or approval to disclose unsanitized public files."
+  ],
+  "schema_version": 1
+}

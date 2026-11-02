@@ -1,9 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The Gauss–Markov innovation factorization establishes strict positive definiteness and gives the tridiagonal inverse. Sign conjugation converts that inverse into a nonnegative irreducible matrix; Perron–Frobenius comparison strictly orders both extreme spectral factors as each adjacent correlation grows. The Fourier symbol of the equispaced Toeplitz matrix establishes the sharp dimension-free constant, nonattainment at every finite size, and its large-grid asymptotic sharpness. Boundary cases \(n=2\), strictly positive gaps, and equality configurations are included. The exact-rational checker confirms the core identities on finite examples but does not prove the universal theorem.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The source's kernel-scale/separation estimate does not specify an extremal irregular-mesh geometry or sharp constant. Earlier separation results give nonoptimal existence bounds. The classical Kac–Murdock–Szegő literature characterizes regularly spaced Toeplitz kernels and the inverse; it does not by itself state the full strict gap-by-gap comparison across irregular grids. Actual searches of scientific literature and mathematical records found no directly covering theorem. Elementary known ingredients are explicitly credited. A historical equivalence through Gaussian Markov covariance or total-positivity theory remains possible.
+PASS
 
-**Mathematical value — PASS.** A cardinality-uniform, *optimal* separation-to-condition-number certificate with an exact geometric extremizer is a natural stability question for kernel interpolation and minimum-separation center selection. The result strengthens general kernel-dependent estimates to a sharp constant for a canonical first-order Matérn model, distinguishes the extremizing finite geometry from the unattained infinite-size envelope, and provides the inverse formula for a prescribed condition-number budget. It does not claim improved interpolation error or floating-point stability.
+Gauss–Markov innovations factorization K=L diag(1,1-a1²,...,1-a_(n-1)²)L^T establishes SPD, and precision Q=K^-1 has explicit tridiagonal coefficients. All K entries are nondecreasing in each a_i and some strictly; its Perron vector is strictly positive, so λmax(K) strictly rises. Sign conjugation DQD makes all entries nonnegative with strictly positive immediate offdiagonals; each entry is nondecreasing and some strictly, hence its Perron root λmax(K^-1) strictly rises as well. Their product κ2 rises in each a_i, proving unique equal-minimum-gap maximizer for fixed n, including n2. The Toeplitz Fourier symbol (1-r²)/(1-2r cosθ+r²) bounds eigenvalues strictly for every finite vector by positive-frequency integral. Constant and alternating trial vectors asymptotically attain upper/lower symbol edges as n grows; ratio supremum coth²(h/(2ell)), never attained at finite n. Solve inequality in r to get exact all-cardinality Γ threshold. Independently verified exact product kernel/precision inversions and eigen extreme monotonicity in 240 small synthetic configurations, distinct from proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Classical Kac–Murdock–Szegő Toeplitz spectral calculations already yield the equally-spaced benchmark; earlier general kernel separation work gives useful uniform bounds. What is not supplied by inspected sources is the strict factorwise monotonicity under *each irregular adjacent gap*, which proves unique equal-spacing worst configuration and the optimal uniform separation rule.
+
+## value
+
+PASS
+
+Minimum site separation is a natural kernel-interpolation stability design constraint. The precise worst irregular geometry and necessary-and-sufficient uniform all-cardinality Γ rule are directly useful sharp facts; the result is not merely regular Toeplitz algebra because strict comparison over arbitrary nonuniform sites is the structural step.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
