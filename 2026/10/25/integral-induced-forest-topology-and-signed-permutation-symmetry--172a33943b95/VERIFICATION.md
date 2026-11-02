@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction of the finite certificate
 
-Execute `python3 verify_clebsch.py` with Python 3.8+; no external packages, network connection or input files are needed. The deterministic output has one canonical JSON object and a final `VERIFY_OK` line; compare it byte-for-byte with `verification_output.txt`.
+# Independent mathematical audit
 
-The checker regenerates all graph edges and verifies parameters \((16,5,0,2)\). It enumerates all 65,536 subsets with two separate acyclicity predicates, verifies the entire simplicial face vector, constructs the pivot matching on valid faces, and topologically sorts its directed full Hasse diagram. It computes all signed gradient-path projections and the exact integral critical-cell boundary matrix, checks an explicit maximal minor is unimodular, and independently computes every original simplicial mod-two boundary rank. Finally it enumerates all 1,920 graph automorphisms (five connection-vector permutations and translations), verifies each preserves adjacency, calculates signed Lefschetz characters and checks each against the proposed sign-twisted augmentation character.
+## correctness
 
-The finite Morse reduction proves the integral wedge homotopy type using standard CW attachment-degree theory. The rational representation identification follows from equality of all group characters. This is a deterministic computation for one specified finite graph, not a machine proof of novelty or any infinite family. No independent external audit is represented by this file.
+PASS
+
+For Clebsch Cayley graph on F_2^4 with connection differences 1,2,4,8,15, every one of the 65536 vertex masks was independently tested for induced acyclicity. The 13839 augmented faces have f-vector (1,16,120,560,1780,3696,4376,2560,650,80). Independently reconstructed greedy vertex-pivot Morse matching has 6908 pairs, 19 critical 5-cells and four critical 6-cells; full topological ordering of 77632 oriented incidences proves acyclicity. The signed 19x4 Morse differential was independently reconstructed with exact integer recurrence; rows 0,1,3,4 give a unimodular maximal minor, so the high-dimensional CW cell pairs cancel integrally and F(C) is wedge of fifteen S^5. An independent enumeration of all 1920 graph automorphisms and fixed-face Lefschetz sums gives sign(sigma)*(number of fixed vertices-1) with zero mismatches and confirms the rational sign-twisted augmentation G-module, whose two translation-character orbits have dimensions 5 and 10. No general higher folded-cube claim is proved.
+
+## originality
+
+PASS
+
+The vertex-subset induced-forest complex is not the ordinary independence complex or the graph-edge forest/matching complex. Taylan and Carnero Bravo introduce graph-devoid and induced-forest machinery and calculate other host families; their checked coverage does not imply this nonplanar (16,5,0,2) strongly regular case, or its full 1920-element rational symmetry character. Published Clebsch neighborhood-complex and other graph-complex results use different face predicates. This is a best-of-knowledge PASS limited by incomplete exhaustive bibliography.
+
+## value
+
+PASS
+
+The 5-regular Clebsch graph is a canonical finite strongly regular graph. Determining exact integral homotopy and a nontrivial rational automorphism representation of its induced-forest complex answers natural graph-topological invariants with explicit reproducible finite witnesses, beyond recomputing a known independence-complex table. The rational-vs-integral symmetry distinction is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
