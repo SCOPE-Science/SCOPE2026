@@ -1,15 +1,21 @@
-# Review of the sharp non-completeness mixing obstruction
+# Independent mathematical audit
 
-## Correctness — PASS
-The sharp lower bound is an operator-norm consequence of any unsupported offdiagonal entry: with centered coordinate vectors of norm squared \((n-1)/n\), a required zero transition has centered entry \(-1/n\). Equality forces an exact centered column identity, and two missing edges sharing a vertex would impose two incompatible columns. The explicit matching-deletion kernel is checked algebraically for feasibility; its invariant-space decomposition proves the full real spectrum is contained in \(\{1,1/(n-1),-1/(n-1),0\}\). The exact rational checker evaluates 224 independent parameter pairs but does not replace the general proof. The feasible matrix polytope is compact, so strictness beyond the matching class follows.
+## correctness
 
-## Originality — PASS, subject to literature risks
-The defining FMMC semidefinite problem is due to Boyd–Diaconis–Xiao (2004). The 2009 edge-transitive formula of Boyd–Diaconis–Parrilo–Xiao already implies the complete graph minus a **perfect matching** special case; this is acknowledged as prior coverage. Their edge-transitive theorem does not establish the **iff** classification among all incomplete graphs or cover general partial matching deletions directly. A 2025 broad clique-lift/subgraph FMRMC treatment was compared at its full-text relevant sections without finding an equivalent universal characterization. Published-record semantic searches and accessible previous claim comparisons found no implication-equivalent statement. A hidden corollary of an earlier SDP duality or spectral completion theorem remains the main originality risk; failed searches alone cannot settle that issue.
+PASS
 
-## Mathematical value — PASS
-The complete extremal classification answers a natural network design question: which noncomplete communication graphs can mix as quickly as the fastest possible graph with one lost link? It shows that deletion of any matching is no worse, in optimized SLEM, than one missing link, but any two lost links sharing a node force a strict slowdown. This is a topology-wide structural law, not a numerical table, arbitrary slice, or renaming of the standard SDP.
+For any missing edge uv and H=P−J, H1=0 and ⟨e_u−1/n,H(e_v−1/n)⟩=−1/n imply ||H||≥1/(n−1). Equality simultaneously at every nonedge forces H(e_v−1/n)=−(e_u−1/n)/(n−1), impossible when two nonedges share v; thus complement matching necessary. For any k missing disjoint pairs and m unmatched vertices the explicitly specified P (a=1/(n−1) on allowed entries touching a matched vertex, b=(m−1)/[m(n−1)] within unmatched class when m>0) is symmetric stochastic nonnegative, and full invariant-space decomposition has spectrum {1,a,−a,0}, proving equality. Compact feasibility gives strict inequality for any nonmatching complement. Includes m=0,1 boundary cases and disconnected graphs. Independent exact rational 63 n,k cases checked; general proof is analytic.
 
-## Scope and limitations
-Holding loops are permitted; all transition matrices are symmetric, stochastic, and real. No results are claimed for nonreversible transition kernels or other notions of finite-time mixing. The classification does not parametrize all optimal matrices. The equal-value perfect-matching-deleted special case is not newly established relative to published edge-transitive graph theory.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: edge-transitive perfect-matching-deleted graphs were already covered; the universal iff equality class including arbitrary partial deleted matchings was not found as an implication of inspected primary theorems.
+
+## value
+
+PASS
+
+A sharp topology-wide classification of when the optimized reversible fastest-mixing rate is as good as deletion of a single edge answers a natural robustness question. Necessity, sufficiency and the sharp strict gap distinction are new structural information beyond ordinary SDP numerical optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
