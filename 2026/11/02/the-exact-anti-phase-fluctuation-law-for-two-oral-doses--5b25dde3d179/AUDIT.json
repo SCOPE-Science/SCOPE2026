@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "A positive unit-mass Bateman kernel is periodized exactly; its autocorrelation is explicitly integrated and periodized as a hyperbolic-sine quotient. The unique minimum of centered L2 exposure at half period follows from strict monotonicity of sinh(r y)/sinh(r L) in r for 0<y<L, proved using monotonicity of x coth(x). Rate equality follows by a smooth derivative limit, and positive unequal doses enter only by a positive product. Exact Taylor expansion gives positive quadratic phase-error coefficient. A separate standard-library checker passed 247 independent numerical assertions, without being used to infer universal validity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Evans 2011 https://wrap.warwick.ac.uk/id/eprint/37150/1/WRAP_Evans_9871863-es-081211-paper.pdf formulates dose choices to meet AUC and target time-series objectives by fixed-point arguments.",
+        "Grover–Benet 2011 https://pmc.ncbi.nlm.nih.gov/articles/PMC3677834/ models operational multiple-dosing half-life and peak/trough fluctuations, not integrated-square two-dose phase optimization."
+      ],
+      "reasoning": "A stronger general theorem could subsume the exact result without matching its vocabulary. The studied published methods use distinct objectives and do not establish global strict optimality or the explicit hyperbolic phase penalty for fixed two positive dose sizes.",
+      "searches": [
+        "Exact periodic pharmacokinetic two-dose dose phase optimize peak concentration first-order absorption elimination",
+        "Convolution of two exponential first-order drug absorption and elimination, autocorrelation circular rearrangement hyperbolic phase energy analytical global optimum two pulses.",
+        "periodic dosing pharmacokinetic quadratic variance optimal spacing analytic first order oral absorption"
+      ]
+    },
+    "checked_sources": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3581066/",
+      "https://pubmed.ncbi.nlm.nih.gov/10382117/",
+      "https://wrap.warwick.ac.uk/id/eprint/37150/1/WRAP_Evans_9871863-es-081211-paper.pdf",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3677834/",
+      "https://pubmed.ncbi.nlm.nih.gov/19015955/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "1999 DOI:10.1016/S0939-6411(99)00017-X: close concentration formula in abstract, no full text inspection possible.",
+        "2008 DOI:10.1007/s11095-008-9787-9: linear repeated-dose model, mean exposure and operational half-life.",
+        "2011 DOI:10.1016/j.bspc.2010.06.006: dose-for-AUC optimization; 2011 DOI:10.1007/s10928-011-9198-0: operational half-life."
+      ],
+      "reasoning": "Known concentration superposition alone does not imply that a squared-exposure functional has the unique strict antipodal optimum: a sign theorem for a difference of exponentials is required. The new proof supplies that sign, its complete phase dependence, coincident-rate limit, and local tolerance constant. No inspected stronger prior theorem directly entails these quantitative results; the 1999 uninspected source retains a named historical-priority risk.",
+      "searches": [
+        "Pharmacokinetics Bateman absorption elimination kernel: two periodic doses with arbitrary unequal quantities, exact circular autocorrelation, unique half period spacing minimizes integrated squared deviation from average, explicit hyperbolic sine cosh penalty.",
+        "Periodic one-compartment oral drug steady-state mean-square plasma level fluctuation with two nonuniform dosing times variance optimal equal-interval balanced spacing.",
+        "Plusquellec De Biasi Souhait 1999 Concentration at steady-state after periodic and non-uniform administration of drug pdf",
+        "periodic dosing schedules minimize fluctuation mean square concentration first order absorption"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sahin–Benet 2008 https://pmc.ncbi.nlm.nih.gov/articles/PMC3581066/ studies accumulation and peak/trough, not the exact integrated square phase penalty.",
+        "Plusquellec–De Biasi–Souhait 1999 https://pubmed.ncbi.nlm.nih.gov/10382117/ describes periodic nonuniform steady-state concentrations in its abstract, with no optimization assertion there."
+      ],
+      "reasoning": "The assertion is equivalent to a strict circular-autocorrelation minimum of the two-stage Bateman response at antipodal phases, and to a sharp comparison of all two-dose quadratic exposure costs. No inspected accessible primary material states this equivalent global strict inequality or explicit penalty. The 1999 full text is an unresolved priority caveat, not evidence of noncoverage.",
+      "searches": [
+        "Two periodic oral drug doses Bateman first-order absorption and elimination exactly minimize maximum steady-state concentration by optimally unequal spacing or half-period schedule",
+        "Pharmacokinetics Bateman absorption elimination kernel: two periodic doses with arbitrary unequal quantities, exact circular autocorrelation, unique half period spacing minimizes integrated squared deviation from average, explicit hyperbolic sine cosh penalty.",
+        "Pharmacokinetics second-order Bateman kernel periodic dose L2 variability exactly minimized by equal spacing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical finding search returned the unrelated exponential-synapse phase-kernel record 2026/10/11/SCOPE-the-printed-exponential-synapse-phase-kernel-is-not-periodic--a17b157327e5.",
+        "Published mathematical finding search returned an unrelated periodic oscillator stability record 2026/10/11/SCOPE-isospectral-factor-order-produces-a-square-root-separation-of-op--e73e88d13cc0.",
+        "The primary pharmacokinetic articles cited above provide exposure and concentration formulae, not a published numerical table or exact formula for the squared-fluctuation phase penalty."
+      ],
+      "reasoning": "Neither the closest published mathematical records nor inspected relevant pharmacokinetic sources specify an exact table or formula for quadratic exposure as a function of two-dose separation. Absence in the searches is not a proof of global mathematical novelty.",
+      "searches": [
+        "Pharmacokinetics second-order Bateman kernel periodic dose L2 variability exactly minimized by equal spacing",
+        "Periodic one-compartment oral drug steady-state mean-square plasma level fluctuation with two nonuniform dosing times variance optimal equal-interval balanced spacing.",
+        "Pharmacokinetics Bateman absorption elimination kernel: two periodic doses with arbitrary unequal quantities, exact circular autocorrelation, unique half period spacing minimizes integrated squared deviation from average, explicit hyperbolic sine cosh penalty."
+      ]
+    },
+    "rationale": "The exact global phase penalty, unique strict anti-phase minimizer for every positive rate pair and unequal positive dose amounts, and sharp quadratic timing-error coefficient were not located in inspected full papers, abstract-accessible close prior articles, public mathematical finding search, or available prior claim comparison. This is a best-knowledge priority assessment only: the full 1999 nonuniform-dose paper was inaccessible and a general rearrangement result may exist.",
+    "residual_risks": [
+      "The full 1999 nonuniform-dosing primary article was not accessible; its abstract alone cannot rule out an equivalent quadratic phase statement in its body.",
+      "General periodic potential or rearrangement theorems could imply half-period spacing for more general kernels, even without pharmacokinetic terminology.",
+      "The theorem does not extend without proof to more than two dosing events or any nonlinear clearance or clinical objective."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODELING_BACKGROUND_NOT_EXACT_PHASE_THEOREM",
+        "evidence": "Online publication day 2008-11-18, DOI 10.1007/s11095-008-9787-9; discussion of average exposure, operational half-life and peak/trough.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3581066/",
+        "material_read": "Full accessible article: abstract, introduction, theory, dosing-interval discussion and conclusions",
+        "method": "Lawful PubMed Central full-text HTML",
+        "title": "The Operational Multiple Dosing Half-life: A Key to Defining Drug Accumulation in Patients and to Designing Extended Release Dosage Forms",
+        "trigger": "Core first-order oral repeated-dose model and pharmacological motivation"
+      },
+      {
+        "assessment": "CLOSE_INACCESSIBLE_PRIORITY_RISK",
+        "evidence": "PMID 10382117; DOI 10.1016/S0939-6411(99)00017-X; abstract asserts expressions for concentration under nonuniform repeated dosing, not an optimization result.",
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/10382117/",
+        "material_read": "PubMed abstract and bibliography only. No primary full-text access established.",
+        "method": "PubMed abstract; open manuscript search unsuccessful; institutional full-text route unavailable",
+        "title": "Concentration at steady-state after periodic and non-uniform administration of drug",
+        "trigger": "Most closely matched earlier two-compartment nonuniform periodic drug schedule"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE_NO_KNOWN_IMPLICATION",
+        "evidence": "DOI 10.1016/j.bspc.2010.06.006; determines dose or schedule to reach prescribed AUC or time-series values, not strict minimization of squared fluctuations with fixed dose amounts.",
+        "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/37150/1/WRAP_Evans_9871863-es-081211-paper.pdf",
+        "material_read": "Accessible complete accepted manuscript, including abstract, introduction, statements on AUC and target series optimization, main fixed-point formulation and context",
+        "method": "Lawful institutional manuscript PDF with text and page-image inspection",
+        "title": "Optimal oral drug dosing via application of the contraction mapping theorem",
+        "trigger": "Plausible stronger general oral dosing optimization"
+      },
+      {
+        "assessment": "RELATED_METRICS_NOT_EXACT_PHASE_THEOREM",
+        "evidence": "DOI 10.1007/s10928-011-9198-0; works with operational half-life, Monte Carlo and peak/trough fluctuation, not integrated-square two-dose phase penalty.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3677834/",
+        "material_read": "Full open article abstract, introduction, pharmacokinetic model and discussion",
+        "method": "Lawful PubMed Central full-text HTML",
+        "title": "Intermittent Drug Dosing Intervals Guided by the Operational Multiple Dosing Half Lives for Predictable Plasma Accumulation and Fluctuation",
+        "trigger": "Closely related steady-state fluctuation and oral absorption time-scale comparisons"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b25dde3-d179-4652-b8bc-5f206b642b9a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For fixed positive doses and a period, mean steady-state exposure is phase invariant, while integrated squared variation is a natural measure of exposure smoothness. The finding solves its full positive-parameter phase optimization with a strict global ordering, a sharp closed-form phase penalty and a quantitative near-optimal tolerance, including unequal doses and equal rate constants. This gives a motivated structural classification in the classic two-stage oral pharmacokinetic model, without claiming clinical treatment or peak concentration optimality.",
+    "status": "PASS"
+  }
+}
