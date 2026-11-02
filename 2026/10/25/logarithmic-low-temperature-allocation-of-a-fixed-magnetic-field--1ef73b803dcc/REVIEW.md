@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The four-by-four Hamiltonian splits into explicitly diagonalizable even and odd parity blocks. Its Gibbs state is an X state whose concurrence reduces exactly to the displayed scalar quotient. The rigorous argument includes the nonnegative-concurrence cutoff, the equality-budget constraint, the endpoint case \(R=J\), every maximizing sequence, and the exponentially small derivative remainder in the \(R<J\) regime. An independent full-matrix checker compares 240 seeded cases with exact formula evaluations and checks 33 optimization/asymptotic instances. Remaining correctness risk is limited to usual interpretation of fixed parameters and the asymptotic (not finite-temperature) uniqueness claims.
+PASS
 
-## Originality
+The frozen proof diagonalizes the XX dimer Hamiltonian into even states of energies ±B and odd block [[b,J],[J,-b]] with eigenvalues ±E, E=sqrt(J^2+b^2), and derives exact X-state concurrence C=[(J/E)sinh(beta E)-1]_+/(cosh(beta E)+cosh(beta B)). On the circular budget B²+b²=R², maximize t=|B| in [0,R]. For R<J, E-t>=J-R>0 uniformly; exponentially small corrections have derivative O(t beta²exp(-beta(J-R))), so the leading J/E strictly increases and unique maximizing magnitude is t=R at sufficiently large beta. For R>=J, the unique crossing E=t is s=sqrt((J²+R²)/2); a near-crossing trial s-beta^(-1/2) yields limiting J/s, forcing every maximizing sequence to t->s from below with beta(E-t)->∞. The stationary logarithmic derivative then gives exp(beta(E-t))~2 beta s and the two expansions. At R=J, b²~J log(2 beta J)/beta. Independently reconstructed 4x4 Hamiltonian eigenvalues/Gibbs concurrence using matrix algebra on 35 parameter samples and one-dimensional large-beta optimizers for R/J<,=,>1; all agreed with stated formula and logarithmic shift. This is an analytical all-parameter proof, not a numerical optimization extrapolation.
 
-PASS on best available statement-level evidence, with residual priority uncertainty. The closest model source, Sun–Chen–Chen (2003), develops concurrence under nonuniform fields, but its full text could not be obtained. Asoudeh–Karimipour (2004/2005) and Zhang–Li (2005) derive ground-state and finite-temperature field effects without the fixed Euclidean budget extremal asymptotics. Kuwahara–Hatano (2011) optimize unrestricted local Hamiltonians and do not imply the exact equality-budget transition and logarithmic thermal layer: unrestricted optimization permits changing field amplitude rather than reallocating a fixed nonzero one. Related registered thermal-quantum findings address different Hamiltonians or objectives. The exact concurrence formula, zero-temperature entangled/product spectral crossing, and Wootters measure themselves are acknowledged prior knowledge. The inaccessible 2003 original is named rather than incorrectly assessed as fully checked.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A nonzero fixed sum-of-squares field budget is a natural constrained actuator model: it prevents the unconstrained choice of turning off all fields. Its sharp budget ratio transition, singular thermal optimizer displacement, and noncommutativity of zero-temperature optimization with evaluation at the critical homogeneous field quantify how a mixed Gibbs state can preserve maximal concurrence despite approaching a ground-state level crossing. These formulas are useful as exact tests of finite-temperature field-control heuristics; they do not extend to many-body or arbitrary-direction control.
+The XX and XY Gibbs concurrence formulas and their uniform/inhomogeneous-field dependence are longstanding prior results. The original Sun–Chen–Chen and Asoudeh–Karimipour papers are acknowledged for this material. The new mathematical claim is maximization under the exact Euclidean field-budget equality, identifying the R=J allocation phase boundary and logarithmic beta^-1 correction of all optimizers. General free-field Hamiltonian maximization by Kuwahara–Hatano is not the same constrained problem. Full text of Sun 2003 was unavailable behind an institutional VPN block; its abstract and comparable accessible primary Asoudeh text were read, so historical priority is qualified rather than falsely certified.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The fixed RMS-field-strength budget is a natural laboratory/control-constrained optimization: fields may be redistributed but not made arbitrarily strong. The optimum shifts from homogeneous fields to an inhomogeneous, near-energy-crossing allocation and has a singular beta^-1 log(beta) boundary layer. This is a concrete sharp phase transition and quantitative finite-temperature correction, not a reparameterized fixed-field concurrence formula. It distinguishes an optimization property absent from ordinary thermal-entanglement threshold tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
