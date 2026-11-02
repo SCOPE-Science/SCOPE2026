@@ -1,19 +1,21 @@
-# Review: range-conditioned adjacency clustering
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Conditional sample counting is exact, because the \(n-r\) admissible sample locations each contribute every interior binary word exactly once. Compositions of positive one- and zero-block lengths yield the complete conditional mass function. Every output word has the same \(z+1\) zero-deletion preimages, proving the insertion coupling preserves uniformity. Inserting a zero cannot create adjacent ones. Conditional means strictly decrease for \(k\ge3\); the \(k=2\) endpoint case is explicit. The double-copy covariance identity proves the asserted strict and weak signs. Exact exhaustive checks cover sizes up to 12; these checks do not replace the universal proof.
+PASS
 
-## Originality — PASS with residual priority risk
+For a uniformly drawn fixed-size k-subset of [n], conditional on span r the n-r choices of left endpoint have identical interior uniform C(r-1,k-2) configurations. With z=r+1-k zeros and endpoints 1, a word with h one-runs has C(k-1,h-1)C(z-1,h-2) compositions; A=k-h, and z=0 is deterministic. Uniform insertion of one zero in any of r interior gaps is a coupling because every longer word has exactly z+1 zero-deletion preimages; thus A_{r+1}<=A_r a.s. The conditional mean (k-1)(k-2)/(r-1) for k>=3, k=2 boundary, and covariance identity give strict negative Cov(A,g(R)) for 2<=k<n and strictly increasing g. Independent all-subset enumeration checked 210 (n,k,r) cases through n=11 with exact fractions, not a proof of the unrestricted n family.
 
-published-finding corpus searches for sample range, runs, conditioned adjacency counts, stochastic order and inserted zeros did not return a covering claim. The nearest related record, `SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions-c6b28ad6d93d`, concerns covariances *between transition indicators* at fixed composition, not the global sample range or its conditional distribution. Smeeton and Cox (2003), inspected in full primary text, address shuffling-based fixed-composition runs tests, not conditioning on span. Stepanov (2011) studies runs from discrete order statistics; only its abstract was accessible, making it a continuing potential source of earlier implications. The finite law and monotone simultaneous coupling are not identified in the material actually reviewed. Absence from searches is not proof of worldwide priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sample span is a natural measure of how far a simple random sample is spread, whereas adjacent selected pairs quantify clustering and are a primitive runs-test statistic. The result gives a complete distributional comparison, not just a sign of a single covariance, and enables monotone-tail calibration when sample range is observed. The independence of the ambient population size and the explicit pathwise zero-insertion construction provide reusable structural information. The theorem is confined to a motivated, fully specified finite sampling model.
+Classical binary fixed-composition run enumerations and discrete order-statistic runs are relevant background. The joint result conditions on the ACTUAL numerical sample span and gives an n-independent exact law plus simultaneous stochastic ordering by one-zero insertion; no inspected matching published implication found. Re-expression as conditioned binary words was expressly searched.
 
-## Literature and limitations
+## value
 
-The potentially closest incomplete comparison is the full text of Stepanov (2011), inaccessible during this review. The exact run-count enumeration underlying classical binary runs tests is not claimed as new by itself; the additional span conditioning and first-order stochastic coupling are the asserted contribution. Independent historical-priority review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A span-conditioned cluster-count law and monotonicity are intrinsic finite-population sampling invariants useful for runs tests, spacing and selection bias. The coupling is a structural order result for every n,k, rather than isolated elementary run-count arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

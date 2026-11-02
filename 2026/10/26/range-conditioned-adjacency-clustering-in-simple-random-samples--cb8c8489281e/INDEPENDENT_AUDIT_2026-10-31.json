@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T08:53:17.211217Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/range-conditioned-adjacency-clustering-in-simple-random-samples--cb8c8489281e/RESULT.md, Git blob c86eac2eb8a310d745d4a340882e123a4f541a90",
+        "Independent bounded script independent_checks_batch4929.py"
+      ],
+      "rationale": "For a uniformly drawn fixed-size k-subset of [n], conditional on span r the n-r choices of left endpoint have identical interior uniform C(r-1,k-2) configurations. With z=r+1-k zeros and endpoints 1, a word with h one-runs has C(k-1,h-1)C(z-1,h-2) compositions; A=k-h, and z=0 is deterministic. Uniform insertion of one zero in any of r interior gaps is a coupling because every longer word has exactly z+1 zero-deletion preimages; thus A_{r+1}<=A_r a.s. The conditional mean (k-1)(k-2)/(r-1) for k>=3, k=2 boundary, and covariance identity give strict negative Cov(A,g(R)) for 2<=k<n and strictly increasing g. Independent all-subset enumeration checked 210 (n,k,r) cases through n=11 with exact fractions, not a proof of the unrestricted n family.",
+      "residual_risks": [
+        "Bounded checking corroborates examples, not unrestricted quantified mathematics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Smeeton–Cox 2003 runs, Stepanov 2011"
+        ],
+        "reasoning": "General classical composition-run formulas may specialize to the conditional count, but no inspected source supplies simultaneous first-order stochastic decrease across r; priority risk is retained.",
+        "searches": [
+          "runs distribution conditional sample range uniform k subset consecutive pairs stochastic monotonicity zero insertion coupling",
+          "Smeeton–Cox 2003 runs, Stepanov 2011"
+        ]
+      },
+      "checked_sources": [
+        "Stepanov, Runs Based on Discrete Order Statistics, TWMS Journal of Applied and Engineering Mathematics 1(2) (2011) (OA primary PDF)",
+        "Smeeton and Cox, Do-it-yourself shuffling and number of runs under randomness, Stata Journal 3(3) (2003)",
+        "Resultary exact dependence phases of fixed-composition run transitions, 2026/10/4/...--c6b28ad6d93d",
+        "Assigned Git RESULT.md and verify.py; independent subset enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stepanov 2011 full primary PDF"
+        ],
+        "reasoning": "Stepanov studies iid discrete order-statistic run limits (potential ties), while current fixed-cardinality sample without replacement has exact finite n,k,r and zero-insertion order; no proven implication from those limits.",
+        "searches": [
+          "runs distribution conditional sample range uniform k subset consecutive pairs stochastic monotonicity zero insertion coupling",
+          "Stepanov 2011 full primary PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stepanov 2011 run paper; Resultary fixed-composition transitions"
+        ],
+        "reasoning": "Conditioning an incidence word to have first/last symbol 1 reduces sample span r to a fixed-composition run problem; its exact conditional law plus monotone coupling is not mere covariance of fixed-composition transitions.",
+        "searches": [
+          "runs distribution conditional sample range uniform k subset consecutive pairs stochastic monotonicity zero insertion coupling",
+          "Stepanov 2011 run paper; Resultary fixed-composition transitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary targeted conditional sample-range query and fixed-composition transitions 2026"
+        ],
+        "reasoning": "Search of run-distribution and order-statistics records found related run-transition covariance, not an exact matching span-conditioned table or theorem. This failed match is evidence of search only, not novelty proof.",
+        "searches": [
+          "runs distribution conditional sample range uniform k subset consecutive pairs stochastic monotonicity zero insertion coupling",
+          "Resultary targeted conditional sample-range query and fixed-composition transitions 2026"
+        ]
+      },
+      "rationale": "Classical binary fixed-composition run enumerations and discrete order-statistic runs are relevant background. The joint result conditions on the ACTUAL numerical sample span and gives an n-independent exact law plus simultaneous stochastic ordering by one-zero insertion; no inspected matching published implication found. Re-expression as conditioned binary words was expressly searched.",
+      "residual_risks": [
+        "A general known insertion/deletion coupling for fixed-composition binary runs might imply this conditional-range result without explicitly mentioning sample span.",
+        "Older discrete order-statistic monographs or unpublished run-process notes may give the identical conditional distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Addresses runs in discrete order-statistic sampling and limiting laws rather than fixed-k uniformly distinct subsets conditioned on their numerical span; no identified joint exact law and stochastic coupling.",
+          "evidence": "Article focuses on total number and longest run limits; assessed result gives fixed-n,k,r combinatorial formula and monotone-in-r coupling.",
+          "identifier_or_url": "https://dergipark.org.tr/en/pub/twmsjaem/article/761794",
+          "material_read": "Seven-page freely accessible primary article PDF, its definitions and limit-law theorems for runs among discrete order statistics.",
+          "method": "Full-text PDF/page-image review and journal description",
+          "title": "Runs Based on Discrete Order Statistics",
+          "trigger": "Highly plausible same numerical runs and order-statistics setting"
+        },
+        {
+          "assessment": "Transition-pair covariance at fixed composition differs from conditional-range run-count distribution and a stochastic coupling along increasing zero count.",
+          "evidence": "Indexed claim concerns covariances of adjacent/disjoint transition indicators, not span-conditioned A.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+          "material_read": "Resultary indexed title and summary of transition covariances; no whole-document noncoverage assertion.",
+          "method": "Semantic database search and summary comparison",
+          "title": "Exact dependence phases of fixed-composition run transitions",
+          "trigger": "Same fixed-composition one/zero runs model via binary incidence words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A span-conditioned cluster-count law and monotonicity are intrinsic finite-population sampling invariants useful for runs tests, spacing and selection bias. The coupling is a structural order result for every n,k, rather than isolated elementary run-count arithmetic.",
+      "residual_risks": [
+        "A general known insertion/deletion coupling for fixed-composition binary runs might imply this conditional-range result without explicitly mentioning sample span."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Stepanov, Runs Based on Discrete Order Statistics, TWMS Journal of Applied and Engineering Mathematics 1(2) (2011) (OA primary PDF)",
+    "Smeeton and Cox, Do-it-yourself shuffling and number of runs under randomness, Stata Journal 3(3) (2003)",
+    "Resultary exact dependence phases of fixed-composition run transitions, 2026/10/4/...--c6b28ad6d93d",
+    "Assigned Git RESULT.md and verify.py; independent subset enumeration"
+  ],
+  "disposition": "passed",
+  "limitations": "Publication is withheld; not_ready is an operational transport/privacy status, not science failure. The correctness proof covers exactly the stated domains; finite checks do not establish unrestricted assertions; originality is best-of-knowledge.",
+  "residual_risks": [
+    "A general known insertion/deletion coupling for fixed-composition binary runs might imply this conditional-range result without explicitly mentioning sample span.",
+    "Older discrete order-statistic monographs or unpublished run-process notes may give the identical conditional distribution."
+  ],
+  "schema_version": 1
+}
