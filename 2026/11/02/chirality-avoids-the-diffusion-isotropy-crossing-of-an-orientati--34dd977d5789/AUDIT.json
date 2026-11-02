@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For every positive reset rate and angular diffusivity, the first two stationary Fourier moments solve linear generator balance equations. The conditional first harmonic decays as a damped rotation, giving an integrable matrix Green--Kubo formula. Exact symbolic reduction produces the rational complex anisotropy. Its imaginary numerator prevents isotropy at any nonzero angular drift; the only achiral numerator zero is r=d/2. The exact Taylor derivatives at this point establish the avoided-crossing coefficient, not only numerical plausibility. A standalone numerical/symbolic checker independently corroborates formulas and discretized generator convergence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The broad active-particle reorientation papers treat rotationally covariant relative resets or shape-induced translational diffusion without intrinsic drift.",
+        "The zero-drift benchmark formula is exactly recovered from the complex tensor formula."
+      ],
+      "reasoning": "A generic Green--Kubo identity alone does not supply the rational zero classification. The sources checked with some shared ingredients do not explicitly cover the model combining fixed absolute reset heading and nonzero intrinsic rotation.",
+      "searches": [
+        "\"chirality\" \"orientational resetting\" \"isotropic\" \"anisotropic\" effective diffusion",
+        "circle swimmer absolute orientation resetting anisotropy",
+        "chiral active Brownian motion orientation-only stochastic resetting absolute direction long time diffusivity",
+        "Poisson reset angle fixed angle chiral circle swimmer stationary orientation harmonic anisotropy diffusion eigenvalues",
+        "arXiv:2405.14326v1",
+        "arXiv:2501.05149v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2405.06769v1",
+      "https://arxiv.org/html/2405.14326v1",
+      "https://arxiv.org/html/2406.17550v1",
+      "https://arxiv.org/html/2501.05149v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zero angular drift in arXiv:2405.06769v1 implies the achiral crossing only.",
+        "Relative-angle tumbling in arXiv:2405.14326v1 preserves rotational covariance and gives scalar spreading; fixed-heading reset does not.",
+        "The other inspected anisotropic models do not have the same constant chiral angular drift with absolute orientation resets."
+      ],
+      "reasoning": "The new claim contains a nonzero-drift all-positive-rate nonvanishing theorem and universal local two-variable eigenvalue splitting. Neither follows as a specialization or corollary of the stated prior conclusions without deriving the missing combined model.",
+      "searches": [
+        "arXiv:2405.06769v1",
+        "arXiv:2405.14326v1",
+        "arXiv:2406.17550v1",
+        "arXiv:2501.05149v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Absolute heading resets with a chiral drift yield a complex symmetric traceless diffusivity component, not merely two diagonal coordinate diffusivities.",
+        "The relative-tumble model preserves rotations and does not induce this laboratory-frame tensor structure."
+      ],
+      "reasoning": "Isotropy is equivalent to both diagonal difference and off-diagonal covariance vanishing. Evaluating only one entry misses chiral off-diagonal effects. The generator of relative-angle tumbles is not equivalent to an absolute lab-heading reset.",
+      "searches": [
+        "chiral active Brownian orientational resetting to fixed direction anisotropic diffusion isotropic crossover",
+        "active circle swimmer stochastic angular resetting orientation direction effective diffusion tensor 2023 2024",
+        "orientational resetting chiral active Brownian particle exact diffusion tensor 2024",
+        "\"chiral\" \"orientational resetting\" \"diffusion tensor\" fixed angle isotropy",
+        "arXiv:2405.06769v1",
+        "arXiv:2405.14326v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The benchmark source contains the zero-drift scalar components but not a chiral full-tensor spectral-gap table.",
+        "No exact tensor-gap tabulation for this combined process was located among the examined primary sources."
+      ],
+      "reasoning": "The new result is a continuous parameter classification, not a finite database entry. Literature searches alone cannot prove that no uninspected table exists.",
+      "searches": [
+        "chiral active Brownian motion orientation-only stochastic resetting absolute direction long time diffusivity",
+        "Poisson reset angle fixed angle chiral circle swimmer stationary orientation harmonic anisotropy diffusion eigenvalues",
+        "arXiv:2405.06769v1"
+      ]
+    },
+    "rationale": "The achiral diffusion formulas and crossing are pre-existing; the supported new statement is the full-tensor obstruction for any nonzero angular drift and its sharp two-variable avoided-crossing law. The checked models with relative tumbling, passive shape anisotropy and zero-drift active particles do not imply that statement. No exact covering result was found in accessible sources. Residual publication priority risk remains.",
+    "residual_risks": [
+      "The accessible literature comparison may miss unpublished, differently titled or non-indexed derivations of the same tensor.",
+      "No independent publication-priority determination has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers the zero-drift diffusivities and the achiral isotropy boundary; does not give the nonzero-intrinsic-drift full tensor or the avoided-crossing law.",
+        "evidence": [
+          "Its diffusion tensor is axis-aligned by reflection symmetry when angular drift is absent. The new complex anisotropy at zero drift reduces to exactly that axis-aligned form."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2405.06769v1",
+        "material_read": "Model definition and stationary orientational statistics, effective long-time diffusion formulas, and relevant derivational passages in the accessible arXiv HTML.",
+        "method": "Read source equations and compare its longitudinal/transverse diffusivities with the zero-drift specialization of the new complex tensor formula.",
+        "title": "Active Brownian particle under stochastic orientational resetting",
+        "trigger": "Same active Brownian model and absolute laboratory heading resets, but no intrinsic angular drift."
+      },
+      {
+        "assessment": "Reorientations depend on the incoming angle and preserve rotational covariance, whereas fixed absolute-heading resets break it; the scalar transport results do not imply the tensor gap.",
+        "evidence": [
+          "A relative-angle reset operator preserves global angular shifts; the laboratory-fixed reset term \\(r[f(0)-f(\theta)]\\) does not."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2405.14326v1",
+        "material_read": "Model and reorientation dynamics, effective-diffusion discussion and related formulas in the accessible arXiv HTML.",
+        "method": "Compare the orientation jump operator and rotational covariance, then its scalar diffusion law with the absolute-reset tensor problem.",
+        "title": "Optimal diffusion of chiral active particles with strategic reorientations",
+        "trigger": "Chiral active motion with orientation jumps; superficially close to the proposed nonzero-drift extension."
+      },
+      {
+        "assessment": "Its anisotropy is generated by passive orientation-dependent mobility/noise; it does not give an active constant-speed swimmer with intrinsic drift and the stated degeneracy obstruction.",
+        "evidence": [
+          "The compared particle uses shape-dependent translational diffusion; here propulsion direction is the nontrivial correlated noise."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.17550v1",
+        "material_read": "Physical model, stochastic equations and effective anisotropic-diffusion discussion in accessible arXiv HTML.",
+        "method": "Compare propulsion term, body-relative noise and angular drift with the present isotropically thermally forced swimmer.",
+        "title": "Anisotropic Brownian particles under resetting",
+        "trigger": "Orientation resets and tensorial diffusion in an anisotropic two-dimensional model."
+      },
+      {
+        "assessment": "Accounts for anisotropic translational motion without the constant chiral angular-drift term studied here; does not state or imply the exact avoided isotropy crossing.",
+        "evidence": [
+          "The mechanism analyzed is particle-shape anisotropy, not chirality-induced off-diagonal dispersion from fixed absolute resets."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2501.05149v1",
+        "material_read": "Model and active-particle orientational resetting equations and the long-time transport discussion in the accessible preprint HTML.",
+        "method": "Examine whether a uniform intrinsic angular drift and fixed reset-heading eigenvalue-gap classification are among the assumptions or conclusions.",
+        "title": "Anisotropic active Brownian particle in two dimensions under stochastic resetting",
+        "trigger": "Active propulsion, shape anisotropy and orientation resetting in a related 2025 paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "34dd977d-5789-4fc9-b592-4fb09bfa97ad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural dispersion-tensor degeneracy at a physically tunable reset rate is exactly removed by intrinsic angular chirality, quantified by a universal linear splitting and rotated principal axes. The distinction between coordinatewise equal diffusivities and full isotropy matters because chirality generates off-diagonal covariance. The result is an all-parameter sharp structural boundary in the same experimentally interpretable model family rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
