@@ -1,0 +1,19 @@
+# Three-axis scientific assessment
+
+## Correctness — PASS
+
+The claim concerns only the exact modulus-seven dyadic zero-count sequence \(T_r\). The elementary Stern child maps preserve coprimality, allowing a complete eight-state projective model with explicit transitions. The table of eight numerator polynomials satisfies all eight linear identities over \(\mathbb Z[z]\). Formal power-series uniqueness gives the displayed rational generating function for every level, not just the first computed levels. Coprimality of its numerator and denominator proves minimal recurrence order six. The remaining characteristic roots are the distinct roots of two explicit complex quadratics, each of constant term two and discriminant negative; their modulus is exactly \(\sqrt2\). The noncancellation certificate makes the mean-square normalized discrepancy positive, hence the exponent is optimal. The included checker independently confirms all eight identities, the coprimality calculation, the counts through \(2^{18}\) indices, and the recurrence through level 300. No finite enumeration is used as the infinite proof.
+
+## Originality — PASS, provisional literature priority
+
+Bruce Reznick's *Regularity Properties of the Stern Enumeration of the Rationals* (arXiv:math/0610601, 2006-10-19) already proves the general modular-density theorem and a general finite-transfer-matrix framework. Its modulus-three analysis establishes a comparable optimal square-root phenomenon, and it announces special equalities for moduli 4, 5, 6, 9 and 11. We **exclude** those results from the novel claim. In the inspected primary paper the exact reduced modulus-seven generating function, sixth-order minimality, and spectral sharpness are not stated. Dilcher–Stolarsky (2009) addresses Stern polynomials, Fibonacci-maximal subsequences and continued fractions rather than modular-seven image counts. Coons–Shallit (2011) addresses the binary-pattern expansion and does not state these counts. Similarity searches of existing mathematical findings and comparison against accessible earlier records found no equal or dominating claim. The uninspected 2012 class notes explicitly cited by Reznick remain an important potential source of prior coverage; absence of an accessible text is not evidence of nonexistence. The assessment is best-knowledge originality, not a proof of priority.
+
+## Value — PASS
+
+Exact modular divisibility counts of Stern's sequence are a natural arithmetic distribution invariant, and the modulus-seven case is the first prime beyond the explicitly resolved three and the coincident modulus-five family in Reznick's discussion. The eight-state projective collapse produces a reduced order-six all-level formula, not merely an algorithm for evaluating a large transfer matrix. The sharp exponent identifies the actual size of fluctuations beyond the previously known limiting density. The nontrivial quartic spectral factor and a positive mean-square normalized error explain the structure, making the result useful for comparisons with larger primes and with full residue spectra. It does not claim an overarching new modular-distribution theorem.
+
+## Closest literature and limits
+
+Reznick (arXiv:math/0610601, particularly Sections 1, 4, 5 and concluding discussion) is the principal comparison. The exact density \(1/8\), the existence of finite-state recurrences, and the general framework are already established. The source's *A Stern Introduction to Combinatorial Number Theory* was referenced as in preparation and later as Illinois course notes (2012); a complete copy was not obtained. Other investigated sources are Dilcher–Stolarsky (DOI 10.4064/aa140-2-2), Coons–Shallit (arXiv:1105.0086), and available related mathematical-record claims. The claim is restricted to modulus seven and dyadic counting; independent verification is still outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
