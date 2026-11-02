@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The exact identity Q^4=-I+3B makes the normalized multiple-of-four Fibonacci term equal to 1+3(u-1)(u-2) modulo 9; for j>=4 the binomial-series coefficient 3^(j-1)/j has 3-adic valuation at least 2. Nonmultiple terms follow by Q^(4u+r)=(-1)^u(I-3uB)Q^r modulo 9. Four-index blocks yield the exact 3-adic unit product 2^m 7^floor(m/3) u_3(m!) R_m(r); the factorial valuation is m+v3(m!). Combining quotient valuation and unit separately gives 3^delta 2^delta 7^eta W m!/(a!b!). In the delta=0 case, eta=1 forces a ternary carry and 3|binom(m,a), so 7^eta can be dropped modulo 9; in delta=1 the factor 6 makes it drop. Direct exact Fibotorial integer division checks 13,041 pairs in all rows through 160; finite computation is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 theorem has arbitrary eligible odd p but modulus p only, and thus not modulus 9.",
+        "Chand (2025) defines its universal matrix product polynomial by the counts of p-adic valuations, not residues of coefficients modulo p squared."
+      ],
+      "reasoning": "Neither stronger parameter range subsumes the full modulo-nine statement. The general 2018 theorem has a different modulus, while 2025 valuation-only coverage loses unit information; a coefficient with valuation zero or one has multiple possible nonzero residues modulo 9.",
+      "searches": [
+        "DeBellevue–Kryuchkova 2018 full text sections 3 and 4, Theorems 3.2 and 4.6",
+        "Chand arXiv:2508.18461v1 full text introduction, Theorems 1 and 2 and Fibonacci example",
+        "published-finding corpus: Generalized binomial coefficients Lucas sequences modulo prime square 9 exact congruence Fibonomial"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1306.2377v1",
+      "doi:10.1080/00150517.2018.12427704",
+      "arxiv:1604.04775v1",
+      "arxiv:2508.18461v1",
+      "OEIS A385458"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Sagan (2013) establish modulo-2 and modulo-3 fractals and explicitly ask about a Lucas-type sign in the modulo-3 case; the 2018 theorem addresses that prime-modulus issue.",
+        "The 2018 formula is an exact signed modulo-3 reduction; the new theorem gives an additional 3-adic digit and the valuation-one branch mod9.",
+        "Southwick focuses on modulo 5 and divisibility, while Chand gives orders without nonzero residues."
+      ],
+      "reasoning": "Taking the new formula modulo 3 recovers covered prior statements; this reduction is explicitly not presented as new. The prime-square claim is strictly more informative and is not a change of notation or special parameter choice in any checked prior theorem.",
+      "searches": [
+        "Chen–Sagan arXiv:1306.2377v1 full text sections 3, 5, 6",
+        "DeBellevue–Kryuchkova 2018 Theorem 4.6 full text",
+        "Southwick arXiv:1604.04775v1 full text introduction and 5-divisibility results",
+        "Chand arXiv:2508.18461v1 sections 1–2 and its Fibonacci example"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DeBellevue and Kryuchkova, Fibonacci Quarterly 56 (2018), Theorem 4.6, doi:10.1080/00150517.2018.12427704, states exact congruences modulo an odd prime; its p=3 specialization is a signed congruence only modulo 3.",
+        "No directly equivalent full mod-9 formula appeared in the identified mathematical-record or web results."
+      ],
+      "reasoning": "The theorem gives residues of units mod9 as well as valuation-one multiples of 3. A prime-modulus congruence or parity statement is too weak to determine those data; searches also used synonyms Fibonacci-binomial, Fibonomial and Lucas-type congruence.",
+      "searches": [
+        "published-finding corpus: Fibonomial coefficients modulo nine 9 exact Lucas type congruence 3-adic unit factorial 4m+r p^2",
+        "published-finding corpus: Fibonacci binomial coefficients congruences modulo 9 rank apparition 3 p-adic lift sign",
+        "web: \"Fibonomial\" \"modulo 9\" \"congruence\" theorem",
+        "web: \"Fibonomial\" \"mod 9\" Lucas Theorem Fibonacci"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A385458 tabulates 2-adic valuations, not all Fibonomial residues modulo 9.",
+        "A010048 is the underlying Fibonomial sequence, not an all-index closed modulo-nine formula.",
+        "No matching archived claim appeared in accessible research-number-theory records."
+      ],
+      "reasoning": "Computing a finite table from the defining factorial quotient is not equivalent to a uniform all-index congruence. The existing valuation table concerns a different prime and discards unit residues.",
+      "searches": [
+        "web: Fibonomial coefficient table modulo 9 3-adic unit 4n 2020",
+        "web: \"Fibonomial\" \"modulo prime powers\" congruences exact values",
+        "OEIS A385458 Fibonomial 2-adic valuation triangle",
+        "full current accessible ledger claim search Fibonomial, Fibonacci binomial"
+      ]
+    },
+    "rationale": "Unlike prior exact signed prime-modulus congruences (2018) and parity/fractal results (2013), the claim describes every Fibonomial residue modulo 9. The 2018 result is a reduction modulo 3 of the present result and cannot distinguish residues separated by 3. The 2025 all-valuation matrix theorem computes 3-adic orders but not unit residues modulo 9, so it cannot imply the claimed congruence. No full modulo-nine equivalent was located by targeted searches, but prior unlocated literature is a residual risk.",
+    "residual_risks": [
+      "An unlocated specialized formula for Fibonacci-binomial coefficients modulo nine might be equivalent under a different notation.",
+      "No independent expert literature review or independent proof audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state a modulo-nine all-index congruence",
+        "evidence": "arXiv:1306.2377v1 sections 5 and 6 discuss modulo 3 and open questions; first submitted 2013-06-10.",
+        "identifier_or_url": "https://arxiv.org/pdf/1306.2377",
+        "material_read": "Abstract, introduction, Lucas congruences, modulo-three theorem and open questions in sections 1, 3, 5, 6",
+        "method": "Primary author preprint PDF text and page image",
+        "title": "The fractal nature of the Fibonomial triangle",
+        "trigger": "The first 2013 archived source on Fibonomial prime-modulus fractals"
+      },
+      {
+        "assessment": "Covers the prime-modulus p=3 reduction; does not cover modulus 9 or units modulo nine",
+        "evidence": "Fibonacci Quarterly 56 (2018) 113–120, Theorem 4.6, congruence modulo p.",
+        "identifier_or_url": "https://fq.math.ca/Papers1/56-2/debellevue11052017.pdf",
+        "material_read": "Full pertinent sections 3 and 4, including Theorems 3.2, 4.6 and their proofs, plus introduction and further directions",
+        "method": "Lawful publisher-hosted full PDF text and page image",
+        "title": "Fractal Behavior of the Fibonomial Triangle Modulo Prime p, Where the Rank of Apparition of p Is p+1",
+        "trigger": "Potential complete signed Lucas congruence dominating the new result"
+      },
+      {
+        "assessment": "Does not state a complete mod-nine refinement",
+        "evidence": "arXiv:1604.04775v1 (2016), abstract focuses on prime five and divisibility.",
+        "identifier_or_url": "https://arxiv.org/pdf/1604.04775",
+        "material_read": "Abstract, introduction, definitions and explicit scope concerning prime five",
+        "method": "Author arXiv full PDF, pertinent front matter and mathematical statement",
+        "title": "A Conjecture concerning the Fibonomial Triangle",
+        "trigger": "Archived extension of Lucas divisibility rules"
+      },
+      {
+        "assessment": "Counts valuations but does not encode 3-adic unit residues; not dominating",
+        "evidence": "arXiv:2508.18461v1, Theorems 1–2 concern generating polynomials whose coefficients count p-adic orders.",
+        "identifier_or_url": "https://arxiv.org/pdf/2508.18461",
+        "material_read": "Introductory definitions and main valuation-generating matrix theorems, including the example for Fibonacci and prime two",
+        "method": "Author arXiv full PDF, pertinent theorem and examples",
+        "title": "Universal Matrices for Counting Fibonomial and C-nomial Coefficients by their p-adic Valuations",
+        "trigger": "Recent universal valuation theorem might imply a prime-square congruence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c5e7e119-17f5-4c15-b75f-9c5c93fbd6a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete arithmetic refinement from prime to first prime-square modulus for the natural Fibonomial triangle. It distinguishes all nonzero 3-adic unit residues and the valuation-one case, where all information vanishes on reducing modulo 3. It gives every index pair via one ordinary binomial coefficient and four tiny units, with a structural four-block unit-factor lemma and separate exact base-four carry cases. The object and invariant are motivated by the previously studied mod-three Fibonomial fractal and signed Lucas laws; it is not an arbitrary finite numerical slice.",
+    "status": "PASS"
+  }
+}
