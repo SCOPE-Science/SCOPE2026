@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Lagrange derivative weights reproduce the exact two-period BDF4 difference matrices; a directly computed characteristic cubic has five strictly positive Schur certificates. Root continuity and implicit expansion give sharp supremum and 16/3 boundary coefficient; direct exact BDF5 rational determinant at r=10 forces a root below -1. The included verifier replays all symbolic equalities; finite sampling is not used for universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Calvo–Grande–Grigorieff 1990 abstract describes step-size ratio restrictions for arbitrary BDF order combinations including order four",
+        "Söderlind–Fekete–Faragó 2018 theorem assumes smoothly varying meshes with adjacent ratios 1+O(N^{-1})"
+      ],
+      "reasoning": "A bound that ensures stability of all admissible products under restricted adjacent ratios neither implies nor contradicts stability of this fixed two-factor product for unbounded ratios. Smooth-grid asymptotics also exclude a fixed r far from one. The inaccessible 1990 text may nevertheless contain a specialist periodic result and is retained as risk.",
+      "searches": [
+        "\"On the zero stability of the variable order variable stepsize BDF-Formulas\" period two",
+        "\"BDF4\" \"periodic\" \"step\" stability",
+        "10.1007/BF01386395",
+        "10.1007/s10543-018-0716-y"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1090/S0025-5718-1986-0856699-X",
+      "DOI:10.1007/BF01386395",
+      "DOI:10.1007/s211-001-8010-0",
+      "DOI:10.1137/100791932",
+      "DOI:10.1007/s10543-018-0716-y",
+      "arXiv:2201.00527"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guglielmi–Zennaro 2001 abstract is explicitly the 3-step BDF and general spectral-radius methods",
+        "Kulikov 2012 abstract is about variable-step Nordsieck error estimation and adaptive control",
+        "Prior BDF3 period-two result concerns a quadratic parasitic polynomial, while present claim has BDF4 cubic and BDF5 quartic obstruction"
+      ],
+      "reasoning": "The BDF3 stability classification is not a higher-order theorem and does not imply the BDF4 result. The BDF5 counterexample shows the property is not order-independent. General variable-step BDF construction defines the object but provides no specific unrestricted alternating-ratio stability identity in accessible text.",
+      "searches": [
+        "\"On the zero-stability of variable stepsize multistep methods\" Guglielmi Zennaro BDF3",
+        "\"Global Error Control in Adaptive Nordsieck Methods\" Kulikov DOI",
+        "\"Construction of Variable-Stepsize Multistep Formulas\" Skeel",
+        "BDF3 alternating grid monodromy all positive step ratios exact bound one fifth"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Skeel 1986 DOI:10.1090/S0025-5718-1986-0856699-X, article main text pages 503–510 distinguishes variable-coefficient from fixed-coefficient Nordsieck formulas",
+        "Two-periodic BDF4 explicit cubic and its Schur polynomials are not given in the inspected main article text."
+      ],
+      "reasoning": "The distinction between recomputed interpolation coefficients and Nordsieck form precludes treating results for a fixed-coefficient implementation as identical without an explicit equivalence proof. The present theorem is about one monodromy product, not the arbitrary-product joint spectral radius.",
+      "searches": [
+        "\"BDF4\" \"periodic\" \"step\" stability",
+        "\"two-periodic\" \"BDF4\" stability",
+        "variable step BDF4 2 periodic step lengths r 1 Floquet parasitic roots eigenvalues convergence",
+        "10.1090/S0025-5718-1986-0856699-X"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact polynomial coefficients and positive Schur certificate are computed from Lagrange weights with the included source code",
+        "Search results examined had no matching exact BDF4 period-two monodromy table"
+      ],
+      "reasoning": "No matching exact database row or polynomial table was identified. Search nonappearance is not itself a priority guarantee. The reciprocal quartic coefficients are derived from explicit formulas rather than imported from a table.",
+      "searches": [
+        "variable step BDF4 alternating step sizes period two zero stability monodromy Floquet sharp ratio parasitic multiplier",
+        "unrestricted alternating long short time steps fourth order backward differentiation formula BDF4 period two stability spectral Schur Jury all ratios",
+        "\"BDF4\" \"periodic\" \"step\" stability"
+      ]
+    },
+    "rationale": "The particular all-positive-ratio two-periodic variable-coefficient BDF4 Schur classification, sharp nonuniform damping and explicit BDF5 failure are not implied by inspected variable-step BDF construction, generic sufficient-ratio results, BDF3 spectral stability, or smooth-grid limits. Residual risk remains for inaccessible specialist full texts.",
+    "residual_risks": [
+      "Full 1990 Calvo–Grande–Grigorieff article inaccessible; an unexamined special-case argument might subsume the periodic theorem",
+      "Skeel 1986 main-text source refers to separately printed supplement sections 2–7 not accessible in the inspected transcription",
+      "Full Guglielmi–Zennaro 2001 article and full Kulikov 2012 article were unavailable; accessible abstracts support narrower scope comparisons, not exhaustive noncoverage",
+      "Other unindexed specialist period-two zero-stability results may exist"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines natural variable-coefficient BDF method but no displayed complete two-periodic BDF4 sharp stability classification in inspected main text",
+        "evidence": [
+          "DOI:10.1090/S0025-5718-1986-0856699-X",
+          "Main text discusses variable-coefficient extensions around page 503 and states supplemental sections 2–7 appear separately on page 509"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/278992956_Construction_of_variable-stepsize_multistep_formulas",
+        "material_read": "Accessible author-upload article main text pages 503–510, introduction, interpolation construction and concluding comparisons; journal supplement sections 2–7 were not supplied",
+        "method": "Inspected available HTML full-text transcription and checked method distinctions and conclusions",
+        "title": "Construction of Variable-Stepsize Multistep Formulas",
+        "trigger": "Same variable-coefficient BDF recurrence and potential equivalent formulation"
+      },
+      {
+        "assessment": "Abstract establishes bounds on successive mesh-size ratios for BDF orders 3,4,5, not a verified coverage of unrestricted two-periodic BDF4",
+        "evidence": [
+          "DOI:10.1007/BF01386395",
+          "Abstract: bounds for mesh-size ratios on nonequidistant grids"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01386395",
+        "material_read": "Author/abstract page only, not whole manuscript; author-upload PDF preview blocked",
+        "method": "Searched arXiv and authorized open access; read available primary-source abstract and publication description",
+        "title": "On the zero stability of the variable order variable stepsize BDF-Formulas",
+        "trigger": "Highly relevant order-four arbitrary-grid stability source"
+      },
+      {
+        "assessment": "The described worked problem is explicitly BDF3, not the present order-four two-step certificate",
+        "evidence": [
+          "DOI:10.1007/s211-001-8010-0",
+          "Repository abstract: 3-step BDF-method"
+        ],
+        "identifier_or_url": "https://iris.gssi.it/handle/20.500.12571/302",
+        "material_read": "Institutional repository abstract and bibliographic record, no accessible full text",
+        "method": "Read repository abstract and searched for other open versions",
+        "title": "On the zero-stability of variable stepsize multistep methods: the spectral radius approach",
+        "trigger": "Plausible spectral reduction covering multistep order four"
+      },
+      {
+        "assessment": "Studies Nordsieck global error estimation rather than the exact BDF4 two-periodic homogeneous Schur spectrum",
+        "evidence": [
+          "DOI:10.1137/100791932",
+          "Published electronically 2012-03-27; primary MSC includes 65L06"
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/abs/10.1137/100791932",
+        "material_read": "Publisher abstract, metadata, reference list and first-page preview; full body not accessible",
+        "method": "Read SIAM official abstract and publication-history statement",
+        "title": "Global Error Control in Adaptive Nordsieck Methods",
+        "trigger": "Archived variable-step methodology focal source and exact first-public date"
+      },
+      {
+        "assessment": "Adjacent steps obey ratios 1+O(N^{-1}) as N tends to infinity; no implication for fixed unbounded two-periodic ratios",
+        "evidence": [
+          "DOI:10.1007/s10543-018-0716-y",
+          "Theorem conditions include smooth grid map and small adjacent-ratio variations"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10543-018-0716-y",
+        "material_read": "Open-access article full HTML main text, smooth-grid hypotheses, proofs and BDF illustrations",
+        "method": "Read the main theorem and smooth-deformation mesh assumptions",
+        "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "trigger": "Potential broader zero-stability result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a1a345c8-42f8-429a-8f61-0c8a4eced6cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A full, natural family of arbitrarily abrupt two-periodic mesh changes stays stable at order four in contrast with standard broad ratio restrictions; the exact Schur inequalities explain a non-obvious stability mechanism and the order-five counterexample sharply bounds the phenomenon. This is a motivated structural zero-stability boundary rather than a parameter-table recomputation.",
+    "status": "PASS"
+  }
+}
