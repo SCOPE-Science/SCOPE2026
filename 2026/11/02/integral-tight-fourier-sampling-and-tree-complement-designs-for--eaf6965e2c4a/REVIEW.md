@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The statement is independently reconstructed from the signed incidence matrix of the complete graph. A directed triangle can be embedded in an odd cyclic tournament and flipped while preserving each vertex's score; such differences contain an integral fundamental-triangle circulation basis. That proves the exact affine span, universal full-support covariance kernel, and selected-coordinate nullities. A fundamental-cycle matrix gives unimodular maximal minors, and Cauchy–Binet plus the matrix-tree formula proves the distribution-free determinant identity. Label-symmetry and degree balance determine all uniform pair moments. Exact small-order enumeration and positive nonuniform determinant tests are supplied; these are checks, not an infinite proof. Spherical design strength is established by moment matching and an explicit fourth-moment obstruction.
+
+## Originality — PASS under bounded comparison
+The 2009 full text on regular-tournament Hamilton decompositions has a different object of inference: cycles within a fixed tournament. The 2023 full text on tournament score zonotopes, especially its forest theorem, supplies a genuinely close integer-geometry mechanism but not covariance rank, equal-volume coordinate design determinants, or the uniform full spectrum. Prior results on directed Hamilton tours and on noncrossing perfect matchings use related incidence-lattice techniques, but their hypotheses, cut spaces, and probability supports do not logically imply the new regular-tournament uniform isotropy and exact design strength. Scientific literature searches for these aliases and the statistical statements returned no equivalent theorem among inspected records. This is bounded evidence, not a claim of exhaustive absence; older frame-design and tournament-statistics formulations remain residual risks.
+
+## Mathematical value — PASS
+The study answers the natural constrained reconstruction problem for round-robin outcomes conditioned on perfectly balanced scores. The exact best sampling size, complete criterion for arbitrary selected coordinates, and **distribution-independent equality** of all maximal coordinate design determinants are nontrivial structural facts with direct significance for redundant sensing and paired-comparison acquisition. The uniform case has an exactly tight nonzero spectrum, joint independence along all matchings, and exact spherical design strength. These facts hold for an infinite parameter family without knowing the complicated number of regular tournaments.
+
+## Limitations and closest literature
+Theorem 4.1 of Kolesnik–Sanchez is the closest inspected geometric source; its forest representation is distinguished explicitly from this theorem's statistical and spectral claims. The unpublished equivalence risk is greatest in tournament covariance statistics, matroidal experimental design, and group-orbit tight-frame literature. Independent audit remains unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
