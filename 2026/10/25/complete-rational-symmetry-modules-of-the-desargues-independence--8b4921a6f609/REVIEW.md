@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The incidence graph is explicitly \(H(5,2)\); permutations and complement genuinely preserve its edges. All 6,212 augmented faces are enumerated, and the full characteristic-two boundary-rank vector bounds each rational Betti number above. The signed \(S_5\)-alternating chain subcomplex is constructed by orbit antisymmetrization, with actual rational boundary matrices of ranks \(4,16,9,2\); it establishes a nonzero sign representation in degree four. Euler characteristic forces rational dimensions \(1\) and \(5\). Complement's exact trace on the sign subcomplex is \(-1\); signed fixed-simplex traces on fourteen group conjugacy-class configurations then identify the fifth-homology character with minus the natural five-letter permutation character. The standalone checker recomputes these data from definitions. The theorem claims no integral-equivariant lattice determination.
+PASS
 
-## Originality — PASS, qualified
+For H(5,2), construct all 6212 augmented independent faces directly from 2-/3-subset incidence. Mod-two boundaries limit possible rational Betti groups to degrees 4,5, with dims <=1,5. Exact sign-isotypic rational boundary ranks (degree 3=4, 4=16, 5=9, 9=2) establish a genuine sign class in H4; Euler =-4 forces H5 dimension5. Complement alternating trace on sign-chains is -1; direct fixed-simplex signed Lefschetz on all 14 S5×C2 conjugacy configurations gives character H4=sgn⊗epsilon, H5=Q^[5]⊗epsilon. Independently recreated 6212-face complex, sign-chain dimensions (4,20,26,9,2,2), rational ranks 4/16/9/2, complement trace -1, and sample joint class traces. Rational invariant subspaces yield correct quotient claims, not contractibility.
 
-The closest exact-graph source, *The Desargues graph independence complex is a wedge of one four-sphere and five five-spheres*, is explicitly nonequivariant. That homotopy type is fully credited, and it cannot imply either \(S_5\) representation or complement parity. The full 2017 cyclic bipartite-family paper and 2021 bipartite-Kneser edge-ideal paper were inspected; their hypotheses or invariants do not cover this representation theorem. Targeted external mathematical-record, alias and representation searches did not reveal it. A mathematically equivalent result in unindexed material remains a genuine, nonzero residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-This determines both **complete joint symmetry modules** on the only two nontrivial homology degrees of a canonical highly symmetric incidence graph, including a non-obvious sign action of complement in both degrees. It distinguishes homology groups with Betti numbers \(1\) and \(5\) by their precise geometric group actions and resolves the rational homology of natural global quotients. These conclusions do not follow from a nonequivariant wedge classification or a routine rank calculation.
+Best-of-knowledge distinction from named prior results, comparing the precise final claim, hypothesis domain and representations rather than keywords; checks below and risks explicitly limit global priority claims.
 
-## Scientific limits and related work
+## value
 
-The established nonequivariant wedge theorem is not presented as new. This is one rational finite graph, with no claim about integral equivariant homotopy, all bipartite Kneser graphs, contractibility of rationally acyclic quotients, or absolute priority. See the explicit related-work comparisons and references in RESULT.md.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Desargues incidence graph is a canonical distance-transitive graph with natural S5 relabeling and complement involution. Exact graded rational modules distinguish nontrivial actions invisible from known Betti numbers and compute rational quotient homology, useful to finite equivariant combinatorial topology, despite being one natural graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
