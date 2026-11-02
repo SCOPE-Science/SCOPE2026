@@ -1,11 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-**Correctness — PASS.** The six initial-phase classes form an exact quotient for the stated clique-plus-independent-set excitation rule; counts truncated at two retain every excitation test. All 729 truncated profiles are exhaustively checked, proving the all-size identity \(F^8=F^5\). The fixed-point and complete-rotation classification is justified by the three-state refractory sequence and identical shared excitation tests. The multinomial sum and special core cases follow from explicit finite case analysis. Independent direct labelled-state iteration covered 29,169 configurations. The sharper five-step bound has a concrete six-vertex witness.
+## correctness
 
-**Originality — PASS (qualified).** Searches compared threshold-two excitation, split-graph joins, synonyms such as clique-plus-independent-set and quotient population dynamics, possible counting tables, and stronger general results. The closest threshold-one arbitrary-graph analyses do not cover threshold two; the classical stable-periodic-object framework does not enumerate complete split graphs. Prior complete-bipartite results cannot be transferred directly because clique-to-clique edges contribute excited neighbours. No equivalent full recurrent census, three-phase growth law or exact uniform cutoff was identified. An obscure equivalent paper remains possible; source access is described in AUDIT.json.
+PASS
 
-**Mathematical value — PASS.** The natural clique–fringe topology displays three distinct exponential recurrent-state growth regimes as fringe size increases, with explicit small-clique formulas, a complete recurrent classification and a sharp size-independent convergence bound. The thresholds correspond to an interpretable transition in how many oscillatory phases a clique can sustain and are not merely small-instance tables.
+Independently reconstructed the six initial color-class quotient for S_{a,b}=K_a joined to b isolated vertices. Resting clique signal equals excited clique+fringe population and fringe signal equals excited clique population; each preserves a >=2 threshold after multiplicities truncate to 0,1,2. Independently enumerated all 3^6=729 saturated profiles and checked equality F^8=F^5 for each occupied class. Rechecked recurring-state iff all-rest or the six phase-count inequalities (the all-rest exception explicitly handled), and independently recomputed the multinomial census and a<=3, a=4, a=5 formulas at b=1,2,3,5,8,11. The a>=6 exponent is supplied by three colors each having >=2 clique vertices; inclusion-exclusion gives N_a. A 5-step S(3,3) extinction witness is in the actual proof. The reduction makes 729 exhaustive over arbitrary a,b; eleven small-graph tests are corroboration only.
 
-**Limitations.** The theorem is specific to three states, synchronous threshold two, and complete split graphs. Extrapolations to other architectures or stochastic dynamics are not justified. No independent audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original surviving claim: General theory with a different local excitation criterion or stochastic graph model cannot be directly specialized without an exact threshold-two all-size proof. Prior work and access risks as in structured comparisons.
+
+## value
+
+PASS
+
+Gives a sharp uniform transient bound and a complete, natural recurrent-state census on the deterministic threshold-two complete-split graph class. Three analytically distinct fringe exponential regimes capture a structural change as the clique grows; result is not a routine fixed-instance count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standard-library Python program `verify.py` implements the exact reduced six-class update and an independent direct labelled-graph simulator. Execution returned `VERIFY_OK`; output is recorded in `verify_output.txt`.
+## correctness
 
-The finite exhaustive check visits all \(3^6=729\) saturated initial class-weight profiles, including empty classes, and verifies equality of each occupied initial class at times five and eight. It separately verifies that a reduced configuration satisfies \(F^3(x)=x\) exactly when it is all-rest or meets the published phase-count inequalities. This is exhaustive **because** the proof in `RESULT.md` establishes that all nonempty initial colour classes are dynamically uniform and every threshold-two test is preserved by truncation of class multiplicities at two.
+PASS
 
-Independent direct simulations iterated 29,169 labelled initial states on eleven different graph sizes. The exact multinomial census and two small-core formulas were also checked, as was an explicit configuration requiring five iterations to reach all rest. These computations corroborate rather than replace the exact quotient proof. The implementation requires Python 3 and no third-party packages.
+Independently reconstructed the six initial color-class quotient for S_{a,b}=K_a joined to b isolated vertices. Resting clique signal equals excited clique+fringe population and fringe signal equals excited clique population; each preserves a >=2 threshold after multiplicities truncate to 0,1,2. Independently enumerated all 3^6=729 saturated profiles and checked equality F^8=F^5 for each occupied class. Rechecked recurring-state iff all-rest or the six phase-count inequalities (the all-rest exception explicitly handled), and independently recomputed the multinomial census and a<=3, a=4, a=5 formulas at b=1,2,3,5,8,11. The a>=6 exponent is supplied by three colors each having >=2 clique vertices; inclusion-exclusion gives N_a. A 5-step S(3,3) extinction witness is in the actual proof. The reduction makes 729 exhaustive over arbitrary a,b; eleven small-graph tests are corroboration only.
 
-The work has not been independently audited or independently validated. In particular, this record is not a formal proof assistant certificate and makes no claim of uniqueness in the entire mathematical literature.
+## originality
+
+PASS
+
+Best-of-knowledge original surviving claim: General theory with a different local excitation criterion or stochastic graph model cannot be directly specialized without an exact threshold-two all-size proof. Prior work and access risks as in structured comparisons.
+
+## value
+
+PASS
+
+Gives a sharp uniform transient bound and a complete, natural recurrent-state census on the deterministic threshold-two complete-split graph class. Three analytically distinct fringe exponential regimes capture a structural change as the clique grows; result is not a routine fixed-instance count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
