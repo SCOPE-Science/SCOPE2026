@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T19:11:40.863668Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Inspected RESULT.md Git blob 4ce0875813af868afb4c1831a2d3190aad61e593",
+        "Inspected checker.py blob 106bee9e36eddc3b3d7307f866268f054776a36c",
+        "Independent symbolic beta-integral and anchored Jacobian verification"
+      ],
+      "rationale": "Reconstructed polar inequalities M_A-m_B<=1 and M_B-m_A<=1, giving R_A+R_B<=2. In the anchored chart x_{a0}=0, the centered-to-H Gram determinant is 1/n, so intrinsic Jacobian 1/sqrt(n). The anchored A-span distribution has cumulative p*r^(p-1) and density p(p-1)*r^(p-2); for span r each B coordinate independently ranges over an interval of length 2-r. The beta integral gives anchored volume 2^(n-1)*p!*q!/(n-1)! and the intrinsic formula. R_A/2~Beta(p-1,q+1); independently R_B/(2-R_A)~Beta(q-1,2); stick-breaking gives all three Dirichlet coordinates and the Beta slack tail. Independent gamma variables with total shape n yield the CLT/Gamma joint limit, with exact p/n centering, and the p=1 volume boundary is computed separately. Finite hull, Ehrhart, and sampling diagnostics from inspected checker.py corroborate but are not the proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "D'Alì et al. (2022) Section 4.5 concerns polar integer points, not probability law under intrinsic volume.",
+          "Higashitani--Jochemko--Michałek describe facets and primal complete-bipartite h* polynomials.",
+          "Resultary SCOPE 2026/9/19 c645403cd639 considers discrete height functions."
+        ],
+        "reasoning": "Neither primal h* nor integer-point counts automatically give the joint continuous random oscillation law. Even a stronger volume formula would not subsume the Dirichlet and asymptotic independence assertions.",
+        "searches": [
+          "arXiv:1910.05193",
+          "arXiv:1807.07678",
+          "Resultary: Exact range laws for integer height functions on complete bipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.37236/10387",
+        "arXiv:1807.07678",
+        "arXiv:1608.06848",
+        "Resultary 2026/9/19 complete-bipartite integer-height ranges"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Duality equivalence already follows from D'Alì et al. Theorem 6.",
+          "Their Section 4.5 specifically computes integer points of polar duals of planar bipartite graphs.",
+          "The other close paper gives a primal h* formula; neither analyzed theorem implies beta stick-breaking for a uniform interior point."
+        ],
+        "reasoning": "The exact joint law is not obtained by the cited facet or Ehrhart claims alone; the existing results give the object and combinatorial invariants rather than a continuous probability measure. Novelty of the volume constant alone remains unasserted.",
+        "searches": [
+          "DOI:10.37236/10387, Sections 2, 4.5",
+          "arXiv:1807.07678 abstract",
+          "arXiv:1608.06848 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gordon--Petrov define Lipschitz polytopes of metrics but the inspected abstract treats generic-metric face numbers.",
+          "D'Alì--Delucchi--Michałek Section 2 defines symmetric edge roots and polar Lipschitz/KR connections; Section 4.5 counts polar integer points for planar bipartite graphs, not a continuous range law."
+        ],
+        "reasoning": "Changing from the anchored 1-Lipschitz gauge to a polar of signed roots produces exactly the examined Q; prior duality supplies the object, not the joint Lebesgue range distribution. The discrete integer-height SCOPE record has a different measure.",
+        "searches": [
+          "Resultary semantic: Dirichlet joint range distribution complete bipartite graph Lipschitz polytope polar volume slack Beta symmetric edge polytope",
+          "arXiv:1608.06848",
+          "DOI:10.37236/10387"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published primal complete-bipartite h* formula concerns the dual polytope of the claimed polar.",
+          "The SCOPE integer-height count and expected ranges are lattice/discrete rather than continuous uniform."
+        ],
+        "reasoning": "Prior lattice tables might already encode the volume as a leading coefficient, so originality is not claimed solely from the volume. No located exact continuous joint Dirichlet table covers the principal distributional result.",
+        "searches": [
+          "DOI:10.37236/10387, Section 4.5 polar integer-point count",
+          "arXiv:1807.07678",
+          "SCOPE 2026/9/19 height-function-range-complete-bipartite--c645403cd639"
+        ]
+      },
+      "rationale": "This identifies a specific continuous uniform-volume law inside the polar complete-bipartite Lipschitz body; the checked close originals establish graph polar duality, lattice/facet data and primal h* data, not the joint Dirichlet law and universal slack. The volume normalization may be known independently. The priority conclusion is best-of-knowledge and allows an equivalent order-statistic presentation.",
+      "residual_risks": [
+        "An equivalent order-statistics or polar-volume formula under another name may exist, especially in continuous Lipschitz-body literature.",
+        "Two ancillary full research texts were only inspected at abstract level; no historical-priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers primal symmetric edge/adjacency polytopes and polar integer points, not the joint Lebesgue-uniform Dirichlet oscillation distribution.",
+          "evidence": "Section 2 signed-root definition; Section 4.5 explicit polar integer-point and flow enumeration.",
+          "identifier_or_url": "DOI:10.37236/10387; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/",
+          "material_read": "Complete 42-page journal PDF accessible; materially read Introduction, Section 2 Definitions 1/5, Theorem 6 context, Results survey Section 4, Section 4.5 flow/polar integer-point count",
+          "method": "Open journal PDF, extracted pages 0-2 and 17 and 33-36, visual screenshot PDF page 1; source , , ",
+          "title": "Many faces of symmetric edge polytopes",
+          "trigger": "Closest full primary on duality, complete-bipartite symmetric edge bodies and polar invariants"
+        },
+        {
+          "assessment": "Primal facet and h* polynomial theory; no checked implication to claimed continuous Dirichlet distribution.",
+          "evidence": "Abstract states complete-bipartite h* formula and complete facet description.",
+          "identifier_or_url": "arXiv:1807.07678",
+          "material_read": "ArXiv abstract and paper metadata, not complete mathematical text",
+          "method": "arXiv abstract ",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Direct complete-bipartite polytope predecessor"
+        },
+        {
+          "assessment": "Generic-metric face counts and metric classification; no complete-body random range law established by material read.",
+          "evidence": "Abstract gives n-dimensional generic-metric face counts.",
+          "identifier_or_url": "arXiv:1608.06848",
+          "material_read": "ArXiv abstract and paper metadata, not complete mathematical text",
+          "method": "arXiv abstract ",
+          "title": "Combinatorics of the Lipschitz polytope",
+          "trigger": "Possible equivalent Lipschitz-body normalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact continuous Dirichlet law and universal Beta slack, not prior graph height lattice statistics"
+      ],
+      "rationale": "Oscillation budgets are a canonical metric observable of graph Lipschitz potentials. The universal slack law and exactly anticorrelated Gaussian limit are natural, usable distributional invariants of every complete bipartite graph; they are not determined by the known primal face counts. The normalization also distinguishes balanced and star partitions.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Dirichlet joint law p,q>=2; volume p,q>=1; proportional CLT requires p/n in (0,1).",
+    "Only the signed unit-threshold complete-bipartite polar and Lebesgue-uniform sampling are covered.",
+    "Exact volume may already follow from published Ehrhart/dual-volume calculations and is not claimed independently novel."
+  ],
+  "schema_version": 1
+}

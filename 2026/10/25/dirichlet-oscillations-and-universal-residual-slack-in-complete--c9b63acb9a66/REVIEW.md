@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly establishes the polar inequalities, shows the residual slack is nonnegative, and carries the correct Jacobian \(1/\sqrt n\) from the anchored coordinate section to the intrinsic Euclidean hyperplane. Direct integration of anchored within-part ranges yields the exact volume; beta stick-breaking yields the complete joint Dirichlet density, not just its marginal moments. A normalized independent-gamma representation yields the Gaussian/Gamma limit with its independence and proper finite-\(n\) centering. The order-statistic range law can be derived by differentiating the joint minimum–maximum CDF. Independent hull-volume and lattice leading-coefficient computations corroborate the critical normalization and several finite dimensions. Sampling checks are not substituted for proof.
+## correctness
 
-**Originality — PASS, qualified.** Direct precursors establish the symmetric-edge construction and Lipschitz-polar duality, complete-bipartite primal facet and \(h^*\) theory, and other polar integer-point or metric invariants. Earlier claims on these exact signed edge polytopes concern John/Löwner ellipsoids, incenter loci, and directional widths, not the continuous **interior-volume** joint law. Discrete integer-height range statistics are not the same measure. The complete-bipartite Dirichlet law and universal slack marginal were not found covered in the checked original theorem statements and mathematical records. General order-statistic folklore or an unindexed equivalent formulation remains possible. The exact volume formula is not asserted independently novel if implied by existing Ehrhart formulas.
+PASS
 
-**Mathematical value — PASS.** The triple law isolates a natural metric observable (oscillation consumed within each color class and remaining cross-part flexibility) of a canonical graph polytope. Exact bipartition-invariant slack contrasts with strongly varying polar volume; the high-dimensional limit cleanly separates class-level Gaussian fluctuations from a universal gamma slack. These are non-arbitrary geometric distribution laws with meaningful sampling and asymptotic interpretation.
+Reconstructed polar inequalities M_A-m_B<=1 and M_B-m_A<=1, giving R_A+R_B<=2. In the anchored chart x_{a0}=0, the centered-to-H Gram determinant is 1/n, so intrinsic Jacobian 1/sqrt(n). The anchored A-span distribution has cumulative p*r^(p-1) and density p(p-1)*r^(p-2); for span r each B coordinate independently ranges over an interval of length 2-r. The beta integral gives anchored volume 2^(n-1)*p!*q!/(n-1)! and the intrinsic formula. R_A/2~Beta(p-1,q+1); independently R_B/(2-R_A)~Beta(q-1,2); stick-breaking gives all three Dirichlet coordinates and the Beta slack tail. Independent gamma variables with total shape n yield the CLT/Gamma joint limit, with exact p/n centering, and the p=1 volume boundary is computed separately. Finite hull, Ehrhart, and sampling diagnostics from inspected checker.py corroborate but are not the proof.
 
-**Closest literature and limits.** The most relevant sources are *Many Faces of Symmetric Edge Polytopes* (arXiv:1910.05193), *Arithmetic Aspects of Symmetric Edge Polytopes* (arXiv:1807.07678), *Combinatorics of the Lipschitz Polytope* (arXiv:1608.06848), and *On gamma-vector of symmetric edge polytopes* (arXiv:2201.09835). The first establishes the dual-polytopal framework and particular polar lattice facts; the others consider facet/Ehrhart/combinatorial invariants. The result does not extend to general weighted or incomplete graphs. Novelty confidence is qualified by possible equivalent beta-spacing formulations. No independent review was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This identifies a specific continuous uniform-volume law inside the polar complete-bipartite Lipschitz body; the checked close originals establish graph polar duality, lattice/facet data and primal h* data, not the joint Dirichlet law and universal slack. The volume normalization may be known independently. The priority conclusion is best-of-knowledge and allows an equivalent order-statistic presentation.
+
+## value
+
+PASS
+
+Oscillation budgets are a canonical metric observable of graph Lipschitz potentials. The universal slack law and exactly anticorrelated Gaussian limit are natural, usable distributional invariants of every complete bipartite graph; they are not determined by the known primal face counts. The normalization also distinguishes balanced and star partitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
