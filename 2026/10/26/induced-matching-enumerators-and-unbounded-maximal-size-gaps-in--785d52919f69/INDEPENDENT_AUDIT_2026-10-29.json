@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T12:03:34.660310Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md (assigned Git blob d19cdbecad561e28b1847818d14c18254563ca7b)",
+        "verify.py (26d0a30c7a2acb4286b1a34684abc3e5fc88aa4a)",
+        "Independent adjacency-subset checks in independent_checks.py: p,q=(2,2),(2,3),(2,4),(2,5),(3,3),(3,4); all formulas matched"
+      ],
+      "rationale": "For 2<=p<=q, the assignment-to-incidence bijection requires distinct original tails and heads not among tails. For a tails-on-both-sides configuration, inclusion maximality is exactly surjectivity onto both unused original-side vertex sets, contributing (p-a)!S(b,p-a)(q-b)!S(a,q-b). All-one-side boundary configurations contribute q^p z^p and p^q z^q. The a+b spectrum from the surjection existence inequalities is {p} union {q,...,p+q-2}; largest induced size same upper bound. Independently brute-force adjacency subset enumeration agrees for six cases, including p=q=2 and p=2,q=5; arbitrary p,q follow the bijection and inequalities, not enumeration.",
+      "residual_risks": [
+        "Finite brute force tests check only six small graphs; no claim for arbitrary partial subdivisions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Basavaraju et al. prove total upper bound 3^(n/3) for all triangle-free graphs, and enumeration algorithm, without this family-specific distribution.",
+          "Yuan et al. bound maximal/maximum total counts by graph order; source abstract not full text."
+        ],
+        "reasoning": "The broad graph classes contain S(K_pq), but neither inspected theorem determines exact degree coefficients, surjective assignments or gaps in support.",
+        "searches": [
+          "maximal induced matching cardinality spectrum generating polynomial subdivision complete bipartite graph S(K_pq) gap size",
+          "arXiv:1312.5180 maximal induced matchings triangle free graphs",
+          "arXiv:2410.11288 maximal maximum induced matchings connected graphs"
+        ]
+      },
+      "checked_sources": [
+        "Pippenger 2001 UBC technical report TR-2001-12, 23-page PDF pp.1,5,12 (ordinary matchings, NOT induced matchings) https://www.cs.ubc.ca/sites/default/files/tr/2001/TR-2001-12_0.pdf",
+        "Basavaraju et al., arXiv:1312.5180, full primary paper (triangle-free upper bounds)",
+        "Yuan et al., arXiv:2410.11288 abstract (fixed-order total extremal counts)",
+        "Resultary query maximal induced matching cardinality spectrum generating polynomial subdivision complete bipartite graph S(K_pq) gap size: nearest 2026/9/20/SCOPE-cyclomatic-matching-induced-matching-gaps--ac8bd54efbfc concerns a different maximum-vs-induced gap",
+        "Orlovich et al. 2008 minimum maximal induced matching approximability bibliographic abstract; full text not read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The assigned explicit formula has independent opposite-side heads and maximality equivalent to two surjections; base graph general K_pq.",
+          "Pippenger permits shared head-tail configurations that the induced property forbids, and Basavaraju supplies only a bound."
+        ],
+        "reasoning": "A nontrivial restriction and surjection argument is necessary; direct numerical table extraction or a bound cannot prove the full coefficient formulas. Historical hidden equivalent results remain possible.",
+        "searches": [
+          "maximal induced matching cardinality spectrum generating polynomial subdivision complete bipartite graph S(K_pq) gap size",
+          "Pippenger 2001 incidence matching coefficient formula",
+          "Basavaraju 2013 theorem 1 triangle-free maximal matching count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "I(K_pq)=S(K_pq) is the same underlying incidence/subdivision graph studied by Pippenger, TR-2001-12; primary paper pp.1 and 12 enumerates ordinary matchings and their orbit classes, not induced matchings.",
+          "Induced matchings are independent sets in the square of the line graph, but this equivalence does not provide the explicit enumerators."
+        ],
+        "reasoning": "The graph/object alias was checked directly. Ordinary matchings in the incidence graph need not be induced and lack the head-vs-tail exclusions; their generating functions do not imply the restricted two-sided surjection counts by mere specialization.",
+        "searches": [
+          "maximal induced matching cardinality spectrum generating polynomial subdivision complete bipartite graph S(K_pq) gap size",
+          "incidence graph matching polynomial induced matching maximal surjections Stirling numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "TR-2001-12 enumerates normal matchings, not induced subsets, and is balanced K_n,n only.",
+          "Resultary returned no graph-specific induced-matching coefficient table; nearby matching-gap findings concern different graphs/parameters."
+        ],
+        "reasoning": "No inspected exact database/table supplies these induced and maximal-induced counts. This is narrower than claiming absence from all graph enumeration databases.",
+        "searches": [
+          "maximal induced matching cardinality spectrum generating polynomial subdivision complete bipartite graph S(K_pq) gap size",
+          "Pippenger 2001 incidence K_n,n matching orbit classes",
+          "maximal induced matchings subdivided complete bipartite table"
+        ]
+      },
+      "rationale": "A prior same-graph paper (Pippenger 2001) was actively found and inspected; it counts ordinary matchings, not induced matchings. Broad earlier extremal graph bounds do not imply the exact maximal-induced polynomial. No exact coefficientwise equivalent was located in primary/main corpus searches; best-of-knowledge PASS, not certified novelty.",
+      "residual_risks": [
+        "Pippenger full 23-page report was sampled rather than exhaustively read; its ordinary-matching predicate nonetheless sharply differs.",
+        "Older minimum/maximal induced matching literature may contain equivalent counts for subdivided bicliques."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_PREDICATE: enumeration of all matchings, not induced/maximal-induced matchings",
+          "evidence": "Abstract defines ordinary matchings solely by vertex disjointness; introduction §1 explicitly M(G) set of matchings and §4 treats ordinary K_n,n.",
+          "identifier_or_url": "https://www.cs.ubc.ca/sites/default/files/tr/2001/TR-2001-12_0.pdf",
+          "material_read": "23-page PDF abstract and introduction p.1, formula development p.5 and K_n,n asymptotics p.12 visually inspected; not entire 23 pages",
+          "method": "lawful institutional open-access technical report; page screenshots",
+          "title": "Enumeration of Matchings in the Incidence Graphs of Complete and Complete Bipartite Graphs",
+          "trigger": "Exactly the same underlying incidence graph, most relevant overlooked earlier title"
+        },
+        {
+          "assessment": "RELATED_BOUNDS_NOT_EXACT_ENUMERATOR",
+          "evidence": "Main theorem bounds total number in triangle-free graphs; no same coefficientwise Stirling formula in inspected statements.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.5180",
+          "material_read": "Primary full paper accessed and inspected for main maximal-count bound and enumeration algorithm",
+          "method": "arXiv full PDF",
+          "title": "Maximal induced matchings in triangle-free graphs",
+          "trigger": "All S(K_pq) are triangle-free"
+        },
+        {
+          "assessment": "RELATED_LIMITED_ACCESS",
+          "evidence": "Extremal counts for graphs of fixed order; exact family size spectrum not established from abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.11288",
+          "material_read": "Abstract and metadata; full primary text not reread",
+          "method": "arXiv abstract",
+          "title": "Maximal and maximum induced matchings in connected graphs",
+          "trigger": "All S(K_pq) connected"
+        },
+        {
+          "assessment": "POTENTIAL_OVERLAP_UNASSESSED",
+          "evidence": "Full text not accessed; potential relevant family extremal examples remain a residual risk.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disopt.2007.11.010",
+          "material_read": "Bibliographic abstract only",
+          "method": "indexed literature search",
+          "title": "Approximability results for maximum and minimum maximal induced matching",
+          "trigger": "Possible earlier bounds on minimum maximal induced-matching size"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact support {p} union [q,p+q-2] in RESULT.md",
+        "Independent enumeration six graph sizes",
+        "Pippenger ordinary matching counting is a distinct invariant"
+      ],
+      "rationale": "An exact cardinality distribution of maximal induced matchings and unbounded forbidden cardinality intervals in connected bipartite graphs of girth eight provide a natural extremal/structural phenomenon; the two independent surjection constraints explain it. This is not merely reparameterizing a prior total matching count.",
+      "residual_risks": [
+        "Does not classify arbitrary bipartite graphs or partial subdivisions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md (assigned Git blob d19cdbecad561e28b1847818d14c18254563ca7b)",
+    "verify.py (26d0a30c7a2acb4286b1a34684abc3e5fc88aa4a)",
+    "Independent adjacency-subset checks in independent_checks.py: p,q=(2,2),(2,3),(2,4),(2,5),(3,3),(3,4); all formulas matched",
+    "Pippenger 2001 UBC technical report TR-2001-12, 23-page PDF pp.1,5,12 (ordinary matchings, NOT induced matchings) https://www.cs.ubc.ca/sites/default/files/tr/2001/TR-2001-12_0.pdf",
+    "Basavaraju et al., arXiv:1312.5180, full primary paper (triangle-free upper bounds)",
+    "Yuan et al., arXiv:2410.11288 abstract (fixed-order total extremal counts)",
+    "Resultary query maximal induced matching cardinality spectrum generating polynomial subdivision complete bipartite graph S(K_pq) gap size: nearest 2026/9/20/SCOPE-cyclomatic-matching-induced-matching-gaps--ac8bd54efbfc concerns a different maximum-vs-induced gap",
+    "Orlovich et al. 2008 minimum maximal induced matching approximability bibliographic abstract; full text not read"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Does not classify arbitrary bipartite graphs or partial subdivisions.",
+    "Finite brute force tests check only six small graphs; no claim for arbitrary partial subdivisions."
+  ],
+  "residual_risks": [
+    "Pippenger full 23-page report was sampled rather than exhaustively read; its ordinary-matching predicate nonetheless sharply differs.",
+    "Older minimum/maximal induced matching literature may contain equivalent counts for subdivided bicliques.",
+    "Does not classify arbitrary bipartite graphs or partial subdivisions."
+  ],
+  "schema_version": 1
+}

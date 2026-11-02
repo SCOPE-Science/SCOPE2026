@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The incidence-to-assignment bijection is reversible: different chosen original tails cannot be adjacent to one another through a selected subdivision vertex because every head lies outside the set of tails. The one-edge extension test is equivalent to coverage of all positive-degree vertices in the unused original-vertex graph by the chosen heads. When both unused classes are nonempty, this becomes two independent surjection requirements; when one unused class is empty, exactly one one-sided boundary family remains. The Stirling counts, support, and balanced/unbalanced minimum multiplicity follow. An adjacency-only implementation examined 2,191,336 candidate edge subsets in nine instances and reproduced both complete enumerators. The infinite proof does not rely on those finite tests.
+## correctness
 
-**Originality (PASS, subject to residual priority risk).** Inspected primary sources arXiv:2410.11288v1 and arXiv:1312.5180v1 bound the number of maximal induced matchings in connected or triangle-free graphs, but do not specialize to one-edge subdivisions of bicliques or enumerate their full maximal-size profile. General strong-matching/line-graph-square equivalences do not themselves give the two surjection counts. Searches of relevant published mathematical records did not identify a result stating or implying the two-parameter formula and its missing-cardinality interval. Search failure is not a uniqueness proof; older lower-induced-matching literature was not fully inspectable.
+PASS
 
-**Value (PASS).** The exact enumerator determines a whole natural two-parameter family rather than a fixed instance. The maximality condition unexpectedly forces independent surjections on the two sides, and imbalance creates a gap \(p+1,\ldots,q-1\) even though all sizes \(q,\ldots,p+q-2\) occur. The gap is unbounded for \(p=2\) among connected, girth-eight, bipartite graphs; it cannot be recovered from the scalar maximum induced-matching number.
+For 2<=p<=q, the assignment-to-incidence bijection requires distinct original tails and heads not among tails. For a tails-on-both-sides configuration, inclusion maximality is exactly surjectivity onto both unused original-side vertex sets, contributing (p-a)!S(b,p-a)(q-b)!S(a,q-b). All-one-side boundary configurations contribute q^p z^p and p^q z^q. The a+b spectrum from the surjection existence inequalities is {p} union {q,...,p+q-2}; largest induced size same upper bound. Independently brute-force adjacency subset enumeration agrees for six cases, including p=q=2 and p=2,q=5; arbitrary p,q follow the bijection and inequalities, not enumeration.
 
-**Closest literature and limits.** Yuan et al. (arXiv:2410.11288v1, 2024) prove global connected-graph upper bounds. Basavaraju et al. (arXiv:1312.5180v1, 2013) prove universal bounds and a listing algorithm for triangle-free graphs. Indexed metadata on Orlovich et al. (2008) treats minimum maximal induced matching algorithms, without establishing coverage or noncoverage of the exact present family. The present formulas concern full one-step subdivisions and have no independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A prior same-graph paper (Pippenger 2001) was actively found and inspected; it counts ordinary matchings, not induced matchings. Broad earlier extremal graph bounds do not imply the exact maximal-induced polynomial. No exact coefficientwise equivalent was located in primary/main corpus searches; best-of-knowledge PASS, not certified novelty.
+
+## value
+
+PASS
+
+An exact cardinality distribution of maximal induced matchings and unbounded forbidden cardinality intervals in connected bipartite graphs of girth eight provide a natural extremal/structural phenomenon; the two independent surjection constraints explain it. This is not merely reparameterizing a prior total matching count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

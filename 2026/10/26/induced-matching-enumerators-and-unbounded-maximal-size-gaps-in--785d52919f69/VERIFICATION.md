@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library and compare the output with `verification_output.txt`. The checker reconstructs the graph from the original adjacency relation, enumerates candidate subsets of incidence edges, checks inducedness directly, and tests one-edge extensions for maximality. It compares every coefficient, not just the minimum and maximum cardinalities, for nine parameter pairs, covering 2,191,336 tested edge subsets in total.
+## correctness
 
-The upper bound on induced-matching size, \(p+q-2\), is proved in `RESULT.md` and is why the brute-force search need not consider larger candidate subsets. Separate exact-integer tests check support and boundary multiplicity identities for \(2\le p\le20\), \(p\le q\le26\). Those tests do not establish the infinite theorem or bibliographic originality. Independent audit is not performed.
+PASS
+
+For 2<=p<=q, the assignment-to-incidence bijection requires distinct original tails and heads not among tails. For a tails-on-both-sides configuration, inclusion maximality is exactly surjectivity onto both unused original-side vertex sets, contributing (p-a)!S(b,p-a)(q-b)!S(a,q-b). All-one-side boundary configurations contribute q^p z^p and p^q z^q. The a+b spectrum from the surjection existence inequalities is {p} union {q,...,p+q-2}; largest induced size same upper bound. Independently brute-force adjacency subset enumeration agrees for six cases, including p=q=2 and p=2,q=5; arbitrary p,q follow the bijection and inequalities, not enumeration.
+
+## originality
+
+PASS
+
+A prior same-graph paper (Pippenger 2001) was actively found and inspected; it counts ordinary matchings, not induced matchings. Broad earlier extremal graph bounds do not imply the exact maximal-induced polynomial. No exact coefficientwise equivalent was located in primary/main corpus searches; best-of-knowledge PASS, not certified novelty.
+
+## value
+
+PASS
+
+An exact cardinality distribution of maximal induced matchings and unbounded forbidden cardinality intervals in connected bipartite graphs of girth eight provide a natural extremal/structural phenomenon; the two independent surjection constraints explain it. This is not merely reparameterizing a prior total matching count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
