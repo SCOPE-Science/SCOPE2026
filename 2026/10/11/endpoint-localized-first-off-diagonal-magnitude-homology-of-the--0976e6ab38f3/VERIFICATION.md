@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_pappus_magnitude.py` in a standard Python 3 environment. No third-party modules are required.
+# Independent mathematical audit
 
-The verifier performs the following exact checks:
+## correctness
 
-1. Reconstructs the 18-vertex graph from LCF \([5,7,-7,7,-7,-5]^3\), checks 27 edges, cubic degree, girth \(6\), diameter \(4\), and distance shells \((1,3,6,6,2)\).
-2. For every ordered endpoint pair \((x,y)\), enumerates all length-four magnitude chains in degrees \(2,3,4\).
-3. Builds the magnitude boundaries over \(\mathbb F_2\) by deleting precisely the smooth interior points.
-4. Verifies the chain condition on every endpoint block.
-5. Computes exact boundary ranks by binary Gaussian elimination and checks the complete local data for each endpoint distance.
-6. Sums endpoint blocks and checks global chain dimensions \((1296,2916,1458)\), boundary ranks \((1260,1404)\), and homology dimension \(252\).
+PASS
 
-A successful replay prints `VERIFY_OK`. The bundled `verification_output.txt` is the output from the checked package path.
+Independently reconstructed the LCF [5,7,-7,7,-7,-5]^3 graph as an 18-vertex 27-edge simple cubic graph and all-pairs BFS distances (each shell 1,3,6,6,2; diameter 4). Inspected the actual pinned RESULT.md, verify_pappus_magnitude.py, VERIFICATION.md, AUDIT.json and verification_output.txt. Wrote and ran independent exhaustive Python code enumerating ALL proper tuples of 3,4,5 vertices with total shortest-path length exactly 4, grouped by all 324 ordered endpoints; boundary deletes only smooth interior points, using exact F2 XOR and independent pivot rank. All 324 blocks satisfy d3*d4=0. At endpoint distances 0,1,2,3,4, the sole observed tuples (dim C2,dim C3,dim C4,rank d3,rank d4,dim H3) were (6,18,15,6,12,0), (0,0,0,0,0,0), (7,18,9,7,9,2), (0,0,0,0,0,0), (12,18,6,11,6,1). Pair counts were 18,54,108,108,36; global dimensions C2=1296,C3=2916,C4=1458 and ranks 1260,1404, hence H3=252. The independent verifier is a complete finite enumeration, not a sample or merely the repository log. Proper chains allow nonconsecutive repeats; no assertion about integer torsion, arbitrary fields, higher bidegrees, or other graphs.
 
-The verification establishes only the stated finite \(\mathbb F_2\) claim. It does not certify integral torsion or other bidegrees.
+## originality
+
+PASS
+
+Qualified best-of-knowledge. The full finite statement is a specific endpoint-distance profile for the Pappus graph; no inspected published theorem, table, or wider-family result implies the values 2 at distance 2, 1 at distance 4, zero elsewhere, total 252. Asao–Hiraoka–Kanazawa vanishing requires girth >=7, whereas Pappus has girth 6. Closest published Resultary incidence theorem assumes a finite projective plane, which the Pappus 9_3 configuration is not. Zhu’s 2026 signature dataset contains standard families and all graphs only up to 7 vertices, excluding this 18-vertex named graph. Resultary matching hit is the assessed claim, not an independent antecedent. A general computational algorithm is not an already-known numeric table. Unindexed computations or a broader unlocated theorem remain priority risks, not grounds for an unsupported novelty guarantee.
+
+## value
+
+PASS
+
+The Pappus graph is a named cubic symmetric distance-regular girth-six Levi graph of the classical Pappus configuration, not an arbitrary selected subgraph. Bidegree (3,4) is the first off-diagonal location not forced to vanish by the published girth>=7 theorem, making this a motivated boundary computation. The exact F2 endpoint-distance profile (two, one, or zero generators) adds geometrically localized information not implied by graph size/girth/degree, and provides a reproducible finite benchmark for comparisons among canonical girth-six incidence graphs. The independent work verifies all blocks, so the result is a substantive exact natural invariant even without an infinite-family generalization. Limited scope (F2, one graph, one bidegree) is stated; no unsupported downstream theorem or integral claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
