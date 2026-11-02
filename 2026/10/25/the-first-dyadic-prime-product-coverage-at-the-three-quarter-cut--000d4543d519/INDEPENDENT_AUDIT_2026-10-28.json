@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:17:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite theorem reduces to exact enumeration of all unordered pairs of odd primes p<=floor(2^(3m/4)); the exact cutoff is computed as isqrt(isqrt(2^(3m))). A complete Eratosthenes sieve and pair-product bitset indexed by all 2^(m-1) odd unit classes proves both coverage and noncoverage for EVERY integer m in [1,21], not a sample. Independent implementation reconstructed all 21 missing-count values (1,2,3,3,5,11,17,30,54,70,121,162,190,240,216,183,92,42,7,3,0), verifying the first complete case m=21 and that m=20 has precisely three unrepresented residues 122299,333455,414971. At m=21, full coverage first occurs at prime cutoff 50923, with prior prime 50909 and last obstruction 745135, represented by 50923*7757 modulo 2^21. Independent modular-inverse obstruction reconfirmed that no earlier prime cutoff represents this last residue. This proves only the finite interval and no perpetuation for m>21.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banks–Shparlinski arXiv:2610.19597 accessible abstract: almost all units for products of two primes to q",
+          "Banks arXiv:2609.37434 primary theorem for fixed exponents strictly >3/4 in random model"
+        ],
+        "reasoning": "Almost-all is strictly weaker than all, and q is larger than q^(3/4); random model does not prove actual primes. Cannot infer new finite threshold.",
+        "searches": [
+          "Banks Shparlinski 2610.19597 Erdős Odlyzko Sárközy prime power moduli",
+          "Banks 2609.37434 random model residue class products 3/4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.37434",
+        "https://arxiv.org/abs/2610.19597",
+        "https://arxiv.org/abs/2301.07679",
+        "Resultary search prime pair 3/4 coverage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem requires complete E2(2^21;floor(q^3/4)) with prime products",
+          "Prior works concern almost-all, random model, or partial products in progressions"
+        ],
+        "reasoning": "The new assertion is a strictly more specialized finite full-coverage statement not logically implied by the inspected wider asymptotics. Full inaccessible Banks–Shparlinski text creates residual risk.",
+        "searches": [
+          "arxiv:2610.19597",
+          "arxiv:2609.37434",
+          "arxiv:2301.07679"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Actual-prime E2 complete coverage benchmark m21",
+          "Published Resultary search found no identical table, with related prime-support items"
+        ],
+        "reasoning": "A residue covered by a product of two primes <=q^(3/4) is not equivalent to a random-prime model event or almost-all residue coverage. No indexed equivalent finite first-success table was found.",
+        "searches": [
+          "dyadic semiprime residue covering q 3/4 exponent two primes powers 2",
+          "Resultary search: products of two primes mod 2^m at cutoff 2^(3m/4) full coverage first m 21 prime threshold 50923"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact source table lists all twenty-one missing counts and three obstructions at m20",
+          "Resultary prime-support and finite covering entries do not match"
+        ],
+        "reasoning": "Exact finite parameter counts and cutoff must be compared directly; no matching indexed table was found. A failed search cannot certify uniqueness.",
+        "searches": [
+          "2^21 semiprime residue unit 50923 745135",
+          "prime products Erdős Odlyzko Sárközy numerical table 2^20"
+        ]
+      },
+      "rationale": "The two cited October/September 2026 prime-product studies concern almost-all classes at large prime-power modulus with larger prime cutoff, and a Granville random-prime model at exponents strictly greater than 3/4; these do not logically entail complete actual-prime coverage at q^(3/4) for q=2^21 nor the exact least cutoff 50923. Search located no matching finite table, but unindexed prime residue computation tables remain a priority risk. A directly relevant 2026 paper could not be downloaded and read in full, so its noncoverage is not asserted on abstract alone.",
+      "residual_risks": [
+        "Authorized full-text attempt on Banks–Shparlinski 2026 paper reported \"Download storage limit reached; archive completed PDFs first\"; any exact hidden computational table is unknown.",
+        "Historical finite calculations may already record m=21 and 50923 under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_RANDOM_MODEL",
+          "evidence": "The theorem governs random-model coverage, not actual-prime finite q=2^21.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37434",
+          "material_read": "Accessible primary PDF introduction and main theorem region concerning exponents strictly above 3/4",
+          "method": "Full PDF opened; relevant theorem material read",
+          "title": "Products of two elements of Granville’s random model in residue classes",
+          "trigger": "exact 3/4 mathematical threshold"
+        },
+        {
+          "assessment": "HIGH_PRIORITY_RESIDUAL_RISK",
+          "evidence": "Abstract states almost-all at larger cutoff; it is NOT a whole-document determination that no sharper finite result appears.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.19597",
+          "material_read": "Accessible primary abstract/metadata; full arXiv/OA retrieval failed, authorized institution download returned storage limit",
+          "method": "Abstract and access-failure evidence only",
+          "title": "On the Erdős–Odlyzko–Sárközy conjecture for prime-power moduli",
+          "trigger": "same prime-product setting and potentially broader coverage"
+        },
+        {
+          "assessment": "LIMITED_COMPARISON",
+          "evidence": "Prime-products in progressions do not by abstract alone give first dyadic exact finite table.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.07679",
+          "material_read": "Bibliographic record and abstract, not full work",
+          "method": "Abstract-level inspection",
+          "title": "Products of primes in arithmetic progressions",
+          "trigger": "possibly general covering theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exponent 3/4 is a mathematically motivated critical boundary of prime-product covering in a recent random model, not a hand-picked computational ratio. The first sharp dyadic full coverage at that endpoint and adjacent three-hole failure provide an exact and reproducible benchmark for an important open covering problem. A meaningful finite sharp cutoff does not require proving an infinite theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.37434",
+    "https://arxiv.org/abs/2610.19597",
+    "https://arxiv.org/abs/2301.07679",
+    "Resultary search prime pair 3/4 coverage"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite m<=21 theorem only; neither any m>21 nor general EOS conjecture proved."
+  ],
+  "schema_version": 1
+}

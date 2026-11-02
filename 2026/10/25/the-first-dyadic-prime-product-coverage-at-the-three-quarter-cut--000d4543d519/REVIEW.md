@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact, exhaustive finite enumeration of every unordered odd-prime pair at each power-of-two modulus \(2^m\) for \(1\le m\le21\), using exact integer fourth roots and a proof that the loop enumerates every permitted product. The verifier reports the full missing-count table and tests the final sharp witness with a distinct modular-inverse obstruction check. No inference about untested exponents is used.
+## correctness
 
-**Originality — PASS, with residual search risk.** Direct comparison with the 2026 Banks–Shparlinski prime-power bounds and the Banks Granville-model theorem finds neither exact finite 3/4-endpoint coverage nor the sharp dyadic cutoff. The closest available earlier result is a finite first-success theorem at cutoff \(q/2\); that cannot imply coverage at the strictly smaller \(q^{3/4}\) for the new modulus and gives no first-exponent statement here. Published text and database searches did not disclose an exact table for \(2^{21}\). Unindexed or uninspected numerical tables remain a residual novelty risk.
+PASS
 
-**Value — PASS.** The exponent \(3/4\) is not arbitrary: it is the sharp barrier of the random-model method in the 2026 Banks paper. Determining the first dyadic modulus that genuinely reaches *complete* coverage at that exact boundary gives a natural exact benchmark for a central still-open prime-products conjecture. The adjacent-exponent contrast (three classes absent at \(2^{20}\), complete at \(2^{21}\)) and exact least successful prime cutoff go beyond a generic finite verification.
+The finite theorem reduces to exact enumeration of all unordered pairs of odd primes p<=floor(2^(3m/4)); the exact cutoff is computed as isqrt(isqrt(2^(3m))). A complete Eratosthenes sieve and pair-product bitset indexed by all 2^(m-1) odd unit classes proves both coverage and noncoverage for EVERY integer m in [1,21], not a sample. Independent implementation reconstructed all 21 missing-count values (1,2,3,3,5,11,17,30,54,70,121,162,190,240,216,183,92,42,7,3,0), verifying the first complete case m=21 and that m=20 has precisely three unrepresented residues 122299,333455,414971. At m=21, full coverage first occurs at prime cutoff 50923, with prior prime 50909 and last obstruction 745135, represented by 50923*7757 modulo 2^21. Independent modular-inverse obstruction reconfirmed that no earlier prime cutoff represents this last residue. This proves only the finite interval and no perpetuation for m>21.
 
-**Closest literature and limitations.** arXiv:2610.19597v1 treats large prime-power moduli but proves almost-all coverage for two primes bounded by \(q\). arXiv:2609.37434v1 treats a random prime model for fixed exponents strictly above \(3/4\); arXiv:2301.07679 gives unconditional partial binary and ternary results. No assertion for larger dyadic exponents follows from the finite certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two cited October/September 2026 prime-product studies concern almost-all classes at large prime-power modulus with larger prime cutoff, and a Granville random-prime model at exponents strictly greater than 3/4; these do not logically entail complete actual-prime coverage at q^(3/4) for q=2^21 nor the exact least cutoff 50923. Search located no matching finite table, but unindexed prime residue computation tables remain a priority risk. A directly relevant 2026 paper could not be downloaded and read in full, so its noncoverage is not asserted on abstract alone.
+
+## value
+
+PASS
+
+The exponent 3/4 is a mathematically motivated critical boundary of prime-product covering in a recent random model, not a hand-picked computational ratio. The first sharp dyadic full coverage at that endpoint and adjacent three-hole failure provide an exact and reproducible benchmark for an important open covering problem. A meaningful finite sharp cutoff does not require proving an infinite theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
