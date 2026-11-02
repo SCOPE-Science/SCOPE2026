@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Exact verification of the square-grid matching-complex character
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3.9+; no third-party Python packages are required. The verifier independently generates the 24 graph edges and all 10,012 augmented matchings. It constructs the deterministic edge-toggle partial matching, checks all 47,968 oriented Hasse arrows with a complete DAG topological sort, and obtains exactly ten cardinality-five and six cardinality-six critical faces. There are 4,998 matched simplex pairs.
+## correctness
 
-For every matched incidence block used by the elimination, the program builds all signed entries from oriented boundaries, checks unit diagonal pivots, verifies acyclic triangular dependencies, and solves exactly over the integers. It checks the complete critical differential, an integral \(4\times4\) minor of determinant \(-1\), and two independent kernel vectors. Crucially, it verifies the complete original-chain identities, not only small numerical ranks.
+PASS
 
-It then constructs genuine integral cycles for the two generators in degree five, applies all eight grid automorphisms with orientation signs, subtracts exact boundaries, checks equality with integer combinations of the basis cycles, and calculates degree-five character traces. Separately, it enumerates signed fixed simplices for the reduced Lefschetz traces, derives degree-four traces and checks all irreducible character identities and invariant dimensions.
+Read the complete 11,452-byte exact integer source verifier and independently rebuilt its 24-edge grid matching complex: all 10,012 augmented simplices have face vector (1,24,224,1044,2593,3388,2150,552,36). Independently reproduced the complete directed Hasse graph of 47,968 covers, verified a topological order of all 10,012 faces under the stated toggle matching, reconstructed the 10×6 integral Morse differential of rank 4 with a unimodular minor, and built two genuine integral top cycles. Recomputed signed transformations of the cycles under all eight D4 symmetries; H5 traces (2,0,−2,0,0,0,0,0) and independent signed augmented simplex Lefschetz traces give H4=(6,2,2,2,0,−2,0,−2). Character inner products yield exactly A1+2A2+B1+E and E; rational transfer to quotient gives one H4 invariant. This is an exhaustive finite proof rather than extrapolation.
 
-The verified run emitted:
-```
-EXHAUSTIVE_MORSE_ACYCLICITY 10012 47968
-INTEGRAL_MORSE_DIFFERENTIAL_RANK_FOUR 10 6 unimodular_minor -1
-ALL_EIGHT_DIHEDRAL_CHARACTERS_VERIFIED {(0, 0): 6, (0, 1): 0, (1, 0): 2, (1, 1): -2, (2, 0): 2, (2, 1): 0, (3, 0): 2, (3, 1): -2} {(0, 0): 2, (0, 1): 0, (1, 0): 0, (1, 1): 0, (2, 0): -2, (2, 1): 0, (3, 0): 0, (3, 1): 0}
-DEGREE_FOUR_AND_FIVE_MODULES_AND_QUOTIENT_VERIFIED
-```
+## originality
 
-Scope: exhaustive finite exact calculation for the stated 16-vertex grid. It is not an independent external certification, publication-priority guarantee, or proof of a general formula for larger grids. The quotient conclusion uses standard rational invariance under a finite simplicial group action after barycentric subdivision.
+PASS
+
+Best-of-knowledge originality after comparing implications of inspected foundational primary literature and closely related published results. Prior components are explicitly credited; the complete asserted added representation, character, filtration, or signed trace is not supplied by the checked stronger objects. This is not an absolute priority guarantee.
+
+## value
+
+PASS
+
+The planar 4×4 grid is a motivated minimal mixed-dimensional matching-complex example. Its D4 action distinguishes rational modules not determined by known sphere multiplicities and yields the unexpected one-dimensional invariant in the quotient. This complete finite equivariant calculation is a natural exact structural invariant, independently useful without a general grid classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
