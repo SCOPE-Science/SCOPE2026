@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The side invariant is forced by forbidden coordinates. Canonical representatives realize all 2^k signatures because endpoints cannot lie on the disallowed sides. A complete swap-case analysis proves feasibility of bubble sorting to the canonical representative, bounded by binomial(n,2). An independent Python BFS/normalization checker exhaustively checks all masks for n=2..7, while independently implemented C++ DSU checks all masks for n=2..8. Finite tests corroborate but are not used to extrapolate the general result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baril–Vajnovszki (2004), sections on unrestricted transpositions and 3-rotations.",
+        "Vajnovszki (2010), ECO transition recurrences."
+      ],
+      "reasoning": "Gray-code connectivity with a larger move set does not imply connectivity under feasible consecutive-position swaps; none of the inspected broader construction results classifies the present induced-graph components.",
+      "searches": [
+        "derangements with adjacent entries swapped maintaining no fixed points: exactly 2^(n-2) components categorized by each symbol lying left or right of own diagonal position",
+        "\"derangements\" \"adjacent transpositions\" \"connected components\"",
+        "\"permutation\" \"forbidden positions\" \"adjacent swaps\" components"
+      ]
+    },
+    "checked_sources": [
+      "Baril–Vajnovszki, doi:10.1016/j.dam.2003.06.002, full author-hosted paper",
+      "Vajnovszki, doi:10.46298/dmtcs.479, full publisher PDF",
+      "Clark, arxiv:1306.6436, arxiv abstract and full-text paper sections",
+      "Mütze, Combinatorial Gray codes—an updated survey, arxiv:2202.01280, Gray-code derangements discussion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Clark (2013), Graph Derangements, studies existence of permutations satisfying graph restrictions.",
+        "Baril–Vajnovszki (2004), Gray code for derangements, uses nonadjacent operations.",
+        "Vajnovszki (2010), generation via ECO."
+      ],
+      "reasoning": "The new claim is a complete description of components under constrained adjacent swaps; none of the inspected works states or derives it with their allowed transitions. For F=[n], arbitrary swaps are connected in larger orders, emphasizing the non-implication.",
+      "searches": [
+        "derangements with adjacent entries swapped maintaining no fixed points: exactly 2^(n-2) components categorized by each symbol lying left or right of own diagonal position",
+        "permutations avoiding fixed points permutahedron induced graph adjacent transposition connected components release deadline"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An allowed permutation is a perfect matching in the bipartite graph K_{n,n} with selected diagonal edges deleted; exchanging consecutive positions switches matching partners on adjacent indexed left vertices.",
+        "It is also the induced subgraph on feasible permutations in the ordinary permutahedron."
+      ],
+      "reasoning": "These equivalent models were compared by transition restrictions, not merely by graph names; full crown-graph matching switches can involve nonconsecutive positions, so their known connectivity does not cover this claim.",
+      "searches": [
+        "perfect matchings crown graph K_n,n minus identity matching local switches involving consecutive left positions connected components",
+        "permutations avoiding fixed points permutahedron induced graph adjacent transposition connected components release deadline"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Complete symbolic classification for all forbidden subsets and all n, rather than a finite OEIS-like derangement-number table.",
+        "Available finite programs here were built for this result, not found as prior tables."
+      ],
+      "reasoning": "No exact component table or formula matching the target adjacent-swap restriction was located; absence from searches is not definitive novelty evidence.",
+      "searches": [
+        "\"derangements\" \"adjacent swaps\" \"2^{n-2}\"",
+        "\"partial derangements\" \"adjacent\" \"transpositions\""
+      ]
+    },
+    "rationale": "Compared exact feasible adjacent-position swaps with unrestricted-transposition Gray-code constructions and graph-derangement existence results, including primary full text and equivalent perfect-matching and induced-permutahedron descriptions. No checked result implies the general sign-component classification; some unindexed older general theorem could, and this is disclosed.",
+    "residual_risks": [
+      "An older equivalent theorem may be phrased in terms of allowable matchings, restricted adjacent sorting, or linear extensions and not indexed under derangements.",
+      "No independent expert search or scholarly referee review was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its generation transitions permit nonadjacent transpositions and three-cycles and do not supply components for solely feasible adjacent transpositions.",
+        "evidence": [
+          "Baril–Vajnovszki (2004), transposition/rotation transition definitions and generation algorithm."
+        ],
+        "identifier_or_url": "doi:10.1016/j.dam.2003.06.002 | https://jl.baril.u-bourgogne.fr/derange.pdf",
+        "material_read": "Complete author-hosted 15-page article: abstract, construction, algorithm, conclusion and references",
+        "method": "Primary-paper full-text reading",
+        "title": "Gray code for derangements",
+        "trigger": "Exact derangement generation and permutation-exchange operations"
+      },
+      {
+        "assessment": "ECO production and insertion procedures do not restrict every transition to legal swaps of adjacent positions and do not imply the claimed connected-component invariant.",
+        "evidence": [
+          "Vajnovszki (2010), Sections 4–5."
+        ],
+        "identifier_or_url": "doi:10.46298/dmtcs.479 | https://dmtcs.episciences.org/en/articles/479/download",
+        "material_read": "Original full PDF, with focus on Sections 4–5 and definitions of transitions",
+        "method": "Primary-paper full-text reading",
+        "title": "Generating involutions, derangements, and relatives by ECO",
+        "trigger": "Recursive constructions of derangements potentially governing adjacent exchanges"
+      },
+      {
+        "assessment": "Treats existence and graph-defined allowed images; it does not classify connectivity of the induced consecutive-position swap graph for forbidden fixed points.",
+        "evidence": [
+          "Clark (2013), definitions, existence and Hall-type discussion; arXiv v1 timestamp 2013-06-27."
+        ],
+        "identifier_or_url": "arxiv:1306.6436 | https://arxiv.org/abs/1306.6436",
+        "material_read": "ArXiv v1 bibliographic record and article introduction/definitions and derangement-existence sections",
+        "method": "ArXiv record plus full-text HTML reading",
+        "title": "Graph Derangements",
+        "trigger": "Primary older public anchor for the derangement graph notion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "79c08e75-f702-4657-9bfa-e406b4e62f34",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This all-parameter theorem determines the exact exponential number of components, an explicit complete component invariant and short canonical paths for an arbitrary subset of diagonal constraints. It resolves a natural obstruction in adjacency-preserving derangement generation, which cannot be inferred from Gray codes permitting arbitrary transpositions. Component sizes, exact diameters, and general forbidden-board patterns remain open.",
+    "status": "PASS"
+  }
+}
