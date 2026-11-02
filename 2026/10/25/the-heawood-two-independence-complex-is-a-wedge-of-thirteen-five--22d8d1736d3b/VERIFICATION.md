@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and exact limits
 
-Execute `python3 verify_heawood.py` with Python 3.8 or later and compare stdout exactly with `verification_output.txt`. It uses only the Python standard library and makes no network calls. Its graph definition is seven Fano triples and fourteenth-bit masks, with independent local-degree and connected-component definitions of the face condition. It verifies the unique-line design property, every admissible face, full f-vector, one-to-one matching, every critical mask, and acyclicity through a topological sort of **all** directed face-cover relations. A separate reduced mod-two simplicial boundary calculation supplies cross-checks.
+# Independent mathematical audit
 
-The exact Morse certificate has 2,256 nonempty faces, 1,121 matched nonempty pairs, and exactly one unmatched vertex and thirteen unmatched dimension-five simplices. The full directed Hasse graph has 10,150 arrows and is acyclic. These counts and the standard discrete-Morse theorem constitute a complete integral finite homotopy argument; the mod-two Betti calculation alone would not suffice.
+## correctness
 
-The result says nothing about all incidence graphs or about integral group actions. Scientific novelty is based on explicit comparisons with accessible literature and public records; a failed query cannot establish global priority. No independent external audit was performed.
+PASS
+
+PASS: Ind_2(H) is a simplicial complex on the 14 Fano incidence vertices defined by induced maximum degree<=1 (equivalently all induced components have at most two vertices). Fresh independent enumeration of all 2^14 subsets gives f-vector with empty face (1,14,91,322,651,728,392,58), total 2,257. Sequential vertex-matching with modified empty-face pair leaves 1,121 disjoint nonempty matched pairs and critical cells exactly one vertex plus thirteen six-vertex faces; independent full directed-Hasse topological sort verifies acyclicity on all 2,256 nonempty faces and 10,150 arrows. Forman discrete Morse gives a CW model with one zero-cell and thirteen 5-cells, so every attaching map is constant and the integral homotopy type is wedge^13 S5. This complete finite certificate proves the fixed natural graph; mere mod-two Betti ranks would not prove the integral wedge.
+
+## originality
+
+PASS
+
+Qualified: closest higher-independence work addresses trees, chordal graphs, complete multipartite families and matching methodology, not the nonchordal 14-vertex Heawood incidence graph. Related same-graph results concern ordinary independence, edge matching, cut or neighborhood complexes, not the same vertex-subset two-independence complex. No covering exact 13S5 theorem identified.
+
+## value
+
+PASS
+
+PASS: The Heawood graph is the canonical Fano-plane incidence graph, cubic nonchordal girth six. Its first higher vertex-independence complex is a natural stress test outside the known tree/chordal families. Complete integral homotopy (not just Betti table) with short explicit acyclic matching is a meaningful exact finite classification, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
