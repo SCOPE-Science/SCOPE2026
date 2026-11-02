@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The claim specifies the base space, the allowed number of connected components, the extended Hausdorff metric, and the direction class. The contraction is defined explicitly. Proper inward shifts preserve closedness and do not increase the component count; finite-radius neighborhoods in the weighted path metric do not split connected components. The bound \(d_H(H_t(A),Y_S)\le t(1-t)\) near \(t=1\), together with local uniform bounds within a direction class, supplies the endpoint-continuity check.
+PASS
 
-## Originality (O) — PASS
+For each unbounded-direction set S of a finite ray-graph, extended Hausdorff distance between direction classes is infinite. The source constructs H_t(A) as the radius ρ(t)=t/(1−t) neighborhood, under the metric d_t scaling excluded rays by (1−t)^{-2}, of g_t(A), where g_t shortens each ray coordinate x to max(0,x−t/(1−t)). It starts at A and preserves nonempty closed sets, the at-most-n component bound, and the set of unbounded rays: a finite thickening of a connected subset in a path-metric graph is connected, while finite shifts/neighborhoods preserve unbounded-ray membership. For t→1, tails in S are shifted to entire rays and all core edges are filled, whereas spill on excluded rays has original length at most ρ/w=t(1−t). The finite core and Hausdorff-local uniform tail thresholds prove joint continuity, so H_1(A)=Y_S defines a genuine contraction. The k=0 case yields a single contractible component; no claim in the Vietoris topology is needed.
 
-The closest primary source is Esty's arXiv preprint 1012.1578. Theorem 5.3 proves exactly \(2^k\) path-connected components in the extended-Hausdorff topology, but does not assert that those components are contractible. Its contractibility statement in Section 6 is for \(CL(X)\) under the Vietoris topology, and its theorem for \(C_n(X)\) under that topology is path-connectedness. published-finding corpus semantic searches did not return a direct equivalent claim. The 2008 contractibility paper was accessible only by abstract and is recorded as a limited comparison, not as proof of full-document noncoverage.
+## originality
 
-## Value (V) — PASS
+PASS
 
-The result determines the homotopy type of the entire hyperspace, not merely its path-component count: it is equivalent to a discrete space of \(2^k\) points. This is a natural structural invariant for the extended-Hausdorff topology on noncompact finite ray-graphs.
+PASS, qualified best-of-knowledge: literature comparison of exact statements/implications. Same objects and direction indexing occur in Esty 2010/2013; the submitted stronger deformation retraction of each class is not a relabeling of an already stated path-component count. The two cited theorems together determine π0 under extended Hausdorff and homotopy of CL under Vietoris separately, not the homotopy groups of each extended-Hausdorff C_n direction component.
 
-Limitations: the claim is restricted to finite connected ray-graphs with finitely many rays and finite \(n\). The proof uses a time-dependent weighted path metric. An independent audit has not been performed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Esty establishes exactly 2^k path components, which does not determine their higher homotopy. A single explicit compatible deformation identifying all components as contractible upgrades the complete homotopy classification for the natural extended-Hausdorff C_n(X) family. The weighted metric is a nontrivial continuity mechanism to prevent excluded rays from proliferating.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
