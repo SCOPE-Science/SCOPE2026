@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T06:45:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 937dcbc30b543a4ba6f9f9c9e4b92dd22387036a",
+        "verify.py blob 9844e49eb8800c9b4770f0a7f8048fec0fb40c01",
+        "coefficient_certificate.json blob 35511a5115605ee938bafff9a4d5f24819f92202 (source list and method inspected, full JSON not independently matched)",
+        "check_ehrhart_independent.py: independently recomputed coefficients and 784/36/36/75/25 monomial certificates"
+      ],
+      "rationale": "Correctness PASS universally for 2D full-dimensional lattice polygons with Pick/Ehrhart integer data, not merely finite samples. Independently derived the numerator coefficients from L_P(n)L_Q(n) and the degree-4 binomial finite-difference transform, checking the displayed p,q,r,s polynomial identity symbolically. In the b,d≥1 quartic region, write a=X+Y+1,b=Y+1,c=U+V+1,d=V+1 with X,Y,U,V≥0. Independently regenerated all coefficients of exact quartic discriminant: 784 monomials, every coefficient positive (constant43740). Witness polynomials p²−4q and pr−2s each have 36 positive monomials. Therefore f(−2/p)<0, f(0)=1 and f(t)→+∞ as t→−∞, yielding ≥2 negative real roots; positive quartic discriminant then forces four simple real roots, and positive coefficients eliminate nonnegative roots. Independently regenerated mixed hollow/interior cubic discriminant 75 strictly positive monomials (constant900), hollow/hollow cubic discriminant25 positive terms, and the two degenerate quadratic discriminants 3(3U²+6UV+10U+3V²+2V+3)>0 and 3(3U²+4U+4)>0. These cover all b=0 or d=0 boundary cases including degree drops. This is exhaustive symbolic coefficient positivity over nonnegative integer parameters, not extrapolated polygon sampling; the embedded 118477-byte coefficient JSON file was not separately matched byte-for-byte in this independent script, but its claimed polynomial positivity was recomputed directly.",
+      "residual_risks": [
+        "The full stored certificate file was not separately compared term-for-term, although independent symbolic expansions verified exactly all positivity assertions needed by the proof.",
+        "No assertion about arbitrary dimension-three factors, triple products or nonlattice polygons is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wagner’s Theorem 1.1 assumes both numerator transforms are real-rooted and therefore excludes non-real triangle factors.",
+          "Liu’s 2026 product real-rootedness preservation theorem likewise applies to real-rooted inputs; Nill obtains sufficiently large lattice-width conclusion, not all 2D polygon pairs including narrow triangles."
+        ],
+        "reasoning": "The broader-theorem hypotheses fail in precisely the exceptional cases, so the claimed universal product conclusion is not implied by those results.",
+        "searches": [
+          "Feihu Liu arXiv:2610.06338 section 2",
+          "Brändén–Ferroni–Jochemko arXiv:2408.12386 Theorem 1.1",
+          "Benjamin Nill arXiv:2608.03635"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026-10-28 lattice polygon Ehrhart product search",
+        "Feihu Liu arXiv:2610.06338 Sections 2.1–2.2",
+        "Brändén–Ferroni–Jochemko arXiv:2408.12386 Theorem 1.1 and 1.2",
+        "Benjamin Nill arXiv:2608.03635 large lattice width result",
+        "Wagner 1992 Theorem 0.2 as quoted verbatim mathematically in Brändén–Ferroni–Jochemko"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For B≥4 the factor 1+(I+B−3)t+I t² is real-rooted; Wagner then covers such factor pairs (and any with real-rooted input).",
+          "For B=3, I∈{1,2,3} the factor has nonreal conjugate roots; Theorem 1.1 cannot be applied and logconcavity does not force root simplicity."
+        ],
+        "reasoning": "The exceptional-factor input is a mathematically necessary gap in the old implication, and the new exact discriminant certificate resolves that gap for arbitrary other lattice polygons.",
+        "searches": [
+          "Wagner 1992 quoted in BFJ arXiv:2408.12386 Theorem 1.1",
+          "Feihu Liu arXiv:2610.06338 Section 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "L_P×Q(n)=L_P(n)L_Q(n) identifies the claim with Hurwitz/Wagner-transform real-rootedness under Hadamard products of quadratic Ehrhart sequences.",
+          "The factor 1+I t+I t² is non-real-rooted for boundary B=3 and interior I=1,2,3."
+        ],
+        "reasoning": "Looked for direct polygon product, Hadamard, Segre/Ehrhart and primitive-edge exceptional formulations; equivalent transform vocabulary is considered.",
+        "searches": [
+          "Resultary 2026-10-28: cartesian products lattice polygons Ehrhart h star polynomial simple negative roots non-real rooted triangle polygon Hadamard product",
+          "Web: Ehrhart h star product two lattice polygons real rooted without real rooted factors primitive triangles theorem 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary lattice-segment factor log-concavity theorem is weaker, and no exact exceptional triangle×polygon root table appeared.",
+          "Computed explicit h* for P=Q with (I,B)=(1,3): 1+11t+30t²+11t³+t⁴ with simple negative roots."
+        ],
+        "reasoning": "No complete table or previously stated all-polygon theorem was found; absence is not a proof against older special-case literature.",
+        "searches": [
+          "Resultary 2026-10-28 lattice polygon product simple roots query",
+          "Web: lattice polygons Cartesian product Ehrhart primitive triangle real-rooted exception"
+        ]
+      },
+      "rationale": "Originality PASS, qualified. The established Wagner/Brändén–Ferroni–Jochemko Hadamard preservation theorem assumes every input h*-polynomial is already real-rooted. Every 2D polygon factor fails real-rootedness only when B=3 and I=1,2,3. The examined 2026 Liu survey applies the same hypothesis and does not imply those exceptional primitive-edge triangle cases. The complete all-polygon theorem is thus a sharper universal result with a verified genuinely non-real-rooted input example. The real novelty is exactly the exceptional family and simple roots, not the preexisting product-of-real-rooted factors principle.",
+      "residual_risks": [
+        "An older unindexed special case for primitive-edge triangles multiplied by arbitrary polygons could cover the new remainder; priority search is bounded.",
+        "Only relevant statements/sections rather than all appendices of the 59-page Liu survey were inspected in depth; no universal whole-document noncoverage claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The cited preservation route requires real-rooted factor numerators; it does not imply the exceptional primitive-edge triangle factors which are not themselves real-rooted.",
+          "evidence": [
+            "Theorem 2.2 reprises the preservation theorem for real-rooted input factors.",
+            "A lattice polygon with B=3 and I=1,2,3 has numerator 1+I t+I t² with negative discriminant, outside the antecedent."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.06338",
+          "material_read": "Full primary 59-page PDF searchable; read Section 2 treatment of Hadamard products and real-rootedness hypotheses and inspected pages 8–10 as PDF images.",
+          "method": "Compared the exact antecedent of the preservation theorem with polygons whose factors have h*=1+I t+I t², I=1,2,3.",
+          "title": "Ehrhart Properties under Operations on Lattice Polytopes",
+          "trigger": "2026 survey/preservation theorem on precisely Cartesian-product Ehrhart h*-real-rootedness."
+        },
+        {
+          "assessment": "Wagner’s theorem assumes both numerator polynomials already have nonpositive real zeros; ultra-logconcavity is weaker and cannot supply missing exceptional factor case.",
+          "evidence": [
+            "Theorem 1.1: if W(p1) and W(p2) have nonpositive real zeros, then so does W(p1p2).",
+            "Theorem 1.2 concerns preservation of ultra-logconcavity, not a universal conclusion of real-rootedness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.12386",
+          "material_read": "Primary 20-page PDF abstract and introduction and Theorem 1.1 (Wagner) and ultra-logconcavity Theorem 1.2; screenshot of p.2 checked.",
+          "method": "Read exact root-preservation antecedents, distinguishing real-rootedness from weaker ultra-logconcavity and degree-two exceptional factors.",
+          "title": "Preservation of inequalities under Hadamard products",
+          "trigger": "Strong algebraic Hadamard-product theorem potentially implying universal real-rootedness."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mathematical object and invariant motivation in inspected RESULT.md; independent exact checks where identified",
+        "Closest primary papers explicitly listed in originality.checked_sources"
+      ],
+      "rationale": "Scientific value PASS: real-rootedness of h* polynomials is a central strong combinatorial regularity property, and Cartesian product is natural in Ehrhart/Segre geometry. The theorem closes a genuine exception left out by otherwise powerful input-real-rootedness preservation, proving all products of 2D lattice polygons have simple strictly negative roots despite explicit non-real-rooted factors. The universal integer-parameter discriminant certificate and exact exceptional triangle example give a useful nontrivial preservation phenomenon.",
+      "residual_risks": [
+        "The proof is a controlled finite symbolic-algebra certificate rather than a conceptual classification across higher-dimensional factors; the theorem does not extend outside the specified dimension-two inputs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any full-dimensional lattice polygons P,Q⊂R², h*_(P×Q)(t) has only distinct strictly negative real zeros of its actual degree. Its coefficients are explicit in (I_P,B_P,I_Q,B_Q), including non-real-rooted primitive-edge triangle factors (B=3, I=1,2,3); e.g. (1+t+t²)×(1+t+t²) yields 1+11t+30t²+11t³+t⁴=(t²+4t+1)(t²+7t+1).",
+  "limitations": [
+    "The full stored certificate file was not separately compared term-for-term, although independent symbolic expansions verified exactly all positivity assertions needed by the proof.",
+    "No assertion about arbitrary dimension-three factors, triple products or nonlattice polygons is established.",
+    "An older unindexed special case for primitive-edge triangles multiplied by arbitrary polygons could cover the new remainder; priority search is bounded.",
+    "Only relevant statements/sections rather than all appendices of the 59-page Liu survey were inspected in depth; no universal whole-document noncoverage claim is made.",
+    "The proof is a controlled finite symbolic-algebra certificate rather than a conceptual classification across higher-dimensional factors; the theorem does not extend outside the specified dimension-two inputs."
+  ],
+  "schema_version": 1
+}
