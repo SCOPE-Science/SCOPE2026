@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For a rank-one real design, the entire sketch-and-solve error row equals the sketched residual cross term divided by sketched leverage. For iid Gaussian columns this has law Z^T R/sqrt(X), where X is chi-square with ell degrees and Z is independent N(0,I) in the (n-1)-dimensional orthogonal complement. For Haar orthonormal columns the leverage is Beta(ell/2,(n-ell)/2); rotational invariance gives independent spherical direction and error sqrt(Y/X) S^T R with Y chi-square(n-ell). Independent Beta((n-ell)/2,(ell-1)/2) times the squared radius of Z has chi-square(n-ell) law, establishing a *joint multi-output* error-vector coupling. The positive beta factor strictly below one gives strict all-threshold stochastic order for nonzero R; beta moments and a dominated small-chi-square CDF expansion prove the moments and exact tails. Verified all formula boundaries n>ell>=2, rank one, R=0 exception, arbitrary d and p, exact arithmetic; 845 seeded/exact standalone checks passed. No finite Monte Carlo outcome is used to justify an infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Earlier Gaussian-sketch analyses derive means or Gaussian conditional distributions but do not establish a Haar versus Gaussian coupling with an independent beta multiplier.",
+        "General asymptotic sketched-pseudoinverse results are not uniform finite-dimensional stochastic-order theorems."
+      ],
+      "reasoning": "The Gaussian-only coefficient law is subsumed as the left factor of this theorem but does not imply the Haar factor. The sharp mean comparison follows from, but cannot imply, a strict distributional stochastic order. The conclusion is limited to rank one and does not purport to extend high-rank optimal mean-square bounds.",
+      "searches": [
+        "sketch-and-solve independent beta multiplier joint distribution orthogonal embedding versus Gaussian embedding rank-one design",
+        "random orthonormal sketch residual stochastic dominance Gaussian finite dimensional beta gamma coupling",
+        "Orthogonal versus Gaussian embedding residual norm distribution least squares Beta prime independent beta attenuation heavy tail",
+        "Haar orthonormal embeddings gaussian sketch least squares error stochastic dominance Beta distribution",
+        "arXiv:2002.06538 Section 3",
+        "arXiv:2006.08160 Section 2.1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.19096",
+      "https://arxiv.org/abs/2002.06538",
+      "https://arxiv.org/abs/2006.08160",
+      "https://arxiv.org/abs/2404.00912",
+      "https://epubs.siam.org/doi/full/10.1137/22M1530264"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The rank-one expected-error ratio (n-ell)/(n-1) is recovered and specifically identified as already known from the expected-error theorem.",
+        "The source mean formulas admit many possible distributions and hence alone cannot establish stochastic dominance or the independent beta coupling.",
+        "The Gaussian-only exact ratio calculation and asymptotic sketch-inference results do not give the joint Haar/Gaussian error-law identity."
+      ],
+      "reasoning": "Conditioning and beta-gamma arguments are new derivations relative to the checked prior statements, not mere renaming of a stated corollary. The proof starts from the published geometry and moment machinery but establishes materially stronger distributional statements. This establishes nonimplication from those checked statements, not absolute novelty against all publications.",
+      "searches": [
+        "Bartan Pilanci 2020 Gaussian sketch mean-square least squares error inverse Wishart",
+        "Sridhar Pilanci Özgür Gaussian sketch conditional law least squares 2020",
+        "Asymptotics of the Sketched Pseudoinverse Haar Gaussian regression random matrix",
+        "random orthogonal projection sketch-and-solve Gaussian beta inverse moments",
+        "arXiv:2605.19096 Theorem 2.1 Proposition 5.7",
+        "arXiv:2404.00912"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source states expected squared residual optimality; inspected statements around Theorem 2.1 and Proposition 5.7 concern expectations and inverse beta moments, not a random independent-beta scaling of full coefficient-error matrices.",
+        "Gaussian error as a chi-square denominator is a standard finite-sample Student ratio; the independent-beta comparison of two sketch distributions adds information not fixed by either marginal mean."
+      ],
+      "reasoning": "An equivalence could appear under a beta-gamma convolution, multivariate Student scale mixture, random subspace regression, or sphere projection identity, so comparisons tested these aliases rather than matching the title. No exact equivalent was found in inspected sources or query results; this absence alone does not prove priority.",
+      "searches": [
+        "rank one least squares Haar orthogonal sketch Gaussian sketch exact distribution beta attenuation stochastic dominance excess residual error",
+        "Exact finite sample law for rank-one sketch-and-solve coefficient errors Haar Stiefel versus iid Gaussian, independent Beta attenuation and stochastic order",
+        "\"sketch-and-solve\" \"stochastic dominance\" \"Gaussian\" \"orthogonal\"",
+        "\"orthonormal\" \"Gaussian\" \"beta\" \"sketch-and-solve\" distribution",
+        "arXiv:2605.19096, Theorem 2.1, Proposition 5.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The paper gives numerical and expectation comparisons but no inspected exact tabulation for every positive error threshold and all n, ell, p.",
+        "A public mathematical record on exact Haar moments for sparse stochastic subspace descent concerns gradient stationarity, not regression sketch-and-solve errors."
+      ],
+      "reasoning": "The constants and ratio are analytic expressions in n and ell, not entries reconstructed from a numerical table. Search results for beta and Haar laws did not identify a dominating prior exact regression distribution table; a comprehensive special-functions literature audit is still absent.",
+      "searches": [
+        "Epperly Webber sharp analysis sketch and solve 2026 full distribution rank one Haar orthogonal Gaussian",
+        "random orthogonal projection sketch-and-solve gaussian beta mixture exact distribution tail stochastic domination",
+        "spherical random projection versus Gaussian least squares exact distribution beta gamma coupling",
+        "arXiv:2605.19096v1 Section 5 matrix-beta/Wishart moment formulas"
+      ]
+    },
+    "rationale": "The motivating 2026 analysis determines optimal expected sketched residuals and matrix-beta expectation identities, but no checked statement supplies the *joint distributional coupling* between orthonormal and Gaussian rank-one coefficient errors, all-threshold stochastic dominance, and precise catastrophic-tail attenuation. Gaussian-only finite-sample coefficient laws, known expected-risk ratios, beta-gamma algebra, and Student ratio tails are explicitly distinguished as prior tools. No logically dominating accessible source was identified; specialized earlier matrix-variate identities leave a residual historical-priority risk.",
+    "residual_risks": [
+      "Specialized pre-2026 matrix-variate probability or regression projection literature may contain an equivalent beta–gamma attenuation formula without sketching terminology.",
+      "The checked source summaries and accessible articles do not constitute a comprehensive theorem-priority certificate.",
+      "No independent mathematical audit or independent validation has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Mean-error result overlaps first-moment corollary; inspected source does not cover the independent beta matrix-error distribution or tail coefficient.",
+        "evidence": [
+          "Theorem 2.1 is an expected-error assertion; Proposition 5.7 computes a matrix beta expectation for expected error.",
+          "First public version May 18, 2026; arXiv lists primary MSC 65F20."
+        ],
+        "identifier_or_url": "arXiv:2605.19096v1; https://arxiv.org/abs/2605.19096",
+        "material_read": "Main text: problem definitions and Theorem 2.1 in Section 2, Section 5 proof and Proposition 5.7; PDF pages around Proposition 5.7 inspected visually.",
+        "method": "Read open-access article, compare exact claims and its matrix-beta moment derivation with full all-threshold and tail laws.",
+        "title": "Sharp analysis of sketched least squares and randomized low-rank approximation",
+        "trigger": "Same sketch-and-solve method; Haar optimality and matrix beta expectations could subsume claimed law."
+      },
+      {
+        "assessment": "Gaussian means are established, but no Haar-independent-beta stochastic order is asserted in inspected material.",
+        "evidence": [
+          "Expected Gaussian-sketch estimator losses and distributed aggregation are analyzed."
+        ],
+        "identifier_or_url": "arXiv:2002.06538; https://arxiv.org/abs/2002.06538",
+        "material_read": "Regression and Gaussian-sketch mean identities in Section 3 and associated proof/appendix near the stated result.",
+        "method": "Read open-access article PDF text and compare distributional scope.",
+        "title": "Distributed Sketching Methods for Privacy Preserving Regression",
+        "trigger": "Possible exact earlier Gaussian sketch coefficients or orthonormal comparisons."
+      },
+      {
+        "assessment": "Covers Gaussian sketch conditional behavior, not the orthonormal versus Gaussian full-error attenuation.",
+        "evidence": [
+          "Finite-sample Gaussian conditional normality belongs to classical ingredients rather than the claimed new cross-sketch law."
+        ],
+        "identifier_or_url": "arXiv:2006.08160; https://arxiv.org/abs/2006.08160",
+        "material_read": "Section 2.1 and derivation of Gaussian sketch conditional coefficient distributions.",
+        "method": "Read accessible main article sections; compare the conditioning variable and absence of Haar coupling.",
+        "title": "Lower Bounds and a Near-Optimal Shrinkage Estimator for Least Squares using Random Projections",
+        "trigger": "Prior Gaussian conditional coefficient distribution potentially implies part of the claim."
+      },
+      {
+        "assessment": "Asymptotic inference is a different statement and does not supply the theorem as inspected; full-article exclusion not asserted.",
+        "evidence": [
+          "Its focus is asymptotic normality of quadratic forms and statistical inference."
+        ],
+        "identifier_or_url": "arXiv:2404.00912; https://arxiv.org/abs/2404.00912",
+        "material_read": "Public abstract and relevant overview of asymptotic statistical inference.",
+        "method": "Review scope and compare limiting-inference conclusions with exact fixed-dimension law.",
+        "title": "Inference in Randomized Least Squares and PCA via Normality of Quadratic Forms",
+        "trigger": "Possible broader distribution theory for sketched least squares."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e196d12-ddfb-4062-bf2e-3bf4ca9ff767",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An expected-error advantage does not certify the probability that a numerical least-squares sketch exceeds a specified tolerance. The full independent-beta coupling supplies an all-quantile guarantee for arbitrary numbers of right-hand sides, and exact heavy-tail coefficients even where moments diverge. The n=10, ell=4 rank-one-residual benchmark separates mean-error attenuation 2/3 from catastrophic-tail attenuation 16/33, providing a concrete design-reliability distinction beyond routine rewriting of a known expectation. Its exact rank-one domain is natural as the smallest regression problem with nonzero residual.",
+    "status": "PASS"
+  }
+}
