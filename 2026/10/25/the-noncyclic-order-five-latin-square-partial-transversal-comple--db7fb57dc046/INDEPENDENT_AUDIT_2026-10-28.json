@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T08:45:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the explicit five-row Latin square, full finite enumeration finds 56 reduced Latin squares in precisely the two disjoint isotopy orbits of sizes 6 and 50. An independently written bit-mask enumeration of all partial transversals gives 508 faces including empty and nonempty f-vector (25,150,250,79,3). Independent staged vertex matching has 226 pairs and four critical edges/52 critical triangles; a topological sort of all 1,406 signed face incidences proves acyclicity. The signed integral Morse boundary Z^52→Z^4 has Smith factors (1,1,1,1), giving reduced H2=Z^48 without torsion. Separately, an independently reconstructed edge-path presentation has 126 non-tree generators and 250 triangular relators; exact Tietze single-occurrence elimination removes all 126 and all relators, proving π1=1. The resulting connected 2-complex has no homology outside H2 and is simply connected, so Hurewicz plus homology Whitehead gives wedge_48 S². Isotopies preserve all faces, making the finite proof exhaustive for precisely the noncyclic order-five class. No inference for larger orders or equivariant homotopy.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McKay et al. Table 2 lists two order-five isotopy classes; it does not calculate topological invariants of partial-transversal complexes.",
+          "Evans–Mammoliti–Wanless study existence/counting and lengths of partial transversals.",
+          "Cioabă–Mim prove homology of clique complexes of Latin-square conflict graphs, not the independence complexes."
+        ],
+        "reasoning": "The most relevant broader theorem has the opposite adjacency rule. Its H2 bounds cannot imply this 48-dimensional result; neither isotopy classification nor rainbow-matching size bounds determines integral homotopy.",
+        "searches": [
+          "Cioabă–Mim 2026 Theorems 3.10,3.12; general Latin-square-graph results",
+          "McKay–Meynert–Myrvold 2007 small Latin squares",
+          "Evans–Mammoliti–Wanless 1911.05912"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.anu.edu.au/people/Brendan.McKay/papers/ls_final_corr.pdf",
+        "https://www.researchgate.net/publication/408106851_On_the_homology_groups_of_clique_complexes_of_strongly_regular_graphs",
+        "https://arxiv.org/pdf/1911.05912",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-latin-array-inflations-exhibit-lower-homotopy-despite-unique-loc--12e4d5a0c16a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target H2 rank 48 falls outside the 54–64 rank range of clique complexes of order-five Latin-square conflict graphs (Theorem 3.10).",
+          "Known two isotopy classes cover the combinatorial classification, but not the homotopy classification of their partial-transversal complexes."
+        ],
+        "reasoning": "The known numerical and general theorems do not logically imply the target result; the new output includes an integral Morse certificate and a π1 triviality proof, not just a Betti number.",
+        "searches": [
+          "McKay 2007 Table 2",
+          "Cioabă–Mim 2026 Theorem 3.12",
+          "Resultary Latin-array inflations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.12 of Cioabă–Mim computes H2(Cl(L(M));F)=(n−1)^3−I(M) for the row/column/symbol-CONFLICT graph; partial transversals are independent sets of L(M), i.e. Cl(complement L(M)).",
+          "For order five I(M)≤10 so L(M) clique H2≥54, incompatible with the independently checked rank 48 of the present complement-clique complex."
+        ],
+        "reasoning": "The graph duality was explicitly compared. Complementing a Latin-square graph is not a license to substitute it into a theorem whose hypotheses are on the original graph. The existing general rank theorem is therefore not an equivalent formulation of this noncyclic 48-sphere result.",
+        "searches": [
+          "Resultary: noncyclic order five Latin square partial transversal simplicial complex homotopy wedge 48 spheres",
+          "arXiv 2606.27328 Section 3 definitions",
+          "arXiv 1911.05912 partial transversal literature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A complete search of reduced squares independently yields 56 with orbits 6 and 50, a known combinatorial census.",
+          "The published table supplies counts but not a 2-dimensional homotopy decomposition; Resultary Latin-array inflation concerns a different simplicial construction."
+        ],
+        "reasoning": "The known exact census is not the submitted exact topological invariant. No matching comprehensive table of reduced H2 plus π1 for the noncyclic transversal complex appeared in material actually checked.",
+        "searches": [
+          "Resultary semantic query on noncyclic order-five partial-transversal complex",
+          "McKay et al. Table 2",
+          "Latin square order five isotopy tables"
+        ]
+      },
+      "rationale": "The order-five isotopy census and cyclic case are prior results; the noncyclic integral homotopy type is a new best-of-knowledge classification. In particular, the 2026 general Latin-square-graph clique-homology theorem is mathematically distinct: partial transversals are cliques of the complement of the Latin-square graph, not cliques of that graph.",
+      "residual_risks": [
+        "An unindexed earlier computation of partial-transversal COMPLEX topology is possible; successful targeted search does not establish universal priority.",
+        "The 2026 Cioabă–Mim comparison is resolved mathematically by distinct adjacency and incompatible rank ranges; this specific source does not threaten the conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONFIRMS prior census (two isotopy classes) but does not determine the new homotopy invariant",
+          "evidence": "Table 2: n=5 gives two isotopy classes; no homotopy description in inspected materials.",
+          "identifier_or_url": "https://cs.anu.edu.au/people/Brendan.McKay/papers/ls_final_corr.pdf",
+          "material_read": "Author PDF, introduction and Table 2 on page 7 of print pagination (page index 6); class count and definitions",
+          "method": "Primary author-hosted PDF inspected, Table 2 and surrounding method read",
+          "title": "Small Latin Squares, Quasigroups and Loops",
+          "trigger": "Order-five isotopy-class classification; could have contained a complete tabulation of complexes"
+        },
+        {
+          "assessment": "NOT_COVERING: concerns clique complex of conflict graph, not partial-transversal independence complex",
+          "evidence": "§3.1: adjacency iff same row,column,symbol; Theorem 3.12 H2=(n−1)^3−I(M).",
+          "identifier_or_url": "https://www.researchgate.net/publication/408106851_On_the_homology_groups_of_clique_complexes_of_strongly_regular_graphs",
+          "material_read": "Accessible full-text rendering, introduction, section 3.1 definition, theorem 3.12, proposition 3.13, and conclusion read",
+          "method": "Primary manuscript full-text rendering searched and relevant theorem/definitions directly read",
+          "title": "On the homology groups of clique complexes of strongly regular graphs",
+          "trigger": "Plausibly broader 2026 Latin-square-graph homology theorem"
+        },
+        {
+          "assessment": "Studies partial transversal enumeration/existence, not the claimed integral topology",
+          "evidence": "Relevant statements address partial transversal sizes and existence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.05912",
+          "material_read": "Full PDF available; introductory framing and stated bounds on length/existence inspected",
+          "method": "arXiv primary manuscript passages inspected",
+          "title": "Latin squares with maximal partial transversals of many lengths (Evans–Mammoliti–Wanless)",
+          "trigger": "Closest partial-transversal literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Only two order-five isotopy classes exist. Determining the second class completes a natural finite topological classification of an intrinsically defined rainbow-matching/partial-transversal complex, with π1 and integral homotopy rather than merely face counts or Betti ranks. A topologist studying small Latin-square assignment complexes could use this exact missing case to test larger-order conjectures and distinguish the two isotopy types. The finite cutoff is canonical, not an arbitrary slice; no new infinite-family theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For either representative of the unique noncyclic order-5 isotopy class, the partial-transversal complex with cells as vertices and at-most-one-per-row,column,symbol faces has integral homotopy type wedge of 48 two-spheres; the cyclic class is prior work.",
+  "limitations": [
+    "No claim of homotopy for Latin squares of higher order, and no equivariant classification.",
+    "Although exact and independently reconstructed, finite certificate does not establish originality; separate primary source comparisons and residual risk apply."
+  ],
+  "schema_version": 1
+}

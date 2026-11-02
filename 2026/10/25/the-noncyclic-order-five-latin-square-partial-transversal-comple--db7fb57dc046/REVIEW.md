@@ -1,15 +1,21 @@
-# Scientific assessment: noncyclic order-five partial-transversal complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact claim is only for the noncyclic isotopy class. The enclosed verifier exhausts the 56 reduced order-five squares and separates them into two disjoint isotopy orbits of sizes 6 and 50, the latter containing the displayed noncyclic square. Its 507 nonempty faces and 1,406 signed face incidences are completely enumerated. An exact acyclic matching gives four critical edges and 52 critical triangles over a base vertex. The signed integral Morse differential has a full-rank four-by-four minor of determinant \(-1\), leaving free \(H_2\cong\mathbb Z^{48}\) and no other reduced integral homology. Independently of that homology calculation, 126 elementary Tietze eliminations trivialize the 250-triangle fundamental-group presentation. Hurewicz and Whitehead then imply the asserted wedge of 48 two-spheres. The mathematical certificate is executable and fully replayed; no external independent audit was performed.
+## correctness
 
-## Originality — PASS (provisional and scoped)
-The *cyclic* class is excluded as a novelty claim: its cell-conflict graph is isomorphic to the Paley graph of order 25, and Paley self-complementarity relates its partial-transversal complex to the already calculated 64-two-sphere Paley clique complex. This equivalence was explicitly tested and the prior result excluded from the new assertion. The noncyclic cell-conflict graph is **not** isomorphic to the Paley graph or its complement (an exhaustive graph-isomorphism check), so the Paley computation does not cover the noncyclic 48-sphere theorem. McKay–Meynert–Myrvold enumerates two isotopy classes but does not determine this homotopy type; Aharoni–Berger–Kotlar–Ziv studies matching-size bounds; and the closest indexed colorful assignment papers construct different complexes. No exact noncyclic 48-sphere theorem was located under alternate Latin-square, 25-vertex graph, rainbow-matching or hypergraph-matching formulations. Equivalent unindexed or older results remain possible.
+PASS
 
-## Value — PASS
-The new fact determines the complete integral homotopy type of the *only* noncyclic order-five Latin-square isotopy class; the order-five case is thus fully resolved when combined with the separate cyclic case. The noncyclic class has only 3 full transversals versus 15 for the cyclic class and has a different homotopy invariant (48 versus 64 independent two-spheres). The mathematical value is the natural complete noncyclic classification, not a renaming or repetition of the covered Paley calculation and not a random 25-vertex example. This provides a specific topological distinction between the two minimal order-five isotopy classes.
+For the explicit five-row Latin square, full finite enumeration finds 56 reduced Latin squares in precisely the two disjoint isotopy orbits of sizes 6 and 50. An independently written bit-mask enumeration of all partial transversals gives 508 faces including empty and nonempty f-vector (25,150,250,79,3). Independent staged vertex matching has 226 pairs and four critical edges/52 critical triangles; a topological sort of all 1,406 signed face incidences proves acyclicity. The signed integral Morse boundary Z^52→Z^4 has Smith factors (1,1,1,1), giving reduced H2=Z^48 without torsion. Separately, an independently reconstructed edge-path presentation has 126 non-tree generators and 250 triangular relators; exact Tietze single-occurrence elimination removes all 126 and all relators, proving π1=1. The resulting connected 2-complex has no homology outside H2 and is simply connected, so Hurewicz plus homology Whitehead gives wedge_48 S². Isotopies preserve all faces, making the finite proof exhaustive for precisely the noncyclic order-five class. No inference for larger orders or equivariant homotopy.
 
-## Limitations and comparison evidence
-The claim is nonequivariant and confined to order five. The full text of McKay–Meynert–Myrvold and Aharoni–Berger–Kotlar–Ziv, and the complete results of two indexed colorful-assignment papers, were examined. Some secondary literature remained abstract-level only. The graph-isomorphism comparison is an exact finite check but not an all-literature search. Self-review is not independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The order-five isotopy census and cyclic case are prior results; the noncyclic integral homotopy type is a new best-of-knowledge classification. In particular, the 2026 general Latin-square-graph clique-homology theorem is mathematically distinct: partial transversals are cliques of the complement of the Latin-square graph, not cliques of that graph.
+
+## value
+
+PASS
+
+Only two order-five isotopy classes exist. Determining the second class completes a natural finite topological classification of an intrinsically defined rainbow-matching/partial-transversal complex, with π1 and integral homotopy rather than merely face counts or Betti ranks. A topologist studying small Latin-square assignment complexes could use this exact missing case to test larger-order conjectures and distinguish the two isotopy types. The finite cutoff is canonical, not an arbitrary slice; no new infinite-family theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
