@@ -1,11 +1,21 @@
-# Review of the primorial-controlled prime-isolation theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The product bound forces the product of all but the largest prime in any competitor to be less than its number of parts times \(M\). Since those remaining primes are distinct, their product is at least the corresponding primorial. This limits the competitor's part count to \(\Lambda(M)\), confines its largest prime to the isolation window, and forces equality of the remaining prime sets by product minimality and unique factorization. Empty-part and singleton cases are covered; the optional growth statement follows from the prime number theorem. The standalone finite checker returned `VERIFY_OK`.
+## correctness
 
-**Originality — PASS (best-knowledge, with residual risk).** Campbell's Lemma 2 proves sufficiency using the larger radius \(4M^2\), rather than the explicit primorial threshold. Its proof uses a square-root bound on the number of competing parts; it does not apply the distinct-prime primorial lower bound to obtain quasi-linear isolation. The related literature and available historical claims did not provide an equivalent or stronger bound. Uninspected and inaccessible literature may contain the same idea, so this is not an assertion of global uniqueness.
+PASS
 
-**Mathematical value — PASS.** This is a quantitatively stronger sufficient criterion for a central prime-adjoining step used to build product-minimal partitions of arbitrarily large cardinality. The dependence on the base product improves from quadratic to \(M\log M/\log\log M\), rather than merely changing a numerical constant. It also supplies an explicit finite primorial formula usable at individual products, such as the improvement from \(324900\) to \(1425\) for \(M=285\).
+Independently reconstruct largest-summand argument for each product-bounded competitor B: b>(q/k), product R of k−1 remaining distinct primes satisfies P_{k−1}≤R<kM; hence k≤Λ(M), remaining sum u≤R<H. As 0<s≤M<H, |b−q|=|s−u|<H, so isolation forces b=q; minimality and UFD yield B=A∪{q}. Handles k=1, singleton A, q∉A, strict window. PNT applied to primorials gives Λ(M)~log(M)/log log(M). Independently recalculated Λ(2)=2, Λ(3)=3, Λ(285)=5; finite checks do not establish theorem.
 
-The criterion is sufficient, not necessary; it does not settle optimal prime gaps, the least eligible primes, or unrelated maximum-product constructions. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the inspected primary mathematical assertions and targeted Resultary/published-SCOPE comparisons do not establish the full exact final claim as a known corollary. The identified prior work covers premises, generic methodologies, or weaker/special cases, as specified in the four comparisons; inaccessible or uninspected high-relevance sources remain genuine priority risks, not automatic failures.
+
+## value
+
+PASS
+
+The improved sufficient isolation radius is asymptotically quasi-linear in the product rather than quadratic and may enable more primes as induction extensions in a named distinct-prime partition problem. It is a nontrivial uniform exploitation of distinctness and primorial growth, not a claim about necessary radii or prime-gap frequencies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
