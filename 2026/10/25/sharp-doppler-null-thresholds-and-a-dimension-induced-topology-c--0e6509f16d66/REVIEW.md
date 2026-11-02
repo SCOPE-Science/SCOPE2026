@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit all-dimensional ambiguity polynomial follows from three evaluated Gaussian Fourier moments and a checked completion of squares. Orthogonal-delay frequency minimization in dimensions at least two yields the exact threshold; in dimension one the complete real zero curves follow from a quadratic parameterization with no missing branches. Singular and endpoint cases, the equality \(d+4c=6\), and the quartic fold \(c=(\sqrt3-1)/4\) are handled analytically. Direct quadratures, symbolic reductions, and sampled zeros independently check the formula and constants; they are not substitutes for the proof.
+## correctness
 
-**Originality — PASS, qualified.** The closest full inspected primary treatments are the 2014 complex-Hermite/Wigner-map framework (Ali–Ismail–Shah), the general 2016 Hermite ambiguity formulas (Korevaar et al.), and the 2019/2020 zero-free ambiguity investigation (Gröchenig–Jaming–Malinnikova). A general transform formula covers the ability to calculate the polynomial but was not found to state or imply without new optimization the dimension-one compact ovals, dimension-at-least-two unbounded null sheets, optimal Doppler-radius phase diagram, and quartic frequency-fold threshold as a package. Similar general polynomial-Gaussian ambiguity classification could still exist under other terminology; publication priority requires external assessment.
+PASS
 
-**Value — PASS.** The window is a natural first radial non-Gaussian Hermite perturbation that remains positive. The theorem identifies a sharp dimensional zero-topology boundary and exact Doppler blind-spot threshold rather than computing an arbitrary isolated root. It quantifies the zero directions that arise in matched-filter time-frequency analysis and the parameter-induced change of first-zero geometry. The work does not claim a theorem for general Schwartz functions or stability of inversion.
+The shifted quadratic-Gaussian product and Gaussian second/fourth Fourier moments give exactly A=(pi^(d/2)/16)exp(-(X+Y)/4)[(X-Y+a)^2+4Z-16(Y-Y0)], with Z=(T·omega)^2, a=4c+2d-4 and Y0=2c+3d/2-1. For d>=2 the feasibility of Z=0 and X>=0 is equivalent to 16(Y-Y0)>=(max(a-Y,0))^2, giving exact piecewise sharp Doppler minimum, unbounded perpendicular families and X/Y->1. For d=1 Z=XY and the explicit parameter s=X+Y in [4c+6-2sqrt(8c+6),4c+6+2sqrt(8c+6)] exhausts both smooth frequency-sign ovals; optimizing quadratic X(s),Y(s) produces the sharp delay and fold c*=(sqrt(3)-1)/4. Independently verified symbolic expansion, parameter roots, delay optimum. Examined the two actual checker source files; their bounded quadratures/witnesses do not prove the all-d statement.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+General Hermite/Wigner transform formulas are old, but the sharp positive radial family real-zero geometry, d=1 compactness versus d>=2 unboundedness and both parameter thresholds require a distinct constrained real-geometry argument and were not found in inspected full sources.
+
+## value
+
+PASS
+
+A precise complete zero-locus classification for a natural strictly positive Schwartz pulse, with a sharp uniformly zero-free delay strip, frequency thresholds and dimension-induced qualitative contrast; beyond reparametrizing a transform polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

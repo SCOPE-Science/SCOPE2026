@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproduction and checks
+# Independent mathematical audit
 
-Run each standalone program with Python 3 and locally installed `sympy`, `numpy`, `mpmath`:
+## correctness
 
-```
-python checks/ambiguity_1d_checker.py
-python checks/ambiguity_nd_checker.py
-```
+PASS
 
-The checked outputs are recorded in `checks/check_output.txt`. The first program verifies algebraic one-dimensional parameterization, the sharp delay maximum, fold identities, high-precision direct quadratures and 25 zero points. The second verifies the all-dimensional completed-square identity, the frequency-boundary formula, five tensor Gauss-Hermite quadrature instances and 80 orthogonal zeros. All computations use the definitions and Fourier normalization stated in the proof. The infinite-dimensional range of the assertion is established analytically; the finite checks are sanity tests, not exhaustive certification. Publication priority and independent expert validation have not been performed.
+The shifted quadratic-Gaussian product and Gaussian second/fourth Fourier moments give exactly A=(pi^(d/2)/16)exp(-(X+Y)/4)[(X-Y+a)^2+4Z-16(Y-Y0)], with Z=(T·omega)^2, a=4c+2d-4 and Y0=2c+3d/2-1. For d>=2 the feasibility of Z=0 and X>=0 is equivalent to 16(Y-Y0)>=(max(a-Y,0))^2, giving exact piecewise sharp Doppler minimum, unbounded perpendicular families and X/Y->1. For d=1 Z=XY and the explicit parameter s=X+Y in [4c+6-2sqrt(8c+6),4c+6+2sqrt(8c+6)] exhausts both smooth frequency-sign ovals; optimizing quadratic X(s),Y(s) produces the sharp delay and fold c*=(sqrt(3)-1)/4. Independently verified symbolic expansion, parameter roots, delay optimum. Examined the two actual checker source files; their bounded quadratures/witnesses do not prove the all-d statement.
+
+## originality
+
+PASS
+
+General Hermite/Wigner transform formulas are old, but the sharp positive radial family real-zero geometry, d=1 compactness versus d>=2 unboundedness and both parameter thresholds require a distinct constrained real-geometry argument and were not found in inspected full sources.
+
+## value
+
+PASS
+
+A precise complete zero-locus classification for a natural strictly positive Schwartz pulse, with a sharp uniformly zero-free delay strip, frequency thresholds and dimension-induced qualitative contrast; beyond reparametrizing a transform polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
