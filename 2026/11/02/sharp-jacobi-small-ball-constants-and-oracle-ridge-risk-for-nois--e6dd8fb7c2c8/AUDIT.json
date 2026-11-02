@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "A direct change to centered mean and orthogonal deviations yields the √m tube Jacobian. Endpoint rescaling determines power h and a finite J_m(a) for ma<m−1; at ma=m−1 the mean-coordinate t^{-1} integral yields exactly half a logarithm per critical endpoint. The regular-density formula uses an integrable beta power. Exact conditional noise variance and differentiated ridge risk prove the unique oracle tuning. Stieltjes transform asymptotics give the stated risk equivalents. Code checked 81 exact algebra/scaling relations; finite simulation is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xu--Zhang: stability and sample-rate theorems for Jacobi polynomial least squares",
+        "Migliorati--Nobile--Tempone: noisy discrete least-squares convergence bounds",
+        "Mourtada: lower-tail regularity estimates for sample covariance"
+      ],
+      "reasoning": "The inspected theorem statements cover broad stability/risk or lower-tail inequalities but do not quantify the singular-endpoint leading constant and logarithmic coefficient. A known general smooth-density tube formula does cover K_int and is not asserted new.",
+      "searches": [
+        "arxiv:2407.10221",
+        "doi:10.1016/j.jmva.2015.08.009",
+        "arxiv:1912.10754"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2407.10221 (HTML text)",
+      "doi:10.1016/j.jmva.2015.08.009 (available full content)",
+      "arxiv:1912.10754 (HTML text)",
+      "published three-sample Beta lower-tail index summary",
+      "known continuous-density affine tube coefficient and beta slope-moment results (recoverable claims)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known beta slope inverse-moment condition p<min(m-1,m alpha,m beta) is only a finiteness statement after mapping p to S inverse exponent",
+        "Known smooth-density coefficient requires endpoint-integrability (m alpha>m-1 and m beta>m-1)",
+        "Three-sample Beta variance classification concerns m=3"
+      ],
+      "reasoning": "The earlier finiteness criterion and singular-versus-regular exponent identify the leading power but do not logically determine the leading J_m(a) integral or the critical half-log coefficient; smooth-density coverage does not extend by substitution to divergent endpoint beta integrals. New risk constants require those missing leading coefficients.",
+      "searches": [
+        "Jacobi beta sampling linear least squares inverse sample variance moments finite threshold Chebyshev versus uniform",
+        "arxiv:2407.10221",
+        "arxiv:1912.10754",
+        "Jacobi beta sampling linear least squares inverse sample variance moments finite threshold Chebyshev versus uniform"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Affine centered Gram Schur complement S=sum(Xi-Xbar)^2; beta endpoints become power-law singularities in a diagonal tube",
+        "Mourtada (arxiv:1912.10754) treats lower sample-covariance tails and does not state beta fixed-m asymptotic coefficients"
+      ],
+      "reasoning": "Centered slope Gram determinant, sample variance (after factor m-1), and a tube about the diagonal are equivalent objects; comparing the actual coefficient and critical log distinguishes this claim from general order bounds. Normalization S is explicit.",
+      "searches": [
+        "beta sample variance lower tail small ball exact constants alpha beta iid m samples",
+        "small observation noise optimal ridge regression risk Beta Jacobi design sample variance near singular endpoint",
+        "arxiv:1912.10754"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Three-sample Beta variance finding: n=3 and endpoint transition 2/3; new argument assumes m at least four",
+        "Sample variance is rescaled by m-1 relative to S"
+      ],
+      "reasoning": "A published three-sample small-ball table is not an all-m >=4 coefficient table. Finite beta density/sampling formulas and existing slope inverse-moment classification do not enumerate these singular-endpoint constants.",
+      "searches": [
+        "Exact lower-tail phase diagram for the three-sample Beta variance",
+        "Jacobi beta sampling linear least squares inverse sample variance moments finite threshold Chebyshev versus uniform",
+        "beta sample variance probability near zero all n asymptotic density diagonal"
+      ]
+    },
+    "rationale": "Distinctive work is the coefficient-level singular-endpoint and critical-logarithmic asymptotics for every fixed m at least four, combined with the sharp consequence for noisy oracle-ridge risk. Known beta inverse-moment thresholds, smooth-density tube coefficients, and the elementary ridge optimum are explicitly separated as existing ingredients. Prior broad lower-tail bounds do not yield the constants; the published three-sample analogue does not imply these m at least four constants. Priority risk from other endpoint-asymptotic literature remains.",
+    "residual_risks": [
+      "Priority remains subject to more specialized exact sample-variance density/Dirichlet negative-moment analyses, possibly under alternate terminology",
+      "Only a summary, not full material, was available for the three-sample comparator; its stated domain nevertheless does not cover m at least four",
+      "Endpoint diagonal-tube domination is analytically argued, not externally independently verified",
+      "A full external scientific audit has not been performed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the fixed-count singular beta endpoint leading coefficients; gives polynomial sampling stability and bounds",
+        "evidence": [
+          "arxiv:2407.10221 v1 2024-07-14, v2 HTML full text, random Jacobi sampling rate n versus degree m"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.10221v2",
+        "material_read": "Introduction, sampled polynomial setup, main stability theorems and sampling-rate discussion in available HTML full text",
+        "method": "examined full HTML article sections, equations and theorem statements",
+        "title": "Stability of Least Squares Approximation under Random Sampling",
+        "trigger": "The primary Jacobi sampling stability paper motivates the fixed-degree design limit"
+      },
+      {
+        "assessment": "NOT_COVERING the endpoint coefficient asymptotic or fixed-sample oracle small-noise equivalent in inspected material",
+        "evidence": [
+          "Migliorati, Nobile, Tempone, J. Multiv. Anal. 142 (2015), 167-182"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jmva.2015.08.009",
+        "material_read": "Accessible full-text abstract, design assumptions, stability/risk statements and error bounds",
+        "method": "read available article content and compared regression objectives and regimes",
+        "title": "Convergence estimates in probability and in expectation for discrete least squares with noisy evaluations at random points",
+        "trigger": "Noise on random least-squares evaluations and beta-weight sampling"
+      },
+      {
+        "assessment": "NOT_COVERING exact fixed-m Beta endpoint coefficients; related general upper/lower tail order bounds",
+        "evidence": [
+          "arxiv:1912.10754, dated 2019-12-23, general small-ball lower-tail machinery"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1912.10754v3",
+        "material_read": "Full-text overview, main covariance lower-tail assertions, risk and regularity results",
+        "method": "read arXiv HTML article and compare quantifiers, distribution dependence and constants",
+        "title": "Exact minimax risk for linear least squares, and the lower tail of sample covariance matrices",
+        "trigger": "Potential broader lower-tail theorem for empirical covariance matrices"
+      },
+      {
+        "assessment": "INAPPLICABLE for m at least four by its stated n=3 domain; other implications not fully inspected",
+        "evidence": [
+          "Summary states three iid Beta samples and endpoint transition at 2/3; new theorem m at least four"
+        ],
+        "identifier_or_url": "Exact lower-tail phase diagram for the three-sample Beta variance (published record, three-sample scope)",
+        "material_read": "Published search summary only; full work not verified",
+        "method": "compared stated sample size and endpoint parameters from indexed abstract",
+        "title": "Exact lower-tail phase diagram for the three-sample Beta variance",
+        "trigger": "Closest exact Beta sample variance lower-tail classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e6dd8fb7-c2c8-4d6a-8e26-e8a870799cca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Rare nearly coincident Jacobi sample sites control stability and noisy slope fit risk. Exact singular-endpoint coefficient and log-boundary laws answer the motivated design-reliability question beyond known finite/infinite moment thresholds and continuous-density constants. The oracle-noise consequences quantify the practical size of the risk boundary without claiming implementable adaptive tuning.",
+    "status": "PASS"
+  }
+}
