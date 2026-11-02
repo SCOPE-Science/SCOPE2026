@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A globally defined real-analytic azimuthal shear removes the angular parameter by an exact complex differential identity, including on the axis. A fully rational Jacobian computation at a stated point verifies strict failure of the cubic Hurwitz criterion for a positive parameter. The other member's global Hurwitzness is an explicit theorem of the cited primary work, not newly certified here.
+## correctness
 
-**Originality — PASS under examined evidence.** The source's full text states the polynomial family, the cylindrical reduction, cycle counts, and the global Hurwitz theorem, but not the all-parameter analytic flow conjugacy or the rational non-Hurwitz paired example. Targeted published-finding corpus searches, available historical claims, and general related literature did not identify equivalent or dominating statements. Alternative prior gauge terminology remains a risk.
+PASS
 
-**Value — PASS.** Demonstrating that a parameter is dynamically redundant yet crucial to a pointwise Jacobian spectrum is a structural insight for a recently exhibited polynomial Markus–Yamabe counterexample, not a re-enumeration of its cycles.
+Writing u=x+iy, R=|u|^2 and B=z+R/10, the equations u'=[A_mu+i(1+eB)]u, z'=-B give d/dt(exp(i e z)u)=exp(i e z)(A_mu+i)u, exactly conjugating to e=0. H_e is globally analytic invertible and forward completeness follows from negative radial derivative at R>=9 plus linear z equation. At q=(3/2,0,0) for mu=.001,e=.01, direct rational differentiation yields Jacobian [[97/9600,-4009/4000,0],[4027/4000,1199/336000,3/200],[-3/10,0,-1]]. Its cubic coefficients are all positive but a1*a2-a3=-61700626728323/2709504000000000<0, so it is not Hurwitz. The contrast relies on the specific mu=.001,e=.1 global Hurwitz property cited as Theorem 1/Lemma 3 of Castañeda--Rebollo-Perdomo, not independently re-proved from the original global discriminant certificate.
 
-**Limitations.** The global Hurwitz certificate is credited to the primary source; only the new transformation and negative rational determinant are independently checked. No historical-priority or independent expert certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The gauge rotation follows structurally from the source cylindrical angular equation, so it may be implicit to experts; the inspected abstract does not state global time-preserving conjugacy for all e or exhibit strictly positive conjugate parameters with opposite global pointwise Hurwitz status. Best-of-knowledge PASS with heightened priority risk due inaccessible full original.
+
+## value
+
+PASS
+
+The strict rational counterexample within one positive-parameter polynomial family cleanly separates flow equivalence from the coordinate-dependent pointwise Jacobian Hurwitz test; gauge elimination is a structural simplification relevant to the original dynamical-system study.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
