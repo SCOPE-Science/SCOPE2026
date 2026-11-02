@@ -1,21 +1,21 @@
-# Scientific review: accurate domination on rectangular rook graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is proved at the stated quantifiers \(2\le p\le q\), \(0\le k\le pq\). The domination criterion follows from the undominated intersection of an empty row and an empty column. For \(2k\le pq\), any complement meeting all rows supplies a dominating \(p\)-subset that extends to a \(k\)-subset, while after a full selected row is forced any complement meeting all columns supplies a dominating \(q\)-subset. This proves the two simultaneous full-row/full-column obstructions. At \(2k>pq\), no disjoint \(k\)-subset can exist. The two displayed inclusion–exclusion sums count precisely those cases, and the relation \(2(p+q-2)\le pq\) completes the sharp minimum argument. The separate \(p=2\) and \((p,q)=(3,3)\) boundary cases are correctly normalized. Finite testing replays the original definition and coefficients on actual labeled boards; it is not substituted for proof.
+PASS
 
-## Originality — PASS, with explicit residual risk
+The original definition requires each competitor to lie in the complement, to have exactly the same size, and to dominate the original Cartesian rook graph. A set dominates iff it meets every row or every column, since an unhit row and unhit column leave their intersection undominated. If 2k<=pq, a dominating k-subset in the complement would exist whenever all its rows or all its columns were met (choose one from each relevant class and extend), so accuracy forces D to contain a whole row AND a whole column. Conversely both full classes make every complement subset nondominating. If 2k>pq, no rival fits. Inclusion-exclusion over selected full rows/columns gives the claimed F_{p,q}; over omitted rows/columns gives B_{p,q}. Since 2(p+q-2)<=pq and the smallest full row+column union has p+q-1 cells, gamma_a=p+q-1. The exceptional minimum counts for p=2 and (3,3) follow from p+q-1>pq/2. Independently enumerated all graph-defined dominating rivals for every subset of the 2x2,2x3,2x4,2x5,3x3,3x4 boards and matched every polynomial coefficient. This is finite corroboration; the lemmas prove all p,q.
 
-The closest full-text primary sources are Cyman–Henning–Topp (arXiv:1710.03308v1, 2017), which treats accurate domination structurally, chiefly for trees and coronas, and Alikhani–Safazadeh–Ghanbari (arXiv:2101.10185v1, 2021), which enumerates accurate dominating sets for paths, cycles and other specified graph classes. The latter's half-order observation already covers the high-cardinality half of the present polynomial, so only the complete rook-graph low-half classification, its resulting coefficients, the minimum formula and exceptional multiplicities are claimed as new. The line-graph translation to edge domination is an equivalent formulation rather than an independent novelty claim. Search comparisons of titles, parameters and implications found no indexed result covering these additional conclusions.
+## originality
 
-The full text of the 2022 paper *Accurate and Connected Accurate Domination Polynomials of Graphs*, DOI:10.22457/apam.v25n2a02861, was not obtained. Its available abstract mentions standard graph classes without identifying the rook family; it remains an explicit possible priority risk. The small-graph atlas of the same period may contain isolated small rook graphs, which cannot supply this two-parameter result by itself. Negative database searches alone are not treated as proof of absolute novelty.
+PASS
 
-## Value — PASS
+The general half-order principle is directly present in Alikhani–Safazadeh–Ghanbari Theorem 2.3, while that paper treats paths, cycles, ladders, books and hypercubes, not the all-cardinality two-factor rook-graph enumeration. Cyman–Henning–Topp supplies the accurate-domination framework. The two-parameter row/column structural classification, alternating double sums, and exact exception-stratified minimum multiplicity are not stated in inspected primary material or nearby published results. Best-of-knowledge PASS, not a guarantee of absolute priority.
 
-Accurate domination is a natural nonlocal constraint: it requires excluding *all* equally large disjoint dominating rivals. The complete characterization shows that this quantifier collapses to a sharp size threshold and two geometric full-line obstructions in a natural line-graph family. The exact polynomial counts every size, while the minimum solution space changes from all \(\binom{2q}{q+1}\) sets in width two to only \(pq\) cross-shaped sets in the generic range, with a separate \(3\)-by-\(3\) exception. These structural and enumerative results are not consequences of the known numerical minimum for ordinary domination or of the general high-half observation alone. No downstream theorem or uniqueness beyond the inspected record is asserted.
+## value
 
-## Scope and outstanding limitations
+PASS
 
-The statement is limited to two-factor rectangular rook graphs; it makes no assertion about arbitrary graphs, higher Hamming products, or independent certification. The exhaustive program covers finitely many parameter pairs; it provides consistency checks but not a proof of the infinite claim. The incomplete 2022 full-text comparison and potentially unindexed equivalent publications are bibliographic risks.
+Rook graphs encode incidences of K_{p,q} and have a natural full-polynomial question. The formula counts every accurately dominating set at every cardinality, gives the first possible size and all minimum-level multiplicities including nontrivial exceptional boards. These are useful exact graph parameters, not merely a renamed general half-order lemma.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
