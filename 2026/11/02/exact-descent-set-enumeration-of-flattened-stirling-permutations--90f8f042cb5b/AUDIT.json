@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For every n>=1 the canonical signed partition decomposes uniquely into zero size b and ordered ordinary blocks of sizes s_i with q_i negative nonminimum letters. There are C(n-1,b-1) prod_i C(n-a_(i-1)-1,s_i-1) C(s_i-1,q_i) such partitions. The cited word bijection gives exact descents 2b-1 (if b>1), 2a_(i-1)+2q_i (if q_i>0), and 2a_i-1 (if s_i-q_i>1); all joins are ascents/non-descents. Hence the positive sum and run-composition formula follow without extrapolation. The O(n^3) extraction has n suffix states and O(r^2) block transitions per state. Direct unrestricted Stirling insertion and independent shape enumeration agree for all n<=8, run marginals match the 2023 table through n=10, the optimized DP agrees with all exact n<=8 descent profiles, and verify.py returned VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shankar arXiv:2307.07730 Theorem 8 allows arbitrary letter multiplicity k but only counts descents in aggregate.",
+        "Buck arXiv:2306.13034 Section 5 poses counts of equal-length runs, whereas Section 4 gives only aggregate run counts and initial cases."
+      ],
+      "reasoning": "Shankar has a wider multiplicity range and a strictly coarser statistic. Its coefficients sum the exact descent-set counts over subsets of one cardinality and do not imply the individual coefficients via a stated identity. The present result does not claim a better univariate EGF or k>2 generalization.",
+      "searches": [
+        "Enumeration of flattened k-Stirling permutations with respect to descents Shankar 2023",
+        "flattened Stirling permutations run lengths composition generating function",
+        "flattened k-Stirling permutations descent enumerating polynomials Shankar 2023 equal length runs refinements"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2306.13034v1; full text Sections 2-5",
+      "arxiv:2307.07730v1; full-text relevant Theorems 3 and 8 and Section 5",
+      "Searches of mathematical research records against the exact word family, aliases, descent positions, and equal-run composition",
+      "Accessible own combinatorics ledger claims for previous overlap, including a distinct flattened parking function theorem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.9 of Buck et al. is the bijection used in the proof; their Open Problem 3 explicitly requests equal-run counts.",
+        "Shankar proves the run-number generating function and solves maximum-run enumeration, but the inspected main formulas do not distinguish individual descent positions."
+      ],
+      "reasoning": "The claim has been scoped specifically to the positive composition-indexed binomial sum and polynomial-time extraction. It does not claim the known bijection, generic existence of a finite enumeration, nor corollaries already provided by the prior univariate EGF. The new formula evaluates a finer statistic rather than a differently worded old total.",
+      "searches": [
+        "Buck et al. arXiv:2306.13034 Sections 3-5 (full accessible primary text)",
+        "Shankar arXiv:2307.07730 Section 5 and Theorem 8 (accessible primary text)",
+        "\"flattened Stirling\" \"equal runs\" 2024 2025 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Buck et al., arXiv:2306.13034, Theorem 3.9 maps canonical type-B blocks to words and Lemma 4.1 counts descents by block types, but gives no descent-INDEX distribution.",
+        "Shankar, arXiv:2307.07730, Theorem 8 records a one-variable generating polynomial by number of descents, not sets of descent positions."
+      ],
+      "reasoning": "The relevant aliases are descent-set profile, weakly increasing run-length composition, and exact ordered run-length distribution. Knowing the scalar number of descents does not identify the positions or the equality of run lengths. The known bijection is used as a premise rather than claimed as new; the explicit weighted exact-position theorem is a further combinatorial calculation.",
+      "searches": [
+        "flattened Stirling permutations descent-set composition run length distribution type B set partition blocks counts closed formula equal runs",
+        "type B set partitions canonical words flattened Stirling exact descent positions composition binomial count",
+        "\"flattened Stirling\" \"descent set\" 2023 2024 2025",
+        "flattened Stirling permutations fixed run lengths composition formula type B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Buck et al. arXiv:2306.13034 Table 1 supplies counts by number of runs only to n=10.",
+        "The local verifier reproduces that table and computes equal-run-length values E_(6,3)=8, E_(9,3)=243, E_(12,3)=5576 from the general formula."
+      ],
+      "reasoning": "A table of totals by number of runs and the Dowling number sequence cannot specify exact descent positions; none of the inspected tables records the general position-set polynomial. The example numbers themselves are consequences, not the essential novelty.",
+      "searches": [
+        "flattened Stirling permutations run length equal length table",
+        "OEIS flattened Stirling descent run length set partition",
+        "flattened Stirling permutations equal length three runs all runs same length count explicit formula"
+      ]
+    },
+    "rationale": "The result refines the exact POSITION SET of descents and all ordered run-length compositions. Buck et al. 2023 prove the underlying type-B bijection and pose equal-run-length enumeration as Open Problem 3, but give no full position-set coefficient formula. Shankar 2023 proves an all-multiplicity descent-NUMBER EGF and maximum-run formula, which aggregate different position sets and do not determine individual exact compositions. Previous internal flattened-parking-function work treats a distinct word family. Residual possibility of unindexed equivalent formulas remains.",
+    "residual_risks": [
+      "An equivalent exact descent-set formula may exist in unindexed papers, theses, or code.",
+      "The identity follows from a previously established bijection plus a new size/sign-block analysis, so independently assess the refinement relative to any stronger uninspected result.",
+      "Independent mathematical review and publication-priority certification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes structural bijection and scalar run analyses; does not state a weighted exact descent-position sum, and explicitly requests equal-length run counts.",
+        "evidence": [
+          "Theorem 3.9, equation for phi; Lemma 4.1; Table 1; Open Problem 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.13034",
+        "material_read": "Accessible complete mathematical HTML/text sections: definitions, canonical blocks and map in Sections 2-3; descent analysis, Table 1, and Section 5 open problems.",
+        "method": "Read arXiv full-text HTML at https://arxiv.org/html/2306.13034 plus its accessible arXiv text rendering, comparing formula (1) and explicit descent rules with Theorem 3.9 and Lemma 4.1.",
+        "title": "Flattened Stirling Permutations",
+        "trigger": "Source of exact objects, canonical type-B bijection, and equal-run-length Open Problem 3."
+      },
+      {
+        "assessment": "All-multiplicity EGF is by number of descents, not a labeled descent-position set; explicit maximum-run formulas do not cover every composition.",
+        "evidence": [
+          "Theorem 8 and Section 5; no descent-set or equal-length formula located in inspected source."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.07730",
+        "material_read": "Accessible primary full-text rendering: introduction and Theorems 3, 8, plus Section 5 on run counts and maximal runs.",
+        "method": "Read source text at arxiv.org/abs/2307.07730 and searched for exact descent set, run position, and equal-length formulations.",
+        "title": "Enumeration of flattened k-Stirling permutations with respect to descents",
+        "trigger": "Potentially stronger all-multiplicity descent enumeration and solution to earlier open problems."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90f8f042-cb5b-4462-8fc9-a99367c0a1f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete ordered run-length distribution of a natural word class is a meaningful refinement beyond known one-variable descent counts. In particular the uniformly specified formula solves the equal-length-run enumeration requested as Open Problem 3 by Buck et al. for every admissible n,d. The O(n^3) exact extraction gives scalable direct computation for any one profile rather than enumeration of all Stirling permutations. It is not a single arbitrary slice or mere recomputation of the known Dowling totals.",
+    "status": "PASS"
+  }
+}
