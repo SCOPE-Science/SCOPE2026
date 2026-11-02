@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Spherical Gaussian normalization produces symmetric Dirichlet coordinates with parameter 1/2. Exact mixed beta moments give the stated covariance. The telescoping identity F_z=a sum_{k=0}^{m-1}(z+a)_k/(z+1)_k has strictly decreasing summands for a>1 and strictly increasing summands for 0<a<1; hence F_alpha-F_{d alpha} has exactly the sign a-1 for d>=2. Fourth-power formula and dimension-three examples follow algebraically. Independently implemented Dirichlet-moment, circular-quadrature and Gaussian sampling consistency checks: 1,478 passed. Numerical tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1210.7012, Theorem 1.1: asymptotic normality of cube projection volume for fixed subspace dimension",
+        "arXiv:1709.09470, Theorem 1.1(a): joint central limit theorem with limiting covariance matrix",
+        "Wang–Li–Xu 2023 Lemma 2 and Lemma 5: Dirichlet power-sum moments and cross-moments used for asymptotic approximations, not the finite-dimensional sign classification."
+      ],
+      "reasoning": "An asymptotic covariance for normalized norms does not imply the asserted exact finite-d sign or the explicit finite-dimensional identity at each dimension. The cube projection central limit theorem covers a single marginal rather than the joint cross-body covariance.",
+      "searches": [
+        "ell_p ell_q random directional width anti-correlation when exponents straddle two finite dimension",
+        "Correlation sign of ||U||_p and ||U||_q for Haar uniform sphere; phase transitions",
+        "web: 2014 random projections of the cube normal norm p Paouris Pivovarov Zinn",
+        "web: random vector uniform euclidean sphere joint convergence p-norm q-norm covariance asymptotics arxiv 2014"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1210.7012v1",
+      "arXiv:1605.00019v1",
+      "arXiv:1709.09470v1",
+      "published-finding corpus semantic searches across exact and equivalent covariance formulations",
+      "2026/10/11/SCOPE-all-dimensional-area-perimeter-covariance-of-random-orthotope-sh--357f1ce92466",
+      "2026/10/11/SCOPE-sharp-finite-moment-tomography-of-orthotopes-in-every-dimension--cb0a2e3c75db",
+      "2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928",
+      "2026/10/11/SCOPE-exact-planar-shadow-area-moments-for-all-orthotopes--0d2368f94d4d",
+      "Wang, Li, Xu 2023, https://ictp.acad.ro/jnaat/journal/article/view/1360/1463"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1605.00019, Theorems 1 and 3 on pp.22 and 27, give deterministic sharp feasible norm and expected conditional norm regions; neither assumes Dirichlet sampling. Explicit opposite-order vectors in RESULT.md show such bounds cannot directly prove covariance sign.",
+        "arXiv:1709.09470 is asymptotic n->infinity with a limiting covariance matrix; no finite-dimensional sign formula is present in examined theorem.",
+        "arXiv:1210.7012 treats cube projections and their CLT, not cross-family finite-d covariances."
+      ],
+      "reasoning": "The deterministic norm bounds alone cannot force a covariance sign under Dirichlet sampling, particularly when deterministic orders conflict. High-dimensional limit laws do not entail finite-d sign classifications. The new lemma proves a stronger exact finite-d property for all symmetric Dirichlet concentrations.",
+      "searches": [
+        "arXiv:1605.00019 full-text pp.1-3, Theorems 1-3",
+        "arXiv:1709.09470 full-text p.3, Theorem 1.1",
+        "arXiv:1210.7012 full-text pp.1-3, Theorem 1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1709.09470v1, Theorem 1.1, PDF p.3: asymptotic covariance of multivariate normalized norms, not exact finite-d covariance",
+        "arXiv:1605.00019v1, Theorems 1-3 and introduction, PDF pp.1-3: extremal feasible norm relations, not sampling-dependent covariance"
+      ],
+      "reasoning": "The same power sums can be expressed as Dirichlet Renyi-index statistics and as powers of projection half-widths. Indexed searches by both formulations revealed no exact finite-d sign law. This nonappearance is a bounded search result, not a uniqueness proof.",
+      "searches": [
+        "finite dimensional covariance sign of two power-sum projection widths of lp balls along common Haar direction; Dirichlet half parameter moment covariance",
+        "exact formula Cov(sum_i |U_i|^r, sum_i |U_i|^{2m}) Haar unit sphere sign (r-2) all dimensions",
+        "symmetric Dirichlet distribution positive negative covariance power sums sum_i X_i^a and sum_i X_i^m for integer m, equality at a=1",
+        "web: covariance spherical lp norm lq norm random direction finite dimensional",
+        "web: symmetric Dirichlet distribution covariance of two power sums concentration indices generalized Simpson",
+        "web: \"Dirichlet\" \"power sums\" \"covariance\" 2 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/11/SCOPE-all-dimensional-area-perimeter-covariance-of-random-orthotope-sh--357f1ce92466",
+        "2026/10/11/SCOPE-sharp-finite-moment-tomography-of-orthotopes-in-every-dimension--cb0a2e3c75db",
+        "2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928",
+        "2026/10/11/SCOPE-exact-planar-shadow-area-moments-for-all-orthotopes--0d2368f94d4d"
+      ],
+      "reasoning": "The closest indexed findings address Haar planar shadow area/perimeter correlations, random orthotope projection moments and one-body polygon width tomography. None describes covariance of different l_p unit-ball projection-width powers sampled in the same direction. No exact numerical table for this all-dimensional law was identified.",
+      "searches": [
+        "finite dimensional covariance sign of two power-sum projection widths of lp balls along common Haar direction; Dirichlet half parameter moment covariance",
+        "exact formula Cov(sum_i |U_i|^r, sum_i |U_i|^{2m}) Haar unit sphere sign (r-2) all dimensions",
+        "symmetric Dirichlet distribution positive negative covariance power sums sum_i X_i^a and sum_i X_i^m for integer m, equality at a=1",
+        "published-finding corpus indexed records: geometry covariance random shadows, orthotopes, width statistics"
+      ]
+    },
+    "rationale": "The finite-dimensional all-real-r versus even-benchmark strict covariance sign for two dual-norm-ball directional width powers is not asserted by the examined existing one-body/asymptotic CLT literature or deterministic norm tradeoffs. Standard gamma/Dirichlet moment formulas are known and are not claimed as new. Closest indexed records concern different geometric statistics. Unindexed Dirichlet power-sum literature remains a priority risk.",
+    "residual_risks": [
+      "The Dirichlet-index literature may contain an unindexed equivalent finite-dimensional power-sum covariance sign theorem.",
+      "Only highly relevant primary texts and indexed search results were checked; literature search cannot establish historical priority conclusively.",
+      "Covariance of unpowered projection widths and two non-even real exponents is outside the claim.",
+      "Mixed Dirichlet power sums have prior applications to random polygons; a non-indexed exact covariance statement may exist among those references even though their inspected statements are asymptotic or standard moments."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Asymptotic cube projection volume, not cross-body same-direction finite-dimensional covariance",
+        "evidence": "arXiv:1210.7012, Theorem 1.1; initial posted timestamp 2012-10-25 from arXiv record",
+        "identifier_or_url": "https://arxiv.org/pdf/1210.7012",
+        "material_read": "PDF first 3 pages, Theorem 1.1 and introduction, searched for dimension-one reductions; screenshot of page 1",
+        "method": "Primary full-text reading and PDF page-image inspection",
+        "title": "A central limit theorem for projections of the cube",
+        "trigger": "Prior geometric one-body cube direction projection limit theorem"
+      },
+      {
+        "assessment": "Deterministic norm/entropy feasible-region bounds; no Dirichlet sampling or two-norm covariance assertion found",
+        "evidence": "arXiv:1605.00019, Theorem 1 (norm feasible-bound extremizers) p.22 and Theorem 3 (conditional expectation feasible region) p.27",
+        "identifier_or_url": "https://arxiv.org/pdf/1605.00019",
+        "material_read": "PDF pages 1-3, actual Theorem 1 on page 22 and Theorem 3 on page 27 (zero-indexed pages 21 and 26); screenshot inspections on pages 1, 3, 22, 27; full-text search for covariance",
+        "method": "Primary full-text reading, page-image inspection and full-text term search",
+        "title": "Sharp Bounds Between Two Renyi Entropies of Distinct Positive Orders",
+        "trigger": "Closest deterministic norm-tradeoff theorem that might imply a covariance sign"
+      },
+      {
+        "assessment": "Gives asymptotic joint normalized norm fluctuations and their limit covariance, not exact sign at each finite dimension",
+        "evidence": "arXiv:1709.09470, introduction and Theorem 1.1(a), original first posted 2017-09-27",
+        "identifier_or_url": "https://arxiv.org/pdf/1709.09470",
+        "material_read": "PDF abstract, pp.1-3 and full text of Theorem 1.1(a); screenshot p.3",
+        "method": "Primary full-text theorem and page-image inspection",
+        "title": "High-dimensional limit theorems for random vectors in l_p^n-balls",
+        "trigger": "Plausible stronger multivariate norm covariance theorem"
+      },
+      {
+        "assessment": "Establishes standard Dirichlet moment identities and asymptotic random polygon power-sum variance information; not exact sign of covariance between arbitrary real exponent and an integer exponent at every finite dimension",
+        "evidence": "Wang–Li–Xu 2023, Lemma 2 and proof of Lemma 5, HTML section 2 and appendix; published online 2023-12-22",
+        "identifier_or_url": "https://ictp.acad.ro/jnaat/journal/article/view/1360/1463",
+        "material_read": "Open full-text HTML introduction, section 2.1 Dirichlet moments, asymptotic cross-power-moment development and variance computations in proof for Lemma 5",
+        "method": "Primary full-text HTML examination and searches for covariance/correlation terms",
+        "title": "Nonlinear Random Extrapolation Estimates of pi under Dirichlet Distributions",
+        "trigger": "Direct geometric-probability use of symmetric Dirichlet power sums and their mixed moments"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f74027ce-61ff-492e-b400-618050dd276c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An all-dimensional, all-real-first-exponent sign classification for joint directional projection-width energies of geometrically distinct dual norm balls, with a sharp Euclidean boundary, exact covariance magnitude, explicit dimension-three example, and a more general symmetric-Dirichlet result. Deterministic norm orders can conflict, so the systematic sign is a genuine distributional dependence phenomenon, not a tautological pointwise order.",
+    "status": "PASS"
+  }
+}
