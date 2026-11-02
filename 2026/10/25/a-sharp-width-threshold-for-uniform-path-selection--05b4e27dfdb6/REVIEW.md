@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The width-one selector waits for the unique enumerated string at each level, which exists under the nonempty-path promise. For width at most two, the recursion-theorem construction maintains one provisional branch during each simulated output, then extends the opposite bit when needed. At most one side branch remains active at a time, and the next split begins above all enumerated nodes. The unique path therefore disagrees with the alleged finite-error selector at infinitely many fresh coordinates.
+PASS
 
-## Originality
+PASS: A c.e. width-one prefix-closed tree with an infinite path has exactly one enumerated string at every level; waiting for its length-(n+1) string computes each path bit uniformly. For width two, Kleene recursion theorem supplies a self-referential enumerator. Each fresh split occurs above all previously enumerated levels; while a candidate output is awaited one provisional branch grows; after output b, only the opposite (1-b) side continues. At every time width<=2 and the resulting tree has a unique infinite path even if some simulated computation does not terminate. If the putative selector is total on promised inputs, infinitely many split coordinates violate eventual agreement. No finite enumeration is mistaken for a computability-theoretic proof.
 
-PASS, with a stated residual risk. The closest prior result is Kaufmann–Kummer's general theorem on bounded-width c.e. trees and finite-error program lists. Its accessible abstract gives the optimal list size for the broad class but does not state whether its lower bound holds when the tree is promised to have exactly one path. The present claim is the restricted singleton-path obstruction and the exact width-one/width-two contrast. The full prior proof was not available for a complete check of that restriction.
+## originality
 
-## Value
+PASS
 
-PASS. The singleton-path promise rules out the easy explanation that uniformity fails only because there are several candidate infinite branches. The result locates the first width at which even eventual agreement by one program fails, while width one supports exact selection.
+PASS best-of-knowledge, with prominent unresolved priority risk. Kaufmann–Kummer (1996) prove optimal 2n−1 finite-error program lists for the general class of bounded-width c.e. trees. Their accessible publisher abstract does not say whether the lower-bound construction already uses trees with *unique* infinite path. The full proof was inaccessible, and a single authorized institutional retrieval attempt was blocked by safety checks; no repeated request/bypass. A broad negative theorem does not formally imply its restriction to singleton-path inputs. The audited explicit diagonal yields the restricted threshold from scratch, without claiming no predecessor exists.
 
-## Closest literature and limitations
+## value
 
-Kaufmann and Kummer, “On a Quantitative Notion of Uniformity” (1996), DOI 10.3233/FI-1996-25106, establish the broad bounded-width uniformity result. Binns and Kjos-Hanssen, “Finding paths through narrow and wide trees” (2014), arXiv:1408.2857, study path-existence principles in reverse mathematics. The precise singleton-path restriction could overlap with a construction in the inaccessible full text of the former source; the result does not claim to resolve the optimal finite-list size.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The unique-path promise eliminates mere branch-choice ambiguity, so the nonuniformity threshold at width two is a sharp natural boundary distinguishing effective path existence from index-uniform finite-error selection. The theorem is a motivated structural result, not a numerical slice. It does not resolve optimal finite list size for singleton-path trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
