@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result makes a global claim for every finite nonnegative rectangular input. The central equality of feasible sets is proved in both directions: signed outer products yield two diagonally opposite nonnegative rank-at-most-one rectangles; conversely independently chosen nonnegative rank-one blocks can be realized by one signed outer product. Rank constraints are closed determinantal conditions, and a finite union is closed; coercivity in the output matrix proves attainment without assuming bounded factors. Nonnegative singular vectors for a nonnegative block justify sharp attainment of Eckart--Young's rank-one error. The summed block residual yields the exact displayed objective, including zero and empty-block cases. The previously established rank-two, three-by-three counterexample gives sharpness of the low-dimensional frontier. The packaged checker reconstructs every tested signed factor and error identity; its finite cases supplement rather than replace the proof.
+PASS
 
-## Originality — PASS, subject to historical indexing limits
+For any real factors u,v, choose sign supports I={i:u_i≥0}, J={j:v_j≥0}. ReLU(uv^T) has two nonnegative rank≤1 diagonal rectangles (I,J) and (Ic,Jc) and zero cross rectangles. Conversely any such block matrix is achieved by choosing nonnegative rank-one factors on each diagonal rectangle and assigning opposite signs on complements, including zero/empty cases. Each fixed block cone is closed by 2x2 minors and nonnegativity; the finite union is closed, and distance to a nonempty closed subset of Euclidean matrix space is attained. For nonnegative block data the Perron nonnegative top singular vectors achieve its best nonnegative rank-one Frobenius fit with gain sigma1^2, giving the stated maximum over I,J. Independent 20 matrix/SVD partition reconstructions agree. To verify the critical rank-two 3x3 boundary without relying solely on an inaccessible paper, independently constructed X=[[1,1,1],[1,1,2],[4,3,0]] and real rank-two Theta_e=[[1,1,1],[1,1+e,2],[4,3,4-1/e]] for 0<e<1/4: det Theta_e=0, ReLU Theta_e→X, whereas every exact preimage of X has det=1 and cannot rank≤2. Thus the rank/dimension frontier is genuinely sharp. Identity matrix formula E1(I_n)=max(n−2,0) follows from at most one unit spectral gain per diagonal block.
 
-The directly relevant recent full text [1] proves rank-one NP-hardness and rank-two ill-posedness, but not rank-one attainment or the two-block spectral optimum. The closest earlier full text [2] establishes direct rank-one attainment only for a specific two-by-two matrix and explicitly indicates that general ReLU well-posedness was not established there. The later subzero-completion study [4] concerns geometric ranks and learning algorithms rather than this two-block global Frobenius characterization. Actual semantic searches of published research records and targeted literature queries found no implication covering the theorem, but cannot establish exhaustive novelty. Saul's [3] publisher abstract was accessible; the full older text was not materially inspected, leaving a residual bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A genuine boundary question is created by the juxtaposition of [1]'s NP-hard rank-one approximation and a rank-two nonattained infimum. The theorem proves well-posedness for the entire rank-one model, provides a concrete spectral optimization formula and a constructive global minimizer, and shows that the rank-two three-by-three failure has the smallest possible latent rank and ambient dimension. This is a structural distinction relevant to global numerical optimization and model selection. The exponential sign search is a limitation, not a polynomial-time performance claim.
+Best-of-knowledge PASS for the universal rank-one output-set closedness and exact pair-of-block singular-value objective, and the minimality consequence. Gillis–Porcelli–Seraghiti 2025/2026 full text expressly says general direct ReLU well-posedness was open and proves attainment only for its example; Seraghiti–Vandaele–Gillis October 2026 establishes NP-hardness at rank one and general nonattainment but the complete original text could not be accessed. This missing highly relevant primary article creates a material risk that a rank-one sign-partition reduction is already implicit in the hardness proof. The scientific formulas were independently derived rather than taken from its abstract.
 
-## Closest literature and restrictions
+## value
 
-References [1]--[4] are documented in RESULT.md. The distinction between direct Frobenius ReLU decomposition and latent surrogates is essential. The novelty comparison does not exclude unpublished or inadequately indexed variants of the sign-partition construction. Statements do not extend rank-one formulas to arbitrary signed targets or attainment to general higher ranks. A follow-up independent check remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The direct Frobenius ReLU low-rank problem can be ill-posed at rank two even on a 3x3 matrix. Establishing rank-one output closedness for arbitrary dimensions and an exact global optimization over two paired spectral blocks resolves the natural first well-posedness case and identifies the smallest dimension/rank where nonattainment can occur. The exponential partition search is compatible with NP-hardness, and the structural closedness result is useful independently of algorithmic speed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

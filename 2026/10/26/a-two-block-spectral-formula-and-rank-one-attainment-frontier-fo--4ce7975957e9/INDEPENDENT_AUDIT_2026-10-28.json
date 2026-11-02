@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T17:59:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any real factors u,v, choose sign supports I={i:u_i≥0}, J={j:v_j≥0}. ReLU(uv^T) has two nonnegative rank≤1 diagonal rectangles (I,J) and (Ic,Jc) and zero cross rectangles. Conversely any such block matrix is achieved by choosing nonnegative rank-one factors on each diagonal rectangle and assigning opposite signs on complements, including zero/empty cases. Each fixed block cone is closed by 2x2 minors and nonnegativity; the finite union is closed, and distance to a nonempty closed subset of Euclidean matrix space is attained. For nonnegative block data the Perron nonnegative top singular vectors achieve its best nonnegative rank-one Frobenius fit with gain sigma1^2, giving the stated maximum over I,J. Independent 20 matrix/SVD partition reconstructions agree. To verify the critical rank-two 3x3 boundary without relying solely on an inaccessible paper, independently constructed X=[[1,1,1],[1,1,2],[4,3,0]] and real rank-two Theta_e=[[1,1,1],[1,1+e,2],[4,3,4-1/e]] for 0<e<1/4: det Theta_e=0, ReLU Theta_e→X, whereas every exact preimage of X has det=1 and cannot rank≤2. Thus the rank/dimension frontier is genuinely sharp. Identity matrix formula E1(I_n)=max(n−2,0) follows from at most one unit spectral gain per diagonal block.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gillis et al. show a specific direct rank-one example attains while their general direct well-posedness remains future work. Seraghiti et al. announce nonattained Fro-RMD at unspecified rank in abstract."
+        ],
+        "reasoning": "A broader study of rank>=2 can fail attainment, so does not imply the exact rank-one all-dimensional spectral formula. The unavailable October paper is a plausible source of an equivalent rank-one decomposition, not counted as checked full text.",
+        "searches": [
+          "arxiv:2503.23832 Section 3 examples",
+          "arxiv:2610.22255 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 6510f68cc52f9320ad3e0dc2e87d901ce33de2fd; verify_rank_one_relu.py SHA 62e29b88e975be53fb01901d385e823c4c2b5bf3",
+        "arxiv:2503.23832 full relevant original §3",
+        "arxiv:2610.22255 abstract, fulltext unavailable",
+        "ReLU rank one matrix decomposition closed output set block spectral best approximation formula",
+        "Independent 20 spectral partition reconstructions and symbolic exact rank-two 3x3 nonattainment construction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior example: latent rank1 nonattainment can coexist with direct rank1 attainment. New: direct rank1 always attains and admits an explicit exponential global spectral expression."
+        ],
+        "reasoning": "A single attained instance does not prove universal closedness, and a complexity lower bound does not contradict a finite exponential exact formula. A rank2 nonattainment example cannot preclude rank1 attainment.",
+        "searches": [
+          "arxiv:2503.23832 p4 Example 3.1–3.2",
+          "arxiv:2610.22255 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "LS-RMD/Fro-RMD directly optimizes ||X-ReLU(Theta)||F^2 over bounded rank; latent RMD instead varies a separate nonpositive completion and has different attainment behavior."
+        ],
+        "reasoning": "An ill-posed latent rank-one formulation cannot be identified with the direct rank-one problem; the new finite cone union proves direct attainment. The NP-hardness result addresses computational complexity, not necessarily existence.",
+        "searches": [
+          "ReLU rank one matrix decomposition closed output set block spectral best approximation formula",
+          "arxiv:2503.23832 §3 direct LS-RMD vs latent RMD",
+          "arxiv:2610.22255 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary results covered quadratic-neural block norms and unrelated low-rank spectral problems, not an exact ReLU-rank-one paired-block maximum."
+        ],
+        "reasoning": "No exact matching table surfaced. This observation is not evidence that no prior rank-one sign partition algorithm exists.",
+        "searches": [
+          "ReLU rank one matrix decomposition closed output set block spectral best approximation formula",
+          "Resultary semantic ReLU sign block spectral approximation query"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the universal rank-one output-set closedness and exact pair-of-block singular-value objective, and the minimality consequence. Gillis–Porcelli–Seraghiti 2025/2026 full text expressly says general direct ReLU well-posedness was open and proves attainment only for its example; Seraghiti–Vandaele–Gillis October 2026 establishes NP-hardness at rank one and general nonattainment but the complete original text could not be accessed. This missing highly relevant primary article creates a material risk that a rank-one sign-partition reduction is already implicit in the hardness proof. The scientific formulas were independently derived rather than taken from its abstract.",
+      "residual_risks": [
+        "October 2026 Seraghiti–Vandaele–Gillis source is highly relevant but inaccessible in full (Oxford VPN disconnected), so rank-one decomposition might appear inside hardness proof.",
+        "Formula is exponential and gives no polynomial-time solution; unconstrained signed input matrices need not have the same Perron block formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ONLY_ONE_DIRECT_RANK_ONE_EXAMPLE",
+          "evidence": "Text expressly says authors could not establish general LS-RMD well-posedness; direct solution for one 2x2 example is not universal theorem.",
+          "identifier_or_url": "arxiv:2503.23832; https://arxiv.org/pdf/2503.23832",
+          "material_read": "Full accessible 25-page PDF; Section 3 and Examples 3.1–3.2 pages4–6 and discussion",
+          "method": "Read PDF original section and visually inspected page 5",
+          "title": "An extrapolated and provably convergent algorithm for nonlinear matrix decomposition with the ReLU function",
+          "trigger": "Direct vs latent rank-one attainment and prior open general well-posedness"
+        },
+        {
+          "assessment": "MATERIAL_PRIORITY_RISK_FULL_TEXT_UNREAD",
+          "evidence": "Abstract confirms NP-hardness even binary rank1 and ill-posedness of Fro-RMD; cannot make any whole-document absence claim for exact sign partition or rank-one closedness.",
+          "identifier_or_url": "arxiv:2610.22255; https://arxiv.org/abs/2610.22255",
+          "material_read": "Abstract/public bibliographic metadata only; full original HTML/PDF unavailable",
+          "method": "Attempted lawful OA PDF/HTML; then authorized institutional retrieval returned VPN disconnected; no bypass",
+          "title": "The ReLU Matrix Decomposition: NP-Hardness, Ill-Posedness, and ReLU-Rank",
+          "trigger": "Highest relevance, same direct rank-one computational hardness and rank-two ill-posedness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The direct Frobenius ReLU low-rank problem can be ill-posed at rank two even on a 3x3 matrix. Establishing rank-one output closedness for arbitrary dimensions and an exact global optimization over two paired spectral blocks resolves the natural first well-posedness case and identifies the smallest dimension/rank where nonattainment can occur. The exponential partition search is compatible with NP-hardness, and the structural closedness result is useful independently of algorithmic speed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA 6510f68cc52f9320ad3e0dc2e87d901ce33de2fd; verify_rank_one_relu.py SHA 62e29b88e975be53fb01901d385e823c4c2b5bf3",
+    "arxiv:2503.23832 full relevant original §3",
+    "arxiv:2610.22255 abstract, fulltext unavailable",
+    "ReLU rank one matrix decomposition closed output set block spectral best approximation formula",
+    "Independent 20 spectral partition reconstructions and symbolic exact rank-two 3x3 nonattainment construction"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact spectral formula requires finite nonnegative real X and latent rank≤1; signed X only inherits closedness/attainment, not the nonnegative best-block formula.",
+    "Rank-two 3x3 counterexample is independently constructed, so minimality C does not depend on unseen details of prior Proposition 2.1.",
+    "No universal well-posedness claim for latent rank≥2 or any optimizer algorithm convergence."
+  ],
+  "residual_risks": [
+    "October 2026 Seraghiti–Vandaele–Gillis source is highly relevant but inaccessible in full (Oxford VPN disconnected), so rank-one decomposition might appear inside hardness proof.",
+    "Formula is exponential and gives no polynomial-time solution; unconstrained signed input matrices need not have the same Perron block formula."
+  ],
+  "schema_version": 1
+}
