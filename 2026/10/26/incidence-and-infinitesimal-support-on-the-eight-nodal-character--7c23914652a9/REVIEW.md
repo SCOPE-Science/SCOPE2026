@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The degree-four restriction test is exhaustive across 7462 unique RREF two-planes over \(\mathbf F_9\), and the direct form is checked against the expanded quartic at every projective point. A separate pair-of-points enumeration recovers the same 48 lines. All 48 are tested against singular-node incidence and intersection. The five-equation Jacobian in affine Grassmannian charts yields exactly seven one-dimensional tangent spaces, specifically seven of eight two-node lines; the unique tangent-zero exception is explicitly identified. The standalone verifier runs without external dependencies and returns `VERIFY_OK`. No extension-field completeness is inferred merely from this finite computation.
+## correctness
 
-## Originality — PASS, with residual risk
-Veniani's first version gives the eight-node/48-line geometric example; an existing finite-field computation already gives the Frobenius split and seven nonreduced line support points. These known counts are expressly not claimed new. The new datum is the **exact incidence/tangent-space cross-classification**, including the unique reduced member among eight two-node/degree-18 lines. This is not a restatement of the prior seven-point count or the geometric line total. Searches against prior records and mathematical literature did not locate the full cross-classification. The 2020 revised Veniani example has different local incidence figures, making independent specialist comparison desirable.
+PASS
 
-## Mathematical value — PASS
-The distinction between tangentially obstructed and reduced points of a Fano scheme is a geometric feature, not a relabeling of a finite graph. Its exact relationship to the natural singular-point stratification provides a structural explanation of why seven of eight maximally incident lines behave differently, and identifies the exceptional smooth Fano point. This classification is a natural complete invariant of a highly line-rich singular quartic, relevant to studying its Fano scheme and deformation behavior.
+Constructed F9 as F3[tau]/(tau²+1), enumerated all 7462 canonical RREF 2-planes in F9^4, evaluated the displayed quartic at every F9 projective parameter value, finding 48 contained lines. Independent polynomial expansion and direct nested Psi evaluations agreed. Exhaustive F9 projective point scan found exactly eight singular points; pairwise intersection via rational projective point sets yielded exactly 384 graph edges, 120 at nodes, and node/degree cross census. The tangent to the Grassmannian line locus is the kernel of five linearized quartic coefficient equations; independently coded direct gradient polynomial convolution gave 41 zero-dimensional tangent spaces and 7 one-dimensional, and exactly the specified exceptional two-node line. The exact exhaustive procedure establishes only F9 claims; source paper reports 48 total geometric lines, but source contradiction noted below.
 
-## Sources and risks
-Primary: Veniani, arXiv:1608.04209v1 (Example 6.5) and v4 (Example 5.4); Shimada–Shioda arXiv:1604.06265, its reduction discussion. Specialized equivalent computations could remain unidentified. The result applies precisely to the rational lines over \(\mathbf F_9\). Conflicting numbers in a later version of the primary source are recorded as an unresolved comparison, not concealed or used as proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-level comparisons with direct primary sources support this qualified best-of-knowledge originality judgment; all shared ingredients and residual discrepancies are expressly recorded. For the quartic, the printed local incidence contradiction is unresolved, but does not itself establish prior coverage of the new graph/tangent cross classification.
+
+## value
+
+PASS
+
+The complete finite-field incidence graph and Fano-scheme infinitesimal tangent cross-classification answer natural geometric questions about a published extremal nodal quartic. The unique reduced two-node line is a meaningful structural distinction not determined by the known line count or seven-dimensional-tangent-support count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
