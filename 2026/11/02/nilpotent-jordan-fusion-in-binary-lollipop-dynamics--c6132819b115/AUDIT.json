@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "All n>=3, m>=1, t>=0 are covered by explicit polynomial identities. Direct pendant deletion gives det(xI-A)=p_(n-1)p_(m+1). Eliminating each internal vertex with a unit coefficient in F2[x] gives the exact 2x2 module presentation in RESULT.md, so its local Smith exponents at x=0 determine Jordan blocks without a determinant-only leap. The identity p_(2r-1)=x*p_(r-1)^2 proves root multiplicities; Q^2=I+xQ proves v_x(1+p_(n-2))=2^(v2(n)-1) for n divisible by four. Entry valuations imply each case in the claimed block table; Fitting decomposition proves the entire transient-shell formula. The supplied edge-built exact GF2 verifier passed 960 parameter pairs, 7413 rank-power checks, 36 characteristic-polynomial comparisons and 28688 exhaustive states. Finite coverage is explicitly separate from proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2410.09833, Theorem 9 and introduction, concerns adjacency annihilators for all-even-degree Eulerian graphs; the degree-one and degree-three vertices of L(n,m) violate this prerequisite.",
+        "Martin, Odlyzko and Wolfram, DOI:10.1007/BF01223745, analyze finite homogeneous cellular-automaton transition diagrams, but the material accessed did not state this graph-family classification.",
+        "arXiv:0802.1035 derives real-spectral and graph-identifiability facts; no F2 Jordan factor or entry-shell formula was found in the relevant inspected sections."
+      ],
+      "reasoning": "Stronger general theory of linear maps provides a method to read transient depths from Jordan blocks but does not evaluate the blocks of the given two-parameter lollipop family. Eulerian-specific graph results do not apply, and the real-spectral theorem does not imply nonsemisimple F2 dynamics.",
+      "searches": [
+        "unicyclic graph adjacency matrix Jordan canonical form characteristic two over GF(2)",
+        "2-rank adjacency unicyclic graph binary field Jordan blocks",
+        "finite graph linear cellular automata cycle with attached tail lollipop graph recurrence count",
+        "Annihilating polynomial Jordan canonical form generalized spectral characterizations Eulerian graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0802.1035 (full text, graph spectral identities and classification)",
+      "arXiv:2410.09833 (article sections: Eulerian GF2 Jordan restrictions)",
+      "DOI:10.1007/BF01223745 (abstract and indexed introductory text only)",
+      "DOI:10.1016/j.laa.2007.10.018 (abstract and partial accessible text)",
+      "Published research-record queries: lollipop XOR, tadpole graph adjacency F2, nilpotent Jordan, modular adjacency, exact periodic population",
+      "Previous scientific statements on binary graph-parity dynamics, including cyclic, tree, and hypercube cases, were compared for logical implication; the lollipop Jordan theorem was not found."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boulet–Jouve arXiv:0802.1035, Property 1 gives a cycle/path characteristic recurrence and §3 establishes the lollipop real-spectrum uniqueness theorem. Reducing that recurrence modulo two yields the equal characteristic polynomials but cannot determine local Smith factors.",
+        "For n=m=2^k, k>=2, the connected graph has zero Jordan blocks {2^(k-1),2^(k-1)} and the matched disconnected paths have {2^k-1,1}; this explicit mismatch rules out implication from characteristic-polynomial equality alone.",
+        "Li–Wang–Zhang arXiv:2410.09833 requires Eulerian graphs; the lollipop has odd degrees at its hub and leaf.",
+        "Martin–Odlyzko–Wolfram DOI:10.1007/BF01223745 is relevant to algebraic finite automata but, in the accessed material, does not supply a two-parameter graph-specific Jordan evaluation."
+      ],
+      "reasoning": "The prior spectral formula subsumes the determinant identity, which is accordingly credited rather than claimed novel. The exact local Smith exponents, 2-adic case split, all-time transient shells, and spectrally identical but non-conjugate example do not follow from the cited prior statements without new graph-specific calculations.",
+      "searches": [
+        "The lollipop graph is determined by its spectrum arxiv 0802.1035",
+        "Spectral characterizations of lollipop graphs Haemers Liu Zhang full text",
+        "Algebraic Properties of Cellular Automata Martin Odlyzko Wolfram 1984",
+        "Annihilating polynomial Jordan canonical form Eulerian graphs arxiv 2410.09833"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0802.1035 uses the synonymous lollipop graph L(p,k) and discusses ordinary adjacency spectra, rather than nilpotent Jordan blocks over F2.",
+        "The graph is also called a tadpole/dragon graph; the comparison explicitly searched both names and the equivalent neighbor-sum update terminology.",
+        "The two-path characteristic polynomial equality is mathematically weaker than the asserted different Jordan chains; for n=m=8 the same polynomial has blocks {4,4} versus {7,1}."
+      ],
+      "reasoning": "Equivalent formulations include GF2 adjacency iteration, binary neighbor-XOR, parity cellular automata, zero-primary invariant factors, and first-entry-time shells. The broad classical algebraic framework implies that Jordan blocks determine transients, but not the evaluated lollipop family or its 2-adic parameter cases.",
+      "searches": [
+        "lollipop graph XOR neighbor update characteristic two Jordan nilpotent blocks transient spectrum paths",
+        "tadpole graph adjacency F2 parity cellular automata cycle attached path transient nilpotent",
+        "binary lights out dynamical system lollipop tadpole graph adjacency mod 2 nilpotent Jordan",
+        "lollipop graph state transition XOR dynamic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved published finding, A mod-four orbit census for parity automata on distance-two Boolean cubes, concerns a different graph family.",
+        "Closest retrieved published finding, Sharp period-four census for complete multipartite parity automata, concerns complete multipartite graphs rather than lollipops.",
+        "Accessible prior mathematical claims were compared by graph object, binary update operation, and implications of path/cycle reductions; no earlier lollipop zero-primary classification was recovered.",
+        "No exact published table of all zero Jordan blocks for L(n,m) was identified in the searches."
+      ],
+      "reasoning": "The retrieved public-record abstracts and prior-claim comparisons were used only as deduplication evidence. No conclusion about the full contents of an uninspected document rests solely on a search snippet. Lack of database hits is supporting negative evidence, not a proof of global uniqueness.",
+      "searches": [
+        "modular binary adjacency map lollipop graph exact periodic population",
+        "characteristic two adjacency cospectral lollipop and disjoint paths nilpotent fusion",
+        "lollipop graph powers of adjacency matrix over F2 eventual period",
+        "lollipop graph XOR neighbor update characteristic two Jordan nilpotent blocks transient spectrum paths"
+      ]
+    },
+    "rationale": "The real-spectral lollipop characterization arXiv:0802.1035 was inspected for the graph recurrence and its main theorems, not treated as a novel spectrum formula. The new assertion is characteristic-two Jordan fusion and exact transient-entry populations for all cycle and tail lengths. An inspected 2024 treatment of F2 graph adjacency Jordan properties requires all vertex degrees even, which these lollipops violate. Classical finite linear cellular-automaton sources are methodological background; published research-record and previous-scientific-statement comparisons found no implication covering the block-size cases. Incomplete historical indexing and access to all historical full texts remain risks; this is a supported same mathematical model finding, not an independent novelty certification.",
+    "residual_risks": [
+      "No literature search proves absence of unindexed or differently formulated prior art.",
+      "Complete text of the 1984 general linear cellular-automata paper and Haemers–Liu–Zhang lollipop paper was not read; their general approaches may contain unstated special cases.",
+      "Public research-record hits were summaries, not full-paper coverage; none was used as a whole-document negative certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact graph-spectral background and recurrence; does not state the claimed characteristic-two Jordan block or transient-shell theorem in inspected material.",
+        "evidence": [
+          "First posting 2008-02-07; §2.2 Property 1 states Q_Cp=x Q_P(p-1)-2Q_P(p-2)-2 and path recurrence.",
+          "§3 centers on real spectral determination; Proposition 7 concerns ordinary zero-eigenvalue multiplicity at L(4,k), not F2 Jordan chains."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0802.1035",
+        "material_read": "Accessible full-text HTML: introduction, path/cycle characteristic identities in §2.2, odd- and even-lollipop spectral arguments, selected relevant proofs in §3 including Proposition 7.",
+        "method": "Read original article text and compared the hypotheses and conclusions against F2 Jordan and first-entry counts.",
+        "title": "The lollipop graph is determined by its spectrum",
+        "trigger": "Exact graph object, possible stronger spectral or polynomial classification."
+      },
+      {
+        "assessment": "Eulerian all-even-degree scope excludes the lollipop degree-one and degree-three vertices; no all-lollipop parameter classification is implied.",
+        "evidence": [
+          "Theorem 9 described as an annihilating polynomial for an Eulerian graph in characteristic two.",
+          "The paper states the even-degree prerequisite explicitly and derives results for generalized spectral characterization, not transient-shell census."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.09833",
+        "material_read": "Accessible article text, abstract, introduction, Theorem 2, discussion of Theorem 9, §2 hypotheses.",
+        "method": "Compared graph-degree assumptions and the kind of polynomial/Jordan conclusion.",
+        "title": "Annihilating polynomial, Jordan canonical form, and generalized spectral characterizations of Eulerian graphs",
+        "trigger": "Potentially dominating GF2 adjacency Jordan theorem."
+      },
+      {
+        "assessment": "General finite linear-automaton theory is acknowledged; complete-paper comparison is an unresolved historical-access limitation.",
+        "evidence": [
+          "The abstract describes the global structures of finite cellular-automaton state-transition diagrams and finite rules with nearest-neighbor updates."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01223745",
+        "material_read": "Abstract and indexed introductory excerpts; full 1984 manuscript was not materially inspected.",
+        "method": "Compared publicly available scope statements against the two-parameter lollipop graph problem.",
+        "title": "Algebraic Properties of Cellular Automata",
+        "trigger": "Foundational general finite linear-automaton transition-diagram work that could subsume transient formulas."
+      },
+      {
+        "assessment": "The accessed material addresses ordinary real-adjacency/laplacian spectra; no evidenced Jordan-transient coverage, with remaining access uncertainty.",
+        "evidence": [
+          "The abstract characterizes lollipops by adjacency and Laplacian spectra, not by binary dynamical transients."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2007.10.018",
+        "material_read": "Abstract and partial accessible text; not an exhaustive full-text read.",
+        "method": "Compared stated spectral determination results with F2 repeated-iterate Jordan invariants.",
+        "title": "Spectral characterizations of lollipop graphs",
+        "trigger": "Independent lollipop graph spectrum paper, plausible similar polynomial method."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c6132819-b115-41c8-811d-1ed6399609f4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A characteristic polynomial fixes total periodic population but not nilpotent transient Jordan chains; whether a natural connected graph can share the finite-field spectrum of disjoint paths while having substantially different recurrence depth is a structural graph-dynamics question. The theorem answers it completely for every cycle length n>=3 and tail length m>=1, including all entry-time populations. The balanced dyadic family n=m=2^k has maximum transient 2^(k-1) versus 2^k-1 on the spectrally matched paths, a large, unbounded difference; m=2 instead increases the depth by two. These are not arbitrary isolated computations and the result extends beyond known real-spectrum recurrences.",
+    "status": "PASS"
+  }
+}
