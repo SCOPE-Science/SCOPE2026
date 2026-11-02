@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each face, the proposed orthogonal projection lies inside the face and has explicitly computed squared residual. An exchange argument proves that the closest face uses the largest barycentric weights. A bijective ordered-gap transformation supplies a uniform Dirichlet vector; its exact second moments evaluate a finite quadratic form, yielding the stated harmonic expression. The joint law and all three asymptotic regimes follow from those identities. Independent exact-rational checks across 66 dimension/skeleton pairs and direct geometric enumeration of sampled configurations passed; sampled numerical checks supplement, rather than replace, the analytic proof.
+## correctness
 
-## Originality — PASS (qualified)
-The inspected 2012 sparse simplex projection paper already covers the deterministic support-selection step: this step is not claimed as new. The inspected Conway–Sloane 1982 paper gives fixed-centroid moments and lattice Voronoi averages, not expected distance to the union of simplex faces of a selected dimension. Published indexed research about convexification thresholds for simplex skeleta concerns Minkowski sums, not stochastic Euclidean quantization. The new claim is one exact simultaneous geometric distribution and its all-dimension evaluated mean-square profile. Searches found no statement that directly supplies this profile or its three scaling limits. An earlier equivalent evaluation is a residual bibliographic possibility, not ruled out by keyword search.
+PASS
 
-## Mathematical value — PASS
-The finite-skeleton squared-distance error is a canonical metric approximation invariant: it quantifies the loss when a uniformly sampled simplex point is approximated by a face of prescribed dimension. Complete exact values for every dimension and every skeleton, plus the shared law enabling mixed-moment calculations, give a reusable analytic benchmark for sparse-simplex projection. The fixed-face-size, proportional-face-size, and fixed-codimension regimes differ in scale, so the exact calculation resolves a meaningful geometric transition rather than an arbitrary isolated number.
+For k>=2, 1<=m<k, in the inherited Euclidean embedding of edge length s, the nearest (m-1)-face retains the m largest barycentric coordinates, because the orthogonal face projection moves its removed total T equally onto the retained support and the exact residual is (s²/2)(∑removed λ_i²+T²/m). Ordered spacings U_r=r(λ_(r)-λ_(r+1)) map the sorted Dirichlet(1,…,1) chamber with constant Jacobian to a new Dirichlet(1,…,1) vector. Substitution yields the same-U joint law 2D_m²/s²=∑_{r,t>m}(1/m-1/min(r,t))U_rU_t, then Dirichlet second moments give E[D_m²]/s²=1/(2m)-(H_k-H_m)/k-(m+1)/(2k(k+1)). Derived all three fixed-m, m/k→α and fixed-k-m limits by exact harmonic asymptotics. Independently recomputed all 210 exact rational Dirichlet quadratic-form expectations for 2<=k<=21; finite checks supplement the all-k analytic argument.
 
-## Limits
-The work does not establish the optimal choice of approximation complex among all complexes, nor any analogous formula for irregular simplices. The literature search and self-review are not substitutes for independent validation; the closest public full-text comparisons and residual risks are recorded in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kyrillidis–Becker–Cevher–Koch (2012) already supplies a deterministic top-m sparse simplex support-selection procedure. Conway–Sloane (1982) computes fixed-centroid/quantization moments, not the minimum distance to an entire simplex skeleton. Indexed SCOPE simplex-skeleton convexification concerns equal-weight Minkowski sums, a different operation. Neither known statement gives the joint order-spacing quadratic law with exact all-m mean and three asymptotic scalings.
+
+## value
+
+PASS
+
+A uniform random point’s squared metric approximation error to every face skeleton is a canonical quantitative geometric observable relevant to sparse simplex projection. The exact simultaneous distribution representation supports all mixed moments, while the three sharp scaling regimes exhibit genuinely different approximation behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
