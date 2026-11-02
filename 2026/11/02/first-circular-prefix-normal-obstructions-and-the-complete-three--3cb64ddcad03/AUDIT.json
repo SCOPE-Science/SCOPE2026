@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Every maximum-count circular window can be shifted to begin on a one. For any of the three one-rooted cuts the second and third occurrence thresholds are exactly g_i+2 and n-g_(i-1). A single cut maximizes counts at every length iff it simultaneously minimizes those thresholds, namely the following gap is minimum and preceding gap is maximum. Distinct triples admit two cyclic orderings and only one is forbidden. The substitution a=t, b=t+1+u, c=t+2+u+v gives n=6+3t+2u+v and the rational generating function. The at-most-two-one/zero lemma proves global minimal length six. Unbounded results are proved symbolically; standalone exhaustive checker independently validates all binary words to 11 and all three-one words to 41.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burcsi et al., On Combinatorial Generation of Prefix Normal Words, arXiv:1401.6346: enumeration of ordinary prefix-normal words by fixed length.",
+        "Burcsi et al., On Prefix Normal Words and Prefix Normal Forms, arXiv:1611.09017: pre-necklace and fixed-density linear structures.",
+        "The all-length weight-three circular necklace classification requires simultaneous minimization of two gap thresholds under cyclic conjugation."
+      ],
+      "reasoning": "Linear enumeration and prefix-normal-form existence theorems do not ensure a rotation of an existing circle has maximum circular-prefix counts. Broader fixed-length linear counts also do not identify forbidden necklace orientation or prove the complete rational generating function.",
+      "searches": [
+        "https://arxiv.org/abs/1401.6346",
+        "https://arxiv.org/abs/1404.2824",
+        "https://arxiv.org/abs/1611.09017",
+        "prefix normal words circular rotation necklace all roots"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1401.6346",
+      "https://arxiv.org/abs/1404.2824",
+      "https://arxiv.org/abs/1805.12405",
+      "https://arxiv.org/abs/1611.09017",
+      "https://doi.org/10.1007/978-3-642-22321-1_20"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2011 normal-form theorem constructs a word with the same linear maximal-factor one-counts; it is not constrained to be a conjugate of the input.",
+        "The 2014 gap lemma supplies conditions for linearly prefix-normal words but does not quantify over all circular factors of every rotation or count obstructed necklaces.",
+        "Word 110010 is present in the published linear prefix-normal list but its circle is obstructed; hence direct transfer of the linear property is false."
+      ],
+      "reasoning": "The new theorem is not a corollary of existing existence statements because restricting a normal form to the original conjugacy class changes the question. A separate threshold argument and necklace orientation enumeration resolve that changed question. The possibility of an unpublished derivation from the known gap framework remains.",
+      "searches": [
+        "https://doi.org/10.1007/978-3-642-22321-1_20",
+        "https://arxiv.org/abs/1404.2824",
+        "https://arxiv.org/abs/1401.6346"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fici–Lipták, On Prefix Normal Words (2011), arXiv author manuscript 1805.12405: canonical linear prefix-normal form and linear substring Parikh counts.",
+        "Burcsi et al., Normal, Abby Normal, Prefix Normal, arXiv:1404.2824: fixed-density linear gap formulation.",
+        "The circularly inadmissible necklace of 110010 has an ordinary linearly prefix-normal representative, ruling out identification of the two predicates."
+      ],
+      "reasoning": "Synonyms include prefix-normal conjugates, maximal-one rooted cuts, and simultaneous circular-window maxima. All are compared on exactly three ones; ordinary linear prefix-normal forms differ by allowing new strings and excluding wraparound substrings. No inspected equivalent assertion found.",
+      "searches": [
+        "prefix normal words binary jumbled pattern matching circular necklaces conjugates roots rotations",
+        "circular binary prefix-normal no conjugate has all maximum factor one counts",
+        "cyclic prefix normal conjugate binary necklaces fixed Hamming weight three",
+        "https://arxiv.org/abs/1805.12405"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2014 enumeration tables count ordinary linear prefix-normal words, not failing circular weight-three necklaces.",
+        "The 2016 work develops linear fixed-density counts and pre-necklaces but supplies no checked all-length circular weight-three obstruction counts."
+      ],
+      "reasoning": "No inspected printed table or indexed record matches the coefficients of z^6/((1-z)(1-z^2)(1-z^3)) as circular prefix-maximal-root obstructions. Absence of indexing is not proof of absolute priority.",
+      "searches": [
+        "prefix normal cyclic necklace Hamming weight three exact classification",
+        "https://arxiv.org/abs/1404.2824",
+        "https://arxiv.org/abs/1611.09017"
+      ]
+    },
+    "rationale": "The primary 2011 and 2014 prefix-normal articles concern all ordinary linear factors, generating and testing words, and realizing factor maxima by potentially new words. They do not classify which existing cyclic rotations realize all maxima of wrapping circular factors. Their linear gap inequalities are structurally relevant but do not by themselves state the two-orientation obstruction, exact generating function or asymptotic half of weight-three necklaces. The published linearly prefix-normal word 110010 is a direct witness that ordinary prefix-normality does not imply the cyclic property. Targeted query searches found no covering statement; unindexed historical results are a residual priority risk.",
+    "residual_risks": [
+      "Older or non-indexed literature may derive equivalent cyclic gap-orientation counts under another terminology.",
+      "The structural starting point of linear fixed-density gap inequalities is classical; priority pertains to the new circular classification and not the general gap method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: ordinary linear substring maxima and normal-form existence differ from same-necklace circular root existence",
+        "evidence": [
+          "2011 conference paper, author manuscript posted 2018; normal-form theorem and pre-necklace comparison"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1805.12405",
+        "material_read": "Author manuscript full parsed text, especially characterization and prefix-normal form statement",
+        "method": "Read accessible manuscript text and compared definitions and implications",
+        "title": "On Prefix Normal Words",
+        "trigger": "Foundational original linear prefix-normal forms and relation with necklaces"
+      },
+      {
+        "assessment": "Not covering: generates ordinary linear prefix-normal strings, not all-weight-three circular obstruction necklaces",
+        "evidence": [
+          "Version 1 first posted 2014-01-24; enumerates fixed-length linear prefix-normal words"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1401.6346",
+        "material_read": "Full accessible parsed primary text, focusing on definitions, generation objective and enumeration claims",
+        "method": "Inspected the primary manuscript text and specific algorithmic scope",
+        "title": "On Combinatorial Generation of Prefix Normal Words",
+        "trigger": "Earliest verified archival primary text for generation, definition and enumerations"
+      },
+      {
+        "assessment": "Not covering: describes linear gap criteria and linear normal-form algorithms, no circular simultaneous-maxima necklace classification",
+        "evidence": [
+          "arXiv version first posted 2014-04-01; Section 4, linear fixed-density gap relations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1404.2824",
+        "material_read": "Full accessible HTML primary text including Section 4 and fixed-density gap lemma",
+        "method": "Read material sections and compare gap inequality and count domains",
+        "title": "Normal, Abby Normal, Prefix Normal",
+        "trigger": "Closest fixed-density gap inequalities and tables"
+      },
+      {
+        "assessment": "Not covering: linear fixed-density word enumeration and pre-necklace structural results rather than this exact circular rotation classification",
+        "evidence": [
+          "arXiv first posted 2016-11-28; Sections 3.2 and 4.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1611.09017",
+        "material_read": "Full accessible HTML including Sections 3.2 and 4.2",
+        "method": "Read relevant complete HTML sections and compare implications",
+        "title": "On Prefix Normal Words and Prefix Normal Forms",
+        "trigger": "Plausible broader later fixed-density and pre-necklace results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3cb64ddc-ad03-4c73-b011-150f1ee9ef33",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-length necklace classification answers when an existing circular sequence admits a cut simultaneously representing the maximum number of ones in every window length, a natural restriction of the jumbled-index normal-form problem. It identifies the global sharp first failure at six, complete weight-three obstructions by orientation, a rational generating function and asymptotic failure prevalence one-half. This provides a natural exact structural classification beyond an isolated finite computation.",
+    "status": "PASS"
+  }
+}
