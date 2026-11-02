@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Jacobi decomposition dimensions and characteristic recurrence cover all eigenvalues. The λ=1 zeros of P_k occur at k≡1(mod 4), and the radial factor vanishes iff h≡3(mod 4); Jacobi spectra are simple within each block. For λ≠1, one zero leaf per sibling pair forces all coordinates zero. For λ=1, the pair-sum kernel equals bottom sibling differences, and an injective pivot projection exists; this yields exactly M_h independent leaf actuators, matching the PBH multiplicity lower bound. A standalone exact finite-field program checks two prime fields at heights 1–6 but are only supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dai 2021 Section 4.3 defines C(g) with 3*2^g-2 vertices; T_h here has 2^(h+1)-1 vertices, and Dai Table 2 only tabulates the former.",
+        "Ji–Lin–Lee 2010 gives eigenvector and subgraph tests for general trees but not this complete minimum leaf-only all-height formula.",
+        "Mousavi–Haeri–Mesbahi 2018 minimal selection works for cographs; T_h for h>=2 contains an induced P4 and is outside their graph class."
+      ],
+      "reasoning": "General controllability tests apply as methodology but do not resolve the numerical optimum and terminal-only attainment without the supplied new spectral and pair-sum arguments. Cayley trees with three-child roots are different from two-child-root perfect binary trees. The broader source classes were compared at the level of hypotheses and implied conclusions, not just titles.",
+      "searches": [
+        "https://arxiv.org/pdf/2112.01169",
+        "https://www3.nd.edu/~hlin1/Papers/2010/ACC10_MAS.pdf",
+        "https://arxiv.org/html/1802.03599v2",
+        "Minimum terminal leaf actuator count for Laplacian controllability of perfect balanced binary trees, exact eigenvalue one multiplicity with period-four resonances, pivot leaf selection"
+      ]
+    },
+    "checked_sources": [
+      "He–Liu–Strang (2000) full-PDF §§3–4",
+      "Ji–Lin–Lee et al. (2010) accessible full-PDF theorem passages",
+      "Parlangeli–Notarstefano (2011) arXiv HTML",
+      "Dai (2021) arXiv full-PDF §4.3 and Table 2",
+      "Mousavi–Haeri–Mesbahi (2018) arXiv HTML",
+      "Parlangeli (2025) open journal text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "He–Liu–Strang prove recurrence and unit-eigenvalue multiplicities for a rooted homogeneous tree with root degree three; they do not assess actuator restriction or the PBH pivot optimality.",
+        "Dai derives minimal leader selection for the root-degree-three Cayley construction C(g); its printed sizes and example counts do not equal the perfect binary family.",
+        "The present proof explicitly shows that baseline sibling controls observe every eigenvalue except one, and that full-rank coordinate pivots attain the unit-eigenspace lower bound using leaves only."
+      ],
+      "reasoning": "The unit-eigenspace spectral resonance is substantially anticipated, so originality is not predicated on rediscovering it. The additional assertion that the eigenspace lower bound is realized with only terminal actuators, for all heights and with precise extra-pivot count, is not a direct specialization of inspected root-degree-three leader results or generic spectral PBH criteria.",
+      "searches": [
+        "https://math.mit.edu/~gs/papers/mp2.pdf",
+        "https://arxiv.org/pdf/2112.01169",
+        "Exact minimal leaf-only independently actuated leaders for Laplacian consensus on a perfect rooted binary tree of height h; one leaf from every sibling pair plus periodic height 4 additional leaves; eigenvalue 1 multiplicity formula and pivot selection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Parlangeli–Notarstefano 2011 treats coordinate-actuator PBH reachability/observability duality in paths and cycles.",
+        "Dai 2021 uses minimal perfect critical sets to solve leader selection on degree-three-root Cayley trees; no exact root-degree-two terminal-leaf period-four formula is supplied."
+      ],
+      "reasoning": "Controllability and observability coincide because the Laplacian is real symmetric. Alias searches for minimal leaders, terminal controls, eigenvector zeros, critical sets, rooted binary trees and Cayley trees were performed. Dai addresses an adjacent but nonisomorphic tree and different combinatorial objective unrestricted to leaves; the exact all-height terminal restriction and proof are not obtained without additional analysis.",
+      "searches": [
+        "Actuator placement controllability complete binary trees hierarchical eigenmodes eigenvalue 1 Laplacian",
+        "Li He Xiangwei Liu Gilbert Strang Laplacian eigenvalues growing trees 2000 controllability sensor selection",
+        "Exact minimal leaf-only independently actuated leaders for Laplacian consensus on a perfect rooted binary tree of height h; one leaf from every sibling pair plus periodic height 4 additional leaves; eigenvalue 1 multiplicity formula and pivot selection",
+        "perfect full binary tree Laplacian minimal number of leaders controllability leaf nodes eigenvalue one",
+        "perfect binary tree controllability number of control nodes 2^h 1/15",
+        "balanced binary tree leader selection all eigenvectors Laplacian observability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Results for He–Liu–Strang 2000 give related spectral multiplicity and 4/15 asymptotic fraction, not a table of minimum leaf controls.",
+        "Dai 2021 Table 2 lists minimal leader counts on trees of orders 4,10,22,46,94 rather than 3,7,15,31,63.",
+        "Accessible prior research records was searched over claims for binary tree, tree controllability, actuator, leader and leaf terms; closest actuator entries concerned wheels, ladders, double stars and cycle-derived networks."
+      ],
+      "reasoning": "No inspected published table or indexed research result exactly lists the claimed height-dependent minimum terminal input counts or pivot construction. This negative search is evidence of checked overlap, not a guarantee of uniqueness.",
+      "searches": [
+        "Minimum terminal leaf actuator count for Laplacian controllability of perfect balanced binary trees, exact eigenvalue one multiplicity with period-four resonances, pivot leaf selection",
+        "Actuator placement controllability complete binary trees hierarchical eigenmodes eigenvalue 1 Laplacian",
+        "Li He Xiangwei Liu Gilbert Strang Laplacian eigenvalues growing trees 2000 controllability sensor selection",
+        "Exact minimal leaf-only independently actuated leaders for Laplacian consensus on a perfect rooted binary tree of height h; one leaf from every sibling pair plus periodic height 4 additional leaves; eigenvalue 1 multiplicity formula and pivot selection",
+        "perfect full binary tree Laplacian minimal number of leaders controllability leaf nodes eigenvalue one",
+        "perfect binary tree controllability number of control nodes 2^h 1/15",
+        "balanced binary tree leader selection all eigenvectors Laplacian observability"
+      ]
+    },
+    "rationale": "A complete two-child-root perfect binary-tree terminal-leaf minimum and matching full-height construction are derived. Precursor spectral resonance and general PBH tree tests are acknowledged; the closest root-three-branch Cayley-tree leader problem is not an exact special case nor does it state this leaf-only pivot formula. Novelty is assessed from specific searched and inspected sources, not claimed absolutely.",
+    "residual_risks": [
+      "Related rooted-tree conventions may admit a reduction from existing minimum-leader theory not evident in the inspected statements.",
+      "The general MPCS framework may yield special-case algorithms but no inspected formula or terminal-only attainment proof for this graph.",
+      "Absence in semantic search is not evidence of mathematical uniqueness; a domain specialist should check independent priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related spectrum already known on degree-three-root trees; not the claimed minimal terminal actuator construction",
+        "evidence": "The degree-three instance has zeros of p_(4n+1)(1) and a 4/15 spectral share; no terminal leader optimization is given.",
+        "identifier_or_url": "https://math.mit.edu/~gs/papers/mp2.pdf",
+        "material_read": "Sections 3–4, characteristic recurrence (3.5)–(3.7), unit eigenspace and boundary eigenvectors, pp. 6–9",
+        "method": "Read extracted full-PDF mathematical passages and inspected page imagery",
+        "title": "Laplacian Eigenvalues of Growing Trees",
+        "trigger": "Strong overlap on unit-eigenvalue resonance and limit"
+      },
+      {
+        "assessment": "Distinct Cayley model with three-branch root; no exact two-branch-root leaf-only formula",
+        "evidence": "Section 4.3 specifies n=3*2^g-2 and examples 4,10,22,46,94; present graph has n=2^(h+1)-1.",
+        "identifier_or_url": "https://arxiv.org/pdf/2112.01169",
+        "material_read": "Abstract, definitions and PBH criterion, Section 4.3 and Table 2, pp. 1–3 and 12–15",
+        "method": "Read arXiv full-PDF article text including Cayley-tree construction and counts; PDF page-image attempts were unavailable",
+        "title": "Minimum leader selection for structural controllability of undirected graphs with leader-follower framework",
+        "trigger": "Closest paper asserting complete leader selection for Cayley trees"
+      },
+      {
+        "assessment": "General conditional controllability criteria; no exact all-height minimum-leaf enumeration",
+        "evidence": "Tree tests use shared eigenvalues and principal subgraph structure, not a perfect binary recurrence or minimal terminal-only input theorem.",
+        "identifier_or_url": "https://www3.nd.edu/~hlin1/Papers/2010/ACC10_MAS.pdf",
+        "material_read": "Introductions, theorems and proofs for multi-leader tree topology, pp. 1–5",
+        "method": "Read extracted publicly accessible PDF mathematical text; screenshot request encountered remote-page error",
+        "title": "Multi-agent controllability with tree topology",
+        "trigger": "General tree PBH and reducibility may dominate candidate"
+      },
+      {
+        "assessment": "Controls paths and cycles only, not perfect binary trees",
+        "evidence": "Defines independent-coordinate inputs and symmetric controllability/observability duality; path/cycle restrictions exclude branching trees.",
+        "identifier_or_url": "https://arxiv.org/html/1109.3556v1",
+        "material_read": "Sections II–IV on control model, PBH, paths and cycles",
+        "method": "Read accessible arXiv full HTML",
+        "title": "On the reachability and observability of path and cycle graphs",
+        "trigger": "Verified original archive-date control reference and coordinate PBH setup"
+      },
+      {
+        "assessment": "Cograph class excludes perfect binary trees at height two or higher",
+        "evidence": "Contains theorem on minimal sibling-partition input set for cographs; perfect binary tree contains an induced four-vertex path.",
+        "identifier_or_url": "https://arxiv.org/html/1802.03599v2",
+        "material_read": "Theorems on cograph sibling partitions and minimal control sets, Sections III–IV",
+        "method": "Read accessible full HTML research text",
+        "title": "Laplacian Dynamics on Cographs: Controllability Analysis through Joins and Unions",
+        "trigger": "Exact minimal input selection based on sibling classes"
+      },
+      {
+        "assessment": "Starlike rather than recursively branching trees, different exact classification",
+        "evidence": "Section 3 expressly studies starlike graph topologies and their path-branch selectors.",
+        "identifier_or_url": "https://www.mdpi.com/1999-4893/18/5/239",
+        "material_read": "Abstract and Section 3 focus on starlike graphs and general PBH framework",
+        "method": "Read accessible journal text on model, scope and findings",
+        "title": "Laplacian Controllability and Observability of Multi-Agent Systems: Recent Advances in Tree Graphs",
+        "trigger": "Recent survey and specialist tree-selection comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "846791b4-0a71-4ca2-92f6-6bf41234b573",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural exact minimum number of independent *leaf-only* actuators is classified for all heights, with constructive all-eigenvalue observability and a four-level spectral obstruction. It improves on generic sibling-pair symmetry breaking at h=3 (five versus four required) and gives a sharp 8/15 leaf density. This is a structural all-size optimization, not a chosen finite checksum.",
+    "status": "PASS"
+  }
+}
