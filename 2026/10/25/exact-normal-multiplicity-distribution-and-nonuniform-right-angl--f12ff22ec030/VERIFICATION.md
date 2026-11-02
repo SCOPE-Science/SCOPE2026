@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python verification.py` using Python 3's standard library; no external dependencies or input files are required. A completed execution reported: "PASSED: 24 angle-ratio profiles, exact rational case checks, direct clipped-area integration, 72000 independent normal counts and 9 boundary-layer cases".
+## correctness
 
-The checks independently reconstruct the six-normal chamber by clipping the original Cartesian triangle against both projection half-planes; they compare the computed area with the analytic fraction for six angles and four side-ratio pairs, check rational exact arithmetic when \(k=3/5\) and \(b/c=2/3\), and compare the predicted six-normal probability with 72,000 direct sampled point normal counts. They additionally test finite right-angle degenerating sequences and the exact hyperbolic-sine stability identity. The Monte Carlo tolerance is deliberately probabilistic and does not certify exact equalities.
+PASS
 
-The infinite-family conclusion relies on the analytic proof in RESULT.md and the 2024 source's planar critical-point classification. Independent mathematical validation was not performed.
+For area-uniform Y inside a nondegenerate triangle, the prior polygonal normal convention counts twice the number of relative-interior edge projection feet for generic Y; thus N=4 or 6. In an obtuse triangle, only the two strips at the obtuse vertex are restrictive. Their intersections with the opposite side form an interval with exactly F(A,b/c)=bc sin²A/[(c-b cos A)(b-c cos A)]=(1-k²)/(1+k²+k(q+q^{-1})), k=-cos A>0, q=b/c. This proves the complete two-point law. AM-GM proves fixed-A unique maximizer b=c, F*=cot²(A/2), while expanding q+q^-1 gives exact sinh² stability. For k→0 and k(q+q^-1)→λ in [0,∞], the exact fraction tends 1/(1+λ), so all mean limits from 4 through 6 occur with allowed degenerating q. Independently checked 35 exact stability values, 20 geometric subsegment endpoint fractions, and exact rational F=32/133. Source establishes the qualitative generic critical point classification; independent algebra proves the quantitative formula.
+
+## originality
+
+PASS
+
+Nasonov–Panina–Siersma (2024) establish four/six normals and show nonobtuse triangles have six a.e. and obtuse means lie in (4,6); they do not give the exact q-dependent area fraction, fixed-angle rigidity or simultaneous angle/shape nonuniform boundary law in the inspected Sections 3.1 and 6. Resultary regular odd-polygon mean applies to the equilateral triangle, not arbitrary obtuse triangles. Their qualitative near-right-angle remark is only pointwise in shape, so the nonuniform degeneration is additional rather than contradictory.
+
+## value
+
+PASS
+
+This computes the complete distribution of a natural generic boundary-normal count for all triangles, provides a sharp fixed-obtuse-angle extremal characterization and stability, and distinguishes pointwise from uniform right-angle behavior with an entire continuum of limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
