@@ -1,15 +1,21 @@
-# Review of the exact order-four intercalate-switch spectrum
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The theorem has a fixed finite domain of 576 labeled squares, so exhaustive verification is a legitimate exact proof. Independent construction of the graph agrees on all adjacency lists. A 144-vertex symmetric integer matrix has an explicitly checked annihilating polynomial with five distinct real roots; five integer power traces uniquely determine all five eigenvalue multiplicities. The standard bipartite singular-value argument then proves every factor of the full 576-vertex characteristic polynomial, and degree normalization proves the stated lazy-walk gap. The scripts reproduce the canonical adjacency fingerprint and all-distance checks. Risks: a software implementation error is possible despite two structurally different implementations; no external independent audit has occurred.
+## correctness
 
-## Originality
-**PASS, with a material priority caveat.** Wanless (2004) studies switching *quotients by Latin-square equivalence classes*, and his order-four result concerns two quotient vertices, so it cannot imply the labeled 576-vertex adjacency characteristic polynomial. Direct literature and mathematical-record queries for the full characteristic polynomial, exact eigenvalue multiplicities, intercalate graph spectra and lazy Markov spectral gaps identified no equivalent statement. A 2026 Zenodo record by Davis expressly studies the *same* 576-state graph, proves its degree partition and discusses Laplacian top-eigenspace localization. That work is credited: neither its vertex/edge census nor its bipartition is claimed new. The attached `spectral_branch.pdf` could not be read despite inspecting its hosted landing page and preview. Its possible unpublished-in-summary full eigenvalue list is a nontrivial remaining novelty risk. No claim of independently established priority is made.
+PASS
 
-## Mathematical value
-**PASS.** The order-four Latin squares are the smallest labeled family with two distinct isotopy types and nontrivial intercalate transitions. A complete spectrum gives a checkable global invariant of the entire switch geometry, including the rank, nullity, adjacency energy, and the exact normalized random-walk relaxation eigenvalues, whereas the classical two-vertex quotient loses these multiplicities. The exact spectral gap is directly relevant to local-switch sampling and is not fixed by the previously known degree sequence and connectivity. The result is a natural complete finite classification rather than an arbitrary parameter slice.
+Read the full RESULT.md and verify_spectrum.py in the actual record. Enumerating all 24^4 choices of four permutation rows and enforcing column distinctness yields precisely 576 indexed squares. Inspecting each of the 36 possible row/column intercalates gives a 144-by-432 incidence B with degrees 12 and 4 (1728 edges). The exact integer identity BB^T=12I+2H, H 18-regular with entrywise annihilator H(H+6I)(H+2I)(H-6I)(H-18I)=0 and traces (144,0,2592,10368,176256), determines H eigenvalue multiplicities (-6:15,-2:81,0:8,6:39,18:1). Thus A has zero mult 318 and paired eigenvalues sqrt(8) mult81, sqrt(12) mult8, sqrt(24) mult39, sqrt(48) mult1, proving displayed characteristic polynomial. Degree normalization A/sqrt(48) yields lazy gap (1-1/sqrt(2))/2. Independent freshly written checker enumerated all 576, checked every exact polynomial residual, all-pair BFS diameter=6, degree counts, traces. This is finite exhaustive proof because order is fixed, unlike an extrapolation.
 
-## Scope and comparison limits
-The result concerns labeled squares and an ordinary adjacency matrix; the conventional Latin-square graphs on sixteen cells, Wanless's class quotients and unweighted graph Laplacians are different. The lazy walk has degree-weighted equilibrium, not the uniform measure. Full text of the 2026 source was inaccessible; overlap could not be completely ruled out. Every finite premise of the proposed new theorem was independently verified from its package.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for complete labeled adjacency spectrum and exact lazy-walk gap, not for 576 count or 432:144 degree partition. Wanless classified a quotient on isotopy/main classes. Davis explicitly considers the SAME labeled 576-vertex graph but accessible record reports degree classes and Laplacian top eigenspace, not the full spectrum. Its actual spectral_branch.pdf was inaccessible, so priority remains materially qualified.
+
+## value
+
+PASS
+
+A complete characteristic polynomial and sharp degree-biased lazy-walk spectral gap of a canonical finite move graph are natural exact Markov-chain / algebraic invariants useful for sampling and understanding connectedness; 576 labeled states form a nontrivial graph, not an arbitrary slice or known 16-vertex Latin-square graph. The degree partition itself is prior known, not claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
