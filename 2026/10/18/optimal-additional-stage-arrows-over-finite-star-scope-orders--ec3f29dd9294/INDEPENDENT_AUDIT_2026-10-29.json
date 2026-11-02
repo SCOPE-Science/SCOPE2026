@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:46:45.759725Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "/mnt/data/scope_worker03_delivery_20261029T163800Z/independent_checks.py",
+        "/mnt/data/scope_worker03_delivery_20261029T163800Z/independent_check_results.json"
+      ],
+      "proof_boundaries": [
+        "k=1 root merger costs one; nonmerged case zero.",
+        "For a singleton least SCC U and another quotient class, the covered outgoing cover edge compensates the merger cost.",
+        "All additional arcs lie in the target preorder; loops are unnecessary.",
+        "Only finite one-world rooted stars and legal scope-persistent atomic valuations are covered."
+      ],
+      "rationale": "For every finite rooted star with k>=1 labelled leaves, any extending stage preorder is determined by an arbitrary leaf preorder T and a root-merger flag (possible precisely when T has a least SCC U). If no leaf reaches the root, every nonsingleton leaf SCC needs at least |C| additional internal arcs and every quotient cover needs one; disjoint lower bounds are attained by cycles and cover edges. If U is merged with root, every member u of U needs an additional outgoing root-component arc, met by u->r; fixed root->leaf arcs supply all covers leaving the root class and other SCC cycles/covers give the rest. Mantel triangle-free bound on Hasse cover graph gives f_k(q)=floor(q^2/4)+k-q+min(q,k-q), whose sharp maximum is 1,2,3,5 for k=1..4 and floor(k^2/4) for k>=5; witnesses are complete bipartite height-two orders or two 2-cycles with one cover at k=4. With an upward-closed valuation of p equal to all leaves or all but one leaf, Box_{>=!}p at a leaf detects any changed root edge or leaf comparison under the actual BML one-world semantics. Independently enumerated all 2^(k^2) leaf-origin presentations at k=1..4, yielding respectively 2,7,45,500 distinct preorders, unique modal signatures, and maximal minimum costs 1,2,3,5, each with exact agreement of direct minimization and cost formula. Checked the discrete extremal upper-bound function for every k=2..200. Finite enumeration is corroboration; the unrestricted result rests on the argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BML Definition 2.1 specifies root, extending modal preorder and persistent valuations ().",
+          "Aho–Garey–Ullman Theorem 2 gives the general unrestricted SCC-cycle minimum ().",
+          "Inverse arborescence theorem optimizes cost changes for an already fixed rooted arborescence, not all target reachability relations ()."
+        ],
+        "reasoning": "Aho covers the unconstrained one-relation reduction subcase. The BML semantics source only defines admissible structures. Neither inspected claim states the relative cost with all compulsory scope arrows free or the sharp maximum over arbitrary extensions. A broader zero-cost minimum equivalent digraph specialization could imply it and is a residual risk.",
+        "searches": [
+          "Resultary: sharp maximum number of cover relations in poset with equivalence classes generator cycles",
+          "minimum equivalent digraph with free arcs cost 0 fixed mandatory star root transitive reduction",
+          "minimum equivalent digraph with mandatory fixed edges reachability preservation minimum extra edges",
+          "Aho Garey Ullman The Transitive Reduction of a Directed Graph 1972 theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Bounded Modal Logic: Explicit Scope Dependencies in Multi-Stage Programming — https://www.fos.kuis.kyoto-u.ac.jp/~murase/files/bml-draft.pdf (arXiv:2602.09462)",
+        "The Transitive Reduction of a Directed Graph — https://www.cs.tufts.edu/comp/150FP/archive/al-aho/transitive-reduction.pdf ; DOI 10.1137/0201008",
+        "OEIS A326878 — Number of topologies whose points are a subset of {1,...,n} — https://oeis.org/A326878",
+        "A simple algorithm and min–max formula for the inverse arborescence problem — https://doi.org/10.1016/j.dam.2021.02.027",
+        "Resultary searches listed in all four named originality comparisons; returned published SCOPE graph and modal papers concern different objects, e.g. Finite IFS frames are downset families over minimal worlds (Resultary/2026/10/4/SCOPE-finite-ifs-frames-are-downset-families-over-minimal-worlds--e25abb14e6ab).",
+        "Fully Dynamic Algorithms for Transitive Reduction, arXiv:2504.18161, abstract considered; dynamic minimum equivalent digraph, not free-star BML optimum (turn921119academia49).",
+        "MINIMUM EQUIVALENT DIGRAPH problem compendium, unweighted subgraph problem ()."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "BML author PDF, Definition 2.1 and Definition 4.1, establishes semantic conditions but no optimal presentation (, ).",
+          "Aho–Garey–Ullman theorem derives unconstrained optimum with all arcs counted ().",
+          "OEIS counts relation classes but not presentation resources ()."
+        ],
+        "reasoning": "The fixed-star theorem is not merely the numerical repetition of the known count. It combines compulsory zero-cost root edges and exact realization of all target preorders; the merged-root case needs a separate argument. The one-formula semantic separation follows from the concrete BML bounded-box clause and scope-persistent valuations, not just graph-isomorphism counts. The classical proof mechanisms are acknowledged, and other mathematically equivalent old constraint formulations remain possible.",
+        "searches": [
+          "Murase Maniwa Bounded Modal Logic 2026 arxiv 2602.09462 definitions 2.1 stage scope preorder kripke box",
+          "fixed mandatory arcs zero cost minimum equivalent digraph transitive reduction strongly connected preselected edges star",
+          "Resultary: finite Bounded Modal Logic stage preorder extends scope preorder modal distinguishability star leaf relation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aho–Garey–Ullman Theorem 2, p.134, gives unconstrained minimum graph ().",
+          "For two vertices {r,u}, the merged star has one free r->u edge and only one charged extra u->r edge, while ordinary minimum strongly connected graph charges two."
+        ],
+        "reasoning": "The generic cycle-plus-Hasse-cover decomposition is not new and covers part of the cost argument. A cost relative to free preinstalled root arcs is distinct; in the merger case root-to-leaf reachability substitutes for whole SCC connections and for outgoing quotient covers. An abstract zero/one-weight formulation may encode this but no earlier evaluated theorem for all star preorders was located.",
+        "searches": [
+          "Resultary: minimum number of directed arcs added to rooted star to generate extending preorder, SCC quotient Hasse covers, Mantel extremum",
+          "Resultary: finite Bounded Modal Logic stage preorder extends scope preorder modal distinguishability star leaf relation",
+          "minimum equivalent digraph with prescribed zero cost edges reachability preservation minimum extra edges",
+          "finite rooted star extensions preorder generator minimum arcs stage scope preorders BML"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A326878 already contains the total labelled stage-relation counts 2,7,45,500 and binomial-transform formulas ().",
+          "Independent exact enumeration recovered those counts at k=1..4, but additionally the full minimum extra-arrow cost per preorder."
+        ],
+        "reasoning": "The total number of possible stage relations is known; it is explicitly excluded from novelty. It does not encode the target-specific minimal free-star additions or the extremal exception at k=4. No identified prior exact table of those costs was found.",
+        "searches": [
+          "OEIS A326878 number topologies on subsets 1 2 7 45 500",
+          "OEIS A326878",
+          "1 2 3 5 6 9 exact maximum generator arrows preorder star rooted"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality attaches to the fixed free-star constrained generator costs, root-component merger, sharp M(4)=5 anomaly and semantically faithful BML family, not to classical transitive reduction, the cyclic SCC/cover ingredients or already known topology-count table. No checked primary theorem explicitly supplies the mandatory-free-arc optimization or its extremum; a broad weighted equivalent-digraph theorem remains a priority risk.",
+      "residual_risks": [
+        "An unindexed older theorem on minimum equivalent digraphs with prescribed zero-cost arcs might imply the all-star relative cost as a direct specialization; no absolute priority statement is possible.",
+        "The SCC cycle and Hasse cover ingredients are 1972 classical mathematics; they must not be claimed as a new general transitive-reduction principle.",
+        "The BML preprint is new in 2026, and later or less indexed follow-up results might have the same specialized statement.",
+        "Exact topology relation-count sequence is already known and cannot be advertised as a new count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines BML frame and semantics, but the read definitions and overview do not supply any finite rooted-star minimum arrow budget. The full-text search found no discussion matching star-specific optimization.",
+          "evidence": [
+            "Definition 2.1: rooted preorder and extending modal preorder with upwards-closed atomic valuation ().",
+            "Definition 4.1: single-world bounded box at global root is universal over stage successors ()."
+          ],
+          "identifier_or_url": "https://www.fos.kuis.kyoto-u.ac.jp/~murase/files/bml-draft.pdf (arXiv:2602.09462)",
+          "material_read": "Full-text author PDF available (45 pages); inspected and visually confirmed Definition 2.1 on PDF page 4 and Definition 4.1 and bounded-box truth clause on page 8, introduction and article organization; full-text search for star-specific theorem.",
+          "method": "Lawful author-hosted full-text PDF, searchable text and rendered screenshots; web references , ,  and .",
+          "title": "Bounded Modal Logic: Explicit Scope Dependencies in Multi-Stage Programming",
+          "trigger": "The initiating definition of stage preorders, rooted scope and bounded box semantics matches the audited model."
+        },
+        {
+          "assessment": "The unrestricted minimum-edge cycle-plus-cover theorem is already known and directly covers the unmerged unconstrained component. It does not solve the constrained problem with compulsory free root edges or compute its exceptional maximum.",
+          "evidence": [
+            "Page 134 Theorem 2 characterizes ordinary minimum arc count as cyclic expansion of quotient transitive reduction ().",
+            "No prescribed free arc set appears in the read theorem."
+          ],
+          "identifier_or_url": "https://www.cs.tufts.edu/comp/150FP/archive/al-aho/transitive-reduction.pdf ; DOI 10.1137/0201008",
+          "material_read": "Primary seven-page full article located; relevant complete Theorem 2, Lemmas 3–6 and cyclic expansion proof read from rendered page 134; journal abstract also read.",
+          "method": "Lawful scanned full-text source, visually rendered PDF page 134 (), primary journal DOI page .",
+          "title": "The Transitive Reduction of a Directed Graph",
+          "trigger": "Strongest classical implication candidate: reachability-preserving minimum presentation by cycles and quotient cover edges."
+        },
+        {
+          "assessment": "Counts 2,7,45,500 already known for k=1..4; no cost distribution, root-merger relative budget, or one-formula separation is provided in its listed formulas.",
+          "evidence": [
+            "A326878 terms 1,2,7,45,500,9053; title and binomial transform of topology counts ()."
+          ],
+          "identifier_or_url": "https://oeis.org/A326878",
+          "material_read": "Full public OEIS sequence entry, terms, title, formulas, and example table ().",
+          "method": "Primary sequence database website.",
+          "title": "OEIS A326878 — Number of topologies whose points are a subset of {1,...,n}",
+          "trigger": "Exact known table matches the k=1..4 observed total number of possible stage relations."
+        },
+        {
+          "assessment": "Optimizes cost-function modification to make a fixed root arborescence cheapest, which is not preservation of an arbitrary transitive reachability preorder with a prescribed free star.",
+          "evidence": [
+            "Theorem 5.2 objective is inverse arborescence cost modification; root-connectivity concerns reachability from a single designated root ()."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2021.02.027",
+          "material_read": "Accessible paper abstract, Introduction, Section 2.1 and Section 5.1 excerpts (); not the complete article.",
+          "method": "Publisher full-text excerpt, not presumed whole-document coverage.",
+          "title": "A simple algorithm and min–max formula for the inverse arborescence problem",
+          "trigger": "Alternative potentially broader fixed-root graph optimization under weighted edge costs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A finite BML stage structure must extend fixed scope transitions, which are not resources to be re-added. The exact target-relative minimum is consequently a natural and useful representation-size invariant; the theorem supplies its constructive optimum for every finite star, a sharp universal resource budget, the nonmonotone exceptional four-leaf optimum of five, and a modal separation witness demonstrating faithful distinction of structures. This is a motivated complete natural classification, not an arbitrary tiny enumeration or unsupported downstream promise. Its scope is explicitly one-level finite stars, not general trees.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bounded Modal Logic: Explicit Scope Dependencies in Multi-Stage Programming — https://www.fos.kuis.kyoto-u.ac.jp/~murase/files/bml-draft.pdf (arXiv:2602.09462)",
+    "The Transitive Reduction of a Directed Graph — https://www.cs.tufts.edu/comp/150FP/archive/al-aho/transitive-reduction.pdf ; DOI 10.1137/0201008",
+    "OEIS A326878 — Number of topologies whose points are a subset of {1,...,n} — https://oeis.org/A326878",
+    "A simple algorithm and min–max formula for the inverse arborescence problem — https://doi.org/10.1016/j.dam.2021.02.027",
+    "Resultary searches listed in all four named originality comparisons; returned published SCOPE graph and modal papers concern different objects, e.g. Finite IFS frames are downset families over minimal worlds (Resultary/2026/10/4/SCOPE-finite-ifs-frames-are-downset-families-over-minimal-worlds--e25abb14e6ab).",
+    "Fully Dynamic Algorithms for Transitive Reduction, arXiv:2504.18161, abstract considered; dynamic minimum equivalent digraph, not free-star BML optimum (turn921119academia49).",
+    "MINIMUM EQUIVALENT DIGRAPH problem compendium, unweighted subgraph problem ()."
+  ],
+  "disposition": "passed",
+  "final_claim": "For every labelled k-leaf rooted star scope order (k>=1), classify extending stage preorders by arbitrary leaf preorder and possible merging of its least SCC with the root, with exact minimal additional arc formulas m(S); maximum M(k) is 1,2,3,5 at k=1,2,3,4 and floor(k^2/4) for k>=5; distinct extensions are distinguished by Box_{>=!}p using a permitted one-world persistent valuation.",
+  "limitations": [
+    "Not a theorem for arbitrary finite rooted trees, infinite frames, or growing-world modal models.",
+    "No earlier equivalent weighted mandatory-edge formulation can be categorically excluded.",
+    "Finite checks cover all k<=4 presentations and symbolic bound maximization through k=200 only; infinite correctness derives from proof.",
+    "No peer-reviewed or formally verified certification inferred."
+  ],
+  "residual_risks": [
+    "An unindexed older theorem on minimum equivalent digraphs with prescribed zero-cost arcs might imply the all-star relative cost as a direct specialization; no absolute priority statement is possible.",
+    "The SCC cycle and Hasse cover ingredients are 1972 classical mathematics; they must not be claimed as a new general transitive-reduction principle.",
+    "The BML preprint is new in 2026, and later or less indexed follow-up results might have the same specialized statement.",
+    "Exact topology relation-count sequence is already known and cannot be advertised as a new count."
+  ],
+  "schema_version": 1
+}
