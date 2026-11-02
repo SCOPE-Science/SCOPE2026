@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The mathematical claim is proved in RESULT.md by a transfer-operator and bounded-variation argument; infinite-time convergence is not inferred from finite tests.
+# Independent mathematical audit
 
-1. Analytic checks: for each fixed iterate \(r\) the surviving affine-branch partition is finite; every slope is at least \((\sqrt2)^r\); endpoint traces yield the explicit inequality \(\operatorname{Var}(K^r h)\le3\cdot2^{-r/2}\operatorname{Var}(h)+C_r\|h\|_1\). At \(r=4\), the contraction coefficient is \(3/4\). Bounded variation compactness, transfer invariance and density of the hole-preimage set finish the contradiction.
-2. Source-dependent hypotheses: arXiv:2410.01052v2, Theorem B, Lemmas 21–22, Proposition 23, Theorem C. The exact full-source graph case census is not independently replayed here.
-3. Artifact check: execute `python3 check_branches.py` using ordinary Python 3. This checks the four quadrant matrices, all sixteen direction images and the displayed contraction coefficient with integer arithmetic. It does not replace the infinite proof.
-4. Priority comparison: arXiv:2503.02411v4, Theorem 3 (formerly Theorem 2 in v1), proves full arclength only on specified parameter intervals; this theorem extends those intervals. An earlier restricted \(2\le b\le4\) calculation is not claimed as new.
+## correctness
 
-Independent audit has not been performed. No formal proof assistant or external certification was used.
+PASS
+
+On every nonconstant affine edge branch the arclength slope is at least sqrt(2); the original source supplies a finite edge partition and denseness of plateau preimages for all parameters. For the killed transfer operator K, a depth-r interval J contributes variation at most s_J^{-1}(3 Var_J(h)+2 |J|^{-1} integral_J |h|). Summing disjoint surviving branch domains gives Var(K^r h) <= 3 (sqrt(2))^{-r} Var(h)+C_r||h||_1. With r=4 the contraction coefficient is 3/4. L1 contractivity and BV compactness make the Cesaro limit of K^n 1 a nonzero stationary BV density if the survivor set has positive measure. An invariant density cannot charge any plateau preimage, but every nonzero positive BV density charges an open subinterval and therefore the dense open union of plateau preimages. Contradiction. Independent exact arithmetic verified all sixteen quadrant/direction matrix images and the coefficient 3/4. The global graph census/density are used as cited published premises, not established by this finite check.
+
+## originality
+
+PASS
+
+The 2025 graph paper establishes all-parameter open dense preimages but explicitly leaves the full-arclength claim as a suspicion. The subsequent paper proves full measure only in specified parameter ranges. The reviewed result adds an all-parameter arclength conclusion via the BV survivor-density argument. Related general open expanding-map-with-holes theory is a priority risk but its inspected assumptions do not directly establish this entire graph family; full-text comparison beyond the abstract remains warranted.
+
+## value
+
+PASS
+
+Full graph-arclength absorption for every parameter was explicitly conjectural in the original all-parameter graph paper and established only in special parameter regions by the sequel. The new theorem proves that natural measure-theoretic question simultaneously for all real b by an honest general BV killed-transfer argument. This is a useful structural result despite employing familiar transfer-operator tools; no ambient planar area or exceptional-set dimension is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
