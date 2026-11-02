@@ -1,19 +1,21 @@
-# Scientific review — parity dichotomy for clique-bouquet defensive alliances
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof computes exact selected-neighbor inequalities for peripheral vertices and the apex. Their coupling gives the necessary parity threshold; the proof verifies both directions of global inclusion-minimality by analyzing every nonempty proper subset, not just single deletions. A direct graph-definition verifier on 21 small bouquets exhaustively compares actual globally minimal sets and cardinality polynomials for 18,891 candidate subsets. The infinite theorem rests on its symbolic proof.
+PASS
 
-## Originality — PASS (with priority risk)
+Let a_i=floor(r_i/2), T=sum a_i and o=count odd r_i. The defensive inequality on a chosen peripheral vertex is 2(k_i-1+z0)+1>=r_i. If the apex is absent, global minimality forces a single nonempty blade with k_i=a_i+1. With apex present, any blade with k_i>a_i contains its own defensive suballiance, while the center requires sum k_i>=T+floor(o/2), giving k_i=a_i for all blades and o<=1. Conversely every nonempty proper subset of either proposed type fails a peripheral or apex inequality. New independent exhaustive all-subset tests exactly matched all families for seven heterogeneous bouquets; B(2,4,4) has 81 minimal sets.
 
-The claim is the **complete globally minimal** ordinary defensive-alliance classification in clique bouquets, not the definition or general-graph algorithm. Feng–Fernau–Mann (arXiv:2312.11963) treat globally minimal enumeration generally and for trees; Bazgan–Fernau–Tuza treat upper alliances; Ibrahim includes the friendship graph in a polynomial graph-recognition proposition without the present globally minimal size distribution. Nearby records on complete multipartite strong/offensive alliances and on generalized-windmill dissociation/general-position polynomials do not logically cover this ordinary-defensive condition. Oñate–Cabahug study total alliances, not the global-minimal ordinary family; some of that source's math rendering is incomplete. Equivalent unindexed results cannot be excluded.
+## originality
 
-## Value — PASS
+PASS
 
-The natural question is not simply minimum alliance size, but all inclusion-minimal defensive alliances and their size frequencies, as motivated by prior enumeration work. The classification provides a complete, nontrivial parity transition: the central family exists with zero or one odd blade and disappears when two blades are odd. For uniform even blades it yields an unbounded difference between the smallest and largest globally minimal alliance cardinalities, and the closed polynomial counts every minimal solution. No unrelated general theorem is asserted.
+General algorithmic enumeration of minimal defensive alliances by Feng–Fernau–Mann and recent parameterized classification do not give the specific all-orders heterogeneous clique-bouquet polynomial nor the odd-blade parity obstruction; those graph family aliases were explicitly searched. No asserted stronger published formula was found.
 
-## Limitations
+## value
 
-The assumptions require at least two peripheral cliques, each of order at least two; this is not a theorem for arbitrary block graphs, other alliance predicates, or locally minimal but nonglobally minimal sets. Computation covers finite cases only, and bibliographic priority is subject to unindexed literature. No external independent validation has taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The parity threshold for whether apex-containing globally minimal defensive alliances exist, and their all-size census across an infinite natural block graph family, are motivated and not just a textbook minimum-size exercise. The family has unbounded minimal-size gaps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

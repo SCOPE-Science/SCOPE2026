@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and evidence
 
-The theorem is established by the symbolic proof in `RESULT.md`. For independent finite corroboration, run `python3 verify.py` with Python 3.9 or later. `verification_output.txt` is the recorded exact output.
+# Independent mathematical audit
 
-The verifier forms the original adjacency relation for a clique bouquet and directly checks the condition \(2\deg_S(v)+1\ge\deg(v)\) for selected vertices. It enumerates all nonempty subsets of each test graph. A defensive set is globally minimal exactly when it does not contain any earlier defensive set, because every nonempty proper subset has a smaller bit-mask integer value. The implementation constructs such a reference family and separately constructs the predicted two families; it tests equality of the resulting vertex sets and coefficients.
+## correctness
 
-Checks cover 21 selected parameter tuples, all two or more cliques of orders at least two, representing 18,891 nonempty subsets. The tests include both one-or-fewer-odd and multiple-odd cases, unequal blade sizes, and four-blade instances. This exhaustively verifies the tested *finite* graphs only; no such finite test proves the arbitrary-parameter theorem.
+PASS
 
-The proof's only arithmetic steps are the exact peripheral threshold, the center requirement \(K\ge \lfloor R/2\rfloor=T+\lfloor o/2\rfloor\), and the global-minimal suballiance exclusion; these are reproduced in `RESULT.md`. There is no unresolved computational dependency.
+Let a_i=floor(r_i/2), T=sum a_i and o=count odd r_i. The defensive inequality on a chosen peripheral vertex is 2(k_i-1+z0)+1>=r_i. If the apex is absent, global minimality forces a single nonempty blade with k_i=a_i+1. With apex present, any blade with k_i>a_i contains its own defensive suballiance, while the center requires sum k_i>=T+floor(o/2), giving k_i=a_i for all blades and o<=1. Conversely every nonempty proper subset of either proposed type fails a peripheral or apex inequality. New independent exhaustive all-subset tests exactly matched all families for seven heterogeneous bouquets; B(2,4,4) has 81 minimal sets.
+
+## originality
+
+PASS
+
+General algorithmic enumeration of minimal defensive alliances by Feng–Fernau–Mann and recent parameterized classification do not give the specific all-orders heterogeneous clique-bouquet polynomial nor the odd-blade parity obstruction; those graph family aliases were explicitly searched. No asserted stronger published formula was found.
+
+## value
+
+PASS
+
+The parity threshold for whether apex-containing globally minimal defensive alliances exist, and their all-size census across an infinite natural block graph family, are motivated and not just a textbook minimum-size exercise. The family has unbounded minimal-size gaps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
