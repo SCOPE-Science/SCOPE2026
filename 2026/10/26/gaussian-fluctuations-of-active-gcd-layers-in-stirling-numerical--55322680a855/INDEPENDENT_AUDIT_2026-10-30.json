@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T12:53:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact gcd theorem of Komatsu–Song identifies d_j=a/gcd(a,M_j), M_j=(1/2)lcm{m:phi(m)<=2j}. Every distinct p>=5 dividing a has first occurrence in M_j at j=(p-1)/2 (since any multiple has totient at least p-1); thresholds are distinct and <=J_n; each forces a distinct strict drop. Since the product of strict gcd ratios is a and each nontrivial drop contributes a factor >=2, 1+omega_(>=5)(a)<=T<=1+Omega(a), giving the specified absolute bound relative to omega(n(n-1)). For odd p, p^k|a with k>=2 means n=0 or 1 mod p^k, and for 2 the modulus shifts; summing the geometric prime power probabilities plus O(sqrt(X)log X/X) residue errors gives mean Omega(a)-omega(a)=O(1). For Y=X^((loglog X)^(-1/3)), CRT simultaneously models any fixed number of prime-divisibility indicators as independent Bernoulli(2/p) up to X^{-1+o(1)} fixed moments, with mean and variance 2loglog X+O(logloglog X). Primes>Y dividing n(n-1)<=X^2 contribute <=2(loglog X)^(1/3)=o(sqrt(loglog X); Slutsky and Markov give the Gaussian. Independent exact Stirling/gcd computations n=4..90 verified 87 cases but do not prove the CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Komatsu–Song give gcd(a,M_j) exactly and establish telescopic/Apéry structure, but not a probability distribution of number of active indices in the inspected theorem.",
+          "Classical Erdős–Kac covers additive functions of generic integers; for n(n-1), a CRT or general linear-forms argument is needed."
+        ],
+        "reasoning": "The prior exact filtration and the classical CLT together strongly motivate the answer but do not automatically prove every p>=5 forces an individual drop at a distinct index and the remainder is O_P(1).",
+        "searches": [
+          "arxiv:2610.03070 Theorem on d_j exact gcd filtration",
+          "Erdos Kac 1940",
+          "Stirling first kind numerical semigroup gcd filtration active generator layers Erdős Kac Gaussian omega n(n-1)"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.03070",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL22/Shor/shor3.html",
+        "Erdos–Kac (1940), American Journal of Mathematics 62"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original gcd formula determines T if all its integers are evaluated, but states no limiting law or first-prime activation separation.",
+          "Erdős–Kac controls omega but provides no bridge from omega to a semigroup gcd filtration.",
+          "Shor confirms telescopic presentations are not necessarily minimal, preventing an embedding dimension overclaim."
+        ],
+        "reasoning": "A researcher can combine known tools to prove this result; the additional mathematically relevant bridge is the p-threshold sandwich and tight-error proof. The Gaussian itself is standard after that bridge, which limits but does not erase contribution.",
+        "searches": [
+          "Komatsu Song Telescopic Structure arxiv:2610.03070",
+          "Erdos Kac 1940 theorem",
+          "Shor On Free Numerical Semigroups ... 2019"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T(n) counts strict gcd quotients, not the semigroup's minimal embedding dimension.",
+          "The proved tight comparison identifies its asymptotic fluctuations with omega(n(n-1)) but not exact equality.",
+          "The 2loglog X CLT for omega(n(n-1)) is a known style of additive prime-factor theorem."
+        ],
+        "reasoning": "The CLT alias is an Erdős–Kac law for strict drops in the canonical Stirling gcd filtration; known Gaussian behavior of omega(n(n-1)) does not alone supply T's deterministic tight comparison.",
+        "searches": [
+          "Stirling first kind numerical semigroup gcd filtration active generator layers Erdős Kac Gaussian omega n(n-1)",
+          "Komatsu Song Stirling numerical semigroup gcd jump count omega n n-1 normal order",
+          "Erdos Kac for two consecutive integers prime factors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct rows n=4..90 verify deterministic sandwich, but are finite data and not asymptotic evidence.",
+          "No exact indexed sequence or table identified in the bounded Resultary and arXiv searches for the active-layer count's Gaussian distribution."
+        ],
+        "reasoning": "An exact all-n table of T would not automatically contain a distribution theorem, while a known normal-order theorem for the same gcd layer invariant would; neither was found in actual bounded checks.",
+        "searches": [
+          "arxiv:2610.03070 active gcd layers normal order",
+          "published Stirling semigroups embedding dimension table active layer",
+          "Stirling first kind numerical semigroup gcd filtration active generator layers Erdős Kac Gaussian omega n(n-1)"
+        ]
+      },
+      "rationale": "Qualified PASS for the new active-filtration-count gaussian law and deterministic number-theoretic sandwich in the natural unsigned Stirling semigroup. Komatsu–Song (October 2, 2026) exactly prove the gcd filtration and telescopic Apéry representation; that is essential prior work. Classical Erdős–Kac and CRT prove additive prime-factor CLTs, but applying them to T requires the nontrivial p>=5 first-appearance threshold, repeated-prime bounds, and mismatch control. A very short unstated corollary or later extension of Komatsu–Song could subsume this; retained priority risk. Importantly, T is NOT the minimal embedding dimension in general.",
+      "residual_risks": [
+        "The bounded-error comparison might be an unrecorded corollary of Komatsu–Song's prime-power block analysis; if previously stated, novelty would be reduced or eliminated.",
+        "Only a canonical reduced telescopic gcd filtration is treated; identifying T with minimal embedding dimension would be false.",
+        "No quantitative CLT rate or limiting distribution of T(n)-omega(n(n-1)) established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUBSTANTIAL_PRIOR_COMPONENT: exact d_j=a/gcd(a,M_j) already proved; no distributional T theorem located in inspected parts.",
+          "evidence": "Komatsu–Song October 2, 2026 Theorems on gcd filtration and reduced generating sequence.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03070",
+          "material_read": "Accessible arXiv article body: abstract, precise gcd filtration, telescopic and Apéry constructions and proof setup",
+          "method": "Read primary arXiv HTML relevant sections",
+          "title": "Telescopic Structure of Numerical Semigroups Generated by Unsigned Stirling Numbers of the First Kind",
+          "trigger": "The exact same generators, gcd sequence and M_j formula"
+        },
+        {
+          "assessment": "SCOPE_LIMITATION_CONFIRMED: active gcd drops are not automatically minimal generators.",
+          "evidence": "Shor, J. Integer Sequences 22 (2019), Article 19.2.4.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL22/Shor/shor3.html",
+          "material_read": "Article theorem/description on telescopic versus minimal sequences",
+          "method": "Read available JIS primary text portions",
+          "title": "On Free Numerical Semigroups and the Construction of Minimal Telescopic Sequences",
+          "trigger": "Possible confusion of active canonical layers with minimal embedding dimension"
+        },
+        {
+          "assessment": "GENERAL_PRIOR_THEORY, NOT SAME_SEMIGROUP_INVARIANT",
+          "evidence": "Gaussian normal order of distinct prime factors is prior; semigroup sandwich is a separate arithmetic deduction.",
+          "identifier_or_url": "Erdos–Kac (1940), American Journal of Mathematics 62",
+          "material_read": "Classical theorem statement/standard formulation; full original paper not read",
+          "method": "Historical theorem-level comparison",
+          "title": "The Gaussian law of errors in the theory of additive number theoretic functions",
+          "trigger": "Potential prior universal gaussian theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the active number of gcd layers in a specific canonical semigroup presentation has a natural arithmetic meaning and nontrivial stochastic normal order. Its limiting mean/variance 2loglog X are justified by adjacent integer factors, and the deterministic tight comparison allows further quantitative study. It is neither just plugging a generic random integer into Erdős–Kac nor claiming minimal generators incorrectly.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the canonical successive gcds d_(n,j)=gcd(binomial(n,2), unsigned Stirling[n,n-2],...,unsigned Stirling[n,n-2j]), active-layer count T(n)=1+number of strict drops has deterministic bound |T(n)-omega(n(n-1))|<=2+Omega(a_n)-omega(a_n), bounded-mean squarefull excess and Gaussian fluctuation (T(n)-2loglog X)/sqrt(2loglog X)=>N(0,1) under uniform n<=X.",
+  "limitations": [
+    "The distribution is over uniformly sampled indices n∈{4,...,⌊X⌋}, not random generators within a fixed semigroup.",
+    "No assertion of minimal embedding dimension, no CLT rate, and no exact limiting law for discrepancy."
+  ],
+  "schema_version": 1
+}

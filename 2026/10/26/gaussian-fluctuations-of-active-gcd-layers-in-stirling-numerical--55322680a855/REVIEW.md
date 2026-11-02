@@ -1,11 +1,21 @@
-# Scientific review: active Stirling gcd layers
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated invariant counts strict gcd reductions rather than minimal semigroup generators. Komatsu–Song's exact gcd-filtration theorem gives the required prime-entry thresholds and telescoping quotient product. Every distinct prime at least five creates a distinct drop, while all drops consume prime multiplicity. The absolute comparison with \(\omega(n(n-1))\) follows without a minimality assumption. The squarefull-factor discrepancy has bounded expected size, proved by counting prime-power residue classes. A fully specified CRT moment comparison for primes up to \(X^{(\log\log X)^{-1/3}}\), together with a deterministic tail estimate, proves the Gaussian law. The included exact finite verifier returned `VERIFY_OK`; it is not substituted for the infinite proof.
+## correctness
 
-**Originality — PASS on accessible comparisons, with residual risk.** The source paper arXiv:2610.03070v1 establishes exact finite gcd-filtration and Apéry data, but the inspected paper does not give a Gaussian limit, tight comparison with \(\omega(n(n-1))\), or bounded squarefull discrepancy for active layers. Relevant literature on telescopic semigroups, including Shor's nonminimality results, does not cover the probabilistic result. Semantic research-record and literature searches did not identify an equivalent or stronger covering theorem. The result is derivable by combining known background with the new comparison; unindexed or implicit prior coverage remains possible, and there is no independent priority review.
+PASS
 
-**Mathematical value — PASS.** Strict active layers determine the length of the canonical reduced telescopic description and the number of nontrivial digit coordinates in its Apéry rectangle. Showing their typical magnitude, fluctuation scale, and direct relation to prime support reveals arithmetic complexity not supplied by an exact finite gcd formula alone. It is not an arbitrary numerical slice. The result intentionally does not claim anything about minimal embedding dimension.
+The exact gcd theorem of Komatsu–Song identifies d_j=a/gcd(a,M_j), M_j=(1/2)lcm{m:phi(m)<=2j}. Every distinct p>=5 dividing a has first occurrence in M_j at j=(p-1)/2 (since any multiple has totient at least p-1); thresholds are distinct and <=J_n; each forces a distinct strict drop. Since the product of strict gcd ratios is a and each nontrivial drop contributes a factor >=2, 1+omega_(>=5)(a)<=T<=1+Omega(a), giving the specified absolute bound relative to omega(n(n-1)). For odd p, p^k|a with k>=2 means n=0 or 1 mod p^k, and for 2 the modulus shifts; summing the geometric prime power probabilities plus O(sqrt(X)log X/X) residue errors gives mean Omega(a)-omega(a)=O(1). For Y=X^((loglog X)^(-1/3)), CRT simultaneously models any fixed number of prime-divisibility indicators as independent Bernoulli(2/p) up to X^{-1+o(1)} fixed moments, with mean and variance 2loglog X+O(logloglog X). Primes>Y dividing n(n-1)<=X^2 contribute <=2(loglog X)^(1/3)=o(sqrt(loglog X); Slutsky and Markov give the Gaussian. Independent exact Stirling/gcd computations n=4..90 verified 87 cases but do not prove the CLT.
 
-**Limits and nearest prior work.** Komatsu–Song (2026) proves the exact gcd filtration. Shor (2019) warns that general telescopic sequences can be nonminimal. The theorem supplies a new distribution statement for the natural active-layer invariant only, with no rate and no exact tight-error distribution.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the new active-filtration-count gaussian law and deterministic number-theoretic sandwich in the natural unsigned Stirling semigroup. Komatsu–Song (October 2, 2026) exactly prove the gcd filtration and telescopic Apéry representation; that is essential prior work. Classical Erdős–Kac and CRT prove additive prime-factor CLTs, but applying them to T requires the nontrivial p>=5 first-appearance threshold, repeated-prime bounds, and mismatch control. A very short unstated corollary or later extension of Komatsu–Song could subsume this; retained priority risk. Importantly, T is NOT the minimal embedding dimension in general.
+
+## value
+
+PASS
+
+PASS: the active number of gcd layers in a specific canonical semigroup presentation has a natural arithmetic meaning and nontrivial stochastic normal order. Its limiting mean/variance 2loglog X are justified by adjacent integer factors, and the deterministic tight comparison allows further quantitative study. It is neither just plugging a generic random integer into Erdős–Kac nor claiming minimal generators incorrectly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
