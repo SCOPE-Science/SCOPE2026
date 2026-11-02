@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T19:40:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof Steps 1-3; frozen VERIFICATION.md and verify.py read as finite check descriptions, not taken as proofs",
+        "Direct independent n=4..12 graph and dual calculations /tmp/mobius_cut_independent_check.py",
+        "Direct independent elementary collapses and Möbius-band boundary check n=4..10 /tmp/mobius_explicit_collapse.py",
+        "Direct primal face-vector and reduced Euler computation n=4..9 /tmp/mobius_primal_euler.py",
+        "Bayer et al. arXiv:2304.13675v2 for definitions and integral Alexander-dual convention"
+      ],
+      "rationale": "For n>=4 the degree-3 Möbius ladder is triangle-free, has exactly n 4-cycles Q_i and no nonadjacent pair with three common neighbors. The Alexander dual D has all 2n vertices and a complete graph as 1-skeleton, 6n path triples, n tetrahedra Q_i and no 5-faces. Each of the 2n straight-path triangles has a free length-two diagonal, so elementary collapses remove them. Each tetrahedron Q_i can then be collapsed across one triangle followed by its now-free opposite diagonal and second triangle; the remaining two triangles triangulate one square. The n resulting squares share rung edges and form a compact band whose sole boundary is the 2n-cycle and whose Euler characteristic is zero, hence a Möbius band homotopy equivalent to S^1. The complete 1-skeleton leaves binom(2n,2)-3n-4n=2n(n-4) extra 1-cells, so D is wedge^{2n(n-4)+1}S^1. Integral combinatorial Alexander duality places K homology only in degree (2n-4), free of that rank. Since D has no 5-faces, K contains the full (2n-6)-skeleton, giving simple connectivity and high connectivity. Successive Hurewicz and homological Whitehead then prove K wedge^{2n(n-4)+1}S^{2n-4}. This is a genuine uniform homotopy argument, not extrapolation from finite tests. Independent pure-Python checks n=4..12 exactly enumerated all dual triples, tetrahedra, absence of 5-faces, mod-two boundary ranks (5n,n), and b1; explicit elementary collapses for n=4..10 and full primal Euler counts for n=4..9 corroborated the proof.",
+      "residual_risks": [
+        "Independent finite calculations use Python integer and mod-2 arithmetic; they do not constitute formal verification of every n, which rests on the analytic free-face and topology argument.",
+        "No statement for n<4, total cut, higher k, or equivariant homotopy; no external formal/professional attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2304.13675v2 Theorem 6.1 requires the full (N-5)-skeleton for k=3; here N-4 vertex complementary faces to dual tetrahedra are missing, so its hypothesis fails. Theorem 6.4 treats k=2 and Theorem 7.18 treats clique prisms K_n square K_2.",
+          "Resultary circular-ladder primary RESULT.md proves Delta_3(C_n square K_2) wedge^{2n^2-8n+1}S^{2n-4} for n>=5, with identical rank but a different graph and an integer boundary-minor proof; it states no extension to twisted Möbius ladders.",
+          "Resultary 2026/10/11 Möbius-ladder total-three-cut primary RESULT.md proves Delta_3^t(M_2n) wedge^{1+binom(n+1,2)} S^{2n-6}; the complex and dimension are different."
+        ],
+        "reasoning": "The displayed integer coefficient polynomial also appears in prior work for untwisted circular ladders, a material novelty qualification. Because the graph families are nonisomorphic and the prior theorem explicitly fixes untwisted C_n square K_2, no checked published stronger statement implies the Möbius-ladder case. The uniform Möbius-band collapse is a distinct case argument, though easily motivated by the circular-ladder proof.",
+        "searches": [
+          "Bayer Denker Jelic Milutinovic Rowlands Sundaram Xue 2304.13675 Theorems 6.1, 6.4, 7.18 and Table 1",
+          "Topology of Cut Complexes II 2407.08158 cut graph family general theorem",
+          "Resultary: graph cut complexes Möbius circular ladder independence perfect matching cut complex exact homotopy topology",
+          "Resultary: published 2026/10/11/SCOPE-sphere-wedge-topology-of-three-cut-complexes-of-circular-ladders--4fc5f7521449 full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Bayer et al. arXiv:2304.13675v2 Sections 1,2,6,7 and Table 1",
+        "Chauhan–Shukla–Vinayak arXiv:2512.04486v1 Table 5 and Conjecture 4.6(ii)",
+        "Resultary/2026 2026/10/11 ordinary circular ladder full RESULT.md",
+        "Resultary/2026 2026/10/11 Möbius total cut full RESULT.md",
+        "Resultary/2026 2026/10/4 Wagner M8 total cut full RESULT.md",
+        "Agarwal–Basak arXiv:2608.30601v2 accessible abstract/metadata only, plus separately attributed secondary future-problems quote"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Agarwal–Basak 2608.30601v2 public abstract states results for independence and perfect-matching complexes on Möbius/circular ladder graphs, not ordinary cut complexes. An accessible secondary future-problems excerpt quotes their explicit open cut-complex question; primary full text was unavailable this run.",
+          "Bayer et al 2304.13675v2 Theorem 6.1 is inapplicable because the required skeleton condition fails, and their prism is K_n square K_2, not C_n square K_2 or M_2n.",
+          "Prior Resultary ordinary circular ladder theorem gives same wedge dimension and rank but applies only to C_n square K_2; the Möbius graph is a different graph, with twisted square gluing and one boundary component.",
+          "The Möbius-ladder total-cut Resultary paper addresses a different dual constraint (no independent 3-set), so no Alexander-duality conversion recovers the ordinary cut result from it."
+        ],
+        "reasoning": "Checked statements and hypotheses do not logically imply the all-n ordinary Möbius-ladder claim. Published untwisted results substantially reduce conceptual distance and must be credited, but require a new verification that twist-preserving collapses leave the Möbius band rather than the annulus. The complete Agarwal–Basak text was not available, so possible unnoticed coverage remains a stated risk.",
+        "searches": [
+          "Agarwal Basak arXiv:2608.30601v2 full-title primary metadata and future-directions problem",
+          "Bayer et al 2304.13675v2 Table 1 Theorem 6.1 Theorem 7.18",
+          "Chauhan et al 2512.04486v1 Conjecture 4.6(ii)",
+          "Resultary full primary RESULT.md circular ladder, total Möbius ladder and Wagner total-cut entries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bayer et al., arXiv:2304.13675v2, define ordinary cut facets by disconnected triples, whereas total cut facets arise only from independent triples; definitions are inequivalent for k=3.",
+          "Published Resultary 2026/10/4/SCOPE-the-total-3-cut-complex-of-the-wagner-graph-is-a-wedge-of-three--7df6214f631f determines total Delta_3^t(M8) as a wedge of three S^2, not ordinary Delta_3(M8) as S^4.",
+          "Möbius M_2n is circulant C_{2n}(1,n), while C_n square K_2 has an untwisted circular ladder; the latter is bipartite for even n, the former for odd n, so they are nonisomorphic for n>=4."
+        ],
+        "reasoning": "Aliases M_{2n}, Wagner M8, circulant C_{2n}(1,n), connected induced triples, and Alexander dual were compared. Total cut, independence and matching complexes are different functors, and circular ladder C_n square K_2 is a different graph for every parameter. None is a mere alternate definition of the audited ordinary three-cut homotopy theorem.",
+        "searches": [
+          "Resultary: ordinary 3-cut complex Möbius ladder M_2n Wagner graph C(2n;1,n) Alexander dual homotopy wedge spheres",
+          "Resultary: ordinary versus total 3-cut complex Wagner graph M8 and Möbius ladder sphere bouquet",
+          "Web: ordinary three-cut complex Möbius ladder homotopy sphere wedge formula; cut complex circulant graph C(2n;1,n)",
+          "arXiv:2304.13675v2 Definitions and Theorem 6.1; Resultary published M8 total-3-cut record (2026/10/4/...7df6214f631f)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chauhan, Shukla, Vinayak arXiv:2512.04486v1 Table 5 gives entries and Conjecture 4.6(ii) suggests rank 2n^2-8n+1 for the untwisted graph K_2 square C_n, n>=5; it does not tabulate Möbius ladders.",
+          "Resultary Wagner M8 exact record concerns total, not ordinary, three-cut; other M8 records concern matching and Morse complexes.",
+          "Original primal finite check n=4..9 yielded reduced Euler characteristics 1,11,25,43,65,91, but this newly performed computation does not itself establish novelty."
+        ],
+        "reasoning": "The nearest numerical table and conjecture are for the circular ladder and yield exactly the same numeric formula, but are neither a Möbius-ladder database entry nor an all-n proof of its homotopy type. Searches did not locate an exact Möbius-ladder ordinary-three-cut table; lack of search results is not treated as proof of priority.",
+        "searches": [
+          "arXiv:2512.04486v1 Table 5 and Conjecture 4.6(ii) ordinary 3 cut circular ladders",
+          "Resultary: ordinary 3-cut complex Möbius ladder M_2n Wagner graph C(2n;1,n) Alexander dual homotopy wedge spheres",
+          "Web: 3-cut complex Wagner graph M8 M10 M12 1 11 25 43 65 homology exact",
+          "Resultary 2026/10/4 Wagner total cut and 2026/10/11 circular-ladder ordinary cut records"
+        ]
+      },
+      "rationale": "Best-of-knowledge the exact all-n *ordinary* three-cut homotopy classification of the twisted Möbius ladders is distinct from known results, with a MATERIAL analogous prior theorem: the October 11 Resultary circular-ladder theorem already establishes the identical rank and dimension for untwisted C_n square K_2. Chauhan–Shukla–Vinayak arXiv:2512.04486v1 Conjecture 4.6(ii) had proposed the same integral homology ranks for those untwisted graphs. Neither family is isomorphic to M_2n at fixed n (their bipartiteness parities are opposite), and neither inspected statement asserts a twist-invariant formula. Bayer et al. Theorem 6.1 does not cover the case because its codimension-one skeleton hypothesis fails; their k=2 and clique-prism results are also inapplicable. Recent published Resultary M_2n total-cut theorems and the Wagner M8 total-cut example treat a different complex. Agarwal–Basak primary abstract instead treats independence and perfect matching complexes and the full primary paper was inaccessible; this leaves priority risk without automatically negating best-of-knowledge originality. The new assertion is specifically the Mobius twisted ordinary cut classification and geometric Möbius band collapse, not the polynomial itself as an unprecedented sequence.",
+      "residual_risks": [
+        "The same numerical rank and degree were already conjectured for untwisted circular ladders (2025) and proved there (October 11, 2026); originality is an extension to a distinct twisted graph family, not discovery of that polynomial.",
+        "Unindexed or newly published ordinary Möbius-ladder 3-cut calculations, or a previously unrecognized general twisted-strip theorem, could dominate the claim.",
+        "The complete 19-page Agarwal–Basak primary PDF could not be read this run; only abstract/metadata and secondary discussion were available. An authorized Oxford retrieval was safety-blocked and was not retried. No whole-document noncoverage is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_DIRECT_COVERAGE: conditional skeleton hypothesis fails for the audited k=3 complex; k=2 and clique-prism statements are not this theorem. No stronger all-triangle-free k=3 theorem located.",
+          "evidence": "Theorem 6.1 needs full (N-5)-skeleton when k=3, but complements of the n dual tetrahedra yield missing faces of that size; Table 1 has cycles, squared cycles and K_n square K_2, not Möbius ladders.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+          "material_read": "Original arXiv v2 37-page PDF searchable text; abstract, Table 1 family overview, ordinary-cut and Alexander dual definitions, Section 6 Theorem 6.1 assumptions, Theorem 6.4 (k=2) and Section 7 family list; visually inspected PDF pages 1 and 17. Searched whole PDF text for Möbius.",
+          "method": "Lawful arXiv full-text search, targeted theorem and hypothesis reading, page-image inspection",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Original ordinary-cut complex definition and possible stronger skeleton or clique-prism theorem"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH: the same numerical rank is previously conjectured for untwisted C_n square K_2, n>=5; no Möbius ladder statement or twisted-graph corollary in inspected sections.",
+          "evidence": "Conjecture 4.6(ii) explicitly states the ordinary Delta_3(K_m square C_n) homology for m=2, n>=5 as Z^{2n^2-8n+1} in degree mn-4, not for M_2n.",
+          "identifier_or_url": "https://arxiv.org/pdf/2512.04486",
+          "material_read": "Original 16-page arXiv PDF searchable text: introduction, theorem overview, Section 4 Tables 4-5 and Conjecture 4.6(ii), especially page 15; page images 1 and 15 visually inspected.",
+          "method": "Public arXiv PDF primary full text, targeted conjecture and table comparison",
+          "title": "Total 2-cut complexes of powers of cycle graphs and Cartesian products of certain graphs",
+          "trigger": "Explicit published Table 5 and Conjecture 4.6 with the same polynomial 2n^2-8n+1"
+        },
+        {
+          "assessment": "CLOSE_ANALOGUE_NOT_COVERING: proves ordinary Delta_3 of untwisted C_n square K_2, not the twisted Möbius ladder. The same rank strongly narrows the standalone novelty claim and informs the present proof.",
+          "evidence": "Its Finding fixes G_n=C_n square K_2, n>=5, and proves wedge^{2n^2-8n+1}S^{2n-4}; no twist parameter or universal statement for all quadrangulated cubic bands.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sphere-wedge-topology-of-three-cut-complexes-of-circular-ladders--4fc5f7521449",
+          "material_read": "Complete original RESULT.md fetched from its published GitHub repository, including all four proof steps, exact unimodular-minor argument, verification, assumptions, and prior-work discussion.",
+          "method": "Primary repository full source file, direct theorem and proof implication comparison",
+          "title": "Sphere-wedge topology of three-cut complexes of circular ladders",
+          "trigger": "Published SCOPE all-n ordinary-three-cut wedge theorem with exactly the same polynomial and dimension"
+        },
+        {
+          "assessment": "NOT_COVERING: total cut has different facets, dimension 2n-6 and sphere count 1+binom(n+1,2), so it cannot be identified with the ordinary cut theorem.",
+          "evidence": "Theorem Delta_3^t(M_2n) ≃ wedge^{1+binom(n+1,2)} S^{2n-6}; ordinary theorem targets Delta_3(M_2n) ≃ wedge^{2n(n-4)+1} S^{2n-4}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-uniform-sphere-wedge-homotopy-for-m-bius-ladder-total-three-cut--43048a124c95",
+          "material_read": "Complete original published RESULT.md including definitions of bounded independence BI_3 and total cut, proof, face counts, n>=5 limits and references.",
+          "method": "Primary published repository result and definition-level implication test",
+          "title": "Uniform sphere-wedge homotopy for Möbius-ladder total three-cut complexes",
+          "trigger": "Exact same graph family and k=3, but possibly different cut functor"
+        },
+        {
+          "assessment": "NOT_COVERING: total Delta_3^t(M8) is wedge of three S^2, while the audited ordinary Delta_3(M8) is one S^4.",
+          "evidence": "The prior result enumerates eight independent triples for total cut. The ordinary cut uses all disconnected triples, including those with a single edge.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-total-3-cut-complex-of-the-wagner-graph-is-a-wedge-of-three--7df6214f631f",
+          "material_read": "Complete published RESULT.md, including definitions, enumerated independent triples, discrete-Morse proof and limits.",
+          "method": "Primary published GitHub result, exact object comparison",
+          "title": "The total 3-cut complex of the Wagner graph is a wedge of three 2-spheres",
+          "trigger": "Exact n=4 Wagner/M8 alias that might imply the new base case"
+        },
+        {
+          "assessment": "INCOMPLETE_FULL_TEXT_COMPARISON: abstract presents independence and perfect-matching results, not ordinary cut. Secondary excerpt indicates cut complexes are a future direction. No whole-document NOT_COVERING assertion.",
+          "evidence": "arXiv 2608.30601v2 public abstract lists Ind(M_2n) and M_p(M_2n) only; secondary https://www.emergentmind.com/open-problems/cut-total-cut-complexes-mobius-ladder-graphs quotes the cut-complex question.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.30601v2",
+          "material_read": "Accessible primary arXiv v2 abstract and metadata (19-page version dated September 2026), plus externally indexed future-problems excerpt describing the cut-complex open question. Complete primary PDF unavailable through available access.",
+          "method": "Public arXiv metadata/abstract and secondary excerpt; arXiv PDF and lawful OA retrieval attempts unsuccessful; authorized Oxford action blocked by safety controls (not retried).",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Same Möbius-ladder objects and expressly related cut-complex problem; possible direct coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md final theorem and uniform collapse proof",
+        "Published Resultary circular-ladder ordinary-3-cut full source and total Möbius full source, distinguishing identical rank from distinct graph/topology",
+        "Agarwal–Basak arXiv:2608.30601v2 relevant public abstract and attributed open-problem excerpt",
+        "Original finite calculations confirming all n=4..12 boundary cases tested"
+      ],
+      "rationale": "The ordinary 3-cut complex is a natural graph-topology construction and Möbius ladders form a standard, symmetric cubic family. The theorem gives a complete all-parameter integral homotopy classification, not just mod-two Betti numbers or a small computational census. The explicit twist-sensitive geometric collapse to a Möbius strip contrasts with the annular square band of the previously studied circular ladder, while the same rank shows a nontrivial topology-invariant phenomenon. The result answers an expressly motivated graph-complex direction for this family in Agarwal–Basak, and the proof supplies a geometric model useful for further equivariant, higher-k, and generalized ribbon-graph investigations without claiming those extensions. Its value does not depend on paper-sized breadth: it is a natural, exact homotopy invariant unknown from the checked prior theorems.",
+      "residual_risks": [
+        "The same sphere rank and dimension are already known for the untwisted circular ladders, making the incremental novelty narrower than an entirely new Betti pattern.",
+        "No classification of all cubic graphs, larger cut parameters, symmetry representations, or generalized twisted cell bands is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every integer n>=4, with M_{2n} the graph on Z/(2n) having cycle edges i~i+1 and antipodal rungs i~i+n, the ordinary three-cut complex generated by complements of disconnected induced triples satisfies Delta_3(M_{2n}) homotopy equivalent to a wedge of 2n(n-4)+1 copies of S^{2n-4}, with integral reduced homology concentrated freely in that degree.",
+  "limitations": [
+    "Theorem is for n>=4, ordinary disconnected-triple cut only, not total or higher-k cut, and no equivariant group action is determined.",
+    "Independent finite calculations are corroboration; infinite proof depends on combinatorial free-face collapse, Alexander duality, Hurewicz and Whitehead.",
+    "Best-of-knowledge originality remains qualified by exact analogue for circular ladders and by inaccessible full Agarwal–Basak paper, although its public abstract treats distinct complexes.",
+    "Public frozen METADATA.json and AUDIT.json contain operational scope_run_id identifiers; do not publish unredacted.",
+    "No Lean verification, external mathematical certification or expert attestation is asserted."
+  ],
+  "schema_version": 1
+}
