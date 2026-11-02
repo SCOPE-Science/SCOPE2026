@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the unique 12-vertex icosahedral graph given by an explicit 30-edge adjacency list, and the degree-at-most-one induced-subgraph face predicate agrees with the connected-component-at-most-two predicate on all 4,096 subsets. Its simplicial face vector is \((12,66,140,105)\), and every maximal face is a tetrahedron. An explicit pivot-order matching has exactly 151 disjoint face pairs and leaves one critical vertex and twenty critical three-cells. A complete topological sort checks acyclicity on all 984 face incidences, so discrete Morse theory proves the integral wedge homotopy equivalence without needing unproved attaching-map assumptions. Independent mod-two boundary ranks are \((11,55,85)\). The rational action follows from signed simplicial Lefschetz traces for all 120 graph automorphisms; the reported rotational and antipodally twisted character vectors agree with the stated irreducible decomposition. The verifier is part of the package and was executed from its packaged path.
+## correctness
 
-## Originality — PASS, with limits
-The older dissociation-set literature (Orlovich et al., DOI 10.1016/j.dam.2011.04.023) concerns optimization and enumeration rather than topological representation theory. Deshpande and Singh (arXiv:2001.05448) classify higher independence complexes for complete multipartite, whiskered, path, cycle and rooted-tree families, none of which contains the icosahedron. Abdelmalek et al. (arXiv:2106.10863) give shellability theorems for chordal/tree families, inapplicable to the nonchordal icosahedral graph. Closest indexed studies on this same graph investigate ordinary independence, matching, neighborhood or metric complexes; their statements do not imply the present induced-vertex-degree-one classification. Actual searches also considered dissociation, higher-independence, induced-path-free and full-symmetry aliases. The 2011 primary publication was read at abstract level only, and a hidden equivalent calculation remains possible; neither uncertainty was represented as a novelty proof.
+PASS
 
-## Value — PASS
-The degree-at-most-one/dissociation condition is a standard natural strengthening of independent sets, and the icosahedron is a canonical symmetric 5-regular triangulation. A complete integral homotopy classification together with the full finite-group character supplies structural information not implied by counts, ordinary independence topology or the general connectivity bounds. The invariant line and contrasting 15/5 antipodal eigenspaces are intrinsically motivated by the geometric symmetry of this object. This is a finite natural classification, not a claim of a general theorem for all graphs.
+The 12-vertex 30-edge graph is defined by actual adjacency lists. In every one of its 4096 vertex masks, degree-at-most-one equals induced-component-size-at-most-two, validating dissociation/Ind₂ equivalence. Independent enumeration yields 323 nonempty faces f=(12,66,140,105), all 105 facets tetrahedra, and a 151-pair Morse matching with one critical 0-cell and twenty critical 3-cells. All 972 nonempty cover incidences form an acyclic oriented graph (984 incidences if twelve empty-to-singleton covers are counted). Forman then gives an integral wedge of twenty S³. Independently generated 60 rotations, a central antipodal involution, and 120 full automorphisms; oriented simplex Lefschetz traces agree with rotations of orders (1,2,3,5) giving (20,4,-1,0) and antipodally twisted (10,2,1,0). Decomposing the even/odd A5 characters yields 1⁺ ⊕ 4⁺ ⊕ 2·5⁺ ⊕ 5⁻ over Q. No integral equivariant lattice assertion.
 
-## Limitations and context
-No equivariant CW wedge splitting, integral equivariant module classification, or universal graph-family theorem is asserted. The full 2011 dissociation article was not available for inspection, although its indexed abstract is algorithmic; this leaves a limited coverage risk. The 2020 and 2021 primary higher-independence texts were inspected for their actual theorem families. An independently performed mathematical audit is still required for external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is second independence / dissociation / induced-component-size-two complex, not the ordinary independence, matching, neighborhood, or metric complex of the same icosahedron. Full primary Deshpande–Singh higher-independence paper lists complete multipartite, whiskered, paths/cycles and rooted/perfect tree cases, not icosahedral five-regular graph. Abdelmalek et al chordal arguments do not apply since every icosahedral vertex neighborhood is an induced five-cycle. Published icosahedral neighborhood and Rips A5×C2 characters refer to different face sets. Orlovich et al 2011 dissociation primary full text not read; indexed abstract centers optimization rather than topological characters. Best-of-knowledge priority qualified.
+
+## value
+
+PASS
+
+Dissociation is a classical graph invariant and the regular icosahedron is a canonical highly symmetric planar triangulation. An exact integral homotopy wedge plus the full rational A5×C2 action—including antipodal parity and invariant dimension—supplies intrinsic structure beyond counts and general connectivity estimates for higher independence complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
