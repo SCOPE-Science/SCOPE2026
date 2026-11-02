@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The distributional matching conditions give the stated unimodular two-sheet transfer product. Its upper-left entry vanishes exactly at the two enumerated and disjoint positive-strength CPA branches; at no other separation phase can its real nonzero component be canceled. The singular-value identity for a rank-one \(2\times2\) reciprocal scattering matrix gives \(\mathcal A_{\mathrm{worst}}=0\) at \(L=1\) and \(2(L-1)/L^2\) at \(L>1\). The latter is uniquely maximized at \(L=2\), with the two prescribed ordered sheets. The proof uses all positive \(k,d,a,b\) and every two-port coherent input, not numerical extrapolation. The standalone Python checker independently verifies 4,743 sampled scalar/matrix assertions. Limits: strictly positive point losses, fixed frequency, same exterior wave medium, exact CPA designs only.
+## correctness
 
-## Originality — PASS on inspected scientific evidence
-The closest general background is Chong et al., arXiv:1003.4968v1, including the two-port CPA condition \(r_\ell r_r=t^2\). That condition is necessary but does not specify an optimized pair of unequal positive point absorbers or a singular-value minimax over the complementary input channel. Li et al., arXiv:1406.1847v1, and Roger et al., doi:10.1038/ncomms8031, analyze a single thin film, where the coherent orthogonal illumination can be unabsorbed, unlike the best two-separated-sheet CPA configuration. Luo et al., arXiv:1405.6475, considers a thin film with reflectors; its double-layer equivalent uses symmetric near-coincident films and not the present variable quarter-wavelength separation. Martínez-Argüello et al., arXiv:1207.2716v1, concerns a one-port delta-with-wall model. Targeted published-record comparisons did not identify the complete sharp \(1/2\) minimax result. Priority uncertainty remains: a different impedance-language treatment of two dissipative sheets might imply this result, and semantic searches are not novelty proofs.
+PASS
 
-## Mathematical value — PASS
-The min-over-input objective is an operational robustness criterion for a device constrained to perfectly absorb one coherent waveform. The theorem solves simultaneously the existence-versus-budget classification, the unique above-threshold loss split, the forced illumination imbalance and the sharp complementary-input absorption optimum. It separates the familiar 50% *one-sided absorption* ceiling of a single sheet from a new 50% *worst-coherent-input guarantee* under exact CPA for two separated sheets. The qualitative phase change from co-phased to quarter-wavelength spacings makes the exact optimizing design physically motivated rather than an arbitrary parameter slice.
+Distributional jump -2ikc u gives U(c)=[[1-c,-c],[c,1+c]]. M=U(b)diag(e^{iθ},e^{-iθ})U(a), det M=1 and M22 nonzero. Flux-balanced two-port scattering has det S=-M11/M22. Thus CPA iff e^{2iθ}(1-a)(1-b)=ab. Since a,b>0 and a,b≠1 on solutions, the phase is ±1; plus forces a+b=1, minus forces a+b-2ab=1 and therefore L>1. At CPA, rank-one S has nonzero singular value (|M21|+|M21|^-1)/|M22|, evaluating to 1 at L=1 and sqrt((L-1)^2+1)/L overcritical. Minimizing absorption over all input states is 1-||S||², yielding 2(L-1)/L². Its derivative -2(L-2)/L³ gives sharp maximum 1/2 at L=2; ordered strengths 1±1/sqrt(2) and incident-power asymmetry from B_R=M21 A_L. Independent symbolic matrix verification at L=2 confirms S^*S spectrum {0,1/2}; no general assertion depends on finitely sampled phases.
 
-## Limits and closest literature
-No claim is made outside strictly positive imaginary point interactions at fixed monochromatic \(k\), for devices without CPA, or for arbitrary three-dimensional optical stacks. Broader literature could contain equivalent transfer-matrix reductions, so independent literature scrutiny remains appropriate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General CPA scattering zeros, equal illumination and phase matching are known since Chong et al. (2010), while a 2019 primary preprint constructs complex point-potential lasing/CPA examples. The assessed theorem concerns the constrained two-positive-loss delta pair with fixed sum and optimizes the *minimum over all coherent incoming fluxes*, which is different from existence of one perfect absorption input or maximum absorption. The sharp 1/2 may numerically coincide with single-sheet 50% limits but the metrics differ. The close 2019 full text was not inspected exhaustively: explicit priority risk retained.
+
+## value
+
+PASS
+
+For the physically natural two-dissipator model, maximizing absorption under adversarial coherent illumination while insisting on exact CPA is a meaningful design tradeoff, distinct from identifying a single perfectly absorbing eigenchannel. The exact all-positive-loss branch classification and unique L=2 asymmetric optimal device provide sharp spectral and energy-budget information, not a generic rephrasing of CPA.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

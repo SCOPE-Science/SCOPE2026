@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:04:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 7c41554cd1b46b159f1a88bd0e408c9a3d60f48e including transfer derivation",
+        "Frozen verify_cpa.py 62d731647801ac3f8772430ee6024103b6be5905 inspected",
+        "Independent exact SymPy transfer M/S at L=2, half-integer π, squared singular values 0 and 1/2"
+      ],
+      "rationale": "Distributional jump -2ikc u gives U(c)=[[1-c,-c],[c,1+c]]. M=U(b)diag(e^{iθ},e^{-iθ})U(a), det M=1 and M22 nonzero. Flux-balanced two-port scattering has det S=-M11/M22. Thus CPA iff e^{2iθ}(1-a)(1-b)=ab. Since a,b>0 and a,b≠1 on solutions, the phase is ±1; plus forces a+b=1, minus forces a+b-2ab=1 and therefore L>1. At CPA, rank-one S has nonzero singular value (|M21|+|M21|^-1)/|M22|, evaluating to 1 at L=1 and sqrt((L-1)^2+1)/L overcritical. Minimizing absorption over all input states is 1-||S||², yielding 2(L-1)/L². Its derivative -2(L-2)/L³ gives sharp maximum 1/2 at L=2; ordered strengths 1±1/sqrt(2) and incident-power asymmetry from B_R=M21 A_L. Independent symbolic matrix verification at L=2 confirms S^*S spectrum {0,1/2}; no general assertion depends on finitely sampled phases.",
+      "residual_risks": [
+        "Fixed-frequency scalar imaginary-delta model only; not broadband, finite-thickness or arbitrary lossy optical systems.",
+        "Worst-input bound is conditional on CPA, not an unconditional device bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chong et al. arXiv:1003.4968 develops general S zeros and a lossy slab.",
+          "Konotop–Lakshtanov–Vainberg arXiv:1812.05499 includes point-potential configurations and spectral singularities; only abstract/excerpts available, full comparison incomplete."
+        ],
+        "reasoning": "General existence of a zero singular value does not imply the optimal nonzero singular value under fixed positive loss and two delta sheets. Stronger nonhermitian transfer conditions remain a prior-risk pathway.",
+        "searches": [
+          "coherent perfect absorption two separated dissipative delta sheets maximally worst input absorption two-port",
+          "Chong Ge Cao Stone 2010 coherent perfect absorbers",
+          "Designing lasing and perfectly absorbing potentials double delta 2019 Konotop Lakshtanov Vainberg"
+        ]
+      },
+      "checked_sources": [
+        "Chong et al. arXiv:1003.4968",
+        "Konotop, Lakshtanov, Vainberg arXiv:1812.05499",
+        "Li et al. arXiv:1406.1847",
+        "Resultary query: coherent perfect absorption two separated dissipative delta sheets maximally worst input absorption two-port"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known CPA condition sets det S=0, leaving the bright singular value generally free.",
+          "The present rank-one calculation determines its singular value as sqrt((L-1)^2+1)/L under exact two-positive-sheet CPA constraints."
+        ],
+        "reasoning": "Neither a generic zero-eigenvalue theorem nor example CPA potentials imply the unique constrained minimax law without the new branch optimization.",
+        "searches": [
+          "coherent perfect absorption two separated dissipative delta sheets maximally worst input absorption two-port",
+          "Chong 2010 CPA scattering matrix eigenvalue zeros transfer matrix M11",
+          "2019 delta double absorber spectral singularity design"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "CPA criterion det S=0 is general and equivalent to transfer M11=0 at this convention.",
+          "Worst-input absorption equals 1-||S||², not CPA-channel absorption (which is 1 by definition)."
+        ],
+        "reasoning": "Translated transfer/scattering formulations and compared the additional minimax objective, not only the familiar CPA existence condition.",
+        "searches": [
+          "coherent perfect absorption two separated dissipative delta sheets maximally worst input absorption two-port",
+          "double delta imaginary potential coherent perfect absorber transfer matrix M11=0",
+          "scattering singular values coherent perfect absorption orthogonal bright channel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Computed all-CPA branch law 2(L-1)/L² and unique max at L=2.",
+          "A familiar 50% single-illumination absorption limit uses a different optimization domain; the present worst coherent input at exact CPA is distinct."
+        ],
+        "reasoning": "A numerical 1/2 entry in a broader absorber table would not by itself establish identical constraints or objectives; no matching full CPA-branch table identified.",
+        "searches": [
+          "coherent perfect absorption two separated dissipative delta sheets maximally worst input absorption two-port",
+          "two delta absorbers CPA absorption 1/2 critical total loss",
+          "acoustic coherent absorption 50 percent single sheet two coherent inputs"
+        ]
+      },
+      "rationale": "General CPA scattering zeros, equal illumination and phase matching are known since Chong et al. (2010), while a 2019 primary preprint constructs complex point-potential lasing/CPA examples. The assessed theorem concerns the constrained two-positive-loss delta pair with fixed sum and optimizes the *minimum over all coherent incoming fluxes*, which is different from existence of one perfect absorption input or maximum absorption. The sharp 1/2 may numerically coincide with single-sheet 50% limits but the metrics differ. The close 2019 full text was not inspected exhaustively: explicit priority risk retained.",
+      "residual_risks": [
+        "A closely related 2019 spectral-singularity manuscript was not read in full and may entail a special case of the transfer result; best-of-knowledge O remains qualified.",
+        "The familiar number 1/2 appears in other absorption metrics, so priority depends on matching constraints and worst-input objective rather than the number."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general CPA criterion; not the constrained two-separate-positive-sheet worst-input optimization in inspected results",
+          "evidence": "Chong, Ge, Cao, Stone (2010), S-matrix zero condition",
+          "identifier_or_url": "https://arxiv.org/abs/1003.4968",
+          "material_read": "Primary open preprint text, scattering zeros and two-port uniform slab discussion",
+          "method": "arXiv full-text preprint/sections",
+          "title": "Coherent Perfect Absorbers: Time-reversed Lasers",
+          "trigger": "Foundational 2-port CPA general theorem"
+        },
+        {
+          "assessment": "Comparison incomplete: cannot claim whole-paper NOT_COVERING",
+          "evidence": "Konotop, Lakshtanov, Vainberg (2019), complex delta and spectral-singularity examples",
+          "identifier_or_url": "https://arxiv.org/abs/1812.05499",
+          "material_read": "Abstract and search-indexed portions about paired Dirac potentials; full text not inspected",
+          "method": "arXiv/preprint index and manuscript excerpts",
+          "title": "Designing lasing and perfectly absorbing potentials",
+          "trigger": "Very similar two point-interaction geometry"
+        },
+        {
+          "assessment": "Related single-sheet physical geometry; does not directly establish separate positive delta-pair minimax in material actually inspected",
+          "evidence": "Li et al. 2014, ultrathin film CPA",
+          "identifier_or_url": "https://arxiv.org/abs/1406.1847",
+          "material_read": "Abstract/source-cited contextual statements; full paper not read here",
+          "method": "arXiv abstract and frozen source references",
+          "title": "Coherent perfect absorption in ultrathin conductive films",
+          "trigger": "Single-sheet and coherent-input absorption controls"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md singular-value and budget proof",
+        "2010 foundational CPA framework"
+      ],
+      "rationale": "For the physically natural two-dissipator model, maximizing absorption under adversarial coherent illumination while insisting on exact CPA is a meaningful design tradeoff, distinct from identifying a single perfectly absorbing eigenchannel. The exact all-positive-loss branch classification and unique L=2 asymmetric optimal device provide sharp spectral and energy-budget information, not a generic rephrasing of CPA.",
+      "residual_risks": [
+        "Ideal delta-sheet monochromatic model and unrestricted coherent input amplitudes limit direct engineering interpretation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No full 2019 related point-potential paper comparison; residual priority risk.",
+    "No claim about non-CPA designs or broadband responses."
+  ],
+  "schema_version": 1
+}
