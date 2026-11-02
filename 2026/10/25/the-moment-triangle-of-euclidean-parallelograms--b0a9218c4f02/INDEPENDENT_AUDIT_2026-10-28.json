@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:04:02.229571Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For P=z0+[0,1]u+[0,1]v with independent area-uniform X,Y, the coordinate differences xi,eta are independent triangular random variables with even moments E xi^(2j)=2/((2j+1)(2j+2)). With A=u·u>0, B=v·v>0, C=u·v and C²<AB, one has R²=A xi²+B eta²+2C xi eta. Independently expanded the polynomial with exact SymPy coefficients: M2=(A+B)/6, M4=(6A²+5AB+6B²+10C²)/90, M6=(A+B)(15A²-AB+15B²+56C²)/420, agreeing identically with RESULT.md. Setting S=A+B, p=AB/S², q=C²/S² yields precisely 0<p≤1/4 and 0≤q<p. The independent normalized-moment linear algebra gives x=12/5-14p/5+4q, y=54/7-558p/35+144q/5, inverse p=93/41-70x/41+175y/738, q=81/82-155x/164+245y/1476; all three boundary vertices were exactly confirmed. The parameter triangle maps invertibly onto triangle A=(12/5,54/7), B=(17/10,261/70), C=(27/10,153/14) with entire side AC omitted; its other two edges represent rectangles and rhombi. Reconstruction of unordered A,B and |C| is unique up to congruence; varying p between 1/7 and 1/4 with q=7p/10-1/10 yields continuum with M2=1,M4=2. On compact nondegenerate shape families, inverse of affine data is Lipschitz before taking square roots; signed-angle and equal-side degeneracies yield exact 1/2 Hölder and the transverse rectangle perturbation has moment change O(t²) but shape change O(t), proving optimality. A Monte Carlo sample in the package is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Covariogram injectivity from full direction-labeled function is a strictly higher-information theorem.",
+          "The 2014/2023 sources derive oriented chord measures and densities, not injectivity of three radial polynomial functionals."
+        ],
+        "reasoning": "The full covariogram theorem implies recovery from an infinite function but not that the specific finite three-moment projection is injective; no mathematical implication shortcut was assumed.",
+        "searches": [
+          "Averkov Bianchi Matheron covariogram theorem arXiv:0711.0572",
+          "Gasparyan Ohanyan Covariogram of a Parallelogram 2014",
+          "Martirosyan orientation dependent chord length distribution convex quadrilateral 2023"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md blob 8c3f6051181aa5fee97319828cbb3406a62545a1",
+        "Git checker b7a60caa6183dd2bdbf91e3c20faf3a2e6f7a9bc",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928/RESULT.md",
+        "https://doi.org/10.3103/S1068362314040050",
+        "https://doi.org/10.3103/S1068362323060055",
+        "https://arxiv.org/abs/0711.0572",
+        "Resultary query parallelogram random two point Euclidean distance moments M2 M4 M6 reconstruction Gram moment triangle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "R5a M4 interior formula is compatible with assigned M4 after accounting for half-side vectors, but contains neither M6 nor reconstruction.",
+          "R5b triple (mean width, second width moment, maximum width) recovers same Gram invariants via other observables; it does not express those width statistics as functions of the assigned three distance moments."
+        ],
+        "reasoning": "The new affine map and exact inverse require the sixth-moment expansion and feasible Gram parameter region; neither projection-width nor full covariogram uniqueness alone implies minimality among consecutive radial moments.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928/RESULT.md",
+          "https://arxiv.org/abs/0711.0572",
+          "https://doi.org/10.3103/S1068362314040050"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar moments are integrals of |z|^(2j) against the covariogram, but do not retain directions.",
+          "The width triple (mu,nu,D) concerns Haar-projection lengths; its measured function is different from two-point distances."
+        ],
+        "reasoning": "The covariogram is an equivalent distributional source for ALL moments, but a uniqueness theorem for the whole function does not logically imply that M2, M4 and M6 suffice; the exact affine p,q map is additional.",
+        "searches": [
+          "Resultary: parallelogram random two point Euclidean distance moments M2 M4 M6 reconstruction Gram moment triangle",
+          "Euclidean parallelogram pairwise chord distance distribution moment problem inverse Gram",
+          "covariogram Radon transform planar shape reconstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A related published Resultary calculation includes the interior fourth moment, but not sixth or the full feasible (M4/M2²,M6/M2³) region.",
+          "Another published result reconstructs from three unlabeled widths rather than distance moments."
+        ],
+        "reasoning": "No exact three-moment triangle or 2-moment ambiguity table found in actual searched material; an unindexed equivalent classical distribution table remains a residual priority risk.",
+        "searches": [
+          "Resultary: parallelogram random two point Euclidean distance moments M2 M4 M6 reconstruction Gram moment triangle",
+          "parallelogram sample squared distance moments M2 M4 M6 inverse triangle",
+          "fourth chord moment parallelogram boundary interior published RESULT"
+        ]
+      },
+      "rationale": "The inverse covariogram theorem reconstructs planar convex bodies from the entire direction-labeled covariogram—much richer data than three scalar distance moments—and does NOT yield their minimal finite sufficiency. Gasparyan–Ohanyan and Martirosyan study direction-dependent random-line chord/covariogram distributions, not the independent area-uniform endpoint distance M2/M4/M6 inverse problem. Two Resultary parallelogram records were read in full: one uses projection WIDTH statistics (mean, second moment, diameter) and an angle inversion; another compares the boundary-to-interior FOURTH distance moment and angular phase transition. Neither treats the full triple of interior even moments, affine feasible triangle or 2-moment nonidentifiability. Best-of-knowledge originality therefore survives these stronger/nearby comparisons, with alias priority risk.",
+      "residual_risks": [
+        "Only positive-area Euclidean parallelograms and independent area-uniform point pairs; not all quadrilaterals or boundary points.",
+        "Triangle side AC represents degenerate limits, excluded from all actual nondegenerate shapes.",
+        "Uniform Hölder statement assumes compact side and angle bounds; no finite-sample statistical guarantees.",
+        "An older probability-engineering derivation of scalar distance moments might contain an equivalent finite inverse theorem under another name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers richer direction-labeled covariogram/chords, not the three scalar even-moment inverse theorem.",
+          "evidence": "Gasparyan and Ohanyan, J Contemporary Math Analysis 49 (2014), 194–206; oriented chord distributions and covariogram rather than finite radial-moment triangle.",
+          "identifier_or_url": "https://doi.org/10.3103/S1068362314040050",
+          "material_read": "Substantive accessible author-hosted primary HTML full article, theorem/formula sections on the parallelogram covariogram and directional chord variables",
+          "method": "full readable primary HTML inspection",
+          "title": "Covariogram of a Parallelogram",
+          "trigger": "Same planar shape and displacement/covariogram distribution"
+        },
+        {
+          "assessment": "Uses directional random-line chord statistics on quadrilaterals, not independent uniform point-pair even moments.",
+          "evidence": "Martirosyan (2023) computes direction-dependent distributions; does not provide three-moment reconstruction in inspected statements.",
+          "identifier_or_url": "https://doi.org/10.3103/S1068362323060055",
+          "material_read": "Substantive accessible primary full HTML, theorem/statement sections including Theorem 4.1 and displayed chord formulas",
+          "method": "primary HTML inspection",
+          "title": "Orientation-Dependent Chord Length Distribution in a Convex Quadrilateral",
+          "trigger": "Possible broader quadrilateral theorem including parallelogram special case"
+        },
+        {
+          "assessment": "True finite shape reconstruction, but triple is projection widths and maximum, a different observation model.",
+          "evidence": "Width formula W(theta)=a|cos theta|+b|cos(theta-phi)|; input (mu,nu,D), not M2,M4,M6.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928/RESULT.md",
+          "material_read": "Primary RESULT.md finding, assumptions, full inverse proof, stability and comparisons",
+          "method": "direct connected GitHub primary text",
+          "title": "Three unlabeled width statistics reconstruct a parallelogram with sharp stability",
+          "trigger": "Closest same-shape finite-statistic recovery"
+        },
+        {
+          "assessment": "Shares one finite population-moment ingredient, but does not determine full M6 or inverse moment triangle.",
+          "evidence": "Interior fourth moment formula; value is ratio of boundary to interior M4 and a phase transition, not finite scalar shape identification.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e/RESULT.md",
+          "material_read": "Primary RESULT.md finding, assumptions, full fourth-moment/boundary interpolation proof and exact ratio",
+          "method": "direct connected GitHub primary text",
+          "title": "Fourth-chord moment amplification and angular phase transition for parallelograms",
+          "trigger": "Same two independent area-uniform endpoints and fourth moment"
+        },
+        {
+          "assessment": "Whole direction-labeled covariogram is stronger information; finite moment sufficiency does not logically follow from its injectivity.",
+          "evidence": "Averkov–Bianchi JEMS 2009, planar convex bodies are determined by full covariogram up to translation/reflection.",
+          "identifier_or_url": "https://arxiv.org/abs/0711.0572",
+          "material_read": "Accessible abstract and theorem summaries, not an independently read full proof",
+          "method": "arXiv bibliographic and statement comparison",
+          "title": "Confirmation of Matheron conjecture on the covariogram of a planar convex body",
+          "trigger": "Stronger whole-function shape determination theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The shape-from-statistics problem is a natural inverse geometric probability question. The theorem determines the entire feasible region for dimensionless observations, proves a sharp threshold of exactly three consecutive even distance moments for congruence reconstruction, supplies an explicit inverse without genericity restrictions, and gives quantitatively optimal 1/2-Hölder stability near the rectangle symmetry. These are intrinsic unknown exact invariants relevant to statistical shape retrieval, not mere formula substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md blob 8c3f6051181aa5fee97319828cbb3406a62545a1",
+    "Git checker b7a60caa6183dd2bdbf91e3c20faf3a2e6f7a9bc",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e/RESULT.md",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928/RESULT.md",
+    "https://doi.org/10.3103/S1068362314040050",
+    "https://doi.org/10.3103/S1068362323060055",
+    "https://arxiv.org/abs/0711.0572",
+    "Resultary query parallelogram random two point Euclidean distance moments M2 M4 M6 reconstruction Gram moment triangle"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only positive-area Euclidean parallelograms and independent area-uniform point pairs; not all quadrilaterals or boundary points.",
+    "Triangle side AC represents degenerate limits, excluded from all actual nondegenerate shapes.",
+    "Uniform Hölder statement assumes compact side and angle bounds; no finite-sample statistical guarantees.",
+    "An older probability-engineering derivation of scalar distance moments might contain an equivalent finite inverse theorem under another name."
+  ],
+  "schema_version": 1
+}
