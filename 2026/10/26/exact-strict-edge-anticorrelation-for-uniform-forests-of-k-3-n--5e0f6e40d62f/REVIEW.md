@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The argument counts every acyclic edge subset by processing one right vertex at a time and keeping the partition of the three left vertices. The allowed transition classification is exhaustive. Single-edge and paired-edge counts are computed by handling marked columns first, and the three covariance numerators factor into manifestly negative polynomials. Union-find exhaustive enumeration for \(2\le n\le6\) verifies all five counts; polynomial coefficient checks and 1,999 additional integer-parameter checks corroborate the identities. The analytic proof alone establishes arbitrary \(n\).
+## correctness
 
-**Originality — PASS, provisional.** The conjecture and small-graph checks of Grimmett–Winkler do not provide the \(n\)-uniform formulas. Semple–Welsh and Erickson prove results for graph families formed from \(K_4\) blocks and series-parallel networks, respectively, whereas \(K_{3,n}\) is 3-connected and non-series-parallel for \(n\ge3\). The modern general overview does not assert a complete-bipartite three-terminal theorem. Statement-level searches of related records and published sources yielded no stronger result that implies this infinite-family classification. Risks remain from unlocated older graph-specific identities and possible matroidal reformulations; searches are not proof of priority.
+PASS
 
-**Value — PASS.** The uniform-forest edge-negative-correlation conjecture remains nontrivial outside the series-parallel and small-graph regimes. This is an infinite 3-connected non-series-parallel family with all three edge-pair symmetries proved strictly negative, not merely a finite enumeration or a marginal statistic. The exact orbit formulas distinguish local shared-neighbor anticorrelation, which has a nonzero limit, from nonlocal anticorrelation decaying quadratically. The result is not the general conjecture and does not assert the full negative-association property.
+The proof uses the partition of the three marked left vertices as states 0,1,2. An added right vertex creates a cycle precisely if it joins two already-connected left terminals. Therefore the only merging moves have multiplicities 3,1 from state 0 and 2 from state 1, with four nonmerging moves in each state. The completion recurrences Z0,Z1,Z2 follow by selecting at most two ordered merges. Marked-column inclusion counts Z, A, BR, BL, BD then yield the three exact covariance numerators. Independently checked all 3 integer coefficient identities and brute enumerated all 2^(3n) edge subsets for n=2,3,4,5, matching total and marked counts. All numerators are manifestly negative on n>=2, and polynomial degree yields the stated asymptotics. This establishes only uniform unweighted forests, not weighted Rayleigh or all-graph negative association.
 
-Closest literature: Grimmett and Winkler (2003/2004), Semple and Welsh (2005/2008), Erickson (2010/2012), and Altar Çiçeksiz and Ravichandran (2026). Unresolved priority risk: other treatments of forest Tutte polynomials of complete bipartite graphs or matroid independence measures might implicitly derive these correlations. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison, with specific primary-source inspections, previously covered components credited, and residual overlap risks. Retrieved search results alone are not evidence of novelty.
+
+## value
+
+PASS
+
+The conjectural negative edge correlation of uniform forests is a natural nontrivial graph-probability problem. K_{3,n} for n>=3 forms an infinite family of 3-connected non-series-parallel graphs, so the classification genuinely goes beyond the proved series-parallel regime and finite small-graph certificates. Exact covariance by all three pair orbits and distinct limiting scales are independent quantitative information useful for future family-wise and potential weighted generalizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
