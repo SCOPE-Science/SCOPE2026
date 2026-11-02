@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Proposition 25 of Antolín Camarena–Carnero Bravo, arXiv:2307.12401v2, gives the integral 14-sphere wedge underlying concentration. The additional proof of the 144-element graph automorphism group uses an intrinsic same-row-or-column relation reconstructed from common-neighbor counts. The signed simplicial Lefschetz formula translates each automorphism to the exactly evaluated independence polynomial of a finite orbit-incompatibility graph. The attached checker verifies all 144 graph actions and character values, decomposes the subgroup character by exact orthogonality, checks the coordinate-exchange projector traces, and separately computes all mod-two boundary ranks. No finite test is extrapolated to a family.
+
+**Originality — PASS on inspected evidence, not a priority certificate.** Section 4 of the primary paper proves only the nonequivariant homotopy type and is explicitly credited. An earlier categorical-product study likewise does not provide the 144-element representation. Searches for synonymous graph descriptions, 14-sphere homology modules, equal-factor exchange, and quotient invariants returned related complexes or unrelated symmetry calculations rather than a covering statement. A directly covering unindexed calculation would supersede this contribution.
+
+**Value — PASS.** This is the smallest product in the established triple-complete-graph family with two equal nontrivial three-element coordinates. Its full automorphism extension changes the rational quotient homology: one three-dimensional invariant survives the natural index-two subgroup but disappears after factor interchange. The complete five-constituent decomposition exposes a geometrically meaningful obstruction not accessible from the previously known ordinary Betti number 14. This is a natural full-symmetry invariant rather than an arbitrary enumeration slice.
+
+**Limits.** Only rational representation and rational quotient homology are newly concluded. Integral quotient torsion and higher-parameter cases remain untreated. Search coverage is not an absolute novelty guarantee; independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
