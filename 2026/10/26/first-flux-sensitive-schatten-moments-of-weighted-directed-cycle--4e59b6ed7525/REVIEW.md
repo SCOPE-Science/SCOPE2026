@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The central identity follows by expanding the positive matrix \(R_\theta^*R_\theta\) as diagonal plus forward/backward two-step cyclic shifts. A trace word can contribute only when its net shift vanishes modulo the cycle length. The least possible nonzero displacement count is exactly \(n/\gcd(n,2)\); at that length only the all-forward and all-backward words carry nonzero Fourier frequencies. The equal-modulus rigidity and optimal amplitude follow from AM–GM with its exact equality conditions. The proof includes zero weights, complex phases, and every positive integer Schatten half-order. The standalone finite checker passed 2,132 assertions; it is corroborative, not a proof replacement.
+## correctness
 
-## Originality — PASS, with explicit residual risk
-The publicly accessible Pal–Chandok weighted-Schatten paper (arXiv:2610.11336v1, sections 1–2, published 8 October 2026) introduces the relevant radius and derives inequalities, not this exact all-cycle onset classification. Existing specific three-cycle sixth-moment and four-cycle fourth-moment optimization results already contain some low-dimensional phase identities, so those instances are not claimed to be novel. The new assertion simultaneously covers every cycle length, both parity regimes, all complex edge weights, a recoverable global product invariant, and the exact sharp amplitude/equality law. Generic magnetic-graph closed-walk identities are a meaningful priority risk because their specialization can provide the algebraic mechanism; independent publication-priority assessment remains necessary. No search result alone is treated as uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The cycle length and parity determine the first even Schatten exponent detecting a global phase, and a single harmonic at that exponent reconstructs the geometric edge-product invariant. This is an all-dimension structural classification of a natural test class for weighted Schatten numerical radii, not a chosen numerical example; the sharp Hilbert–Schmidt-normalized ceiling and complete equality condition add quantitative rigidity. It does not make claims for noninteger exponents or general graphs.
+Direct multiplication produces B_theta=R*R=D+ts(exp(2i theta)W^2+exp(-2i theta)(W*)^2), with diagonal D. A trace word of length j can have nonzero Fourier exponent only if 2(a-b) is divisible by n. For 1<=j<k=n/gcd(n,2), no nonzero value of a-b is possible; at j=k only all-forward and all-backward words produce the frequency, with traces nQ^r and n conjugate(Q)^r. AM-GM for |w_j|^2 yields |Q|^r <=(H/n)^k, with exact equality iff all n moduli coincide when H>0; if any weight is zero all phase-sensitive closed walks vanish. Verified 24 independently generated weighted shifts across n=3...8 with zero-weight and complex-weight cases. The combinatorial divisibility argument is the unrestricted proof.
 
-## Closest literature and limitations
-The 2012 Chang–Wang paper's accessible abstract concerns maximizing ordinary numerical radii under weight permutations, and its complete text was not used to infer absence of Schatten moment formulas. General closed-walk trace formulas may imply parts of the result; this risk remains explicit. Distinct existing specialized three- and four-cycle results are acknowledged as already covering those special cases. Scientific proof and finite checks are not independent publication-priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full Pal–Chandok 2026 arXiv HTML develops Schatten numerical-radius inequalities and Aluthge estimates, not a weighted-cycle phase onset theorem. A known magnetic-graph closed-walk trace identity is a genuine generic antecedent, and earlier published three- and four-cycle moment cases supply individual special cases. The audited all-n parity threshold, exact product amplitude, recoverability and AM-GM equality statement are not explicitly given in material inspected; broad magnetic-walk or weighted-cycle formulae remain priority risks.
+
+## value
+
+PASS
+
+The first Fourier-detectable flux moment for every weighted directed cycle, together with exact recovery of its edge product from phase oscillation and a sharp fixed-Hilbert–Schmidt bound, is a natural structural classification of a standard cyclic-shift test family. Neither a chosen dimension nor just a numerical verification, it identifies the parity-dependent threshold and optimizer rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
