@@ -1,11 +1,21 @@
-# Review of the exact binary cutoff-three composition profile theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The run-count and endpoint-singularity identities determine every length-one-to-three composition count, and the observation conversely determines all six signature invariants. Exhaustive endpoint conditions are enumerated by eleven generating-series terms (including one inclusion-exclusion subtraction). The all-length rational identity is checked by an exact polynomial certificate in `verify_profiles.py`; finite brute-force and independent DP replay supplement it. The result is restricted to linear binary words with multiplicities and all substring lengths up to three.
+## correctness
 
-**Originality — PASS, with residual risk.** Ye–Elishco (2022), Section VIII, defines the model and studies Lyndon-based codes with cutoff proportional to block length; it explicitly raises the constant-cutoff problem. The closest public exact binary result treats cutoff two, with no length-three singleton-run/endpoint phenomena. An ordered adjacent-pair multispectrum result and full-spectrum reconstruction have different observations and do not imply the exact truncated-cutoff-three quotient count. Searches may miss unindexed equivalents, and the full 2015 source was not read.
+PASS
 
-**Mathematical value — PASS.** The theorem exactly enumerates all possible length-three-limited observations for every block length, including a nontrivial period-four quartic, giving the maximum size of noiseless fixed-length reconstruction codes and sharp fourth-degree growth. The object and invariant are defined by a motivated molecular-composition reconstruction model, rather than an arbitrary parameter slice.
+Length-one observations give zero and one totals; lengths two determine the two run counts; length-three counts refine them to zero/one singleton-run counts plus endpoint correction. The exact formulas N000=z-2r0+a0 and N111=p-2r1+a1, and mixed triples from boundary terms, also give the converse: the finite run signature determines every composition multiplicity. The enumeration separates endpoint cases with r0-r1 in {-1,0,1} and performs an inclusion-exclusion correction on their single overlap. For each feasible signature, the diagonal generating series for run excesses is geometric, so the eleven-term finite rational sum is exhaustive. Its common-denominator integer-polynomial equality proves the displayed rational generating function for all n, and partial fractions give the period-four quartic. Constant words and n=1 are separate. Independent direct enumeration of all words n=1..12 reproduces the counts (2,3,6,10,20,35,62,101,160,241,354,502). It does not establish the infinite identity; the run bijection and rational algebra do.
 
-**Limits.** No efficient canonical encoder/decoder, error correction, higher cutoff, nonbinary generalization, or individual ambiguity-class formula is established. All claims use proved all-length generating-function identities rather than finite experimentation alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ye–Elishco define precisely the r-limited contiguous-composition model but do not calculate the fixed r=3 profile quotient. The published r=2 study proves a quadratic enumeration and run-count class sizes, whereas r=3 requires singleton-run and endpoint distinctions and has a quartic period-four profile. Full-spectrum reconstruction and ordered substring spectra are nonequivalent observations and do not imply the coarser quotient cardinality. Best-of-knowledge original, with unindexed fixed-cutoff equivalences still possible.
+
+## value
+
+PASS
+
+The maximal number of codewords distinguishable by a fixed small composition window is a natural exact reconstruction invariant; the shift from quadratic r=2 growth to a quartic, period-four r=3 law precisely identifies the information unlocked by one additional substring length. The all-n generating function is a substantive enumeration, not a sampled code table or trivial substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

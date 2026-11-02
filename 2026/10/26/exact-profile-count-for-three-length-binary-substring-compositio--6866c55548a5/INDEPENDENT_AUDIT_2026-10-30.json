@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:50:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Length-one observations give zero and one totals; lengths two determine the two run counts; length-three counts refine them to zero/one singleton-run counts plus endpoint correction. The exact formulas N000=z-2r0+a0 and N111=p-2r1+a1, and mixed triples from boundary terms, also give the converse: the finite run signature determines every composition multiplicity. The enumeration separates endpoint cases with r0-r1 in {-1,0,1} and performs an inclusion-exclusion correction on their single overlap. For each feasible signature, the diagonal generating series for run excesses is geometric, so the eleven-term finite rational sum is exhaustive. Its common-denominator integer-polynomial equality proves the displayed rational generating function for all n, and partial fractions give the period-four quartic. Constant words and n=1 are separate. Independent direct enumeration of all words n=1..12 reproduces the counts (2,3,6,10,20,35,62,101,160,241,354,502). It does not establish the infinite identity; the run bijection and rational algebra do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ye–Elishco (2022/2024) Sections I and VIII treat truncated composition spectra, code constructions when cutoff scales with n and describe fixed cutoff as additional work.",
+          "Acharya et al. (2015) study all substring lengths, which is a finer measurement; the number of all-length observations does not determine the cardinality of the quotient after discarding lengths >3."
+        ],
+        "reasoning": "A theorem for larger observations does not count its many-to-one restriction; neither the full-data reconstruction theorem nor the general coding bounds evaluates the precise fixed-r=3 quotient.",
+        "searches": [
+          "Reconstruction of a Single String from a Part of its Composition Multiset Ye Elishco arXiv:2208.14963",
+          "String Reconstruction from Substring Compositions Acharya Das Milenkovic Orlitsky Pan 2015 DOI:10.1137/140962486"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.14963 full-text Sections I and VIII",
+        "Resultary r=2 complete RESULT.md",
+        "DOI:10.1137/140962486 bibliographic/abstract",
+        "current Git source RESULT.md, REVIEW.md, VERIFICATION.md, verify_profiles.py, seven blob identities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The r=2 run inventory records totals and run counts; the number of length-three all-zero/all-one factors depends additionally on singleton runs.",
+          "The r=3 endpoint correction is not determined by r=2 observations in general (run totals fixed while singleton-run patterns vary)."
+        ],
+        "reasoning": "r=2 exact enumeration therefore cannot imply the r=3 quotient formula by merely replacing r; both further run length data and an endpoint enumeration are required. The result is a special case of the general *model*, not of a previously proven formula.",
+        "searches": [
+          "Ye–Elishco Section VIII constant r",
+          "Resultary r=2 full RESULT.md",
+          "Acharya et al. full spectrum versus truncated observation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two words are observationally equivalent exactly when their contiguous length<=3 composition-multiset signatures agree; maximum distinct-observation code is the number of quotient classes.",
+          "Source proof reconstructs the quotient via run/singleton/endpoint data, rather than treating ordered 010 and 100 as distinct when compositions coincide."
+        ],
+        "reasoning": "Rephrased the claim as a zero-error code quotient and as enumeration of feasible run signatures. Checked the same observable under both descriptions; the count is not supplied by the earlier r=2 theorem.",
+        "searches": [
+          "length three binary substring composition multiset distinct profiles reconstruction code exact number run signatures [Resultary_Search]",
+          "Ye Elishco fixed length-limited r=3 substring composition reconstruction code [web]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved published r=2 record gives R2(2m)=3m²-2m+2 and R2(2m+1)=3m²+m+2, and explicitly limits its theorem to cutoff two.",
+          "The present direct finite table confirms early r=3 counts but cannot prove all-n novelty."
+        ],
+        "reasoning": "The closest exact indexed table concerns r=2, not r=3; tested small r=3 counts are not already a general formula, and unsuccessful database search is not proof of novelty.",
+        "searches": [
+          "Resultary_Search: length three binary substring composition multiset distinct profiles reconstruction code exact number run signatures",
+          "Resultary record 2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+          "direct count of C_<=3 signatures n<=12"
+        ]
+      },
+      "rationale": "Ye–Elishco define precisely the r-limited contiguous-composition model but do not calculate the fixed r=3 profile quotient. The published r=2 study proves a quadratic enumeration and run-count class sizes, whereas r=3 requires singleton-run and endpoint distinctions and has a quartic period-four profile. Full-spectrum reconstruction and ordered substring spectra are nonequivalent observations and do not imply the coarser quotient cardinality. Best-of-knowledge original, with unindexed fixed-cutoff equivalences still possible.",
+      "residual_risks": [
+        "Unindexed thesis or fixed-r=3 enumeration may already compute the same quotient.",
+        "2015 full-spectrum reconstruction paper was compared at statement level, not independently reread in full; an unexpected exact truncated enumeration in an appendix remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact R3 formula; supplies setup and other regimes",
+          "evidence": "Source defines C_{<=r}, constructs codes for longer cutoff and leaves constant-r questions distinct from proved results.",
+          "identifier_or_url": "arXiv:2208.14963; IEEE Trans. Inform. Theory 70(6) (2024)",
+          "material_read": "Introduction, definitions, Section VIII and conclusion of accessible full manuscript (pages/sections around model and future work)",
+          "method": "read lawful full-text page and compare r-limited theorem statements",
+          "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+          "trigger": "same objects, cutoff parameter and canonical original model"
+        },
+        {
+          "assessment": "PARTIAL_OVERLAP limited to r=2; cutoff-three all-n result not implied",
+          "evidence": "Full source explicitly excludes r>=3 and counts a quadratic rather than quartic quotient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e/RESULT.md",
+          "material_read": "entire RESULT.md including proof, exact code size, class sizes, and limitations",
+          "method": "read full accessible GitHub source",
+          "title": "Exact binary r=2 length-limited composition reconstruction",
+          "trigger": "nearest prior published research record on identical alphabet and type of observation"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT; full spectrum is logically finer but cannot yield quotient count without more information",
+          "evidence": "Model observes all substring lengths rather than only lengths <=3; full priority risk retained.",
+          "identifier_or_url": "DOI:10.1137/140962486 (2015)",
+          "material_read": "title/abstract/bibliographic characterization; full paper not independently obtained",
+          "method": "external bibliographic comparison",
+          "title": "String Reconstruction from Substring Compositions",
+          "trigger": "stronger complete-spectrum reconstruction could imply special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximal number of codewords distinguishable by a fixed small composition window is a natural exact reconstruction invariant; the shift from quadratic r=2 growth to a quartic, period-four r=3 law precisely identifies the information unlocked by one additional substring length. The all-n generating function is a substantive enumeration, not a sampled code table or trivial substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every binary word length n>=1, the number R_3(n) of distinct noiseless composition multisets from all contiguous factors of lengths at most 3 equals the coefficient of z^n in z(2-5z+6z^2-4z^3+4z^4-z^5+2z^6-3z^7+2z^8)/((1-z)^4(1-z^4)). For n>=2 it is the asserted period-four quartic (3n^4-16n^3+114n^2-272n+c_{n mod 4})/96, c=(480,555,456,555), with R_3(1)=2 and R_3(n)=n^4/32+O(n^3). R_3 is the maximum code cardinality with distinct such observations, not a decoding or error-correction claim.",
+  "limitations": [
+    "Binary linear words and all contiguous factors of lengths at most three, with multiplicities, only.",
+    "The result gives exact possible-observation count and existential maximal code size, not individual class sizes, an efficient encoder/decoder, corrupted observations or larger alphabets."
+  ],
+  "schema_version": 1
+}
