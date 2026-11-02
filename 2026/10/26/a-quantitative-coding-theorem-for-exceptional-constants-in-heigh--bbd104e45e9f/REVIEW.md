@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness.** The finite-stage parent rule is total and computable uniformly in the c.e. index. The constructed tree has height at most three. The local-defect formula follows from the need to anchor every child branch whose leaf count differs from the common unanchored value, and from the need to anchor each root branch outside a selected common shape. The construction has infinitely many root branches of shape \((1,0)\) and exactly one shape-\((0,0)\) branch per nonmember of \(W\), yielding the stated exact value.
+## correctness
 
-**Originality.** Adams–Cenzer give the qualitative weak-ultrahomogeneity criterion and the height-three branching classification, but the inspected primary text does not state this exact minimum-constant coding theorem. Literature-index searches returned related tree/model-theory records but no matching parameter-cost result. The claim is the explicit uniform encoding of finite complement size, not a novelty claim for the qualitative classification.
+PASS
 
-**Value.** The minimum number of named constants is a natural measure of finite homogeneity defect. The construction refines a yes/no weak-ultrahomogeneity distinction by realizing each finite complement size exactly, while keeping the tree height bounded by three.
+In the rooted predecessor language the least cardinality of a finite exceptional set is μ(T)=Σ_{level-one x}δ(x)+ε(T), with infinity for unbounded mismatches: naming a child or descendant fixes its ancestors, so every child-star that deviates from the common degree requires a distinct anchor; already anchored root branches need no extra root anchor, while unanchored regular branches of exceptional shape each require one. Conversely choosing such anchors makes all remaining unanchored siblings isomorphic, giving a back-and-forth extension of each finite partial isomorphism. In the explicit computable presentation, a first-entry stage (if any) creates exactly one leaf child beneath x_n, whereas every non-entry stage creates a padding root child with exactly one leaf through the computable non-entry enumeration π_n. Thus root branch shapes (1,0) occur infinitely and (0,0) occur once for every n outside W, so μ(T_W)=|ω\W| when finite and ∞ otherwise. Finite prefixes and count identities independently checked; infinitude follows from the construction, not the truncation.
 
-**Limitations.** The argument uses the predecessor-function language and the height-three bound; it does not establish analogous formulas for higher trees. The cited primary paper is a close predecessor, and a separate literature search beyond the inspected sources could uncover an equivalent quantitative formulation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Adams–Cenzer (arXiv:1608.01254), §7 Theorem 7.11 and Proposition 7.13, already characterize qualitative weak ultrahomogeneity and the local finite-exception condition for height-three predecessor trees. This result does not claim those as new. The numerical minimum formula and uniform coding of the exact complement cardinality of an arbitrary c.e. set are a distinct quantitative statement not stated in the inspected source. Targeted Resultary and literature searches did not establish prior coverage; novelty remains best-of-knowledge, not proven by absence of hits.
+
+## value
+
+PASS
+
+The minimal number of named parameters is a natural invariant measuring failure of Fraïssé ultrahomogeneity. Uniformly realizing every finite value via complement sizes, while sharply detecting noncofinite sets by infinity, gives a mathematically motivated computable-model-theory coding theorem beyond a simple true/false rephrasing of the predecessor-tree classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
