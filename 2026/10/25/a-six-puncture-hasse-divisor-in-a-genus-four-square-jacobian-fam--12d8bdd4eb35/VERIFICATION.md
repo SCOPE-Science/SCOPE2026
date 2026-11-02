@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-The embedded `verify.py` needs only Python 3 standard-library modules. Run `python3 verify.py`. It enumerates all smooth ordered parameters over fields with \(5\), \(25\), and \(125\) elements, independently evaluates the \(2\times2\) Hasse determinant, checks the parametrizing equation, and tests the nilpotence of the rational exceptional matrix.
+# Independent mathematical audit
 
-Observed output:
+## correctness
 
-```
-F_5: smooth parameters=13, nonordinary=1, prediction=1
-F_25: smooth parameters=553, nonordinary=19, prediction=19
-F_125: smooth parameters=15253, nonordinary=121, prediction=121
-VERIFY_OK
-```
+PASS
 
-The code is a finite consistency check, not a proof of the all-characteristics statement. The general characteristic-five formula is established by the symbolic determinant, reciprocal-quartic squarefreeness criterion, and isomorphism of the divisor with a punctured rational line. This file makes no independent-validation claim.
+The reciprocal quartic Q(t) reduces to a quadratic in t+t^-1, proving squarefreeness on exactly U. Two commuting involutions yield smooth genus-two quotients D and E related by reciprocal inversion. Their pullbacks yield a degree prime to five isogeny J(D)²→J(X), identifying p-divisible groups and ordinarity. For D, f(t)=(t+1)Q(t) has Cartier/Hasse-Witt matrix [[-2uv+2u+1,-2(u-v)(2u+1)],[-2uv,u²+4uv+2v]], whose determinant over F5 is Phi. Since d(u)=u²+2u-2 is coprime to n(u)=u²(2u+1), the divisor graph v=n/d has exactly four F5 punctures u=0,1,2,3 and two roots of d (irreducible discriminant 2). The derivative in v never vanishes there. Counting forbidden v=0,-u²,-1-u gives q²-3q+3 smooth parameter pairs, and puncture Frobenius orbits give q-4-2[2|m]. For (-1,2), the genus-two Hasse matrix [[3,4],[4,2]] has rank one and square zero; genus-two p-rank zero implies supersingular Newton polygon and a-number one, doubled by the isogeny. Independently verified determinant identities, geometric substitution, and direct complete F5 count: 13 smooth, 1 nonordinary (4,2). Finite extension-field scripts were inspected; finite checks corroborate but do not replace uniform arguments.
+
+## originality
+
+PASS
+
+Bruin–Kulkarni supply the genus-four Jacobian-square construction (same objects and parameters), so the isogeny/family is not new. The assessed additional arithmetic is the exact characteristic-five Hasse divisor, six-puncture parameter curve, all F5^m parameter counts and one explicitly classified rational supersingular member. Neither the inspected Section 7.1/Example 7.3 nor genus-two Cartier theory gives these coefficients by implication alone.
+
+## value
+
+PASS
+
+The all-extension-field exact nonordinary divisor and rational puncture decomposition are a natural arithmetic stratum of an established genus-four Jacobian-square family, beyond a routine abstract Cartier criterion. Frobenius parity and the supersingular F5 example are exact reusable invariants for future arithmetic/moduli comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

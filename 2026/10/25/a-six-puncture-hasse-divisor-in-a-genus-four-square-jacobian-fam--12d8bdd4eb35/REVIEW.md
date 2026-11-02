@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The reciprocal quartic reduces the hyperelliptic squarefreeness question to a quadratic discriminant with exact boundary factors. Two explicit involution quotients yield a prime-to-five isogeny to a square of a genus-two Jacobian. Its \(p=5\) Hasse matrix has determinant \(\Phi\); the six omitted values follow by exact substitution. The finite-field checker confirms all pair counts for \(q=5,25,125\) and the nilpotent matrix at the distinguished rational point. Risks: the checker is finite, whereas the all-extension count is proved symbolically.
+## correctness
 
-**Originality — PASS with residual risk.** Bruin–Kulkarni construct the Jacobian-square family but do not report this characteristic-five Hasse divisor or its four-plus-two puncture arithmetic. Older characteristic-three work on a reciprocal genus-four model does not imply this characteristic-five assertion. General genus-two Cartier–Manin and genus-four existence results are not equivalent to the particular six-puncture classification. Direct published research-record and literature searches found no statement implying the result. Risks: unindexed arithmetic computations could overlap; no external uniqueness certification is claimed.
+PASS
 
-**Mathematical value — PASS.** The Hasse divisor in a symmetry-motivated two-parameter genus-four family is a natural, globally defined arithmetic stratum. Determining its reduced geometric shape, Frobenius action on punctures, exact counts in every extension, and a supersingular rational boundary example supplies nontrivial information beyond a sample calculation. This is not claimed as a classification of all Newton polygons on the nonordinary locus.
+The reciprocal quartic Q(t) reduces to a quadratic in t+t^-1, proving squarefreeness on exactly U. Two commuting involutions yield smooth genus-two quotients D and E related by reciprocal inversion. Their pullbacks yield a degree prime to five isogeny J(D)²→J(X), identifying p-divisible groups and ordinarity. For D, f(t)=(t+1)Q(t) has Cartier/Hasse-Witt matrix [[-2uv+2u+1,-2(u-v)(2u+1)],[-2uv,u²+4uv+2v]], whose determinant over F5 is Phi. Since d(u)=u²+2u-2 is coprime to n(u)=u²(2u+1), the divisor graph v=n/d has exactly four F5 punctures u=0,1,2,3 and two roots of d (irreducible discriminant 2). The derivative in v never vanishes there. Counting forbidden v=0,-u²,-1-u gives q²-3q+3 smooth parameter pairs, and puncture Frobenius orbits give q-4-2[2|m]. For (-1,2), the genus-two Hasse matrix [[3,4],[4,2]] has rank one and square zero; genus-two p-rank zero implies supersingular Newton polygon and a-number one, doubled by the isogeny. Independently verified determinant identities, geometric substitution, and direct complete F5 count: 13 smooth, 1 nonordinary (4,2). Finite extension-field scripts were inspected; finite checks corroborate but do not replace uniform arguments.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bruin–Kulkarni supply the genus-four Jacobian-square construction (same objects and parameters), so the isogeny/family is not new. The assessed additional arithmetic is the exact characteristic-five Hasse divisor, six-puncture parameter curve, all F5^m parameter counts and one explicitly classified rational supersingular member. Neither the inspected Section 7.1/Example 7.3 nor genus-two Cartier theory gives these coefficients by implication alone.
+
+## value
+
+PASS
+
+The all-extension-field exact nonordinary divisor and rational puncture decomposition are a natural arithmetic stratum of an established genus-four Jacobian-square family, beyond a routine abstract Cartier criterion. Frobenius parity and the supersingular F5 example are exact reusable invariants for future arithmetic/moduli comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
