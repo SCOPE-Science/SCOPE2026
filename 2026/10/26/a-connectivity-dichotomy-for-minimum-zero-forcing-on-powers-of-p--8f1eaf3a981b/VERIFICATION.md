@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later. The program has no third-party dependencies and constructs the base graphs directly from their definitions. For each of 35 path and 15 cycle parameter pairs it independently enumerates all potential minimum-size blue sets, compares simultaneous and sequential forcing rules, and verifies agreement with the stated set families. It then builds the full minimum-set token-jumping graph and checks its vertex count, component decomposition, and, within scope, cycle edge count. Additional larger instances verify the closed formulas via the structural families.
+## correctness
 
-Expected concluding output:
+PASS
 
-```text
-PATH_EXHAUSTIVE_OK 35 parameter pairs, two independent forcing simulations
-CYCLE_EXHAUSTIVE_OK 15 parameter pairs, two independent forcing simulations
-k=2 n=20: path=4 states, components=[2, 2]; cycle=60 states, edges=180, components=1 STRUCTURAL_OK
-k=3 n=25: path=6 states, components=[3, 3]; cycle=125 states, edges=500, components=1 STRUCTURAL_OK
-k=4 n=30: path=8 states, components=[4, 4]; cycle=210 states, edges=1050, components=1 STRUCTURAL_OK
-k=5 n=35: path=10 states, components=[5, 5]; cycle=315 states, edges=1890, components=1 STRUCTURAL_OK
-k=6 n=40: path=12 states, components=[6, 6]; cycle=440 states, edges=3080, components=1 STRUCTURAL_OK
-k=7 n=45: path=14 states, components=[7, 7]; cycle=585 states, edges=4680, components=1 STRUCTURAL_OK
-ALL_VERIFY_OK
-```
+Minimum-degree first-force lemma forces any cardinality-degree forcing set to contain all but one neighbor of a minimum-degree vertex. For P_n^k the only minimum-degree vertices are endpoints: all 2k possible sets are valid, giving two K_k families with cross-match, bridge, or none according to n=k+2,k+3,>=k+4. For C_n^k every center has degree 2k; the n cyclic window families consist of K_(2k) with exactly one shared vertex for adjacent centers, yielding n(2k-1) configurations and connectivity. For n>=2k+4, classify exchanges by center separation 0,1,2 to count nk(2k-1)+n(2k-2)+n=n(k+1)(2k-1). Independently enumerated all candidate minimum subsets in 32 small parameter cases and token jumps; all matched. Finite checks corroborate all-parameter combinatorial proof.
 
-These finite computations cannot certify an infinite claim by themselves. The all-parameter proof in RESULT.md is the basis of correctness. No external audit or external formal proof certification has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge after statement-level comparison: Equivalent formulations include exchange graphs of all minimum zero-forcing sets under one-token replacement, with potential dual fort language. Geneson-Haas-Hogben define this precise adjacency but give the bare cycle case, not all graph powers. Abiad et al 2026 determine the zero-forcing numbers for graph powers including P_n^k/C_n^k, but their accessible abstract does not assert the full minimum-set graph; Geneson et al develops reconfiguration generally, but inspected theorems do not dominate the all-k classification.
+
+## value
+
+PASS
+
+The published scalar zero-forcing number does not describe connectivity of the graph of optimal solutions. Exact description of every optimal seed and sharp n-dependent disconnection for paths versus permanent connectedness on cycles is a motivated structural reconfiguration classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

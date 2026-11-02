@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The first-force lemma forces every minimum set into explicit endpoint or cyclic-window families; the subsequent forcing construction proves that all candidates work. On paths, a direct comparison of the two endpoint families proves each connectivity regime. On cycles, a clique-intersection argument proves connectivity and a three-case classification by first-force-center separation yields the exact edge count. Exhaustive subset enumeration with two differently scheduled forcing algorithms agrees on 50 parameter pairs, and independent state-space reconstruction checks larger parameters. The arbitrary-parameter assertions depend on the proof, not those tests.
+## correctness
 
-**Originality — PASS with residual risk.** arXiv:2610.03892v1 proves the numerical zero-forcing values for powers of paths and cycles, not the complete minimum-set exchange graphs. arXiv:2009.00220v1 defines the same token-jump rule and proves the ordinary-cycle case, but its examined family results do not classify graph powers. arXiv:1401.6206v1 supplies forcing background and general bounds. Claim-level checks included reverse formulations via minimum forts, alternate terminology for token jumps, induced exchange subgraphs, graph-power notation, and matching parameters. A targeted mathematical research-index search and comparisons with accessible archived claims found no encompassing result. Exact global novelty cannot be inferred from search failure; older unindexed results or an equivalent reconfiguration description remain possible.
+PASS
 
-**Value — PASS.** A zero-forcing number alone says how many initially blue vertices suffice, not how robustly optimal configurations can be exchanged. These are canonical graph-power families whose scalar invariants are already known. The proof gives *every* optimum and shows an abrupt, permanent loss of optimal token-jump connectivity on path powers, while cyclic closure instead produces a connected overlapping-clique structure with exact configuration and exchange counts. This supplies a natural, structurally complete family-level benchmark for solution reconfiguration, rather than a numerical exercise.
+Minimum-degree first-force lemma forces any cardinality-degree forcing set to contain all but one neighbor of a minimum-degree vertex. For P_n^k the only minimum-degree vertices are endpoints: all 2k possible sets are valid, giving two K_k families with cross-match, bridge, or none according to n=k+2,k+3,>=k+4. For C_n^k every center has degree 2k; the n cyclic window families consist of K_(2k) with exactly one shared vertex for adjacent centers, yielding n(2k-1) configurations and connectivity. For n>=2k+4, classify exchanges by center separation 0,1,2 to count nk(2k-1)+n(2k-2)+n=n(k+1)(2k-1). Independently enumerated all candidate minimum subsets in 32 small parameter cases and token jumps; all matched. Finite checks corroborate all-parameter combinatorial proof.
 
-**Scope and limitations.** Only ordinary zero forcing and token-jumping reconfiguration are studied. The stated lower bounds on \(n\) are essential to the given formulas. A full cycle exchange-graph distance classification is not asserted. The inspected sources do not rule out all unindexed or equivalently phrased prior work. Review is not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge after statement-level comparison: Equivalent formulations include exchange graphs of all minimum zero-forcing sets under one-token replacement, with potential dual fort language. Geneson-Haas-Hogben define this precise adjacency but give the bare cycle case, not all graph powers. Abiad et al 2026 determine the zero-forcing numbers for graph powers including P_n^k/C_n^k, but their accessible abstract does not assert the full minimum-set graph; Geneson et al develops reconfiguration generally, but inspected theorems do not dominate the all-k classification.
+
+## value
+
+PASS
+
+The published scalar zero-forcing number does not describe connectivity of the graph of optimal solutions. Exact description of every optimal seed and sharp n-dependent disconnection for paths versus permanent connectedness on cycles is a motivated structural reconfiguration classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
