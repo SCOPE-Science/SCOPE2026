@@ -1,0 +1,190 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T15:04:43Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Original RESULT.md at assigned commit contains smoothness reduction, linearized affine equation, Newton reconstruction and standard isogeny steps.",
+        "Independent F4 derivative candidate check enumerated 16 mathematically complete cases.",
+        "Independent field-polynomial rank counts for extension degrees 1..7 exactly matched 5,35,65,395,1025,3395,16385; independent direct (x,y) enumeration matched degrees 1..4.",
+        "Independent polynomial calculations verified binary irreducibility of degree-2,4,6,8,10,12,14 extension presentations, Newton factorization and Q-irreducibility of quartic.",
+        "Original source example equation checked on open-access PDF screenshots p29–30."
+      ],
+      "limitations": [
+        "Polynomial-basis direct-pair enumeration was independently repeated through extension degree 4, rank method through degree 7; counts beyond degree six are corroborative only.",
+        "All-n extension counts and isogenies depend on the genus-six functional equation, P irreducibility and standard Honda–Tate/Tate, not merely finite tests.",
+        "No Lean or outside expert verification claimed."
+      ],
+      "rationale": "The final theorem is for precisely the F4 plane quintic of Asgarli–Duan–Lai Example 4.10 with a²+a+1=0, and its q=4 zeta numerator. Recomputed F_X=(a+1)X⁴+X²Y²+X²YZ+X²Z²+Y⁴+Y²Z²+Z⁴, F_Y=Z(X³+Z³), F_Z=Y(X³+Y³). Their simultaneous projective zeros must be among 16 points defined over F4: one [1:0:0], three [x:1:0], twelve [x:y:1]. Independent F4 arithmetic excludes all, establishing geometric smoothness and genus g=6. On Z=1 the equation is an F2-linearized polynomial in Y with coefficients depending on X; independent exact polynomial-basis field arithmetic and rank-of-linear-map counts give N1..N7=(5,35,65,395,1025,3395,16385). For m=1..6, p_m=4^m+1−N_m=(0,−18,0,−138,0,702). Newton identities produce c_0..c_6=(1,0,9,0,75,0,315), and functional equation c_{12−i}=4^{6−i} c_i completes L_C(T)=(1+3T²+16T⁴)^3. Degree-six mod-2 L implies full p-rank 6 and ordinarity; P(U)=U⁴+3U²+16 is irreducible over Q and ordinary, so standard Honda–Tate/Tate produce J~A³ with A a simple ordinary surface. Under F16 base change P maps to (U²+3U+16)², hence J~E⁶ with trace −3. Opposite-sign roots imply N_{odd}=4^n+1; for n=2k the squared roots give recurrence s0=2,s1=−3,s_k=−3s_{k−1}−16s_{k−2} and N_{2k}=16^k+1−6s_k. Isogeny is not polarized isomorphism. Exact finite checks corroborate the analytic derivation; no finite enumeration is misrepresented as an all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asgarli–Duan–Lai Theorem 1.6 classifies possible geometry for d=q+1; Example 4.10 is an explicit instance, without extension counts.",
+          "Borges–Homma Theorem 1.2 recalls N_1=d(q−d+2)=5; a single count does not determine twelve Frobenius eigenvalues.",
+          "Arakelian–Borges Theorem 4.4 establishes inequalities among extension point counts, not the fixed values N_2,...,N_6 for this curve.",
+          "Honda–Tate classifies isogenies conditional on the Frobenius polynomial and does not calculate it for the displayed equation."
+        ],
+        "reasoning": "General geometric classification, point-count bounds and Honda–Tate are genuine antecedents but do not imply the six exact extension counts or the cubic quartic factor without the curve-specific arithmetic calculation.",
+        "searches": [
+          "arXiv:2207.11981 Theorem 1.6",
+          "arXiv:1511.00339 Hefez–Voloch formula",
+          "arXiv:1608.05039 Theorem 4.4 and Corollary 4.7",
+          "LMFDB Variety/Abelian/Fq/Source Weil polynomial data",
+          "Resultary semantic: genus six Frobenius nonclassical ordinary Hasse-Witt Cartier-Manin"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2207.11981 / Math. Z. (2025) defining Example 4.10 (PDF p29–30, full HTML theorem/navigation and searches)",
+        "arxiv:1511.00339 Borges–Homma Theorem 1.2 and proof context",
+        "arxiv:1608.05039 Arakelian–Borges Theorem 4.4 and corollaries",
+        "Resultary searches for exact equation, zeta alias, genus-six ordinary Jacobian, field extensions (five queries, no matching covering result)",
+        "Web exact polynomial, named-curve, LMFDB and genus-six census searches",
+        "junbolau/genus-6 F2 repository scope (not same field)",
+        "LMFDB data source description only; detailed site blocked"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known explicit equation plus geometric smoothness determines genus six, not its zeta numerator.",
+          "N_1=5 from Hefez–Voloch fixes only first Newton power sum. The exact point-count calculation supplies N_2=35, N_3=65, N_4=395, N_5=1025, N_6=3395.",
+          "Six independent power sums plus genus-six functional equation force (1+3T²+16T⁴)^3; ordinarity and standard isogeny classification are consequences of this curve-specific factorization."
+        ],
+        "reasoning": "A prior theorem with all required extension counts would dominate even without an identical polynomial, but the inspected primary results only offer one count or inequalities, not enough to imply the proposed factorization.",
+        "searches": [
+          "arXiv:2207.11981 Example 4.10/Thm 1.6",
+          "arXiv:1511.00339 Theorem 1.2",
+          "arXiv:1608.05039 Theorem 4.4",
+          "Weil polynomial and simple ordinary abelian surface Frobenius U⁴+3U²+16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact claim is equivalently L_C(T)=(1+3T²+16T⁴)^3; J_C~A^3 over F4 with A ordinary simple of quartic U⁴+3U²+16; over F16, J_C~E^6 with E trace −3.",
+          "The defining source Example 4.10 presents the curve and Hessian; PDF p.29-30 and full HTML search contain no zeta/Weil/ordinary computation.",
+          "Resultary exact alias searches showed unrelated algebraic-geometric findings, not an equal isogeny or zeta statement."
+        ],
+        "reasoning": "Searching only “quintic” would miss coverage phrased as a Jacobian isogeny class, and an existing isogeny table could cover a curve without quoting its equation. The inspected primary claims establish neither the exact numerator nor the identification of this curve with that isogeny class.",
+        "searches": [
+          "Resultary semantic: Asgarli Duan Lai Example 4.10 F4 quintic zeta L polynomial (1+3T²+16T⁴)^3 isogeny abelian surface",
+          "Resultary semantic: Frobenius-nonclassical plane quintic F4 ordinary Jacobian Weil polynomial",
+          "Web: \"1+3T^2+16T^4\" quintic Frobenius",
+          "arXiv:2207.11981 Example 4.10",
+          "arXiv:1511.00339 Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact polynomial/source-equation joint search found no indexed curve-level entry.",
+          "The public genus-six census by Huang–Kedlaya–Lau explicitly concerns curves over F2, whereas the assigned curve is over F4.",
+          "LMFDB describes general Weil-polynomial/isogeny-class tables; access to the detailed target table was blocked by a browser challenge, and a general polynomial record would not by itself identify the given quintic."
+        ],
+        "reasoning": "No checked exact database record ties this F4 equation to the numerator. An unindexed curve table or private computation could nonetheless do so; database non-coverage is not certified by search failure.",
+        "searches": [
+          "Web: \"1+3T^2+16T^4\" quintic Frobenius",
+          "Web: genus 6 curves over F4 zeta function database complete Weil polynomials plane quintics",
+          "LMFDB Variety/Abelian/Fq/Source",
+          "GitHub junbolau/genus-6 F2 census",
+          "Resultary semantic: smooth plane quintic over F4 genus six counts 5 35 65 395 1025 3395"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the complete Weil numerator of this specific previously published plane quintic: the identical defining source supplies the equation and geometric features but not its extension-field zeta polynomial. The quoted Hefez–Voloch count gives only N_1. Independently obtained N_2,...,N_6 uniquely supply the new numerator via Newton identities and functional equation, from which standard isogeny theorems apply. No inspected exact prior statement, stronger implication, or same-curve table covers it; residual bibliographic priority risks remain.",
+      "residual_risks": [
+        "An unindexed computation, database entry or later paper could associate this named F4 quintic with the identical Weil numerator under different coordinates or trace conventions.",
+        "Detailed LMFDB entries were inaccessible due to browser challenge; no full exclusion of database coverage is claimed.",
+        "Published Resultary and web semantic matching is incomplete, and some relevant 1990 primary full text was not independently inspected.",
+        "No external formal or human expert proof attestation; originality remains best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes this specific quintic and its Frobenius nonclassical/Hessian properties, but no complete zeta, exact extension counts, or isogeny structure in inspected text",
+          "evidence": "Example 4.10 p.29 supplies x((a+1)x⁴+x²y²+x²yz+x²z²+y⁴+y²z²+z⁴)+y⁴z+yz⁴; p.30 displays Hessian; Theorem 1.6 characterizes d=q+1 constructions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.11981",
+          "material_read": "Preprint v3 sections 1–5 inspected by full HTML and PDF text navigation; Theorem 1.6, Proposition 4.5/4.6, Example 4.10 and adjacent Hessian computation closely read; PDF screenshots of pp. 29 and 30 examined, matching full homogeneous equation",
+          "method": "HTML section/theorem reading, full-document term scans (Weil, zeta, L-polynomial, ordinary), and PDF screenshots p29–30",
+          "title": "Frobenius nonclassical hypersurfaces",
+          "trigger": "Defines precisely the same F4 quintic, hence most plausible direct priority source"
+        },
+        {
+          "assessment": "Hefez–Voloch equation yields base field N1 only; paper extends to singular point-count bounds, not exact L of the assigned later curve",
+          "evidence": "Theorem 1.2: #X(F_q)=d(q−d+2) gives 5 for q=4,d=5; the next Theorem 1.3 is a singular-case inequality.",
+          "identifier_or_url": "https://arxiv.org/html/1511.00339v1",
+          "material_read": "Full HTML introduction, Theorems 1.1–1.3 and Section 3 proof context, plus full-document topic/navigation inspection",
+          "method": "Open-access article HTML reading and mathematical comparison",
+          "title": "Points on singular Frobenius nonclassical curves",
+          "trigger": "Contains Hefez–Voloch theorem which could imply base-field or extension counts"
+        },
+        {
+          "assessment": "Gives bounds and linear inequalities between extension counts for general curves, not this named curve’s exact six extension counts or full zeta factor",
+          "evidence": "Theorem 4.4 relates c1 N1 + cu(Nu−N1)+cm(Nm−N1)+c_{m−u}(Nm−N1) to a divisor-degree upper bound; it is an inequality, not a characterizing equation.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.05039",
+          "material_read": "Open-access full HTML overview and Section 4 principal Theorem 4.4 with Corollaries 4.6, 4.7 and 4.11, plus Section 5 examples",
+          "method": "HTML theorem reading and document searches for zeta, quintic and Weil polynomial",
+          "title": "Bounds for the number of points on curves over finite fields",
+          "trigger": "Potential general extension-count theorem stronger than a single field rational-point count"
+        },
+        {
+          "assessment": "Census ground field F2 differs from the named F4 curve, so this source is not direct coverage; no claim about all databases",
+          "evidence": "The repository says it enumerates 72,227 isomorphism classes of genus-six curves over F2, including plane quintics.",
+          "identifier_or_url": "https://github.com/junbolau/genus-6/",
+          "material_read": "Repository public landing-page statement of scope and contents only; individual dataset entries not inspected",
+          "method": "Public repository page/search-result examination",
+          "title": "A Census of Curves of Genus 6 over F2",
+          "trigger": "Potential curve zeta database with exact genus-six entries"
+        },
+        {
+          "assessment": "Inaccessible detailed data; possible matching polynomial does not imply identification with the particular Example 4.10 curve; residual risk retained",
+          "evidence": "Source explains Honda–Tate enumeration of finite-field Weil polynomials and curve Jacobian constraints.",
+          "identifier_or_url": "https://www.lmfdb.org/Variety/Abelian/Fq/Source",
+          "material_read": "Search-index source description only; direct destination opened to a browser challenge, no target table entry read",
+          "method": "Public result and access-state inspection",
+          "title": "LMFDB—Source and acknowledgments for Weil polynomial data",
+          "trigger": "Possible exact genus-six polynomial/isogeny database"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Named 2022/2025 primary geometric construction with explicit plane quintic and smoothness theorem.",
+        "Exact factorization reveals unexpected multiplicity three and field-of-definition change of simple factors.",
+        "All odd extension point counts and explicit recurrence for even extensions follow from Frobenius spectral decomposition."
+      ],
+      "limitations": [
+        "One explicit curve, not a general classification of Frobenius-nonclassical genus-six quintics or their Jacobians.",
+        "No conclusion about polarization, automorphism group, or all connected isogeny classes."
+      ],
+      "rationale": "The special curve is an established geometrically natural Frobenius-nonclassical plane quintic, not an arbitrary sampled coefficient choice. Determining its exact zeta numerator and ordinarity identifies a concrete genus-six Jacobian as a third power of a simple abelian surface over F4 and a sixth power of an ordinary elliptic curve over F16; the all-odd-extension vanishing Frobenius trace and even-extension recurrence are nontrivial structural arithmetic consequences. The exact invariant of this named curve is independently useful in future arithmetic, point-count, isogeny and special-geometry comparisons. Classical Newton and Honda–Tate steps are appropriately credited, and no larger family classification or external certification is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2207.11981 / Math. Z. (2025) defining Example 4.10 (PDF p29–30, full HTML theorem/navigation and searches)",
+    "arxiv:1511.00339 Borges–Homma Theorem 1.2 and proof context",
+    "arxiv:1608.05039 Arakelian–Borges Theorem 4.4 and corollaries",
+    "Resultary searches for exact equation, zeta alias, genus-six ordinary Jacobian, field extensions (five queries, no matching covering result)",
+    "Web exact polynomial, named-curve, LMFDB and genus-six census searches",
+    "junbolau/genus-6 F2 repository scope (not same field)",
+    "LMFDB data source description only; detailed site blocked"
+  ],
+  "disposition": "passed",
+  "limitations": {
+    "originality_priority": [
+      "An unindexed computation, database entry or later paper could associate this named F4 quintic with the identical Weil numerator under different coordinates or trace conventions.",
+      "Detailed LMFDB entries were inaccessible due to browser challenge; no full exclusion of database coverage is claimed.",
+      "Published Resultary and web semantic matching is incomplete, and some relevant 1990 primary full text was not independently inspected.",
+      "No external formal or human expert proof attestation; originality remains best-of-knowledge."
+    ],
+    "publication": [
+      "Metadata replacements remove only a verified provenance key; original scientific self-review and status fields are preserved until server derives and stamps synchronized independent state."
+    ],
+    "scientific": [
+      "Polynomial-basis direct-pair enumeration was independently repeated through extension degree 4, rank method through degree 7; counts beyond degree six are corroborative only.",
+      "All-n extension counts and isogenies depend on the genus-six functional equation, P irreducibility and standard Honda–Tate/Tate, not merely finite tests.",
+      "No Lean or outside expert verification claimed.",
+      "One explicit curve, not a general classification of Frobenius-nonclassical genus-six quintics or their Jacobians.",
+      "No conclusion about polarization, automorphism group, or all connected isogeny classes."
+    ]
+  },
+  "schema_version": 1
+}
