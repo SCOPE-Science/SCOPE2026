@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The Dirac-edge reduction uses optimal input/output couplings and graph geodesics. Cyclic mass-flow duality reduces neighbor-kernel W1 to a median absolute deviation, with the transport identity explicitly credited to prior work. A reflected heat difference system has an irreducible Metzler generator (odd end diagonal -3, even -4), proving strict radial monotonicity. Shell counting identifies the exact median. A nonnegative defect expansion and the combinatorial heat-kernel Taylor coefficients show all derivatives before k_N vanish and the first equals -a_N. Fourier decomposition proves the stated fixed-N tail. A separate numerical Kantorovich dual LP matches the formula in 140 instances, and exact integer matrix powers verify 589 Taylor identities; neither finite test substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1712.00875v1 (Münch–Wojciechowski), Theorem 3.8, characterizes exponential Lipschitz contraction by a coarse curvature bound but does not compute first nonzero higher derivatives of finite-cycle transport contraction.",
+        "arxiv:2308.00516v1 (Pedrotti) gives general coupling/curvature-based contraction results without a cycle-specific high-order coefficient in the checked material.",
+        "The curvature equivalence controls first-order exponential decay; for N≥6 it is consistent with a zero initial slope and therefore does not provide the nonzero higher-order term."
+      ],
+      "reasoning": "The general semigroup/curvature results apply to cycles but specify an exponential contraction criterion, not exact time-varying norms or the sharp order floor((N+2)/4). Thus a general theorem about exponential bounds is not a stronger statement that calculates this high-order coefficient. The older circular median result broadly covers the instantaneous W1 subproblem, which is explicitly excluded from the novel component.",
+      "searches": [
+        "graph cycle C_n Markov heat semigroup Lipschitz contraction coefficient order floor n/4 leading Taylor 0 derivative",
+        "exact Wasserstein one Lipschitz contraction heat semigroup simple random walk cycle C_n all t",
+        "arxiv:1712.00875v1 Theorem 3.8",
+        "arxiv:2308.00516v1 coupling heat semigroup"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0906.5499 §2.2.3 Eq. (12), known general circle transport formula",
+      "arxiv:0902.3527, circular Monge transport algorithm",
+      "arxiv:1712.00875v1, Theorem 3.8 and surrounding semigroup characterization",
+      "arxiv:2308.00516v1, coupling contraction estimates section",
+      "published cycle ℓ4/ Riesz-transform records, indexed descriptions only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:0906.5499 (Delon–Rabin–Gousseau), Eq. (12), gives the exact circular-histogram W1 median formula for any probability measures, thus covers that ingredient completely.",
+        "arxiv:1712.00875v1 (Münch–Wojciechowski), Theorem 3.8, characterizes exponential Lipschitz contraction by a coarse curvature bound but does not compute first nonzero higher derivatives of finite-cycle transport contraction.",
+        "The claimed order k_N=floor((N+2)/4) follows here by new shell-count/Taylor arguments after applying the prior circular transport identity."
+      ],
+      "reasoning": "The standalone all-time numerical evaluation of circular W1 is an explicit corollary of the older median identity once heat-kernel entries are given; its transport duality is not claimed novel. Neither cited source has a premise asserting the semigroup heat kernel is unimodal to the needed median shell nor the conclusion that N/4-order derivatives vanish. The claimed new boundary is the quantified high-order delay with its first nonzero coefficient, for all N and each residue class.",
+      "searches": [
+        "circular earth mover distance median heat flow random walk cycle exact contraction",
+        "arxiv:0906.5499 Eq. (12)",
+        "arxiv:1712.00875v1 Theorem 3.8",
+        "graph cycle C_n Markov heat semigroup Lipschitz contraction coefficient order floor n/4 leading Taylor 0 derivative"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:0906.5499 (Delon–Rabin–Gousseau), Eq. (12), gives the exact circular-histogram W1 median formula for any probability measures, thus covers that ingredient completely.",
+        "The zero-total-mass flow formulation on a cycle is equivalent to minimizing the ℓ1 distance of cumulative histograms from a constant."
+      ],
+      "reasoning": "The unrestricted circular W1 median identity is prior art, not claimed original. The proposed additional statement computes, for a specific evolving heat-kernel pair, the exact first nonzero derivative order and its coefficient as a function of circumference; the generic transport identity alone contains neither a heat semigroup nor time derivatives.",
+      "searches": [
+        "Wasserstein-1 contraction continuous-time heat kernel on finite cycles exact median Fourier all times short-time derivative flatness",
+        "circular earth mover distance median heat flow random walk cycle exact contraction",
+        "circular Wasserstein median formula CDF shift Delon Rabin Gousseau",
+        "arxiv:0906.5499 Eq. (12)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published cyclic-convolution ℓ4-norm and cyclic Riesz-transform studies concern inequivalent operators/norms; no transport W1 semigroup coefficient is supplied by their indexed statements.",
+        "Closest indexed entries address ℓ4 contraction of four-state cyclic convolutions or Riesz-transform endpoint constants, not Wasserstein heat contraction on all C_N."
+      ],
+      "reasoning": "No exact table/source of the claimed N-dependent first nonzero Taylor order and coefficients was identified. This is evidence of a targeted search, not a proof of nonexistence, and snippets of indexed records are not treated as full-text exclusions.",
+      "searches": [
+        "Wasserstein-1 contraction continuous-time heat kernel on finite cycles exact median Fourier all times short-time derivative flatness",
+        "graph cycle C_n Markov heat semigroup Lipschitz contraction coefficient order floor n/4 leading Taylor 0 derivative",
+        "cycle heat kernel W1 Wasserstein distance neighboring vertices exact spectral Fourier",
+        "published record 2026/10/11/SCOPE-exact-real-ell-4-contraction-factors-for-every-four-state-cyclic--4bb94785b883",
+        "published record 2026/10/11/SCOPE-cycle-riesz-transforms-as-parity-blocks-of-doubled-cyclic-hilber--241f167596e5"
+      ]
+    },
+    "rationale": "The generic W1 median identity is known (Delon–Rabin–Gousseau Eq. 12), and curvature/exponential-semigroup equivalences are known (Münch–Wojciechowski Theorem 3.8; Pedrotti). The submitted novel quantitative component is the exact N-dependent order of vanishing of the transport contraction deficit and its first nonzero coefficient, not those prior ingredients. Literature and published-claim searches found no same all-N heat-cycle high-order law; a historical literature priority risk remains. General prior theories were compared by their implications, not title alone.",
+    "residual_risks": [
+      "A less obvious older heat-equation, finite-circle coupling or graph-curvature source could have the same high-order derivative law.",
+      "The underlying cyclic median transport identity is fully known, and the research claim does not assert novelty for that identity.",
+      "The full text of distant indexed mathematical records was not examined; only clearly different objects were excluded on their stated scopes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The generic W1 median/cumulative formula is covered and fully credited. No heat evolution or sharp cycle-size Taylor flatness law occurs in the inspected results.",
+        "evidence": [
+          "Eq. (12) gives inf_alpha sum_i |F[i]-G[i]-alpha|",
+          "Section 2.2.3 explicitly treats uniformly spaced circular histograms."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0906.5499",
+        "material_read": "Section 2.2.2–2.2.3 on PDF page 5 (zero-index page 4), equations (10)–(13), and introductory scope.",
+        "method": "Read accessible full-text PDF passage and inspect the original equations.",
+        "title": "Transportation Distances on the Circle and Applications",
+        "trigger": "Exact circular optimal-transport median formula could cover the norm identity."
+      },
+      {
+        "assessment": "Gives equivalence between curvature lower bounds and exponential Lipschitz gradient estimates, not an exact finite-cycle time profile or its first nonzero higher Taylor term.",
+        "evidence": [
+          "Theorem 3.8 is the general curvature/semigroup characterization.",
+          "The rate relates to first-order coarse curvature and does not determine an order growing with the cycle length."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1712.00875",
+        "material_read": "Semigroup characterization theorem and proof near Theorem 3.8, PDF page 19 (zero-index 18), plus abstract/contents; text search for cycle.",
+        "method": "Read relevant original theorem in openly accessible PDF, including its hypotheses and contraction conclusion.",
+        "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+        "trigger": "General theorem might imply or dominate cycle heat-contraction estimates."
+      },
+      {
+        "assessment": "Establishes general coupling/curvature contraction properties, without the explicit N-dependent order in the inspected parts.",
+        "evidence": [
+          "arXiv v1 was publicly posted 2023-08-01; later revision date is not used as the motivating date.",
+          "Heat flow estimates are general exponential comparisons rather than explicit cycle transport norm formulae."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.00516",
+        "material_read": "Relevant general Markov-chain/Wasserstein-contraction section near PDF page 36 (zero-index 35), as well as abstract and scope; cycle text search.",
+        "method": "Read the relevant accessible primary PDF passage and compare the quantitative form of the estimate.",
+        "title": "Contractive coupling rates and curvature lower bounds for Markov chains",
+        "trigger": "Coupling estimates could provide equal or stronger Wasserstein heat-contraction results."
+      },
+      {
+        "assessment": "This provides a broad circle optimal-transport algorithmic framework; unlike the claim it does not state the first nonzero derivative of a finite graph Markov semigroup.",
+        "evidence": [
+          "The paper covers matching circular measures under Monge costs.",
+          "Its principal theorems concern optimal transport plans rather than heat-semigroup Taylor orders."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0902.3527",
+        "material_read": "Original PDF abstract/introduction and §3–4 material on periodic transport and shifts, including PDF page 6 (zero-index 5).",
+        "method": "Read available primary PDF and inspect major transport results.",
+        "title": "Fast transport optimization for Monge costs on the circle",
+        "trigger": "Older general cyclic transport solution might dominate the all-time formula."
+      },
+      {
+        "assessment": "The indexed claim concerns ℓ4, not W1; not used as a full-document negative coverage assertion.",
+        "evidence": [
+          "The indexed claim specifies four-state real ℓ4 and spectral norm comparisons."
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-exact-real-ell-4-contraction-factors-for-every-four-state-cyclic--4bb94785b883",
+        "material_read": "Indexed title and summary only, not full text.",
+        "method": "Compared stated objects, parameters and norm (real ℓ4, four states) with present W1 all-cycle heat setting.",
+        "title": "Exact real ℓ4 contraction factors for every four-state cyclic convolution",
+        "trigger": "Nearby cyclic Markov norm record in published mathematical index."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ae6a51b8-6cbf-4048-919e-b5d6090055b3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp delay k_N=floor((N+2)/4) and the residue-class coefficient are exact spectral-transport invariants for every finite cycle, not a recomputation of a finite table. The increasing order of vanishing quantifies how graph circumference hides mixing from first-order curvature even though every positive time contracts, yielding sharp benchmarks across an infinite family. The all-time formula and analytic proof make the boundary reproducible and interpretable.",
+    "status": "PASS"
+  }
+}
