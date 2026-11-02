@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof was checked from the stated definitions: the critical relation gives \(\lfloor s-1/2\rfloor=m\); the Hilbert projection becomes \(T_a\) after applying \(\Delta^{s/2}\); the interval multiplier is bounded on \(L^p\) as a difference of modulated half-line projections; and dilation gives \(\|T_a\|_{p\to p}=\|T_1\|_{p\to p}\). Idempotence follows from \(\mathbf 1_{[-a,a]}^2=\mathbf 1_{[-a,a]}\) almost everywhere. The exact norm identity is \(\|P_s\|=\|T_1\|_{p\to p}\); no numerical value for this multiplier norm is asserted.
+## correctness
 
-Scope limits: only \(1<p<2\), \(s=m+1/p\), and the proposed quotient target are covered. The interpolation-space identification, \(p>2\), and the critical Hilbert case are not proved. This note makes no claim about external validation.
+PASS
+
+The fractional Laplacian isometry conjugates the Hilbert projection to the Fourier multiplier 1_[-a,a] on L². The same quotient conjugation on Lp defines a bounded idempotent because interval projection is the difference of two modulated Riesz projections, bounded for 1<p<infinity. The Lp homogeneous derivative map is assumed an isometric quotient realization and surjective by its construction; then equality of operator norms follows rather than just an upper bound. Dilation conjugacy removes a. For 1<p<2, floor(s-1/2)=m, so Hilbert Taylor-normalization order matches the proposed critical quotient. This proves only the defined quotient target, not the unresolved interpolation identity. Independently checked Fourier-band projection idempotence and multiplier action on 18 simple trigonometric proxies; numerical tests do not prove Lp boundedness, supplied by classical Hilbert-transform theorem.
+
+## originality
+
+PASS
+
+The cited Monguzzi–Peloso–Salvatori paper proves noncritical cases and explicitly raises the critical case as open with a proposed BMO quotient. Its existing proof already uses the interval Fourier multiplier reduction. The assessed limited claim extends this standard reduction to the proposed 1<p<2 quotient rather than solving full endpoint interpolation; best-knowledge no published precise conditional critical norm statement was identified.
+
+## value
+
+PASS
+
+The critical endpoint is explicitly a natural analytical boundary of established fractional Bernstein projection theory. An exact uniform projection bound on the specifically proposed critical quotient has narrowly scoped utility as an endpoint tool even though the proof uses classical Riesz projections and does not resolve the stronger interpolation identification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
