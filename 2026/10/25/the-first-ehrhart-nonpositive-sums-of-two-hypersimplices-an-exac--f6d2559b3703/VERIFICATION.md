@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact finite-range verification
+# Independent mathematical audit
 
-The reproducible files are `verify.py` (standard-library Python 3) and `coefficients.csv` (every rational coefficient of each of \(252\) canonical parameter classes). Run `python3 verify.py` alongside the CSV. The program independently regenerates and overwrites the CSV from the defining formula, verifies strict positivity in all \(203\) classes of ambient dimension at most \(13\), and checks the exact five exceptions among the \(49\) classes of ambient dimension \(14\). It additionally cross-checks \(503\) integer lattice point counts with an independent coordinate dynamic program, verifies the published \(-687323/79200\) quadratic coefficient, and prints `EXACT_OK`.
+## correctness
 
-The certificate's SHA-256 before packaging was `deee2e21b08b82d9aa37f55163e45f75c68b2800075e85b894f0c89e309a1108` and its byte length was `37909`. These describe the regenerated text. Every rational coefficient is printed in unreduced or reduced exact `Fraction` form by the verifier as appropriate; the file stores reduced exact fractions. There is no use of machine floating-point in the classification.
+PASS
 
-The mathematical proof that these finitely many values determine the claimed Ehrhart polynomials is the membership/counting lemma and the degree bound proved in `RESULT.md`. Finite numerical confirmations beyond the exact exhaustion are not extrapolated to untested dimensions or mathematical families. The human historical-priority question remains open pending independent assessment.
+The interval-bracketing membership lemma for sums of capped coordinates is valid in canonical region k<=r,k+r<=n; signed positive/negative bounded composition counting is bijective. The n values L(0..n-1) reconstruct the exact degree n-1 Ehrhart polynomial. Independent from-scratch integer convolution enumerated all 252 canonical rank orbits, proving 203 lower-dimension all-positive cases, 49 cases at n=14, precisely the five displayed t^2 negatives and no zero coefficients; independently also checked lattice-point DP at smaller cases and known published (3,7) coefficient. Complete finite parameter space is covered, not extrapolated to n>=15.
+
+## originality
+
+PASS
+
+Full 252-class sharp first dimension and exact five-orbit classification is not the published single (3,7) counterexample, individual hypersimplex positivity, or a generalized permutahedron linear-coefficient theorem. Comparison with inaccessible Li full text leaves a meaningful but bounded historical-priority risk.
+
+## value
+
+PASS
+
+The class of two hypersimplex Minkowski sums is a natural family in Ehrhart theory; a sharp positivity threshold and complete first-failure symmetry classification answer a meaningful extremal sign question and distinguish five mechanisms, not a random low-dimensional table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
