@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Tree bridges are series resistors across s(N-s) unordered vertex pairs. Each clique has Laplacian modes n_i b_i and b_i+(n_i-1)a_i, yielding exact local objective (N-n_i+1)/b_i+N(n_i-2)/ell_i and linear budget n_i b_i/2+(n_i-2)ell_i/2. The sharp Cauchy-Schwarz bound reaches H²/B at the displayed positive allocation, with ell_i/b_i=sqrt(N n_i/(N-n_i+1))>1. Strict inverse-trace convexity plus edge-weight injectivity establishes unrestricted uniqueness. Five direct grounded-Laplacian checks, 250 asymmetric feasible perturbations, and five independent all-edge constrained optimizations corroborate the proof, not replace it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi §5.1 gives optimal conductances for arbitrary trees, which the special case n_i=2 reduces to.",
+        "Ghosh–Boyd–Saberi §5.2 gives analytic two-equal-clique barbell weights.",
+        "The same article gives generic convexity and SDP optimality conditions for arbitrary graphs."
+      ],
+      "reasoning": "The theorem adds a specific explicit allocation across any number of heterogeneous cliques and arbitrary bridge-tree cuts. Known tree and balanced-barbell results are included as credited special cases; general convexity/SDP does not state the formula or the universal clique contrast scale. An unknown specialized article could dominate; not claimed impossible.",
+      "searches": [
+        "total effective resistance conductance minimization generalized barbell clique blocks connected by tree bridge",
+        "optimal Kirchhoff index weights join of cliques bridge topology Ghosh Boyd 2008",
+        "\"optimal\" \"effective resistance\" \"clique tree\" conductance allocation",
+        "\"total effective resistance\" \"tree of cliques\" allocation",
+        "Ghosh Boyd Saberi barbell generalized clique trees optimal resistance edge weights"
+      ]
+    },
+    "checked_sources": [
+      "Ghosh, Boyd, Saberi (2008), DOI:10.1137/050645452, §§2.7 and 5.1–5.2; accessible full HTML transcription.",
+      "Stanford publication page identifying 2006 conference and 2008 journal variants.",
+      "Kyoto University MTNS 2006 program confirms conference July 24–28, 2006.",
+      "Published mathematical record search results for clique block trees, total effective resistance and resistance-optimization aliases.",
+      "Author-hosted MTNS 2006 PDF, https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf, original pages 1 and 10 examined with all-section text search."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source derives tree cut-factor square roots and a balanced barbell as separate instances.",
+        "The present proof needs the external-vertex-weighted gateway resistance sum within every clique, its eigenspace decomposition, and a compatible simultaneous optimization over multiple unequal cliques."
+      ],
+      "reasoning": "The equal barbell follows by specializing the new theorem, and the pure-tree case follows when all clique orders are two; these are NOT claimed as new. Conversely, neither prior instance logically asserts the full arbitrary-heterogeneous-tree formula without new parameter-wide derivation. The prior generic convex program yields a computational characterization but no dominating closed form.",
+      "searches": [
+        "resistance design exact optimal budget clique blown tree graph every community gateway periphery eigenvalue equal",
+        "total effective resistance conductance minimization generalized barbell clique blocks connected by tree bridge",
+        "graph resistance optimum clique of size n with outside attachment single gateway",
+        "optimal Kirchhoff index weights join of cliques bridge topology Ghosh Boyd 2008",
+        "optimal total effective resistance allocation on a tree of complete graph communities joined by bridges at designated gateways unequal clique sizes closed form",
+        "Ghosh Boyd Saberi minimizing effective resistance trees barbell"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A tree of cliques with distinguished gateways is a block-tree network; the total effective resistance is also the Kirchhoff index and N times the Laplacian pseudoinverse trace.",
+        "Ghosh–Boyd–Saberi, SIAM Review (2008), §§2.7, 5.1–5.2, treats total effective resistance as N tr(L+) and exhibits the balanced two-clique barbell."
+      ],
+      "reasoning": "Compared the precise optimization object, budget and all-size/all-tree quantifiers under both electrical-resistance and Kirchhoff-index terminology. No equivalently parameterized, global all-tree closed-form allocation found. General SDP solvability is not itself the explicit formula.",
+      "searches": [
+        "resistance design exact optimal budget clique blown tree graph every community gateway periphery eigenvalue equal",
+        "total effective resistance conductance minimization generalized barbell clique blocks connected by tree bridge",
+        "optimal total effective resistance allocation on a tree of complete graph communities joined by bridges at designated gateways unequal clique sizes closed form",
+        "Kirchhoff index conductance design optimal weights on block trees of cliques one connector hub per clique",
+        "closed form optimal total effective resistance unequal barbell complete graph bridge graph generalizing Ghosh Boyd Saberi",
+        "\"optimal conductance\" \"clique\" \"tree\" \"effective resistance\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full Ghosh–Boyd–Saberi (2008) text §5.2 includes formula (39) and the equal-size two-clique barbell.",
+        "The closest published zero-forcing polynomial for bridge-barbells concerns a different graph invariant."
+      ],
+      "reasoning": "No table or exact database record for the full weighted conductance allocation on heterogeneous gateway-clique trees was identified; lack of a hit is not uniqueness proof.",
+      "searches": [
+        "optimal total effective resistance allocation on a tree of complete graph communities joined by bridges at designated gateways unequal clique sizes closed form",
+        "Kirchhoff index conductance design optimal weights on block trees of cliques one connector hub per clique",
+        "closed form optimal total effective resistance unequal barbell complete graph bridge graph generalizing Ghosh Boyd Saberi",
+        "\"minimizing\" \"total effective resistance\" \"block graph\" weighted",
+        "\"clique barbell\" \"optimal weights\" resistance"
+      ]
+    },
+    "rationale": "The inspected closest primary paper handles generic total-resistance optimization, trees and a balanced two-clique barbell. The new exact classification applies simultaneously to arbitrary heterogeneous clique sizes and any one-gateway bridge tree, and adds universal peripheral-contrast spectral equality; neither cited special case states the all-tree formula. Published research-record and literature searches found no equivalent/dominating claim. Residual risk of specialized coverage persists; priority not certified.",
+    "residual_risks": [
+      "Uncatalogued specialist bridge-tree conductance-allocation treatment could contain the same formula.",
+      "The all-K2 pure-tree and equal-size two-clique balanced barbell special cases are previously known and not new claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers generic optimization, trees, balanced two-clique case; does not give the statement for heterogeneous one-port clique trees with arbitrary bridge topology.",
+        "evidence": [
+          "Section 2.7: strict convexity of total effective resistance.",
+          "Section 5.1: g_e proportional to sqrt(s_e(N-s_e)) for a tree.",
+          "Section 5.2: a,b,c formula for K_n--K_n with only two equal clique blocks."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/050645452",
+        "material_read": "Full accessible HTML transcription: §§2.7 (strict convexity), 5.1 (trees), 5.2 (wheel and balanced two-clique barbell), especially equations (36)–(39) and barbell analytical weights.",
+        "method": "Read primary-paper text as HTML at https://studyres.com/doc/19597605/minimizing-effective-resistance-of-a-graph, comparing formulas and quantifiers rather than titles.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Most directly relevant primary mathematical source with same objective and balanced barbell case."
+      },
+      {
+        "assessment": "The original conference article explicitly solves the equal-size two-clique barbell; no arbitrary heterogeneous gateway-clique tree formula appears in its described results. The longer 2008 full article was also compared.",
+        "evidence": [
+          "p. 1 date line: 17th MTNS proceedings, Kyoto, July 24–28, 2006.",
+          "Section V, p. 10: barbell \\(K_n\\)–\\(K_n\\), 3 conductance classes and exact same-size formula.",
+          "Section VII discusses alternative convex objectives but does not present the heterogeneous one-gateway clique-tree classification."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Original 12-page 2006 proceedings PDF, abstract and introduction (p. 1), barbell model and explicit optimization in section V (pp. 9–10), and variations in section VII (p. 10); PDF text and visual pages inspected.",
+        "method": "Retrieved publicly accessible author-hosted original 2006 PDF; inspected text by sections and page images (pp. 1, 10); compared object, graph family, parameter quantifiers and closed formulas.",
+        "title": "Minimizing Effective Resistance of a Graph (MTNS 2006 short paper)",
+        "trigger": "Earlier open-access version of the same focal paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e576b278-ca35-4119-a627-426e77a8a5bd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural complete solution for a heterogeneous community network architecture: exact unrestricted globally optimal edge sizes under one global budget, nontrivial cut-size dependence, and size-independent optimized internal peripheral-contrast eigenvalue across all cliques. Useful benchmark for network robustness and convex conductance design, not merely a numerical table, renaming or tiny parameter increment.",
+    "status": "PASS"
+  }
+}
