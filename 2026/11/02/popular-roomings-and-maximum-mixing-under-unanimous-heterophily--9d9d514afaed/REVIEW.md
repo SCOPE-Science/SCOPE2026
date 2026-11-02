@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (PASS).** For sparse minorities, the proof explicitly counts transitions between zero and positive blue utility, bounds extra utility improvements, and charges every room containing at least two minority agents by a strictly negative head-to-head vote contribution. The argument is uniform in room count, room size, and agent labels. For triple rooms with both colors sufficiently numerous, the utility-two occupancy identity gives the exact majority comparison. Counting unlabeled rooms uses factorial quotients with the right room-type symmetry factors. The independent small-instance checks and exact composition-pair calculations agree with the theorem. Edge cases of one color, one room, and split boundaries are included.
+
+**Originality (PASS, qualified).** Ge--Itoh (2022), Section 3, treats arbitrary preferences at room size two, not all-size triples with unanimous strict heterophily or sparse minority of arbitrary room size. Boehmer--Elkind (2020), full version, studies other solution concepts rather than head-to-head popularity. Ge--Itoh (2023) studies metric Euclidean-distance roommate preferences, not two-color composition. Targeted primary-literature and scientific-record searches did not find an implication covering this exact theorem; that absence is not a proof of novelty. Residual risk includes unindexed homogeneous-preference folklore or later specializations.
+
+**Value (PASS).** In a fixed-room-size coalition problem where general-popularity guarantees stop at the two-person case, this identifies and enumerates the complete majority-undominated set on two mathematically natural infinite families. It also shows that optimizing the number of mixed rooms is an exact and linear-time popularity algorithm in those families, distinguishing majority legitimacy from ordinary Pareto optimality or core stability.
+
+**Scientific boundaries.** The general dense two-color regime for room sizes four and larger is not settled. The result assumes common strictly heterophilic rankings, and counts distinct labeled agents in unlabeled rooms. Mathematical claims have only the checks and proof stated in RESULT.md; no external verification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
