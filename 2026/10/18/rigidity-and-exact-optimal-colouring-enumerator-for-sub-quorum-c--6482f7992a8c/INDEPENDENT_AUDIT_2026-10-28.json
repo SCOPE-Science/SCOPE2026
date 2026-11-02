@@ -1,0 +1,188 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T23:41:46.853883Z",
+  "axes": {
+    "correctness": {
+      "independent_evidence": [
+        "independent_checks.py (standalone constructed graph neighborhoods, no repository code executed)",
+        "independent_check_results.json (exact enumeration n<=5; counts 6,30; F_4(4)=144,F_5(4)=720)"
+      ],
+      "rationale": "Direct proof reconstruction for every integer n>=1. For a colored a_i of color c, the colored closed neighborhood has a colored A-vertices plus delta_i at the matched b_i, with u_c+epsilon_i same-colored, hence exactly 2(u_c+epsilon_i)>=a+delta_i. Since epsilon_i<=delta_i<=1, each A-color class has at least ceil((a-1)/2) vertices; three distinct colors in A with a>=4 would require 3ceil((a-1)/2)>a, while a<=2 cannot contain three. Thus a three-color layer has exactly three distinct singletons, and the inequality forces each matched b_i to be colored identically. Then the other layer contains those exact three and no other colored vertices, so a four-color global coloring has at most two colors in each layer. Four colors imply two disjoint palettes of two per layer; epsilon_i=0 throughout. For class sizes u,v with u+v=a, 2u>=a+delta_i and 2v>=a+delta_j force u=v=a/2 and delta_i=delta_j=0 for all colored positions. The converse meets local majority with equality. Such four-color supports exist precisely for n>=4; direct graph arguments cover n=1 (edge: two colors), n=2 (four-cycle: at most two), n=3 (three singletons exist but no four). Assign ordered distinct names c1..c4, distribute a,a,b,b disjoint column sets and divide the four within-layer name swaps, giving (k)_4/4 times n!/((a!)^2(b!)^2(n-2a-2b)!). The exponential formula follows from e^z for blank columns and positive I0(2z)-1 terms for the two balanced pairs. A separate direct adjacency enumerator, independent of the repository verifier, enumerated 5,52,877,21147,678570 canonical partial assignments for n=1..5 and obtained maxima 2,2,3,4,4, with six and thirty unlabelled four-color optimizers at n=4,5; multiplying by 4! gives F_4(4)=144,F_5(4)=720. No finite experiment was used as a proof for all n.",
+      "status": "PASS",
+      "verification_files": [
+        "RESULT.md",
+        "SLOGAN.txt",
+        "VERIFICATION.md",
+        "verify.py"
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma–Sahbi–Zhang, arXiv:2609.25128 accessible HTML body: Definition 2.2 and Lemma 2.3 set the invariant; Theorem 5.11 calculates complete multipartite graphs, and §5 examines rectangular path grids, not R_n.",
+          "Public abstract of arXiv:2609.25128v4 (updated October 14, 2026) states general bound psi_sq(G)<=Delta(G)|V|/(Delta+delta-1) for delta>=2; on n-regular R_n, this is floor(2n²/(2n-1)), at least 5 for n>=5.",
+          "The v4 matching characterization is stated for maximum degree at most 3, whereas R_n has degree n and so is outside that scope for n>=4.",
+          "Hedetniemi et al. (2013), full journal text, Proposition 17 is ordinary quorum coloring of complete bipartite graphs K_{m,n}; Problem 11 merely defines and asks about the sub-quorum variant."
+        ],
+        "reasoning": "A general lower bound psi_sq>=beta2 does not force an upper bound; the degree bound is too weak on the unbounded-degree family, and the small-degree matching theorem cannot apply for n>=4. The available broader statements therefore do not dominate the new infinite-family rigidity plus enumeration.",
+        "searches": [
+          "web: Ma Sahbi Zhang Sub-quorum colorings of graphs arxiv 2609.25128 html full text 2026 October",
+          "web: \"sub-quorum coloring\" \"claw-free\" beta_2",
+          "web: \"sub-quorum coloring\" \"line graphs\" \"dissociation\"",
+          "Resultary: quorum and sub-quorum colorings graphs graph family clique prism complete bipartite line graph optimal partial colorings"
+        ]
+      },
+      "checked_sources": [
+        "Ma, Sahbi, Zhang, Sub-quorum colorings of graphs (arXiv:2609.25128): accessible full early HTML article and 2026-10-14 v4 abstract.",
+        "Hedetniemi et al., Quorum Colorings of Graphs, AKCE Int. J. Graphs Comb. 10(1), 97–109 (2013), author-uploaded full text incl. Problem 11.",
+        "Sahbi, Belkina, Bennadji, Sub-quorum colorings of some infinite families of caterpillars, arXiv:2609.39619: abstract.",
+        "Published Resultary mathematical corpus semantic searches for clique prisms/line graphs, majority-C and crown-graph coloring records; titles and summaries only."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact audited theorem: psi_sq(R_1)=psi_sq(R_2)=2, psi_sq(R_3)=3, psi_sq(R_n)=4 for every n>=4, plus an if-and-only-if classification and the multinomial/Bessel enumerator.",
+          "The 2013 source establishes the concept as an open problem. Its total coloring propositions for complete graphs/bipartite graphs cannot be transferred directly to partial coloring of L(K_{2,n}).",
+          "The 2026 accessible manuscript §5 contains complete multipartite and path-ladder results; no theorem in the inspected full v1 text implies the four-colour rigidity or formula. The v4 public abstract states new cubic/trees/grids/cubes findings but no clique-prism theorem."
+        ],
+        "reasoning": "A previous theorem would cover the finding if it proved the same value and all equality cases, or a stronger graph-family classification whose hypotheses include R_n. The located statements either cover different graphs/parameters or give weaker one-sided bounds. The uninspected v4 full revision and unindexed equivalences remain residual risks.",
+        "searches": [
+          "web: \"sub-quorum\" \"clique prism\" \"K_2\" \"K_n\"",
+          "web: \"sub-quorum\" \"two cliques\" \"matching\" colourings",
+          "Resultary: sub-quorum coloring of line graph K_{2,n}, two row rook graphs, disjoint color class local majority",
+          "full-text terms in arxiv.org/abs/2609.25128: rook; line graph; K_{2,n}; prism"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_2 square K_n is the rook graph with two rows, equivalently L(K_{2,n}); vertices in the same row form cliques and corresponding columns form a perfect matching.",
+          "The complement of this graph is the crown graph K_{n,n} minus a perfect matching. Resultary indexed exact proper conflict-free and odd-neighborhood colorings for crown graphs, which use different admissibility and chromatic conventions.",
+          "The inspected 2026 sub-quorum article studies ordinary path ladders P_2 square P_n rather than this clique prism, and the earlier 2013 K_{m,n} quorum calculation is for the host graph, not L(K_{2,n})."
+        ],
+        "reasoning": "Graph isomorphism and complement aliases were compared with the precise partial closed-neighbourhood condition. A theorem on a complement, ordinary ladder, or different coloring invariant does not imply the exact four-colour rigidity and named-palette count without an explicit parameter transfer; none was found in the material read.",
+        "searches": [
+          "Resultary: sub-quorum coloring of line graph K_{2,n}, two row rook graphs, disjoint color class local majority",
+          "Resultary: sub-quorum coloring of K_2 Cartesian K_n clique prism, two cliques joined by perfect matching, maximum colours, four-colour rigidity enumerator",
+          "web: \"sub-quorum\" \"line graph\" \"complete bipartite\"",
+          "web: \"sub-quorum coloring\" \"co-bipartite\"",
+          "web: \"K_2 square K_n\" \"quorum coloring\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Results from Resultary featured majority C-colorings of complete multipartite graphs, crown graph conflict-free coloring and other graph-invariant calculations; none supplies the sub-quorum partial-map count of L(K_{2,n}).",
+          "The initiating 2026 accessible primary full text contains classical-family propositions and grid transfer tables, but its inspected tables have different host graph families and do not include F_n(k).",
+          "Independent exhaustive direct adjacency checks reproduce 6 and 30 canonical optimal partitions at n=4,5; these are local verification values, not a claim of database uniqueness."
+        ],
+        "reasoning": "No covering exact table or named-palette enumerator was located in the actual searches. Search failure is not a novelty theorem; priority remains a qualified best-of-knowledge assessment, especially for unindexed alliance-partition counts.",
+        "searches": [
+          "Resultary: sub-quorum colourings rigidity optimal four-colour clique prisms",
+          "Resultary: Open-neighborhood complexes of clique prisms: a mixed-dimensional sphere decomposition",
+          "web: \"sub-quorum colorings\" \"enumerator\" \"Bessel\"",
+          "web: \"clique prism\" \"sub-quorum\"",
+          "web: \"sub-quorum\" \"two cliques\" \"matching\" colourings"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority after statement-level checks. In R_n=K_2 square K_n=L(K_{2,n}), two cliques of size n have only a perfect matching between them. The inspected full accessible 2026 initiating article treats P_2 square P_n ladders, complete and complete multipartite hosts, coronas/joins, grids and cubes, not this two-clique matching join or its exact four-colour structural enumerator; its degree upper bound floor(2n^2/(2n-1)) does not force four for n>=5. The full 2013 foundational journal article presents sub-quorum as Problem 11 rather than solving this family; its earlier exact K_{m,n} statement is for total quorum colouring of the bipartite graph itself, not the partial colouring of its line graph. Semantic published-mathematics and web searches under line-graph, crown complement, co-bipartite, rook-graph and clique-prism aliases found results about different invariants, not implication coverage. The newest v4 preprint full text was not accessible, so the v1 whole-body comparison is not a v4 noncoverage assertion.",
+      "residual_risks": [
+        "Newest arXiv:2609.25128v4 was not available as full text via accessible arXiv/OA routes; its abstract alone cannot warrant a whole-revision NOT_COVERING conclusion.",
+        "Older unindexed defensive-alliance/partition and partial color-class enumerators might imply the statement under a different presentation; priority is not certified.",
+        "Semantic published-record hits were summaries, not systematically opened full-text for every tangential result; only the highly relevant primary original and 2013 article were materially read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Early version contains definitions, weaker general implications, and other graph families, not the clique-prism optimum/rigidity/count. This statement is limited to the inspected version.",
+          "evidence": [
+            "Definition 2.2: partial onto coloring of colored induced support; Lemma 2.3: b(v)<=a(v)+1.",
+            "Proposition 5.9: psi_sq(K_n)=2; Theorem 5.11: complete multipartite formula; §5 grid/ladders are P_2 square P_n.",
+            "§6 exact hypercube theorem, not two-row rook graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.25128",
+          "material_read": "Full accessible HTML-rendered early-version article body: introduction; Definitions 2.1–2.2, Lemmas 2.3–2.4; §§3–5 including Propositions 5.9,5.10 and Theorem 5.11, path-ladder results, and hypercube theorem context; targeted full-body searches for rook/line graph/prism.",
+          "method": "Direct HTML reading of text served at arxiv.org/abs/2609.25128; compare graph hypotheses and inequalities, not just abstract.",
+          "title": "Sub-quorum colorings of graphs",
+          "trigger": "Primary mathematical paper defining the exact sub-quorum invariant and proving its general inequalities and exact family results."
+        },
+        {
+          "assessment": "Abstract covers cubic graphs, trees, grids, hypercubes and general degree bound; no whole-document noncoverage assertion for v4.",
+          "evidence": [
+            "Updated 2026-10-14; bound psi_sq<=Delta*|V|/(Delta+delta-1) for delta>=2; matching characterization with max degree<=3."
+          ],
+          "identifier_or_url": "https://arxiv.symmetricfunctions.com/paper/2609.25128v4",
+          "material_read": "Public version metadata and entire publicly indexed revision abstract, but not full v4 article.",
+          "method": "Abstract inspection and attempted primary full-text arxiv HTML/PDF routes; version-specific full text unavailable.",
+          "title": "Sub-quorum colorings of graphs (revision v4)",
+          "trigger": "Revision dated October 14, 2026, closer to the audit than the accessible full v1 text."
+        },
+        {
+          "assessment": "Problem 11 defines sub-quorum as an open question. Proposition 17 concerns total quorum coloring on K_{m,n}, not partial sub-quorum coloring on its line graph; no implication covering the audited enumerator.",
+          "evidence": [
+            "Problem 11: onto partial map and colored closed neighborhood, posed as question.",
+            "Propositions 15–17: ordinary quorum coloring of complete and complete-bipartite graphs."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/266612969_Quorum_colorings_of_graphs",
+          "material_read": "Journal article full textual transcription presented by the authors: definitions, standard graph-family propositions, final section of open problems, especially Problem 11.",
+          "method": "Read primary journal article text in ResearchGate HTML transcription; inspect exact Problem 11 definition and Propositions 15–17.",
+          "title": "Quorum Colorings of Graphs",
+          "trigger": "Foundational 2013 journal article proposing the sub-quorum variant and containing prior complete-bipartite results."
+        },
+        {
+          "assessment": "The announced exact results concern caterpillar trees rather than R_n (which has large cliques for n>=3); this abstract alone cannot certify noncoverage of all text.",
+          "evidence": [
+            "Abstract explicitly names complete n-tuple caterpillars and complete caterpillars with minimum spine degree three."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.39619",
+          "material_read": "Title, author/date metadata and abstract, not full paper.",
+          "method": "Read accessible arxiv abstract and identify stated graph-class hypotheses.",
+          "title": "Sub-quorum colorings of some infinite families of caterpillars",
+          "trigger": "Another 2026 paper with exactly the same invariant and infinite-family scope."
+        },
+        {
+          "assessment": "A different full/majority-C coloring parameter on complete multipartite hosts; no implication to the partial sub-quorum clique-prism named-map formula follows from this summary.",
+          "evidence": [
+            "Summary: majority C-chromatic number 2 exactly for all-even multipartite parts, 1 otherwise, with product of central binomials."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5",
+          "material_read": "Published Resultary title and scientific summary, not its Git full text.",
+          "method": "Semantic mathematical-record search result and direct comparison of the invariant and host graphs.",
+          "title": "Majority C-colorings of complete multipartite graphs",
+          "trigger": "A relatively close independently published mathematical-record search hit about majority constraints and balanced color classes."
+        },
+        {
+          "assessment": "Proper conflict-free coloring of the crown graph has a 2–3–4 transition, but it is on the complementary graph with a different local coloring condition. Matching numbers alone do not imply the target theorem.",
+          "evidence": [
+            "Published summary: chi_pcf(Cr_2)=2, chi_pcf(Cr_3)=3, chi_pcf(Cr_n)=4 for n>=4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105",
+          "material_read": "Published Resultary title and scientific summary only.",
+          "method": "Semantic source matching, graph-complement identification and invariant comparison.",
+          "title": "Exact proper conflict-free chromatic number of crown graphs",
+          "trigger": "Complement of the clique prism is a crown graph, so check related exact values through a plausible alias."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph L(K_{2,n}) is a natural infinite dense regular family, and sub-quorum is a motivated partial defensive-alliance coloring invariant. The tight upper bound remains four as degree n and order 2n grow, whereas the applicable known general degree upper bound grows with n. Every extremal assignment is classified: disjoint even balanced supports with no doubly colored matching column. The labelled named-palette enumeration and Bessel exponential generating function describe all optimizers rather than a tiny isolated example or a routine restatement of the lower bound. This is a useful exact structural benchmark for future generalizations to K_m square K_n, co-bipartite matching joins or other partial coloring enumerators; those broader results are not claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ma, Sahbi, Zhang, Sub-quorum colorings of graphs (arXiv:2609.25128): accessible full early HTML article and 2026-10-14 v4 abstract.",
+    "Hedetniemi et al., Quorum Colorings of Graphs, AKCE Int. J. Graphs Comb. 10(1), 97–109 (2013), author-uploaded full text incl. Problem 11.",
+    "Sahbi, Belkina, Bennadji, Sub-quorum colorings of some infinite families of caterpillars, arXiv:2609.39619: abstract.",
+    "Published Resultary mathematical corpus semantic searches for clique prisms/line graphs, majority-C and crown-graph coloring records; titles and summaries only."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full text of newest 2026-10-14 preprint revision not accessed; absolute bibliographic novelty not certified.",
+    "Exhaustive independent tests n<=5 only; general claim established by reconstructed inequalities and multinomial reasoning.",
+    "No claim of Lean verification, expert attestation or publication.",
+    "Public audit/metadata sanitization operations remove only operational scope_run_id and phase; all self-review science is otherwise preserved."
+  ],
+  "residual_risks": [
+    "Newest arXiv:2609.25128v4 was not available as full text via accessible arXiv/OA routes; its abstract alone cannot warrant a whole-revision NOT_COVERING conclusion.",
+    "Older unindexed defensive-alliance/partition and partial color-class enumerators might imply the statement under a different presentation; priority is not certified.",
+    "Semantic published-record hits were summaries, not systematically opened full-text for every tangential result; only the highly relevant primary original and 2013 article were materially read."
+  ],
+  "schema_version": 1
+}
