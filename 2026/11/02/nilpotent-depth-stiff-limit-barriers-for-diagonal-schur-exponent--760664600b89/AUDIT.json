@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The scalar phi identities give E1=aI+rho p J and E2=aI+rho p^2/z J+rho^2 p(z-p)/z J^2. Every coefficient is positive and row/column sums are <1 by u+v=p; the generator symmetric part is >=kappa(1-rho)I. The exact propagator is exp(-z) times a finite nilpotent polynomial. Continuity of fixed matrix powers and the exact norm ||J^j||_2=1 if j<d, otherwise zero, proves all limits. The leading surviving multinomial ETD2 term after the cutoff gives the exact inverse-stiffness exponent and coefficient. Fixed-stiffness Taylor orders are verified by expansion. The standalone script passed 2838 deterministic checks, not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hochbruck–Ostermann (2005), DOI:10.1137/040611434, full-text methods and convergence assumptions",
+        "Petkov (2023), DOI:10.1155/2023/4908185, full-matrix Jordan–Schur treatment",
+        "Research record Published finding: The exact positivity horizon of the two-step Lanczos exponential"
+      ],
+      "reasoning": "The 2005 theory allows fixed-operator exponential RK convergence with regularity hypotheses but gives neither this kappa-dependent explicit residual nor sharp finite-iterate fixed-h limits; the residual derivative scales as kappa. Petkov computes a full triangular exponential, which is exact on this family and does not imply the diagonal-split defect. Lanczos projection methods approximate a different object. Hence no inspected stronger theorem dominates the displayed claim.",
+      "searches": [
+        "exponential Runge Kutta normal Schur splitting offdiagonal treated explicit asymptotic stiff limit one step error nonlinear stiffness nonnormal triangular",
+        "triangular nonnormal spectral gap sharp Schur split exponential integrator stiffness-uniform error bound two by two offdiagonal",
+        "positivity preserving contractive exponential integrator that fails stiff-uniform accuracy on nonnormal dissipative upper triangular system"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2305.12488v1",
+      "DOI:10.1137/040611434",
+      "DOI:10.1155/2023/4908185",
+      "Published mathematical finding records on Lanczos exponential positivity, nonnormal triangular transient peaks, Jordan norm pencil, and stagewise Richardson safety"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2305.12488v1 Schur-splitting construction",
+        "DOI:10.1137/040611434 stiff-order theory",
+        "Research record Published finding: Sharp stagewise-safe Richardson frontier and no-acceleration barrier",
+        "Accessible prior result on symmetric SPD exponential-Euler splitting: positive-definite and symmetric matrix assumptions, not a nilpotent nonnormal Schur family or ETD2 fixed-stiffness step map"
+      ],
+      "reasoning": "Zoto–Bowman define the setting, not the two sharp residual limits and the algebraic post-threshold coefficient. Hochbruck–Ostermann establish order and bounds under their semilinear assumptions; fixing an operator and shrinking h cannot imply a limit for kappa→∞ with fixed h when the explicit Lipschitz constant increases with kappa. Richardson positivity/spectral stability has no ETD2 stage or nilpotent-depth implication.",
+      "searches": [
+        "Schur diagonal-only exponential Euler strictly upper triangular stiffness leak nonnormal matrices stiff limit nilpotent transient amplification two stage finite extinction",
+        "exponential Runge Kutta normal Schur splitting offdiagonal treated explicit asymptotic stiff limit one step error nonlinear stiffness nonnormal triangular",
+        "triangular nonnormal spectral gap sharp Schur split exponential integrator stiffness-uniform error bound two by two offdiagonal",
+        "positivity preserving contractive exponential integrator that fails stiff-uniform accuracy on nonnormal dissipative upper triangular system"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2305.12488v1 Schur-decomposition subsection",
+        "The explicit ETD2 stage identities and exact shift-power formula",
+        "Related research record: Published finding: Certified transient peaks for Hurwitz-stable triangular shifts"
+      ],
+      "reasoning": "The same claim would also be stated as a finite-horizon L-stability failure on a nonnormal Jordan chain or a singularly perturbed explicit Schur remainder. The closest nonnormal triangular record establishes continuous-time transient norms rather than residual numerical step-map limits. No indexed equivalent or parameter-relabelled ETD2 identity was found.",
+      "searches": [
+        "Schur Decomposition for Stiff Differential Equations Zoto Bowman diagonal-only exponential time differencing nonnormal Jordan block large stiffness ETD2",
+        "exact one-step stiff limit ETD2 on Jordan shift matrix kappa times I minus rho J squared J^2 2023 2005",
+        "diagonal exponential Euler ETD2 nilpotent Jordan chain residual powers rho^k and rho^{2k} cutoff d"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search hits Published finding: The sharp affine Jordan norm pencil and its scaled spectral-set transition and Published finding: Certified transient peaks for Hurwitz-stable triangular shifts",
+        "The full-text of the motivating Schur article, its section on diagonal ETD treatment"
+      ],
+      "reasoning": "No inspected numerical table or published research record tabulates the pair of exact fixed-k stiff limits and cutoff dimensions. Jordan norm pencil and transient peak tables operate on different matrices and functions. Absence of a match is not evidence of global novelty.",
+      "searches": [
+        "Schur diagonal-only exponential Euler strictly upper triangular stiffness leak nonnormal matrices stiff limit nilpotent transient amplification two stage finite extinction",
+        "Schur Decomposition for Stiff Differential Equations Zoto Bowman diagonal-only exponential time differencing nonnormal Jordan block large stiffness ETD2",
+        "diagonal exponential Euler ETD2 nilpotent Jordan chain residual powers rho^k and rho^{2k} cutoff d"
+      ]
+    },
+    "rationale": "The motivating Schur-split paper discusses explicit triangular coupling but not the sharp all-dimension nilpotent-depth limits. The broader fixed-operator exponential Runge–Kutta theory does not imply the singular residual family with Lipschitz coefficient growing like kappa. Full-matrix Jordan–Schur exponential evaluation is algorithmically different. Indexed adjacent records involve other mathematical maps. Specific specialized-priority risk is retained.",
+    "residual_risks": [
+      "Bibliographic search cannot rule out an earlier equivalent fixed-step stiff-limit computation in specialist exponential-integrator literature.",
+      "The exact limits concern a restricted Jordan-chain class and do not establish broad algorithmic superiority or lower bounds for arbitrary methods.",
+      "Accessible earlier calculations of symmetric exponential-Euler splitting concern a different linear-part class; a non-obvious reduction from a broader unpublished result cannot be excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers diagonalization of the stiff portion and explicit triangular residual; no inspected exact nilpotent-chain finite-horizon stiff-limit identity",
+        "evidence": [
+          "arxiv:2305.12488v1, section 4 and conclusion",
+          "2023-05-21 first arXiv submission and MSC 65L04 shown on article record"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.12488",
+        "material_read": "Schur decomposition and transformed differential equation, diagonal exponential treatment in section 4, numerical method descriptions and conclusion, including PDF page images",
+        "method": "Lawful arXiv full-text extraction and page-image inspection",
+        "title": "Schur Decomposition for Stiff Differential Equations",
+        "trigger": "Exact motivating algorithm and potential prior numerical barrier in the same formulation"
+      },
+      {
+        "assessment": "Broad general theory, but the present explicit residual grows proportionally with kappa; no direct stated exact finite-horizon nonnormal nilpotent-depth formulas",
+        "evidence": [
+          "DOI:10.1137/040611434, Assumption 2 and Section 4 convergence theorems",
+          "Printed finite/regularity assumptions are not uniform over growing kappa in the chosen split"
+        ],
+        "identifier_or_url": "https://na.math.kit.edu/download/papers/rkexp.pdf",
+        "material_read": "Introduction, method formulas, semilinear regularity hypotheses, order assumptions and main error theorems, with first PDF page image",
+        "method": "Authorized open-access author PDF text and visual inspection",
+        "title": "Explicit Exponential Runge–Kutta Methods for Semilinear Parabolic Problems",
+        "trigger": "Possible stronger coverage from general stiff-order and convergence theorems"
+      },
+      {
+        "assessment": "Computes the entire triangular matrix exponential, not a diagonal-only ETD2 split with explicit residual",
+        "evidence": [
+          "DOI:10.1155/2023/4908185, matrix exponential algorithm construction"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2023/4908185",
+        "material_read": "Open full article introduction and matrix-exponential algorithm sections",
+        "method": "Open-access HTML full-text examination",
+        "title": "Jordan–Schur Algorithms for Computing the Matrix Exponential",
+        "trigger": "Identical Jordan/Schur mathematics could subsume a special numerical limit"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "76066460-0b89-429a-8d6b-bae80bd4557d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Schur diagonal-only approach is motivated by avoiding full matrix exponential evaluations while handling fast eigenvalues. An exact, norm-sharp finite-horizon barrier on strictly dissipative, positivity-preserving and contractive examples identifies a structurally meaningful missing guarantee: fast-mode annihilation depends on nilpotent coupling depth, not merely diagonal damping. The complete dimension/iterate classification, including the sharp algebraic post-threshold ETD2 constant, for ETD2 versus exponential Euler is a natural reusable integrator benchmark beyond a routine textbook stability calculation.",
+    "status": "PASS"
+  }
+}
