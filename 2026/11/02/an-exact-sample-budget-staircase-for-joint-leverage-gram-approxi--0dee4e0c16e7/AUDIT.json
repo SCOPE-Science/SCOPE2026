@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "All rows of the constructed matrix are nonzero and have constant leverage by an explicit orthonormal left factor. Group-count multinomial distribution gives an exact diagonal sampled product; all weak Gram modes contribute at most (d-1)/d² in relative operator norm. Binomial integer bands classify the strong mode exactly, endpoint-safe Poisson convergence follows from the binomial generating function, and the norm-based one-draw success event is computed by direct rescaling. Proof checks all integer budgets 1<=r<d² and the stipulated epsilon range; 9,371 exact-arithmetic checks verify representative instances, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cohen–Nelson–Woodruff Theorem 1 requires an OSE moment property for a distribution over sketches, while its §4 treats other row-selection guarantees.",
+        "Charalambides–Pilanci–Hero Theorem 11 controls a full subspace embedding, a strictly stronger event than relative Gram spectral error for highly anisotropic singular values."
+      ],
+      "reasoning": "A sufficient upper bound for a stronger task on a different sampling class neither forces success nor forbids failure of this prescribed sampler at a small sample budget. The comparison does not claim to improve such guarantees.",
+      "searches": [
+        "\"Optimal approximate matrix product in terms of stable rank\" Theorem 1 Section 4",
+        "arXiv:1507.02268 row selection stable rank",
+        "arXiv:2610.29466v1 Theorem 11"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.29466v1 §2.1–§4 (full primary HTML)",
+      "arXiv:1507.02268 Theorem 1 and §4 (primary HTML)",
+      "DOI:10.1137/S0097539704442684 publisher abstract (limited inspection)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source defines both algorithms and the full-embedding guarantee but gives no exact anisotropic family calculation.",
+        "The other sources give Frobenius variance properties, stable-rank bounds, or row-sampling constructions, none furnishing the signed nonmonotone success-budget intervals under fixed joint-leverage probabilities."
+      ],
+      "reasoning": "The present exact law is not a logical corollary of a probabilistic lower bound on success that only applies at sufficiently large sampling size, nor of another scheme’s Frobenius variance minimization. The sampling computation and sharp event equivalence are supplied independently.",
+      "searches": [
+        "arXiv:2610.29466v1 Eq (2.1), Eq (2.8), Algorithm 1, Remark 6, Theorem 11",
+        "arXiv:1507.02268 Theorem 1 and Section 4",
+        "DOI:10.1137/S0097539704442684"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The equal-leverage construction is equivalent to uniform group occupancy with counts \\(\\operatorname{Multinomial}(r;1/d,\\ldots,1/d)\\).",
+        "The first coordinate of the Gram spectral error is the binomial relative-count error."
+      ],
+      "reasoning": "The known identical-input leverage reduction is acknowledged, but the exact product spectral-success probability and its reentrant integer bands are not the same claim as the generic leverage-sampling estimator or concentration bounds.",
+      "searches": [
+        "\"joint leverage score\" \"spectral\" \"sampling\" \"lower bound\" matrix multiplication",
+        "leverage score sampling stable rank counterexample diagonal rank sample complexity gram matrix",
+        "arXiv:2610.29466v1 §2.2 Algorithm 1; §2.3 Remark 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant historical literature treats sampling probability choices and concentration bounds, but the inspected texts do not tabulate exact success probabilities indexed by sample count for this family."
+      ],
+      "reasoning": "No exact matching table or database result was located. A negative search does not certify first discovery; this uncertainty is recorded.",
+      "searches": [
+        "\"approximate matrix multiplication\" \"forbidden\" sample counts spectral error",
+        "\"randomized sketch\" \"more samples\" worse approximate matrix multiplication",
+        "\"leverage\" \"quantization\" \"Poisson\" \"matrix\" sampling error"
+      ]
+    },
+    "rationale": "Compared the precise fixed-distribution success event against published identical-input leverage rules, the source Theorem 11 stronger-embedding guarantee, classical Frobenius-optimal sampling, and stable-rank product approximation. The combination of the exact binomial spectral-error event, necessary-and-sufficient arithmetic budget bands with reentrant zero-success intervals, their Poisson limit, and one-draw norm-sampling comparison was not found in inspected full primary sections or semantic queries. Historical priority remains bounded, not absolute.",
+    "residual_risks": [
+      "Exact event probabilities use classical multinomial occupancy and Poisson laws, so only their specific numerical matrix-sampling implications are claimed as a contribution.",
+      "Historical 2006 source full text and exhaustive earlier literature were not fully inspected; an equivalent specialized example could exist.",
+      "No independent originality or correctness audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The identical-input leverage rule and norm-product sampler are known. The source supplies concentration bounds for stronger embedding and does not give exact finite-budget spectral-success bands or reentrant forbidden intervals.",
+        "evidence": [
+          "§2.1 Eq. (2.1) and Theorem 1: norm-product rescaling and variance minimization.",
+          "§2.2 Eq. (2.8), Algorithm 1 and Remark 6: normalized joint leverage, with-replacement sampling, identical-input reduction.",
+          "§2.4 Theorem 11: sufficient full-subspace embedding sample complexity proportional to rank times log(rank) over squared accuracy."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.29466v1",
+        "material_read": "Full HTML §1 through §4; §2.1 row-norm probabilities and Theorem 1, §2.2 algorithm and normalizations, §2.3–2.4 embedding/error guarantees, §3 comparisons and concluding remarks.",
+        "method": "Read open primary HTML mathematical statements and supporting derivations, not abstract or snippet alone.",
+        "title": "Approximate Matrix Multiplication through Joint Leverage Score Sampling",
+        "trigger": "Identical-input formula for joint leverage scores and stated spectral guarantee"
+      },
+      {
+        "assessment": "Provides spectral AMM upper bounds via OSE moment and suitable row-selection constructions; no exact fixed joint-leverage binomial law or zero-success integer bands.",
+        "evidence": [
+          "Theorem 1: OSE moment property entails spectral AMM guarantee with stable-rank scale.",
+          "§4: row importance sampling and deterministic selection, with rank or stable-rank complexity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.02268",
+        "material_read": "Full accessible arXiv HTML introduction, Theorem 1 and §4 row-selection analysis.",
+        "method": "Read theorem hypotheses and implications and compare sketch class and error objective.",
+        "title": "Optimal Approximate Matrix Product in Terms of Stable Rank",
+        "trigger": "Potential dominating stable-rank guarantee"
+      },
+      {
+        "assessment": "Supports known importance-sampling mechanism; full original text not inspected, retained as historical-priority risk.",
+        "evidence": [
+          "The publisher abstract specifies independent sampling and rescaled row/column outer products.",
+          "The 2026 motivating source §2.1, Eq. (2.1), gives explicit product-norm probabilities."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0097539704442684",
+        "material_read": "Publisher abstract and the source 2026 manuscript’s detailed reproduction of the classical estimator and probability rule.",
+        "method": "Compared accessible primary abstract and the historical estimator as reproduced in the motivating paper.",
+        "title": "Fast Monte Carlo Algorithms for Matrices I: Approximating Matrix Multiplication",
+        "trigger": "Classical importance rescaling and norm-based sampling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0dee4e0c-16e7-4000-abda-3f21cfba5b3d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural numerical task—relative operator-norm Gram approximation—has an exact sample-budget feasibility classification under the precise published joint-leverage sketch. The all-nonzero-row flat-leverage family has stable rank tending to one yet shows strict increases in sample budget can force guaranteed failure, followed by renewed success. A one-sample, near-certain alternative for the same target provides a concrete sampling-design benchmark without claiming universal optimality or contradicting subspace embeddings.",
+    "status": "PASS"
+  }
+}

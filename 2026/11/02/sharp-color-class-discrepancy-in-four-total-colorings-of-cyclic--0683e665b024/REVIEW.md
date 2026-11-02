@@ -1,0 +1,19 @@
+# Review: sharp color-class discrepancy in cyclic prisms
+
+## Correctness — PASS
+
+The four color appearances at a cubic vertex imply \(s_j+2e_j=2m\), so all vertex-class sizes are even, and color-\(j\) edges give a perfect matching of the complement of that vertex class. In a cyclic prism, three occupied rungs in succession would isolate the middle unselected vertex of that complement. The cyclic three-window count gives \(s_j\le2\lfloor m/3\rfloor\), and the four vertex-class sizes sum to \(2m\). This forces the lower bound \(s_j\ge2(m\bmod3)\) and hence the claimed upper bound on discrepancy. A negative upper bound excludes the five-rung case. The displayed length-3, length-4, length-7, and length-8 blocks are proper on the original graph and are compatible at each concatenation boundary; their exact vertex-color counts attain the upper bound for every permitted length. Direct original-graph checks through 90 rungs and independent transfer-state enumeration through 24 rungs corroborate the construction but are not substituted for the infinite proof.
+
+## Originality — PASS, qualified
+
+The strongest covering risk is M. N. Adauto's 2022 dissertation, *Equitable Total Coloring of Small Cubic Graphs*, Sections 3.2 and 4.2–4.3. Its text reproduces the earlier Chetwynd–Hilton cyclic-prism pasting proof, records non-equitable 12- and 18-vertex examples, observes that repeated pasting increases the color-class size differences, and classifies small cubic orders. These statements establish neither a uniform bound on **all** prism four-total colorings nor the matching sharp extremum for **every** prism length. The new object is the maximum discrepancy, not the prior qualitative existence statement or pasting technique. Adauto, de Figueiredo, Sasaki and Schneider's September 2026 arXiv abstract reports the general matching identity, small-order color class configurations and a large-order non-equitable existence result, but not this all-length sharp prism bound. The full September 2026 preprint and original 1988 paper were unavailable, creating material residual priority risk. Mathematical-record searches using both color-class and total-coloring terminology yielded no exact all-prism discrepancy formula. A failed search alone is not proof of novelty.
+
+## Value — PASS
+
+This is a sharp infinite extremal result for a highly natural cubic graph family central to recent total-coloring work. An earlier demonstration that a pasting construction becomes non-equitable does not control the **largest possible** imbalance among arbitrary colorings. The new exclusion of three consecutively occupied rungs plus parity gives a structural universal optimum, and short compatible blocks attain it. In particular, when the rung number is divisible by three the maximum class-size difference grows as one-third of the rung number, a quantitative refinement not supplied by the cited qualitative constructions.
+
+## Prior sources and limitations
+
+Primary historical source: M. Adauto, C. de Figueiredo, D. Sasaki, R. Schneider, *Order 14 is the largest order for which every 4-total coloring of every cubic graph is equitable*, arXiv:2609.05259 (first posted 2026-09-04; abstract accessible; full text unavailable). Detailed primary-material inspection: M. N. Adauto, *Equitable Total Coloring of Small Cubic Graphs* (2022), Sections 3.2, 4.2 and concluding remarks; PDF at https://pesc.coppe.ufrj.br/uploadfile/publicacao/3032.pdf. Earlier sources: Chetwynd–Hilton (1988), original text inaccessible, with the pasting argument reproduced in the 2022 dissertation; Dantas et al. (2016), bibliographic record and abstract inspected. A full comparison against the inaccessible originals remains a risk; independent validation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.

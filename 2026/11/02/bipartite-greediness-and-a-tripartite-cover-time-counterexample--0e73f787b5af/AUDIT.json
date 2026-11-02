@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Bipartite deterministic part alternation and visited-count coupling prove stochastic optimality. Exact rational Bellman evaluation with 608 ordered offered-category checks proves the best greedy K_(1,2,6) value, and a valid modified policy gives exact improvement 2285849200770243971848/4016620735540189127344279 from the specified start. The checker was replayed from the package.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Georgakopoulos et al., arXiv:1911.05170v2 Theorem 1.7 and Section 7.3: general NP-hardness and exponential-time MDP; not explicit action comparisons for K_(1,2,6).",
+        "Published research records discussing complete multipartite simple-random-walk cover times concern uncontrolled walks and do not dominate choice-control policies."
+      ],
+      "reasoning": "A generic algorithm to determine an optimal policy is not the evaluated policy classification or exact nine-vertex witness, and NP-hardness alone does not state this natural-family boundary.",
+      "searches": [
+        "optimal strategy to cover complete multipartite graphs under power-of-two-choice random walk; greedy rule sometimes choose already visited vertex",
+        "site:arxiv.org/abs/1911.04472 \"The Power of Two Choices for Random Walks\" complete bipartite cover time",
+        "\"choice random walk\" \"greedy strategy\" \"cover time\" counterexample",
+        "Greedy-first-visit stochastic cover-time optimality on complete bipartite graphs K_{a,b} versus complete tripartite graph counterexample"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1911.05170v1 source-first-public date 2019-11-12",
+      "arXiv:1911.05170v2 HTML sections 1,2,7,8",
+      "DOI:10.1145/1164717.1164757 publisher abstract",
+      "Semantic mathematical research records for greedy choice walks and complete multipartite examples",
+      "Uncontrolled complete multipartite simple-random-walk cover times, contrasted with offered-neighbor controlled cover times"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 source is a broad upper bound and algorithmic framework; its hardness proof uses arbitrary graph gadgets, not the claimed tripartite counterexample.",
+        "The earlier empirical model reports network simulations and no graph-specific exact greedy-constrained Bellman comparison in accessible text."
+      ],
+      "reasoning": "Neither the broad complexity statement nor the empirical improvements logically yields the exact sign certified here or the complete-bipartite stochastic optimality statement.",
+      "searches": [
+        "arXiv:1911.05170v2 sections 1.2 2 7.2 7.3 8",
+        "doi:10.1145/1164717.1164757 cover time visit count random walks choice"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1911.05170v2 sections 2 and 7 explain offered-neighbor choice and cover-time MDP but do not give this exact greedy boundary.",
+        "Avin and Krishnamachari (DOI:10.1145/1164717.1164757) prefer vertices with fewer previous visits; this is not exactly the constrained first-visit rule."
+      ],
+      "reasoning": "General optimal-control MDP and a visit-count preference do not imply the specific exact comparisons or universal bipartite greedy optimality.",
+      "searches": [
+        "\"choice random walk\" \"suboptimal\" \"greedy\" cover",
+        "\"two choices\" \"visited\" \"greedy\" random walk counterexample cover time complete multipartite",
+        "greedy preference for unvisited vertex fails to minimize expected cover time in choice random walks",
+        "Two-choice controlled random walk on K_{1,2,6}: sometimes optimal to choose visited neighbor even though new neighbor offered; greedy first-visit fails"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Table 1 of arXiv:1911.05170v2 lists the complete graph but not exact complete multipartite greedy policies.",
+        "Semantic research-record searches returned no K_(1,2,6) greedy-cover benchmark."
+      ],
+      "reasoning": "No direct table or complete multipartite calculation with the same action restrictions was found; a failed lookup cannot itself establish priority.",
+      "searches": [
+        "two-choice random walk on complete tripartite graphs greedy unvisited cover time strategy suboptimal K(1,2,6)",
+        "\"power of two choices\" \"complete bipartite\" \"cover time\" Gumbel",
+        "2285849200770243971848 4016620735540189127344279 cover random walk"
+      ]
+    },
+    "rationale": "The primary 2019 two-choice walk paper establishes model, generic cover-time algorithms, and NP-hardness, but its inspected full HTML sections do not state the complete-bipartite versus K_(1,2,6) strict greedy policy boundary. Available research records and source/alias searches found no equivalent or stronger direct coverage. Historical priority remains qualified.",
+    "residual_risks": [
+      "Historical priority cannot be proved by unsuccessful semantic or web search.",
+      "Full earlier empirical article and all potential follow-up papers were not exhaustively read.",
+      "The source gives a generic finite-state MDP algorithm; novelty is the evaluated structural boundary and exact action sign, not the use of MDPs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No statement identified that implies greedy bipartite optimality and K_(1,2,6) strict counterexample together.",
+        "evidence": [
+          "Sections 2 and 7.3 define two sampled neighbors with replacement and generic MDP; Table 1 treats complete graphs.",
+          "Section 7.2 proves NP-hardness in arbitrary graphs with special gadgets."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1911.05170v2",
+        "material_read": "Full HTML: abstract, introduction and related work; model in section 2; results table; section 7.2 hardness and section 7.3 MDP construction; summary and references.",
+        "method": "Read and compared source statements, model assumptions, algorithms, table and cited consequences to proposed action/graph-specific conclusion.",
+        "title": "The Power of Two Choices for Random Walks",
+        "trigger": "Direct self-review, optimal cover time and strategy comparison"
+      },
+      {
+        "assessment": "Describes empirical experiments on geometric/grid networks with a related but different visit-count rule; no direct exact K_(1,2,6) claim in material read.",
+        "evidence": [
+          "ACM MSWiM 2006 abstract describes empirical network cover times and load balancing, not exact nine-vertex Bellman certificates."
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/1164717.1164757",
+        "material_read": "Publisher abstract and bibliographic data; full paper not inspected.",
+        "method": "Read open-access metadata and abstract and compared model and claimed statistics.",
+        "title": "The power of choice in random walks: an empirical study",
+        "trigger": "Earlier two-choice walk study that considers heuristic choices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0e73f787-b5af-4b2d-9618-bf08907814c7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result isolates a qualitative breakdown of a natural control rule between complete bipartite and complete tripartite graphs. An explicit exact small benchmark exposes the necessity of look-ahead despite a newly offered vertex. The small absolute gain is not claimed as an application-scale improvement.",
+    "status": "PASS"
+  }
+}

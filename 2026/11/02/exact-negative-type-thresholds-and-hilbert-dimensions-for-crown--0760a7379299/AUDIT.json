@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For all integers n>=3 and p>=0 the explicit powered-distance block matrix is exact. The 2n-dimensional orthogonal decomposition consists of constant, side-antisymmetric, paired-equal and paired-opposite modes with multiplicities 1,1,n-1,n-1. On the zero-sum hyperplane the scalar signs prove every regime and equality case; h(p)=3^p/(2^p-1) is strictly decreasing on (0,1] and h(1)=3. Centered Gram positive semidefiniteness and rank establish the full Hilbert statement. The real analytic implicit function theorem proves the order-(n-1)^-2 matching-deletion gain. 178 supplemental numerical assertions passed, but are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Murugan, Generalized roundness of vertex transitive graphs, Section 3 / Theorem 3.1 (2011).",
+        "Robertson, Negative Type and Bi-Lipschitz Embeddings into Hilbert Space, Section 4.1 (2023), treats K_{m,n}, not deletion of a matching.",
+        "Sánchez 2011 Section 3 formula for K_{m,n}: log_2(2mn/(2mn-m-n))."
+      ],
+      "reasoning": "The graph is vertex-transitive, so Murugan covers a generic determinant characterization but not the evaluation of the powered eigenbranches, cutoff n=4, critical multiplicities, or matching-deletion asymptotic. Complete-bipartite embeddings address a different metric (matched pair at distance 1 rather than 3), so their exact bounds do not imply the crown result.",
+      "searches": [
+        "critical p-negative type Hilbert snowflake distance matrix spectrum bipartite double cover of complete graphs",
+        "arXiv:1112.5657v1 Theorem 3.1",
+        "arXiv:2309.16070v1 Section 4.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1108.0451v1 Sánchez Section 3",
+      "arXiv:1112.5657v1 Murugan Section 3",
+      "arXiv:2004.10923v1 Robertson",
+      "arXiv:2309.16070v1 Robertson Section 4.1",
+      "MathWorld Distance Polynomial crown row",
+      "MathWorld Crown Graph definition"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sánchez 2011 Theorem 3.1 computes p*=log_2(n/(n-1)) for K_{n,n}.",
+        "Robertson 2020 proves general determinant reductions, rather than a table for crown graphs.",
+        "The pair of corresponding bipartition vertices have graph distance three after matching deletion, while they have distance one in K_{n,n}."
+      ],
+      "reasoning": "Deleting a matching changes the metric (not a submetric or direct corollary of the bipartite result). General matrix criteria need object-specific eigenvalue factorization, sign analysis, and endpoint rank; none of the inspected statements implies the exact new claim without performing that analysis. The subtraction of the known complete-bipartite exponent is not the only result: the exact crown threshold and equality space are central.",
+      "searches": [
+        "arXiv:1108.0451v1 Section 3 complete bipartite graphs",
+        "arXiv:2004.10923v1 maximal generalised roundness finite metric spaces",
+        "Complete exact negative type classification of 3-distance crown metrics with paired bipartite matched non-edges"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1112.5657v1, Theorem 3.1, gives determinant criterion for vertex-transitive graph metrics (including crown).",
+        "arXiv:2004.10923v1, Theorem 1.1, simplifies generalized-roundness criteria for arbitrary finite metrics.",
+        "The graph-metric / squared-Hilbert-distance equivalence is classical; the present sharp parameter calculation is the object-specific statement."
+      ],
+      "reasoning": "The aliases generalized roundness, strict negative type, first powered-distance determinant zero, and Hilbert embedding of the snowflake are compared as equivalent problem formulations. The broad theorems allow a calculation but do not give a crown-specific all-n formula or its rank and asymptotic gain.",
+      "searches": [
+        "crown graph negative type exponent generalized roundness K n n matching",
+        "supremal p-negative type generalized roundness graph metric all n K_{n,n} deletion perfect matching crown graph",
+        "Isometric Hilbert embedding of snowflake shortest path metric of crown graph n=5, K_n tensor K_2, critical exponent root (n-1)(2^p-1)=3^p"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Distance Polynomial crown-graph row gives the ordinary distance polynomial (n-4-x)(3n-x)(x(x+4))^(n-1).",
+        "MathWorld Crown Graph identifies n=3 with C6 and n=4 with Q3."
+      ],
+      "reasoning": "The ordinary p=1 spectrum matches the specialization of the powered matrix, but contains no information about the root at 0<p<1 for n>=5 or its dimension and second-order comparison. Small special graphs are known and are not the novelty claim.",
+      "searches": [
+        "crown graph distance matrix p negative type",
+        "crown graph negative type exponent generalized roundness K n n matching",
+        "https://mathworld.wolfram.com/DistancePolynomial.html"
+      ]
+    },
+    "rationale": "Explicit complete crown powered-distance spectrum, exact exponent and endpoint embedding-dimension classification were not stated by the inspected general matrix criteria, complete-bipartite cases, ordinary p=1 crown distance spectrum, or retrieved crown results on unrelated invariants. This is a best-knowledge claim, not proof of global novelty.",
+    "residual_risks": [
+      "A logically equivalent calculation could exist in older distance-regular graph eigenmetric literature, or as an unstated specialization of a generalized-roundness table.",
+      "The p=1 crown distance polynomial was already tabulated; novelty depends on all fractional exponents, endpoint rank, and sharp matching-deletion comparison, not on this table.",
+      "A published-result similarity search does not establish universal uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers K_{m,n} and generic method; does not calculate missing-matching 3-distance crowns.",
+        "evidence": [
+          "Section 3 Theorem 3.1 for complete bipartite graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1108.0451",
+        "material_read": "Abstract, theorem statements, Section 3 and proof context around complete bipartite graph example on PDF pages 1 and 7-8",
+        "method": "inspected public full-text PDF material and page image",
+        "title": "On the supremal p-negative type of a finite metric space",
+        "trigger": "exact complete-bipartite baseline and stronger generic finite-metric criterion"
+      },
+      {
+        "assessment": "Gives powered-distance determinant criterion and endpoint kernel characterization, but no evaluated crown formula.",
+        "evidence": [
+          "Theorem 3.1 and Section 4 introduction."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1112.5657",
+        "material_read": "Abstract, Section 2, full Theorem 3.1 and proof on PDF pages 1-3, Hamming cube section introduction",
+        "method": "inspected public full-text PDF and page image",
+        "title": "Generalized roundness of vertex transitive graphs",
+        "trigger": "vertex-transitive determinant method potentially dominates the claim"
+      },
+      {
+        "assessment": "General determinant simplification does not evaluate crown family or second-order perturbation gain.",
+        "evidence": [
+          "arXiv:2004.10923v1 dated 2020-04-23; general determinant formula discussed in introduction."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2004.10923",
+        "material_read": "Abstract, introductory discussion, Section 2 matrix definitions and determinant criterion, including PDF page 2",
+        "method": "inspected public full-text PDF and page image",
+        "title": "The Maximal Generalised Roundness of Finite Metric Spaces",
+        "trigger": "middle-window motivating general finite-metric question"
+      },
+      {
+        "assessment": "Graph family is full bipartite K_{m,n}, not crown graph obtained by deleting a matching.",
+        "evidence": [
+          "Section 4.1 The Bipartite Graph K_{m,n}."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.16070",
+        "material_read": "Abstract and Section 4.1 on K_{m,n}, inspected page 12 image and nearby text",
+        "method": "inspected public full-text PDF and page image",
+        "title": "Negative Type and Bi-Lipschitz Embeddings into Hilbert Space",
+        "trigger": "sharp graph Hilbert embedding formulas, possible broader coverage"
+      },
+      {
+        "assessment": "Only ordinary p=1 spectrum and canonical graph identity; does not evaluate fractional powered distances.",
+        "evidence": [
+          "Distance Polynomial table crown row; Crown Graph table for C6 and Q3."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/DistancePolynomial.html",
+        "material_read": "Crown row in distance characteristic polynomial table, references, and associated Crown Graph definitions and n=3,4 identifications",
+        "method": "inspected publicly readable source web page",
+        "title": "Distance Polynomial and Crown Graph",
+        "trigger": "exact online graph-spectral table could cover the statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0760a737-9299-4dcd-be80-9d2b89e6bb48",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The crown family is the standard distance-transitive graph formed by deleting a perfect matching from balanced complete bipartite graphs, a natural perturbation of an established exact negative-type case. The result classifies all n, shows the sharp loss of 1-negative type beyond n=4, determines critical affine dimensions and every nullspace, and quantifies the small positive gain over K_{n,n} to the second asymptotic order. These are motivated exact invariants, not arbitrary finite table entries.",
+    "status": "PASS"
+  }
+}

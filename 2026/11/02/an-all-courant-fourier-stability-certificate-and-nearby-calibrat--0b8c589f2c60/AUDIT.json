@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Exact tableau factorization, exact flux-symbol identity, bounded effective Courant, exact rational Bernstein positivity certificate over two slabs with 168 coefficients, Parseval transfer and exact positive rational counterexample; full standalone verifier passed on actual embedded path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "NEMO Ocean Engine Manual 5.0 RK3/UP5 tabulated numerical CFL limit approximately 1.43498",
+        "arXiv:2610.08166v1 explicitly checks only 401 phases and C up to 100"
+      ],
+      "reasoning": "A tabulated approximate CFL threshold supports consistency but is not a verified continuum theorem at all parameter values; the primary paper is numeric. No inspected stronger exact theorem directly implies both the new calibration guarantee and close calibration failure. Historical rigorous CFL proofs are a residual risk.",
+      "searches": [
+        "\"AdHImEx\" \"unconditional stability\" proof",
+        "\"SSPRK3\" \"fifth order upwind biased\" stable CFL 1.42 von Neumann",
+        "\"fifth-order upwind\" \"RK3\" \"Courant\" \"10/7\" stability",
+        "\"1.43498\" \"fifth order upwind\" \"RK3\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.08166v1, accessible HTML mathematical method and stability sections",
+      "doi:10.1175/MWR-D-10-05073.1 article Strang carryover description",
+      "NEMO Ocean Engine Manual 5.0 Table 2.1 excerpt",
+      "Weller--Lock--Wood 2013 accessible abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Motivating paper explicitly reports finite numerical stability scans, not a full continuum analytical proof",
+        "Ullrich--Jablonowski operator split work establishes a method architecture but no stated parameter-0.69 counterexample for this tableau"
+      ],
+      "reasoning": "The previous literature gives a numerical margin estimate and factorization principles; without a previously established rigorous exact CFL bound for precisely this stencil, it does not formally yield the complete claim. The polynomial positivity certificate supplies that missing mathematical implication. A predecessor proving the exact stencil CFL interval rigorously would weaken originality.",
+      "searches": [
+        "arXiv:2610.08166v1 stability section 2.4 401 kdx Fourier modes C<=100",
+        "Weller Lock Wood 2013 Runge-Kutta IMEX HEVI wave equations stability",
+        "NEMO RK3 upwind fifth order 1.43498 table"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.08166v1 equations (6),(16),(18) and section 2.4",
+        "Ullrich--Jablonowski 2012 discussion of Strang carryover SSPRK3 plus an implicit factor"
+      ],
+      "reasoning": "Multiplicative scalar stability factorization is related to classical operator splitting and is expressly not claimed new. The evaluated antecedents did not contain an exact rational all-Courant uniform AdHImEx certificate plus calibration-instability witness.",
+      "searches": [
+        "AdHImEx adaptive high order implicit explicit transport Crank Nicolson SSP Runge Kutta fifth order upwind uniform Fourier amplification high Courant asymptotic stability",
+        "\"AdHImEx\" \"Runge Kutta\" \"stability polynomial\"",
+        "Operator-Split Runge--Kutta--Rosenbrock Methods for Nonhydrostatic Atmospheric Models doi:10.1175/MWR-D-10-05073.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The directly relevant numerical table in the NEMO manual gives 1.43498 for an RK3 UP5 pairing, not this exact certificate",
+        "No directly covering statement identified in accessible published mathematical research records searched using these phrases"
+      ],
+      "reasoning": "The table is acknowledged, not recomputed as the contribution; the new claim is a proof of the specific AdHImEx all-Courant interval plus explicit nearby unstable parameter.",
+      "searches": [
+        "AdHImEx tableau (6) fifth order upwind stability for all Courant numbers, Bernstein polynomial certificate for SSPRK3 threshold 10/7 and instability at calibration 0.69",
+        "Sharp high Courant stability threshold for RK3 SSP fifth order upwind Fourier modes"
+      ]
+    },
+    "rationale": "Motivating October 6, 2026 manuscript numerically scanned C <=100 and 401 Fourier phases, whereas this theorem proves an infinite Courant/continuous frequency statement and an exact 0.69 instability. Earlier splitting and numerical CFL evidence are not claimed novel; no inspected rigorous broader result directly covers the combined claim.",
+    "residual_risks": [
+      "Earlier rigorous fifth-order-upwind SSPRK3 CFL studies could supply stronger exact parameter bounds; only a numerical table was accessed.",
+      "No full inspection of the NEMO manual or the Weller--Lock--Wood 2013 paper; neither excerpt resolves a decisive comparison.",
+      "Claim restricted to constant-coefficient circulant Fourier setting; does not cover variable blending, which is the intended general application."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state all-positive-C, all-continuum-Fourier-mode proof or a 0.69 large-C instability; numerical scan to C=100 with 401 wavenumbers",
+        "evidence": [
+          "arXiv:2610.08166v1 equations (6),(16),(18); section 2.4 stability paragraph and finite scan"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.08166",
+        "material_read": "Accessible HTML material in sections 1, 2.1-2.4, and excerpts from the summary and conclusions",
+        "method": "Browser full-text inspection of mathematical method and stability discussion",
+        "title": "AdHImEx: Adaptively High-Order Implicit-Explicit Transport for Large Time Steps",
+        "trigger": "Exact same RK tableau, stencil and fitted theta rule"
+      },
+      {
+        "assessment": "Related factorization and splitting concepts; no same fitted one-dimensional upwind-stencil exact all-Courant guarantee in read material",
+        "evidence": [
+          "Ullrich--Jablonowski 2012, Strang carryover scheme section"
+        ],
+        "identifier_or_url": "https://journals.ametsoc.org/view/journals/mwre/140/4/mwr-d-10-05073.1.xml",
+        "material_read": "Accessible article content describing Strang carryover and RK3 coupled to implicit method",
+        "method": "Browser reading of article mathematical-method section",
+        "title": "Operator-Split Runge--Kutta--Rosenbrock Methods for Nonhydrostatic Atmospheric Models",
+        "trigger": "Classical splitting cited by the motivating article"
+      },
+      {
+        "assessment": "Relevant approximate empirical CFL benchmark, not a whole-document exclusion; full text not inspected",
+        "evidence": [
+          "NEMO Manual 5.0 Table 2.1 RK3 UP5 ~1.43498"
+        ],
+        "identifier_or_url": "https://www.scribd.com/document/909682314/NEMO-Manual-1",
+        "material_read": "Search-retrieved excerpt containing Table 2.1 and RK3/UP5 numerical CFL 1.43498; not full manual",
+        "method": "Limited published-table excerpt inspection",
+        "title": "NEMO Ocean Engine Manual 5.0",
+        "trigger": "Tabulated stability cutoff for RK3 with fifth-order upwind discretization"
+      },
+      {
+        "assessment": "Wave-equation IMEX methods; insufficient full text to assess possible specialized implications, recorded as residual risk",
+        "evidence": [
+          "Weller--Lock--Wood 2013 abstract"
+        ],
+        "identifier_or_url": "https://centaur.reading.ac.uk/33189/",
+        "material_read": "Repository abstract and bibliographic metadata only",
+        "method": "Repository abstract inspection",
+        "title": "Runge-Kutta IMEX schemes for the Horizontally Explicit/Vertically Implicit solution of wave equations",
+        "trigger": "Related IMEX stability results, cited through classical method context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0b8c589f-2c60-4d6a-9519-fd5a9fd9c860",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A method intended for very large Courant numbers relied on 401 phase samples and C<=100. A complete all-Courant analytic bound closes that explicit reliability gap, and a rational failure at calibration 0.69 quantifies a nearby boundary in a parameter chosen numerically by the original authors.",
+    "status": "PASS"
+  }
+}

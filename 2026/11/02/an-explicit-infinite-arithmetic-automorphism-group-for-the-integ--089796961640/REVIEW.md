@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The right annihilator is exactly the four-dimensional kernel of the reduction \(\mathbb Z[R_8]\to\mathbb Z[R_4]\), hence invariant. A direct bilinear calculation reduces every kernel automorphism to the 64 integer-linear relations \(\delta_{2j-i}=T_j\delta_i\). The displayed rank-two fixed spaces and signed-operator relations solve these equations with four and only four integer parameters. The determinant factorization is an exact integer identity; adjoining the known quotient automorphisms completes the proof of sufficiency and necessity. Exhaustive finite parameter checks are corroborative, not the universal proof. The proof concerns additive, multiplication-preserving integral bijections only.
+
+**Originality — PASS, subject to residual historical priority uncertainty.** Sangare–Ta's 2026 Problem 4.14 leaves even-half-order integral dihedral automorphism groups unsolved; their Corollary 4.18 provides a faithful injection for \(R_8\), but not its image. The new arithmetic family and its eight-coset description explicitly determine this missing image. Bardakov–Passi–Singh's 2020/2022 Theorem 6.4 computes only the smaller quotient \(R_4\). Searches for the exact norm equation, arithmetic matrix image, order-eight algebra automorphism group, and relevant equivalents did not establish prior coverage. An implicit equivalent in older specialized algebra literature remains possible; search absence is not a priority proof.
+
+**Value — PASS.** This is an exact solution for the first nontrivial unclassified integral even-dihedral case singled out by a recent research problem, rather than a generic finite computation: the automorphism group is infinite and admits a concrete faithful arithmetic four-dimensional normal form. It distinguishes the integral algebra automorphisms from the finite quandle symmetries and supplies an explicit infinite unipotent subgroup.
+
+**Limits.** No larger even-dihedral classification, abstract finite presentation, or independent audit is claimed. Direct computation tests only bounded parameters. The original 2026 paper's Section 4.3 is the primary scientific comparison.
+
+Self-review: passed. Independent audit: not yet performed.

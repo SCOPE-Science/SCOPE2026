@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Verified precisely on a,b>0, a+b<=1. Source ellipses rotate orthogonally; their first-quadrant arcs meet at (sqrt(2)a,sqrt(2)b). Exact integration cancels matching chord contributions. Trigonometric angle identities yield the claimed arcsine law. Differentiation and inequalities 1-sqrt(1-r^2)>=r^2/2 and r arcsin r>=r^2 prove unique optimizer and globally sharp stability; the s=1 one-ellipse case and square-root asymptotic are handled separately. The actual bundled standard-library verifier passed 6837 checks; finite tests are corroboration only. See RESULT.md proof and VERIFY.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 revision arXiv:2408.09578v2, sections III.1, III.4 and appendix D, covers the entire support and the one-ellipse endpoint, and cites a previously known unit-circle example.",
+        "arXiv:1107.4400, section V equation (46), covers a single ellipse; arXiv:0802.2749, section III equation (11), covers a single ellipse for the earlier four-state walk."
+      ],
+      "reasoning": "The broadest relevant source characterizes the velocity support but does not optimize its two-dimensional Lebesgue measure. Its parameter-speed formula does not directly give the new sharp area envelope or quantitative rigidity. Earlier single-ellipse results are a boundary subfamily, explicitly credited.",
+      "searches": [
+        "planar quantum walk probability light cone accessible velocity footprint area intersection of centered ellipses optimization",
+        "Lebesgue area of ballistic limit support for two-state alternate quantum walks on Z2 at fixed group velocity",
+        "https://arxiv.org/html/2408.09578v2",
+        "https://arxiv.org/pdf/1107.4400",
+        "https://arxiv.org/pdf/0802.2749"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2408.09578v1",
+      "https://arxiv.org/html/2408.09578v2",
+      "https://arxiv.org/pdf/1107.4400",
+      "https://arxiv.org/pdf/0802.2749"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source v1 equations (14)-(19) supply exactly the two quadratic inequalities that the proof integrates.",
+        "Source v2 proposition 3 establishes v_max=a+b, appendix D derives the ellipses, and theorem 9 supplies their coincident s=1 case.",
+        "2011 and 2008 studies handle single-ellipse support."
+      ],
+      "reasoning": "The source support theorem is a premise. Recovering the claimed integrated area requires selecting the active arc of each ellipse, cancelling the crossing chord terms and reducing two inverse-trigonometric arguments. The strict global optimum and sharp quadratic stability then require new parameter analysis. Prior descriptions of the support do not contain these stated quantitative conclusions; the known unit circle is credited as an equality example rather than claimed as new.",
+      "searches": [
+        "https://arxiv.org/html/2408.09578v1",
+        "https://arxiv.org/html/2408.09578v2",
+        "two dimensional two state alternate coin quantum walk 2D Konno ellipse intersection area Lebesgue measure arcsin a+b a-b",
+        "two dimensional quantum walk maximal speed s ballistic support area 2 s arcsin s sharp balanced coins"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2408.09578v1, section I, equations (14)-(19), gives two ellipses but not integrated area; v2 section III and appendix D gives the same geometry.",
+        "Indexed comparisons were to area of the limiting group-velocity image, ballistic footprint, ellipse-intersection area, and fixed-maximum-speed coin balance; nearest results concern different invariants."
+      ],
+      "reasoning": "An equivalent formula might be expressed using coin amplitudes, elliptic lens area or a trigonometric integral. Targeted searches for these aliases produced no equivalent result. The known support equations imply that an area can be calculated but do not assert its analytic value or sharp envelope.",
+      "searches": [
+        "arXiv 2408.09578 Asahara Funakawa Seki Suzuki 2D2SQW exact area of joint velocity spectral support at fixed maximal speed a+b",
+        "two dimensional two state alternate coin quantum walk 2D Konno ellipse intersection area Lebesgue measure arcsin a+b a-b",
+        "two ellipse intersection quantum walk closed-form area and sharp optimal symmetric coins",
+        "a arcsin a b arcsin b exact area two ellipse overlap quantum velocity support",
+        "https://arxiv.org/html/2408.09578v1",
+        "https://arxiv.org/html/2408.09578v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed record or table retrieved states this two-parameter area formula or its fixed-speed maximum. Nearby records describe finite-time entropy optimization of a one-dimensional walk, one-dimensional weighted transport, and unrelated ellipse area invariants."
+      ],
+      "reasoning": "There is no finite enumeration or discrete numerical table that determines the continuum area family: the new result is an all-real-parameters analytic identity and optimization theorem. A missed unindexed database or paper remains possible.",
+      "searches": [
+        "arXiv 2408.09578 Asahara Funakawa Seki Suzuki 2D2SQW exact area of joint velocity spectral support at fixed maximal speed a+b",
+        "two dimensional quantum walk maximal speed s ballistic support area 2 s arcsin s sharp balanced coins",
+        "quantum walk spectral support elliptic lens area unique maximum coin a=b 1/2",
+        "two ellipse intersection quantum walk closed-form area and sharp optimal symmetric coins"
+      ]
+    },
+    "rationale": "The source gives the joint spectral region as an intersection of ellipses and the maximal coordinate speed, but the examined texts do not give the explicit two-parameter area integral, its unique fixed-speed optimizer, global sharp quadratic imbalance bound or singular full-speed area-deficit coefficient. The direct geometric integration and optimization are additional nontrivial claims, not a rephrasing of the source ellipse equations. The check is best-knowledge and has residual publication-priority risk.",
+    "residual_risks": [
+      "An exact area formula or optimizer may exist in a publication using different geometric/coin terminology that the targeted searches did not retrieve.",
+      "The full text of every possible quantum-walk or convex-lens paper was not reviewed; priority is therefore best knowledge, not independent certification.",
+      "The revised 2025 version is used as further relevant scientific literature; the original 2024 preprint is the earliest verified public presentation of the motivating velocity-support model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the two-ellipse support and model, not the new explicit area/optimizer/stability statement in the inspected text.",
+        "evidence": [
+          "arXiv:2408.09578v1, equations (10), (14)-(19), posted 2024-08-18."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2408.09578v1",
+        "material_read": "Abstract; section I model definition and parameters; section II limit-theorem statements; section III support equations and analytic description, especially equations (14)-(19).",
+        "method": "Read accessible full-text HTML and searched for area and area optimization terminology.",
+        "title": "Two dimensional quantum central limit theorem by quantum walks (original preprint)",
+        "trigger": "Exact same alternating-coin lattice model and ellipse intersection used as premise"
+      },
+      {
+        "assessment": "COVERS maximal speed, full joint support and the known full-speed circle/ellipse, but the new integrated continuum area and sharp fixed-speed/global-stability classification were not identified.",
+        "evidence": [
+          "arXiv:2408.09578v2, proposition 3, theorem 9, appendix D equations (51)-(52), 2025-11-14."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2408.09578v2",
+        "material_read": "Sections II and III (parameters, maximal speed, limit laws); section IV connection with older walks; section V and appendix D on the full joint spectrum and the two ellipse formulas; inspected relevant appendix passages.",
+        "method": "Read accessible full-text HTML and checked matches of area, Lebesgue, and volume against the paper content.",
+        "title": "Two-dimensional quantum central limit theorem by quantum walks (revised preprint)",
+        "trigger": "Plausible stronger coverage: more complete 2025 proof and endpoint results"
+      },
+      {
+        "assessment": "COVERS a single elliptical support family; does not claim a generic intersection-of-two-ellipses footprint optimizer.",
+        "evidence": [
+          "arXiv:1107.4400, section V theorem 3 and equation (46)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1107.4400",
+        "material_read": "Abstract, introduction, section V displayed weak-limit distribution and support equation (46), associated page 7.",
+        "method": "Inspected readable PDF text and the relevant rendered PDF page.",
+        "title": "Alternate two-dimensional quantum walk with a single-qubit coin",
+        "trigger": "Older alternate-walk weak-limit theorem with possible dominating speed-space support result"
+      },
+      {
+        "assessment": "COVERS a single-ellipse four-state family and its probability limit, not the two-ellipse joint-footprint area for the two-state generic regime.",
+        "evidence": [
+          "arXiv:0802.2749, equation (11), section III."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0802.2749",
+        "material_read": "Abstract, introduction, section III group-velocity map and displayed equation (11), associated PDF page 7.",
+        "method": "Inspected readable PDF text and the rendered support-equation page.",
+        "title": "Limit distributions of two-dimensional quantum walks",
+        "trigger": "Potential original two-dimensional velocity-support classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0aeb08f5-b586-4910-a030-be88cdb3d347",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The area of the joint ballistic velocity spectrum measures the planar reachability footprint independently of initial state, whereas the source maximum coordinate speed fixes only its one-dimensional projections. The theorem distinguishes equal-speed models with different propagation geometry, solves fixed-speed coin-balance design exactly, and supplies a sharp global stability coefficient and nonanalytic speed-limit deficit. These exact natural continuum invariants and inequalities are not mere renamings or computations of an already stated area table. Limits: only this homogeneous two-state family; no initial-state weighted density optimization or finite-time transport.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The exact distributional reduction is supplied by the degree-preserving noncrossing-partition/plane-tree bijection and the unique-cyclic-shift lemma. For a fixed set of logarithmic block sizes, explicitly counting remaining weak compositions proves the mixed falling-factorial formula and yields independent Poisson marginals. Under factorial Palm markings the count of all positive parts becomes a constant plus a hypergeometric variable with parameters differing from the unmarked ones by only \(O(\log n)\); the standard hypergeometric central limit theorem therefore remains valid. Mixed factorial moments with bounded Gaussian test functions prove asymptotic independence, not merely vanishing covariance. An elementary first-moment tail bound passes from finite vectors to the largest block. The standalone checker passes 824 exact finite assertions and 6 numerical scale checks; those finite checks cannot themselves prove the infinite limit. The proof specifies the lattice subsequences and exact normalization.
+
+## Originality — PASS, qualified
+The closest literature contains ingredients and several marginals: Arizmendi (2012) gives individual block-size expectations and conditional block-count enumeration; Kortchemski–Marzouk (2015) supply the tree bijection and fixed-degree Gaussian statistics; Janson (2011) supplies general random-allocation extreme-degree marginal theorems; Kargin (2019) gives Gaussian marginals and the largest-block marginal limit. Inspected statements do not give a joint independent Gaussian/rare-Poisson vector for logarithmic block sizes under the uniform noncrossing-partition law, nor the specified Gaussian/maximum joint independence. This is the precise claim evaluated, not the historical marginal formulas. A possible consequence of more general joint random-allocation theorems remains a residual historical-priority risk, and no independent literature audit was performed.
+
+## Mathematical value — PASS
+The number of blocks fluctuates on a square-root scale while the largest sizes live on a logarithmic, discrete scale. Knowing their separate marginal limits does not settle their dependence. The theorem supplies an exact joint decoupling, a complete fixed-window extreme-block profile, and a maximum-statistic corollary, all for a canonical Catalan probability model. The structural Palm/hypergeometric argument is reusable for related conditioned allocation models, although no extension beyond this particular law is claimed.
+
+## Limitations and references
+The result concerns uniform type-A noncrossing partitions, fixed finite sets of integer offsets, and subsequences on which the lattice parameter converges. It does not supply quantitative rates, uniform-in-offset bounds, or an infinite-dimensional process topology. Supporting source identifiers: arXiv:1201.6576; arXiv:1112.0510, Example 18.17; arXiv:1503.09174; arXiv:1907.00632. Prior and new claims are differentiated in RESULT.md.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The finite reduction is exhaustive: every permissible codeword is among the balanced cyclic-run-two unbordered candidates. For each of six lengths a color partition into K mutually incompatible classes bounds every code by K and a K-word compatible witness attains it. The stdlib verifier independently reconstructs all candidates and checks all relevant pairs, then recomputes Construction 7 from Dyck definitions; replay ends VERIFY_OK. The result makes no infinite generalization.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stanovnik et al. (2025), Section 4, Construction 5 characterizes maximal run-constrained codes; Section 5 Construction 6 encompasses jointly constrained codes but does not enumerate this parameter in its main statements.",
+        "The 2025 abstract distinguishes exact balance-only optima from combined-constraint lower-bound constructions."
+      ],
+      "reasoning": "Structural enumeration frameworks can in principle compute this optimum but no given formula or stronger published numerical bound implies exactly 24 for the simultaneous balanced and cyclic run-two length-fourteen case.",
+      "searches": [
+        "binary comma-free self-synchronizing codes shortest cross-bifix-free codes exact parameter",
+        "balanced nonoverlapping code with run length 2 exact maximum lengths 4 6 8 10 12 14",
+        "https://link.springer.com/article/10.1007/s40314-024-03055-0",
+        "https://link.springer.com/article/10.1007/s10623-023-01344-z"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1209.0236",
+      "https://arxiv.org/abs/1303.1026",
+      "https://link.springer.com/article/10.1007/s10623-023-01344-z",
+      "https://link.springer.com/article/10.1007/s40314-024-03055-0",
+      "https://arxiv.org/abs/2410.18458",
+      "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+      "2026/10/4/SCOPE-exact-length-six-non-overlapping-codes-at-alphabet-sizes-seven-t--a4c76833d8cb",
+      "2026/10/4/SCOPE-blackburn-optimality-for-length-six-non-overlapping-codes-from-a--b22c7f7b76c9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chee et al. 2012 and Blackburn 2013 give general bounds/constructions, not the sharp 24 joint-restriction result.",
+        "Stanovnik et al. 2025, Section 5, Construction 6 is an exhaustive characterization framework and Construction 7 proves existence of only a 20-word feasible code, so 24 does not follow as a stated corollary.",
+        "Available research-record matches on length-5/6 q-ary maxima do not dominate this length-14 binary restricted case."
+      ],
+      "reasoning": "General capacity bounds and the weaker construction establish neither upper bound 24 nor a 24-word construction. Both new finite certificates are necessary for the result. Possible implicit recomputation via a generic exact algorithm is distinguished from a previously published solved parameter.",
+      "searches": [
+        "non-overlapping cross-bifix-free binary codes exact maximum small length cardinality maximal independent set prefix suffix overlap Blackburn Levenshtein 2013",
+        "binary 14-bit polarity balanced cross-bifix free code maximum 24 no run length three exact optimum 20 restricted Dyck construction",
+        "\"polarity-balanced\" \"non-overlapping\" \"run-length\" \"24\" \"14\"",
+        "\"cross-bifix\" \"balanced\" \"run-length\" \"14\" optimal",
+        "https://link.springer.com/article/10.1007/s40314-024-03055-0",
+        "polarity balanced binary cross bifix free nonoverlapping code max cyclic run length two length fourteen exact optimum twenty four",
+        "Stanovnik Moskon Mraz Construction 7 D_14,2 20 optimum 24 balanced run restricted code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cross-bifix-free and non-overlapping mean the same proper-prefix/proper-suffix condition (Blackburn, Introduction).",
+        "The present word restrictions must be imposed simultaneously, including cyclic wraparound; existing unrestricted code maxima do not assert this value."
+      ],
+      "reasoning": "Checked the alias cross-bifix-free and the exact graph-clique equivalent formulation; conventional no-overlap sizes cannot yield the joint restricted maximum by substituting parameters. The upper certificate partitions all eligible vertices into incompatibility classes.",
+      "searches": [
+        "non-overlapping cross-bifix-free binary codes exact maximum small length cardinality maximal independent set prefix suffix overlap Blackburn Levenshtein 2013",
+        "binary 14-bit polarity balanced cross-bifix free code maximum 24 no run length three exact optimum 20 restricted Dyck construction",
+        "constant-weight binary nonoverlapping codes maximal run two length 14 n=14 7 ones 24 codewords",
+        "https://arxiv.org/abs/1209.0236",
+        "https://arxiv.org/abs/1303.1026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Stanovnik et al. 2025, Table 2, Construction 7 for binary length 14 and maximal run 2 gives 20 (verified by direct Dyck enumeration).",
+        "The same paper describes Construction 7/8 as lower bounds for the jointly constrained maximum, not a table of proven optima."
+      ],
+      "reasoning": "The exact enumerated 24-word optimum is strictly larger than the inspected 20-word natural construction. No matching 24 maximum table was found in the checked primary text or search results. Absence from searches alone does not prove novelty.",
+      "searches": [
+        "binary 14-bit polarity balanced cross-bifix free code maximum 24 no run length three exact optimum 20 restricted Dyck construction",
+        "balanced nonoverlapping code with run length 2 exact maximum lengths 4 6 8 10 12 14",
+        "\"maximum\" \"balanced\" \"non-overlapping\" \"run-length\" \"14\" \"24\" 2025",
+        "https://link.springer.com/article/10.1007/s40314-024-03055-0",
+        "polarity balanced binary cross bifix free nonoverlapping code max cyclic run length two length fourteen exact optimum twenty four",
+        "Stanovnik Moskon Mraz Construction 7 D_14,2 20 optimum 24 balanced run restricted code",
+        "maximum 24 binary balanced unbordered no three consecutive symbol 14 cross-bifix-free code upper bound graph coloring"
+      ]
+    },
+    "rationale": "Direct statement and implication comparisons with foundational, unconstrained, and 2025 most relevant jointly restricted literature identify no prior proof of the 24 optimum. Stanovnik et al. only obtain 20 through Construction 7 and describe it as a feasible lower bound; their more general characterization is not an explicit exact solution for this case. Search silence is not claimed to prove novelty, and residual priority risks are disclosed.",
+    "residual_risks": [
+      "Unindexed finite tables, datasets or later preprints could contain an equivalent 24 optimum.",
+      "The general maximal-code framework of 2025 can in principle enumerate this special case; no priority beyond the inspected sources is asserted.",
+      "The work has no independent referee or external mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not assert simultaneous balanced, cyclic run-two length-fourteen optimum.",
+        "evidence": [
+          "Original first public submission 2012-09-03 UTC.",
+          "Unconstrained synchronization code constructions and bounds only."
+        ],
+        "identifier_or_url": "arxiv:1209.0236",
+        "material_read": "ArXiv original publication metadata, introduction/definition, construction and short-length table from lawful PDF.",
+        "method": "ArXiv HTML metadata plus PDF text and visual page inspection.",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Foundational exact definition and unconstrained bounds for cross-bifix-free codes."
+      },
+      {
+        "assessment": "General q-ary bounds and code construction do not solve the jointly restricted length-fourteen instance.",
+        "evidence": [
+          "Non-overlapping and cross-bifix-free equivalence explicitly established.",
+          "Small-length results are for lengths at most three or unconstrained short codes."
+        ],
+        "identifier_or_url": "arxiv:1303.1026",
+        "material_read": "Introduction, definitions, general upper-bound and construction sections.",
+        "method": "ArXiv HTML full-text review and PDF visual inspection.",
+        "title": "Non-overlapping codes",
+        "trigger": "Alternative name, short-length maximum and possible dominating general theorem."
+      },
+      {
+        "assessment": "Describes unrestricted non-overlapping codes rather than exact polarity-balanced cyclic run-two optima.",
+        "evidence": [
+          "Parameter maxima lack the simultaneous balanced/run-two condition."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10623-023-01344-z",
+        "material_read": "Open-access HTML introduction, general optimization setup, stated parameter scope and results.",
+        "method": "Published HTML text and result/table comparison.",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "General exact finite optimization framework might dominate present finite claim."
+      },
+      {
+        "assessment": "Construction 7 yields 20 at length 14/run two as a lower bound; no stated sharp jointly constrained maximum of 24.",
+        "evidence": [
+          "Section 5 explicitly says lower bounds on maximum polarity-balanced run-restricted codes.",
+          "Table 2 length 14, run cap two, Construction 7 = 20; directly recomputed independently."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40314-024-03055-0",
+        "material_read": "Abstract; Sections 2–5 including Constructions 5–8, Proposition 13, Table 2, and conclusions; original lawful PDF Table 2 page screenshot.",
+        "method": "Open-access full HTML text and direct PDF table image inspection.",
+        "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+        "trigger": "Very high relevance: precisely the simultaneous balanced/run-limited objects and Construction 7."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "098da1e9-4557-4f4a-92c3-d565a88864f3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Simultaneous polarity balance and avoidance of length-three homopolymer runs are practical and mathematical channel constraints. A complete exact finite sequence proves that the documented restricted-Dyck lower-bound construction first ceases to be optimal at even length fourteen, with a sharp 20% improvement. This is a motivated complete cutoff with independently checkable upper/lower certificates, not a routine parameter substitution or arbitrary slice.",
+    "status": "PASS"
+  }
+}

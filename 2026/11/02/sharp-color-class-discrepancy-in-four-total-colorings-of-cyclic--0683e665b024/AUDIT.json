@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every color on a cubic prism, the vertex/edge incidence count gives even vertex count and a perfect matching on the complement. Three occupied consecutive rungs isolate a vertex in this complement, forcing each even vertex-class size to be at most 2 floor(m/3). Four classes sum to 2m, forcing minimum size at least 2(m mod 3) and discrepancy at most floor(m/3)-(m mod 3). Negative bound excludes m=5. The explicit four finite cyclic blocks have directly verified compatible transitions and exact class-size vectors; concatenations attain equality for all other m at least 3. Independently implemented finite transfer-state and original-graph checks pass but are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chetwynd and Hilton (1988), Theorem 18 as reproduced in Adauto (2022), establishes four-total-colorability of circular ladders except ten vertices.",
+        "Adauto et al. arXiv:2609.05259 abstract establishes small-order configurations and a general large-order existence statement for connected cubic graphs."
+      ],
+      "reasoning": "Theorem 18 and its pasting examples are weaker in the relevant quantifier: they exhibit one coloring but do not bound all colorings. The small-order all-cubic classifications in the later paper do not imply a sharp infinite function restricted to prisms. The full 1988 and 2026 documents remain a priority risk.",
+      "searches": [
+        "\"Chetwynd Hilton\" \"circular ladder\" \"pasting\" 1988 total coloring",
+        "\"cubic\" \"total coloring\" \"independent set\" \"perfect matching\" \"prism\"",
+        "\"4-total coloring\" \"circular ladder\" maximum discrepancy"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.05259: abstract first posted 2026-09-04",
+      "https://pesc.coppe.ufrj.br/uploadfile/publicacao/3032.pdf: relevant full-text chapters and conclusion",
+      "Chetwynd--Hilton 1988: construction as reproduced in 2022 thesis, original not inspected",
+      "doi:10.1016/j.dam.2015.10.013: abstract/bibliographic record",
+      "published record 2026/9/17/SCOPE-prescribed-colorings-max-degree-two--9aaf81e2ad5d: comparison against a different vertex-coloring object",
+      "published record 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5: different graph and coloring constraints"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adauto (2022), PDF page 49: pasting strategy increases class-size differences as size grows, but no universal all-coloring bound or optimality formula given.",
+        "arXiv:2609.05259 abstract: characterizes color-class configurations only for orders 12, 16 and 18; says nothing about the largest discrepancy on all prisms."
+      ],
+      "reasoning": "Prior constructions imply some non-equitable colorings but do not optimize over every proper coloring. General subcubic matching decompositions give the parity identity without the prism-specific three-window obstruction. The final claim adds the sharp all-order maximum and a proof of impossibility of larger discrepancies.",
+      "searches": [
+        "arXiv:2609.05259 abstract and first-publication date",
+        "M. N. Adauto, Equitable Total Coloring of Small Cubic Graphs, Section 3.2 and concluding remarks",
+        "published mathematical-record query: total coloring 4 colors cubic prism circular ladder largest color class imbalance 2 floor m/3 non equitable 3k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "M. N. Adauto (2022), Section 3.2, Theorem 18, and Section 4.3, discusses cyclic-prism four-total-coloring and repeated pasting without a universal extremal inequality.",
+        "arXiv:2609.05259 abstract explicitly uses the equivalent independent-set-plus-perfect-matching representation and supplies configurations at small cubic orders only."
+      ],
+      "reasoning": "Extremal total-color-class discrepancy is equivalent in a cubic graph to half the spread between four even vertex-color class sizes, via s_j+2e_j=2m. Prior work contains this latter identity, so mere restatement would not be new. The new no-three-consecutive-rungs bound is needed to determine the maximum over all prism colorings and is not implied by the prior existence constructions.",
+      "searches": [
+        "\"total coloring\" \"prism\" \"equitable\" \"color class\" 2026",
+        "\"maximum difference\" \"total coloring\" \"circular ladder\" \"color classes\"",
+        "\"color class\" \"prism graph\" \"total coloring\" \"maximum\"",
+        "published mathematical-record query: total coloring 4 colors cubic prism circular ladder largest color class imbalance 2 floor m/3 non equitable 3k"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Adauto (2022), Figures 3.7–3.10 give explicit coloring blocks and its Theorems 31–33 identify specific small cubic orders.",
+        "Published research record 2026/9/17/SCOPE-prescribed-colorings-max-degree-two--9aaf81e2ad5d addresses vertex-only prescribed color classes in maximum-degree-two graphs, not total colorings of cubic prisms."
+      ],
+      "reasoning": "Small coloring tables or illustrations are insufficient to give the extremal discrepancy at unbounded lengths. The distinct published degree-two color-class table concerns a different object and cannot imply the present all-order extremal result.",
+      "searches": [
+        "\"total coloring\" \"prism\" \"equitable\" \"color class\" 2026",
+        "published mathematical-record query: 4 total coloring prism C_n square K2 equitable color class counts modulo three 3k+1",
+        "\"disparity\" \"total colorings\" \"circular ladders\""
+      ]
+    },
+    "rationale": "A sharp maximum discrepancy for every four-total-colorable cyclic prism is not implied by the previously established general cubic independent-set/matching identity, the cyclic-prism existence and pasting constructions, or the small-order configuration classifications. Actual 2022 thesis text was inspected closely; full 1988 and 2026 source access limits and priority risks are explicitly retained. Published mathematical-record queries found no exact duplicate; search absence is not treated as uniqueness proof.",
+    "residual_risks": [
+      "The original 1988 Chetwynd--Hilton text and full September 2026 Adauto et al. manuscript could not be inspected: either may contain an equivalent all-length extremal formula not visible in the accessible sources.",
+      "Other unindexed or differently worded results could predate the present bound; online nonmatches do not certify novelty.",
+      "No independent scientific validation has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Clearly covers existence and increasing imbalance for specific pasted colorings, but the inspected text does not give or claim the sharp maximum over all four-total-colorings of each prism.",
+        "evidence": [
+          "Theorem 18 (ascribed to Chetwynd–Hilton) states four-total-colorability for all cyclic prisms except the ten-vertex case.",
+          "PDF page 49 explicitly states that each pasting increases size differences, without bounding maximal discrepancy."
+        ],
+        "identifier_or_url": "https://pesc.coppe.ufrj.br/uploadfile/publicacao/3032.pdf",
+        "material_read": "Full accessible PDF, especially pages 26–29 (Theorem 18 and illustrated constructions), pages 34–49 (small cubic graphs, concluding remarks), and references page 51",
+        "method": "Direct text inspection with visual inspection of PDF figures and pages",
+        "title": "Equitable Total Coloring of Small Cubic Graphs",
+        "trigger": "The main primary source for the circular-prism four-total-coloring pasting construction and small class configurations"
+      },
+      {
+        "assessment": "Abstract establishes prior small-order class configurations, general matching decomposition and existence of non-equitable colorings, but cannot exclude an all-order sharp prism bound in inaccessible full text.",
+        "evidence": [
+          "arXiv abstract dated 2026-09-04 lists detailed configurations at orders 12, 16, 18 and splicing examples for even orders at least 16."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.05259",
+        "material_read": "Public arXiv abstract and bibliographic record; original full PDF retrieval failed",
+        "method": "Direct abstract examination and attempted original PDF retrieval",
+        "title": "Order 14 is the largest order for which every 4-total coloring of every cubic graph is equitable",
+        "trigger": "September 2026 motivating paper on non-equitable total colorings using the 12-vertex cyclic prism"
+      },
+      {
+        "assessment": "Its known construction supplies existence and pasting, not an inspected original all-coloring optimality bound; original-source priority uncertainty retained.",
+        "evidence": [
+          "Adauto (2022), pp. 26–29 and p. 49, explicitly attributes the construction to Chetwynd--Hilton (1988)."
+        ],
+        "identifier_or_url": "Chetwynd--Hilton (1988), Congressus Numerantium 66, 195--216",
+        "material_read": "Original full text unavailable; proof reproduced within Adauto (2022), Theorem 18, was inspected",
+        "method": "Indirect comparison via a complete accessible reproduction in the 2022 dissertation",
+        "title": "Some refinements of the total chromatic number conjecture",
+        "trigger": "The original source for the cyclic-prism four-total-colorability construction"
+      },
+      {
+        "assessment": "Reports equitable total chromatic numbers for cubic graphs rather than full all-order sharp imbalance on cyclic prisms; an inaccessible detailed section remains possible.",
+        "evidence": [
+          "Dantas et al., Discrete Applied Mathematics 209 (2016), 84–91, bibliography in Adauto (2022)."
+        ],
+        "identifier_or_url": "doi:10.1016/j.dam.2015.10.013",
+        "material_read": "Bibliographic entry and accessible abstract, not full paper",
+        "method": "Bibliographic and abstract comparison",
+        "title": "On the equitable total chromatic number of cubic graphs",
+        "trigger": "Earlier direct literature on equitable total-coloring cubic graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0683e665-b024-4604-9b67-a86f125ae9ed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The extremal all-coloring discrepancy is a natural quantitative refinement of recently studied non-equitability on cyclic prisms; showing that pasted witnesses exist is insufficient. The local perfect-matching isolation obstruction yields a sharp universal bound, saturated by residue-class-specific constructions. The exact result for every m reveals a linear-in-m maximum imbalance, not previously supplied by the accessible qualitative examples.",
+    "status": "PASS"
+  }
+}

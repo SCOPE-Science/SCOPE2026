@@ -1,0 +1,13 @@
+## Correctness — PASS
+The exact log-weight intersections occur at \(T_i=(n-i)\log R\); the adjacent rate ratio is two. In each transition window, every excluded component is \(O_n(R^{-1})\) relative to the neighboring pair in \(C^2\), giving a nondegenerate limiting peak \(B(v)=1+e^{-v}/(1+2e^{-v})^2\) at \(v=\log2\). Separated transition windows and single-component-dominated midpoint times establish distinct peaks and troughs. The executable independently verifies exact rational three-component brackets and numerical asymptotics. The proof is analytical for every fixed \(n\); no finite enumeration is treated as an infinite proof.
+
+## Originality — PASS (priority provisional)
+Full available text of Harman–Sivapalan–Kumar (2009) studies distributions of parallel linear stores and nonlinear-looking power-law recessions, not this uniform-height multi-peak construction. Full HTML of Roques et al. (2022) analyzes compartmentalized hillslopes and a two-component recession-exponent formula. Gao et al. (2017) explicitly study only two parallel reservoirs and can cover one peak, but not an unbounded number of peaks with fixed separation laws. Clark et al. (2008 online) is a foundational modeling precursor, not a located all-\(n\) peak theorem. A wider positive-exponential-mixture theorem remains a residual priority risk; inaccessible complete text for Clark and Gao is not falsely claimed inspected. Published mathematical-record semantic searches for parallel-reservoir peak counts, exact aliases and log-slope extrema found no covering statement.
+
+## Value — PASS
+Streamflow recession slopes are routinely interpreted as evidence of catchment storage–discharge behavior. The construction identifies a sharp structural nonidentifiability: a positive **linear** reservoir sum can produce arbitrarily many well-separated, fixed-height departures of the local log-slope from one, without any change of component laws. The explicit rates, storages, peak locations and limiting height permit direct tests of model assumptions and guard against attributing each local hump to distinct nonlinear mechanisms. This is more than a two-component rederivation or a small fitted-exponent improvement.
+
+## Risks and boundaries
+The rate/storage hierarchy is mathematically constructed, not inferred from catchment measurements. Noise and time-window fitting are unaddressed; no global upper bound on the peak count is asserted. No independent validation has been performed. Historical priority is provisional pending comparison with general exponential-mixture oscillation theory.
+
+Self-review: passed. Independent audit: not yet performed.

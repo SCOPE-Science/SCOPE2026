@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** A backwards-induction proof identifies complete four-round types with atomic diagrams and sets of all one-point extension types. Two standalone, exact-interning enumerators exhaust every ordered tuple on chains of sizes one through seventeen; the nontrivial equality \(\mathcal B_{14}\equiv_4\mathcal B_{15}\) and all smaller distinctions agree. The infinite tail follows separately from the published threshold of fifteen for ordered chains and a quantifier-free reduct argument, with transitivity. There is no inference from bounded experiment to infinitely many sizes.
+
+**Originality: PASS, with historical-priority limitations.** The closest full-text paper by Mwesigye–Truss gives the threshold fifteen in the strictly stronger ordered language, not the fourteen-point threshold in strict betweenness. Courcelle discusses order reconstruction up to reversal and axiomatization, but not these bounded-rank classes. Published successor-only directed paths and one-red ordered words use different signatures and do not imply the asserted equivalence of the fourteen- and fifteen-point betweenness structures. The actual targeted literature and index comparisons did not show coverage; undiscovered folklore remains a residual risk.
+
+**Value: PASS.** The object is the canonical orientation-free ternary relation associated with a finite chain, a natural reduct also representing geodesic betweenness on paths. A complete classification and sharp optimal representative size distinguish precisely how loss of orientation changes four-round expressive power. The fact that a fifteen-point *oriented* order is necessary but fourteen points suffice for the ternary reduct gives the boundary a structural, not merely arbitrary numerical, interpretation. No larger theorem or independent validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

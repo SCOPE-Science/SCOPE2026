@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness (PASS)
+The physical objective is stated on a compact amplitude quarter-circle and the full tidal period. Cauchy–Schwarz gives the exact amplitude maximum at each time; the negative-cosine interval is controlled by a strictly positive Bernstein polynomial. The second derivative of the reduced objective is negative on the positive-cosine interval with a fully explicit positive-coefficient numerator, giving the sharp onset and the unique interior maximizer for every larger energy. Strict splitting at the optimum, endpoint behavior and monotone peak separation follow algebraically. The packaged checker reconstructs the nonstandard polynomial identities and exact examples. It does not substitute a finite search for the continuous proof.
+
+## Originality (PASS, subject to historical uncertainty)
+Song et al. (2016), DOI 10.1002/2016JC012039, provide the closest direct material: full-text Sections 1.1, 4.1–4.2, conclusion and Appendix A were examined. They analyze isolated overtide thresholds, show combined overtides can enhance a double high, and expressly leave the general combined critical condition analytically unresolved; they do not optimize the height of a split crest at a fixed total two-overtide variance. Bowers et al. (2013), DOI 10.1016/j.ecss.2013.09.014, study a seiche mechanism. Byrne et al. (2017), DOI 10.5194/os-13-599-2017, examine a higher-harmonic criterion and its phase dependence; its abstract and article description were read, while the complete body was not obtained. Searches for two-overtide RMS energy, phase-locked crest splitting and trigonometric extrema yielded no equivalent constrained global optimization statement in the sources inspected. Mathematical Fourier-polynomial optimization results found in the broader record concern different functionals and do not state an implication to this sea-level contrast. Residual risk: a general extremal trigonometric-polynomial or hydrodynamic result may already imply this special phase-locked frontier; originality is not a claim of exhaustive literature coverage.
+
+## Value (PASS)
+The energy budget \(a^2+b^2\) is twice the time-mean squared overtide elevation, not an arbitrary coefficient sum. The exact universal onset \(1/\sqrt{97}\), unique two-constituent optimal energy split, monotone peak-separation law, and exact demonstration that two individually insufficient overtides jointly produce a double high answer a natural coastal harmonic-reconstruction question. They refine the usual one-constituent Doodson threshold under a measurable aggregate constraint. The outcome is mathematical, not a claim about whether real estuaries realize the allowed phases or any large-amplitude optimum.
+
+## Limits of checking
+The 2017 paper's complete body and the full text of the 2013 seiche paper were not retrieved. The closest and most directly applicable 2016 paper was read in full-text HTML, including the relevant discussion and appendix. The entire historical literature and arbitrary-phase three-component problem remain outside this statement.
+
+Self-review: passed. Independent audit: not yet performed.

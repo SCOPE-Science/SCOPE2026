@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Each 113-letter witness window is explicitly checked unique against every reversal. Any admissible finite word yields distinct nonpalindromic four-gram edges in a 64-vertex de Bruijn directed trail, with at most one edge from each of 120 reversal pairs, satisfying a 368-variable, 186-row integral endpoint-flow model. Dropping connectivity is an upper relaxation. The standalone verifier regenerates coefficients, confirms all integer constraints and a primal word assignment, and obtains integer-program minimum cost -110 with the optimization backend reporting matching dual bound -110 and zero gap. This establishes a reproducible solver-dependent finite upper certificate 110 edges = 113 letters. Limitation: a separately formalized, solver-independent rational proof of the upper bound is not included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mitchell arXiv:2610.33601v1 Table 1 and Section 4 bound finite binary sequences for spans through 16; not four-letter sequences.",
+        "Mitchell and Wild, New orientable sequences, Acta Informatica 63 (2026), DOI 10.1007/s00236-026-00528-z: periodic nonbinary construction and upper bounds, with order-four sharpness discussed for odd alphabet size.",
+        "Gabrić and Sawada arXiv:2407.07029v1 Section 6 gives bounds and construction for cyclic k-ary orientable sequences, and order-three four-letter exact 20; no claim of all aperiodic four-window words."
+      ],
+      "reasoning": "A theorem for all noncyclic four-symbol span-four words would cover the present claim, but the strongest inspected sources distinguish binary finite and nonbinary cyclic settings. Their general cyclic upper bounds do not bound all noncyclic trails by 110 edges.",
+      "searches": [
+        "web: orientable sequences 4 alphabet 4 subsequence period 110 aperiodic orientable",
+        "web: Chris Mitchell Searching for binary orientable sequences October 2026 cyclic non cyclic maximum",
+        "four-ary orientable sequences order four maximum period 4 4 112 2026",
+        "k-ary orientable sequence n=4 k even Eulerian antisymmetric de Bruijn subgraph optimal period 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.33601v1",
+      "https://doi.org/10.1007/s00236-026-00528-z",
+      "https://arxiv.org/html/2407.07029v1",
+      "https://arxiv.org/abs/2507.02526",
+      "https://debruijnsequence.org/db/orientable (acyclic tables and cyclic k-ary constructions)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 binary paper Section 3.3 states periodic-to-aperiodic unwrapping and Sections 4.1/4.2 restrict the search to binary cases."
+      ],
+      "reasoning": "The cyclic-to-finite implication is only a constructive lower-bound transfer, not a theorem restricting all aperiodic trails. The present finite factor-graph optimization supplies the independent upper bound. No inspected stronger prior result covers it.",
+      "searches": [
+        "published-finding corpus: exact maximum period 106 four-ary orientable cyclic sequence order four de Bruijn anti-reversal",
+        "web: quaternary orientable sequence span 4 aperiodic 113 finite word maximum",
+        "arxiv:2610.33601v1 full HTML",
+        "arxiv:2407.07029v1 full HTML",
+        "Acta Informatica DOI:10.1007/s00236-026-00528-z full HTML"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The definition is equivalent to an open trail of distinct nonpalindromic four-gram edges that uses at most one orientation per reversal pair; 240 possible oriented edges form 120 pairs.",
+        "Mitchell arXiv:2610.33601v1 Definition 2.1 and Section 4 studies the same open-trail notion only for a binary alphabet.",
+        "Gabrić and Sawada arXiv:2407.07029v1 Section 1 and cyclic bounds treat orientable universal cycles, not all open trails."
+      ],
+      "reasoning": "Searched the open-trail, four-gram, reversal-free and quaternary aliases. The binary aperiodic theorem does not imply a quaternary exact bound; cyclic four-symbol results cannot exclude a longer open trail. The current claim is the exact noncyclic four-symbol optimum 113, not an alternative formulation of a periodic value.",
+      "searches": [
+        "orientable sequences self reverse avoiding unique oriented n tuples Mitchell Wild 2026 maximal period binary ternary de Bruijn reversal exact small",
+        "four-ary orientable sequences order four maximum period 4 4 112 2026",
+        "k-ary orientable sequence n=4 k even Eulerian antisymmetric de Bruijn subgraph optimal period 2026",
+        "published-finding corpus: maximum length quaternary aperiodic orientable sequence span 4 113 symbols",
+        "web: quaternary orientable sequence span 4 aperiodic 113 finite word maximum",
+        "published-finding corpus: acyclic orientable four-letter four-window exact maximum 113 110",
+        "published-finding corpus: acyclic 4 ary orientable sequence order 4 longest path",
+        "published-finding corpus: noncyclic quaternary orientable words length 113 reverse distinct factors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus ranked records on matched searches included binary length-12 attractor census 2026/10/4/SCOPE-complete-length-12-binary-string-attractor-census-28-size-four-w--7d9ddd4b7925 and other unrelated string records, not a finite four-letter orientable maximum.",
+        "Gabrić and Sawada arXiv:2407.07029v1 reports cyclic four-symbol order-three maximum 20, distinct from this four-window noncyclic maximum.",
+        "The De Bruijn Sequences and Universal Cycles orientable-sequences page gives acyclic orientable-word constructions and related binary tables, but no complete quaternary length-four finite maximum."
+      ],
+      "reasoning": "Available published tables and published-finding corpus records queried did not report the exact 113 finite-word value. Cyclic tables and their period optima do not supply an upper bound on arbitrary aperiodic words.",
+      "searches": [
+        "published-finding corpus: maximum length quaternary aperiodic orientable sequence span 4 113 symbols",
+        "published-finding corpus: aperiodic four-ary orientable sequence four-window open trail de Bruijn 110 edges",
+        "web: quaternary orientable sequence span 4 aperiodic 113 finite word maximum",
+        "published-finding corpus: acyclic orientable four-letter four-window exact maximum 113 110",
+        "published-finding corpus: noncyclic quaternary orientable words length 113 reverse distinct factors",
+        "https://debruijnsequence.org/db/orientable"
+      ]
+    },
+    "rationale": "Recent exact finite results are binary; prior four-symbol order-four work is cyclic. Periodic constructions can be unwrapped into finite examples but do not imply the exact finite maximum113. Comparisons against accessible scientific claims, published-finding corpus mathematical records, topical exact searches and inspected primary full texts found no implication covering this statement. Priority remains subject to unindexed literature.",
+    "residual_risks": [
+      "An unindexed or not fully accessible earlier nonbinary aperiodic search may already contain the same 113 value.",
+      "Period-bound literature could conceal an implicit equivalent open-trail bound despite no decisive coverage found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: all finite maxima studied are binary; the four-letter aperiodic span-four maximum is not stated",
+        "evidence": [
+          "arXiv initial submission 2026-10-24; Definitions 2.1-2.2 distinguish aperiodic and periodic; title, abstract and Section 4 concern binary."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.33601v1",
+        "material_read": "Full HTML including Definitions 2.1/2.2, Section 3 tables, Sections 4.1 and 4.2 and the scope of examples",
+        "method": "Read accessible primary HTML text and compared alphabet, cyclicity, span, exact claimed maxima and optimization formulation",
+        "title": "Searching for binary orientable sequences",
+        "trigger": "Most recent aperiodic orientable maximum search and equivalent de Bruijn integer-program formulation"
+      },
+      {
+        "assessment": "NOT_COVERING: periodic nonbinary theorem; no open-trail 113 result",
+        "evidence": [
+          "Journal abstract explicitly defines periodic sequences and says the order-four optimal-period construction when alphabet size is odd."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00236-026-00528-z",
+        "material_read": "Open-access publisher full HTML, Introduction, core construction and upper-bound discussion",
+        "method": "Compared periodic definitions and reported k even versus odd order-four coverage against the nonperiodic claim",
+        "title": "New orientable sequences",
+        "trigger": "Most relevant nonbinary order-four literature, possible broader-period bound"
+      },
+      {
+        "assessment": "NOT_COVERING: periodic/cyclic results and an order-three four-letter case, not the present finite order-four exact extremum",
+        "evidence": [
+          "Introduction defines cyclic orientable sequences, lists M_4(3)=20, and describes cyclic period bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.07029v1",
+        "material_read": "Full primary HTML including Introduction, examples, Section 5 cycle joining and Section 6 period bounds",
+        "method": "Compared all-parameter cyclic construction, exact small-case results, and finite-word unwrapping implication",
+        "title": "Constructing k-ary Orientable Sequences with Asymptotically Optimal Length",
+        "trigger": "General k-ary construction, possible implicit noncyclic bound"
+      },
+      {
+        "assessment": "NOT_COVERING: aperiodic/acyclic tables and constructions discussed are binary; no exact four-symbol span-four finite maximum",
+        "evidence": [
+          "The acyclic orientable sequences section defines aperiodic 2-orientable window sequences and presents binary construction tables; nonbinary sections deal with cyclic constructions."
+        ],
+        "identifier_or_url": "https://debruijnsequence.org/db/orientable",
+        "material_read": "Public text of the orientable-sequences section, including the acyclic orientable sequences heading and its discussion of constructions, bounds and binary tables",
+        "method": "Compared public acyclic tables and nonbinary sections against the four-letter four-window finite optimum",
+        "title": "Orientable Sequences — De Bruijn Sequences and Universal Cycles",
+        "trigger": "Exact tables/database and alias acyclic orientable sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "084ae521-d155-4138-adbc-f9ff1dac0e72",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact finite four-letter four-window maximum is a natural nonbinary counterpart to the recent binary aperiodic maximum problem and is not entailed by the cyclic maximum. It supplies a maximum for open trails that is not implied by any cyclic period construction, and the upper bound is a complete finite extremal optimization rather than a routine choice of parameters. The result is limited to a natural small case and makes no unjustified broader claim.",
+    "status": "PASS"
+  }
+}

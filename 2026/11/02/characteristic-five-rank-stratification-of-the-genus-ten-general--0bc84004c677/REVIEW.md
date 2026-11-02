@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Smoothness follows from independent Jacobian rows on the admissible parameter range; adjunction yields genus ten. The Koszul-cohomology Frobenius coefficient formula reconstructs an explicit ten-dimensional Hasse–Witt matrix. Exact polynomial arithmetic confirms six and only six nonzero entries, with three disjoint two-dimensional blocks; every block either vanishes simultaneously or is invertible. This gives stable Frobenius ranks four or six, with the complementary Cartier-kernel dimensions six or four, for every geometric parameter. The branch permutation orbit is checked by explicit fractional-linear transformations.
+
+**Originality — PASS, with residual risk.** The genus-ten family and its quotient-Jacobian decomposition are prior art (Carvacho–Hidalgo–Quispe, 2015). Hidalgo's full available article develops Cartier calculations and explicitly obtains the *characteristic-two* answer for this family; its stated prime-at-least-five direct calculations are not specialized to exponent three at prime five. The characteristic-five three-point rank and a-number jump is not a corollary of the prior stated characteristic-two result, nor is it contained in the inspected portions of the primary articles. Search queries also tested harmonic parameters, equivalent Hasse-matrix descriptions, and broader characteristic-five Jacobian classifications. No equivalent published statement was found, although negative search results do not establish priority.
+
+**Value — PASS.** This determines the complete jumping locus of two intrinsic invariants in a natural, nonisotrivial genus-ten cover family. Every smooth fiber is nonordinary; precisely one unordered harmonic branch-configuration class has an additional two-dimensional loss of ordinary rank and a corresponding two-dimensional increase in Cartier kernel. The simultaneous invariant jumps and orbit structure give meaningful special-characteristic moduli information not captured by the generic Jacobian decomposition.
+
+The result has not been tested against every older thesis or unindexed source; no Newton polygon classification is asserted. The review is limited to the stated result and its packaged exact verifier.
+
+Self-review: passed. Independent audit: not yet performed.

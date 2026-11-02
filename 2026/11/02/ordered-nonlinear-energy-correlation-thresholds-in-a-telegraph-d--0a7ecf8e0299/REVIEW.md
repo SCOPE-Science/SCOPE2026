@@ -1,0 +1,18 @@
+# Assessment: ordered energy-correlation thresholds
+
+## Correctness — PASS
+The stationary oscillator exists uniquely for positive stiffness and switching rate by exponential stability of the deterministic linear filter driven by the bounded telegraph process. The exact generator recurrence, reconstructed through degree four in `verify.py`, produces a strictly positive common denominator and the displayed polynomial factorization of the mixed covariance and both excess cumulants. Descartes' rule, positivity of the stiffness-threshold polynomial, its derivatives and two explicit positive-coefficient polynomial remainders prove the strict root ordering at every positive switching rate. Exact rational substitutions and numerical root probes are independent diagnostics, not substitutes for those analytic certificates. The small- and large-switching asymptotics are obtained from the explicit quadratic root. All claims concern stationary moments rather than dynamic phase transitions.
+
+## Originality — PASS (qualified)
+The 2024 Dutta–Kundu–Sabhapandit–Basu paper (arXiv:2406.06120v1) contains the model, second moments and a full recurrence for higher moments, so recovering a particular mixed fourth moment is not itself a new general method. The checked source does not state the global sign-reversal boundary for the covariance of squared position and squared velocity or its strict position among two marginal fourth-cumulant sign boundaries. The two marginal sign thresholds are accounted for as nearby results; their conjunction does not imply the position of the mixed covariance root. The Méndez–Campos–Horsthemke 2013 Gaussian colored-force model has zero mixed squared covariance by Gaussian factorization, and Masoliver–Porrà's 1993 inspected abstract concerns second-order correlations and spectra. The new contribution is a simultaneous, explicit, all-parameter sign classification, with a universal underdamped exclusion region. Exact-publication priority is qualified by incomplete access to older literature and the possibility of mathematically equivalent results using alternative terminology.
+
+## Mathematical value — PASS
+Non-Gaussian active forcing can make squared kinetic and potential energies anticorrelated or positively correlated even while the linear position–velocity covariance always vanishes. A unique threshold gives an exact parameter-space boundary for that effect, and a strict ordering with the two fourth-cumulant thresholds distinguishes three observable signatures of a changing stationary phase-space law. The positive-energy-covariance regime is provably inaccessible in the overdamped range and requires a stiffness greater than six in the normalized units. This is a natural structural classification motivated by the existing harmonic active-transport model; it is not a claim of a thermodynamic or dynamical phase transition.
+
+## Main source comparisons and residual risk
+- Dutta et al., arXiv:2406.06120v1 and v2, model and exact all-order generator recurrence; relevant model, stationary results, conclusion and higher-moment statements examined.
+- Méndez et al., Phys. Rev. E 87, 062132 (2013), full available paper including Gaussian joint stationary density examined; the force class is different and its squared-energy covariance vanishes.
+- Masoliver and Porrà, Phys. Rev. E 48, 4309 (1993), abstract examined only; full-text fourth-order comparisons remain a bounded priority risk.
+- Prior closely related fourth-cumulant classification of the same model is treated as partial coverage, not ignored; it does not supply the interposed mixed-covariance root or the two exact remainder comparisons.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The stated domain is binary length seven, exactly two deletions, and decoder list sizes one through six. A direct weak-duality argument converts each nonnegative rational covering witness into an upper bound. Six complete codebooks attain the resulting integers. Exact verification replays the two independent deletion-shadow definitions for all source words, all constraints of six rational dual witnesses, and all received-word capacities; the finite checking is exhaustive over the entire finite domain, not an extrapolation from samples.
+
+**Originality — PASS with residual risk.** The closest directly related published finite result determines a length-six size-two-list value, not the length-seven six-list profile. The most relevant accessible primary full texts derive general list-decoding asymptotics or weaker finite-length converses and do not state the profile, as established by scope and parameter comparisons. Searches of the published research index for aliases and the six exact numerical values returned no covering record. This is a best-knowledge priority assessment, not a proof of global uniqueness. There remains a risk of an unindexed or otherwise inaccessible finite table.
+
+**Value — PASS.** A newly studied fixed-numerical-list tradeoff requires benchmark capacities, not only asymptotic existence or coarse upper bounds. This finite classification determines six consecutive list regimes for the first nontrivial small binary blocklength where the output space has 32 words, and displays exact affine growth across the middle four regimes. The complete certificates are reusable benchmark instances for sharper nonasymptotic list-decoding methods. This is a bounded exact invariant, not a purported new asymptotic code construction.
+
+**Closest literature and limits.** Kiah--Wei--Zeng (2026) introduce quantitative constant-list bounds; Lin (2026) obtains asymptotic list-code lower bounds; Guruswami--Håstad (2020) give asymptotic constructions. A published length-six two-list optimum is relevant but does not imply the length-seven entries. The present finite certificate does not address other blocklengths or lists beyond six; human checking and complete priority verification remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

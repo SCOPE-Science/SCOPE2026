@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact composition of the two affine component steps gives a contraction and bounded Bernoulli additive forcing. The explicit invariant series gives stationary mean/variance; second derivative of stationary risk is strictly positive for 0<t<1, derivative root yields clipped optimizer, endpoint comparison gives the unique h transition, and direct small-step expansions give the strict risk-order improvement. Symbolic identities and 108 exact finite-path moment comparisons executed successfully. All-parameter proof is analytic, not finite computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rajput et al. general performance existence and upper/lower bounds do not compute the stationary Bernoulli-optimal mixture for each unequal curvature pair.",
+        "Mohtashami et al. sequence-dependent bounds permit both good and bad orders but do not imply exact probability optimizer for the stationary metric; their two-sample squared discrepancy is identical for both orders."
+      ],
+      "reasoning": "General results that some order beats uniform reshuffling do not determine the exact best order distribution, threshold, and leading stationary error for this fixed-parameter model. An adaptive schedule can outperform the stated class, which is outside the claimed optimum.",
+      "searches": [
+        "permutation based SGD random optimal 2102.09718 quadratic full text",
+        "good data orderings 2202.01838 discrepancy definition full text",
+        "https://arxiv.org/abs/2102.09718",
+        "https://arxiv.org/abs/2202.01838"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2102.09718",
+      "https://arxiv.org/abs/2202.01838",
+      "https://arxiv.org/abs/2206.00632"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Domingo-Enrich models gradient noise with one common Hessian A and uses uniform random permutation assumptions, while the exact epoch map depends separately on unequal a and b and on selectable p.",
+        "Rajput et al. construct order improvements but do not bound or identify the precise stationary Bernoulli-optimal p over the full positive curvature family.",
+        "The unequal-curvature asymptotics give a fixed nonzero leading h-squared risk for uniform p=1/2 and h-cubed risk for the optimal biased p."
+      ],
+      "reasoning": "The comparison is at the level of assumptions and implications, not titles. Existing order benefits do not algebraically force the unique nonuniform stationary optimum; a common-Hessian approximation cannot resolve the heterogeneous curvature threshold.",
+      "searches": [
+        "Domingo-Enrich shuffling variance power spectral density 2206.00632 Appendix C",
+        "Rajput permutation based SGD 2102.09718 optimal random 1D quadratic",
+        "https://arxiv.org/abs/2102.09718",
+        "https://arxiv.org/abs/2206.00632"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rajput et al. studies optimal versus random sequences and FlipFlop, rather than iid Bernoulli epoch selection optimized for the stationary second moment.",
+        "Mohtashami et al. measure squared partial gradient sums; each of the two orders has the same partial sum magnitude in the two-sample model."
+      ],
+      "reasoning": "The recursion can be described as a Bernoulli affine iterated function system or epochwise incremental gradient descent. These are equivalent descriptions of the present claim, not shown to be identical to an externally established optimal iid nonuniform permutation law.",
+      "searches": [
+        "\"random reshuffling\" \"optimal distribution over permutations\" mean-square",
+        "\"random reshuffling\" \"biased permutations\" gradient descent stationary optimal",
+        "https://arxiv.org/abs/2102.09718",
+        "https://arxiv.org/abs/2202.01838"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The examined 2022 power-spectrum calculations provide uniform-shuffling models and common-Hessian formulas, not a table of exact heterogeneous-curvature iid order-optimal stationary errors.",
+        "No directly matching exact numerical table or database entry appeared in the investigated record searches."
+      ],
+      "reasoning": "The result is an all-parameter closed-form theorem rather than a finite-table lookup. Failure to find a table does not establish uniqueness; specific table evidence was not found.",
+      "searches": [
+        "two-component scalar quadratic random reshuffling exact variance",
+        "two samples random reshuffling nonuniform order probability optimal stationary mean square unequal curvature",
+        "https://arxiv.org/abs/2206.00632"
+      ]
+    },
+    "rationale": "Closest primary studies establish general permutation advantages, prefix discrepancy bounds, and uniform/common-Hessian noise spectra but do not imply this exact unequal-Hessian, fixed-iid-permutation stationary risk optimizer, its sharp curvature-dependent crossover, or the divergent advantage over uniform reshuffling. Mathematical implications and common-Hessian limitations were examined; novelty is qualified by specialized-work risk.",
+    "residual_risks": [
+      "Specialized earlier work on nonuniform permutation probability optimization may contain an equivalent scalar formula not identified by the searches.",
+      "Existing broad results about deterministic and adaptive order schedules can outperform policies in the fixed independent-epoch probability class; no optimality outside that class is claimed.",
+      "The phase law is elementary after an exact epoch recursion and may independently be known without identical terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Broad benefit of order selection is known; no stationary IID two-order probability optimizer or precise curvature/stepsize phase law established in read sections",
+        "evidence": [
+          "arXiv:2102.09718 original public 2021-02-19",
+          "Sections 4–6 consider convergence bounds and FlipFlop sequence structure rather than iid biased probability minimization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.09718",
+        "material_read": "Introduction, principal order-optimization results in Sections 4–6, and related Appendix G text",
+        "method": "Inspected accessible web-rendered full text and identified the optimization objectives and permutation choices",
+        "title": "Permutation-Based SGD: Is Random Optimal?",
+        "trigger": "Direct studies of nonrandom versus random permutations on strongly convex quadratics"
+      },
+      {
+        "assessment": "The proposed squared-prefix discrepancy cannot distinguish the two orders on a two-component problem even when their stationary risks differ",
+        "evidence": [
+          "arXiv:2202.01838 original public 2022-02-03",
+          "In two-component data, the first deviations are equal and opposite"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.01838",
+        "material_read": "Sections 3.3–4, formula for squared prefix-gradient discrepancy and ordering examples",
+        "method": "Inspected full-text HTML and compared exact two-component gradient-deviation values",
+        "title": "Characterizing & Finding Good Data Orderings for Fast Convergence of Sequential Gradient Methods",
+        "trigger": "Order-sensitive gradient-prefix diagnostic could imply the present order policy"
+      },
+      {
+        "assessment": "Uniform random shuffle and shared-Hessian gradient-noise approximation; no exact heterogeneous curvature iid mixture minimizer or crossover",
+        "evidence": [
+          "arXiv:2206.00632 original public 2022-06-01",
+          "Shared-Hessian approximation replaces the different exact component Hessians"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.00632",
+        "material_read": "Sections 3 and 5, common-Hessian model specification, and Appendix C limitations",
+        "method": "Inspected accessible web-rendered full paper, compared true Hessian assumptions and distribution over orders",
+        "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+        "trigger": "Exact stationary stochastic-gradient noise-variance formula plausibly dominates the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0dcf8057-d8e5-4ce6-a025-48e04ca6722d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact full-class choice of iid reshuffling probability is a natural algorithmic optimization question. Sharp random-to-deterministic phase change and divergent 1/h improvement over uniform reshuffling for unequal curvatures are mathematically substantive and cost no additional gradients. The equality of standard squared prefix-discrepancy diagnostics across permutations supplies a structural explanation of their insufficiency for this stationary metric.",
+    "status": "PASS"
+  }
+}

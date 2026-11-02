@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Exact convex automorphism averaging covers arbitrary symmetric feasible matrices. All invariant matrices satisfy two row sums and are parametrized by x in [0,min(1,1/r)]. The full eigenbasis has eigenvalues 1, -(1-x)/(p-1) (multiplicity p-1), -(1-rx)/(q-1) (multiplicity q-1), 1-(1+r)x, and 0 (multiplicity p(a-1)+q(b-1)). The intersection points x_A=p/[p+(p-1)r], x_B=q/[q-1+qr], and the feasible interval caps prove the unique invariant optimum and exact four regimes for every p,q>=2,a,b>=1. The separate complete-matrix rational verifier passed 576512 assertions. Numerical grids are supplementary, not an infinite proof.",
+    "risks": [
+      "Claim is only for real symmetric stationary-uniform zero-diagonal transition matrices; full-matrix uniqueness and nonreversible optimality are unproved."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. 2007, Section 5.3.2, provides an arbitrary complete multipartite spectral block reduction, not the additional zero-holding constrained all-parameter optimizer.",
+        "Jafarizadeh 2010, Section III.A and its Figure 1, explicitly defines neighboring-layer-only K-PPDR edges and equal layer sizes, not complete two-size multipartite adjacency."
+      ],
+      "reasoning": "The broader graph-theoretic framework includes the target graph as an allowable instance but does not itself impose, optimize, or state the zero-diagonal four-phase rule. The separate layered network has different edge support and cannot imply the present formula by parameter substitution.",
+      "searches": [
+        "\"fastest mixing\" \"complete multipartite\" \"optimal\" Markov chain",
+        "\"fastest mixing Markov chain\" \"complete quadripartite\"",
+        "arxiv:0709.0955v1 Section 5.3.2 Complete k-partite graphs",
+        "arxiv:1008.2588v1 Section III.A Symmetric K-PPDR Network"
+      ]
+    },
+    "checked_sources": [
+      "Boyd, Diaconis, Xiao (2004), DOI 10.1137/S0036144503423264, https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "Boyd, Diaconis, Parrilo, Xiao (2007), arXiv:0709.0955v1, https://arxiv.org/pdf/0709.0955",
+      "Jafarizadeh (2010), arXiv:1008.2588v1, https://arxiv.org/pdf/1008.2588"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd–Diaconis–Xiao 2004, opening definitions, allows self-loops and develops convex SDP characterization; it does not impose P_ii=0 on all vertices.",
+        "Boyd et al. 2007, Section 5.3.2, contains the needed generic spectral decomposition; the present proof adds zero-holding row-sum elimination and an exact active-constraint/saturation classification.",
+        "Jafarizadeh 2010, Section III.A, treats equal-sized part chains; its formulas are not for complete p+q-partite networks with arbitrary positive a,b."
+      ],
+      "reasoning": "The new formula is mathematically compatible with known convexity/symmetry frameworks but is not a consequence of their displayed final numerical results or a special case of the layered formulas. The claimed advance is an explicit exact solution, not new block-diagonalization theory.",
+      "searches": [
+        "arxiv:0709.0955v1 Section 5.3.2 complete k-partite graphs",
+        "arxiv:1008.2588v1 Section III Main Results",
+        "\"Fastest Mixing Markov Chain on a Graph\" 2004 Boyd Diaconis Xiao no self loops"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd–Diaconis–Parrilo–Xiao, arXiv:0709.0955v1, Section 5.3.2 (printed page 28), displays a complete k-partite block reduction with diagonal holding terms and says the resulting blocks can be substituted into the SDP, without a loopless two-size phase law.",
+        "The result for p,q>=2 has three nontrivial eigenvalue families and forbids diagonal holding; it is not a mere relabeling of the two-part or neighboring-layer models in the checked papers."
+      ],
+      "reasoning": "The graph family is a complete multipartite blow-up with two sizes; checking equivalent lumped-chain, symmetry-reduced SDP, and zero-diagonal formulations found no displayed solution with the thresholds r=1/q, p/q, p. The generic multipartite block representation alone does not state the minimax optimization result.",
+      "searches": [
+        "Fastest mixing zero-holding symmetric Markov chain on complete multipartite graphs with p equally sized a vertex parts and q equally sized b vertex parts: four-phase formula and sharp deletion at pa=b and a=qb",
+        "Loopless fastest mixing K_{a repeated p, b repeated q}, exact SLEM piecewise and edge support transitions",
+        "fastest mixing Markov chain complete multipartite graph no self loops symmetric stochastic optimum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The consulted arXiv source arxiv:0709.0955v1, Section 5.3.2, contains a block-matrix prescription and no numerical or exact table of the two-size loopless four-phase optimum.",
+        "No matching exact SLEM table for these parameters was located in the actual search results reviewed."
+      ],
+      "reasoning": "A negative database or web search cannot prove global novelty. The evidence is only that the checked source sections and returned records do not already provide the displayed classification.",
+      "searches": [
+        "\"SLEM\" \"complete multipartite\" \"optimal\"",
+        "\"fastest mixing\" \"zero diagonal\" \"multipartite\" Markov",
+        "\"non-lazy\" \"complete multipartite\" \"fastest mixing\"",
+        "Non-lazy complete multipartite graph mixing fastest symmetric stochastic transition with two part sizes p,q,a,b"
+      ]
+    },
+    "rationale": "The checked primary literature establishes general fastest-mixing SDP and multipartite symmetry reductions but does not state or solve the zero-holding, two-size, four-phase exact minimax with the sharp two edge-support deletion thresholds. A 2010 layered-multipartite analysis uses different adjacency and holding constraints. Published and record searches did not reveal an equivalent statement; an unindexed equivalent remains a stated risk.",
+    "residual_risks": [
+      "Generic complete-multipartite SDP reduction is close conceptual prior art; this review claims only the new explicit zero-holding all-parameter phase solution, not a new method of symmetry reduction.",
+      "Specialized unindexed or inaccessible research could contain an equivalent solution; search absence does not prove priority.",
+      "No independent mathematical validation or full exhaustive global bibliography search has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "framework only in the read material; holding is allowed, unlike this result; remaining sections were not exhaustively searched for every possible variant",
+        "evidence": [
+          "PDF printed page 667 contains abstract and first problem setup; printed page 668 states every vertex has a self-loop."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "abstract and initial problem definition, including printed pages 667–668 and the explicit allowance of self-loops",
+        "method": "open primary publicly available PDF, read extracted text, inspect original first-page image",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "foundational FMMC convex SDP could already imply or state a complete multipartite solution"
+      },
+      {
+        "assessment": "general complete k-partite block spectral reduction is explicit but no closed-form zero-holding two-size four-phase optimizer appears in the material inspected",
+        "evidence": [
+          "Section 5.3.2 ends by saying the blocks can be substituted into SDP (25) to solve FMMC, rather than displaying an exact two-size solution."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "abstract, Section 3.1 complete bipartite, and Section 5.3.1–5.3.3 (printed pages 27–29, especially full Section 5.3.2 on printed page 28)",
+        "method": "read primary arXiv full-text section and inspect the original scanned/rendered PDF pages 28–29",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "strongest direct multipartite spectral reduction; possible broader coverage"
+      },
+      {
+        "assessment": "K-PPDR is a chain of equal-sized independent layers with connections to adjacent layers only; not complete multipartite with two part sizes and forbidden holding",
+        "evidence": [
+          "Section III.A describes only connections from class i to class i−1 and i+1 and sets all class sizes equal."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1008.2588",
+        "material_read": "abstract, introductory graph definition and Section III.A with topology Figure 1 and edge-weight results",
+        "method": "read primary arXiv PDF text and inspect original page image of Section III",
+        "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+        "trigger": "title suggests an exact multipartite FMMC theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "100f10c7-fcfd-4539-8def-1b93fda43647",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The zero-holding requirement is a natural hard constraint on a transition mechanism that must move each step. The result completely solves a four-parameter family rather than calculating a small instance or routine numerical SDP, and identifies two exact edge-class deletion thresholds pa=b and a=qb and a third spectral obstruction switch at a=b. It proves that the optimum is scale invariant under uniform blow-up and that balancing the two part sizes uniquely minimizes the optimum SLEM for fixed p,q.",
+    "risks": [
+      "No finite-horizon total-variation optimality is implied by minimizing the asymptotic SLEM."
+    ],
+    "status": "PASS"
+  }
+}

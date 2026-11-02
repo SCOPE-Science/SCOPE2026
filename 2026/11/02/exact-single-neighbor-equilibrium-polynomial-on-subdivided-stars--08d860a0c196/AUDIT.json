@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "At each degree-two vertex, the equilibrium equation is XOR of its two neighbors, giving a period-three word from hub action and first-arm action. The three leaf residues impose respectively a=0, a=c, or c=0. The hub equation excludes singleton active arms when c=0 and forces exactly one residue-one arm with no residue-two arms when c=1. These two exhaustive cases yield the claimed polynomial, count and existence criterion. The standalone direct exhaustive checker passed on 704 spiders and 4,468,176 binary profiles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gilboa (2023) Theorem on all finite nonmonotone patterns is complexity classification, not explicit solution enumeration.",
+        "Yang–Wang (2020) bounded-treewidth algorithms establish tractability but do not provide the closed spider generating polynomial.",
+        "Klimm–Stahlberg (2023) covers decreasing patterns and the picky pattern that differs from the single-neighbor rule."
+      ],
+      "reasoning": "General complexity or algorithmic tractability assertions neither state nor analytically imply the explicit hub-residue count. The differing picky pattern is not equivalent on degree-two or degree-three vertices.",
+      "searches": [
+        "\"A Characterization of Complexity in Public Goods Games\" spider tree equilibrium enumeration",
+        "\"A Refined Study of the Complexity of Binary Networked Public Goods Games\" bounded treewidth exact producer counts",
+        "\"Complexity of equilibria in binary public goods games on undirected graphs\" single-neighbor"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2207.04238",
+      "https://arxiv.org/abs/2301.11580",
+      "https://arxiv.org/abs/2012.02916",
+      "https://arxiv.org/abs/2301.11849",
+      "https://arxiv.org/html/2301.11849v3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gilboa–Nisan prove nonzero path equilibrium exactly at length two mod three; this is a path statement and not an arbitrary spider formula.",
+        "General NP-hardness theorems allow polynomial solvability on restricted families and do not determine exact multiplicities.",
+        "Treewidth tractability concerns algorithms rather than a formula for every coefficient."
+      ],
+      "reasoning": "The new count depends on the number of residue-two arms, forbidden singleton selections, and a separate residue-one hub-active configuration; those are absent from the cited source implications.",
+      "searches": [
+        "https://arxiv.org/abs/2207.04238 Section 3 single-neighbor path and cycle cases",
+        "https://arxiv.org/abs/2301.11580 Sections 1–3 finite-pattern hardness",
+        "https://arxiv.org/abs/2012.02916 bounded-treewidth case",
+        "https://arxiv.org/html/2301.11849v3 Sections 1,5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gilboa–Nisan (2022), Section 3, explicitly analyzes paths and cycles under the exact single-neighbor pattern.",
+        "That section does not enumerate equilibria on subdivided stars or enforce the degree-greater-than-two hub condition."
+      ],
+      "reasoning": "The known period-three recurrence on a path is shared, but the full branching-center condition and exact producer spectrum are not a mere restatement of a path case. A spider has a hub of degree at least three, outside path and cycle topologies.",
+      "searches": [
+        "\"single-neighbor binary public goods equilibrium subdivided stars spider tree branch lengths modulo three count nontrivial Nash equilibria\"",
+        "\"exactly-one-neighbor best response game spider trees arm residues count equilibria\"",
+        "\"spider single neighbor 0100 binary best response equilibrium generating polynomial center counts\"",
+        "https://arxiv.org/abs/2207.04238 Section 3: path, spider, subdivided"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No relevant exact table or formula was identified in the checked indexed mathematical results and accessible primary text.",
+        "The 2022 paper presents path/cycle examples and gadget constructions, not an all-arm spider producer-count table."
+      ],
+      "reasoning": "This is an exact symbolic all-parameter enumeration; absence of a matching table is search evidence only and does not certify novelty.",
+      "searches": [
+        "\"equilibrium census network public goods games on subdivided stars\"",
+        "\"network public goods game single neighbor 010 pattern paths cycles subdivided stars\"",
+        "\"spider single neighbor 0100 binary best response equilibrium generating polynomial center counts\""
+      ]
+    },
+    "rationale": "The motivating 2022 paper proves single-neighbor equilibrium decision NP-complete generally and the path/cycle modulo-three behavior, but neither a spider-family residue classification nor an exact producer-count polynomial is in the inspected relevant sections. Related general-hardness and treewidth algorithm results do not imply the exact identity. Residual priority risk of specialized uncatalogued enumeration is openly retained.",
+    "residual_risks": [
+      "Possible uncatalogued equivalent under exact-one-neighbor occupancy, dominating induced matching, or graphical-game terminology.",
+      "The local period-three path relation is already known; the distinct claim is the all-spider hub count and producer distribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_PATTERN_WITH_PARTIAL_PRIOR_COVERAGE; path and cycle period-three observations, no inspected spider polynomial",
+        "evidence": [
+          "2022 original Section 3: path of order two mod three, cycle of order zero mod three; Theorem 3.1 NP-completeness."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.04238",
+        "material_read": "Abstract, Introduction, definitions, Section 3 including path/cycle illustrations, Theorem 3.1 and proof setup",
+        "method": "Accessible full-text HTML read and targeted searches for path, spider, subdivided",
+        "title": "Complexity of Public Goods Games on Graphs",
+        "trigger": "Same strict single-neighbor best-response pattern; possible source domination"
+      },
+      {
+        "assessment": "GENERAL_COMPLEXITY_ONLY; does not show a spider coefficient enumerator in inspected relevant material",
+        "evidence": [
+          "2023 main theorem is NP-completeness for finite nonmonotone patterns."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.11580",
+        "material_read": "Abstract, introduction, model and overview of Sections 3–5",
+        "method": "Accessible full-text HTML inspected for definitions and theorem coverage",
+        "title": "A Characterization of Complexity in Public Goods Games",
+        "trigger": "Broader complexity result for all finite nonmonotone patterns"
+      },
+      {
+        "assessment": "TRACTABILITY_WITHOUT_FORMULA in material inspected",
+        "evidence": [
+          "2020 paper establishes polynomial-time solvability on bounded-treewidth domains, including trees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.02916",
+        "material_read": "Abstract and introduction, stated bounded-treewidth and forest-like graph algorithms",
+        "method": "Accessible full-text HTML, relevant introduction and stated results",
+        "title": "A Refined Study of the Complexity of Binary Networked Public Goods Games",
+        "trigger": "Potentially dominating treewidth algorithm"
+      },
+      {
+        "assessment": "DIFFERENT_RESPONSE_PATTERNS; no stated all-arm spider counting theorem in inspected material",
+        "evidence": [
+          "2023 work treats decreasing patterns and the picky 10^k10^* pattern."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2301.11849v3",
+        "material_read": "Abstract, Sections 1–2, Section 5 topic and stated results",
+        "method": "Accessible full-text HTML read of relevant portions",
+        "title": "Complexity of equilibria in binary public goods games on undirected graphs",
+        "trigger": "Same modeling framework and alternative nonmonotone best responses"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "08d860a0-c196-41c2-a709-cfe021a37d30",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This exact all-parameter equilibrium polynomial resolves a motivated family of instances of a globally NP-complete binary game. It classifies both existence and number of each producer count on a natural infinite branching-tree class, including exponentially many equilibria and a center-active exception; its significance is the natural family-level structural spectrum, not the cost of checking an instance.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every even alphabet, decompose valid RC orbits according to an allowed first-letter transversal of size a. a²(h-a) middle-unused orbits are independent; each pair of used first letters admits at most one edge orientation with arbitrary nonempty first-letter choices, giving factor (2(1+x²)^a-1). Binomial inversion handles contained-vs-equal first sets and yields the polynomial. Boundary cases, endpoints, self-overlaps, and equality cases are checked; exact independent exhaustive q=2,4,6 codebook enumeration and polynomial expansion through h=9 passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn supplies a broader unconstrained extremum but not the constrained all-size distribution.",
+        "Fimmel 2023 supplies a broad structural theorem for non-expandable codes, and an exact maximal symmetric classification; neither numerically implies all codebook-size coefficients without the new overlap-counting and binomial inversion.",
+        "The 2024 work discusses unrestricted extremizers; the fixed-point-free symmetry and nonmaximal enumeration are not its asserted theorem."
+      ],
+      "reasoning": "Higher-level structural classifications may be a starting point for deriving the polynomial, so absence of exact wording alone does not establish priority; the full coefficient formula is not a corollary of the *stated extremal numerical results*, and an all-subcode derivation is provided independently. Strongest nearby theorem is credited explicitly.",
+      "searches": [
+        "Blackburn Non-overlapping codes arxiv:1303.1026 Section 4 Theorem 7",
+        "Fimmel et al. 2023 Theorem 5.3 Corollary 5.8 Proposition 5.9",
+        "Stanovnik Moškon Mraz In search of maximum non-overlapping codes 2024"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1303.1026",
+      "https://dpt-info.di.unistra.fr/~c.michel/Michel_Article75.pdf",
+      "https://ajc.maths.uq.edu.au/pdf/86/ajc_v86_p233.pdf",
+      "https://doi.org/10.1007/s10623-023-01344-z"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fimmel 2023: maximum h^2(h-1), number of maxima 2^(h+binom(h,2)), and a complementary partition description are already published.",
+        "Known extremal counts do not assign counts to size 2,4,... below the maximum; the q=6 polynomial has nine nonmaximal coefficients, including 726 at four words and 7344 at ten words.",
+        "The codebook-size polynomial counts any nonmaximal code potentially embedded in multiple non-expandable codes, requiring an explicit correction for duplicate containment."
+      ],
+      "reasoning": "The final claim is not that extremal bounds are new. It is an exact all-size enumeration, with a proof separating allowed endpoint sets from actual first-letter sets by binomial inversion. Although prior structural theories are related, no checked source states or directly resolves this all-size multiplicity count; unstated reducibility remains a residual risk.",
+      "searches": [
+        "Fimmel et al. 2023 Section 5 Theorem 5.3 and Proposition 5.9",
+        "Fimmel et al. 2017 section 3.3",
+        "cross bifix code RC invariant complement closure three symbol maximal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 paper uses pi-self-complementary strong comma-free, which is definitionally the present reverse-complement-closed non-overlapping condition. It establishes only maximal and non-expandable counts.",
+        "The 2017 Table 2 gives exact q=4 counts 12 size-two and 8 size-four, so that full special case is already known."
+      ],
+      "reasoning": "The equivalent terminology was resolved by matching definitions, not by dismissing similarly named work. The claim is narrowed to the complete size-generating polynomial for arbitrary even alphabet, which the equivalent-object papers do not state. Earlier q=4 and all-h extremal results are acknowledged and excluded from the originality claim.",
+      "searches": [
+        "length three reverse-complement-invariant non-overlapping DNA codes full enumerator tournament",
+        "cross bifix free codes Watson Crick reverse complement closure length 3 maximum q ary",
+        "Fimmel et al. (2023), Section 5.3, Proposition 5.9; Fimmel et al. (2017), Section 3.3, Theorem 3.16"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2017 table contains complete q=4 distribution, agreeing with 1+12x^2+8x^4; this is not claimed as novel.",
+        "Proposition 5.9 contains only maximum size and maximum-code count for arbitrary even alphabet, not all coefficients.",
+        "No indexed research record identified a q>=6 exact polynomial for this same symmetric length-three model."
+      ],
+      "reasoning": "The exact published table for four letters and the maximum-size database for all even alphabets were recognized as coverage. The new polynomial simultaneously specifies intermediate sizes for all even alphabets, including q>=6; no reviewed database or table covered that scope.",
+      "searches": [
+        "nonoverlapping codes length three reverse complement closed even alphabet q=2h maximum h squared times h minus one oriented tournament",
+        "all optimal length-3 cross-bifix-free codes reverse complement symmetry equal codebook cardinality h^2(h-1)",
+        "Fimmel 2017 Table 2 and Theorem 3.16",
+        "Fimmel 2023 Proposition 5.9"
+      ]
+    },
+    "rationale": "The accepted contribution is only the entire size-generating function for all even alphabets, not the max or maximum-code number. The 2017 q=4 enumeration and 2023 Proposition 5.9 all-even extremal classification are acknowledged as prior coverage. Inspected relevant primary sections and indexed scientific searches did not reveal the arbitrary even-alphabet nonmaximal size spectrum. Residual risk remains for implicit derivation from prior general frameworks or an unindexed table.",
+    "residual_risks": [
+      "The all-even-alphabet maximal counts and maximizer structure are already in Fimmel et al. (2023), Proposition 5.9; these are expressly not claimed as novel.",
+      "The complete four-letter spectrum was already established in Fimmel et al. (2017), Theorem 3.16/Table 2.",
+      "A sufficiently general unpublished or unstated enumerator could imply the full polynomial; indexing and literature access cannot certify historical priority.",
+      "Source PDF image screenshot for the 2023 paper was rejected by the host, although relevant full-text PDF lines were inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides unrestricted extremal upper bound, not the fixed-point-free symmetric full codebook spectrum.",
+        "evidence": [
+          "arXiv first posting 2013-03-05",
+          "Section 4 Theorem 7 unrestricted optimal length-three size"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+        "material_read": "Full relevant Section 4, especially Theorem 7, from arXiv PDF and PDF page image; compared unrestricted maximum with symmetric maximum.",
+        "method": "Open-access arXiv PDF text and page inspection",
+        "title": "Non-overlapping codes",
+        "trigger": "Unrestricted extremal length-three result plausibly dominates constrained construction"
+      },
+      {
+        "assessment": "Decisive earlier q=4 full distribution; that special case is not claimed as new. Does not provide q>=6 all-size enumerator.",
+        "evidence": [
+          "Theorem 3.16/Table 2: 12 two-word and 8 four-word self-complementary strong comma-free codes"
+        ],
+        "identifier_or_url": "https://dpt-info.di.unistra.fr/~c.michel/Michel_Article75.pdf",
+        "material_read": "Section 3.3, Table 2, Theorem 3.16 and their proof passages about 12 size-two and eight size-four self-complementary codes; also general context near Sections 3.1 and 3.2.",
+        "method": "Author-hosted full-text PDF, searched specific theorem and read surrounding proofs",
+        "title": "Strong Comma-Free Codes in Genetic Information",
+        "trigger": "Genetic self-complementary strong comma-free codes have exactly the same condition for four letters"
+      },
+      {
+        "assessment": "Already establishes all even-alphabet max sizes and counts. Does not state or evaluate the full size-generating polynomial for nonmaximal symmetric codebooks. Maximum-size results explicitly excluded from novelty.",
+        "evidence": [
+          "Proposition 5.9, pages 264–265: size n^2(n-2)/8 and 2^{n(n+2)/8} maximal codes",
+          "Theorem 5.3 characterizes non-expandable strong codes, not all-size multiplicities",
+          "Theorem 5.11 concerns mixed length-2/3 codes rather than the homogeneous length-3 enumerator"
+        ],
+        "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/86/ajc_v86_p233.pdf",
+        "material_read": "Section 5.2 Theorem 5.3 and Corollaries 5.6/5.8, full relevant Section 5.3 including Proposition 5.9, its proof, Example 5.10, and Theorem 5.11; also Section 4.3 for distinction from ordinary comma-free codes.",
+        "method": "Open-access publisher PDF text with article pages 259–265; attempted PDF page image but server rejected screenshot",
+        "title": "Diletter and triletter comma-free codes over finite alphabets",
+        "trigger": "Same all-even-alphabet symmetric strong comma-free length-three objects; strongest coverage risk"
+      },
+      {
+        "assessment": "Does not state the exact all-cardinality symmetric length-three spectrum.",
+        "evidence": [
+          "Unrestricted maximum-code enumeration and constructions, different from symmetric all-size count"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+        "material_read": "Relevant accessible HTML sections addressing unrestricted length-three maxima and non-overlapping definitions and related work.",
+        "method": "Open-access journal HTML text",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "General optimal and inclusion-wise maximal non-overlapping code constructions and counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0a0389fd-c4a8-4cde-a0dd-169a064e6aa9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-cardinality codebook-size distribution is a motivated exact enumeration distinct from extremal code size: it counts nonmaximal constrained synchronizing code designs at every size and yields their entire coefficient spectrum, moments and tail counts. Handling multiple extension choices requires a nontrivial binomial-inversion and directed-orbit decomposition, rather than a known-table recomputation or arbitrary finite slice. Does not claim broader optimal constructions.",
+    "status": "PASS"
+  }
+}

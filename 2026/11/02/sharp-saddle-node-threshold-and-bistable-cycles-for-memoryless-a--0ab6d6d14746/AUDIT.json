@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The exact gradient and the bias-corrected zero-memory denominator yield \\(h(r)=r+\\varepsilon r^{-(p-2)}\\), whose strict convexity gives the unique global minimizer and the universal-contraction threshold. Its level sets give zero, one, or two symmetric cycle radii. Jacobian substitution gives inner two-step multiplier greater than one, outer below one, and critical equal to one. Nonterminating convergent orbits obey the proved reciprocal-power increment limit; Taylor expansion gives square-root splitting. The exact rational cubic example and 3970 finite checks corroborate the algebra, not the infinite conclusions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tang–Chen–Liu (arXiv:2609.18314v1) abstract: two-momentum spike boundary and qualitative superquadratic loss geometry; partial public figure/appendix descriptions concern empirical beta-plane phenomena, not this exact boundary.",
+        "2026/10/4/SCOPE-decoupled-weight-decay-lowers-the-exact-chattering-threshold-in--1457b4d13f59: full public RESULT.md proves memoryless quadratic boundary c=2-delta and a flip-born cycle",
+        "2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f: full public RESULT.md proves a quadratic surrogate flip frontier"
+      ],
+      "reasoning": "General stability analyses for \\(\\beta_1,\\beta_2\\) do not automatically cover the exact boundary \\(\\beta_1=\\beta_2=0\\) with this epsilon and \\(p>2\\) without specializing and proving the global radial minimization. The full motivating article remains uninspected, which is explicitly carried as a priority risk. The public older quadratic theorems do not imply off-origin saddle-node bistability.",
+      "searches": [
+        "Adam one dimensional quadratic alternating two-cycle beta momentum stability phase",
+        "Adam beta1 beta2 zero superquadratic gradient normalized two-cycle bistability threshold",
+        "Beyond Quadratic Loss: The Stability Phase Diagram of Adam superquadratic Adam beta1 beta2 zero epsilon cycles",
+        "arxiv:2609.18314",
+        "2026/10/4/SCOPE-decoupled-weight-decay-lowers-the-exact-chattering-threshold-in--1457b4d13f59/RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.18314v1 (metadata and abstract; primary full text unavailable)",
+      "https://pith.science/paper/2609.18314 (substantive public summary, not primary full text)",
+      "https://thelatestinai.com/papers/2609.18314 (source figure descriptions; partial material)",
+      "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-decoupled-weight-decay-lowers-the-exact-chattering-threshold-in--1457b4d13f59/RESULT.md (full mathematical note)",
+      "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f/RESULT.md (full mathematical note)",
+      "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-sharp-partial-adaptivity-phase-transition-in-scalar-padam--64bfa7f15a9c/RESULT.md (full mathematical note)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026/10/4/SCOPE-decoupled-weight-decay-lowers-the-exact-chattering-threshold-in--1457b4d13f59: gain \\(\\eta h/(hr+\\varepsilon)\\) is monotone decreasing in radius and has nonzero limit at origin; its unique cycle appears after origin flip",
+        "2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f: normalized factor \\(\\tau/(1+r^4)^{1/4}\\) has maximum at origin and origin loses stability at \\(\\tau=2\\)",
+        "2026/10/4/SCOPE-sharp-partial-adaptivity-phase-transition-in-scalar-padam--64bfa7f15a9c: maximized historical v_t persists through previous iterations and introduces a separate exponent transition"
+      ],
+      "reasoning": "Our gain \\(\\eta r^{p-2}/(r^{p-1}+\\varepsilon)\\) vanishes at both \\(r\\downarrow0\\) and \\(r\\to\\infty\\) and has an interior maximum. That topology cannot be obtained merely by a parameter substitution in cited monotone-gain quadratic results. It creates an invariant attracting origin and two symmetric cycles above the interior maximum boundary. The techniques (strict convexity and derivative multipliers) are standard, but the joint exact statement is not implied by the inspected prior theorems.",
+      "searches": [
+        "normalized gradient descent superquadratic p norm smoothed sign descent saddle-node bifurcation coexisting attractors origin period two",
+        "gradient normalized |x|^(p-2)x divided by |x|^(p-1)+epsilon global threshold 2(p-1)/(p-2) epsilon^(1/(p-1))",
+        "Decoupled weight decay lowers the exact chattering threshold in AdamW RESULT.md",
+        "A sharp flip frontier for the Polar-Express surrogate on scalar quadratics RESULT.md",
+        "Sharp partial-adaptivity phase transition in scalar Padam RESULT.md",
+        "memoryless Adam superquadratic convex scalar loss origin attracting and two coexisting symmetric period two orbits exact eta threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026/10/4/SCOPE-decoupled-weight-decay-lowers-the-exact-chattering-threshold-in--1457b4d13f59: normalized quadratic map with a single attracting cycle above a flip at the minimizer",
+        "2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f: scalar quadratic smooth polar surrogate with one flip-born cycle",
+        "2026/10/4/SCOPE-sharp-partial-adaptivity-phase-transition-in-scalar-padam--64bfa7f15a9c: historical-max denominator gives a different nonautonomous recurrence",
+        "Final exact-title and superquadratic bistability searches returned the full same-object-nearest published notes on Padam and quadratic AdamW/Polar Express, not the specific strict-convex-power map or its two-root saddle-node theorem."
+      ],
+      "reasoning": "The candidate can be phrased as a global contraction classification of an odd saturating-gradient map, or as a saddle-node of positive roots of \\(r+\\varepsilon r^{-(p-2)}=\\eta/2\\). Exact alias searches found nearest results with different denominator exponents or memory; those equations do not force this superquadratic root diagram. Absence of hits alone was not used as novelty proof.",
+      "searches": [
+        "zero momentum Adam beta1 beta2 zero superquadratic p>2 epsilon exact global convergence threshold eta critical two sign-alternating cycles",
+        "normalized gradient descent superquadratic p norm smoothed sign descent saddle-node bifurcation coexisting attractors origin period two",
+        "gradient normalized |x|^(p-2)x divided by |x|^(p-1)+epsilon global threshold 2(p-1)/(p-2) epsilon^(1/(p-1))",
+        "epsilon smoothed sign gradient map |x|^3 exact bistable stable attracting two cycles 4sqrt epsilon",
+        "\"normalized gradient\" \"superquadratic\" \"two-cycle\" epsilon",
+        "sharp saddle-node threshold and bistable cycles for memoryless Adam on superquadratic losses",
+        "memoryless Adam superquadratic convex scalar loss origin attracting and two coexisting symmetric period two orbits exact eta threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed published-note searches returned no same statement, closed-form critical eta, or exact p=3 eps=1 eta=5 pair under these searches; closest IDs recorded in equivalent_formulations.",
+        "External exact phrase searches returned general Adam phase diagrams and bifurcation references, not the stated normalized-power parameter table."
+      ],
+      "reasoning": "This is an analytic all-real-p continuum theorem, not a previously tabulated isolated numerical point. The exact rational cubic witness is illustrative and does not carry the novelty claim. Database absence is not proof; direct implication comparisons supplied separately.",
+      "searches": [
+        "zero momentum Adam beta1 beta2 zero superquadratic p>2 epsilon exact global convergence threshold eta critical two sign-alternating cycles",
+        "epsilon smoothed sign gradient map |x|^3 exact bistable stable attracting two cycles 4sqrt epsilon",
+        "\"Adam\" \"superquadratic\" \"epsilon\" \"two-cycle\" \"global\" stability",
+        "sharp saddle-node threshold and bistable cycles for memoryless Adam on superquadratic losses"
+      ]
+    },
+    "rationale": "Actual indexed literature searches, source comparisons and read-only full RESULT.md inspections of three nearest published notes show different maps or different phase mechanisms: quadratic maps flip the origin while this superquadratic map exhibits an off-origin saddle-node and bistability; Padam retains historical memory. The motivating 2026 manuscript is only partially accessible, acknowledged as residual priority risk. No inspected stronger claim implies the joint all-start boundary, two symmetric cycle types and sharp coalescence law.",
+    "residual_risks": [
+      "Original arXiv:2609.18314 full primary text and appendices not accessible; partial source abstracts and figure transcriptions cannot establish whole-document noncoverage.",
+      "General scalar discrete dynamical-systems literature could have an equivalent normalization-map bifurcation under different naming; a negative search is not a uniqueness proof.",
+      "Only symmetric sign-alternating two-cycles are classified, not arbitrary nonsymmetric periodic trajectories or global basins."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Partial text covers general beta-plane spike laws, not the claimed exact \\(\\beta_1=\\beta_2=0\\) global convergence and coexisting period-two classification. Because primary main text was not read, it cannot be certified non-covering.",
+        "evidence": [
+          "arxiv:2609.18314v1 first submitted September 16, 2026",
+          "Abstract discusses empirically near-linear \\(1-\\beta_2=C(1-\\beta_1)\\) boundary and superquadratic geometries; detailed Pith review describes a different quiet-phase recurrence and effective curvature conditions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.18314",
+        "material_read": "Official v1 metadata and complete abstract; public reproduction of figure descriptions/appendix panels; detailed accessible summaries of mathematical lemmas. Primary full manuscript not accessible.",
+        "method": "Read public arXiv metadata/abstract and HTML review/figure transcription; attempted arXiv HTML/PDF and lawful paper retrieval without success",
+        "title": "Beyond Quadratic Loss: The Stability Phase Diagram of Adam",
+        "trigger": "Same superquadratic Adam loss and possible encompassing special case"
+      },
+      {
+        "assessment": "Its quadratic map has gain eta*h/(h*r+epsilon) with nonzero origin limit and unique flip-born cycle. It has no interior maximum and no coexistence of an attracting minimizer with two symmetric cycle branches.",
+        "evidence": [
+          "Its \\(\\beta_2=0\\) formula is \\(F(x)=x[1-\\delta-\\alpha h/(h|x|+\\varepsilon)]\\) and its threshold is \\(\\alpha h/\\varepsilon=2-\\delta\\)."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-decoupled-weight-decay-lowers-the-exact-chattering-threshold-in--1457b4d13f59/RESULT.md",
+        "material_read": "Full public RESULT.md Finding, Assumptions and scope, Proof, Verification and Relationship to prior work",
+        "method": "Read-only primary mathematical note via GitHub public raw file retrieval",
+        "title": "Decoupled weight decay lowers the exact chattering threshold in AdamW",
+        "trigger": "Exact smoothed AdamW scalar denominator and cycle with beta2=0"
+      },
+      {
+        "assessment": "Gain tau/(1+|u|^4)^(1/4) reaches maximum at the origin; above its flip frontier the origin is unstable, unlike the present p>2 strict-convex-power map. Its single cycle cannot imply the two-cycle saddle-node.",
+        "evidence": [
+          "Its critical parameter is \\(\\tau=2\\) and a single cycle exists for \\(\\tau>2\\), whereas the candidate has origin derivative 1 for every step."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f/RESULT.md",
+        "material_read": "Full public RESULT.md mathematical Finding, Assumptions and scope, Proof and Relationship to prior work",
+        "method": "Read-only primary mathematical note via GitHub public raw file retrieval",
+        "title": "A sharp flip frontier for the Polar-Express surrogate on scalar quadratics",
+        "trigger": "A nonlinear smoothed normalized-gradient map with exact global convergence and stable period-two orbit"
+      },
+      {
+        "assessment": "Padam uses past-maximum second-moment memory and a quadratic objective; its exponent phase at 1/4 is not a claim about the candidate memoryless fixed epsilon normalization on p>2.",
+        "evidence": [
+          "Its dynamics depends on \\(M_t=\\max_{j\\le t}|x_j|\\) and its gain is \\(a/M_t^{2p}\\), not a function of current radius alone."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-sharp-partial-adaptivity-phase-transition-in-scalar-padam--64bfa7f15a9c/RESULT.md",
+        "material_read": "Full public RESULT.md mathematical Finding, Assumptions and scope, Proof",
+        "method": "Read-only primary mathematical note via GitHub public raw file retrieval",
+        "title": "Sharp partial-adaptivity phase transition in scalar Padam",
+        "trigger": "Related zero-memory specialization with distinct cycles and convergence thresholds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ab6d6d1-4746-4b31-8499-61daf835b5a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 superquadratic-Adam literature motivates understanding spike/cycle behavior beyond quadratic local stability. On a natural strictly convex power objective, this result gives a sharp every-initialization convergence cutoff and a saddle-node creation of attracting and repelling nonzero cycles without loss of minimizer stability. Such bistability is a structural obstruction to interpreting deterministic normalized training convergence solely by local Hessian stability; it supplies explicit step/epsilon scaling, orbit multipliers and exact algebraic convergence rate. These claims do not arise as textbook deductions for the already-published quadratic normalized map and do not extend to positive moment memories.",
+    "status": "PASS"
+  }
+}

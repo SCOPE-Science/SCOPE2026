@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The outer and inner exactly-one-cross-neighbor equations are iff conditions, with all quantifiers n>=5 and bits explicit. The 128-bit finite automaton admits 28 listed windows; pruning states with no in/out degree leaves 12 edges, exactly two loops and two five-cycles. Since every closed walk remains in the core, all cyclic solutions are exactly the two constant outer words plus ten rotations of two complementary primitive five-words when 5 divides n. Connectedness makes two complementary labelings per cut. Independently enumerated original graph neighborhoods for all colorings n=5..10 and direct outer words through n=18. The finite truth-table is exhaustive with a standalone reproducer; the infinite extrapolation follows from a proved closed-walk bijection.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonnet et al. prove PMC hardness in cubic bipartite planar graphs, not a universal enumeration theorem.",
+        "Le--Telle provide PMC algorithms and complexity results, not the exact P(n,2) count.",
+        "Chia--Thomassen (2011) compute Hamiltonian cycles of P(n,2), not every cut-perfect-matching."
+      ],
+      "reasoning": "General hardness and algorithms can solve instances but do not imply the concise all-n modulo-five enumeration without additional graph-specific work. Hamiltonian-cycle counts omit the non-Hamiltonian two-factor complements corresponding to these perfect matching cuts.",
+      "searches": [
+        "published-finding corpus: perfect matching cut generalized Petersen graphs P(n,2) spoke perfect matching and other five cuts when n divisible by 5",
+        "Web: \"generalized Petersen\" \"2-factors\" \"P(n,2)\" perfect matchings classification",
+        "arxiv:2302.11667 PDF full text; arxiv:2107.06399 PDF full text"
+      ]
+    },
+    "checked_sources": [
+      "Bonnet--Chakraborty--Duron arXiv:2302.11667",
+      "Le--Telle arXiv:2107.06399",
+      "Chia--Thomassen Ars Combinatoria 100 (2011) 3-7",
+      "published-finding corpus published findings hit IDs from documented query comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chia--Thomassen Theorem 1 gives residue-six Hamiltonian-cycle counts, not the residue-five distribution of cut-perfect-matchings.",
+        "Bonnet et al. and Le--Telle derive algorithmic or complexity statements, not numerical PMC(G_n)."
+      ],
+      "reasoning": "Hamiltonian cycles are 2-factors with one spanning component, whereas the complement of a PMC is a disjoint union of induced monochromatic cycles; these invariants do not imply each other from the cited theorems. No decisive broader implication was identified after direct material comparison.",
+      "searches": [
+        "Chia and Thomassen, Grinberg's Criterion Applied to Some Non-Planar Graphs full scanned article pp.3-7",
+        "arxiv:2302.11667 PDF entire text topic and theorem headings",
+        "arxiv:2107.06399 PDF entire text topic and theorem headings",
+        "Web: \"generalized Petersen\" \"perfect matching cut\" count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Le--Telle, arXiv:2107.06399, pp.1-2: exactly-one-cross-part-neighbor condition; explicit distinction between perfect matching cuts and disconnected perfect matchings.",
+        "Bonnet--Chakraborty--Duron, arXiv:2302.11667 pp.1-2: equivalence of cubic PMC with bipartition into induced 2-regular graphs."
+      ],
+      "reasoning": "The theorem has been compared under edge-cut perfect matchings, vertex-coloring 1-across 2-within partitions, and two induced 2-factor shore partitions. These equivalences establish correctness of translation, not that earlier papers counted the relevant cuts.",
+      "searches": [
+        "published-finding corpus: Generalized Petersen graph P(n,2): perfect matching cuts, matching cuts, monochromatic 2-factor exact one opposite neighbor binary colorings; modulo five classification",
+        "Web: \"perfect matching cut\" \"generalized Petersen\" graph",
+        "arxiv:2107.06399 full text introduction and definitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published-finding corpus hit 2026/10/4/SCOPE-the-petersen-2-matching-complex-is-a-wedge-of-four-7-spheres--c0442780c8c1 concerns topology of a 2-matching complex, not graph edge cuts.",
+        "Known six perfect matchings of the Petersen graph P(5,2) cover only the n=5 instance; no full n formula located."
+      ],
+      "reasoning": "An exact finite n=5 special case and topology records do not dominate an infinite P(n,2) classification. A negative search cannot prove uniqueness; hidden tables remain a residual risk.",
+      "searches": [
+        "published-finding corpus exact claim/aliases P(n,2) perfect matching cuts 1+5 modulo 5",
+        "Web: \"P(n,2)\" \"perfect matching cut\"",
+        "Web: \"generalized Petersen graph\" \"even 2-factor\" \"mod 5\""
+      ]
+    },
+    "rationale": "Newly assessed claim is the complete all-n formula 1+5[5|n] and classification of every perfect matching cut in P(n,2), not PMC decision or basic n=5 Petersen perfect matchings. Full primary papers on PMC algorithms/hardness and P(n,2) Hamiltonian enumerations were compared at theorem and implication level. No equivalent or stronger all-n result found; the specialized publication-priority risk is explicitly retained.",
+    "residual_risks": [
+      "Potential older unindexed literature classifying P(n,2) perfect matching cuts or equivalent 2-factor shore bipartitions.",
+      "General algorithms might yield the result after nontrivial family-specific specialization; no dominating theorem or full enumeration identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Definitions and general cubic PMC hardness, no exact P(n,2) cut census located",
+        "evidence": "2023-02-22 v1, p.1 definition and p.2 cubic induced-cycle bipartition equivalence.",
+        "identifier_or_url": "https://arxiv.org/pdf/2302.11667",
+        "material_read": "PDF full-text searchable, abstract and introduction pp.1-2 examined and global terms Petersen/generalized searched; theorem and construction summaries inspected",
+        "method": "open-access arXiv full text and PDF page render",
+        "title": "Cutting Barnette graphs perfectly is hard",
+        "trigger": "Primary modern PMC hardness theorem in cubic graphs and perfect matching cut equivalence"
+      },
+      {
+        "assessment": "General algorithms, no stated graph-family count",
+        "evidence": "pp.1-2: PMCs = cuts with one cross neighbor per vertex; distinction from disconnected perfect matching.",
+        "identifier_or_url": "https://arxiv.org/pdf/2107.06399",
+        "material_read": "PDF introduction, abstract, result list, definitions and related work pp.1-2, full-text searches for Petersen and generalized",
+        "method": "arXiv OA PDF text and screenshot",
+        "title": "The Perfect Matching Cut Problem Revisited",
+        "trigger": "Definition and potentially dominating generic PMC algorithms"
+      },
+      {
+        "assessment": "Hamilton cycle census on P(n,2) is a different 2-factor invariant; does not give exact PMC modulo-five classification",
+        "evidence": "Theorem 1 on printed p.4 gives Hamilton cycle counts with residues modulo six; proof pp.4-6, references p.7.",
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20100/volume-100-paper-1.pdf",
+        "material_read": "All five scanned pages (article pp.3-7), including Theorem 1 and complete proof",
+        "method": "OCR-free page-image inspection of public scan",
+        "title": "Grinberg's Criterion Applied to Some Non-Planar Graphs",
+        "trigger": "Exact enumeration of Hamiltonian cycles in the identical graph family P(n,2)"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "07ff361a-d99e-4be8-ab28-cc38d63dfd76",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Perfect matching cuts are a studied natural refinement of perfect matchings, NP-hard even in constrained cubic graph classes. The exact full enumeration and characterization of all cuts in the standard infinite P(n,2) family exhibits a sharp period-five rigidity, including a complete distinction between the unique generic spoke cut and precisely five additional exceptions. The answer is an all-order structural classification rather than a small finite test or a mere renaming of a known Hamiltonian census.",
+    "status": "PASS"
+  }
+}

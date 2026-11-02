@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The uniform support counting argument, global absence of n+1 distinct supported permutations, exact rank-reversing cyclic construction for even n, paired cyclic/reversed construction for odd n, and 3x3 rational linear equations prove every claim. A standalone exact-fraction checker independently validates 19 sizes and six-pivot uniqueness in the 3x3 case. Unproved odd n>=5 optimum is clearly excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kawase et al. Theorem 1 guarantees Dec-EF decomposition for n<=3; Theorem 2 guarantees existence for at most two preference types.",
+        "Li et al. 2026 abstract announces arbitrary four-agent existence, up to five restricted agents and NP-completeness for arbitrary matrices; not a support-size theorem in the available abstract."
+      ],
+      "reasoning": "Existence of some Dec-EF decomposition is strictly weaker than determining its minimum number of positive-weight matchings. The original six-permutation example proves feasibility, not forced uniqueness. The Li et al. full text remains inaccessible and so its complete coverage cannot be ruled out.",
+      "searches": [
+        "Decomposition Envy-Freeness in Random Assignment arXiv:2604.16973 full text sections 1-4",
+        "Envy-Free Decompositions of Random Assignments Settling Four Agents and What Lies Beyond arXiv:2609.35192 abstract",
+        "decomposition envy-freeness support size random assignment 2026",
+        "decomposition envy-freeness uniform permutations 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.16973v1 (source main text and PDF pages)",
+      "arXiv:2609.35192v1 (abstract only)",
+      "published-finding corpus published research: 2026/10/4/SCOPE-complete-three-agent-lottery-shape-classification-for-random-ser--7ae5a1139952",
+      "published-finding corpus published research: 2026/10/4/SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full text of arXiv:2604.16973 Example 1 shows a 3x3 six-permutation Dec-EF lottery but a three-permutation cyclic failure.",
+        "published-finding corpus record 2026/10/4/SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1 concerns random priority under two preference orders and stochastic-dominance envy-freeness, not Dec-EF minimum Birkhoff support."
+      ],
+      "reasoning": "The six-permutation example is consistent with but does not imply its uniqueness: the uniform marginal matrix permits a one-parameter family of lotteries, and our additional pairwise fairness equation fixes its single point. The general existence theorem offers no finite support optimum; the parity result is a nontrivial strengthening for a canonical special instance, not an automatic corollary of existence.",
+      "searches": [
+        "arxiv:2604.16973 Example 1, Definition 2, Theorem 1, Theorem 2, Proposition 3",
+        "arxiv:2609.35192 abstract September 28 2026",
+        "indexed stochastic dominance envy freeness two preference types random priority"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.16973v1 Example 1 gives a three-agent cyclic counterexample and six-match uniform Dec-EF example.",
+        "Closest indexed result 2026/10/4/SCOPE-complete-three-agent-lottery-shape-classification-for-random-ser--7ae5a1139952 classifies random serial dictatorship support shapes, not minimum Dec-EF support."
+      ],
+      "reasoning": "For identical strict preferences, Dec-EF is equivalent to pairwise fair relative-rank ordering. The decomposition with minimum support and the uniform random-priority support distribution have different objectives; the comparison literature does not state the necessary 3x3 uniqueness or the even/odd support bounds.",
+      "searches": [
+        "decomposition envy freeness uniform bistochastic matrix identical preferences sparse support exact minimum n even cyclic shifts permutations",
+        "decomposition envy-free uniform three agent matrix unique fair lottery all six matchings",
+        "common preferences random assignment envy probability half pairwise balanced permutation Latin squares even n construction",
+        "arxiv 2604.16973 2609.35192 decomposition support uniform Latin pairwise fairness"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching minimum-support table appeared in the accessible search results.",
+        "Original 2604.16973v1 Example 1 explicitly exhibits six permutations for n=3, but neither states uniqueness nor tabulates the minimum-support function."
+      ],
+      "reasoning": "An instance showing existence at support six is not the same as proving all fair decompositions must use that support. The n+1 forbidden support for a uniform assignment is a separate all-dimension structural fact; there is no identified existing exact table supplying the complete present result.",
+      "searches": [
+        "decomposition envy-free uniform three agent matrix unique fair lottery all six matchings",
+        "minimum support decomposition envy-free uniform permutations",
+        "decomposition envy-freeness sparse support"
+      ]
+    },
+    "rationale": "The source arXiv:2604.16973v1 (full main text inspected) has the identical three-agent uniform example and exhibits a six-permutation qualifying distribution, but it does not establish its uniqueness or minimality, the optimal even-n support n, or the odd-n support gap. The later arXiv:2609.35192v1 abstract describes feasibility and hardness but its full text was not available; equivalent hidden results remain a specific risk.",
+    "residual_risks": [
+      "Complete arXiv:2609.35192v1 text could not be inspected.",
+      "An unindexed equivalent support-minimization lemma or classical balanced Latin-permutation construction could exist.",
+      "Support-optimality claim is restricted to one uniform and common-ranking allocation family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides motivating example and existence for relevant preference profile, but no explicit minimum-support parity law or three-agent uniqueness statement in inspected material.",
+        "evidence": [
+          "Example 1 distinguishes three cyclic permutations from uniform six-permutation lottery.",
+          "Section 3 proves Dec-EF decomposability at n<=3 and for at most two preference types.",
+          "Original article explicitly notes heuristics minimizing Birkhoff decomposition length can fail Dec-EF."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.16973",
+        "material_read": "Main article text including Example 1, definitions, Theorems 1 and 2, proofs, and later bounds; HTML full main text and PDF pages inspected.",
+        "method": "Read source article text and inspected underlying PDF pages.",
+        "title": "Decomposition Envy-Freeness in Random Assignment",
+        "trigger": "Same fairness definition and same canonical 3x3 uniform matrix."
+      },
+      {
+        "assessment": "Abstract addresses four-agent feasibility, five-agent restricted results, two-row cases, entropy and NP-hardness, not explicitly minimum support. Because full text inaccessible, hidden overlap remains an unresolved risk.",
+        "evidence": [
+          "First posted September 28, 2026.",
+          "Abstract describes 26,927-vertex rational enumeration for four-agent existence and entropy decomposition results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.35192",
+        "material_read": "Abstract and bibliographic metadata only; primary full text unavailable from arXiv/open access, institutional download did not complete.",
+        "method": "Read accessible bibliographic abstract and searched alternative access.",
+        "title": "Envy-Free Decompositions of Random Assignments: Settling Four Agents, and What Lies Beyond",
+        "trigger": "Later extension of exactly same Dec-EF framework, potentially dominating the claimed result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0b35fdf5-ff43-432f-b1a4-b27344a4f10a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original Dec-EF paper explicitly warns that sparse Birkhoff decompositions can cause harmful realized envy. This theorem determines the minimum distinct permutations needed to implement the same canonical uniform marginal matrix without such systematic envy: optimal support n for every even size, a strict parity gap for odd sizes, the missing n+1 support cardinality, and a unique 3x3 mechanism. The fact answers a naturally arising implementation-complexity question, not merely a small numeric census.",
+    "status": "PASS"
+  }
+}

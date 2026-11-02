@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Greedy subsequence matching in the ordered cyclic period incurs precisely one period per weak descent. In a square UU the cost is 1+2r+s. Matrix trace of M_q(z^2)^(m-1) M_q(z) marks all roots once. Writing M_q(t)=(1-t)U+tJ, nilpotence of U, determinant lemma and Jacobi derivative yield the rational formula; proof is formal and valid for every q>=2. Symbol frequency bounds m<=q floor(k/2). Equality forces h full strict circular runs and cyclic rotations, with endpoint s selecting one rotation for even k and all q for odd k. The actual accompanying verify.py independently enumerates 24 host cases, 861 roots and checks 780 formal coefficients. Tests do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2202.07189 treats general longest periodic and bordered subsequence optimizations.",
+        "arXiv:2109.12455 defines shuffle squares by two interleaved equal subsequences, not sequential UU scattered into a fixed W."
+      ],
+      "reasoning": "General host algorithms may calculate one optimum but do not provide the complete distinct-root length distribution or optimizer multiplicities. Stronger arbitrary-host enumeration theorems could subsume this, but none was found or confirmed in examined sources; the shuffle-square predicate does not imply this predicate.",
+      "searches": [
+        "Words u for which uu is a scattered subsequence of (012...q-1)^k, maximum number of square roots, exact counts for every length",
+        "Length-resolved distinct square subsequences in periodic permutation words and longest square subsequence multiplicity",
+        "arXiv:2202.07189",
+        "arXiv:2109.12455"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4230/LIPIcs.CPM.2018.15",
+      "arXiv:2006.00216",
+      "arXiv:2109.12455",
+      "arXiv:2202.07189",
+      "2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+      "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+      "f7b06695-8a2d-44f7-8b2c-20bd598c6fe2",
+      "85b73838-625b-49f3-9979-187ee1d12c0d",
+      "26aebc76-e70b-4df5-b32b-ba3b24b030ec"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "CPM 2018 longest common square subsequences and arXiv:2006.00216 longest square subsequence algorithms return optimization data on arbitrary strings, not an explicit enumerator for distinct roots in cyclic powers.",
+        "An prior result (f7b06695-8a2d-44f7-8b2c-20bd598c6fe2) uses greedy period embeddings for minimal absent subsequences; an own result (85b73838-625b-49f3-9979-187ee1d12c0d) counts distinct palindromic subsequences.",
+        "The own expected Abelian-square result (26aebc76-e70b-4df5-b32b-ba3b24b030ec) concerns a random binary source and anagrams, not fixed q-ary UU strings."
+      ],
+      "reasoning": "Computing an arbitrary longest square does not logically imply the rational generating function or number of distinct longest solutions. The same greedy embedding cost is a known technique, but the new square-specific cyclic join statistic and trace enumerator do not follow from the named older absent-word or palindrome formulas. An unlocated direct theorem would supersede this conclusion.",
+      "searches": [
+        "Words u for which uu is a scattered subsequence of (012...q-1)^k, maximum number of square roots, exact counts for every length",
+        "subsequence squares distinct generating function Eulerian polynomials cyclic increasing runs",
+        "2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+        "doi:10.4230/LIPIcs.CPM.2018.15",
+        "arXiv:2006.00216",
+        "arXiv:2202.07189"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A target UU is representable iff 1+2 weak-descents(u)+join(u)<=k, an exact finite-word criterion not equivalent to longest-length optimization.",
+        "arXiv:2006.00216 gives algorithms to compute a longest square subsequence for arbitrary input, without a by-root-length generating series in inspected introduction/algorithm sections."
+      ],
+      "reasoning": "Tested alternative descriptions as repeated subsequences, exact cyclic descent/Eulerian costs, length-refined square roots, and longest-square solutions. The explicit RATIONAL counting claim is not established by the inspected algorithm statements; a generic algorithm computing values does not imply the closed-form enumeration or classification.",
+      "searches": [
+        "Exact length spectrum of distinct square scattered subsequences in cyclic powers of the permutation word 012... q-1, rational generating function weak descents",
+        "Square subsequence generating functions cyclic Eulerian descents transfer matrix, q-ary fixed permutation powers",
+        "distinct square scattered subsequences cyclic permutation word powers length spectrum ascent descent recurrence",
+        "arXiv:2006.00216",
+        "doi:10.4230/LIPIcs.CPM.2018.15"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Current published-result queries returned related binary subsequence universality and two-multispectrum code counts, not exact square-root spectra.",
+        "Literal and formal coefficient checks are independently reproduced from verify.py; these are original computational checks, not a claim of a previously recorded exact table."
+      ],
+      "reasoning": "No inspected database entry or existing result table asserts the full integer coefficients S_q(k,m) for all q,k,m. A failed similarity search alone is not novelty proof, so primary text comparisons and accessible ledger dedup were also used.",
+      "searches": [
+        "Exact length spectrum of distinct square scattered subsequences in cyclic powers of the permutation word 012... q-1, rational generating function weak descents",
+        "longest square subsequences periodic permutation word powers exact longest length",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+      ]
+    },
+    "rationale": "The accepted claim is a complete membership criterion, a rational bivariate generating function counting DISTINCT concatenated-square roots by their length, and exact even/odd maximizer multiplicities for every q>=2 and k>=1. Inspected primary papers solve general longest-square or periodic-subsequence algorithmic problems (not this complete solution-counting invariant); the shuffle-square paper has a distinct interleaving predicate. Accessible own work counts minimal absent subsequences, scattered palindromes, or expected Abelian square subsequences, none implies this formula. Seven actual published-finding corpus similarity queries yielded no closer direct statement, but unlocated exact specializations remain possible.",
+    "residual_risks": [
+      "A direct exact specialization in unlocated combinatorics-on-words literature may exist.",
+      "Main sections of relevant papers were inspected, not all appendices and all possible translations of the complete mathematical literature.",
+      "Generic longest-square algorithms can compute any finite case, but do not themselves certify novelty or lack of an earlier closed form."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Problem is longest common square subsequence, algorithm and complexity; no complete exact distinct-root length polynomial in material read",
+        "evidence": [
+          "doi:10.4230/LIPIcs.CPM.2018.15",
+          "The paper solves longest-common-square-subsequence tasks rather than exact counting of all roots in cyclic powers."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CPM.2018.15",
+        "material_read": "Publisher HTML metadata and full-text PDF introductory definitions and main algorithmic results on pages 1 through 4; PDF page image also inspected",
+        "method": "Direct source examination with text and rendered page",
+        "title": "Computing longest common square subsequences",
+        "trigger": "Longest-square related core algorithm with verified earliest public date 2018-05-18"
+      },
+      {
+        "assessment": "General-input longest-square algorithm, not exact all-length root counts or the parity classification",
+        "evidence": [
+          "arXiv:2006.00216",
+          "Computes optimization quantities, not a uniform rational distinct-solution enumerator."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.00216",
+        "material_read": "arXiv HTML introductory problem definitions and methods in Sections 2 and 3",
+        "method": "Read accessible arXiv HTML full text in relevant sections",
+        "title": "Longest Square Subsequence Problem Revisited",
+        "trigger": "More relevant arbitrary-host longest-square algorithm potentially dominating the new extremal statement"
+      },
+      {
+        "assessment": "Longest periodic/bordered subsequence algorithms, not root-length multiplicity in the cyclic permutation host",
+        "evidence": [
+          "arXiv:2202.07189",
+          "The output is longest-subsequence optimization and the represented class is broader periodic predicates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.07189",
+        "material_read": "Preprint full-text PDF early pages 1–5 including definitions and key results, with a rendered PDF page inspected",
+        "method": "Direct arXiv PDF text and page image",
+        "title": "Longest (Sub-)Periodic Subsequence",
+        "trigger": "General periodic subsequence algorithm might imply longest-square classification"
+      },
+      {
+        "assessment": "Distinct interleaving/partition predicate; cannot give equality of the concatenation UU with a scattered subsequence of W",
+        "evidence": [
+          "arXiv:2109.12455",
+          "A shuffle square interleaves two copies; a sequential square is their concatenation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.12455",
+        "material_read": "arXiv HTML introduction, mathematical definition of shuffle squares and main problem statements",
+        "method": "Read arXiv HTML primary text",
+        "title": "Shuffle Squares and Reverse Shuffle Squares",
+        "trigger": "Near-title result on square subsequence phenomena"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0d48ff09-00f8-4787-9169-4152166a06e1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Distinct square subsequences have many embeddings but their root count is subtle. A natural infinite family (powers of a full ordered permutation) receives exact membership, a complete length-by-host-period rational enumerator for every alphabet size, and precise parity-sensitive multiplicities of longest solutions. This fully classifies a natural repeated-period benchmark for algorithms; it is not just a routine numeric computation or a one-parameter increment.",
+    "status": "PASS"
+  }
+}

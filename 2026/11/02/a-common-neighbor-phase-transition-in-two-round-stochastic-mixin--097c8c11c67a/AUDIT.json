@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For every connected noncomplete strongly regular graph, the adjacency identity \\(A^2=(d-\\mu)I+(\\lambda-\\mu)A+\\mu J\\) yields precisely two nonconstant adjacency eigenvalues. The nonaccelerated branch follows from the nonnegative low-mode factor. The accelerated branch follows from an explicit positive convex combination of the two spectral products whose bilinear interpolation is \\(R_*+(1-R_*)(1-dp)(1-dq)\\), globally lower-bounding the maximum modulus. Equality forces unique gains, the zero-eigenvalue boundary has a separate proof, and multiplication using the adjacency identity establishes the mean-field formula. A standalone standard-library verifier passed 20,687 assertions on eight graph examples built from explicit edge predicates; this does not replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. arxiv:0709.0955 optimize one stochastic kernel over graph symmetries.",
+        "Hendrickx et al. arxiv:1211.6324 allow more general time-varying graph-supported linear consensus operators.",
+        "Ghosh and Lee, DOI 10.1137/120862478, describe dynamic feedback finite-time consensus in their publicly accessible abstract."
+      ],
+      "reasoning": "A method with more general controllers or signed polynomial filters may attain a better contraction but need not imply a sharp optimizer and uniqueness restricted to individually stochastic homogeneous Markov rounds. The fixed and periodic dynamic-feedback article was available only as abstract/metadata, and is retained as a named uncertainty, not asserted noncovering from whole text.",
+      "searches": [
+        "Ghosh Lee Optimal Finite-Time Consensus on Fixed and Periodic Graphs 2013 pdf open access",
+        "arxiv:0709.0955",
+        "arxiv:1211.6324",
+        "doi:10.1137/120862478"
+      ]
+    },
+    "checked_sources": [
+      "Apers–Sarlette 2015 arxiv:1503.01269",
+      "Boyd–Diaconis–Xiao 2004 fastest mixing framework",
+      "Boyd–Diaconis–Parrilo–Xiao 2007 arxiv:0709.0955",
+      "Hendrickx–Jungers–Olshevsky–Vankeerberghen arxiv:1211.6324",
+      "Ghosh–Lee 2013 DOI 10.1137/120862478 (abstract-only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Unconstrained degree-two root-placement at the two Laplacian modes can require the gain 1/a above 1/d; this violates an individual Markov constraint.",
+        "The current bound uses positivity and the exact square [0,1/d]^2, with a convex-combination/bilinear corner certificate.",
+        "The prior odd-cycle theorem implies the five-cycle instance but not a classification over lambda and mu for all strongly regular graphs."
+      ],
+      "reasoning": "There is genuine methodological overlap in two-mode reduction and polynomial filtering, but no inspected named theorem directly establishes the constrained phase or full statement. The novelty claim is limited to the exact graph-class solution, not spectral diagonalization, general fastest-mixing optimization, or the already known special case.",
+      "searches": [
+        "Apers Sarlette positive stochastic two-step filters strongly regular graphs optimal two step gains",
+        "strongly regular graphs stochastic fastest mixing two-step finite time common neighbors Markov consensus polynomial 2014",
+        "strongly regular graph (v k lambda mu) optimal period two polynomial consensus positivity constrained step gains",
+        "arxiv:1503.01269v1",
+        "arxiv:1211.6324v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two adjacency nontrivial eigenvalues reduce the homogeneous chain to a degree-two spectral minimax, but individually stochastic factors require both gains in [0,1/d].",
+        "Apers and Sarlette, arxiv:1503.01269, discuss quadratic polynomial filters while dropping the individual Markov-positivity condition."
+      ],
+      "reasoning": "Reformulations as a degree-two polynomial filter, Laplacian two-mode contraction and a quadratic adjacency algebra were compared. General unconstrained filter minimax is a relaxation, not the same feasible set, and it does not by itself supply the graph-parameter phase, gains or mean-field identity.",
+      "searches": [
+        "strongly regular graph fastest mixing two-step stochastic consensus P(p)P(q) where P=I-pL",
+        "strongly regular graphs (v,k,lambda,mu) two step stochastic mixing optimal unequal gains mean field after two steps common neighbor lambda mu",
+        "arxiv:1503.01269v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Strongly regular graph parameter tables specify d, lambda and mu but not a global two-gain constrained spectral minimax.",
+        "Special-case five-cycle optimal two-round gains are already known from earlier odd-cycle analysis."
+      ],
+      "reasoning": "The theorem is an infinite all-parameter phase classification with unique gains and entrywise transition identity, not a recomputation of known graph parameter tables. One earlier special case is excluded from the originality claim.",
+      "searches": [
+        "Petersen graph two step mixing 1/6 1/3 1/4 stochastic consensus",
+        "finite-time average consensus two Markov steps balanced complete multipartite graphs adjacency squared stochastic",
+        "strongly regular graph two step Markov chain fastest mixing alternating uniform gains common neighbors lambda mu"
+      ]
+    },
+    "rationale": "The known stochastic single-round fastest-mixing and unconstrained polynomial two-step frameworks do not, in inspected material, give the sharp individually stochastic two-round common-neighbor threshold, unique gains and exact mean-field transition matrix for all connected noncomplete strongly regular graphs. The five-cycle special case is explicitly recognized as previously covered, and general symmetry/filtering machinery is not claimed new. A specialist equivalent formulation could still exist.",
+    "residual_risks": [
+      "Unindexed specialist network-consensus or association-scheme literature may give an equivalent constrained two-gain optimum.",
+      "The Ghosh–Lee full journal text was not inspected; the related article was compared at the public abstract level, without asserting whole-paper noncoverage.",
+      "The five-cycle instance and general degree-two filtering ideas have earlier coverage; they are not separate novelty claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Partially overlapping methodology; per-step nonnegative Markov restriction not imposed. No checked theorem asserts the sharp strongly regular stochastic phase.",
+        "evidence": [
+          "arxiv:1503.01269v1, pp. 1–5, polynomial filtering and Markov positivity discussion",
+          "arxiv:1503.01269v1, final discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1503.01269",
+        "material_read": "Abstract, introduction, graph update and polynomial-filter definitions, second-order theorem/discussion, conclusion",
+        "method": "Full publicly accessible preprint PDF, text extraction plus page inspection",
+        "title": "Accelerating Consensus by Spectral Clustering and Polynomial Filters",
+        "trigger": "Closest second-order polynomial-filter formulation; potential dominating result"
+      },
+      {
+        "assessment": "Optimizes one kernel and graph symmetries; does not derive the constrained two-period gain alternation/phase asserted here.",
+        "evidence": [
+          "arxiv:0709.0955, model and symmetry sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "Abstract, single-kernel model, symmetry reduction framework, examples",
+        "method": "Public full-text PDF with relevant page inspection",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Could subsume two-step symmetry-invariant optimizers"
+      },
+      {
+        "assessment": "Allows graph-supported matrices not necessarily of scalar Markov Laplacian form; inspected results do not provide the constrained two-step minimax.",
+        "evidence": [
+          "arxiv:1211.6324, definitions and early theorem sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.6324",
+        "material_read": "Abstract, definitions of admissible graph-supported matrices, finite-time results for graph families",
+        "method": "Public full-text PDF with theorem/definition page inspection",
+        "title": "Graph diameter, eigenvalues, and minimum-time consensus",
+        "trigger": "General time-variable consensus framework potentially covering two steps"
+      },
+      {
+        "assessment": "Establishes standard one-step spectral optimization, not exact two-round homogeneous alternating gains.",
+        "evidence": [
+          "Boyd–Diaconis–Xiao 2004, SIAM Review 46"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/fmmc.html",
+        "material_read": "Article overview, objective and single stochastic kernel model",
+        "method": "Public author site and mathematical formulation",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational optimization comparison"
+      },
+      {
+        "assessment": "Dynamic-feedback decentralized finite-time synthesis differs from prescribed two scalar Markov gains, but abstract alone cannot rule out all relevant special cases.",
+        "evidence": [
+          "Ghosh–Lee 2013 public abstract; DOI 10.1137/120862478"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/120862478",
+        "material_read": "Public abstract, metadata and methods overview only; full article not obtained",
+        "method": "Publisher public abstract and open-access discovery search",
+        "title": "Optimal Finite-Time Consensus on Fixed and Periodic Graphs",
+        "trigger": "Plausible broader finite-time consensus scope"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "097c8c11-c67a-43e2-8120-2accada2f23e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural network consensus design problem with per-step transition nonnegativity receives an exact graph-wide solution. The threshold compares adjacent versus nonadjacent common-neighbor numbers; it yields unique implementable optimal transition rates, strict schedule improvement for nontrivial families such as Petersen and Clebsch, and exact finite-time mean-field mixing for balanced multipartite graphs. This classification is not merely a parameter table, restated spectral formula or unsupported finite example.",
+    "status": "PASS"
+  }
+}

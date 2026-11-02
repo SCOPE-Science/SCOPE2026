@@ -1,0 +1,15 @@
+# Scientific review of the gear-graph zero-forcing reconfiguration metric
+
+## Correctness — PASS
+The candidate's state space is explicitly defined, its five rotational classes admit a direct forcing derivation, and the graph adjacency follows by exact set intersection. The infinite-cover metric is accompanied by an entire coefficient table and a branch-complete Bellman and descent verifier. The covering-space distance reduction and the four-step central-band induction turn the explicit table into a proof for every rim length, not a finite extrapolation. A separately written direct zero-forcing/graph-distance program confirms all individual states and distances for the first seven admissible rim lengths. Risk: readers should rerun the integer certificate and inspect the finite-to-infinite tail reasoning; the proof concerns only the defined graph and update rule.
+
+## Originality — PASS, qualified
+The 2023 gear-graph study describes minimum sets up to graph isomorphism and the zero-forcing number three. The 2020 reconfiguration-graph paper defines the exchange operation and develops general foundations. Neither inspected text provides the sharp all-parameter eccentricity formula, five-family labelled exchange graph, or its cover-metric certificate. Searches for zero forcing reconfiguration of gears, labelled minimal-set graphs, and equivalent wheel-subdivision terminology did not identify a stronger theorem implying the metric formulas. Available earlier mathematical records and earlier accessible research claims were compared by their mathematical objects; the closest gear-specific research record concerns a different mixed-resolving invariant. Residual risk: indexing is incomplete and there may be an equivalent unindexed computation; lack of a hit is not proof of absolute priority.
+
+## Value — PASS
+A minimum zero-forcing set represents a smallest sensor/control placement that can deterministically propagate to the full graph. Changing exactly one placement is the natural constrained reconfiguration operation. Gear graphs are a classical infinite family obtained by a controlled structural change to wheels: the exact radius and diameter describe the worst possible number of placement replacements, and type-by-type eccentricities expose genuinely different central and peripheral minimum sets. The sharp mod-four dependence and explicit covering metric provide information not implied by knowing the zero-forcing number or symmetry orbits. Risk: no mixing-time, directed forcing or higher-degree-family implications are asserted.
+
+## Literature and limitations
+Geneson–Haas–Hogben (arXiv:2009.00220) provides the token-jump framework; Anderton et al. (arXiv:2310.18513) establishes prior minimum gear-graph forcing configurations; *Propagation time for zero forcing on a graph* (arXiv:1410.4191) supplies archival context. The all-size distance result is the sole new claim. No independent external assessment has been performed.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The exact conditional law follows by a bijective generalized Prüfer code and the r-Stirling partition count. The fixed-r Stirling row is real-rooted with simple negative zeros by an explicit interlacing recurrence, hence log-concave. The deletion identity then gives strict adjacent likelihood-ratio comparisons; support boundaries and the permutation case are treated separately. Independent direct map enumeration through n=6 and 114389 exact checks corroborate all steps. Finite checking is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pitman (1998) gives general fixed-edge rooted-forest multinomial degrees; Maamra–Mihoubi (2012) prove r-Stirling log-concavity.",
+        "Neither statement directly compares cyclic-core-conditioned terminal laws across different root counts."
+      ],
+      "reasoning": "General degree formulas and Stirling log-concavity supply ingredients, but no stronger theorem implying reverse likelihood-ratio ordering for this conditional kernel was located in material inspected; wider total-positivity literature remains a priority risk.",
+      "searches": [
+        "random rooted forests with k roots conditional leaf count strongly stochastic likelihood ratio",
+        "r-Stirling numbers second kind log concavity imply conditional distribution of empty boxes",
+        "r Stirling numbers of second kind total positivity in r and k for fixed n",
+        "https://live-statistics.pantheon.berkeley.edu/sites/default/files/tech-reports/499.pdf"
+      ]
+    },
+    "checked_sources": [
+      "Hansen and Jaworski, arXiv:math/0603529, public first version 2006-03-22",
+      "Pitman, Technical Report 499 (1998), https://live-statistics.pantheon.berkeley.edu/sites/default/files/tech-reports/499.pdf",
+      "Hansen and Jaworski, Ars Combinatoria 94 (2010), https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+      "Maamra and Mihoubi, arXiv:1212.3191 (2012), Theorem 1",
+      "Broder (1984), bibliographic/definition reference; original full text not inspected",
+      "Existing exact cyclic/terminal conditional law, opaque record 0c1fa0e0-7cad-4909-b54e-a00856591680",
+      "Related fixed-root component-size LR law, opaque record e4026a99-d989-4532-8ba5-4c552dcc22c8 (different statistic)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier exact bivariate law includes the expression E[Z|C=m]=(n-m)(1-1/n)^(n-m-1), which is only a first-moment ordering.",
+        "The r-Stirling fixed-row real-rootedness fact does not alone establish cross-row comparison; the deletion identity and strict ratio monotonicity complete the argument."
+      ],
+      "reasoning": "The new result implies old negative first-moment covariance and much more: every monotone terminal transformation, every tail, and every two-by-two minor. The reverse implication from a mean inequality is false in general. The exact old formula logically determines the kernel but a separate nontrivial cross-row theorem is required to prove its sign.",
+      "searches": [
+        "joint law of cyclic and terminal vertices uniform random mappings conditional mean stochastic ordering",
+        "random mapping cyclic points number leaves joint distribution covariance",
+        "arXiv:math/0603529",
+        "arXiv:1212.3191"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact joint-kernel statement is equivalent to monotone likelihood-ratio ordering of terminal counts given cyclic size.",
+        "The earlier conditional law specifies exact probabilities, and its quoted claim limits itself to a decreasing conditional mean."
+      ],
+      "reasoning": "Searching the reverse-TP2, LR, terminal, leaf, zero-indegree, functional-digraph, and cyclic-core aliases identified no previously proved all-minor statement. The new assertion is not the old probability formula itself: it is the non-obvious sign classification of every cross-row minor, requiring an additional log-concavity and deletion argument.",
+      "searches": [
+        "conditional on number of cyclic vertices in a uniform random mapping, zero-indegree vertex count is strictly monotone in likelihood ratio order",
+        "random mapping leaves vs cyclic core size TP2 reverse total positivity factorial moments r-Stirling",
+        "uniform random mappings cyclic vertex count terminal vertex count conditional law likelihood ratio reverse TP2",
+        "random mappings cyclic vertices leaves joint distribution stochastic order number terminal vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The r-Stirling table defines and computes all coefficients S_r(N,q); fixed-n rows determine the exact law.",
+        "Known recurrences and log-concavity do not explicitly list the cross-row cyclic-core conditional order."
+      ],
+      "reasoning": "A table can numerically determine each finite instance but does not by itself state or demonstrate the uniform all-size cross-row sign theorem. The proof establishes a new global structural inequality, not another tabulation.",
+      "searches": [
+        "r-Stirling numbers second kind ratio monotonicity distinguished elements probability zero indegree",
+        "https://setpartitions.org/r-stirling",
+        "https://arxiv.org/pdf/1212.3191"
+      ]
+    },
+    "rationale": "Relevant prior sources establish rooted-forest degree distributions, exact conditional count law, and Stirling log-concavity, but the new cross-ratio proof and all-conditional-threshold reverse likelihood-ratio order were not covered by the compared explicit claims; residual implicit-priority risk is acknowledged.",
+    "residual_risks": [
+      "Older random-mapping papers and Broder original full text may contain an implicit comparison not found in inspected material.",
+      "Published general total-positivity theorems for r-Stirling arrays could subsume the result under a non-obvious transformation.",
+      "Parts of the plausible 2010 random-mapping paper were not visually inspected; absence of a statement is claimed only for the material read.",
+      "No independent historical-priority or mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Reports cyclic-point, component and size laws; no terminal-count likelihood-ratio ordering found in reviewed material",
+        "evidence": [
+          "arXiv:math/0603529v1 dated 2006-03-22, abstract and §§1–3; introduction identifies the standard uniform mapping"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0603529",
+        "material_read": "PDF front matter, introduction, model and theorem descriptions; searched extracted PDF text for leaves and ordering, inspected relevant formulas",
+        "method": "Open-access arXiv PDF, searchable extracted text and page-image check",
+        "title": "A new random mapping model",
+        "trigger": "Uniform random mapping with cyclic vertices and indegrees"
+      },
+      {
+        "assessment": "Describes multinomial outdegree laws and forest operations, not the claimed conditioning-by-cyclic-count likelihood-ratio comparison in the material read",
+        "evidence": [
+          "Technical Report 499 (June 1998), Proposition 2 on multinomial forest degree vectors; related source theory rather than cross-core distribution ordering"
+        ],
+        "identifier_or_url": "https://live-statistics.pantheon.berkeley.edu/sites/default/files/tech-reports/499.pdf",
+        "material_read": "Abstract, introduction, Proposition 2, theorem overview and relevant rooted-forest count arguments",
+        "method": "Authoritative open institutional PDF, extracted text and page-image inspection",
+        "title": "The multinomial distribution on rooted labeled forests",
+        "trigger": "Possible stronger degree-vector description of fixed-root random forests"
+      },
+      {
+        "assessment": "The inspected theorems concern component size and cycle lengths conditional on cyclic-vertex count, not terminal-count LR ordering; uninspected pages retain residual risk",
+        "evidence": [
+          "Ars Combinatoria 94 (2010), pp.341–359, Corollaries 1–2 and Theorems 1–5 relate cyclic count to component size"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+        "material_read": "Pages 1, 3–8, 11 and 16 in 19-page open PDF, including main statements on typical component size and its conditional distribution",
+        "method": "Open-access journal PDF; direct visual page inspection",
+        "title": "Random mappings with a given number of cyclical points",
+        "trigger": "Exact same conditioning on number of cyclic points"
+      },
+      {
+        "assessment": "Real-rootedness and strong log-concavity are established antecedents; conditional random-mapping kernel and cross-ratio comparison are not given in the material read",
+        "evidence": [
+          "arXiv:1212.3191, Theorem 1 proves roots of generalized Bell polynomials real and negative"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1212.3191",
+        "material_read": "Introduction and §2, including Theorem 1, real-negative-root conclusion and log-concavity discussion",
+        "method": "Open-access arXiv PDF, searchable text and page-image inspection",
+        "title": "The (r1,...,rp)-Bell polynomials",
+        "trigger": "Possible stronger theorem covering the key Stirling log-concavity lemma"
+      },
+      {
+        "assessment": "Classical definition and recurrence predate the claim; original full-text coverage remains uncertain",
+        "evidence": [
+          "Broder, Discrete Mathematics 49 (1984), 241–259; distinguished blocks definition and deletion identity documented in standard references"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(84)90161-4",
+        "material_read": "Bibliographic description and standard r-Stirling definition/recurrences in accessible secondary reference; original full text not read",
+        "method": "Bibliographic and online reference inspection, not full-paper inspection",
+        "title": "The r-Stirling numbers",
+        "trigger": "Original r-Stirling definition and recurrence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ede72eb-318a-460e-bdc4-fa9dba3eff35",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "It resolves the natural, previously unproved all-threshold dependence question between cyclic-core size and terminal count in the uniform random mapping: every increasing transformation is negatively associated. This is a global conditional-distribution structural classification beyond the known exact table and conditional mean, and requires a genuine cross-row inequality.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The displayed edges form trees. The bare path 4–5–6 with degree-two internal vertex 5 defines a proper KC move that changes four leaves to five. Two independent exact methods yield means \\(73/15\\) and \\(34/7\\) and difference \\(-1/105\\): first-vertex rational recursion on induced subsets and exhaustive enumeration of all 362880 permutations. Exhaustive leaf-extension generation of all 1-to-9-vertex unlabelled trees, complete isomorphism reduction, and exact evaluation of every proper KC endpoint pair found no smaller negative difference (orders 1 through 8: 0 negative moves). The standard-library checker was replayed successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 6.1 of arXiv source / Theorem 8.3 of revised source proves KC monotonicity for an auxiliary statistic ν, not the actual greedy cardinality",
+        "Theorem 1.4 gives a global minimum at the path without requiring monotonicity along individual shifts",
+        "The exact counterexample moves an edge on a bare path and decreases actual expected size by \\(1/105\\)"
+      ],
+      "reasoning": "Neither the path-minimum theorem nor monotonicity of the surrogate ν implies monotonicity of the actual expected greedy independent-set size. In fact the source singles that out as a plausible open strengthening. A general recursive formula is a method to evaluate particular inputs, not a published negative sign determination.",
+      "searches": [
+        "https://arxiv.org/abs/1907.07216 (sections 6.1,7)",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200 (sections 8.1,9)",
+        "\"greedy independence\" \"Kelmans\" tree counterexample"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1907.07216; first posted 2019-07-16; relevant full text",
+      "doi:10.1002/rsa.21200; Sections 8.1 and 9",
+      "doi:10.4230/LIPIcs.AofA.2020.20; title/date and indexed relevant passages (full text not separately inspected)",
+      "Indexed mathematical claims on multipartite, chain and threshold graph greedy laws, none addressing KC transformations",
+      "Earlier relevant mathematical claims on edge addition, cycle chords and wheel adsorption, examined for implication overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary text conjectures expected greedy independence ratio is monotone for KC moves and strictly so for proper moves",
+        "New explicit proper move has mean difference \\(-1/105\\) (ratio \\(-1/945\\)), exactly the opposite inequality",
+        "General tree/graph random greedy MIS results do not provide the explicit sharp-order negative witness"
+      ],
+      "reasoning": "The new theorem contradicts a suggested, not proved, assertion. It leaves both of the paper’s rigorous theorems untouched, so neither prior result implies it or is logically invalidated by it.",
+      "searches": [
+        "https://arxiv.org/abs/1907.07216 Section 7 \"Monotonicity With Respect to KC-Transformations\"",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200 Section 9",
+        "KC-transformation random greedy maximal independent set expected size monotonicity counterexample nine vertex tree 1/420"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1907.07216, Section 7: KC monotonicity is stated as likely, not proved",
+        "No indexed scholarly finding was an equivalent expected-size KC comparison; closest variance/graph-class records concern complete multipartite or chain graphs"
+      ],
+      "reasoning": "Search covers aliases KC, Kelmans–Csikvári, generalized tree shift, and random greedy maximal independent set. An equivalent obstruction would require a proper KC move with a strictly lower random-order expected independent-set size; none identified.",
+      "searches": [
+        "KC-transformation random greedy maximal independent set expected size monotonicity counterexample nine vertex tree 1/420",
+        "Krivelevich Meszaros Michaeli Shikhelman KC transformation greedy independent set mean nonmonotonic 9",
+        "web: \"greedy independent\" \"KC-transformation\" counterexample",
+        "web: \"random greedy\" \"KC\" tree nonmonotone expected"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Prior relevant mathematical claims on edge addition, cycle chords, and wheel adsorption do not state KC expectation comparisons",
+        "The inspected primary paper contains no nine-vertex witness or table refuting its Section 7/9 monotonicity suggestion",
+        "Closest indexed published findings on multipartite and chain-graph greedy laws do not address KC transformations of trees"
+      ],
+      "reasoning": "The 9-vertex rational probabilities and the complete census of proper KC moves through order nine were computed from displayed graphs. No identical published table or earlier comparable claim was found; this alone does not establish historical priority.",
+      "searches": [
+        "Earlier finding claim comparison: KC, Kelmans, Csikvári, greedy independent",
+        "Search: Kelmans Csikvari tree shift random greedy independent set nonmonotonicity",
+        "Search: \"greedy maximal independent\" \"KC-transformation\" monotonicity conjecture"
+      ]
+    },
+    "rationale": "A direct counterexample to the monotonicity proposed in arXiv:1907.07216, Section 7 (2023 full text Section 9), not a restatement of its proved surrogate KC inequality or path-minimality theorem. Exact comparison of two explicit nine-vertex trees is negative; the first violating order is certified by exhaustive rational enumeration.",
+    "residual_risks": [
+      "Unindexed, inaccessible or more recent work may have already recorded the same KC counterexample; absence from search is not novelty proof.",
+      "The minimality statement relies on exact finite exhaustive enumeration in a provided checker, not independent formal verification.",
+      "No inference is made about generality beyond the KC-move monotonicity conjecture."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECTLY_RELEVANT_NOT_COVERING: conjectural positive monotonicity instead of an explicit negative witness",
+        "evidence": [
+          "2019-07-16 initial public date",
+          "Section 6.1: KC definition, properness and ν inequality",
+          "Section 7: suggested monotonicity of actual expected greedy independence ratio"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.07216",
+        "material_read": "Full-text Sections 6.1 (KC definition and proved auxiliary inequality) and 7 (suggested monotonicity); source metadata and introduction",
+        "method": "Accessible arXiv HTML full text",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Directly proposes KC monotonicity for random greedy independent sets"
+      },
+      {
+        "assessment": "SAME_PAPER_REVISED_NOT_COVERING: explicit suggested monotonicity remains, no counterexample supplied",
+        "evidence": [
+          "Section 8.1: KC definition and properness",
+          "Theorem 8.3: inequality for auxiliary ν",
+          "Section 9: conjectural monotonicity of actual greedy expectation"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+        "material_read": "Sections 1.1.3, 8.1, 9 and pertinent proofs/remarks (especially Theorem 8.3)",
+        "method": "Lawfully accessible full-text HTML",
+        "title": "Greedy maximal independent sets via local limits (revised journal version)",
+        "trigger": "Highly relevant revised full text with same objects and parameters"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "07b30197-5fd0-4143-af73-9ea29bf02d81",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Resolves negatively a concrete proposed monotonicity of actual expected greedy maximal-independent-set cardinality along KC tree transformations, and identifies the first possible tree order. This changes the interpretation of a natural tree-order approach to random greedy algorithms and distinguishes the previously proved auxiliary-functional monotonicity from the genuinely false strengthening. A small absolute expectation gap is sufficient to refute the universal assertion.",
+    "status": "PASS"
+  }
+}

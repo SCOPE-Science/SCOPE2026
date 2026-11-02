@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For each selected rung, precisely one incident horizontal edge is absent at both endpoints. Every proper nonempty rung-support run therefore pairs consecutively and forces paired horizontal deletions. With r selected cuts the spanning 2-factor has exactly r components, so only one cut yields a Hamiltonian cycle. Empty and full rung supports are classified separately with a parity analysis. Every 2-edge Hamiltonian switch is an alternating four-cycle, and for n>=5 all four-cycles are rung squares; this exhausts the moves. Independent direct matching and depth-first-search enumeration, including all pairwise symmetric-difference tests, passed for n=4..18 and n=4..13 respectively. The infinite claim rests on the proof, not on finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Heinig, arXiv:1112.5101v1, Theorem 15 and Lemma 17(a6–a15), establishes Cayley presentations, laceability and Hamiltonian-cycle span of cycle space; its §2.1.2 discusses the two relevant graph families.",
+        "Takaoka (2018) proves PSPACE-hardness for other classes and connectedness for unit interval and bipartite permutation graphs, not a complete classification of prism/Möbius ladder switch graphs.",
+        "Kazazi, arXiv:2601.06749 (2026) studies open rectangular grids with double-switch moves; not the two closed strip graphs under one switch."
+      ],
+      "reasoning": "An assertion that Hamiltonian circuits span a vector space is not a statement about which pairs differ in exactly four edges; it does not imply connectivity of the local switch graph. General results for unit interval/bipartite permutation graphs do not apply to these long induced-cycle cubic ladders. Double-switch results on open grids allow a different move and do not cover the present exact adjacency.",
+      "searches": [
+        "\"On prisms, Möbius ladders and the cycle space of dense graphs\" arxiv",
+        "arxiv:1112.5101 Lemma 17 Hamilton cycles prisms Möbius",
+        "\"Complexity of Hamiltonian Cycle Reconfiguration\" \"prism\" \"ladder\"",
+        "\"Hamiltonian cycles\" \"Möbius ladder\" \"square flip\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1112.5101v1 full-text HTML",
+      "doi:10.3390/a11090140 PDF accessible 15 pages",
+      "doi:10.1016/S0012-365X(97)00086-1 abstract only",
+      "doi:10.4153/CMB-1967-046-4 metadata/intro excerpt",
+      "arxiv:2601.06749 abstract",
+      "MathWorld Möbius Ladder Hamiltonian counts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Heinig 2011 gives statements about Hamiltonian circuit span and Cayley representation, not edge replacement distances.",
+        "Takaoka 2018 provides a move definition and complexity results but not the formula \\(nK_1\\), \\((n+2)K_1\\), \\(K_{1,n}\\), or \\(K_{1,n}\\sqcup2K_1\\) for these graph families.",
+        "Published records on Möbius perfect-matching complexes concern homology of different configuration spaces, not Hamiltonian-cycle adjacency."
+      ],
+      "reasoning": "Static classification gives candidate vertices, but the full local reconfiguration graph requires proving all 2-edge switches are exhausted and which preserve Hamiltonicity. Cycle-space span, general existence, and matching-complex homology do not contain the asserted adjacency or component data. The present circuit decomposition and square analysis supply that additional implication. No stronger accessible theorem was identified; the inaccessible McSorley paper remains a named limited-access risk.",
+      "searches": [
+        "Hamiltonian cycle reconfiguration flip graph prism graph C_n Cartesian product K_2 4-cycle flips connectivity components",
+        "Hamilton cycles of Möbius ladder reconfiguration 4-cycle switches exact connected components",
+        "Hamiltonian cycle 2-edge switch graph of Möbius ladder is star plus two isolated cycles; prism Hamilton cycles all isolated",
+        "single square face flip Hamiltonian cycles cylinder versus Möbius ladder complete reconfiguration graph",
+        "Counting structures Mobius ladder McSorley Hamilton cycle classification 2-opt switch adjacent quadrilateral",
+        "\"On prisms, Möbius ladders and the cycle space of dense graphs\" arxiv",
+        "\"Hamiltonian cycles\" \"prism\" \"reconfiguration graph\" isolated"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Takaoka, Algorithms 11 (2018), 140, DOI 10.3390/a11090140: switch replaces two Hamiltonian-cycle edges by another two edges; accessed complete 15-page PDF, searchable text and relevant introduction/abstract.",
+        "McSorley, Discrete Mathematics 184 (1998), 137–164, DOI 10.1016/S0012-365X(97)00086-1: abstract is about counting structures, not explicit exchange adjacency; full text inaccessible.",
+        "The graph \\(M_n\\) is also the circulant \\(C_{2n}(1,n)\\), while \\(P_n\\) is the usual cyclic prism. The claim compares pairwise 4-edge symmetric differences of their full Hamiltonian-cycle sets."
+      ],
+      "reasoning": "Equivalent labels searched include four-cycle flips, two-edge switches, Hamiltonian two-opt, ribbon graphs, Möbius ladder, and circular prism. The static count formulas do not specify the switch graph; a switch graph formula would have to provide both the star center and all isolated states. No accessible covering theorem was found.",
+      "searches": [
+        "Hamiltonian cycle reconfiguration flip graph prism graph C_n Cartesian product K_2 4-cycle flips connectivity components",
+        "Hamilton cycles of Möbius ladder reconfiguration 4-cycle switches exact connected components",
+        "Hamiltonian cycle 2-edge switch graph of Möbius ladder is star plus two isolated cycles; prism Hamilton cycles all isolated",
+        "\"Hamiltonian cycle\" \"Möbius ladder\" \"switch graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld, Möbius Ladder, lists known directed Hamiltonian-cycle numbers \\(2[(n+2)-(-1)^n]\\), agreeing with the static count here after division by two.",
+        "OEIS A124356 is a static directed-Hamiltonian-cycle count, not a graph adjacency database.",
+        "Institutional McSorley abstract at https://opensiuc.lib.siu.edu/math_articles/93/ was accessible but its PDF download gave HTTP 403."
+      ],
+      "reasoning": "Known exact numerical counts and existing tables are deliberately excluded from the novelty claim. Reconstructing adjacency by explicit switch tests is essential; no checked table provides these graph components. An inaccessible 1998 full paper could still contain additional information; absence of a matching table is not asserted on inaccessible pages.",
+      "searches": [
+        "\"Möbius ladder\" Hamiltonian cycles count OEIS A124356",
+        "\"Counting structures in the Möbius ladder\" John P. McSorley pdf 1998",
+        "\"prism graph\" number of Hamiltonian cycles odd even",
+        "\"Möbius ladder\" \"Hamiltonian\" \"switch\" cycles"
+      ]
+    },
+    "rationale": "The finding is the exact graph of Hamiltonian two-edge switches, not a static Hamiltonian-cycle count, cycle-space-span statement, or general reconfiguration complexity theorem. The full-text Heinig 2011 theorem and Lemma 17 address the cycle-space rank of Hamiltonian circuits in prism and Möbius graphs without implying one-switch adjacency. Takaoka 2018 defines the switch and studies other graph classes without this pair of exact decompositions. The known static count in McSorley 1998 is credited. Research-record and topical literature searches found no equivalent switch-graph description. The inaccessible full 1998 paper is explicitly named as a remaining originality risk.",
+    "residual_risks": [
+      "The 1998 McSorley article has no accessible complete text, so an already-published statement about Hamiltonian switches hidden there is not ruled out.",
+      "Unindexed older accounts of 2-opt on cubic ladders might establish the same star/discrete dichotomy."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the claimed Hamiltonian two-edge switch graph; covers Hamilton-generated cycle spaces and Cayley presentations, which do not imply local adjacency",
+        "evidence": [
+          "arXiv posting date 2011-12-21; Theorem 15 and Lemma 17 describe the Hamilton cycle span, not all one-step Hamiltonian switches."
+        ],
+        "identifier_or_url": "arxiv:1112.5101v1 | https://arxiv.org/abs/1112.5101",
+        "material_read": "First-posted date and accessible full-text HTML, abstract, introduction, Theorem 15, Lemma 17(a6–a15), discussion in §2.1.2, and relevant proofs/cycle-space context",
+        "method": "Full-text HTML read and targeted searches for switching and Hamiltonian adjacency",
+        "title": "On prisms, Möbius ladders and the cycle space of dense graphs",
+        "trigger": "Same graph families and Hamiltonian circuits; primary archival starting point"
+      },
+      {
+        "assessment": "Provides switch definition and other tractability/hardness classes, not the asserted exact prism and Möbius component structures",
+        "evidence": [
+          "2018 publication, Section 1 switch definition; stated positive classes unit interval and bipartite permutation graphs."
+        ],
+        "identifier_or_url": "doi:10.3390/a11090140 | https://pdfs.semanticscholar.org/862b/e3dcdd0649a1c3309c07f65431e4d7764c4f.pdf",
+        "material_read": "Accessible 15-page PDF, abstract, introduction, theorem overview and keyword searches across extracted full text for prism, Möbius and ladder",
+        "method": "Public PDF text inspection and rendered first page; searched terms in searchable document",
+        "title": "Complexity of Hamiltonian Cycle Reconfiguration",
+        "trigger": "Exact two-edge switch definition; possible general covering result"
+      },
+      {
+        "assessment": "Known static Hamiltonian count is credited; one-switch graph coverage cannot be excluded from inaccessible full text",
+        "evidence": [
+          "Institutional record: counts structures of Möbius ladders; published in Discrete Mathematics 184 (1998), 137–164."
+        ],
+        "identifier_or_url": "doi:10.1016/S0012-365X(97)00086-1 | https://opensiuc.lib.siu.edu/math_articles/93/",
+        "material_read": "Institutional abstract and bibliography only; attempted full-text link returned HTTP 403, a full text could not be obtained",
+        "method": "Open-access institutional record and requested download, bibliographic cross-check at Michigan Tech; no preprint full text found",
+        "title": "Counting structures in the Möbius ladder",
+        "trigger": "Highly plausible closest historical enumeration of the same objects"
+      },
+      {
+        "assessment": "Establishes classical Möbius ladder graph, not a checked switch-graph theorem",
+        "evidence": [
+          "Guy and Harary 1967, Canadian Mathematical Bulletin 10, 493–496."
+        ],
+        "identifier_or_url": "doi:10.4153/CMB-1967-046-4 | https://geodesic.mathdoc.fr/articles/10.4153/CMB-1967-046-4/",
+        "material_read": "Bibliographic record, original introduction excerpt and cited papers; full text not obtained",
+        "method": "Geodesic bibliographic HTML",
+        "title": "On the Möbius Ladders",
+        "trigger": "Original named graph and potential prior definition"
+      },
+      {
+        "assessment": "Open grid boundary conditions and double moves do not imply one-switch behavior of closed cylindrical/twisted ladders",
+        "evidence": [
+          "arXiv first posted 2026-01-11; uses valid double-switch moves for rectangular grids."
+        ],
+        "identifier_or_url": "arxiv:2601.06749 | https://arxiv.org/abs/2601.06749",
+        "material_read": "Public abstract describing box switches, double moves and open rectangular grids",
+        "method": "arXiv abstract search",
+        "title": "Reconfiguration of Hamiltonian Paths and Cycles in Rectangular Grid Graphs",
+        "trigger": "Potentially stronger modern box-switch theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "084711c2-e94a-4087-9acf-f062eebc0679",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question is motivated by the ability to locally rearrange Hamiltonian tours under the usual two-edge switch. Two natural cubic families have identical local ladder squares yet radically different exact reconfiguration graphs solely because one seam is twisted: all configurations are frozen on the cylinder, whereas n states become adjacent to one central state on the Möbius strip, with two additional frozen states in odd widths. This natural complete infinite-family mobility classification is not the known Hamiltonian-cycle count and has direct implications for irreducibility of any single-switch Hamiltonian-cycle sampler.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact Bernoulli-conditioned A0,A1 matrices yield the six-dimensional symmetric moment map. The symbolic determinant is γq²[(q−1)γ²+(7q−8)γ+6q−4]. For q>2/3 the explicit P≻0 solves a strict internal Lyapunov equation at γ=0; the simple slow eigenvalue derivative is −2. The positive-cone Perron crossing argument establishes the full sharp stable interval. The A0 Jordan structure and A1 action show irreducibility, forcing the dual Perron matrix positive definite and making the primal error obstruction valid for every nonzero initial state when 0<q<1. Exact rational enumerations and symbolic verification passed. q=1 is handled separately.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 broad error-feedback source discusses empirical optimal η=0 and general EF21 rates.",
+        "2023 EControl source establishes convergence at controlled η, not an η=1 exact Bernoulli frontier."
+      ],
+      "reasoning": "General sufficient convergence with reduced feedback or an empirical optimal parameter does not imply a necessary-and-sufficient maximal-feedback threshold. A fully covering result for identical random matrices would be decisive but was not identified.",
+      "searches": [
+        "EControl η=1 dropout scalar quadratic second moment spectral determinant stability",
+        "error feedback algorithms distributed optimization Thomsen Taylor Dieuleveut 2026 empirical optimal EControl tuning",
+        "EControl Fast Distributed Optimization with Compression and Error Control Appendix C eta choice"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.05645v1, exact algorithm and Appendix C",
+      "arxiv:2106.05203, EF21 algorithm and main guarantee",
+      "arxiv:2605.31594, EControl algorithm and tuning discussions",
+      "indexed scientific record db9fbbc3513e, summary only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original paper Appendix C uses a Top-1 compressor and specific initialization in a multidimensional example.",
+        "2026 empirical-law η*=0 pertains a tuned different feedback value.",
+        "Classical Bernoulli error-feedback formula admits a positive step at every q>0."
+      ],
+      "reasoning": "The prior examples cannot infer that *every* positive γ fails for EControl at q≤2/3; the classical Bernoulli result even exhibits a contradictory-looking stable window because it is a different algorithm. The assessed exact phase diagram is not a restatement of those results.",
+      "searches": [
+        "arxiv:2311.05645",
+        "arxiv:2106.05203",
+        "arxiv:2605.31594",
+        "EControl η=1 dropout scalar quadratic second moment spectral determinant stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two independent readings of Algorithm 2/3 give an identical three-state update after setting η=1.",
+        "Published classical error-feedback summary has a different geometric-delay recurrence."
+      ],
+      "reasoning": "Renaming the stored-gradient state cannot erase the separate residual variable in EControl. No searched equivalent phrasing gave the exact six-moment determinant and primal no-step cutoff.",
+      "searches": [
+        "EControl η=1 dropout scalar quadratic second moment spectral determinant stability",
+        "Gao Islamov Stich EControl maximal feedback eta equals one Bernoulli erasure compressor three state quadratic sharp mean-square stability threshold q two thirds gamma",
+        "arxiv:2311.05645 Algorithm 2",
+        "arxiv:2605.31594 Algorithm 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed prior claims include classical error-feedback Bernoulli geometric-delay ceiling 2q/(2-q) and EF21 half-dropout ceiling 2/3 for one component, but not this η=1 EControl q threshold."
+      ],
+      "reasoning": "The numerical coincidence of a 2/3 value in a different EF21 step-size formula does not logically cover a 2/3 erasure-probability impossibility under a distinct three-state recursion. An exhaustive external database search is not claimed.",
+      "searches": [
+        "one worker EControl scalar quadratic dropout gradient estimator stability exact Bernoulli",
+        "EControl error memory gradient shift stochastic compressor probability 2/3 minimum transmission mean square",
+        "random erasure compressed SGD error feedback EControl sharp stability phase transition"
+      ]
+    },
+    "rationale": "Named literature, source algorithms and the published-record abstract were compared by the exact recurrence and logical implication. The new conclusion is the sharp q>2/3 prerequisite, full γ*(q) boundary and all-nonzero-state primal obstruction for maximal-feedback EControl. The full text of one plausible prior technical record was unavailable; therefore publication priority is qualified, not independently certified.",
+    "residual_risks": [
+      "Published-record full text for classical Bernoulli error feedback was inaccessible; implication comparison is limited to the reliable indexed summary.",
+      "Specialized random switched-system and compressed-optimization literature may contain an equivalent three-state stability polynomial; novelty is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the studied update and gives a qualitatively different Top-1 counterexample; neither an exact scalar erasure reliability threshold nor the quadratic moment determinant is stated in the inspected material.",
+        "evidence": [
+          "Algorithm 2: compressed ηe+g-h, then e,h,x updates.",
+          "Appendix C: η=1 may diverge under a Top-1 example depending on h initialization, while η=δ performs differently."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.05645",
+        "material_read": "Algorithm 2 on PDF page 6; the substantive discussion of feedback strength and the contrasting initialization tests in Appendix C on PDF page 26; first-public arXiv record.",
+        "method": "Read source PDF text together with rendered pages and compared exact update ordering and mathematical hypotheses.",
+        "title": "EControl: Fast Distributed Optimization with Compression and Error Control",
+        "trigger": "This source defines the investigated three-state algorithm and reports sensitivity at maximal feedback."
+      },
+      {
+        "assessment": "EF21 does not carry the independent EControl residual state in the analyzed form; its bounds do not imply the polynomial in this result.",
+        "evidence": [
+          "The EF21 stored gradient is updated by a compressed gradient difference; the maximal-feedback EControl iteration additionally maintains e and compresses ηe+g-h."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.05203",
+        "material_read": "Update definition and guarantees in the accessible PDF, including the algorithm displayed on the relevant page.",
+        "method": "Compared its gradient-estimator update with the three-state EControl recurrence, rather than using matching terminology.",
+        "title": "EF21: A New, Simpler, Theoretically Better, and Practically Faster Error Feedback",
+        "trigger": "Stored-gradient error correction provides a plausible alternative formulation of the candidate."
+      },
+      {
+        "assessment": "Reports empirical optimal EControl feedback at η=0 and general guarantees; no exact η=1 Bernoulli q–γ spectral boundary was found in the inspected material.",
+        "evidence": [
+          "Algorithm 3 gives η-regulated EControl updates.",
+          "Empirical Law 4.4 proposes η*=0, rather than classifying this η=1 erasure recurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.31594",
+        "material_read": "Algorithm 3, main results of Section 3, and Section 4 empirical-law EControl tuning, including rendered pages 6 and 8.",
+        "method": "Checked exact EControl recursion and searched the main theorem/empirical laws for arbitrary-η Bernoulli moment stability.",
+        "title": "A Tight Theory of Error Feedback Algorithms in Distributed Optimization",
+        "trigger": "Later general error-feedback analysis might dominate the claimed exact stability region."
+      },
+      {
+        "assessment": "Summary concerns classical error feedback with ceiling 2q/(2-q), which differs from EControl maximal-feedback no-stable-step behavior at q≤2/3; no full-text exclusion is claimed.",
+        "evidence": [
+          "Indexed statement: classical Bernoulli error feedback applies Jsx after J geometric attempts; stable exactly for 0<s<2q/(2-q)."
+        ],
+        "identifier_or_url": "db9fbbc3513e",
+        "material_read": "The published search-record summary; full text could not be accessed through the available repository read path.",
+        "method": "Compared the abstracted claimed geometric-delay recurrence and threshold against the present three-state operator.",
+        "title": "Sharp mean-square stability loss for Bernoulli error-feedback sparsification",
+        "trigger": "Same Bernoulli mechanism and mean-square stability question could hide dominating coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0e1baaa9-5ae6-4cfc-a93a-47b35ad1bb3a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp q>2/3 threshold prevents stabilization by any positive step when maximal feedback is combined with sufficiently frequent erasures, including correct-gradient initialization. Its analytical γ*(q) curve offers a precise stability guide and a boundary for feedback-regulation design, not a trivial normalization check or a generic numerical threshold.",
+    "status": "PASS"
+  }
+}

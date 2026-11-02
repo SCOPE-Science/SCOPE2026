@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For any binary word the kth tortoise operation preserves prefix-count dominance: the transformed positions of each ordinal one are explicitly compared across words. This makes the phase-ordered output list monotone. At each rational phase cut, either total number of ones changes, or disjoint 01-to-10 swaps affect precisely one residue class. Equality under the kth iterate is equivalent to the last affected one being within the first k. Its rank is 1+floor(jp/q), yielding j<=H and excluding period multiples. Thus counting nonmultiples in the finite interval proves the formula and H not divisible q yields the sharp last collision. A packaged exact checker passes 49,750 parameter-iteration-length cases; finite checks corroborate, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Known irrational Sturmian all-k image-count formula has n+1 distinct factors at all n, unlike the rational q-periodic setting.",
+        "Previously established rational Christoffel one-step formula concerns \\(k=1\\) only."
+      ],
+      "reasoning": "Neither the full irrational all-k result nor the rational one-step result implies the residue-exclusion count when both \\(k\\ge2\\) and \\(n\\ge q\\); both assumptions are essential. The present formula reduces to the prior result at \\(k=1\\) and explicitly does not assert that specialization as new.",
+      "searches": [
+        "rational mechanical binary words k tortoise images modulo q exact injectivity threshold",
+        "tortoise complexity Sturmian sequence exact formula"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.25811v2, HTML full text",
+      "arXiv:1804.08724, accessible full primary text",
+      "arXiv:1809.09158, abstract",
+      "Previous known one-step rational Christoffel result (\\(k=1\\), nonnovel specialization)",
+      "Existing all-k irrational Sturmian image-count result (different factor language)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Campbell–Rampersad, arXiv:2604.25811v2, Section 4 proves a bounded one-step deficit under linear complexity, not a quantified k-fold rational formula.",
+        "Carey–Clampitt, arXiv:1804.08724, Section 1.3 establishes adjacent swaps for Christoffel conjugates; a new order-preservation and all-k collision criterion is required to deduce the result.",
+        "Earlier rational result exactly gives \\(k=1\\), whereas this theorem establishes \\(k\\ge2\\) simultaneously and a k-dependent sharp endpoint."
+      ],
+      "reasoning": "The related results do not imply the new claim by substitution, duality or a numerical reparameterization: for each \\(k\\ge2\\) one must track multiple simultaneously affected prefix sums and prove preservation of their image-fiber order. Existing irrational formulas have the wrong number of factors from n=q onward.",
+      "searches": [
+        "Christoffel rational mechanical words k-iterated tortoise complexity all iterations q p",
+        "periodic binary balanced Christoffel word multiple passes of tortoise sorting factor complexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Campbell and Rampersad, arXiv:2604.25811v2, Sections 3–4 and 7: one-step-equivalence framework and Sturmian questions.",
+        "Carey and Clampitt, arXiv:1804.08724, Section 1.3: adjacent Christoffel conjugates differ by local swaps under lexicographic sorting."
+      ],
+      "reasoning": "Searches included iterated tortoise, k-fold relocation of ones, rational mechanical/Christoffel words, prefix-count dominance and phase equivalence. The checked sources use different equivalence relations or stop before exact all-iteration rational-phase counts; no exact equivalent was found. Not a proof of absolute priority.",
+      "searches": [
+        "Christoffel rational mechanical words k-iterated tortoise complexity all iterations q p",
+        "periodic binary balanced Christoffel word multiple passes of tortoise sorting factor complexity",
+        "rational mechanical binary words k tortoise images modulo q exact injectivity threshold",
+        "prefix-dominance monotone stack sorting tortoise map all k binary words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Carey and Clampitt, arXiv:1804.08724, gives Christoffel height-profile multiplicities, not iterated tortoise-image classes.",
+        "Defant and Kravitz, arXiv:1809.09158, studies sorting/preimage counts over finite words rather than cyclic factor-image spectra."
+      ],
+      "reasoning": "No checked exact table or expression supplies the all-k rational image count or the sharp \\(q+H\\) threshold; tables of partitioned factors and one-step counts are different, weaker invariants. Databases cannot be certified exhaustive.",
+      "searches": [
+        "Christoffel rational mechanical words k-iterated tortoise complexity all iterations q p",
+        "one step tortoise complexity periodic mechanical words factor length period zero run"
+      ]
+    },
+    "rationale": "The full all-iteration rational-phase modular edge law (especially \\(k\\ge2\\)), prefix-dominance mechanism, and sharp eventual-injectivity threshold do not follow from the previously established rational \\(k=1\\) count or the irrational all-k formula: at \\(n\\ge q\\), the finite periodic language has only q factors, and every extra q-step crossing changes the collision residues. Campbell–Rampersad treats other sequences and proposes Sturmian variants; Carey–Clampitt studies different height-profile equivalence. No checked source states or logically dominates this all-k rational theorem. Earlier unindexed literature remains a residual priority risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible papers may independently contain the full all-iteration rational result.",
+      "The finite checker cannot independently certify the infinite proof or historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines tortoise complexity; no general k-fold rational Christoffel complexity theorem",
+        "evidence": [
+          "Definition 2 and Lemma 1 (tortoise image complexity and pair structure)",
+          "Section 4 bounded-deficit theorem; Section 7 question about Sturmian variants"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.25811v2",
+        "material_read": "Full accessible HTML, including definitions, Sections 3 and 4, specific applications and Section 7 conclusion",
+        "method": "Read the accessible primary HTML, with definitions, the collision lemma, bounded-deficit proof and open questions",
+        "title": "Subword enumeration up to stack-sorting equivalence",
+        "trigger": "Direct source defining the exact image-equivalence problem and proposing Sturmian variants"
+      },
+      {
+        "assessment": "Adjacent conjugates and height profiles; does not classify images under iterated tortoise",
+        "evidence": [
+          "Section 1.3 Lemma 1 adjacent conjugates and Theorem 1 on partition varieties",
+          "Section 2.1 coding via rotation intervals"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.08724",
+        "material_read": "Accessible primary full text, especially Sections 1.2–1.4 and 2.1",
+        "method": "Compared definitions, adjacency lemma and variety/multiplicity theorem directly",
+        "title": "Partitioned Factors in Christoffel and Sturmian Words",
+        "trigger": "Same circular Christoffel objects and lexicographically adjacent factor comparisons"
+      },
+      {
+        "assessment": "Defines tortoise and related preimage counts, no stated factor-language all-k rational complexity result",
+        "evidence": [
+          "Abstract describes finite-word operator, preimages and pattern avoidance, not rational mechanical period spectra"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1809.09158",
+        "material_read": "Primary abstract, submission history and scope metadata; not the full paper",
+        "method": "Checked abstract claims for sorting, preimages and related enumerations",
+        "title": "Stack-sorting for Words",
+        "trigger": "Original finite-word operator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "068034d6-a525-4281-ae1f-9a82b2fb33a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Tortoise complexity is a recent, explicitly motivated way to quantify factor-image identifications. For the canonical rational Christoffel words the theorem settles every positive iterate and every length, exposes a modular oscillation when the factor language saturates at the period, proves a general binary order-preservation lemma, and determines a sharp all-k eventual-injectivity threshold. This is not a routine one-step parameter change or a finite-table computation.",
+    "status": "PASS"
+  }
+}

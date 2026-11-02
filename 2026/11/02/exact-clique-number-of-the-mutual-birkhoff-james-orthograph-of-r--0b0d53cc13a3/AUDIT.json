@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary nonzero real sup-norm vectors, directional derivatives yield the exact sign-straddling Birkhoff–James criterion. Zeroing non-active coordinates can only move entries to zero and preserves the criterion in each direction; mutually orthogonal projective vertices never collapse under rounding. Ternary mutual adjacency is precisely signed-support incomparability. Uniform maximal chains of signed subsets prove the LYM inequality sum 1/[binom(n,k)2^(k-1)] ≤ 1 for antichains, yielding the universal upper bound, while the complete maximizing rank provides equality. The reasoning includes n=1 and all n, without finite-to-infinite inference. The standalone checker independently performs finite combinatorial diagnostic tests (74,190 ternary pairs, 15,628 preserved grid edges).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arambašić et al. 2021 Theorem 3.5 bounds arbitrary finite-dimensional norms by an unspecified dimension-only constant, with Example 3.7 providing 2^(n-1) in ℓ∞.",
+        "Guterman et al. 2024 Theorem 1.1 addresses finite clique number and dimension, Theorem 1.4 sup-norm recognition."
+      ],
+      "reasoning": "The general upper is not equal to the sharp binomial expression and does not determine the supremum-norm maximum. The 2024 graph-classification criteria do not specialize to this exact cardinality without a separate argument.",
+      "searches": [
+        "published-finding corpus: Maximum cardinality of pairwise Birkhoff James orthogonal vectors in real sup norm space ℓ∞^n",
+        "web: \"Symmetrized Birkhoff–James orthogonality\" Theorem 3.5 4.1",
+        "web: \"Birkhoff-James classification of norm’s properties\" clique number supremum norm"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.jmaa.2021.125203 (primary full accessible HTML, §§1,3–5)",
+      "arxiv:2402.13416 / doi:10.1007/s43036-024-00321-0 (primary full open-access HTML)",
+      "published-finding corpus 2026/10/11/SCOPE-ternary-support-cliques-of-order-3-n-sqrt-n-in-the-birkhoff-jame--3cf446af3e2f (published full RESULT.md)",
+      "doi:10.1007/978-3-031-02104-6_8 (survey preview/abstract and references only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 published Finding states ω_n ≥ L_n and Limitations deny a matching upper.",
+        "2021 Example 3.7 supplies only 2^(n-1) full-support directions.",
+        "2024 Theorems 1.1 and 1.4 address other invariants."
+      ],
+      "reasoning": "A lower bound or asymptotic existence of a specific layer does not imply an upper bound over continuum many vectors. A finite signed-subset LYM upper applies only after showing that any unrestricted clique rounds injectively to a signed-subset antichain; that is the essential added implication.",
+      "searches": [
+        "published-finding corpus: Ternary-support cliques of order 3^n/sqrt n in Birkhoff-James orthograph of ℓ∞^n",
+        "web: \"Symmetrized Birkhoff–James\" Example 3.7 Theorem 4.1",
+        "web: \"Birkhoff–James\" \"antichain\" \"cross-polytope\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The present formula equals the width of the antipodally identified signed Boolean face poset.",
+        "The 2026 ternary-support result gives precisely the same expression but only as a lower bound."
+      ],
+      "reasoning": "Equivalent descriptions through ternary support vectors, antipodal signed partial functions, and Sperner width were compared. The signed-poset width alone does not imply the clique bound for unrestricted real vectors without the rounding graph homomorphism; no published equivalent rounding-to-width result was located.",
+      "searches": [
+        "published-finding corpus: Exact clique number of symmetrized Birkhoff James orthogonality graph for real finite dimensional l infinity n, signed partial vectors, antichains Sperner binomial times powers of two",
+        "web: Birkhoff James orthograph l_infty exact clique number binomial ternary antichains upper bound Sperner",
+        "web: \"mutual Birkhoff-James\" \"Sperner\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published 2026 lower-bound report lists 1,2,6,16,40,120,336,896 as constructions and explicitly disclaims an exact upper.",
+        "Finite exact checker detects the signed-support relation up to rank six, but the proof handles unrestricted vectors by rounding."
+      ],
+      "reasoning": "Small numerical entries and the lower-bound sequence are not claimed as new table entries. The result is a universal upper theorem closing the known lower bound. No exact published clique-number table was found.",
+      "searches": [
+        "published-finding corpus: exact clique number signed support ternary Birkhoff James ℓ∞ maximum",
+        "web: \"Birkhoff James\" \"clique number\" \"infty\" Sperner exact"
+      ]
+    },
+    "rationale": "The closest published 2026 result states the same binomial expression only as a lower bound and expressly leaves a matching upper bound unproved. The 2021 original gives only a smaller full-support lower construction and a non-sharp general upper, while the 2024 open-access norm-recognition article does not specify this clique number. The new proof gives a clique-preserving active-coordinate rounding from unrestricted real vectors to an antipodal signed-subset poset, then a matching signed LYM upper bound. Public and published-finding corpus searches found no stronger covering theorem; residual risks are stated.",
+    "residual_risks": [
+      "The 2022 Springer survey full chapter was not accessible; its abstract and references alone cannot certify noncoverage.",
+      "An unindexed paper or a graph-theoretic restatement of the same rounding-to-antichain reduction could establish the bound earlier.",
+      "No independent scientific assessment of the exactness or novelty claim has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives dimension-dependent clique upper bound in arbitrary finite-dimensional norms and at least 2^(n-1) vertices in sup norm, but not the exact signed-support-layer formula or rounding upper bound.",
+        "evidence": [
+          "Example 3.7 builds full-support ±1 lines, cardinality 2^(n-1).",
+          "Theorem 3.5 proves finiteness by a general norm equivalence and separation argument, not an exact ℓ∞ formula.",
+          "Theorem 4.1 restates a uniform boundedness principle for arbitrary n-dimensional norms."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2021.125203",
+        "material_read": "Publisher full HTML: introduction and definitions, Section 3 including Examples 3.6–3.7 and Theorem 3.5, Section 4 including Theorem 4.1, Section 5 on supremum-norm orthographs.",
+        "method": "Read complete accessible primary article text and located clique and supremum-norm arguments by headings and term search.",
+        "title": "Symmetrized Birkhoff–James orthogonality in arbitrary normed spaces",
+        "trigger": "Foundational orthograph and explicit supremum-norm clique construction with same objects and parameters."
+      },
+      {
+        "assessment": "Finite clique criterion, dimension recovery, and norm recognition do not give the specific mutual clique cardinality.",
+        "evidence": [
+          "Theorem 1.1 characterizes finite-dimensionality via finiteness of clique number.",
+          "Theorem 1.4 characterizes the sup norm by neighborhoods of smooth points, not exact mutual cliques."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s43036-024-00321-0",
+        "material_read": "Full open-access article HTML, especially Sections 1 and 2, Theorems 1.1 and 1.4 and their proofs, orthodigraph definitions.",
+        "method": "Full primary open-access article text read with targeted finds for clique number and supremum norm.",
+        "title": "Birkhoff–James classification of norm's properties",
+        "trigger": "Potential broader orthodigraph classification for the same supremum norm."
+      },
+      {
+        "assessment": "The count max_k binomial(n,k)2^(k-1), its optimizing support size, and asymptotic are expressly already known lower bounds; exact universal upper bound is explicitly not asserted there.",
+        "evidence": [
+          "Finding uses ω_n ≥ L_n, not equality.",
+          "Limitations state: No matching upper bound for the true clique number is proved.",
+          "Its equal-support-size construction is reused as a known lower bound, with attribution."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-ternary-support-cliques-of-order-3-n-sqrt-n-in-the-birkhoff-jame--3cf446af3e2f/RESULT.md",
+        "material_read": "Full published RESULT.md: Finding, Assumptions, Proof, Verification, Relationship to prior work, Limitations and References.",
+        "method": "Retrieved published public RESULT.md and compared its stated inequalities with the present exact equality.",
+        "title": "Ternary-support cliques of order \\(3^n/\\sqrt n\\) in the Birkhoff–James orthograph of \\(\\ell_\\infty^n\\)",
+        "trigger": "published-finding corpus semantic-search top match containing exactly the same lower bound and objects."
+      },
+      {
+        "assessment": "Inaccessible body is an explicitly unresolved bibliographic risk, not evidence of noncoverage.",
+        "evidence": [
+          "The chapter abstract promises an overview of Birkhoff–James orthogonality, preservers and graphs.",
+          "The publisher page says it is subscription-preview content; references include the 2021 primary paper."
+        ],
+        "identifier_or_url": "https://link.springer.com/chapter/10.1007/978-3-031-02104-6_8",
+        "material_read": "Publisher chapter abstract, preview/access statement and references; not the 48-page chapter body.",
+        "method": "Checked arXiv/preprint and lawful open-access alternatives; the publisher page provided only an abstract and references. Authorized full-text retrieval did not provide the chapter body.",
+        "title": "Birkhoff–James Orthogonality: Characterizations, Preservers, and Orthogonality Graphs",
+        "trigger": "2022 survey of the same orthograph literature with relevant clique keywords."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0b0d53cc-13a3-4819-909a-84a7cfcf2418",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The clique number of the mutual Birkhoff–James orthograph is an established natural geometric graph invariant; its supremum-norm value was previously bounded below by a large explicitly constructed signed support layer but was not determined in the inspected direct predecessor. The exact classification for all dimensions gives a matching universal upper bound, turns an infinite-vertex optimization into a finite Sperner-width problem, and identifies where the largest cliques occur. This is an exact motivated invariant, not an arbitrary slice or an unmotivated finite enumeration.",
+    "status": "PASS"
+  }
+}
