@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** Supporting lines give the exact capped occupancy identity, which yields the probability generating function and expectation. Conditioning on two side allocations gives central binomial intervals; differentiating their probabilities establishes stochastic Schur monotonicity. A rational deficit generating function has noncancellable, positive-coefficient double poles, recovering each side-mass value and multiplicity. Exact rational tests and direct convex-hull tests supplement, rather than replace, the proof.
+
+**Originality — PASS, with residual priority risk.** Reitzner–Schütt–Werner's 2019 preprint and the inspected open-access article supply the facet mechanism and planar large-sample limit, which are acknowledged as prior work. Zubkov–Tatarenko's 2013 abstract announces Schur order for separate occupancy counts at each fixed threshold; that does not alone logically establish the stochastic order of their joint sum, nor recovery of polygon edge masses from mean curves. O'Neill's inspected 2023 full text concerns equal-bin occupancy. The bounded published-record and published-finding corpus comparisons revealed no explicit full vertex-law/order/inverse package. Older occupancy-ordering arguments could imply the majorization component; the 2013 full text remained inaccessible and must be checked before confident historical priority claims.
+
+**Mathematical value — PASS.** For arbitrary convex polygons and all sample sizes, the theorem replaces metric shape by an exact combinatorial law, orders every increasing discrete complexity score under a natural edge-balancing operation, and gives a complete inverse identifiability theorem for the only geometric parameters detectable from these distributions. This is a structural distribution-and-inverse result, not a numerical instance of the elementary two-vertices-per-occupied-edge bound.
+
+Self-review: passed. Independent audit: not yet performed.
