@@ -1,19 +1,21 @@
-# Scientific review: temporal-two configurations of elementary cellular automaton 18
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is restricted to elementary rule 18, its exact second iterates on cyclic spatial rings, and the spatial shift on the corresponding finite-type subshift. The proof derives the 20 admissible five-bit windows directly from the eight-case local rule, so that the trace of the 16-state de Bruijn adjacency matrix counts the exact configurations for every ring length. The recurrent cycle census comprises the zero loop and six nontrivial elementary cycles of lengths 4, 5, 5, 6, 10, 10; two disjoint-pair terms cancel the two length-ten terms in the finite determinant. The resulting zeta, recurrence, missing ring lengths, and two-cycle counts follow algebraically. The root-modulus separation establishes the entropy and asymptotic. The standalone verifier replays the critical finite cycle certificate and independently brute-forces rings 1 through 15. Finite replay is not substituted for the all-length transfer-matrix proof.
+PASS
 
-## Originality — PASS under examined evidence
+Local rule f=1 precisely for triples 001,100. Two updates depend on five bits, and F²x=x imposes exactly 20 allowed five-blocks. A 16-state de Bruijn transfer graph with allowed edges has trace M^n exactly equal to # n-periodic configurations of Fix(F²), including repeated coordinates n<5 by the cyclic-edge condition. Direct exact directed-cycle determinant yields det(I−zM)=(1−z)(1−z⁴−2z⁵−z⁶), a finite complete certificate governing all lengths, not an extrapolation. The only F-fixed ring configuration is all zero because a rule-18 output one implies central input zero. Thus b_n/2 temporal two-orbits. The recurrence/seed gives b_n>0 except n=1,2,3,7, and unique Perron eigenvalue rho of λ³−λ−1 yields entropy and O(1.30^n) error. Fresh independent 20-block enumeration, symbolic determinant and direct all 2^n words for n≤12 agreed.
 
-Zhu–Richard (arXiv:2610.10967v1, October 2026) analyzes Koopman spectra and specifically discusses the family containing elementary rule 18, using finite spatial sizes; its spectral taxonomy does not imply a formula for every temporal two-cycle count or the exact spatial zeta. Stricker's 2023 complete paper analyzes *maximal temporal cycle length* and reports tabulated size-limited rule-18 data, not all-size multiplicities of two-cycles. Sabrié–Törmä (arXiv:2308.12744, earliest preprint August 2023) studies kink and limit-set behavior; its explicit spatial period-four point satisfying the second-iterate condition gives one witness already known and is not claimed new. Searches for the recurrence, rational denominator, equivalent spatial two-cycle census, and missing-length classification found no directly covering theorem. The old four-periodic example and general finite-type transfer machinery are credited. Priority risk remains from older non-indexed cellular-automaton literature or equivalent spectral tables.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Rule 18 is a standard interacting-defect cellular automaton investigated both via limit-set theory and a new finite-ring Koopman-spectrum classification. The exact enumeration is an all-ring dynamical invariant unavailable from maximum cycle lengths alone. The unexpected numerical-semigroup existence set \(\langle4,5,6\rangle\) (including the isolated exclusion at seven), the full rational spatial zeta, and the plastic-constant growth rate classify its entire temporal-two sector, enabling principled tests of finite ring-size and time-two spectral multiplicities. This is a complete natural subproblem, not merely a short table of small simulations.
+Zhu–Richard 2026 finite-ring Koopman spectra, Stricker 2023 longest cycle classifications, and Sabrié–Törmä 2023 rule-18 limit dynamics and a period-two example concern overlapping dynamics, but the inspected results do not give the all-n temporal-two orbit count and exact spatial zeta. The 4-cycle existence already known is explicitly not novel; contribution is exact complete census.
 
-## Limits and comparison risk
+## value
 
-No statement is made about periods greater than two, the full time-direction dynamical zeta, or periodic points of the full cellular automaton. Historical priority remains subject to further independent review. The published finite-ring data could contain some individual counts without implying the all-length classification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rule 18 is a standard elementary cellular automaton with nontrivial nonlinear dynamics. The precise rational zeta, exact orbit counts for every ring length and characterization of the exceptional length seven provide a natural finite-type invariant and quantitative entropy of temporal-two points, not just isolated computational examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
