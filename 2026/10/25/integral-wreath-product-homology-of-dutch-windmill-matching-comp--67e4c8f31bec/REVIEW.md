@@ -1,11 +1,21 @@
-# Review of the integral wreath-product homology claim
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact integral relative-homology sequence in RESULT.md has primitive linking maps \(I_{3k-1}\hookrightarrow I_{3k}\) on each spoke and therefore an integral augmentation boundary. Equivariance supplies the full character and the module, while a signed fixed-face path calculation supplies both internal-reflection orientation signs. Finite mod-two homology, signed full-group Lefschetz traces, and quotient averaging agree; these checks do not replace the proof.
+## correctness
 
-**Originality — PASS, with scope separation.** Donovan--Scoville already prove the nonequivariant homotopy types, and the published blade-permutation result already proves the \(S_n\)-restricted rational characters. The claim assessed here is the full \((C_2)^n\rtimes S_n\) integral module including independent petal reflections, and its quotient consequences. The exact prior record explicitly excludes the reflected and integral information. A distinct extended-star Morse-complex result has a related augmentation method but neither the same graph nor the within-petal action. An unindexed equivalent full-wreath result remains possible.
+PASS
 
-**Value — PASS.** Integral symmetry classes contain data lost by the existing sphere count and blade-only character. The explicit modulo-four orientation changes yield natural, nontrivial quotient-homology distinctions, especially between two and at least three petals.
+Reconstructed the center-free matching subcomplex A=Ind(P_{m−2})^{*n} and 2n links L_s≅Ind(P_{m−3})*Ind(P_{m−2})^{*(n−1)}. The standard 3-periodic path-independence recurrence yields contractibility when m=3k. For m=3k+1 it yields a single H~_{nk−1}(A)=Z and contractible links, with action α(g)=(sgnπ)^k(-1)^{ceil(k/2)e(ε)}. For m=3k+2 the endpoint inclusion Ind(P_{3k−1})→Ind(P_{3k}) is a homotopy equivalence (mapping cone suspends contractible Ind(P_{3k−2})); hence the relative integral boundary from 2n cone summands to the rank-one A homology has every coordinate ±1. After normalization this is augmentation Z[Ω]→Z, yielding the full integral twisted augmentation lattice β⊗Aug Z[Ω] (β=(sgnπ)^k(-1)^{floor(k/2)e(ε)}), rank 2n−1, no torsion. Independently enumerated reflection signed Lefschetz on the two relevant path lengths for k=1..6, and 336 full wreath automorphisms for n∈{2,3},m∈{3..8}, all matching stated character. Rational G-invariants follow by Frobenius reciprocity / character average; quotient statements are rational only. All-n proof is the cone LES and path recurrence, not test interpolation.
 
-**Limitations.** Integral quotient torsion, equivariant simple-homotopy refinements, and unequal-length petal bouquets are not determined. The finite reproducibility checks are not infinite proofs. The independent mathematical audit remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Donovan–Scoville 2023 already determine the exact nonequivariant Dutch windmill matching-complex type. Resultary published blade-permutation theorem already determines the rational S_n restriction. What survives as a new claim is the full (C2)^n⋊Sn integral lattice and within-petal reflection character, including rational quotient thresholds; these data cannot be inferred from the preexisting sphere count or blade-only character.
+
+## value
+
+PASS
+
+The full natural automorphism group of Dutch windmills contains an independently acting reflection on each petal, not included in previously known blade-permutation calculations. The integral twisted augmentation module distinguishes primitive lattice structure from its character and yields sharp modulo-four rational quotient criteria. These are canonical symmetries and natural exact invariants of an all-parameter graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
