@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Concavity of the Rayleigh-quotient minimum justifies averaging all pm independent weights. The exact full Laplacian spectrum is lambda=0, S=a+(p-1)b (multiplicity m-1), mb (multiplicity p-2), and two explicit quadratic roots. For a unit gap and b>=1/m, the quadratic condition f>=0 is sufficient as well as necessary because the root sum exceeds 2 throughout a>=g(b). The lower envelope max{1-(p-1)b,g(b)} crosses at beta, and a direct derivative of the convex rational branch gives the sharp threshold R and unique symmetric optimum except equal prices. The rescaled weights meet budget exactly. Independent full-matrix numerical calculations for p=3..8 and exact characteristic-polynomial checks for nine small size pairs passed 1716 assertions, including 26 successful constrained numerical optimizations. These finite tests do not certify the general theorem; the displayed analytic proof handles all quantified parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. formulate a general linear-cost SDP and analyze paths and cycles in Section 5 without the claimed complete-bipartite two-price evaluation.",
+        "Shakeri et al., arXiv:1510.06785v1, Section I-II, assume two connected layers and one-to-one interlayer coupling rather than a complete bipartite all-pairs coupling."
+      ],
+      "reasoning": "A general SDP can numerically optimize particular cases but does not state the evaluated closed-form three-phase law; the multiplex models and constraints are not supertheorems specializing to this family. No stronger source inspected implies the claimed threshold and explicit optimizer.",
+      "searches": [
+        "fastest mixing continuous-time Markov process on K_{p,q}, hub edge price allocation, unbalanced edge classes, unique budget design",
+        "optimal Laplacian spectral gap complete bipartite with two hub price classes rational conductance",
+        "arxiv:1510.06785v1",
+        "doi:10.1137/S0036144504443821"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "https://arxiv.org/pdf/1510.06785",
+      "own:0cbf04a5-1dbd-4162-8ccb-5bcce7732bb0",
+      "own:8a3533e4-67e4-4ae3-88bd-312557bc653c",
+      "published-finding corpus semantic search for price-weighted K_{p,m} algebraic connectivity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new quotient spectrum contains the additional eigenvalue mb of multiplicity p-2 and the leaf eigenvalue a+(p-1)b; both must be at least the target gap.",
+        "At m=p, the new threshold is (p-1)^2; at fixed p it grows like m^4/(p-1)^2, and at P/Q=1 a full interval of symmetric optimal designs appears when m>p."
+      ],
+      "reasoning": "Two-hub results cannot control the p-2 ordinary-hub difference space, nor establish simultaneous activation of the distinct gap constraints for p>=3. The general symmetry reduction and analogous interlayer phase transitions supply techniques, not these numerical or symbolic implications. No source read asserts an all-p,m price-law stronger theorem.",
+      "searches": [
+        "optimal price-weighted algebraic connectivity K_{p,m} complete bipartite one distinguished vertex and p-1 equal-price hubs exact three phase ratio",
+        "Fiedler eigenvalue optimization complete bipartite one special hub edges different prices budget critical fourth-power threshold",
+        "own:0cbf04a5-1dbd-4162-8ccb-5bcce7732bb0",
+        "arxiv:0709.0955v1",
+        "arxiv:1510.06785v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Continuous-time Markov mixing rate is lambda_2 of an unnormalized weighted Laplacian (Sun et al., 2006, pp.681-683).",
+        "The nearest p=2 price-design theorem is own:0cbf04a5-1dbd-4162-8ccb-5bcce7732bb0; priced effective-resistance design on K_{p,q} is a different invariant."
+      ],
+      "reasoning": "Aliases considered include fastest mixing Markov process, algebraic-connectivity maximization, Fiedler-value edge allocation, spectral-gap network design, and continuous-time consensus. The prior general SDP does not evaluate the explicit threshold R_{p,m}; discrete-time SLEM is not the same spectral target. A p=2 formula has an absent ordinary-hub difference eigenspace and cannot imply p>=3 formulas.",
+      "searches": [
+        "algebraic connectivity cost optimal weighted complete bipartite K_{3,m} one distinguished hub price, price-induced branch transition, exact spectral gap",
+        "optimal price-weighted algebraic connectivity K_{p,m} complete bipartite one distinguished vertex and p-1 equal-price hubs exact three phase ratio",
+        "fastest mixing Markov process heterogeneous star biclique edge prices first symmetry orbit exact square root conductances",
+        "doi:10.1137/S0036144504443821",
+        "arxiv:0709.0955v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned unrelated complete-bipartite geometric, hitting-domination and matroid spectral records; the closest own result concerned K_{2,m}.",
+        "Indexed literature queries on algebraic connectivity, prices and K_{3,m} did not identify a parameter table with beta_{p,m}, R_{p,m} or C_*."
+      ],
+      "reasoning": "The sought invariant is a continuum exact optimum across all p,m and prices, not a finite graph catalog. No exact database/table was found that determines this formula; absence of search hits alone is not proof of novelty.",
+      "searches": [
+        "algebraic connectivity cost optimal weighted complete bipartite K_{3,m} one distinguished hub price, price-induced branch transition, exact spectral gap",
+        "optimal price-weighted algebraic connectivity K_{p,m} complete bipartite one distinguished vertex and p-1 equal-price hubs exact three phase ratio",
+        "Fiedler eigenvalue optimization complete bipartite one special hub edges different prices budget critical fourth-power threshold",
+        "2026/10/11/SCOPE-laplacian-spectrum-and-tree-complexity-of-complete-bipartite-sym--3feaadaf9c02"
+      ]
+    },
+    "rationale": "All three inspected primary papers address general continuous-time SDP, discrete-time graph automorphism reduction, or one-to-one multiplex coupling; none gives this closed p>=3 two-price algebraic-connectivity formula. The nearest accessible own result has only two hubs p=2 and is not sufficient to infer the extra hub-difference spectral constraint or the first price transition. Semantic published-finding corpus and indexed literature queries returned no statement implying the exact three-regime theorem. This is evidence-supported originality, not a claim of exhaustive global uniqueness of the result.",
+    "residual_risks": [
+      "A specialist paper or thesis using alternative algebraic-connectivity design terminology may contain an equivalent closed form not located by available searches.",
+      "The earlier public status of the 2006 focal paper prior to its verified November 2 electronic publication has not been independently established.",
+      "Only the value and the symmetric family of optimizers are classified, not every asymmetric optimal allocation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General SDP framework and examples but not a p>=3 heterogeneous hub-class exact cost theorem",
+        "evidence": "p.683 expresses arbitrary positive edge costs and maximization of lambda_2; Section 5 examples are small graph, paths, cycles.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "pp.681-683 problem and price formulation; pp.690-691 primal/dual conditions; pp.694-697 section 5 examples; full indexed text searched for complete bipartite",
+        "method": "Full-text PDF review and page inspection",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Most directly related continuous-time spectral-gap objective under linear edge costs"
+      },
+      {
+        "assessment": "Discrete-time SLEM, not continuous-time priced Laplacian gap; complete-bipartite case uses a single orbit probability",
+        "evidence": "Section 5.4.2 derives complete-bipartite eigenvalues 1-mp, 1-np, 1-(m+n)p for the discrete-time transition matrix.",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Symmetry theorem around pp.796-797; complete k-partite and K_m,n calculation on pp.812-813; examples around pp.814-815",
+        "method": "Full-text PDF section and page inspection",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Possible coverage through complete multipartite symmetry blocks"
+      },
+      {
+        "assessment": "Fixed connected layers with diagonal one-to-one coupling, not adjustable K_{p,m} all-pairs edges and hub-dependent prices",
+        "evidence": "Section II uses W=diag(w) and assumes both layers connected before coupling; present problem begins with two independent sets and complete bipartite coupling.",
+        "identifier_or_url": "https://arxiv.org/pdf/1510.06785",
+        "material_read": "pp.1-3 introduction, model and main threshold conditions; arXiv dated v1 in PDF margin",
+        "method": "Full-text PDF section and page inspection",
+        "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+        "trigger": "Plausible spectral transition from coupling-weight optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "14d9fb64-41a0-4f3e-b4c8-1a428ffaac73",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural continuous-time mixing / algebraic connectivity design problem with one anomalously priced hub is solved exactly in every dimension m>=p>=3 and for every positive price ratio. Its three regimes are not arbitrary parameter slices: they correspond to leaf-degree saturation, a coupled spectral boundary, and a simple Fiedler-eigenvalue boundary. A sharp second threshold grows like m^4/(p-1)^2, making precise when the transition occurs and providing an explicit optimal network design instead of a numerical SDP.",
+    "status": "PASS"
+  }
+}
