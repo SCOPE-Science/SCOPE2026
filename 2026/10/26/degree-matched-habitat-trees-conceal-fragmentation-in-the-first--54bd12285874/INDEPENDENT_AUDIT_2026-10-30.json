@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T10:52:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an induced subforest of tree T, the component count is the exact Bernoulli polynomial C=S-E, with S retained vertices and E retained edges. E[C] and Var(C) involve n,m=n-1 and wedge count W=Σ_v binom(deg(v),2), fixed by degree multiset. In E[C^3], terms with at most two distinct edges cancel under degree matching. Among three-edge sets, only 3-edge paths L(T)=Σ_{uv edge}(deg u-1)(deg v-1) are not degree-determined once star, wedge+disjoint, and disjoint counts are related. The difference κ3(C_T)-κ3(C_U)=-6(L(T)-L(U))p^4(1-p)^2 follows for all n,p, not a finite extrapolation. For PGF difference, terms with <=3 survivors yield p^4, <=1 removed yield (1-p)^2, empty survivor gives z and matching first two factorial moments give (z-1)^3, hence full integer polynomial divisibility. For n<=5 degrees determine trees; at n=6 only the degree class (3,2,2,1,1,1) has two trees. Independent direct enumeration of 64 retained subsets for arm lengths (3,1,1) vs (2,2,1) yields signed size-4 counts (-1,3,-3,1), so H_A-H_B=p^4(1-p)^2 z(z-1)^3 and Δκ3=+6p^4(1-p)^2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The existing graph polynomial encodes all component distributions by definition and distinguishes many trees; existence of such a universal encoding does not state the relation of its third moments under fixed degree multiset.",
+          "Liao–Hou discuss 4-vertex-path counts under regular bipartite hypotheses, not all trees with same degrees."
+        ],
+        "reasoning": "A dominating general closed coefficient theorem could imply this law, but inspected papers do not derive it. Explicitly account for the underlying polynomial framework and do not claim it as original.",
+        "searches": [
+          "Tittmann Averbouch Makowsky arxiv:0812.4147 Proposition 2 trees determined by Q",
+          "Liao Hou arxiv:1311.6856 P4 regular bipartite component polynomial",
+          "Allard 2015 percolation cluster-size distributions"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md tree aadcebf8e8772365e55a7851461ffb096650330a",
+        "verify.py blob 0e777419dfd2fbc997a0cda19cb18f3996391a9d (read only)",
+        "Tittmann et al https://arxiv.org/abs/0812.4147",
+        "Liao and Hou https://arxiv.org/abs/1311.6856",
+        "Allard et al https://arxiv.org/abs/1509.01207",
+        "Resultary search on site percolation tree component moments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tittmann et al Proposition 2 supplies nonisomorphic tree distinguishability up to n=9, but does not quantify matched degree cumulants.",
+          "The current theorem proves -6ΔL p^4(1-p)^2 and a universal integer factor."
+        ],
+        "reasoning": "The earliest general polynomial is a precursor from which one can extract moments; it does not immediately imply which specific degree-controlled cancellations occur and at what first order. The derived coefficient law and sharp degree-matched witness survive as the claimed contribution.",
+        "searches": [
+          "Tittmann–Averbouch–Makowsky 2008 §2–3 and §8 component polynomial",
+          "Liao–Hou 2013 note subgraph component polynomial",
+          "Urban Keitt 2001 habitat connectivity graph theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tittmann et al define Q(G;x,y)=Σ_{A⊆V}x^{|A|}y^{components(G[A])}; H_T(p,z)=(1-p)^n Q(T;p/(1-p),z).",
+          "Our third-cumulant difference isolates L(T) only after matching the degree multiset."
+        ],
+        "reasoning": "The PGF is exactly a specialization of the earlier graph polynomial and not novel as a standalone object. The all-order cumulant identity and degree-matched sharp threshold require a distinct coefficient/moment statement not found in inspected material.",
+        "searches": [
+          "Tittmann Averbouch Makowsky 0812.4147 vertex induced subgraph component polynomial",
+          "site percolation component count moments degree sequence three-path P4",
+          "Resultary search site percolation tree third cumulant degree multiset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent 2^6 retained-subset enumeration gives degree-matched PGF difference p^4(1-p)^2 z(z-1)^3.",
+          "Tittmann et al state nonisomorphic trees through 9 vertices are separated by their subgraph component polynomial."
+        ],
+        "reasoning": "A small enumeration of six-vertex trees alone would be less valuable; the universal third cumulant and divisibility are proved for every n,p and are not simply a known table cell. Priority risk remains for graph reliability literature.",
+        "searches": [
+          "arxiv:0812.4147 small tree component polynomial enumerations",
+          "six-vertex nonisomorphic trees same degree sequence three-armed spiders",
+          "Resultary tree percolation component moment tables"
+        ]
+      },
+      "rationale": "Tittmann–Averbouch–Makowsky already introduced the universal induced-subgraph component polynomial; our H_T is a specialization and that general framework is NOT new. Their inspected introductory, structural and random-subgraph sections do not state the exact degree-matched tree third-cumulant formula or sharp six-vertex pair. Liao–Hou studies a P4-sensitive coefficient in a different regular bipartite graph context. A general graph-component polynomial formula could mechanically yield the tree identity with additional combinatorial extraction, and this implication risk remains noted.",
+      "residual_risks": [
+        "A specialized reliability-polynomial or graphical-degree moment result may derive the same -6ΔL law under different terminology.",
+        "The general component polynomial subsumes the raw data, although the specific all-n matched-degree invariant is not stated in inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general polynomial and small-tree distinction; the inspected sections do not state the degree-matched third-cumulant difference or p^4(1-p)^2 z(z-1)^3 divisibility.",
+          "evidence": "Tittmann, Averbouch, Makowsky (2008), Q component polynomial and Proposition 2 on small nonisomorphic trees.",
+          "identifier_or_url": "https://arxiv.org/abs/0812.4147",
+          "material_read": "Original preprint introduction, definition and Proposition 2 in sections 2–3, and §8 random induced subgraph discussion, including equation (11); not represented as exhaustive every-page search",
+          "method": "Primary arXiv PDF page and text inspection",
+          "title": "The Enumeration of Vertex Induced Subgraphs with Respect to the Number of Components",
+          "trigger": "The same generating polynomial exactly specializes to H_T"
+        },
+        {
+          "assessment": "Its P4 result concerns regular bipartite graphs and different coefficient recovery, not arbitrary degree-matched tree third cumulants.",
+          "evidence": "Liao and Hou (2013), subgraph component polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.6856",
+          "material_read": "Accessible original arXiv abstract and pertinent coefficient/graph-class statement; not full-paper exhaustive negative coverage",
+          "method": "Primary paper comparison",
+          "title": "Note on the Subgraph Component Polynomial",
+          "trigger": "P4 path count is the structural invariant in our third moment"
+        },
+        {
+          "assessment": "Models component-size distributions in random graphs; does not directly supply this fixed-tree, degree-matched third cumulant law.",
+          "evidence": "Allard et al (2015).",
+          "identifier_or_url": "https://arxiv.org/abs/1509.01207",
+          "material_read": "Original abstract and introductory target model",
+          "method": "Primary preprint overview",
+          "title": "General and exact approach to percolation on random graphs",
+          "trigger": "Possible general percolation moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Degree-multiset summaries and variance cannot detect habitat fragmentation differences induced by tree arrangement; the exact third-cumulant obstruction identifies the first arrangement-sensitive invariant and its uniform p dependence, while the six-vertex pair is sharp. This is a natural component-count and degree-identification question in network reliability and ecological habitat modeling, beyond a table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md tree aadcebf8e8772365e55a7851461ffb096650330a",
+    "verify.py blob 0e777419dfd2fbc997a0cda19cb18f3996391a9d (read only)",
+    "Tittmann et al https://arxiv.org/abs/0812.4147",
+    "Liao and Hou https://arxiv.org/abs/1311.6856",
+    "Allard et al https://arxiv.org/abs/1509.01207",
+    "Resultary search on site percolation tree component moments"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent homogeneous vertex survival on finite trees, unconditional C including empty outcome; not cyclic or correlated networks.",
+    "Explicit smallest pair checked by direct subset enumeration; general n identity established by edge-triple proof."
+  ],
+  "residual_risks": [
+    "A specialized reliability-polynomial or graphical-degree moment result may derive the same -6ΔL law under different terminology.",
+    "The general component polynomial subsumes the raw data, although the specific all-n matched-degree invariant is not stated in inspected sources."
+  ],
+  "schema_version": 1
+}
