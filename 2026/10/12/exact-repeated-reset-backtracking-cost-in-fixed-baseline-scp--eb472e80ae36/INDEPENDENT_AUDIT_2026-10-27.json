@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T05:13:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md (blob 548fb0e125d90bf3004a66fc04326c23f6d7e24f)",
+        "Git verify.py (blob e9594661443446b3ed4621f35d25ab17cfde6887)",
+        "Git VERIFICATION.md (blob c69fc41ce9faf26bfefa1192d5e5164f9589772a)",
+        "arXiv:2510.01168v3; https://arxiv.org/html/2510.01168v3 (Algorithm 1, Theorem 4, Theorem 5)"
+      ],
+      "rationale": "Reconstructed the trial subproblem and source line-search/stopping rules. With c(z)=z^2-R_c^2 and L_c=2, the surrogate constraint equals the original constraint exactly, hence it is inactive for all reached box-contained trials; q=indicator of the box is inactive by the explicit strict radius. For a nonzero outer z, the trial is (1-a/L_i)z and the descent test simplifies by algebra, dividing only by positive a^2 z^2/L_i^2, to 2L_i>=a+beta. The minimum i is exactly the displayed ceil-plus and equals Theorem 4 upper bound at the exact L=a. The accepted contraction q*=1-a/L*, |q*|<1, preserves the magnitude bound by induction. The source residual is |(a-L*)(z^{k+1}-z^k)|=a|a-L*|/L*|z^k|; the geometric sequence gives first stopping index K*. The q*=0/L*=a case terminates after first accepted outer step, treated separately. Thus total and rejected solves count (K*+1)(i*+1) and (K*+1)i*. For this scalar family starting later searches at L* accepts at first trial, saving exactly K*i* rejected solves; no global warm-start theorem asserted. The source KL gradient norm a|z| and objective gap a z^2/2 gives exponent 1/2 with constant sqrt(2a). Independent algebra and representative numerical boundary checks corroborate, not substitute for the all-parameter proof.",
+      "residual_risks": [
+        "Exact logarithmic K* formula requires q* != 0 and is subject to the first-after-update stopping-test indexing; handled by splitting L*=a.",
+        "No-clipping condition requires the stated strict bound through all rejected trials, not only the accepted trial.",
+        "No proof is asserted for general constrained minimax iterates or arbitrary changes to warm-start policy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2510.01168v3; https://arxiv.org/html/2510.01168v3 (Algorithm 1, Theorem 4, Theorem 5)",
+          "arXiv:2001.06998v2; https://arxiv.org/pdf/2001.06998v2 (Algorithm 2.1)",
+          "arXiv:1210.3039v3; https://arxiv.org/pdf/1210.3039v3 (SCP line-search variants)",
+          "Primary Theorem 4 has upper i bound ceil(log_rho((beta+L)/(2Lbase)))_+, with exact quadratic L=a; Theorem 5 bounds outer complexity but not exact all-outer rejects."
+        ],
+        "reasoning": "The strongest inspected relevant bound is a per-outer upper index, not an attained lower witness at every nonterminal iteration or total (K+1)i trial rejection identity. Yu--Pong--Lu and earlier Lu allow varying outer starting curvature estimates and have different line-search mechanisms, so those algorithm-level results do not logically imply this fixed-reset trajectory. A universal descent lemma can recover the acceptance inequality, but not on its own the exact full run for this specified source stopping rule.",
+        "searches": [
+          "Fixed baseline restart backtracking sequential convex programming repeated rejected trial subproblems on quadratic, exact line-search index sharpness",
+          "Lu Wang Algorithm 1 gradient Lipschitz quadratic fixed baseline line search sharp per iteration complexity bound",
+          "sequential convex programming line search warm start Lipschitz curvature upper bound quadratic"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.01168v3; https://arxiv.org/html/2510.01168v3 (Algorithm 1, Theorem 4, Theorem 5)",
+        "arXiv:2001.06998v2; https://arxiv.org/pdf/2001.06998v2 (Algorithm 2.1)",
+        "arXiv:1210.3039v3; https://arxiv.org/pdf/1210.3039v3 (SCP line-search variants)",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-spike-and-reset-law-for-nipg-on-scalar-strongly-convex-qua--4385d4d84505",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-scale-frontier-for-the-one-sided-wolfe-grid-in-robust-stee--7a86ea802018"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2510.01168v3; https://arxiv.org/html/2510.01168v3 (Algorithm 1, Theorem 4, Theorem 5)",
+          "arXiv:2001.06998v2; https://arxiv.org/pdf/2001.06998v2 (Algorithm 2.1)",
+          "arXiv:1210.3039v3; https://arxiv.org/pdf/1210.3039v3 (SCP line-search variants)",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-spike-and-reset-law-for-nipg-on-scalar-strongly-convex-qua--4385d4d84505",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-scale-frontier-for-the-one-sided-wolfe-grid-in-robust-stee--7a86ea802018",
+          "A per-outer upper bound i_k<=i_bar is compatible with i_k<i_bar and does not imply i_k=i_bar at all k; fixed-base quadratic algebra proves equality separately."
+        ],
+        "reasoning": "Primary result supplies exact rules and upper index, so the submitted proof must establish sharpness rather than merely cite it; on the nonzero quadratic state, direct substitution proves i_k=i_* for each k and the first residual threshold gives K*. Prior general schemes with variable outer initial curvature do not entail this source-specific constant rejection pattern. Checked Resultary examples do not dominate or reduce mathematically to this total count.",
+        "searches": [
+          "Fixed baseline restart backtracking sequential convex programming repeated rejected trial subproblems on quadratic, exact line-search index sharpness",
+          "Lu Wang Algorithm 1 gradient Lipschitz quadratic fixed baseline line search sharp per iteration complexity bound",
+          "Proximal gradient Armijo backtracking warm start initial Lipschitz curvature redundant repeats exact worst case count",
+          "arXiv:2510.01168v3 Algorithm 1 Theorem 4 Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2510.01168v3; https://arxiv.org/html/2510.01168v3 (Algorithm 1, Theorem 4, Theorem 5)",
+          "Lu--Wang Algorithm 1: L_{k,i}=Lbase*rho^i for every k; scalar quadratic sufficient decrease iff 2L_i>=a+beta.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-spike-and-reset-law-for-nipg-on-scalar-strongly-convex-qua--4385d4d84505",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-scale-frontier-for-the-one-sided-wolfe-grid-in-robust-stee--7a86ea802018"
+        ],
+        "reasoning": "A generic Armijo curvature acceptance condition reduces to the same scalar inequality, but generic backtracking does not identify the fixed-baseline repeated sequence and this exact Lu--Wang stopping-test cost. The full inspected NIPG scalar spike-and-reset theorem concerns post-step adaptation; the inspected Wolfe grid theorem concerns interval feasibility, not fixed-baseline repeated rejected proximal solves. No same-conclusion equivalence established.",
+        "searches": [
+          "Fixed baseline restart backtracking sequential convex programming repeated rejected trial subproblems on quadratic, exact line-search index sharpness",
+          "Lu Wang Algorithm 1 gradient Lipschitz quadratic fixed baseline line search sharp per iteration complexity bound",
+          "Resultary semantic search: fixed-baseline reset quadratic SCP exact backtracking sharpness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv:2510.01168v3; https://arxiv.org/html/2510.01168v3 (Algorithm 1, Theorem 4, Theorem 5)",
+          "Published Resultary semantic results examined: NIPG spike-and-reset and one-sided Wolfe grid; both full mathematical RESULT.md files inspected and structurally different."
+        ],
+        "reasoning": "This is a closed-form algorithmic trajectory on a continuous scalar family, not a finite database/table lookup. Neither the primary theorem nor related records supplied the exact repeated-cost formula; absence in a semantic search is not itself proof of priority.",
+        "searches": [
+          "Fixed baseline restart backtracking sequential convex programming repeated rejected trial subproblems on quadratic, exact line-search index sharpness",
+          "Lu Wang Algorithm 1 gradient Lipschitz quadratic fixed baseline line search sharp per iteration complexity bound",
+          "Proximal gradient Armijo backtracking warm start initial Lipschitz curvature redundant repeats exact worst case count",
+          "Resultary semantic search exact source-specific repeated reset backtracking trajectory"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the closest published Lu--Wang source specifies a fixed-baseline search and bounds the per-outer accepted index, but the inspected Algorithm 1 and Theorems 4--5 do not determine an all-outer sharpness witness, exact repeated-rejection count through the first stopping index, or family-specific avoidable overhead. The exact algebra follows from basic quadratic descent calculations and should not be presented as a new general line-search principle; nonetheless the source-specific repeated attainment and complete cost identity were not established by an inspected stronger theorem. The adjacent published examples concern different recurrence/update mechanisms. Searches alone do not prove novelty.",
+      "residual_risks": [
+        "The key scalar backtracking threshold is a standard descent calculation; an earlier general sharpness template might render the numerical fact a routine corollary despite no exact source-specific count found.",
+        "Unindexed optimization analyses may already state fixed-baseline repeated rejection overhead under another algorithm or notation; best-of-knowledge PASS does not certify historical priority.",
+        "Primary published algorithm could have editorial variants; comparison refers to the inspected v3/final Algorithm 1 with the same fixed baseline."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Specifies fixed baseline reset, upper inner-loop index, complexity bound, but no exact every-outer scalar attainment/cumulative trial count.",
+          "evidence": "L_{k,i}=Lbase*rho^i, upper bar i=ceil(log_rho((beta+L)/(2Lbase)))_+; test g(z_trial)<=g(z_k)-beta/2*||step||^2.",
+          "identifier_or_url": "arXiv:2510.01168v3; https://arxiv.org/html/2510.01168v3",
+          "material_read": "Accessible primary full text, especially Algorithm 1, sufficient decrease and stopping conditions, Assumption 3, Theorems 4--5 and proofs.",
+          "method": "Read full article HTML (including algorithm image where rendered as graphic) and compare formulas to submitted symbolic scalar reduction.",
+          "title": "A first-order method for constrained nonconvex-nonconcave minimax optimization",
+          "trigger": "Exact primary Lu--Wang algorithm and upper bound under assessment."
+        },
+        {
+          "assessment": "No implication of fixed baseline repeat: objective/constraint initial Lipschitz constants may be iteration dependent and chosen in bounded intervals.",
+          "evidence": "Algorithm 2.1 lets starting local constants vary between outer iterations and line-searches constraints separately.",
+          "identifier_or_url": "arXiv:2001.06998v2; https://arxiv.org/pdf/2001.06998v2",
+          "material_read": "Full accessible paper and Algorithm 2.1 outer step initialization; PDF page image inspected.",
+          "method": "Full primary text and PDF screenshot of algorithm; compared outer initialization and line-search tests.",
+          "title": "Convergence rate analysis of a sequential convex programming method with line search for a class of constrained difference-of-convex optimization problems",
+          "trigger": "Near predecessor SCP line search."
+        },
+        {
+          "assessment": "Earlier algorithm permits dynamically selected local estimates; its statement does not assert the exact repeated reset count here.",
+          "evidence": "Source line-search SCP variant chooses local Lipschitz estimates at each iteration, rather than mandating Lbase*rho^i.",
+          "identifier_or_url": "arXiv:1210.3039v3; https://arxiv.org/pdf/1210.3039v3",
+          "material_read": "Complete accessible mathematical paper and section giving line-search variant, including PDF page image.",
+          "method": "Full-text reading and screenshot confirmation of dynamic step-size initialization.",
+          "title": "Sequential Convex Programming Methods for A Class of Structured Nonlinear Programming",
+          "trigger": "Earlier foundational SCP framework."
+        },
+        {
+          "assessment": "Not covering: NIPG curvature test occurs after step; expansion and reset alter future step sizes, not same inner Lbase reset and rejection count.",
+          "evidence": "NIPG exact recurrence x_{k+1}=(1-a*t_k)x_k, with test a*t_k>c0 and t_{k+1}=c1/a; no inner i_* sequence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-spike-and-reset-law-for-nipg-on-scalar-strongly-convex-qua--4385d4d84505",
+          "material_read": "Full RESULT.md primary mathematical claim, proof, assumptions, and limitations.",
+          "method": "Read actual published GitHub mathematical RESULT.md and compare recurrence/state.",
+          "title": "Exact spike-and-reset law for NIPG on scalar strongly convex quadratics",
+          "trigger": "High-ranking Resultary optimization result about reset on scalar quadratic."
+        },
+        {
+          "assessment": "Not covering: analyzes discrete Wolfe curvature lower bound and scale feasibility, not repeated Lu--Wang proximal-trial rejection.",
+          "evidence": "Accepted Wolfe scalar interval 1-gamma<=a*alpha<=2(1-beta); search grid 2^{-r}, different acceptability and algorithm.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-scale-frontier-for-the-one-sided-wolfe-grid-in-robust-stee--7a86ea802018",
+          "material_read": "Full mathematical RESULT.md, proof and limitations.",
+          "method": "Read published GitHub result and compare search acceptance rule and cost.",
+          "title": "Exact scale frontier for the one-sided Wolfe grid in robust steepest descent",
+          "trigger": "High-ranking Resultary result with sharp scalar line-search grid."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md (full eight-file package)",
+        "Lu--Wang Algorithm 1 and Theorem 4 arXiv:2510.01168v3; https://arxiv.org/html/2510.01168v3 (Algorithm 1, Theorem 4, Theorem 5)"
+      ],
+      "rationale": "The natural gap is sharpness of an actual published inner-loop complexity index and the cumulative operational cost of fixed-baseline reset. The scalar quadratic is a motivated minimal exact witness because it attains the smoothness constant and reproduces the same curvature trial thresholds at every outer iteration; the exact all-run count (K*+1)i* shows per-outer worst-case rejection can recur rather than amortize. The gap between fixed reset and warm-start costs is K*i* and can be nontrivial when each constrained proximal solve is expensive. A small and elementary but source-specific sharpness/boundary result is mathematically useful for interpreting this scheme, without asserting a new general convergence theorem. The derivation is straightforward once the source algorithm is specialized; value is limited to diagnosing a real bound and implementation choice, not novelty of backtracking itself.",
+      "residual_risks": [
+        "The counterexample uses an inactive constraint and one dimension; the computational overhead need not be dominant in typical constrained applications.",
+        "Generic quadratic backtracking calculations are elementary; independent significance lies only in exact repeated attainment of a particular complexity bound, not the inequality alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One-dimensional globally quadratic smooth term; inactive constraint and no clipping; strict radius assumption; all tested outer states nonzero except terminating L*=a branch; warm-start comparison only within this family.",
+    "Published primary algorithm and two earlier SCP works were inspected; no guarantee of historical priority; partial numerical trials do not prove infinite quantifiers.",
+    "Existing source package includes public provenance fields; no publication-ready sanitized file operations verified."
+  ],
+  "schema_version": 1
+}
