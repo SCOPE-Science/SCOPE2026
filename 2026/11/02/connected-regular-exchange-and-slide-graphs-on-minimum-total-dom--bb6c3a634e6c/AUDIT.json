@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Direct open-neighborhood criterion yields optimal P3 family; all allowable one-edge moves are ac, ub, uc after deleting ab, of which exactly ac and ub are slides. Center rotations plus isolate-to-any-label exchanges prove slide connectedness for all q. The canonical group action gives transitivity and handshake counts. Exhaustive n=4,7 and direct canonical n=10,13,16 checks independently pass.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://ajc.maths.uq.edu.au/pdf/73/ajc_v73_p313.pdf: defines total domination reconfiguration using addition/deletion of one vertex and size at most k; its body treats realizability and paths/cycles.",
+        "https://arxiv.org/pdf/2003.05956: distinguishes jump and slide minimum domination reconfiguration from threshold add/delete total domination; no triangular total-domination special case in inspected sections."
+      ],
+      "reasoning": "A theorem on token addition/removal or on minimum ordinary domination is not a theorem for fixed-size minimum total domination in triangular graphs; none provides dominating-parameter implication yielding 6q and 4q degrees and slide connectivity.",
+      "searches": [
+        "Token jumping on total dominating sets of Johnson graphs J(n,2) or line graphs of complete graphs, regularity and connectivity",
+        "\"total domination\" \"triangular graph\" \"reconfiguration\"",
+        "https://ajc.maths.uq.edu.au/pdf/73/ajc_v73_p313.pdf",
+        "https://arxiv.org/pdf/2003.05956"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A304561",
+      "https://ajc.maths.uq.edu.au/pdf/73/ajc_v73_p313.pdf",
+      "https://arxiv.org/pdf/2003.05956",
+      "https://arxiv.org/abs/1711.04363",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-total-and-connected-total-domination-polynomials-of-chain-graphs--fe5d354bccbd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://oeis.org/A304561 supplies the minimum families but no move graph.",
+        "https://ajc.maths.uq.edu.au/pdf/73/ajc_v73_p313.pdf proves results for varying-size addition/removal reconfiguration, not the two fixed-size models.",
+        "https://arxiv.org/pdf/2003.05956 surveys fixed-size reconfiguration schemes but not this triangular total-domination family."
+      ],
+      "reasoning": "The proof of three permitted replacements per removed path edge and transitivity/slide reachability uses fresh local analysis and a constructive isolated-label swap argument. Previous count/structure can be used to initialize vertices but does not logically entail these edge relations. Specific unindexed rooted partition adjacency theorems are residual priority risk.",
+      "searches": [
+        "Token exchange and token sliding graphs on minimum total dominating sets of triangular graph J(3q+1,2), exactly 6q regular and 4q regular connected on rooted triple partitions",
+        "Reconfiguration of minimum total edge dominating sets of complete graph K_n; changing one chosen edge and preserving total domination, isolated vertex and P3 partitions",
+        "Oriented 3-set partition graphs with one unused label and exchange moves, flip graph connected regular",
+        "Token jumping on total dominating sets of Johnson graphs J(n,2) or line graphs of complete graphs, regularity and connectivity",
+        "https://oeis.org/A304561",
+        "https://ajc.maths.uq.edu.au/pdf/73/ajc_v73_p313.pdf",
+        "https://arxiv.org/pdf/2003.05956"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://oeis.org/A304561: known family corresponds to rooted partitions into triples with a distinguished center",
+        "The exact token-slide operations are center rotations and swaps of the singleton with a path leaf; these are the natural P3-factor and rooted triple-partition aliases."
+      ],
+      "reasoning": "The edge-subset/line-graph translation is exact. The found prior minimum-family count is incorporated as a premise; it does not assert or imply all exchange/slide neighbors or their connectivity. No exact rooted-partition flip-graph coverage was identified in checked records.",
+      "searches": [
+        "Token exchange and token sliding graphs on minimum total dominating sets of triangular graph J(3q+1,2), exactly 6q regular and 4q regular connected on rooted triple partitions",
+        "Reconfiguration of minimum total edge dominating sets of complete graph K_n; changing one chosen edge and preserving total domination, isolated vertex and P3 partitions",
+        "Oriented 3-set partition graphs with one unused label and exchange moves, flip graph connected regular",
+        "Token jumping on total dominating sets of Johnson graphs J(n,2) or line graphs of complete graphs, regularity and connectivity",
+        "\"total edge dominating\" \"exchange\" \"reconfiguration\" complete",
+        "\"P3-partitions\" \"token sliding\" connected"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A304561: A304561 (2018) explicitly states the number N=n!/(2^q q!) and one-isolate/disjoint-P3 configuration description in the n=3q+1 case.",
+        "A303048 and A303227 OEIS crossreferences concern static total-domination counts/minimal families."
+      ],
+      "reasoning": "The exact database record *covers* the static optimum enumeration. The accepted claim excludes that count as novel and instead measures adjacency, regular degrees, edge counts, and graph connectivity, which static enumerators do not determine.",
+      "searches": [
+        "https://oeis.org/A304561",
+        "Token exchange and token sliding graphs on minimum total dominating sets of triangular graph J(3q+1,2), exactly 6q regular and 4q regular connected on rooted triple partitions",
+        "Total edge domination generating polynomial of complete graphs; labeled spanning graphs with no K2 connected components and at most one isolated vertex; full coefficients exponential formula",
+        "Total domination polynomials of line graphs of complete graphs; edge dominating sets of complete graphs and component species decomposition"
+      ]
+    },
+    "rationale": "The static optimum family and count are explicitly prior-known (OEIS A304561) and excluded. Literature inspection finds addition/deletion total domination and general jump/slide frameworks, not the exact two fixed-minimum triangular total-domination graphs. The new complete move classification and reachability are not implied by static counts.",
+    "residual_risks": [
+      "An older unindexed rooted triple partition flip-graph result might imply the one-step classification and both connectivity statements.",
+      "Prior complete graph total-edge-domination reconfiguration may appear under terminology not indexed by the searched databases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS optimal-set characterization and count; does NOT state exchange/slide graph degrees, edge counts, or connectivity.",
+        "evidence": [
+          "May 20, 2018 comment by Howroyd: one uncovered vertex and disjoint trees on 3 points; formula a(3k+1)=(3k+1)!/(2^k*k!)."
+        ],
+        "identifier_or_url": "https://oeis.org/A304561",
+        "material_read": "Sequence description, comments and all three congruence-class formulas, attribution and links, including one-uncovered-point description for n mod 3 = 1.",
+        "method": "Read complete OEIS entry and compare statements and their implications.",
+        "title": "OEIS A304561: Number of minimum total dominating sets in the n-triangular (Johnson) graph",
+        "trigger": "The database is the exact static-minimum comparator for the same triangular graph family."
+      },
+      {
+        "assessment": "NOT covering: addition/deletion adjacency and variable cardinality instead of fixed-minimum exchange and slide; reported families are general, paths, cycles.",
+        "evidence": [
+          "2019 AJC volume 73 pages 313-333 abstract and Definition 1 explicitly impose one vertex addition/deletion; n-triangular graph absent from specified results."
+        ],
+        "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/73/ajc_v73_p313.pdf",
+        "material_read": "Abstract, Introduction, Definition 1, stated results, Sections 2-4 outline, relevant reconfiguration definitions; PDF body searched for line graph/token terminology.",
+        "method": "Read the lawful full journal PDF (21 pages) text and scanned its beginning; searched terms line graph and token.",
+        "title": "On k-Total Dominating Graphs",
+        "trigger": "Directly concerns reconfiguration of total dominating sets; plausible stronger/general coverage."
+      },
+      {
+        "assessment": "General model exposition and other graph classes, not a statement about minimum total domination slide/exchange graphs of triangular graphs.",
+        "evidence": [
+          "arXiv:2003.05956, pages 2-3, distinguishes fixed-size J(G,gamma) and S(G,gamma); section 4.2 discusses threshold total domination graphs and cycles/paths."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.05956",
+        "material_read": "20-page arXiv preprint text; Introduction definitions and the sections on k-total domination, jump graphs, and slide graphs (pages 1-3 and 13-15).",
+        "method": "Read full parsed PDF; visually inspected page 3 (zero-index 2) to confirm jump/slide model; searched total domination.",
+        "title": "Reconfiguration of Colourings and Dominating Sets in Graphs: a Survey",
+        "trigger": "Surveys alternative jump/slide definitions and potential existing strong reconfiguration theorems."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bb6c3a63-4e6c-45de-ad92-adfe3e5f0eb7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the exact reachability structure, all local moves, regular valencies and full edge counts under two distinct natural modifications of every optimal total monitoring configuration for infinitely many Johnson graphs. Fixed-cardinality slide connectivity is a nontrivial global fact not conveyed by known counts.",
+    "status": "PASS"
+  }
+}
