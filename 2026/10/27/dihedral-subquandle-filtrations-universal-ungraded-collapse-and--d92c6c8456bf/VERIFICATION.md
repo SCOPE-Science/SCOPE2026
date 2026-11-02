@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The accompanying `verify.py` is a self-contained Python 3 program requiring only the standard library. Run `python3 verify.py` in the directory containing this file and the checker. It emits `ALGEBRA_OK`, `GRADED_OK`, `VERIFY_OK` on success, together with example terms for modulus nine.
+## correctness
 
-The checker independently enumerates every function \(R_n	o R_n\) for \(2\le n\le5\), verifies that only the affine maps preserve the operation, and independently enumerates all nonempty closed subsets for \(2\le n\le10\), comparing them with all subgroup cosets. It checks the respectful-map count on one- and two-color subsets, directly simulates closed positive two-strand braids for a collection of small moduli and odd crossing numbers, and enumerates all \(n^2\) endomorphism images of each coloring. It compares every resulting graded monomial and multiplicity to the closed divisor formulas.
+PASS
 
-These tests provide finite error detection, not an infinite or independent proof. The symbolic argument establishing the identities for all \(n\ge2\), odd \(k\ge1\), all oriented links, and all indicated filtrations is contained in `RESULT.md`. Full independent mathematical auditing has not been performed.
+Every R_n endomorphism is affine ux+v (recurrence from j▷(j+1)=j+2), including even n. Every nonempty subquandle is a coset of an additive subgroup; closure under reflections and the quotient H/2H gives the classification. For each U=c+H and any nonempty coloring into it, exactly n|H| of the n² endomorphisms land back in U, proving universal ungraded exponent n(n−|U|). For positive odd T(2,k), kδ=0, image order r|gcd(n,k) occurs with nφ(r) colorings. Counting u maps with output order s and v translations gives the displayed M_r with t_{0,1} exponent n/r, hence distinct monomials. Independent subquandle enumeration n=2..9 and complete graded affine-map enumeration n,k=(6,3),(7,7),(9,9),(10,5) reproduced each claimed exponent and coefficient.
+
+## originality
+
+PASS
+
+The 2026 source introduces the exact invariants, so the broad construction is credited. Its full text remained inaccessible; abstract/examples do not establish the all-dihedral collapse or full graded two-stage formula. Elhamdadi–Jones–Liu 2024 describes unfiltered dihedral torus coloring quivers and affine endomorphisms, not target-index/defect-weight filtered polynomials.
+
+## value
+
+PASS
+
+Shows an entire natural invariant collapses under a full endomorphism monoid, while giving an exact graded refinement indexed by all divisors and valid for composite as well as prime moduli; useful to distinguish when an invariant has or lacks added link information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
