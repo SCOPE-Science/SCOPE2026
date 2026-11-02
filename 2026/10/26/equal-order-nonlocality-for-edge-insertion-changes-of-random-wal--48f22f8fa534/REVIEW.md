@@ -1,11 +1,21 @@
-# Review: Equal-order nonlocality of cover-time edge insertion
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete proof treats the full stated quantifiers (each integer \(r\ge1\)), both graph orders and boundary ambient-degree labels, and the exact sign of the fixed-start response. The cut-vertex identity of Si [1, Theorem 3.2] is reconstructed from explicit Poissonized excursions and their terminal unused suffixes. The positive path response is an exact positive rational function. The negative clique-tail response follows from a nonasymptotic single-excursion coupon bound and a strict polynomial inequality. Exact visited-state Bellman computations, independent of the excursion representation, passed for three finite witness pairs; 203 parameter choices corroborate the analytic sign margins. These finite computations do not prove the infinite theorem.
+## correctness
 
-**Originality — PASS, subject to residual priority risk.** Si [1] derives the transfer identity and proves arbitrary-radius marked local sign nonlocality with different graph orders; the paper expressly poses the equal-order strengthening as an open problem. The proved equal-order terminal-clique construction is not covered by that theorem or its clique-at-hub witnesses. Barlow, Ding, Nachmias and Peres [2] give a universal multiplicative edge-insertion bound; Ding, Lee and Peres [3] give coarse cover-time equivalences, neither deciding the present exact matched-order sign problem. Relevant research records and recoverable prior claims were compared at the statement/implication level. A matching unindexed construction remains possible; this is not an independent historical priority determination.
+PASS
 
-**Mathematical value — PASS.** A stated natural open extension is resolved for **every** local radius, preserving the graph order in addition to all previously matched visible and electrical data. The proof provides a reusable remote-excursion domination mechanism and an exact positive-response formula. The large nonoptimized size and fixed-start restriction are stated; no minimality or worst-start assertion is made.
+Both graph constructions have 4+r+K vertices where K=max(100,4r+10): a remote path of length q=r+K versus a length-(r+1) stem entering a terminal K-clique. The radius-r marked balls have the same degree labels, and u-c-v are bridge links giving R_uv=2. Reconstructing the published cut-vertex Poisson-excursion transfer with artificial remote completion time T, its Laplace transforms a=E exp(-T), b=E exp(-3T/2) and unused suffix J yields delta=2ET-2(2m-1)(a-2b/3)-2E[J(exp(-T)-exp(-3T/2))]. For the long path, ET=q and J=q^2 reduce to the strictly positive rational function 2(6q^3+5q^2-23q-10)/(3(q+1)(3q+2)). For the terminal clique, a single excursion covers the clique with conditional probability >1/2 when K>=100; thinning gives ET<=2(r+1) and a>=1/(2r+3). The negative bound follows from K(K-1)>12r^2+28r+11, verified symbolically from K>=4r+10. Independent exact visited-subset Bellman calculations reproduce strict signs on (r,K)=(1,3),(1,4),(2,4); these are finite corroborations only.
 
-Closest work: [1] Ian Meng Si, *Nonlocality of Cover-Time Changes Under Edge Addition*, arXiv:2608.27474v1 (2026-08-19), Sections 3 and 7; [2] Barlow et al., arXiv:1001.0609; [3] Ding, Lee and Peres, arXiv:1004.4371.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Si (arXiv:2608.27474), the directly preceding paper, already proves different-order arbitrary-radius nonlocality and the required cut-vertex transfer identity. Its dated abstract explicitly calls equal-order nonlocality open. The new witness makes vertex counts identical with a remote terminal clique behind the radius cutoff, retaining marked degree labels and effective resistance. Resultary returned no matching same-order theorem. The full Si text was not retrievable by the attempted accessible arXiv routes, so priority and exact transfer assumptions remain a stated comparison limitation; abstract alone is not misrepresented as full-text noncoverage.
+
+## value
+
+PASS
+
+Graph order is a natural global datum one might add to local geometric/electrical statistics to predict whether inserting an edge accelerates cover. The same-order construction rules out that strengthened local criterion at every radius, directly answering a stated gap rather than merely changing a numerical example. Exact signs and matching invariants provide a reusable counterexample family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
