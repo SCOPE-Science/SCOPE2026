@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof reduces each leader to the exact scalar \(u=\tanh(\beta u/4)\) equation, explicitly enumerates all full equilibria by a triangular recursion, counts unstable eigenvalues from a triangular Jacobian, and identifies every basin by recursive variation of constants. The equality case \(\beta=4\) is a globally attracting nonhyperbolic boundary, and hyperbolic persistence is stated only for \(\beta>4\). Independent computational sampling of representative feedforward matrices passed, but is not an infinite proof.
+
+**Originality — PASS with residual source-access risk.** Exact overlap searches for source identifiers, acyclic/follower-network equivalents, the \(3^s\) and \(2^s\) counts, basin-cylinder formulations, and stronger general sigmoidal-network results found no exact covering statement in the accessible material. The motivating threshold-network abstract establishes multistability and persistence for equitable block reductions but does not document arbitrary-strength feedforward cascade classification or exact basin volumes. A complete accessible 2026 study of coupled feedforward/feedback regulatory motifs instead numerically samples fixed three-node Hill-gate circuits. The arXiv full text and some relevant older full texts could not be read, so publication priority is not certified.
+
+**Value — PASS.** One-way hierarchical influence is a natural non-equitable counterpart to block-symmetric network coupling. The theorem yields a complete, sharp phase diagram, exact index census and all basin sets for arbitrarily many followers at arbitrarily strong feedforward weights, together with a graph-robustness theorem for the entire finite equilibrium skeleton. The result is not merely a numerical example, a named restatement of weak-coupling persistence, or an arbitrary finite-size count; its basin probabilities give a precise intervention interpretation of autonomous source agents.
+
+The key limits are the restrictions to logistic response, autonomous leader loops, feedforward descendants, and the smaller robustness claim for perturbed networks. Plausible prior general-network stability literature was compared but some full texts remain inaccessible.
+
+Self-review: passed. Independent audit: not yet performed.
