@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T02:02:02.266957Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For d>=2 and any full-dimensional compact convex base K, affine-normalize the base John ellipsoid to B_{d-1} and apply its nonsymmetric contact design. The proposed frustum ellipsoid has center height b=min{1/2,1/((d+1)(1-q))}, horizontal radius a=sqrt(1-2(1-q)b), with b=1/2 at q=1. Containment follows from max_w{a sqrt(1-w²)+(1-q)b w}=sqrt(a²+(1-q)²b²)=1-(1-q)b; axial heights stay in [0,1]. With t=(1-q)b/[1-(1-q)b], s=sqrt(1-t²), lateral normals (s u_i,t) weighted lambda_i/s² and cap weights [1+(d-1)t/(1+t)]/2 and [1-(d-1)t/(1-t)]/2 satisfy zero mean and covariance I_d. The latter upper weight vanishes iff q<= (d-1)/(d+1), and is positive above. John sufficiency and uniqueness establish the full all-base theorem, not just symmetric examples. Independently recomputed weighted identities at (d,q)=(2,0),(3,.35),(4,0),(5,.7),(8,1).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general John contact theorem supplies an optimality criterion but no universal frustum parameters. Section 8 outer-ellipsoid formulas cannot imply the inner solution without a nontrivial polarity/transformation proof not present."
+        ],
+        "reasoning": "Classical necessary/sufficient contact identities are an input, not a theorem already computing this family.",
+        "searches": [
+          "Resultary: John ellipsoid maximal inscribed ellipsoid homothetic truncated convex cones frusta universal cap contact parameter d-1 over d+1 arbitrary convex base",
+          "Güler–Gürtuna 2007 Theorem 3.3 and Section 8; Gruber–Schuster 2012 John theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0709.0707, https://arxiv.org/abs/0709.0707",
+        "arXiv:1207.7246"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A larger arbitrary-base family contains truncated circular cones as cases. The old work provides no inscribed formula even for that case, whereas the frozen proof exhibits all John identities for its full family."
+        ],
+        "reasoning": "The claimed universal contact transition cannot be read as a mere special-case corollary of the cited outer ellipsoid computation.",
+        "searches": [
+          "Resultary: John ellipsoid maximal inscribed ellipsoid homothetic truncated convex cones frusta universal cap contact parameter d-1 over d+1 arbitrary convex base",
+          "arXiv:0709.0707 Section 8, intro; Git frozen RESULT.md proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The text expressly separates maximum-volume *inscribed* and minimum-volume *circumscribed* ellipsoids. Their Section 8 treats the outer truncated second-order cone; it says the inner one is not solved."
+        ],
+        "reasoning": "General affine equivalence of homothetic bases to their John-normalized bases does not turn a general nonsymmetric convex base into a ball; the contact lift supplied here is new compared with the outer result.",
+        "searches": [
+          "Resultary: John ellipsoid maximal inscribed ellipsoid homothetic truncated convex cones frusta universal cap contact parameter d-1 over d+1 arbitrary convex base",
+          "Güler and Gürtuna, arXiv:0709.0707, Section 1 pp.2-3 and Section 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest database entries include Khachiyan half-cone and capped-hypercube John ellipsoid results with different geometry; no arbitrary-base homothetic-frustum formula was returned."
+        ],
+        "reasoning": "A failed database match is not novelty proof, but the explicit closest primary Section 8 comparison supports noncoverage.",
+        "searches": [
+          "Resultary: John ellipsoid maximal inscribed ellipsoid homothetic truncated convex cones frusta universal cap contact parameter d-1 over d+1 arbitrary convex base",
+          "Resultary John-ellipsoid semantic query, 11 matches"
+        ]
+      },
+      "rationale": "The general nonsymmetric John-contact characterization is classical; the strongest matching frustum-like predecessor, Güler–Gürtuna arXiv:0709.0707, explicitly states on page 3 that its truncated second-order-cone Section 8 solves the outer circumscribed ellipsoid and leaves the inner inscribed ellipsoid unsolved. Thus that paper does not imply the submitted inner formula, still less the arbitrary-base affine-transfer contact theorem. Related published exact John computations for capped cubes and cones concern different truncations/bases. Best-of-knowledge priority with residual uncatalogued literature risk.",
+      "residual_risks": [
+        "Unindexed earlier inscribed-ellipsoid solutions for homothetic truncated cones/frusta may still exist; no absolute historical priority claimed.",
+        "Finite contact checks corroborate selected dimensions only; the proof is the all-dimensional John certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Section 8 gives minimum-volume circumscribed (outer) ellipsoid; authors explicitly exclude maximum-volume inscribed solution.",
+          "evidence": "Sec.1 PDF p.3 states inscribed ellipsoid of second body class not solved; Theorems 3.1 and 3.3 general John conditions.",
+          "identifier_or_url": "arXiv:0709.0707, https://arxiv.org/abs/0709.0707",
+          "material_read": "Original full-text introduction pp.1-3, Section 3 John conditions, Section 8 framing, page-3 PDF image",
+          "method": "Read indexed original PDF text and page-3 page image",
+          "title": "Güler & Gürtuna, The extremal volume ellipsoids of convex bodies",
+          "trigger": "Identical truncated-cone objects and extremal ellipsoids"
+        },
+        {
+          "assessment": "General contact theorem, not an exact frustum solution.",
+          "evidence": "Standard condition sum lambda u=0, sum lambda uu^T=I.",
+          "identifier_or_url": "arXiv:1207.7246",
+          "material_read": "Abstract and stated John contact theorem as general background; no claimed full textual inspection",
+          "method": "Bibliographic/arXiv overview",
+          "title": "Gruber & Schuster, An Arithmetic Proof of John's Ellipsoid Theorem",
+          "trigger": "Contact-moment sufficiency for nonsymmetric John ellipsoids"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It solves an explicitly open inner-ellipsoid computation for an entire natural affine class of homothetic convex frusta, including arbitrary asymmetric/nonpolyhedral sections, with a sharp universal cap-contact threshold and formulas useful as benchmark convex-optimization certificates. Neither a routine affine substitution into a known solved general frustum theorem nor a minor finite example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0709.0707, https://arxiv.org/abs/0709.0707",
+    "arXiv:1207.7246"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Homothetic frusta q in [0,1] with convex full-dimensional base; not arbitrary unrelated end sections or outer Löwner ellipsoids.",
+    "Existing operational IDs in public AUDIT.json and METADATA.json block safe publication until sanitized."
+  ],
+  "residual_risks": [
+    "Unindexed earlier inscribed-ellipsoid solutions for homothetic truncated cones/frusta may still exist; no absolute historical priority claimed.",
+    "Finite contact checks corroborate selected dimensions only; the proof is the all-dimensional John certificate."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Section 8 gives minimum-volume circumscribed (outer) ellipsoid; authors explicitly exclude maximum-volume inscribed solution.",
+      "evidence": "Sec.1 PDF p.3 states inscribed ellipsoid of second body class not solved; Theorems 3.1 and 3.3 general John conditions.",
+      "identifier_or_url": "arXiv:0709.0707, https://arxiv.org/abs/0709.0707",
+      "material_read": "Original full-text introduction pp.1-3, Section 3 John conditions, Section 8 framing, page-3 PDF image",
+      "method": "Read indexed original PDF text and page-3 page image",
+      "title": "Güler & Gürtuna, The extremal volume ellipsoids of convex bodies",
+      "trigger": "Identical truncated-cone objects and extremal ellipsoids"
+    },
+    {
+      "assessment": "General contact theorem, not an exact frustum solution.",
+      "evidence": "Standard condition sum lambda u=0, sum lambda uu^T=I.",
+      "identifier_or_url": "arXiv:1207.7246",
+      "material_read": "Abstract and stated John contact theorem as general background; no claimed full textual inspection",
+      "method": "Bibliographic/arXiv overview",
+      "title": "Gruber & Schuster, An Arithmetic Proof of John's Ellipsoid Theorem",
+      "trigger": "Contact-moment sufficiency for nonsymmetric John ellipsoids"
+    }
+  ]
+}
