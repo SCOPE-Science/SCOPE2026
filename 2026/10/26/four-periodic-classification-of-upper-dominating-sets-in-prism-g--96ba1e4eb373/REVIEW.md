@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full proof in `RESULT.md` reconstructs the tight regular-graph private-neighbor inequality, identifies the equality cases, and then exhaustively classifies all perfect-matching cuts and independent extremizers of the circular prism. Every cyclic boundary, including triangular and square prisms, is included. The Python verification independently checks all candidate subsets on graphs with three through ten rungs and checks the absence of larger minimal dominating sets for three through eight rungs. These finite checks are not substituted for the unrestricted argument.
+## correctness
 
-## Originality — PASS (residual source-access risk)
-Sahbi (2026), arXiv:2610.03785v1, treats rectangular grids and gives only the upper-domination *number*. Southey–Henning (2013), DOI:10.1002/jgt.21649, previously proved the general regular-graph upper bound and characterized equality graph families; the numerical bound and equality principle are credited. Neither accessible primary abstract nor the 2026 full text exhibits the four-periodic census or an exhaustive labelled-set description of circular-prism optimizers. Zverovich–Zverovich (1999) study hereditary upper-domination perfection with prism examples. The full texts of the two older potentially relevant papers were unavailable and may contain related classifications. OEIS A290379 covers all minimal dominating sets of *open* ladders, not maximum minimal sets of circular prisms. The evidence supports a best-knowledge originality assessment, not a claim of proven global uniqueness.
+PASS
 
-## Mathematical value — PASS
-For a natural infinite graph product, the result determines *every* maximum-cardinality inclusion-minimal dominating set and gives a sharp period-four count. The precise configurations distinguish all parity and four-divisibility cases and show that equality in the regular-graph upper bound may be realized by two different mechanisms. This is a meaningful extremal classification, not a restatement of the known scalar bound.
+For a minimal dominating S in connected d-regular G of N vertices, partition selected vertices into isolated I and nonisolated F; each f in F needs a unique outside private neighbor p(f). With Q private neighbors and R the rest, all d|I| incident edges enter R, giving |I|<=|R| and 2|S|<=N. At equality, d-regularity and connectedness force either F empty, giving an independent bipartition side, or I empty, yielding a perfect matching cut between S and its complement. In the labelled prism any independent side of size n must alternate one vertex per rung (two patterns only when n even). A perfect-matching cut either contains a bichromatic rung, forcing all rungs to have the same orientation (top/bottom layers), or all monochromatic rungs and a binary cyclic color word with runs exactly length two, forcing 0011 repeats (four phases if 4|n). Hence Gamma=n and U_n=2+2*1_{2|n}+4*1_{4|n} for every n>=3. Direct independent exhaustive tests of all n-subsets for n3..9 reproduced the full families and counts [2,8,2,4,2,8,2].
 
-## Limitations and closest work
-The theorem does not enumerate nonmaximum minimal dominating sets or general cylindrical grids. The strongest relevant prior work is Southey–Henning's general equality-family result; its uninspected details are a residual bibliographic risk. Independent mathematical validation has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge: general regular graph upper domination bound and equality framework are prior. Allagan et al. 2026 count MINIMUM-cardinality dominating sets on precisely the same prisms; their modulo-four numbers do not count maximum-cardinality inclusion-minimal dominating sets. The four-periodic exact upper-domination vertex-subset census was not found in inspected sources; full Southey/Henning and Zverovich papers inaccessible, recorded risk.
+
+## value
+
+PASS
+
+The upper domination number Γ and the number U_n of maximum-cardinality minimal dominating sets are natural graph invariants; the exact 2/4/8 periodicity gives a complete structural classification for a canonical all-n prism family, including odd nonbipartite instances. The result is distinct from minimum dominating set counts and develops a useful perfect-matching-cut equality structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

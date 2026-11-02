@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T17:44:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 49549ebae1d46051e58cae3951497015f286a345",
+        "independent_checks.py complete n-subset enumeration n3..9",
+        "general regular-graph bound from Southey/Henning credited prior"
+      ],
+      "rationale": "For a minimal dominating S in connected d-regular G of N vertices, partition selected vertices into isolated I and nonisolated F; each f in F needs a unique outside private neighbor p(f). With Q private neighbors and R the rest, all d|I| incident edges enter R, giving |I|<=|R| and 2|S|<=N. At equality, d-regularity and connectedness force either F empty, giving an independent bipartition side, or I empty, yielding a perfect matching cut between S and its complement. In the labelled prism any independent side of size n must alternate one vertex per rung (two patterns only when n even). A perfect-matching cut either contains a bichromatic rung, forcing all rungs to have the same orientation (top/bottom layers), or all monochromatic rungs and a binary cyclic color word with runs exactly length two, forcing 0011 repeats (four phases if 4|n). Hence Gamma=n and U_n=2+2*1_{2|n}+4*1_{4|n} for every n>=3. Direct independent exhaustive tests of all n-subsets for n3..9 reproduced the full families and counts [2,8,2,4,2,8,2].",
+      "residual_risks": [
+        "The proof does not enumerate smaller inclusion-minimal sets or open ladders.",
+        "Finite tests corroborate, but the regular-graph equality and word argument prove all n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Southey–Henning general connected regular graph upper-domination bound Γ<=N/2 and equality graph characterization; Zverovich discusses upper-domination-perfect graphs including odd prisms."
+        ],
+        "reasoning": "The universal inequality implies Γ(P_n)<=n, but does not alone give counts 2,4,8 of actual labeled extremal subsets. The full 2013 paper was not accessible, so equivalent equality-case enumeration remains a substantial priority risk.",
+        "searches": [
+          "J. Southey and M. A. Henning, Edge Weighting Functions on Dominating Sets, Journal of Graph Theory 72 (2013), 346–360, DOI:10.1002/jgt.21649",
+          "I. E. Zverovich and V. E. Zverovich, A semi-induced subgraph characterization of upper domination perfect graphs, Journal of Graph Theory 31 (1999), DOI:10.1002/(SICI)1097-0118(199905)31:1<29::AID-JGT4>3.0.CO;2-G"
+        ]
+      },
+      "checked_sources": [
+        "J. Allagan et al., Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words, International Journal of Mathematics and Mathematical Sciences, published 12 June 2026, DOI:10.1155/ijmm/1411005",
+        "J. Southey and M. A. Henning, Edge Weighting Functions on Dominating Sets, Journal of Graph Theory 72 (2013), 346–360, DOI:10.1002/jgt.21649",
+        "I. E. Zverovich and V. E. Zverovich, A semi-induced subgraph characterization of upper domination perfect graphs, Journal of Graph Theory 31 (1999), DOI:10.1002/(SICI)1097-0118(199905)31:1<29::AID-JGT4>3.0.CO;2-G",
+        "Resultary search Resultary: upper domination circular prism minimal dominating sets of cardinality n exact count 4 period",
+        "OEIS A290379"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior lower-cardinality domination enumeration does not yield the upper domination level Γ or its number of inclusion-minimal S of size Γ."
+        ],
+        "reasoning": "An exhaustive equality-side and perfect-matching-cut classification is necessary to derive these counts; the general half-order bound alone cannot supply them.",
+        "searches": [
+          "J. Allagan et al., Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words, International Journal of Mathematics and Mathematical Sciences, published 12 June 2026, DOI:10.1155/ijmm/1411005",
+          "J. Southey and M. A. Henning, Edge Weighting Functions on Dominating Sets, Journal of Graph Theory 72 (2013), 346–360, DOI:10.1002/jgt.21649",
+          "I. E. Zverovich and V. E. Zverovich, A semi-induced subgraph characterization of upper domination perfect graphs, Journal of Graph Theory 31 (1999), DOI:10.1002/(SICI)1097-0118(199905)31:1<29::AID-JGT4>3.0.CO;2-G"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Allagan et al. 2026 same graph family G_n=C_n□P2, but define ζ(G_n) for sets of cardinality γ(G_n) instead of Γ(G_n)."
+        ],
+        "reasoning": "The same n mod 4 indexing and cyclic-word method do not imply equality: a minimum dominating set typically has far fewer than n vertices, while here |S|=Γ=n.",
+        "searches": [
+          "Resultary: upper domination circular prism minimal dominating sets of cardinality n exact count 4 period",
+          "J. Allagan et al., Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words, International Journal of Mathematics and Mathematical Sciences, published 12 June 2026, DOI:10.1155/ijmm/1411005"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary finds Roman domination of complete prisms, other domination classes; OEIS A290379 counts all minimal dominating sets of OPEN ladders, not only maximum-size in circular prisms."
+        ],
+        "reasoning": "Neither found table has the same graph and exact invariant; the same-graph 2026 minimum-dominion table is genuinely distinct.",
+        "searches": [
+          "Resultary search Resultary: upper domination circular prism minimal dominating sets of cardinality n exact count 4 period",
+          "J. Allagan et al., Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words, International Journal of Mathematics and Mathematical Sciences, published 12 June 2026, DOI:10.1155/ijmm/1411005",
+          "OEIS A290379"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: general regular graph upper domination bound and equality framework are prior. Allagan et al. 2026 count MINIMUM-cardinality dominating sets on precisely the same prisms; their modulo-four numbers do not count maximum-cardinality inclusion-minimal dominating sets. The four-periodic exact upper-domination vertex-subset census was not found in inspected sources; full Southey/Henning and Zverovich papers inaccessible, recorded risk.",
+      "residual_risks": [
+        "2013 equality-classification proof may contain equivalent prism perfect-matching-cut enumeration: full text inaccessible due vpn_disconnected.",
+        "1999 upper-domination-perfect graphs full text uninspected; only abstract available.",
+        "Related cyclic-word domination enumerations use same graph but different extremum; priority conclusion remains qualified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts MINIMUM dominating sets ζ(G_n), not Γ-extremal inclusion-minimal sets U_n",
+          "evidence": [
+            "https://onlinelibrary.wiley.com/doi/10.1155/ijmm/1411005",
+            "Abstract and Theorem 2"
+          ],
+          "identifier_or_url": "DOI:10.1155/ijmm/1411005",
+          "material_read": "Full open-access published HTML, Abstract, Definitions 1, Methods, Theorem 2, main classification Sections 2-3",
+          "method": "Open-access Wiley full HTML",
+          "title": "Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words",
+          "trigger": "Same circular prism and n mod 4 counts could cover current theorem under alternate wording"
+        },
+        {
+          "assessment": "Known general bound credited. Cannot certify no detailed equalizer classification in uninspected text",
+          "evidence": [
+            "https://doi.org/10.1002/jgt.21649"
+          ],
+          "identifier_or_url": "DOI:10.1002/jgt.21649",
+          "material_read": "Accessible abstract and bibliographic description only; tried OA/arXiv before authorized Oxford; Oxford status vpn_disconnected, job_id privately recorded",
+          "method": "Abstract plus unsuccessful authorized access",
+          "title": "Edge Weighting Functions on Dominating Sets",
+          "trigger": "General bound Γ<=N/2 and equality could imply the prism result"
+        },
+        {
+          "assessment": "Graph-class statement but no independently verified labelled n-sized extremal-set enumeration",
+          "evidence": [
+            "https://doi.org/10.1002/(SICI)1097-0118(199905)31:1%3C29::AID-JGT4%3E3.0.CO;2-G"
+          ],
+          "identifier_or_url": "I. E. Zverovich and V. E. Zverovich, A semi-induced subgraph characterization of upper domination perfect graphs, Journal of Graph Theory 31 (1999), DOI:10.1002/(SICI)1097-0118(199905)31:1<29::AID-JGT4>3.0.CO;2-G",
+          "material_read": "Accessible published abstract only; full-text access unavailable",
+          "method": "Bibliographic abstract",
+          "title": "A semi-induced subgraph characterization of upper domination perfect graphs",
+          "trigger": "Prism examples and upper domination theory in title/abstract"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "J. Southey and M. A. Henning, Edge Weighting Functions on Dominating Sets, Journal of Graph Theory 72 (2013), 346–360, DOI:10.1002/jgt.21649",
+        "J. Allagan et al., Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words, International Journal of Mathematics and Mathematical Sciences, published 12 June 2026, DOI:10.1155/ijmm/1411005",
+        "Independent direct all-n-subsets for n=3..9"
+      ],
+      "rationale": "The upper domination number Γ and the number U_n of maximum-cardinality minimal dominating sets are natural graph invariants; the exact 2/4/8 periodicity gives a complete structural classification for a canonical all-n prism family, including odd nonbipartite instances. The result is distinct from minimum dominating set counts and develops a useful perfect-matching-cut equality structure.",
+      "residual_risks": [
+        "The general half-order bound and perfect-matching-cut framework are classical; novelty is the precise prism family census."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For each simple circular prism P_n, n>=3, the upper domination number is n, and exactly U_n=2+2[2|n]+4[4|n] labelled maximum-size minimal dominating sets occur: two layer sets, two alternating independent sides when n even, four paired-rung sets when 4|n.",
+  "limitations": [
+    "Full Southey–Henning 2013 text inaccessible; authorized retrieval reported vpn_disconnected.",
+    "Counts apply to maximum-cardinality minimal dominating sets, not smallest dominating sets."
+  ],
+  "schema_version": 1
+}
