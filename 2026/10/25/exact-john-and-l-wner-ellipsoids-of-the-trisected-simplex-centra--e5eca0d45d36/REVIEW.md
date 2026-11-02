@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The polytope is specified in the inherited Euclidean simplex hyperplane, with dimension and scaling unambiguous. The facet normal calculation gives \(r_m^2=1/[m(5m-1)]\), and the source's independently identified two-level vertex coordinates give squared distances \(F_m(k)=k(m-k)/[m(2m-k)^2]\). Differentiation and two exact adjacent-index comparisons locate a **unique** maximizing cardinality for every dimension; no floating-point inequality is used. Positive isotropic contact identities certify both John and Löwner ellipsoids. The exact-rational checker reproduces all supporting identities for a bounded collection of dimensions, not an infinite proof.
+## correctness
 
-## Originality — PASS, subject to recorded risk
-Kazakov's arXiv:2606.02087v1 was examined in sections on construction, volume, vertices, facets and Appendix B. It contains the polytope, all two-level vertices, and a regular-tetrahedron face-distance calculation; these are assigned to prior work. Its theorem and appendices do not state general-dimensional John/Löwner ellipsoids or a unique three-residue outer contact law. Closest indexed mathematical results concern a centrally symmetric simplex kernel, canonical signohedra, and capped hypercubes, each with different inequalities or symmetry. A theorem about one such body cannot cover this claim simply because both have balls or contact shells; no affine correspondence, matching vertices, or dominating statement was identified. Some indexed results were available only as title/summary, and an implicit unindexed equivalent remains possible. In particular, absolute priority is not certified.
+PASS
 
-## Mathematical value — PASS
-The trisection polytope is already a natural all-dimensional object with known exact volume and face counts. John and Löwner ellipsoids give exact Euclidean shape descriptors and sharp affine containment benchmarks, and the outer contact set changes with the dimension residue rather than obeying an obvious nearest-integer tie. The positive optimality certificates make the contact classification checkable for arbitrarily high dimension. This is a motivated complete natural-invariant calculation, not a recomputation of the source's volume.
+For each m>=3 in H_m={x:sum x_i=1} with the inherited Euclidean metric, the half-spaces x_i<=2x_j have centered normals Π(e_i-2e_j) of squared norm 5-1/m, all genuine facets, so the centered John radius squared is 1/[m(5m-1)]. Kazakov’s listed vertices v_L have k low coordinates 1/(2m-k) and remaining 2/(2m-k); direct exact squared distance is k(m-k)/[m(2m-k)^2]. The derivative m(2m-3x)/(2m-x)^3 plus exact adjacent-cardinality comparisons proves the unique maximizing k: 2q when m=3q, otherwise 2q+1. S_m irreducibility on the sum-zero hyperplane makes the unique John/Löwner ellipsoids centered balls. Explicit zero-first-moment isotropic frame identities for ALL facet normals and the unique contact vertex orbit certify global ellipsoid optimality, not merely maximal centered balls. Independently recomputed exact ratios for m=3..25 and full rational facet Gram frames for m=3..8; finite checks corroborate the symbolic all-m proof.
 
-## Limits and closest literature
-Kazakov, arXiv:2606.02087v1, supplies essential face and vertex data including the three-dimensional facet-distance special case. The classic John–Löwner theory supplies extremality criteria. Index summaries for different symmetric polytopes do not settle exact equivalence, and independent verification has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same polytope and the exhaustive two-level vertex description are published by Kazakov (arXiv:2606.02087v1); his Appendix B already calculates a three-dimensional facet distance, and that part is NOT new. His inspected construction/vertex/appendix does not contain the general John and Löwner ellipsoids, unique three-residue maximizing vertex shells, or both isotropic contact certificates. Classical ellipsoid characterization does not evaluate this particular family; other symmetric-polytope ellipsoids have inequivalent defining inequalities. Best-of-knowledge O PASS, with the explicit risk of implicit or unindexed equivalent treatment.
+
+## value
+
+PASS
+
+This is a complete all-dimensional exact natural metric-invariant classification for an independently motivated central simplex polytope, giving both extremal ellipsoids, all contact sets, and exact certificates. It is useful for sharp containment/shape comparison and does not simply repeat Kazakov’s vertex count or volume.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
