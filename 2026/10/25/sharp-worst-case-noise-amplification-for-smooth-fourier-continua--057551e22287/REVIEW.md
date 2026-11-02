@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact formula is derived from the product formula for degree-\((d-1)\) equispaced Lagrange basis coefficients. Disjoint endpoint stencils make each continuation row's absolute sum the positive blend of the two extrapolation Lebesgue functions, and the real \(\ell^\infty\) norm is the maximum such sum. A center-row argument yields the lower bound; an explicit polynomial symmetric-beta family proves even-\(C\) attainment and odd-\(C\) approximation while strict increase excludes equality in the latter case. Summing polynomial leading coefficients proves the asymptotic. Exact-arithmetic checks are supporting finite evidence, not a substitute for the general proof.
+PASS
 
-## Originality — PASS with bibliographic risks
+For integers d>=2,C>=2,N>=2d with disjoint d-point endpoint stencils, exact integer Lagrange coefficients at extrapolation distance q have absolute values binom(q+j-1,j)binom(q+d-1,d-1-j). Their sum Lambda_d(q) is strictly increasing. As the left and right stencils are disjoint, a positive blended row has exact l_infinity coefficient norm (1-sigma(q/C))Lambda_d(q)+sigma(q/C)Lambda_d(C-q), and the operator norm is the maximum row norm. At even C=2k the center q=k gives Lambda_d(k); at odd C=2k+1 strict increase forces a strictly larger row because sigma(k/C)>0. The smooth polynomial symmetric beta-CDF family concentrating at 1/2 converges to a step, so the inf is Lambda_d(k); for even C strict positive gaps at all off-center rows imply finite m attains the center minimum, for odd C it cannot be attained. Leading binomial coefficient gives C^(d-1)/(d-1)!+O(C^(d-2)); keeping original data adds an identity block of norm one and does not change the result. The N>=2d restriction and endpoint derivative flatness are essential.
 
-Méndez-Cruz–Amlani (arXiv:2610.19797) define the same discrete extrapolation/blending operator, yet focus on periodic smoothness and FFT differentiation. Albin–Pathmanathan (DOI 10.1137/130932533) use related approximate-step blending and provide smooth-function bounds, but not this sharp arbitrary-data norm minimax or parity of optimizer existence. De Camargo–Mascarenhas (arXiv:1409.2808) give a different extended-interpolation Lebesgue instability result; Nainwal–Anand (arXiv:2605.04765) treat FC-Gram methods. Searches of mathematical records and available literature found no directly covering theorem. Residual risk: a generic, older unindexed lemma on minimax blends might imply this corollary without matching terms.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives an unavoidable perturbation-amplification barrier for a natural high-order Fourier-continuation operator and identifies when a legal smooth blend can actually attain it. The \(d=9\), \(C=64\) parameters used in the motivating numerical tests already force a lower bound of \(17{,}527{,}209{,}985\) for arbitrary sample noise. This separates worst-case data stability from excellent results on smooth test functions and provides a precise constraint when choosing continuation width and extrapolation order. The parity/nonattainment effect is a structural boundary of the admissible smooth-step class, not a claim of superiority in spectral accuracy.
+Best-of-knowledge originality qualified by material actually accessed. The specific minimax characterization is a new logical implication relative to the inspected approximation/stability descriptions, with qualification for uninspected 2026 full text. Relevant literature not wholly indexed or accessible; see source_inspections and residual_risks.
 
-## Limits
+## value
 
-The result assumes \(d\ge2\), \(C\ge2\), \(N\ge2d\), exact interpolation, strictly increasing symmetric flat-ended transitions and the input/output supremum norm. It does not control the derivatives or spectral resolution of transitions approaching the step function, does not include extra rounding error in recurrence implementations, and may not apply to overlapping stencils or other extension methods.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides an exact conditioning obstruction of a concrete smooth extrapolation-based Fourier continuation algorithm, including a phase distinction between attainment and strict unattainability and a high-degree growth law. This distinguishes arbitrary input noise from smooth-data approximation error and identifies a useful, unavoidable worst-case design limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

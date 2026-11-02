@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T19:05:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For integers d>=2,C>=2,N>=2d with disjoint d-point endpoint stencils, exact integer Lagrange coefficients at extrapolation distance q have absolute values binom(q+j-1,j)binom(q+d-1,d-1-j). Their sum Lambda_d(q) is strictly increasing. As the left and right stencils are disjoint, a positive blended row has exact l_infinity coefficient norm (1-sigma(q/C))Lambda_d(q)+sigma(q/C)Lambda_d(C-q), and the operator norm is the maximum row norm. At even C=2k the center q=k gives Lambda_d(k); at odd C=2k+1 strict increase forces a strictly larger row because sigma(k/C)>0. The smooth polynomial symmetric beta-CDF family concentrating at 1/2 converges to a step, so the inf is Lambda_d(k); for even C strict positive gaps at all off-center rows imply finite m attains the center minimum, for odd C it cannot be attained. Leading binomial coefficient gives C^(d-1)/(d-1)!+O(C^(d-2)); keeping original data adds an identity block of norm one and does not change the result. The N>=2d restriction and endpoint derivative flatness are essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2014 approximate-step minimization addresses Fourier/smooth approximation, with an SVD-oriented stability analysis, rather than arbitrary-noise infinity-norm minimax.",
+          "Original 2026 algorithm concerns extension and differentiation, its full text not available."
+        ],
+        "reasoning": "No inspected general theorem entails the sharp discrete center-row constant with strict parity of attained minimizers; unread same-algorithm material is a genuine residual risk.",
+        "searches": [
+          "arXiv:2610.19797",
+          "https://www.math.k-state.edu/~albin/pubs/albin_pathmanathan_2014_dpe.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.19797",
+        "https://www.math.k-state.edu/~albin/pubs/albin_pathmanathan_2014_dpe.pdf",
+        "https://arxiv.org/abs/1409.2808",
+        "https://arxiv.org/abs/2605.04765"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Extrapolation plus smooth blending as an algorithm gives no automatic minimizer of worst-case l_infinity perturbations.",
+          "The center-row lower bound and beta CDF smooth approximation establish both an infimum and parity-dependent attainment."
+        ],
+        "reasoning": "The specific minimax characterization is a new logical implication relative to the inspected approximation/stability descriptions, with qualification for uninspected 2026 full text.",
+        "searches": [
+          "https://www.math.k-state.edu/~albin/pubs/albin_pathmanathan_2014_dpe.pdf",
+          "arXiv:2610.19797"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Row sum of two disjoint extrapolation coefficient vectors equals convex combination of positive Lebesgue functions Lambda_d(q) and Lambda_d(C-q).",
+          "The operator minimax is consequently finite-dimensional rowwise transition design with smooth interpolation constraints."
+        ],
+        "reasoning": "Compared norm and Lebesgue-function formulations to prior FFT extension algorithms, not merely matching Fourier terminology.",
+        "searches": [
+          "Resultary semantic search: Fourier continuation extrapolation blending Lebesgue constant sharp minimax smooth transition midpoint parity",
+          "arXiv:2610.19797"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lambda_d(1)=2^d-1 and individual finite Lebesgue constants can be tabulated, but the infinite parity minimax statement is not a single table entry."
+        ],
+        "reasoning": "Matching big finite coefficient values without the optimization-over-sigma quantifiers would not cover the claim; no exact minimax table identified in searched records.",
+        "searches": [
+          "Resultary semantic search: Fourier continuation extrapolation blending Lebesgue constant sharp minimax smooth transition midpoint parity",
+          "arXiv:1409.2808"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality qualified by material actually accessed. The specific minimax characterization is a new logical implication relative to the inspected approximation/stability descriptions, with qualification for uninspected 2026 full text. Relevant literature not wholly indexed or accessible; see source_inspections and residual_risks.",
+      "residual_risks": [
+        "The directly motivating 2026 Fourier-continuation paper full text was not obtained and might analyze analogous worst-case norms in an appendix.",
+        "Earlier 2014 approximate-step extension paper is mathematically close and optimizes a smooth-window criterion; possibility of reformulation in uninspected lemmas remains, despite reading relevant sections.",
+        "The near-step beta family can have severe practical Fourier bandwidth/derivative costs, so numerical conditioning value is specific to data perturbation norm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivating algorithm is prior. Exact unrestricted smooth-transition l_infinity row-minimax and parity are not established from read abstract; whole-document priority risk remains.",
+          "evidence": "Clearly same algorithm, most important remaining source comparison.",
+          "identifier_or_url": "arXiv:2610.19797",
+          "material_read": "Abstract and public bibliographic summary; full primary text not retrieved, Oxford VPN disconnected.",
+          "method": "retrieved publisher/preprint abstract and bibliographic text",
+          "title": "Smooth periodic extensions by extrapolation and blending for FFT-based differentiation (Méndez-Cruz and Amlani)",
+          "trigger": "Same extrapolation-and-blending operator"
+        },
+        {
+          "assessment": "Optimizes extension and approximate-step smoothness/Fourier approximation, not the displayed sharp rowwise l_infinity minimax or even/odd strict monotonicity attainment; potential hidden equivalent implications not excluded absolutely.",
+          "evidence": "Available full-text sections use different quality criterion.",
+          "identifier_or_url": "https://www.math.k-state.edu/~albin/pubs/albin_pathmanathan_2014_dpe.pdf",
+          "material_read": "Opened complete lawful author-hosted PDF; examined text in sections 2–4 including equations (2.1)–(2.9), figures and numerical/SVD stability material, with PDF page screenshots of relevant pages.",
+          "method": "Author-hosted lawful open-access full PDF, textual reading plus visually inspected pages",
+          "title": "Discrete Periodic Extension Using an Approximate Step Function (Albin and Pathmanathan)",
+          "trigger": "Same polynomial extrapolation and approximate smooth step"
+        },
+        {
+          "assessment": "Different Floater-Hormann interpolation scheme, warns of large extrapolation constants but does not visibly characterize this two-sided smooth blend.",
+          "evidence": "Distinct operator; literature caveat recorded.",
+          "identifier_or_url": "arXiv:1409.2808",
+          "material_read": "Abstract and title/bibliographic summary, not full text.",
+          "method": "retrieved publisher/preprint abstract and bibliographic text",
+          "title": "The stability of extended Floater-Hormann interpolants (de Camargo and Mascarenhas)",
+          "trigger": "Related extrapolation Lebesgue growth"
+        },
+        {
+          "assessment": "These are distinct Fourier operators, not two-sided Lagrange continuation rows.",
+          "evidence": "Only search result material examined.",
+          "identifier_or_url": "Resultary:search:Fourier continuation extrapolation blending Lebesgue constant sharp minimax smooth transition midpoint parity",
+          "material_read": "Resultary ranked title and scientific-summary list, including cyclic Fourier projection norms and smooth averaging results.",
+          "method": "Resultary published-record search",
+          "title": "Published SCOPE Fourier norm results",
+          "trigger": "Similar Fourier endpoint norm database entries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides an exact conditioning obstruction of a concrete smooth extrapolation-based Fourier continuation algorithm, including a phase distinction between attainment and strict unattainability and a high-degree growth law. This distinguishes arbitrary input noise from smooth-data approximation error and identifies a useful, unavoidable worst-case design limit.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.19797",
+    "https://www.math.k-state.edu/~albin/pubs/albin_pathmanathan_2014_dpe.pdf",
+    "https://arxiv.org/abs/1409.2808",
+    "https://arxiv.org/abs/2605.04765"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Worst-case perturbation operator in l_infinity, not FFT approximation accuracy, spectral differentiability, floating-point recurrence errors or structured smooth noise.",
+    "Overlapping stencils N<2d and nonsymmetric/non-strict transition classes are excluded; endpoint and parity conditions materially affect exact result."
+  ],
+  "residual_risks": [
+    "The directly motivating 2026 Fourier-continuation paper full text was not obtained and might analyze analogous worst-case norms in an appendix.",
+    "Earlier 2014 approximate-step extension paper is mathematically close and optimizes a smooth-window criterion; possibility of reformulation in uninspected lemmas remains, despite reading relevant sections.",
+    "The near-step beta family can have severe practical Fourier bandwidth/derivative costs, so numerical conditioning value is specific to data perturbation norm."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Motivating algorithm is prior. Exact unrestricted smooth-transition l_infinity row-minimax and parity are not established from read abstract; whole-document priority risk remains.",
+      "evidence": "Clearly same algorithm, most important remaining source comparison.",
+      "identifier_or_url": "arXiv:2610.19797",
+      "material_read": "Abstract and public bibliographic summary; full primary text not retrieved, Oxford VPN disconnected.",
+      "method": "retrieved publisher/preprint abstract and bibliographic text",
+      "title": "Smooth periodic extensions by extrapolation and blending for FFT-based differentiation (Méndez-Cruz and Amlani)",
+      "trigger": "Same extrapolation-and-blending operator"
+    },
+    {
+      "assessment": "Optimizes extension and approximate-step smoothness/Fourier approximation, not the displayed sharp rowwise l_infinity minimax or even/odd strict monotonicity attainment; potential hidden equivalent implications not excluded absolutely.",
+      "evidence": "Available full-text sections use different quality criterion.",
+      "identifier_or_url": "https://www.math.k-state.edu/~albin/pubs/albin_pathmanathan_2014_dpe.pdf",
+      "material_read": "Opened complete lawful author-hosted PDF; examined text in sections 2–4 including equations (2.1)–(2.9), figures and numerical/SVD stability material, with PDF page screenshots of relevant pages.",
+      "method": "Author-hosted lawful open-access full PDF, textual reading plus visually inspected pages",
+      "title": "Discrete Periodic Extension Using an Approximate Step Function (Albin and Pathmanathan)",
+      "trigger": "Same polynomial extrapolation and approximate smooth step"
+    },
+    {
+      "assessment": "Different Floater-Hormann interpolation scheme, warns of large extrapolation constants but does not visibly characterize this two-sided smooth blend.",
+      "evidence": "Distinct operator; literature caveat recorded.",
+      "identifier_or_url": "arXiv:1409.2808",
+      "material_read": "Abstract and title/bibliographic summary, not full text.",
+      "method": "retrieved publisher/preprint abstract and bibliographic text",
+      "title": "The stability of extended Floater-Hormann interpolants (de Camargo and Mascarenhas)",
+      "trigger": "Related extrapolation Lebesgue growth"
+    },
+    {
+      "assessment": "These are distinct Fourier operators, not two-sided Lagrange continuation rows.",
+      "evidence": "Only search result material examined.",
+      "identifier_or_url": "Resultary:search:Fourier continuation extrapolation blending Lebesgue constant sharp minimax smooth transition midpoint parity",
+      "material_read": "Resultary ranked title and scientific-summary list, including cyclic Fourier projection norms and smooth averaging results.",
+      "method": "Resultary published-record search",
+      "title": "Published SCOPE Fourier norm results",
+      "trigger": "Similar Fourier endpoint norm database entries"
+    }
+  ]
+}
