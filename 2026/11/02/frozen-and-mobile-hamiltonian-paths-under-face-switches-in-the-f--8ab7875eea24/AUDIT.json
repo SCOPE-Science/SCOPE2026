@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Inductively exhaustive primary DFS from 0 plus all 16 cube translations enumerates all 45696 undirected spanning paths; every possible square-face pair is exhaustively toggled and tested by complete-state membership. Independent C++ DFS from all 16 possible initial vertices enumerates the same 45696 edge masks, and its second switch-graph construction reproduces 69120 edges, 5184 singleton components and 32 each components of orders 528/738, as well as all degree multiplicities. Primary additionally computes exact endpoint-fiber distributions: 32 each Hamming-one and Hamming-three endpoint pairs, with 672/756 total paths and 144/18 frozen paths per fiber. Finite Q4 only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kazazi 2026 arXiv:2601.06749 addresses rectangular grid graphs using double switches and, for paths, endpoint-changing backbite moves.",
+        "Kazazi 2026 arXiv:2610.05068 studies connectivity using backbite operations.",
+        "Takaoka 2018 DOI:10.3390/a11090140 concerns Hamiltonian-cycle reconfiguration complexity, not this exact four-cube path component census in its abstract."
+      ],
+      "reasoning": "Rectangular planar grids are not Q4, and backbite/double-switch reachability does not imply connectivity or component sizes under strict single-square endpoint-preserving switches. Generic reconfiguration hardness likewise gives no exact Q4 census.",
+      "searches": [
+        "web: Hamiltonian paths hypercube Q4 4-cycle flip square switch local reconfiguration paths endpoints",
+        "web: spanning Hamilton path reconfiguration graph hypercube plaquette switch square flip fixed endpoints",
+        "hypercube Hamiltonian path flip graph 4-cycle switches fixed endpoints frozen paths"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3233/SAT190038 (full HTML-rendered primary paper)",
+      "doi:10.3390/a11090140 (abstract, full text temporarily inaccessible)",
+      "arxiv:2601.06749 (abstract)",
+      "arxiv:2610.05068 (abstract)",
+      "mathematical findings index semantic search for Q4 Hamiltonian paths face switches (2 actual searches)",
+      "prior September and October historical findings for deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chebiryak–Kroening classify hypercube Hamiltonian CYCLES; path switch configurations are 45696 and form many endpoint-stabilized fibers.",
+        "Grid-switch theorem assumes planar rectangular lattice and additional transitions; backbite theorem changes path endpoints and is inapplicable to restricted endpoint-fixed connectivity.",
+        "The previous-week exact four-cube Hamiltonian CYCLE face-switch graph has 1344 states, 241 components: 240 frozen and one large connected class; its implications do not determine Hamiltonian PATH fibers."
+      ],
+      "reasoning": "A theorem proving Hamiltonian-cycle switch connectivity/obstructions or endpoint-moving Hamiltonian-path connectivity does not imply the finer restricted local-switch component classification for each pair of fixed Q4 endpoints. The new statement asserts exact numbers of paths, frozen paths, edges and components beyond generic existence or complexity claims.",
+      "searches": [
+        "doi:10.3233/SAT190038",
+        "doi:10.3390/a11090140",
+        "arxiv:2601.06749",
+        "arxiv:2610.05068",
+        "Q4 Hamiltonian paths spanning paths 4-cube face-switch square-switch reconfiguration 45696 5184 isolated 528 738 components"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hamiltonian paths are undirected simple spanning paths, equivalently spanning linear forests with exactly two degree-one vertices; four-face toggle swaps opposite edge pairs preserving the endpoint degrees.",
+        "No mathematical findings index hit with the exact Q4 Hamiltonian path face-switch object; closest indexed Q4 Hamilton-path phase record concerns quadratic forms, not switches."
+      ],
+      "reasoning": "The alternate terminology plaquette flip, square exchange, Hamiltonian spanning path switch, or face-flip describes the identical toggling rule only when the resulting configuration is still one path. The searches were performed under both local-move and endpoint-preserving graph terminology; no mathematical implication for the 528/738-component classification was identified.",
+      "searches": [
+        "Q4 Hamiltonian paths spanning paths 4-cube face-switch square-switch reconfiguration 45696 5184 isolated 528 738 components",
+        "hypercube Hamiltonian path flip graph 4-cycle switches fixed endpoints frozen paths",
+        "web: Hamiltonian paths hypercube Q4 4-cycle flip square switch local reconfiguration paths endpoints",
+        "web: spanning Hamilton path reconfiguration graph hypercube plaquette switch square flip fixed endpoints"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chebiryak and Kroening 2008 enumerate Q4 Hamiltonian cycles, not paths and not the path-switch graph.",
+        "Accessible prior October records include an exact 1344-cycle face-switch classification, decisively overlapping and excluding the original cycle candidate; the revised path theorem is a different graph with 45696 vertices.",
+        "Published hypercube path existence/count papers do not expose this strict local-switch endpoint-fiber table in inspected abstracts."
+      ],
+      "reasoning": "The prior Q4 1344-cycle face-switch table is not reused. The new 45696-path state set and 64 endpoint-preserving mobile classes cannot be extracted simply by restricting or quoting the cycle census because paths have two terminal vertices and different valid switches. An indexed complete table of the new graph was not found.",
+      "searches": [
+        "Q4 Hamiltonian paths spanning paths 4-cube face-switch square-switch reconfiguration 45696 5184 isolated 528 738 components",
+        "hypercube Hamiltonian path flip graph 4-cycle switches fixed endpoints frozen paths",
+        "web: Hamiltonian paths extending a set of matchings in hypercubes",
+        "web: Hamiltonian cycles face flip Q4 240 1104"
+      ]
+    },
+    "rationale": "The new claim concerns all unoriented spanning Hamiltonian PATHS of the labelled Q4 and the complete strict single-face Hamiltonicity-preserving switch-graph component census by fixed endpoints. Relevant older Q4 Hamiltonian CYCLE enumeration and face-switch graph classification concern different objects. General switch-reconfiguration and grid/backbite theorems do not establish the present frozen/mobile endpoint fibers. Two actual path-specific mathematical findings index searches and literature searches yielded no implication covering the component counts. Remaining risk is an unindexed equivalent table, and general switch-reconfiguration full text was rate limited.",
+    "residual_risks": [
+      "Equivalent finite census may exist in unindexed Hamiltonian-path rerouting literature.",
+      "Takaoka 2018 full text was not retrievable due publisher throttling.",
+      "No independent expert validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_OBJECT",
+        "evidence": [
+          "Q4 count 1344 Hamiltonian cycles and nine automorphism orbits, rather than 45696 Hamiltonian paths.",
+          "Published early 2008; no 528/738 Hamiltonian path component assertion seen."
+        ],
+        "identifier_or_url": "doi:10.3233/SAT190038",
+        "material_read": "Full legally available HTML-rendered primary article, including background and Q4 enumeration/classification paragraphs, with full-text search for flip/switch terminology.",
+        "method": "Read rendered complete primary text and directly compared cycle object, listed cube orbit data and absence of Hamiltonian-path face-switch classification.",
+        "title": "Towards a Classification of Hamiltonian Cycles in the 6-Cube",
+        "trigger": "Archival hypercube Hamiltonian-cycle classification, closest base combinatorial census"
+      },
+      {
+        "assessment": "NOT_DIRECTLY_COVERING_ON_ACCESSIBLE_MATERIAL; FULL_TEXT_RISK",
+        "evidence": [
+          "Abstract studies generic Hamiltonian cycle reachability and complexity, not Q4 path switch component sizes."
+        ],
+        "identifier_or_url": "doi:10.3390/a11090140",
+        "material_read": "Publisher abstract and bibliographic details only; full webpage access returned HTTP 429 and no additional full text was assumed read.",
+        "method": "Compared abstract move definition and problem scope to finite Q4 fixed-endpoint Hamiltonian PATH switches.",
+        "title": "Complexity of Hamiltonian Cycle Reconfiguration",
+        "trigger": "General strict two-edge Hamiltonian cycle switching move"
+      },
+      {
+        "assessment": "DIFFERENT_GRAPH_AND_MOVE_SET",
+        "evidence": [
+          "Rectangular lattice graph and permissive double switches; path endpoints can be moved via backbite."
+        ],
+        "identifier_or_url": "arxiv:2601.06749",
+        "material_read": "Complete accessible abstract; no full-text not-covering judgment.",
+        "method": "Compared rectangular-grid graph hypothesis and use of additional double-switch and backbite transitions with Q4 strict single-switch requirement.",
+        "title": "Reconfiguration of Hamiltonian Paths and Cycles in Rectangular Grid Graphs",
+        "trigger": "Same square switch terminology in Hamiltonian path reconfiguration"
+      },
+      {
+        "assessment": "DIFFERENT_MOVE_SET",
+        "evidence": [
+          "Backbite adds a new edge from an endpoint and deletes another; it need not preserve endpoint pairs."
+        ],
+        "identifier_or_url": "arxiv:2610.05068",
+        "material_read": "Complete accessible abstract, not full paper.",
+        "method": "Compared backbite operation and hypotheses with endpoint-preserving four-face edge swaps.",
+        "title": "Connectivity of the reconfiguration graph of Hamiltonian paths",
+        "trigger": "Potential broader Hamiltonian path reconfiguration connectivity theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8ab7875e-ea24-41d7-ae81-fa4a27c96bda",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete finite classification of a natural strictly endpoint-preserving local Hamiltonian-path rerouting problem on Q4. The sharp segregation into frozen states and one mobile class for every one of 64 endpoint pairs, with strongly different frozen fractions for distance 1 and 3, supplies a meaningful combinatorial obstruction independent of counting the paths themselves. No higher-dimensional theorem is asserted.",
+    "status": "PASS"
+  }
+}
