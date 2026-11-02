@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T14:43:54.497636Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final statement defines the dual incidence poset with maximal vertex worlds and minimal edge worlds. For a vertex trace S an upset has 2^{|E(G[S])|} choices of eligible edge worlds, establishing Z(G). At any edge world e with upper cone {e,u,v}, both Heyting implications fail precisely when the two endpoints have opposite pure membership states (10,01) or (01,10): an edge-world cannot itself witness one difference while the opposite difference is present because its membership forces both endpoints. Each edge world then contributes 2^{a1b1+a2b2}, except forbidden opposite-pure pairs, giving exactly the claimed 4x4 W and A(G)/Z(G)^2. Rooted-tree factorization proves four-state forest messages and corresponding two-state messages for Z; O(|V|) counts arithmetic operations, not bit cost. On paths, transfer identities A_m=1^T W^{m-1}1 and Z_m=1^T B^{m-1}1 yield A_1=4,A_2=23,A_3=147, recurrence characteristic t^3-7t^2+3t+2, and Z_m=F_{2m+1}. The W eigenvalue 2 is orthogonal to the all-ones boundary vector. Perron vectors yield C=(1^T u)^2/(1^T v)^4>0 and B⊗B strictly dominates W, giving rho(W)<alpha^2 with alpha=(3+sqrt5)/2. E empty iff universally prelinear follows from U={u},V={v} for any edge, and Booleanity for edgeless graphs. Independently reconstructed 76 graph cases (all graphs on 0..4 vertices), 117152 ordered upset pairs, and exact matrix recurrences through m=22; no finite computation was used as proof of an unrestricted claim.",
+      "status": "PASS",
+      "verification_evidence": [
+        "Current and frozen file identities for all seven source files match; reconstructed Git tree SHA 832a9d7368d00cafb7b59985ccbd12bb50b1e1ce.",
+        "independent_checks.py/independent_check_results.json: 76 cases, 117152 pairs; first A_m=4,23,147,952,6177, first Z_m=2,5,13,34,89; characteristic polynomials and rho/alpha^2=0.9469208710.",
+        "Direct proof argument verifies all finite graphs; asymptotic follows from primitive Perron theory, not finite path data."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bumpus–Kocsis obtains broad gap/non-gap properties but no value of the current graph-indexed two-variable satisfaction probability.",
+          "Lewis-Smith derives semantics over linear frames; nonlinear dual graph-incidence frames fall outside that setup.",
+          "Trotter–Wang treats graph chromatic/dimension parameters on the opposite poset orientation; no implication-probability bound or formula follows."
+        ],
+        "reasoning": "Broader logical soundness or satisfiability-gap theorems do not determine a numerical probability on each graph G; structural dimension results do not imply four-state multiplicities. Nearby weak-order and height-two inverse results reported in the original package might overlap special graphs but were not independently verified as exact dominating formulas here.",
+        "searches": [
+          "arXiv:2110.11515v3 relevant §3 multi-variable Heyting equations, Theorem 3.15",
+          "arXiv:2308.04518 §§6–8 PRELIN/linear Kripke frames",
+          "arXiv:1308.2471 §1 definitions, §2 main incidence-poset theorems",
+          "Resultary semantic search: finite Kripke frames prelinearity probability random upsets height two path incidence poset"
+        ]
+      },
+      "checked_sources": [
+        {
+          "comparison": "Source of probabilistic algebraic framework and two-variable gap study, but no particular graph-incidence exact weighted count.",
+          "identifier": "arXiv:2110.11515v3",
+          "title": "Degree of Satisfiability in Heyting Algebras"
+        },
+        {
+          "comparison": "Same PRELIN axiom on linear frames; no all-graph incidence count.",
+          "identifier": "arXiv:2308.04518",
+          "title": "A Kripke Semantics for Hajek’s BL"
+        },
+        {
+          "comparison": "Graph-incidence orientation is dual, goal is dimension rather than Heyting degree.",
+          "identifier": "arXiv:1308.2471",
+          "title": "Incidence Posets and Cover Graphs"
+        },
+        {
+          "comparison": "Three-state graph homomorphism partition model, different 4-state edge weights and probabilistic invariant.",
+          "identifier": "Resultary:2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+          "title": "Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior principles concern logical validity/gap, not the exact degree on the reviewed graph family.",
+          "The incidence-poset paper proves order-dimension/chromatic statements, which cannot imply enumeration of paired upsets by itself.",
+          "A 3-state forbidding opposite neighbors is not an evaluation of the reviewed weighted four-state W."
+        ],
+        "reasoning": "The strongest checked prior statements supply definitions, semantic validity in linearly ordered frames, a dual combinatorial graph object and a different graph-homomorphism model. They do not mathematically imply the simultaneous graph-general numerator, O(|V|) forest algorithm and exact path exponential decay; the shared transfer-matrix technique is not itself claimed novel.",
+        "searches": [
+          "Statement comparison to Bumpus–Kocsis arXiv:2110.11515v3 §3",
+          "Statement comparison to Lewis-Smith arXiv:2308.04518 Theorem 25 and §7 PRELIN",
+          "Statement comparison to Trotter–Wang arXiv:1308.2471 Theorems 2.3,2.7",
+          "Statement comparison to Resultary graph-spin result 2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The current graph partition counts 4-color vertex assignments with edge W entries 1,2,4 and forbidden 10–01/01–10; W is not the three-state fully looped path target from the related Resultary published finding.",
+          "arXiv:2110.11515v3 §3 discusses two-variable satisfiability gaps, not an incidence-frame graph polynomial.",
+          "Resultary semantic hits did not expose an equivalent exact four-state W; search failure is not a priority proof."
+        ],
+        "reasoning": "Aliases searched included two random upsets of a dual incidence poset, forbidden-pair vertex-spin partition functions, finite Kripke/Gödel–Dummett degree, and path transfer matrices. The closest actual spin-system text is 3-state with unweighted admissible colorings; the reviewed numerator has an additional state and edge multiplicity and cannot be read off from that formula.",
+        "searches": [
+          "Resultary semantic query: finite Heyting algebra degree of prelinearity linearity axiom graph incidence poset number of pairs of upsets",
+          "Resultary semantic query: weighted four-state graph partition counting paired upper sets avoiding opposite pure states path transfer matrix",
+          "Web searches: Gödel Dummett prelinearity finite Heyting algebra random pair probability incidence poset graph; graph homomorphism four state weight prelinearity two upsets graph incidence poset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently computed all-length path recurrence prefix 4,23,147,952,6177; Z prefix 2,5,13,34,89.",
+          "The related 3-state Widom–Rowlinson path values 1,3,7,17,41 are not this theorem’s A_m or Z_m.",
+          "No directly matching published exact table was found, but the absence of a search hit is weak evidence and not used alone for PASS."
+        ],
+        "reasoning": "Even a prior table matching small path m would not automatically give the all-graph W identity and forest recursion, while an existing complete evaluated partition polynomial or transfer-matrix identity would be decisive; no such source was located in the actual searches.",
+        "searches": [
+          "Web queries: 4 23 147 952 6177 prelinearity count path upsets",
+          "Resultary semantic search on weighted four-state graph partition path transfer",
+          "GitHub accessible scientific source check: Resultary 2026/10/4 Widom–Rowlinson partition functions RESULT.md"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality. The established satisfiability-degree framework, Gödel–Dummett prelinearity semantics, opposite-orientation graph incidence literature, and a related three-state graph-spin partition are materially distinct from the exact four-state weighted paired-upset count and full path spectral law. Explicit all-graph W, forest recursion, and cubic Perron asymptotic were not supplied by the inspected source statements. This does not prove global priority; an equivalent partition polynomial or stronger hidden specialization remains a risk.",
+      "residual_risks": [
+        "Unindexed or differently named graph homomorphism/spin system might evaluate exactly this four-state W and the path Perron ratio, which would weaken chronological priority.",
+        "Published-finding semantic searches returned no direct match but are not exhaustive; older weak-order prelinearity and height-two negation results were mentioned in the package and not freshly obtained in primary full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_SPECIFIC_GRAPH_PARTITION",
+          "evidence": "§3 proves gap/non-gap for enumerated classical principles and material implication; does not state graph-incidence paired-upset partition formula, its forest recursion, or path cubic/Perron asymptotic. This comparison concerns inspected statements, not every possible unindexed implication.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.11515",
+          "material_read": "Original 23-page PDF was opened; abstract/introduction, §3 pp.10-14 (Proposition 3.2, Corollary 3.11 and Theorem 3.15), related one-variable classification Theorem 2.19; searched entire extracted text for prelinearity.",
+          "method": "Read primary arXiv PDF text and inspected first-page screenshot; compare explicit equations, quantifiers and theorem conclusions.",
+          "title": "Degree of Satisfiability in Heyting Algebras",
+          "trigger": "Direct prior framework for uniform satisfaction degree in finite Heyting algebras and two-variable classical principles."
+        },
+        {
+          "assessment": "SAME_AXIOM_DISTINCT_FRAME_AND_COUNTING_INVARIANT",
+          "evidence": "The paper assumes linearly ordered structures for its Kripke semantic development and establishes soundness/completeness; no random paired-upset count on general non-linear dual graph-incidence posets or transfer-matrix asymptotic is given.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.04518",
+          "material_read": "Original 12-page PDF opened; introduction, §6 Theorem 25 concerning linear Kripke structures, §7 soundness (PRELIN), and beginning of §8 poset product semantics.",
+          "method": "Read primary arXiv PDF, first-page screenshot and relevant theorem/proof passages in PDF text.",
+          "title": "A Kripke Semantics for Hajek’s BL",
+          "trigger": "The same prelinearity axiom is treated semantically for Gödel–Dummett/BL."
+        },
+        {
+          "assessment": "SAME_GRAPH_CONSTRUCTION_OPPOSITE_ORIENTATION_DIFFERENT_INVARIANT",
+          "evidence": "Trotter–Wang defines graph vertices minimal and edges maximal and studies dimension/chromatic/girth, whereas reviewed theorem uses the order-dual and counts logical implication satisfaction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.2471",
+          "material_read": "Original eight-page PDF opened; abstract, definition in §1, Proposition 1.2, Theorems 2.3 and 2.7, related incidence dimension discussion.",
+          "method": "Read arXiv primary PDF text and inspected page-zero screenshot.",
+          "title": "Incidence Posets and Cover Graphs",
+          "trigger": "Same graph-to-poset construction, potential orientation/duality alias."
+        },
+        {
+          "assessment": "RELATED_PARTITION_FORMALISM_NOT_IMPLYING_HEYTING_CLAIM",
+          "evidence": "Its three-state fully looped P3 target forbids a species 1–3 edge and yields hom(G,P3^circ) for Katětov 1-types. Current four-state W has nontrivial edge multiplicities 1,2,4 and different double-upset meaning; published result does not give the current exact path cubic and probability ratio.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+          "material_read": "Full accessible RESULT.md scientific statement, derivation and prior-work discussion via current Git blob 8a8c69f0deb6e47fd7396c42c176840a5aa3aa7e.",
+          "method": "Read published repository source file, compare target states and edge weights mathematically.",
+          "title": "Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space",
+          "trigger": "Published graph-homomorphism/spin partition result with a forbidden opposed-state edge pair."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Prelinearity is a basic non-Boolean logical equation and its probability of truth under uniform random valuations is a natural invariant. The result gives an exact all-finite-graph evaluation by a nontrivial four-state edge interaction; the associated tree recursion reduces exponential upset-pair enumeration to linear graph-size arithmetic operations on forests. The cubic path recurrence and quantitative Perron ratio approximately 0.946920871 imply exponential decay despite every nonmaximal world having exactly two maximal successors. This establishes a substantive structural mechanism and asymptotic phenomenon, not a textbook substitution, small case, or unmotivated table. The role of graph orientation, probability normalization and arithmetic-versus-bit complexity is stated explicitly.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "comparison": "Source of probabilistic algebraic framework and two-variable gap study, but no particular graph-incidence exact weighted count.",
+      "identifier": "arXiv:2110.11515v3",
+      "title": "Degree of Satisfiability in Heyting Algebras"
+    },
+    {
+      "comparison": "Same PRELIN axiom on linear frames; no all-graph incidence count.",
+      "identifier": "arXiv:2308.04518",
+      "title": "A Kripke Semantics for Hajek’s BL"
+    },
+    {
+      "comparison": "Graph-incidence orientation is dual, goal is dimension rather than Heyting degree.",
+      "identifier": "arXiv:1308.2471",
+      "title": "Incidence Posets and Cover Graphs"
+    },
+    {
+      "comparison": "Three-state graph homomorphism partition model, different 4-state edge weights and probabilistic invariant.",
+      "identifier": "Resultary:2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+      "title": "Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space"
+    }
+  ],
+  "disposition": "passed",
+  "final_claim": "For every finite simple graph G, the probability of Heyting prelinearity over two independently uniform upsets of the dual vertex-maximal incidence poset is A(G)/Z(G)^2 for its exact stated 4x4 W and Z induced-edge-weight sum; tree recursions, path recurrence/Fibonacci law and sharp Perron decay hold, with universal satisfaction iff G is edgeless.",
+  "limitations": [
+    "Finite independently reproduced data do not establish the universal all-graph theorem; the combinatorial proof does.",
+    "The asymptotic is for paths only; bit-cost and nonuniform sampling are outside the claim.",
+    "Search coverage is necessarily bounded; originality remains qualified best-of-knowledge."
+  ],
+  "residual_risks": [
+    "Unindexed or differently named graph homomorphism/spin system might evaluate exactly this four-state W and the path Perron ratio, which would weaken chronological priority.",
+    "Published-finding semantic searches returned no direct match but are not exhaustive; older weak-order prelinearity and height-two negation results were mentioned in the package and not freshly obtained in primary full text.",
+    "The linear forest algorithm counts arithmetic operations only; integer bit complexity can grow with tree size.",
+    "Exponential decay is proved for path graph families, not arbitrary growing graphs or nonuniform distributions.",
+    "Existing AUDIT.json and METADATA.json contain an operational scope_run_id field; a verified full-file confidentiality-neutral replacement was not staged, so publication is withheld."
+  ],
+  "schema_version": 1
+}

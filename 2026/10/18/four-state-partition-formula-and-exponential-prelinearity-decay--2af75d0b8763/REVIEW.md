@@ -1,21 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The count of upsets of each incidence frame is \(Z(G)=\sum_{S\subseteq V}2^{|E(G[S])|}\), as an edge-world can be selected only with both endpoints. The two implications both fail at an edge-world precisely for opposed pure endpoint membership states; this gives the stated four-by-four matrix independently of optional lower memberships. The tree recursion follows by factorization, and the path recurrence and strict decay by elementary spectral computations and Perron comparison with a Kronecker product.
+PASS
 
-`verify.py` independently enumerated finite upsets and implication witnesses for 84 graph instances, totaling 2,490,828 ordered pairs, and checked defining-adjunction implication on 11 instances; it additionally checked tree recursion and path formulas. Finite checks are corroboration, not an exhaustive proof for all graph sizes.
+The final statement defines the dual incidence poset with maximal vertex worlds and minimal edge worlds. For a vertex trace S an upset has 2^{|E(G[S])|} choices of eligible edge worlds, establishing Z(G). At any edge world e with upper cone {e,u,v}, both Heyting implications fail precisely when the two endpoints have opposite pure membership states (10,01) or (01,10): an edge-world cannot itself witness one difference while the opposite difference is present because its membership forces both endpoints. Each edge world then contributes 2^{a1b1+a2b2}, except forbidden opposite-pure pairs, giving exactly the claimed 4x4 W and A(G)/Z(G)^2. Rooted-tree factorization proves four-state forest messages and corresponding two-state messages for Z; O(|V|) counts arithmetic operations, not bit cost. On paths, transfer identities A_m=1^T W^{m-1}1 and Z_m=1^T B^{m-1}1 yield A_1=4,A_2=23,A_3=147, recurrence characteristic t^3-7t^2+3t+2, and Z_m=F_{2m+1}. The W eigenvalue 2 is orthogonal to the all-ones boundary vector. Perron vectors yield C=(1^T u)^2/(1^T v)^4>0 and B⊗B strictly dominates W, giving rho(W)<alpha^2 with alpha=(3+sqrt5)/2. E empty iff universally prelinear follows from U={u},V={v} for any edge, and Booleanity for edgeless graphs. Independently reconstructed 76 graph cases (all graphs on 0..4 vertices), 117152 ordered upset pairs, and exact matrix recurrences through m=22; no finite computation was used as proof of an unrestricted claim.
 
-## Originality — PASS, qualified
+## originality
 
-The inspected Bumpus–Kocsis paper supplies the satisfiability-degree framework and classical logical examples. The inspected Lewis-Smith prelinearity treatment concerns Gödel–Dummett linear-frame semantics rather than exact graph-incidence probabilities. The inspected Trotter–Wang paper uses the reverse incidence orientation and studies dimension of posets. The closest related weak-order prelinearity calculation covers ordinal sums of antichains; a related height-two negation-fiber result treats an entirely different invariant. None of these statements contains the full weighted four-state graph formula and path spectral limit. Graph-spin reformulations under other names remain an originality risk, and absolute publication priority is not certified.
+PASS
 
-## Mathematical value — PASS
+Qualified best-of-knowledge originality. The established satisfiability-degree framework, Gödel–Dummett prelinearity semantics, opposite-orientation graph incidence literature, and a related three-state graph-spin partition are materially distinct from the exact four-state weighted paired-upset count and full path spectral law. Explicit all-graph W, forest recursion, and cubic Perron asymptotic were not supplied by the inspected source statements. This does not prove global priority; an equivalent partition polynomial or stronger hidden specialization remains a risk.
 
-The claim addresses a natural relative satisfiability degree, gives a uniform graph-indexed counting reduction and a fast forest algorithm, and reveals exact exponential loss of prelinearity even in height-two frames with two maximal successors per nonmaximal world. This identifies a mechanism and rate rather than a small numerical example.
+## value
 
-## Limits
+PASS
 
-The strict decay assertion is about paths rather than all graph families. The linear bound counts integer arithmetic operations, not bit complexity. The proof and verifier use the dual incidence orientation. No external independent mathematical audit has been conducted.
+Prelinearity is a basic non-Boolean logical equation and its probability of truth under uniform random valuations is a natural invariant. The result gives an exact all-finite-graph evaluation by a nontrivial four-state edge interaction; the associated tree recursion reduces exponential upset-pair enumeration to linear graph-size arithmetic operations on forests. The cubic path recurrence and quantitative Perron ratio approximately 0.946920871 imply exponential decay despite every nonmaximal world having exactly two maximal successors. This establishes a substantive structural mechanism and asymptotic phenomenon, not a textbook substitution, small case, or unmotivated table. The role of graph orientation, probability normalization and arithmetic-versus-bit complexity is stated explicitly.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
