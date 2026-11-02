@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-## Reproducibility checks
+# Independent mathematical audit
 
-The standalone script `verify_minimum.py` was run from the package directory using Python's standard library. It checks the six degree equations, the primitive weight vector, pairwise coprimality, ambient well-formedness, the determinant condition, the ample canonical coefficient, and a noncanonical Reid--Tai age. It then exhausts all exponent multisets with product at most \(17280\), enumerating every ordering after fixing a minimum exponent in the first position. The search filters ambient well-formedness only, so it is a superset of the target well-formed hypersurfaces; the witness itself is well-formed.
+## correctness
 
-Observed output:
+PASS
 
-sorted_exponent_multisets=11435
-normalized_tuples_checked=537221
-ambient_wellformed_numerical_candidates_with_product<=17280=8
-minimum_weighted_degree=17279
-witness_exponents=(4, 6, 5, 6, 6, 4)
-witness_weights=(3723, 2387, 2957, 2494, 2315, 3389)
-sum_weights=17265
-canonical_class_coefficient=14
-noncanonical_coordinate_age=2301/2315
-VERIFY_OK
+The determinant of the even length-six loop exponent matrix B is prod b_i -1. The witness b=(4,6,5,6,6,4) has d=17279 and weights (3723,2387,2957,2494,2315,3389) solving b_i a_i+a_{i+1}=d; sum=17265 gives K=14H. Pairwise coprimality ensures ambient wellformedness; affine partial derivative zero locus is the origin because nonzero coordinates would force prod b_i=1. Esser’s determinant rationality theorem applies, and first Reid–Tai age 2301/2315<1 shows noncanonical singularity. Independently recomputed via distinct full enumeration of all 537221 rotation-normalized exponent orderings with prod b_i<=17280; exactly eight qualifying numerical tuples and all have d=17279. This is exhaustive of a superset satisfying only ambient wellformedness and K-positivity, so rules out lower degree in the target family.
 
-The bound is sufficient: any degree smaller than \(17279\) has exponent product smaller than \(17280\), so it is included in the enumeration. This is a finite reproducibility check, not independent validation or external certification. The literature comparison is limited by the possibility of unindexed sources.
+## originality
+
+PASS
+
+Esser’s rationality criterion and his observation of ample canonical rational weighted hypersurfaces are prior; only the minimum degree 17279 within the specified determinant-six-loop class is asserted as new. Earlier rational surfaces with ample canonical divisor are distinct objects and do not dominate this dimension-specific minimum.
+
+## value
+
+PASS
+
+The least weighted degree within the natural six-variable invertible-loop Delsarte family satisfying a determinant rationality criterion and ample canonical class is a motivated finite extremal invariant of rational singular fourfolds. It provides a reproducible minimal witness and clarifies that ample K can coexist with rationality through noncanonical singularities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
