@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:58:45.050009Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Requires isolate-free simple N≥7, γ_sp≥N-2; excludes all lower deficiency and isolated graphs.",
+        "Counts unlabeled partitions, not coalition partner assignments or graph automorphism orbits.",
+        "Independent enumeration covers chosen finite graph profiles only; symbolic block-size proof gives generality."
+      ],
+      "rationale": "For isolate-free finite simple G with N≥7 and γ_sp(G)≥N-2, every (proper) super-dominating set omits exactly one vertex or a pair constituting an H-edge, since larger omissions are excluded and single omissions have a witness. A coalition between two partition blocks omits ≤2 vertices, so at most four blocks. For two blocks, all nonempty bipartitions unite to V(G), but exactly N+e pairs contain a super-dominating block, and N≥7 ensures at most one such block; hence c2=2^(N-1)-1-N-e. For three blocks, one large block A and two disjoint blocks B,C of sizes ≤2 (A≥N-4≥3). Both B,C must partner A, so they are either (1,1) with a nonedge of H, (1,2) with an H-edge and an outside singleton, or (2,2) with disjoint H-edges; exact counts give c3=C(N,2)-e+(N-2)e+m2=C(N,2)+(N-3)e+m2. For four blocks, the only possible pattern is one large block and three singleton omissions forming an H-triangle, giving c4=t; converses satisfy every block-partner condition. For K_{a_i}, |U|≥3 cannot be witnessable, and an omitted pair is valid iff its members lie in distinct non-singleton parts; this yields H multipartite, e=sum a_i a_j, m2=C(e,2)-sum a_i C(Q-a_i,2), t=sum a_i a_j a_l. N=6 has extra three (2,2,2) patterns and is expressly excluded.",
+      "status": "PASS",
+      "verification": [
+        "Frozen Git tree e44d05bb4d1a7433d605438be6dcc5b7308c1e43 and complete RESULT.md blob 5d4052abdf29df1138599d3ab2e17f600b31f100 checked.",
+        "Independent separately written direct-neighborhood super-domination oracle plus unlabeled-partition generator verified 7 multipartite part profiles including (2,2,2,1) with (e,m2,t)=(12,30,8), profile (44,99,8).",
+        "Excluded N=6 K(3,3) yields actual (c2,c3)=(16,48) against incorrect extrapolation c3=60, confirming domain boundary.",
+        "Inspected frozen verify.py Git blob 07fd233f2f2fc931b0ed190f5a30078c0a47bc28; did not rely on its saved success log as proof."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary 2026 abstract describes general bounds and path/cycle/clique/star/friendship values, not a formula for every graph with γ_sp≥N-2.",
+          "Resultary note has complete-multipartite-only super-dominating sets; its hypothesis is narrower in graph family and its counted object differs."
+        ],
+        "reasoning": "A broader published theorem on all high-deficiency super-coalition partitions would cover this; inspected sources do not supply it. Bounds on coalition number alone cannot determine coefficients c2,c3,c4. Lack of primary full text is a residual risk.",
+        "searches": [
+          "Resultary: super coalition partitions super domination number N minus two matching triangle enumerator multipartite graphs",
+          "Resultary: super coalition partition maximal 4 super dominating deficiency 2 triangles matchings",
+          "arXiv:2607.22686",
+          "Resultary/2026:2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+          "DOI:10.22049/CCO.2019.26587.1122"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.22686 abstract; full-text inaccessible",
+        "Resultary published full RESULT.md (blob 9cf45c4917d16f7c853eeb8db23aa07651795a96)",
+        "DOI:10.22049/CCO.2019.26587.1122 bibliographic",
+        "Two actual Resultary semantic searches above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For multipartite, known Resultary full proof gives H edges exactly between different nonsingleton parts, hence e, but does not count coalition partitions.",
+          "arXiv:2607.22686 available abstract states general coalition-number studies but no formula implying m2 or triangle coefficient.",
+          "Klein–Rodríguez-Velázquez–Yi super-domination work treats the minimum set parameter, not this full cooperative-partition polynomial."
+        ],
+        "reasoning": "The prior multipartite H criterion is a premise sufficient to specialize the newly established universal counting theorem, not a statement implying that theorem for arbitrary G. The c3 two-matching count and c4 triangle bijection require new partition-case reasoning.",
+        "searches": [
+          "Resultary: super coalition partitions super domination number N minus two matching triangle enumerator multipartite graphs",
+          "Resultary: super coalition partition maximal 4 super dominating deficiency 2 triangles matchings",
+          "arXiv:2607.22686",
+          "Resultary/2026:2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+          "DOI:10.22049/CCO.2019.26587.1122"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full read of Resultary/2026 complete-multipartite RESULT.md: three-term polynomial x^N+Nx^(N-1)+E2 x^(N-2) counts super-dominating subsets, not vertex partitions.",
+          "arXiv:2607.22686 accessible abstract defines super-coalition partitions and discusses bounds and selected graph classes."
+        ],
+        "reasoning": "Set-size generating functions are not super-coalition-partition enumerators; the latter requires analyzing all allowed block signatures. The founding paper abstract does not contain the full enumerator, but its uninspected full text prevents a categorical noncoverage statement.",
+        "searches": [
+          "Resultary: super coalition partitions super domination number N minus two matching triangle enumerator multipartite graphs",
+          "Resultary: super coalition partition maximal 4 super dominating deficiency 2 triangles matchings",
+          "arXiv:2607.22686",
+          "Resultary/2026:2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+          "DOI:10.22049/CCO.2019.26587.1122"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact complete-multipartite SET polynomial is prior, explicitly extracted from actual primary RESULT.md.",
+          "Independent direct enumeration of several complete-multipartite examples confirms c2,c3,c4 but a finite numerical table cannot imply the claimed universal N≥7 formula."
+        ],
+        "reasoning": "Existing exact scalar domination numbers and set enumerators are insufficient data for the partition enumerator; no inspected exact partition table covers arbitrary H, m2 and triangles. A future comprehensive partition table might overlap, not established absent.",
+        "searches": [
+          "Resultary: super coalition partitions super domination number N minus two matching triangle enumerator multipartite graphs",
+          "Resultary: super coalition partition maximal 4 super dominating deficiency 2 triangles matchings",
+          "arXiv:2607.22686",
+          "Resultary/2026:2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+          "DOI:10.22049/CCO.2019.26587.1122"
+        ]
+      },
+      "rationale": "Best-of-knowledge original universal partition enumerator for all graphs under high super-domination deficiency. Earlier 2026 originating super-coalition paper defines invariant and provides graph-family bounds in available abstract; its full text could not be inspected (specific priority risk). A published Resultary theorem already determines the entire super-dominating SET cardinality enumerator for complete multipartite graphs, including the exact H-edge criterion; that fact is not claimed as new. Current theorem instead counts unordered super-COALITION PARTITIONS for all qualifying (including nonmultipartite) graphs, with independent matching/triangle dependence; no covering statement found in inspected material.",
+      "residual_risks": [
+        "Founding 2026 super-coalition primary arXiv:2607.22686 could contain a more general or equivalent partition-enumerator statement in its inaccessible full text; Oxford reported disconnected institutional VPN, not a mathematical counterexample.",
+        "Search-index coverage of later super-coalition studies may be incomplete, so priority is best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact cardinality enumerator of super-dominating SETS covered and credited; no partition counts or universal matching–triangle formula in this complete text.",
+          "evidence": "Theorem classifies C=∅,|C|=1, or valid cross-part |C|=2, and yields x^N+Nx^(N-1)+E2x^(N-2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089/RESULT.md",
+          "material_read": "Entire RESULT.md, including theorem, three-case complement proof, polynomial and limitations",
+          "method": "Direct read-only GitHub source fetch, actual blob sha 9cf45c4917d16f7c853eeb8db23aa07651795a96",
+          "title": "All super dominating sets of complete multipartite graphs",
+          "trigger": "Same complete-multipartite objects and admissible two-vertex omission criterion"
+        },
+        {
+          "assessment": "No whole-document noncoverage claim; unknown full text could include a covering theorem, residual risk recorded.",
+          "evidence": "Accessible abstract reports invariant, general bounds and selected graph families, without a stated matching–triangle partition enumerator.",
+          "identifier_or_url": "arXiv:2607.22686",
+          "material_read": "Abstract and bibliographic metadata only; arXiv full PDF and HTML inaccessible; institutional fetch returned VPN disconnected",
+          "method": "Public arXiv abstract and attempted original/preprint then authorized full-text retrieval",
+          "title": "Super Coalition Number in Graphs",
+          "trigger": "Source introducing precisely same cooperative domination partition invariant"
+        },
+        {
+          "assessment": "Earlier minimum super domination of multipartite graphs is credited; not itself an all-partition polynomial.",
+          "evidence": "The known scalar γ_sp relates to whether >=2 nonsingleton parts occur, not c2,c3,c4 or matchings.",
+          "identifier_or_url": "DOI:10.22049/CCO.2019.26587.1122",
+          "material_read": "Bibliographic description and corresponding reported scalar formulation",
+          "method": "Published-source search and comparison to full Resultary treatment of prior scalar results",
+          "title": "On the super domination number of graphs",
+          "trigger": "Foundational minimum super-domination scalar and multipartite cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "Does not apply to general super-coalition graphs with γ_sp<N-2 or to smaller orders."
+      ],
+      "rationale": "The super-coalition partition invariant is naturally defined for arbitrary graphs; under a meaningful high-deficiency condition this result gives the *complete* polynomial at every N≥7, not merely a maximum number. Two disjoint edges and triangles in the admissible deletion graph control distinct coefficients and the exact four-block obstruction, exposing structure invisible to γ_sp. The multipartite case yields explicit universal part-size formulas and a sharp three-nonsingleton-part criterion. The N=7 threshold is mathematically meaningful due to a concrete N=6 counterexample to the stable polynomial.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2607.22686 abstract; full-text inaccessible",
+    "Resultary published full RESULT.md (blob 9cf45c4917d16f7c853eeb8db23aa07651795a96)",
+    "DOI:10.22049/CCO.2019.26587.1122 bibliographic",
+    "Two actual Resultary semantic searches above"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Requires isolate-free simple N≥7, γ_sp≥N-2; excludes all lower deficiency and isolated graphs.",
+    "Counts unlabeled partitions, not coalition partner assignments or graph automorphism orbits.",
+    "Independent enumeration covers chosen finite graph profiles only; symbolic block-size proof gives generality.",
+    "Does not apply to general super-coalition graphs with γ_sp<N-2 or to smaller orders."
+  ],
+  "residual_risks": [
+    "Founding 2026 super-coalition primary arXiv:2607.22686 could contain a more general or equivalent partition-enumerator statement in its inaccessible full text; Oxford reported disconnected institutional VPN, not a mathematical counterexample.",
+    "Search-index coverage of later super-coalition studies may be incomplete, so priority is best-of-knowledge."
+  ],
+  "schema_version": 1
+}

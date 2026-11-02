@@ -1,15 +1,21 @@
-# Review — universal super-coalition partition enumerator
+# Independent mathematical audit
 
-## Correctness — PASS
-For finite isolate-free \(N\)-vertex graphs with \(N\ge7\) and \(\gamma_{\mathrm{sp}}(G)\ge N-2\), every permissible coalition union omits only one vertex or a valid pair. Three-block partitions reduce to three distinct small-block signatures, and four-block partitions correspond bijectively to triangles in the valid-pair graph. The proof handles the converse constructions, empty auxiliary graph, complete auxiliary graph, and all quantifiers. A direct definition-based exhaustive checker agrees on 69 specified complete-multipartite cases and 244 qualifying random graph cases; \(K_{3,3}\) confirms the six-vertex boundary is excluded. Finite tests are corroboration, not a proof of the infinite claim.
+## correctness
 
-## Originality — PASS, with literature-access risk
-Alikhani and Ghanbari, *Super Coalition Number in Graphs* (arXiv:2607.22686, 2026), define the partition invariant and state general bounds and several graph-family values in the accessible abstract. Its full primary text was inaccessible, leaving a genuine but non-decisive risk of an uninspected stronger statement. Klein, Rodríguez-Velázquez and Yi define super domination, rather than super-coalition partitions. The published note *All super dominating sets of complete multipartite graphs* already gives the admissible-pair structure for that special class; that known criterion is not claimed as new. The present result counts unordered partitions for every graph satisfying the high-deficiency condition and identifies their two-matching and triangle dependence. Targeted searches for aliases, parameter variants, broader statements, exact tables and equivalent formulations returned no covering enumerator, not a uniqueness proof.
+PASS
 
-## Value — PASS
-A natural recently introduced cooperative domination invariant acquires a complete all-partition polynomial in a broad, structurally characterized domain. The occurrence of four-block partitions is equivalent to a triangle in a derived deletion graph, and the full three-block count depends on two-edge matchings; this identifies information invisible to the minimum size of a super dominating set. The multipartite specialization gives closed expressions over arbitrary part sizes and distinguishes exactly which graphs reach four coalitions. The order threshold is sharp for this formula, as the explicit six-vertex failure shows.
+For isolate-free finite simple G with N≥7 and γ_sp(G)≥N-2, every (proper) super-dominating set omits exactly one vertex or a pair constituting an H-edge, since larger omissions are excluded and single omissions have a witness. A coalition between two partition blocks omits ≤2 vertices, so at most four blocks. For two blocks, all nonempty bipartitions unite to V(G), but exactly N+e pairs contain a super-dominating block, and N≥7 ensures at most one such block; hence c2=2^(N-1)-1-N-e. For three blocks, one large block A and two disjoint blocks B,C of sizes ≤2 (A≥N-4≥3). Both B,C must partner A, so they are either (1,1) with a nonedge of H, (1,2) with an H-edge and an outside singleton, or (2,2) with disjoint H-edges; exact counts give c3=C(N,2)-e+(N-2)e+m2=C(N,2)+(N-3)e+m2. For four blocks, the only possible pattern is one large block and three singleton omissions forming an H-triangle, giving c4=t; converses satisfy every block-partner condition. For K_{a_i}, |U|≥3 cannot be witnessable, and an omitted pair is valid iff its members lie in distinct non-singleton parts; this yields H multipartite, e=sum a_i a_j, m2=C(e,2)-sum a_i C(Q-a_i,2), t=sum a_i a_j a_l. N=6 has extra three (2,2,2) patterns and is expressly excluded.
 
-## Limitations and relationships
-The theorem excludes isolated vertices, \(N\le6\), and graphs with smaller super domination number. It does not enumerate assignments of coalition partners or orbits under automorphisms. The founding 2026 paper was readable only by abstract, and published mathematical-record full text was unavailable; a priority risk remains. No independent mathematical audit has been carried out. The proof and direct-definition checker are included in the accompanying files.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original universal partition enumerator for all graphs under high super-domination deficiency. Earlier 2026 originating super-coalition paper defines invariant and provides graph-family bounds in available abstract; its full text could not be inspected (specific priority risk). A published Resultary theorem already determines the entire super-dominating SET cardinality enumerator for complete multipartite graphs, including the exact H-edge criterion; that fact is not claimed as new. Current theorem instead counts unordered super-COALITION PARTITIONS for all qualifying (including nonmultipartite) graphs, with independent matching/triangle dependence; no covering statement found in inspected material.
+
+## value
+
+PASS
+
+The super-coalition partition invariant is naturally defined for arbitrary graphs; under a meaningful high-deficiency condition this result gives the *complete* polynomial at every N≥7, not merely a maximum number. Two disjoint edges and triangles in the admissible deletion graph control distinct coefficients and the exact four-block obstruction, exposing structure invisible to γ_sp. The multipartite case yields explicit universal part-size formulas and a sharp three-nonsingleton-part criterion. The N=7 threshold is mathematically meaningful due to a concrete N=6 counterexample to the stable polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
