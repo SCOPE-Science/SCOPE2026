@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` reconstructs all twelve right Cayley arcs of the group with presentation \(r^3=s^2=1\), \(srs=r^{-1}\); it does not rely on imported graph libraries or cached face tables. All \(4096\) arc subsets are checked against independent predecessor-walk and directed topological-sort criteria. Exactly \(432\) are faces counting the empty face, with cardinality counts \((1,12,57,134,156,72)\).
+# Independent mathematical audit
 
-For nonempty faces, an exact ascending-arc-index matching pairs \(213\) facet incidences, leaving one critical zero-cell and four critical four-cells. A full topological sort of the modified Hasse graph over \(431\) nonempty faces and \(1500\) cover incidences verifies that no closed gradient path exists. This is a finite complete certificate for the wedge of four four-spheres via discrete Morse theory, not a sampling argument.
+## correctness
 
-The same executable enumerates every left multiplication as a permutation of the twelve arcs, verifies face-set preservation, computes all signed fixed-face simplicial chain traces, and derives the character \((4,-2,1)\) on identity, transposition, and three-cycle. The standard rational character table gives multiplicities zero trivial, two sign and one standard. Separate simplicial boundary reductions over the primes \(101\) and \(103\) give ranks \((1,11,46,88,68)\), consistent with the Morse description but not a substitute for its integral proof.
+PASS
 
-Run with `python3 verify.py`. An actual run is recorded in `VERIFY_OUTPUT.txt` and ends in `VERIFY_OK`. This documents a complete finite mathematical check; it is not an independent scientific audit. The rational representation description does not classify the integral module lattice, and possible unindexed published overlap remains a scientific limitation.
+The twelve arcs of the right S3 Cayley graph use generators of orders 3 and 2, not two reflections. Direct enumeration independently generated all 4096 arc masks, verified the forest condition and face vector (1,12,57,134,156,72). An explicit 213-pair discrete Morse matching on the 431 nonempty faces has an acyclic oriented Hasse graph of 1500 incidences and leaves one zero-dimensional and four four-dimensional cells; Forman’s theorem yields an integral wedge of four S4, not merely field Betti numbers. Signed fixed-simplex Lefschetz traces for six left translations give character values 4 at identity, -2 at each reflection and 1 at nontrivial 3-cycles; rational S3 character inner products yield two signs plus one standard.
+
+## originality
+
+PASS
+
+Engström’s acyclic-digraph shellability theorem does not cover a right Cayley graph containing directed r-triangles. Courtney’s 2020 thesis is a highly relevant same-object source, but the full 51-page thesis was not obtainable; its catalog abstract does not decisively cover this exact (r,s)-orientation or the rational left-module character. Jojić’s tree and complete-source families are not this cyclic presentation. A fully bidirected prism complex has different arcs and cannot pass its homotopy type to this subcomplex. No positive prior implication was found; this is a qualified PASS with unusually material thesis priority risk.
+
+## value
+
+PASS
+
+The directed-forest complex of the smallest nonabelian group with naturally distinct order-3 and order-2 generators is a motivated canonical test case. A complete integral homotopy type with the full left-translation rational character goes beyond a routine Betti-number printout; the acyclic matching explicitly witnesses homotopy. The fixed finite object is meaningful without extrapolation to all groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

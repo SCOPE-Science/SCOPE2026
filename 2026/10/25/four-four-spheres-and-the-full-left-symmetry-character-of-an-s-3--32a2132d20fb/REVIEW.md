@@ -1,15 +1,21 @@
-# Scientific review: an oriented Cayley directed-forest complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof constructs all twelve arcs from the right \(S_3\) multiplication rule, tests all 4096 subsets using two independently implemented directed-cycle predicates and identifies exactly 432 faces including the empty face. A deterministic lexicographic construction pairs 213 face–coface incidences and has precisely one critical vertex and four critical four-simplices. A topological sort of the entire modified 431-vertex, 1500-incidence Hasse digraph certifies acyclicity, so discrete Morse theory gives an integral wedge of four four-spheres. Signed fixed-face traces for each of the six left multiplications are checked exactly and, since only degree-four reduced homology survives, yield character \((4,-2,1)\), i.e. \(2\operatorname{sgn}\oplus\operatorname{Std}\). Full simplicial-boundary ranks over two finite fields independently confirm the predicted Betti dimensions; finite-field computations are not substituted for the integral homotopy proof.
+## correctness
 
-## Originality — PASS, with stated uncertainty
-The 2005 directed-tree-complex treatment of Engström gives its acyclic-digraph theorem, inapplicable because this Cayley digraph contains directed three- and two-cycles. Jojić's 2011 paper treats complete sources and essentially-tree digraphs; the present digraph has neither. The 2020 Courtney thesis is the closest topical potential source and discusses Cayley digraphs on dihedral groups with two involutive generators according to its accessible indexed description; that defines a different six-vertex digraph from the generator orders three and two used here. Its complete text was inaccessible; coverage elsewhere in the thesis cannot be excluded. An indexed public triangular-prism Morse-complex computation concerns the fully bidirected eighteen-arc prism, not this twelve-arc subcomplex. Its \(64\)-sphere homotopy type does not imply the subcomplex's four-sphere homotopy type or the \(S_3\) character. Searches by exact group, generator orders, graph orientation, directed-tree/forest and Morse-complex aliases did not identify equivalent coverage. Absence of a search hit is not a proof of uniqueness.
+PASS
 
-## Value — PASS
-The orientation respects a canonical minimal nonabelian group's right generating set, while left translations give a natural nontrivial group action. A closed nonequivariant homotopy type plus an explicit *full* rational representation describes information the face vector, acyclic digraph formulae and ordinary triangular-prism graph complex do not determine. The zero-dimensional invariant subspace is a meaningful symmetry obstruction. The exact finite base case provides a motivated benchmark for the Cayley directed-forest programme with mixed orders of generators; no larger-family theorem is claimed.
+The twelve arcs of the right S3 Cayley graph use generators of orders 3 and 2, not two reflections. Direct enumeration independently generated all 4096 arc masks, verified the forest condition and face vector (1,12,57,134,156,72). An explicit 213-pair discrete Morse matching on the 431 nonempty faces has an acyclic oriented Hasse graph of 1500 incidences and leaves one zero-dimensional and four four-dimensional cells; Forman’s theorem yields an integral wedge of four S4, not merely field Betti numbers. Signed fixed-simplex Lefschetz traces for six left translations give character values 4 at identity, -2 at each reflection and 1 at nontrivial 3-cycles; rational S3 character inner products yield two signs plus one standard.
 
-## Limitations and closest literature
-Engström (arXiv:math/0508148v1), Jojić (arXiv:1109.4475v1) and Courtney (DOI:10.18122/td/1684/boisestate) were compared as described above. The inaccessible portions of the Courtney thesis and potential unindexed variants are remaining originality risks. The result is for a fixed digraph, and the equivariant module description is rational rather than integral.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Engström’s acyclic-digraph shellability theorem does not cover a right Cayley graph containing directed r-triangles. Courtney’s 2020 thesis is a highly relevant same-object source, but the full 51-page thesis was not obtainable; its catalog abstract does not decisively cover this exact (r,s)-orientation or the rational left-module character. Jojić’s tree and complete-source families are not this cyclic presentation. A fully bidirected prism complex has different arcs and cannot pass its homotopy type to this subcomplex. No positive prior implication was found; this is a qualified PASS with unusually material thesis priority risk.
+
+## value
+
+PASS
+
+The directed-forest complex of the smallest nonabelian group with naturally distinct order-3 and order-2 generators is a motivated canonical test case. A complete integral homotopy type with the full left-translation rational character goes beyond a routine Betti-number printout; the acyclic matching explicitly witnesses homotopy. The fixed finite object is meaningful without extrapolation to all groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
