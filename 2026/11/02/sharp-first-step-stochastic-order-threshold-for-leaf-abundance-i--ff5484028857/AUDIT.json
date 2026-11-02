@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The fixed-root forest enumerator gives a root-plus-uniform occupancy vector by exact coefficient comparison. Conditional on root-edge count, singleton-root and empty-nonroot occupancies are independent. A pointwise coupling establishes stochastic domination for m<=2k; the exact minimum-atom ratio m/(2k) proves failure otherwise. A separate uniform bound proves strict mean increase, and a support argument proves saturation incomparability. The extracted exact verifier passes 2,975 assertions, including independent exhaustive forest enumeration through eight labels; finite tests are corroboration, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pitman (2001), formula (6), counts forests by full outdegree vector, a stronger structural foundation but without stochastic-order comparisons.",
+        "The published-finding corpus entry titled “Equal-share covariance of root degree and leaves in a random recursive tree” pertains to random recursive trees, not fixed-root Cayley forests.",
+        "The published-finding corpus entry titled “Rooted forests collapse Möbius convex order to hockey-stick tests with sharp TV control” concerns a partial-order measure comparison, not probability laws of forest leaves."
+      ],
+      "reasoning": "The closest broad source gives exact degree enumeration, not a domination theorem or saturation-based counterexamples. The other closest retrieved findings have different models or different order concepts and do not imply the fixed-root conditional comparison.",
+      "searches": [
+        "Pitman 2001 full-text: forest volume formula, conditioning on the set of roots, leaves, leaf, out-degree",
+        "Web: \"rooted labeled forests\" \"leaves\" \"root degree\" conditional distribution",
+        "published-finding corpus: Random rooted forests: conditional distribution of number of degree-one vertices given root-adjacent edge count, mean monotonicity but failure of stochastic dominance from 1 to 2"
+      ]
+    },
+    "checked_sources": [
+      "Pitman (2001) https://www.mat.univie.ac.at/~slc/s/s46pitman.pdf, formulas (5),(6),(18), Sections 3 and 5",
+      "Pitman institutional report 593 (June 1, 2001): https://statistics.berkeley.edu/tech-reports/593",
+      "Pitman Coalescent random forests, institutional report 457 (September 1, 1996): https://statistics.berkeley.edu/tech-reports/457",
+      "Statistics of leaves in growing random trees https://doi.org/10.1088/1742-5468/ae3a6a",
+      "Relevant published-finding corpus semantic search hits and accessible historical own claim summaries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pitman 2001 supplies the multinomial coefficient identity, but the monotone coupling needs a conditional root-collision/empty-box event inclusion and the reverse direction needs a minimum-atom calculation.",
+        "The threshold m=2k and positive-mean-versus-stochastic-order incomparability follow from additional inequalities not found in inspected source statements."
+      ],
+      "reasoning": "The earlier enumerator supplies premises but does not contain an order result. To infer the new theorem one must prove the conditional coupling, the exact failure ratio and the mean inequality. There is no identified earlier theorem that directly implies all three, but unseen prior general occupancy-order results remain a possible coverage risk.",
+      "searches": [
+        "Pitman 2001 PDF formula (5)/(6), Section 3.2",
+        "published-finding corpus: first-step stochastic ordering root singleton empty nonroot occupancy",
+        "Web: \"empty boxes\" \"singletons\" \"stochastic order\" \"occupancy\" tradeoff"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pitman 2001 equations (5),(6) and Section 3.2 give the fixed-root outdegree enumerator; no inspected stochastic-order inequality appears there.",
+        "Our conditional laws are occupancy singleton-plus-empty convolutions, and the sharp criterion is an inequality between those convolutions rather than a new naming of the enumerator."
+      ],
+      "reasoning": "The full occupancy representation is classical and credited. No equivalent statement comparing the leaf-count laws at one and two root-to-child edges, or the sharp cutoff m=2k, was recovered. A general enumerator permits deriving but does not state or directly settle the stochastic-order inequality; implicit historical derivations remain a risk.",
+      "searches": [
+        "published-finding corpus: Uniform labeled forest conditioned fixed root set and total root outdegree: total undirected leaf count, sharp first-step stochastic ordering threshold nonroot vertices at most twice number of roots, root singleton versus nonroot empty occupancy",
+        "Web: \"stochastic dominance\" \"singletons\" \"empty cells\" occupancy",
+        "Web: \"leaf count\" \"root degree\" \"random rooted forests\" first-order stochastic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "prior result e4026a99-d989-4532-8ba5-4c552dcc22c8 analyzes component size under changing numbers of roots, not leaf number conditional on root-edge count.",
+        "prior result 0ede72eb-318a-460e-bdc4-fa9dba3eff35 gives a zero-indegree likelihood-ratio law for mappings conditional on cyclic-point number, with a related forest code but different statistics.",
+        "No exact table or previous archived finding was found with the boundary m=2k in the specified model."
+      ],
+      "reasoning": "The relevant recoverable historical statements were compared at the level of objects, conditioning and conclusions. Shared forest-code ingredients are explicitly excluded from the novelty claim. Search and checked-part comparisons do not establish global uniqueness.",
+      "searches": [
+        "prior research records available collection snapshot: all 147 recoverable titles and relevant fixed-root claims",
+        "published-finding corpus: Uniform forests of k rooted labeled trees: leaf count distribution conditioned exactly r root-to-child edges, occupancy singletons and empty bins, sharp saturation incomparability",
+        "Web: \"rooted forest\" \"number of leaves\" \"degree of roots\" conditional"
+      ]
+    },
+    "rationale": "The prior forest-volume and occupancy identities are expressly credited, while the fixed-root undirected-leaf stochastic-order boundary, strict mean contrast and saturation obstruction were not located in directly relevant retrieved published statements or own recoverable claims; broad source implicit coverage remains possible.",
+    "residual_risks": [
+      "Original general forest-volume formula gives all joint outdegree probabilities; an unlocated earlier occupancy-order theorem may imply the sharpened comparison.",
+      "Only the high-relevance parts of the 2001 full PDF were inspected, not every proof line; the earlier 1996 report was read at abstract level.",
+      "A semantic search is not a proof of absence from literature or from unobserved historical records."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLASSICAL_FOUNDATION; direct stochastic-order comparison not located in material inspected, not a whole-document certification of absence",
+        "evidence": [
+          "Formula (5) is root-set forest volume; (6) counts outdegree vectors; (18) is fixed-root p-forest distribution; later Section 5.4 discusses component sizes and conditional independent attachments."
+        ],
+        "identifier_or_url": "https://www.mat.univie.ac.at/~slc/s/s46pitman.pdf",
+        "material_read": "PDF introduction and contents; formulas (5)-(12); Sections 3.1-3.2; targeted full-text matches for leaf/leaves and out-degree; selected later component discussion, with visual inspection of page 11",
+        "method": "Web PDF text inspection and screenshot of the fixed-root conditioning page",
+        "title": "Random mappings, forests, and subsets associated with Abel-Cayley-Hurwitz multinomial expansions",
+        "trigger": "Exact prescribed-root forest outdegree law and possible prior leaf comparisons"
+      },
+      {
+        "assessment": "Background; limited inspection does not exclude implicit comparisons",
+        "evidence": [
+          "Institutional report dated September 1, 1996 describes uniform rooted forests with a varying number of components; the inspected abstract does not state conditional undirected-leaf order."
+        ],
+        "identifier_or_url": "https://statistics.berkeley.edu/tech-reports/457",
+        "material_read": "Institutional title, bibliographic information, and abstract",
+        "method": "Web institutional abstract and source context",
+        "title": "Coalescent random forests",
+        "trigger": "Earlier fixed-root enumeration and coalescent construction"
+      },
+      {
+        "assessment": "DIFFERENT_MODEL; recursive growth rather than uniform fixed-root Cayley forests",
+        "evidence": [
+          "Studies leaf-degree distributions of random recursive trees and leaf-based preferential attachment, not fixed-root uniform forest conditional laws."
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1742-5468/ae3a6a",
+        "material_read": "Public HTML abstract, introduction and model definitions",
+        "method": "Web full HTML textual extract",
+        "title": "Statistics of leaves in growing random trees",
+        "trigger": "High-relevance leaf-count paper found in a targeted search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ff548402-8857-4e4f-bc48-709f71bb3a25",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact finite cutoff m=2k identifies a natural regime in which root-edge information orders the entire leaf abundance distribution and a contrasting regime in which the law becomes incomparable although its mean increases. A separate saturation mechanism gives a second all-size obstruction. The result addresses structural inference for ordinary undirected leaves in fixed-root Cayley forests, beyond a routine moment calculation or arbitrary small slice.",
+    "status": "PASS"
+  }
+}
