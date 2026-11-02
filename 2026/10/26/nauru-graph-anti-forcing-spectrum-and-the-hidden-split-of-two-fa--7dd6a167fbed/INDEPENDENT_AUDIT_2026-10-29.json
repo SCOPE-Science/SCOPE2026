@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:59:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exactly the graph GP(12,5) with 24 labelled vertices and 36 undirected edges, independently construct its edges u_i u_{i+1}, v_i v_{i+5}, u_i v_i and recursively enumerate all 120 perfect matchings. An anti-forcing S disjoint from M is equivalent to a hitting set for every N\\M with N another perfect matching; any missing hit permits a competing perfect matching in G\\S and every hit destroys all competitors. Independently enumerate all 144 graph automorphisms and partition the 120 matchings into eight orbits of sizes 3,6,36,18,12,24,18,3 (corresponding to the claimed table's ordering). For one representative of each, a separately implemented exhaustive hitting-set engine tests each subset of the 24 external edges in increasing cardinality until the first attainable degree, counts every minimizer and checks the eight profiles: (tau,orb,af,b) = ((6,6,6,6),3,8,1092), ((6,18),12,6,207), ((6,18),24,6,24), ((8,8,8),6,5,36), ((8,16),18,6,28), ((10,14),36,6,176), ((12,12),3,6,60), ((24),18,7,640). Automorphisms transfer af and b and the represented set covers all 120 matchings. Thus A_G(t)=6t^5+93t^6+18t^7+3t^8, sum_M b(M)=25,092, with (6,18) giving b=207 and 24 although af=6 in both. This is *genuinely exhaustive finite proof* conditional on the explicitly specified complete enumeration/hitting algorithm and automorphism logic, not extrapolation or unverified solver output. Original 87k source certificate additionally provides alternating-cycle bounds, but independent verification used an alternative full enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lei–Yeh–Zhang (2014) planar-bipartite minimax equality assumes planarity; the Nauru graph is nonplanar and toroidal.",
+          "Deng–Zhang (2016) gives general bounds and polygonal-chain spectra, not exact GP(12,5) matching classification.",
+          "Alikhani–Soltani (2017), full PDF, covers several specific named graph families but not the requested Nauru orbit profile in inspected body."
+        ],
+        "reasoning": "General anti-forcing bounds cannot determine exact values 5,6,7,8 and 207/24 minimizer split; planar theorem lacks its premise for Nauru. A later survey could tabulate the graph, but its full text was not inspected and is explicitly a risk.",
+        "searches": [
+          "Nauru generalized Petersen graph GP(12,5) anti-forcing polynomial perfect matching optimum sets counts",
+          "anti-forcing generalized Petersen graph GP 12 5 toroidal"
+        ]
+      },
+      "checked_sources": [
+        "Lei, Yeh, Zhang arXiv:1406.3796 primary complete",
+        "Deng, Zhang arXiv:1607.05392 primary complete",
+        "Alikhani, Soltani 2017 DOI:10.22052/ijmc.2017.60978.1235 full PDF",
+        "Zhang et al 2025 survey DOI:10.1016/j.dam.2025.06.022 abstract/bibliography only",
+        "Resultary semantic query Nauru generalized Petersen graph GP(12,5) anti-forcing polynomial perfect matching optimum sets counts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lei, Yeh, Zhang arxiv:1406.3796 provides the transversal criterion and plane minimax, the latter inapplicable to nonplanar GP(12,5).",
+          "Deng–Zhang arxiv:1607.05392 provides other graph family spectra; none of their stated results gives counts for this 24-vertex graph."
+        ],
+        "reasoning": "The exact 8-row refinement follows from the new full finite enumeration rather than from broad upper bounds. The two (6,18) matching orbits have the same minimum but different *counts*; no known general theorem from inspected papers forces their distinct 207 versus 24 values.",
+        "searches": [
+          "Nauru generalized Petersen graph GP(12,5) anti-forcing polynomial perfect matching optimum sets counts",
+          "anti-forcing number perfect matching graphs plane minimax generalized Petersen"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lei, Yeh, Zhang arXiv:1406.3796 develops equivalence between anti-forcing sets and hitting all alternating cycles for a fixed matching.",
+          "The exact Nauru calculation uses the equivalent full perfect-matching hitting constraints N\\M; the two criteria are mathematically equivalent."
+        ],
+        "reasoning": "Searching both anti-forcing and alternating-cycle transversal terminology avoids mistaking naming differences for novelty. Neither inspected theory paper states the eight Nauru-graph matching-orbit/minimizer table.",
+        "searches": [
+          "Nauru generalized Petersen graph GP(12,5) anti-forcing polynomial perfect matching optimum sets counts",
+          "Nauru graph anti-forcing GP(12,5) deletion perfect matchings alternating cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently complete 120-matchings census and eight automorphism orbits; exact per-representative minimum-deletion counts, no optimization gaps.",
+          "Published Nauru graph standard tables describe edges/automorphisms but did not supply the eight anti-forcing classes in material checked."
+        ],
+        "reasoning": "Graph encyclopedias and automorphism databases can imply 120 matchings or graph topology, but no automatic implication of the 25,092 optimum deletion-set count without a separate hitting-set calculation. Computed exact values remain relevant even if a general algorithm could enumerate them.",
+        "searches": [
+          "Nauru generalized Petersen graph GP(12,5) anti-forcing polynomial perfect matching optimum sets counts",
+          "Nauru GP(12,5) perfect matching 120 8 orbits anti forcing polynomial table"
+        ]
+      },
+      "rationale": "Fresh best-of-knowledge statement-and-implication comparison across standard aliases, general theorems and exact tables. Inspected primary material does not establish the same final claim at the assessed level, although stated full-text access gaps and unindexed equivalences leave explicit priority risks. The exact 8-row refinement follows from the new full finite enumeration rather than from broad upper bounds. The two (6,18) matching orbits have the same minimum but different *counts*; no known general theorem from inspected papers forces their distinct 207 versus 24 values.",
+      "residual_risks": [
+        "A specialized unpublished or unindexed Petersen anti-forcing enumeration might provide the same class table.",
+        "The 2025 broad survey full text was not accessed, so cannot be declared noncovering.",
+        "The finite proof is for GP(12,5) only; no statement that two-factor cycle partition determines af in arbitrary graph families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Criterion is prior and used. Graph-specific Nauru eight-class optimum counts not found in inspected body; planar result inapplicable.",
+          "evidence": "Lei, Yeh and Zhang 2014, planar minimax and alternating-cycle criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.3796",
+          "material_read": "Full openly accessible primary paper, definitions, alternating cycle characterization and planar minimax results",
+          "method": "arXiv full text",
+          "title": "Anti-forcing numbers of perfect matchings of graphs",
+          "trigger": "Original definition, matching transversal and planar-bipartite minimax"
+        },
+        {
+          "assessment": "No exact Nauru GP(12,5) table in inspected article; general bounds weaker than complete orbit profile.",
+          "evidence": "Deng and Zhang 2016, extremal bounds and polygonal chain cases.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.05392",
+          "material_read": "Full available primary article covering upper bounds and even polygonal chains",
+          "method": "arXiv full text",
+          "title": "Extremal anti-forcing numbers of perfect matchings of graphs",
+          "trigger": "Possible general stronger exact spectra"
+        },
+        {
+          "assessment": "Same invariant, different named graph families; not evidence of a universal noncoverage claim for all anti-forcing literature",
+          "evidence": "Alikhani and Soltani, Iranian Journal of Mathematical Chemistry 8(3), 2017, pp313–325.",
+          "identifier_or_url": "https://ijmc.kashanu.ac.ir/article_49785_5762b32f4d73311e1b30d195fe19f9ba.pdf",
+          "material_read": "Full PDF text available; inspected results on elementary named families and screenshot of title/abstract page; no Nauru GP(12,5) orbit table in inspected results",
+          "method": "Publisher PDF text and rendered page 1",
+          "title": "Anti-Forcing Number of Some Specific Graphs",
+          "trigger": "Plausible same-topic exact enumeration on named graphs"
+        },
+        {
+          "assessment": "Priority risk for specialized generalized Petersen graphs; no negative whole-document claim",
+          "evidence": "2025 survey bibliographic record, full contents not read.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2025.06.022",
+          "material_read": "Abstract and bibliography only; full article NOT examined",
+          "method": "Publisher/index metadata",
+          "title": "Forcing, anti-forcing, global forcing and complete forcing on perfect matchings of graphs: a survey",
+          "trigger": "Recent comprehensive survey potentially cites same-graph results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete anti-forcing polynomial and the refined distribution by 2-factor cycle structure on the canonical, highly symmetric cubic bipartite Nauru graph are motivated exact graph invariants. The unexpected split of two distinct (6,18) orbits with identical af but different minimizer multiplicities shows that cycle-length partition is insufficient to determine the refined optimum count; this structural observation is not reproduced by elementary forcing-number bounds. A full finite classification is valuable without an infinite family theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Lei, Yeh, Zhang arXiv:1406.3796 primary complete",
+    "Deng, Zhang arXiv:1607.05392 primary complete",
+    "Alikhani, Soltani 2017 DOI:10.22052/ijmc.2017.60978.1235 full PDF",
+    "Zhang et al 2025 survey DOI:10.1016/j.dam.2025.06.022 abstract/bibliography only",
+    "Resultary semantic query Nauru generalized Petersen graph GP(12,5) anti-forcing polynomial perfect matching optimum sets counts"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Specific labelled Nauru graph and graph automorphism orbits only; b counts labelled external-edge subsets, not isomorphism classes or an infinite Petersen family.",
+    "Independent verification: Fresh independent construction 120 perfect matchings, all 144 automorphisms, eight matching orbits and complete hitting-set count per representative, reproducing every b and the 25,092 total.",
+    "METADATA.json/AUDIT.json include scope_run_id; first_public_date=2007-12-12 belongs to the historic Nauru graph exposition, not first publication of this anti-forcing spectrum."
+  ],
+  "residual_risks": [
+    "A specialized unpublished or unindexed Petersen anti-forcing enumeration might provide the same class table.",
+    "The 2025 broad survey full text was not accessed, so cannot be declared noncovering.",
+    "The finite proof is for GP(12,5) only; no statement that two-factor cycle partition determines af in arbitrary graph families."
+  ],
+  "schema_version": 1
+}
