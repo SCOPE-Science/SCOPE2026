@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T13:52:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Necessity: if both cliques begin with two white vertices, no blue vertex can force, so a one-leak set requires a full or nearly-full layer. For n>=4 and layer A missing i, the available initial A forcers are precisely a_j at selected B indices j!=i; one leak can suppress all if <=1 such j, and B cannot initiate while there are >=2 white B. With >=2 such indices a non-leaked A forcer completes A; thereafter cross-layer forces all B except perhaps one, completed within B. Full layer is always forcing even with one A leak. n=3 gives additional precisely 9 two-and-two configurations. Counting disjoint full-layer configurations and the two near-full orientations, with the both-near-full overlap n^2 counted once, gives exactly L_n=2z^n(1+z)^n-z^(2n)+2n*C(n-1,2)z^(n+1)+2n*sum_{t=3}^{n-2}C(n,t)z^(n-1+t)+n^2 z^(2n-2) for n>=4; L3=2z^3+15z^4+6z^5+z^6. Minimal sets are exactly two full layers and 2n*C(n-1,2) near-full plus two sets for n>=4, or two layers plus nine 4-sets for n=3. Independently exhaustive bit-mask sequential-forcing closure with every leak and all subsets for n=3,4,5,6 matched both polynomials and inclusion-minimal histograms. This is finite corroboration; case argument proves all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang modular theorem covers *all* graphs when singleton types are allowed, as an abstract 3^m enumeration; the complete-prism graph has no nontrivial uniform twin block because each vertex has unique cross-layer mate.",
+          "Wang explicit formulas treat common clique unions and complete multipartite graphs, not K_n square K2; his general algorithm could recompute the target finite polynomial after graph-specific calculation."
+        ],
+        "reasoning": "The broader algorithm is an exact generic enumeration recipe, not an explicit all-n identity that directly implies this coefficient/minimality theorem without substantial specialized combinatorial analysis.",
+        "searches": [
+          "Wang 2026 DOI:10.5281/zenodo.20388397 Theorems 3.2,3.4, Corollary 3.6 and sections 5-6",
+          "Alameda Dillman Kenter arxiv:1910.00168"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2411.03178v1",
+        "arxiv:1910.00168",
+        "doi:10.5281/zenodo.20388397",
+        "Resultary search one-leak zero forcing polynomial complete prism K_n Cartesian K_2 all leaky sets minimal classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier leaky forcing resilience establishes minimum sets in other graphs, sometimes generic product bounds.",
+          "A closed polynomial with n+1 through 2n coefficients and the irredundant minimal family is strictly finer than Z_1(H_n)=n."
+        ],
+        "reasoning": "Prior product upper bounds and abstract modular enumeration do not imply the exact labeled distribution without evaluating graph-specific forcing cases; the new statement provides that evaluation.",
+        "searches": [
+          "arxiv:1910.00168",
+          "arxiv:2411.03178v1",
+          "doi:10.5281/zenodo.20388397"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Herrman/Wisdom arxiv:2411.03178v1 Section 2 explicitly defines direct product with edge iff both coordinates adjacent, whereas H_n is the Cartesian product with within-clique edges plus matching; they are not the same graph.",
+          "Wang Theorem 3.4 computes polynomials via fort-free type profiles, but does not state the all-n complete-prism coefficient formula or inclusion-minimal family."
+        ],
+        "reasoning": "The graph-product terminology in one prior title masks a different adjacency convention; neither its minimum-number theorem nor general modular compression states an equivalent special-family closed polynomial.",
+        "searches": [
+          "one-leak zero forcing polynomial complete prism K_n Cartesian K_2 all leaky sets minimal classification",
+          "Herrman Wisdom arxiv:2411.03178 complete graph Cartesian/direct products",
+          "Wang 2026 leaky forcing polynomial clique prism"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wang full text has explicit closed families for common clique unions and complete multipartite graphs; no complete-prism table appears.",
+          "Resultary zero-forcing polynomial of fan graphs id 2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283 is for a different graph and ordinary zero forcing."
+        ],
+        "reasoning": "Inspected generic graph-polynomial source does not contain this exact coefficient table; unsuccessful semantic search is not an exhaustive novelty certificate.",
+        "searches": [
+          "doi:10.5281/zenodo.20388397 Sections 5-7 and search for prism",
+          "arxiv:2411.03178v1 Theorem 2.1",
+          "one-leak zero forcing polynomial complete prism K_n Cartesian K_2 all leaky sets minimal classification"
+        ]
+      },
+      "rationale": "Leaky forcing, resilience, and generic all-set polynomials predate this record. The surviving contribution is the explicit all-cardinality complete-prism one-leak polynomial together with exact labeled minimal-set classification, not generic algebraic compression or the already known minimum forcing number.",
+      "residual_risks": [
+        "Alternative network-reliability or zero-forcing polynomial studies might have previously specialized this graph.",
+        "Although generic modular enumeration is known and applies trivially via singleton modules, the claimed special closed coefficients require graph-specific evaluation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the present Cartesian prism because product is categorical K_n x P_t and K_n x C_t",
+          "evidence": "At introduction lines 41-42 product defined adjacency in both coordinates; Theorem 2.1 proves Z1(K_n x P_t) only.",
+          "identifier_or_url": "arxiv:2411.03178v1",
+          "material_read": "Abstract, graph-product definition Section 1, Theorem 2.1 and the direct-product proof in Section 2",
+          "method": "Lawful full HTML article, mathematical definitions and principal theorems",
+          "title": "Leaky forcing and resilience of Cartesian products of K_n (actual results: direct products)",
+          "trigger": "Seemingly matching complete-graph Cartesian-product title"
+        },
+        {
+          "assessment": "COVERS general profile enumeration machinery; no explicit complete-prism closed polynomial or minimal sets located",
+          "evidence": "Theorem 3.4 sums over fort-free type profiles; explicit examples are clique unions and multipartite graphs, Sections 5-6.",
+          "identifier_or_url": "doi:10.5281/zenodo.20388397",
+          "material_read": "Full publicly available preprint sections 2-7, Theorems 3.2, 3.4, Corollary 3.6, Theorem 5.1, examples, conclusion",
+          "method": "Lawful author-uploaded full text at researchgate.net/publication/405317381_Modular_Compression_of_Leaky_Forts_and_Leaky_Forcing_Polynomials",
+          "title": "Modular Compression of Leaky Forts and Leaky Forcing Polynomials",
+          "trigger": "Exact general forcing polynomials with possible stronger general coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full forcing polynomial, entire family classification and inclusion-minimal census for complete prisms is a natural graph reliability/infection invariant that cannot be recovered from the forcing number alone. The n=3 exceptional layer pair and n>=4 exact nonminimum minimal-set coefficients are useful combinatorial structure, not arbitrary small samples.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2411.03178v1",
+    "arxiv:1910.00168",
+    "doi:10.5281/zenodo.20388397",
+    "Resultary search one-leak zero forcing polynomial complete prism K_n Cartesian K_2 all leaky sets minimal classification"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No n=2 case and no claim for two or more leaks or other graph products.",
+    "Finite verification through n=6 does not replace the all-n forcing and counting proof."
+  ],
+  "residual_risks": [
+    "Alternative network-reliability or zero-forcing polynomial studies might have previously specialized this graph.",
+    "Although generic modular enumeration is known and applies trivially via singleton modules, the claimed special closed coefficients require graph-specific evaluation."
+  ],
+  "schema_version": 1
+}
