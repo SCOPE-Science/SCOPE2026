@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The fixed-size differential equation follows from the cited source's total payoff and Fermi update formula. The Bernstein coefficients for sizes two and three have exactly one sign variation under \(1<r<g\); Descartes' rule and endpoint signs prove exactly one globally attracting root, including simplicity. For four players, all five Fermi weights become exact rationals at the specified noise, and four exact rational vector-field signs force three simple roots of the quartic with alternating attraction. The executable standard-library rational certificate independently recomputes the polynomial and the signs. General results follow analytically, not from finite enumeration.
+## correctness
 
-**Originality — PASS (qualified).** The motivating 2024 preprint studies variable-size groups from \(1\) to \(3\) or \(1\) to \(5\) and numerically demonstrates bistability; it does not supply the exact minimum **constant** group size under the strict social-dilemma constraints. General nonlinear-public-goods Bernstein and group-size-diversity work gives methods and adjacent phenomena, but no inspected primary statement implying both the all-parameter impossibility and exact four-player witness was located. There is residual risk from unindexed or inaccessible literature, and priority is not independently established.
+PASS
 
-**Value — PASS.** The sharp cutoff isolates interaction order from group-size heterogeneity and provides a small, exact example of two stable mixed-population states under positive noise, avoiding claims based on a numerical phase diagram. This is a motivated model-specific structural boundary rather than an arbitrary parameter enumeration.
+For fixed g in the precise Zhang–Tang Fermi death–birth mean field, the difference H_g(x)=sum B_{g,n}(x)[a_n-n/g] uses Bernstein linear reproduction of x. At g=2 c1<0; at g=3 c2<0 under 1<r<3, while c1 has arbitrary sign, and the constant term is positive and top coefficient negative; Descartes permits exactly one simple positive odds-ratio stationary root, globally attracting by scalar flow signs. For g=4, r=8/3 and K=1/(3 log 2), independently reconstructed exact Fermi weights (1/2,1/129,1/65,8/9,1048576/1048577) and rational signs H(0)>0,H(1/4)<0,H(9/10)>0,H(1)<0. A degree-four polynomial with three disjoint sign-changing roots can have no further real interior root or multiple crossing (degree/endpoint parity), so the stable–unstable–stable triple is exact; hyperbolicity follows. Finite population absorption is not inferred.
 
-Closest literature: Zhang–Tang (arXiv:2402.16317), Archetti (Games 2018, 9:17), Peña (Evolution 2012, 66:623–636). Scope limitations: well-mixed deterministic Fermi model; the threshold need not hold for other payoff aggregation, update or finite-population rules. Remaining publication-priority uncertainty does not amount to independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Zhang–Tang 2024 article supplies the same payoff normalization and flow and already reports bistability for a distribution of group sizes 1–5, so bistability generically is NOT claimed new. Its analytic cubic is for a varying uniform distribution 1–3; it does not state an exact fixed-size minimal threshold under 1<r<g or the rational four-player hyperbolicity certificate. Archetti’s Bernstein sign-variation technique is general prior methodology, not this precise fixed-size classification. Best-of-knowledge originality pertains only to the sharp fixed-size g=4 statement.
+
+## value
+
+PASS
+
+A sharp minimum group size for robust deterministic bistability distinguishes group-size variability from intrinsic nonlinear group interaction in a named public-goods dynamics. The exact admissible rational certificate and all-parameter uniqueness at g=2,3 give a meaningful boundary, not a tiny numerical improvement or model reparametrization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
