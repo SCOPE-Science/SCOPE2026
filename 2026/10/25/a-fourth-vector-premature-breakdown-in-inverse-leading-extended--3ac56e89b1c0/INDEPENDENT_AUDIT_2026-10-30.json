@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T05:07:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/a-fourth-vector-premature-breakdown-in-inverse-leading-extended--3ac56e89b1c0/RESULT.md blob 4b640fc75219b5bbac604ce65474fc9405142d21",
+        "2026/10/25/a-fourth-vector-premature-breakdown-in-inverse-leading-extended--3ac56e89b1c0/check.py source blob; independent checks separately recorded",
+        "Independent bounded verification JSON and script attached"
+      ],
+      "rationale": "Let a=v^T A^{-1}v, m=v^TAv, tau=||A^{-1}v-av||>0, u=(A^{-1}v-av)/tau, r=||(I-P2)Av||>0, w=(I-P2)Av/r, and P3 project onto span{v,u,w}. From Au=(v-aAv)/tau, the third mixed candidate is nonzero when a!=0. Multiplying A v=m v+((1-am)/tau)u+r w by A^{-1} and projecting orthogonally to P3 yields (I-P3)A^{-1}w=-[(1-am)/(tau*r)](I-P3)A^{-1}u. Thus premature fourth mixed breakdown with continuing split channel occurs exactly when am=1 and the four Laurent vectors A^{-2}v,A^{-1}v,v,Av are independent. Independence requires at least four distinct eigenvalues active in v: a polynomial of degree <=3 cannot have more than three distinct spectral roots; conversely four active points give independent Laurent vectors by multiplication by A^2. For either definite sign Cauchy-Schwarz forces am>=1, with equality only for a one-eigenvalue vector; indefinite four-distinct spectra permit positive spectral weights with am<1 and >1, and continuity gives am=1 while all four weights stay nonzero. Independent exact SymPy projector calculations for diag(-1,1,2,3) and v=(sqrt3,sqrt56,3,3)/sqrt77 yield a=11/14, m=14/11, tau²=103/539, r²=564/847, fourth split squared=14112/498623>0, mixed squared=0. These exact numbers corroborate the fully quantified spectral proof.",
+      "residual_risks": [
+        "Exact arithmetic and the specific inverse-leading mixed/split order only; does not predict floating-point loss of orthogonality or global approximation error.",
+        "The earlier inverse Rayleigh quotient a must be nonzero and third residual nonzero for the stated meaning of premature fourth breakdown; these are enforced in the construction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lund–Schweitzer arXiv:2610.21603v1 Theorem 3.3 proves an orthogonality preference only for symmetric positive/negative definite A, explicitly assuming no breakdown.",
+          "Mertens–Vandebril (2014 report/2015 journal) presents banded recurrence structures for Hermitian extended Krylov bases; full version was unavailable because the report host requires institutional authentication."
+        ],
+        "reasoning": "The definitive source theorem is inapplicable to indefinite breakdown, while recurrence structure alone does not state a necessary/sufficient indefinite four-active-eigenvalue characterization. The 2015 complete text remains a genuine uncertainty.",
+        "searches": [
+          "extended Krylov inverse leading mixed channel fourth basis breakdown indefinite Hermitian matrix split channel spectral criterion",
+          "extended Krylov mixed channel fourth step premature breakdown despite successful third step inverse-leading split channel moment product inverse Rayleigh equals one",
+          "Jagels Reichel recursion relations extended Krylov subspace method 2011 pdf",
+          "Short recurrences for computing extended Krylov bases for Hermitian and unitary matrices Mertens Vandebril 2015 pdf"
+        ]
+      },
+      "checked_sources": [
+        "Lund–Schweitzer arXiv:2610.21603v1 full PDF main theorems and Appendix A",
+        "Jagels–Reichel Linear Algebra Appl. 434 (2011) abstract",
+        "Mertens–Vandebril Numerische Mathematik 131 (2015) and report TW641 abstracts",
+        "Resultary semantic search: exact fourth mixed Krylov cancellation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lund–Schweitzer Appendix A (A.2) states k^M_{4,3}=tau_2 k^S_{4,3} on a shared nonbreakdown basis, and tau_2 is a recurrence ratio.",
+          "The paper presupposes successful fourth construction in the theorem and does not prove that every four-distinct indefinite spectrum admits positive starting weights with tau_2=0 and a nonzero split fourth vector."
+        ],
+        "reasoning": "There is significant prior algebraic overlap, particularly the formal residual proportionality. That antecedent alone does not directly establish the existential spectral iff and bounded-condition-number construction, which require a polynomial-support argument and a sign-crossing construction. This is a material priority qualification.",
+        "searches": [
+          "extended Krylov inverse leading mixed channel fourth basis breakdown indefinite Hermitian matrix split channel spectral criterion",
+          "extended Krylov mixed channel fourth step premature breakdown despite successful third step inverse-leading split channel moment product inverse Rayleigh equals one",
+          "Jagels Reichel recursion relations extended Krylov subspace method 2011 pdf",
+          "Short recurrences for computing extended Krylov bases for Hermitian and unitary matrices Mertens Vandebril 2015 pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lund–Schweitzer arXiv:2610.21603v1 Algorithms 2.1–2.2 describe split and mixed channels, and Appendix A Lemma A.1 gives proportional even-step residual coefficients under no-breakdown hypotheses.",
+          "Classical extended Krylov and Laurent moment matching frameworks use related rational Lanczos bases."
+        ],
+        "reasoning": "The proportional residual identity is partly implicit in established recurrence algebra; it is not standalone novelty. The precise new claim is exact post-third-success breakdown plus the full spectral iff, minimal dimension and well-conditioned counterexample.",
+        "searches": [
+          "extended Krylov inverse leading mixed channel fourth basis breakdown indefinite Hermitian matrix split channel spectral criterion",
+          "extended Krylov mixed channel fourth step premature breakdown despite successful third step inverse-leading split channel moment product inverse Rayleigh equals one",
+          "Jagels Reichel recursion relations extended Krylov subspace method 2011 pdf",
+          "Short recurrences for computing extended Krylov bases for Hermitian and unitary matrices Mertens Vandebril 2015 pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026 paper Example 3.5 uses an indefinite eight-dimensional matrix for comparative numerical orthogonality, not the exact 4x4 residual certificate.",
+          "Resultary research search for fourth-vector mixed-channel cancellation and direct/inverse Rayleigh product returned no matching exact chart or table."
+        ],
+        "reasoning": "No checked exact table includes the four-dimensional condition-three witness or spectral existence iff; a negative search is not a priority certificate.",
+        "searches": [
+          "extended Krylov inverse leading mixed channel fourth basis breakdown indefinite Hermitian matrix split channel spectral criterion",
+          "extended Krylov mixed channel fourth step premature breakdown despite successful third step inverse-leading split channel moment product inverse Rayleigh equals one",
+          "Jagels Reichel recursion relations extended Krylov subspace method 2011 pdf",
+          "Short recurrences for computing extended Krylov bases for Hermitian and unitary matrices Mertens Vandebril 2015 pdf"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge original contribution: A fourth-vector premature breakdown in inverse-leading extended Krylov construction. Closest prior work and limits are compared by implication, not title; priority risk retained.",
+      "residual_risks": [
+        "The source 2026 Appendix A already contains a proportional residual formula with a no-breakdown premise, limiting the novelty to quantified indefinite spectral existence and sharp example.",
+        "Older uninspected Jagels/Reichel and Mertens/Vandebril recurrences might contain equivalent spectral conditions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_METHOD_OVERLAP_BUT_NO_EXACT_SPECTRAL_IFF",
+          "evidence": [
+            "Appendix A (A.2),(A.12) analyzes fourth-step candidate proportionality conditional on no breakdown; no quantified every-indefinite-spectrum existence/minimal dimension theorem was identified."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.21603",
+          "material_read": "full 30-page arXiv PDF; Algorithms 2.1–2.2, Theorem 2.1, 3.3, Example 3.5, Appendix A Lemma A.1 and fourth-step calculation read",
+          "method": "primary recurrence/proof comparison",
+          "title": "On the stability of basis construction in extended Krylov subspace methods",
+          "trigger": "same algorithm, most plausible dominating source"
+        },
+        {
+          "assessment": "UNRESOLVED_ACCESS_RISK",
+          "evidence": [
+            "Could contain an equivalent fourth-step degeneracy under different recurrence notation."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.laa.2010.08.042",
+          "material_read": "publisher/indexed abstract only, full text unavailable",
+          "method": "historical abstract comparison",
+          "title": "Recursion relations for the extended Krylov subspace method",
+          "trigger": "older same-object recurrence work"
+        },
+        {
+          "assessment": "UNRESOLVED_ACCESS_RISK",
+          "evidence": [
+            "Band-structure theorem is broader in recurrence language; complete text not inspected, so noncoverage is not asserted."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00211-014-0692-3; KU Leuven TW641",
+          "material_read": "public university report abstract and journal abstract read; attempted full report redirects to SSO",
+          "method": "original-source abstract, full-text access attempt",
+          "title": "Short recurrences for computing extended Krylov bases for Hermitian and unitary matrices",
+          "trigger": "older Hermitian case and possible full recurrence classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/25/a-fourth-vector-premature-breakdown-in-inverse-leading-extended--3ac56e89b1c0/RESULT.md",
+        "Lund–Schweitzer arXiv:2610.21603v1 full PDF main theorems and Appendix A",
+        "Jagels–Reichel Linear Algebra Appl. 434 (2011) abstract",
+        "Mertens–Vandebril Numerische Mathematik 131 (2015) and report TW641 abstracts"
+      ],
+      "rationale": "This identifies a genuinely algorithm-relevant structural counterexample: mixed-channel basis generation may falsely terminate on a zero candidate after successful first three vectors although the extended Krylov space still grows. The all-indefinite-four-distinct spectral iff and explicit condition-number-three witness show the failure is not solely due to ill-conditioning. The exact local obstruction is a motivated stability boundary rather than an arbitrary matrix certificate.",
+      "residual_risks": [
+        "Does not assert practical machine-precision breakdown, global accuracy loss or other channel orderings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Lund–Schweitzer arXiv:2610.21603v1 full PDF main theorems and Appendix A",
+    "Jagels–Reichel Linear Algebra Appl. 434 (2011) abstract",
+    "Mertens–Vandebril Numerische Mathematik 131 (2015) and report TW641 abstracts",
+    "Resultary semantic search: exact fourth mixed Krylov cancellation"
+  ],
+  "disposition": "passed",
+  "final_claim": "In exact arithmetic for real nonsingular symmetric A and unit starting v, inverse-leading mixed extended-Krylov construction can build three vectors and then have a zero fourth mixed candidate although the fourth split candidate is nonzero if and only if A has both positive and negative eigenvalues and at least four distinct eigenvalues. The fourth projected mixed residual equals a scalar (proportional to 1-(v^T A^{-1}v)(v^TAv)) times the fourth split residual. The sharp 4x4 example diag(-1,1,2,3) has condition number three and exact residual squares.",
+  "limitations": [
+    "Exact arithmetic and the specific inverse-leading mixed/split order only; does not predict floating-point loss of orthogonality or global approximation error.",
+    "The earlier inverse Rayleigh quotient a must be nonzero and third residual nonzero for the stated meaning of premature fourth breakdown; these are enforced in the construction.",
+    "The source 2026 Appendix A already contains a proportional residual formula with a no-breakdown premise, limiting the novelty to quantified indefinite spectral existence and sharp example.",
+    "Older uninspected Jagels/Reichel and Mertens/Vandebril recurrences might contain equivalent spectral conditions.",
+    "Does not assert practical machine-precision breakdown, global accuracy loss or other channel orderings."
+  ],
+  "schema_version": 1
+}
