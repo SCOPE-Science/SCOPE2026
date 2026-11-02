@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3. The certificate checks the four ordered pairs of exponents (3,3), (3,5), (5,3), (5,5). For each pair, transitivity is explicitly tested, and for all fifteen possible images of a basepoint the equivariant map equations for two permutations and inverses are propagated throughout the orbit. Only the identity permutation survives each row. The verifier independently checks all 196 pairs of nonidentity powers and all five edges of the exhibited path of six noncentral partial bijections. It ends with `VERIFY_OK_INVERSE_MONOID_15_DIAMETER_5` on success.
+## correctness
 
-The calculation is complete for the finite certificate, not experimental evidence of a uniform result in arbitrary degree. The group-theoretic reduction of all powers to the four cases and the published five-step upper bound are given in `RESULT.md`.
+PASS
+
+Verified the claimed alpha and beta are actual 15-cycles. For every nonidentity power pair (alpha^i,beta^j) with 1<=i,j<=14 (196 cases), independently propagated every one of 15 candidate basepoint images through the pair and their inverses. In each case the joint action reaches all 15 points and the only globally consistent injective equivariant image is 0->0, so the common full-permutation centralizer is trivial. A partial bijection commuting with an n-cycle is a power of that cycle, so any path from the two full cycles with <=4 edges would need a noncentral common partial-bijection neighbor of an alpha power and beta power. The transitive pair action forces any nonzero common partial bijection to be a full permutation, contradicted by the centralizer enumeration. Checked the explicit path alpha -> alpha^5 -> id_{0,5,10} -> id_{2,3,9} -> beta^5 -> beta: disjoint supports and preserved orbit sets imply all five commuting adjacencies; no node equals 0 or 1. Proposition 6.13(2) of the 2012 source supplies upper bound 5. The 196 finite tests are exhaustive for degree 15, not a claim about all odd composite degrees.
+
+## originality
+
+PASS
+
+Qualified PASS: Araújo–Bentz–Konieczny Proposition 6.13(2) proves only diameter in {4,5} for odd composite n; Theorem 6.16 proves 5 for odd prime powers and explicitly leaves distinct-prime odd composites open. n=15 is not a prime power. Group-only commuting-graph theorems are not lower bounds for an inverse monoid, since partial bijections create additional paths. East–Gould–Miller–Quinn-Gregson–Ruškuc 2024 investigate *right-congruence diameter* of infinite semigroups, a distinct invariant. No inspected exact degree-15 centralizer witness or equivalent theorem was found; targeted later specialized treatments remain a priority risk.
+
+## value
+
+PASS
+
+The degree 15 case is the smallest natural odd composite degree with two distinct prime factors left explicitly open by the main 2012 inverse-monoid paper. An explicit five-edge geodesic and fully exhaustive centralizer obstruction settle a nontrivial finite boundary case; no paper-sized generalization is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
