@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The map and stationary domain are specified exactly. The three base cylinders have independent labels of probabilities \(a,a,1-2a\); the center's Fourier transition is therefore a weighted nearest-neighbor walk in dyadic frequency valuation. Nonnegative return paths from valuation zero are Catalan paths, giving the full correlation sequence and the zero cross-correlations between distinct odd parts. Exact variance is the stationary covariance convolution. Its generating function yields the cusp, the critical \(\sqrt N\) correction and the noncritical finite offset. At \(a>1/4\), the explicitly bounded Poisson solution establishes the martingale CLT without extending it into the neutral or expanding regimes. Exact rational and symbolic checks confirm key algebraic identities but do not certify an infinite theorem.
+
+## Originality — PASS, subject to stated literature risk
+The defining 2022 family and original 2018 example are prior; the 2023 mixing theorem, 2024 dynamical survey, and the 2024 critical random-walk mixing paper were examined by their mathematical assertions and relevant full-text sections. They establish decay rates, an absorbing-walk mechanism, and some numerical center correlations, but the inspected statements do not give this parameter-uniform, Fourier-resolved all-lag covariance, the exact variance cusp and \(\sqrt N\) correction. Published periodic-fiber geometry and symbolic-word-count results concern different observables and invariants. The crucial distinction is an implication comparison, not mere differences in titles. A possible unindexed equivalent computation remains the principal originality risk.
+
+## Mathematical value — PASS
+The critical parameter is a natural zero-center-Lyapunov transition in the defining literature. Fourier harmonics are canonical smooth center observables: the theorem gives every lag, displays the sharp transition from exponential to polynomial memory, proves a non-differentiable Green–Kubo parameter response, and extracts a sharp finite-time critical correction. The joint limit in the contracting regime is a further quantitative inference, not just a rephrasing of qualitative mixing. The zero odd lags and all-frequency decoupling expose a structural mechanism not contained in a numerical plot.
+
+## Closest literature and scope limits
+Takahasi–Tsujii's Haar-wavelet/absorbing-walk machinery is the strongest plausible broader antecedent: it establishes optimal critical decay and explicit random-walk transition probabilities, but their stated theorem supplies bounds for general Hölder observables, not the Fourier-mode coefficient/variance/cusp formulas. The 2024 survey provides a stationary Lebesgue context and numerical correlations. The claim is restricted to the exact \(M=2\) family, stationary Lebesgue measure, and the specified Fourier observable class; it does not assert a critical-regime CLT. No independent audit has taken place.
+
+Self-review: passed. Independent audit: not yet performed.
