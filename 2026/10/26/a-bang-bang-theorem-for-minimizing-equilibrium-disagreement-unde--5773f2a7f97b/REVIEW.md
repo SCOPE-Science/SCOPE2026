@@ -1,15 +1,21 @@
-# Review of the box-corner disagreement theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The rank-one equilibrium formula is valid because \(K+L_0\) is positive definite. Its exact substitution into both fixed-edge and changed-edge energies produces a concave quadratic in the monotone quantity \(t/(1+rt)\), with strictly negative quadratic coefficient whenever the baseline edge contrast is nonzero. Coordinatewise endpoint minimization therefore applies to every variable in an independent box and proves the multivariate conclusion by finite induction. Exact fraction computations verify both the subtle cancellation and the nontrivial mixed-corner example; numerical checks are not used as an infinite proof.
+## correctness
 
-## Originality — PASS (best-knowledge, provisional priority)
-The closest inspected work proves convexity of a **sum** of polarization and disagreement (Musco et al., arXiv:1712.09948; Yi–Patterson, arXiv:1911.11338), studies polarization instead of disagreement under changed edges (Rácz–Rigobon, arXiv:2206.08996), or minimizes disagreement while holding current opinions fixed (Chitra–Musco, arXiv:1906.08772). None yields the theorem that the *equilibrium* disagreement alone, optimized with independent box-bounded tie strengths, has an all-endpoint optimum. Prior results on rank-one updates and graph-dependent quadratic forms are acknowledged; novelty is the exact sign/shape cancellation and its simultaneous box-corner implication. Research-record searches for equivalent terms, broader coverage and optimization parameters surfaced no matching statement. A stronger unlocated abstract matrix-optimization theorem remains a residual risk; literature absence is not a proof of priority.
+PASS
 
-## Value — PASS
-This addresses an operationally natural but nonconvex tie-strength design problem and rules out the need for intermediate strengths under independent bounds; its sharp boundary is the explicit counterexample that the optimal endpoint pattern can be mixed and that the response may initially increase before decreasing. It is not merely renaming a familiar objective or sampling a tiny arbitrary case: the statement governs every finite undirected graph, heterogeneous positive stubbornness and every box of ties, and gives a concrete discrete reduction. It does not claim efficient combinatorial optimization under the resulting exponential corner set.
+Let B=K+L0 be positive definite, b an incidence column, z0=B^{-1}Ks, h=B^{-1}b, q=b^Tz0, r=b^Th>0, a=z0^TL0h, c=h^TKh>0. Sherman–Morrison gives z(t)=z0-q[t/(1+rt)]h. Since h^TL0h=r-c, expanding z(t)^T(L0+tbb^T)z(t) proves D(t)=D(0)+(q²-2qa)λ-q²cλ² exactly. λ is strictly increasing for t≥0, giving an endpoint minimizer in each coordinate, with an interior stationary point necessarily a strict maximum if q≠0, or flat when q=0. A compact-box global minimum exists; sequentially moving individual coordinates to endpoints without increasing D produces an all-corner minimum. No connectivity assumption is needed because K is positive definite. Exact-rational independent checker verified 120 rank-one formula/endpoint cases and the nonuniform mixed optimum at (1/4,3), D=16/169, for the reported three-node path.
 
-## Scope and risks
-Pure equilibrium edge disagreement only; diagonal positive stubbornness; symmetric attractive edges; box-only constraints. Does not extend to jointly constrained edges, edge-cost objectives, directed networks or fixed-opinion administrator subproblems. Publication priority remains subject to external specialist checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The rank-one update itself and FJ energy model are well-known; the claim is the global corner result for the pure equilibrium-recomputed disagreement functional under independently bounded tie weights. The complete accessible Chitra–Musco paper explicitly alternates equilibrium recomputation with an administrator step minimizing disagreement at FIXED previous-round opinions, with degree and Frobenius restrictions; it is not a global minimization of w↦D(z(w),w). Yi–Patterson Theorem 5.9 supplies convexity of a weighted polarization-plus-disagreement objective, not concavity of the pure disagreement response; Musco et al. likewise optimize their combined index. Rácz–Rigobon optimize polarization. No inspected statement or implication proves the all-box-corners theorem. Earlier unexamined general spectral-energy optimization results remain a priority risk.
+
+## value
+
+PASS
+
+This is a structural, globally quantified reduction from a continuous multi-edge design problem to endpoint configurations, with a counterintuitive one-peak (never one-trough) response and an attained mixed corner even when lower bounds are strictly positive. It delineates a useful mathematical boundary between pure equilibrium edge disagreement and the convex combined objectives of earlier social-network optimization. Exponential corner search remains necessary; no polynomial-time algorithm is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
