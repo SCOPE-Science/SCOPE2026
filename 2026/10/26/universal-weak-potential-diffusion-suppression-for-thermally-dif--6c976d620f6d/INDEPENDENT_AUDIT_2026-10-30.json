@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:09:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Floquet principal generator and resolvent formulas Git blob 98a938b4570a70d1937183af010ec3bcc90cd2be",
+        "check_weak_ratchet.py Git blob 0640750918414447f2f5564b1331c21ba98541fe inspected as source, not executed as opaque program",
+        "Independent SymPy differentiation/reduced-resolvent identity and finite-section numpy spectral check on 2026-10-30 UTC"
+      ],
+      "rationale": "For fixed D,γ,v,L>0, real C∞ L-periodic nonconstant U, the D>0 elliptic tilted generator has an isolated simple principal eigenvalue near (ε,k)=(0,0). Its unperturbed value λ0(k)=Dk²−γ+sqrt(γ²+v²k²), giving base diffusivity D+v²/(2γ). First-order ε correction vanishes because ∫U′=0. Two Fourier transitions through q≠0 give λ2(k)=kΣ_(q≠0)(k+iq)q²|u_q|²H_q(k), where H is the explicitly displayed symmetric/antisymmetric-spin two-by-two resolvent. Independently recomputed H_q(0) and rationally differentiated H′_q(0) in SymPy: −q²[H_q(0)+iqH′_q(0)]=K(q²) identically for symbolic positive D,γ,v,q. Pair ±q cancels the linear-k coefficient, hence V(ε)=O(ε³) and D_eff=D+v²/(2γ)−2ε²Σ_(n≥1)|u_n|²K(q_n²)+O(ε³). The rational numerator K has positive coefficients for t>0 and the independently differentiated K′ equals the displayed strictly positive expression. K(0)=1/(D+v²/(2γ)), K(∞)=1/D+v²/(γD²), and v=0 reduces to classical K=1/D. Smooth U ensures differentiated Fourier series converges; error is for each fixed parameter set and not uniform in D→0 or γ→0. Independent 13-mode Fourier–Bloch matrix computation at k=±0.0007,0 and ε=0.08,0.04 for three D,γ,v,U combinations agreed with predicted coefficient to errors ≤2×10^−6 in diffusivity, corroborating but not proving the infinite-dimensional result.",
+      "residual_risks": [
+        "Asymptotic weak-potential assertion only at fixed positive D,γ,v,L; no all-amplitude suppression or zero-noise claim.",
+        "The spectral calculations cover finite Fourier truncations and three parameter configurations, not general parameter proof.",
+        "The perturbation step relies on standard elliptic analytic principal-eigenvalue theory for finite-spin periodic generators."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pavliotis (2005) gives general Markov-forcing homogenization/cell-problem framework embracing dichotomous forcing and treats OU small-correlation-time asymptotics; does not display arbitrary-telegraph-rate spectral multiplier K(t) or its strict derivative sign.",
+          "Spagnolo–Dubkov studies a potential whose sign is switched by dichotomous fluctuations, not fixed potential with additive ±v propulsion.",
+          "A general corrector formula could be specialized to obtain an equivalent perturbative coefficient but sign and strict wavelength monotonicity require nontrivial algebra."
+        ],
+        "reasoning": "The known broader framework applies at the level of method, not an immediately dominating universal explicit result. Retain material priority risk from other general weak-potential colored-noise theorems.",
+        "searches": [
+          "Pavliotis 2005 A multiscale approach to Brownian motors dichotomous noise homogenization Eq 23",
+          "generic Green–Kubo periodic Markov forcing diffusivity weak potential spectral perturbation",
+          "Spagnolo–Dubkov 2005 flashing periodic potentials dichotomous noise",
+          "arXiv:cond-mat/0504403 sections 2–4",
+          "Resultary \"dichotomous Markov propulsion periodic force nonzero Brownian diffusion second order homogenization spectrum monotonicity\" 2026-10-30"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.07880 model/current/first-passage sections (full accessible HTML)",
+        "arXiv:2003.08155 exact D=0 transport (full HTML)",
+        "arXiv:cond-mat/0504403 general homogenization §§2–4 (full available text)",
+        "arXiv:cond-mat/0510170 flashing potential mechanism",
+        "doi:10.1103/PhysRevE.65.031104 (abstract only)",
+        "Resultary two topic-specific searches 2026-10-30 top 8 each",
+        "Frozen RESULT.md / AUDIT.json / REVIEW.md / check_weak_ratchet.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A stationary-current formula with D>0 does not determine the second long-time cumulant or its sign.",
+          "A zero-independent-thermal-noise exact diffusivity theorem cannot be substituted into the fixed D>0 analytic perturbation with isolated elliptic generator.",
+          "Pavliotis cell equations encompass the model but do not themselves assert K(t)>0 and K′(t)>0 for all positive D,γ,v,t; the specialization and exact rational differentiation are a nontrivial new analyzed claim.",
+          "Potential switching and additive propulsion are different generators; the flashing model does not imply this spectral law."
+        ],
+        "reasoning": "The target refines the general framework with an explicit all-positive-parameter and all-waveform statement. It is not equivalent to steady currents, D=0 transport, small-OU-correlation asymptotics, or passive diffusivity. The broad-source priority risk is real and stated.",
+        "searches": [
+          "Roberts–Zhen Phys Rev E 108 014139 (2023) arXiv:2303.07880",
+          "Le Doussal–Majumdar–Schehr EPL 130 40002 (2020) arXiv:2003.08155",
+          "Pavliotis Phys Lett A 344 (2005) arXiv:cond-mat/0504403",
+          "Spagnolo–Dubkov arXiv:cond-mat/0510170"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Roberts–Zhen (2023) studies the same thermal D>0 RTP periodic ratchet but focuses stationary currents, energetics, and finite-interval passages, not the claimed asymptotic variance coefficient.",
+          "Le Doussal–Majumdar–Schehr (2020) treats telegraph propulsion in a periodic force field without independent Brownian noise D>0, a singular different parameter regime.",
+          "The target is an all-Fourier-mode second-order correction to the principal tilted eigenvalue, not a stationary-current or zero-noise drift formula."
+        ],
+        "reasoning": "Equivalent formulations include second derivative of principal Bloch eigenvalue, long-time variance growth, and the inverse Poisson-corrector formula. Closest named RTP papers have different observables or zero Brownian diffusion and thus are not equivalent theorem statements.",
+        "searches": [
+          "\"run-and-tumble particle\" \"effective diffusion\" \"periodic potential\" weak potential",
+          "arXiv:2303.07880 full text run and tumble thermal ratchet",
+          "arXiv:2003.08155 full text telegraph diffusion periodic force",
+          "Resultary \"thermal run-and-tumble periodic potential long-time effective diffusivity weak amplitude Fourier wavenumber suppression universal\" 2026-10-30"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches returned unrelated nonlinear-oscillator/spectral work rather than an indexed result for this exact 2×2 telegraph-resolvent multiplier.",
+          "Passive v=0 Lifson–Jackson weak-potential suppression K=1/D is already classical and explicitly excluded from originality claim."
+        ],
+        "reasoning": "No inspected source presents an exact table of K(t) for positive D and finite γ or its strictly increasing wavenumber dependence. A missing indexed hit is not proof of novelty.",
+        "searches": [
+          "Resultary exact thermal RTP Fourier kernel arbitrary q search 2026-10-30",
+          "\"run and tumble\" \"weak periodic potential\" \"diffusivity\" wavenumber",
+          "\"telegraph propulsion\" \"periodic potential\" \"diffusion\" positive thermal noise",
+          "Reimann et al 2002 diffusion in tilted periodic potentials and passive Lifson–Jackson formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified originality: comparison against D>0 RTP ratchet stationary-current work (same generator, different observable), exact RTP transport at D=0 (different singular regime), general Markov-noise homogenization (implicit broad method, no stated spectral sign/strict frequency law), flashing-potential diffusion (different generator), and passive benchmark. Exact all-frequency second-order K and positive derivative remain unlocated. A general perturbative formula could yield it by further derivation; risk is explicit.",
+      "residual_risks": [
+        "Broad generic periodic Markov-noise homogenization may contain a weak-field response theorem from which this particular K(t) follows by algebraic specialization.",
+        "Search and partial publisher access cannot certify historical priority; no independent human literature attestation.",
+        "The theorem is perturbative at fixed D,γ,L,v and smooth U, not a uniform singular-noise/fast-wave limit or arbitrary-amplitude suppression.",
+        "Numerical Fourier truncation validates representative finite cases only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING target long-time weak-potential diffusion multiplier in inspected full sections.",
+          "evidence": [
+            "D>0 model equation and stationary-current/first-passage analyses; no explicit K(q²) sign/wavelength theorem."
+          ],
+          "identifier_or_url": "arXiv:2303.07880; https://arxiv.org/abs/2303.07880",
+          "material_read": "Full accessible arXiv HTML; model SDE, stochastic switching, stationary density/current, energetics and finite-interval first-passage sections inspected and targeted search for long-time dispersion.",
+          "method": "Compared diffusion definition Var(X_t)/(2t) versus finite-time first-passage and stationary transport current.",
+          "title": "Run-and-tumble motion in a linear ratchet potential: Analytic solution, power extraction, and first-passage properties",
+          "trigger": "Exact matching D>0 telegraph-propulsion plus periodic potential model."
+        },
+        {
+          "assessment": "NOT_COVERING fixed D>0 result; direct parameter substitution misses the analytical elliptic regularization.",
+          "evidence": [
+            "Model equation uses telegraphic propulsion and external force but no positive independent thermal diffusivity."
+          ],
+          "identifier_or_url": "arXiv:2003.08155; https://arxiv.org/abs/2003.08155",
+          "material_read": "Complete accessible arXiv HTML; model equation, assumptions and effective-transport result inspected.",
+          "method": "Checked its lack of an independent Brownian √(2D) dB term and its D=0 regime.",
+          "title": "Velocity and diffusion constant of an active particle in a one dimensional force field",
+          "trigger": "Strong-looking exact effective-diffusion theorem for a RTP in a periodic field."
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_OVERLAP, but no displayed universal explicit positive K and K′ claim. Residual derivability caveat.",
+          "evidence": [
+            "General Markov forcing cell problem in §2 and small-correlation-time OU Eq. (23) in §4."
+          ],
+          "identifier_or_url": "arXiv:cond-mat/0504403; https://arxiv.org/abs/cond-mat/0504403",
+          "material_read": "Accessible full author/arXiv text, §§2–4 and corrector equations, dichotomous-forcing discussion, §4 OU small-correlation-time expansion read.",
+          "method": "Compared general implicit corrector equation and its expansion parameters with explicit finite γ telegraph K(t) and monotonicity theorem.",
+          "title": "A multiscale approach to Brownian motors",
+          "trigger": "General diffusion/homogenization theory could dominate any specific RTP effective-diffusivity expansion."
+        },
+        {
+          "assessment": "NOT_DIRECTLY_COVERING additive-propulsion fixed-potential model.",
+          "evidence": [
+            "Flashing potential sign is random rather than independent additive propulsion vσ."
+          ],
+          "identifier_or_url": "arXiv:cond-mat/0510170; https://arxiv.org/abs/cond-mat/0510170",
+          "material_read": "Accessible source model text/equations describing dichotomous potential-flashing mechanism inspected.",
+          "method": "Compared generator: random ±-switched potential force versus constant potential force plus ±v telegraph velocity.",
+          "title": "Diffusion in Flashing Periodic Potentials",
+          "trigger": "Potentially equivalent dichotomous random forcing with Brownian motion."
+        },
+        {
+          "assessment": "BACKGROUND_ONLY; no whole-document exclusion inference.",
+          "evidence": [
+            "Passive potential diffusion benchmark, not a checked all-rate RTP source."
+          ],
+          "identifier_or_url": "doi:10.1103/PhysRevE.65.031104",
+          "material_read": "Abstract/bibliographic record only; full primary text not claimed read.",
+          "method": "Checked passive/tilted periodic Brownian model differs from persistent telegraph drive.",
+          "title": "Diffusion in tilted periodic potentials: Enhancement, universality, and scaling",
+          "trigger": "Classical broader passive diffusivity benchmark."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md explicit nontrivial telegraph-resolvent calculation",
+        "Roberts–Zhen (2023) model and observables",
+        "Pavliotis (2005) general homogenization/corrector benchmark"
+      ],
+      "rationale": "For persistent active transport, the exact long-time variance is a natural and physically meaningful invariant distinct from stationary drift. The theorem supplies a universal sign for every real smooth nonconstant periodic potential, quantitative suppression by its Fourier spectrum, and a strict order of equal-amplitude spatial wavelengths for v>0. These are nontrivial statements not read from a stationary-current expression; it clarifies the active-vs-passive difference by an explicit nonconstant K(t), including a classical passive limit. No measured-experimental or finite-amplitude claim is added.",
+      "residual_risks": [
+        "Comparison at fixed Fourier potential amplitude differs from comparison at fixed force magnitude.",
+        "No claims about experimental detectability, transient transport, finite amplitude, or singular limits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific PASS is an evidence-based mathematical judgment, not external publication/attestation, historical novelty guarantee, or formal verification.",
+    "All public-facing package files were semantically examined; private operational identifiers and inherited first-publication source dates in METADATA.json/AUDIT.json block publication.",
+    "Original frozen code and source scientific files remain unchanged; finite computations are corroboration only."
+  ],
+  "schema_version": 1
+}
