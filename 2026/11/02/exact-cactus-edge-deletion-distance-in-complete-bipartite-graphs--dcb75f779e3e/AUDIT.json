@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For any connected spanning bipartite cactus H on N=p+q vertices with c cycles, the block-cut tree gives p≥c+1, q≥c+1, N≥3c+1 and |E(H)|=N−1+c. For k the minimum of these three bounds, take a base square, x=max(0,2k−p) additional squares attached at its first-part vertex, and k−1−x squares at its second-part vertex. Bounds 0≤x≤k−1 and x≤q−k−1 guarantee all vertex capacities. Add unused vertices as leaves. This attains N−1+k edges for all p,q≥1. Exhaustive direct cactus checks of 129226 labelled edge subsets across 20 inputs and constructive checks for 900 pairs corroborated the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2210.03839 supplies c≤floor((N−1)/3), credited as prior; it is only one of three necessary bounds.",
+        "arXiv:2603.27655 and arXiv:2606.17578 supply general instance-solving algorithms, without the K_{p,q} all-parameter symbolic extremal statement."
+      ],
+      "reasoning": "General graph algorithms compute a fixed instance, not a published closed formula; the prior universal bipartite upper bound is insufficient for unbalanced p,q and contains no all-pair matching construction.",
+      "searches": [
+        "cactus subgraph number complete bipartite graph sharp bipartition constraints",
+        "\"maximum cactus\" \"complete bipartite\" spanning",
+        "\"spanning cactus\" maximum number cycles complete bipartite",
+        "arXiv:2210.03839 bipartite cactus cycle bound",
+        "arXiv:2606.17578 exact cactus deletion algorithms"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.27655 (original article full HTML, definitions, main theorems)",
+      "arXiv:2606.17578 (original article full HTML, general weighted/unweighted algorithms)",
+      "arXiv:2210.03839 (original article full HTML, bipartite hardness and c≤(N−1)/3)",
+      "Indexed mathematical research-record searches for cactus distance, bipartite cacti and maximum spanning cacti",
+      "Public web searches for complete-bipartite cactus deletion formulas and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2022 necessary bound floor((p+q−1)/3) can exceed p−1 or q−1, so cannot imply exactness on unbalanced bicliques.",
+        "2026 general exponential algorithms can compute values for given p,q; explicit family optimum requires the new constructive sufficiency proof."
+      ],
+      "reasoning": "The sharp formula combines three independent bottlenecks and an all-parameter cactus construction, neither present in the inspected general-algorithm statements nor the older single-bound argument.",
+      "searches": [
+        "complete bipartite graph K_mn maximum number of cycles in a spanning cactus k min(m-1,n-1,floor((m+n-1)/3))",
+        "cactus subgraph number complete bipartite graph sharp bipartition constraints",
+        "arXiv:2210.03839 cycle bound",
+        "arXiv:2603.27655 complete bipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a connected cactus H, |E(H)|=|V(H)|−1+c(H), so minimizing deletions is equivalent to maximizing independent cycles of a spanning cactus.",
+        "arXiv:2603.27655 defines exactly the connected spanning edge deletion problem; Nearest indexed research records concern different edge-invariants."
+      ],
+      "reasoning": "Checked both deletion-distance and maximum-edge/cycle cactus formulations on bicliques; the algorithmic source does not imply the explicit formula as a stated theorem.",
+      "searches": [
+        "edge deletion to cactus maximum edge spanning cactus complete bipartite graphs K_{p,q} exact formula",
+        "complete bipartite graph K_mn maximum number of cycles in a spanning cactus k min(m-1,n-1,floor((m+n-1)/3))",
+        "\"cactus\" \"K_{m,n}\"",
+        "\"edge deletion to cactus\" \"complete bipartite\" formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches found no full K_{p,q} distance table or OEIS-type sequence asserted to cover all pairs.",
+        "The independent checker tested 20 small input pairs and 900 explicit optima; these tests are original verification rather than literature data."
+      ],
+      "reasoning": "No previously indexed exact family table identified. Finite examples alone are not credited as originality or a proof of an all-parameter theorem.",
+      "searches": [
+        "edge deletion to cactus maximum edge spanning cactus complete bipartite graphs K_{p,q} exact formula",
+        "minimum edge deletion to cactus K_{m,n}",
+        "\"cactus\" \"K_{m,n}\"",
+        "\"edge deletion to cactus\" \"complete bipartite\" formula"
+      ]
+    },
+    "rationale": "The inspected 2022 work proves the common N-vertex cycle upper bound, not the sharp all-partition formula. The inspected 2026 papers give general algorithms, not this exact symbolic K_{p,q} solution. Actual semantic-record and literature queries found no stronger implication, but indexed-search absence cannot establish historical uniqueness.",
+    "residual_risks": [
+      "Historical priority remains provisional: specialized or non-indexed exact biclique results may exist.",
+      "A generic algorithm can compute individual answers but is not itself a direct published all-parameter formula; comparison rests on inspected statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General exponential exact algorithms and a distinct spanning-tree augmentation result; no formula specializing the deletion optimum of every K_{p,q} found.",
+        "evidence": [
+          "arXiv:2603.27655, submitted 2026-03-29, algorithmic theorems and problem definitions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.27655",
+        "material_read": "Full publicly accessible HTML article, including introduction, definitions, stated main exact algorithms, and spanning-tree-to-cactus method; inspected term complete bipartite.",
+        "method": "Direct reading of original arXiv full HTML; in-document text search for complete bipartite.",
+        "title": "Exact Algorithms for Edge Deletion to Cactus",
+        "trigger": "Identical connected spanning edge-deletion problem and recent originating algorithmic research."
+      },
+      {
+        "assessment": "Improved generic exact exponential algorithms and weighted variants; no explicit universal complete-bipartite distance formula encountered.",
+        "evidence": [
+          "arXiv:2606.17578, first public June 2026, main algorithmic theorems"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.17578",
+        "material_read": "Public full arXiv HTML, including introduction, theorems for general and weighted algorithms, and search for complete bipartite.",
+        "method": "Direct reading of original arXiv full HTML and phrase search.",
+        "title": "Exact Algorithms for Edge Deletion to Cactus Graphs and Weighted Variants",
+        "trigger": "Newer relevant exact algorithms potentially subsuming family-specific claims."
+      },
+      {
+        "assessment": "Establishes the general c≤(N−1)/3 necessary bound, credited here; it does not establish the two additional separate part-capacity bounds with simultaneous attainable equality for every K_{p,q}.",
+        "evidence": [
+          "arXiv:2210.03839, first public 2022-10-07, bipartite hardness proof and universal four-cycle bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.03839",
+        "material_read": "Accessible full arXiv HTML, including introduction, preliminaries, bipartite hardness construction and cycle-count bound.",
+        "method": "Direct reading of original arXiv HTML and comparison of exact cycle-count statements.",
+        "title": "Edge deletion to tree-like graph classes",
+        "trigger": "Historical hardness for bipartite inputs and prior upper bound on cycles of a spanning bipartite cactus."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dcb75f77-9e3e-4028-9adf-df27ed26706b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact unweighted cactus edge-deletion optimum on every K_{p,q} is a natural parameterized dense-family benchmark for a problem hard even on bipartite graphs. Three structurally distinct sharp bottlenecks and an O(p+q)-size optimal witness are a substantive all-family result, not a restatement of the published N-vertex bound or isolated numeric optimization.",
+    "status": "PASS"
+  }
+}
