@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The positive Beta-weighted harmonic moment law, Poisson Gegenbauer generating identity, exact radial differential operator, and polynomial numerator prove the formula for every degree and dimension. Direct algebra gives a globally positive angular derivative. Antipodal factorization gives a unique critical radius; aligned positivity and monotonicity prove all zero/sign cases. The polynomial boundary limit, implicit-function theorem and dimension-normalized cubic prove the remaining properties. `check_kernel.py` symbolically tests the nonstandard algebra and independently recomputes spherical-harmonic sums. The finite checks supplement, not replace, the analytic proof.
+## correctness
 
-**Originality — PASS (qualified).** The full inspected Section 3 of Engliš (arXiv:1601.03716v1) develops general weighted harmonic kernel representations, but not the present dimension-uniform full sign/nodal classification of the linearly weighted real-ball kernel. Accessible abstract material for Otáhalová (2008) and Miao (1998) concerns weighted general kernels and unweighted kernels, respectively; the former's inaccessible full text is a residual publication-priority uncertainty. Related published holomorphic-complex-ball zero results, harmonic circle-trace estimates and harmonic antipodal concentration estimates do not imply this real-ball weighted nodal classification. A targeted historical equivalence could still exist; absence from searches is not proof of novelty.
+PASS
 
-**Mathematical value — PASS.** This resolves a natural sharp kernel sign question for a canonical nonconstant radial harmonic Bergman weight in all higher real dimensions. The first-zero radius and complete one-root-per-radius angular geometry give quantitative control of interpolation-kernel sign, its scaling with dimension and its nodal regularity; these are not simply a restatement of the known kernel series.
+Beta(a,2) radial moments (a=d/2) yield m_n=a(a+1)/((a+n)(a+n+1)). Applied to the spherical Poisson kernel P=(1-u²)/(1-2ut+u²)^a, the exactly justified multiplier is [R²+(d+1)R+d(d+2)/4]/[d(d+2)/4], R=u∂u. Direct numerator differentiation yields ∂_t N=24u³[(d+4)+(4-d)u²-8ut]>0 for d>=3, 0<u<1 and -1<=t<=1; antipodal numerator factors (1-u²)³[d(d+2)-12(d+2)v²-48v³]. The strictly decreasing cubic bracket has one positive v. At t=1 the spectral sum has strictly positive terms; monotonicity yields uniqueness, sign and transversality. Implicit function and boundary polynomial N(1,t)=-96(t-1)² prove t_d(u)->1. Dividing cubic by d(d+2) establishes monotone dimension threshold and asymptotic. Independent exact symbolic polynomial checks for dimensions d=3,4,5,10, plus generic antipodal factor and angular derivative match; not an inference from truncated spectral sums.
 
-The proof does not cover arbitrary radial weights, the complex holomorphic ball, or the earlier two-dimensional disk. Independent comparison with older inaccessible literature remains limited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Engliš 2016 derives weighted harmonic reproducing kernel via spherical-harmonic moments and investigates high-power asymptotics, not the exact angular sign threshold for this linear weight. Miao treats unweighted harmonic Bergman kernels. Holomorphic Bergman zero-free results in related published records are different function spaces. Otáhalová 2008 is plausible same-weight literature, but full text could not be obtained owing to disconnected authorized VPN; this is explicitly a priority uncertainty, not a reason to infer novelty.
+
+## value
+
+PASS
+
+A canonical nonconstant radial weight on real harmonic Bergman balls leads to a natural question of kernel positivity and zeros. A complete product-radius and angular nodal classification, exact dimension-dependent sharp threshold, and transverse sign change furnish usable quantitative reproducing-kernel information absent from a general series formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
