@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,4 @@
 
 # Mathematical verification
 
-The reproducible symbolic script `verify.py` confirms the polynomial identity for \(\dot Q\), the Jacobian characteristic polynomial, the cubic center-manifold invariance equations, and the logarithmic drift coefficient \(2/b\). Its outputs are exact symbolic algebra, not a finite numerical approximation.
-
-The global no-bounded-orbit assertion for \(\Delta<0\) follows analytically from monotonic \(Q\). At the boundary, the bounded-orbit convergence and compact two-sided invariant-set rigidity are established using square integrability, bounded derivatives and two-sided monotonicity. The cubic reduced dynamics and standard stable-foliation theorem together supply the asymptotic classification. A symbolic check alone does not certify the center-manifold theorem, the global convergence proof, or originality. Independent assessment has not been performed.
+The supplied `verify.py` uses exact symbolic algebra to check the original polynomial identity, the critical coordinate system and Jacobian, the cubic center-manifold invariance equations, and the reciprocal drift coefficient `2/b`. These checks substantiate the algebraic part of the logarithmic refinement, not global existence or asymptotic tracking. The proof of convergence for bounded forward-complete trajectories uses the exact monotone observable and a stable forced equation; transferring the center-law to non-center trajectories invokes the standard smooth stable-foliation theorem. An independently reconstructed affine change of variables identifies the previously published quadratic-flow result already covering the discriminant threshold and leading 1/t behavior. Neither symbolic algebra nor this explanatory note certifies historical novelty, an expert attestation, or a formal Lean proof.

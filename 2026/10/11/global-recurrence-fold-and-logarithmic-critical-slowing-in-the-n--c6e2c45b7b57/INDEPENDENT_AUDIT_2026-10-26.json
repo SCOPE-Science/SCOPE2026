@@ -1,0 +1,180 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T21:55:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned original RESULT.md and verify.py; independently recomputed cubic invariance and the affine map",
+        "Carr, Applications of Centre Manifold Theory (standard stable foliation)",
+        "Published quadratic-flow paper RESULT.md leading-rate theorem"
+      ],
+      "rationale": "Reconstructed the polynomial shift u=x-b/2,w=z,h=y+b²/4+bu at a=-b²/4 and the exact system u′=-w,w′=h,h′=-h-bw-u². The transverse spectrum λ²+λ+b is stable for every b>0. Direct invariance yields W=-u²/b+2u³/b³+O(u⁴), H=-2u³/b²+O(u⁴), and R′=1+2/(bR)+O(R⁻²) for R=-b/u. This gives R=t+(2/b)log(t)+C+o(1), because the centered derivative remainder is integrable O(log(t)/t²). Bounded-orbit convergence follows Q′=-u², bounded derivatives, the stable scalar y equation; center-stable foliations give exponential tracking. Analytic argument—not symbolic finite checks—establishes all-time quantifiers. The b>0 and bounded forward-complete conditions and exceptional strong-stable set are explicit.",
+      "residual_risks": [
+        "Smooth center/stable-foliation theorem invoked, not a Lean/expert formalization.",
+        "Finite symbolic checks prove only identities through the stated jet order, not global dynamics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard smooth center/stable-foliation theorems give existence and tracking but no parameter-specific cubic coefficient.",
+          "Eichhorn 1998 establishes the JD2 class and sign-based no-chaos criterion, constraining the original boundary novelty.",
+          "Tang–Zhang–Ren (2019) abstract describes generic fold normal forms; the full paper was unavailable."
+        ],
+        "reasoning": "The only natural potentially dominating source with full access classifies the jerk and gives nonchaos, not the precise long-time two-term expansion. Inaccessible Tang et al. may contain equivalent higher-jet coefficients and is explicitly retained as a residual risk.",
+        "searches": [
+          "Resultary semantic query: Sprott Case M jerk equation fold center manifold 1/t log t critical slowing with b positive",
+          "Resultary semantic query: global compact invariant set threshold polynomial chaotic Sprott flow",
+          "Web: Dynamics of a general jerky equation Tang Zhang Ren PDF center manifold fold",
+          "Eichhorn 1998 Sec IV.C",
+          "Tang Zhang Ren 2019 DOI 10.1177/1077546318805583"
+        ]
+      },
+      "checked_sources": [
+        "J C Sprott Phys Rev E 50 R647 (1994)",
+        "Eichhorn–Linz–Hänggi Phys Rev E 58 7151 (1998)",
+        "Zhao–Lin–Dai Discrete Dynamics in Nature and Society 2014 328143",
+        "Resultary/2026 2026/10/11 fbbb7113cf97 RESULT.md",
+        "Resultary/2026 2026/10/4 41f951832a0d RESULT.md",
+        "Sprott Dynamic Regions (2013/2014)",
+        "Tang–Zhang–Ren J Vib Control 25 922 (2019), abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published quadratic-flow theorem implies global rigidity and t(x-b/2)→-b under the explicit conjugacy.",
+          "Previous source establishes dot u=-u²/b+O(u³) in a different sign convention but does not identify cubic coefficient.",
+          "The repaired proof establishes u′=u²/b-2u³/b³+O(u⁴), yielding R′=1+2/(bR)+O(R⁻²)."
+        ],
+        "reasoning": "A 1/t asymptotic and a quadratic center normal form alone cannot determine the log coefficient: varying cubic-order terms leaves the leading rate fixed but changes the next term. The repaired claim is therefore a mathematical refinement, not simply a restatement of the earlier published conclusion; any equivalent hidden higher-order normal form remains a risk.",
+        "searches": [
+          "Resultary fbbb7113cf97 full RESULT.md",
+          "Resultary 41f951832a0d full RESULT.md",
+          "Eichhorn 1998 p7159–7161",
+          "Resultary semantic query: Sprott Case M jerk equation fold center manifold 1/t log t critical slowing with b positive"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact invertible map (X,Y,Z)=(bz-a-bx,-a-bx-y-z,x), det=b, to Zhao system alpha=-b,beta=-a/b,gamma=-1/b,delta=-1.",
+          "Resultary 2026/10/11 fbbb7113cf97 proves global discriminant and t(Z-Z*)→1/gamma; with Z=x and gamma=-1/b the leading Sprott rate is covered.",
+          "Eichhorn et al. Table II centers Case M as a JD2 quadratic jerk equation."
+        ],
+        "reasoning": "The original global and 1/t assertions are equivalent special cases of an existing published theorem and therefore removed from the novelty claim. The repaired cubic-jet coefficient and logarithm are not statements of the published result, which records only a quadratic center jet and an O(u³) error.",
+        "searches": [
+          "Resultary semantic query: Sprott M system negative forcing saddle-node monotone y+z discriminant b²+4a recurrent bounded orbits logarithmic relaxation",
+          "Resultary semantic query: Sprott Case M jerk equation fold center manifold 1/t log t critical slowing with b positive",
+          "Resultary published Zhao–Lin–Dai quadratic chaotic flow record fbbb7113cf97",
+          "Eichhorn–Linz–Hänggi (1998) Table II JD2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Eichhorn Table II lists k1=-1,k2=-b,k3=-a-b²/4 in JD2 for Sprott M: k3=0 is exactly the original fold; this exact parameter table predates the finding.",
+          "Sprott 1994 Table I lists the fixed positive parameter instance; the Resultary Sprott M record concerns a>0."
+        ],
+        "reasoning": "There is an exact table for the centered jerk/discriminant, so that element is already known. No inspected exact table supplies the cubic center coefficient 2/b³ or the logarithmic correction 2/b; lack of a hit alone is not treated as priority proof.",
+        "searches": [
+          "Resultary semantic query: Sprott M system negative forcing saddle-node monotone y+z discriminant b²+4a recurrent bounded orbits logarithmic relaxation",
+          "Resultary semantic query: global compact invariant set threshold polynomial chaotic Sprott flow",
+          "Eichhorn 1998 Table II",
+          "Sprott 1994 Table I",
+          "Resultary exact query for Sprott M and log critical slowing"
+        ]
+      },
+      "rationale": "A decisive overlooked affine conjugacy means that the original global threshold, bounded-orbit rigidity and leading 1/t relaxation are not original. The final repaired claim is strictly the 2/b logarithmic correction and existence of a convergent additive remainder in original time. Exact cubic center-jet checks establish information not stated or immediately supplied by the inspected published threshold/leading-rate theorem. An older equivalent correction hidden in general jerk fold literature remains a meaningful residual risk.",
+      "residual_risks": [
+        "Tang–Zhang–Ren (2019) full text on general JD1–JD7 normal forms was inaccessible; it may contain a relevant cubic coefficient or equivalent subleading law.",
+        "An unindexed or alternate coordinate/asymptotic result in older jerk bifurcation literature could supply the same logarithmic term.",
+        "Novelty is limited to the exact subleading log refinement, not the global threshold, center-fold existence or 1/t rate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "provides Case M and positive forcing example; no negative-forcing two-term logarithmic decay",
+          "evidence": "Table I, p. R648, Case M; pp. R647–R650 describe initial chaotic examples and numerical parameter variation.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper212.pdf",
+          "material_read": "all four printed pages (R647–R650), including Table I and final numerical discussion",
+          "method": "full PDF page images",
+          "title": "Some simple chaotic flows",
+          "trigger": "original definition and parameter choice of Case M"
+        },
+        {
+          "assessment": "numerical phase diagram, no rigorous logarithmic critical asymptotic",
+          "evidence": "Case M equations and a=b=1.7 example; intro says parameters tested numerically.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/technote/regions.htm",
+          "material_read": "introductory scope and all Case M equations and parameter-region description",
+          "method": "open web text",
+          "title": "Dynamic Regions in Simple Chaotic Flows",
+          "trigger": "original author surveys general Case M coefficients"
+        },
+        {
+          "assessment": "Table II gives the exact Sprott M centered jerk family and k3=-a-b²/4; sign criterion excludes irregular motion for k3>0. Does not state the critical t+(2/b)log t+C+o(1) law. Substantially limits global-boundary priority.",
+          "evidence": "Phys Rev E 58 (1998), Table II JD2/M p. 7159 and no-chaos sign argument p. 7160–7161.",
+          "identifier_or_url": "https://www.physik.uni-augsburg.de/theo1/hanggi/Papers/219.pdf",
+          "material_read": "abstract, Sections II and IV (Table I/II, especially JD2), Section IV.C no-chaos criterion and Section V; page images for printed pp. 7159 and 7161",
+          "method": "institutional lawful OA author PDF, extracted text and page images",
+          "title": "Transformations of nonlinear dynamical systems to jerky motion and its application to minimal chaotic flows",
+          "trigger": "jerk equivalence may dominate recurrence and normal form"
+        },
+        {
+          "assessment": "source describes Zhao–Lin–Dai system, equilibrium discriminant, numerical routes to chaos, not the second-order long-time logarithmic coefficient",
+          "evidence": "Sections 2–3 and Theorem 2, Sections 4–5; author reports unproved general boundedness in Section 3.1.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2014/328143",
+          "material_read": "full accessible HTML article sections 1–5 including equation definition, discriminant/equilibrium analysis, bifurcation tables and conclusion",
+          "method": "lawful full open-access HTML; rendered equations cross-checked with published mathematical derivative",
+          "title": "A New Feigenbaum-Like Chaotic 3D System",
+          "trigger": "same dynamical family under explicit affine conjugacy"
+        },
+        {
+          "assessment": "its general theorem covers global recurrence threshold, bounded critical convergence, exceptional strong-stable set and t(z-z*)→1/c. Under alpha=-b,beta=-a/b,gamma=-1/b,delta=-1 these cover original global and leading-rate findings. It does not derive cubic drift or log coefficient.",
+          "evidence": "RESULT.md Finding items 1–4, Sharp boundary rate (3)–(4); its (4) only gives O(u³) remainder in center law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-recurrence-threshold-and-critical-relaxation-in-a-quadrati--fbbb7113cf97",
+          "material_read": "entire published RESULT.md: hypotheses, all four conclusions, proof, limitations and sources",
+          "method": "read published GitHub scientific result at actual path",
+          "title": "Sharp recurrence threshold and critical relaxation in a quadratic chaotic flow",
+          "trigger": "same flow via explicit affine map; decisive prior implication test"
+        },
+        {
+          "assessment": "a>0 theorem concerning moment identities and period barrier; disjoint from a=-b²/4<0 and does not contain log refinement",
+          "evidence": "RESULT.md Assumptions a>0; energy law E[wdot²]=b E[z²], and P>2π/√b.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-compact-recurrence-obstruction-and-strict-period-floor-in-the-ge--41f951832a0d",
+          "material_read": "entire published RESULT.md including proof and assumptions",
+          "method": "read published GitHub scientific result",
+          "title": "Compact-recurrence obstruction and strict period floor in generalized Sprott M",
+          "trigger": "earlier exact same Case M invariant-measure study"
+        },
+        {
+          "assessment": "abstract reports fold and other bifurcation normal forms, not an explicit asymptotic; absence of full-text inspection leaves a priority risk, not a scientific failure",
+          "evidence": "Journal of Vibration and Control 25 (2019) 922–932, abstract.",
+          "identifier_or_url": "https://doi.org/10.1177/1077546318805583",
+          "material_read": "published abstract, keywords and displayed introductory fragments only; full text inaccessible",
+          "method": "publisher and lawful OA search; authorized institutional request returned disconnected VPN, no bypass",
+          "title": "Dynamics of a general jerky equation",
+          "trigger": "general JD1–JD7 fold normal forms may cover third-order logarithmic correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Zhao–Lin–Dai/Resultary published leading-rate theorem; lacks subleading information",
+        "Eichhorn et al. JD2 normalized quadratic jerk class",
+        "Exact local cubic invariance and integral test"
+      ],
+      "rationale": "The natural first subleading correction to the sharp 1/t saddle-node decay in a canonical quadratic chaotic-flow family is a mathematically meaningful exact asymptotic invariant in original time and coordinate. Its nonzero coefficient and a convergent C remainder quantify nonlinear delay and distinguish trajectories beyond the leading law. The contribution is modest and restricted to this natural critical slice, but it is not a parameter renaming, known numerical table, or mere restatement of the earlier global theorem. No general bifurcation theorem or full attractor classification is claimed.",
+      "residual_risks": [
+        "Only a model-specific refinement; significance does not extend automatically to other jerk systems.",
+        "An equivalent cubic jet calculated in unavailable literature could reduce the independent value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "Bounded forward-complete orbits only; other initial values may escape.",
+    "No claim to novelty of globally classified recurrence or leading 1/t rate.",
+    "Unexamined full text of a general jerky-equation paper is a residual originality risk; Oxford authorized access returned disconnected VPN.",
+    "Center-manifold and stable-foliation theory is analytic; finite checks alone are not a universal proof."
+  ],
+  "schema_version": 1
+}
