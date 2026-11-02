@@ -1,12 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed rational module follows from a fully specified equivariant short exact sequence of simplicial chains for the cover of the Hamming-graph clique complex by coordinate-line simplices. In positive degrees the direct-sum chains coincide with the clique-complex chains; their degree-zero kernel produces the vertex-line incidence cycle space. Splitting every vertex permutation module into constant and augmentation parts gives coefficient equations that leave exactly the higher-order subsets \(S\), with multiplicity \(|S|-1\). The equivariant Alexander duality orientation twist is explicitly the sign of the full vertex permutation. The resulting character can independently be deduced from the incidence exact sequence. Exact finite mod-two homology and signed Lefschetz computations agree, including all \(140\) elements of four small full symmetry groups. The executable artifact is included; finite tests are supporting evidence, not the infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Carnero Bravo's arXiv:2602.21427v2, Theorem 41, determines the same complexes' nonequivariant wedge ranks but does not identify the homology representation. Bayer et al.'s arXiv:2209.13503v2, Theorem 4.8, treats the smaller prism case nonequivariantly; arXiv:2512.04486v1 concerns Cartesian path/cycle products and their homotopy types. An independent clique-complex calculation derives the first Betti number but does not contain representation constituents or signed action. Targeted mathematical literature searches, published-result searches, and earlier recorded claims produced no result implying the full module or its trace formula. Search coverage cannot rule out equivalent results in unindexed or differently phrased sources.
+PASS
 
-## Value — PASS
-The starting 2026 classification supplies sphere counts across all Cartesian products of complete graphs, but counts forget the coordinate and alphabet symmetry. Here the complete rational character and all constituents of the independent alphabet-permutation group are determined uniformly: no singleton-coordinate constituents occur, while higher-coordinate interactions appear with controlled nontrivial multiplicities and explicit equal-axis permutation actions. This is a natural infinite-family representation invariant, not an arbitrary finite slice or recomputation of the known Betti number. It does not imply an integral-module or equivariant homotopy classification.
+Verified the actual RESULT.md for all k≥2, n_i≥2 over Q. In the clique complex X of the Hamming graph, a ≥2-vertex clique belongs to precisely one coordinate-line simplex; these contractible line simplices meet at at most one vertex. The surjection ⊕_L C_*(Δ_L)→C_*(X) is an isomorphism in all positive degrees and has precisely the vertex-direction redundancy in degree zero, inducing H_1(X)=ker[Q[V×[k]]→Q[V]⊕Q[L]]. Decomposing Q[V] as ⊕_{S⊂[k]}⊗_{i∈S} U_i (normalized constant factors elsewhere), each direction i has one copy of W_S in incidences, the line incidence kills the term exactly if i∈S, and vertex incidence enforces Σ_{i∈S}c_i=0. Thus the kernel is E_S⊗W_S for |S|≥2, with no higher H_j and no H̃_0. This is canonical and equivariant under independent alphabet permutations and swaps of equal-size axes. The combinatorial Alexander dual T=X* then has only H̃_{N−4}, with the orientation character sgn_V and rational self-duality via invariant inner products. Finally [H_1(X)]=[Q[V×[k]]]−[Q[V]]−[Q[L]]+[1] proves χ(g)=sgn_V(g)(1−ℓ(g)+(d(g)−1)v(g)); χ(1) gives (k−1)N+1−ΣN/n_i. All normalizations and the boundary k=2,n_i=2 (degree zero) check out. Independently computed direct total-two-cut faces, rational signed traces and mod-2 boundary ranks on five finite Hamming shapes (188 group elements in all); all match. The finite computations corroborate, but the uniform theorem follows from the exact incidence/duality proof, not test counts.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the new all-parameter rational Γ-module and full character, not for the already published Hamming homotopy type or identity-character rank. The primary Carnero Bravo Theorem 41 dominates the nonequivariant rank and wedge statement; the observed finite/parameter special cases and generic cut-complex techniques do not imply the tensor-augmentation constituents or the nonidentity character without additional equivariant incidence calculations. The exact top semantic-search match is the same current record, not independent priority evidence. The comparison is substantive and residual unindexed-equivalence risk is retained.
+
+## value
+
+PASS
+
+The already known complete all-parameter Hamming total-two-cut wedge count does not determine the natural automorphism representation. The explicit full coordinate-group module and signed character refine a natural topological invariant uniformly in arbitrary alphabet sizes and coordinate number, isolate higher-order coordinate-interaction constituents and their multiplicities, and detect equal-axis interchanges. This is a motivated structural classification across an infinite family, beyond merely recalculating a known Betti number, although it is not an integral-module or equivariant homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
