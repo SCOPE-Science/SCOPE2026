@@ -1,0 +1,240 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:54:56Z",
+  "axes": {
+    "correctness": {
+      "bounded_independent_checks": {
+        "angular_quadratures": 80,
+        "exact_counterexample": true,
+        "max_absolute_error": 5.005185679807234e-08,
+        "shapes": 40,
+        "tool": "private SymPy and self-written numerical quadrature; packaged verify.py was read, not executed as opaque evidence"
+      },
+      "checked_source_paths": [
+        "RESULT.md",
+        "verify.py",
+        "SLOGAN.txt",
+        "REVIEW.md",
+        "AUDIT.json",
+        "METADATA.json",
+        "VERIFICATION.md"
+      ],
+      "limitations": [
+        "No theorem for noisy estimates or sample complexity.",
+        "Finite computations do not establish the all-parameter result; proof uses symbolic Fourier and algebra."
+      ],
+      "rationale": "Using the actual seven-file source package at commit 3592338, the exact conditional direction density is W(theta)/(2(a+b)) with W=a|sin(theta)|+b|sin(theta-phi)|, because the offset interval has length W and integral W=2(a+b). The Fourier integral of absolute sine equals -2/(4k^2-1), so m_k=-(a+b exp(2ik phi))/((a+b)(4k^2-1)). For two independent hit-conditioned lines, T_k=|m_k|^2=(1-4p(1-p)sin^2(k phi))/(4k^2-1)^2, giving an absolutely convergent Fourier expansion. With q=4p(1-p)sin^2 phi and s=sin^2 phi, q∈(0,s], s∈(0,1], A=1-q, B=1-4q(1-s); B-(2A-1)^2=4q(s-q)≥0 and B≤1. Conversely the sharp region with A<1 yields unique s=1-(1-B)/(4(1-A)), p=(1+sqrt(1-(1-A)/s))/2, phi=arcsin sqrt(s), including the square (A,B)=(0,1), rectangle upper boundary and rhombus lower boundary. A rectangle (2,1,pi/2) and rhombus (1,1,arcsin(2sqrt2/3)) both have T1=1/81 but distinct T2=1/225 and 49/18225, proving minimality. Independent symbolic elimination (3 identities), exact rational counterexample, and midpoint integrations across 40 seeded shapes/80 quadratures agree with the claim, max numerical error 5.01e-8; these are only corroboration of the general proof. No sampling error/stability result is claimed.",
+      "status": "PASS",
+      "symbolic_checks": [
+        "B-(2A-1)^2=4q(s-q)",
+        "c^2=(1-B)/(4q)=1-s",
+        "q/s=4p(1-p)"
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bianchi--Gardner--Kiderlen 2010 solve reconstruction from a spatial covariogram or planar Fourier transform of the BODY indicator, not from only two Fourier magnitudes of the incidence-weighted line-direction density.",
+          "Kim--Yaskin--Zvavitch 2015 study the histogram of one-point projected widths under uniform directions, not the pair-angle distribution of width-biased hitting lines.",
+          "Published three-width-statistics parallelogram theorem inputs (mean projected width, squared mean projected width, diameter) and proves stability; this is a different richer triple, and no implication from the two pair-angle data is established.",
+          "Published inverse tangential symmetric polygon theorem inputs the full uniform-direction width distribution, different from Crofton-hit direction-angle autocorrelation."
+        ],
+        "reasoning": "The cited general Cufi--Gallego--Reventos line-pair integral theorem is broader as a FORWARD identity; its input includes the entire support-function Fourier profile and hence does not by itself assert reconstruction of a parallelogram from only T1,T2. Width histograms, spatial covariograms, endpoint-chord data and full supporting functions are different measurement assumptions, so broader statements about them do not automatically imply two-angular-observable identification. This must be assessed by implications, not paper titles.",
+        "searches": [
+          "Resultary: Parallelogram shape identification by autocorrelation of perimeter width function, phase retrieval two sinusoidal angular moments of isotropic lines hitting convex planar bodies",
+          "Resultary 2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928",
+          "Resultary 2026/10/11/SCOPE-inverse-classification-of-projection-width-distributions-for-tan--2ee871113939",
+          "Bianchi-Gardner-Kiderlen arXiv:1003.4486v2 Section 1",
+          "Kim-Yaskin-Zvavitch arXiv:1512.07289v1 Sections 1 and 3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1906.10374",
+        "https://link.springer.com/article/10.1007/s00013-020-01465-0",
+        "https://arxiv.org/html/1512.07289v1",
+        "https://arxiv.org/html/1003.4486v2",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-inverse-classification-of-projection-width-distributions-for-tan--2ee871113939/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e/RESULT.md",
+        "https://doi.org/10.2307/3213843"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original Cufi general line-pair integral is exactly the submitted T_k FORWARD expectation when normalized by total hit-line measure squared. This part is prior-covered and must not be portrayed as a new probabilistic identity.",
+          "Specializing width to W(theta)=a|sin theta|+b|sin(theta-phi)| and eliminating the two parameters from T1,T2 gives q=1-A, s=1-(1-B)/(4q), eta=q/s. Thus the actual inverse and its image require an additional two-generator identifiability argument; the inspected prior paper did not make it.",
+          "Gates (1982) concerns random CHORD LENGTH moments and density derivatives for quadrilaterals; its published abstract does not establish equivalence to pair-of-hitting-line angles and the entire text was unavailable.",
+          "The three-width-statistics published theorem reconstructs from distinct observables and does not imply the Crofton two-harmonic inverse without a new measurement relation."
+        ],
+        "reasoning": "Prior-Cufi => same general line-pair forward functional, so no novelty credit for the harmonic kernel alone. Prior-Cufi plus elementary two-atom algebra => an accessible derivation of the inverse, but the inspected theorem does not state the two-moment threshold or exact parabolic image; its direct mathematical consequence is close and significantly qualifies priority. The decisive scientific content here is the explicit minimal two-observable parallelogram identification plus sharp range, not a general line-pair transform. No stronger published statement examined entails that conclusion without additional specialization and inversion.",
+        "searches": [
+          "Cufi-Gallego-Reventos 2019 arXiv:1906.10374 Thm 1 equation (8) and Section 4",
+          "Hug-Schneider 2020 doi:10.1007/s00013-020-01465-0 Introduction and Theorem 1",
+          "Resultary 2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928 full RESULT",
+          "J. Gates 1982 doi:10.2307/3213843 abstract",
+          "Web: circular autocorrelation of two Dirac masses first two harmonics inverse uniqueness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cufi--Gallego--Reventos (2019), Theorem 1, equation (8), gives for any compact convex K the very same product Crofton line-pair functional with angular weight f and its expression in support-function Fourier magnitudes. Taking f=cos(2k Delta) is exactly the forward observable of this submission; that general forward principle is PRIOR, not new.",
+          "Hug--Schneider (2020), Introduction, equations (2)-(3) and description of Cufi et al., independently identifies the same pairline moment integrals and develops generalized invariant-measure formulas.",
+          "The assessed new conclusion instead inverts just the first two of these moments for two generators and proves the sharp feasible parabola and first-moment insufficiency. Neither inspected primary source states that finite-coordinate inverse or exact parallelogram image."
+        ],
+        "reasoning": "The natural equivalent formulation is phase-less Fourier recovery of a two-positive-atom angular width measure with known total mass: T_k=(1-4p(1-p)sin^2(k phi))/(4k^2-1)^2. The general two-line Fourier forward law is already known from Cufi et al.; this audit does NOT count that identity alone as novel. The precise two-harmonic sufficiency, sharp feasible (A,B) region, boundary classification and constructive inverse are a separately extracted special geometric inverse fact not stated in the inspected general law. An older two-atom phase-retrieval corollary could nevertheless cover the inverse; priority remains qualified.",
+        "searches": [
+          "Resultary: Two Crofton invariant random line directions conditioned separately to intersect a parallelogram, first two Fourier harmonics of pair angle determine side ratio and angle, exact feasible region",
+          "Web: Crofton invariant random two lines conditioned intersect convex body angle distribution parallelogram shape Fourier harmonics",
+          "Web: two point Dirac measure first two Fourier intensity coefficients reconstruct separation weights autocorrelation",
+          "Cufi-Gallego-Reventos 2019 arXiv:1906.10374 Theorem 1",
+          "Hug-Schneider 2020 doi:10.1007/s00013-020-01465-0 Section 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary semantic matches concern fourth moments of endpoint-selected chords, three unlabeled width statistics, and width-law classifications. None of the three full RESULTS tabulates the same two Crofton angular moments or its sharp admissible parabola.",
+          "Cufi et al. 2019 provides a general Fourier coefficient identity for line-pair observables, which makes each forward value computable and may be specialized; it does not give a table or explicit finite-observable shape-inverse image for all parallelograms."
+        ],
+        "reasoning": "This is not a finite census/table problem; the exact all-parameter admissible image would be covered if an existing closed-form two-harmonic reconstruction were found. The actual searches revealed the general forward law but no such explicit inverse. Search failure is not a novelty proof.",
+        "searches": [
+          "Resultary: Two Crofton invariant random line directions conditioned separately to intersect a parallelogram, first two Fourier harmonics of pair angle determine side ratio and angle, exact feasible region",
+          "Web: two independent random lines hitting convex body angle between lines distribution parallelogram reconstruction",
+          "Resultary 2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e",
+          "Cufi-Gallego-Reventos 2019 Theorem 1",
+          "Web: two spikes first two Fourier magnitudes determine locations amplitudes phase retrieval circle"
+        ]
+      },
+      "rationale": "Best-of-knowledge the precise minimal two-Crofton-angle-harmonic parallelogram inverse and sharp feasible parabola are not stated in inspected primary literature; HOWEVER the same general line-pair Fourier forward law is expressly prior work of Cufi--Gallego--Reventos (2019), confirmed by Hug--Schneider (2020). Novelty credit is limited to the finite two-observable inverse, its image/equality geometry, and exact one-observable impossibility; those are close algebraic consequences of known harmonic methods, so originality is qualified. No unconditional priority/certification claim.",
+      "residual_risks": [
+        "Cufi--Gallego--Reventos 2019 supplies exactly the FORWARD line-pair angle Fourier functional for every convex K; the inverse here follows by a short additional two-atom algebraic elimination. Its proximity reduces the breadth of originality and may make this an implicit corollary in classical integral-geometry practice.",
+        "An older statement of normalized two-atom Fourier phase retrieval from the first two magnitude coefficients, combined with the Cufi formula, could subsume the entire shape inverse without matching Crofton wording; bounded searches did not locate an explicit one.",
+        "Gates 1982 quadrilateral chord recognition was inspected only at abstract level because full text was unavailable and authorized institutional access required a VPN reconnect. Its advertised observable differs, but appendix-level overlap is unverified.",
+        "Searching Resultary and web cannot establish exhaustive historical priority; recent or unindexed equivalents remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FORWARD_LAW_PRIOR_COVERED__EXACT_TWO_MOMENT_INVERSE_NOT_FOUND",
+          "evidence": [
+            "Theorem 1 eq. (8): I(K,f)=A0 L(K)^2+pi^2 sum_{n>=1} c_n^2 A_n for the invariant measure on pairs of lines hitting K.",
+            "Equation (7) states same conditional angular pairline functional for general even pi-periodic f; no parallelogram two-harmonic inverse or feasible parabolic domain stated in inspected main results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1906.10374",
+          "material_read": "Open-access arXiv full rendered text, Introduction, Sections 2-4, especially Theorem 1 and equations (7)-(10), subsequent Corollary 2 and Section 4 Fourier applications",
+          "method": "Read primary arXiv full-text rendering; compared the actual integral for f=cos(2k Delta) with submitted observable",
+          "title": "Integral Geometry about the visual angle of a convex set",
+          "trigger": "Direct same Crofton line-pair angular moment observable: primary priority match"
+        },
+        {
+          "assessment": "FORWARD_PAIRLINE_INTEGRALS_BROADER_BUT_NO_FINITE_PARALLELOGRAM_INVERSE",
+          "evidence": [
+            "Introduction explicitly attributes I(K,f) for pairs of lines hitting planar K, weighted by f(direction difference), to Cufi et al.; the article extends to higher-dimensional invariant measures.",
+            "Focus is characterization of constant width/brightness and general measures; not the sharp two-angular-moment parallelogram shape problem."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00013-020-01465-0",
+          "material_read": "Open-access article HTML introduction, Sections 1-3 statement and relevant proof explanations, especially lines 66-108 and referenced Cufi result",
+          "method": "Read publisher full-text HTML and cross-check its description of earlier theorem",
+          "title": "Integral geometry of pairs of hyperplanes or lines",
+          "trigger": "Later general pair-line Crofton functional, cites closest predecessor"
+        },
+        {
+          "assessment": "DIFFERENT_WIDTH_VALUE_DISTRIBUTION",
+          "evidence": [
+            "Projection width distribution Pi_K(t) is probability a UNIFORM direction has width exceeding t, unlike angular autocorrelation of two independent hit-conditioned lines."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1512.07289v1",
+          "material_read": "Primary full-text HTML Introduction and Sections 2-3 including 2D projection function distribution, Proposition 2",
+          "method": "Read relevant primary sections and compare observational definitions",
+          "title": "Distribution functions of sections and projections of convex bodies",
+          "trigger": "Potentially stronger unlabeled geometric inverse statement"
+        },
+        {
+          "assessment": "DIFFERENT_SPATIAL_COVARIOGRAM_INVERSE",
+          "evidence": [
+            "The Fourier magnitudes are of the BODY indicator and recover full spatial covariogram g_K(x)=vol(K cap(K+x)), not angular width-weighted line direction probability."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1003.4486v2",
+          "material_read": "Primary full-text HTML Introduction, equations (1), problem definitions, reconstruction algorithms and section guide; abstract and relevant theorem summaries",
+          "method": "Read primary source text in arXiv HTML, compare what function is Fourier transformed",
+          "title": "Phase retrieval for characteristic functions of convex bodies and reconstruction from covariograms",
+          "trigger": "Potential general Fourier phase-retrieval dominance"
+        },
+        {
+          "assessment": "DIFFERENT_THREE_WIDTH_STATISTICS_DATA",
+          "evidence": [
+            "Inputs mean projected width, second moment and diameter; not T1,T2 of Crofton line-pair directions, although the width formulas provide useful background."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928/RESULT.md",
+          "material_read": "Complete public RESULT.md including finding, proof and limitations",
+          "method": "Read complete GitHub source blob 396750ced4b2120158b3a69cdc9800b3272a84ce",
+          "title": "Three unlabeled width statistics reconstruct a parallelogram with sharp stability",
+          "trigger": "Same shape class and minimal-statistic reconstruction"
+        },
+        {
+          "assessment": "DIFFERENT_ONE_POINT_WIDTH_LAW",
+          "evidence": [
+            "The entire one-point uniformly random width distribution determines inradius/gap multiset, not the pair-angular moment observable."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-inverse-classification-of-projection-width-distributions-for-tan--2ee871113939/RESULT.md",
+          "material_read": "Complete public RESULT.md including width distribution, classification and proof",
+          "method": "Read complete GitHub source blob 8ccb8c4119bc4eaab3073513b369570d9db5a966",
+          "title": "Inverse classification of projection-width distributions for tangential symmetric polygons",
+          "trigger": "Related geometry inverse with broader polygon object class"
+        },
+        {
+          "assessment": "DIFFERENT_ENDPOINT_SELECTED_CHORD_STATISTIC",
+          "evidence": [
+            "Fourth moments of distances between independent area or boundary samples, not directions of invariant lines."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e/RESULT.md",
+          "material_read": "Complete public RESULT.md, sampling model, proof and limits",
+          "method": "Read complete GitHub source blob e9f813786d8ee10c53826c8308a721ea3fa03da7",
+          "title": "Fourth-chord moment amplification and angular phase transition for parallelograms",
+          "trigger": "Same parallelogram geometry with random chord statistics"
+        },
+        {
+          "assessment": "ABSTRACT_DIFFERENT_OBSERVABLE__FULL_TEXT_UNREAD_PRIORITY_RISK",
+          "evidence": [
+            "Abstract: quadrilateral recognition uses derivative of CHORD LENGTH density, not pair-angle cosine moments; cannot rule out appendices/remarks without full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3213843",
+          "material_read": "Publisher abstract and bibliographic description only. Full text not accessible from arXiv or lawful OA searches; authorized institutional retrieval blocked by disconnected VPN",
+          "method": "Read primary publisher abstract; attempted lawful preprint/OA discovery, then institutionally authorized retrieval",
+          "title": "Recognition of triangles and quadrilaterals by chord length distribution",
+          "trigger": "Older recognition theorem covering quadrilaterals under random chord terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The input is a natural motion-invariant stereological experiment, and the output gives a sharp identification/minimality result for the two-dimensional similarity-moduli space of nondegenerate parallelograms using only unlabeled relative line angles. The exact parabolic image is a realizability criterion, with geometric boundary classes rectangles and rhombi, not merely a recomputation of a table. A researcher analyzing random line incidence can need the two lowest normalized angular moments rather than full directional distributions. Mathematical depth is modest because the general forward pair-line Fourier formula was known in 2019 and the inverse is a two-variable elimination; the specific exact inverse is nonetheless a motivated, self-contained natural classification. No broad polygon identification or statistical stability theorem is implied.",
+      "status": "PASS",
+      "value_risks": [
+        "This is a near-elementary specialization of Cufi 2019 and two-atom Fourier algebra; significance should be presented narrowly, not as a new general Crofton formula.",
+        "No finite-sample noise rate or uniform stability near degeneracy."
+      ]
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1906.10374",
+    "https://link.springer.com/article/10.1007/s00013-020-01465-0",
+    "https://arxiv.org/html/1512.07289v1",
+    "https://arxiv.org/html/1003.4486v2",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-inverse-classification-of-projection-width-distributions-for-tan--2ee871113939/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e/RESULT.md",
+    "https://doi.org/10.2307/3213843"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No assertion of external verification, publication, universal convex-body reconstruction, or statistical stability.",
+    "Independent Git blob/tree identities and bounded computations check the observed source; no GitHub writes were made.",
+    "Oxford institutional full-text request for Gates 1982 returned vpn_disconnected; the primary publisher abstract alone does not settle all historical priority."
+  ],
+  "residual_risks": [
+    "Cufi--Gallego--Reventos 2019 supplies exactly the FORWARD line-pair angle Fourier functional for every convex K; the inverse here follows by a short additional two-atom algebraic elimination. Its proximity reduces the breadth of originality and may make this an implicit corollary in classical integral-geometry practice.",
+    "An older statement of normalized two-atom Fourier phase retrieval from the first two magnitude coefficients, combined with the Cufi formula, could subsume the entire shape inverse without matching Crofton wording; bounded searches did not locate an explicit one.",
+    "Gates 1982 quadrilateral chord recognition was inspected only at abstract level because full text was unavailable and authorized institutional access required a VPN reconnect. Its advertised observable differs, but appendix-level overlap is unverified.",
+    "Searching Resultary and web cannot establish exhaustive historical priority; recent or unindexed equivalents remain possible.",
+    "Potentially public metadata includes operational provenance and chronology discrepancy; this is a publication-readiness defect distinct from C/O/V."
+  ],
+  "schema_version": 1
+}
