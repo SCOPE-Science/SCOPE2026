@@ -1,15 +1,21 @@
-# Scientific review: Parity-controlled nonlocal precision in uniformly colored cycles
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is for every integer \(n\ge3\), \(q\ge3\), with one precisely named singular case. The color-transition matrix \(J_q-I_q\) gives exact marked first and second moments; the cyclic Green-kernel identity and the Sherman–Morrison formula give the inverse. The proof independently checks the unique singularity and strict signs of both adjacent and nonadjacent entries, including the small exceptional boundaries. A standalone exact-arithmetic checker independently enumerated finite samples and verified all claimed finite instances: 6,605 assertions passed. Finite testing is corroboration, not the proof of the infinite quantifier.
+## correctness
 
-## Originality
-**PASS, with historical-priority uncertainty.** The earliest motivating source is Chen–Liu–Mani–Moitra, arXiv:2304.01954 (first public 2023-04-04), concerning spatial mixing and influence of random proper colorings; it neither states the present finite-cycle, one-color covariance inverse nor determines its parity signs. Turban, arXiv:1701.09058, computes different Potts-chain two-point functions but not the inverse covariance or this zero-temperature proper-coloring model. Chang–Shrock, arXiv:cond-mat/0404373, gives cyclic-strip chromatic transfer matrices rather than the one-color precision classification. Prior mathematical-result searches found related precision calculations in random permutations, occupancy, and restricted graph orientations, none of which implies this cycle-coloring result. Standard transfer-matrix and circulant identities are fully credited. An older implicit inversion or unindexed graphical-model calculation remains possible.
+PASS
 
-## Mathematical value
-**PASS.** Collapsing a categorical proper coloring to the occupancy indicator for one color is a natural observation model in statistical mechanics and statistics. The precision matrix, unlike the original local color constraint, has weak but nonzero interactions between all nonneighbors. Their signs are completely determined by cycle parity, with a unique rank-deficient boundary and an exact exponential magnitude. This supplies a full all-parameter conditional-linear-dependence classification rather than a single numerical moment or a routine finite table. Partial correlations are explicitly distinguished from conditional independence.
+Reconstructed transfer matrix T=J_q−I_q and its b=q−1,−1 eigenvalues, the marked-color covariance a(r^d+r^{n−d}+c), and cyclic Green inverse L G=hI. Sherman–Morrison gives Q exactly. The Fourier-mode eigenvalues are positive except g+nc=0 at precisely n=q=3; b^n≥n(b+1)−1 proves this unique singularity. Neighbor entries have strict positivity by the explicit n-even inequality; all nonneighbor signs follow from c=(b−1)(−1/b)^n. Exact independent direct enumeration for q=3,4,5, n=3..6 and a rational Gauss–Jordan inverse checked 249 nonexceptional matrix entries.
 
-## Evidence and limitations
-The exact formula and proof are in RESULT.md, the self-contained rational checker is `verify.py`, and all checks and boundaries are explained in VERIFICATION.md. This is a finite-cycle theorem for uniform proper colorings and does not address weighted color classes, non-Gaussian conditional independence, or general host graphs. Priority is not guaranteed by search results, and the scientific review is not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact transfer-matrix two-point function is old Potts-model mathematics, but its one-marked-color finite-cycle inverse covariance has nonzero all-nonneighbor entries with parity-dependent signs and a unique singular triangle. Primary cyclic-strip zero-temperature partition treatments and multi-site Potts two-point work do not state this exact inverse matrix/linear partial-correlation classification. Other Resultary precision findings concern different observables. A hidden equivalent in earlier graphical-model literature remains possible.
+
+## value
+
+PASS
+
+The marked-color indicator is a natural observation of the proper-coloring model; its precision matrix reveals exact, very weak but nonzero all-to-all linear dependence whose sign flips with cycle parity. A complete uniform n,q formula, unique singular boundary and strict sign classification are a motivated finite-graph structural theorem, not an arbitrary small table. No claim about nonlinear conditional independence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
