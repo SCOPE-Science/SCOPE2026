@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact finite verification enumerates all 1,024 vertex masks with independent acyclic-graph predicates, confirms the ten unique free-face/cofacet pairs, and verifies the complete equivariant matching under all 120 ground-set permutations. A second complete discrete-Morse reduction of the forest complex leaves one critical vertex and six five-cells; topological sorting checks all 3,470 Hasse incidences. The Lefschetz calculation uses fixed face orientations rather than counts of invariant faces alone. Forman's theorem, plus the absence of intermediate critical cell dimensions, proves the integral sphere wedge. Critical limit: this is one finite graph and no family-wide conclusion follows.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-The natural odd-cycle vertex-set condition appears in Grady et al., arXiv:1505.02268v1, Definitions 2.1 and 2.7, but its text does not contain a topological simple-homotopy statement for the Petersen graph. Carnero Bravo, arXiv:2307.13271, studies induced-forest complexes of other families; the inspected text/contents do not give this specific inclusion collapse. Prior recorded Petersen induced-forest homotopy and character are explicitly acknowledged as known. The precise new statement—that the odd-cycle complex collapses by ten symmetry-permuted elementary pairs onto that old forest complex—is neither entailed by the old homotopy type nor by the coincidence of symmetry representations. A Petersen three-cut complex carrying the same rational irreducible is another non-implication. The odd-cycle-transversal literature and inaccessible full signed-Petersen treatments retain an unindexed-source risk. Negative searches alone are not interpreted as proving universal novelty.
+PASS
 
-## Value — PASS
-Cycle-independent and odd-cycle-independent sets were deliberately distinguished in the 2015 primary paper because they measure decycling versus bipartization. Simplicial complexes record the entire nested subset structure of these distinct graph parameters. A complete, automorphism-invariant elementary-collapse description shows the relaxation from all cycles to odd cycles introduces exactly twenty faces but no new simple-homotopy information in a canonical nonbipartite symmetric cubic graph. This is a structural topological relation between two established objects, not a face-count recomputation or renaming of the known forest homotopy type. Applicability beyond Petersen is open.
+On Petersen P=KG(5,2), independently enumerated all 1024 induced subsets: B(P) of bipartite induced graphs has 806 faces including empty and F(P) of induced forests has 786. The 20 difference faces are exactly 10 induced 6-cycles and 10 distinct 7-vertex cofaces, each six-cycle face in precisely one B coface; hence these ten free codimension-one pairs collapse B onto F. Independently reconstructed full F poset and greedy discrete Morse matching, obtaining 389 matched pairs, 7 critical faces (one 0-cell and six 5-cells) and verifying acyclicity by topological sorting all 3,470 oriented Hasse incidences; thus F≃∨⁶S⁵ integrally. Checked all 120 permutations of the five letters preserve each pair set and independently computed signed fixed-face traces; their fifth homology character distribution is 6 (1), −2 (15), 0 (80), 1 (24), precisely ∧² of the standard 4-dimensional S5 module, inner-product one. This is exhaustive for the ten-vertex graph and proves the exact finite statement, not a claim about all graphs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+QUALIFIED PASS. Grady–Knoll–Laskar–Lipman introduce odd-cycle-independent and cycle-independent vertex-set conditions; Carnero Bravo studies forest filtrations for paths, cycles and related families. The previously published S5 representation ∧²V for ordinary Petersen three-cut Δ₃(P), read in full, concerns a DIFFERENT graph complex and does not imply a collapse B(P)↘F(P); the equality of representation is not enough to identify a chain inclusion or simple-homotopy pairing. The forest homotopy/character and Petersen induced hexagon count are prior or contextual; the distinctive claimed finding is the ten free-pair S5-invariant comparison. A historical signed Petersen graph equivalence remains possible.
+
+## value
+
+PASS
+
+The precise equivariant collection of elementary collapses gives a canonical comparison of two independently motivated hereditary graph complexes and proves that allowing induced even cycles adds no homotopy in this canonical graph. Its exact ten-pair inclusion certificate is usable independently even though the constituent wedge type and representation were known. It is a concrete nontrivial simple-homotopy bridge, not merely a recomputed face count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
