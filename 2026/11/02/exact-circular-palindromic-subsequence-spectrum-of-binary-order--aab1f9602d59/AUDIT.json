@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "A complete 16-bit complementary-feedback-table parametrization covers every binary order-five de Bruijn cycle uniquely after rooting at 00000. A second Euler-tour enumeration produces the same 2048 canonical cycles. Every one of 65536 rooted length-32 words is evaluated by interval LPS dynamic programming and independently by LCS against its reversal; every result agrees. Verified exact frequencies and margins are asserted in standalone checker.py and furnished as summary.json. The finite enumeration exhausts the theorem domain, while no statement is made for larger orders.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1901.07502, Section 2, conjectures a universal two-thirds lower bound for arbitrary binary circular words and reports computer checks through length 30; no order-five de Bruijn case or exact distribution appears in the full accessible paper.",
+        "OEIS:A318916 lists the minimum optimal-root LPS length among all binary circular words of length 32 as 24, rather than the de Bruijn-specific exact value 25."
+      ],
+      "reasoning": "A universal lower bound of 24 at length 32 cannot imply the stronger de Bruijn-specific 25 or the multiplicities, and an arbitrary-circular-word statement about minimum over words is not the distribution over a restricted cycle class. The studied domain is stricter, not a special case already numerically determined.",
+      "searches": [
+        "Web: \"longest palindromic subsequence\" necklaces circular words",
+        "Web: \"de Bruijn sequences\" \"palindromic subsequences\"",
+        "arXiv:1901.07502, Sections 2-3, Conjecture 4 and Theorem 13",
+        "OEIS:A318916"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1003.5939 (2010-03-30), inspected original mathematical text",
+      "arXiv:1110.5296 (2011-10-24), inspected original mathematical text",
+      "arXiv:1901.07502 (2019-01-22), inspected full HTML mathematical text",
+      "OEIS:A318916 (2018 entry), inspected full indexed entry",
+      "Published mathematical-record search for the source, LPS and deletion aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cooper-Heitsch, arXiv:1003.5939, studies skew and natural Lyndon-block breakpoints of the lex-least de Bruijn word, not scattered palindromic subsequences or all cycles.",
+        "Chowdhury et al., arXiv:1110.5296, prove algorithms for LCPS, which compute one instance but do not provide values for the 2048-order-five family.",
+        "Müllner-Ryzhikov, arXiv:1901.07502, provide general circular-word questions and constructions, with no de Bruijn-specific distribution.",
+        "Contiguous palindromic-factor counts and maximum contiguous lengths are different invariants from scattered palindromic-subsequence lengths."
+      ],
+      "reasoning": "Each prior statement was compared by mathematical implication, not keyword overlap. A generic LPS algorithm can calculate the new numbers when applied exhaustively but does not state or imply their numerical distribution without the additional exhaustive work. Short contiguous factors cannot determine longest scattered subsequences; the general bound on arbitrary circular words is weaker.",
+      "searches": [
+        "arXiv:1003.5939, Sections 1-2; arXiv:1110.5296, Sections 1-3; arXiv:1901.07502, Sections 1-3 and references",
+        "Published-record query: Palindromic Subsequences in Finite Words Mullner Ryzhikov circular universal binary words de Bruijn order five",
+        "Web: \"de Bruijn\" \"longest palindrome subsequence\" cyc"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1901.07502, Section 1, explicitly defines circular scattered subsequences and identifies the ordinary longest palindromic subsequence as an LCS with the reversal.",
+        "arXiv:1110.5296, Sections 1-3, solves the longest common palindromic subsequence between two input words; it reports algorithmic complexity, not a de Bruijn census.",
+        "The exact deletion-to-palindrome cost of a fixed linear root is 32 minus its LPS length; this is a reformulation, not a stronger external theorem."
+      ],
+      "reasoning": "Checked both scattered-palindrome and reversal-LCS/deletion-distance aliases. The target is not a contiguous palindrome-factor spectrum: arbitrary deletions are permitted. No inspected equivalence implies the exact order-five circular distribution.",
+      "searches": [
+        "Published-record query: binary de Bruijn cycles order five longest palindromic subsequence circular rotations exact distribution reversal edit distance",
+        "Published-record query: de Bruijn order-5 cycle cyclic palindromic subsequence LPS 19 25 29 deletion-to-palindrome rooted circular words",
+        "Web: \"de Bruijn\" \"longest palindromic subsequence\"",
+        "Web: \"de Bruijn\" \"palindromic deletion\"",
+        "arXiv:1901.07502; arXiv:1110.5296"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A318916 concerns the single worst circular-word optimum at each length, with no count over the 2048 binary order-five cycles.",
+        "The known de Bruijn cycle count 2048 is the size of the domain, not a table of palindromic subsequences.",
+        "The published mathematical-record search returned related code, palindrome and subsequence entries, but no matching cycle-rooted LPS spectrum."
+      ],
+      "reasoning": "No inspected database/table records the rooted frequencies 19 through 29, the sharp best-root 25, or the 76 minimizing cycles. A missing index entry does not prove originality; unindexed exact catalogues remain possible.",
+      "searches": [
+        "Web: \"2048\" \"palindromic subsequence\"",
+        "Web: \"de Bruijn\" \"palindromic subsequence\" \"32\"",
+        "Web: \"palindromic subsequence\" \"debruijn\"",
+        "OEIS:A318916; OEIS:A016031",
+        "Published-record query: palindromic subsequences of de Bruijn sequences maximal length all roots order five"
+      ]
+    },
+    "rationale": "Direct primary-text comparisons show that the general circular-LPS theory, de Bruijn sequence analysis and palindromic-subsequence algorithms do not state the complete order-five restricted distribution, its sharp 25 guarantee, or the 76 minimizing cycles. Contiguous palindromic-factor statistics concern a different invariant. Best-knowledge novelty is qualified by the residual risk of unindexed tables.",
+    "residual_risks": [
+      "An unindexed, unpublished or differently named exact de Bruijn order-five palindromic-subsequence table may exist.",
+      "Higher-order or asymptotic conclusions are not inferred from the finite classification.",
+      "No independent external mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: restricts attention to lex-least cycle and prefix skew, whereas target is LPS of every cycle and rotation",
+        "evidence": "Sections 1-2 define de Bruijn cycles, Ford sequence, and analyze discrepancy and generalized Fibonacci breakpoints.",
+        "identifier_or_url": "https://arxiv.org/abs/1003.5939",
+        "material_read": "Full accessible main-text representation, especially Introduction, definitions and the Ford-sequence skew theorem and examples",
+        "method": "Primary full-text mathematical comparison",
+        "title": "Generalized Fibonacci recurrences and the lex-least De Bruijn sequence",
+        "trigger": "Archival primary source for de Bruijn cycles and their enumeration-sensitive sequence properties"
+      },
+      {
+        "assessment": "NOT_COVERING: algorithms for two inputs, no cyclic de Bruijn census, optimized roots or order-five exact table",
+        "evidence": "Section 3, Theorem 3.1 and Theorem 3.2, provide an LCPS dynamic program, not a distribution theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/1110.5296",
+        "material_read": "Full accessible article text, especially Introduction, formal LCPS definitions and the Section 3 four-dimensional recurrence",
+        "method": "Primary full-text mathematical comparison",
+        "title": "Computing a Longest Common Palindromic Subsequence",
+        "trigger": "Archival full-text algorithmic paper matching the palindromic subsequence invariant and LCS duality"
+      },
+      {
+        "assessment": "NOT_COVERING: establishes general framework and asymptotic constructions but does not state any de Bruijn-order-five LPS classification",
+        "evidence": "Sections 1-3 define circular LPS, formulate Conjecture 4, discuss checks through length 30, and prove Theorem 13 for a separate family; no de Bruijn cycle appears.",
+        "identifier_or_url": "https://arxiv.org/html/1901.07502v1",
+        "material_read": "Complete accessible HTML text including Sections 1-5, all circular-word conjectures and main construction",
+        "method": "Primary full-text mathematical comparison; text searched for de Bruijn references",
+        "title": "Palindromic Subsequences in Finite Words",
+        "trigger": "Most directly relevant prior study of LPS in binary circular words"
+      },
+      {
+        "assessment": "NOT_COVERING: gives one worst-case value for all circular words at each length, not the full de Bruijn family census",
+        "evidence": "At length 32 the general minimum optimal-root LPS is 24, compared with the restricted de Bruijn minimum 25.",
+        "identifier_or_url": "https://oeis.org/A318916",
+        "material_read": "Full indexed integer-sequence entry, terms, examples, comments and links",
+        "method": "Direct database record comparison",
+        "title": "OEIS A318916",
+        "trigger": "Potential exact database of circular-word LPS minima"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aab1f960-2d59-4d61-abb2-48433994f411",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The circular longest palindromic subsequence is a studied natural invariant and equals the maximum number of retained symbols under deletion-to-palindrome optimization. The theorem settles a sharp all-cycle guarantee at the first substantial complete binary de Bruijn order (2048 necklaces), and supplies the entire root-sensitive distribution rather than a hand-picked example. In particular it separates the general all-binary-circular length-32 minimum 24 from the de Bruijn-specific 25 and quantifies variance despite identical length-five factor coverage. These are motivated complete finite-class results, not a substitution into a known table.",
+    "status": "PASS"
+  }
+}
