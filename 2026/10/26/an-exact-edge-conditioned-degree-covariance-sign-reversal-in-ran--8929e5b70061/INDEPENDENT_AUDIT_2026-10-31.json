@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T10:08:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Uniform labelled matchings induce uniform double-occurrence subwords on any 3 or 4 specified chord labels. Independent complete enumeration (90 words on 3 labels, 2520 on 4) gives P(E=0)=2/3, P(E=1)=1/3; q=(3/10,2/5), r=(1/10,1/5), s=(3/35,17/105), with q=P(X02|E), r=P(X02 X12|E), s=P(X02 X13|E). Conditional degrees are E+Σ_{c>=2}X_{0c}, E+ΣX_{1c}. Pairing equal remaining chord c contributes (n-2)(r-q²), distinct c,d contributes (n-2)(n-3)(s-q²), an identity for ALL n due subword exchangeability. Simplifying gives Cov_nonedge=(n-2)(16-3n)/700 and Cov_edge=(n-2)(n+18)/525; law total covariance gives (3n+4)/45 unconditionally. All critical local table entries independently recounted from induced words (C4_OK). Sharp sign change at 5→6 is exact; bounded enumeration is a finite proof of the local table, not an unsupported extrapolation to large n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Global crossing count equals half sum degrees, so the crossing variance only constrains an aggregate of all pair covariances.",
+          "Neither primary main theorem identifies the conditional event E and its four-chord mixed moments."
+        ],
+        "reasoning": "A stronger joint-degree distribution theorem could cover both conditional covariances, but the inspected primary results concern marginal degree or global crossings only.",
+        "searches": [
+          "Resultary search: Random graph edge-conditioned degree covariance edge presence sign reversal",
+          "Acan 2015 main degree theorem",
+          "Paguyo 2023 crossing moment theorem",
+          "Arenas–Velilla–Arizmendi 2022 general graph embedding crossing theorem"
+        ]
+      },
+      "checked_sources": [
+        "Actual RESULT.md blob d699958af70302f2add6e2ff2cb6cac8d31be34a; exact local table reproduced independently.",
+        "C4_OK generated and checked all induced labelled words: 90 for 3 labels, 2520 for 4 labels.",
+        "Primary Acan 2015, Paguyo 2023 version, Arenas-Velilla/Arizmendi 2022 and Resultary search."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior papers give the one-chord marginal and total crossing statistics.",
+          "The required s_e is a different-third-chord crossing-pair event conditional on marked-chord E, not implied by first/second moments of total crossings without additional identities."
+        ],
+        "reasoning": "Consequently the positive aggregate covariance and the conditional sign-reversal are mathematically distinct implications. An older complete 4-chord probability table might still imply this as a corollary.",
+        "searches": [
+          "arXiv:1501.01489 degree of a uniformly chosen vertex",
+          "arXiv:2104.01134 Section 2 crossings",
+          "arXiv:2205.03995 main crossing CLT and variance",
+          "Resultary search: Random graph edge-conditioned degree covariance edge presence sign reversal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event E=1 is chord alternation, and D0,D1 are sums of crossing indicators; a pair-degree correlation or conditional assortativity formulation is equivalent.",
+          "Acan derives a marginal chord degree, not the E-conditioned pair distribution in inspected results."
+        ],
+        "reasoning": "Natural aliases include adjacency-conditioned excess degrees, endpoint degree correlation and assortativity of the uniform chord intersection graph. Targeted search did not locate the exact split; no search miss is proof of absolute priority.",
+        "searches": [
+          "Resultary search: Random graph edge-conditioned degree covariance edge presence sign reversal",
+          "Web search: Acan Paguyo chord diagram edge-conditioned covariance pair of degrees assortativity",
+          "Acan arXiv:1501.01489 random chord intersection degrees",
+          "Paguyo arXiv:2104.01134",
+          "Arenas–Velilla–Arizmendi arXiv:2205.03995"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact local entries (18,12,6,6) out of (60,30) and (144,136) out of (1680,840) were independently enumerated.",
+          "No available random-circle-graph table with the sign change at exactly six chords was identified in the targeted searches."
+        ],
+        "reasoning": "The relevant exact database is the exchangeable 3/4-chord crossing table; our independently reproduced table proves local probabilities. Prior isolated total-crossing tables do not immediately constitute equivalent degree-condition tables.",
+        "searches": [
+          "Resultary search: Random graph edge-conditioned degree covariance edge presence sign reversal",
+          "Web search: Acan Paguyo chord diagram edge-conditioned covariance pair of degrees assortativity",
+          "Complete 3-label and 4-label crossing event table of RESULT.md"
+        ]
+      },
+      "rationale": "PASS, qualified: Acan studies random chord intersection-graph degrees marginally, Paguyo exact crossing counts and fluctuation rates, and Arenas–Velilla–Arizmendi total crossings in randomly embedded graphs; the inspected main theorems are aggregate, not conditional two-vertex degree covariance. Existing aggregate variance may determine unconditional covariance but cannot separate E=0 and E=1 without additional three/four-chord mixed moments. An older graph-assortativity calculation could have equivalent conditional formulas.",
+      "residual_risks": [
+        "A complete older 4-chord mixed-moment table under random matching/circle-graph assortativity terminology could imply this corollary.",
+        "No claims for conditional correlation or negative association of entire graph.",
+        "Care required: the induced word count uses labelled chords, not literal circular rotations or unlabeled matchings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analyzes the degree of one random vertex, not E-conditioned joint degree covariance in inspected text.",
+          "evidence": [
+            "Abstract and degree sections, arXiv:1501.01489."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+          "material_read": "Original PDF introduction, degree theorem and relevant sections, including pages 0 and 3 inspected as images.",
+          "method": "Primary arXiv PDF text and screenshots.",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Same distribution and marginal degree of random chord-graph vertex"
+        },
+        {
+          "assessment": "Theorems 1.1–1.3 concern crossing counts and simple chords, not adjacency-conditioned two-vertex degree covariance.",
+          "evidence": [
+            "Theorem 1.1 crossing-count CLT, Section 2 crossing indicators."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.01134",
+          "material_read": "Full PDF main theorem/Section 2 on crossing count and variance; first-page PDF screenshot checked.",
+          "method": "Primary arXiv PDF text and screenshot.",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Direct predecessor giving exact aggregate crossing moments"
+        },
+        {
+          "assessment": "Studies total crossings in random embeddings and normal approximation; does not provide inspected conditional random-circle-graph endpoint-degree law.",
+          "evidence": [
+            "Main result concerns mean/variance/normal approximation for crossing numbers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.03995",
+          "material_read": "Original abstract, main crossing statistics framework and introduction; first-page PDF screenshot checked.",
+          "method": "Primary arXiv PDF text and screenshot.",
+          "title": "Crossings in Randomly Embedded Graphs",
+          "trigger": "Potential broader crossing-covariance theorem on graph embeddings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Conditional edge/nonedge degree dependence is a standard natural graph-assortativity statistic. A positive unconditional covariance conceals a strictly negative nonedge covariance beginning at n=6, while adjacent pairs stay positive. The exact smallest sign reversal is a meaningful finite cutoff accompanied by a full infinite-family formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform matching only, uniformly marked distinct chord vertices and no fixed crossing count.",
+    "No claim about arbitrary random circle graphs."
+  ],
+  "schema_version": 1
+}
