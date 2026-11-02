@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary finite connected simple graphs and any target spanning tree, every one-edge feasible exchange forces its two changed edge coordinates to hit a teaching sample; conversely any other compatible tree reconnects a fundamental cut via a non-tree edge, showing vertex-cover sufficiency. König yields the exact matching number and min-cut yields the weighted formula for nonnegative costs. Hall on the tree side is equivalent to all-partition two-tree packing through connected-block refinement and an adapted spanning tree; Hall on the cotree side is equivalent to two-forest decomposition via the induced-subgraph density criterion. Explicit \\(K_{3,4}\\) disjoint trees and \\(K_{3,3}\\) two-forest split plus extension prove every bipartite parameter range. The independent verifier enumerates 771 labeled connected graphs/8135 target trees and directly computes teaching samples for smaller graphs; no finite experiment is treated as a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Merino--Soto (arxiv:1904.11668), Section 1 and main results: the task is to reveal unknown real element weights to find some uniformly optimal minimum-weight basis; no given target identity is to be taught.",
+        "Mansouri et al. (arxiv:1910.10944), definitions and main statements: a general preference-function comparison across teaching models, not a graphic matroid exchange-cover classification.",
+        "Simon (arxiv:2205.02792), introduction/definitions/main theorems: no-clash teaching and tournaments/Johnson graphs; the ordinary basic dimension appears as background, not as a spanning-tree theorem."
+      ],
+      "reasoning": "These broad teaching and matroid-query frameworks do not instantiate a result about a particular target spanning tree identified by its edge-membership vector. The underlying observation models differ, so published polynomial solvability of an uncertainty query task is not coverage of our weighted Boolean teaching statement.",
+      "searches": [
+        "\"teaching dimension\" \"basis exchange\"",
+        "\"teaching set\" \"matroid\" basis",
+        "spanning tree teaching dimension membership queries teaching set exact graph spanning trees matroid bases",
+        "The minimum cost query problem on matroids with uncertainty areas (arxiv:1904.11668)",
+        "Preference-Based Batch and Sequential Teaching (arxiv:1910.10944)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1904.11668 (2019-04-26)",
+      "arxiv:1910.10944 (2019-10-24)",
+      "arxiv:2205.02792 (2022-05-05)",
+      "UCB/CSD-92-662 (1992); Berkeley archived technical report",
+      "Nash-Williams--Tutte tree packing and Nash-Williams arboricity decomposition (established background)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical Nash-Williams--Tutte theorem alone characterizes two edge-disjoint trees by all-partition cross-edge densities, but mentions no teaching samples.",
+        "Classical arboricity theorem alone characterizes decomposition into two forests by subset edge densities, but mentions no teaching samples.",
+        "Mihail--Sudan studies expansion/connectivity of full basis-exchange graphs, not equivalences between teaching dimensions and the two global graph properties."
+      ],
+      "reasoning": "The two known Nash-Williams graph-theoretic characterizations become teaching-number characterizations only after identifying exact samples with exchange-graph vertex covers and translating Hall conditions for both sides. Neither standard graph theorem individually entails the learning invariant and no inspected cited source supplies their combination.",
+      "searches": [
+        "Two forest arboricity condition is equivalent to all spanning trees of graph having cotree-size teaching dimension m-n+1",
+        "Every spanning tree has classical teaching dimension n minus one if and only if graph has two edge-disjoint spanning trees; every spanning tree has teaching dimension m minus n plus one if and only if graph arboricity at most two.",
+        "Connectivity Properties of Matroids (Mihail and Sudan 1992)",
+        "Nash Williams Tutte spanning tree packing arboricity decomposition two forests theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mihail--Sudan (1992), Connectivity Properties of Matroids, Abstract and Section 2: their basis-exchange graph has whole matroid bases as vertices; their results concern graph expansion/connectivity, not a bipartite graph on individual edges of a fixed basis.",
+        "Simon (arxiv:2205.02792), Section 2: distinguishes basic and no-clash teaching; its theorems concern tournaments and Johnson graphs.",
+        "Relevant published-result searches returned different parameters: cyclomatic matching versus induced-matching gaps; spanning-tree-polytope Minkowski centers."
+      ],
+      "reasoning": "An arbitrary graph of matroid bases linked by pairwise exchanges is not the same object as the bipartite fundamental exchange incidence graph for one fixed target. Matching number of the latter is an exact cardinality of a basic labeled identity teaching set, not a matching in the graph of all bases, and neither of the displayed sources states that equivalence.",
+      "searches": [
+        "Classical teaching dimension (minimum number of labeled edge membership examples distinguishing a target spanning tree from all other spanning trees) equals maximum matching in the tree fundamental-cycle exchange bipartite graph; classification and proof.",
+        "Minimum certificate complexity for a spanning tree target among all spanning trees, determined by maximum matching of fundamental exchange incidence bipartite graph",
+        "\"teaching dimension\" \"matroid\"",
+        "\"spanning trees\" \"distinguishing set\" edges"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-result matches about complete-bipartite spanning trees address types/counts, Laplacian spectra or Minkowski asymmetry, not labeled sample complexity.",
+        "The natural identities p+q-1 and (p-1)(q-1) are respectively the rank and corank of a complete-bipartite graphic matroid; their appearance as an exact teaching number requires both Hall-saturation arguments and graph partition/decomposition theorems."
+      ],
+      "reasoning": "Searches by the precise bipartite-graph parameters, fundamental exchanges and the formula returned no exact database entry or table with the stated teaching invariant. This absence does not establish absolute novelty.",
+      "searches": [
+        "All spanning trees of complete bipartite K_{p,q} require exactly min(p+q-1,(p-1)(q-1)) positive and negative labeled membership examples to uniquely identify them.",
+        "\"teaching dimension\" \"spanning trees\" graph",
+        "teaching dimension spanning trees fundamental edge exchange graph maximum matching",
+        "Graph has two edge-disjoint spanning trees if and only if every spanning tree has maximum classical teaching dimension n minus one"
+      ]
+    },
+    "rationale": "Comparisons with directly relevant basic, preference-based and no-clash teaching literature, full-text matroid uncertainty queries, matroid exchange connectivity, and searched published mathematical records did not find a theorem yielding the simultaneous exchange-cover identification, two all-tree extremal characterizations, or the complete bipartite formula. A prior basis-exchange theorem alone does not identify teaching samples or global Hall conditions; weighted matroid uncertainty queries reveal numerical weights instead of Boolean membership of a known target. This is a best-knowledge originality assessment, not a guarantee of first publication.",
+    "residual_risks": [
+      "Historical searching is not exhaustive and a matroid-certificate-complexity result might cover part of the exact exchange-cover reduction under another name.",
+      "The archived 1992 scanned report was not examined page-by-page; its introduction and explicit principal theorems concern different objects.",
+      "Published-result indexing has incomplete coverage; absence of matching phrases is not a proof of priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_MODEL: numerical element weights and uniformly optimal bases rather than positive/negative membership labels identifying an already specified tree.",
+        "evidence": [
+          "Section 1 defines uncertainty areas and reveals real weights by query; Section 4 treats feasible revelation sets independently of one selected target spanning-tree identity."
+        ],
+        "identifier_or_url": "arxiv:1904.11668; https://arxiv.org/abs/1904.11668",
+        "material_read": "Public date, abstract, introduction, explicit uncertain numerical-weight query model, algorithm statements and principal definitions; published open-access full-text PDF inspected.",
+        "method": "Lawful open-access full text, section/term inspection and premise comparison",
+        "title": "The minimum cost query problem on matroids with uncertainty areas",
+        "trigger": "Queries and matroid bases could imply the graph-specific weighted teaching problem"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_COVERING: no identified theorem about graphic matroid basis teaching, fundamental-exchange matching or global packing/forest thresholds.",
+        "evidence": [
+          "Paper addresses preference functions, batch/sequential models and their comparisons, not a fixed graph edge-label class."
+        ],
+        "identifier_or_url": "arxiv:1910.10944; https://arxiv.org/abs/1910.10944",
+        "material_read": "Public date and available full text, introductory teaching definitions, general framework main results and sections discussing model comparisons.",
+        "method": "Lawful open-access preprint, text/section inspection with matroid/spanning terminology checks",
+        "title": "Preference-Based Batch and Sequential Teaching: Towards a Unified View of Models",
+        "trigger": "Could dominate basic teaching complexity or contain a graph-class example"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT_OBJECTS: results on no-clash teaching and tournaments/Johnson graph concepts, not fixed spanning-tree identity samples.",
+        "evidence": [
+          "The paper distinguishes basic and no-clash teaching, and develops no-clash dimension results for tournament/Johnson constructions."
+        ],
+        "identifier_or_url": "arxiv:2205.02792; https://arxiv.org/abs/2205.02792",
+        "material_read": "First-public source date, introduction, Section 2 teaching model definitions, main theorem statements and full-text term checks for matroid/spanning-tree.",
+        "method": "Author preprint and lawful open-access proceedings full-text inspection",
+        "title": "Tournaments, Johnson Graphs and NC-Teaching",
+        "trigger": "Contains basic teaching definition, graph language and Johnson structures"
+      },
+      {
+        "assessment": "DIFFERENT_GRAPH: whole bases are graph vertices; the exposed theorems concern connectivity, ratio and expansion of matroid basis graph, not teaching samples. Partial-page inspection leaves some residual historical-priority risk.",
+        "evidence": [
+          "The report defines its graph vertices as bases and edges as basis exchanges; the stated results characterize connectivity/expansion."
+        ],
+        "identifier_or_url": "UCB/CSD-92-662; https://www2.eecs.berkeley.edu/Pubs/TechRpts/1992/6143.html",
+        "material_read": "Technical report abstract, introduction/organization and Section 2 definitions viewed on the archived full-text PDF; not every scanned page was materially read.",
+        "method": "Authoritative Berkeley report metadata and visual page inspection of lawful archived scan",
+        "title": "Connectivity Properties of Matroids",
+        "trigger": "Bipartite fundamental exchange graph could be implied by earlier matroid exchange graph connectivity results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c8282764-e4bb-4a1e-8012-51dfb4d9d9b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact edge-label teaching invariant is a natural nontrivial complexity of identifying a spanning network. The exchange-cover duality gives a polynomial algorithm where a naive definition checks exponentially many alternatives, including weighted edge-query costs. The necessary-and-sufficient global thresholds characterize all graphs whose every spanning tree saturates rank or corank using established but distinct packing/arboricity properties. The all-size \\(K_{p,q}\\) formula exhibits a sharp transition and the bridged-\\(K_5\\) example shows intermediate regimes. This is a structural synthesis and natural complete family, not a mere table extrapolation or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
