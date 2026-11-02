@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T03:52:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Löwner condition for K=cond(DAD), with Z=λ_min(DAD)D^{-2}, is Z≤A≤KZ. Averaging Z over permutations of the last n−1 coordinates preserves feasibility and yields an exchangeable diagonal optimum without presuming symmetry. The reduced 2x2 block B(x) has one other eigenvalue 1 with multiplicity n−2. det(B−I)=t(n−1)b²(x²−1) determines the min eigenvalue order; the 2x2 eigenratio is minimized by Px+Q/x on 0<x<=1, and λ_max grows on x>=1. Hence the closed minimizer and phase threshold. Independently checked 600 nonsymmetric scaling trials over five parameter configurations and exact n=5 Jacobi eigenvalues; numerical checks support but do not prove global optimality, which follows analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shapiro 1985 DOI:10.1137/0722005, abstract: some closed-form special cases; full text could not be obtained.",
+          "Demmel 2023 DOI:10.1137/22M1504901, abstract: near-optimal block Jacobi bounds."
+        ],
+        "reasoning": "Shapiro 1985 derives unspecified closed-form solutions for special block diagonal scaling classes according to the abstract, so it is a serious possible general-coverage source, not evidence of noncoverage. Demmel 2023 obtains norm-factor Jacobi approximation, not the specific identity-versus-improvement transition in its abstract.",
+        "searches": [
+          "optimal diagonal scaling condition number rank one identity plus t u u transpose spike matrix Jacobi equilibration",
+          "Shapiro 1985 optimal block diagonal l2 scaling matrices special cases rank one"
+        ]
+      },
+      "checked_sources": [
+        "Qu et al., arXiv:2209.00809, primary full-text selected sections",
+        "Braatz and Morari, SIAM JCO 1994, full six-page primary article",
+        "Shapiro 1985 DOI:10.1137/0722005, abstract only, vpn_disconnected",
+        "Demmel 2023 DOI:10.1137/22M1504901, abstract",
+        "Assigned seven Git blobs recompute full source tree SHA"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Braatz–Morari 1994 §2 Lemmas 2.1–2.3 provide convex feasibility, no formula involving exceptional spike mass.",
+          "Qu et al. arXiv:2209.00809 provides algorithms and optimization model."
+        ],
+        "reasoning": "A general algorithm that can compute an optimum after feeding it a structured matrix is not a published exact formula for all spike strengths and dimensions. The closed-form threshold follows from a new specialization/analytic symmetrization. Nevertheless, closed-form special cases of Shapiro are unresolved.",
+        "searches": [
+          "optimal diagonal scaling condition number rank one identity plus t u u transpose spike matrix Jacobi equilibration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Qu et al., arXiv:2209.00809, problem formulation and quasi-convex optimization, introduction and method sections.",
+          "Braatz and Morari (1994), full six-page PDF §§1–3, Lemmas 2.1–2.3."
+        ],
+        "reasoning": "The symmetric-congruence condition-number minimization is equivalent to diagonal Löwner feasibility Z≤A≤KZ. Qu et al. and Braatz–Morari establish global optimization formulations, but these do not themselves give the one-spike piecewise exact solution as a stated theorem.",
+        "searches": [
+          "optimal diagonal scaling condition number rank one identity plus t u u transpose spike matrix Jacobi equilibration",
+          "optimal diagonal scaling rank one positive definite spike matrix condition number closed form"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary indexed findings for weighted Jacobi Euclidean damping and SPD transient bounds concern other functionals.",
+          "Independent exact formulas reproduce the n=5 Jacobi reversal without relying on a preexisting table."
+        ],
+        "reasoning": "Resultary semantic index returned related Jacobi damping and other optimization records, not the rank-one mass crossover. No cited known table of the precise threshold was found; missing search matches do not prove historical uniqueness.",
+        "searches": [
+          "optimal diagonal scaling condition number rank one identity plus t u u transpose spike matrix Jacobi equilibration"
+        ]
+      },
+      "rationale": "General exact global diagonal scaling formulations and convex algorithms exist, but inspected primary texts do not state this rank-one all-dimensions mass localization transition or harmful Jacobi example. Shapiro 1985 explicitly advertises some closed-form special cases; its full paper was inaccessible through authorized institutional access, so an equivalent older case remains a genuine priority risk rather than a fabricated negative comparison.",
+      "residual_risks": [
+        "Shapiro 1985 closed-form special cases may imply the precise one-spike result; full text inaccessible due disconnected authorized VPN.",
+        "Other older rank-one or equicorrelation scaling results could give the piecewise formula.",
+        "No general all-SPD or finite-precision solver claim is assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General solver and formulation, without the explicit one-spike threshold in inspected statements",
+          "evidence": "Problem statement: minimize condition number via diagonal preconditioning; proposed bisection and interior point algorithms.",
+          "identifier_or_url": "arXiv:2209.00809",
+          "material_read": "Primary arXiv PDF abstract, introduction, quasi-convex/SDP formulation and algorithm statements, selected pages",
+          "method": "Read primary paper text and inspected introduction/formulation page image",
+          "title": "Optimal Diagonal Preconditioning",
+          "trigger": "Same objective and feasibility in general SPD matrices"
+        },
+        {
+          "assessment": "General convex formulation of condition-number optimal scaling; no spiked matrix specialization in the whole article",
+          "evidence": "§2 Lemmas 2.1–2.3, and §3 conclusion that condition numbers can be computed to arbitrary precision by convex optimization.",
+          "identifier_or_url": "https://web.mit.edu/braatzgroup/Minimizing_the_Euclidean_condition_number.pdf",
+          "material_read": "Complete six-page primary 1994 article, Lemmas 2.1–2.3 and remarks/conclusion",
+          "method": "Read all six PDF pages via web extracted text and rendered page 1",
+          "title": "Minimizing the Euclidean Condition Number",
+          "trigger": "Potential stronger general solution"
+        },
+        {
+          "assessment": "UNKNOWN COVERAGE: abstract explicitly mentions closed-form special cases; no claim that its unread text excludes the one-spike theorem",
+          "evidence": "1985 abstract says some special cases solved in closed form; authorized access returned vpn_disconnected, job reference kept privately.",
+          "identifier_or_url": "DOI:10.1137/0722005",
+          "material_read": "Publisher/JSTOR abstract and references only; no article body obtained",
+          "method": "Searched arXiv, OA and author copies; Oxford institutional retrieval reported VPN disconnected",
+          "title": "Optimal Block Diagonal l2-Scaling of Matrices",
+          "trigger": "1985 closed-form special-case results could subsume the claim"
+        },
+        {
+          "assessment": "Approximation ratio for block-Jacobi, not explicit one-spike threshold in accessible abstract",
+          "evidence": "Demmel (2023) near-optimal factor bounds and an example. No full-text noncoverage asserted.",
+          "identifier_or_url": "DOI:10.1137/22M1504901",
+          "material_read": "Publisher full web abstract and published summary; full article body not inspected",
+          "method": "Examined publisher abstract and Berkeley author landing page",
+          "title": "Nearly Optimal Block-Jacobi Preconditioning",
+          "trigger": "Jacobi comparison and prior possible coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact diagonal congruence scaling of a canonical spiked covariance/precision model is a natural preconditioner benchmark. The theorem identifies the sharp mass-imbalance boundary for any possible scaling and a concrete case where a standard heuristic is strictly harmful, so the closed-form fact is a motivated operator-optimization result rather than just a numerical instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>=3, A=I+tuu^T with t,a,b>0 and u=(a,b,...,b), optimizing the condition number of DAD over all positive diagonal D is attained by D=diag(min(1,sqrt(Q/P)),1,...,1), where P=1+ta² and Q=1+t(n-1)b²; scaling strictly improves over D=I precisely when a²>(n−1)b², with exact piecewise condition number and an explicit n=5 case in which Jacobi equilibration worsens conditioning.",
+  "limitations": [
+    "Shapiro 1985 closed-form special cases may imply the precise one-spike result; full text inaccessible due disconnected authorized VPN.",
+    "Other older rank-one or equicorrelation scaling results could give the piecewise formula.",
+    "No general all-SPD or finite-precision solver claim is assessed.",
+    "The frozen public AUDIT.json and METADATA.json contain scope_run_id, an operational provenance identifier that is forbidden in public files. Full confidentiality-neutral replacement bytes preserving their existing scientific content and blob guards have not been staged."
+  ],
+  "schema_version": 1
+}
