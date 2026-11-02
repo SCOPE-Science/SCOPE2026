@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8 or newer and no extra packages. The computation constructs 216 ordered triple vertices, checks 16,416 edges from integer congruences, and exhaustively enumerates all maximal cliques using an invariant-preserving Bron--Kerbosch search. The exact five-size histogram is the theorem's finite certificate, and the terminal search condition ensures maximality. Recorded output is embedded as `verification_output.txt`.
+## correctness
 
-An optional independent replay, `python3 crosscheck.py`, requires `networkx==3.6.1` and produces `crosscheck_output.txt`. It constructs the edge relation afresh and uses a separately maintained maximal-clique iterator. The two resulting histograms agreed exactly, including 248,264 reported maximal cliques.
+PASS
 
-Neither enumeration is intended as an infinite-dimensional proof. Only within the 216-vertex problem does exhaustive search establish all cases. No external independent scientific audit is asserted.
+For v,w in Z6^3 the product inner product over D={0,1,2}^3 vanishes iff at least one coordinate difference is 2 or 4 modulo 6. Independently generate all 216 vertices, exact integer-edge graph of 16416 edges, and exhaust all maximal cliques via a separate networkx implementation. All 248264 maximal cliques counted exactly once with histogram {12:34992,13:11664,14:11664,15:34992,27:154952}; no sizes 16..26. Graph adjacency and maximality ensure exact finite-grid classification.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality survives the specific mathematical comparisons documented in the four mandatory checks; limitations remain explicit.
+
+## value
+
+PASS
+
+Computes the exact set of unextendible orthogonal character families in a natural ternary 3-cube and quantifies the gap between maximal incomplete systems and full bases. This fixed finite census, including the first incomplete phenomena, motivates further geometric/packing comparisons; it is not an arbitrary unmotivated sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
