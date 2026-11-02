@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:17:15.975228Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The explicit GP(10,2) dodecahedron (20 vertices) and 12-vertex icosahedron define all edges without pictorial ambiguity. Singletons stall because each initially observed neighbor has two unobserved neighbors. Completely enumerating 190 and 66 two-vertex seed sets by deterministic closed-neighborhood plus simultaneous unique-neighbor propagation proves: only dodecahedral distance-three pairs succeed (60), every icosahedral pair succeeds (66). For D the distance-three adjacency graph is six-regular; optimal-set exchange graph is its line graph (60 vertices, 300 edges). Full BFS determines distances (300,870,600), diameter three; I exchange graph is L(K12) (66 vertices, 660 edges, diameter two). Our separately implemented bitmask and set propagation and independent BFS reproduced all 256 cases. Since the target graphs are fixed finite objects, the complete census is a finite proof, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barrera–Ferrero requires gcd(m,k)=1 for the cited Petersen model, so its relevant bound does not directly specialize to (10,2).",
+          "The later papers target broad Petersen domination numbers; full text was not accessible for exclusion of placement counts."
+        ],
+        "reasoning": "General power-domination number bounds may imply gamma_P=2 but do not automatically characterize all 190 pair placements or exchange diameter. No definitive noncoverage assertion is made for unread later papers.",
+        "searches": [
+          "Barrera–Ferrero 2011 Lemma 5.1 generalized Petersen",
+          "Xu–Kang 2011 generalized Petersen",
+          "Kang–Shan–Zhao 2020 generalized Petersen"
+        ]
+      },
+      "checked_sources": [
+        "Barrera–Ferrero 2011 primary OA PDF section 5",
+        "Xu–Kang 2011 abstract",
+        "Kang–Shan–Zhao 2020 abstract",
+        "Resultary search power domination dodecahedron icosahedron distance pair exchange"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier sources cover definition, general bounds and propagation-time convention; precise distance-three placement rule and reconfiguration distance distribution not established by material read."
+        ],
+        "reasoning": "A scalar minimum of two in a generalized graph family does not imply which pairs succeed. The exhaustive finite certificate derives location, timing and exchange invariants directly.",
+        "searches": [
+          "Barrera–Ferrero 2011 Sections on generalized Petersen",
+          "Ferrero–Hogben–Kenter–Young arXiv:1512.06413",
+          "Xu–Kang 2011 abstract",
+          "Kang–Shan–Zhao 2020 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D is GP(10,2), I is its planar dual; power domination definition uses closed neighborhood then zero forcing.",
+          "Propagation convention shifts published time by one but not placement or optimality."
+        ],
+        "reasoning": "Prior gamma_P formulas and propagation-time definitions are comparable only after identifying the GP(10,2) exceptional coprimality and synchronous time convention. Exact placement/exchange metrics are different observables.",
+        "searches": [
+          "power domination dodecahedron icosahedron distance pair exchange",
+          "Barrera–Ferrero 2011 Power Domination in Cylinders, Tori, and Generalized Petersen Graphs",
+          "Ferrero–Hogben–Kenter–Young arXiv:1512.06413"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary item is the dodecahedral independence complex homotopy calculation, a different graph invariant.",
+          "The verifier exhausts all 256 unordered pairs and their forcing trajectories; this is an exact finite census, not a sample."
+        ],
+        "reasoning": "The exact finite classifications might exist as graph-enumeration tables; no relevant prior power-domination pair table was located, and absence is not treated as proof.",
+        "searches": [
+          "power domination dodecahedron icosahedron distance pair exchange",
+          "Published Resultary SCOPE dodecahedral independence complex search"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: compared equivalent formulations, stronger-coverage implications, exact tables, and primary literature at their true theorem scopes. No identified inspected source directly states the entire assessed refinement; named inaccessible/implicit-cover risks are retained rather than converted into automatic failure. This does not certify historical priority.",
+      "residual_risks": [
+        "Two directly relevant generalized Petersen papers not read in full; a previously tabulated dodecahedral minimum-set census might overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related general formulas but GP coprimality condition and no explicit simultaneous complete pair or exchange table in examined sections",
+          "evidence": [
+            "gcd(m,k)=1 hypothesis excludes GP(10,2) under their notation"
+          ],
+          "identifier_or_url": "DOI:10.1002/net.20413, https://cpb-us-e1.wpmucdn.com/wp.txstate.edu/dist/1/556/files/2015/03/BarreraFerrero.pdf",
+          "material_read": "Author-hosted full PDF, definition and generalized Petersen section 5/lemma and assumptions",
+          "method": "lawful OA PDF, text and page image",
+          "title": "Power Domination in Cylinders, Tori, and Generalized Petersen Graphs",
+          "trigger": "Same graph GP(10,2) and natural strong family"
+        },
+        {
+          "assessment": "Cannot rule out complete placements or special-case table from unseen full text",
+          "evidence": [
+            "Family covers generalized Petersen domination numbers at abstract level"
+          ],
+          "identifier_or_url": "DOI:10.7151/dmgt.2137",
+          "material_read": "Publisher abstract/bibliographic material; full text not obtained",
+          "method": "publisher abstract",
+          "title": "Power domination in the generalized Petersen graphs",
+          "trigger": "Potentially stronger full family with matching special case"
+        },
+        {
+          "assessment": "Established general timing convention, not claimed as current novelty",
+          "evidence": [
+            "Published time convention starts with initial observation"
+          ],
+          "identifier_or_url": "arXiv:1512.06413",
+          "material_read": "Definition and bibliographic relationship from package; full text not independently read in this run",
+          "method": "arXiv abstract/cited relation",
+          "title": "Note on power propagation time and lower bounds for the power domination number",
+          "trigger": "Precise simultaneous-time convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Power domination is a natural network forcing invariant. A complete location, propagation-time and basis-exchange classification for two canonical planar-dual Platonic graphs provides exact data for both placement and reconfiguration, not merely small instance number checks; the rigid distance-three condition versus all-pairs dual contrast is structurally informative.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Two finite graphs only; no general dodecahedral-dual theorem.",
+    "Later general Petersen primary texts not fully read; potential exact special case.",
+    "Public metadata sanitization and truthful first-public-date corrections not staged."
+  ],
+  "schema_version": 1
+}
