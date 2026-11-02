@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Every element of E is 3-divisible because each even one-run contributes 2^h(2^(2j)-1). The converse is an exact complete finite-state proof: a three-bit addition state tracks parity for both currently open one-runs and the carry. Digit transitions close only even runs and enforce correct binary sum bits. An exhaustive BFS of the product determinization, modulo-three residue and next-digit parity has exactly ten reachable configurations, listed in RESULT.md; all and only residue-zero configurations contain the accepting state (0,0,0). Closure verifies all possible word lengths. The verifier recomputes each transition from input digits and checks all ten states independently of a numerical cutoff; direct tests below 16384 are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bell–Hare–Shallit arXiv:1710.08353 Theorems 1.1–1.2 and §6 give decidability and explicit examples for different sets",
+        "Chen–Wang DOI 10.4064/aa110-3-7 pp.299–300 uses parity of the total zero-digit count"
+      ],
+      "reasoning": "Generic decidability is not the specific exact numerical result. The prior automatic-base examples involve ternary Cantor, evil, Rudin–Shapiro and restricted base-four digits; their statements do not imply this run-constrained support equality. The zero-digit parity condition is inequivalent to forbidding odd one-run lengths.",
+      "searches": [
+        "When is an automatic set an additive basis Bell Hare Shallit arXiv:1710.08353 section 6 examples",
+        "Baum Sweet sequence support sumset additive basis",
+        "additive properties of two special sequences Chen Wang 2003 zeros parity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.04012 §7",
+      "arXiv:1710.08353 §§1,5,6",
+      "doi:10.4064/aa110-3-7 pp.299–300",
+      "OEIS:A059451"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2309.04012 §7 describes the one-summand predicate T_2(n); its theorem does not assert a two-summand covering property",
+        "arXiv:1710.08353 Theorem 1.2 asserts that the optimal order is algorithmically computable, not its numerical value for this particular predicate",
+        "Chen–Wang, Acta Arith. 110 (2003), theorem concerns equal representation counts in complementary zero-parity sets"
+      ],
+      "reasoning": "Neither the characterization of E nor the mere existence of a decision algorithm implies without a separate proof that E+E is all multiples of three; a carry automaton requires exact complete reachability checking. The Chen–Wang object is a different binary condition.",
+      "searches": [
+        "arXiv:2309.04012 section 7 theorem 20 sums of binomial coefficients mod 2",
+        "arXiv:1710.08353 sections 5 and 6 automatic additive basis minimal order",
+        "doi:10.4064/aa110-3-7 Chen Wang additive properties zero digits"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rampersad–Wiebe arXiv:2309.04012 §7 Theorem 20: support T_2 is the even-one-run binary set",
+        "No identified matching twofold-sumset theorem among targeted searches"
+      ],
+      "reasoning": "Compared the exact claim against the T_2 support, a scaled additive basis of order two, and the automatic language recognizing multiples of 3. These are equivalent reformulations of the same new assertion, not independent theorems inferred from support membership.",
+      "searches": [
+        "even length binary runs of ones every multiple of 3 sum of two numbers support additive basis",
+        "binary sequence avoiding odd runs of ones twofold sumset exactly 3Z Baum Sweet analogue",
+        "Rampersad Wiebe T_2 additive sum representation of all multiples of three",
+        "additive basis sums of two integers with only even length runs of 1s binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Rampersad–Wiebe Theorem 20 identifies the characteristic sequence; no two-sum table is stated in its inspected §7",
+        "OEIS A059451 concerns representations using parity of the total binary zero count, a different property"
+      ],
+      "reasoning": "Checked sequence-language aliases and the closest known table. A search without a match is not proof of novelty; inspection confirms that the specifically examined table records a different statistic.",
+      "searches": [
+        "OEIS integers binary expansions all runs of ones even length multiples of 3 sum of two",
+        "OEIS runlength Baum Sweet support sums multiples 3",
+        "arXiv:2309.04012 theorem 20 run length transform T_2"
+      ]
+    },
+    "rationale": "The exact equality E+E=3N and its minimal order-two consequence are not stated in the closely matched primary literature inspected. The 2023 paper supplies the run-length support criterion; the 2017 automatic-basis paper supplies general decidability but no evaluation of this set; the 2003 special-sequence study treats parity of the total number of zeros rather than even one-run lengths. A complete ten-configuration certificate supplies the new exact calculation. Unindexed earlier equivalent formulations remain possible, so this is not a certification of absolute priority.",
+    "residual_risks": [
+      "An earlier unpublished or unindexed automatic-sumset computation could establish an equivalent identity.",
+      "Generic automatic-set algorithms permit this computation in principle, and its exact evaluation might appear in ancillary material not indexed by paper summaries.",
+      "Broader secondary literature was not exhaustively surveyed; no priority claim beyond the inspected evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact even-one-run membership criterion, but not its twofold additive sumset",
+        "evidence": "§7, Theorem 20; final discussion of T_2 as a generalized Baum–Sweet variant",
+        "identifier_or_url": "https://arxiv.org/abs/2309.04012",
+        "material_read": "Original 2023 arXiv accessible HTML, introduction, §7 and Theorem 20 with proof and final paragraph",
+        "method": "Examined mathematical hypotheses and conclusions, including the exact binary-run characterization",
+        "title": "Sums of products of binomial coefficients mod 2 and 2-regular sequences",
+        "trigger": "Direct motivating description of T_2, its support and run-length divisibility criterion"
+      },
+      {
+        "assessment": "The algorithm is broadly applicable but its examples do not give this exact sumset or the required ten-state evaluation",
+        "evidence": "Theorems 1.1–1.2; §§5–6, Examples 6.1–6.4",
+        "identifier_or_url": "https://arxiv.org/html/1710.08353v1",
+        "material_read": "Full HTML introduction and main theorem statements, §5 algorithm and §6 complete examples",
+        "method": "Compared the claimed general implication, algorithm and actual examples to the exact set E/3",
+        "title": "When is an automatic set an additive basis?",
+        "trigger": "Potential general stronger theorem deciding the minimal additive-basis order of automatic sets"
+      },
+      {
+        "assessment": "Different predicate and equidistribution theorem; does not cover even-length one-runs or their twofold sumset",
+        "evidence": "pp.299–300, definitions of T, A, B and the theorem",
+        "identifier_or_url": "https://doi.org/10.4064/aa110-3-7",
+        "material_read": "Publisher CC-BY PDF pp.299–300 introduction and main theorem/definitions; visual first page",
+        "method": "Read the defined sets A, B and the use of parity of zero-digit counts T(n-1)",
+        "title": "On additive properties of two special sequences",
+        "trigger": "Plausible title on binary-digit sum representations"
+      },
+      {
+        "assessment": "Different sequence, cannot imply the exact asserted identity without additional argument",
+        "evidence": "A059451 description and example at n=16",
+        "identifier_or_url": "https://oeis.org/A059451",
+        "material_read": "Record description, examples, formulas and literature references",
+        "method": "Compared parity of the number of binary zero digits with parity of the length of every one-run",
+        "title": "OEIS A059451",
+        "trigger": "Closest located sequence table involving sums of two binary-digit constrained numbers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c104ed24-09ac-470f-aead-a594219c565f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The support of a natural generalized Baum–Sweet type 2-automatic sequence is highly restricted, but after dividing by three it is an exact additive basis of minimal order two. Complete sharp sumset coverage is mathematically stronger than nonemptiness, decidability, density estimates or finite enumeration. The ten-state carry certificate exposes a concrete structural additive property of the 2023 binary-run object and could guide generalizations to other run-length constraints; no speculative downstream theorem is assumed.",
+    "status": "PASS"
+  }
+}
