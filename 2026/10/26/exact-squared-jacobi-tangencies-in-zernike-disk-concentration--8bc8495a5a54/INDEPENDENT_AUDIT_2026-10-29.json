@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T20:57:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For β>-1 and integer k>=1 let A=P_k^(0,β)(2u-1), B=P_(k-1)^(0,β+2)(2u-1), Q=P_(k-1)^(1,β+1)(2u-1). Orthogonality and endpoint normalization give A-uB=-(β+1)(1-u)Q/k and integration by parts gives Q-(1-u)Q'=kB. These imply u^β(A²-u²B²)=(β+1)/k² * d/du[u^(β+1)(1-u)²Q²]. Multiply by 2k+β+1, integrate from 0 to t, and use β>-1 for vanishing endpoint to obtain exact nonnegative square difference of the two normalized cumulative Jacobi energies. Q has exactly k-1 simple shifted interior roots, so k>=2 has exactly k-1 quadratic (not crossing) equality radii; k=1 strictly dominates. On the d>=2 unit ball, polar variables u=r² and β=m+d/2-1 show this is precisely fixed-total-degree adjacent angular Zernike eigenvalue comparison. Independently checked both contiguous identities and the differentiated factorization symbolically for β=-1/2,0,1/3 and k=1..4 (12 cases); finite tests corroborate but do not replace the all-real-β orthogonality proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Greengard–Serkh 2018 technical report treats Zernike quadrature and higher-dimensional polynomials; DLMF Ch.18 supplies Jacobi orthogonality and zeros."
+        ],
+        "reasoning": "The broad polynomial results imply the prerequisites and make derivation possible but neither explicitly supplies this integrated two-mode perfect square nor the induced all-radius nonreversal. Related spherical cap concentration is different geometry and weighting.",
+        "searches": [
+          "Resultary Search: Zernike disk radial concentration adjacent angular modes Jacobi squared cumulative integral positivity tangency",
+          "Web search: Jacobi polynomials integrated squares adjacent parameters positive square Zernike disk concentration eigenvalue crossing"
+        ]
+      },
+      "checked_sources": [
+        "https://engineering.yale.edu/application/files/3517/3685/9497/TR1539.pdf",
+        "https://arxiv.org/abs/1910.07250",
+        "https://dlmf.nist.gov/18",
+        "Resultary semantic query: Zernike disk radial concentration adjacent angular modes Jacobi squared cumulative integral positivity tangency"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "DLMF Jacobi recurrences and zeros establish identities (2),(3) individually and simplicity of roots. Greengard–Serkh §2.3 supplies Zernike basis. Janssen derivative-bounds manuscript is not established as proving integral ordering."
+        ],
+        "reasoning": "The theorem applies those older ingredients to a new cumulative square identity, with geometrically meaningful disk operator eigenvalue ordering and k-1 tangencies. It would be covered if an established Jacobi integral identity explicitly gave the square or a broader CDF ordering; unindexed equivalents remain a serious risk.",
+        "searches": [
+          "Resultary Search: Zernike disk radial concentration adjacent angular modes Jacobi squared cumulative integral positivity tangency",
+          "Web search: Jacobi polynomials integrated squares adjacent parameters positive square Zernike disk concentration eigenvalue crossing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Greengard–Serkh YALEU/DCS/TR-1539 §2.3 supplies normalized radial Jacobi polynomials and orthogonality; Janssen arXiv:1910.07250 concerns radial derivative bounds."
+        ],
+        "reasoning": "Individual Jacobi contiguous identities or normalized Zernike formulas do not alone assert a cumulative square difference. Equivalence must include two-degree fixed-total-degree comparison at every t and exact interior contact zeros.",
+        "searches": [
+          "Resultary Search: Zernike disk radial concentration adjacent angular modes Jacobi squared cumulative integral positivity tangency",
+          "Web search: Jacobi polynomials integrated squares adjacent parameters positive square Zernike disk concentration eigenvalue crossing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Noe-style numerical table is inapplicable: the claim is an analytic identity for every real β>-1 and integer k>=1. The inspected Yale report includes quadrature/normalization tables rather than two-mode cumulative-energy tangency tables."
+        ],
+        "reasoning": "The invariant has continuous parameters and an exact algebraic formula, so tabular coverage would have to encode the same identity or its dominating recurrence. None was seen; older handbooks might hide a version.",
+        "searches": [
+          "Resultary Search: Zernike disk radial concentration adjacent angular modes Jacobi squared cumulative integral positivity tangency",
+          "Web search: Jacobi polynomials integrated squares adjacent parameters positive square Zernike disk concentration eigenvalue crossing"
+        ]
+      },
+      "rationale": "The available Greengard–Serkh report establishes the Zernike radial Jacobi basis and norms; Janssen studies radial-derivative bounds. The inspected primary material does not state the exact nonnegative difference of two cumulative squared modes or the complete k-1 contact count. These may follow from an older unindexed Jacobi integral identity; this is explicitly preserved as a priority risk, not asserted absent from all literature.",
+      "residual_risks": [
+        "Possible unindexed older Jacobi squared-integral identity may subsume the expression; no claim of priority certainty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found basis and exact normalization but not the claimed cumulative squared-Jacobi mode difference in inspected relevant sections",
+          "evidence": [
+            "§2.3 equation (25) defines Zernike radial separation; (27)–(30) give orthogonality and norm"
+          ],
+          "identifier_or_url": "https://engineering.yale.edu/application/files/3517/3685/9497/TR1539.pdf",
+          "material_read": "Accessible technical report contents, §2.3 equations (25)–(30), Appendix A relevant Jacobi normalization/higher-dimensional formulas",
+          "method": "Direct parsed PDF text and rendered page 7 screenshot",
+          "title": "Zernike Polynomials: Evaluation, Quadrature, and Interpolation",
+          "trigger": "Same radial basis, normalization and higher-dimensional mode geometry"
+        },
+        {
+          "assessment": "Cannot assert full-text noncoverage; derivative estimates differ from cumulative energy comparison",
+          "evidence": [
+            "arXiv:1910.07250 (Janssen 2019), derivative bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.07250",
+          "material_read": "Title, accessible abstract, cited derivative bounds only; arXiv HTML full-text endpoint failed",
+          "method": "Accessible bibliographic and abstract comparison",
+          "title": "Sharp bound on the radial derivatives of the Zernike circle polynomials",
+          "trigger": "Same Zernike Jacobi polynomials but different functional"
+        },
+        {
+          "assessment": "Classical preliminaries known; priority of entire integral square identity not established",
+          "evidence": [
+            "Jacobi weight positivity and simplicity of k-1 shifted zeros"
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18",
+          "material_read": "Relevant Chapter 18 reference headings and known standard identities",
+          "method": "Primary mathematical reference/index comparison",
+          "title": "NIST Digital Library of Mathematical Functions, Chapter 18",
+          "trigger": "Classical Jacobi orthogonality, normalization and zeros underlie proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cumulative energy fractions of neighboring angular Zernike modes are natural spectral concentration invariants of a centered disk/ball. The perfect-square identity proves uniform angular ordering for every aperture, gives exactly k-1 degenerate equality radii, and excludes mode-order crossings without numerical root tracking. These are interpretable geometric consequences beyond routine computation of Jacobi polynomial norms.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://engineering.yale.edu/application/files/3517/3685/9497/TR1539.pdf",
+    "https://arxiv.org/abs/1910.07250",
+    "https://dlmf.nist.gov/18",
+    "Resultary semantic query: Zernike disk radial concentration adjacent angular modes Jacobi squared cumulative integral positivity tangency",
+    "Frozen Git RESULT.md blob b08479c1efb03bae2ffe785e0a175977e0a060c4",
+    "Frozen Git verification source check.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only adjacent angular degrees m,m+2 within one exact total-degree subspace and centered aperture; not all cross-degree modes or nonconcentric domains.",
+    "Possible unindexed older Jacobi squared-integral identity may subsume the expression; no claim of priority certainty.",
+    "Independent symbolic experiments test only 12 parameter-degree cases and are not the all-β proof."
+  ],
+  "residual_risks": [
+    "Possible unindexed older Jacobi squared-integral identity may subsume the expression; no claim of priority certainty.",
+    "Only adjacent angular degrees m,m+2 within one exact total-degree subspace and centered aperture; not all cross-degree modes or nonconcentric domains.",
+    "Independent symbolic experiments test only 12 parameter-degree cases and are not the all-β proof."
+  ],
+  "schema_version": 1
+}

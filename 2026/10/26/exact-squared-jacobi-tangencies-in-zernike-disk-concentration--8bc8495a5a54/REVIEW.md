@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two shifted Jacobi orthogonality arguments give precisely specified contiguous identities (2) and (3); the exact algebraic derivative (4), endpoint integrability for \(\beta>-1\), and normalization yield the claimed squared formula for all permitted parameters. Jacobi zero simplicity establishes the exact contact multiplicities. The finite symbolic/quadrature checker supports the derivation but is not used as an infinite proof.
+## correctness
 
-**Originality — PASS (best-knowledge, not independent priority certification).** A semantic search of prior research records under Zernike, Jacobi, pupil-energy, spectral concentration, adjacent angular order, and squared-integral aliases found no claim with the same normalized cumulative comparison. Greengard--Serkh supply radial Jacobi construction and quadrature; Janssen supplies a different derivative-bound theorem. Their inspected material does not imply the exact cumulative square identity without the nontrivial comparison argument supplied here. A previously published equivalent Jacobi-integral identity remains a residual bibliographic possibility.
+PASS
 
-**Mathematical value — PASS.** Sharp mode-by-mode ordering under aperture truncation is natural in Zernike pupil analysis; the radial functions themselves oscillate, so pointwise ordering is unavailable. An exact nonnegative square proves the previously unresolved-in-the-inspected-sources comparison for all orders and dimensions and determines every adjacent-mode equality radius, with concrete Gauss--Jacobi localization of those radii. The result is a structural all-orders classification rather than a finite numerical lookup.
+For β>-1 and integer k>=1 let A=P_k^(0,β)(2u-1), B=P_(k-1)^(0,β+2)(2u-1), Q=P_(k-1)^(1,β+1)(2u-1). Orthogonality and endpoint normalization give A-uB=-(β+1)(1-u)Q/k and integration by parts gives Q-(1-u)Q'=kB. These imply u^β(A²-u²B²)=(β+1)/k² * d/du[u^(β+1)(1-u)²Q²]. Multiply by 2k+β+1, integrate from 0 to t, and use β>-1 for vanishing endpoint to obtain exact nonnegative square difference of the two normalized cumulative Jacobi energies. Q has exactly k-1 simple shifted interior roots, so k>=2 has exactly k-1 quadratic (not crossing) equality radii; k=1 strictly dominates. On the d>=2 unit ball, polar variables u=r² and β=m+d/2-1 show this is precisely fixed-total-degree adjacent angular Zernike eigenvalue comparison. Independently checked both contiguous identities and the differentiated factorization symbolically for β=-1/2,0,1/3 and k=1..4 (12 cases); finite tests corroborate but do not replace the all-real-β orthogonality proof.
 
-Limitations: adjacent angular modes, one total-degree slice, concentric balls only; higher-degree mixing, nonadjacent coincidences and nonconcentric regions remain outside scope. Source equivalence has not been audited independently.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The available Greengard–Serkh report establishes the Zernike radial Jacobi basis and norms; Janssen studies radial-derivative bounds. The inspected primary material does not state the exact nonnegative difference of two cumulative squared modes or the complete k-1 contact count. These may follow from an older unindexed Jacobi integral identity; this is explicitly preserved as a priority risk, not asserted absent from all literature.
+
+## value
+
+PASS
+
+The cumulative energy fractions of neighboring angular Zernike modes are natural spectral concentration invariants of a centered disk/ball. The perfect-square identity proves uniform angular ordering for every aperture, gives exactly k-1 degenerate equality radii, and excludes mode-order crossings without numerical root tracking. These are interpretable geometric consequences beyond routine computation of Jacobi polynomial norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
