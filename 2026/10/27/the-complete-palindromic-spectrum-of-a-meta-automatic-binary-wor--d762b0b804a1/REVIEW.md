@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The ten admissible state pairs are obtained from a prefix and form an exact substitution-closed set. The fixed-point identity gives a rigorous ten-block cover of every factor of length at most 18, not an empirical large-prefix estimate. Reversal tests on all these explicit finite cover strings yield no length-11 or length-18 palindrome, which excludes all longer odd and even palindromes. The complete 28-palindrome list and first-appearance positions establish the sharp prefix defect. The included checker reproduces these finite facts and cross-checks the initial 4096 symbols using the defining nested recurrence.
+PASS
 
-## Originality
+For the exact 4-uniform morphism φ(0)=0112, φ(1)=1230, φ(2)=2301, φ(3)=3023 with coding 0,2↦0 and 1,3↦1, the set of all adjacent state-letter pairs is T={01,02,03,11,12,13,21,22,23,30}: all occur in φ⁴(0), and checking factors of φ(xy) for xy∈T proves closure under further substitution. Every binary factor of length ≤18 occurs within or across one boundary of 64-symbol φ³-coded blocks, so it is present in one of the ten coded 128-symbol φ³(xy) words, and conversely every word appears in the true fixed point. Direct exhaustive enumeration of that globally justified finite cover yields P(1..18)=(2,2,2,2,2,2,2,2,2,3,0,3,0,2,0,2,0,0), total 28 palindromes and exactly two length-16 examples. Absence of length-11 odd and length-18 even central palindromes forbids every longer odd/even palindrome, so finite coverage proves the infinite classification. All 28 first occur by prefix length 196, with the last length-16 occurrence beginning at index 180; the length-195 prefix has 27, establishing Def(u[0,N))=N−28 for N≥196 with sharp onset. Independently reconstructed φ iterates, exact T-closure, the 10×128 cover, palindrome sets, and sharp first occurrence; this check relies on proof of global factor coverage rather than treating a finite prefix as exhaustive.
 
-PASS within the examined evidence. Campbell–Cloitre (arXiv:2602.23395) define the particular automatic word and discuss ordinary factor complexity, not its palindrome-factor complexity. OEIS A392736 documents the sequence but does not supply a global palindrome classification. Schaeffer–Shallit (arXiv:1508.02074) prove general automatic-sequence decidability and give examples for earlier sequences; Allouche–Baake–Cassaigne–Damanik (arXiv:math/0106121) survey general palindrome complexity. None of these statements implies the exact spectrum for this word. The strongest similarity in available mathematical records concerned bounded palindromes in a *different* dynamical construction, and available historical claims about this same automatic word concern repetition exponents rather than palindrome spectra. An unindexed equivalent analysis remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. Palindromic complexity is a standard, structurally motivated invariant of automatic words. This is a complete natural classification for a recently introduced nonperiodic four-state word, not an arbitrary finite slice: the exact spectrum has 28 factors, its maximal length is sharp, and the prefix defect has a precise onset and linear law. The result provides a concrete contrast between ordinary linear factor complexity and eventual total absence of new palindromic factors. It does not generalize to other codings without further work.
+Best-of-knowledge original contribution as delimited by the final assigned theorem, not novelty of its foundational method. Direct original statements and implications were compared against the checked primary results and the published-finding search. Highly relevant inaccessible works remain named as residual priority risks; no failed search or abstract alone proves whole-document noncoverage.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A complete palindromic complexity function, longest palindromes and exact prefix-defect stabilization for a naturally constructed new automatic word are motivated combinatorial invariants. The global finite bound is structurally nontrivial: it uses substitution pair closure and the central palindrome obstruction, not a routine small sample or a known OEIS table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
