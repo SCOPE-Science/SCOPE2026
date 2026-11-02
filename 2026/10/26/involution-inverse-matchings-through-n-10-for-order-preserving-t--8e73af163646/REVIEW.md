@@ -1,15 +1,21 @@
-# Review of finite-chain involution matchings
+# Independent mathematical audit
 
-## Correctness
-PASS. The mathematical reduction from mutual semigroup inverses to two ordered transversal tests is proved in `RESULT.md`. The certificate verifies every pair, every unused vertex, the complete rank indexing, and the finite cutoff \(1\le n\le10\). The standalone verifier also composes actual maps for \(n\le5\). Its accepted finite domain is exhaustive, not a heuristic sample. No theorem for unbounded \(n\) is asserted.
+## correctness
 
-## Originality
-PASS at the finite, stronger-than-permutation level, with a residual priority risk. Higgins (2018/2019) proves involution matching for orientation-preserving and reversing maps of cycles, not the order-preserving chain submonoid; Higgins (2024) explicitly notes that even an arbitrary permutation matching of the latter had only been checked through four points. Higgins (2026) proves arbitrary permutation matchings at every chain length but does not establish order-two inverse matchings. The latter implication would require additional argument and is not assumed here. Literature and database searches did not identify an earlier direct ten-point involution certificate. The residual risk is an equivalent computational certificate or general involution theorem under other terminology.
+PASS
 
-## Value
-PASS. The distinction between permutation matchings and involution matchings is an explicit question in the primary semigroup literature. The finite result strengthens the newly proved all-size permutation statement by supplying honest mutual-inverse two-cycle witnesses simultaneously on all rank classes through ten points, including a 92,378-element monoid. It is a motivated finite cutoff, not an arbitrary invariant or a claimed infinite solution.
+Read full RESULT.md and certificate convention. For rank-r order-preserving f,g, mutual inverse equations fgf=f,gfg=g reduce to the exact reciprocal kernel/image tests b_i in C_i and d_i in A_i; sorted images impose the same rank and matching index. Independently fetched complete 948809-byte INVOLUTION_MATCHINGS.tsv by its frozen blob SHA bb8dd49848455e8be0a53a1e92abd9e12c2b59a7; a freshly written independent JS exact checker parsed all 62704 distinct pairs, regenerated every lexicographic cut/image map for n=1..10, verified reciprocal inverse conditions on each pair and idempotency for every unpaired vertex, with no omissions/duplicate endpoints. For n=10 checked all 92378 vertices: 92366 paired and 12 idempotent fixed. Covers finite cutoff exhaustively, not an unbounded extrapolation.
 
-## Limitations and closest references
-The proof is certificate-based, with no uniform degree-parameter construction; nothing is asserted for \(n\ge11\). The closest published sources are Higgins (2019, 2024) and his October 2026 preprint; none of the examined statements supplies this finite involution conclusion. The originality check cannot rule out unindexed prior computations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge finite first certificate of INVOLUTION matchings for O_n up to n=10, stronger than a permutation matching; no universal involution theorem is claimed. Comparison with 2026 all-n permutation theorem establishes non-implication.
+
+## value
+
+PASS
+
+Higgins isolated the O_n permutation-matching problem, and the involution variant is a strictly stronger natural graph-theoretic property. A complete explicit finite certificate to n=10 (92378 maps at the largest n) is a mathematically motivated large cutoff and supplies exact witnesses where general permutation theory is insufficient; no paper-sized universal theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

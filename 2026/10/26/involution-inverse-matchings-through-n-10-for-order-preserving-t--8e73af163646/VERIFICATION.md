@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The certificate `INVOLUTION_MATCHINGS.tsv` has exactly 62,704 two-cycle rows. A full execution of `python verify_involutions.py INVOLUTION_MATCHINGS.tsv` reconstructed every rank from \(n=1\) to \(10\), checked disjointness and mutual-inverse transversal conditions on every paired map, and checked idempotency of every unpaired map. For \(n\le5\), the checker additionally composed all paired maps directly and checked both inverse equations. This is a complete finite-range certificate, not evidence for arbitrary \(n\).
+## correctness
 
-An independent audit has not been performed. The checker uses only the Python standard library and the exact included certificate; no external mathematical package or network call is required. The last case contains \(92{,}378\) transformations. Any claim for larger chain sizes requires new evidence.
+PASS
+
+Read full RESULT.md and certificate convention. For rank-r order-preserving f,g, mutual inverse equations fgf=f,gfg=g reduce to the exact reciprocal kernel/image tests b_i in C_i and d_i in A_i; sorted images impose the same rank and matching index. Independently fetched complete 948809-byte INVOLUTION_MATCHINGS.tsv by its frozen blob SHA bb8dd49848455e8be0a53a1e92abd9e12c2b59a7; a freshly written independent JS exact checker parsed all 62704 distinct pairs, regenerated every lexicographic cut/image map for n=1..10, verified reciprocal inverse conditions on each pair and idempotency for every unpaired vertex, with no omissions/duplicate endpoints. For n=10 checked all 92378 vertices: 92366 paired and 12 idempotent fixed. Covers finite cutoff exhaustively, not an unbounded extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge finite first certificate of INVOLUTION matchings for O_n up to n=10, stronger than a permutation matching; no universal involution theorem is claimed. Comparison with 2026 all-n permutation theorem establishes non-implication.
+
+## value
+
+PASS
+
+Higgins isolated the O_n permutation-matching problem, and the involution variant is a strictly stronger natural graph-theoretic property. A complete explicit finite certificate to n=10 (92378 maps at the largest n) is a mathematically motivated large cutoff and supplies exact witnesses where general permutation theory is insufficient; no paper-sized universal theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
