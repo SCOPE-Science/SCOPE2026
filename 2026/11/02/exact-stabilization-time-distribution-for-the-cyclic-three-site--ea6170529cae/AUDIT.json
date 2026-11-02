@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "Exact XOR-wall formula directly proves that a non-all-one wall word erodes each maximal one-run by two per update until a fixed wall word. Cyclic XOR derivatives have even weight with two preimages; alternating all-one walls form the sole two-cycle. The run bound is sharp. The weighted finite transfer matrix recognizes all bounded-run cyclic words, and the determinant/traces identity proves the all-n rational generating function. The recurrence and standalone exhaustive tests through length 16 support reproducibility but are not substitutes for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Inokuchi–Sato (2000), DOI 10.5109/13492: abstract and definitions explicitly use a fixed boundary condition, unlike indexed periodic rings.",
+        "Tosic–Agha (2004), Lemma 4: fixed points, alternating two-cycle, and remaining transient classes; no time-by-time coefficient formula in inspected statements.",
+        "Nakar–Ron (2022), arXiv:2205.08972: spatial characterization of possible asymptotic majority configurations at general radius, not exact transient-depth enumeration."
+      ],
+      "reasoning": "The older sources settle qualitative dynamical categories and other boundary cases. Those categories are compatible with many different transient-depth distributions, so they do not imply the exact time-indexed generating family without additional structural counting. The inaccessible Goles–Martínez (1990) chapter is a specific residual risk, not treated as checked or as negative evidence.",
+      "searches": [
+        "Rule 232 majority cellular automaton transient length distribution periodic boundary exact formula number states convergence times",
+        "On Limit Cycles and Transient Lengths of Cellular Automata with Threshold Rules",
+        "large radius majority cellular automata configuration eventual cycles Nakar Ron"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/978-94-009-0529-0_5",
+      "https://doi.org/10.5109/13492",
+      "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+      "https://www.researchgate.net/publication/310515639_On_Enumerating_Stable_Configurations_of_Cellular_Automata_with_the_MAJORITY_update_rule",
+      "https://arxiv.org/abs/2205.08972",
+      "https://arxiv.org/abs/1306.1189"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tosic–Agha (2004) proves that the only nontrivial temporal cycle is alternating and describes all other states as transient, but does not give the first-fixed time of every input or exact coefficient counts.",
+        "Fuks–Gomez Soto (2013), arXiv:1306.1189: studies time-evolution of density under Bernoulli product measures; single-site densities do not determine finite-ring hitting-time statistics.",
+        "The new proof identifies the longest-domain-wall-run formula plus the even-weight cyclic-word projection and determinant identity; these additional implications are explicitly derived."
+      ],
+      "reasoning": "Qualitative convergence and marginal density laws do not determine the joint distribution of the maximum run length in cyclic even-parity wall words. The exact cumulative coefficient formula requires precisely that missing joint enumeration. The closest accessible statements are therefore not logically stronger than the assessed theorem. Historical exact equivalence in inaccessible books remains unresolved.",
+      "searches": [
+        "majority radius one cellular automaton interface domain walls run erode by two relaxation time counting",
+        "rule 232 majority cellular automaton time to reach fixed points bounded run length transfer matrix",
+        "one dimensional majority cellular automaton synchronous circular stabilization time distribution runs isolated cells fixed points generating function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The local transformation on cyclic wall bits is Rule 132: \\(d_i\\mapsto d_i(1\\oplus d_{i-1}\\oplus d_{i+1})\\). This is proved algebraically, not merely suggested by matching terms.",
+        "The available Rule-132 result searches did not identify an earlier all-length parity-projected first-fixed-time enumerator. A failed search alone is not proof of originality.",
+        "Tosic and Agha (2004), Lemmas 3–4: https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf"
+      ],
+      "reasoning": "Replacing initial configurations by their XOR derivatives gives a two-to-one map onto even-weight cyclic wall words. Although the run erasure of Rule 132 is elementary and may have historical antecedents, the desired exact counts require a simultaneous run-length restriction and parity projection; the inspected qualitative attractor characterization does not state their all-length rational generating functions.",
+      "searches": [
+        "elementary cellular automaton rule 132 run lengths cyclic configurations decay time count generating function",
+        "rule 232 majority domain wall rule 132 finite ring transient depth distribution",
+        "rule 132 cellular automaton number of configurations converge in exactly t iterations",
+        "one dimensional majority cellular automaton synchronous circular stabilization time distribution runs isolated cells fixed points generating function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Tosic (2016), On Enumerating Stable Configurations of Cellular Automata with the MAJORITY update rule: counts fixed points; this is \\(t=0\\) only.",
+        "The finite explicit coefficients produced in verify.py agree for every word through ring length sixteen with independent synchronous iteration.",
+        "No identified table in the inspected material supplies the entire bivariate family \\(F_{n,t}\\); this is an access-qualified comparison, not a universal database assertion."
+      ],
+      "reasoning": "A fixed-point table or an eventual-attractor list does not subsume all first-hitting-time counts. The time-zero slice is explicitly prior coverage and excluded from the claimed novel component; the all-time rational generating function is the assessed claim.",
+      "searches": [
+        "majority cellular automaton finite ring image characterization forbidden patterns preimage count",
+        "Tosic majority update rule transient length counts cyclic word probability convergence 2016",
+        "rule 232 majority automaton exact transient depth distribution all n cycles number configurations stabilizing after t steps generating function"
+      ]
+    },
+    "rationale": "Same-object primary studies establish qualitative fixed points and cycles or the fixed-point t=0 slice; a fixed-boundary transient study does not give the periodic-ring joint time distribution. Inspected sources do not imply the exact all-time parity-projected bounded-run generating function. The most relevant inaccessible 1990 monograph remains a named, material historical-priority risk. This is a qualified best-knowledge verdict, not a uniqueness certificate.",
+    "residual_risks": [
+      "The full text of Goles–Martínez (1990), a plausible earlier treatment of one-dimensional majority dynamics, could not be inspected; earlier equivalent counting formulas may exist.",
+      "The time-zero fixed-point counts and qualitative attractor classification are already known; no novelty claim is made for those subresults.",
+      "Web and indexed searches are incomplete; unindexed or unpublished equivalent formulations could escape this comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Plausible coverage of qualitative majority dynamics and potentially the present numerical invariant; no assessment of full scientific coverage possible. Historical priority risk explicitly retained.",
+        "evidence": [
+          "The chapter spans pp.97–136 and the book hardcover was published 1990-02-28: https://link.springer.com/book/10.1007/978-94-009-0529-0",
+          "Chapter preview: https://link.springer.com/chapter/10.1007/978-94-009-0529-0_5"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-94-009-0529-0_5",
+        "material_read": "Publisher chapter abstract, book table of contents, chapter bibliography, and dated print-book publication metadata only; no chapter body available",
+        "method": "Publisher preview and public bibliographic metadata; full chapter not accessible through open sources or available authorized institutional access",
+        "title": "Neural and Automata Networks: Dynamical Behavior and Applications — Uniform One and two Dimensional Neural Networks",
+        "trigger": "Earliest close historical source on one-dimensional majority and threshold automata"
+      },
+      {
+        "assessment": "Treats fixed-boundary finite automata; cannot directly supply the claimed periodic-ring all-length/time count without additional equivalence. Not asserted as wholly noncovering from an abstract alone.",
+        "evidence": [
+          "Definition 2.3 specifies fixed boundary choices separately from cyclic boundary: https://catalog.lib.kyushu-u.ac.jp/opac_download_md/13492/p023.pdf",
+          "Introduction explicitly says focus is on fixed boundary conditions."
+        ],
+        "identifier_or_url": "https://doi.org/10.5109/13492",
+        "material_read": "Accessible PDF title, abstract, introduction, notation and boundary-condition definitions; relevant Rule 232 sections also identified in searchable full text",
+        "method": "Institutional-repository PDF text read; scope and assumptions compared explicitly",
+        "title": "On Limit Cycles and Transient Lengths of Cellular Automata with Threshold Rules",
+        "trigger": "Direct overlap of threshold-rule transient lengths and Rule 232"
+      },
+      {
+        "assessment": "Qualitative fixed/two-cycle/transient classification is prior work, not novel. No time-indexed cumulative count in material read; additional wall/run/parity enumeration is assessed.",
+        "evidence": [
+          "Lemma 4 on printed page 7 lists all fixed states and the alternating cycle, classifying the rest as transient."
+        ],
+        "identifier_or_url": "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+        "material_read": "Accessible ten-page PDF abstract, conceptual setup, Lemmas 3–4 on PDF page 7, and nearby discussion of all fixed, cycle and transient states",
+        "method": "Primary full-text reading and page-image inspection of relevant lemmas",
+        "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+        "trigger": "Exact same synchronous three-site majority automaton and periodic states"
+      },
+      {
+        "assessment": "Explicitly counts stable/fixed states; this subsumes the time-zero count but not the full cumulative hitting-time distribution in the inspected material.",
+        "evidence": [
+          "Abstract identifies the enumeration target as total number of fixed point configurations."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/310515639_On_Enumerating_Stable_Configurations_of_Cellular_Automata_with_the_MAJORITY_update_rule",
+        "material_read": "Public manuscript abstract and accessible text on combinatorics of fixed configurations",
+        "method": "Full-text HTML reading of the fixed-point counting discussion and source references",
+        "title": "On Enumerating Stable Configurations of Cellular Automata with the MAJORITY update rule",
+        "trigger": "Potential prior exact table for stable states"
+      },
+      {
+        "assessment": "Characterizes asymptotic spatial structure at general radii, not a bivariate exact finite-ring hitting-time enumerator in the inspected sections.",
+        "evidence": [
+          "The stated main result concerns fixed or spatially periodic eventual states; https://arxiv.org/abs/2205.08972"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+        "material_read": "Open preprint abstract, introduction, definitions and statements on eventual configurations, including associated figures",
+        "method": "Open preprint PDF reading and relevant page images",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+        "trigger": "Same periodic majority dynamics, arbitrary radius"
+      },
+      {
+        "assessment": "Density evolution under Bernoulli initial conditions is not the joint first-fixed-time distribution on indexed finite rings.",
+        "evidence": [
+          "arXiv:1306.1189 treats preimage densities and exponential equilibration."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1306.1189",
+        "material_read": "Abstract and Rule-232 preimage-density calculation available in text",
+        "method": "Open bibliographic preprint and accessible technical excerpt of Rule 232 section",
+        "title": "Exponential Convergence to Equilibrium in Cellular Automata Asymptotically Emulating Identity",
+        "trigger": "Rule 232 time-dependent densities are an alternate possible route to counting dynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ea617052-9cae-445c-9b1c-b7243338a81e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The entire all-n, all-time hitting-time distribution is a natural refinement of the dynamical phase partition. Its exact wall-run criterion and compact rational generating family reveal finite-size relaxation and establish a sharp time cutoff; this is not merely a fixed-point recount, a finite sample, or a renamed textbook identity.",
+    "status": "PASS"
+  }
+}
