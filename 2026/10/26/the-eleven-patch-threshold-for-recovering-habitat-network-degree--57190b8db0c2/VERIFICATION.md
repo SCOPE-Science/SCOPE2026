@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify_fragment.py` with Python 3.9 or later, using the Python standard library. Compare stdout to `verification_certificate.json` as JSON objects; the order of keys is not significant.
+## correctness
 
-The program checks two eleven-vertex trees, enumerating all 2,048 possible retained-vertex configurations for each; compares their resulting exact quota-count polynomials with the formula independently derived from edge endpoint degrees; verifies the degree census, all degree-sum counts, and the primitive discrepancy vector; and checks 1,309 labeled subcubic Prüfer trees up to six vertices against the inversion formulas. It also verifies the common mean \(59/128\) at \(p=1/2\) and exact agreement at five rational survival parameters.
+PASS
 
-The analytic proof of the full-degree reconstruction, the one-dimensional ambiguity space, and the global eleven-vertex lower bound is in `RESULT.md`. Finite tests are additional guards, not substitutes for unbounded proofs. Source comparisons are not independent novelty certification.
+On a tree an edge forms a surviving two-patch component with probability p²(1−p)^{deg u+deg v−2}; polynomial coefficients give c_s. Subcubic inverse solves all m_ij explicitly. For Δ<=4 the difference kernel is exactly t(0,-1,1,1,-1,-1,1,0,0); nonzero t forces n2>=2,n3>=2,n4>=1,n1>=6 and hence n>=11. Two explicit 11-vertex trees meet this bound with equal (n_i)=(6,2,2,1), equal (c3..c8)=(1,3,4,1,1,0), and differing joint degree tables. Independent full 2048-subset enumeration confirmed expectation 59/128 at p=1/2 and entire witness counts. Analytical kernel proves minimality over all trees.
+
+## originality
+
+PASS
+
+Qualified PASS: The full M-polynomial is known and plainly determines edge-degree counts, but the observed polynomial is only its diagonal specialization. Known joint-degree-matrix realization theorems take all m_ij as input and do not prove recovery or minimal loss from diagonal counts. Valence-connectivity plus multiple Zagreb/Randić indices are richer measurements. No located prior result gives this sharp 11-node degree-four threshold; specialized chemical graph equivalent remains a risk.
+
+## value
+
+PASS
+
+The inverse problem of recovering edge-class connectivity from an observable random-fragment expectation plus degree census is natural. A complete subcubic guarantee, unique ambiguity direction at degree four, and sharp minimal 11-patch counterexample quantify an important identifiability boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

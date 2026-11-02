@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:19:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a tree an edge forms a surviving two-patch component with probability p²(1−p)^{deg u+deg v−2}; polynomial coefficients give c_s. Subcubic inverse solves all m_ij explicitly. For Δ<=4 the difference kernel is exactly t(0,-1,1,1,-1,-1,1,0,0); nonzero t forces n2>=2,n3>=2,n4>=1,n1>=6 and hence n>=11. Two explicit 11-vertex trees meet this bound with equal (n_i)=(6,2,2,1), equal (c3..c8)=(1,3,4,1,1,0), and differing joint degree tables. Independent full 2048-subset enumeration confirmed expectation 59/128 at p=1/2 and entire witness counts. Analytical kernel proves minimality over all trees.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Czabarka et al study realizations from a given full joint degree matrix.",
+          "Vukičević 2009 focuses on prescribed edge-degree trees."
+        ],
+        "reasoning": "These broader graph-realization frameworks assume a stronger data type, and their stated theorems do not imply recovering missing individual m_ij from c_s.",
+        "searches": [
+          "degree sum edge type joint degree matrix diagonal M polynomial tree 11 vertices degree four identifiability",
+          "Vukičević 2009 On edge degrees of trees; arXiv:1302.3548"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1407.1592 full text",
+        "arXiv:1302.3548 full HTML",
+        "Vukičević/Graovac 2004 source https://hrcak.srce.hr/102951 accessible sections",
+        "Resultary degree-sum tree search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete M-polynomial implies individual counts tautologically; its diagonal does not.",
+          "The inspected 2013 joint-degree realization algorithms begin with full m_ij."
+        ],
+        "reasoning": "The sharp 11-node reconstruction failure cannot be deduced by merely having full-data representation, and is a specific kernel plus realizability theorem.",
+        "searches": [
+          "degree sum edge type joint degree matrix diagonal M polynomial tree 11 vertices degree four identifiability",
+          "arXiv:1407.1592 and arXiv:1302.3548; Vukičević/Graovac 2004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fragment curve determines c_s = sum_{i+j=s}m_ij, i.e. the diagonal M-polynomial coefficients.",
+          "Full M-polynomial M(x,y)=Σm_ij x^i y^j is known."
+        ],
+        "reasoning": "Identifying the observable with a degree-sum polynomial makes known vocabulary explicit, but diagonal specialization loses information and does not imply sharp injectivity threshold.",
+        "searches": [
+          "degree sum edge type joint degree matrix diagonal M polynomial tree 11 vertices degree four identifiability",
+          "arXiv:1407.1592 M-polynomial; degree-sum spectrum; Resultary joint-degree tree search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published bivariate edge tables encode m_ij, while the present diagonal table only gives c_s.",
+          "The witness tables differ by a one-dimensional kernel despite identical c_s."
+        ],
+        "reasoning": "No exact n=11 minimal equal-c_s counterexample table located; failing search not proof that no graph catalogue records it.",
+        "searches": [
+          "degree sum edge type joint degree matrix diagonal M polynomial tree 11 vertices degree four identifiability",
+          "M-polynomial 2014; Vukičević/Graovac valence connectivity 2004"
+        ]
+      },
+      "rationale": "Qualified PASS: The full M-polynomial is known and plainly determines edge-degree counts, but the observed polynomial is only its diagonal specialization. Known joint-degree-matrix realization theorems take all m_ij as input and do not prove recovery or minimal loss from diagonal counts. Valence-connectivity plus multiple Zagreb/Randić indices are richer measurements. No located prior result gives this sharp 11-node degree-four threshold; specialized chemical graph equivalent remains a risk.",
+      "residual_risks": [
+        "Exact degree-sum polynomial inversion may occur under alternative chemical graph-index vocabulary.",
+        "No claim that the observable reconstructs a labeled graph or works with noisy observations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FORWARD_ONLY: full bivariate degree table, not diagonal inverse theorem",
+          "evidence": [
+            "M(T;x,y)=Σ m_ij x^i y^j; diagonal specialization groups degree sums"
+          ],
+          "identifier_or_url": "arXiv:1407.1592",
+          "material_read": "Primary full paper, M-polynomial definition and degree-index discussion",
+          "method": "Read complete accessible preprint text",
+          "title": "M-Polynomial and Degree-Based Topological Indices",
+          "trigger": "Exact same edge-degree polynomial prior construction"
+        },
+        {
+          "assessment": "DIFFERENT_INPUT: given all m_ij; does not recover from diagonal",
+          "evidence": [
+            "Joint degree realization takes prescribed complete degree-mixing table"
+          ],
+          "identifier_or_url": "arXiv:1302.3548",
+          "material_read": "Full primary HTML with realization statements",
+          "method": "Read original arXiv full text",
+          "title": "On Realizations of a Joint Degree Matrix",
+          "trigger": "Possible stronger degree mixing theorem"
+        },
+        {
+          "assessment": "RICHER_INDICES: compares multiple indices, not the one diagonal measurement",
+          "evidence": [
+            "The three simultaneous graph indices give different observational information"
+          ],
+          "identifier_or_url": "https://hrcak.srce.hr/102951",
+          "material_read": "Accessible article description and relevant sections",
+          "method": "Read lawful source excerpt",
+          "title": "Valence Connectivity versus Randić, Zagreb and Modified Zagreb Index",
+          "trigger": "Chemical tree indices possibly equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The inverse problem of recovering edge-class connectivity from an observable random-fragment expectation plus degree census is natural. A complete subcubic guarantee, unique ambiguity direction at degree four, and sharp minimal 11-patch counterexample quantify an important identifiability boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Assumes tree, homogeneous independent survival and separate exact degree census.",
+    "Sharp 11-node claim only among trees with max degree <=4.",
+    "Exact degree-sum polynomial inversion may occur under alternative chemical graph-index vocabulary.",
+    "No claim that the observable reconstructs a labeled graph or works with noisy observations."
+  ],
+  "schema_version": 1
+}
