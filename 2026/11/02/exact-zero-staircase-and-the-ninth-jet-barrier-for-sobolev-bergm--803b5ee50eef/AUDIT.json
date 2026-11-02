@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Normalized-area monomial orthogonality changes only the m-th diagonal coefficient; exact expansion gives 1/(1-t)^2-c t^m with 0<=c<m+1. All boundary roots are obtained by the phase identity t^m(1-t)^2=4sin^2(theta/2)e^{i((m+1)theta+pi)}; every boundary crossing enters inward because Re[m-2t/(1-t)]=m+1>0 there. An interior multiple root cannot occur at allowed c, since c*4m^m/(m+2)^(m+2)<4(m+1)/(m+2)^2<1. Rouché starts the count at zero. Strict monotonicity of 4n sin^2(pi/(2n)) and F(9)>1>F(10) prove order-eight/nine threshold, and odd-angle counting with c_n~n proves N=n-sqrt(n)/pi+O(1) for fixed positive penalty. checks.py executed and printed VERIFY_OK 1130 finite assertions; finite data are not used to prove any infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Perälä, arXiv:1703.05976v1, Theorems 3.1 and 3.3: existence and finiteness for integrable radial weights and an associated derivative-based radial weight.",
+        "Miña-Díaz, arXiv:2212.08118v1, Theorem 1.1: finite products of powers of Blaschke factors as multiplicative weights."
+      ],
+      "reasoning": "Perälä establishes existence of arbitrary finite numbers of zeros for some radial weights but no precise single-jet penalty phase diagram. Miña-Díaz gives explicit representations for a different norm, not a stronger classification containing ours. Neither theorem entails the eighth/ninth transition or the asymptotic sqrt(m) zero deficit.",
+      "searches": [
+        "Vanishing Bergman kernels on the disk arxiv:1703.05976",
+        "A representation for the reproducing kernel of a weighted Bergman space arxiv:2212.08118",
+        "Sobolev Bergman space norm integral |f|^2 + tau |f^(m)(0)|^2 all roots inside unit disk phase diagram"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2212.08118v1 (full available intro/Theorem 1.1)",
+      "arxiv:1703.05976v1 (full relevant Sections 1–3)",
+      "arxiv:2608.13193v1 (functional Gram-kernel setup)",
+      "public result 6c2c52725478 (full RESULT.md)",
+      "public result 98259fe7e47b (full RESULT.md)",
+      "accessible current-week own claim identifiers for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Accessible own ledger point-evaluation penalty theorem treats f(a), which is jet order 0, and changes the Bergman weight exponent.",
+        "Gehlawat, Jain and Sarkar, arXiv:2608.13193v1, constructs canonical positive-definite Gram kernels for jet-functional sequences."
+      ],
+      "reasoning": "The m=0 point penalty root arrangement depends on exponent and automorphism; m>=1 zero polynomials have m+2 degree and a new odd-angle staircase. No substitution or corollary of the m=0 formulas yields the all-m order-nine barrier. Jet Gram kernels and penalty-renormed kernels are related through Riesz representatives but are not the same operator/kernel.",
+      "searches": [
+        "Bergman reproducing kernel jet derivative penalty |f^(m)(0)| squared zeros threshold Lu Qi-Keng",
+        "Bergman Sobolev reproducing kernel fixed origin m-th derivative penalty norm Lu Qi Keng zero free phase transition sharp zero staircase ninth jet rank one",
+        "own current-week ledger claim 54e7a4d8-a0b0-4b3e-93d4-04141b8ea996"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Miña-Díaz, arXiv:2212.08118v1, §1 and Thm 1.1: origin derivatives occur in representations of multiplicatively weighted kernels.",
+        "Published first-order and pure-jet disk Gram-kernel RESULT.md texts classify derivatives of evaluation functionals, not the reproducing kernel of a renormed Hilbert space."
+      ],
+      "reasoning": "A Gram kernel of L_z(f)=f^(m)(z) is ∂_z^m∂_wbar^m K(z,w); the new kernel instead equals K(z,w)-c(z wbar)^m, arising from a single rank-one change to the domain norm. These are mathematically non-equivalent, so earlier zero counts do not cover the claim.",
+      "searches": [
+        "Bergman reproducing kernel jet derivative penalty |f^(m)(0)| squared zeros threshold Lu Qi-Keng",
+        "rank one Sobolev Bergman kernel perturbation subtract c z^m wbar^m and zero count",
+        "one coefficient penalized Bergman kernel zero count polynomial 1-c t^m (1-t)^2",
+        "public result identifier 6c2c52725478",
+        "public result identifier 98259fe7e47b"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public first-order disk jet result 6c2c52725478 is a specific two-parameter Gram-kernel classification, not a table of additive penalty parameter thresholds.",
+        "The source arXiv:2212.08118v1 gives no enumerated additive derivative-penalty zero table."
+      ],
+      "reasoning": "Actual searches returned no table for one-coefficient Bergman reproducing kernels with physical coefficient c=(m+1)d/(1+d); unlike mere absence of a result, the closest inspected sources use different kernel defining operations. This remains a bounded best-knowledge assessment.",
+      "searches": [
+        "rank one Sobolev Bergman kernel perturbation subtract c z^m wbar^m and zero count",
+        "one coefficient penalized Bergman kernel zero count polynomial 1-c t^m (1-t)^2",
+        "coefficient deletion reproducing kernel of Bergman space zero-free threshold and number zeros",
+        "Bergman Sobolev reproducing kernel fixed origin m-th derivative penalty norm Lu Qi Keng zero free phase transition sharp zero staircase ninth jet rank one"
+      ]
+    },
+    "rationale": "Direct claim-to-claim comparison against three inspected primary papers, two full published nearby Gram-kernel results, and the accessible own ledger found no theorem implying a parameter-exact root-count formula for additive fixed-origin derivative-penalized Bergman norms. Published prior radial and functional Gram constructions are distinctly different. Elementary rank-one kernel reduction is acknowledged prior mathematics; novel claim is its complete crossing diagram, ninth-order obstruction and high-order asymptotic. Unindexed equivalent literature remains a priority risk.",
+    "residual_risks": [
+      "Historical-priority incompleteness: unidentified equivalent additive-Sobolev-kernel classification could exist.",
+      "Literature comparisons are research review, not independent external mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the additive one-jet penalty staircase.",
+        "evidence": "Theorem 1.1 assumes product-of-Blaschke-factor multiplicative weights, with derivative values used to represent the resulting kernel.",
+        "identifier_or_url": "https://arxiv.org/abs/2212.08118",
+        "material_read": "Full accessible arXiv HTML: abstract, introduction, Theorem 1.1 and its defining weighted setup.",
+        "method": "Read paper statement and formula (1.9), compared its input norm and kernel output to the additive penalty.",
+        "title": "A representation for the reproducing kernel of a weighted Bergman space",
+        "trigger": "Focal 2022 origin-derivative representation with MSC 30H20."
+      },
+      {
+        "assessment": "NOT_COVERING: qualitative radial-weight existence and finiteness do not imply explicit penalty crossing count.",
+        "evidence": "Theorem 3.3 constructs radial integrable weights exhibiting any prescribed finite zero count, without fixed-origin additive derivative-norm phase parameters.",
+        "identifier_or_url": "https://arxiv.org/abs/1703.05976",
+        "material_read": "Full accessible arXiv HTML Sections 1–3, Theorem 3.1, Theorem 3.3 and Remark 3.2.",
+        "method": "Compared the associated-weight derivative operation and exact existence/finiteness statements with the fixed-origin jet-renormed root staircase.",
+        "title": "Vanishing Bergman kernels on the disk",
+        "trigger": "Plausible stronger coverage of arbitrary finite Bergman kernel zero counts."
+      },
+      {
+        "assessment": "NOT_COVERING direct positive penalty renorming and ninth-jet threshold.",
+        "evidence": "Canonical kernel is a Gram kernel of derivative-evaluation functionals, whose mixed derivative formula differs from 1/(1-t)^2-c t^m.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.13193",
+        "material_read": "Available open full-text exposition of definition and jet Gram-kernel framework.",
+        "method": "Compared its differentiation of evaluation kernels with inverse rank-one modification of underlying Hilbert inner product.",
+        "title": "A Canonical Positive Definite Kernel Associated with the ξ-Bergman Kernel",
+        "trigger": "General jet-functional reproducing Gram kernels."
+      },
+      {
+        "assessment": "NOT_COVERING: distinct Gram vs renorming objects.",
+        "evidence": "Its kernel is a linear combination of K and spatial mixed derivatives, and has off-diagonal zeros for every nonzero b.",
+        "identifier_or_url": "public result ID 6c2c52725478",
+        "material_read": "Full published RESULT.md including the proof and scope.",
+        "method": "Compared functionals L_z=a f(z)+b f′(z), with the fixed-origin penalty norm and its kernel.",
+        "title": "First-order Bergman jet kernels on the disk have a sharp zero-free dichotomy",
+        "trigger": "Very close title and direct zero-free classification for derivatives."
+      },
+      {
+        "assessment": "NOT_COVERING: Gram numerator has Jacobi zeros, no c penalty parameter or order-nine threshold.",
+        "evidence": "The earlier pure-jet kernel is a mixed m-th derivative of the classical kernel; its number of scalar roots is ceil(m/2).",
+        "identifier_or_url": "public result ID 98259fe7e47b",
+        "material_read": "Full published RESULT.md including Jacobi proof and references.",
+        "method": "Compared the pure-jet Jacobi-polynomial Gram numerator with 1-c t^m(1-t)^2.",
+        "title": "Exact zero fibres of pure-jet Bergman Gram kernels on the disk",
+        "trigger": "All-jet root-count theorem likely to dominate a fixed-jet candidate."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "803b5ee5-0eef-476f-a5f8-3c5a3ccc2036",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The space is a natural positive Sobolev rank-one regularization of classical Bergman evaluation geometry. Exact jet-by-penalty Lu Qi-Keng zero-fibre thresholds go beyond the trivial kernel subtraction, and exhibit a nontrivial universal barrier exactly at derivative order nine. The fixed-penalty sqrt(m) missing-root law reveals an asymptotic constraint relevant to high-order jet regularization. The claimed invariant is naturally the number of zero fibres because any such fibre represents infinitely many pairs (z,w).",
+    "status": "PASS"
+  }
+}
