@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-Conditional on all prior replacement history and any nonanticipating departure choice, each missing label has incoming probability exactly \(1/(n-r)\). This verifies the full discovered-set transition kernel and hence all finite-dimensional occupancy laws. Standard independent geometric holding times imply the stated cover-time mean and variance. For iid packets the hypergeometric expected novelty is \(rk/n\); harmonic potential \((n/r)H_k\) loses at least one in expectation at each step and strictly more at the first step when both \(r\) and \(n-r\) are at least two. The endpoint families are computed directly. Exact rational code confirmed 2,747 finite assertions; unrestricted claims are mathematically proved.
+PASS
 
-## Originality (PASS, with priority risk)
+An as-yet-unseen initial complement label is never in the current r-packet, so the next incoming uniform draw, conditional on complete history and eviction, hits each of k unseen labels with probability 1/m. This makes the cumulative-seen-set Markov transition kernel exactly the coupon collector kernel, independent of the eviction policy; waiting times yield 1+mH_m, variance m²H_m^(2)-mH_m, and inclusion-exclusion CDF. For independent packets, J newly hit among k missing has hypergeometric expectation rk/n. V(k)=(n/r)H_k has conditional decrement >= (n/r)J/k and hence expected at least 1, strictly >1 from initial state when r,m>=2 because P(J>=2)>0; optional stopping of finite positive expected cover time gives E(T_iid)<1+(n/r)H_m<=1+mH_m. If r=1, direct harmonic subtraction is H_(n−1)>0; if m=1, replacement needs one move whereas iid succeeds geometrically at rate r/n. Separately derived exact rational iid expectation dynamic recurrence for all 105 pairs 2<=n<=15; all signs match. No stochastic-order comparison for entire distributions is claimed.
 
-The 2023 primary paper explicitly leaves a Markovian collection-time conjecture open for super-coupons and proves the different \(r=s\) case. Its independent-packet asymptotic comparisons do not give a finite all-parameter sign threshold, and its uniform-departure process does not give the stated adaptive-departure invariance. A 2016 primary study assumes independent subset draws. Indexed literature checks on exact cover-time aliases, independent packet comparisons, Johnson replacement, and adaptive eviction returned no stronger equivalent statements; the nearest returned reset-coupon and species-discovery records address different stochastic mechanisms. Adler and Ross is verified by its author-hosted full primary PDF; its iid inclusion–exclusion formula is acknowledged as prior, while the all-parameter adaptive-replacement comparison is not stated. Historical priority is not definitively established. Both standard components (harmonic coupon times and hypergeometric probabilities) are acknowledged.
+## originality
 
-## Value (PASS)
+PASS
 
-The result resolves the single-coupon specialization of a natural dependent subset-collector model and proves a full distributional invariance under adaptive removal. It also establishes a sharp, strictly signed finite comparison with iid packets and explains the small boundary cases where the intuitive dependence slowdown is reversed. This is a complete natural classification, not an arbitrary finite instance or a numerical refinement.
+The independent packet inclusion-exclusion formula is prior Adler–Ross; the assessed new result is the full adaptive replacement coupon-law identity and complete strict finite (n,r) sign reversal. Closely related Johnson-walk conjectures and iid subset collectors do not state these additional results in the inspected material.
 
-## Boundaries and limitations
+## value
 
-The comparison is only of expected times, not stochastic dominance. The general super-coupon case \(s\ge2\) remains outside scope. Incoming choices must be fresh, uniform and independent of the selected removal policy. Additional older subset-collection literature and general results could imply parts of the result. The computation is not a replacement for proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The dependent Johnson-graph individual-label cover process was explicitly raised as a natural case in existing work. Its complete distribution under arbitrary nonanticipating eviction and the exact sign boundary comparing it to iid packets are a useful all-parameter solution, revealing a nontrivial reversal at both extreme packet sizes rather than a tiny numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

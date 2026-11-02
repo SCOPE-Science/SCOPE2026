@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:04:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 421abd5b8c4bf97beaac75056fe36d05d62ab628",
+        "Direct inspection of verify_coupon_comparison.py blob 4d12764d84d56442ecd3642c915f0f7a08a5a499 (script excerpt; independent checks written separately)",
+        "Athreya–Mukherjee–Mukherjee arXiv:2304.01145 and 2025 publisher full HTML",
+        "Adler–Ross (2001) complete 10-page author-hosted PDF"
+      ],
+      "rationale": "An as-yet-unseen initial complement label is never in the current r-packet, so the next incoming uniform draw, conditional on complete history and eviction, hits each of k unseen labels with probability 1/m. This makes the cumulative-seen-set Markov transition kernel exactly the coupon collector kernel, independent of the eviction policy; waiting times yield 1+mH_m, variance m²H_m^(2)-mH_m, and inclusion-exclusion CDF. For independent packets, J newly hit among k missing has hypergeometric expectation rk/n. V(k)=(n/r)H_k has conditional decrement >= (n/r)J/k and hence expected at least 1, strictly >1 from initial state when r,m>=2 because P(J>=2)>0; optional stopping of finite positive expected cover time gives E(T_iid)<1+(n/r)H_m<=1+mH_m. If r=1, direct harmonic subtraction is H_(n−1)>0; if m=1, replacement needs one move whereas iid succeeds geometrically at rate r/n. Separately derived exact rational iid expectation dynamic recurrence for all 105 pairs 2<=n<=15; all signs match. No stochastic-order comparison for entire distributions is claimed.",
+      "residual_risks": [
+        "Must keep 'outgoing before incoming' and pre-deletion complement: changing either invalidates the exact coupling.",
+        "The strict finite comparison is only an expectation inequality, not stochastic domination.",
+        "Earlier general coupon-subset inequalities might subsume the finite mean inequality even if the exact policy-invariant process law is not previously stated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Falgas-Ravry/Larsson/Markström assume iid uniform structured coupons, not dependent adaptive replacement. Athreya et al. prove s=r and conjecture more general s including 1."
+        ],
+        "reasoning": "The n/r logarithmic asymptotic and r=s cases do not entail finite strict direction of mean cover times at every n,r; Adler–Ross covers iid formula only.",
+        "searches": [
+          "Johnson graph one element replacement coupon collector all labels discovered exact cover time ordinary coupon collector adaptive eviction versus iid uniform packets comparison",
+          "arXiv:1601.04455 independent subset coupon collectors",
+          "arXiv:2304.01145 Theorem 2.5 Conjecture 2.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.01145 (journal 2025) original Johnson packet model",
+        "Adler & Ross (2001) full lawful PDF eq. (7)",
+        "arXiv:1601.04455, published iid structured coupon model",
+        "Resultary query: Johnson graph one element replacement coupon collector all labels discovered exact cover time ordinary coupon collector adaptive eviction versus iid uniform packets comparison",
+        "Resultary nearest reset-coupon-rate record 2026/9/17 (different process)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full adaptive discovery law is a consequence of a conditional-kernel argument; the strict iid comparison additionally needs the hypergeometric harmonic-potential drift."
+        ],
+        "reasoning": "Prior iid formulas and conjectural dependent asymptotics neither assert nor imply the policy-invariant full law or both reversed endpoint families without the new arguments.",
+        "searches": [
+          "Athreya Mukherjee Conjecture 2.4 r=s proof",
+          "Adler Ross 2001 full PDF",
+          "Falgas-Ravry 2016",
+          "Johnson graph one element replacement coupon collector all labels discovered exact cover time ordinary coupon collector adaptive eviction versus iid uniform packets comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nonanticipating replacement process specializes the Johnson-graph coupon walk to s=1, but allows substantially more adaptive evictions."
+        ],
+        "reasoning": "The exact discovered-label kernel, not the packet process itself, is an ordinary m-coupon collector; general s-subset Johnson-walk work conjectures asymptotics but not this full law and finite reversal.",
+        "searches": [
+          "Johnson graph one element replacement coupon collector all labels discovered exact cover time ordinary coupon collector adaptive eviction versus iid uniform packets comparison",
+          "Athreya Mukherjee Mukherjee Johnson graph s=1 cover time arxiv:2304.01145"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Equation (7) of Adler–Ross gives the exact iid uniform-packet expected time; finite rational checks confirm but do not create novelty."
+        ],
+        "reasoning": "This claim is a universal process identity and threshold in n,r, not a missing numerical table. The earlier exact iid expectation is explicitly not claimed as new.",
+        "searches": [
+          "Johnson graph one element replacement coupon collector all labels discovered exact cover time ordinary coupon collector adaptive eviction versus iid uniform packets comparison",
+          "Adler Ross 2001 formula (7)",
+          "Resultary reset coupon rate record 2026/9/17"
+        ]
+      },
+      "rationale": "The independent packet inclusion-exclusion formula is prior Adler–Ross; the assessed new result is the full adaptive replacement coupon-law identity and complete strict finite (n,r) sign reversal. Closely related Johnson-walk conjectures and iid subset collectors do not state these additional results in the inspected material.",
+      "residual_risks": [
+        "General old subset-coupon collector inequalities beyond the three inspected primary papers could imply the mean bound; search nonmatches do not prove priority.",
+        "The explicit iid mean inclusion-exclusion formula is previously known (Adler–Ross eq. 7); it is auxiliary and not the alleged new contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No exact adaptive eviction-invariant s=1 cover-time law or strict finite comparison stated in the read results.",
+          "evidence": [
+            "Conjecture 2.4; Theorem 2.5; publisher main theorem and model sections"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10959-025-01417-w; https://arxiv.org/abs/2304.01145",
+          "material_read": "Accessible complete 2025 journal HTML model, main results and discussion; arXiv theorem and conjecture sections, especially Conjecture 2.4 and Theorem 2.5",
+          "method": "Compared general s=r proved setting and s=1 conjectural asymptotic against exact all-n all-r adaptive conclusion",
+          "title": "On a Generalisation of the Coupon Collector Problem",
+          "trigger": "Original same Johnson-graph replacement and dependent s-subset cover process"
+        },
+        {
+          "assessment": "Equation (7) is prior and acknowledged; does not study eviction-adaptive Markov packet replacement.",
+          "evidence": [
+            "Section 2.3 equation (7), printed pp. 737–739"
+          ],
+          "identifier_or_url": "https://adler.ieor.berkeley.edu/ilans_pubs/coupons_2001.pdf",
+          "material_read": "Author-hosted complete ten-page primary PDF model and Section 2.3, equation (7), including page containing the formula",
+          "method": "Read the original iid packet model, examined finite-expectation inclusion-exclusion and checked scope of compared model",
+          "title": "The Coupon Subset Collection Problem",
+          "trigger": "Direct older exact iid uniform packet expectation identity could cover part of final display"
+        },
+        {
+          "assessment": "Models independent X_i sampled with the same subset distribution. Its asymptotic independent k-packet concentration theorem does not entail the exact nonanticipating-dependent replacement law or finite all-(n,r) reversal.",
+          "evidence": [
+            "arXiv:1601.04455 pp. 1, 10, 15; Theorems 3.6–3.7"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1601.04455",
+          "material_read": "Original 30-page PDF definition/abstract, Theorems 3.6–3.7, Section 3.2 and comparison proof around pp. 10, 15",
+          "method": "Read definitions and theorem/proof scope, including exact iid independence assumption and k-uniform asymptotics",
+          "title": "Speed and concentration of the covering time for structured coupon collectors",
+          "trigger": "Potential broad exact iid packet or dependent replacement coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dependent Johnson-graph individual-label cover process was explicitly raised as a natural case in existing work. Its complete distribution under arbitrary nonanticipating eviction and the exact sign boundary comparing it to iid packets are a useful all-parameter solution, revealing a nontrivial reversal at both extreme packet sizes rather than a tiny numerical improvement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No statement for collection of all s-subsets with s>=2.",
+    "The eviction is nonanticipating and incoming label uniform from the current packet's complement prior to eviction.",
+    "Finite rational checks cannot prove the universal adaptive statement."
+  ],
+  "schema_version": 1
+}

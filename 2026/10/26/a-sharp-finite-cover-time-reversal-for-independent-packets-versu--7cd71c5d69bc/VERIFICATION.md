@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify_coupon_comparison.py` using standard-library Python 3 in the directory of the accompanying files.
+## correctness
 
-The executed test printed:
+PASS
 
-```
-PASS: 1736 exact occupancy/coupling assertions; 1011 exact expected-time and drift assertions; total 2747.
-```
+An as-yet-unseen initial complement label is never in the current r-packet, so the next incoming uniform draw, conditional on complete history and eviction, hits each of k unseen labels with probability 1/m. This makes the cumulative-seen-set Markov transition kernel exactly the coupon collector kernel, independent of the eviction policy; waiting times yield 1+mH_m, variance m²H_m^(2)-mH_m, and inclusion-exclusion CDF. For independent packets, J newly hit among k missing has hypergeometric expectation rk/n. V(k)=(n/r)H_k has conditional decrement >= (n/r)J/k and hence expected at least 1, strictly >1 from initial state when r,m>=2 because P(J>=2)>0; optional stopping of finite positive expected cover time gives E(T_iid)<1+(n/r)H_m<=1+mH_m. If r=1, direct harmonic subtraction is H_(n−1)>0; if m=1, replacement needs one move whereas iid succeeds geometrically at rate r/n. Separately derived exact rational iid expectation dynamic recurrence for all 105 pairs 2<=n<=15; all signs match. No stochastic-order comparison for entire distributions is claimed.
 
-The code independently enumerates the discovered-label set distributions under four deterministic eviction policies (including ones depending on the current coverage and time) for populations from three through six labels, then compares those laws with coupon collection on the initially missing labels. It uses exact `fractions.Fraction` and checks all admissible packet sizes. It separately computes independent-packet expected completion times by an exact absorbing-state recurrence and by inclusion–exclusion for populations from two through sixteen labels, validates the strict classification, and tests the superharmonic drift inequality at every relevant finite state.
+## originality
 
-Finite computations do not prove claims for unrestricted sizes or all possible policies. The proof uses a conditional transition-kernel identity and a strict potential drift calculation for those universal conclusions. No external independent audit was performed.
+PASS
+
+The independent packet inclusion-exclusion formula is prior Adler–Ross; the assessed new result is the full adaptive replacement coupon-law identity and complete strict finite (n,r) sign reversal. Closely related Johnson-walk conjectures and iid subset collectors do not state these additional results in the inspected material.
+
+## value
+
+PASS
+
+The dependent Johnson-graph individual-label cover process was explicitly raised as a natural case in existing work. Its complete distribution under arbitrary nonanticipating eviction and the exact sign boundary comparing it to iid packets are a useful all-parameter solution, revealing a nontrivial reversal at both extreme packet sizes rather than a tiny numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
