@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T14:42:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/secure-connected-domination-of-complete-prisms-exact-cardinality--148df7e17e18/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/secure-connected-domination-of-complete-prisms-exact-cardinality--148df7e17e18/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/secure-connected-domination-of-complete-prisms-exact-cardinality--148df7e17e18/REVIEW.md",
+        "Independent labelled subset enumeration and independent defender search for n=3,4,5,6 reproduced 22,123,636,3001 sets and minimal polynomials.",
+        "Manually checked n=3 coincidence of four-sets and n+1 singleton/full cases gives 15 minimal sets.",
+        "Read source verify.py fully and compared its domination normalization to independent code."
+      ],
+      "rationale": "Every selected set meeting both complete layers is connected iff it has at least one selected cross-matching edge, equivalent to A intersect B nonempty. Selection confined to one layer is not secure since an omitted opposite vertex has only its paired partner as defender and its swap destroys connectivity. If both layers have at least two selected vertices, for every outside u its same-layer defender can be chosen without removing the last selected matching bridge. A singleton layer is secure only when the other layer is full: otherwise swapping the sole selected singleton to an omitted same-layer index kills every selected bridge; if the opposite layer is full the swap to any outside same-layer vertex succeeds. All-set polynomial subtracts disjoint pairs of sizes >=2 and adds n singleton/full-layer patterns on each side; minimal four-sets count C(n,2)(2n-3), and singleton/full layers supply 2n more, with n=3 degree collision. Independently enumerated all 2^(2n) selections and all legal one-vertex defenders n=3..6 and recomputed minimality (22,123,636,3001 SCD sets). This supports but does not replace the uniform combinatorial proof.",
+      "residual_risks": [
+        "Definition is single-vertex replacement preserving both connectedness and closed-neighborhood domination, not defensive alliance, eternal security or secure total domination.",
+        "n=3 minimality polynomial has both contributions at z^4; avoiding a false distinct-size assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2014 primary establishes the general definition and a defender criterion, not this complete graph Cartesian-product enumerator.",
+          "The 2015 source analyzes graph joins/lexicographic compositions, operations which do not directly make K_n□K2 a covered family.",
+          "2020 work concerns ladders P_n□K2 and complexity, not two matched complete cliques."
+        ],
+        "reasoning": "General defender tests provide a framework but not the exact iff for A,B, the closed enumerator or unbounded minimality gap.",
+        "searches": [
+          "Cabaro Canoy Aniversario Secure Connected Domination in a Graph 2014",
+          "Cabaro Canoy Secure Connected Dominating Sets in the Join and Composition of Graphs 2015",
+          "Pavan Kumar Reddy Arumugam Algorithmic Complexity of Secure Connected Domination in Graphs arXiv:2002.00713"
+        ]
+      },
+      "checked_sources": [
+        "https://www.m-hikari.com/ijma/ijma-2014/ijma-41-44-2014/cabaroIJMA41-44-2014.pdf",
+        "https://www.m-hikari.com/ijma/ijma-2015/ijma-25-28-2015/p/cabaroIJMA25-28-2015.pdf",
+        "https://arxiv.org/abs/2002.00713",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cabaro 2014 general defender criterion would require a fresh graph-specific matching-bridge case analysis.",
+          "Join/composition classifications and Roman{3} weight distribution do not imply ordinary secure connected dominating-set enumeration under swap."
+        ],
+        "reasoning": "No checked stronger theorem specializes to the displayed bivariate polynomial or inclusion-minimal polynomial; possible historical differently named prism classification remains a risk.",
+        "searches": [
+          "https://www.m-hikari.com/ijma/ijma-2014/ijma-41-44-2014/cabaroIJMA41-44-2014.pdf",
+          "https://www.m-hikari.com/ijma/ijma-2015/ijma-25-28-2015/p/cabaroIJMA25-28-2015.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Selected matching edge A∩B is equivalent to connectedness for nonempty layers.",
+          "Secure alliance / secure set terminology means a numerical neighborhood inequality, not a legal defender swap; secure total domination also differs."
+        ],
+        "reasoning": "All equivalent bivariate/layer-coded presentations were considered; counted only the original replacement predicate.",
+        "searches": [
+          "secure connected dominating sets replacement guards K_n Cartesian K2",
+          "secure connected domination polynomial complete prism two cliques matching",
+          "Resultary: secure connected domination complete prism K_n cartesian K_2 single vertex replacement polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Roman{3}-domination of K_n□K2 is genuinely the same graph but different admissible labelings and objective.",
+          "Independent n=3..6 table agrees but does not establish all-n novelty."
+        ],
+        "reasoning": "No directly corresponding SCD full counting/miminality table found; the statement is uniform in n with exact bivariate counts.",
+        "searches": [
+          "SCD number complete prism K_n square K2 table",
+          "Resultary Roman 3 domination complete prisms",
+          "complete multipartite secure connected domination polynomial"
+        ]
+      },
+      "rationale": "Cabaro–Canoy–Aniversario (2014) introduces the same secure connected dominating predicate and defender condition; Cabaro–Canoy (2015) studies joins and graph compositions rather than the Cartesian complete prism K_n □ K_2. Pavan Kumar et al consider ladder P_n □ K_2, not this family. Resultary includes Roman{3}-domination of K_n □ K_2 (same graph, different objective) and secure-total/domination polynomials of complete multipartite graphs (different graph and security). The exact complete-prism SCD classification and minimality gap are not consequences of the inspected results.",
+      "residual_risks": [
+        "Unindexed complete-prism secure-connected-domination studies could contain this exact classifying polynomial or some special n cases.",
+        "Some papers use the phrase secure domination for a different defensive-alliance predicate; false equivalences must be avoided."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_DEFINITION_NOT_COMPLETE_PRISM_ENUMERATION",
+          "evidence": "Defines secure connected domination and general lemmas; no all-n K_n □ K2 bivariate polynomial or minimality gap.",
+          "identifier_or_url": "https://www.m-hikari.com/ijma/ijma-2014/ijma-41-44-2014/cabaroIJMA41-44-2014.pdf",
+          "material_read": "Complete original PDF including SCD definition, defender condition, principal general statements; PDF screenshot inspected",
+          "method": "Read full primary PDF and inspect page image",
+          "title": "Cabaro, Canoy and Aniversario, Secure Connected Domination in a Graph",
+          "trigger": "Same exact replacement definition"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_OPERATIONS",
+          "evidence": "Join and lexicographic composition do not directly describe the matching-bridge Cartesian complete prism.",
+          "identifier_or_url": "https://www.m-hikari.com/ijma/ijma-2015/ijma-25-28-2015/p/cabaroIJMA25-28-2015.pdf",
+          "material_read": "Full PDF including join/composition formula conditions; relevant page screenshot inspected",
+          "method": "Read primary PDF and inspect page image",
+          "title": "Cabaro and Canoy, Secure Connected Dominating Sets in the Join and Composition of Graphs",
+          "trigger": "Potential general product graph domination theorem"
+        },
+        {
+          "assessment": "LADDER_NOT_COMPLETE_PRISM",
+          "evidence": "P_n □ K2 is not K_n □ K2 for n>=4.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.00713",
+          "material_read": "Accessible abstract and research description (ladder and complexity), not entire body",
+          "method": "Read public accessible source summary",
+          "title": "Pavan Kumar, Reddy and Arumugam, Algorithmic Complexity of Secure Connected Domination in Graphs",
+          "trigger": "Same security predicate and prism-adjacent ladder family"
+        },
+        {
+          "assessment": "DIFFERENT_DOMINATION_STATISTIC",
+          "evidence": "Roman{3} weights do not determine secure single-swap connected dominating subsets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2",
+          "material_read": "Resultary published finding title, mathematical summary and explicit weighted Roman domination definition; not full proof",
+          "method": "Read indexed published record summary",
+          "title": "Roman {3}-domination of complete prisms",
+          "trigger": "Same graph and a plausible dominating-family table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/secure-connected-domination-of-complete-prisms-exact-cardinality--148df7e17e18/RESULT.md",
+        "https://www.m-hikari.com/ijma/ijma-2014/ijma-41-44-2014/cabaroIJMA41-44-2014.pdf",
+        "https://www.m-hikari.com/ijma/ijma-2015/ijma-25-28-2015/p/cabaroIJMA25-28-2015.pdf",
+        "https://arxiv.org/abs/2002.00713"
+      ],
+      "rationale": "The family K_n□K2 is a canonical, connected, n-regular graph with a thin matching bridge between highly connected layers. Classifying every secure connected dominating set and all inclusion-minimal ones makes a natural replacement-security distinction exact; γ_sc=4 but maximal minimal cardinality n+1 gives an unbounded, mathematically motivated gap within a highly symmetric graph family. The enumerator contains more information than a textbook bound on domination number.",
+      "residual_risks": [
+        "The proof uses elementary clique/matching case analysis; importance rests on the structural all-n characterization and minimality gap, not algorithmic complexity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all n>=3, S subset K_n square K_2 is secure connected dominating iff layer index sets A,B share a matching index and either both have >=2 members, or one is singleton and other full. The bivariate SCD polynomial is the size>=2 independent-clique product minus disjoint A,B pairs plus n(xy^n+x^ny). Inclusion-minimal cardinality polynomial is C(n,2)(2n-3)z^4+2nz^(n+1), giving gamma_sc=4 and max minimal size n+1.",
+  "limitations": [
+    "Definition is single-vertex replacement preserving both connectedness and closed-neighborhood domination, not defensive alliance, eternal security or secure total domination.",
+    "n=3 minimality polynomial has both contributions at z^4; avoiding a false distinct-size assertion.",
+    "Unindexed complete-prism secure-connected-domination studies could contain this exact classifying polynomial or some special n cases.",
+    "Some papers use the phrase secure domination for a different defensive-alliance predicate; false equivalences must be avoided.",
+    "The proof uses elementary clique/matching case analysis; importance rests on the structural all-n characterization and minimality gap, not algorithmic complexity."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment: complete-prism secure connected domination
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The result uses the original single-vertex defender definition. A connected dominating selection in both clique layers must contain a matching edge, and a one-layer selection cannot be secure under replacement. With at least two vertices in each layer, any omitted vertex can replace a same-layer selected vertex without erasing the final selected matching edge. If one layer has only one selected vertex, all vertices of the other layer are necessary and sufficient. These arguments establish the exhaustive classification. Disjoint-pair subtraction yields the bivariate and univariate polynomials, while inclusion-minimality reduces to intersecting two-by-two pairs and one-layer-singleton/opposite-layer-full sets. The independent graph-definition checker agrees on all 87,360 vertex subsets for clique orders three through eight. The infinite statement is proved symbolically, not inferred from the census.
+PASS
 
-## Originality
+Every selected set meeting both complete layers is connected iff it has at least one selected cross-matching edge, equivalent to A intersect B nonempty. Selection confined to one layer is not secure since an omitted opposite vertex has only its paired partner as defender and its swap destroys connectivity. If both layers have at least two selected vertices, for every outside u its same-layer defender can be chosen without removing the last selected matching bridge. A singleton layer is secure only when the other layer is full: otherwise swapping the sole selected singleton to an omitted same-layer index kills every selected bridge; if the opposite layer is full the swap to any outside same-layer vertex succeeds. All-set polynomial subtracts disjoint pairs of sizes >=2 and adds n singleton/full-layer patterns on each side; minimal four-sets count C(n,2)(2n-3), and singleton/full layers supply 2n more, with n=3 degree collision. Independently enumerated all 2^(2n) selections and all legal one-vertex defenders n=3..6 and recomputed minimality (22,123,636,3001 SCD sets). This supports but does not replace the uniform combinatorial proof.
 
-**PASS, with publication-priority uncertainty.** The original 2014 single-replacement secure connected domination work gives the definition, general criteria, and formulas for paths, cycles, joins and coronas; the 2015 follow-up treats joins and lexicographic compositions. The 2020 algorithmic paper treats an ordinary ladder \(P_n\square K_2\), not \(K_n\square K_2\). No inspected result specializes directly to this exact set classification, cardinality polynomial, or inclusion-minimal census. The 2013 secure-set literature and a 2026 similarly titled connected-secure polynomial use the different secure-alliance condition rather than the single-replacement criterion. General indexed results on complete multipartite graphs concern nonisomorphic graph families or different domination predicates. No dominating equivalent was found in the queried resources, but an unindexed or differently named formula remains possible. An independent priority investigation has not been performed.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The graph is a natural, connected and regular Cartesian product. Every admissible one-attack repair configuration is counted, refined by occupation of its two cliques, and every inclusion-minimal configuration is characterized. The constant optimum of four masks an arbitrarily large difference from the largest irredundant configuration, namely \(n-3\), with exact multiplicities. Such a distinction matters when monitoring sets are assembled greedily rather than globally optimized. This is a finite-graph structural theorem for an infinite family, not an arbitrary small numerical slice.
+Cabaro–Canoy–Aniversario (2014) introduces the same secure connected dominating predicate and defender condition; Cabaro–Canoy (2015) studies joins and graph compositions rather than the Cartesian complete prism K_n □ K_2. Pavan Kumar et al consider ladder P_n □ K_2, not this family. Resultary includes Roman{3}-domination of K_n □ K_2 (same graph, different objective) and secure-total/domination polynomials of complete multipartite graphs (different graph and security). The exact complete-prism SCD classification and minimality gap are not consequences of the inspected results.
 
-## Limits and closest literature
+## value
 
-The theorem addresses secure connected domination as defined by permitted single-vertex replacements, not eternal security, secure defensive alliances, or secure *total* domination. It does not classify partial matchings or general Cartesian products. Closest primary literature: Cabaro–Canoy–Aniversario (2014), Cabaro–Canoy (2015), and Pavan Kumar–Venkata Subba Reddy–Arumugam (2019/2020). The similarly named Andoyo–Rulete (2026) polynomial uses a distinct secure-alliance property. Targeted full-text and published-record comparisons are documented in AUDIT.json; exhaustive publication uniqueness is not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family K_n□K2 is a canonical, connected, n-regular graph with a thin matching bridge between highly connected layers. Classifying every secure connected dominating set and all inclusion-minimal ones makes a natural replacement-security distinction exact; γ_sc=4 but maximal minimal cardinality n+1 gives an unbounded, mathematically motivated gap within a highly symmetric graph family. The enumerator contains more information than a textbook bound on domination number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

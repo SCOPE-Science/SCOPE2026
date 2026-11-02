@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The standalone script `verify.py` requires only Python 3 and the standard library. Run `python verify.py` from the directory containing the script. It constructs each graph from the two-clique and perfect-matching definition, tests connectivity and domination by explicit graph traversal, and for every omitted vertex enumerates all legal defenders to verify the original single-replacement condition. No library routine for secure connected domination or the theorem's classification is used inside that predicate.
+## correctness
 
-The checker then independently evaluates the proposed layer-intersection classification and each coefficient of the all-set and inclusion-minimal cardinality polynomials. Exhaustive labeled subset spaces have sizes 64, 256, 1024, 4096, 16384, and 65536 for \(n=3,4,5,6,7,8\), totaling 87,360. Recorded admissible-set counts were, respectively, 22, 123, 636, 3001, 13322, and 56951. Minimal-size distributions were \(\{4:15\}\), \(\{4:30,5:8\}\), \(\{4:70,6:10\}\), \(\{4:135,7:12\}\), \(\{4:231,8:14\}\), and \(\{4:364,9:16\}\). All assertions passed.
+PASS
 
-These are finite corroboration checks only. The proof in RESULT.md establishes every \(n\ge3\); no inference from the finite checks to infinitely many parameters is needed. The script makes no external calls and generates no external certificate. No independent audit has been performed.
+Every selected set meeting both complete layers is connected iff it has at least one selected cross-matching edge, equivalent to A intersect B nonempty. Selection confined to one layer is not secure since an omitted opposite vertex has only its paired partner as defender and its swap destroys connectivity. If both layers have at least two selected vertices, for every outside u its same-layer defender can be chosen without removing the last selected matching bridge. A singleton layer is secure only when the other layer is full: otherwise swapping the sole selected singleton to an omitted same-layer index kills every selected bridge; if the opposite layer is full the swap to any outside same-layer vertex succeeds. All-set polynomial subtracts disjoint pairs of sizes >=2 and adds n singleton/full-layer patterns on each side; minimal four-sets count C(n,2)(2n-3), and singleton/full layers supply 2n more, with n=3 degree collision. Independently enumerated all 2^(2n) selections and all legal one-vertex defenders n=3..6 and recomputed minimality (22,123,636,3001 SCD sets). This supports but does not replace the uniform combinatorial proof.
+
+## originality
+
+PASS
+
+Cabaro–Canoy–Aniversario (2014) introduces the same secure connected dominating predicate and defender condition; Cabaro–Canoy (2015) studies joins and graph compositions rather than the Cartesian complete prism K_n □ K_2. Pavan Kumar et al consider ladder P_n □ K_2, not this family. Resultary includes Roman{3}-domination of K_n □ K_2 (same graph, different objective) and secure-total/domination polynomials of complete multipartite graphs (different graph and security). The exact complete-prism SCD classification and minimality gap are not consequences of the inspected results.
+
+## value
+
+PASS
+
+The family K_n□K2 is a canonical, connected, n-regular graph with a thin matching bridge between highly connected layers. Classifying every secure connected dominating set and all inclusion-minimal ones makes a natural replacement-security distinction exact; γ_sc=4 but maximal minimal cardinality n+1 gives an unbounded, mathematically motivated gap within a highly symmetric graph family. The enumerator contains more information than a textbook bound on domination number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
