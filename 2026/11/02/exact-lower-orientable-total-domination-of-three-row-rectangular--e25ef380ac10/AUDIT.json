@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Cycle-supported domination is necessary and sufficient for a valid orientation with a directed total dominating set. Each occupied-column run has a cycle using vertical edges in distinct columns (at least two surplus selections); an adjacent empty endpoint forces a fully selected column and adds another surplus. With r runs, e empty columns and b empty endpoints, e<=2(r-1)+b and surplus>=2r+b, forcing |S|>=n+2. The middle-row-plus-two construction attains equality. Standalone exhaustive subset enumeration checks n=2,...,9, and direct orientation enumeration independently checks n=2,3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Anderson et al., arXiv:2311.16307v1, Theorems 4.3 and 4.5: lower mn/3 and upper m(n+2)/3 for divisible-by-three width.",
+        "Anderson et al., Discrete Applied Mathematics 382 (2026), 48–59, DOI 10.1016/j.dam.2025.11.031: published article metadata and abstract retain grid bounds as a topic."
+      ],
+      "reasoning": "The plausible general grid theorem is stronger in dimensions but too weak at width three to entail exact n+2. The published abstract does not itself certify that the journal text has no strengthening; this is recorded as residual risk.",
+      "searches": [
+        "\"orientable total domination\" \"P_3\" Cartesian 2025 2026",
+        "\"minimum\" \"orientable total domination\" grid",
+        "\"orientable total domination\" \"3\" \"grid\" exact"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2311.16307v1",
+      "https://arxiv.org/abs/2311.16307",
+      "https://arxiv.org/html/2109.14108v1",
+      "https://researchonline.stthomas.edu/esploro/outputs/journalArticle/Orientable-total-domination-in-graphs/991015375967903691"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Anderson et al. establish n <= dom_t(P3 square Pn) <= n+2, leaving two possibilities beyond the lower bound.",
+        "Goto–Kobayashi give connected domination number n, but a selected connected path lacks the mandatory directed-cycle support.",
+        "A different vertex-deletion theorem for orientable total domination concerns chorded cycles with a leaf, not these path-product grids."
+      ],
+      "reasoning": "The new theorem is not a specialization of the available lower bound n, nor of the known upper n+2 alone. Connected domination allows acyclic induced sets and is not equivalent. The prior chorded-cycle vertex-deletion statement neither evaluates nor bounds the three-row path-product family.",
+      "searches": [
+        "arXiv:2311.16307v1 Section 4 Theorems 4.3 4.5",
+        "arXiv:2109.14108v1 Section 1 connected domination of 3 by n grid",
+        "\"open orientable domination\" grid"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Anderson et al., arXiv:2311.16307v1, Introduction: open orientable domination is the earlier name for the same invariant.",
+        "Anderson et al., arXiv:2311.16307v1, Observation 2.1: each selected component needs a cycle."
+      ],
+      "reasoning": "The synonym open orientable domination and the graph-theoretic cyclic-component dominating-set equivalent were checked. Both refer to the same potential orientation constraint. The primary full text has only the weaker three-row grid inequalities, not equality.",
+      "searches": [
+        "\"open orientable domination\" \"P_3\" grid",
+        "\"orientable total domination\" \"3\" \"grid\" exact",
+        "minimum dominating vertex set whose induced connected components each contain a cycle on rectangular grid three rows"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record similarity searches returned adjacent grid matching-complex, general domination, and other graph-product records, not an exact table or theorem for this invariant.",
+        "Goto–Kobayashi, arXiv:2109.14108v1, Section 1: connected domination three-row value n, for a different invariant."
+      ],
+      "reasoning": "The searched equality, alias and neighboring tables did not identify an equivalent exact evaluation. Absence of a hit is not proof of novelty; unindexed exact tables remain possible.",
+      "searches": [
+        "orientable total domination number of three-row rectangular grids P3 times Pn equals n plus 2",
+        "open orientable domination n by 3 grid two extra vertices cycle supporting domination",
+        "minimum cyclic dominating set three row rectangular grids orientable open domination"
+      ]
+    },
+    "rationale": "The 2023 primary paper gives an explicit n to n+2 gap for three-row grids (Theorems 4.3 and 4.5); the present all-width lower bound is not a direct consequence of either. Connected domination results concern a distinct cycle-free admissible class. No equivalent statement was identified among the primary text and available mathematical-record results, although priority remains uncertain.",
+    "residual_risks": [
+      "An unindexed or differently described equivalent exact three-row formula may exist.",
+      "The final peer-reviewed journal text of the 2023 preprint was not independently read; its abstract alone cannot establish noncoverage.",
+      "The present proof and code have self-review only, not independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes two separate bounds n and n+2, not equality; selected-component cycle condition is credited.",
+        "evidence": "arXiv:2311.16307v1, dated 2023-11-27; Section 4, Theorems 4.3 and 4.5.",
+        "identifier_or_url": "https://arxiv.org/html/2311.16307v1",
+        "material_read": "Definitions, Observation 2.1, Section 4 including Lemma 4.2, Theorems 4.3, 4.5 and nearby cases",
+        "method": "Full-text HTML read and mathematical comparison of statements and proof boundaries",
+        "title": "Orientable total domination in graphs",
+        "trigger": "Same invariant, exactly the same rectangular-grid family"
+      },
+      {
+        "assessment": "Its exact connected-domination values do not require cyclic components and do not imply orientable total domination.",
+        "evidence": "arXiv:2109.14108v1, 2021-09-29, Section 1 and Section 2.",
+        "identifier_or_url": "https://arxiv.org/html/2109.14108v1",
+        "material_read": "Full-text introduction, definitions, Theorem 1.1 and the explicit three-row case in the prior-results comparison",
+        "method": "Full-text HTML read and comparison of admissible set conditions",
+        "title": "Connected domination in grid graphs",
+        "trigger": "Potential stronger all-grid exact result on closely related domination problem"
+      },
+      {
+        "assessment": "Abstract mentions bounds for grid graphs; journal full text not independently verified against the arXiv preprint.",
+        "evidence": "Discrete Applied Mathematics 382 (2026), 48–59; published March 31, 2026.",
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2025.11.031",
+        "material_read": "Publication metadata and publicly accessible abstract; underlying arXiv full text inspected separately",
+        "method": "Bibliographic comparison, not publisher full-text assessment",
+        "title": "Orientable total domination in graphs (journal article)",
+        "trigger": "Published version of the original arXiv preprint"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e25ef380-ac10-43f8-a9d6-34db6e9a9378",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact all-width evaluation for a canonical grid family closes a stated two-unit range in the 2023 primary paper. The column-gap/surplus proof gives a structural reason for an orientation-constrained invariant exceeding ordinary connected domination. The result is natural and infinite, although it does not evaluate wider or cylindrical grids.",
+    "status": "PASS"
+  }
+}
