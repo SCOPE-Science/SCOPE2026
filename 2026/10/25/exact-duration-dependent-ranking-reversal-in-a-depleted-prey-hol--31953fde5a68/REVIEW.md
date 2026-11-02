@@ -1,11 +1,21 @@
-# Review of the sharp feeding-trial ranking threshold
+# Independent mathematical audit
 
-**Correctness — PASS.** From the two integrated Holling-II survivor laws, subtracting at equal catches forces the common survivor identity and then the exact threshold. Conversely, the threshold constructs a unique equal survivor for both laws. There is exactly one initial-stock root for each fixed duration, and the catch ordering follows from low-density scalar-flow comparison, a high-stock positive comparison anchor, uniqueness of the zero, and continuity. The strictly increasing Bernoulli-type threshold proves existence and uniqueness of a positive time reversal. The Lambert-\(W\) formula uses the correct principal real branch; the other branch encodes time zero. The script independently checks inversions and numerical examples. The theorem does not claim random-prey enumeration, coupled predator dynamics, or empirical validation.
+## correctness
 
-**Originality — PASS with residual access risk.** The original prey-depletion equation, the type-II functional response, and Lambert-\(W\) inversion are all explicitly credited. The relevant full text of Rosenbaum–Rall (2018) addresses parameter estimation and depletion but not the two-assay sharp duration-versus-stock ranking law. The Oaten–Murdoch (1975) paper concerns switching among prey types in one predator's diet, not comparing the catches of two separately assayed predators. Rogers (1972) remains a substantial inaccessible primary antecedent; a hidden comparator there or in scalar-flow comparison theory cannot be excluded. Dedicated searches and the named nearest database findings yielded no statement that implies the sharp threshold, but negative search results are not treated as mathematical novelty proof.
+PASS
 
-**Value — PASS.** Ecological feeding trials usually compare cumulative catches after fixed durations, rather than instantaneous rates. Changing the trial duration can reverse the ranking of two agents even though each agent's search and handling parameters are held fixed. The exact elementary initial-stock threshold and unique temporal reversal provide a quantitative, falsifiable experimental-design criterion across the entire two-parameter crossing-tradeoff regime; this is more than a reparameterization of the standard single-agent Rogers formula.
+Integrating dN/dt=-N/(c+hN) gives T=c log(N0/N)+h(N0-N) and a unique survivor. Equality of survivors yields Nc log(N0/N)=N0-N and T=q log(N0/N), hence necessary-and-sufficient threshold. Continuous dependence and the unique threshold plus low-stock and high-stock scalar comparison determine strict signs. The function s/(1-e^-s) is strictly increasing from 1 to infinity and selects one positive switch; W0 yields u in (0,1), while W_{-1} corresponds to T=0. Independent numerical inversion gives threshold 2.5059407020437066 and correct signs on either side.
 
-**Scientific limits.** Separate deterministic assays, no common predator competition or prey regeneration; strict tradeoff required. Existing published model equations and inversion are not new. Missing full texts create residual historical coverage risk, and no independent reviewer has assessed the work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rogers depletion equation and Lambert-W inversion are known; Rosenbaum–Rall studies parameter estimation for the same ODE. Inspected text does not establish an explicit two-assay duration/initial-stock threshold or a unique cumulative-ranking reversal. Possible appearance of this simple crossing-comparison consequence in older functional-response literature is a real priority risk.
+
+## value
+
+PASS
+
+The exact threshold determines when measured cumulative consumption rankings can reverse with duration, relevant to interpretation/design of closed feeding assays. It is a complete necessary/sufficient prediction for a motivated parametric tradeoff, although it neither models coupled predators nor measures empirical uncertainty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

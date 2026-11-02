@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic proof in RESULT.md uses integrated survivor equations, a necessary-and-sufficient equality criterion, continuous sign classification, and a strictly increasing universal threshold; no finite tests are promoted to continuum proof.
+# Independent mathematical audit
 
-Reproduction: run `python3 verify.py` with Python 3.9+ and no third-party packages. The fixed-seed program checks 700 parameter quadruples of strict tradeoffs; for each it independently inverts the exact survivor equations at the predicted equality stock and at points on either side, tests 1,400 strict comparisons, and checks the threshold value and near-zero series. Numeric bisection and finite sampling test arithmetic implementation only; they cannot establish global novelty or mathematical correctness for all real parameters.
+## correctness
 
-Source access limits: Rosenbaum–Rall (2018) relevant full-text sections were available in HTML. Older Rogers (1972) and Oaten–Murdoch (1975) were available only at abstract/metadata level; an institutional full-text retrieval was not available. The primary comparison therefore retains explicit originality risk. Independent audit: not performed.
+PASS
+
+Integrating dN/dt=-N/(c+hN) gives T=c log(N0/N)+h(N0-N) and a unique survivor. Equality of survivors yields Nc log(N0/N)=N0-N and T=q log(N0/N), hence necessary-and-sufficient threshold. Continuous dependence and the unique threshold plus low-stock and high-stock scalar comparison determine strict signs. The function s/(1-e^-s) is strictly increasing from 1 to infinity and selects one positive switch; W0 yields u in (0,1), while W_{-1} corresponds to T=0. Independent numerical inversion gives threshold 2.5059407020437066 and correct signs on either side.
+
+## originality
+
+PASS
+
+Rogers depletion equation and Lambert-W inversion are known; Rosenbaum–Rall studies parameter estimation for the same ODE. Inspected text does not establish an explicit two-assay duration/initial-stock threshold or a unique cumulative-ranking reversal. Possible appearance of this simple crossing-comparison consequence in older functional-response literature is a real priority risk.
+
+## value
+
+PASS
+
+The exact threshold determines when measured cumulative consumption rankings can reverse with duration, relevant to interpretation/design of closed feeding assays. It is a complete necessary/sufficient prediction for a motivated parametric tradeoff, although it neither models coupled predators nor measures empirical uncertainty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
