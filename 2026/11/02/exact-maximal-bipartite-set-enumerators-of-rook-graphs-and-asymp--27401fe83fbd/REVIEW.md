@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The selected-cell/bipartite equivalence is established directly, all maximal patterns are exhausted by the underfull-row/underfull-column argument, and every counted contribution has a bijective interpretation. The labeled alternating-cycle component count gives \(A_r\), and coefficient transfer proves the first-order asymptotic bias. The independently reconstructed graph test verifies 104272 finite vertex subsets; it is corroboration, not an infinite proof. The boundary \(r=2\) is handled by \(A_1=0\).
+
+**Originality — PASS, with stated residual risk.** Bachstein–Goddard (2023), Observations 13–14 already imply the qualitative incidence equivalence and extremal rook sizes; those are credited and not claimed as new. The assessed claim is instead the complete labeled cardinality multiplicities on all rectangular boards and the asymptotic 50:50 split with its \(1/(8r)\) bias. The 2019 well-bicovered full preprint and the 2002 general enumeration full text do not state this claim; relevant exact aliases and prior mathematical records were compared. Classical two-factor counts are used as known input. An unindexed equivalent binary-matrix enumeration remains possible.
+
+**Mathematical value — PASS.** Counting all inclusion-maximal induced bipartite subgraphs is a natural refinement of the lower bipartite number studied in the motivating paper and of general counting studies. The formula separates two combinatorially distinct balanced types and quantifies their unexpected asymptotic equidistribution; it determines natural exact multiplicities that the pre-existing scalar and support results leave undetermined. This is an exact structural enumeration, not merely an isolated finite table.
+
+**Closest literature and limitations.** Bachstein–Goddard (2023), *The Lower Bipartite Number of a Graph*, DOI 10.1556/314.2023.00003; Goddard–Kuenzel–Melville (2019), arXiv:1909.07503; Madsen–Nielsen–Skjernaa (2002), DOI 10.7146/brics.v9i17.21735. Publication priority remains provisional. The standalone program establishes finite checks only; asymptotic validity is proved analytically. No external mathematical validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
