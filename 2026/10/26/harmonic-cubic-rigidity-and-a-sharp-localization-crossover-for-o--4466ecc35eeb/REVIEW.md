@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The estimator is reconstructed directly from the central two-point Stiefel formula. Antipodal symmetry removes the even part, orthogonality deletes cross terms in the squared estimate, and complete fourth/sixth spherical pairings yield an exact expectation. Orthogonal trace decomposition gives the strictly positive orientation-variance identity; a basiswise calculation verifies its zero-variance equality case. Rank-one sharpness follows from the exact sixth moment and extremal sixth-coordinate weights. Independent equal-variance evaluation noise contributes the same norm risk to both bases. The quartic example is globally strongly convex because its Hessian is bounded below by half the identity. The standalone rational-pairing verifier passed. Finite tests are not used to establish universal quantifiers.
+PASS
 
-## Originality — PASS (priority-limited)
+The odd central differences isolate delta^2 T[u,u,u]/6. Gaussian spherical pairing identities yield E[T[u,u,u]u]=3t/[n(n+2)] and E[T[u,u,u]^2]=(6||T||_F^2+9||t||^2)/[n(n+2)(n+4)]. The symmetric harmonic decomposition T=H+sym(t⊗I)/(n+2), with orthogonal trace and harmonic pieces, cancels the trace variance to give delta^4||H||_F^2/[6(n+2)(n+4)], nonnegative with equality iff H=0; the zero-variance basiswise identity follows from sum_a (t·u_a)u_a=t. For rank one, sphere sixth moment is 15/[(n+2)(n+4)], while coordinate risk is sum a_i^6; Jensen bounds 1/n^2<=sum a_i^6<=1 prove both sharp orderings. Completing square in s+s^2/2 >=-1/2 proves global strong convexity of the realized quartic. Independent rational exact checks verified crossover for n=2..100 and a rotated pure-trace frame; those samples do not prove arbitrary tensor quantifiers, which follow from complete Gaussian pair partitions.
 
-Feng–Wang (2022) establish the estimator and general variance bounds and provide moment identities; the inspected full-text sections do not state the exact harmonic cubic variance/rigidity or the coordinate-localization crossover. Kozak et al. (2021) address random orthogonal search convergence and use forward directional differences. Berahas et al. (2019) compare gradient approximations and error bounds rather than an exact cubic third-derivative decomposition. The closest mathematical-record hit, *Exact Haar moments remove sampling-dimension restrictions in sparse stochastic subspace descent*, treats second Haar moments and rank-one quadratics, not this sixth-moment finite-difference truncation error. The general sphere-moment machinery makes the special case derivable and leaves a residual risk of prior specialized publication; no proof of worldwide priority is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-A full frame removes the leading random projection variance, but cannot generally remove finite-difference cubic error. The exact nullspace characterizes when basis randomness disappears completely even for a nonzero cubic, while the sharp localization threshold answers which of two equal-evaluation-budget estimators has smaller error at a true strongly convex minimizer. Neither orthogonal-frame randomization nor fixed coordinates uniformly dominates the other; with dense rank-one directions, randomization can cost an asymptotic factor of fifteen, while with sparse directions it can improve the cubic-error risk by a factor growing quadratically in dimension. This is a motivated estimator-design boundary, not a claim about downstream iteration performance.
+The full-frame estimator and spherical moments are prior (Feng–Wang); the reviewed exact harmonic tensor variance identity, nonzero-cubic zero-variance classification, and sharp coordinate-vs-Haar localization crossover require extra contractions and optimization of sixth powers. This is an exact structural refinement, not invention of Haar frame estimators. Closely relevant Feng–Wang full text could not be read in this audit because arXiv/OA full text failed and authorized institutional retrieval required unavailable VPN. The best-of-knowledge PASS remains priority-limited and must not be read as a complete inspection or a novelty certificate.
 
-## Closest literature and residual limitations
+## value
 
-Feng–Wang arXiv:2205.14737v1; Kozak et al. arXiv:2107.03941v1; Berahas et al. arXiv:1905.01332v1. The claim only concerns complete real orthogonal frames, cubic odd parts at a stationary point, exact central differences, and explicitly independent equal-variance oracle noise. General smoothness, incomplete frames, and publication priority outside the inspected sources remain unproved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural estimator design question at a true stationary/minimizing point has a sharp answer: complete orthogonal frames eliminate projection randomness yet retain anisotropic cubic truncation error; random frames help for localized tensor directions but hurt by up to asymptotic factor fifteen for dense rank-one directions. The exact harmonic nullspace and risk crossover distinguish whether randomization is beneficial at equal query count and under equal independent evaluation noise. These are mathematically motivated sharp structural facts rather than a generic second-moment restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
