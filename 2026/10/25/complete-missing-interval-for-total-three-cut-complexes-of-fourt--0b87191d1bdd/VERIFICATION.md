@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite proof checks and reproducibility
 
-From the directory containing the files, compile and execute the complete discrete-Morse face-poset checker:
+# Independent mathematical audit
 
-```sh
-c++ -O2 -std=c++17 -Wall -Wextra tools/verify_morse.cpp -o verify_morse
-./verify_morse 16 20
-```
+## correctness
 
-Its stdout must equal `evidence/verify_morse_output.txt`. It tests all legal faces, all selected face pairs, all face-poset covers and a full Kahn topological ordering. A nonzero exit status signals a failed invariant. The program uses bounded 32-bit masks; all relevant orders are at most 20.
+PASS
 
-Recompute independently the mod-two homology of the Alexander dual by standard-library Python:
+For each n=16..20 independently form all independent triples in C_n^4, propagate supersets to enumerate every face and then perform the exact fixed-coordinate discrete-Morse matching. An independently compiled source program separately topologically sorts ALL oriented Hasse edges for every order: counts for n16..20 are 48380,112438,240902,499624,1020090 nonempty faces, respectively; visit counts include one empty face. Critical cells beyond the unique vertex are respectively 3 degree6,1 degree9,1 degree10,1 degree11,3 degree13, proving the exact claimed sphere-wedge homotopy types without torsion. This is exhaustive only at five stated finite values.
 
-```sh
-python3 tools/verify_dual.py
-```
+## originality
 
-Its stdout must equal `evidence/verify_dual_output.txt`. This program generates the dual's admissible subsets directly, then reduces every mod-two boundary matrix. The reduced dual Betti groups in dimensions \(7,5,5,5,4\) have ranks \(3,1,1,1,3\). This agrees with integral Morse homotopy by combinatorial Alexander duality, but a mod-two check alone could not have proved integral homotopy.
+PASS
 
-The verifier outputs were regenerated from the exact packaged source before packaging. The enumerations exhaust the five orders and do not constitute a proof beyond them. There are no external datasets, computational heuristics or randomized steps.
+Best-of-knowledge originality survives the specific mathematical comparisons documented in the four mandatory checks; limitations remain explicit.
+
+## value
+
+PASS
+
+Closes exactly all five orders expressly posed as Question49 of Carnero Bravo for fourth-power cycle total-three-cut complexes, bridging the known boundary at n15 and proved range n>=21. Full homotopy types, not merely mod2 ranks, resolve a natural explicit gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
