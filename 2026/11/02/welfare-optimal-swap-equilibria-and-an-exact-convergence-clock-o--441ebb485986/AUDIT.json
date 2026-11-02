@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For different-part red/blue swaps, independent direct evaluation yields the same gain (r_i-r_j-1)/[(m-1)k] to both parties. A profitable swap exists exactly when the maximum and minimum red part occupancies differ by at least two. The exact welfare polynomial is a negative quadratic in the occupancy counts, whose integral optimizers are exactly balanced. Combinatorial enumeration gives all stable colorings. In two-seat parts, every move converts one all-minority and one all-majority pair to mixed pairs, so all paths have initial T steps. A multinomial allocation count and indicator moment identities prove the full distribution, expectation, and variance. The supplied independent exact-rational implementation checks 10,048 placements across 63 equal-part cases and 23,520 profitable swap instances across two-seat cases. It separately tests a nonlinear-part-size counterexample and nonunique clock for 3-seat parts. The proof covers all integers in the stated domain; finite experiments are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Agarwal et al. 2019 regular-graph social price of stability equals one, a strict existential statement.",
+        "Bilò et al. 2022 provide global price-of-anarchy bounds and finite-improvement results for regular graphs, but not exact unity for this subfamily nor its clock distribution.",
+        "Kreisel et al. 2021 focus on NP-hardness and robustness."
+      ],
+      "reasoning": "A universal regular-graph potential theorem guarantees monotone progress and an optimal equilibrium but does not imply that all local extrema are global. No inspected stronger statement forces the occupancy spread at most one, enumerates all equilibria, or gives a fixed number of swaps for every choice of moves on the matching complement. Inefficiency examples for other regular graphs do not contradict the special-family optimum.",
+      "searches": [
+        "Schelling swap game complete multipartite graph pure Nash equilibria all socially optimal",
+        "\"Schelling\" \"complete multipartite\" \"price of anarchy\" swap",
+        "\"Schelling swap\" \"complete multipartite\" optimal welfare"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1909.02421",
+      "https://link.springer.com/article/10.1007/s10458-022-09573-7",
+      "https://arxiv.org/abs/2105.06561",
+      "https://arxiv.org/abs/2204.12599 (abstract checked: single-peaked rather than monotone utilities)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Agarwal et al., Swap Stability in Schelling Games on Graphs, arXiv:1909.02421, §§1–4: regular-graph potential and existence/social price of stability.",
+        "Bilò et al., Topological Influence and Locality in Swap Schelling Games, 2022, §§1.2–3.2: regular graph finite improvement and PoA bounds.",
+        "Kreisel et al., Equilibria in Schelling Games: Computational Hardness and Robustness, arXiv:2105.06561, §§1–3: equilibrium complexity and robustness."
+      ],
+      "reasoning": "Agarwal et al. provide the existential implication (global optimum ⇒ equilibrium), whereas the claim additionally proves (equilibrium ⇒ global optimum) on the specified graph family, using the exact move criterion. Bilò et al. show improvement paths terminate, but this does not imply all paths from one state have equal length, still less the full uniform-start distribution. Kreisel et al. do not supply equivalent structural or probabilistic classification.",
+      "searches": [
+        "https://arxiv.org/abs/1909.02421",
+        "https://link.springer.com/article/10.1007/s10458-022-09573-7",
+        "https://arxiv.org/abs/2105.06561"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Agarwal et al. (2019) analyze swap-stability and regular-graph welfare, but not the claimed equal-part multipartite occupancy equivalence.",
+        "Bilò et al. (2022) discuss topology and locality with broad regular graph results, not this specific exact census or hitting-time law."
+      ],
+      "reasoning": "Rewriting the result as discrete balancing of red occupancies, local minimization of a quadratic potential, or segregation on the complement of equal cliques yields an equivalent statement; the public-source search and close full-text examination did not reveal those equivalences as existing theorems. General potential monotonicity alone does not assert absence of suboptimal local maxima.",
+      "searches": [
+        "\"Schelling\" \"complete multipartite\" swap games equilibria social welfare",
+        "\"Schelling\" \"cocktail party\" \"swap\" graph equilibrium",
+        "\"Schelling\" \"regular graphs\" all equilibria social welfare optimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted literature searches for Schelling plus complete multipartite, cocktail-party graph, and price of anarchy returned no exact equilibrium-count or hitting-time table for this model.",
+        "An indexed 2026 result on majority C-colorings of complete multipartite graphs mentions an all-even-parts balanced-coloring count, but uses a different property and does not state a Schelling-swap equilibrium theorem; only its indexed summary was retrievable.",
+        "Direct exact-rational enumeration in verify.py is generated from the definition rather than copied from a published table."
+      ],
+      "reasoning": "The claim describes a parametric infinite family and an exact distribution rather than one tabulated graph statistic. No observed database entry or earlier fixed-size table dominates its all-size formula; the possibility of an unindexed specialist table or manuscript is a residual risk.",
+      "searches": [
+        "\"Schelling\" \"complete multipartite\" swap games equilibria social welfare",
+        "\"Schelling\" \"cocktail party graph\" \"swap\"",
+        "\"complete multipartite\" \"Schelling games\" \"price of anarchy\""
+      ]
+    },
+    "rationale": "The close original literature establishes the regular-graph potential and price of stability one, general finite improvement, and complexity or robustness results. These do not mathematically imply that EVERY equilibrium on equal-part complete multipartite graphs is welfare-optimal, the precise balanced occupancies and closed equilibrium count, or the order-independent two-seat hitting-time distribution. Public targeted searches and semantic indexed-record comparisons did not locate dominating formulations. Unidentified specialist literature remains an explicit priority risk.",
+    "residual_risks": [
+      "An unpublished or unindexed specialist manuscript might contain an equivalent equal-part or cocktail-party statement.",
+      "A related indexed result on majority C-colorings of complete multipartite graphs could not be inspected in complete text; its available abstract concerns a different graph-coloring criterion and is not decisive coverage.",
+      "The published general potential argument is closely related methodologically; the claim of priority concerns the stronger exact classification and hitting-time law, not the potential itself.",
+      "Independent human mathematical and publication-priority audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original defines model and proves optimal equilibria exist on regular graphs, not the equal-part all-equilibria characterization or exact time law",
+        "evidence": "2019-09-05 arXiv posting; introduction and regular-graph price-of-stability result.",
+        "identifier_or_url": "https://arxiv.org/abs/1909.02421",
+        "material_read": "arXiv full-text sections 1, formal model and social-welfare/potential results, including relevant regular-graph price-of-stability theorem",
+        "method": "Read accessible arXiv full text and relevant welfare claims; compared universal quantifiers and directions of implication",
+        "title": "Swap Stability in Schelling Games on Graphs",
+        "trigger": "Original game definition and potential/regular-graph efficiency precedent"
+      },
+      {
+        "assessment": "General regular-graph FIP and welfare efficiency bounds do not give the exact specialized all-equilibria optimum or order-independent clock",
+        "evidence": "2022 article, model around §§1.2–2, regular-graph results §3.2, price-of-stability discussion.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10458-022-09573-7",
+        "material_read": "Full open-access article, specifically model §1.2, convergence §2, general PoA and regular graphs §3.2, and price of stability discussion",
+        "method": "Inspected text and equations for regular graphs and searched complete multipartite/clique terminology",
+        "title": "Topological influence and locality in swap schelling games",
+        "trigger": "Potential stronger regular-graph results and finite-improvement path theorems"
+      },
+      {
+        "assessment": "No asserted all-size equal-part equilibrium enumerator or exact uniform-start swap-length distribution",
+        "evidence": "2021-05-13 arXiv posting, introductory model, hardness and robustness contributions.",
+        "identifier_or_url": "https://arxiv.org/abs/2105.06561",
+        "material_read": "Accessible arXiv full text, introductory and related-work sections and relevant equilibrium/robustness results",
+        "method": "Read arXiv article and compared paper scope with the equal-part theorem, including topology-specific claims",
+        "title": "Equilibria in Schelling Games: Computational Hardness and Robustness",
+        "trigger": "Exact model with potentially stronger characterization on simple graph classes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "441ebb48-5986-4238-a696-cdafbbf3d113",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Identifies a mathematically natural infinite class of densely connected communities in which strict selfish swaps cannot trap the system in a socially suboptimal equilibrium, versus known nontrivial price of anarchy on general regular networks. Gives the complete labeled equilibrium spectrum and a strategy-independent exact convergence-time random variable on the complement-of-matching family, with full distribution, moments and welfare gain. Natural unequal-part and larger-part counterexamples delimit the results. This is a structural finite-population social dynamics classification, not an arbitrary numerical slice or a routine reparameterization.",
+    "status": "PASS"
+  }
+}
