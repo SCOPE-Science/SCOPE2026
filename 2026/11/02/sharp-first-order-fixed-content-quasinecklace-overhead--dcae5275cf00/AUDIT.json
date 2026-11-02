@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Gap representation is bijective with binary quasinecklaces, all cyclic orbits are handled through Burnside, the excess is dominated by two tied maximal gaps, and the beta integral gives the coefficient 1/(2r(r-2)!). Nonidentity rotation contributions have strictly smaller order for every fixed r>=3. Direct exhaustive verification: 502471 checks on actual packaged script.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 Theorem 4 bounds total quasinecklaces by a constant multiple of total necklaces and Corollary 18 proves constant-amortized-time bounded-weight generation.",
+        "The 2026 unrestricted recurrence is exact for total Q_k(n), not an explicit fixed-content formula or sharp fixed-content excess constant."
+      ],
+      "reasoning": "A constant-factor bound does not imply asymptotic ratio one or the positive sharp 1/m coefficient. The full 2026 recurrence can in principle be refined, but does not already state the target implication.",
+      "searches": [
+        "quasinecklace fixed weight asymptotic number 2026 Gabric Sawada runs",
+        "Gabrić--Sawada 2026 Theorem 4, Theorem 9 and Corollary 18",
+        "Sawada--Williams--Wong 2017 pseudonecklaces full text"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.05324 (2026-07-06 source, author-posted primary full text)",
+      "doi:10.1016/j.jda.2017.10.002 (2017 primary full text)",
+      "doi:10.1137/S0097539798344112 (abstract only)",
+      "Semantic research-record searches using fixed-weight quasinecklace, tied-run and cyclic-composition aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 bound Q_k(n)=O(N_k(n)) and weight-constrained generation do not quantify Q_r(m)/N_r(m).",
+        "The 2017 smaller candidate language is not the 2026 language, and fixed-density necklace enumeration only determines the denominator N_r(m)."
+      ],
+      "reasoning": "The sharp coefficient is obtained by a new two-maxima tie count with a separate periodic-orbit error. The earlier theorems allow candidate overhead as large as a nontrivial constant and do not themselves imply the sharp first correction.",
+      "searches": [
+        "2026 Gabric Sawada quasinecklace weight constraint Corollary 18",
+        "2017 colex pseudo-necklaces and fixed-density necklaces",
+        "quasinecklace to necklace fixed composition asymptotic ratio 1 + (r-1)/(2(n-r)) binary q=2 longest run tie"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Binary quasinecklaces with r ones are precisely weak r-part compositions of m with first part maximal; distinct necklace representatives are cyclic gap-tuple orbits.",
+        "2017 pseudo-necklaces use a stronger block-order criterion, and are not identical to 2026 quasinecklaces."
+      ],
+      "reasoning": "Compared not only names but the correspondence of gap-composition orbits to words. The finite exact formula and fixed-r leading excess were not found as an equivalent formulation.",
+      "searches": [
+        "quasinecklaces weight distribution number of fixed weight binary quasinecklaces versus necklaces exact asymptotic 2026 Gabric Sawada",
+        "necklace primitive cyclic weak compositions tied maximum asymptotic formula",
+        "Primary source: arXiv:2607.05324 Definition 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 source prints short examples for unrestricted quasinecklaces and supplies a general recurrence; the 2017 source tabulates pseudo-necklaces instead.",
+        "Classical necklace fixed-content counts follow from cyclic orbit enumeration and do not include extra quasinecklace candidates."
+      ],
+      "reasoning": "No exact database or table with the proposed fixed-content excess formula was identified. Absence from search is a residual priority risk, not uniqueness proof.",
+      "searches": [
+        "Daniel Gabric Joe Sawada 2026 quasinecklace fixed number of 2 symbols exact enumeration and first-order overhead",
+        "binary necklace quasinecklace fixed weight 1+(r-1)/(2n) asymptotic",
+        "OEIS: fixed-density necklace counts and cyclic compositions"
+      ]
+    },
+    "rationale": "The 2026 full-text source proves constant-factor quasinecklace generation and a general recurrence, not the exact fixed-content polynomial coefficient or 1+(r-1)/(2m)+O(m^-2) sharp ratio. Older results concern pseudonecklaces or necklace counts alone. Unindexed equivalent analyses remain possible.",
+    "residual_risks": [
+      "Unindexed fixed-content quasinecklace calculations or previously unpublished derivations may exist.",
+      "The 1999 fixed-density necklace source was available only by abstract; it predates the 2026 quasinecklace class and so is not an exact-coverage candidate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the exact fixed-content ratio or 1/m coefficient; establishes the motivating class and only general constant-factor bound",
+        "evidence": [
+          "Definition 3 is a longest-minimum-run condition; Theorem 4 proves Q_k(n)=O(N_k(n)); Section 4.3 treats bounded-weight generation."
+        ],
+        "identifier_or_url": "arxiv:2607.05324; https://www.researchgate.net/publication/408522101_Necklaces_and_Lyndon_words_in_colexicographic_order",
+        "material_read": "Abstract, definitions in Section 2, Theorem 4, enumeration Lemma 8 and Theorem 9, Section 4.3 weight constraint, final remarks and references",
+        "method": "Author-posted full-text HTML transcription",
+        "title": "Necklaces and Lyndon words in colexicographic order",
+        "trigger": "Introduces quasinecklaces and their candidate-overhead analysis"
+      },
+      {
+        "assessment": "Different auxiliary class; not a fixed-content enumeration of quasinecklaces introduced in 2026",
+        "evidence": [
+          "2017 paper constructs colex pseudo-necklace generator, while the 2026 source explicitly states its quasinecklace family is strictly larger."
+        ],
+        "identifier_or_url": "doi:10.1016/j.jda.2017.10.002; https://www.researchgate.net/publication/320364134_Necklaces_and_Lyndon_words_in_colexicographic_and_binary_reflected_Gray_code_order",
+        "material_read": "Full-text introduction, definitions, colex algorithm description and public code excerpts",
+        "method": "Author-posted full-text HTML transcription",
+        "title": "Necklaces and Lyndon words in colexicographic and binary reflected Gray code order",
+        "trigger": "Earlier colex generation uses pseudonecklaces"
+      },
+      {
+        "assessment": "Counts and generates true necklaces with fixed density; no stated comparison with the newer quasinecklace class",
+        "evidence": [
+          "Abstract states an optimal fixed-density necklace generation algorithm."
+        ],
+        "identifier_or_url": "doi:10.1137/S0097539798344112",
+        "material_read": "Abstract and metadata, not entire article",
+        "method": "SIAM publisher abstract and bibliographic metadata",
+        "title": "An Efficient Algorithm for Generating Necklaces with Fixed Density",
+        "trigger": "Classical exact fixed-content necklace baseline and potential dominant result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dcae5275-cf00-4c20-a739-4c8937f992e4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The new quasinecklace family is used in colex generators, including bounded-weight generation. An explicit finite fixed-content count, the sharp 1/m coefficient and the first exact weight-three failure identify how many false candidates the generator filters, improving a constant-factor guarantee to asymptotic optimality for each fixed content. This is a natural output-sensitive efficiency statistic, not an arbitrary slice.",
+    "status": "PASS"
+  }
+}
