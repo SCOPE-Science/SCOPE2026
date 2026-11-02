@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact identity \(g_Q(z)/4=(1-t^2)/2+(a+b-1)^2/2\), for \(a=|z_1|/2\), \(b=|z_2|/2\), \(a^2+b^2=t^2\) and \(t=W/2\), reduces the fixed-distance overlap minimum to projection of one onto the precise interval \([t,\sqrt2t]\). Both equality regimes and the joining endpoint are exhaustive. The full finite-family plank theorem of Bakaev–Polyanskii, Corollary 7/Lemma 11/Theorem 12 (arXiv:2607.27483), equates the square's optimum with four minus this covariogram minimum. Independently derived uniform-convolution formulas verify centered-plank attainment and show all maximizing single-plank normals and offsets. Exact polygon clipping at the rational witness \(W=10/7\), \(n=(4/5,3/5)\), and six additional rational cases reproduces the formulas; numerical sweeps are corroborative only. No general result rests on finite testing.
+PASS
 
-## Originality — PASS with residual risk
+For |z|=W, t=W/2 and a=|z1|/2,b=|z2|/2, square overlap g_Q(z)=4(1-a)(1-b), a²+b²=t². Completing the square gives g/4=(1-t²)/2+(a+b-1)²/2, while s=a+b ranges over the full interval [t,√2t]. Projection of 1 onto that interval yields the exact minimum and complete directions; branch switch at W=√2. Bakaev–Polyanskii Corollary 7, Lemma 11 and Theorem 12 provide the needed planar general-plank-to-single-plank reduction; square erosion by ±z/2 is exactly g_Q(z). Direct uniform-convolution calculation for the centered plank verifies each optimum and strict center uniqueness. The small phase gap (W-√2)² and square-root angle onset follow by elementary trigonometry. Independent rational polygon clipping and dense angular checks confirm multiple W values, but the all-family conclusion rests on the inspected published reduction, not numerical single-plank optimization.
 
-The closest 2026 planar-plank paper proves existence of a maximizing single plank for general bodies, **not** the optimized square value or direction/equality diagram. The closest published square/cube covariogram result proves the **maximum** at prescribed translation distance, and explicitly disclaims the **minimum**, which is equivalent here to the plank value. A full reading of the latter RESULT.md and the relevant portions of the former was used for implication comparison. Targeted published-record searches for square strip interception, two-square overlap minimization, square-covariogram minimum, the \(\sqrt2\) threshold, and the rotated optimizer uncovered no equivalent claim. General covariogram inverse and translation-Lipschitz sources are materially distinct. The residual risk is an obscure textbook exercise or unindexed geometric-probability account containing the same two-branch minimum and complete optimizer classification; this is not ruled out by search alone.
+## originality
 
-## Value — PASS
+PASS
 
-The recent general theorem leaves the location and value of an optimal plank undetermined. This result evaluates the entire natural width continuum for the canonical centrally symmetric polygon, proves a nontrivial continuous symmetry-breaking transition, and gives an exact loss \((W-\sqrt2)^2\) for retaining diagonal orientation past the threshold. Its equivalence to the previously uncomputed **minimum** of the fixed-length square covariogram makes the exact profile a useful paired benchmark against known maximum-overlap support transitions. It is not an arbitrary sampled width, routine reparametrization of the known maximum, or numerical table.
+The 2026 Bakaev–Polyanskii theorem already establishes that every planar convex body has an optimal single-plank partial covering and supplies the Bang-map reduction. The new square-specific optimum and complete single-plank normal orbit are not asserted there. The most relevant published Resultary hypercube covariogram theorem, read in full, maximizes overlap at fixed distance and explicitly excludes minimization; the present theorem computes the opposite extremum with distinct continuous angle rotation. General covariogram reconstruction theorems give no fixed-distance minimization. Best-of-knowledge PASS with an elementary constrained-optimization historic-priority risk.
 
-## Scientific limits
+## value
 
-The complete family-of-planks conclusion uses a specified, inspected published theorem. The new angle and overlap calculations are analytic and finite-dimensional. The equality classification covers single planks, not every possible optimal union; only squares and widths strictly between zero and two are in scope. Possible unindexed equivalent historical work remains the principal originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The entire natural W∈(0,2) partial-cover profile of the canonical square, with a genuine orientation symmetry-breaking phase transition and equality classification, fills an evaluative gap in the recent general theorem and supplies a benchmark dual to known fixed-distance maximum-overlap results. It is not a contrived width or a reparametrization of the known maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
