@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof establishes both optima for all integers \(r\ge3\), permits fractional nonnegative payments, and checks the zero-valued distinguished item in each comparison. Its key lower-bound step uses equal final perceived utility within a valuation type; the contradiction under total unrestricted subsidy below \(r\) does not depend on integer subsidies. The singleton restriction is handled separately. The standalone program exhausts symmetry-reduced bundle profiles for \(r=2,3,4\) and matches the claimed values for \(r=3,4\), while displaying the necessary exception at \(r=2\).
+
+**Originality — PASS, with residual risk.** The closest comparison is Wu's October 2026 continuous-random square-market coincidence theorem, which does not imply the opposite deterministic binary behavior. Dai et al.'s August 2026 two-type optimization theorem is restricted to singleton house allocation, whereas the new claim requires comparison against unrestricted bundles. General one-dollar subsidy bounds do not fix either of these exact minima. Relevant publication pages and mathematical research records were searched by equivalent formulations and feasible-set implications. An unindexed or inaccessible statement of this same explicit family cannot be ruled out.
+
+**Value — PASS.** The contrast answers a motivated question opened by juxtaposing random-square subsidy coincidence with minimum-subsidy house assignment: how badly can the restriction to one good per agent affect the compensation budget under structured binary values? A linear additive gap, attained with only two types and equal numbers of goods/agents, is a substantive boundary rather than a tiny special-case numerical optimization. It isolates the role of multiple-good bundles and supplies a clean exact benchmark for future approximation and distributional comparisons.
+
+**Closest literature and limits.** Wu (arXiv:2610.10272v1) treats continuous random valuations and shows high-probability equality; Dai et al. (arXiv:2608.22216) treat only one-house allocations. Barman et al. (IJCAI 2022) establish a general upper bound but the complete paper was not retrieved. The new result concerns only one deterministic family and does not characterize the maximum possible gap over all binary instances.
+
+Self-review: passed. Independent audit: not yet performed.

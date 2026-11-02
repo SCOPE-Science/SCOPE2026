@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Two matching constructions and explicit lower bounds prove exact minima for every integer r>=3 and every real nonnegative payment vector. The free-allocation proof handles distinguished-good recipient classes and uses exact equal-utility equations within types; no integrality premise is assumed. Exhaustive quotient enumerations independently match r=3,4 and reveal r=2 as outside scope.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barman et al. IJCAI 2022: an upper bound of one monetary unit per agent under dichotomous valuations, not the two exact optima.",
+        "Dai et al. covers general two-type house allocation optimally but not unrestricted bundles.",
+        "Wu 2026 square case has high-probability equality assuming absolutely continuous draws."
+      ],
+      "reasoning": "Known general existence/payment bounds do not give the exact unrestricted optimum on this family; the singleton optimization theorem is not a theorem for unrestricted bundles, and high-probability equality in a different continuous distribution model cannot imply equality on deterministic binary instances.",
+      "searches": [
+        "Envy-free allocations monetary compensation binary additive valuations graph Hall deficiency minimal total subsidy",
+        "dichotomous valuations unrestricted allocation single-item house allocation monetary compensation separation",
+        "arXiv:2608.22216 Theorems 3.2, 4.5, 5.5",
+        "arXiv:2610.10272v1 Abstract and Section 1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.10272v1 (abstract, introduction, preliminaries, Section 3 retrieved)",
+      "arXiv:2608.22216 (Sections 1–5 main text)",
+      "IJCAI 2022 proceedings/9 (abstract and contribution text)",
+      "Published mathematical research records semantically compared for subsidy gap, house allocation, binary valuation types"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wu explicitly distinguishes unrestricted square optimum from one-good-per-agent optimum and proves their equality with high probability under a continuously distributed i.i.d. valuation model.",
+        "Dai et al. assume each agent gets exactly one house, so no allocation of two goods to one B-agent is in their comparison domain.",
+        "Halpern–Shah difference constraints characterize subsidy feasibility for a fixed allocation without furnishing the explicit paired minima."
+      ],
+      "reasoning": "The published continuous-random equality neither implies nor contradicts a binary deterministic linear gap. Dai et al. imply an algorithm can compute the singleton number, but not the unrestricted number, let alone its exact comparison. The new proof directly establishes both and their linear difference.",
+      "searches": [
+        "arXiv:2610.10272v1 Abstract and Section 1",
+        "arXiv:2608.22216 Sections 2–5",
+        "In square allocation of 2r goods and 2r agents with binary additive valuations, r agents approve only one common good and r agents approve the remaining 2r−1 goods; exact total envy-free external subsidies r for unrestricted bundles versus 2r−1 for singleton house matching, linear separation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wu arXiv:2610.10272v1 states asymptotic equality of unrestricted/singleton square-market subsidies under continuous random values; this is not an exact deterministic binary statement.",
+        "Dai et al., arXiv:2608.22216, Theorems 4.5 and 5.5 optimize subsidies among single-house outcomes only."
+      ],
+      "reasoning": "Compare both optima for precisely the same matrix; the claim is a quantified exact separation, not a synonym for the general upper bound or envy-freeability theorem. The family has two approval types and a complete allocation, but free bundles and one-house outcomes are different feasible sets.",
+      "searches": [
+        "Binary 0 1 valuations fair allocation with subsidies exact minimum total subsidy matching deficiency square number goods agents",
+        "In square allocation of 2r goods and 2r agents with binary additive valuations, r agents approve only one common good and r agents approve the remaining 2r−1 goods; exact total envy-free external subsidies r for unrestricted bundles versus 2r−1 for singleton house matching, linear separation",
+        "single house per agent versus multiple goods envy-free monetary subsidy linear gap binary valuations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published arXiv 2608.22216 Section 4 has algorithms for binary house allocation with few types, no explicit paired unrestricted/singleton exact table for this family in material inspected.",
+        "Independent enumeration for r=2,3,4 gives unrestricted 1,3,4 and singleton 3,5,7."
+      ],
+      "reasoning": "No matching exact pair of optima or dominating table was identified in the queried published research records; this is search evidence and cannot establish uniqueness.",
+      "searches": [
+        "Minimum subsidies identical binary valuations complete bipartite components alternating cycles exact",
+        "block diagonal two complete bipartite approval groups envy free subsidies first counterexample Hall deficiency total compensation",
+        "In square allocation of 2r goods and 2r agents with binary additive valuations, r agents approve only one common good and r agents approve the remaining 2r−1 goods; exact total envy-free external subsidies r for unrestricted bundles versus 2r−1 for singleton house matching, linear separation"
+      ]
+    },
+    "rationale": "Compared statements and implications: Wu square-market equality is probabilistic under continuous i.i.d. values, Dai two-type exact algorithm is singleton-only, and dichotomous per-agent general bounds do not determine the free-versus-singleton gap. No matching linear-gap theorem found in actual checked records; unindexed equivalents remain a risk.",
+    "residual_risks": [
+      "Published mathematical records are not exhaustive; an unindexed equivalent explicit family might exist.",
+      "Wu Section 4 full proof was not retrieved on repeat access; statement and model restrictions are explicit in retrieved abstract and introduction.",
+      "The complete IJCAI 2022 paper was not read, only its primary abstract/contribution statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The manuscript proves high-probability equivalence for continuously distributed i.i.d. valuations. Its quantitative claim is not the deterministic binary exact gap in this finding.",
+        "evidence": [
+          "HTML lines 44–96 identify distributional hypotheses and unrestricted benchmark; lines 69–71 describe the square-case singleton coincidence."
+        ],
+        "identifier_or_url": "arXiv:2610.10272v1, https://arxiv.org/html/2610.10272v1",
+        "material_read": "arXiv HTML abstract, introduction, related work, preliminaries, detailed Section 3 and Section 4 heading as retrieved; Section 4 theorem described in abstract and introduction, but its detailed proof was not retrieved due intermittent access",
+        "method": "direct HTML reading and statement comparison",
+        "title": "Asymptotic Subsidies for Envy-Free Allocation",
+        "trigger": "Square-market comparison between unrestricted and singleton subsidies"
+      },
+      {
+        "assessment": "Covers exact minimization under singleton allocation; does not analyze the unrestricted optimum on this family. Its general algorithm may compute the singleton side but does not establish the two-benchmark gap.",
+        "evidence": [
+          "Section 2 requires each agent to receive exactly one house; Section 4, Theorem 4.5 and Section 5, Theorem 5.5 give algorithms under that restriction."
+        ],
+        "identifier_or_url": "arXiv:2608.22216, https://arxiv.org/abs/2608.22216",
+        "material_read": "full HTML main-text Sections 1–5, particularly Section 2 subsidy definitions and Sections 3–5, Theorems 3.4, 4.5, 5.5; appendix not required for mathematical claim comparison",
+        "method": "direct text reading with comparison of feasible allocation sets, assumptions and implications",
+        "title": "The Complexity of Minimizing Subsidies in Envy-Free House Allocation",
+        "trigger": "Strongest relevant two-type binary house-allocation optimization result"
+      },
+      {
+        "assessment": "Reports existence with one-unit-per-agent subsidies; no exact two-benchmark statement in inspected material. Incomplete full-text coverage is a residual risk.",
+        "evidence": [
+          "IJCAI 2022 page states a per-agent subsidy of 0 or 1 is sufficient under dichotomous valuations."
+        ],
+        "identifier_or_url": "IJCAI 2022, https://www.ijcai.org/proceedings/2022/9",
+        "material_read": "publisher landing page abstract and contribution statement; not full paper",
+        "method": "primary publisher abstract and relevant search passage",
+        "title": "Achieving Envy-Freeness with Limited Subsidies under Dichotomous Valuations",
+        "trigger": "General binary-value subsidy upper bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bf25a0ce-2928-4c24-830f-bd2fe2fa3beb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact unbounded additive and factor-two separation on a natural two-type square binary instance isolates a structural limit of comparing house allocation with unrestricted fair division, juxtaposing Wu 2026 continuous-random coincidence and Dai et al. 2026 singleton optimization. The precise invariant and gap matter for subsidy-budget models, not just a routine isolated integer case.",
+    "status": "PASS"
+  }
+}
