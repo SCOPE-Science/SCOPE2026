@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-A vacancy begins only after survival through the exploited epoch and departure. Its Bellman recurrence accounts for a full vacant epoch **before** recruiting, so the cost present value is \(A D(m)/[1-t(1-\rho_m)]\), with convergent denominator. The difference of baseline and exploitation values yields the exact threshold. At the two largest sizes, \(\rho_n=0\) and \(\rho_{n-1}=p\); exact positive-denominator algebra proves the strict re-entrance criterion, full interval of gains, and three-agent minimal witness. The exact-rational checker reproduces 15,840 parameter-set identities and 260 strict-grid witness conditions. Numeric enumeration is not substituted for the proof. Risk: none identified within the explicit one-shot, exogenous-recruitment assumptions; if departing agents regain eligibility the theorem must be recalculated.
+## correctness
 
-## Originality (O): PASS, with priority risk
-The primary 2026 source analytically assumes a departure remains unreplaced. Its Appendix supports a downward-closed size set under that assumption; its simulation has recruitment but does not derive a finite-pool discounted vacancy cost or the grand-size re-entrance threshold. Joshi's independently inspected dynamic club model uses size preferences and fear-of-exclusion equilibrium, not center exploitation plus stochastic replacement of a single delegate. Mathematical-results searches using replacement, accountability, vacancy, delegation, finite pool and threshold variants yielded no indexed claim implying this theorem; this negative search is not a uniqueness guarantee. The relation to the source is a new mechanism and the structural reversal, not the already-published permanent-exit inequality. Unindexed literature and strategically endogenous recruitment remain material limitations.
+PASS
 
-## Value (V): PASS
-The source's monotone accountable-size bound is a central reason to expect smaller centers in polycentric governance. A plausible policy distinction—exploitation permanently excludes a victim while other outsiders may join—can reverse that monotonicity at the full-population boundary. The theorem quantifies exactly when this happens for every population and gives an attainable, smallest-population rational witness. This is a substantive boundary of an institutional mechanism rather than a numerical reparameterization of the permanent-loss formula; it does not claim a full dynamic equilibrium.
+PASS. Let D(m)=κ/[m(m−1)] and t=δ^L, A=(1−δ^L)/(1−δ). Vacancy always lasts full epoch then persists with factor t(1−ρ_m), ρ_m=1−(1−p)^(n−m); Bellman Q_m=A D/[1−t(1−ρ_m)] converges since t<1. Nonexploit minus exploit is αtQ_m−dA, giving exact F_m. At grand size ρ_n=0, at n−1 ρ_(n−1)=p. Positivity of denominators yields F_n>F_(n−1) iff (n−2)tp>2(1−t). Exact n3, t3/4,p1,κ=α1,d2/5 gives F2=3/8<d<F3=1/2. n2 and p0 excluded. Assumptions re permanently ineligible exploited delegate and minimum one vacant epoch are essential.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS with primary-access limitation. Mukhopadhyay–Filos-Ratsikas–Danassis 2026 analyze permanent departure with downward-closed accountability; accessible abstract/source pointers mention recruitment context but no inspected theorem deriving this exact finite-outsider replacement hazard. Joshi club-formation model addresses strategic exclusion/equilibria, not identical one-shot Bellman. A general renewal/recruitment result may already imply the calculation; main same-topic primary full text unavailable in this execution, so priority risk remains explicitly.
+
+## value
+
+PASS
+
+PASS. Provides a sharp, universally quantified and smallest-population realizable reversal of an intuitively monotone accountability-size relation under a natural finite outside-recruitment pool, with exact vacancy Bellman denominator and transfer interval. This is a motivated counterexample/boundary, not a claim of strategic equilibrium or general institutional policy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
