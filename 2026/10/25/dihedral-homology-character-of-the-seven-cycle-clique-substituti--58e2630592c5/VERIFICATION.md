@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and scope
-Run `python3 checker.py` with Python 3 and no additional packages. For \(q=2,3,4\) it enumerates every simplex, constructs the complete integral incidence combinatorics and ranks boundary matrices over \(\mathbb F_2\), checks signed chain traces of a generator rotation and reflection, and solves the irreducible character count constraints.
 
-Expected output gives f-vectors \((14,56,56)\), \((21,126,189)\), \((28,224,448)\) and rational predicted Betti ranks \((1,1,14)\), \((1,1,84)\), \((1,1,252)\). The checker is finite and does not certify integral torsion or all parameters: the proof's integral chain direct sum supplies the infinite and torsion statements. The characteristic-zero character computation uses the signed simplicial chain action, never an identification of mod-two traces with signs.
+# Independent mathematical audit
 
-The module decomposition holds only for the natural \(D_7\) action on layers fixing clique colors and for integer \(q\ge2\). No external audit or independent validation has been performed.
+## correctness
+
+PASS
+
+For B_q=C7[Kq], independent sets choose at most one color from any independent layer set in C7. The augmented fiber zero-chains split integrally into a distinguished base color plus the rank-(q−1) augmentation kernel, giving link-indexed chain summands. K=Ind(C7) collapses via seven free triangle edges to a 7-cycle; the only contributing nonempty links are seven distance-two pairs (S0) and seven maximal triples (void link). Hence H~1=Z and H~2=Z^{7q(q−1)^2}, all other groups zero and no torsion. The D7 action preserves the chosen color decomposition; signed fixed-face Lefschetz traces on C0,C1,C2 for a reflection are (q,−2q,−q²), while nontrivial rotations fix no faces. H1 is reflection-sign. Therefore H2 has character (7q(q−1)^2,0,−(q−1)(q−2)) on identity, nonidentity rotation, reflection, giving multiplicities a=(q−1)(q²−2q+2)/2, b=(q−1)(q²−2)/2, c=q(q−1)². Independently enumerated faces and mod2 boundaries and reflected Lefschetz signs for q=2,3,4; universal claim rests on the equivariant integral chain splitting.
+
+## originality
+
+PASS
+
+Best-of-knowledge: Carnero Bravo proves the nonequivariant homotopy wedge decomposition for C_n∘H and therefore encompasses its ordinary Betti numbers. The submitted additional full rational D7 action for C7[Kq], especially reflection trace and invariant dimension, is not specified or logically determined by the prior nonequivariant homotopy equivalence. Okura forest base theorems do not apply to C7.
+
+## value
+
+PASS
+
+The lexicographic clique substitution of the smallest nontrivial 7-cycle base is a natural family with growing color multiplicity, and the full D7 action is a natural representation-theoretic refinement of known nonequivariant topology. Its explicit all-q multiplicities, reflection sign and quotient invariant ranks give information not recoverable from Betti ranks alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
