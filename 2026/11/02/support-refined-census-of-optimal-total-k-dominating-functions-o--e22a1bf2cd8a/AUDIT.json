@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The step-two constraint transformation exactly partitions cycle neighborhood inequalities into one odd chain (n odd) or two independent chains (n even). Summing pair constraints produces a tight minimum and a complete equality-case classification. Even chain length forces all constraints tight and alternating labels; odd chain length with odd k has exactly one unit-slack edge and precisely m choices; odd chain with even k has the unique constant solution. Multiplication and endpoint-versus-interior choices prove the support polynomial including n=4. Standalone original-neighborhood brute force 18 cases and independent DP 112 cases both returned VERIFY_OK; finite checks only corroborate the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 recent paper determines caterpillar minima and structural parameters, not the cycle optimum-function census.",
+        "Weighted TU optimization results do not enumerate all feasible minimizers by cardinality of positive support."
+      ],
+      "reasoning": "Neither optimization-only results nor results for different graph families imply the exact cubic-in-variables support distribution without the equality-case classification presented here. The main 2018 proof provides a close starting inequality, not a stronger counting theorem.",
+      "searches": [
+        "cycles total k domination minimum supports positive entries 4m zero defect",
+        "arxiv:2610.27181",
+        "weighted total k domination chordal bipartite Lee"
+      ]
+    },
+    "checked_sources": [
+      "Tan, Liu, Liang 2018, doi:10.3934/mfc.2018011, Theorem 2.1 full proof",
+      "Escalante, Tolomei, Lopez Pujato 2026 arXiv:2610.27181 full text",
+      "OEIS A302653 full entry",
+      "Lee (2025), doi:10.3390/math13030403, weighted chordal bipartite optimization results",
+      "Four targeted semantic searches and comparison with accessible prior scientific statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2018 theorem proves only optimal weight and exhibits sample optimal functions.",
+        "Related threshold-graph k-tuple selection results concern binary chosen sets on a different graph class; locating-total rooted-product results have distinct constraints.",
+        "2018 summation lower bound is reused but is not equivalent to complete multiplicity-and-support classification."
+      ],
+      "reasoning": "A known numerical minimum constrains the optimal objective value but does not by itself count how many assignments attain it or how their zero supports vary; the single-slack-edge argument and two-chain product rule fill that logical gap. Residual risk: an alternate equality-condition enumeration may exist in uninspected literature.",
+      "searches": [
+        "total {k}-domination of cycles number of optimum functions minimum weight support distribution exact enumeration",
+        "cycles total k domination minimum supports positive entries 4m zero defect",
+        "doi:10.3934/mfc.2018011",
+        "OEIS:A302653"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2018 cycle optimum weight theorem includes the same domination constraints but no all-minima count.",
+        "OEIS A302653 enumerates binary minimum total dominating sets k=1 and does not represent fractional/interior integer labels at k>=2."
+      ],
+      "reasoning": "Unlike minimum-weight optimization or binary total-domination set counts, the claim is a support-weighted census over every integer-label assignment. Equality for k=1 is not treated as new.",
+      "searches": [
+        "total {k}-domination of cycles number of optimum functions minimum weight support distribution exact enumeration",
+        "C_n optimal integer total k dominating functions multiplicity (k+1)^2 counts congruence classes modulo four",
+        "doi:10.3934/mfc.2018011",
+        "OEIS:A302653"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A302653 explicitly lists k=1 counts 4, n, (n/2)^2 and does not tabulate k>=2 support weights."
+      ],
+      "reasoning": "The known integer sequence matches the boundary k=1 but no exact database covering k>=2 all optimal labelings and support exponents was identified.",
+      "searches": [
+        "exact minimum total {k} dominating function count cycle extremizers alternating 2026",
+        "OEIS A302653 minimum total dominating sets of cycles"
+      ]
+    },
+    "rationale": "The primary 2018 cycle theorem provides the numerical optimum but not the set/count/support distribution of every optimum; the 2026 paper addresses caterpillars. Existing OEIS cycle counts are only binary k=1 and are explicitly outside the new result. Direct statement/implication comparisons with accessible published records and historical claims found no covering result. Elementary equality-condition arguments make the refinement close to classical proofs, a residual priority risk disclosed below.",
+    "residual_risks": [
+      "Historical priority for k>=2 optimum-function multiplicities may be documented under different language or in an uninspected enumeration.",
+      "The result is an elementary, close refinement of the classical 2018 lower-bound/equality argument, not a claim of a deeper asymptotic breakthrough.",
+      "Only self-review has been performed; no independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2.1 and its proof establish optimum weight and one extremal construction; the proof does not state counts of all optima, support polynomial, or classification by zero entries at k>=2. Present proof independently performs complete equality-case classification.",
+        "evidence": [
+          "Theorem 2.1, pp. 256–257; proof establishes cyclic neighborhood sum lower bound and exhibits explicit minimum assignment",
+          "Theorem 2.2, pp. 257–258 addresses paths, not the cycle optimal-function census"
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/mfc.2018011",
+        "material_read": "Full article (nine pages), including full Theorem 2.1, its proof and immediately following Theorem 2.2",
+        "method": "Read searchable PDF text and inspected page image of proof boundary",
+        "title": "Total {k}-domination in special graphs",
+        "trigger": "Same original function definition, all cycle lengths and all integer k"
+      },
+      {
+        "assessment": "Studies caterpillars; explicitly cites the 2018 cycle minimum-weight theorem and develops a distinct tree-specific structural framework. Does not evaluate the optimum-function support distribution for cycles.",
+        "evidence": [
+          "ArXiv version 2610.27181 first submitted 2026-10-19",
+          "Introduction identifies total {k}-domination on cycles as previously optimized numerically, citing 2018 Tan et al.",
+          "Results concern caterpillar graph families rather than counting all cycle minimizers"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.27181",
+        "material_read": "Full open-access arXiv HTML article, including introduction, main caterpillar results and conclusions",
+        "method": "Inspected full-text manuscript with specific check for cycles, optimization multiplicities, support and equalities",
+        "title": "Total {k}-domination in caterpillars: Structural properties and exact results",
+        "trigger": "Fresh combinatorial treatment of total {k} domination and structural optimality"
+      },
+      {
+        "assessment": "A302653 includes precise known total dominating set counts on cycles for k=1: n, 4, or (n/2)^2 depending on n mod4. The theorem explicitly restricts k>=2 and refines by integer-weight assignments and their support.",
+        "evidence": [
+          "Sequence description says minimum total dominating sets, not multilevel integer functions",
+          "Formulas n if odd, 4 if n mod4=0, and (n/2)^2 if n mod4=2"
+        ],
+        "identifier_or_url": "https://oeis.org/A302653",
+        "material_read": "Full sequence entry including description, values, formula, date and references",
+        "method": "Compared underlying domain and formula for k=1 with all proposed parameters and support counts",
+        "title": "OEIS A302653: Number of minimum total dominating sets in the n-cycle graph",
+        "trigger": "Exact database potentially tabulating optimum multiplicity under k=1 alias"
+      },
+      {
+        "assessment": "Related integrality and weighted optimization; supplies no all-optimal integer-function support enumerator for arbitrary cycles (in particular longer chordless cycles).",
+        "evidence": [
+          "Results focus on weighted optimization, not total number of optimizers or support refinement."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math13030403",
+        "material_read": "Full accessible paper sections on weighted total k-domination",
+        "method": "Compared graph classes, integer optimization objective, and whether the source counts all minimizers by support",
+        "title": "Exploring Dominating Functions and Their Complexity in Subclasses of Weighted Chordal Graphs and Bipartite Graphs",
+        "trigger": "Weighted total k optimization and possible stronger coverage through chordal bipartite matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e22a1bf2-cd8a-4350-8143-59fcacc35ad2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides a natural complete optimizer-classification invariant for a recently active integer total domination model, substantially stronger than the known optimum weight. It distinguishes cycle lengths that admit sparse optimal coverage from lengths where every optimal solution must assign a strictly positive resource at all vertices, and gives exact support-size multiplicities for every n>=3 and all k>=2. The sharp 4-divisibility phase transition and all-solution counts matter when deployment flexibility and supported-vertex count differ despite equal total weight; no general theorem or conjecture resolution is claimed.",
+    "status": "PASS"
+  }
+}
