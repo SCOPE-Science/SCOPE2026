@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The orthogonal postprojection decomposition and exact lagged one-dimensional recursion are verified. Stationary cached-noise autocovariance and the absolutely convergent geometric double sum give the exact risk for every allowed real parameter, including rate endpoints. Strict convexity and the feasibility interval yield the unique clipped optimizer. The standalone exact rational transition calculation passed 8100 assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Coria--Haddock--Pacheco 2024 proves convergence bounds and horizons for a randomized quantile method; its noise model and conclusions do not provide the formula or allocation here.",
+        "Marshall--Mickelin 2022 gives learning rate selection and error bounds for noisy randomized Kaczmarz, not a probability budget over cached row measurements."
+      ],
+      "reasoning": "A broader statement would need to control this specific unrelaxed fixed-order two-row, Markov-retained noise covariance and a constrained per-row refresh budget. The investigated prior theorems lack this combined conclusion.",
+      "searches": [
+        "published-finding corpus: two-row projection solver temporally correlated observations noise memory angle periodic remeasurement stationary covariance refresh allocation",
+        "Web: stochastic alternating projection cached noise resampling probability optimal refresh allocations"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2403.19874 (selected relevant full-text passages)",
+      "arXiv:2202.12224 (selected relevant full-text passages)",
+      "arXiv:2201.08620 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The noise/corruption horizon theorem of arXiv:2403.19874 is not an equality for the model at issue.",
+        "The learning-rate theorem of arXiv:2202.12224 does not optimize rowwise Bernoulli refresh rates.",
+        "The publicly indexed cyclic Kaczmarz overrelaxation result establishes deterministic finite-horizon spectral behavior, not the stationary noisy refresh law."
+      ],
+      "reasoning": "The claimed exact risk is not implied by a generic convergence inequality with unrelated update sampling, and the clipping optimizer needs a parameterized exact risk. Standard autocovariance and Cauchy--Schwarz facts are correctly identified as background lemmas, not as the novel claim alone.",
+      "searches": [
+        "published-finding corpus: iterative methods for numerical linear algebra randomized Kaczmarz exact noise correlation stationary covariance",
+        "Web: Kaczmarz method temporally correlated noise repeated measurements time varying stochastic noise stationary error"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Coria--Haddock--Pacheco arXiv:2403.19874 treats quantile randomized Kaczmarz time-varying noise and corruption rather than fixed two-row independent Bernoulli retention.",
+        "Marshall--Mickelin arXiv:2202.12224 treats noisy randomized Kaczmarz scheduled learning rates rather than reused row measurements."
+      ],
+      "reasoning": "General time-correlated linear-filter risk identities are algebraically related ingredients, but the precise two-projection lagged geometry, rowwise retention and constrained fresh-query allocation do not appear as equivalent statements in the inspected references.",
+      "searches": [
+        "published-finding corpus: cyclic Kaczmarz two oblique rows reused measurement noise geometric refresh rate stationarity exact mean squared error rational formula",
+        "Web: cyclic Kaczmarz measurement refresh temporal correlation noise exact steady state covariance two rows"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published related Kaczmarz statements retrieved concern noisy greedy row choice, overrelaxation and stale-iterate Gauss--Seidel; no exact table of two-row refresh-budget risk appeared in these comparisons."
+      ],
+      "reasoning": "This continuous parameter risk and optimizer is not merely an unreported entry from a fixed-size exact matrix table; no matching external numerical database or identical parametrized formula was located.",
+      "searches": [
+        "published-finding corpus: Kaczmarz fixed versus fresh noise measurements asymptotic error floor near parallel row angles optimal refresh budget",
+        "Web: Kaczmarz method temporally correlated noise repeated measurements time varying stochastic noise stationary error"
+      ]
+    },
+    "rationale": "Actual primary preprint text inspection and semantic comparisons found no direct prior implication of the exact cached two-row cyclic Kaczmarz risk, unique refresh-budget optimizer and nearparallel phase distinction; historical specialized overlap is an explicitly retained risk.",
+    "residual_risks": [
+      "General linear-systems theory with geometrically correlated forcing may imply the risk with a short specialization, even though no identical direct statement was found.",
+      "Specialized published work on cyclic projection with sample-and-hold measurements may cover this model.",
+      "Full-text examination of every potentially relevant historical paper was not possible; external expert priority check remains appropriate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact fixed-order 2x2 Bernoulli-cached refresh risk or allocation stated.",
+        "evidence": [
+          "First public date 2024-03-28 and first-page primary MSC 65F10; QRK treatment with bounds and noise/corruption horizons."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.19874",
+        "material_read": "Abstract, introduction, method/noise model, primary theorem statements and convergence/corruption discussion from open-access full text, including first-page MSC and later proof context.",
+        "method": "Read accessible arXiv paper full-text pages and theorem context, including visual PDF inspection.",
+        "title": "On Quantile Randomized Kaczmarz for Linear Systems with Time-Varying Noise and Corruption",
+        "trigger": "Closest same-class method explicitly treating time-varying noisy right-hand sides"
+      },
+      {
+        "assessment": "Method schedules learning rates for randomized row sampling, rather than rowwise cached-observation refresh allocation.",
+        "evidence": [
+          "First public date 2022-02-24; no identical stationary two-row Bernoulli-retention law observed."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.12224",
+        "material_read": "Abstract, introduction, algorithm and noisy-oracle learning-rate analysis in accessible preprint full text.",
+        "method": "Opened PDF and visually checked representative mathematical pages and text of method/theorem context.",
+        "title": "An optimal scheduled learning rate for a randomized Kaczmarz algorithm",
+        "trigger": "Potential dominating noisy Kaczmarz risk/optimization work"
+      },
+      {
+        "assessment": "Different extended sparse randomized least-squares and impulsive-noise focus; coverage cannot be excluded from abstract alone.",
+        "evidence": [
+          "arXiv:2201.08620, 2022-01-21."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.08620",
+        "material_read": "Public abstract and bibliographic metadata only; full technical text not inspected.",
+        "method": "Read arXiv indexed abstract, not used for a whole-document negative claim.",
+        "title": "Extended Randomized Kaczmarz Method for Sparse Least Squares and Impulsive Noise Problems",
+        "trigger": "Nearby noisy Kaczmarz algorithm family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bb27287b-ed96-4339-bf05-2cca626fe8d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The formula resolves the practical choice of how to allocate a fixed per-sweep fresh-measurement budget between nearly parallel equations, proving the qualitative difference between one-sided diverging risk and balanced bounded risk. It is an exact stationary risk design law with a natural acquisition-cost constraint, not merely a marginally improved constant or restatement of a generic covariance identity.",
+    "status": "PASS"
+  }
+}
