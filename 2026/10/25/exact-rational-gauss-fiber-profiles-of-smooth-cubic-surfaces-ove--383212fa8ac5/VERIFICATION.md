@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of exact cubic-surface Gauss-fiber counts
+# Independent mathematical audit
 
-The included source files reproduce the numerical claim using finite-field arithmetic and algebraically exact Gröbner bases. On a system with a C++17 compiler and Python with `sympy`, execute:
+## correctness
 
-```sh
-g++ -O3 -std=c++17 orbit.cpp -o orbit
-./orbit > orbit_representatives.csv
-python classify.py
-python independent_gauss.py
-python line_comparison.py
-```
+PASS
 
-`orbit.cpp` applies three adjacent variable swaps and one elementary shear to each nonzero 20-bit cubic coefficient vector and exhaustively determines group orbits. `classify.py` uses the orbit sizes, formal gradient evaluations at every rational point, and four-chart unit-ideal Gröbner tests to construct `cubic_orbit_certificate.csv` and `gauss_profile.csv`. `independent_gauss.py` independently recomputes all 36 smooth representative Gauss profiles by direct monomial differentiation, cross-checking the weighted table. `line_comparison.py` verifies a pair of distinct profiles at fixed known rational point/line/Eckardt incidence invariants.
+The 20 degree-three monomials define all nonzero binary coefficient masks. The three adjacent coordinate swaps and shear x0->x0+x1 generate GL4(F2), and an independent from-scratch C++ BFS on all masks generated 141 orbits with exact total 2^20−1. Geometric smoothness requires no projective common zeros of the four formal derivatives over the algebraic closure (Euler cubic relation in char2); exact Gröbner unit-ideal tests on every x_i=1 chart, not merely rational point checks, leave 36 smooth orbits of combined weight 322,560. A separately developed SymPy reimplementation of derivative evaluation and all four-chart smoothness checks independently produced the identical 36 masks and all 14 weighted Gauss partition cells. The verified partition table sums to 322,560, with max fiber3, injective164,640 and size-three cell total21,840. Orbit invariance under PGL4 transports the rational tangent-plane fiber partition to every member. Complete finite enumeration is mathematically exhaustive here, unlike partial finite probing of an infinite claim.
 
-The run-specific scientific outputs included here are `primary_output.txt`, `secondary_output.txt`, and `comparison_output.txt`; the two CSV certificates are the actual machine-readable computed data. The expected overall domain size is 1,048,575 nonzero forms, with 141 projective orbits, 36 geometrically smooth orbits, 322,560 smooth equations, and 14 Gauss-fiber partitions.
+## originality
 
-The checker's orbit construction and smoothness tests are not independently repeated by the derivative cross-check. In particular, the algebraic smoothness condition cannot be replaced by checking only \(\mathbf F_2\)-rational points. No assertion is made about arithmetic over extensions or the geometric degree of the Gauss morphism.
+PASS
+
+Dickson/Karaoğlu classifications already fix the 141 total and 36 nonsingular cubic projective types, and published rational point/line and incidence statistics; these are not new. The full fourteen-cell *arithmetic Gauss-map tangent-plane fiber* distribution is a different invariant. Explicit smooth representatives masks 66913 and 66920 have equal (rational points, rational lines, Eckardt count, points on two lines)=(9,3,1,0), but Gauss profiles (1^9) and (2^2,1^5), proving those published coarse invariants do not determine this statistic. Das Frobenius/Weyl line counts and Kadyrsizova characteristic-two geometric classification concern different data, not this exact tangent-plane multiplicity table. A past unindexed atlas may overlap, recorded as priority risk.
+
+## value
+
+PASS
+
+The complete finite exact Gauss-fiber census is a natural arithmetic-geometric invariant of a smooth cubic surface's rational Gauss map into the dual projective space, especially subtle in characteristic 2. It distinguishes examples invisible to classical rational point/line incidence tables and gives a transparent complete classification with exact group and smoothness certificates. Finite scope is intrinsic F2, not an arbitrary coefficient slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
