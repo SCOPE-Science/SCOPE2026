@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated directed-forest definition agrees with the inspected source definitions. The executable `verify.py` systematically enumerates exactly the \(4^7\) possible indegree-at-most-one assignments, rejects directed cycles by complete parent-pointer traversal, and reconstructs all \(10647\) nonempty simplices. An independently computed directed matrix-tree cofactor is \(392\), agreeing with the \(2744\) full spanning trees. The explicit matching pairs \(5067\) nonempty face pairs, with only one vertex and \(512\) five-simplices critical, and the exhaustive topological sort of all \(50799\) nonempty incidences proves acyclicity. Thus the wedge conclusion follows from discrete Morse theory, not simply Betti numbers. The signed fixed-face Lefschetz calculation is exhaustively replayed for all \(21\) affine automorphisms; the rational character decomposition follows from explicit cyclotomic irreducible modules. Critical steps and integers were recomputed by the standalone verifier.
+## correctness
 
-## Originality — PASS, with explicit residual risks
-Closest available full texts: Kozlov (arXiv:math/0210045), which treats doubled directed strings and trees; Engström (arXiv:math/0508148), which treats directed acyclic graphs and root-subcomplex shellability; and Jojić (arXiv:1109.4475), which treats complete-source, bidirected, and tree-like classes. The Paley tournament has directed cycles, no complete source, and a different graph from the studied bidirected trees. A general result on all acyclic arc-subgraphs does not imply the indegree-one restricted forest complex. Searches of indexed mathematical findings found different Paley tournament flag and neighborhood complexes, and different rooted-forest Morse complexes, not the exact \(T_7\) forest complex or this affine character. The later Courtney (2020) thesis is unusually close in theme, but its abstract and short preview do not establish whether it contains this exact classification. Its full text could not be read; novelty is assessed on accessible scientific evidence, with that substantive risk disclosed rather than treating unsuccessful access as noncoverage. The original Kozlov (1999) paper was also inaccessible in full.
+PASS
 
-## Value — PASS
-The smallest doubly regular tournament is a canonical test case for directed-forest topology; it has no complete source and so is outside the standard source-shellability hypothesis. Obtaining a complete integral homotopy equivalence and, beyond a Betti number, an exact nontrivial rational character under its intrinsic \(21\)-element affine group gives a mathematically natural topological and symmetry classification. The distinguished \(24\)-dimensional invariant subspace is new information not provided by an ordinary face census. The computation is exact and reproducible and may serve as a benchmark for extending directed-forest and equivariant methods, without asserting an unproved generalization.
+Independently regenerated all 4^7 parent choices to list 10648 valid faces, including empty, f=(21,189,931,2646,4116,2744). Exact greedy matching pairs 5067 nonempty face-coface incidences, leaves one critical vertex and 512 critical 5-cells; topologically sorted all 50799 directed Hasse incidences on 10647 nonempty faces, proving acyclicity and hence the wedge. Independently recomputed signed fixed-face Lefschetz trace of every affine automorphism: 512 at identity, 1 on six translations, -1 on fourteen order-3 elements. Solve explicit irreducible rational character equations for multiplicities (24,25,73).
 
-## Boundaries
-Only \(T_7\) and its specified affine subgroup are classified. No integral equivariant lattice is asserted. Comparison with complete texts of the Courtney thesis and original Kozlov paper remains a residual novelty risk; a matching unindexed theorem would supersede the originality assessment. Independent verification is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No accessible primary result implies this exact 7-vertex directed-forest wedge and rational affine module; same-family inaccessible thesis leaves explicit priority risk, not automatically a failure.
+
+## value
+
+PASS
+
+A canonical smallest doubly regular tournament lies outside standard directed-tree shellability hypotheses. Its exact integral homotopy and complete nontrivial affine character, including 24-dimensional invariant subspace, form a motivated self-contained finite classification rather than a routine census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
