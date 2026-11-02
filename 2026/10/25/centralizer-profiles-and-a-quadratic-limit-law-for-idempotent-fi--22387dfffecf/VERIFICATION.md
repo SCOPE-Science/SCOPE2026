@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 check_clamp_centralizers.py` next to the standalone script. The script enumerates all nondecreasing \(1\)-Lipschitz maps via every possible zero/one increment pattern and starting value, identifies idempotents by the equation \(f\circ f=f\), and evaluates the equation \(f\circ e=e\circ f\) point by point. Every \(n=1,\ldots,10\) passed against the closed formula; the count is \(220\) idempotents tested and \(243714\) individual map-versus-idempotent pairs. It additionally verifies exact combinatorial minimum-gap counts and numerical logarithmic estimates for sizes up to \(100\). Exact output ends with `ALL_CLAMP_CENTRALIZER_TESTS_PASSED cases=220 maps=5120 commuting_pairs=243714`.
+## correctness
 
-The general correctness argument is contained in RESULT.md: the binary-step enumeration is exact for all integers, and the quadratic CDF comes from an exact composition count. Finite exhaustive enumeration does not prove an infinite asymptotic. The equivalence to any unidentified prior theorem has not been independently checked, and independent mathematical audit has not been performed.
+PASS
+
+The image of a nondecreasing 1-Lipschitz map is an interval and idempotence forces it to be a clamp. For commuting f, the endpoint images x=f(a), y=f(b) belong to [a,b]; left exterior steps are free (2^u choices) iff x=a, right steps free (2^v choices) iff y=b, and the k interior binary steps with y-x ones contribute binom(k,y-x). The weighted sum gives C_n=(k+2)2^(k-1)+(2^u+2^v-2)2^k+(2^u-1)(2^v-1) for k>=1; k=0 gives 2^(n-1). At fixed k, C depends strictly convexly on 2^u+2^v. Uniform compositions u+k+v=n-1 have P(min>=j)=binom(n+1-3j,2)/binom(n+1,2), while C has log_2 C=n-1-min(u,k,v)+O(log n) uniformly; this proves the full CDF and expectation, not via finite sampling. Independently reconstructed 120 direct idempotent/commutation cases (n<=8) and matched all formulas.
+
+## originality
+
+PASS
+
+Published contraction-semigroup results supply classification, rank, regularity and fixed-point counts, but their inspected statements neither impose fe=ef for each clamp nor derive an idempotent centralizer profile or the uniform-idempotent logarithmic CDF. Search found no mathematical implication covering all these consequences; originality remains best-of-knowledge.
+
+## value
+
+PASS
+
+An idempotent centralizer is a canonical intrinsic invariant in a natural family of transformation monoids. The exact distribution across all clamps, placement extremizers, and nondegenerate random-idempotent limiting law add structural and probabilistic information beyond overall monoid element counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

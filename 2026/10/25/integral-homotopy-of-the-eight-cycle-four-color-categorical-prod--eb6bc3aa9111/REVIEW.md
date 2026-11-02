@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph uses the categorical adjacency rule, not Cartesian or lexicographic adjacency. An exact 32-vertex computation constructs every one of 196,226 nonempty independent faces. The specified full acyclic Morse matching leaves one vertex and 24 four-cells and 27 five-cells. The entire 27-by-24 signed boundary is recomputed and compared with the embedded certificate, and unimodular elimination has exactly 21 unit pivots with a zero residual block. The four-skeleton is a wedge of four-spheres, so integral Hurewicz identifies all remaining five-cell attaching maps with their boundary degrees. Unit cancellations prove the full integral homotopy type; a rational or mod-two rank calculation alone would not suffice. Both mathematical reasoning and the executable certificate were checked.
+## correctness
 
-## Originality — PASS, qualified
-The 2023 primary paper arXiv:2307.12401 was inspected in the section containing Theorems 22–23 and Question 24, including the explicit list of small examples; it states a two-degree/Moore-space restriction but does not determine the four-color eight-cycle complex. The 2025 follow-up arXiv:2505.06457 addresses other product classes in the inspected statements. Closest indexed finite example is the seven-cycle four-color complex, with different graph, sphere dimensions and multiplicities. A separate previous computation of eight-cycle three-color homology does not imply the four-color result. Searches for direct names, equivalent categorical/tensor-product terminology, integral homology, torsion, and dual clique-complex phrasing yielded no implication-equivalent published claim. Novelty is relative to checked accessible literature and may be limited by unindexed equivalences.
+PASS
 
-## Mathematical value — PASS
-The established 2023 literature asks whether torsion can occur for cycle–complete-graph categorical products when the cycle length is not divisible by three and leaves possible Moore-space contributions. The first eight-cycle case with four colors is a natural previously unclassified non-divisible-cycle instance. A complete integral sphere-wedge classification, with exact multiplicities and a replayable nontrivial matrix certificate, resolves both the homotopy and torsion alternatives for this case. No general theorem or downstream application is claimed.
+PASS. Independently reconstructed all 96 categorical edges and exhaustively enumerated exactly 196226 nonempty independent faces with the reported 16-entry f-vector. Replayed all 98087 greedy face pairs leaving precisely one critical 0-cell, 24 critical 4-cells and 27 critical 5-cells. Independently generated the full 1457216 Hasse incidences, checked acyclicity on all 196226 faces by Kahn topological sorting, recomputed the signed 27x24 integral Morse boundary and eliminated it by 21 *unit* integer pivots with zero residual block; thus kernel Z^6 and cokernel Z^3. The high connectivity of the resulting single-0-cell, 4/5-dimensional Morse CW model identifies five-cell attaching maps with integer degrees in pi4(vee24 S4)=Z^24; unimodular elementary cell slides/cancellations give the asserted actual wedge homotopy type, not just Betti ranks. Calculations exhaust one fixed graph, not an infinite family.
 
-## Scientific scope and outstanding risks
-The theorem is finite and exact; it does not establish any general torsion-freeness conjecture. The main originality uncertainty is an unindexed equivalent result or a non-obvious stronger theorem outside the inspected primary text. The calculation has not undergone independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge, subject to an explicit close neighbor. Antolin Camarena--Carnero Bravo 2024 Theorem3.17/3.18/Question3.19 bounds possible homology dimensions for C_(3r+2) x Kn and asks whether torsion is absent, but does NOT give integral C8 x K4 ranks or homotopy decomposition. A 2026-10-11 indexed C7 x K4 theorem gives 3 S3 plus 6 S4; the equal multiplicities shifted by one are notable but the record has a different graph and no demonstrated general suspension/reduction from C7 to C8. The published paper explicitly lists C8 x K3 rather than this C8 x K4. New computation is a separate complete finite case, though a not-yet-recognized recurrence could imply it.
+
+## value
+
+PASS
+
+PASS. The finite case is the first natural four-color 8-cycle instance immediately adjacent to a published torsion question; it resolves its exact integral torsion-free homotopy and both sphere multiplicities. The construction supplies a verifiable signed discrete-Morse certificate and homotopy upgrade, not a routine Euler characteristic alone. A complete natural example is useful even without a universal torsion-freeness theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

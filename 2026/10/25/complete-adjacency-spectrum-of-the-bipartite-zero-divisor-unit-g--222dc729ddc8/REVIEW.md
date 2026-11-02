@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated graph uses \(u+z\in Z(R)\), not multiplicative adjacency. For each nonempty proper coordinate support \(J\), the unit-neighborhood indicator is a union of coordinate equalities. The unit group acts transitively by multiplication on itself, making the Gram matrix diagonal in the character basis. For a character of support \(T\), character-sum cancellation gives zero unless \(T\subseteq J\), then the explicit squared Fourier coefficient. Summing over all \(J\) yields the claimed formula and proves all non-full support eigenvalues positive. The singular-value correspondence gives exactly the zero multiplicity and adjacency spectrum. All field sizes at least two, support boundaries, and repeated eigenvalue multiplicities are covered. The standalone implementation constructs adjacency independently and checked 188 tuples, but finite testing is not a proof.
+## correctness
 
-## Originality — PASS, with stated risks
-The full 2025 graph-defining primary preprint, arXiv:2511.07854v1, Section 8 item 1, explicitly asks for the adjacency spectrum of this bipartite graph on finite reduced rings. Its inspected content contains no such all-factor spectral expression. The spectral papers DOI:10.28919/jmcs/4590 and arXiv:2604.26603 address the different \(xy=0\) graph on pairs of zero divisors. Targeted searches for the additive graph under incidence, subdivision and zero-divisor–unit aliases, and checks of accessible mathematical claims, found no equivalent formula. A complete historical priority guarantee is impossible; unindexed incidence-graph spectra remain a risk. The source preprint was subsequently withdrawn for restructuring, and later uninspected versions could affect priority. The standard ingredients of abelian Fourier diagonalization and bipartite singular values are not claimed as original.
+PASS
 
-## Mathematical value — PASS
-The result fully resolves an expressly posed natural spectral question for a broad infinite parameter family of commutative rings, rather than a restricted numerical instance. The formulas simultaneously determine eigenvalues, multiplicities, incidence rank and adjacency nullity, with a transparent character-support description and mixed-field coverage. The exact algebraic dependence is useful for comparisons among finite reduced rings and further spectral questions. This is a complete natural invariant, not merely a finite computational gain.
+The graph has unit-side size M=prod m_i and zero-divisor-side N=prod(m_i+1)-M-1. For support J of z, B_{z,u}=1-prod_{i in J}(1-1_{u_i=-z_i}). Multiplication by the unit group on both sides preserves adjacency, so Gram B^T B has character eigenvectors. Fourier cancellation makes C_z(chi)=0 unless support T subset J; for proper nonempty T the squared row sum yields lambda_T=prod_{i notin T}(m_i^2-m_i+1)-prod_{i notin T}(m_i-1)^2; for T empty the row-degree squared sum yields the stated lambda_empty. Every proper-support eigenvalue is positive (row J=T), and full support is zero with multiplicity F=prod(m_i-1). Hence rank B=M-F and adjacency eigenvalues pair ±sqrt(lambda) with remaining nullity N-M+2F. Independent exact integer Gram matrices checked eight field-product support-size tuples including F_2 factors and repeated supports; these do not replace the general Fourier derivation.
 
-## Scientific limitations
-The proof is for finite reduced commutative nonfields; no nonreduced case or Laplacian claim is made. Numerically coincident eigenvalues must have their multiplicities combined. Some outside spectral literature was inspected at the abstract/definition level because its vertex/edge relation is different. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating 2025 full primary preprint defines this exact additive graph and explicitly asks its adjacency spectrum in Section 8; the inspected paper does not present this character-support spectral factorization. Classical multiplicative zero-divisor spectra address a different graph and do not imply it directly. Fourier and singular-value methods are standard, not claimed new.
+
+## value
+
+PASS
+
+An open spectral problem for a natural additive graph on finite reduced rings is answered for all unequal field factors with the complete eigenvalue multiplicities and rank/nullity, a natural full graph invariant and tool for further spectral questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

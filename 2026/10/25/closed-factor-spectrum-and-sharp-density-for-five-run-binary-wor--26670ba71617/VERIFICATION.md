@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The attached `verify.py` tests the theorem with Python's standard library alone. Run `python verify.py` from the directory containing that file. It enumerates every binary factor and evaluates closedness by an independent occurrence-count definition, compares the entire resulting closed-factor set with the explicit family classification for all 3125 positive parameter five-tuples having entries at most five, checks the exact construction for 500 scales, and separately enumerates small-length extrema. The recorded successful output was:
+# Independent mathematical audit
 
-`VERIFY_OK parameter_tuples= 3125 scaled_witnesses= 500 M5_n5_to_n14= [7, 8, 11, 14, 16, 20, 23, 26, 31, 34]`
+## correctness
 
-The checked sets are finite. The general exact formula, asymptotic bound, and rigidity are established by the run/border argument and the algebraic defect identity in RESULT.md. No independent audit was performed.
+PASS
+
+Rebuilt the classification of complete first-return borders by factor run count: one-run factors are closed; two-run factors are not; three-run factors require balanced end runs; four-run 01/10 transition border families contribute t(x+y); and five-run cases split into an extra Ixy equality-of-one-run family and r larger-zero-border family. Duplicate three-run factors when b=d are removed by −Iz. The resulting exact count agrees with independently enumerated closed substrings on 1,024 positive five-tuples (each run 1..4). For quadratic Q=t(x+y)+Ixy, unequal b,d give Q≤n²/12; equal b,d give the explicit nonnegative n²/8−Q identity. Its vanishing asymptotics establish limiting shape rigidity, with finite checks not serving as universal proof.
+
+## originality
+
+PASS
+
+Prior Badkobeh–Fici–Lipták gives five-run constructions with quadratic closed-factor richness, and Parshina–Puzynina gives the unrestricted n²/6 asymptotic bound and five-run examples. The present sharp restricted n²/8 coefficient, exact all-five-run formula, and rigidity are not statements implied by either bound or single construction. Resultary indexed finite unrestricted 25–27 maxima are about another parameter regime.
+
+## value
+
+PASS
+
+A natural bounded-run class contains the foundational quadratic-richness constructions; determining exactly which border families produce closed factors, their sharp maximal density and rigidity is substantive extremal combinatorics, not a hand-picked sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

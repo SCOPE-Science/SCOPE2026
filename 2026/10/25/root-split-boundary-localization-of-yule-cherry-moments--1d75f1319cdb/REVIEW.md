@@ -1,15 +1,21 @@
-# Review of root-split cherry-moment localization
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement specifies a YHK leaf-splitting tree, a random orientation of its two root daughters, cherry counts in daughter subtrees, and the exact range \(n\ge10\). The root daughter-size law is a two-color Pólya urn begun with one leaf on each side and is uniform on the \(n-1\) possible sizes. Conditional on daughter sizes, their YHK trees are independent, so their cherry moments add appropriately. The sole exceptional daughter sizes for means are one and two leaves; the variance has additional exceptions at three and four leaves. Substituting exact marginal moments gives the first-moment and second-moment tables, and averaging verifies the two mean-zero correction sums. The mean-invisible extreme event follows by the law of total variance, including the positive between-split contribution. Exact rational computations over \(10\le n\le65\) and direct leaf-splitting-history enumeration through eight leaves check the analytic reductions; finite checks are explicitly not treated as an infinite proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The relevant primary comparison is at the level of *joint dependence on root daughter size*, not the familiar marginal cherry count. McKenzie–Steel (1999/2000) proves marginal cherry moments; its report's Yule section and theorem/proof were inspected. Wu–Choi (2015/2016) develops a joint law for cherry and pitchfork counts; its introduction, probability model, YHK recursion, covariance section, discussion, and references were inspected. Neither inspected source displays the four-layer conditional second-moment profile or the mean-invisible root-imbalance event. These sources supply important input formulas, so this is a derived structural theorem rather than a claim that the cherry moments or Markov-branching property are new. Literature searching and comparison with related random-tree results revealed no direct stronger statement. Historical priority remains uncertain because older work might encode the same statement under alternative root-balance terminology.
+PASS
 
-## Mathematical value — PASS
-The cherry count and root split are two standard but qualitatively different phylogenetic shape observables. Their exact joint-moment localization exposes a sharp structural boundary: all interior daughter sizes have the same first two cherry moments, while four exceptional layers have explicit signatures. The rare root-extremity event has precisely unchanged mean but greater cherry variance, demonstrating a mathematically meaningful failure of first-moment diagnostics and supplying a finite-sample second-moment statistic. This whole-profile statement and its heteroscedastic consequence go beyond re-listing marginal cherry moments; no claim is made about a general asymptotic testing theorem.
+Condition on the uniformly distributed oriented daughter size K=k (the two-colour Yule leaf-splitting urn), then the daughter subtrees are independent Yule trees. Cherry counts add; explicit small n=1,2,3,4 exceptions to known mu_m and second_m yield a_s={-1/3,1/3,0,...}, b_s={(-10n+3)/45,(10n+1)/45,-6/45,2/45,0,...}. For n>=10 the four extreme layers do not overlap. Averaging over the symmetric four k values gives unchanged n/3 and conditional variance 2(n+1)/45; unconditional variance is 2n/45. Independently propagated the cherry process by exact rational moment recurrences for n<=31 and checked 840 conditional/event equalities. No finite extrapolation supplies the all-n theorem.
 
-## Literature and limitations
-The closest material is McKenzie–Steel's exact Yule cherry marginal moments and Wu–Choi's cherry–pitchfork joint statistics. The result requires \(n\ge10\), is for the YHK (not PDA) law, and does not establish historical uniqueness or statistical power. The bundled verifier is reproducibility evidence, not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier Yule marginal cherry moments and YHK cherry–pitchfork joint statistics are acknowledged as premises. The assessed point is the complete root split conditional first/second moment profile and mean-invisible variance effect, which the directly inspected original theorem statements do not present. Comparison searches for root imbalance, clade size, cherry count and conditional second moments found no dominating joint law; an unindexed older split-conditioned formula remains possible.
+
+## value
+
+PASS
+
+Root imbalance and cherry count are standard distinct tree shape observables. Their exact conditional relation has unexpected four-layer second-moment localization and exhibits a natural root-extremity event whose mean test is blind while variance shifts by a fixed 2/45. This supplies a motivated joint finite-sample statistic, despite derivation from known marginal moments; no efficacy theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

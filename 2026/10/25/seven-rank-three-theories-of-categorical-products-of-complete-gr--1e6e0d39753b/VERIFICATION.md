@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the directory containing the delivered artifacts. The program requires only Python's standard library and asserts seven distinct representative extension profiles, direct third-point signatures for 54 bounded coordinate vectors, an independent symbolic criterion on 494 vectors, and 28 direct recursive three-round EF games for the representative pairs plus eight cross-size games. Its recorded stdout is in `verification_output.txt`. Successful reproduction terminates in `VERIFY_OK`.
+## correctness
 
-The mathematical proof of the infinite theorem is the coordinate construction and three-round back-and-forth argument in `RESULT.md`. The finite tests check for accidental formula, boundary, or implementation mistakes but do not prove the unrestricted assertion. A separate independent mathematical audit has not been performed.
+PASS
+
+Vertex transitivity reduces the 3-round Ehrenfeucht–Fraïssé game to equality/edge status for the first two distinct vertices and existence of each (00),(01),(10),(11) adjacency pattern for a third. For two coordinate words the differing-set D and equal-set S determine all four cells: (11) requires every differing factor q>=3; for nonedges single-neighbor cells always exist; (00) distinguishes the d=2 differing factor threshold and d>=3. For edges, all-binary, mixed and all-nonbinary factors produce distinct cell records. This gives precisely seven signatures, with explicit minimal representatives and rank-two collapse. Any mixed d>=3 product has order>=2*2*3=12. Independent literal adjacency reconstruction matched 40 additional small products and separated all seven signatures. Infinite assertion follows from coordinate construction.
+
+## originality
+
+PASS
+
+Direct products/tensor products of complete graphs also occur as squarefree unitary Cayley graphs. Published common-neighbor counts, diameter and graph domination results partially determine 3-vertex extensions but not the complete seven-class arbitrary-factor quantifier-rank theory. Known two-factor rook-complement logical results (if available) cover two-factor cases, which are acknowledged; higher factor number and the sharp 12 representative threshold are the assessed extension.
+
+## value
+
+PASS
+
+The natural product graph family has a complete sharp bounded-depth logical invariant: two 2-round classes split into seven 3-round classes with a uniform 12-vertex representative. This is a full all-factor classification with a model-theoretic sharp threshold, not an arbitrary finite dataset.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

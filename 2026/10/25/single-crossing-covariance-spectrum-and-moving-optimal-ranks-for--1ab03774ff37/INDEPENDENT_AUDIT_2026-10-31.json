@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:39:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For one reused observation rather than independent fresh iteration noise, the geometric sum gives c_i(K)=sigma^2/lambda_i (1-(1-omega lambda_i)^K)^2. For lambda_i>lambda_j the derivative of log(c_i/c_j)/2 is alpha/(exp(alpha t)-1)-beta/(exp(beta t)-1)<0 for alpha>beta>0; the u=0 endpoint follows by a limit. At t=1 the ratio is lambda_i/lambda_j>1; at infinity its reciprocal is below 1. The filter F_K(z)=(1-(1-z)^K)^2/z for 0<z<=1 has a unique maximum, since its derivative changes sign once when sum_{h=0}^{K-1}(1-z)^(-h)=2K (K>=2), with K=1 monotone. Therefore its sampled spectral variances are unimodal; top-r indices admit a consecutive block. Strict crossing excludes moving a smaller index into a later optimum while a larger index departs. A two-level spectrum proves late retained-trace ratio mu/L. Independent exact rational 4-mode windows were {1,2}, {2,3}, {3,4} at K=1,10,100, and 5,200 bounded numerical rank-window checks across 100 new random spectra passed. Finite checks do not prove the continuous all-spectrum statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abhishek–Holman develop a randomized normal-operator covariance estimate and note importance of small singular directions, but the inspected formula does not state the global one-crossing or all-rank contiguous migration.",
+          "Dominant-SVD/truncated inverse methods concern different approximation objectives; the available 1994 abstract was not sufficient for a whole-document coverage exclusion."
+        ],
+        "reasoning": "A broader spectral-filter theorem might imply the property, but the inspected dominant-subspace and variance-estimate results do not establish the exact once-only pair crossings and monotone all-rank maximizing blocks.",
+        "searches": [
+          "Abhishek and Holman arXiv:2610.00882, equations (3.6),(3.26),(3.27), §3.6 and appendix",
+          "Vogel–Wade, Iterative SVD-Based Methods for Ill-Posed Problems, DOI:10.1137/0915047",
+          "Resultary: stagewise-safe two-step Richardson frontier"
+        ]
+      },
+      "checked_sources": [
+        "Abhishek–Holman arXiv:2610.00882, targeted primary equations and appendix",
+        "Vogel–Wade 1994 bibliographic abstract DOI:10.1137/0915047",
+        "Resultary semantic query on Landweber covariance spectral rank migration and one-crossing",
+        "Classical finite-dimensional Landweber spectral filter"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original covariance filter is known; strict monotonic derivative comparisons, single spectral maximum and exchange argument supply the rank migration conclusion."
+        ],
+        "reasoning": "The claim can be derived from known elementary formulas plus the added global spectral inequalities, but the searched prior conclusions do not explicitly imply the entire universal rank-migration theorem as a stated result.",
+        "searches": [
+          "Abhishek–Holman 2026 formula (3.26) and randomized low-rank approximation",
+          "Vogel–Wade 1994 bibliographic abstract",
+          "General classical Landweber spectral filter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Landweber covariance diagonal entries match the standard filter c_i(K)=sigma^2[1-(1-omega lambda_i)^K]^2/lambda_i.",
+          "Crossing order and optimal rank-window behavior are distinct assertions about the entire parameter-ordered covariance spectrum rather than the covariance formula alone."
+        ],
+        "reasoning": "Equivalent formulations checked include Landweber spectral filter unimodality, pairwise covariance singular-value ordering and optimal subspace migration across iteration time; the searched Resultary hits addressed Richardson optimization or unrelated spectra, not this covariance ranking theorem.",
+        "searches": [
+          "Resultary: Landweber iteration covariance spectral eigenvalues crossing monotonic ranks and optimal contiguous spectral windows over iterations",
+          "Abhishek–Holman arXiv:2610.00882 covariance diagonalisation and low-rank normal approximation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed 4-mode example and two-level sharp trace-loss example are consequences of the analytic rank-order theorem; no prior exact table of all covariance-optimal windows or crossing times was located."
+        ],
+        "reasoning": "An explicit covariance formula for a given K is not itself a published classification of changing all-pairs order or optimal rank sets for every finite spectrum.",
+        "searches": [
+          "Abhishek–Holman covariance spectral formulas (arXiv:2610.00882)",
+          "Resultary spectral-order and Landweber queries"
+        ]
+      },
+      "rationale": "Same-object and stronger-implication search compared: Equivalent formulations checked include Landweber spectral filter unimodality, pairwise covariance singular-value ordering and optimal subspace migration across iteration time; the searched Resultary hits addressed Richardson optimization or unrelated spectra, not this covariance ranking theorem. A broader spectral-filter theorem might imply the property, but the inspected dominant-subspace and variance-estimate results do not establish the exact once-only pair crossings and monotone all-rank maximizing blocks. The claim can be derived from known elementary formulas plus the added global spectral inequalities, but the searched prior conclusions do not explicitly imply the entire universal rank-migration theorem as a stated result. A semantic Resultary query was executed for this problem. All source limitations and possible hidden equivalences are retained as residual risks, not misreported as proof of absolute priority.",
+      "residual_risks": [
+        "Full primary Vogel–Wade 1994 text was not materially inspected; a general classical Landweber spectral rank-order lemma may exist under different terminology.",
+        "The theorem uses the nonoscillatory step range omega lambda_max<=1 and a single reused isotropic noise vector; it does not cover higher stable steps or correlated noise.",
+        "Numerical rank-window checks cannot establish universal uniqueness or infinitesimal monotonicity, which are proved analytically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERED_INGREDIENT_NOT_GLOBAL_RESULT: covariance formula and small-mode influence known; no all-pair crossing/contiguous-window theorem in materially inspected sections",
+          "evidence": [
+            "arXiv:2610.00882 §§3,5; formulas (3.6),(3.26),(3.27)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.00882",
+          "material_read": "Read primary arXiv text around equations (3.6), (3.26),(3.27), Sections 3.1, 3.3, 3.6 and Appendix 5.1; compared the covariance normalisation and spectral approximation statement.",
+          "method": "Primary full-text arXiv HTML, targeted sections and appendix",
+          "title": "Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+          "trigger": "Closest same iteration, same covariance and rank approximation; potential domination"
+        },
+        {
+          "assessment": "HISTORICAL_PRIORITY_RISK: topic overlaps iterative spectral methods, cannot assert full-paper exclusion",
+          "evidence": [
+            "Vogel–Wade, SIAM J. Sci. Comput. 15 (1994), 736–754"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0915047",
+          "material_read": "Available bibliographic abstract on iterative SVD methods; original technical article full text not inspected.",
+          "method": "bibliographic abstract only",
+          "title": "Iterative SVD-Based Methods for Ill-Posed Problems",
+          "trigger": "Historical truncated SVD connection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In inverse-problem uncertainty quantification, variance-optimal compression can differ sharply from dominant normal-operator singular directions as iterative regularization evolves. The all-pairs one-crossing and monotone contiguous-window structure are a usable global spectral rule, and the exact arbitrarily small trace fraction isolates an important mathematically motivated failure mode without incorrectly claiming reconstruction or confidence-interval failure.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Abhishek–Holman arXiv:2610.00882, targeted primary equations and appendix",
+    "Vogel–Wade 1994 bibliographic abstract DOI:10.1137/0915047",
+    "Resultary semantic query on Landweber covariance spectral rank migration and one-crossing",
+    "Classical finite-dimensional Landweber spectral filter"
+  ],
+  "disposition": "passed",
+  "final_claim": "With fixed isotropic Gaussian observation noise and nonoscillatory Landweber step 0<omega lambda_max<=1 for a full-rank real A with distinct positive normal eigenvalues, all pairwise covariance-eigenmode ratios are strictly decreasing in real iteration t>=1 and cross unity exactly once. At any integer K the top-r covariance spectral modes admit a contiguous eigenvalue-index block; maximizing blocks migrate only toward smaller singular values, and fixed large-eigenvalue compression can lose arbitrarily much retained variance.",
+  "limitations": [
+    "Full primary Vogel–Wade 1994 text was not materially inspected; a general classical Landweber spectral rank-order lemma may exist under different terminology.",
+    "The theorem uses the nonoscillatory step range omega lambda_max<=1 and a single reused isotropic noise vector; it does not cover higher stable steps or correlated noise.",
+    "Numerical rank-window checks cannot establish universal uniqueness or infinitesimal monotonicity, which are proved analytically."
+  ],
+  "residual_risks": [
+    "Full primary Vogel–Wade 1994 text was not materially inspected; a general classical Landweber spectral rank-order lemma may exist under different terminology.",
+    "The theorem uses the nonoscillatory step range omega lambda_max<=1 and a single reused isotropic noise vector; it does not cover higher stable steps or correlated noise.",
+    "Numerical rank-window checks cannot establish universal uniqueness or infinitesimal monotonicity, which are proved analytically."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERED_INGREDIENT_NOT_GLOBAL_RESULT: covariance formula and small-mode influence known; no all-pair crossing/contiguous-window theorem in materially inspected sections",
+      "evidence": [
+        "arXiv:2610.00882 §§3,5; formulas (3.6),(3.26),(3.27)"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.00882",
+      "material_read": "Read primary arXiv text around equations (3.6), (3.26),(3.27), Sections 3.1, 3.3, 3.6 and Appendix 5.1; compared the covariance normalisation and spectral approximation statement.",
+      "method": "Primary full-text arXiv HTML, targeted sections and appendix",
+      "title": "Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+      "trigger": "Closest same iteration, same covariance and rank approximation; potential domination"
+    },
+    {
+      "assessment": "HISTORICAL_PRIORITY_RISK: topic overlaps iterative spectral methods, cannot assert full-paper exclusion",
+      "evidence": [
+        "Vogel–Wade, SIAM J. Sci. Comput. 15 (1994), 736–754"
+      ],
+      "identifier_or_url": "https://doi.org/10.1137/0915047",
+      "material_read": "Available bibliographic abstract on iterative SVD methods; original technical article full text not inspected.",
+      "method": "bibliographic abstract only",
+      "title": "Iterative SVD-Based Methods for Ill-Posed Problems",
+      "trigger": "Historical truncated SVD connection"
+    }
+  ]
+}

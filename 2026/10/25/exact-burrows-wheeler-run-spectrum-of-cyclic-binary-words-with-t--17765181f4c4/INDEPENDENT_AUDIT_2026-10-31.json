@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T05:43:25.337913Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Represent each length-n word with exactly three 1s by a cyclic orbit of three nonnegative zero-gap lengths g_0,g_1,g_2 summing n-3; rotation equivalence acts by cyclic permutation, not reflection. For a rotation starting t zeros before a marker, 0≤t≤g_i, lex order prioritizes longer leading zero runs (decreasing t), then compares subsequent gaps. Its preceding BWT letter is 1 precisely for t=g_i. Exactly three marked BWT rows occur, the first transformed symbol is 1 and the last is 0 since at least one zero exists, so the total linear runs are twice the number of connected marked blocks: 2,4,6. The gap adjacency analysis distinguishes equal lengths, pairwise-distinct neighboring lengths and their cyclic orders; balanced gaps yield the unique 2-run necklace, while 4-run triples count by two equal, small-middle or middle-large adjacent marks. The resulting generating series ∑_{M≥0} C_4(M+3)z^M=z²/(1-z)²+z³/(1-z³) holds for M≥1. Burnside on three-gap cyclic compositions gives total [binom(n-1,2)+2·1_{3|n}]/3, so C_6 is the remainder, and its quadratic leading growth proves density→1. Independent code enumerated every cyclic composition orbit for every length 4..60, sorted all n cyclic rotations with multiplicities, and checked all run bins, totaling 11,419 necklaces; this independently tests the complete finite statements but the all-n proof rests on the structural lemmas and Burnside.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Crochemore et al present combinatorial BWT foundations; Simpson–Puglisi classify especially two-run/simple BWT images and ternary variants; Mantaci et al classify BWT fixed-point words with up to four minority symbols, not run counts over all words."
+        ],
+        "reasoning": "No inspected broader BWT characterization yields C_4(n)=n-4+δ or C_6 by direct implication, despite covering the known C_2 subset and using related gap ordering arguments.",
+        "searches": [
+          "Crochemore–Désarménien–Perrin, A Note on the Burrows-Wheeler Transformation, arXiv:cs/0502073",
+          "Simpson–Puglisi 2008 Words with Simple Burrows-Wheeler Transforms full primary",
+          "Mantaci et al 2017 On Fixed Points of the BWT full OA postprint §§2–4"
+        ]
+      },
+      "checked_sources": [
+        "Crochemore–Désarménien–Perrin, A note on the Burrows-Wheeler transformation, arXiv:cs/0502073",
+        "Simpson–Puglisi, Words with Simple Burrows-Wheeler Transforms, EJC 15 (2008), R83",
+        "Mantaci et al, On Fixed Points of the BWT, FI 154 (2017), full lawful OA postprint §§2–4",
+        "Mantaci–Restivo–Sciortino, Burrows–Wheeler Transform and Sturmian Words, IPL 86 (2003), bibliographic via primary follow-ons",
+        "Resultary semantic searches: weight-three BWT run-spectrum necklace"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Burnside yields total necklace count but no BWT-run assignment. Minimum two-run characterization determines C_2 only. Fixed-point theorems test bwt(w)=w, neither necessary nor sufficient to determine counts of 4- or 6-run images."
+        ],
+        "reasoning": "Additional equal-t rotation order and adjacency classification are required to compute the full three-bin spectrum; these are independently motivated structural elements of the submitted result.",
+        "searches": [
+          "Simpson–Puglisi 2008 simple BWT images; Mantaci–Restivo–Sciortino 2003 two-run results",
+          "Mantaci–Restivo–Rosone–Russo–Sciortino 2017 full Prop 4.2",
+          "General Burnside count of weight-three necklaces"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent cyclic gap-composition orbits sum M=n-3; BWT run count equals twice the number of adjacent blocks of three rows whose predecessor character is 1."
+        ],
+        "reasoning": "Searched cyclic BWT, circular BWT, rotation-only necklaces, fixed Parikh/Hamming content and runs/clusters. Two-run balanced/Sturmian word statements are a proper part of, and do not by themselves determine, the complete 4-/6-run enumeration.",
+        "searches": [
+          "Resultary: Burrows Wheeler transform binary necklaces exactly three 1 bits run counts cyclic BWT gap triples",
+          "Web: binary Burrows Wheeler three ones run spectrum circular 3-gap necklaces",
+          "Mantaci–Restivo–Sciortino, BWT and Sturmian Words, 2003, related two-run characterization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest primary low-weight table gives exceptional 3-marker BWT fixed points (e.g., three affine gap patterns in Proposition 4.2), which are not the 2,4,6 run distribution of all necklaces."
+        ],
+        "reasoning": "No exact indexed weight-three run-spectrum table was found; the fixed-point table is not a synonym or substitute. Unindexed historical enumerations remain possible.",
+        "searches": [
+          "Resultary: Burrows Wheeler three ones necklaces exact run spectrum",
+          "Web: \"binary\" \"Burrows Wheeler\" \"three ones\" \"run\" necklaces",
+          "2017 Mantaci et al Section 4 Proposition 4.2 3 minority letter fixed-point table"
+        ]
+      },
+      "rationale": "The sentinel-free cyclic BWT and its standard/Sturmian two-run characterization are prior knowledge; no originality is assigned to those. The exact distribution into two, four, and six linear runs among every weight-three necklace is a distinct all-length question. Simpson–Puglisi 2008 study simple BWT words (especially minimum two runs), and Mantaci–Restivo–Rosone–Russo–Sciortino 2017 fully classify BWT fixed points at low minority weight, not the run spectrum. Indeed the 2017 full primary Section 4 Proposition 4.2 explicitly classifies weight-three fixed words rather than all weight-three BWT run counts, so shared parameters do not imply coverage. No stronger all-run-spectrum theorem was found in actual searches, with possible historical gap enumeration remaining a risk.",
+      "residual_risks": [
+        "The 2003 original two-run/Sturmian article was not inspected in confirmed complete primary full text; subsequent 2008/2017 primary discussions indicate a narrower result, but exact historical priority for full 4-/6-run counts is not certain.",
+        "An unindexed fixed-content BWT run enumeration, or a stronger formula in another compression text, might specialize to weight three.",
+        "Only sentinel-free circular BWT with linear run count and necklace equivalence by rotations is proved; other BWT conventions may have different distributions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: exact solution set of bwt(w)=w for low minority count, not counting run lengths among all rotation-only necklaces, notwithstanding common 3-marker parameter",
+          "evidence": [
+            "Mantaci et al, Fundamenta Informaticae 154 (2017), pp.277–288, Proposition 4.2"
+          ],
+          "identifier_or_url": "https://arpi.unipi.it/retrieve/e0d6c92c-75cb-fcf8-e053-d805fe0aa794/FI_2017_postprint.pdf",
+          "material_read": "Full lawful institutional open-access postprint, read §1 intro, §2 sorted cyclic rotations, §3 fixed-point theorem, §4 Propositions 4.1–4.5 including detailed three-minority-letter Prop 4.2; first PDF page inspected visually",
+          "method": "primary full-text PDF plus page screenshot",
+          "title": "On Fixed Points of the Burrows-Wheeler Transform",
+          "trigger": "Highly relevant primary full text: same cyclic BWT and exactly three minority symbols"
+        },
+        {
+          "assessment": "PARTIAL_SPECIAL_CASE_ONLY: C2 balanced/Sturmian case is known, not a full 2/4/6 distribution for weight-three necklaces",
+          "evidence": [
+            "Simpson–Puglisi, Electronic J. Combinatorics 15 (2008), R83"
+          ],
+          "identifier_or_url": "https://www.kurims.kyoto-u.ac.jp/EMIS/journals/EJC/Volume_15/PDF/v15i1r83.pdf",
+          "material_read": "Primary openly available Electronic Journal of Combinatorics PDF, introduction and simple two-run/Sturmian characterization plus ternary extension; screenshot retrieval attempted in initial source review where unavailable",
+          "method": "primary PDF extracted text",
+          "title": "Words with Simple Burrows-Wheeler Transforms",
+          "trigger": "Direct predecessor on BWT run-minimum characterization and cyclic sorting"
+        },
+        {
+          "assessment": "NOT_COVERING: transform foundation and permutation description, not exact fixed-content run spectrum",
+          "evidence": [
+            "Crochemore–Désarménien–Perrin, TCS 332 (2005), 567–572"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cs/0502073",
+          "material_read": "Primary full text / abstract, transform model and combinatorial characterization",
+          "method": "primary paper model",
+          "title": "A note on the Burrows-Wheeler transformation",
+          "trigger": "Foundational cyclic-rotation transform without sentinel"
+        },
+        {
+          "assessment": "PARTIAL_BIBLIOGRAPHIC_RISK: known two-run characterization does not determine higher run multiplicities; cannot claim whole 2003 text independently excludes them",
+          "evidence": [
+            "Mantaci–Restivo–Sciortino, IPL 86 (2003), 241–246"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0020-0190(02)00512-4",
+          "material_read": "Original 2003 article not available as confirmed complete primary text; inspected bibliographic records and 2008/2017 primary discussions that explicitly state its result",
+          "method": "bibliographic and primary follow-on reading only",
+          "title": "Burrows–Wheeler transform and Sturmian words",
+          "trigger": "Primary original minimum-run characterization with same transform"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of equal-letter runs in the Burrows–Wheeler transform is a natural compressibility and indexing parameter. Exactly three minority markers are the first nontrivial small-weight class with three possible BWT clustering regimes; determining all three proportions and the unique maximally clustered necklace for every length is a natural complete classification, not a selected isolated small-n count. The asymptotic prevalence of six runs is an exact property of the entire fixed-content necklace ensemble.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Crochemore–Désarménien–Perrin, A note on the Burrows-Wheeler transformation, arXiv:cs/0502073",
+    "Simpson–Puglisi, Words with Simple Burrows-Wheeler Transforms, EJC 15 (2008), R83",
+    "Mantaci et al, On Fixed Points of the BWT, FI 154 (2017), full lawful OA postprint §§2–4",
+    "Mantaci–Restivo–Sciortino, Burrows–Wheeler Transform and Sturmian Words, IPL 86 (2003), bibliographic via primary follow-ons",
+    "Resultary semantic searches: weight-three BWT run-spectrum necklace"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every n≥4, rotational necklaces of length n with exactly three 1s, counted with all cyclic rotations including periodic multiplicities in the sentinel-free BWT, have linear BWT run counts only 2, 4, and 6. Their numbers are C_2(n)=1, C_4(n)=n-4+1_{3|n}, C_6(n)=[binom(n-1,2)+2·1_{3|n}]/3-C_2(n)-C_4(n), with C_6(n)/total→1. The three ordinary generating functions are given exactly.",
+  "limitations": "No claims for sentinel BWT, reflection equivalence, other binary weights, or arbitrary alphabets. Finite verification n≤60 is not the proof of all n.",
+  "residual_risks": [
+    "The 2003 original two-run/Sturmian article was not inspected in confirmed complete primary full text; subsequent 2008/2017 primary discussions indicate a narrower result, but exact historical priority for full 4-/6-run counts is not certain.",
+    "An unindexed fixed-content BWT run enumeration, or a stronger formula in another compression text, might specialize to weight three.",
+    "Only sentinel-free circular BWT with linear run count and necklace equivalence by rotations is proved; other BWT conventions may have different distributions."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING: exact solution set of bwt(w)=w for low minority count, not counting run lengths among all rotation-only necklaces, notwithstanding common 3-marker parameter",
+      "evidence": [
+        "Mantaci et al, Fundamenta Informaticae 154 (2017), pp.277–288, Proposition 4.2"
+      ],
+      "identifier_or_url": "https://arpi.unipi.it/retrieve/e0d6c92c-75cb-fcf8-e053-d805fe0aa794/FI_2017_postprint.pdf",
+      "material_read": "Full lawful institutional open-access postprint, read §1 intro, §2 sorted cyclic rotations, §3 fixed-point theorem, §4 Propositions 4.1–4.5 including detailed three-minority-letter Prop 4.2; first PDF page inspected visually",
+      "method": "primary full-text PDF plus page screenshot",
+      "title": "On Fixed Points of the Burrows-Wheeler Transform",
+      "trigger": "Highly relevant primary full text: same cyclic BWT and exactly three minority symbols"
+    },
+    {
+      "assessment": "PARTIAL_SPECIAL_CASE_ONLY: C2 balanced/Sturmian case is known, not a full 2/4/6 distribution for weight-three necklaces",
+      "evidence": [
+        "Simpson–Puglisi, Electronic J. Combinatorics 15 (2008), R83"
+      ],
+      "identifier_or_url": "https://www.kurims.kyoto-u.ac.jp/EMIS/journals/EJC/Volume_15/PDF/v15i1r83.pdf",
+      "material_read": "Primary openly available Electronic Journal of Combinatorics PDF, introduction and simple two-run/Sturmian characterization plus ternary extension; screenshot retrieval attempted in initial source review where unavailable",
+      "method": "primary PDF extracted text",
+      "title": "Words with Simple Burrows-Wheeler Transforms",
+      "trigger": "Direct predecessor on BWT run-minimum characterization and cyclic sorting"
+    },
+    {
+      "assessment": "NOT_COVERING: transform foundation and permutation description, not exact fixed-content run spectrum",
+      "evidence": [
+        "Crochemore–Désarménien–Perrin, TCS 332 (2005), 567–572"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/cs/0502073",
+      "material_read": "Primary full text / abstract, transform model and combinatorial characterization",
+      "method": "primary paper model",
+      "title": "A note on the Burrows-Wheeler transformation",
+      "trigger": "Foundational cyclic-rotation transform without sentinel"
+    },
+    {
+      "assessment": "PARTIAL_BIBLIOGRAPHIC_RISK: known two-run characterization does not determine higher run multiplicities; cannot claim whole 2003 text independently excludes them",
+      "evidence": [
+        "Mantaci–Restivo–Sciortino, IPL 86 (2003), 241–246"
+      ],
+      "identifier_or_url": "https://doi.org/10.1016/S0020-0190(02)00512-4",
+      "material_read": "Original 2003 article not available as confirmed complete primary text; inspected bibliographic records and 2008/2017 primary discussions that explicitly state its result",
+      "method": "bibliographic and primary follow-on reading only",
+      "title": "Burrows–Wheeler transform and Sturmian words",
+      "trigger": "Primary original minimum-run characterization with same transform"
+    }
+  ]
+}

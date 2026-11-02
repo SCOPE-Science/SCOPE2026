@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise domain is all nonempty finite products of complete loopless graphs of factor orders at least two. The proof first reduces quantifier rank three to exact pair/one-extension records by vertex transitivity and the three-round Ehrenfeucht–Fraïssé criterion. For each pair, it exhaustively derives all four possible third-point adjacency patterns from the coordinates in which the endpoints agree or differ. The edge and nonedge record lists are disjoint across the seven asserted classes, and every list is realized by a smallest representative. The product with two binary factors and one ternary factor witnesses the sharp 12-vertex internal representative bound. Independent direct EF recursion and direct adjacency enumeration agree with the symbolic criterion. No finite computational range is used as an infinite proof.
+PASS
 
-## Originality — PASS, residual literature risk
+Vertex transitivity reduces the 3-round Ehrenfeucht–Fraïssé game to equality/edge status for the first two distinct vertices and existence of each (00),(01),(10),(11) adjacency pattern for a third. For two coordinate words the differing-set D and equal-set S determine all four cells: (11) requires every differing factor q>=3; for nonedges single-neighbor cells always exist; (00) distinguishes the d=2 differing factor threshold and d>=3. For edges, all-binary, mixed and all-nonbinary factors produce distinct cell records. This gives precisely seven signatures, with explicit minimal representatives and rank-two collapse. Any mixed d>=3 product has order>=2*2*3=12. Independent literal adjacency reconstruction matched 40 additional small products and separated all seven signatures. Infinite assertion follows from coordinate construction.
 
-The full 2007 Klotz–Sander paper supplies common-neighbor counts and diameter for the prime-factor unitary Cayley subfamily, not the four pattern flags or the arbitrary-factor classification. The five-page Iswadi 2011 paper treats metric-location-total domination, ordinary domination bounds, and some two-factor products, not exact quantifier-rank theories. The two-factor specialization is already implied by known rook-graph quantifier-rank profiles after graph complementation and is expressly not claimed as new. The present uniform classification across arbitrarily many factors, the mixed-product two/three-factor distinction, and the sharp global representative bound were not found in the inspected prior statements or accessible research-record comparisons. Inaccessible or unindexed equivalences remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-The categorical product of complete graphs is an established natural graph class, including graph products used for domination theory and squarefree unitary Cayley graphs. The result computes its complete bounded-depth logical invariant for every finite number of factors, proves a sharp 12-vertex representative bound, and isolates the precise logical effect of a binary factor and a second/third coordinate. The comparison between two rank-two classes and seven rank-three classes provides a structural quantifier-rank threshold, not a mere isolated finite enumeration.
+Direct products/tensor products of complete graphs also occur as squarefree unitary Cayley graphs. Published common-neighbor counts, diameter and graph domination results partially determine 3-vertex extensions but not the complete seven-class arbitrary-factor quantifier-rank theory. Known two-factor rook-complement logical results (if available) cover two-factor cases, which are acknowledged; higher factor number and the sharp 12 representative threshold are the assessed extension.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural product graph family has a complete sharp bounded-depth logical invariant: two 2-round classes split into seven 3-round classes with a uniform 12-vertex representative. This is a full all-factor classification with a model-theoretic sharp threshold, not an arbitrary finite dataset.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

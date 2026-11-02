@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T05:43:25.337884Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The recursive root/component decomposition enumerates each rooted elimination tree exactly once. The seven proper descendant tubes characterize maximal tubings, while deleting one tube leaves a ridge with two completions; their pair constitutes exactly one allowed single flip. A separate parent–child rotation interpretation agrees with these moves in the source. For each graph the independent C++ audit built induced-component elimination trees, tubes, ridge-pair adjacency, tested all 8!=40,320 candidate label permutations to get full automorphism groups, enumerated every orbit, and ran breadth-first search from each orbit representative across all states. It reconstructed Q3 16,752 states, 58,632 edges, 48 base automorphisms, 355 state-orbits (343×48+12×24), and M8 17,568 states, 61,488 edges, 16 automorphisms, 1,098 state-orbits; eccentricity distributions Q3 {17:1368,18:8280,19:6336,20:768}, M8 {17:976,18:5536,19:10800,20:256}, and all twenty pair distances matched the frozen theorem. Orbit multiplicity and division of ordered pair counts by two ensure entire distance distributions, not samples; connected BFS reaches all states. This is a genuinely exhaustive finite proof of the two specified graphs, not numerical extrapolation to other graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manneville–Pilaud Theorem 18 bounds diameters via edge count and binomial size; FPT/hardness work analyzes complexity of arbitrary rotation-distance queries. None supplies a fixed-graph all-pairs Q3/M8 census."
+        ],
+        "reasoning": "Generic upper/lower bounds and distance algorithms can compute values in principle but do not logically imply the specific complete 20-bin distributions and eccentricity counts without the new exhaustive computation.",
+        "searches": [
+          "Manneville–Pilaud 2014/2015 full primary text, arXiv:1409.8114, Theorem 18",
+          "Cunha–Sau–Souza–Valencia-Pabon 2026 revised arXiv:2504.18338v2 full HTML",
+          "Ito et al 2023 arXiv:2304.14782v1 full HTML"
+        ]
+      },
+      "checked_sources": [
+        "Manneville–Pilaud, Graph properties of graph associahedra, arXiv:1409.8114, §2 flips and Theorem 18",
+        "Cunha et al, Computing distances is FPT on graph associahedra, arXiv:2504.18338v2",
+        "Ito et al, Hardness of Finding Combinatorial Shortest Paths on Graph Associahedra, arXiv:2304.14782",
+        "Published Resultary K4,4 complete eccentricity record (2026-10-11)",
+        "Resultary semantic searches: Q3/Wagner graph-associahedron distance spectra"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bounds 12≤diam≤28 for these 8-vertex cubic graphs do not force diameter 20. An FPT algorithm computes a requested pair when run but its theorem does not state any particular eccentricity distribution. K4,4 is not graph-isomorphic to either cubic graph."
+        ],
+        "reasoning": "No inspected theorem entails the exact assertion without evaluating these specific rotation graphs; a checkable complete finite census is the additional mathematical content.",
+        "searches": [
+          "Manneville–Pilaud arXiv:1409.8114, §3.4 diameter bounds",
+          "Cunha et al arXiv:2504.18338v2, distance parameter algorithm",
+          "Resultary K4,4 exact profile source read"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Elimination-tree graph rotation distance equals maximal-tubing flip graph distance and one-skeleton shortest-path distance of graph associahedra."
+        ],
+        "reasoning": "Compared all aliases and the exact base graph definitions; a result on the graph-theoretic diameter of Q3 itself or of M8 itself is not a result about their much larger associahedron rotation graphs.",
+        "searches": [
+          "Resultary: graph associahedron rotation diameter eccentricity cube Q3 Wagner graph M8 maximal tubings distance distribution",
+          "Web: Wagner graph Q3 cube graph associahedron diameter rotation graph 20 17 eccentricity",
+          "arXiv:1409.8114, §2.3 flips and spines"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published K4,4 record lists 29,616 tubings, diameter 22 and ecc 19:48,20:768,21:5760,22:23040. The present Q3/M8 are distinct graphs with 16,752 and 17,568 tubings and diameter 20."
+        ],
+        "reasoning": "The closest exact indexed eight-vertex graph-associahedron metric table is not a covering result or parameter rewording; no Q3/M8 all-distance table was identified. An unindexed calculation could still exist.",
+        "searches": [
+          "Resultary: graph associahedra rotation distance exact eccentricity graph Q3 cube Wagner graph M8 maximal tubings",
+          "Resultary record 2026/10/11/SCOPE-the-complete-eccentricity-profile-of-the-balanced-k-4-4-graph-as--c2821713101d full RESULT.md",
+          "Web exact table cube Wagner elimination tree rotation graph distance 624 168"
+        ]
+      },
+      "rationale": "Identifying the rotation graph with the one-skeleton of a graph associahedron permits direct comparison with general diameter bounds, hardness and FPT distance-computation results. None of the inspected graph-associahedron primary theorems supplies both exact Q3/M8 eccentricity histograms or all-pair distance distributions. A relevant published finite record determines the metric of K4,4 (29,616 states, diameter 22) rather than Q3 or M8; equal vertex count does not imply a metric reduction. The exact two-graph comparison appears original to best of knowledge, while an unindexed small graph-associahedron metric census remains a priority risk.",
+      "residual_risks": [
+        "Exact metric computations for named small graph associahedra might appear in an unindexed or unpublished collection despite no indexed result found.",
+        "The result is only for Q3 and M8; no uniform cubic-graph formula follows.",
+        "Proof of the finite census depends on correct exhaustive enumeration/edge generation; both independent ridge construction and source parent-child rotation construction were analyzed, and an independent BFS implementation was executed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: establishes general bounds, monotonicity and geodesic facts, not Q3/M8 full distance or eccentricity profiles",
+          "evidence": [
+            "arXiv:1409.8114, Theorem 18 and §§2.3,3.4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1409.8114",
+          "material_read": "Full HTML primary text: §2 tube, spine, flip definition; §3 diameters, Theorems 6 and 18, bounds and examples",
+          "method": "full primary arXiv text",
+          "title": "Graph properties of graph associahedra",
+          "trigger": "Same nested-complex rotation graph, theorems potentially giving exact metrics"
+        },
+        {
+          "assessment": "NOT_COVERING: algorithmic tractability and graph-model equivalence, no complete 8-vertex Q3 and M8 metric spectra",
+          "evidence": [
+            "arXiv:2504.18338v2 (revised 2026-03-23)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2504.18338v2",
+          "material_read": "Full open-access HTML primary text, algorithmic model and main FPT/W[2] statements; checked exact base-graph implication",
+          "method": "primary full HTML",
+          "title": "Computing distances is FPT on graph associahedra and W[2]-hard on hypergraphic polytopes",
+          "trigger": "Very relevant graph-associahedron distance computations and elimination-tree rotations"
+        },
+        {
+          "assessment": "NOT_COVERING_AS_STATED: worst-case hardness not fixed Q3/M8 all-pairs metrics",
+          "evidence": [
+            "arXiv:2304.14782v1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2304.14782v1",
+          "material_read": "Primary open HTML: main problem definition, hardness and representative reductions",
+          "method": "primary full-text model and theorem inspection",
+          "title": "Hardness of Finding Combinatorial Shortest Paths on Graph Associahedra",
+          "trigger": "Could include distance tables or hardness construction on small cubic input"
+        },
+        {
+          "assessment": "NOT_COVERING: K4,4 has different adjacency and 29,616 associahedron vertices, diameter 22, unrelated pairwise distribution for Q3/M8",
+          "evidence": [
+            "Resultary/2026 record October 11 2026, the K4,4 eccentricity theorem"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-complete-eccentricity-profile-of-the-balanced-k-4-4-graph-as--c2821713101d",
+          "material_read": "Read complete primary RESULT.md from repository at main; graph K4,4 definition, theorem, enumeration and proof",
+          "method": "primary published mathematical record full RESULT.md",
+          "title": "The complete eccentricity profile of the balanced K4,4 graph associahedron",
+          "trigger": "Relevant published exact metric census for another graph on eight vertices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Q3 and M8 are canonical contrasting connected cubic graphs of order eight. Their rotation graphs attain the same radius/diameter yet sharply different antipodal multiplicities and complete distance distributions. This isolates a natural limitation of diameter alone as a descriptor of graph-associahedron geometry, provides reproducible complete finite metric data, and supplies test cases for more general rotation-distance algorithms and heuristics. A finite census can be valuable on these canonical inputs without a general theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Manneville–Pilaud, Graph properties of graph associahedra, arXiv:1409.8114, §2 flips and Theorem 18",
+    "Cunha et al, Computing distances is FPT on graph associahedra, arXiv:2504.18338v2",
+    "Ito et al, Hardness of Finding Combinatorial Shortest Paths on Graph Associahedra, arXiv:2304.14782",
+    "Published Resultary K4,4 complete eccentricity record (2026-10-11)",
+    "Resultary semantic searches: Q3/Wagner graph-associahedron distance spectra"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the maximal-tubing/rotation graphs of the eight-vertex cube Q3 and Wagner graph M8, both radius and diameter are 17 and 20, but the numbers of eccentricity-20 states are 768 versus 256 and their unordered distance-20 pairs are 624 versus 168. Complete eccentricity profiles and all twenty exact unordered distance-bin multiplicities are determined.",
+  "limitations": "The two exact finite eight-vertex rotation-graph distributions are exhaustive; they make no claim about other cubic graphs, a universal formula, or generalized parameterized computational complexity.",
+  "residual_risks": [
+    "Exact metric computations for named small graph associahedra might appear in an unindexed or unpublished collection despite no indexed result found.",
+    "The result is only for Q3 and M8; no uniform cubic-graph formula follows.",
+    "Proof of the finite census depends on correct exhaustive enumeration/edge generation; both independent ridge construction and source parent-child rotation construction were analyzed, and an independent BFS implementation was executed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING: establishes general bounds, monotonicity and geodesic facts, not Q3/M8 full distance or eccentricity profiles",
+      "evidence": [
+        "arXiv:1409.8114, Theorem 18 and §§2.3,3.4"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1409.8114",
+      "material_read": "Full HTML primary text: §2 tube, spine, flip definition; §3 diameters, Theorems 6 and 18, bounds and examples",
+      "method": "full primary arXiv text",
+      "title": "Graph properties of graph associahedra",
+      "trigger": "Same nested-complex rotation graph, theorems potentially giving exact metrics"
+    },
+    {
+      "assessment": "NOT_COVERING: algorithmic tractability and graph-model equivalence, no complete 8-vertex Q3 and M8 metric spectra",
+      "evidence": [
+        "arXiv:2504.18338v2 (revised 2026-03-23)"
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2504.18338v2",
+      "material_read": "Full open-access HTML primary text, algorithmic model and main FPT/W[2] statements; checked exact base-graph implication",
+      "method": "primary full HTML",
+      "title": "Computing distances is FPT on graph associahedra and W[2]-hard on hypergraphic polytopes",
+      "trigger": "Very relevant graph-associahedron distance computations and elimination-tree rotations"
+    },
+    {
+      "assessment": "NOT_COVERING_AS_STATED: worst-case hardness not fixed Q3/M8 all-pairs metrics",
+      "evidence": [
+        "arXiv:2304.14782v1"
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2304.14782v1",
+      "material_read": "Primary open HTML: main problem definition, hardness and representative reductions",
+      "method": "primary full-text model and theorem inspection",
+      "title": "Hardness of Finding Combinatorial Shortest Paths on Graph Associahedra",
+      "trigger": "Could include distance tables or hardness construction on small cubic input"
+    },
+    {
+      "assessment": "NOT_COVERING: K4,4 has different adjacency and 29,616 associahedron vertices, diameter 22, unrelated pairwise distribution for Q3/M8",
+      "evidence": [
+        "Resultary/2026 record October 11 2026, the K4,4 eccentricity theorem"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-complete-eccentricity-profile-of-the-balanced-k-4-4-graph-as--c2821713101d",
+      "material_read": "Read complete primary RESULT.md from repository at main; graph K4,4 definition, theorem, enumeration and proof",
+      "method": "primary published mathematical record full RESULT.md",
+      "title": "The complete eccentricity profile of the balanced K4,4 graph associahedron",
+      "trigger": "Relevant published exact metric census for another graph on eight vertices"
+    }
+  ]
+}

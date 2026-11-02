@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The product is bounded because coordinatewise products of two \(\ell^2\) vectors belong to \(\ell^1\subset\ell^2\). The explicit evolution operator is onto with the displayed isometric right inverse; its kernel is exactly the \((m-1)\)-dimensional head-sum-zero subspace. Every \(\ell^1\) element is a single product by factoring a right-inverse preimage coordinatewise. For a second orthonormal natural basis, the coordinatewise products of distinct unitary columns lie in the kernel. This freezes every tail row and reduces the entire remaining problem to a finite matrix satisfying \(Q^tQ\) diagonal. In the complex case, removing square-root phases leaves a real orthogonal matrix. These steps prove both necessity and sufficiency of the complete moduli description. The general injectivity criterion follows from the same coefficientwise argument. The finite-coordinate verifier gives an exact supplementary consistency check, not a replacement for the proof.
+## correctness
 
-**Originality (PASS, subject to bounded search).** The direct motivating source arXiv:2610.22248v1 asks the density-versus-uniqueness question explicitly. The closest concrete prior construction of different Hilbert orthonormal natural bases is arXiv:2311.08387, Section 3.2; its Example 3.6 has pairwise equal squares whose image lies in a proper closed subspace and therefore cannot imply the present dense-square or onto-operator construction. The earlier arXiv:2012.05124 develops the Hilbert definition and operator framework, not this complete moduli result. Searches also considered surjective evolution operators, finite kernel, Hilbert orthonormal natural bases, and analogous mathematical records, without finding an exact or dominating statement. Failure of a search does not prove uniqueness in the literature.
+PASS
 
-**Value (PASS).** The result answers the precise dense-square uniqueness question in the negative, while adding a complete classification of the orthonormal natural bases, an exact \(O(m)/B_m\) moduli description, and examples with every finite positive evolution-operator nullity. The \(m=2\) case shows that a one-dimensional kernel suffices; the complementary injectivity criterion explains the structural boundary. This is more informative than merely changing a basis in an arbitrary non-perfect example.
+The multiplication xy=T_m(x⊙y) is bounded because l²·l²⊂l¹; T_m has the displayed isometric right inverse, operator norm sqrt(m), and exact head-sum-zero kernel. Every l¹ vector factors as a product via its l¹ right-inverse preimage. For a second orthonormal natural basis, all pairwise coefficient products belong to l¹∩ker T_m. The tail rows each have one unit coefficient in distinct columns, leaving m head columns; their unitary matrix Q has Q^tQ diagonal, and after unimodular square-root diagonal removal becomes a real orthogonal matrix. Conversely every O(m) head rotation works. Injective T|l¹ forces any basis change monomial. Checked exact rational Householder head rotations m=2..7 and finite-window rank equations independently. The infinite conclusion follows from the explicit analytic proof, not finite windows.
 
-**Limitations.** No classification of arbitrary Hilbert evolution algebras, nonorthonormal bases, their automorphisms or derivations is claimed. The proof uses the particular tail-surjective structure. A specialized or unindexed equivalent prior theorem remains possible. No independent verification has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No located exact or dominating covering result after primary-paper and Resultary comparisons; all four named comparison checks and residual priority risks are separately documented.
+
+## value
+
+PASS
+
+A concrete negative resolution of an explicit infinite-dimensional density/rigidity problem, with the smallest possible nonzero kernel and exact positive-dimensional natural-basis moduli, supplies a reusable structural boundary and a one-way general injectivity criterion; not merely a renamed example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

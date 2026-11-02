@@ -1,0 +1,231 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:36:48.179984Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At each modulus m=22 or 27, primitive residue pairs modulo unit scaling form exactly 36 free orbits. L(a,b)=(a,a+b) and R(a,b)=(a+b,b) are well-defined on orbits and realize the exact two-child Stern recursion on the shell [2^k,2^(k+1)). An independently written exact-integer BFS enumerated all primitive orbits for both moduli and their transition systems. It reproduced matching shell counts for the first 72 k, independently matched direct raw Stern values through k=13, and checked the 36 consecutive k=12..47 residuals for both moduli for c=(1,-3,4,-6,9,-13,14,-18,12,-16,0,32,-64). The residual sequence itself is a linear output of the 36-dimensional transfer matrix and satisfies its characteristic recurrence, hence 36 consecutive zeros force all zeros by Cayley–Hamilton. The first 12 equal coefficients plus the shared order-12 recurrence imply equal shell counts for all k. Equivalently 72 initial zeros for a block-diagonal 72-dimensional difference output imply equality for all k. Numerator terms (0,...,0,4,-4,8,-16,32) and claimed rational denominator independently recomputed. With s(0)=0, T(2^r;m)=1+sum_{k<r}Z_m(k), including r=0. The finite computation is combined with valid finite-to-infinite linear algebra, not mistaken for an infinite experiment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reznick proves modular uniform distribution for every m, and I(22)=I(27)=36, while explicitly observes that equal limiting index for 8 and 6 does not force identical finite counts.",
+          "Stanley chapter 6 sets up linear recurrences for ordered residue pairs and proves rationality of G_m,a,b, without the pair-specific equality for m=22 and 27 in the inspected chapter.",
+          "The independent certificate proves a *shared* recurrence and shared first twelve coefficients; existence of separate recurrences alone is too weak."
+        ],
+        "reasoning": "Neither general rationality nor matching asymptotic density logically entails equality term-by-term. No identified stronger theorem yields the needed shared rational function for 22 and 27.",
+        "searches": [
+          "Reznick 2008, Sections 4-5 and conclusion, general uniform-distribution theorem; explicit I(22)=I(27)=36",
+          "Stanley 2020 Conversational Problem Solving Chapter 6 equations (6.7)-(6.9), residue-pair linear recurrences",
+          "Resultary: projective Stern sequence zero residue counts mod 22 mod 27 common recurrence 36 state transfer matrix",
+          "Web: Stern diatomic sequence modulo 22 modulo 27 same counting sequence proof"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/0610601",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL11/Reznick/reznick4.pdf",
+        "Richard P. Stanley, Conversational Problem Solving (2020), Chapter 6, section on modular Stern-triangle transfer recurrences",
+        "https://arxiv.org/pdf/1102.5355",
+        "https://math.illinois.edu/advanced-topics-courses",
+        "https://oeis.org/A002487",
+        "Resultary published-record semantic search, four distinct actual queries on Stern moduli 22 and 27 and their dyadic count generating functions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reznick (2008) states T(2^r;22,0)=T(2^r;27,0) as a conjecture, verified r<=19, while noting known identities 4/5 and 6/9/11 in distinct cases.",
+          "Anders et al. analyze arithmetic congruences of binary partition functions, not the 22/27 zero-residue counting identity in inspected full paper.",
+          "The 2012 course listing confirms that Reznick taught the relevant topic; the course-note mathematical body could not be obtained, so its implication remains undetermined."
+        ],
+        "reasoning": "The finite-state framework is present in earlier work, but earlier stated the precise theorem as open and does not give equality of the 22 and 27 sequences in inspected sources; later plausible notes are a disclosed coverage risk, not a demonstrable prior implication.",
+        "searches": [
+          "Reznick 2006/2008 exact 22/27 conjecture statement and final section",
+          "Resultary: Stern diatomic sequence 22 and 27 dyadic divisibility conjecture valuation Stern Stern-Brocot 22 27",
+          "Anders–Dennison–Reznick–Weber arxiv:1102.5355, modular binary partition and Stern-related results",
+          "Web: A Stern Introduction to Combinatorial Number Theory Reznick 2012 course notes PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For all r, T(2^r;m)=1+sum_{k=0}^{r-1}Z_m(k); first differences convert equality for all powers into Z_22(k)=Z_27(k) for all k.",
+          "The original 2006 preprint page 3 and the 2008 journal page 3 mark precisely this cumulative equality as conjectural, checked through r<=19.",
+          "The attached 36-state proof and independent check give matching shell counts, so the cumulative equality follows including r=0."
+        ],
+        "reasoning": "Difference of the cumulative counts at consecutive powers is exactly a dyadic-shell count; the two formulations are equivalent. Stern fusc/Calkin-Wilf numerators and binary-hyperpartitions are aliases for the same sequence, not prior coverage of this two-modulus identity.",
+        "searches": [
+          "Resultary: Bruce Reznick conjecture T(2^r;22,0) T(2^r;27,0) Stern diatomic residue congruence proof equality",
+          "Web: \"T(2^r;22\" \"27\" Stern Reznick solution",
+          "Reznick 2006 equation (1.15); Reznick 2008 equation (15)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A002487 indexes Stern values (not, in the inspected entry, a complete 22/27 common dyadic-shell generating-function proof).",
+          "Reznick 2008 states an empirical verification only to r<=19.",
+          "The Resultary search returned related but nonmatching numerical-sequence and valuation topics; none of the examined returned statements asserts this pairwise identity."
+        ],
+        "reasoning": "A finite table or familiar Stern-sequence entry cannot prove the universal equality. No exact dominating database table or formal certificate was discovered, but negative search is not an exhaustive novelty proof.",
+        "searches": [
+          "OEIS A002487 Stern diatomic sequence and searches for 22, 27 modular zero counts and initial shell terms 0,0,0,0,0,0,0,4,8,16,24,52",
+          "Web: \"22\" \"27\" \"Stern\" divisibility counts and rational generating function",
+          "Resultary: number of Stern diatomic numerators divisible by 22 or 27 in first 2^r terms generating function rational 12th order"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the all-r 22-versus-27 dyadic divisibility identity plus its explicit common order-12 generating function. Reznick 2006/2008 expressly labels this exact equality conjectural and checks only r<=19. Accessible general transfer/Markov results give individual rational generating functions and equal limiting density but do not force equality for two different moduli; this distinction is explicit in Reznick. Independent searches of published mathematics and Resultary found no statement that supplies this exact all-level equality. A plausible 2012 Reznick course-note treatment was not readable; its possible coverage and unindexed later work remain real priority risks rather than automatic FAIL.",
+      "residual_risks": [
+        "Reznick 2012 class-note mathematical body was not obtained and may already prove the equality.",
+        "Resultary, bibliographic databases, and indexed web discovery are incomplete; another unindexed paper or thesis may contain a stronger or equivalent theorem.",
+        "Chapter 6 of Stanley was read from a searchable excerpt, not the full book; no whole-book noncoverage claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly conjectures 22/27 universal equality; earlier finite r<=19 evidence and modular asymptotics do not prove it.",
+          "evidence": [
+            "Introduction equation (1.15): conjectured T(2^r;22,0)=T(2^r;27,0); asserted checked only r<=19.",
+            "I(22)=I(27)=36 while equal limiting index does not always imply exact finite counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0610601",
+          "material_read": "16-page original preprint, page 3 equation (1.15) screenshot and preceding modular definitions; argument and comments on modular recurrences and smaller-modulus identities",
+          "method": "Direct primary PDF text and page-image examination",
+          "title": "Regularity Properties of the Stern Enumeration of the Rationals (preprint)",
+          "trigger": "Exact named conjecture with same moduli and dyadic cutoffs"
+        },
+        {
+          "assessment": "Original exact conjecture; no established 22/27 equality in the inspected method sections.",
+          "evidence": [
+            "Published equation (15) says 22/27 is conjectured and true through r<=19.",
+            "Proved or announced 4/5 and 6/9/11 identities involve different modulus pairs."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL11/Reznick/reznick4.pdf",
+          "material_read": "Introduction pages 1-3, equation (15) on page 3, Section 4 modular distribution and Section 5/concluding recurrence method and references",
+          "method": "Primary Journal of Integer Sequences 17-page PDF text inspection and visual examination",
+          "title": "Regularity Properties of the Stern Enumeration of the Rationals (journal 2008)",
+          "trigger": "Published source of exact unresolved 22/27 equality"
+        },
+        {
+          "assessment": "General rational generating-function existence and modular asymptotic results, no verified stronger equality for 22 and 27.",
+          "evidence": [
+            "Equation (6.7) gives a transfer recurrence for g_m,a,b; the text derives rationality for each modulus.",
+            "Examples discuss coincidences for smaller moduli, without supplying the specified 22/27 identity in the inspected passage."
+          ],
+          "identifier_or_url": "https://www.ams.org/books/mbk/121/",
+          "material_read": "Chapter 6 section presenting equations (6.7)-(6.9), modular residue pair recursion and examples, not entire book",
+          "method": "Read searchable online chapter excerpt; compared statement and implications with Reznick",
+          "title": "Conversational Problem Solving (2020), Chapter 6, Two Triangles",
+          "trigger": "General finite-state modular Stern array method potentially subsuming result"
+        },
+        {
+          "assessment": "Related modular partition functions but not a theorem implying the 22/27 dyadic Stern zero-count equality.",
+          "evidence": [
+            "Principal congruence results concern binary-partition-function residues and nonperiodicity, with neither target modulus-pair identity stated nor a stronger all-pairs equivalence found."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1102.5355",
+          "material_read": "Full 11-page primary PDF, definitions and major results on congruences of binary partitions",
+          "method": "Direct arXiv PDF text plus page-image inspection",
+          "title": "Congruence Properties of Binary Partition Functions",
+          "trigger": "Authors and hyperbinary/Stern congruence overlap"
+        },
+        {
+          "assessment": "Plausible inaccessible earlier coverage, left as residual risk; no assertion of noncoverage.",
+          "evidence": [
+            "Illinois mathematics listing identifies the course taught by Reznick; a later thesis cites a 2012 notes edition.",
+            "No primary notes text was available for mathematical implication review."
+          ],
+          "identifier_or_url": "https://math.illinois.edu/advanced-topics-courses",
+          "material_read": "Illinois course description/listing and later bibliographic references only; not the mathematical course-note body",
+          "method": "Targeted title/PDF/web searches and university listing inspection",
+          "title": "A Stern Introduction to Combinatorial Number Theory (course notes, 2012)",
+          "trigger": "Same author, later notes expressly foreshadowed in 2006/2008 and cited as 2012 class notes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves the specific universal Stern divisibility conjecture explicitly posed by Reznick in 2006/2008, not just its small-r empirical verification. The common exact rational shell series/order-12 recurrence is an additional reusable structural description of modular Stern distribution. This natural pair 22/27 is singled out by earlier modular distribution theory and appears as an open case rather than an arbitrary parameter slice. Exact computational certification is mathematically meaningful because the states and recurrence derive from the Stern recursion and Cayley–Hamilton. Scope limited to this pair, not a general modulus-pair classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/math/0610601",
+    "https://cs.uwaterloo.ca/journals/JIS/VOL11/Reznick/reznick4.pdf",
+    "Richard P. Stanley, Conversational Problem Solving (2020), Chapter 6, section on modular Stern-triangle transfer recurrences",
+    "https://arxiv.org/pdf/1102.5355",
+    "https://math.illinois.edu/advanced-topics-courses",
+    "https://oeis.org/A002487",
+    "Resultary published-record semantic search, four distinct actual queries on Stern moduli 22 and 27 and their dyadic count generating functions"
+  ],
+  "disposition": "passed",
+  "final_claim": "For Stern s(0)=0,s(1)=1,s(2n)=s(n),s(2n+1)=s(n)+s(n+1), the counts #{0<=n<2^r:m|s(n)} agree for m=22 and 27 for every integer r>=0. Common dyadic-shell generating function numerator 4z^7-4z^8+8z^9-16z^10+32z^11, denominator 1-3z+4z^2-6z^3+9z^4-13z^5+14z^6-18z^7+12z^8-16z^9+32z^11-64z^12.",
+  "limitations": [
+    "Potential prior proof in Reznick 2012 class notes uninspected; this is an access/priority risk, not a correctness defect.",
+    "Finite algorithm reproducibility is not Lean/expert certification.",
+    "Scientific theorem concerns exactly 22 and 27 at powers of 2, not arbitrary moduli or arbitrary cutoff N.",
+    "A source-level privacy sanitization change-set was not fully staged."
+  ],
+  "residual_risks": [
+    "Reznick 2012 class-note mathematical body was not obtained and may already prove the equality.",
+    "Resultary, bibliographic databases, and indexed web discovery are incomplete; another unindexed paper or thesis may contain a stronger or equivalent theorem.",
+    "Chapter 6 of Stanley was read from a searchable excerpt, not the full book; no whole-book noncoverage claim."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Explicitly conjectures 22/27 universal equality; earlier finite r<=19 evidence and modular asymptotics do not prove it.",
+      "evidence": [
+        "Introduction equation (1.15): conjectured T(2^r;22,0)=T(2^r;27,0); asserted checked only r<=19.",
+        "I(22)=I(27)=36 while equal limiting index does not always imply exact finite counts."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/math/0610601",
+      "material_read": "16-page original preprint, page 3 equation (1.15) screenshot and preceding modular definitions; argument and comments on modular recurrences and smaller-modulus identities",
+      "method": "Direct primary PDF text and page-image examination",
+      "title": "Regularity Properties of the Stern Enumeration of the Rationals (preprint)",
+      "trigger": "Exact named conjecture with same moduli and dyadic cutoffs"
+    },
+    {
+      "assessment": "Original exact conjecture; no established 22/27 equality in the inspected method sections.",
+      "evidence": [
+        "Published equation (15) says 22/27 is conjectured and true through r<=19.",
+        "Proved or announced 4/5 and 6/9/11 identities involve different modulus pairs."
+      ],
+      "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL11/Reznick/reznick4.pdf",
+      "material_read": "Introduction pages 1-3, equation (15) on page 3, Section 4 modular distribution and Section 5/concluding recurrence method and references",
+      "method": "Primary Journal of Integer Sequences 17-page PDF text inspection and visual examination",
+      "title": "Regularity Properties of the Stern Enumeration of the Rationals (journal 2008)",
+      "trigger": "Published source of exact unresolved 22/27 equality"
+    },
+    {
+      "assessment": "General rational generating-function existence and modular asymptotic results, no verified stronger equality for 22 and 27.",
+      "evidence": [
+        "Equation (6.7) gives a transfer recurrence for g_m,a,b; the text derives rationality for each modulus.",
+        "Examples discuss coincidences for smaller moduli, without supplying the specified 22/27 identity in the inspected passage."
+      ],
+      "identifier_or_url": "https://www.ams.org/books/mbk/121/",
+      "material_read": "Chapter 6 section presenting equations (6.7)-(6.9), modular residue pair recursion and examples, not entire book",
+      "method": "Read searchable online chapter excerpt; compared statement and implications with Reznick",
+      "title": "Conversational Problem Solving (2020), Chapter 6, Two Triangles",
+      "trigger": "General finite-state modular Stern array method potentially subsuming result"
+    },
+    {
+      "assessment": "Related modular partition functions but not a theorem implying the 22/27 dyadic Stern zero-count equality.",
+      "evidence": [
+        "Principal congruence results concern binary-partition-function residues and nonperiodicity, with neither target modulus-pair identity stated nor a stronger all-pairs equivalence found."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1102.5355",
+      "material_read": "Full 11-page primary PDF, definitions and major results on congruences of binary partitions",
+      "method": "Direct arXiv PDF text plus page-image inspection",
+      "title": "Congruence Properties of Binary Partition Functions",
+      "trigger": "Authors and hyperbinary/Stern congruence overlap"
+    },
+    {
+      "assessment": "Plausible inaccessible earlier coverage, left as residual risk; no assertion of noncoverage.",
+      "evidence": [
+        "Illinois mathematics listing identifies the course taught by Reznick; a later thesis cites a 2012 notes edition.",
+        "No primary notes text was available for mathematical implication review."
+      ],
+      "identifier_or_url": "https://math.illinois.edu/advanced-topics-courses",
+      "material_read": "Illinois course description/listing and later bibliographic references only; not the mathematical course-note body",
+      "method": "Targeted title/PDF/web searches and university listing inspection",
+      "title": "A Stern Introduction to Combinatorial Number Theory (course notes, 2012)",
+      "trigger": "Same author, later notes expressly foreshadowed in 2006/2008 and cited as 2012 class notes"
+    }
+  ]
+}

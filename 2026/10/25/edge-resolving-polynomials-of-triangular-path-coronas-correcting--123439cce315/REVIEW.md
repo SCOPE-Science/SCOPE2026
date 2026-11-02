@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The edge distance rows are derived from shortest paths and reconstruct the original resolver definition. An auxiliary vertex cover is necessary by explicit pairs with exactly two witnesses, and sufficient by the displayed classification of distinguishing-tip supports and endpoint witnesses. All small overlapping boundary cases are finite, and the standalone independent adjacency-based checker exhausts them. Complementing independent sets gives the polynomial, and its top coefficient gives the cardinality and number of bases. Finite tests are corroboration, not a substitute for the symbolic argument.
+## correctness
 
-**Originality — PASS, with residual priority uncertainty.** The closest same-family primary article (Korivand et al., DOI:10.1080/09728600.2023.2291465, 2023) explicitly asserts the contradictory scalar \(\operatorname{edim}(P_n\diamond K_1)=2\) and has no correct complete enumerator. The independently examined 2023 block-graph paper controls **mixed** dimension only. Mathematical-database records address different graph families, other resolving invariants, or fractional restrictions, not the corrected edge-resolving-set polynomial. An unindexed equivalent correction remains possible.
+PASS
 
-**Value — PASS.** This resolves a concrete published graph invariant error already present at the smallest stated parameter, repairs it for every path length with a linearly increasing correct minimum, and classifies all bases and all larger resolving sets. The endpoint constraints and path-cover reduction explain the failure mechanism structurally, rather than supplying just an isolated counterexample.
+PASS. Reconstructed H_n with path vertices and one tip per edge; computed every edge-to-vertex distance by BFS for n=2..8 and independently enumerated all 43,688 graph-vertex subsets in n=2..8, checking resolving signatures against covers of the specified auxiliary graph and confirming exact polynomial counts/minima. The symbolic table of d(w_j,A_i),d(w_j,L_i),d(w_j,R_i) is verified from shortest paths, and the necessary two-witness pairs force auxiliary edges. For sufficiency the proof classifies all nonconsecutive tip-witness supports by block-index piecewise-affine distance differences, reducing to the six displayed boundary pairs (small overlapping cases direct); independently found precisely six boundary configurations for each n=6,7,8,9,12,18,28. The cover polynomial follows exactly by complementation of independent sets and counting free interior path vertices; leading coefficients yield edim ceil(n/2)+1 and minimum counts. Finite exhaustive cases corroborate, but do not replace the general piecewise-affine argument; its case analysis remains the sensitive nonstandard lemma. The original proposed edim=2 is already refuted at n=3.
 
-**Closest literature and limitations.** Korivand–Khashyarmanesh–Tavakoli 2023 Theorem 3.4; Ghalavand–Klavžar–Tavakoli 2023 block-graph mixed metric dimension; Kelenc–Tratnik–Yero edge metric definition. The theorem is limited to the single-tip edge corona of a path, and priority remains subject to independent bibliographic inspection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge with clearly bounded literature/access risks. The previous erroneous constant-dimension theorem is contradicted rather than a stronger prior. For n=3 exactly four resolving 3-sets exist and no 2-set resolves; for n>=4 a linear dimension replaces constant 2. Published general mixed results do not imply the full edge-resolution polynomial.
+
+## value
+
+PASS
+
+PASS. Correcting a published theorem for a standard infinite graph family is a substantive mathematical clarification, especially because the error grows linearly with n. The full characterization of all edge-resolving sets and their cardinality-generating polynomial gives an exact structural solution, strictly more than another sample basis count, and cleanly separates edge from mixed metric dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

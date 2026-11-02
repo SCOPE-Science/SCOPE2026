@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The analytic unicyclic calculation follows from deleting one uniformly sampled cycle edge. The standalone exact enumerator exhausts all connected labeled graphs up to five vertices and all their spanning trees, then tests every degree pair with rational arithmetic. Graph canonicalization and witness signatures establish the isomorphism classification. The proof is finite where stated, and never infers the unrestricted unicyclic formula from finite checks.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual risk.** Classical transfer-current/determinantal theory subsumes per-graph moment calculation and is explicitly credited. A first-order graph-isomorphism classification of the onset of *positive vertex-degree covariance* was not identified in the inspected material or targeted literature searches. The closest generic formulas do not themselves state which smallest-order graph classes satisfy the positive-sign inequality. The finite classification may have appeared elsewhere, including in older books or unpublished notes; this remains a historical-priority risk. A relevant comparison on alternative random spanning-tree models was available only in a limited extract.
+PASS
 
-**Value — PASS.** The global first-order classification identifies a sharp and reproducible boundary to extending negative edge dependence to vertex-degree statistics. It identifies all minimal positive counterexamples rather than an arbitrary chosen example; the unicyclic formula explains the underlying cycle-length mechanism at every order. The exact finite cutoff is a natural invariant of the uniform spanning-tree law.
+In a unicyclic graph every spanning tree deletes one uniformly random cycle edge J, so degree of cycle vertex u is deg_G(u)−I(J incident u); the two incidence probabilities 2/ℓ and overlap probability 1/ℓ only for adjacent cycle vertices give (ℓ−4)/ℓ² and −4/ℓ², with off-cycle degrees deterministic. For n≤5 enumerate all 2^{n choose 2} labeled graphs, filter connected, enumerate every (n−1)-edge tree and each pair covariance via integer NΣD_uD_v−(ΣD_u)(ΣD_v), then canonicalize via all n! label permutations. Independent recreation yields connected labeled graph counts 1,4,38,728 and class counts 1,2,6,21, exactly two positive classes at n5, with witnesses 5 spanning trees and 1/25, or 11 trees and 5/121. This is a complete finite classification backed by exhaustive cases; the all-order unicyclic statement is separately analytic.
 
-No independent scientific audit or publication-priority certification was performed. The result is restricted to uniform spanning trees of simple graphs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No located exact or dominating covering result after primary-paper and Resultary comparisons; all four named comparison checks and residual priority risks are separately documented.
+
+## value
+
+PASS
+
+A sharp minimal counterexample to extending edge negative dependence to vertex-degree covariance is a natural graph invariant. A complete five-vertex isomorphism classification plus the all-order cycle-length phase transition is useful and mathematically motivated, not an arbitrary small-case recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

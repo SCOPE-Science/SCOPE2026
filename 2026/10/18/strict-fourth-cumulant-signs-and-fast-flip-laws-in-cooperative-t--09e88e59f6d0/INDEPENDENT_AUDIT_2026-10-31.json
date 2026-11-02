@@ -1,0 +1,248 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T01:35:56.741672Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual assigned RESULT.md proof 1–5, CHECKER.py computations and VERIFICATION.md at frozen source tree; independent symbolic verifier independent_telegraph_integrals.py"
+      ],
+      "rationale": "Reconstructed the stated finite n,m, Metzler Hurwitz A, nonnegative b_l,c, positive a_l, independent symmetric rate-gamma two-state forcing, independent Gaussian thermal noise and reachability assumptions. Stable convolution exists; e^{At}>=0 follows by shifting Metzler A and exponentiating; each h_l(t)=c^T e^{At}b_l is exponentially decaying nonnegative and positive on an interval if reached. For sorted input times t1<t2<t3<t4, Markov conditioning yields E sigma1sigma2sigma3sigma4=e^{-2 gamma[(t2-t1)+(t4-t3)]}; subtracting three pairing contractions yields cum4=-2e^{-2 gamma[(t3-t1)+(t4-t2)]}. Fubini and 24 ordered time chambers give the source exact -48 fourfold response integral with exp[-2 gamma(u+2v+w)], independent sources summing in a_l^4 and independent Gaussian contribution vanishing. Positive integrand is strictly positive on a nonzero-volume region. All gamma derivatives follow by positive Laplace transform and dominated differentiation, strict even for j>0. At gamma->0 the four-fold ordered integration equals 1/24 of the fourth power of the response integral, so -48/24=-2. At infinity scaling three gaps U,V,W by 1/gamma gives gap integral 1/16 and coefficient -48/16=-3 times integral h^4; the variance covariance kernel gives gamma Var->sum a_l^2 integral h_l^2 and the normalized -3/gamma law only when Gaussian thermal variance vanishes. Matching stationary OU with decay 2gamma and variance 1 proves equality of all two-time covariance matrices, not of fourth moments. An independently written symbolic 16-mode exponential convolution rederived the exact two-site variance and K4 rational functions, gamma=1 values, -1/320 fast coefficient, -2/81 frozen limit, and positive 10825/918528 signed-probe counterexample. Tests corroborate examples; general theorem is the analytic proof, not numerical extrapolation.",
+      "residual_risks": [
+        "Formal machine checking was not performed; the proof uses standard Fubini, dominated convergence and Metzler-semigroup positivity.",
+        "No uniform-in-network-size bound, arbitrary signed-probe sign or nonzero-thermal excess kurtosis law is proved; the signed example explicitly rules out the unrestricted sign."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sarkar–Santra–Basu arXiv:2210.09035 analyzes RTP/AOUP driven inertial chains; inertia does not supply general nonnegative filter responses.",
+          "Pawula (1987) abstract reports a broad filtered-dichotomous moment theory, but its primary full text was inaccessible; no inference of whole-document noncoverage is made.",
+          "Lutes (1986) abstract covers general transport of stochastic response cumulants, but no verified source statement of the requested all-Metzler strict γ law."
+        ],
+        "reasoning": "Broad moment-transfer frameworks can potentially subsume the result by specializing to positive responses; this is the major residual originality risk. As inspected, their abstract-level availability is not positive evidence that strict signs, all-derivative monotonicity and sharp rate coefficient are covered. The strongest directly inspected adjacent harmonic-chain source is differently inertial.",
+        "searches": [
+          "stationary fourth cumulant negative linear filter symmetric telegraph Markov dichotomous noise positive impulse response complete monotonicity switching rate inverse cube",
+          "overdamped harmonic chain run-and-tumble forces Gaussian Ornstein Uhlenbeck covariance matched negative kurtosis positive Metzler cooperative response",
+          "Pawula Phys Rev A 35 3102 1987 filtered dichotomous output moments",
+          "Lutes Cumulants of Stochastic Response for Linear Systems 1986",
+          "published SCOPE GitHub search telegraph fourth cumulant; Metzler run and tumble; negative fourth cumulant"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.09035 (Sarkar–Santra–Basu), relevant full primary PDF read",
+        "arXiv:1804.03956 (Singh–Mannila–Golubev–Peltonen–Pekola), complete five-page primary paper read",
+        "arXiv:2505.03877v3 (Curtis–Yacoby–Demler), relevant telegraph four-point and appendix sections read",
+        "Pawula, Phys. Rev. A 35, 3102 (1987), abstract only; authorized full text unavailable due to disconnected VPN",
+        "Lutes, Cumulants of Stochastic Response for Linear Systems (1986), abstract/bibliography only",
+        "Resultary semantic research search, two distinct actual topic queries (top fifteen returned per query), no clearly dominating statement",
+        "Relevant published SCOPE repository code search, three keyword queries returned no relevant results",
+        "Frozen repository RESULT.md, CHECKER.py, VERIFICATION.md, SLOGAN.txt, REVIEW.md, METADATA.json and AUDIT.json at tree 1e49e2dcdbbf5331b753b83cb0be668fb992dd7d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Covariance equivalence of RTP and OU forcing is earlier prior art; identical covariance does not force equal fourth cumulants.",
+          "The input cumulant -2 exp[-2 gamma (u+2v+w)] is prior art, and integrating against arbitrary nonnegative h(t) yields the presently claimed negative sign and complete monotonicity; the logical step requires a cone assumption.",
+          "A single-pole response with known negative excess kurtosis does not imply positivity for signed combinations of response modes: the source signed two-mode probe has positive fourth cumulant at gamma=1/10.",
+          "The source states and proves a -3 sum a_l^4 integral h_l^4 coefficient and covariance-normalized gamma^-1 law, which is not present in the materially inspected comparison papers."
+        ],
+        "reasoning": "Earlier claims imply key ingredients but not demonstrably the entire final conclusion. In particular no implication from inertial-chain statements to an arbitrary Metzler semigroup and its gamma-derivative signs was found; no assertion of formal mathematical independence or absolute novelty is made.",
+        "searches": [
+          "arXiv:2210.09035 RTP AOUP harmonic chain covariance non Gaussian fourth moment",
+          "arXiv:1804.03956 low pass telegraph fourth cumulant",
+          "arXiv:2505.03877 fourth connected noise telegraph spin qubit",
+          "stationary fourth cumulant negative linear filter symmetric telegraph Markov dichotomous noise positive impulse response complete monotonicity switching rate inverse cube"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full joint fourth telegraph cumulant for ordered times is known: a negative exponential in the two outer and doubled middle gaps; see qubit-fluctuator primary treatment arXiv:2505.03877.",
+          "The RC-filter single-pole output has known negative fourth cumulant, arXiv:1804.03956 Eq. (12).",
+          "A positive stable Metzler semigroup produces a nonnegative impulse kernel, unlike generic signed/inertial filters. The claimed all-dimensional strict rate-complete-monotonicity and h^4 coefficient are statements about this cone, not merely the input fourth cumulant."
+        ],
+        "reasoning": "Convolution with a causal kernel is an equivalent representation of the observable. Earlier fourth-cumulant kernel or one-pole filtered law does not by itself state the strict arbitrary nonnegative impulse-response theorem. A general published formula might mathematically imply it upon elementary positivity, a genuine remaining priority concern, but no examined complete prior theorem explicitly or demonstrably covers all claimed conclusions.",
+        "searches": [
+          "stationary fourth cumulant negative linear filter symmetric telegraph Markov dichotomous noise positive impulse response complete monotonicity switching rate inverse cube",
+          "\"Dichotomous-noise-driven oscillators\" Pawula 1987 fourth cumulant",
+          "arXiv:1804.03956 filtered random telegraph low pass fourth cumulant",
+          "arXiv:2505.03877 two-state fluctuator connected fourth correlator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A published closed one-pole RC-filter distribution and fourth cumulant do already exist in arXiv:1804.03956, so a one-site numerical formula is not novel.",
+          "The source two-site formula was independently reconstructed by summing 16 exponential convolution terms; no exact matching cooperative two-site table was identified in the consulted primary works or Resultary results."
+        ],
+        "reasoning": "Known first-order statistics are explicitly excluded from the independent novelty claim. Lack of a database hit is a limited observation, not proof of an unknown result; the motivating theorem is an infinite-dimensional-parameter positive-filter sign statement, not a new integer sequence.",
+        "searches": [
+          "stationary fourth cumulant negative linear filter symmetric telegraph Markov dichotomous noise positive impulse response complete monotonicity switching rate inverse cube",
+          "overdamped harmonic chain run-and-tumble forces Gaussian Ornstein Uhlenbeck covariance matched negative kurtosis positive Metzler cooperative response",
+          "arXiv:1804.03956 exact fourth moment stationary telegraph filter",
+          "Resultary stationary fourth cumulant and telegraph active harmonic chain queries"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS on the combined, restricted result, not on the telegraph fourth-cumulant kernel, covariance equivalence or single-pole negative kurtosis in isolation. Materially inspected primary works cover matching RTP/OU two-time covariance (arXiv:2210.09035), first-order filtered telegraph moments (arXiv:1804.03956) and the two-state four-time connected cumulant (arXiv:2505.03877), but no inspected theorem covers strict negative cumulant on every nonnegative readout of every finite stable Metzler network together with strict complete monotonicity of its magnitude in gamma and the -3 integral h^4 fast-switching law. An inaccessible but plausible Pawula 1987 moment formula creates explicit implicit-priority risk, and a general cumulant-filter theorem may subsume the proof. An unsuccessful search alone does not establish novelty.",
+      "residual_risks": [
+        "Pawula (1987) original complete paper was unavailable; its general filtered dichotomous-output moment theorem may imply one or more aspects of the new claim through specializing its formulas.",
+        "Earlier linear-systems cumulant transport results (e.g., Lutes 1986) and unindexed cooperative-filter literature could supply a stronger implied strict-sign/complete-monotonicity result not discovered here.",
+        "The input four-point cumulant and covariance-matched Gaussian comparison are known, and the first-order low-pass case is already published: novelty is only the joint all-Metzler structural cone theorem and sharp rate laws.",
+        "The source CHECKER.py has finite/symbolic illustrative checks, not formal certification of all-dimensional proof; no Lean or human expert attestation.",
+        "Privacy-sensitive operational provenance remains in source AUDIT.json and METADATA.json, preventing public publication of unsanitized source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier covariance equivalence and qualitative non-Gaussian boundary responses are known. Its inertial chain and output claims do not establish the present all-Hurwitz-Metzler strict fourth-cumulant sign, every-order gamma complete monotonicity, or inverse-cubic coefficient.",
+          "evidence": [
+            "arXiv:2210.09035v3; sections on model (run-and-tumble and Ornstein–Uhlenbeck reservoir covariance), stationary correlations and boundary distributions; original arXiv v1 2022-10-17."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.09035",
+          "material_read": "Complete accessible PDF text navigated for model, forcing covariance equations, main chain-results and boundary-distribution sections; relevant results and figure/caption material checked with PDF page screenshots, rather than assuming noncoverage from abstract.",
+          "method": "Read arXiv PDF and locate model equations and treatment of Gaussian versus dichotomous forcing; compared inertia, impulse positivity and fourth-order result scope.",
+          "title": "Stationary states of activity-driven harmonic chains",
+          "trigger": "Same RTP versus OU matched-force comparison on harmonic chains, likely to cover covariance and possible fourth moments."
+        },
+        {
+          "assessment": "Already establishes single-filter telegraph non-Gaussian moments, including the one-pole negative cumulant; present all-dimensional Metzler semigroup plus strictly completely monotone gamma dependence and h^4 asymptotic are not supplied by that special case. One-pole result is explicitly treated as prior art.",
+          "evidence": [
+            "arXiv:1804.03956, model and equations (2), (5), (12); Applied Physics Letters 112 (2018) 243101."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1804.03956",
+          "material_read": "Full five-page paper and figure/equation context, including first-order low-pass filter setup, beta-like stationary distribution and fourth-cumulant formula.",
+          "method": "Read accessible lawful arXiv primary PDF, inspected pages visually, and compared its single-pole RC filter to arbitrary sums of nonnegative stable cooperative network impulse responses.",
+          "title": "Determining the parameters of a random telegraph signal by digital low pass filtering",
+          "trigger": "Exact symmetric-telegraph signal distribution and fourth cumulant after positive linear filtering, possibly stronger than the new claim."
+        },
+        {
+          "assessment": "The negative ordered telegraph four-point connected correlation is prior art; qubit echo/magnetometry results do not directly establish positive Metzler network output sign, all-switching-rate strict complete monotonicity or inverse-cubic coefficient.",
+          "evidence": [
+            "arXiv:2505.03877v3, telegraph-bath fourth cumulant and noise correlation appendix; qubit-sensor setting rather than stationary harmonic readout."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.03877",
+          "material_read": "Relevant full-PDF sections and appendix material detailing two-state fluctuator four-time correlations; not a claim of reading all forty pages.",
+          "method": "Read accessible arXiv source sections, inspect PDF pages with formulas, compare ordered-time connected telegraph cumulants to output of stable cooperative network filters.",
+          "title": "Non-Gaussian Noise Magnetometry Using Local Spin Qubits",
+          "trigger": "Recent primary treatment of independent two-state Markov fluctuators and explicit fourth connected noise correlations."
+        },
+        {
+          "assessment": "Possible implicit coverage remains a genuine residual originality risk. An abstract announcing filtered dichotomous output-moment methods does not alone establish this full cone-positivity/strict rate-complete-monotonicity theorem.",
+          "evidence": [
+            "Pawula, Physical Review A 35, 3102–3108 (1987), DOI 10.1103/PhysRevA.35.3102; abstract describes general output moments."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.35.3102",
+          "material_read": "Abstract only; a lawful open full-text version was not located. Institutional authorized full-text request returned vpn_disconnected; no full-document noncoverage claim.",
+          "method": "Searched arXiv/preprint and lawful OA, read publisher abstract, attempted authorized institutional retrieval once without bypassing authentication.",
+          "title": "Dichotomous-noise-driven oscillators",
+          "trigger": "Potentially dominating general stochastic-filter response moment formulas, 1987 priority."
+        },
+        {
+          "assessment": "General linear-response cumulant framework supports methodology but insufficient evidence for the exact strict sign, strict complete monotonicity and sharp gamma asymptotic. Full-text risk explicitly retained.",
+          "evidence": [
+            "Lutes, J. Engineering Mechanics 112 (1986), p.1062; DOI 10.1061/(ASCE)0733-9399(1986)112:10(1062)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1061/(ASCE)0733-9399(1986)112:10(1062)",
+          "material_read": "Bibliographic record and abstract/search summary only; no complete manuscript was retrieved.",
+          "method": "Examined publication metadata and limited accessible summary; compared broad cumulant transport methods to symmetric dichotomous drive and positive-semigroup rate theorem.",
+          "title": "Cumulants of Stochastic Response for Linear Systems",
+          "trigger": "Earlier general linear-response cumulant theory could imply the convolution formulas."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sarkar–Santra–Basu arXiv:2210.09035 for physically motivated RTP/AOUP covariance indistinguishability",
+        "Singh et al. arXiv:1804.03956 for well-studied one-pole filtered telegraph response",
+        "Actual source RESULT.md signed-readout boundary and exact fast/slow rate laws"
+      ],
+      "rationale": "The natural physically motivated question is whether stationary displacement statistics of a cooperative overdamped harmonic network can distinguish symmetric bounded active telegraph noise from Gaussian colored forcing despite exactly identical full two-time position covariance. The all-site, all finite stable Metzler network sign obstruction, strict rate ordering, quantitative sharp gamma^-3 coefficient and gamma^-1 standardized decay are structural, testable statements about a natural positivity cone, rather than an isolated parameter substitution. The signed-probe positive counterexample identifies why the cone hypothesis is necessary. The result does not claim original Gaussian covariance matching, original one-pole telegraph kurtosis, or a thermodynamic-limit theorem.",
+      "residual_risks": [
+        "The general positive-filter theorem may ultimately be regarded as a corollary of a more general prior cumulant-transfer formula; exact priority remains qualified.",
+        "Physical measurement of high cumulants depends on noise and finite sampling, not analyzed; no large-network uniformity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2210.09035 (Sarkar–Santra–Basu), relevant full primary PDF read",
+    "arXiv:1804.03956 (Singh–Mannila–Golubev–Peltonen–Pekola), complete five-page primary paper read",
+    "arXiv:2505.03877v3 (Curtis–Yacoby–Demler), relevant telegraph four-point and appendix sections read",
+    "Pawula, Phys. Rev. A 35, 3102 (1987), abstract only; authorized full text unavailable due to disconnected VPN",
+    "Lutes, Cumulants of Stochastic Response for Linear Systems (1986), abstract/bibliography only",
+    "Resultary semantic research search, two distinct actual topic queries (top fifteen returned per query), no clearly dominating statement",
+    "Relevant published SCOPE repository code search, three keyword queries returned no relevant results",
+    "Frozen repository RESULT.md, CHECKER.py, VERIFICATION.md, SLOGAN.txt, REVIEW.md, METADATA.json and AUDIT.json at tree 1e49e2dcdbbf5331b753b83cb0be668fb992dd7d"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every finite stable Metzler network with independent symmetric telegraph forcing, every nonnegative reachable linear readout has strictly negative stationary fourth cumulant at each gamma>0. The magnitude is strictly completely monotone in gamma, tends to -2 sum a_l^4 (integral h_l)^4 as gamma->0 and has gamma^3 K4->-3 sum a_l^4 integral h_l^4 as gamma->infinity; matched Gaussian OU forcing has the same all-lag covariance but zero K4. With no thermal readout variance the excess kurtosis decays as -3/gamma times the displayed response ratio. Signed readouts can have positive K4.",
+  "limitations": [
+    "No formal proof assistant or external specialist attestation; numerical/symbolic examples alone do not establish the general theorem.",
+    "Pawula (1987) lawful full text inaccessible because institutional access VPN disconnected; no whole-paper noncoverage claim; Lutes (1986) assessed abstract only.",
+    "Previously published input fourth cumulant, first-order filtered telegraph formulas, and Gaussian covariance matching are not claimed as original.",
+    "Source provenance metadata requires privacy-safe complete replacements before any public release."
+  ],
+  "residual_risks": [
+    "Pawula (1987) original complete paper was unavailable; its general filtered dichotomous-output moment theorem may imply one or more aspects of the new claim through specializing its formulas.",
+    "Earlier linear-systems cumulant transport results (e.g., Lutes 1986) and unindexed cooperative-filter literature could supply a stronger implied strict-sign/complete-monotonicity result not discovered here.",
+    "The input four-point cumulant and covariance-matched Gaussian comparison are known, and the first-order low-pass case is already published: novelty is only the joint all-Metzler structural cone theorem and sharp rate laws.",
+    "The source CHECKER.py has finite/symbolic illustrative checks, not formal certification of all-dimensional proof; no Lean or human expert attestation.",
+    "Privacy-sensitive operational provenance remains in source AUDIT.json and METADATA.json, preventing public publication of unsanitized source."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Earlier covariance equivalence and qualitative non-Gaussian boundary responses are known. Its inertial chain and output claims do not establish the present all-Hurwitz-Metzler strict fourth-cumulant sign, every-order gamma complete monotonicity, or inverse-cubic coefficient.",
+      "evidence": [
+        "arXiv:2210.09035v3; sections on model (run-and-tumble and Ornstein–Uhlenbeck reservoir covariance), stationary correlations and boundary distributions; original arXiv v1 2022-10-17."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2210.09035",
+      "material_read": "Complete accessible PDF text navigated for model, forcing covariance equations, main chain-results and boundary-distribution sections; relevant results and figure/caption material checked with PDF page screenshots, rather than assuming noncoverage from abstract.",
+      "method": "Read arXiv PDF and locate model equations and treatment of Gaussian versus dichotomous forcing; compared inertia, impulse positivity and fourth-order result scope.",
+      "title": "Stationary states of activity-driven harmonic chains",
+      "trigger": "Same RTP versus OU matched-force comparison on harmonic chains, likely to cover covariance and possible fourth moments."
+    },
+    {
+      "assessment": "Already establishes single-filter telegraph non-Gaussian moments, including the one-pole negative cumulant; present all-dimensional Metzler semigroup plus strictly completely monotone gamma dependence and h^4 asymptotic are not supplied by that special case. One-pole result is explicitly treated as prior art.",
+      "evidence": [
+        "arXiv:1804.03956, model and equations (2), (5), (12); Applied Physics Letters 112 (2018) 243101."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1804.03956",
+      "material_read": "Full five-page paper and figure/equation context, including first-order low-pass filter setup, beta-like stationary distribution and fourth-cumulant formula.",
+      "method": "Read accessible lawful arXiv primary PDF, inspected pages visually, and compared its single-pole RC filter to arbitrary sums of nonnegative stable cooperative network impulse responses.",
+      "title": "Determining the parameters of a random telegraph signal by digital low pass filtering",
+      "trigger": "Exact symmetric-telegraph signal distribution and fourth cumulant after positive linear filtering, possibly stronger than the new claim."
+    },
+    {
+      "assessment": "The negative ordered telegraph four-point connected correlation is prior art; qubit echo/magnetometry results do not directly establish positive Metzler network output sign, all-switching-rate strict complete monotonicity or inverse-cubic coefficient.",
+      "evidence": [
+        "arXiv:2505.03877v3, telegraph-bath fourth cumulant and noise correlation appendix; qubit-sensor setting rather than stationary harmonic readout."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2505.03877",
+      "material_read": "Relevant full-PDF sections and appendix material detailing two-state fluctuator four-time correlations; not a claim of reading all forty pages.",
+      "method": "Read accessible arXiv source sections, inspect PDF pages with formulas, compare ordered-time connected telegraph cumulants to output of stable cooperative network filters.",
+      "title": "Non-Gaussian Noise Magnetometry Using Local Spin Qubits",
+      "trigger": "Recent primary treatment of independent two-state Markov fluctuators and explicit fourth connected noise correlations."
+    },
+    {
+      "assessment": "Possible implicit coverage remains a genuine residual originality risk. An abstract announcing filtered dichotomous output-moment methods does not alone establish this full cone-positivity/strict rate-complete-monotonicity theorem.",
+      "evidence": [
+        "Pawula, Physical Review A 35, 3102–3108 (1987), DOI 10.1103/PhysRevA.35.3102; abstract describes general output moments."
+      ],
+      "identifier_or_url": "https://doi.org/10.1103/PhysRevA.35.3102",
+      "material_read": "Abstract only; a lawful open full-text version was not located. Institutional authorized full-text request returned vpn_disconnected; no full-document noncoverage claim.",
+      "method": "Searched arXiv/preprint and lawful OA, read publisher abstract, attempted authorized institutional retrieval once without bypassing authentication.",
+      "title": "Dichotomous-noise-driven oscillators",
+      "trigger": "Potentially dominating general stochastic-filter response moment formulas, 1987 priority."
+    },
+    {
+      "assessment": "General linear-response cumulant framework supports methodology but insufficient evidence for the exact strict sign, strict complete monotonicity and sharp gamma asymptotic. Full-text risk explicitly retained.",
+      "evidence": [
+        "Lutes, J. Engineering Mechanics 112 (1986), p.1062; DOI 10.1061/(ASCE)0733-9399(1986)112:10(1062)."
+      ],
+      "identifier_or_url": "https://doi.org/10.1061/(ASCE)0733-9399(1986)112:10(1062)",
+      "material_read": "Bibliographic record and abstract/search summary only; no complete manuscript was retrieved.",
+      "method": "Examined publication metadata and limited accessible summary; compared broad cumulant transport methods to symmetric dichotomous drive and positive-semigroup rate theorem.",
+      "title": "Cumulants of Stochastic Response for Linear Systems",
+      "trigger": "Earlier general linear-response cumulant theory could imply the convolution formulas."
+    }
+  ]
+}

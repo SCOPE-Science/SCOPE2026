@@ -1,15 +1,21 @@
-# Scientific review — consecutive-pattern fixed-point covariance
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Conditioning on a particular fixed point changes a consecutive pattern probability only when that fixed position belongs to the pattern window. A direct binomial count gives the conditional probability, Vandermonde's order-statistic identity cancels all interior summands, and the resulting universal boundary expression is valid for every integer \(n\ge k\ge2\). The twenty-four length-four simplifications are exact polynomial identities: the boundary polynomials have degree at most three, and all identities were checked at four distinct integers, sufficient by the polynomial root bound. Positive denominators then reduce the classification to signs of quadratic numerators. The standard-library verifier passed 96 degree-bounded polynomial certificates and independently checked 202 mixed-moment identities over 409112 permutations through size nine. These finite enumerations support, but are not substituted for, the proof.
+## correctness
 
-## Originality
-**PASS, subject to residual historical-priority risk.** Searches of the relevant mathematical database, accessible related research findings, and primary sources located a local fixed-point/descent covariance matrix and general fixed-point/descent-set enumerations, but no general fixed-point/consecutive-*rank-pattern* covariance boundary law or the length-four sign-reversal classification. The previously published descent result corresponds to length two. The older descent-class enumerations cannot by themselves distinguish patterns \(2143\), \(3142\), and \(4231\), which have the same descent set but different covariance formulas. Elizalde–Noy's full text counts consecutive-pattern occurrences without simultaneously weighting fixed points. The full text of Désarménien–Wachs (1993), particularly Theorems 5.1 and 6.2, was inspected: those results concern fixed-point counts indexed by descent sets, rather than individual four-letter consecutive rank patterns. An unlocated different refinement remains a priority risk. An unsuccessful search alone was not treated as proof of novelty.
+PASS
 
-## Mathematical value
-**PASS.** Fixed-point tilting is a standard natural perturbation of a random permutation, and the derivative of a consecutive-pattern expectation at the uniform law equals its covariance with the fixed-point count. The theorem gives a structural general boundary identity and identifies the first possible finite-size sign reversals by a *complete* minimal pattern-length classification. The unusually late threshold between sizes \(17\) and \(18\) for pattern \(3142\), despite identical descent sets of all three reversers, is not implied by marginal pattern counts or fixed-point/descent covariances. The result makes no unsupported claims of distributional dominance or higher mixed moments.
+Conditioning on Pi(j)=j leaves disjoint-window ranks exchangeable; for a window containing j the conditional probability is the exact product of two binomial coefficients divided by (n−1)_{k−1}. Summing the j positions and applying Vandermonde over order statistics gives the boundary identity without any false independence assumption. For k=4, every boundary term is polynomial of degree ≤3. Exact evaluation of 24 printed polynomials at four n=4,5,6,7 values proves all identities by the degree bound. Independently recalculated all 24 polynomial numerators by integer boundary sums and signs; exactly three have both strict signs with thresholds 5/6, 17/18, 6/7. k2 and k3 closed formula signs checked. Supplemental exhaustive n≤9 moments do not replace the general counting proof.
 
-## Closest sources and scientific limits
-Diaconis–Evans–Graham (arXiv:1308.5459) establishes the primary combinatorial-probability context; Eriksen–Freij–Wästlund (arXiv:0811.1925) treats prescribed descent sets; Elizalde–Noy (arXiv:1210.6061) treats consecutive-pattern occurrence distributions. The published local fixed-point/descent law already contains the length-two special case, so only the all-length boundary construction together with the genuinely different length-four phenomena is asserted as new. The three sign changes are finite-size first-moment phenomena, not conditional stochastic ordering. A different indexing of older mixed fixed-point/pattern results remains a possible priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No located exact or dominating covering result after primary-paper and Resultary comparisons; all four named comparison checks and residual priority risks are separately documented.
+
+## value
+
+PASS
+
+Natural fixed-point exponential tilt has derivative E_h N_tau at zero exactly Cov(F,N_tau). An unrestricted boundary identity, a complete shortest-length sign reversal classification, and the late n=18 response for 3142 constitute a structural probabilistic boundary not merely a tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

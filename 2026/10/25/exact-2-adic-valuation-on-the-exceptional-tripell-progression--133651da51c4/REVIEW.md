@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The companion matrix, its seventh power, the two-adic lifting identity, and the odd scalar coefficient establish the exact isometry law for the normalized exceptional progression. Completeness of \(\mathbb Z_2\) and bijectivity on each finite quotient give a unique root; valuation preservation yields the formula for every nonnegative integer parameter. The verifier checks the exact modular inputs and finite lifts, not the infinite conclusion.
+PASS
 
-## Originality
+PASS. Independently checked exact companion M^7=I+2E, H=(E+E²) mod2 nonzero, base M^1792 congruent I mod512 and e3^T M^1280 H v0=1 mod2. The binomial valuation bound for j>=3 in (I+2E)^{2^r} gives M^{7·2^r}=I+2^{r+1}H_r mod2^{r+2} and H_r≡H mod2 for all r>=1. Replacing the difference t-s with odd·2^j forces normalized F(t)=T_{1280+1792t}/512 to preserve every 2-adic distance; its extension to Z2 is a bijective isometry on all finite residue quotients and has a unique zero tau. Then ν2(T)=9+ν2(t-tau) for every nonnegative integer t. Checked independently root congruences through 2^18 (tau mod2^18=9928), base T1280 mod8192=4096 and modular lift. Samples do not substitute for the binomial/isometry argument.
 
-PASS relative to inspected literature. Bravo–Díaz–Ramírez (2020), Theorem 1.3, and Díaz Noguera's 2022 thesis, Theorem 5.3 and Remark 5.1, both identify \(n\equiv1280\pmod{1792}\) as the exceptional class where their valuation formula is unavailable. The thesis explicitly notes that its induction fails for this form. Targeted literature searches did not find a later exact valuation law on this progression. Unindexed overlap remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The result fills the only explicit exception in a published partial valuation classification with a complete two-adic formula. It identifies the normalized progression as an isometry and the exceptional behavior as distance from a unique two-adic root, rather than merely listing computed valuations.
+PASS, best of knowledge with clearly bounded literature/access risks. The old formula n≡6 mod14 except n≡1280 mod1792 has no conclusion for these indices; the new isometry and root formula supply exactly the missing case, not a renaming of the known valuation.
 
-## Closest literature and limitations
+## value
 
-The closest source is Bravo, Díaz, and Ramírez, “The 2-adic and 3-adic valuation of the Tripell sequence and an application” (first online 11 November 2019); the same exception is reproduced in Díaz Noguera's 2022 thesis. The root is specified by uniqueness and compatible residues, not an elementary closed form. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. This resolves the explicit exceptional congruence progression left open in a published partial valuation theorem for a natural third-order recurrence. An exact 2-adic root, isometric normalization and all-t valuation law close a meaningful natural boundary, not an arbitrary unmotivated slice; the remaining root’s lack of closed expression is immaterial to exactness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

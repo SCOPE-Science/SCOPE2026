@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T10:44:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "By marking two distinct block sizes in the Dyck-path/noncrossing bivariate generating function and applying Lagrange coefficients, the integer totals are A_a=binom(2n-a-1,n-a), M_ab=n binom(2n-a-b-2,n-a-b) for a+b<=n, otherwise zero, normalized by C_n. The ratio R(a+1,b)/R(a,b) is ((n-a-b)(2n-a-1))/((2n-a-b-2)(n-a)) and numerator minus denominator is n-b(n-1)-a<=0; symmetrically in b. The largest distinct-size ratio comes from {1,2}; substitution gives the sharp factor <1. n=2 and a+b>n handled directly, and equality uniqueness follows from strict steps unless the initial {1,2} pair. Direct independent Dyck enumerations n<=9 verified 240 exact mixed-moment signs/ratios including small boundaries. The all-n theorem is the coefficient identity plus monotonic ratio argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kargin Theorem 2.4 states fixed-a,b covariance = negative coefficient*n + O(1), which does not fix sign uniformly when a,b grow with n.",
+          "No inspected full negative association theorem or exact finite all-pairs ratio bound dominates the target inequality."
+        ],
+        "reasoning": "A full negative association theorem would imply signs but not automatically this sharp normalized mixed-moment constant and extremizer. No such stronger result was established among read primary statements.",
+        "searches": [
+          "noncrossing partitions distinct block size counts finite n negative covariance sharp ratio mixed moments",
+          "noncrossing partitions finite negative covariance block counts all sizes theorem inequality ratio exact",
+          "potential stronger general theorem for Sharp finite-sample negative dependence of distinct block-size counts in noncrossing partitions"
+        ]
+      },
+      "checked_sources": [
+        "Limit theorems for statistics of non-crossing partitions — https://arxiv.org/pdf/1907.00632",
+        "Statistics of blocks in k-divisible non-crossing partitions — https://arxiv.org/abs/1201.6576"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kargin exact E[B_aB_b] plus Lagrange inversion implies source M_ab formula, which must be credited.",
+          "Kargin only concludes asymptotic fixed-size negative covariance, not uniform finite strict inequality or sharp ratio.",
+          "Arizmendi block refinements abstract is not enough to rule out implied coverage; full text remains a risk."
+        ],
+        "reasoning": "The proof evaluates a known expression using a new exact monotonicity inequality. Prior formulas enable derivation but are not equivalent to an already stated all-n optimal upper-bound theorem in inspected sources. Novelty attaches exclusively to that optimized finite dependence statement.",
+        "searches": [
+          "noncrossing partitions distinct block size counts finite n negative covariance sharp ratio mixed moments",
+          "noncrossing partitions finite negative covariance block counts all sizes theorem inequality ratio exact",
+          "https://arxiv.org/pdf/1907.00632",
+          "https://arxiv.org/abs/1201.6576"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kargin arxiv:1907.00632 Eq. (4), pages 8–9 gives exact two-block-size count and negative asymptotic sign, a genuine strong prior overlap."
+        ],
+        "reasoning": "Rephrased as Dyck down-run sizes, two-tagged noncrossing blocks, Catalan block-profile covariance and mixed second moments. Existing mixed-moment identity is credited; the universal sharp finite-n inequality is the item under review.",
+        "searches": [
+          "noncrossing partitions distinct block size counts finite n negative covariance sharp ratio mixed moments",
+          "noncrossing partitions finite negative covariance block counts all sizes theorem inequality ratio exact",
+          "noncrossing partitions joint factorial moments tagged block counts Lagrange coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact M_ab binomial table is an implicit pre-existing consequence of Kargin 2019; it is not novelty evidence.",
+          "No exact published table or bound asserting max_{a!=b} E[B_aB_b]/(E[B_a]E[B_b])=constant at {1,2} located."
+        ],
+        "reasoning": "Existing count database/bivariate moments already subsume the raw coefficient formula, not the new optimized inequality. A missing table alone cannot certify priority.",
+        "searches": [
+          "noncrossing partitions distinct block size counts finite n negative covariance sharp ratio mixed moments",
+          "Sharp finite-sample negative dependence of distinct block-size counts in noncrossing partitions exact table classification exhaustive source"
+        ]
+      },
+      "rationale": "Kargin (2019) ALREADY explicitly computes the bivariate generating function and the exact two-size mixed moment, and proves the large-n negative covariance for each FIXED pair. Those ingredients are not novel. The assessed added theorem is STRICT negative covariance at every finite n for every pair, including growing sizes, together with the sharp normalized deficit and unique extremizer. Kargin Theorem 2.4 and proof pages 8–9 were read and do not state the finite universal maximum. An earlier use of the same exact formulas to derive the bound is possible and remains a priority risk.",
+      "residual_risks": [
+        "An older two-tagged-block optimization or stronger exact negative-dependence theorem might already derive the same inequality.",
+        "Arizmendi 2012 primary full text and one 2011 tagged-block historical article were not obtained/fully read fresh this run.",
+        "This narrow all-pairs inequality follows from a simple binomial ratio; mathematical value is tied to the motivated finite-sample global optimum, not just ease of calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MIXED_MOMENT_PREEXISTS_BUT_SHARP_FINITE_BOUND_NOT_STATED",
+          "evidence": [
+            "Kargin gives the exact two-marked mixed moment as an intermediate step and a negative asymptotic covariance for FIXED block sizes. The global finite sharp ratio and unique equality pair were not stated in inspected proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1907.00632",
+          "material_read": "2019 19-page arXiv primary PDF Theorem 2.4, Section 2 proof pages 7–9, multivariate generating function equation (4) and exact E[X_k X_l] from coefficient extraction; rendered pages 8 and 9.",
+          "method": "Direct primary PDF full-text equations and rendered theorem/proof inspection",
+          "title": "Limit theorems for statistics of non-crossing partitions",
+          "trigger": "Directly studies covariances of counts of blocks of distinct sizes; likely strongest prior implication"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT_RESIDUAL_RISK",
+          "evidence": [
+            "Single-size and conditional size refinements are relevant, but an abstract cannot establish noncoverage of the target pairwise sharp bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1201.6576",
+          "material_read": "Public bibliographic abstract only; full technical paper not obtained in this run.",
+          "method": "Abstract and subject-matter comparison only",
+          "title": "Statistics of blocks in k-divisible non-crossing partitions",
+          "trigger": "Potential prior exact conditional block-count refinements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite negative dependence for all block size pairs cannot be deduced from a fixed-pair asymptotic with O(1) remainder. The exact optimal bound and unique pair {1,2} supply uniform finite-sample control of a natural random combinatorial block profile, with a precise mathematical boundary; no full negative association is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Limit theorems for statistics of non-crossing partitions — https://arxiv.org/pdf/1907.00632",
+    "Statistics of blocks in k-divisible non-crossing partitions — https://arxiv.org/abs/1201.6576"
+  ],
+  "disposition": "passed",
+  "final_claim": "For uniform noncrossing partitions of [n], n>=2, the counts B_a,B_b of blocks of distinct sizes a!=b have strictly negative covariance. For n>=3 the normalized mixed moment E[B_aB_b]/(E[B_a]E[B_b]) is bounded sharply by (n-1)(2n-1)/((n+1)(2n-3))<1; equality is attained exactly by unordered pair {a,b}={1,2}. This does not imply full negative association.",
+  "limitations": [
+    "Only pairwise distinct block sizes, not full negative association or conditional stochastic domination.",
+    "Finite Catalan enumerations are corroboration; infinite inequalities depend on symbolic ratios."
+  ],
+  "residual_risks": [
+    "An older two-tagged-block optimization or stronger exact negative-dependence theorem might already derive the same inequality.",
+    "Arizmendi 2012 primary full text and one 2011 tagged-block historical article were not obtained/fully read fresh this run.",
+    "This narrow all-pairs inequality follows from a simple binomial ratio; mathematical value is tied to the motivated finite-sample global optimum, not just ease of calculation."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "MIXED_MOMENT_PREEXISTS_BUT_SHARP_FINITE_BOUND_NOT_STATED",
+      "evidence": [
+        "Kargin gives the exact two-marked mixed moment as an intermediate step and a negative asymptotic covariance for FIXED block sizes. The global finite sharp ratio and unique equality pair were not stated in inspected proof."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1907.00632",
+      "material_read": "2019 19-page arXiv primary PDF Theorem 2.4, Section 2 proof pages 7–9, multivariate generating function equation (4) and exact E[X_k X_l] from coefficient extraction; rendered pages 8 and 9.",
+      "method": "Direct primary PDF full-text equations and rendered theorem/proof inspection",
+      "title": "Limit theorems for statistics of non-crossing partitions",
+      "trigger": "Directly studies covariances of counts of blocks of distinct sizes; likely strongest prior implication"
+    },
+    {
+      "assessment": "INACCESSIBLE_FULL_TEXT_RESIDUAL_RISK",
+      "evidence": [
+        "Single-size and conditional size refinements are relevant, but an abstract cannot establish noncoverage of the target pairwise sharp bound."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1201.6576",
+      "material_read": "Public bibliographic abstract only; full technical paper not obtained in this run.",
+      "method": "Abstract and subject-matter comparison only",
+      "title": "Statistics of blocks in k-divisible non-crossing partitions",
+      "trigger": "Potential prior exact conditional block-count refinements"
+    }
+  ]
+}

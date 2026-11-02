@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Independent exhaustive recurrences for dyadic nontotient stopping times."""
+"""Verify complete dyadic Nontotient argmax fibers through 2**19."""
 from array import array
 from math import isqrt
+from pathlib import Path
+import json
 
 LIMIT = 1 << 19
 
 
-def totients_by_prime_sieve(limit):
+def phi_by_prime_depletion(limit):
     phi = array('I', range(limit + 1))
     for p in range(2, limit + 1):
         if phi[p] == p:
@@ -15,11 +17,11 @@ def totients_by_prime_sieve(limit):
     return phi
 
 
-def totients_by_smallest_factor(limit):
+def phi_by_smallest_factor(limit):
     spf = array('I', [0]) * (limit + 1)
     for p in range(2, isqrt(limit) + 1):
         if spf[p] == 0:
-            for n in range(p*p, limit + 1, p):
+            for n in range(p * p, limit + 1, p):
                 if spf[n] == 0:
                     spf[n] = p
     phi = array('I', [0]) * (limit + 1)
@@ -27,62 +29,60 @@ def totients_by_smallest_factor(limit):
     for n in range(2, limit + 1):
         p = spf[n] or n
         m = n // p
-        phi[n] = phi[m] * p if m % p == 0 else phi[m] * (p - 1)
+        phi[n] = p * phi[m] if m % p == 0 else (p - 1) * phi[m]
     return phi
 
 
-def heights(phi, limit):
-    h = bytearray(limit + 1)
+def iteration_heights(phi, limit):
+    heights = bytearray(limit + 1)
     for n in range(2, limit + 1):
-        successor = n - phi[n]
-        assert 1 <= successor < n
-        h[n] = h[successor] + 1
-    return h
+        nxt = n - phi[n]
+        assert 1 <= nxt < n
+        heights[n] = heights[nxt] + 1
+    return heights
 
 
-def maxima(h, limit):
-    table = []
-    for i in range(1, 20):
-        lo = (1 << (i - 1)) + 1
-        hi = 1 << i
-        section = h[lo:hi + 1]
-        height = max(section)
-        winners = [lo + j for j, v in enumerate(section) if v == height]
-        table.append((i, int(height), len(winners), winners[0]))
-    return table
+def argmax_fibers(heights):
+    entries = []
+    for k in range(1, 20):
+        low, high = 1 << (k - 1), 1 << k
+        maximum = max(heights[low + 1:high + 1])
+        winners = [n for n in range(low + 1, high + 1)
+                   if heights[n] == maximum]
+        entries.append({"k": k, "maximum_height": int(maximum),
+                        "maximizers": winners})
+    return entries
 
 
 def main():
-    phi_a = totients_by_prime_sieve(LIMIT)
-    phi_b = totients_by_smallest_factor(LIMIT)
+    phi_a = phi_by_prime_depletion(LIMIT)
+    phi_b = phi_by_smallest_factor(LIMIT)
     assert phi_a == phi_b
-    a = heights(phi_a, LIMIT)
-    b = heights(phi_b, LIMIT)
-    assert a == b
-    t = maxima(a, LIMIT)
-    assert t == [
-        (1,1,1,2),(2,2,1,4),(3,3,2,6),(4,4,4,10),
-        (5,6,1,30),(6,7,5,42),(7,9,2,114),(8,10,9,186),
-        (9,12,4,390),(10,14,2,798),(11,16,2,1950),
-        (12,18,1,4074),(13,20,2,7770),(14,22,3,15810),
-        (15,24,6,30702),(16,26,15,53130),(17,28,18,105090),
-        (18,30,44,206910),(19,33,1,462210)
-    ], t
-    jumps = [(t[j][0], t[j][1] - t[j - 1][1]) for j in range(1,len(t))]
-    assert all(x <= 2 for k, x in jumps if k < 19)
-    assert jumps[-1] == (19,3)
-    assert [n for n in range((1<<18)+1, (1<<19)+1) if a[n] == 33] == [462210]
-    orbit=[462210]
-    while orbit[-1]!=1:
-        orbit.append(orbit[-1]-phi_a[orbit[-1]])
-    assert len(orbit)==34
-    print('FULL_RANGE',LIMIT,'TWO_INDEPENDENT_SIEVES_PASS')
-    print('TABLE k:M,count,first')
-    for i, v, count, first in t:
-        print(f'{i}:{v},{count},{first}')
-    print('FIRST_JUMP_AT',jumps[-1], 'UNIQUE_WITNESS',462210)
-    print('WITNESS_ORBIT',','.join(map(str,orbit)))
-    print('VERIFIED')
+    heights_a = iteration_heights(phi_a, LIMIT)
+    heights_b = iteration_heights(phi_b, LIMIT)
+    assert heights_a == heights_b
+    entries = argmax_fibers(heights_a)
+    certificate = json.loads(Path(__file__).with_name('MAXIMIZERS.json').read_text(encoding='utf8'))
+    assert certificate['entries'] == entries
+    assert len(entries) == 19
+    assert sum(len(e['maximizers']) for e in entries) == 123
+    M = [e['maximum_height'] for e in entries]
+    assert M == [1, 2, 3, 4, 6, 7, 9, 10, 12, 14, 16, 18,
+                 20, 22, 24, 26, 28, 30, 33]
+    assert all(M[k] - M[k-1] <= 2 for k in range(1, 18))
+    assert M[18] - M[17] == 3
+    assert len(entries[17]['maximizers']) == 44
+    assert entries[18]['maximizers'] == [462210]
+    x, orbit = 462210, [462210]
+    while x != 1:
+        x -= phi_a[x]
+        orbit.append(x)
+    assert len(orbit) == 34 and orbit[-1] == 1
+    print('VERIFIED', 'complete dyadic argmax fibers k=1..19,',
+          sum(len(e['maximizers']) for e in entries), 'maximizers')
+    for e in entries:
+        print(e['k'], e['maximum_height'], len(e['maximizers']),
+              e['maximizers'][0])
 
 if __name__ == '__main__':
     main()

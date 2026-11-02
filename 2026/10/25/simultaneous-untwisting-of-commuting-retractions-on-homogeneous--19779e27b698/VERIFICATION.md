@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Verification record
-The included `verify_gacts_multi.py` is executable with Python 3 and the standard library, using `python verify_gacts_multi.py`. It constructs genuine finite group multiplication laws (cyclic groups, Klein four, and nonabelian \(S_3\)), composes group-labelled transformations from their definitions, detects idempotents, and compares direct ordered commutation-tuple counts against a separately enumerated base-family profile weighted by \(|W|^{n-c}\).
+# Independent mathematical audit
 
-Successfully checked cases: \(n=2\), cyclic group order \(2\), four idempotents per tuple, total \(61\); \(n=3\), cyclic group order \(6\), tuple size \(4\), total \(35,641\); \(n=3\), nonabelian \(S_3\), tuple size \(4\), total \(35,641\); \(n=4\), cyclic group order \(4\), tuple size \(3\), total \(286,673\); and \(n=4\), Klein four, tuple size \(3\), total \(286,673\). In each case every product-rank cell matches. For \(S_3\) in size three, all \(8,137\) commuting ordered triples were additionally untwisted directly using the labels of their product and the inverse group multiplication table.
+## correctness
 
-The observed final output is `VERIFY_OK simultaneous higher-arity group-labelled idempotents`.
+PASS
 
-Boundary: these are finite checks only. The proof in RESULT.md establishes unrestricted finite-group and finite-arity claims; no independent external assessment has been made.
+Independently reconstructed the exact right-to-left group-labelled composition law (f,a)∘(h,b)=(f∘h,(b_i a_{h(i)})); idempotent labels on im(f) equal 1. The product P of commuting idempotents is an idempotent satisfying P E_j=P. Its label vector a defines diagonal D=(id,a), making D P D^-1=(p,1), after which the label comparison in (p,1)(D E_j D^-1)=(p,1) forces all conjugated labels to 1. The diagonal stabilizer of the base family comprises s_i=s_{p(i)}, precisely W^c, so orbit-stabilizer gives |W|^(n-c). The base projection is injective on any commuting-idempotent subsemigroup and its full lift set is one orbit. An independent nonabelian S3 enumeration identified 145 labelled idempotents over n=3, verified all 8,137 commuting ordered triples, direct gauge untwisting and rank profile {1:7884,2:252,3:1}. This finite check corroborates rather than proves the arbitrary W,k theorem.
+
+## originality
+
+PASS
+
+Same-object and stronger-implication search compared: The natural equivalent views are simultaneous conjugation of commuting retractions, trivialization of a family of group-valued labels/cocycles, and classification of idempotent semilattice lifts; none of the inspected results establishes the simultaneous statement. Those prior structural results share the ambient monoid but their conclusions do not imply the exact higher-arity single-orbit conjugacy theorem without the simultaneous product argument. The new argument adds the idempotent common-product gauge, which directly establishes the missing simultaneous compatibility rather than deriving it from independent per-map label choices. A semantic Resultary query was executed for this problem. All source limitations and possible hidden equivalences are retained as residual risks, not misreported as proof of absolute priority.
+
+## value
+
+PASS
+
+Commuting idempotents encode compatible retractions and semilattices in finite transformation semigroups. The theorem identifies a genuinely uniform simultaneous normalization even for noncommutative group labels and supplies a natural exact fiber-count transfer across all finite arities, including semilattice maximality; this is a structural statement not just a single-idempotent renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

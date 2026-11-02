@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T18:41:53.113169Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git record tree 1e9750eb81b80d316f76d2f2043b4968dc6a3e13; RESULTS.md, verify.py and other seven actual source blobs at assignment commit cbd61aab71e4f01d305014a9520f769db8108742",
+        "Repaired complete RESULT.md proof, MAXIMIZERS.json containing 123 exact members, and independently executed revised verify.py",
+        "Independent linear totient-sieve and dynamic-height reconstruction through 2^19; exact enumeration of each interval and all ties",
+        "Ellis et al., arXiv:2309.01231, Section 4, for matching height definitions and boundary identities"
+      ],
+      "rationale": "The final repaired claim is a complete 19-interval argmax-fiber classification, not an infinite statement. Two mathematically justified exact totient sieves and the well-founded height recurrence were inspected and executed through 524288. An independently written linear-sieve implementation reproduced every maxima height, multiplicity and least winner, including the 123 complete fibers, 44 at k=18 and the sole 462210 at k=19. The new fixture lists all maximizing arguments in every interval, and the amended verifier compares full lists entry by entry, as well as the 33-step orbit. A finite complete enumeration suffices for these finite assertions.",
+      "residual_risks": [
+        "This is a finite enumeration through 524288 only, not a proof of later-k patterns.",
+        "The two packaged totient algorithms are distinct but share standard Euler-totient arithmetic; correctness also relies on the simple induction proof, not independent expert certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ellis et al. Lemma 4.4 gives the doubling identity; Theorem 4.8 gives interval coverage of heights at even n, not exact extremal fibers.",
+          "A098197 records least starting points for a specified trajectory length, not the number or set of all starting points at that height.",
+          "A071575 b-file gives individual heights only for n=1..10000, far short of 2^19."
+        ],
+        "reasoning": "A stronger result that determined all heights through 2^19 would imply the final claim. The accessible closest paper and first-hit tables do not supply such broad coverage; a full unindexed database remains possible. The final finite classification is not a consequence of interval coverage or least-first-hit data.",
+        "searches": [
+          "Ellis Shi Thanatipanonda Tu 2023 NONTOTIENT Section 4 Lemma 4.4 Theorem 4.8",
+          "OEIS A098197 b-file first-height arguments 1–40",
+          "OEIS A071575 b-file through 10000",
+          "\"nontotient\" dyadic extremal multiplicity count",
+          "published arithmetic totient iteration records semantically queried for dyadic maxima"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A098197 entry and complete b-file (September 2004 origin; accessed October 2026)",
+        "OEIS A071575 entry and b-file through 10,000",
+        "Ellis et al. arXiv:2309.01231, full primary Section 4 and remaining text",
+        "Published mathematical finding corpus semantic matches for cototient, Nontotient and first height jump; closest matches concerned different totient functions",
+        "Exact public-web searches for 462210, 33, dyadic nontotient maxima and unique extremizers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From A098197 first-height values, the global maximum through 2^k strictly increases at every 1<=k<=19, so the old dyadic M_k sequence and k=19 jump are already implied.",
+          "Ellis et al. prove only that each dyadic even-height set has no gaps; that property does not determine multiplicities or argmax membership.",
+          "A098197 provides a minimum n at each height, not the count of every n attaining it in a dyadic interval."
+        ],
+        "reasoning": "Distinguish covered numeric threshold from uncovered complete fibers. The implication first-hit table => known M_k uses the h+2 index mapping and strict running-max growth across successive 2-powers. Neither that implication nor the primary paper gives |E_18|=44 or the full 19 fiber membership sets. The final claim isolates precisely these finite classification data.",
+        "searches": [
+          "OEIS A098197 index h+2 first position for height h",
+          "Ellis et al. Theorem 4.8 and proof, arXiv:2309.01231",
+          "OEIS A071575 recurrence and 10000-term b-file",
+          "\"cototient\" \"first jump\" height 33 uniqueness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A098197 entry at index h+2 is the first n of height h; its index 35 entry is 462210.",
+          "OEIS A071575 is the individual height C(n) with identical recurrence.",
+          "Ellis et al. Section 4 define the same C and prove contiguous attained-height sets for even n."
+        ],
+        "reasoning": "Aliased objects are the cototient trajectory to 0, the Nontotient one-move game height to 1, and the first-occurrence table. Because g(1)=0, a trajectory to 0 has C(n)+2 entries. First-hit values determine the jump height and earliest witness, but not the full set of arguments attaining a given maximum. The repaired claim is the full extremal-position fiber classification.",
+        "searches": [
+          "OEIS A098197 smallest cototient trajectory length n; b098197 table indices 1–40",
+          "OEIS A071575 iterations of cototient to reach 1",
+          "\"cototient\" \"462210\" iteration; \"Nontotient\" \"dyadic\" maximum",
+          "arXiv:2309.01231 Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A098197 rows 32–36 contain 206910, 278850, 361410, 462210 and 688722, sufficient to derive the pre-existing first three-unit jump.",
+          "A071575 published b-file has just 10,000 individual height values, not all 524,288 required for the claimed 19-scale extremal sets.",
+          "The repaired MAXIMIZERS.json lists 123 complete positions, including 44 in scale 18 and one in scale 19; this list is separately re-enumerated in verify.py."
+        ],
+        "reasoning": "The earlier first-hit database exactly covers the old headline values, a decisive novelty correction. A database of least occurrences cannot establish the full argmax sets; its entries are compatible with any number of later tied occurrences. The newly supplied lists are not found in the checked accessible tables, but absence from a search is not proof of global priority.",
+        "searches": [
+          "https://oeis.org/A098197",
+          "https://oeis.org/A098197/b098197.txt",
+          "https://oeis.org/A071575/b071575.txt",
+          "\"462210\" \"nontotient\" unique maximal",
+          "\"M_19\" cototient height 33 462210",
+          "\"dyadic\" \"cototient\" \"maximizers\""
+        ]
+      },
+      "rationale": "The previous headline first-jump threshold and least height-33 witness are covered by OEIS A098197 and are explicitly credited. The surviving final claim is the complete list of all maximizers, not just the first occurrence, in each of the first 19 dyadic intervals, with exact multiplicities including a 44-to-1 collapse. The inspected sequence tables and primary paper do not supply the 19 complete argmax fibers. Best-knowledge originality remains subject to an unindexed extremizer census.",
+      "residual_risks": [
+        "An older complete table or code enumeration of all Nontotient dyadic extremizers may exist outside inspected primary sources, public sequence tables and available indexed searches.",
+        "OEIS first-hit entries are previously published numerical assertions, not externally verified formal certificates; their pre-existence is evidence of known values rather than proof of mathematics.",
+        "The repaired result is a finite 19-scale classification and does not infer any later or asymptotic behavior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers the old first-jump and least-witness data but not all maximizing arguments.",
+          "evidence": [
+            "OEIS A098197 index 32=206910, 33=278850, 34=361410, 35=462210, 36=688722, with C(n)=index-2."
+          ],
+          "identifier_or_url": "https://oeis.org/A098197",
+          "material_read": "Full entry definition, first 40 terms, offset, comments, references, examples and authorship/sequence history metadata.",
+          "method": "Read OEIS sequence entry and traced the relation between its trajectory to 0 and C(n) to 1.",
+          "title": "A098197 — Smallest number with prescribed cototient-trajectory length",
+          "trigger": "An exact first-hit table may dominate claimed dyadic maxima and least height-33 witness."
+        },
+        {
+          "assessment": "Known first occurrence values completely determine all earlier maximum heights but not their multiplicities.",
+          "evidence": [
+            "Rows 32–36 give known thresholds for heights 30–34; row 35 is 462210."
+          ],
+          "identifier_or_url": "https://oeis.org/A098197/b098197.txt",
+          "material_read": "All 40 explicit index/value rows of the entire displayed b-file.",
+          "method": "Inspected full plain-text table and checked derived running maxima against dyadic endpoints.",
+          "title": "A098197 b-file first 40 terms",
+          "trigger": "Verify exact database implications and indices without relying on snippets."
+        },
+        {
+          "assessment": "Same height function, but its tabulation covers only starting arguments through 10000; not an exact full 2^19 argmax census.",
+          "evidence": [
+            "A071575 states a(n)=a(n-phi(n))+1 and a(1)=0; linked b-file ends at index 10000."
+          ],
+          "identifier_or_url": "https://oeis.org/A071575",
+          "material_read": "Full sequence definition/formula/crossreferences and link/description of 10000-term b-file; inspected beginning and extent of b-file.",
+          "method": "Read OEIS entry and b-file scope (https://oeis.org/A071575/b071575.txt).",
+          "title": "A071575 — Number of iterations of cototient to reach 1",
+          "trigger": "Exact alias for the height recurrence and possible tabular coverage of argmax sets."
+        },
+        {
+          "assessment": "Section 4 establishes parity phenomena, doubling and interval coverage, not all dyadic maximizer positions or counts.",
+          "evidence": [
+            "Theorem 4.8: attained even heights in each dyadic interval form an interval; no cardinality or complete argmax table."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.01231",
+          "material_read": "Complete Section 4 on pages 7–8, including Lemmas 4.1–4.7, Theorem 4.8, proof, examples and references; abstract and selected portions of Sections 1–3 inspected for relevance.",
+          "method": "Read accessible arXiv eight-page primary text and inspected the final page image.",
+          "title": "Two Games on Arithmetic Functions: SALIQUANT and NONTOTIENT",
+          "trigger": "Original published primary paper defining C(n) and dyadic intervals for the same arithmetic game."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired explicit 19-fiber classification in MAXIMIZERS.json and RESULT.md",
+        "OEIS A098197 first-hit height sequence, which motivates the first-jump cutoff",
+        "Ellis et al. Section 4, especially Theorem 4.8 dyadic height stratification"
+      ],
+      "rationale": "The specific upper cutoff is the intrinsic first three-unit jump in a published arithmetic dynamical system, rather than an arbitrary grid. Complete extremal-position fibers across each preceding dyadic scale and the 44-way to one-way collapse are exact natural invariant data a future researcher studying maximal cototient stopping times could use. This goes beyond the old least-first-hit OEIS table and published interval-of-attainable-heights theorem. Neither computation nor novelty alone justifies value; the mathematical motivation is a complete boundary census for the first exceptional extremal transition.",
+      "residual_risks": [
+        "The mathematical significance is limited to a finite initial exact census, not asymptotic dynamics.",
+        "Unindexed earlier extremizer multiplicity tables could reduce this value if the same classification had already been fully published."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub frozen commit cbd61aab71e4f01d305014a9520f769db8108742 and confirmed record tree 1e9750eb81b80d316f76d2f2043b4968dc6a3e13; seven source file Git blob IDs retained in same review",
+    "Independent finite linear sieve, height recurrence and all dyadic extremizer enumeration (524288 inputs); full revised verifier run successfully",
+    "OEIS A098197 public entry and b098197.txt entire table; OEIS A071575 formula and b-file extent",
+    "Ellis, Shi, Thanatipanonda, Tu 2023, arXiv:2309.01231 Section 4, full relevant primary text and Theorem 4.8",
+    "Public exact searches for 462210, cototient/nontotient and dyadic extremal multiplicity, and published-result semantic searches for equivalent and stronger claims"
+  ],
+  "disposition": "repaired",
+  "final_claim": "For C(1)=0 and C(n)=1+C(n-phi(n)), the complete sets E_k={n:2^(k-1)<n<=2^k, C(n)=M_k} are the exact 19 explicit lists in MAXIMIZERS.json for 1<=k<=19; they contain 123 arguments in total, including exactly 44 tied maximizers of height 30 at k=18 and exactly one height-33 maximizer n=462210 at k=19. The maximum heights and first jump themselves were already implied by OEIS A098197, and are not presented as new.",
+  "limitations": [
+    "The previous headline first-jump threshold, M18=30, M19=33, and first height-33 witness 462210 are covered by pre-existing OEIS A098197 first-occurrence data; full argmax sets and multiplicities are the revised final contribution.",
+    "Finite coverage ends at 2^19; no infinite or asymptotic statement is supported.",
+    "A prior complete maximizer census outside inspected primary sources and accessible indexed public results cannot be excluded.",
+    "No independent external expert or Lean certification is claimed; original channels remain unchanged.",
+    "All eight final public science-file bytes were semantically checked for operational provenance before stage-only delivery; no repository edit occurred."
+  ],
+  "schema_version": 1
+}

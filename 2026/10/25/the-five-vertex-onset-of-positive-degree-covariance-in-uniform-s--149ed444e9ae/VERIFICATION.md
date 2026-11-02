@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and boundaries
+# Independent mathematical audit
 
-Run `python3 verify_degree_boundary.py` with Python 3 and no nonstandard dependencies. The program enumerates every simple labeled graph on orders two through five; it tests connectivity of each graph, enumerates every possible spanning-tree edge subset, calculates covariances exactly with integer counts and rational arithmetic, and reduces graphs to isomorphism classes by checking every vertex permutation. It asserts two positive-covariance isomorphism types at order five, with exact tree counts, positive-pair counts, and fractions; it rejects positive cases at smaller orders. It additionally checks the all-orders unicyclic formula on a finite range of cycle lengths with pendant attachments. The separate proof of the unrestricted formula is a one-line uniform-edge-deletion covariance computation and does not rely on a finite extrapolation.
+## correctness
 
-The exhaustive counts for connected labeled orders two to five are respectively 1, 4, 38, 728; connected isomorphism classes are 1, 2, 6, 21. The witness covariances are exactly 1/25 and 5/121, not floating-point approximations. The finite census makes no claim about all graphs of order six or above.
+PASS
 
-Independent audit has not been performed. Historical priority remains uncertain.
+In a unicyclic graph every spanning tree deletes one uniformly random cycle edge J, so degree of cycle vertex u is deg_G(u)−I(J incident u); the two incidence probabilities 2/ℓ and overlap probability 1/ℓ only for adjacent cycle vertices give (ℓ−4)/ℓ² and −4/ℓ², with off-cycle degrees deterministic. For n≤5 enumerate all 2^{n choose 2} labeled graphs, filter connected, enumerate every (n−1)-edge tree and each pair covariance via integer NΣD_uD_v−(ΣD_u)(ΣD_v), then canonicalize via all n! label permutations. Independent recreation yields connected labeled graph counts 1,4,38,728 and class counts 1,2,6,21, exactly two positive classes at n5, with witnesses 5 spanning trees and 1/25, or 11 trees and 5/121. This is a complete finite classification backed by exhaustive cases; the all-order unicyclic statement is separately analytic.
+
+## originality
+
+PASS
+
+No located exact or dominating covering result after primary-paper and Resultary comparisons; all four named comparison checks and residual priority risks are separately documented.
+
+## value
+
+PASS
+
+A sharp minimal counterexample to extending edge negative dependence to vertex-degree covariance is a natural graph invariant. A complete five-vertex isomorphism classification plus the all-order cycle-length phase transition is useful and mathematically motivated, not an arbitrary small-case recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

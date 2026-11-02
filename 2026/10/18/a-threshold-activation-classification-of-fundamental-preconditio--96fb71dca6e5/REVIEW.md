@@ -1,11 +1,21 @@
-# Scientific review — long-pentagon preconditionals
+# Independent mathematical audit
 
-**Correctness (PASS).** The defining five preconditional inequalities and the three stronger conditions are explicitly quantified. Their consequences first force an antitone two-arm negation threshold; fixed-point ceilings then classify the remaining chain rows. The converse is checked case by case for the importation axiom, and threshold/activation uniqueness gives the exact count. A separate exhaustive checker compares independently generated operation-table sets for all long-pentagon sizes with arm length through four; all canonical tables through five satisfy the original axioms. The infinite family is proved by the parametrization, not inferred from finite tests.
+## correctness
 
-**Originality (PASS; residual uncertainty stated).** Chen's 2026 paper provides the \(\mathsf K/\mathsf T/\mathsf F\) definitions and general completeness results, not this non-chain census. Holliday gives the general theory. The closest published exact enumeration results, including “Fixed-point normal form for finite-chain preconditionals” and “Factorial classification of preconditionals on finite chains,” concern total orders and cannot count expansions of lattices with an incomparable atom. A separate known height-two-lattice classification has no longer chain arm; it neither asserts nor computes the long-pentagon threshold–activation formula. Targeted searches of equivalent presentations and published-finding corpus records did not locate the same classification. A more general older theorem might imply it; no absolute historical-priority claim is made.
+PASS
 
-**Value (PASS).** The family begins with \(N_5\), the standard minimal nonmodular lattice, and varies a natural chain arm while retaining an incomparable atom. The complete classification explains how negation and consequent fixed-point sets interact, rather than merely reporting a finite table. Exact counts for every arm length give a natural bridge beyond both the well-studied chain and height-two families.
+For every m>=2, P3/P4 and P2 give meet-dependence and consequent monotonicity; P1/P2 and conditional identity force 1→b=b and 0→b=1. Holliday Prop.1 antitone negation, semicomplementation and a<=¬¬a force exactly j=0,...,m, with ¬u=c_j (j>0) and ¬c_i=u iff i<=j. For i<=j, P2 plus the u lower bound forces all positive lower chain consequences to 1. For i>j, the row is an extensive monotone idempotent ceiling map on its chain interval, fixing 0 and top, and P5 enforces nested lower fixed-point sets F_i. Conversely, for any nested such sets, P5 is checked on d=a∧b=0,u,c_k(k<=j),c_k(k>j), with all other axioms immediate. Each c_s has independent first-activation index in max(s+1,j+1)..m or never, yielding m! for j=0 and (m-j+1)^j(m-j)! for j>0, with injectivity and no nontrivial L_m automorphisms. Independent from the bundled code, complete row-candidate enumeration (all meet-dependent monotone extensive semicomplementary rows then the literal P5/DNI) counted m=1..4: 2,5,17,75 and a pairwise-P5 backtracking enumeration counted ALL m=5 tables: 407 with j-fibers 120,120,96,54,16,1. The universal theorem rests on the proof, not these finite runs.
 
-**Risks and limits.** The result is specific to \(\mathsf F\) operations on the displayed family; it does not enumerate weaker \(\mathsf K\) operations or all nondistributive lattices. Historical novelty cannot be established solely by search. The exhaustive calculation is limited to four for complete-table comparison; the all-size statement requires the supplied proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete L_m F-preconditional classification is not obtained by the inspected general F-algebra axioms/representation theorem, nor by the published finite-chain normal form because L_m has an incomparable atom. Crucially, the numerical sequence is already OEIS A129591: the new assertion is an interpretation and a structural normal form for nonmodular lattices, NOT discovery of these integers. No demonstrated prior implication settles this L_m classification. Best-of-knowledge PASS with explicit priority risks.
+
+## value
+
+PASS
+
+L_2=N5 is the standard minimal nonmodular pentagon and lengthening its chain arm yields a natural infinite family of nondistributive bounded lattices. The theorem is a complete structural classification of F-preconditional expansions on this family, identifying the interaction of forced negation thresholds and independent consequent fixed-point activations; it is not a tiny parameter slice or mere recurrence fitting. The exact cardinality coincides with the already-known OEIS A129591 permutation sequence, so the numerical sequence alone has no new value; the motivated contribution is a new algebraic interpretation plus normal form on natural nonchain objects, extending the previously known finite-chain case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

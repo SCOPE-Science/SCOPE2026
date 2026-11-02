@@ -1,9 +1,21 @@
-# Scientific review of circular binary mesosome avoidance
+# Independent mathematical audit
 
-**Correctness — PASS.** A circular word avoids mesosomes within one turn exactly when each full-length rotation satisfies the known linear mesosome-free run criteria. The proof checks cyclic run counts \(0\), \(2\), \(4\), and \(\geq6\) separately, deriving exact parity restrictions and verifying sufficiency. The enumeration accounts for full rotational periods, the alternating period-two exception, and circumferences one and two. Independently coded factor scanning agrees for all \(65{,}534\) binary words through length 15. The proof of the imported linear lemmas remains credited to their 2021 primary source.
+## correctness
 
-**Originality — PASS, with risk.** The closest directly applicable work, Cummings–Shallit–Staadecker (arXiv:2107.13813v1), characterizes finite *linear* avoidance, counts linear words, and characterizes infinite one-sided avoidance. The current statement is a new explicit *circular, one-turn* all-rotation compatibility classification and closed exact necklace enumeration; it is mathematically derived from, and does not reassert novelty for, their run lemmas. OEIS A341277 tabulates the different linear word counts. Related published records on periodic mesosome avoidance concern another alphabet regime and unbounded factors. Residual risk is an equivalent cyclic corollary in unindexed work, or that a different presentation of the linear classification explicitly includes the cyclic counts.
+PASS
 
-**Mathematical value — PASS.** Cyclic boundary conditions substantially change an established pattern-avoidance problem: the previously classified finite linear family has cubic counts, while the cyclic one-turn necklace family has only four necklaces at every odd length and grows linearly at even lengths. The exact classification explains this dramatic parity restriction and distinguishes finite circular from infinite periodic avoidance. It is an all-length, nonnumerical structural result rather than an arbitrary finite census. It does not claim a new result for arbitrary alphabets or infinite periodic avoidance.
+Each circular factor of length≤n occurs in a rotation of the length-n word. Published linear run lemmas for 3, 4 and 5 runs force cyclic two-run parity, four-run singleton alternation, and ≥6-run alternation via sliding five-run windows. Alternating factors cannot be nontrivial half conjugates. Necklace counts use distinct ordered zero/one run lengths, full period n for two-run circles and period two for alternating words; n=1,2 overlap is handled. Independent direct factor and conjugate check matches 32,766 binary words at lengths 1..14, without treating finite enumeration as infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Cummings–Shallit–Staadecker 2021 gives full linear binary mesosome avoidance and run lemmas, which are explicitly imported. It does not state the all-rotations one-turn cyclic parity classification or exact necklace counts. OEIS A341277 counts linear mesosome-free strings, not cyclic equivalence classes. An existing cyclic corollary of that linear theorem remains possible.
+
+## value
+
+PASS
+
+Passing from linear to bounded one-turn circular factors creates a sharp parity collapse: exactly four necklaces at all odd lengths and linear growth at even lengths. This is a natural complete all-length cyclic classification rather than arbitrary finite census; the one-turn qualification distinguishes it from infinite periodic avoidance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

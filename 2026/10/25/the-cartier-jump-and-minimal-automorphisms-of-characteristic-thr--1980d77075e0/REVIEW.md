@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The branch-jump classification follows from standard genus and p-rank formulas; the canonical differential basis is checked by valuations and its cardinality. The Cartier images are computed for all coefficients over every algebraically closed characteristic-three field, with exact semilinear cube roots. The complete automorphism bound uses the cited index-three-subfield uniqueness theorem outside its exceptional pairs; the scaling equations then force the deck group. Both cases are realized over the prime field. The finite checker confirms formulas for 36 examples but is not the infinite proof.
+## correctness
 
-## Originality: PASS
-The closest 2026 source proves existence of minimal automorphism examples, not the universal joint Cartier and automorphism classification, and poses the a-number question. The 2012 constant-rank theorem assumes all jumps divide the characteristic minus one (false for jump four in characteristic three). The 2020 bound permits both values two and three without locating the jump coefficient. Published p-rank-stratum classification describes partition components without the coefficient criterion. Targeted semantic searches of mathematical records and accessible previous claims revealed no covering result. Residual risk: older unindexed Cartier calculations could already imply this special stratum.
+PASS
 
-## Mathematical value: PASS
-The invariant is intrinsic and natural for the entire first two-pole genus-five rank-two Artin--Schreier stratum, not an arbitrary finite instance. The jump hypersurface, both realized a-values, full minimum automorphism group, and change of nilpotent Cartier block type together answer a concrete piece of the 2026 a-number-at-prescribed-symmetry problem. Generic Cartier theory and full historical priority are not independently certified.
+Deuring–Shafarevich gives exactly two poles for p-rank 2, and Riemann–Hurwitz forces jumps summing to 5, hence the unordered pair (1,4). Moving poles to 0,∞ and Artin–Schreier reduction yields the stated normal form. Different exponents 4 and 10 and ramified orders v_0(x,y,dx)=(3,-1,4), v_∞(x,y,dx)=(-3,-4,4) yield five regular differential monomials dx/x,dx,x dx,y dx/x,y dx (and genus 5 establishes completeness). Semilinear Cartier gives C(e1)=e1, C(e4)=e4, C(e2)=C(e3)=0, C(e5)= -D^(1/3)e1-B^(1/3)e2; rank is 2 or 3, a=5-rank is 3 or 2 and C^2 has rank2. The cited rational index-three subfield uniqueness theorem in genus5,p-rank2 (not an exception) forces all automorphisms to preserve the x projection. Distinct pole jumps force x↦λx, comparison of x^-1 and x^4 gives λ^-1=u=λ^4 with u=±1; hence u=λ=1 and remaining deck y translations form C3. Independent mod-three Cartier-column enumeration covered all 36 F3 choices A,D≠0,B,C arbitrary and reproduced exact ranks and prime-field examples; the entire algebraically closed-field result relies on the abstract Cartier calculation and uniqueness theorem.
 
-## Scope and closest work
-The theorem is restricted to characteristic-three Artin--Schreier genus-five curves with 3-rank two; it makes no general Newton-polygon claim. Closest papers: Tafazolian--Kazemifard, arXiv:2610.13279v1; Farnell--Pries, arXiv:1202.4183v1; Booher--Cais, arXiv:1807.10313v3; Pries--Zhu (2012).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Same-object and stronger-implication search compared: Checked equivalent Cartier–Manin matrix rank, a-number, Hasse–Witt rank, p-rank stratum and Artin–Schreier coefficient locus formulations, not only the words of the claim. These broad results explain the model and bound but do not directly imply the explicit coefficient-jump classification with both loci realized and all full automorphism groups identified. The current theorem integrates prior general tools, but neither the minimal-aut examples nor a-number bounds independently supply this full stratum-wide rigid classification. A semantic Resultary query was executed for this problem. All source limitations and possible hidden equivalences are retained as residual risks, not misreported as proof of absolute priority.
+
+## value
+
+PASS
+
+The a-number is a natural Jacobian invariant on the entire first two-pole genus-five 3-rank-two Artin–Schreier stratum. Its explicit intrinsic jump divisor and simultaneous minimal-automorphism rigidity resolve a meaningful special case of the source’s open a-number control problem, identifying different nilpotent Cartier-module structures and exhibiting both loci. No claim about the complete Ekedahl–Oort or Newton-polygon strata is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

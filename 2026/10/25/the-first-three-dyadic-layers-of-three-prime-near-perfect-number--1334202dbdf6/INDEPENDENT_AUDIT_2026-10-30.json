@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T15:41:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Multiplicativity gives Δ=σ(n)−2n=H(p+q+1)−pq with H=2^{a+1}−1. Δ>0 yields p²−2Hp−H<0, hence p≤H+floor(sqrt(H(H+1))), namely 6,14,30. If p<H, Δ>2^a p forces q|Δ and thus q|H(p+1), so q≤H(p+1); if p>H, positivity forces (p−H)q<H(p+1); p=H yields an impossible extra factor 2 in Δ. These inequalities bound all p,q, so finite enumeration is exhaustive. Independent implementation enumerated every prime pair under the proved bounds before applying divisibility (7,66,382 pairs for a=1,2,3) and found exactly the five displayed pairs; each σ and omitted divisor checked by direct integer arithmetic. The finite checker has proved bounds, not an arbitrary cutoff.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ren–Chen Conjecture 1.3 proposes finiteness for each fixed ≥3 prime supports rather than proving a complete a≤3 three-prime classification.",
+          "Tang–Ren–Li excludes odd near-perfect with three distinct prime divisors; current n is even and theorem does not apply."
+        ],
+        "reasoning": "No inspected stronger theorem implies the exact list for even three-prime cases; two-prime or odd-only results do not cover.",
+        "searches": [
+          "Ren–Chen 2013 Theorem 1.2 and Conjecture 1.3",
+          "Tang–Ren–Li 2013 On near-perfect and deficient-perfect numbers",
+          "Shevelev arXiv:1011.6160"
+        ]
+      },
+      "checked_sources": [
+        "Ren–Chen 2013 complete 5-page Cambridge PDF",
+        "Tang–Ren–Li 2013 publisher abstract",
+        "OEIS A181595 bibliographic list",
+        "Shevelev arXiv:1011.6160 bibliographic",
+        "Resultary semantic 2-adic near-perfect shape theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.2 two-prime support cannot apply to n=2^a p q with three distinct primes; listing five examples does not rule out unknown larger solutions.",
+          "The shape theorem restricts n≡2 mod4 (only a=1), but not a=2 or3 or exact p,q."
+        ],
+        "reasoning": "An unbounded prime-pair inequality plus a complete bounded sieve proves an implication absent from the cited examples and shape constraints.",
+        "searches": [
+          "Ren–Chen 2013 Theorem 1.2, Conjecture 1.3",
+          "Resultary 2026-10-04 A 2-adic shape theorem for near-perfect numbers congruent to 2 modulo 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ren–Chen page 521 already enumerates all five numbers among eleven early examples with exactly three distinct prime factors.",
+          "Their Theorem 1.2 classifies n with exactly two distinct prime factors, while 2^a p q has three."
+        ],
+        "reasoning": "The examples are expressly not new; the new logical claim is that no other triple-prime members occur in the unbounded family for a≤3.",
+        "searches": [
+          "Resultary semantic: near-perfect numbers 2^a p q a 1 2 3 complete classification primes",
+          "Ren–Chen Bull. Aust. Math. Soc. 88(2013) Theorem 1.2 and page 521"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All five examples occur in OEIS and Ren–Chen list, but that numerical table makes no claim of exhaustive unbounded 2^a p q classification.",
+          "Resultary near-perfect shape theorem for n≡2 (mod 4) restricts possible odd parts, not the complete a=1..3 list."
+        ],
+        "reasoning": "Exact rows are known; novelty can attach only to the proved global completeness statement, not recomputation of known numbers.",
+        "searches": [
+          "OEIS A181595",
+          "Ren–Chen 2013 list of first 39 near-perfect numbers",
+          "Resultary near-perfect dyadic classification semantic query"
+        ]
+      },
+      "rationale": "No located exact or dominating covering result after primary-paper and Resultary comparisons; all four named comparison checks and residual priority risks are separately documented.",
+      "residual_risks": [
+        "All five examples previously published; only unbounded completeness can be original.",
+        "Other specialized classifications of 2^a p q could prove this exact completeness without being indexed.",
+        "Tang–Ren–Li full text and Shevelev full text not independently read this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Five cases already known, but theorem explicitly two-prime and conjecture three-prime finiteness.",
+          "evidence": [
+            "p.521 list includes 5624,9112,11096,13736,17816, Theorem 1.2 two supports, Conjecture 1.3 finiteness."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/07195AD6B597AFD416F0AE1935286E3F/S0004972713000178a.pdf/on_nearperfect_numbers_with_two_distinct_prime_factors.pdf",
+          "material_read": "Complete five pages pp.520–524; page 521 Theorem 1.2, list of eleven 3-prime examples, Conjecture 1.3; subsequent proof §§2–3",
+          "method": "full PDF parsed and page image",
+          "title": "On near-perfect numbers with two distinct prime factors",
+          "trigger": "Highly relevant same five examples and claimed completeness"
+        },
+        {
+          "assessment": "No odd near-perfect with three prime factors is irrelevant to even n=2^a p q; full-text residual noted.",
+          "evidence": [
+            "Abstract: excludes odd near-perfect 3-prime numbers."
+          ],
+          "identifier_or_url": "https://www.impan.pl/en/publishing-house/journals-and-series/colloquium-mathematicum/all/133/2/87083/on-near-perfect-and-deficient-perfect-numbers",
+          "material_read": "Publisher abstract and publication metadata; did not independently read full article",
+          "method": "publisher metadata",
+          "title": "On near-perfect and deficient-perfect numbers",
+          "trigger": "Plausible stronger three-prime theorem"
+        },
+        {
+          "assessment": "Initial construction families provide examples, not an inspected exhaustive three-prime classification.",
+          "evidence": [
+            "Ren–Chen p.520 cites Pollack–Shevelev types 1–3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1011.6160",
+          "material_read": "Source review details of initial constructions and bibliographic arXiv metadata; full text not independently reread this run",
+          "method": "source literature summary plus arXiv bibliographic",
+          "title": "On perfect and near-perfect numbers",
+          "trigger": "Introduction and known families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The proposed result is a complete naturally filtered three-prime-support slice of an established finiteness question, with a sharp first nonempty dyadic layer and proved exhaustive upper bounds. It supplies a genuine classification rather than a finite scan or new-example claim.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ren–Chen 2013 complete 5-page Cambridge PDF",
+    "Tang–Ren–Li 2013 publisher abstract",
+    "OEIS A181595 bibliographic list",
+    "Shevelev arXiv:1011.6160 bibliographic",
+    "Resultary semantic 2-adic near-perfect shape theorem"
+  ],
+  "disposition": "passed",
+  "final_claim": "For near-perfect n=2^a p q, 3≤p<q odd primes and a∈{1,2,3}, no solutions when a≤2, and at a=3 precisely the already-known five (n,d)=(5624,152),(9112,136),(11096,8),(13736,68),(17816,8), exhaustively.",
+  "limitations": [
+    "No a>3 or non-squarefree odd part cases.",
+    "No novelty claimed for the five numerical examples."
+  ],
+  "schema_version": 1
+}

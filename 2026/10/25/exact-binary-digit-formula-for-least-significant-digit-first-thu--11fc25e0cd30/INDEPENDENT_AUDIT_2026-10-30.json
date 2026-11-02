@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:46:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The binary addition recurrence t(2n+j+b)=t(n+floor((j+b)/2)) XOR((j+b)mod2) gives residual transition (j,s)→(floor((j+b)/2),s XOR((j+b)mod2)), starting (c,0), output t(j) XOR s. Distinct j,s residuals are output-distinguishable because a period or anti-period for Thue–Morse would contradict alternating parity at numbers 2^h−p as h changes, including eventual periods. After e input bits u, reachable state is (floor((c+u)/2^e), t((c+u)mod2^e)); residue intervals yield v_e(c) and two exceptional coordinate-two corrections, while lower coordinates eventually contribute exactly four states. Disjoint upper-level first coordinates give the exact arbitrary-c sum; m≥2 sharp bounds follow from each v_e in [2,4] and explicit endpoint shifts. Independent BFS computed exact reachable pairs and matched the formula for every c=0..2047; finite checks support the symbolic all-c proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moradi–Rampersad–Shallit §4 gives generic LSD automaton upper bound m(n+c) but Theorems19–20 treat MSD-first shifted Thue–Morse; Charlier et al treat translated/multiplied recognition languages."
+        ],
+        "reasoning": "A generic finite DFAO construction bound is not an exact minimal state count, and MSD-first results do not imply specific LSD numbers without minimization; set-language recognition is a different functional target.",
+        "searches": [
+          "arXiv:2512.10017v5 Theorems19–20 and LSD general bound",
+          "Charlier Cisternino Massuir 2021 minimal automaton mT+r",
+          "Resultary query: least significant digit automata shifted Thue Morse t(n+c) state complexity exact count binary residues"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.10017v5",
+        "arXiv:2603.18858v1",
+        "Charlier Cisternino Massuir 2021 DOI from Electronic Journal of Combinatorics v28i3p12",
+        "Resultary 2026/10/4/SCOPE-exact-initial-rank-compression-thresholds-of-the-bactrian-automa--951d475335ba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Residual transition (j,s) ↦ (floor((j+b)/2),s XOR ((j+b)mod2)), and t non-eventually periodic, yield canonical minimal states. Depth-residue interval accounting yields v_e∈{2,3,4} plus two correction indicators and sharp dyadic endpoints."
+        ],
+        "reasoning": "The cited general upper bounds/MSD estimates give neither exact LSD state counts nor parity/residue corrections and do not dominate the theorem. The result supplies genuinely different orientation-specific state complexity.",
+        "searches": [
+          "arXiv:2512.10017v5 exact Theorems19 and20",
+          "Resultary query: least significant digit automata shifted Thue Morse t(n+c) state complexity exact count binary residues"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "LSD-first DFAO state equivalence is exactly equality of residual sequences F_{j,s}(n)=t(n+j) XOR s; pair state (j,s) corresponds to a 2-kernel shift and parity toggle."
+        ],
+        "reasoning": "Searched equivalences under 2-kernel cardinality, residual Myhill–Nerode shifts, trailing-zero input, and MSD-first reorientation. The published MSD theorem concerns a non-equivalent input order and its state bound is not the same exact N_LSD(c).",
+        "searches": [
+          "Resultary query: least significant digit automata shifted Thue Morse t(n+c) state complexity exact count binary residues",
+          "2-kernel shifted Thue Morse t(n+c) LSD-first residual state counts",
+          "arXiv:2512.10017v5 §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent BFS of all reachable residual pairs for 2048 shifts confirms piecewise formula, beginning 2,3,5,6,7,8,9,9,9,10, plus dyadic extrema."
+        ],
+        "reasoning": "Computations for bounded shifts do not imply the arbitrary-c sharp formula and were not found as an exact published per-shift table. Priority remains subject to other 2-kernel databases.",
+        "searches": [
+          "shifted Thue Morse 2-kernel exact state counts by c",
+          "Resultary query: least significant digit automata shifted Thue Morse t(n+c) state complexity exact count binary residues"
+        ]
+      },
+      "rationale": "PASS, best of knowledge with clearly bounded literature/access risks. The cited general upper bounds/MSD estimates give neither exact LSD state counts nor parity/residue corrections and do not dominate the theorem. The result supplies genuinely different orientation-specific state complexity.",
+      "residual_risks": [
+        "An unindexed 2-kernel formula or general shifted-sequence theorem could be equivalent; no absolute priority is certified.",
+        "The proof includes all finite binary encodings, including extra trailing zeros and the empty word; other canonical-encoding DFAO conventions can give different minimal counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorems 19–20 explicitly use MSD-first; general LSD upper construction is not exact minimal per-shift digit formula or sharp interval envelope.",
+          "evidence": [
+            "Theorem19 gives MSD-first upper 10c/3, theorem20 lower for MSD-first; generic LSD uses m(n+c) bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.10017v5",
+          "material_read": "Full original arXiv HTML: definitions of LSD-first general construction, §4.2 and Theorems 19 and 20 with MSD-first shifted Thue–Morse upper/lower results.",
+          "method": "full lawful arXiv HTML sections and theorem statements",
+          "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+          "trigger": "most directly relevant shifted Thue–Morse state complexity"
+        },
+        {
+          "assessment": "Different word/numeration; does not imply Thue–Morse LSD formula.",
+          "evidence": [
+            "Fibonacci word shifted sequence complexity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.18858v1",
+          "material_read": "Abstract, introduction and relevant Fibonacci word statements; not every manuscript appendix.",
+          "method": "open arXiv HTML relevant sections",
+          "title": "State Complexity of Shifts of the Fibonacci Word",
+          "trigger": "direct state-count methodology in a different sequence"
+        },
+        {
+          "assessment": "Automaton recognizes membership in multiplied-translated Thue–Morse set, not the same all-encodings output automaton for n↦t(n+c).",
+          "evidence": [
+            "Focus on mT+r subset of natural numbers, different direction/operation."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v28i3p12",
+          "material_read": "Paper metadata/abstract and recognizer object mT+r, not a complete full manuscript.",
+          "method": "journal abstract/accessible article summary",
+          "title": "Minimal Automaton for Multiplying and Translating the Thue-Morse Set",
+          "trigger": "possible translation result that dominates shift automata"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Orientation-sensitive minimum automaton complexity for a canonical automatic sequence is a natural exact invariant; generic finite kernel bounds or MSD-first state counts do not determine per-shift minimal LSD state counts. The explicit binary-digit formula and sharp dyadic extremal range provide a structural classification of an infinite family, not a tautological restatement of a standard DFAO construction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2512.10017v5",
+    "arXiv:2603.18858v1",
+    "Charlier Cisternino Massuir 2021 DOI from Electronic Journal of Combinatorics v28i3p12",
+    "Resultary 2026/10/4/SCOPE-exact-initial-rank-compression-thresholds-of-the-bactrian-automa--951d475335ba"
+  ],
+  "disposition": "passed",
+  "final_claim": "All-input LSD-first binary DFAO for t(n+c) has exact state-count sum 7+Σ_{e=2}^{m−1}v_e(c)+2·1(c≥3·2^{m−1})+1(c=3·2^{m−1}−1) for c≥4, with small counts (2,3,5,6), and sharp dyadic 2m+3 through4m+1.",
+  "limitations": [
+    "An unindexed 2-kernel formula or general shifted-sequence theorem could be equivalent; no absolute priority is certified.",
+    "The proof includes all finite binary encodings, including extra trailing zeros and the empty word; other canonical-encoding DFAO conventions can give different minimal counts."
+  ],
+  "residual_risks": [
+    "An unindexed 2-kernel formula or general shifted-sequence theorem could be equivalent; no absolute priority is certified.",
+    "The proof includes all finite binary encodings, including extra trailing zeros and the empty word; other canonical-encoding DFAO conventions can give different minimal counts."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Theorems 19–20 explicitly use MSD-first; general LSD upper construction is not exact minimal per-shift digit formula or sharp interval envelope.",
+      "evidence": [
+        "Theorem19 gives MSD-first upper 10c/3, theorem20 lower for MSD-first; generic LSD uses m(n+c) bound."
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2512.10017v5",
+      "material_read": "Full original arXiv HTML: definitions of LSD-first general construction, §4.2 and Theorems 19 and 20 with MSD-first shifted Thue–Morse upper/lower results.",
+      "method": "full lawful arXiv HTML sections and theorem statements",
+      "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+      "trigger": "most directly relevant shifted Thue–Morse state complexity"
+    },
+    {
+      "assessment": "Different word/numeration; does not imply Thue–Morse LSD formula.",
+      "evidence": [
+        "Fibonacci word shifted sequence complexity."
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2603.18858v1",
+      "material_read": "Abstract, introduction and relevant Fibonacci word statements; not every manuscript appendix.",
+      "method": "open arXiv HTML relevant sections",
+      "title": "State Complexity of Shifts of the Fibonacci Word",
+      "trigger": "direct state-count methodology in a different sequence"
+    },
+    {
+      "assessment": "Automaton recognizes membership in multiplied-translated Thue–Morse set, not the same all-encodings output automaton for n↦t(n+c).",
+      "evidence": [
+        "Focus on mT+r subset of natural numbers, different direction/operation."
+      ],
+      "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v28i3p12",
+      "material_read": "Paper metadata/abstract and recognizer object mT+r, not a complete full manuscript.",
+      "method": "journal abstract/accessible article summary",
+      "title": "Minimal Automaton for Multiplying and Translating the Thue-Morse Set",
+      "trigger": "possible translation result that dominates shift automata"
+    }
+  ]
+}

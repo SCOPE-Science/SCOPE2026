@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:39:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph has unit-side size M=prod m_i and zero-divisor-side N=prod(m_i+1)-M-1. For support J of z, B_{z,u}=1-prod_{i in J}(1-1_{u_i=-z_i}). Multiplication by the unit group on both sides preserves adjacency, so Gram B^T B has character eigenvectors. Fourier cancellation makes C_z(chi)=0 unless support T subset J; for proper nonempty T the squared row sum yields lambda_T=prod_{i notin T}(m_i^2-m_i+1)-prod_{i notin T}(m_i-1)^2; for T empty the row-degree squared sum yields the stated lambda_empty. Every proper-support eigenvalue is positive (row J=T), and full support is zero with multiplicity F=prod(m_i-1). Hence rank B=M-F and adjacency eigenvalues pair ±sqrt(lambda) with remaining nullity N-M+2F. Independent exact integer Gram matrices checked eight field-product support-size tuples including F_2 factors and repeated supports; these do not replace the general Fourier derivation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The conventional zero-divisor graph has only nonzero zero-divisor vertices and edges xy=0, rather than the additive u+z rule."
+        ],
+        "reasoning": "A spectrum for xy=0 does not directly determine the incidence B or its Gram eigenvalues for the distinct additive graph.",
+        "searches": [
+          "Resultary: bipartite zero divisor unit graph finite product fields complete adjacency eigenvalues spectrum",
+          "Magi–Jose–Kishore DOI 10.28919/jmcs/4590"
+        ]
+      },
+      "checked_sources": [
+        "A Bipartite Graph Linking Units and Zero-Divisors https://arxiv.org/abs/2511.07854",
+        "Adjacency matrix and eigenvalues of the zero divisor graph Gamma(Z_n) https://doi.org/10.28919/jmcs/4590",
+        "Resultary semantic query: bipartite zero divisor unit graph finite product fields complete adjacency eigenvalues spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former expressly leaves the adjacency spectrum open; the latter differs in both vertices and incidence."
+        ],
+        "reasoning": "The displayed lambda_T and all multiplicities are not consequences of the inspected prior graph-theoretic statements without a new Fourier incidence calculation.",
+        "searches": [
+          "Mehry–Khasadan arXiv:2511.07854v1 Section 8",
+          "Magi–Jose–Kishore DOI 10.28919/jmcs/4590"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary Section 8 poses exact adjacency spectrum as an open problem; no formula found in original version."
+        ],
+        "reasoning": "Same graph and parameters match, but the new character-support Gram computation goes beyond the stated motivating results.",
+        "searches": [
+          "Resultary: bipartite zero divisor unit graph finite product fields complete adjacency eigenvalues spectrum",
+          "Mehry–Khasadan arXiv:2511.07854v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No complete mixed-field spectrum or incidence rank table in the inspected graph-defining paper; the independent exact test includes R=F_3^3 with Gram {66,8^3,2^3,0}."
+        ],
+        "reasoning": "Small-graph numerical eigenvalue tables would not by themselves imply the full mixed-field formula; no identical exact table located.",
+        "searches": [
+          "Resultary: bipartite zero divisor unit graph finite product fields complete adjacency eigenvalues spectrum",
+          "Mehry–Khasadan original Section 8"
+        ]
+      },
+      "rationale": "The motivating 2025 full primary preprint defines this exact additive graph and explicitly asks its adjacency spectrum in Section 8; the inspected paper does not present this character-support spectral factorization. Classical multiplicative zero-divisor spectra address a different graph and do not imply it directly. Fourier and singular-value methods are standard, not claimed new.",
+      "residual_risks": [
+        "A revised version of the 2025 withdrawn/restructured paper or an unindexed additive incidence-spectrum paper could change historical priority.",
+        "Uniform formula assumes finite reduced commutative nonfields; no Laplacian, nonreduced or noncommutative extension.",
+        "Exact small Gram checks are finite and cannot substitute for Fourier proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_OBJECT_OPEN_PROBLEM",
+          "evidence": [
+            "Original Section 8 explicitly asks for adjacency eigenvalues of this graph over finite reduced rings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.07854",
+          "material_read": "Inspected accessible full 2025 first-version primary article, especially graph definition and Section 8 Open Problem 1; noted the subsequent withdrawal/restructuring notice.",
+          "method": "Full-text scholarly preprint via HTML/PDF indexed pages",
+          "title": "A Bipartite Graph Linking Units and Zero-Divisors",
+          "trigger": "Exact graph definition and open adjacency spectrum, same object/parameters"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH",
+          "evidence": [
+            "Its multiplicative condition xy=0 on nonzero zero divisors is not u+z nonunit across units/nonzero zero divisors."
+          ],
+          "identifier_or_url": "https://doi.org/10.28919/jmcs/4590",
+          "material_read": "Inspected indexed abstract, graph definition and stated scope (not claimed full paper reading).",
+          "method": "Primary abstract/definition-level comparison",
+          "title": "Adjacency matrix and eigenvalues of the zero divisor graph Gamma(Z_n)",
+          "trigger": "Plausible dominating zero-divisor graph spectrum under similar title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An open spectral problem for a natural additive graph on finite reduced rings is answered for all unequal field factors with the complete eigenvalue multiplicities and rank/nullity, a natural full graph invariant and tool for further spectral questions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "A Bipartite Graph Linking Units and Zero-Divisors https://arxiv.org/abs/2511.07854",
+    "Adjacency matrix and eigenvalues of the zero divisor graph Gamma(Z_n) https://doi.org/10.28919/jmcs/4590",
+    "Resultary semantic query: bipartite zero divisor unit graph finite product fields complete adjacency eigenvalues spectrum"
+  ],
+  "disposition": "passed",
+  "final_claim": "For any finite reduced commutative nonfield R=prod_i F_{q_i}, complete adjacency spectrum of additive unit–nonzero-zero-divisor graph, with character-support Gram eigenvalues lambda_T and multiplicities w_T, zero nullity N-M+2F, and incidence rank M-F.",
+  "limitations": [
+    "A revised version of the 2025 withdrawn/restructured paper or an unindexed additive incidence-spectrum paper could change historical priority.",
+    "Uniform formula assumes finite reduced commutative nonfields; no Laplacian, nonreduced or noncommutative extension.",
+    "Exact small Gram checks are finite and cannot substitute for Fourier proof."
+  ],
+  "residual_risks": [
+    "A revised version of the 2025 withdrawn/restructured paper or an unindexed additive incidence-spectrum paper could change historical priority.",
+    "Uniform formula assumes finite reduced commutative nonfields; no Laplacian, nonreduced or noncommutative extension.",
+    "Exact small Gram checks are finite and cannot substitute for Fourier proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "EXACT_OBJECT_OPEN_PROBLEM",
+      "evidence": [
+        "Original Section 8 explicitly asks for adjacency eigenvalues of this graph over finite reduced rings."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2511.07854",
+      "material_read": "Inspected accessible full 2025 first-version primary article, especially graph definition and Section 8 Open Problem 1; noted the subsequent withdrawal/restructuring notice.",
+      "method": "Full-text scholarly preprint via HTML/PDF indexed pages",
+      "title": "A Bipartite Graph Linking Units and Zero-Divisors",
+      "trigger": "Exact graph definition and open adjacency spectrum, same object/parameters"
+    },
+    {
+      "assessment": "DIFFERENT_GRAPH",
+      "evidence": [
+        "Its multiplicative condition xy=0 on nonzero zero divisors is not u+z nonunit across units/nonzero zero divisors."
+      ],
+      "identifier_or_url": "https://doi.org/10.28919/jmcs/4590",
+      "material_read": "Inspected indexed abstract, graph definition and stated scope (not claimed full paper reading).",
+      "method": "Primary abstract/definition-level comparison",
+      "title": "Adjacency matrix and eigenvalues of the zero divisor graph Gamma(Z_n)",
+      "trigger": "Plausible dominating zero-divisor graph spectrum under similar title"
+    }
+  ]
+}

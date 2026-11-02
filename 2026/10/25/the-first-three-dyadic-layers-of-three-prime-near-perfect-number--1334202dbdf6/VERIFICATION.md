@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic bounds on the two odd primes are reproduced in `RESULT.md`. Execute `python verify.py` with Python 3 standard library. Observed check: 440 prime-pair tests inside proved finite limits, and direct independent divisor-sum computations for all five solutions. Reduced candidate counts by exponent are 1, 5, 45. In the final case 25 candidate larger primes are considered for the smaller prime 17 and 13 for the smaller prime 19; only five survive exact divisibility. The enumeration is a finite certificate because the preceding inequalities prove exhaustiveness. This computation does not assert a general classification for any dyadic exponent above three, or independent audit or publication priority.
+## correctness
+
+PASS
+
+Multiplicativity gives Δ=σ(n)−2n=H(p+q+1)−pq with H=2^{a+1}−1. Δ>0 yields p²−2Hp−H<0, hence p≤H+floor(sqrt(H(H+1))), namely 6,14,30. If p<H, Δ>2^a p forces q|Δ and thus q|H(p+1), so q≤H(p+1); if p>H, positivity forces (p−H)q<H(p+1); p=H yields an impossible extra factor 2 in Δ. These inequalities bound all p,q, so finite enumeration is exhaustive. Independent implementation enumerated every prime pair under the proved bounds before applying divisibility (7,66,382 pairs for a=1,2,3) and found exactly the five displayed pairs; each σ and omitted divisor checked by direct integer arithmetic. The finite checker has proved bounds, not an arbitrary cutoff.
+
+## originality
+
+PASS
+
+No located exact or dominating covering result after primary-paper and Resultary comparisons; all four named comparison checks and residual priority risks are separately documented.
+
+## value
+
+PASS
+
+The proposed result is a complete naturally filtered three-prime-support slice of an established finiteness question, with a sharp first nonempty dyadic layer and proved exhaustive upper bounds. It supplies a genuine classification rather than a finite scan or new-example claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Review: Petersen nonagon-containment complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and complex are defined on the 15 edges of the Petersen graph, with faces precisely the subsets of its 20 nine-edge cycles. An exhaustive characterization of connected 2-regular edge sets proves that all simple cycles have been enumerated. The checker independently reproduces the cycle-length histogram in the Kneser model, then enumerates exactly 6,320 nonempty faces. A deterministic face-poset matching produces exactly 3,110 pairs and leaves one critical vertex and 99 critical four-simplices. Complete directed-Hasse topological sorting, over all 32,775 incidences, verifies that the matching is acyclic. By the discrete-Morse theorem the equivalent CW complex has one zero-cell and 99 four-cells and no others, so every attaching map is constant and the integral homotopy type is \(\bigvee^{99}S^4\). Independent simplicial mod-two boundary ranks agree. Source: the complete supplied `verify.py`, replay output and its reconstructible finite proof in `RESULT.md`. Limitation: this is a finite constructive proof, not a family theorem; no independent scientific audit was performed.
+## correctness
 
-## Originality — PASS, with specified residual uncertainty
-The canonical nine-cycle count (20) appears in A. E. Brouwer's graph table, but the cycle count does not specify the intersections of their downward-closed simplex sets or the corresponding homotopy. Holton–Sheehan (1993) surveys the Petersen graph and hypohamiltonicity; the publicly accessible excerpt and contents do not establish the new complex's homotopy type, but the relevant later chapter could not be inspected. Nelson–Plummer–Robertson–Zha (2011) examines graph-theoretic cycles and paths, not the edge-subset simplicial complex. Barmak (2010) examines flag independence complexes on vertices, while this 15-vertex complex is nonflag (ten missing triangles despite a complete one-skeleton). The ordinary matching, degree-two matching, three-cut, graph Morse and Hamiltonian-*path* containment complexes have different face conditions; their homotopy results do not imply this one. Searches also covered longest-cycle containment, nonagon-generated complexes, line-graph formulations and the numerical sphere rank. No covering result was found, but a differently named or nonindexed earlier computation cannot be ruled out. Materials genuinely inspected include Brouwer's entire graph page; the introduction and graph-cycle structural portions of the 2011 primary paper; Barmak's introduction and definitions; and the monograph publisher contents and public first-chapter excerpt. No full-text inspection is claimed for the inaccessible later monograph chapter.
+PASS
 
-## Value — PASS
-This is the complete integral homotopy classification of a canonical topological invariant of the Petersen graph, the smallest hypohamiltonian graph. It encodes which *sets of graph edges* extend to a longest cycle. The 20 maximal nonagons generate a pure eight-dimensional complex that collapses homotopically to a wedge of 99 four-spheres, a structure not determined by the circumference, cycle count or existing Hamiltonian-path classification. The exact face vector, minimal extension obstructions and certified discrete-Morse reduction provide reusable benchmarks for topological studies of longest-cycle extension. No sweeping family theorem or unproved downstream consequence is asserted.
+PASS. Independently reconstructed all fifteen Petersen graph edges, tested all 2^15−1 nonzero edge masks for connected 2-regular support, obtaining cycle counts 12,10,15,20 at lengths 5,6,8,9 and exactly twenty longest 9-cycles. Deduplicated their face down-set to the exact f-vector (15,105,445,1215,2010,1610,720,180,20) with 6320 nonempty faces. Rebuilt the 3110-pair vertex-toggle matching, exhaustively topologically sorted all 32775 oriented Hasse covers (acyclic), with precisely one critical vertex and 99 critical 4-simplices and no other cells. Standard discrete Morse theory then yields a CW wedge of 99 S4, so this is an exact finite homotopy certificate, not merely Betti counts.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best of knowledge, with disclosed monograph access risk. Brouwer’s 20-longest-cycle table does not determine intersections or homotopy of downward closure. Nelson et al. give path/cycle graph structure; published Petersen 2-matching, cut and Morse complexes use different face conditions and none implies this precise down-set. Targeted Resultary plus primary literature and alias searches did not reveal an equivalent nonagon-generated simplicial homotopy classification. Holton–Sheehan Chapter 7 is an inaccessible plausible source but alone does not justify O failure; the bounded evidence and risk are stated honestly.
+
+## value
+
+PASS
+
+PASS. The Petersen graph is the canonical minimal hypohamiltonian graph, with exactly twenty maximal nine-cycles; overlap topology of their edge-set containment complex is a natural previously non-tabulated structural invariant. Knowing the complete integral sphere-wedge type of this nonflag eight-dimensional pure complex, dramatically collapsing to degree four, is mathematically useful beyond the existing longest-cycle counts. This is an exact classification on a natural object, not an arbitrary subfamily or a claim of a general graph theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

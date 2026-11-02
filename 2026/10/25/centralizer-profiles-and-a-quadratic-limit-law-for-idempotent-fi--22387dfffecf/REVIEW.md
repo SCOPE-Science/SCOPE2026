@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The boundary-sensitive commuting conditions are necessary and sufficient; the weighted binomial sum yields the displayed formula for all end gaps, with the \(k=0\) case handled separately. Convexity yields placement extremizers. The stars-and-bars minimum-gap law and a uniform \(O(\log n)\) approximation prove the nondegenerate quadratic CDF and mean \(8/9\). The included checker exhaustively tests idempotents and direct commutation for every chain size through \(10\).
+## correctness
 
-**Originality — PASS within the inspected sources.** Zubairu–Umar–Aliyu (arXiv:2205.00438v1) count regular and idempotent elements; Umar–Zubairu (DOI:10.12958/adm1816) study Green relations and abundance; Adeshola–Umar (arXiv:1303.7428) enumerate full contraction monoids and equivalence classes; Zubairu–Lawan (DOI:10.4236/ojdm.2025.153004) count maps that pointwise fix a chosen subset. None of these counts evaluates the commuting constraint \(fe=ef\) for each clamp or states the limit law. Accessible published research records and recoverable earlier claims were compared by implication and synonyms, not merely titles. The concrete residual priority risk is an older or unindexed centralizer theorem that covers the formulas as an implicit consequence.
+PASS
 
-**Value — PASS.** Complete centralizer-size information, sharp placement extremizers and an explicit nondegenerate limiting logarithmic distribution address a canonical structural invariant of a natural infinite family of finite monoids. The value does not rest merely on implementation or negative search results.
+The image of a nondecreasing 1-Lipschitz map is an interval and idempotence forces it to be a clamp. For commuting f, the endpoint images x=f(a), y=f(b) belong to [a,b]; left exterior steps are free (2^u choices) iff x=a, right steps free (2^v choices) iff y=b, and the k interior binary steps with y-x ones contribute binom(k,y-x). The weighted sum gives C_n=(k+2)2^(k-1)+(2^u+2^v-2)2^k+(2^u-1)(2^v-1) for k>=1; k=0 gives 2^(n-1). At fixed k, C depends strictly convexly on 2^u+2^v. Uniform compositions u+k+v=n-1 have P(min>=j)=binom(n+1-3j,2)/binom(n+1,2), while C has log_2 C=n-1-min(u,k,v)+O(log n) uniformly; this proves the full CDF and expectation, not via finite sampling. Independently reconstructed 120 direct idempotent/commutation cases (n<=8) and matched all formulas.
 
-Limitations: The claim does not cover nonidempotent centralizers or global commuting probability; the sample is uniform among idempotents. Numerical checks cannot establish the general formulas independently of the proof. Historical uniqueness and independent mathematical audit are not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published contraction-semigroup results supply classification, rank, regularity and fixed-point counts, but their inspected statements neither impose fe=ef for each clamp nor derive an idempotent centralizer profile or the uniform-idempotent logarithmic CDF. Search found no mathematical implication covering all these consequences; originality remains best-of-knowledge.
+
+## value
+
+PASS
+
+An idempotent centralizer is a canonical intrinsic invariant in a natural family of transformation monoids. The exact distribution across all clamps, placement extremizers, and nondegenerate random-idempotent limiting law add structural and probabilistic information beyond overall monoid element counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
