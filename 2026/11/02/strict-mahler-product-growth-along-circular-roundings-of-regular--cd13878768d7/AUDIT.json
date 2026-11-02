@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The claimed product follows directly from the planar Steiner area polynomial and the polar support integral; Santaló centering is forced by n-fold rotational invariance. Differentiation yields an exact expectation identity. For Z=sec(pi/n)cos U, the proof establishes Var Z<=sec^2(pi/n)(pi/n)^4/45 by a Lipschitz contraction, and mu(mu-1)/Var Z>81/16 using a fifth-order elementary tan inequality. This dominates the worst derivative covariance term because sup_{t>=0} t(t+2)^3/(1+t)^4=27/16. Endpoint values, positive inverse-square deficit, and fixed-offset n^-2 expansion follow by controlled Taylor expansions. Standard-library checker.py passed 560 finite checks; finite tests do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Böröczky–Makai–Meyer–Reisner 2013 Theorem 3/Corollary 4: n-fold rotational symmetry gives Mahler product >= n^2 sin^2(pi/n) with equality for the regular n-gon.",
+        "Richter–Saorín Gómez 2021 Theorem 1.1: the Euclidean isoperimetric quotient S(K_t)^2/area(K_t) is nonincreasing along parallel bodies, but is a different functional.",
+        "Fradelizi–Meyer–Zvavitch 2023 survey arXiv:2301.06131: global bounds, special cases, and shadow methods; consulted overview and relevant parts contained no asserted outer-parallel Mahler monotonicity."
+      ],
+      "reasoning": "The 2013 global symmetry lower bound gives the t=0 bound individually for all t; it does not imply pairwise inequalities M(t1)<M(t2). Isoperimetric monotonicity controls perimeter and area but lacks the inverse-square support integral for polar area, so it cannot determine this Mahler product. An unlocated general parallel-body Mahler theorem could dominate, but targeted searches and the survey did not supply one.",
+      "searches": [
+        "volume product under Euclidean parallel-body dilation, Santaló point rotational n-fold symmetry and sharp lower bound",
+        "Mahler volume product monotone along parallel bodies convex body adding Euclidean ball",
+        "volume product parallel bodies monotonic convex",
+        "DOI:10.1556/SScMath.50.2013.2.1235, Theorem 3 and Corollary 4",
+        "DOI:10.1007/s12220-021-00766-2, Theorem 1.1"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/s12188-011-0054-3 (first online 2011-04-05)",
+      "arXiv:1507.01481v1 (published article from 2013; preprint posted 2015-07-06)",
+      "DOI:10.1007/s12220-021-00766-2 (2021 online publication; 2020 arXiv preprint)",
+      "arXiv:2301.06131v1 (2023 survey)",
+      "2026/10/11/SCOPE-strict-mahler-product-monotonicity-along-simplex-asymmetric-diff--516fa817d276",
+      "2026/10/11/SCOPE-universal-santal-and-volume-product-laws-for-homothetic-frusta--3dbfdaf0b359",
+      "archival item b079d50a-a217-4fbd-80a9-9fd3a09e0fc5 (two-disk intersection)",
+      "archival item 16e21b49-40cc-474e-8865-5b81d64040ed (3D capsule)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Meyer–Reisner DOI:10.1007/s12188-011-0054-3 pp. 93–100 concerns polygons with <=n vertices; K_{n,t} is nonpolygonal when t>0.",
+        "Böröczky et al. DOI:10.1556/SScMath.50.2013.2.1235 states a universal lower bound, not the derivative sign or t^-2 coefficient.",
+        "Published finding 2026/10/11/SCOPE-strict-mahler-product-monotonicity-along-simplex-asymmetric-diff--516fa817d276 varies simplex versus reflected simplex, not regular polygon versus a disk.",
+        "Published finding 2026/10/11/SCOPE-universal-santal-and-volume-product-laws-for-homothetic-frusta--3dbfdaf0b359 concerns homothetic frusta and is not an interpolation of planar parallel sets.",
+        "Earlier accessible archival findings b079d50a-a217-4fbd-80a9-9fd3a09e0fc5 and 16e21b49-40cc-474e-8865-5b81d64040ed study two-disk intersections and three-dimensional disk-plus-segment capsules, respectively, rather than this regular-polygon plus disk family."
+      ],
+      "reasoning": "Neither the objects nor the quantified monotone paths coincide with the compared findings. The 2013 inequality is weaker in the relevant implication order: it bounds each M(t) below by M(0) but yields no comparison at two positive offsets. The 2011 result is not applicable for positive offsets because the boundary contains curved arcs. The isoperimetric-quotient result has no polar-area term. The novel claim is the full strict t ordering and sharp rates.",
+      "searches": [
+        "On the volume product of polygons Meyer Reisner 2011 full text",
+        "On the volume product of planar polar convex bodies lower estimates stability Theorem 3 regular n-gon",
+        "On the monotonicity of the isoperimetric quotient for parallel bodies Theorem 1.1",
+        "published research record: Strict Mahler-product monotonicity along simplex asymmetric difference bodies",
+        "published research record: Universal Santaló and volume-product laws for homothetic frusta"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The relevant polar support formula is area(K_t^circ)=(1/2) integral_0^{2pi}(h_{P_n}+t)^(-2)dtheta, with vertex sector h_{P_n}=sec(pi/n) cos(theta); the searched comparison concerns the complete derivative of this functional.",
+        "Meyer and Reisner, 2011, DOI:10.1007/s12188-011-0054-3, studies vertex perturbations of finite polygons and extremal classes, not circular-arc parallel offsets.",
+        "No searched published record asserted the identical regular-n-gon plus disk monotonicity or an equivalent polar integral as an ordered family."
+      ],
+      "reasoning": "Searching for rounded polygon, outer-parallel body, offset/Steiner body, and Minkowski addition recognizes the same family under multiple descriptions. The closest polygon extremality results compare different polygon shapes at a fixed vertex number; since the rounded bodies cease to be polygons for t>0, those results are not equivalent formulations or stronger theorems.",
+      "searches": [
+        "Mahler volume product of Minkowski sum of a regular polygon and Euclidean disk, strictly increasing in disk radius",
+        "Steiner parallel set of regular polygon exact polar volume integral and asymptotic quadratic deficit",
+        "Mahler volume product monotone along parallel bodies convex body adding Euclidean ball"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searched published research-record collections for a parameter table or exact inverse-square support integral; closest hits concern regular polygon radial coverage, polar moments of Reuleaux polygons, and different Mahler interpolations.",
+        "The explicit present family has area pi(t^2+2mu*t+mu) and polar area pi E(t+Z)^(-2), rather than an entry in the examined n-gon extremality tables."
+      ],
+      "reasoning": "No exact parameter-table entry or same claimed family was identified. This is only a statement about the examined records, not a uniqueness argument.",
+      "searches": [
+        "exact table rounded n-gon polar area for n=3 n=4 n=5, Mahler volume continuous parameter",
+        "polar area of rounded regular n-gon and Blaschke Santalo deficit",
+        "strictly increasing Mahler product of rounded regular polygons obtained by Minkowski addition of a disk, all n at all radii, with polar area integral"
+      ]
+    },
+    "rationale": "The exact one-parameter Mahler product (area times polar area) and strict ordering for every integer n>=3 and every t>=0 are not implied by the sharp n-fold-symmetry endpoint lower bound, the maximal volume-product theorem for polygons with at most n vertices, or monotonicity of the isoperimetric quotient for outer parallel bodies. Relevant full-text portions were compared directly and targeted records were searched for rounding/Steiner/Minkowski-sum aliases. Residual risks include unindexed earlier smoothing results; no claim of definitive global priority.",
+    "residual_risks": [
+      "Historical literature and mathematical data tables are not exhaustively indexed; a broader monotonicity result for parallel bodies could imply the formula-independent part of the claim.",
+      "Some comparisons used excerpts or relevant sections, not complete page-by-page reading of every long survey or primary paper.",
+      "The originality conclusion is conditional on the examined sources and claim implication comparisons, not a worldwide priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The proofs compare polygons with fixed upper bound on vertex count and their polars; they do not assert continuous Euclidean rounding monotonicity or a same-family polar integral.",
+        "evidence": [
+          "Introduction and mathematical setup, pp. 93–95; polygon extremality argument and regular-polygon characterization, pp. 95–100."
+        ],
+        "identifier_or_url": "DOI:10.1007/s12188-011-0054-3; https://www.researchgate.net/publication/225173584_On_the_volume_product_of_polygons",
+        "material_read": "Accessible author-supplied full text, introduction, definitions and proof of polygon vertex-perturbation extremality; text search for Minkowski and parallel terminology.",
+        "method": "Read accessible full-text transcription, not just abstract.",
+        "title": "On the volume product of polygons",
+        "trigger": "Closest earlier regular-polygon volume-product extremality theorem."
+      },
+      {
+        "assessment": "It establishes the baseline product and lower bound for n-fold symmetric convex bodies; these are not a strict ordering of positive offsets. Other uninspected parts of the long paper are a bounded residual risk.",
+        "evidence": [
+          "arXiv:1507.01481v1 pp. 4–7 and 16–19; Theorem 3 and Corollary 4, proof context."
+        ],
+        "identifier_or_url": "arXiv:1507.01481v1; DOI:10.1556/SScMath.50.2013.2.1235",
+        "material_read": "Lawful 49-page arXiv PDF: abstract, introductory theorem discussion, definitions, regular-n-gon calculation, Theorem 3 and Corollary 4, and adjacent examples; searched text for parallel/Minkowski sum.",
+        "method": "Read relevant sections of the primary PDF and visually inspected an actual PDF page.",
+        "title": "On the volume product of planar polar convex bodies — lower estimates with stability",
+        "trigger": "Its sharp n-fold-symmetry Mahler inequality covers the same endpoint regular polygons and all rounded shapes."
+      },
+      {
+        "assessment": "Controls the quotient of surface area and volume, not the volume times polar volume. Its conclusion does not imply the present derivative sign.",
+        "evidence": [
+          "Theorem 1.1 and definitions in introduction, article published 2021-12-08."
+        ],
+        "identifier_or_url": "arXiv:2003.14182; DOI:10.1007/s12220-021-00766-2",
+        "material_read": "Open-access journal article introduction, definitions and Theorem 1.1, including its distinction between inner and outer offsets and quermassintegrals.",
+        "method": "Read primary journal HTML with mathematical formulas.",
+        "title": "On the Monotonicity of the Isoperimetric Quotient for Parallel Bodies",
+        "trigger": "Closest general monotonicity theorem along the same outer parallel-body parameter."
+      },
+      {
+        "assessment": "The examined material covers classical endpoint inequalities and diverse approaches but no parameterwise Euclidean parallel-body Mahler monotonicity; lack of complete chapter-by-chapter reading limits this conclusion.",
+        "evidence": [
+          "arXiv:2301.06131v1 pp. 1–4; table of contents and searched phrases."
+        ],
+        "identifier_or_url": "arXiv:2301.06131v1",
+        "material_read": "Survey abstract, table of contents, opening definitions and summary of main classes; searched PDF text for parallel-body and regular-polygon phrases.",
+        "method": "Read relevant first pages and searched the lawful 49-page PDF; visually inspected its first page.",
+        "title": "Volume Product",
+        "trigger": "Comprehensive review likely to contain a broader convex-body smoothing theorem if standard."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cd138787-68d7-4f7d-8968-f640e5c65f1b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Mahler volume is a central affine invariant; Euclidean parallel rounding is a canonical geometric deformation of a polygon toward a disk. Known endpoint inequalities do not decide whether the product can reverse as the rounding radius increases. The all-n strict monotonicity and explicit positive inverse-square coefficient settle the complete radial path, while the fixed-offset n^-2 law quantifies the rate of the polygon-to-disk transition. This is a natural full-family ordering with sharp limits, rather than a small numerical improvement or a restatement of an endpoint bound.",
+    "status": "PASS"
+  }
+}
