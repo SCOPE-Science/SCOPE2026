@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "At t=0 the two distinct active eigenvalues ensure the two-column CG moment Gram matrix is positive definite. Its analytic polynomial minimizer has roots at beta and gamma. Differentiating the matrix polynomial cancels the off-cluster blocks identically; minimizing the leading energy over two independent coefficient variations removes within-cluster components parallel to the respective right-hand-side projections. The squared error is the squared inverse-C0 residual norm, yielding both coefficients, their exact vanishing condition and O(t^4) in the zero case. A symmetric block has twice the squared norm of its off-diagonal coupling, so a rank-two unit-Frobenius within-cluster block attains the sharp worst-case constant. Exact-rational code checked 560 samples plus direct CG examples and two sharpness configurations. Generality follows from the proof, not finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.28808, Definition 3.7 excludes placement at an untouched eigenvalue; Theorem 3.14 is an upper bound with remainder",
+        "https://doi.org/10.1137/040617546, first-order spectral/eigenpair sensitivity, not a fixed-step error identity"
+      ],
+      "reasoning": "Theorem 3.14 of the motivating work is the strongest close perturbative comparison identified; its separated-parameter hypothesis excludes the collision and its O(t^2) error remainder does not identify the limit coefficient. The earlier spectral sensitivity theory targets approximate eigenelements and eigenvalues, not two-step CG energy error. No general coverage theorem implying the two projected-block coefficients was found.",
+      "searches": [
+        "conjugate gradient spectral clustering perturbation two iterations error asymptotic first order coefficient",
+        "preconditioned conjugate gradients clustered eigenvalues exact perturbation asymptotic two iterations derivative",
+        "arXiv:2610.28808 Theorem 3.14 perturbation second order remainder",
+        "doi:10.1137/040617546 first-order preconditioned spectrum"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.28808",
+      "https://arxiv.org/abs/2603.28969",
+      "https://arxiv.org/abs/2410.02204",
+      "https://doi.org/10.1137/040617546",
+      "https://www.researchgate.net/publication/220656613_On_the_Sensitivity_of_Some_Spectral_Preconditioners",
+      "https://arxiv.org/abs/1209.1963",
+      "https://doi.org/10.1137/120889848"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.28808, Definition 3.7 requires positive separation from untouched eigenvalues",
+        "https://arxiv.org/abs/2603.28969, Eq. (23) is an unperturbed energy upper bound",
+        "https://arxiv.org/abs/1209.1963, convergence governed by effective condition number of a deflated system"
+      ],
+      "reasoning": "A spectral condition-number or deflated-CG convergence estimate cannot determine the directional two-step residual-energy coefficient because it contains neither the starting-vector projections nor the matrix-polynomial derivative. The closest earlier three-mode scaled-preconditioning claim concerns a global spectral-condition-number optimum, not any finite-iteration CG error. The proposed theorem instead identifies orthogonal within-cluster residual directions and proves cross-cluster cancellation.",
+      "searches": [
+        "Diouane Gurol Mouhtal Orban 2026 deflation-based spectral preconditioned conjugate gradients perturbed systems eigenvalue scaling theta resonance collisions",
+        "arXiv:1209.1963",
+        "doi:10.1137/040617546 spectral preconditioner eigenpair perturbation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2603.28969, section 3 and bound (23)",
+        "https://arxiv.org/abs/2610.28808, Definition 3.7 and Theorem 3.14"
+      ],
+      "reasoning": "The standard CG polynomial minimizer and two-cluster finite termination are classical. Neither is equivalent to a sharp perturbation derivative coefficient: the former leaves a parameter-dependent optimal polynomial to differentiate, and the latter is only the zero-order statement. The searched precursors treat exact/unperturbed spectra rather than within-cluster leading residual-energy projections.",
+      "searches": [
+        "conjugate gradient k step asymptotic perturbation coalescing eigenvalues first order Krylov residual derivative",
+        "conjugate gradient method perturbation residual polynomial analytic matrix derivative exact steps clustered eigenvalues double",
+        "arXiv:2603.28969 equations (9) and (23)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.28808, numerical experiments report upper-bound comparisons rather than exact leading constants",
+        "https://arxiv.org/abs/1209.1963, tables concern deflated-CG conditions and iterations"
+      ],
+      "reasoning": "The claim is an exact symbolic asymptotic over arbitrary multiplicities, not a finite database entry. Searches of published mathematics records, CG literature, and the accessible prior-claim ledger found no equivalent table or stored coefficient. Negative search results alone cannot prove priority.",
+      "searches": [
+        "PCG exact two-iteration energy norm error perturbation leading coefficient for SPD matrix with two clustered eigenvalues beta double and gamma simple, fixed initial residual, first-order splitting from perturbation within double eigenvalue eigenspace",
+        "Exact two-step CG finite-iteration error asymptotic for two clustered eigenvalues, block diagonal perturbations and cross-block cancellation, spectral projector",
+        "two step conjugate gradient eigenvalue coalescence sensitivity 3x3 first order formula"
+      ]
+    },
+    "rationale": "The exact directional, all-multiplicity two-step energy-error coefficient at an eigenvalue-collision scaling was not found in the inspected perturbation, preconditioning, and indexed findings literature. The nearest recent theorem explicitly excludes the collision and leaves an unspecified O(t^2) term; classical CG polynomial optimality alone does not state the derivative. Residual historical-priority risk remains.",
+    "residual_risks": [
+      "A general older matrix-polynomial sensitivity theorem could imply the blockwise formula without mentioning CG or spectral preconditioning.",
+      "The 2013 CG-differentiation publisher full text was not available in the inspected material; its abstract focuses on right-hand-side rather than matrix perturbations.",
+      "Negative indexed-search results and absence from accessible claim ledger do not certify priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING this exact collision: fixed-gap θ in Θδ excludes θ equal to a lower untouched eigenvalue; bound leaves its second-order coefficient unspecified",
+        "evidence": [
+          "Definition 3.7, Eq. (28); Theorem 3.14, Eq. (34); Proposition 3.16"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.28808",
+        "material_read": "Public full-text HTML: introduction; sections 3.1–3.4, including Definition 3.7, Theorem 3.14 and its proof, Proposition 3.16; numerical-experiment discussion in section 4",
+        "method": "Direct reading of publicly accessible primary HTML",
+        "title": "Deflation-Based Spectral Preconditioning for the Conjugate Gradient Method on Perturbed Systems",
+        "trigger": "Closest recent perturbed-PCG theory; explicit scaling gap and O(t^2) energy comparison"
+      },
+      {
+        "assessment": "NOT_COVERING: optimizes scaling for a fixed unperturbed operator and bounds error; does not differentiate two-step CG under matrix perturbations",
+        "evidence": [
+          "Eq. (9) and Eq. (23); sections 3–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.28969",
+        "material_read": "Public primary HTML: introduction, spectral preconditioner section 3 and energy error Eq. (9), section 4 including Eq. (23)",
+        "method": "Direct reading of primary full-text HTML sections",
+        "title": "A Spectral Preconditioner for the Conjugate Gradient Method with Iteration Budget",
+        "trigger": "Same spectral scaling and CG polynomial optimality before perturbing the matrix"
+      },
+      {
+        "assessment": "NOT_COVERING: maps exact eigenpairs of the matrix being solved, with no explicit derivative in a perturbation of the matrix",
+        "evidence": [
+          "Section 4, first-step optimality and polynomial residual expressions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.02204",
+        "material_read": "Public primary HTML: introduction; construction and scaling analysis, including section 4 and its first-iterate optimization",
+        "method": "Direct primary full-text HTML reading",
+        "title": "An Efficient Scaled Spectral Preconditioner for Sequences of Symmetric Positive Definite Linear Systems",
+        "trigger": "Earlier scaled spectral preconditioner construction and finite-iteration objective"
+      },
+      {
+        "assessment": "NOT_COVERING: first-order eigenvalue/eigenvector sensitivity of spectral preconditioners under inexact eigenpairs, not the optimal two-step CG residual-energy derivative",
+        "evidence": [
+          "https://www.researchgate.net/publication/220656613_On_the_Sensitivity_of_Some_Spectral_Preconditioners; section 3.4 and conclusion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/040617546",
+        "material_read": "Author-posted public full-text manuscript (CERFACS TR/PA/04/108) accessible in ResearchGate page: abstract, §§1–3, experiments and concluding remarks",
+        "method": "Direct reading of author-posted full text and journal bibliographic page",
+        "title": "On the Sensitivity of Some Spectral Preconditioners",
+        "trigger": "Older plausible dominating first-order spectral perturbation theory"
+      },
+      {
+        "assessment": "NOT_COVERING: analyzes perturbed deflation subspaces and effective conditioning, not the fixed-preconditioner two-step energy limit",
+        "evidence": [
+          "Section 3.2, Theorem 3.2; section 4.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.1963",
+        "material_read": "Public arXiv full-text HTML: introduction, sections 3 and 4 on effective condition-number bounds and approximate deflation subspaces, numerical sections",
+        "method": "Direct public full-text HTML reading",
+        "title": "The Deflated Conjugate Gradient Method: Convergence, Perturbation and Accuracy",
+        "trigger": "Earlier perturbation theorem for Krylov acceleration with deflation"
+      },
+      {
+        "assessment": "UNRESOLVED_LIMITED: describes Jacobians with respect to right-hand side, whereas the present derivative is with respect to SPD matrix, but an ancillary theorem is not excluded",
+        "evidence": [
+          "Publisher abstract explicitly identifies differentiation with respect to the right-hand side"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/120889848",
+        "material_read": "Publisher abstract and bibliographic description only; full paper not examined",
+        "method": "Abstract comparison, no full-text noncoverage claim",
+        "title": "Differentiating the Method of Conjugate Gradients",
+        "trigger": "Plausibly broad sensitivity theorem for CG iterates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5908cdd-c227-408b-aa67-9ac92ee7e49a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact all-multiplicity within-cluster anisotropy criterion resolves the leading perturbation response of a two-step Krylov solver at a resonant spectral-preconditioner placement excluded from a recent noncollision theorem. It reveals unconditional cancellation of cross-cluster couplings, a sharp Frobenius-adversarial coefficient with explicit rank-two extremizers, and a distinction between quadratic and quartic squared-error orders, relevant to recycled preconditioner sensitivity without claiming a broad complexity theorem.",
+    "status": "PASS"
+  }
+}
