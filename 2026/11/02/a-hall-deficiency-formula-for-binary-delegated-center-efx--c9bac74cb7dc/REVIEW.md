@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** For exactly two goods in each center, every comparison after deleting a good is a singleton worth at most one; the four valuation conventions agree on such external comparisons. An EFX-satisfied active center must own a liked good, inducing distinct representatives and the matching lower bound. A maximum matching followed by capacity filling and appropriate local assignment attains the bound for all four conventions at once. The Hall deficiency formula is classical and applied with the correct active-center domain. The three-person capacity counterexample is checked analytically. Actual standalone verifier results cover all 65,536 two-center binary-agent profiles and all 720 allocations in the capacity boundary example.
+
+**Originality — PASS, with limits.** The motivating primary work (arXiv:2607.27743, Definitions 1,5, Theorems 9,10, Section 6) develops the model and shows nonexistence/hardness in wider classes but does not state the binary capacity-two Hall-deficiency optimum. Full primary material on these sections was read. The 2026 balanced allocation result (arXiv:2608.06325, main theorems) is about EF1, not the stronger center EFX plus exact deficit. Targeted public literature and mathematical research-record searches revealed no equivalent statement. Hall's theorem itself is acknowledged prior art. Priority remains uncertain for unindexed special-case results.
+
+**Value — PASS.** The count of centers that necessarily fail EFX is a natural, decision-relevant quantitative invariant when the desired two-level fairness guarantee is infeasible. The theorem identifies both a constructive polynomial-time optimum and exact feasibility conditions under four alternative semantics, in contrast to the motivating general NP-hardness. The three-person-per-center obstruction pinpoints why the low-capacity classification cannot simply be extrapolated. While the reduction is elementary once recognized, the special model and exact minimum violation invariant are motivated independently of computation.
+
+**Scientific limits.** Binary approvals and one-to-one capacity two are essential; no uniqueness claim, general additive characterization or global EFX algorithm is made. Independent confirmation and a deeper priority search remain appropriate.
+
+Self-review: passed. Independent audit: not yet performed.
