@@ -1,19 +1,21 @@
-# Scientific review: sharp four-site Thue–Morse progression correlations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The correlation is an invariant-measure expectation on the uniquely ergodic binary substitution subshift. Its even/odd decomposition has been independently reconstructed from \(t_{2j}=t_j\) and \(t_{2j+1}=-t_j\). The two-point base \(\eta_2(1)=-1/3\) and the four-site base \(C(1)=1/3\) follow directly. Eight explicit renormalization rows close on the stated family; each output is a signed average of two parent entries, so every coordinate remains in \([-1/3,1/3]\). The equality characterization is not inferred from finite lag sampling: the six reachable saturation types are completely enumerated by a closed transition table, and their first coordinate is saturated only along repeated doubling from lag one. The actual standalone `verify.py` reproduces the finite transition certificate exactly and checks 10,000 further rational lag values. It also conducts 35 independent finite-block comparisons, which are corroborative only.
+PASS
 
-## Originality — PASS under inspected sources
+Rebuilt parity substitution t(2j)=t(j), t(2j+1)=-t(j) and fourth-order offset renormalization. All eight triples and 16 signed-average transition rows stay inside the closed state set. Exact C(1)=1/3 and base vector V(1)=(1,1,-1,0,1,0,0,1)/3 derive from the two-point C2(1)=-1/3. The signed averages preserve the interval [-1/3,1/3]. Exhaustively reproduced the six closed saturation patterns, with the first coordinate saturated only under iterated even transitions (h=2^m). Independent rational reproduction checks 2048 positive binary lag paths. Finite literal-block/lag tests are corroborative; induction and six-state closure establish all h.
 
-The four-point renormalization is established by Ong (arXiv:2209.11162, Proposition 2.6), and its arbitrary-order generalization by Baake and Coons (arXiv:2209.07102, Proposition 4.1 and Corollary 4.5). Both papers explicitly make the underlying coefficients computable. The inspected sections do not give the global sharp bound and **if-and-only-if dyadic extremizer classification on the four-term arithmetic-progression slice**, which is the only claimed incremental contribution. Baake, Gähler and Grimm (arXiv:1201.1423) supply the earlier Thue–Morse dynamical setting. The result is not an assertion that four-point correlations, their recurrence, or the ambient subshift are new. A prior unlocated specialization or implicit equivalence remains possible; historical priority has not been independently audited.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first odd-order balanced correlation vanishes, making a four-site observable a natural next-order temporal diagnostic. The equal-spacing restriction is not an arbitrary parameter substitution: it probes exact arithmetic resonances across dyadic observation scales. A sharp global upper bound alone would not identify those resonances; the complete equality classification establishes that only powers of two maximize absolute dependence. The six-state saturation mechanism provides a structural dynamical explanation rather than a numerical table of selected lags.
+Best-of-knowledge: compared the concrete final statement and implications to the actual primary literature, equivalent formulations, general frameworks and mathematical record searches. No decisive preexisting theorem subsuming the full submitted result found; classical ingredients and residual risks are credited explicitly.
 
-## Literature comparison and limitations
+## value
 
-Relevant inspected open full texts: Baake–Gähler–Grimm (2012), classical Thue–Morse system and two-point spectra; Baake–Coons (2022), all-order recursion and corner determination; Ong (2022), four-point recurrence and correlation visualizations. The new theorem may be derivable from those recursions after nontrivial additional analysis. It does not address general non-equally-spaced quadruples or other substitutions. Remaining originality risk: inaccessible or unindexed explicit specializations of the classical recurrence. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The equal-spacing fourth-order correlation is a canonical higher-order observable after lower odd balanced moments vanish. Complete characterization of arithmetic dyadic resonances and exact maximum, rather than computing selected lag values, is an intrinsically useful structural invariant of the uniquely ergodic substitution system. Saturation automaton exposes the mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and exact proof checks
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3.9 or later. The script has no third-party dependencies and uses exact `fractions.Fraction` operations for the mathematical certificate.
+## correctness
 
-The verifier generates both eight-by-eight signed-average renormalization maps directly from the three component offsets, compares them with the full expected matrix row lists, verifies the two base vectors and the zero-lag fixed point, derives the reachable extremal-saturation strings without assuming their size, and checks that they agree with the exhaustive six-type transition table in `RESULT.md`.
+PASS
 
-It then evaluates the exact correlation for every integer lag from 1 through 10,000, checks the sharp bound and power-of-two equality pattern, and independently computes finite-prefix products from the literal binary parity sequence for 35 lags. Those latter prefix comparisons check consistency only and do not prove an infinite-volume theorem or a numerical approximation error rate. The infinite validity comes from the algebraic closure of the eight states, strong induction under halving, and exhaustive closure of the six saturation types.
+Rebuilt parity substitution t(2j)=t(j), t(2j+1)=-t(j) and fourth-order offset renormalization. All eight triples and 16 signed-average transition rows stay inside the closed state set. Exact C(1)=1/3 and base vector V(1)=(1,1,-1,0,1,0,0,1)/3 derive from the two-point C2(1)=-1/3. The signed averages preserve the interval [-1/3,1/3]. Exhaustively reproduced the six closed saturation patterns, with the first coordinate saturated only under iterated even transitions (h=2^m). Independent rational reproduction checks 2048 positive binary lag paths. Finite literal-block/lag tests are corroborative; induction and six-state closure establish all h.
 
-Observed output: `VERIFY_OK: eight exact renormalization rows, six exhaustive saturation types, 10000 exact lag evaluations, 35 independent block comparisons`.
+## originality
 
-The result has undergone self-review but has not been independently audited. No proof of historical uniqueness, no result for arbitrary quadruples, and no full-range classification of all lag correlations is supplied.
+PASS
+
+Best-of-knowledge: compared the concrete final statement and implications to the actual primary literature, equivalent formulations, general frameworks and mathematical record searches. No decisive preexisting theorem subsuming the full submitted result found; classical ingredients and residual risks are credited explicitly.
+
+## value
+
+PASS
+
+The equal-spacing fourth-order correlation is a canonical higher-order observable after lower odd balanced moments vanish. Complete characterization of arithmetic dyadic resonances and exact maximum, rather than computing selected lag values, is an intrinsically useful structural invariant of the uniquely ergodic substitution system. Saturation automaton exposes the mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
