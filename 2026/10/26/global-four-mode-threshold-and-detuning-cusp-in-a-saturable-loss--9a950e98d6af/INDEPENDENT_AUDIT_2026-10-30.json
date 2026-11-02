@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T06:59:33.423325Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Assumes Gamma<J, g>=0 and equal saturable coefficients at fixed unit norm; limits at Gamma=J singular and excluded.",
+        "Fold count concerns distinct normalized nonlinear eigenpairs with complex eigenvalue; not dynamical stability or matrix exceptional points."
+      ],
+      "rationale": "In the fixed-norm lossy dimer with 0<Gamma<J and equal g/(1+|psi_j|²) nonlinearities, writing imbalance s=|psi1|²-|psi2|² and relative phase gives sin(phi)=Gamma sqrt(1-s²)/J, so precisely two phase branches exist. Their exact detuning functions are delta_±(s)=2g s/(9-s²)±F(s), F(s)=s sqrt[J²/(1-s²)-Gamma²]. The plus branch is a bijective strictly increasing map R to R. The negative branch derivative =2(9+s²)/(9-s²)² [g-R(s²)], and exact log derivative inequalities make R strictly increasing from g_c=(9/2)sqrt(J²-Gamma²) to infinity. Thus for g<=gc there is one negative branch crossing everywhere (total 2); for g>gc one pair of folds and negative branch has 3,2,1 intersections by detuning, giving total 4,3,2. Cubic Taylor of negative branch at s=0 proves a nondegenerate cusp width proportional to (g-gc)^(3/2), with coefficient [8/(27 sqrt3)]sqrt(sqrt(J²-Gamma²)/(7J²+2Gamma²)); as g->infinity s*->1 and delta*/g->1/4. No claims about dynamics or linear exceptional points.",
+      "status": "PASS",
+      "verification": [
+        "Actual Git tree sha 91a040037252236fde5b1c2ad092b092c50f435c, RESULT.md blob 9da2c33013830ae0c0e331651db0aeeeddaded15 were checked against the frozen commit, nontruncated tree.",
+        "Fresh independent SymPy differentiated both detuning branches and verified the exact derivative factorization identically; it also checked the required positive-definite logarithmic derivative factors.",
+        "Independent root/fold bisection J=1,Gamma=0.5,g=5 gives g_c=3.8971143170299736, s*=0.38110126086605073, delta*=0.06486841040522423, agreeing with the claimed example.",
+        "The finite root check does not prove all-parameter root uniqueness; this depends on strict analytic monotonicity of R."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gu, Qu and Zhang, Adjusting exceptional points using saturable nonlinearities, arXiv:2402.15792, Results in Physics 61, 107736 (2024), full arXiv HTML sections on model, polynomial and exceptional point examples inspected; study reports more than two modes and adjustable EP, but not this global strict J>Gamma onset and uniform detuning boundary.",
+          "Liberona-Urquieta et al., Gain-loss deformation of equilibrium families in a PT-symmetric saturable optical dimer, DOI:10.1088/1402-4896/ae6426 (2026), abstract only; balanced gain/loss model distinct by description but full proof not read.",
+          "Resultary targeted saturable-dimer query did not return an exactly equivalent published classification."
+        ],
+        "reasoning": "Stronger-coverage test compared actual object, parameters, hypotheses, and source-theorem implications, not just matching titles. Gu, Qu and Zhang (2024) introduced the exact Hamiltonian and its eighth-degree population polynomial and found multiple nonlinear eigenvalues numerically around exceptional-point geometries. The new global non-EP threshold for all real detunings and exact fold cusp coefficient is not given by those numerical root counts. Similar PT-symmetric saturable dimers and general nonlinear catastrophe arguments do not automatically imply the exact J>Gamma global classification. A potentially relevant 2026 balanced-gain/loss paper was accessible only at abstract level, so its detailed implications remain a priority risk.",
+        "searches": [
+          "saturable nonlinear lossy dimer detuning four eigenmodes fold cusp threshold",
+          "arXiv:2402.15792; DOI:10.1016/j.rinp.2024.107736",
+          "DOI:10.1088/1402-4896/ae6426",
+          "DOI:10.1038/s41467-026-72854-2"
+        ]
+      },
+      "checked_sources": [
+        "Gu, Qu and Zhang, Adjusting exceptional points using saturable nonlinearities, arXiv:2402.15792, Results in Physics 61, 107736 (2024), full arXiv HTML sections on model, polynomial and exceptional point examples inspected; study reports more than two modes and adjustable EP, but not this global strict J>Gamma onset and uniform detuning boundary.",
+        "Liberona-Urquieta et al., Gain-loss deformation of equilibrium families in a PT-symmetric saturable optical dimer, DOI:10.1088/1402-4896/ae6426 (2026), abstract only; balanced gain/loss model distinct by description but full proof not read.",
+        "Resultary targeted saturable-dimer query did not return an exactly equivalent published classification."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gu, Qu and Zhang, Adjusting exceptional points using saturable nonlinearities, arXiv:2402.15792, Results in Physics 61, 107736 (2024), full arXiv HTML sections on model, polynomial and exceptional point examples inspected; study reports more than two modes and adjustable EP, but not this global strict J>Gamma onset and uniform detuning boundary.",
+          "Liberona-Urquieta et al., Gain-loss deformation of equilibrium families in a PT-symmetric saturable optical dimer, DOI:10.1088/1402-4896/ae6426 (2026), abstract only; balanced gain/loss model distinct by description but full proof not read.",
+          "Resultary targeted saturable-dimer query did not return an exactly equivalent published classification."
+        ],
+        "reasoning": "If the old generic method implies components of the final theorem, those components are explicitly credited. The distinctive final combination is not a logical restatement of the cited prior theorem as read. Gu, Qu and Zhang (2024) introduced the exact Hamiltonian and its eighth-degree population polynomial and found multiple nonlinear eigenvalues numerically around exceptional-point geometries. The new global non-EP threshold for all real detunings and exact fold cusp coefficient is not given by those numerical root counts. Similar PT-symmetric saturable dimers and general nonlinear catastrophe arguments do not automatically imply the exact J>Gamma global classification. A potentially relevant 2026 balanced-gain/loss paper was accessible only at abstract level, so its detailed implications remain a priority risk.",
+        "searches": [
+          "saturable nonlinear lossy dimer detuning four eigenmodes fold cusp threshold",
+          "arXiv:2402.15792; DOI:10.1016/j.rinp.2024.107736",
+          "DOI:10.1088/1402-4896/ae6426",
+          "DOI:10.1038/s41467-026-72854-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gu, Qu and Zhang, Adjusting exceptional points using saturable nonlinearities, arXiv:2402.15792, Results in Physics 61, 107736 (2024), full arXiv HTML sections on model, polynomial and exceptional point examples inspected; study reports more than two modes and adjustable EP, but not this global strict J>Gamma onset and uniform detuning boundary.",
+          "Liberona-Urquieta et al., Gain-loss deformation of equilibrium families in a PT-symmetric saturable optical dimer, DOI:10.1088/1402-4896/ae6426 (2026), abstract only; balanced gain/loss model distinct by description but full proof not read."
+        ],
+        "reasoning": "Equivalent terminology and reductions checked using Global four-mode threshold and detuning cusp in a saturable lossy dimer alongside named same mathematical model primary sources: Gu, Qu and Zhang (2024) introduced the exact Hamiltonian and its eighth-degree population polynomial and found multiple nonlinear eigenvalues numerically around exceptional-point geometries. The new global non-EP threshold for all real detunings and exact fold cusp coefficient is not given by those numerical root counts. Similar PT-symmetric saturable dimers and general nonlinear catastrophe arguments do not automatically imply the exact J>Gamma global classification. A potentially relevant 2026 balanced-gain/loss paper was accessible only at abstract level, so its detailed implications remain a priority risk.",
+        "searches": [
+          "saturable nonlinear lossy dimer detuning four eigenmodes fold cusp threshold",
+          "arXiv:2402.15792; DOI:10.1016/j.rinp.2024.107736",
+          "DOI:10.1088/1402-4896/ae6426",
+          "DOI:10.1038/s41467-026-72854-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gu, Qu and Zhang, Adjusting exceptional points using saturable nonlinearities, arXiv:2402.15792, Results in Physics 61, 107736 (2024), full arXiv HTML sections on model, polynomial and exceptional point examples inspected; study reports more than two modes and adjustable EP, but not this global strict J>Gamma onset and uniform detuning boundary.",
+          "Liberona-Urquieta et al., Gain-loss deformation of equilibrium families in a PT-symmetric saturable optical dimer, DOI:10.1088/1402-4896/ae6426 (2026), abstract only; balanced gain/loss model distinct by description but full proof not read."
+        ],
+        "reasoning": "Exact database/table check: the searched prior reports contain related methods and models, not an identified exact table or parameter-wide table of this final claim. This is bounded search evidence, not a claim of exhaustive absence.",
+        "searches": [
+          "saturable nonlinear lossy dimer detuning four eigenmodes fold cusp threshold",
+          "saturable nonlinear lossy dimer detuning four eigenmodes fold cusp threshold"
+        ]
+      },
+      "rationale": "Gu, Qu and Zhang (2024) introduced the exact Hamiltonian and its eighth-degree population polynomial and found multiple nonlinear eigenvalues numerically around exceptional-point geometries. The new global non-EP threshold for all real detunings and exact fold cusp coefficient is not given by those numerical root counts. Similar PT-symmetric saturable dimers and general nonlinear catastrophe arguments do not automatically imply the exact J>Gamma global classification. A potentially relevant 2026 balanced-gain/loss paper was accessible only at abstract level, so its detailed implications remain a priority risk.",
+      "residual_risks": [
+        "Full 2026 balanced-gain/loss primary paper could cover a reduction of this theorem; inaccessible text is specifically identified, not used as proof of novelty.",
+        "Equivalent implicit classification from the original eighth-degree polynomial may be recognized in independent optical-dimer literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "prior establishes model, polynomial and multiple modes but not global strict-Gamma<J threshold and cusp",
+          "evidence": "Paper emphasizes EP location and nonlinear eigenvalues from polynomial/full numerical method; evaluated examples focus on Gamma=J.",
+          "identifier_or_url": "arXiv:2402.15792; DOI:10.1016/j.rinp.2024.107736",
+          "material_read": "full arXiv HTML paper, defining Hamiltonian, eigenvector equations, eighth-degree imbalance polynomial, plotted multiple-eigenvalue/exceptional-point cases",
+          "method": "lawful arXiv HTML primary full text",
+          "title": "Adjusting exceptional points using saturable nonlinearities",
+          "trigger": "exact same nonlinear Hamiltonian and polynomial root-count danger"
+        },
+        {
+          "assessment": "not enough to rule out an equivalent detuning classification; residual risk",
+          "evidence": "2026 study is balanced gain/loss PT-symmetric equilibrium family; cannot conclude whole-paper NOT_COVERING.",
+          "identifier_or_url": "DOI:10.1088/1402-4896/ae6426",
+          "material_read": "title, publication metadata and abstract only; primary full text unavailable in this run",
+          "method": "publisher abstract/index",
+          "title": "Gain-loss deformation of equilibrium families in a PT-symmetric saturable optical dimer",
+          "trigger": "similar modern saturable dimer could contain broader mode count"
+        },
+        {
+          "assessment": "qualitative EP local topology, not verified to imply exact global non-EP model threshold",
+          "evidence": "Object concerns nonlinear exceptional point topology, distinct from explicit global root count off the linear EP.",
+          "identifier_or_url": "DOI:10.1038/s41467-026-72854-2",
+          "material_read": "abstract/summary only; paper full text not inspected",
+          "method": "publisher metadata/index",
+          "title": "Universal topology of exceptional points in nonlinear non-Hermitian systems",
+          "trigger": "general catastrophe theory may dominate cusp"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A parameter-sharp distinction between nonlinear four-mode folds and linear exceptional points is structurally informative. The exact non-EP threshold, all-detuning 2/3/4 mode partition, cusp coefficient, and large-g fold slope give natural, reproducible bifurcation invariants for this physically motivated dimer, not a routine application of an unspecified catastrophe normal form.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gu, Qu and Zhang, Adjusting exceptional points using saturable nonlinearities, arXiv:2402.15792, Results in Physics 61, 107736 (2024), full arXiv HTML sections on model, polynomial and exceptional point examples inspected; study reports more than two modes and adjustable EP, but not this global strict J>Gamma onset and uniform detuning boundary.",
+    "Liberona-Urquieta et al., Gain-loss deformation of equilibrium families in a PT-symmetric saturable optical dimer, DOI:10.1088/1402-4896/ae6426 (2026), abstract only; balanced gain/loss model distinct by description but full proof not read.",
+    "Resultary targeted saturable-dimer query did not return an exactly equivalent published classification."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Assumes Gamma<J, g>=0 and equal saturable coefficients at fixed unit norm; limits at Gamma=J singular and excluded.",
+    "Fold count concerns distinct normalized nonlinear eigenpairs with complex eigenvalue; not dynamical stability or matrix exceptional points.",
+    "Does not assert stability or experimental robustness of nonlinear stationary eigenpairs."
+  ],
+  "residual_risks": [
+    "Full 2026 balanced-gain/loss primary paper could cover a reduction of this theorem; inaccessible text is specifically identified, not used as proof of novelty.",
+    "Equivalent implicit classification from the original eighth-degree polynomial may be recognized in independent optical-dimer literature.",
+    "Does not assert stability or experimental robustness of nonlinear stationary eigenpairs."
+  ],
+  "schema_version": 1
+}

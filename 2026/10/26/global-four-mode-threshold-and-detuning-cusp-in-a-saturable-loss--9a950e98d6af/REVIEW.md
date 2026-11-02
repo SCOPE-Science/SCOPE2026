@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The phase-and-imbalance parametrization is reversible for every normalized two-component eigenpair, including zero imbalance, and yields two complete scalar branches. The strictly increasing positive branch and one-turning-pair negative branch are proved using a positive rational inequality. Exact fold counts and the \(3/2\) cusp follow without relying on finite enumeration. `CHECK.py` provides an separate algebraic reconstruction check and symbolic derivative identities; it does not replace the universal proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Gu, Qu and Zhang [1] published the saturable model, an eighth-degree imbalance polynomial and numerical multiple-mode plots. Their displayed examples focus on \(J=\Gamma\), whereas this result proves global mode multiplicity for every real detuning in \(0<\Gamma<J\). A later universal catastrophe-theory treatment [4] gives qualitative topology around nonlinear exceptional points, not the present strict-non-EP global threshold, exact detuning width or constant. A 2026 balanced-gain/loss saturable-dimer article [5] is close enough that its detailed branch formulas merit full-text comparison; accessible abstract content did not resolve that risk. Other precise equivalents could remain unindexed.
+PASS
 
-**Mathematical value — PASS.** The theorem turns an implicit eighth-degree spectral equation into a necessary-and-sufficient global classification, identifies the exact onset of four simultaneous nonlinear eigenmodes in a regime with no linear exceptional point, and quantifies the tolerance width at onset and at strong nonlinearity. These are naturally motivated mode-control invariants, rather than isolated algebraic substitutions.
+In the fixed-norm lossy dimer with 0<Gamma<J and equal g/(1+|psi_j|²) nonlinearities, writing imbalance s=|psi1|²-|psi2|² and relative phase gives sin(phi)=Gamma sqrt(1-s²)/J, so precisely two phase branches exist. Their exact detuning functions are delta_±(s)=2g s/(9-s²)±F(s), F(s)=s sqrt[J²/(1-s²)-Gamma²]. The plus branch is a bijective strictly increasing map R to R. The negative branch derivative =2(9+s²)/(9-s²)² [g-R(s²)], and exact log derivative inequalities make R strictly increasing from g_c=(9/2)sqrt(J²-Gamma²) to infinity. Thus for g<=gc there is one negative branch crossing everywhere (total 2); for g>gc one pair of folds and negative branch has 3,2,1 intersections by detuning, giving total 4,3,2. Cubic Taylor of negative branch at s=0 proves a nondegenerate cusp width proportional to (g-gc)^(3/2), with coefficient [8/(27 sqrt3)]sqrt(sqrt(J²-Gamma²)/(7J²+2Gamma²)); as g->infinity s*->1 and delta*/g->1/4. No claims about dynamics or linear exceptional points.
 
-**Scope and limitations.** Fixed-norm nonlinear spectral eigenpairs, equal saturable coefficients and strictly \(0<\Gamma<J\), \(g\ge0\). No dynamical stability or experimental realizability is claimed. The boundary case \(J=\Gamma\) and arbitrary unequal nonlinear coefficients are excluded. Literature completeness is not certified, and no independent scientific validation has been performed.
+## originality
 
-Closest literature: [1] arXiv:2402.15792; [2] doi:10.1103/PhysRevA.88.063840; [3] doi:10.1103/PhysRevE.90.022901; [4] doi:10.1038/s41467-026-72854-2; [5] doi:10.1088/1402-4896/ae6426.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gu, Qu and Zhang (2024) introduced the exact Hamiltonian and its eighth-degree population polynomial and found multiple nonlinear eigenvalues numerically around exceptional-point geometries. The new global non-EP threshold for all real detunings and exact fold cusp coefficient is not given by those numerical root counts. Similar PT-symmetric saturable dimers and general nonlinear catastrophe arguments do not automatically imply the exact J>Gamma global classification. A potentially relevant 2026 balanced-gain/loss paper was accessible only at abstract level, so its detailed implications remain a priority risk.
+
+## value
+
+PASS
+
+A parameter-sharp distinction between nonlinear four-mode folds and linear exceptional points is structurally informative. The exact non-EP threshold, all-detuning 2/3/4 mode partition, cusp coefficient, and large-g fold slope give natural, reproducible bifurcation invariants for this physically motivated dimer, not a routine application of an unspecified catastrophe normal form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

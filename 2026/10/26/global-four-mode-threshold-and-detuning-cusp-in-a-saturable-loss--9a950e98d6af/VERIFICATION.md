@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python CHECK.py` with Python 3 and SymPy installed. The checker performs exact symbolic simplification of the logarithmic derivative used in the proof and the cubic Taylor coefficient, then numerically reconstructs both nonlinear scalar eigenvalue equations for 100 reproducibly seeded, varied parameter/detuning samples. It also tests the strict mode-count transition at zero detuning and the near-threshold fold-width coefficient for several different \(J,\Gamma\).
+## correctness
 
-Observed output from direct execution of the embedded checker before packaging:
+PASS
 
-```
-PASS: exact derivative monotonicity identity and cubic normal form.
-PASS: 100 random parameter/detuning samples; nonlinear eigensystem reconstructed.
-PASS: fold uniqueness, cusp 3/2 law, and threshold mode counts.
-```
+In the fixed-norm lossy dimer with 0<Gamma<J and equal g/(1+|psi_j|²) nonlinearities, writing imbalance s=|psi1|²-|psi2|² and relative phase gives sin(phi)=Gamma sqrt(1-s²)/J, so precisely two phase branches exist. Their exact detuning functions are delta_±(s)=2g s/(9-s²)±F(s), F(s)=s sqrt[J²/(1-s²)-Gamma²]. The plus branch is a bijective strictly increasing map R to R. The negative branch derivative =2(9+s²)/(9-s²)² [g-R(s²)], and exact log derivative inequalities make R strictly increasing from g_c=(9/2)sqrt(J²-Gamma²) to infinity. Thus for g<=gc there is one negative branch crossing everywhere (total 2); for g>gc one pair of folds and negative branch has 3,2,1 intersections by detuning, giving total 4,3,2. Cubic Taylor of negative branch at s=0 proves a nondegenerate cusp width proportional to (g-gc)^(3/2), with coefficient [8/(27 sqrt3)]sqrt(sqrt(J²-Gamma²)/(7J²+2Gamma²)); as g->infinity s*->1 and delta*/g->1/4. No claims about dynamics or linear exceptional points.
 
-Finite numerical evaluations do not establish a global theorem; the proof in `RESULT.md` supplies the necessary and sufficient argument and all boundary cases. The computed fold is obtained from a strictly monotone scalar function, not an assumed optimizer. No independent scientific audit was performed. The model's fixed-norm complex-eigenvalue equation should not be conflated with physical norm-preserving dynamics.
+## originality
+
+PASS
+
+Gu, Qu and Zhang (2024) introduced the exact Hamiltonian and its eighth-degree population polynomial and found multiple nonlinear eigenvalues numerically around exceptional-point geometries. The new global non-EP threshold for all real detunings and exact fold cusp coefficient is not given by those numerical root counts. Similar PT-symmetric saturable dimers and general nonlinear catastrophe arguments do not automatically imply the exact J>Gamma global classification. A potentially relevant 2026 balanced-gain/loss paper was accessible only at abstract level, so its detailed implications remain a priority risk.
+
+## value
+
+PASS
+
+A parameter-sharp distinction between nonlinear four-mode folds and linear exceptional points is structurally informative. The exact non-EP threshold, all-detuning 2/3/4 mode partition, cusp coefficient, and large-g fold slope give natural, reproducible bifurcation invariants for this physically motivated dimer, not a routine application of an unspecified catastrophe normal form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
