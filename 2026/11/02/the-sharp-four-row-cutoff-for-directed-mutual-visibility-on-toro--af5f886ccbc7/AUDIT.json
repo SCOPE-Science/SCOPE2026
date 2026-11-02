@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Proof establishes all hypotheses (integer n≥4; directed cycles with one-way increasing arcs). At most two vertices per directed cycle fibre, hence eight upper bound. The monotone-rectangle dynamic recurrence is equivalent to existence of shortest directed selected-internal-vertex-free paths for all ordered pairs; complete enumeration excludes the only two smaller widths and is independently checked by BFS. Explicit five/seven/eight-point witnesses exist. Empty-column insertion proves the eight-point witness survives for every n≥6, without finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cicerone–Di Stefano–Klavžar arXiv:2112.13024, Section 3: undirected graph products.",
+        "Korže–Vesel, Theorem 3.8 and Proposition 3.9: undirected Cartesian cycle products.",
+        "Stojanović arXiv:2602.03267, Sections 3–6: directed cycles, SCCs, tournaments, complexity."
+      ],
+      "reasoning": "The numerically closest stronger families are undirected; no general theorem for consistently directed cyclic factors was located. Directed SCC statements alone give no exact cardinality here.",
+      "searches": [
+        "\"On the mutual visibility in Cartesian products and triangle-free graphs\" arxiv pdf first date",
+        "\"directed mutual visibility\" Cartesian products cycles",
+        "\"mutual visibility\" \"directed\" \"grid\" digraph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.03267",
+      "doi:10.1007/s00025-024-02139-x",
+      "arXiv:2112.13024"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stojanović Proposition 3.2 gives exactly two for one directed cycle.",
+        "Korže–Vesel Proposition 3.9 gives twelve for the undirected underlying product when \\(n\\ge8\\).",
+        "The new fibre restriction gives an orientation-dependent universal upper bound eight."
+      ],
+      "reasoning": "Neither single-factor directed value nor undirected product value implies the directed product value; the directed product bound and small-width obstructions require new arguments. The underived equality is not a numerical reformulation of the existing twelve.",
+      "searches": [
+        "\"mutual visibility\" \"directed\" \"grid\" digraph",
+        "\"directed mutual visibility\" \"Cartesian product\" toroidal",
+        "\"On the mutual visibility in Cartesian products and triangle-free graphs\" arxiv pdf first date"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stojanović arXiv:2602.03267 defines ordered-pair directed mutual visibility; the paper has no Cartesian-product theorem.",
+        "Korže–Vesel 2024 studies un-oriented cycle products and geodesics."
+      ],
+      "reasoning": "Directed geodesic avoidance for both ordered endpoints is not equivalent to standard undirected mutual visibility. A product of one-way cycles has coordinate-monotone geodesics, so the published undirected formulas cannot be substituted.",
+      "searches": [
+        "mutual visibility parameter of directed Cartesian cycles C_4 x C_n geodesic avoidance 5 7 8",
+        "Stojanović directed mutual-visibility of Cartesian product of two cyclic digraphs orientation directed torus mu 4 n exact",
+        "\"directed\" \"mutual-visibility\" \"Cartesian product\" \"cycle\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Korže–Vesel (2024), Remark 3.10/Table 2 has computer-generated numbers only for undirected products.",
+        "Published research-record search surfaced connected mutual visibility of undirected high-girth Cartesian products, a different invariant."
+      ],
+      "reasoning": "Existing undirected tables are not tables of the directed oriented torus. The self-contained finite census only verifies the new proof and is not an older database result.",
+      "searches": [
+        "mutual visibility parameter of directed Cartesian cycles C_4 x C_n geodesic avoidance 5 7 8",
+        "\"directed torus\" \"mutual visibility\"",
+        "\"mutual visibility\" \"oriented cycles\" Cartesian product digraph"
+      ]
+    },
+    "rationale": "No matching directed-product classification was found in inspected primary full texts or targeted research-record searches. The closest undirected torus result gives twelve rather than eight for all widths at least eight; the motivating directed paper gives the one-factor cycle value only. Prior-product implications do not apply to asymmetric directed distances. This is best-knowledge originality, not a guarantee of global priority.",
+    "residual_risks": [
+      "Older results using different directed-visibility terminology or unindexed theses might preempt the formula.",
+      "The finite exclusions rely on executable exhaustive enumeration; a purely conceptual exclusion of the small widths is not supplied.",
+      "Independent mathematical assessment has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves \\(\\mu(\\overrightarrow C_n)=2\\) and studies directed graph classes, not the directed Cartesian product of cycles.",
+        "evidence": [
+          "arXiv:2602.03267, Definition 2, Proposition 3.2, Sections 3–6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.03267",
+        "material_read": "Full 14-page public arXiv PDF, particularly Definition 2, Proposition 3.2, Sections 3–6 and all product-related terminology",
+        "method": "Read full text and inspect rendered pages; searched the document for Cartesian and product",
+        "title": "The Mutual-Visibility Problem In Directed Graphs",
+        "trigger": "Exact definition of the directed invariant and possibility of a directed-product theorem"
+      },
+      {
+        "assessment": "Products are undirected. Proposition 3.9 gives undirected \\(\\mu(C_4\\square C_n)=12\\) for \\(n\\ge8\\), not the directed value; no directed geodesic theorem.",
+        "evidence": [
+          "Korže–Vesel (2024), Proposition 3.9 and Remark 3.10, doi:10.1007/s00025-024-02139-x"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00025-024-02139-x",
+        "material_read": "Full open-access publisher HTML, especially Introduction, Sections 2–3, Proposition 3.9, Remark 3.10 and conclusions",
+        "method": "Read open-access article text, including formulas for the cycle-cycle products",
+        "title": "Mutual-Visibility Sets in Cartesian Products of Paths and Cycles",
+        "trigger": "Same cycle-product host graph, potentially stronger full classification"
+      },
+      {
+        "assessment": "The graph model is explicitly undirected and its product estimates are not oriented shortest-path statements.",
+        "evidence": [
+          "arXiv:2112.13024, Introduction and Section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.13024",
+        "material_read": "Open-access arXiv full PDF, Sections 1–3 including Theorems 3.2 and 3.4",
+        "method": "Read extracted PDF and inspected rendered pages containing product results",
+        "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+        "trigger": "General Cartesian-product bounds may dominate a narrow oriented-product claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "af5f886c-cbc7-4dc2-936d-34b085629951",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides a complete and exact infinite family for the directed variant introduced in 2026, with a sharp transition at width six and uniform eventual capacity. Its constant bound contrasts substantively with the published undirected 12-point torus value from width eight, identifying the effect of one-way arc orientation; the proof separates universal geometric obstruction from only two finite boundary cases.",
+    "status": "PASS"
+  }
+}
