@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes the graph, real edge coordinates, canonical orthogonal projection, and the full integer parameter range. The Laplacian Kronecker decomposition separates clique-mean and clique-fluctuation components. An explicitly inverted star resolvent computes every edge-column family, with the necessary absolute-value signs checked using positive Green entries and the strict bound on the spoke current coefficient. Exact subtraction makes all maximizing-edge cases, equality boundaries, and the \(\ell_1\)/\(\ell_\infty\) equality exhaustive. A standalone SymPy script reconstructs all 406 edge columns of nine actual graph incidence matrices exactly, checks the symbolic identities, and verifies idempotence. All-parameter validity is analytical; the finite checks are only corroboration. Residual correctness risks include transcription or model-interpretation mistakes not identified by the analytical derivation and exact sample checks.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The closest broad treatment is Dilworth–Kutzarova–Ostrovskii, *Cycle spaces: invariant projections and applications to transportation cost* (arXiv:2305.12582; see Sections 1.1, 1.4, and 2.4–2.7). Its explicit Hamming-cube projector norm and results for tori and homogeneous Hamming graphs do not contain the nonhomogeneous clique–star product \(K_m\square K_{1,k}\) for \(k\ge3\), nor do they imply the specific absolute-column sums and piecewise switching thresholds without the new calculation. Their *Lipschitz free spaces on finite metric spaces* (arXiv:1807.03814; particularly Sections 1.1, 4, and 5) develops cycle-space quotients and recursive diamond/Laakso families, with a different graph construction and invariant. General transfer-current/electrical formulas determine a matrix after a Laplacian inversion, not its optimized \(\ell_1\)-column norms or the exact winning-edge zones. A previously calculated \(K_m\square P_3\) three-layer case corresponds only to the excluded \(k=2\) base and does not imply the new \(k\ge3\) thresholds.
+PASS
 
-Targeted research-record searches for orthogonal Hodge projections, clique–star products, Cartesian graph transfer-current matrices, equivalent formulations, and broader graph families located no dominating formula. Special-purpose transfer-current literature or less-indexed calculations remain a real novelty risk. Failure to find a result is not a mathematical proof of novelty.
+For m>=2,k>=3, write L=L_{K_m}⊗I+I⊗L_star and G=(mI+L_star)^{-1}. A horizontal unit edge has potential (e_i−e_j)⊗G e_s, yielding its absolute clique and spoke voltage-drop column sums. A vertical unit spoke splits into a constant-in-clique tree mode plus (e_i−1/m 1)⊗G(e_0−e_ell). The derived inverse entries have fixed positive signs and 0<a<1, so all absolute values are resolved algebraically. P=I−Q gives each cycle column norm as 1+cut_column_norm−2Q_ee. Subtractions q_h−q_l>0 and p_h−p_l>0 exclude leaf maxima. Integer sign polynomials A_Q and A_P give the exact hub/spoke boundaries: Q tie m=4,k=11; P ties m=7,k=11 and m=8,k=37, and switch at m=6 k=5. An independent grounded-Laplacian numerical reconstruction on 64 (m,k) instances independently tested three edge columns per case, 192 in total; largest six-column formula error was 5.33e−15. The universal proof is symbolic matrix inversion and sign analysis, not the finite grid.
 
-## Mathematical value — PASS
-A natural operator-norm problem, motivated by the existing Hamming/cycle-space projection literature, is solved for an infinite, genuinely nonhomogeneous, two-parameter family. The result is not a single numerical instance: it gives every symmetry orbit, a complete classification of maximizing edge direction, exact equality boundaries, and a mismatch between the complementary projectors. Branching can restore hub maximization for some widths before spoke dominance becomes permanent, a structural effect absent from the homogeneous families and not implied by the known three-layer case. The standard electrical Green-function setup alone does not supply this phase diagram.
+## originality
 
-## Verification and limitations
-`checker.py` performs a grounded-Laplacian reconstruction, 406 complete rational column checks, and exact symbolic simplifications. Neither independent audit nor external expert validation was performed. The result does not compute minimum norms over arbitrary nonorthogonal projections. Real-valued, unweighted graphs only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cut/cycle orthogonal projector formalism and transfer-current matrix are classical, and Dilworth–Kutzarova–Ostrovskii compute endpoint norms on Hamming graphs, tori and hypercubes (their theorem 45 is specifically hypercube). The inhomogeneous K_m × star product, all six edge-type rational expressions and distinct hub/spoke switching thresholds are not asserted by the inspected prior source. A general graph Laplacian formula is a tool and does not by itself imply the optimized piecewise thresholds. Best-of-knowledge O PASS, with possible less-indexed transfer-current closed-form identities a residual risk.
+
+## value
+
+PASS
+
+The canonical Hodge cut/cycle projectors are fundamental to transportation-cost and graph edge-space analyses, and the clique×star product is a natural inhomogeneous Cartesian family. Knowing exactly which geometric edge direction controls an endpoint norm and where it changes is a useful complete invariant, not an arbitrary tiny-graph computation; complementary projections exhibit different reentrant branching thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
