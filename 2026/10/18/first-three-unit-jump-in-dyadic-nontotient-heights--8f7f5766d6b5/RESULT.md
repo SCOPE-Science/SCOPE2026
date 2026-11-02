@@ -1,42 +1,23 @@
-# First three-unit jump in dyadic Nontotient heights
+# Complete dyadic maximizer fibers for cototient iteration through the first three-unit jump
 
 ## Finding
 
-Let \(\varphi(n)\) be Euler's totient, \(g(n)=n-\varphi(n)\) for integers \(n\ge2\), and \(C(1)=0\), \(C(n)=1+C(g(n))\) for \(n\ge2\). Write
+Let \(\varphi\) denote Euler's totient and define the cototient iteration height
 \[
-M_k=\max_{2^{k-1}<n\le2^k} C(n),\qquad k\ge1.
+C(1)=0,\qquad C(n)=1+C(n-\varphi(n))\quad(n\ge2).
 \]
-The **first index** \(k\ge2\) for which \(M_k-M_{k-1}\ge3\) is exactly \(k=19\). More precisely,
+For \(1\le k\le19\), let \(I_k=\{n:2^{k-1}<n\le2^k\}\),
+\(M_k=\max_{n\in I_k}C(n)\), and
+\(E_k=\{n\in I_k:C(n)=M_k\}\).
+
+**Exact finite classification.** The companion file `MAXIMIZERS.json` explicitly lists **every member of \(E_k\)** for each of the 19 intervals. There are exactly 123 maximizers counted across those intervals (with multiplicity across intervals impossible). In particular
 \[
-M_{18}=30,\qquad M_{19}=33,
+(M_{18},|E_{18}|)=(30,44),\qquad
+(M_{19},E_{19})=(33,\{462210\}).
 \]
-and exactly one integer in \((2^{18},2^{19}]\) attains \(M_{19}\), namely \(n=462210\). For every \(2\le k\le18\), \(M_k-M_{k-1}\in\{1,2\}\). These claims are exact finite statements, not conjectures about larger intervals.
+Thus the first height jump of at least three is accompanied by a sharp change from 44 maximizing arguments to a single maximizing argument. The following table is a human-readable summary of the full listed fibers.
 
-## Assumptions and scope
-
-The domain consists of positive integers and all \(19\) dyadic intervals \((2^{k-1},2^k]\) for \(1\le k\le19\). The function \(g\) strictly decreases positive integers greater than one because \(1\le\varphi(n)<n\) when \(n\ge2\), so \(C\) is well defined. The statistic is a stopping-time maximum, not the Sprague–Grundy parity value. No assertion about \(M_k\) for \(k\ge20\) is made.
-
-## Proof
-
-The proof is an **exhaustive finite certificate**, with two separately implemented algorithms for Euler's totient and a recurrence verifying all integers through \(2^{19}=524288\). Its finite nature is essential: no sampled extrapolation is used.
-
-**Totient algorithm A.** Initialize \(\varphi_A(n)=n\) for \(0\le n\le524288\). For every \(p\ge2\), if the current value at \(p\) is \(p\), then \(p\) is prime, and for every positive multiple \(m\) of \(p\) update \(\varphi_A(m)\gets\varphi_A(m)-\varphi_A(m)/p\). At the moment \(p\) is reached, all primes below \(p\) have already been processed, proving the primality test. Each distinct prime factor contributes exactly the multiplicative factor \((1-1/p)\). Thus this constructs the true totient for every \(n\) in the finite domain.
-
-**Totient algorithm B.** Independently determine the smallest prime factor \(p\) of each composite integer by marking multiples from \(p^2\) in increasing prime order. For \(n\ge2\), put \(m=n/p\) and define
-\[
-\varphi_B(n)=
-\begin{cases}
- p\varphi_B(m),&p\mid m,\\
- (p-1)\varphi_B(m),&p\nmid m.
-\end{cases}
-\]
-Initialize \(\varphi_B(1)=1\). The prime-power totient formula and multiplicativity prove this recurrence. The two totient arrays were compared term by term.
-
-**Height recurrence and exhaustive coverage.** With \(C(1)=0\), compute \(C(n)=1+C(n-\varphi(n))\) in increasing integer order. Since \(n-\varphi(n)\) is always between \(1\) and \(n-1\) for \(n\ge2\), every right-hand-side value is already established. Both totient implementations were used independently to construct and compare the full height arrays. Thus every \(C(n)\), not just a sample, was established for \(1\le n\le524288\).
-
-Taking the maximum in each exactly enumerated dyadic interval gives the following certificate, where the last two columns record the number of maximizers and their least value:
-
-| \(k\) | \(M_k\) | Maximizer count | Least maximizer |
+| \(k\) | \(M_k\) | \(|E_k|\) | \(\min E_k\) |
 | ---: | ---: | ---: | ---: |
 | 1 | 1 | 1 | 2 |
 | 2 | 2 | 1 | 4 |
@@ -58,24 +39,39 @@ Taking the maximum in each exactly enumerated dyadic interval gives the followin
 | 18 | 30 | 44 | 206910 |
 | 19 | 33 | 1 | 462210 |
 
-The table proves \(M_{19}-M_{18}=3\), all earlier jumps are at most two, and there is exactly one maximizer at \(k=19\). The explicit orbit of the unique maximizer is
+The complete sets, not merely their cardinalities, are certified in the companion JSON file. This is a finite theorem only for \(1\le k\le19\); no assertion about the behavior for higher scales is made.
 
-`462210, 361410, 278850, 216450, 164610, 122850, 96930, 71154, 48186, 32130, 25218, 16830, 12990, 9534, 6822, 4554, 3234, 2394, 1746, 1170, 882, 630, 486, 324, 216, 144, 96, 64, 32, 16, 8, 4, 2, 1`.
+## Proof and full-domain certificate
 
-It has \(33\) transitions and independently witnesses \(C(462210)=33\).
+For each \(n\ge2\), \(1\le n-\varphi(n)<n\), so the recurrence for \(C\) is well founded and can be evaluated by induction in increasing \(n\). Two arithmetically distinct exact totient constructions provide independent checks of every input through \(N=2^{19}=524288\).
 
-## Verification
+The first method initializes \(\varphi_A(n)=n\) and, when the sieve finds a prime \(p\), updates each positive multiple \(m\) by
+\(\varphi_A(m)\leftarrow\varphi_A(m)-\varphi_A(m)/p\). Each prime dividing \(m\) contributes exactly its Euler factor \(1-1/p\), so the resulting array is Euler's totient. The primality test \(\varphi_A(p)=p\) before processing \(p\) is valid because all smaller primes have already acted on their multiples.
 
-Run `python3 verify.py` with Python 3 and only its standard library. The script builds both complete totient arrays, checks their equality, independently computes and compares all heights, reproduces the whole \(19\)-interval table, asserts no earlier three-unit jump, checks the unique maximizer by another direct traversal, and verifies the full orbit. Successful completion prints `VERIFIED`. The code needs at most a few megabytes of numeric-array storage and terminates after finitely many simple loops; mathematical validity of the finite certificate follows from the recurrences proved above.
+The second method independently constructs the smallest prime factor \(p\) of each composite and uses \(m=n/p\) and
+\[
+\varphi_B(n)=\begin{cases}
+ p\varphi_B(m)&\text{if }p\mid m,\\
+ (p-1)\varphi_B(m)&\text{if }p\nmid m,
+\end{cases}
+\quad \varphi_B(1)=1.
+\]
+This is the usual prime-power formula together with multiplicativity. Both arrays agree at each input \(1\le n\le N\); computing the height recurrence independently from each produces the same full array. For each \(I_k\), the verifier then takes the exact maximum and lists all integers attaining it, comparing each complete list, in order, with `MAXIMIZERS.json`. It separately checks the displayed 19 maxima, first three-unit jump, the 44 versus one extremizer counts at the last two scales, and a direct length-33 trajectory from 462210 to 1.
 
-## Relationship to prior work
+The certificate is exhaustive because it visits all integers from 2 through 524288 and no sampled subrange or probabilistic step is used. The code is short, uses only Python's standard library, and performs bounded integer operations. Execute `python3 verify.py` from the directory containing both `verify.py` and `MAXIMIZERS.json` to reproduce all data. The proof of the sieve and recurrence identities above explains why a successful finite computation establishes this finite classification; the program's success alone does not establish priority or a theorem for infinitely many scales.
 
-Ellis, Shi, Thanatipanonda, and Tu introduce the Nontotient iteration height \(C(n)\). Their Theorem 4.8 proves that the heights attained by even integers in each dyadic interval form a consecutive integer interval, without determining the maximal height \(M_k\) or the first occurrence of a jump by at least three. Their Lemma 4.4 is a structural identity for heights under doubling and their Lemma 4.6 a lower bound; neither gives the table or first-jump classification. The exact finite extremal computation here complements, rather than reproduces, those statements. The result may conceivably be subsumed by an unlocated general stopping-time census; no independent priority claim is made.
+## Previously known numerical threshold and what is added here
 
-## Limitations
+The **first three-unit jump, its index \(k=19\), the heights 30 and 33, and the least height-33 integer 462210 are already derivable from the earlier public OEIS table A098197**; they are **not claimed as original discoveries**. That table lists the least starting integer whose cototient trajectory has exactly \(r\) distinct entries including 0. For \(n\ge1\), that trajectory contains \(C(n)+2\) entries. Consequently its entry at index \(h+2\) is the least integer attaining height \(h\). For example, the entries at indices 32, 33, 34, 35, 36 are respectively 206910, 278850, 361410, 462210, 688722, corresponding to first heights 30 through 34. From the complete listed first-hit values, the running maximum through \(2^k\) increases at every \(k\le19\); its new maximum is therefore attained in the newest dyadic interval. This recovers the known maxima and their first three-unit jump.
 
-This is an exact finite first-crossing and unique-witness certificate, **not** an asymptotic theorem and not a proof of an eventual pattern. No assertion is made about the next jump, growth bounds beyond \(k=19\), or any generalized arithmetic iteration. Exhaustiveness relies on faithfully executing the included finite verifier and the standard arithmetic proofs of its two totient constructions. The motivating paper's parity-valued game outcomes are distinct from the heights analyzed here.
+**The contribution isolated here is different:** the complete argmax fibers \(E_k\), including every maximizing argument and all fiber cardinalities through the first exceptional scale. A least-first-hit table cannot by itself determine how many other integers attain the same height, or which they are. OEIS A071575 records the individual height sequence and a table of the first 10,000 arguments; that listing does not supply the complete 19-scale argmax classification. The primary 2023 paper of Ellis, Shi, Thanatipanonda and Tu defines the same height and proves in Theorem 4.8 that the heights at even positions in each dyadic interval form a consecutive set, but it does not determine the complete maximizing fibers. These are comparisons of statements, not claims that a failed web search proves global novelty.
+
+## Scope and limits
+
+The scope is the natural initial dyadic region through the first jump of size three in \(M_k\). The complete extremal-position classification at that boundary distinguishes an isolated maximizer at scale 19 from the 44-way tie at scale 18, and provides an exact benchmark for further studies of this arithmetic dynamical system. It does not prove an asymptotic growth law or a structural classification for all \(k\). Any unindexed full-height database or previously unpublished exhaustive census remains a priority risk. Neither a numerical certificate nor independent re-enumeration supplies external expert certification.
 
 ## References
 
-P. Ellis, J. Shi, T. A. Thanatipanonda, A. Tu, *Two Games on Arithmetic Functions: SALIQUANT and NONTOTIENT*, 2023, arXiv:2309.01231, especially Section 4, Lemmas 4.4 and 4.6, and Theorem 4.8. https://arxiv.org/pdf/2309.01231. Published in *Discrete Mathematics Letters* 12 (2023), 209–216, DOI:10.47443/dml.2023.154.
+1. Labos Elemer et al., OEIS A098197, *Smallest number with a prescribed cototient-trajectory length* (entry dated September 16, 2004; current table includes indices 1–40), https://oeis.org/A098197 and https://oeis.org/A098197/b098197.txt.
+2. Benoit Cloitre et al., OEIS A071575, *Number of iterations of cototient(n) needed to reach 1*, https://oeis.org/A071575.
+3. P. Ellis, J. Shi, T. A. Thanatipanonda, A. Tu, *Two Games on Arithmetic Functions: SALIQUANT and NONTOTIENT*, Discrete Mathematics Letters 12 (2023), 209–216, arXiv:2309.01231, especially Section 4 and Theorem 4.8, https://arxiv.org/pdf/2309.01231.

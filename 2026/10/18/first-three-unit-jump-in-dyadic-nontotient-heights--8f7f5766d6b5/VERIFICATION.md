@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,8 @@
 }
 ---
 
-# Verification record
+# Verification of cototient-height maximizer fibers
 
-Run `python3 verify.py` with Python 3. The program constructs Euler's totient by (a) prime-factor multiplicative depletion and (b) least-prime-factor recurrence, compares all results, independently computes the Nontotient iteration heights from each, and compares these as well. It then checks the complete dyadic maximum table and maximizer multiplicities, the earliest jump of at least three, and the full terminating orbit of the unique extremizer. It prints `VERIFIED` only after all assertions pass.
+Execute `python3 verify.py` in the directory containing `MAXIMIZERS.json`. The program computes exact Euler totient arrays through \(2^{19}\) by prime-factor depletion and smallest-prime-factor recurrence, then computes all cototient iteration heights by induction in increasing argument order. Each result is compared against the other method. The complete sets of maximizing arguments in each dyadic interval are compared with every entry in `MAXIMIZERS.json`. All 123 listed arguments are thus checked, including all 44 attaining height 30 at scale 18 and the sole height-33 argument 462210 at scale 19. The resulting height maxima and the length-33 witness orbit are also asserted.
 
-Coverage is **all positive integers up to 524288**, not a random trial or heuristic extrapolation. The proof includes why these recurrences compute exact arithmetic values. Python's integers and arrays suffice; no downloaded datasets or unbundled libraries are required. The code does not check any integers beyond 524288 and makes no assertion about later maxima. The scientific novelty comparison is literature-dependent; reproducible computation does not establish publication priority. No independent audit or third-party certificate has been performed.
+This is a finite exhaustive certificate, not a formal proof in Lean, an external expert attestation, a verification of any higher dyadic scale, or proof of novelty. The recurrence identities and finite coverage are given in `RESULT.md`. The earlier OEIS first-hit table already determines the maximum-height threshold and is credited explicitly; the new certificate concerns complete extremal-position fibers. Verification-status channels are managed separately from the mathematical computation.
