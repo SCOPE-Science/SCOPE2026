@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** A fixed rank-\(r\) idempotent is conjugate to the standard block projection. Writing a rank-one idempotent as a normalized outer product reduces the commutator to two off-diagonal rank-one blocks. Its cubic identity gives the rational-canonical alternatives; the two dot-pair counts give every multiplicity. The counts sum to the independently known number of rank-one idempotents. The finite verifier passed explicit characteristic-two and odd-field checks. These computations complement, rather than replace, the unrestricted proof.
+
+**Originality — PASS relative to inspected sources and retrieved records.** Ferraz–Polcino Milies–Taufer count left ideals and individual idempotent generators, without counting product-trace-resolved commutator similarity types. Britnell–Wildon classify existence of commuting similarity classes, not the present fixed-rank intersection statistics. A closely related existing result treats two rank-one idempotents, not the interior mixed-rank family. The latter is expressly outside the new claim; the two-block rank-versus-corank parameters and limiting binomial law are not implications of its formula. Targeted mathematical research-record searches did not reveal a dominating interior-rank theorem. This is not proof of worldwide publication priority; possible restatements under matrix-semigroup or projection-geometry terminology remain a risk.
+
+**Value — PASS.** In matrix semigroup theory, rank-one idempotents generate minimal one-sided ideals. The product scalar measures whether their interaction with a larger idempotent is square-zero, idempotent, or periodic, while the Lie commutator's rational-canonical type quantifies incompatibility. Their **complete simultaneous distribution** for every interior rank is a natural invariant; the nondegenerate limiting binomial rank law is not a single small-case table or routine normalization check. This does not classify two arbitrary-rank factors.
+
+**Source and validation limits.** The pertinent 2017 source's complete displayed text and the relevant 2010 paper's full-text sections were inspected. Publication coverage is not exhaustive. Computational checks are finite and were executed on the included verifier; no independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
