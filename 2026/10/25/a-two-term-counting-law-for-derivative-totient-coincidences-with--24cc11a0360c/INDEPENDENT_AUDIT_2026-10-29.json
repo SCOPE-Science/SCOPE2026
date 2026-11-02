@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T04:45:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md at 70c99f48c021fff937587e4a42b88b2fa3f089fd",
+        "Ufnarovski/Åhlander 2003 Theorem 1 at https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf",
+        "independent_checks.py derivative_checks 180 prime pairs",
+        "fixed-modulus Siegel-Walfisz/PNT AP classical theorem"
+      ],
+      "rationale": "For fixed odd prime p, the equality D(p^a q^b)=phi(p^a q^b) reduces exactly to aq+bp=(p-1)(q-1). The exponents require t=p-1-a in 1..p-2, q in one reduced residue class tq=-1 mod p and b=(tq-(p-1))/p. These classes are disjoint, and p=2 has none. Logarithmic size equals (t/p)*q log q -(p-1)/p*log q+constant; its cutoff differs by O_p(1) from Q=(p/t)L/W((p/t)L), L=log X. Fixed-modulus prime number theorem in progressions supplies Li(Q)/(p-1) with errors smaller than the prescribed inverse log powers. Expand W(cL)=ell+log c-log ell+O_p(log ell/ell) and Li(Q) to obtain pL/[(p-1)ell^2] times [H_p+((2 log ell+1)H_p-2J_p)/ell+O_p((log ell)^2/ell^2)], where ell=log L. Independent brute arithmetic verified 180 distinct small-prime Diophantine pairs and unique exponent criterion. No finite enumeration is used to infer PNT or the asymptotic.",
+      "residual_risks": [
+        "Only fixed p: implied constants and residue cutoff uniformity depend on p",
+        "The main term counts positive a,b with exactly two distinct primes p<q, not total D(n)=phi(n) solutions"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "One published research record counts D(n)=k*n for constant k, not D(n)=phi(n) for fixed p.",
+          "A separate cototient gap study treats D(n)-(n-phi(n)) rather than coincidence D(n)=phi(n).",
+          "PNT AP is a general distribution theorem for primes in progressions."
+        ],
+        "reasoning": "A general PNT AP theorem implies a leading count once the original nonstandard arithmetic parametrization and nonlinear size threshold are supplied; it does not state the exact two-term constant itself.",
+        "searches": [
+          "2026/10/4/SCOPE-fixed-multiplier-level-sets-of-the-arithmetic-derivative--c31759e42cf2",
+          "2026/10/4/SCOPE-sharp-support-thresholds-for-the-arithmetic-derivative-cototient--b2439d05e1a7",
+          "fixed modulus prime number theorem in arithmetic progressions"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A166374",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf",
+        "Resultary: 2026/10/4/SCOPE-fixed-multiplier-level-sets-of-the-arithmetic-derivative--c31759e42cf2",
+        "Resultary query: arithmetic derivative equals Euler totient two prime powers fixed p asymptotic number solutions Lambert W primes progressions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary 2003 paper develops the arithmetic derivative and basic formulas, not the stated fixed-p distribution in inspected sections.",
+          "OEIS exact congruence construction implies infinitude by Dirichlet and does not specify harmonic coefficients."
+        ],
+        "reasoning": "Existing general derivation and prime equidistribution furnish ingredients; a two-term count needs the Lambert inverse size cutoff and Li expansion. The resulting parameterized second coefficient is not directly stated by prior sources inspected.",
+        "searches": [
+          "https://oeis.org/A166374",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS comment provides (p-1)(q-1)=a*p+b*q existence for two primes; the precise exponent parametrization follows by interchange.",
+          "Ufnarovski/Åhlander Theorem 1 gives D(n)=n sum(a_i/p_i)."
+        ],
+        "reasoning": "These exact elementary equivalences are prior; the equivalence does not alone provide a count of prime q bounded by p^a q^b<=X with a secondary asymptotic.",
+        "searches": [
+          "arithmetic derivative equals Euler totient two prime powers fixed p asymptotic number solutions Lambert W primes progressions",
+          "https://oeis.org/A166374",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS entry lists individual solutions and includes the historical two-prime existence comment but no fixed-p two-term asymptotic."
+        ],
+        "reasoning": "A finite database table can verify examples, not the asymptotic. If a known analytic counting result exists under a different name, that would be decisive coverage.",
+        "searches": [
+          "https://oeis.org/A166374",
+          "arithmetic derivative Euler totient coincidence enumeration table fixed p"
+        ]
+      },
+      "rationale": "The integer arithmetic derivative and exact two-prime Diophantine existence are established prior work, including Robert Israel’s August 21 2014 OEIS A166374 comment. The claimed new content is the fixed-p counting asymptotic with a full explicit two-term harmonic constant. The construction is a classical application of PNT in fixed progressions and Lambert W inversion, but the existing cited sequence/comment and primary basic derivative text do not already state that distribution. Resultary fixed-multiplier D(n)=kn and cototient-gap studies have different equations and cannot directly imply it. Some specialized arithmetic-derivative counting sources may have equivalent formulas that were not indexed.",
+      "residual_risks": [
+        "OEIS A166374 already proves infinitude and exhibits the two-prime existence construction; these are not separately original.",
+        "The analytic expansion is an application of standard PNT and Lambert W; novelty can lie in the explicit specialization and second coefficient but this is a modest contribution.",
+        "Equivalent counting asymptotics under another fixed-residue parametrization could cover it without mentioning the arithmetic derivative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL ARITHMETIC DERIVATIVE FORMULA",
+          "evidence": "Theorem 1 supplies D(n)=nΣ a_i/p_i, and paper emphasizes derivative properties and associated equations rather than fixed-p prime-distribution asymptotics.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf",
+          "material_read": "Full 24-page original PDF retrieved; title, abstract, Sections 1-2 and Theorem 1 with exact factorization formula read, page 2 screenshot inspected",
+          "method": "Journal of Integer Sequences legal OA PDF and screenshot",
+          "title": "How to Differentiate a Number",
+          "trigger": "Exact derivative identity and possible stronger coincidences"
+        },
+        {
+          "assessment": "DECISIVE PRIOR FOR EXISTENCE/PARAMETRIZATION; NO ASYMPTOTIC SHOWN",
+          "evidence": "August 21 2014 comment asserts positive integer solutions (p-1)(q-1)=a*p+b*q and numbers p^b q^a.",
+          "identifier_or_url": "https://oeis.org/A166374",
+          "material_read": "Entire public sequence entry, comments, formulas, and 2014 Robert Israel two-prime construction inspected",
+          "method": "OEIS public full entry",
+          "title": "OEIS A166374, D(n)=Euler phi(n)",
+          "trigger": "Exact previous existence and table"
+        },
+        {
+          "assessment": "DIFFERENT D(n)=kn EQUATION; FULL SCIENTIFIC COVERAGE NOT CONCLUSIVELY EXCLUDED",
+          "evidence": "It counts D(n)=k*n, whereas submitted D(n)=phi(n) has a different variable Euler ratio and fixed-smaller-prime stratum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fixed-multiplier-level-sets-of-the-arithmetic-derivative--c31759e42cf2",
+          "material_read": "Resultary full indexed result summary and mathematical statement checked; full repository proof not read",
+          "method": "Resultary semantic search",
+          "title": "Fixed-multiplier level sets of arithmetic derivative",
+          "trigger": "Published research record with superficially close derivative asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A166374 existence gap",
+        "Ufnarovski/Åhlander foundational arithmetic derivative",
+        "RESULT.md asymptotic proof"
+      ],
+      "rationale": "The fixed-prime layer of a classical arithmetic-derivative/totient coincidence is a naturally defined infinite Diophantine set. Its precise quantitative density with explicit secondary logloglog term and harmonic constants is new information beyond an old existence/parametrization argument, though the analytic ingredients are standard. It is a complete answer within an exact two-prime support slice, rather than arbitrary numerical instances.",
+      "residual_risks": [
+        "No uniformity in prime p or unrestricted support is established",
+        "Novelty is appropriately narrow and may be diminished by unindexed specialized counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For fixed odd prime p, the prescribed exact-two-prime solutions n=p^a q^b of D(n)=phi(n) obey an explicit two-term PNT-in-progressions counting asymptotic with harmonic constants H_p and J_p; p=2 has none.",
+  "limitations": [
+    "Only fixed p: implied constants and residue cutoff uniformity depend on p",
+    "The main term counts positive a,b with exactly two distinct primes p<q, not total D(n)=phi(n) solutions",
+    "OEIS A166374 already proves infinitude and exhibits the two-prime existence construction; these are not separately original.",
+    "The analytic expansion is an application of standard PNT and Lambert W; novelty can lie in the explicit specialization and second coefficient but this is a modest contribution.",
+    "Equivalent counting asymptotics under another fixed-residue parametrization could cover it without mentioning the arithmetic derivative."
+  ],
+  "schema_version": 1
+}
