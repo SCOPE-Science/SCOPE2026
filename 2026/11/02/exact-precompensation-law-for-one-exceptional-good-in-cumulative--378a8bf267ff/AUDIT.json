@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The upper and lower bounds are matched: a one-step absolute-value/telescoping inequality gives the exact least cost of a unit prefix at each reachable endpoint, attained by zero-near cycles followed by a monotone ramp; pointwise reachable-lattice lower bounds for every unit suffix are simultaneously attained by a zero-seeking walk. This gives the quantified exact formula. Integer suffix costs are explicit and monotone, yielding the parity-lattice midpoint corollary. The symmetric family has exact formulas for optimum and greedy and ratio tending to two. The standalone exact-rational independent-state DP passed 891 direct cases with constructive witnesses, 480 midpoint cases, and 60 asymptotic-family identities; finite tests corroborate but do not prove the infinite result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goldberg–Robinson–Teh arXiv:2610.09843 states pseudopolynomial dynamic programming for fixed agent count, and special-case algorithms, but the inspected introduction does not give this one-exception closed formula.",
+        "Elkind et al. arXiv:2410.14593 study prefixwise EF1-type guarantees, not the minimum cumulative maximum-envy area."
+      ],
+      "reasoning": "General-purpose exact dynamic programming can compute any particular finite case, but does not by itself state the closed quadratic law or sharp anticipatory-versus-myopic separation. A general theorem entailing the same formulas would defeat originality; no such theorem was found in the material actually inspected. Uninspected primary sections remain a priority risk.",
+      "searches": [
+        "arxiv:2610.09843 general temporal cumulative maximum envy dynamic programming, identical valuations FPTAS, fixed order",
+        "Minimizing Cumulative Envy in Allocating a Sequence of Items greedy identical valuations fixed order",
+        "arxiv:2410.14593 temporal fair division of indivisible items two agents two item types"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.09843 — primary abstract, metadata and limited HTML introduction",
+      "https://www.uni-augsburg.de/de/fakultaet/fai/conferences/sagt-2026/ — official dated paper presentation program",
+      "https://arxiv.org/abs/2410.14593 — earlier temporal EF1 framework",
+      "Related exact fixed-order two-value and free-order one-exception statements compared for implication and scope"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source paper separates fixed-order minimization from choosing the release order, with a free-order two-agent greedy approximation of 3/2; the present nearly-twofold family fixes the order and is not in tension with that result.",
+        "A fixed-order theorem for the alphabet of goods valued one or two cannot yield the arbitrary-exceptional-value formula; the asymptotic family uses increasing exceptional values.",
+        "An optimum over freely selectable item orders is a lower bound on each fixed-order optimum and cannot determine the fixed-order cost or the midpoint precompensation."
+      ],
+      "reasoning": "The implication comparison is at the statement level: differing quantifiers over release order, item-value alphabet, and objective (exact optimal trajectory versus feasibility). No searched prior statement was found to subsume the present formula; relevant inaccessible portions are openly acknowledged.",
+      "searches": [
+        "arxiv:2610.09843 fixed-order temporal envy general dynamic program and free sequencing greedy approximation",
+        "two agents identical goods of value 1 or 2 fixed sequence poorer agent globally minimizes cumulative maximum envy",
+        "two agents freely chosen release order one exceptional H and unit goods optimal cumulative envy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The objective is exactly an integrated absolute signed-load gap, not a final-load makespan, final bundle discrepancy, or feasibility-only temporal EF1.",
+        "No inspected exact statement supplied the one-exception formula or parity-constrained midpoint formula."
+      ],
+      "reasoning": "The equivalent signed-walk and two-machine load-gap interpretations were explicitly considered. Related online load-balancing descriptions optimize makespan or total machine loads, different from the sum of all prefix absolute gaps. No equivalent formula was identified in inspected evidence; search absence by itself is not proof.",
+      "searches": [
+        "minimizing sum absolute signed prefix sums for sequence of a ones one spike H b ones, exact optimum with lookahead",
+        "prefix discrepancy minimizing sum absolute partial sums one large weight 1 sequence fixed order",
+        "two-agent identical valuations fixed order one heavy good and unit goods minimize cumulative absolute envy",
+        "one large item sequential two agents identical values cumulative maximum envy optimum prebalance lookahead"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The new formulas hold symbolically for arbitrary numbers of unit goods and real exceptional value; they are not an extracted finite entry of a known table.",
+        "Existing finite examples of suboptimal greedy allocation do not determine the general midpoint formula."
+      ],
+      "reasoning": "Searches targeted exact finite tables and one-exception enumerations as well as aliases. Neither the symbolic formula nor the asymptotic family was located as a tabulation. This is a non-exhaustive evidence search, not uniqueness proof.",
+      "searches": [
+        "minimize sum absolute prefix difference two color sequence one heavy item unit weights",
+        "minimum area under load imbalance curve two servers one large job",
+        "cumulative maximum envy one large unit fixed arrival sequential allocation identical valuations"
+      ]
+    },
+    "rationale": "Best-knowledge originality rests on the exact single-exceptional-good formula, the quadratic midpoint precompensation theorem, and the asymptotic myopic/optimal ratio of two in one explicit family. The cited primary work introduces the objective and general algorithms but its accessible material does not state these structural formulas. Restricted earlier value-one-or-two and free-release-order results do not imply the arbitrary-exceptional fixed-order claim. The complete primary manuscript was inaccessible, so there is a real residual priority risk, not a certificate of uniqueness.",
+    "residual_risks": [
+      "The remaining sections and appendices of arXiv:2610.09843 could not be fully examined and could contain a closely related special case or stronger statement.",
+      "An unindexed derivation in classical signed-prefix discrepancy or scheduling literature may subsume the closed formula.",
+      "The conference program establishes an earlier public presentation but does not supply its full mathematical content; the first fully identified public preprint is dated 2026-10-07.",
+      "Independent external scientific priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The material read reports general pseudopolynomial dynamic programming, hardness, and separately free-order approximations; no matching one-exception closed formula appears in that material. Whole-document noncoverage is not claimed.",
+        "evidence": [
+          "arXiv first preprint submission: 2026-10-07 11:04:50 UTC",
+          "Introduction explicitly distinguishes fixed and variable release order; the two-agent 3/2 approximation is for the latter."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.09843",
+        "material_read": "Authoritative arXiv submission metadata and abstract; accessible beginning of HTML full text, including introduction, objective, and contribution summary (approximately lines 44–81). The remaining theorems and appendices were not accessible.",
+        "method": "Direct arXiv HTML/record reading and attempted public full-text retrieval.",
+        "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+        "trigger": "The paper defines exactly the cumulative-maximum-envy objective and treats fixed-order identical valuations."
+      },
+      {
+        "assessment": "The paper was scheduled for public presentation on 2026-09-16, earlier than its arXiv submission. Program contains no derivation of the current claim.",
+        "evidence": [
+          "Wednesday 16 Sep 2026, 14:00–15:15: paper talks including Goldberg, Robinson and Teh."
+        ],
+        "identifier_or_url": "https://www.uni-augsburg.de/de/fakultaet/fai/conferences/sagt-2026/",
+        "material_read": "Official program listing Wednesday September 16, 2026, 14:00–15:15 paper-talk session and this title and authors.",
+        "method": "Direct official conference HTML program.",
+        "title": "19th International Symposium on Algorithmic Game Theory conference program",
+        "trigger": "Verify earliest publicly evidenced dissemination date of the motivating research."
+      },
+      {
+        "assessment": "The exposed results concern temporal EF1 and feasibility under valuation restrictions, not minimization of cumulative maximum envy, so no implication of the present exact formula was identified.",
+        "evidence": [
+          "Abstract focuses on temporal EF1 existence for two agents, two types, generalized binary valuations and other restrictions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.14593",
+        "material_read": "Primary arXiv abstract and submission record.",
+        "method": "Direct primary arXiv abstract.",
+        "title": "Temporal Fair Division of Indivisible Items",
+        "trigger": "Earlier notion of temporal envy guarantees could imply special-case statements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "378a8bf2-67ff-499a-ad8c-301e6fa3e10b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The single-exception case is the smallest nonuniform identical-valuation temporal allocation family where anticipation can be essential. Its exact formula reduces general state-space search to a parity-lattice optimization, and the midpoint law explains *why* the planner deliberately creates temporary envy. The near-twofold loss over an infinite growing family is a sharp asymptotic comparison within that family and a substantive quantitative boundary for myopic temporal fairness, not a recomputed finite table or isolated toy counterexample.",
+    "status": "PASS"
+  }
+}
