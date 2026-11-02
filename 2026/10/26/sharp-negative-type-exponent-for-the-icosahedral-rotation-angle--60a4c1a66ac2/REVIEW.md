@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is explicitly restricted to the finite rotation subgroup and all-positive-damping kernels. The conjugacy class sizes, rotation angles and the five irreducible character rows are derived from standard geometry and the symmetric-square construction. Central Fourier diagonalization leaves exactly four scalar inequalities. The dimension-five sign crosses precisely at \(s_*=\log(4/3)/\log(3/2)\), and independent elementary power and AM–GM bounds prove strict negativity for dimensions three, three and four through equality. The dimension collapse follows from the multiplicities \(9,9,16,25\), and Schoenberg's finite-metric criterion plus Gaussian strictness proves the kernel statement. The independent permutation-matrix calculation agrees with the character spectra within \(3.1\times10^{-13}\) in the tested cases; it is not invoked as a proof for all real exponents.
+PASS
 
-## Originality — PASS, bounded evidence
+PASS: Rotation classes of A5 have sizes 1,15,20,12,12 at angles 0, pi, 2pi/3, 2pi/5, 4pi/5; central Fourier diagonalization on irreps 1,3,3,4,5 reduces the 59-dimensional CND condition to four scalar character sums. Independent reconstruction gives S_3=-15+12phi(2/5)^s+12phi_prime(4/5)^s, S_3prime=-15+12phi_prime(2/5)^s+12phi(4/5)^s, S_4=20(2/3)^s-12[(2/5)^s+(4/5)^s], S_5=15-20(2/3)^s. The first three are strictly negative on (0,s*], while S_5=0 precisely at s*=log(4/3)/log(3/2) and positive above. The character multiplicities 9+9+16+25=59 prove rank 34 at equality; Schoenberg gives PSD for all t and Euclidean Gaussian strict PD for distinct points; a positive centered mode yields failure for sufficiently small t beyond cutoff. Explicit all-s inequalities hold separately; finite spectra corroborate, do not prove it.
 
-Compared with Meckes (arXiv:1012.5863, Theorem 3.3 and Section 3), Gneiting (arXiv:1111.7077, sphere Schoenberg and powered-exponential sections), and Feragen--Lauze--Hauberg (arXiv:1411.0296, Theorem 4 and geodesic-space discussion), the exact five-character calculation yields a finite-group-specific numerical exponent and a \(25\)-dimensional transition not supplied by those general results. Searches of accessible mathematical research records and earlier local research claims found no equivalent assertion. This is bounded evidence, not proof of global uniqueness; a specialized character-table calculation or unindexed metric-embedding paper could still contain the same exponent.
+## originality
 
-## Value — PASS
+PASS
 
-The icosahedral rotation group is a canonical finite, nonabelian orientation space. Determining exactly which powers of its intrinsic angular metric support valid Gaussian-type covariance kernels at every damping scale is a natural missing invariant, and the cutoff is not the standard spherical one. The rank drop from \(59\) to \(34\) singles out a geometrically meaningful boundary with exact Hilbert embedding dimension. The obstruction already occurs for a subunit power and is localized to the five-dimensional irreducible Fourier sector.
+Qualified best-of-knowledge statement-based originality after checking primary comparison and relevant published Resultary records; no uninspected full text asserted not covering. The new statement requires all four nontrivial A5 character sums and exact signs; none is a direct corollary of the compared general criteria without the substantive new finite-group calculation.
 
-## Scope and remaining limits
+## value
 
-This does not decide positive definiteness at every individual damping above the exponent cutoff, nor does it extend to all \(SO(3)\). The relationship to previously published specialized calculations of icosahedral angle matrices remains a bounded literature risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The exact maximal negative-type power is a natural invariant of the intrinsic finite rotation-group metric, independent of scale; its exact cutoff and 25-dimensional representation-block degeneracy determine sharp Euclidean embedding dimension and all-damping kernel admissibility. It is not a mere repackaging of the generic Schoenberg criterion; the character-theoretic signs are specific and nontrivial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
