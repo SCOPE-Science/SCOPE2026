@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Exact source coefficients give c0+c1=1 and Q=-γ(I-P). A direct stationary-projector computation derives x_t=(x0+tβ2x∞)/(1+tβ2), hence the full all-history, all-positive-t condition reduces equivalently to two endpoint-affine image conditions on [0,1]^2. Endpoint zero gives κ≥1/3; endpoint infinity gives (1+κ)^2(1-m)≤1; the latter implies the upper endpoint because m≤1/2. Explicit histories yield finite-time failures outside either bound. Intersection is nonempty exactly at m≥7/16; all strict/equality cases checked algebraically. The standalone exact-rational checker passed 2,637 comparisons, not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hundsdorfer–Ruuth–Spiteri examine monotonicity-preserving linear multistep methods and starting procedures, but the inspected analysis predates the 2026 optimized family.",
+        "Lóczi (2016) gives exact step-size coefficients for boundedness in BDF and Adams–Bashforth families, not the two-state Markov stationary-balance phase diagram for Jensen–Ketcheson–Lóczi Eq. (25).",
+        "Bonaventura–Della Rocca treats TR-BDF2, a different time-stepping map, and absolute monotonicity rather than the present exact two-step pair-history invariance classification."
+      ],
+      "reasoning": "A general positivity/SSP theorem could subsume the result only if its hypotheses apply to this exact implicit two-step recurrence for all normalized histories at every h and yield the sharp stationary threshold. The checked papers offer broader frameworks, but their reported applicability/coefficients do not supply that implication; general absolute-monotonicity criteria alone are not equivalent to stationary-chain-restricted simplex invariance.",
+      "searches": [
+        "two step multistep characteristic polynomial positive Markov arbitrary histories sharp step bound stationary balance",
+        "https://ir.cwi.nl/pub/4231/04231D.pdf",
+        "https://arxiv.org/abs/1609.07858",
+        "https://arxiv.org/abs/1510.04303"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.22685",
+      "https://ir.cwi.nl/pub/4231/04231D.pdf",
+      "https://arxiv.org/abs/1609.07858",
+      "https://arxiv.org/abs/1510.04303",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously available scalar result for the same optimized two-step family requires a specific backward-Euler startup; it proves a scalar step-size positivity cutoff and does not quantify over all independent two-state probability histories.",
+        "Another same-family scalar result fixes κ=3/5 and the exact exponential starter, also requiring a particular orbit; κ=3/5 lies outside the present admissible interval even at m=1/2, so these statements concern different hypotheses.",
+        "Two-state SSP-SDIRK2(2) positivity and Crank–Nicolson Markov positivity are distinct one-step rational maps, not Eq. (25).",
+        "The BDF2 delayed-negativity statement analyzes scalar decay and a chosen startup, with a different method from the optimized family at general κ."
+      ],
+      "reasoning": "The previous scalar theorems do not imply this new full two-simplex result: their initial-history constraints are strictly narrower and no general Markov coupling/stationary-balance quantifier occurs. A-stability of Eq. (25) likewise cannot imply simplex invariance, since the present theorem explicitly gives failing parameter regions while preserving A-stability. Results about other one-step maps cannot dominate the precise two-step update. Residual possibility of an older general implicit-multistep cone theorem is recorded rather than suppressed.",
+      "searches": [
+        "Two-state continuous-time Markov chain A-stable L(kappa) linear multistep unconditional probability simplex arbitrary probability histories sharp 7/16 boundary",
+        "linear multistep BDF2 negative states delayed positivity exact positive starting histories",
+        "L(kappa) Jensen Ketcheson Loczi two-step positivity Markov chain kappa one half",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The identical optimized family is explicitly defined in Jensen–Ketcheson–Lóczi, Eq. (25); its A-stability and L(κ) damping are existing results.",
+        "In the two-state stationary-projector decomposition the independent history coordinates fill the square [0,1]^2; general scalar-decay positivity of one prescribed startup does not quantify over that square.",
+        "Classic multistep monotonicity literature uses step-size coefficients and different method classes; no exact stationary-balance condition for Eq. (25) was located in the inspected passages."
+      ],
+      "reasoning": "Potential equivalent forms include invariance of the two-state product simplex, forward invariance of each probability history pair, and nonnegativity of all four vertices of the affine update at both t=0 and t=∞. The proved affine reduction unifies these forms. The specific 7/16 threshold could be derived from more general cone-invariance theory, but no inspected source states or directly implies it for these exact coefficients without a new specialization and optimization.",
+      "searches": [
+        "Jensen Ketcheson Loczi A-stable two-step Markov simplex seven-sixteenths 7/16 stationary masses κ ≥1/3",
+        "Two-state continuous-time Markov chain A-stable L(kappa) linear multistep unconditional probability simplex arbitrary probability histories sharp 7/16 boundary",
+        "https://arxiv.org/abs/2610.22685",
+        "https://ir.cwi.nl/pub/4231/04231D.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source Eq. (25) tabulates method coefficients, not the all-step Markov-simplex positivity interval.",
+        "Mathematical record searches with “7/16”, “9/7”, “stationary probability”, and L(κ) named searches returned related Markov Runge–Kutta, Crank–Nicolson and BDF results but no matching exact two-step phase diagram."
+      ],
+      "reasoning": "The exact coefficient table is prior art. The new object is a sharp property of the already tabulated method on a coupled two-state Markov generator. Checked exact-record and table matches concern different numerical maps or constrained scalar startups, not a database entry giving the derived inequality.",
+      "searches": [
+        "Jensen Ketcheson Loczi A-stable two-step Markov simplex seven-sixteenths 7/16 stationary masses κ ≥1/3",
+        "L(kappa) two-step irreducible two state Markov chain 9/7 rate contrast positivity all timesteps",
+        "https://arxiv.org/abs/2610.22685",
+        "arxiv:2610.22685v1 Eq. (25) coefficients and numerical tables"
+      ]
+    },
+    "rationale": "The optimized coefficients and A-stability are published prior work. The new claim is the complete unconditional two-state Markov probability-simplex criterion with arbitrary independent normalized histories and the sharp 7/16 stationarity barrier. Inspected general monotonicity literature, the exact source, related published mathematical results and accessible prior claims were compared as statements, including scalar started recurrences with the exact same family that have insufficient history quantifiers. No identified inspected theorem dominates the new claim; residual older general cone-invariance results remain a priority risk.",
+    "residual_risks": [
+      "An older abstract cone-invariance or generalized monotonicity theorem could imply the exact inequalities after specialization even without using this family name; no comprehensive exhaustive historical survey is asserted.",
+      "Some relevant inaccessible or abstract-only material on general implicit multistep monotonicity, including Spijker (2007), was not reviewed in full text; the theorem does not claim precedence over it.",
+      "Searchable mathematical records are not a uniqueness certificate; priority should be independently checked before public priority claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides method and its stability; no stated all-step two-state Markov probability-simplex phase diagram in inspected material",
+        "evidence": "Eq. (25) coefficients match the five explicit rational coefficient expressions in RESULT.md; first public v1 2026-10-15.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.22685",
+        "material_read": "Full-text HTML mathematical method development around the optimal two-step family, Eq. (25), coefficient and numerical-stability sections; abstract and first-public timestamp",
+        "method": "Read the preprint equation and reconstruct its coefficients in the Markov recurrence",
+        "title": "Optimized linear multistep methods for stiff problems",
+        "trigger": "Exact identical optimized A-stable two-step family and its original source"
+      },
+      {
+        "assessment": "Found general monotonicity framework but no statement of this particular optimized 2026 method or its seven-sixteenths Markov-mass condition",
+        "evidence": "General monotonicity conditions apply to different coefficient families; no Eq. (25) parameter κ from a paper not yet written.",
+        "identifier_or_url": "https://ir.cwi.nl/pub/4231/04231D.pdf",
+        "material_read": "Selected primary-PDF pages including introductory definitions, monotonicity conditions, starting-step discussion, and example formulas (PDF pages indexed 2,4,9,13); not the entire document",
+        "method": "Examined publisher-authorized OA PDF text and page images",
+        "title": "Monotonicity-preserving linear multistep methods",
+        "trigger": "Closest general implicit multistep monotonicity and starting-value theory"
+      },
+      {
+        "assessment": "Exact bounds concern BDF, extrapolated BDF and Adams–Bashforth, not the 2026 optimized two-step Markov-simplex family",
+        "evidence": "The paper explicitly discusses SCM/SCB on named classical LMM families, rather than stationary-mass-dependent unconditional invariance.",
+        "identifier_or_url": "https://arxiv.org/abs/1609.07858",
+        "material_read": "Public full-text definitions, principal boundedness/monotonicity results and explicitly covered method families",
+        "method": "Compared the stated method families, quantifiers and implications to the two-history Markov property",
+        "title": "Exact optimal values of step-size coefficients for boundedness of linear multistep methods",
+        "trigger": "Possible general exact step-size monotonicity bound or stronger coverage"
+      },
+      {
+        "assessment": "Distinct Runge–Kutta/one-step composition, so no exact implication for the specified two-step coefficients",
+        "evidence": "The method under study is TR-BDF2 and its variants, not Eq. (25) of the 2026 preprint.",
+        "identifier_or_url": "https://arxiv.org/abs/1510.04303",
+        "material_read": "Open primary article text on absolute monotonicity, TR-BDF2 positivity and stability",
+        "method": "Compared update classes and conditions",
+        "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+        "trigger": "Potential stronger one-step positivity result on Markov chains"
+      },
+      {
+        "assessment": "Different rational integrator, does not subsume two-history L(κ) parameter interval",
+        "evidence": "Result concerns SSP-SDIRK2(2), all-step positivity in dimension two and a three-state failure threshold.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+        "material_read": "Public searchable result summary and exact stated claim; not represented as full-text reviewed",
+        "method": "Statement-level implication comparison",
+        "title": "Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)",
+        "trigger": "Closest published two-state Markov endpoint-positivity result"
+      },
+      {
+        "assessment": "Crank–Nicolson is a one-step resolvent map, not two-step Eq. (25); no implication for present history-square optimization",
+        "evidence": "It gives a resolvent diagonal criterion and balanced two-state unconditional case for a different map.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "material_read": "Public searchable result summary and stated claim; not represented as full-text reviewed",
+        "method": "Compared exact numerical map and positivity criterion",
+        "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+        "trigger": "Related balance-dependent Markov positivity barriers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8623505e-ab6d-4296-9e8a-c745cb1976f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The criterion resolves an exact, motivated stochastic admissibility question for a contemporary optimized A-stable method under all positive steps and all valid two-history starts, not only an arbitrary special numerical instance. It yields a sharp stationary-balance cutoff m=7/16, equivalent max/min rate contrast 9/7, the unique boundary method and the entire admissible parameter interval. The exact stationary-projector interpolation mechanism distinguishes absolute stability from Markov simplex preservation, provides a reusable analytical benchmark for time-stepping probability laws, and highlights limits of broad absolute-monotonicity conditions; no general-dimensional or empirical significance is asserted.",
+    "status": "PASS"
+  }
+}
