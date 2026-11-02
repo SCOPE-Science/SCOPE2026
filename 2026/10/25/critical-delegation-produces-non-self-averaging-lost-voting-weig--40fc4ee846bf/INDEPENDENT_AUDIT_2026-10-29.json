@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T23:11:25.595833Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The exact finite first-path probability is a_(n,k)=q(1-q)^k∏_(r=1)^k (n-r)/(n-1), summing over distinct successful ancestry lengths. Conditional on a first successful path of s vertices, the second path has an exact backward recursion incorporating hits to the known successful set, newly encountered direct voters and collisions with previously exposed outside delegators. For k,s of order sqrt(n), logarithmic expansion of the no-collision product yields exp(-ct-t²/2) and the two-path success function H_c(t)=(c+t)I(c+t). Gaussian product tails justify dominated Riemann-sum convergence to P(c)=cI(c) and J(c)=∫ ce^(-ct-t²/2)H_c(t)dt. The variance is J(c)-P(c)^2=∫ce^(-ct-t²/2)(H_c(t)-P(c))dt, strictly positive because H_c is strictly increasing and equals P(c) at t=0. Monotone coupling as q rises and Markov bounds yield off-critical concentration to 0 or 1. Independently quadrature-checked P(1)=0.655679542418798472 and variance V(1)=0.0700843376534750558; these numerics corroborate, not prove, the limiting theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finite complete-graph partition recursion yields enough combinatorial information to extract all finite moments, so that aspect is not novel.",
+          "Available concentration/truth-tracking results generally concern fixed direct-voter rates or different voting observables; the q~c/sqrt(n) two-point survival asymptotics are distinct."
+        ],
+        "reasoning": "A stronger finite distributional model is credited, not denied. It would imply the critical theorem if accompanied by suitable uniform asymptotics, but no such explicit variance limit was established in material read.",
+        "searches": [
+          "arXiv:2301.02462 Proposition 3 Section 5",
+          "arXiv:2107.11868",
+          "arXiv:1612.08048"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.02462 (primary full PDF Section 5/Proposition 3)",
+        "arXiv:2107.11868 (primary PDF relevant introduction/concentration passages)",
+        "arXiv:1612.08048 (primary PDF Section 3.2.1)",
+        "arXiv:math/0110186 (abstract only)",
+        "Resultary semantic search for critical complete-graph direct voter fraction variance",
+        "Frozen Git RESULT.md a723e8ee9ea143eb71b4c381746c5f7a816990cd; verify.py ec3ec1357beb6ea03fcdc4994f6a6a33552b3bfd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published complete-digraph recursions support general finite probabilities, while the present two-path Riemann asymptotic proves J(c)-P(c)^2>0.",
+          "Classical birthday-paradox collision times suggest sqrt(n) scale, but do not by themselves determine the second-path conditional absorption law."
+        ],
+        "reasoning": "The first-moment critical constant is not claimed new. A second ancestry/hit-to-known-successful-path analysis yields an independent explicit covariance law, absent from the inspected earlier statement. General random-mapping asymptotics remain the most important potential hidden strong coverage.",
+        "searches": [
+          "arXiv:2301.02462 Section 5",
+          "arXiv:2107.11868",
+          "Resultary: random delegations on complete directed graph self-loops forbidden represented fraction critical direct voter probability order square root n limiting variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complete-graph finite delegation partition recursions (Colley–Delemazure–Gilbert) are stronger for finite distributions, but they do not state an explicit critical sqrt(n) limiting variance in inspected section.",
+          "Christoff–Grossi introduce guru and cycle-abstention conventions, not this singular-scale moment law."
+        ],
+        "reasoning": "Mapped the model to random functional digraphs with absorbing direct voters and excluded self-loops. Potential equivalences via random-mapping component asymptotics are an acknowledged originality risk; mere differing social-choice terminology is not novelty evidence.",
+        "searches": [
+          "Resultary: random delegations on complete directed graph self-loops forbidden represented fraction critical direct voter probability order square root n limiting variance",
+          "arXiv:2301.02462",
+          "arXiv:1612.08048"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Claim is an infinite-n asymptotic positive variance function, not an exact finite database or complete probability table.",
+          "Finite partition counts may be evaluated numerically for n but do not settle the q_n sqrt(n)->c limiting moment without asymptotic proof."
+        ],
+        "reasoning": "Table coverage is inapplicable to the central analytic limit. Compared finite-law recursion to the exact limiting functional rather than searching just matching numerical constants.",
+        "searches": [
+          "Resultary: random delegations on complete directed graph self-loops forbidden represented fraction critical direct voter probability order square root n limiting variance",
+          "arXiv:2301.02462"
+        ]
+      },
+      "rationale": "PASS, qualified: Targeted Resultary and primary literature comparisons confirm the strongest known coverage as explicitly acknowledged in the source inspection: existing complete-digraph finite delegation partitions and mean crossover, versus the new explicit positive critical limiting variance. Full-text material read and unresolved historical-priority risks are recorded; absence from a search is not asserted as proof of novelty.",
+      "residual_risks": [
+        "Classical random-mapping/forest component limit theory may contain the same joint participation fluctuation law in another language; inaccessible full-text sources cannot be declared noncovering.",
+        "The finite partition recursion in Colley et al. is strictly broader for finite distributions; novelty must be limited to explicit nonzero asymptotic covariance theorem, not finite moments.",
+        "No full weak limiting distribution of X_n or claims for correlated/strategic delegation are established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG FINITE COVERAGE, NOT EXPLICIT CRITICAL SECOND-MOMENT LIMIT in the inspected section.",
+          "evidence": "Known general finite recursion could in principle reproduce finite moments; it does not supply the stated sqrt(n)-scale variance formula directly.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.02462",
+          "material_read": "Accessible full primary PDF; Section 5, including the complete-digraph recursion and Proposition 3 context.",
+          "method": "Compared exact event partitions to the critical limiting covariance assertion.",
+          "title": "Measuring a Priori Voting Power—Taking Delegations Seriously",
+          "trigger": "Closest complete digraph finite delegation partition recursion"
+        },
+        {
+          "assessment": "RELATED, DIFFERENT OBSERVABLE AND PARAMETER SCALING in reviewed material.",
+          "evidence": "Fixed positive guru probability or accuracy tracking differs from critical vanishing direct-vote participation fraction.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.11868",
+          "material_read": "Accessible primary PDF; introduction/model and pertinent concentration/truth tracking discussion; not every appendix read.",
+          "method": "Compared direct voting-rate regimes and outcome observables.",
+          "title": "Tracking Truth with Liquid Democracy",
+          "trigger": "Random independent delegation and concentration models"
+        },
+        {
+          "assessment": "FOUNDATIONAL MODEL MATERIAL, not the explicit variance theorem in inspected passage.",
+          "evidence": "Probability of absence of direct voters is not the same as represented fraction with nontrivial cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/1612.08048",
+          "material_read": "Accessible PDF; Section 3.2.1 and relevant cyclic-delegation definitions.",
+          "method": "Compared success event and quantity of voting weight to probability of no direct voters.",
+          "title": "Liquid Democracy: An Analysis in Binary Aggregation and Diffusion",
+          "trigger": "Defines chains, gurus, cycle-abstention setting"
+        },
+        {
+          "assessment": "OPEN PRIORITY RISK.",
+          "evidence": "General random-mapping collision and rooted forest components may yield equivalent limiting fluctuation law.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0110186",
+          "material_read": "Bibliographic abstract/record; full article not inspected in this run.",
+          "method": "Marked as plausible uninspected equivalence; no whole-paper noncoverage conclusion.",
+          "title": "Random mappings, forests, and subsets associated with Abel–Cayley–Hurwitz multinomial expansions",
+          "trigger": "Possible equivalent classical random mapping asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A mathematically natural random functional-digraph model of delegation has a sharp participation threshold and an explicit positive limiting variance in the critical window. The result quantifies persistent fluctuations of lost voting weight that a previously available mean participation crossover and finite partition recursion cannot reveal without further asymptotic analysis. The work does not claim a full weak limit, strategic voting accuracy or alternative cycle resolution rules.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All correctness judgments concern the exact frozen Git package scope and stated hypotheses; exploratory finite tests do not prove infinite claims.",
+    "Literature findings are best-of-knowledge; cited source_inspections accurately distinguish full sections from abstract-only access.",
+    "Classical random-mapping/forest component limit theory may contain the same joint participation fluctuation law in another language; inaccessible full-text sources cannot be declared noncovering.",
+    "The finite partition recursion in Colley et al. is strictly broader for finite distributions; novelty must be limited to explicit nonzero asymptotic covariance theorem, not finite moments.",
+    "No full weak limiting distribution of X_n or claims for correlated/strategic delegation are established."
+  ],
+  "schema_version": 1
+}

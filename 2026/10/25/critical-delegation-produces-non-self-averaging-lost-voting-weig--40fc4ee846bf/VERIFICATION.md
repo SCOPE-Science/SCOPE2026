@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact finite moment identities
+# Independent mathematical audit
 
-The standalone `verify.py` program works without external packages. Run `python3 verify.py`. It tests ten complete action-profile spaces: \(2\le n\le6\), each with \(q=1/3\) and \(q=2/5\). For each profile it computes the represented voters by explicitly following all delegation chains, uses exact integer profile probability weights, and compares two independent rational answers against the finite ancestral-path formula and backward two-path recurrence: the expected represented fraction and the probability that two distinct named voters are both represented.
+## correctness
 
-Observed result: `EXACT_CHECKS_OK 10 ASSIGNMENTS 100136` (all ten exact comparisons passed). No confidence interval or approximate finite experiment is used for these comparisons. Numerical integral evaluation at \(c=1\) gives limiting mean about \(0.6556795424\), limiting variance about \(0.07008433765\), and limiting standard deviation about \(0.26473447\).
+PASS
 
-The finite program checks algebraic identities and boundary handling. It cannot certify a limit as the electorate size tends to infinity. The infinite result is proved by self-avoiding path exposure, dominated Riemann sums, a two-path collision hazard, and a strictly increasing absorption-probability function. A complete distributional weak limit and independent validation are not provided.
+PASS: The exact finite first-path probability is a_(n,k)=q(1-q)^k∏_(r=1)^k (n-r)/(n-1), summing over distinct successful ancestry lengths. Conditional on a first successful path of s vertices, the second path has an exact backward recursion incorporating hits to the known successful set, newly encountered direct voters and collisions with previously exposed outside delegators. For k,s of order sqrt(n), logarithmic expansion of the no-collision product yields exp(-ct-t²/2) and the two-path success function H_c(t)=(c+t)I(c+t). Gaussian product tails justify dominated Riemann-sum convergence to P(c)=cI(c) and J(c)=∫ ce^(-ct-t²/2)H_c(t)dt. The variance is J(c)-P(c)^2=∫ce^(-ct-t²/2)(H_c(t)-P(c))dt, strictly positive because H_c is strictly increasing and equals P(c) at t=0. Monotone coupling as q rises and Markov bounds yield off-critical concentration to 0 or 1. Independently quadrature-checked P(1)=0.655679542418798472 and variance V(1)=0.0700843376534750558; these numerics corroborate, not prove, the limiting theorem.
+
+## originality
+
+PASS
+
+PASS, qualified: Targeted Resultary and primary literature comparisons confirm the strongest known coverage as explicitly acknowledged in the source inspection: existing complete-digraph finite delegation partitions and mean crossover, versus the new explicit positive critical limiting variance. Full-text material read and unresolved historical-priority risks are recorded; absence from a search is not asserted as proof of novelty.
+
+## value
+
+PASS
+
+PASS: A mathematically natural random functional-digraph model of delegation has a sharp participation threshold and an explicit positive limiting variance in the critical window. The result quantifies persistent fluctuations of lost voting weight that a previously available mean participation crossover and finite partition recursion cannot reveal without further asymptotic analysis. The work does not claim a full weak limit, strategic voting accuracy or alternative cycle resolution rules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
