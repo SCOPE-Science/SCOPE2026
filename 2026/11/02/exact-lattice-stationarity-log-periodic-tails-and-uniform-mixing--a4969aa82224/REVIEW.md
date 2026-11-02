@@ -1,0 +1,19 @@
+# Review of the accelerated lattice-walk stationary theorem
+
+## Correctness (C) — PASS
+
+The source's discrete rule at the smallest admissible parameters yields an exact two-branch graph: each outer state either returns to the opposite inner site or moves to twice its position plus its sign. The proof explicitly identifies the only closed class and establishes entrance from all other integers almost surely. Detailed inflow balances at every state and the convergent geometric mass series yield a normalized unique invariant law. The stationary survival function is summed over the actual lacunary support, giving the stated shell formula and exact liminf and limsup. The moment cutoff follows from a geometric comparison. A four-step path construction supplies a uniform \(1/16\) atom for every starting integer, proving the total-variation contraction; exact enumeration at \(\pm1\) proves sharpness of that atom coefficient. The standalone exact-rational verifier passed 4,488 checks. Finite checks are auxiliary; the analytic argument supplies all infinite quantifiers.
+
+## Originality (O) — PASS under checked best knowledge
+
+The closest primary source is Lima and Curado (arXiv:2605.22933v1; discrete equations (1)-(2), continuum discussion (8)-(14), figures and concluding section inspected). It supplies the model and the inverse-square continuum-tail picture. Its inspected main text does not establish the discrete \(l=r=1\) stationary atomic probabilities, exact discrete-scale tail prefactor, all-moment threshold, or global four-step Doeblin minorization. Jögi–Sornette–Blank (arXiv:cond-mat/9708220v1, introduction and two-point random-map analysis inspected) independently establishes that log-periodicity from intermittent multiplicative amplification was known decades earlier. The present claim does not rebrand that mechanism as new; its target is this exact 2026 transition kernel and its quantitative fast-mixing/heavy-tail coexistence. Searches for the source ID, minimal-rule aliases, stationary atoms, log-periodic tail corrections and four-step minorization did not locate the same package of conclusions. The generic affine-recursion literature remains a priority risk, and an unavailable later revised version could carry additional material. Absence from searches is not mathematical proof of novelty.
+
+## Value (V) — PASS
+
+The smallest admissible threshold is the natural discrete endpoint of the published mechanism, not an arbitrary numerical truncation. The continuum density approximation cannot encode point masses on exponentially separated sites or a nonconvergent \(zS(z)\). The theorem resolves exactly what the microscopic dynamics predicts at that endpoint and shows a physically informative contrast: there is no stationary mean absolute displacement, yet equilibration in total variation is uniformly exponential for *every* starting displacement. The sharp tail envelope \([3/5,6/5]\) gives a direct diagnostic of lattice-scale oscillations that histogram smoothing can obscure. This is an exact stationary-and-transient characterization of a natural limiting model, not a restatement of the previously known inverse-square envelope.
+
+## Literature and limitations
+
+Primary source: H. S. Lima and E. M. F. Curado, arXiv:2605.22933v1; https://doi.org/10.1103/f1bd-1242. General discrete-scale-invariance prior work: P. Jögi, D. Sornette and M. Blank, arXiv:cond-mat/9708220v1; https://doi.org/10.1103/PhysRevE.57.120. The result is restricted to \(l=r=1\). It does not provide a rigorous continuum approximation for large thresholds, optimal TV contraction, or a multi-parameter phase diagram. Exact generic random-map corollaries might shorten the proof; independent audit and literature-wide priority certification have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
