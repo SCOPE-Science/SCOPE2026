@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with an ordinary Python 3 interpreter. The checker uses only the standard library and prints `VERIFY_OK` if all assertions hold.
+## correctness
 
-The checker exhaustively enumerates all perfect matchings of the four-cube by least-unmatched-vertex recursion, separately computes the \(8\)-by-\(8\) bipartite permanent via subset dynamic programming, evaluates forcing subsets against the entire matching universe, computes optimal anti-forcing deletions through a directed feedback-arc recurrence, enumerates all \(384\) hypercube automorphisms, and verifies each orbit representative by checking all \(40320\) possible directed-vertex orderings. The smaller-dimensional spectra are enumerated directly.
+PASS
 
-Finite exhaustion proves only the dimensions and graph families explicitly enumerated. Independent external validation has not been performed. The relevant published maximum anti-forcing theorem already proves the extremal value and the four coordinate extremizers; the new census does not replace or independently establish a claim of literature novelty.
+For each dimension the least-unmatched-vertex recursion exhausts perfect matchings without duplication. The Q4 count 272 also agrees with an independent eight-by-eight bipartite permanent recursion. To leave a matching unique after deleting nonmatching edges is exactly to hit every M-alternating cycle. Orient even-to-odd nonmatching edges and contract the matched edges: alternating cycles correspond to directed cycles. The maximum arcs retained acyclic equals the maximum forward arcs in a topological order, computed exhaustively by an exact subset recurrence on eight vertices. Independent matching enumeration and independent feedback-order DP reproduced the full Q1..Q4 spectrum and Q4 multiplicities; exhaustive competing-matching tests gave ordinary forcing number 4 for all 272. The 384 coordinate permutation/translations exhaust Aut(Q4), partitioning matches into eight orbits; the package verifier checks all 8! orders on one representative per orbit. This is a complete finite proof, with no claim about d>4.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison, with specific primary-source inspections, previously covered components credited, and residual overlap risks. Retrieved search results alone are not evidence of novelty.
+
+## value
+
+PASS
+
+Perfect matchings of hypercubes are canonical forcing/anti-forcing objects, and identifying the earliest noninterval spectrum is a natural sharp finite boundary. The full submaximum polynomial and eight symmetry orbit refinement distinguish configurations with the same direction multiplicities but different anticforcing behavior. The value is not claimed to arise merely from the previously known maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

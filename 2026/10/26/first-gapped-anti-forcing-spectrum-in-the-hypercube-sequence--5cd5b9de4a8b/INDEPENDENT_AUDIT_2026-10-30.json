@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T16:55:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each dimension the least-unmatched-vertex recursion exhausts perfect matchings without duplication. The Q4 count 272 also agrees with an independent eight-by-eight bipartite permanent recursion. To leave a matching unique after deleting nonmatching edges is exactly to hit every M-alternating cycle. Orient even-to-odd nonmatching edges and contract the matched edges: alternating cycles correspond to directed cycles. The maximum arcs retained acyclic equals the maximum forward arcs in a topological order, computed exhaustively by an exact subset recurrence on eight vertices. Independent matching enumeration and independent feedback-order DP reproduced the full Q1..Q4 spectrum and Q4 multiplicities; exhaustive competing-matching tests gave ordinary forcing number 4 for all 272. The 384 coordinate permutation/translations exhaust Aut(Q4), partitioning matches into eight orbits; the package verifier checks all 8! orders on one representative per orbit. This is a complete finite proof, with no claim about d>4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shi–Zhang Theorem 5.1 proves max af(Qd)=(d-1)2^(d-2), and exactly d coordinate matchings attain maximum.",
+          "Deng–Zhang analyze anti-forcing spectra for other graph families."
+        ],
+        "reasoning": "General maximum tells us 12 and four extremizers in Q4 but cannot determine the remaining 268 matchings, their spectrum gaps or orbit multiplicities.",
+        "searches": [
+          "Q4 hypercube perfect matching anti forcing spectrum 8 10 12 196 72 4",
+          "https://arxiv.org/abs/1406.3796",
+          "https://arxiv.org/abs/1704.04124"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1406.3796",
+        "https://arxiv.org/abs/1704.04124",
+        "https://arxiv.org/abs/1607.05392",
+        "https://doi.org/10.1016/j.disc.2002.10.002",
+        "Resultary semantic query: Q4 hypercube perfect matching anti forcing spectrum 8 10 12 196 72 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior maximum theorem explains 12 and four matchings, explicitly credited.",
+          "Complete recurrence gives the new coefficients 196z^8+72z^10 and the first dimension with a gap."
+        ],
+        "reasoning": "The top coefficient is a corollary, not new; smaller antforcing values and joint orbit classification require extra computation. They are natural, reproducible exact invariants.",
+        "searches": [
+          "Q4 hypercube perfect matching anti forcing spectrum 8 10 12 196 72 4",
+          "https://arxiv.org/abs/1406.3796",
+          "https://arxiv.org/abs/1704.04124"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lei–Yeh–Zhang establishes alternating-cycle hitting for anti-forcing.",
+          "The contraction to a directed feedback-arc set is an equivalent computational form, and its exact subset DP counts all possibilities."
+        ],
+        "reasoning": "The anti-forcing invariant is not newly invented; the precise Q4 complete distribution is the new candidate fact.",
+        "searches": [
+          "Q4 hypercube perfect matching anti forcing spectrum 8 10 12 196 72 4",
+          "https://arxiv.org/abs/1406.3796",
+          "https://arxiv.org/abs/1704.04124"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query returned a prescribed-difference matching multiplicity spectrum in F2^4, not an anti-forcing table.",
+          "No exact Q4 full anti-forcing polynomial was identified in retrieved published table material."
+        ],
+        "reasoning": "The different matching multiplicity invariant cannot substitute for alternating-cycle anti-forcing numbers; an unindexed 2004 table remains a risk.",
+        "searches": [
+          "Q4 hypercube perfect matching anti forcing spectrum 8 10 12 196 72 4",
+          "https://arxiv.org/abs/1406.3796",
+          "https://arxiv.org/abs/1704.04124"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level comparison, with specific primary-source inspections, previously covered components credited, and residual overlap risks. Retrieved search results alone are not evidence of novelty.",
+      "residual_risks": [
+        "Earlier full text of Adams–Mahdian–Mahmoodian (2004) was not acquired; prior forcing-subset tables or related computational datasets could overlap.",
+        "The result is limited to d<=4 and should not claim spectral gaps for all higher hypercubes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes method but not numerical full Q4 spectrum and orbit table.",
+          "evidence": "Alternating-cycle hitting is prior work; the new contribution is full exact evaluation.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.3796",
+          "material_read": "Foundational anti-forcing definition and alternating-cycle lemmas including directed characterization",
+          "method": "Primary PDF theorem and proof pages inspected",
+          "title": "Anti-forcing numbers of perfect matchings of graphs",
+          "trigger": "Definition and alternating-cycle characterization"
+        },
+        {
+          "assessment": "The maximum af(Q4)=12 and its four extremizers are ALREADY KNOWN; paper does not fix 196/72 submaximal multiplicities or all orbits.",
+          "evidence": "Theorem 5.1 supplies top coefficient 4z^12, not the other coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.04124",
+          "material_read": "Theorem 1.2 upper bound and Section 5 hypercube Theorem 5.1, including count of nice coordinate matchings",
+          "method": "Available original PDF materially inspected",
+          "title": "Tight upper bound on the maximum anti-forcing numbers of graphs",
+          "trigger": "Possibly dominating hypercube theorem"
+        },
+        {
+          "assessment": "No observed full Q4 spectrum table in inspected results.",
+          "evidence": "Different graph families and extremal rather than full small-cube distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.05392",
+          "material_read": "Abstract and sections studying extremal constructions, including polygonal chains",
+          "method": "Primary preprint inspected",
+          "title": "Extremal anti-forcing numbers of perfect matchings of graphs",
+          "trigger": "Spectrum-related prior work"
+        },
+        {
+          "assessment": "Cannot rule out earlier ordinary forcing and subset count tabulations; no claim of whole-document noncoverage.",
+          "evidence": "Ordinary forcing number 4 may already follow from earlier general statements.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2002.10.002",
+          "material_read": "Journal abstract/bibliographic entry; full research text not acquired",
+          "method": "Abstract-level only",
+          "title": "On the forced matching numbers of bipartite graphs",
+          "trigger": "Earlier forcing numbers on hypercubes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Perfect matchings of hypercubes are canonical forcing/anti-forcing objects, and identifying the earliest noninterval spectrum is a natural sharp finite boundary. The full submaximum polynomial and eight symmetry orbit refinement distinguish configurations with the same direction multiplicities but different anticforcing behavior. The value is not claimed to arise merely from the previously known maximum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Q1..Q4 have anti-forcing spectra {0}, {1}, {3,4}, {8,10,12}; Q4 multiplicities are 196,72,4 over 272 matchings, all with ordinary forcing number 4, and eight automorphism orbits with explicit refined signatures; Q4 is the first gapped dimension.",
+  "limitations": [
+    "Earlier full text of Adams–Mahdian–Mahmoodian (2004) was not acquired; prior forcing-subset tables or related computational datasets could overlap.",
+    "The result is limited to d<=4 and should not claim spectral gaps for all higher hypercubes.",
+    "No GitHub write or publication performed; failed-to-stage privacy-neutral public administrative replacements is a publication/transport blocker, not a scientific FAIL."
+  ],
+  "schema_version": 1
+}
