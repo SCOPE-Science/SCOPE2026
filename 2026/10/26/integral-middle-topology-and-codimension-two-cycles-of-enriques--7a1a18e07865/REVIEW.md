@@ -1,11 +1,21 @@
-# Review of integral Enriques-host invariants
+# Independent mathematical audit
 
-**Correctness — PASS.** The integral codimension-two blow-up formula and exponential sequence give the Chow and cohomology comparison. For a complex Enriques surface, Poincaré duality gives nonzero degree-three torsion, shifting to degree five in the blow-up. The exceptional self-intersection introduces a negative Enriques lattice; exact unimodular matrix calculations independently corroborate its signature and determinant. The torsion linking form is perfect by oriented-manifold duality.
+## correctness
 
-**Originality — PASS (priority limited).** The originating preprint explicitly records \(H^4\) torsion but lists all other degrees beyond the displayed even Betti numbers as zero, so its statement conflicts with the nonzero degree-five group. The paper does not give the complete torsion linking or the middle lattice/codimension-two integral cycle identification. The strongest contextual coverage is the general integral blow-up theorem combined with classical Enriques topology; the new contribution is the complete family-specific integral package and the necessary correction, not the general method. Published full-text version differences remain a risk.
+PASS
 
-**Mathematical value — PASS.** The package determines the integral middle cycle lattice and both sides of its torsion linking pairing in a natural recent rational Fano fourfold. It distinguishes the presence of degree-five torsion from the vanishing of the stable-birational obstruction in degree three and resolves an actual discrepancy in the reported integral cohomology. This is an exact classification of natural topological and algebraic invariants, not a generic normalization check.
+For the smooth codimension-two blow-up Y=Bl_S(P^2 x P^2) with Enriques center, integral blow-up splitting gives H^k(Y)=H^k(X) plus H^{k-2}(S). Enriques H^2=Z^10 plus Z/2, H^3=Z/2, H^1=0 yield H4=Z^13+Z/2, H5=Z/2 and H3=0; no rational-only argument is used. Integral Chow splitting CH2(Y)=CH2(X)+Pic(S), and exponential sequence with h^1(O_S)=h^2(O_S)=0, give the integral cycle isomorphism. Exceptional-intersection self-intersection is negative of Enriques lattice U+E8(-1), ambient H4 is U+<1>, hence U^2+E8(+1)+<1>, signature (11,2), det 1; torsion Poincare linking pairs unique nonzero H4 and H5 to 1/2. Independent exact E8 determinant/Betti/Euler checks match, but do not verify geometric inputs. Note the published 2026 Tufo journal Corollary 3 already correctly lists H5=Z/2, while seemingly incorrectly listing H3=Z/2; arXiv v1 instead sets H5=0. We assess actual mathematical groups rather than treat either table as proof.
 
-The closest literature is Tufo's source, the integral blow-up formulas, classical Enriques lattice theory, and the separate degree-three Fano torsion constructions of Ottem–Rennemo–Kollár. Calculations do not imply uniqueness among Fano hosts or any integral cycle assertion outside codimension two.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tufo published the blow-up construction, Hodge groups, H4 two-torsion, and (in journal version) explicitly H5=Z/2. Thus H5 torsion is NOT new against the journal article; the old arxiv v1 error cannot be used to claim priority. However the published Corollary 3 appears also to list H3=Z/2 (incompatible with integral blow-up and Enriques H1=0), whereas H3 must vanish. The inspected journal and arxiv versions do not supply the full integral CH2 cycle isomorphism, integral rank-13 cup-product lattice, or explicit torsion linking form. This combined exact integral cycle and intersection classification is a further natural result, though assembled from classical formulas rather than a novel blow-up theorem; earlier geometric computations may dominate it.
+
+## value
+
+PASS
+
+The exact middle intersection lattice, integral algebraic cycle realization including torsion, and correction of a cohomology table are natural invariants of a newly described Fano fourfold family. They can distinguish such hosts integrally despite identical rational Hodge data. These are specialized but complete structural calculations, not a random numerical exercise; the ingredients are standard and the contribution is their precise combined application, which limits potential impact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
