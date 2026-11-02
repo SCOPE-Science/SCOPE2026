@@ -1,22 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four coordinate quadrics reduce on the chart \(x_{00}=1\) to \(J=(s^2,s+bc,s+ac,s+ab)\). In the local quotient, \(s=ab=ac=bc\); multiplication by the local units \(1+a\) and \(1+b\) forces \(a^2=b^2=0\), and then \(c=a+b+ab\). Conversely, these relations annihilate all four generators, giving \(k[a,b]/(a^2,b^2)\), of length four and Hilbert function \((1,2,1)\). The coordinate equations also give the unique geometric support point.
+PASS
 
-## Originality — PASS
+Laszlo–Pauly ordinary genus-two theta formulas give four nonzero-scaled quadrics P0=sum x_i^2, P01=x00*x01+x10*x11, P10=x00*x10+x01*x11, P11=x00*x11+x01*x10. Over char2 P0=(sum x_i)^2; the cross-equation sums, together with the sum-zero relation, force all projective coordinates equal at any geometric zero. On chart x00=1 set x01=1+a,x10=1+b,x11=1+c,s=a+b+c. The ideal is exactly J=(s^2,s+bc,s+ac,s+ab). Setting s=ab=ac=bc and c=a+b+ab, the relation ac=ab gives a^2(1+b)=0, while bc=ab gives b^2(1+a)=0; the local units force a^2=b^2=0. Conversely substituting c=a+b+ab and a^2=b^2=0 annihilates J. Hence the local quotient is exactly k[a,b]/(a^2,b^2), with basis 1,a,b,ab, maximal-ideal Hilbert series 1+2t+t^2 and regular sequence c+a+b+ab,a^2,b^2. Independently computed a GF(2) Groebner basis for the four polynomials, recovering the same complete intersection (a^2,b^2,c+a+b+ab), not relying only on source verifier logs.
 
-The 2000 primary source states the coordinate quadrics and the unique support point, not the local Artin ring. The 2008 scheme-theoretic length theorem is expressly for \(p>2\), and the 2006 abstract also states its genus-two degree result for \(p>2\). The 2004 paper treats the nonordinary characteristic-two case and characteristic three. Searches for the local-algebra formulation did not identify a result covering the ordinary characteristic-two case. The numerical length agrees with the extrapolated value of the \(p>2\) formula, but the excluded case is proved here from its own equations.
+## originality
 
-## Value — PASS
+PASS
 
-The scheme structure of a rational map's indeterminacy locus is a natural birational invariant: it determines the local center that must be resolved, beyond the set-theoretic location. Characteristic two is explicitly outside the published length theorem's hypotheses. The local algebra identifies the exceptional base point as a length-four complete intersection with two independent square-zero tangent directions, rather than merely repeating that the support is one point.
+The primary literature supplies equations and set-theoretic support, and odd-characteristic scheme theorems explicitly exclude the assigned case. The assessed claim is precisely the characteristic-two local Artin ring and full scheme-theoretic multiplicity, not the previously known coordinate formulas.
 
-## Closest literature and limits
+## value
 
-- Laszlo–Pauly (2000), arXiv:math/0005044: explicit quadrics and set-theoretic base point; local Artin ring not stated.
-- Laszlo–Pauly (2002), arXiv:math/0203175: nonordinary characteristic two and characteristic three; not this ordinary characteristic-two case.
-- Lange–Pauly (2003 preprint / 2008 publication), arXiv:math/0309456: scheme-theoretic base locus and length theorem for \(p>2\).
-- Osserman (2006), DOI 10.1007/s00208-006-0026-6: abstract read; stated genus-two degree result assumes \(p>2\), full text not accessed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The scheme structure of an indeterminacy center is a natural birational/geometric invariant that cannot be recovered from its set-theoretic support. The explicit length-four local complete intersection and embedded tangent directions answer a natural gap at the excluded p=2 boundary. A short elementary local reduction can be useful as an exact independently stated invariant even without a new global theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

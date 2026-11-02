@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T15:48:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md blob e873c02281afb0dbd0d868b5061c05707dd222df",
+        "Laszlo–Pauly arXiv:math/0005044 Propositions 3.1/6.1 theta quadrics",
+        "independent_checks.py sympy Groebner in GF(2)"
+      ],
+      "rationale": "Laszlo–Pauly ordinary genus-two theta formulas give four nonzero-scaled quadrics P0=sum x_i^2, P01=x00*x01+x10*x11, P10=x00*x10+x01*x11, P11=x00*x11+x01*x10. Over char2 P0=(sum x_i)^2; the cross-equation sums, together with the sum-zero relation, force all projective coordinates equal at any geometric zero. On chart x00=1 set x01=1+a,x10=1+b,x11=1+c,s=a+b+c. The ideal is exactly J=(s^2,s+bc,s+ac,s+ab). Setting s=ab=ac=bc and c=a+b+ab, the relation ac=ab gives a^2(1+b)=0, while bc=ab gives b^2(1+a)=0; the local units force a^2=b^2=0. Conversely substituting c=a+b+ab and a^2=b^2=0 annihilates J. Hence the local quotient is exactly k[a,b]/(a^2,b^2), with basis 1,a,b,ab, maximal-ideal Hilbert series 1+2t+t^2 and regular sequence c+a+b+ab,a^2,b^2. Independently computed a GF(2) Groebner basis for the four polynomials, recovering the same complete intersection (a^2,b^2,c+a+b+ab), not relying only on source verifier logs.",
+      "residual_risks": [
+        "Relies on the prior identification of the geometric quadrics and nonzero coordinate scalars for ordinary genus-two curves; no nonordinary or odd-prime extension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lange–Pauly arXiv:math/0309456 statements of scheme base-locus length are under p>2 hypotheses.",
+          "Osserman arXiv:math/0410613 Theorem for genus two states odd p>2, excluding p=2.",
+          "The second Laszlo–Pauly paper arXiv:math/0203175 concerns the nonordinary characteristic-two case and characteristic three."
+        ],
+        "reasoning": "One cannot substitute p=2 into a theorem whose hypotheses require p>2. The explicit scheme-algebra reduction works in the excluded characteristic-two ordinary locus.",
+        "searches": [
+          "Verschiebung genus two ordinary curve characteristic two scheme theoretic base locus length four local algebra",
+          "Lange Pauly Frobenius destabilized rank 2 bundles characteristic p>2 base locus length",
+          "Osserman generalized Verschiebung genus two p>2 degree"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0005044",
+        "arXiv:math/0203175",
+        "arXiv:math/0309456",
+        "arXiv:math/0410613",
+        "DOI:10.1007/s00208-006-0026-6",
+        "Resultary genus-two Verschiebung semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The already published quadrics logically determine the base ideal, but the sources report the geometric base point rather than its length/Hilbert function in the relevant ordinary char2 case.",
+          "A p>2 length formula would numerically give four at p=2 but cannot establish that case or its ring without further characteristic-two analysis."
+        ],
+        "reasoning": "The submitted calculation is an explicit scheme-theoretic refinement of a known coordinate presentation; it is a nontrivial but short local calculation, not independent discovery of the quadrics. Residual risk: an older consequence of the same quadrics may already be standard in the specialized literature.",
+        "searches": [
+          "Laszlo Pauly arxiv math/0005044 theta coordinate quadrics base locus",
+          "Lange Pauly arxiv math/0309456 base scheme p>2",
+          "Verschiebung genus two ordinary curve characteristic two scheme theoretic base locus length four local algebra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Laszlo–Pauly arXiv:math/0005044 provides the exact quadrics and unique set-theoretic base point, but does not state an explicit local Artin ring or Hilbert function in the inspected full primary text.",
+          "The new ring is obtained by scheme-ideal elimination in those quadrics; geometric support alone cannot determine nonreduced multiplicities."
+        ],
+        "reasoning": "The explicit ordinary characteristic-two local scheme structure is a finer invariant than the prior geometric support point. A prior determination of full generating equations can make this ring readily derivable, so the incremental mathematical value is specifically the resolved scheme structure rather than a new theta-map construction.",
+        "searches": [
+          "Verschiebung genus two ordinary curve characteristic two scheme theoretic base locus length four local algebra",
+          "Laszlo Pauly ordinary genus two characteristic two base point ideal k[a,b]/(a²,b²)",
+          "Verschiebung local complete intersection length four ordinary characteristic 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query returned other genus-two and non-smooth-scheme records but no matching ordinary characteristic-two Verschiebung local ring.",
+          "The local Artin ring is a natural exact algebraic invariant, not a numerical entry in an identified pre-existing table."
+        ],
+        "reasoning": "No indexed exact database covered k[a,b]/(a^2,b^2) for this map; this is negative search evidence only, not a statement about all historical literature.",
+        "searches": [
+          "Verschiebung genus two ordinary curve characteristic two scheme theoretic base locus length four local algebra",
+          "genus two char 2 Verschiebung base scheme Hilbert function 1 2 1",
+          "length 4 local scheme base locus characteristic 2 ordinary"
+        ]
+      },
+      "rationale": "The primary literature supplies equations and set-theoretic support, and odd-characteristic scheme theorems explicitly exclude the assigned case. The assessed claim is precisely the characteristic-two local Artin ring and full scheme-theoretic multiplicity, not the previously known coordinate formulas.",
+      "residual_risks": [
+        "The known complete quadric presentation makes the local-ring computation straightforward; an equivalent local algebra may be implicit or already recognized by specialists.",
+        "The result is about this one natural local scheme, not an all-characteristic or all-genus classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_QUADRICS_AND_SUPPORT",
+          "evidence": "The quadric ideal is known, but local Artin ring k[a,b]/(a²,b²) and Hilbert (1,2,1) not stated in inspected passages.",
+          "identifier_or_url": "arXiv:math/0005044",
+          "material_read": "Full arXiv PDF, theta-coordinate formulas and geometric base support discussion especially Propositions 3.1 and 6.1",
+          "method": "Full PDF text with page screenshot",
+          "title": "The action of the Frobenius map on rank 2 vector bundles in characteristic 2",
+          "trigger": "Same genus-two ordinary char-two map and precise theta equations"
+        },
+        {
+          "assessment": "EXCLUDES_CHARACTERISTIC_TWO",
+          "evidence": "Scheme base-locus results asserted for p>2, so they cannot be applied at p=2.",
+          "identifier_or_url": "arXiv:math/0309456",
+          "material_read": "Published accessible theorem statements/abstract, emphasis on p>2 assumption",
+          "method": "ArXiv and publisher text/abstract",
+          "title": "On Frobenius-destabilized rank-2 vector bundles over curves",
+          "trigger": "Prior scheme-theoretic base locus theorem"
+        },
+        {
+          "assessment": "EXCLUDES_CHARACTERISTIC_TWO",
+          "evidence": "Main p>2 genus-two result does not include ordinary char2.",
+          "identifier_or_url": "arXiv:math/0410613",
+          "material_read": "Full arXiv PDF, introduction and theorem hypothesis p>2",
+          "method": "Full PDF text with page screenshot",
+          "title": "The generalized Verschiebung map for curves of genus 2",
+          "trigger": "Potential exact prior base-locus result for genus two"
+        },
+        {
+          "assessment": "DIFFERENT_CASE",
+          "evidence": "Nonordinary char2 and char3 context is distinct from the ordinary char2 base scheme.",
+          "identifier_or_url": "arXiv:math/0203175",
+          "material_read": "Indexed mathematical statements including nonordinary characteristic-two case",
+          "method": "ArXiv abstract/available descriptive passages",
+          "title": "The Frobenius map, rank 2 vector bundles and Kummer’s quartic surface in characteristic 2 and 3",
+          "trigger": "Same terminology and potential broader prior result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Laszlo–Pauly char2 coordinate map",
+        "Lange–Pauly p>2 scheme result",
+        "Git RESULT.md local ideal reduction"
+      ],
+      "rationale": "The scheme structure of an indeterminacy center is a natural birational/geometric invariant that cannot be recovered from its set-theoretic support. The explicit length-four local complete intersection and embedded tangent directions answer a natural gap at the excluded p=2 boundary. A short elementary local reduction can be useful as an exact independently stated invariant even without a new global theorem.",
+      "residual_risks": [
+        "Mathematical gain is narrow because the quadrics were already available and the reduction uses elementary algebra; no general moduli theorem is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For an ordinary smooth genus-two curve over algebraically closed characteristic-two field, the scheme-theoretic base locus of the theta-coordinate Verschiebung rational map is the unique point (1:1:1:1), with local ring k[a,b]/(a^2,b^2), length four, Hilbert function (1,2,1) and local complete-intersection structure.",
+  "limitations": [
+    "Ordinary smooth genus two over algebraically closed characteristic two only.",
+    "Uses known theta-coordinate quadrics; no claim of original scheme presentation."
+  ],
+  "schema_version": 1
+}
