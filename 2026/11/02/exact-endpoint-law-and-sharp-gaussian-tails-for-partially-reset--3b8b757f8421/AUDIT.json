@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Proof constructs the unique invariant stochastic convolution, conditions on Poisson history to obtain a Gaussian mixture, exactly factors the variance deficit into an independent beta-power variable times a uniformly positive random factor, and integrates the resulting exact endpoint density by a justified Laplace scaling. The constant is expressed as an absolutely convergent stationary-moment series. Conditional normal moment formula gives a sharp reset-rate threshold at eta=kappa/(2D). Analytically all parameters are within the theorem domain. The independent exact-arithmetic checker compares two moment recursions and generator moments over five parameter sets.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Biroli et al., arXiv:2406.08387: rescaled Brownian particle with no OU drift, spatial exponential tail.",
+        "Tal-Friedman et al., arXiv:2205.03363: driftless diffusion and constant drift with partial resetting; stationary Laplace series.",
+        "Meylahn et al. 2015, doi:10.1103/PhysRevE.92.062148: large deviations of time-additive OU statistics with reset to a fixed state."
+      ],
+      "reasoning": "Brownian partial resetting cannot imply the OU variance cap or Gaussian tail by parameter substitution: the OU reversion changes the variance support to a compact interval. Full reset is a boundary case c=0 and does not provide the c-dependent series. General Gaussian-scale-mixture endpoint principles are acknowledged as methods but no accessible identified result directly covers the model-specific endpoint coefficient and transition.",
+      "searches": [
+        "Ornstein Uhlenbeck multiplicative resetting gaussian tail stationary distribution mixture renewal exponential arrival",
+        "Ornstein Uhlenbeck process and stochastic resetting stationary full versus partial",
+        "Ornstein Uhlenbeck diffusion multiplicative partial resetting Poisson stationary distribution tail Gaussian with polynomial prefactor exponent reset rate divided by mean reversion rate"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.21635v1 (accessible full-text transcription)",
+      "doi:10.1112/blms.70314 (full HTML)",
+      "arXiv:2406.08387 (abstract)",
+      "arXiv:2205.03363 (abstract)",
+      "doi:10.1103/PhysRevE.92.062148 (abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Galla 2026 Eq. (5) stationary density for the weak-reset approximation has a logarithmic algebraic potential; it yields a polynomial tail at any fixed s>0.",
+        "Kolb and Wübker 2026 Sec. 2 derives a Laplace perpetuity for driftless Brownian and Remark 20 concerns an OU Doob transform.",
+        "Biroli et al. 2024 abstract: stationary position has exponential far tails, explicitly differing from OU."
+      ],
+      "reasoning": "The claimed exact OU tail and moment threshold are not consequences of Galla approximation because the approximation has no quadratic-exponential moments, while the original OU-reset system has them. Other primary works use different generators (no mean reversion or reset to a fixed point) and therefore do not establish this statement by specializing their reported theorems.",
+      "searches": [
+        "Ornstein Uhlenbeck diffusion multiplicative partial resetting Poisson stationary distribution tail Gaussian with polynomial prefactor exponent reset rate divided by mean reversion rate",
+        "weak resetting diffusion approximation Gaussian tails versus algebraic tails Ornstein Uhlenbeck catastrophe",
+        "Brownian Motion With Partial Resetting Conditioned to Stay Positive Kolb Wübker Ornstein Uhlenbeck section",
+        "resetting by rescaling exact results diffusing particle Biroli 2024"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Galla arXiv:2602.21635v1 Eq. (3)-(5) is the second-order stochastic differential approximation, not a fixed-factor Poisson-reset stationary law.",
+        "Kolb and Wübker doi:10.1112/blms.70314 concluding Remark 20 discusses an OU positivity-conditioned Doob transform; no stationary OU endpoint distribution there."
+      ],
+      "reasoning": "Compared the exact fixed-(rho,c) statement and critical quadratic-exponential moment to the mathematical objects in full-text sources. The approximate SDE has different jump-free dynamics and a polynomial stationary tail, whereas the claimed law has a Gaussian mixing-variance endpoint and precise sharp constants.",
+      "searches": [
+        "exact stationary tail density Gaussian polynomial |x|^{-rho/kappa} Ornstein Uhlenbeck partial Poisson multiplicative resetting x to c x",
+        "Ornstein Uhlenbeck process partial stochastic resetting multiplicative stationary tail distribution Gaussian variance mixture",
+        "partial resetting OU Gaussian stationary tail large deviations power law correction sharp"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-record hits included 2026/10/11/SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4, about extreme random sensor variances, not Poisson resets.",
+        "2026/10/4/SCOPE-sharp-variance-tail-threshold-in-the-mathrm-beta-1-b-family--f37b2603f904 is about bounded beta tails, not OU resetting."
+      ],
+      "reasoning": "The closest search returns have different random objects and do not state an exact OU stationary endpoint power, prefactor or squared-exponential critical boundary; no exact applicable table was located. The search absence alone is not an originality proof.",
+      "searches": [
+        "stationary conditional variance finite endpoint exponent beta Poisson resetting OU gaussian scale mixture",
+        "sharp Gaussian tail with polynomial prefactor multiplicative Poisson OU",
+        "Ornstein-Uhlenbeck partial resetting critical Gaussian exponential moment stationary"
+      ]
+    },
+    "rationale": "Galla 2026 gives a second-order approximate stationary law and no exact fixed-s reset stationary Gaussian tail or exponential-moment threshold; Kolb–Wübker treats primarily driftless Brownian partial resetting and mentions OU only in a Doob-transform example. The 2022/2024 driftless results instead have exponential spatial tails. Direct mathematical-record and published-primary searches uncovered no theorem stating the exact OU variance endpoint coefficient, the Gaussian-with-polynomial density/tail constant, and the reset-rate critical moment transition together. Classical mixture endpoint methods remain a potentially dominating general theorem: the conclusion is qualified pending independent priority review.",
+    "residual_risks": [
+      "Broad endpoint-Laplace theorems for Gaussian variance mixtures may subsume the method and model as a special case.",
+      "Some exact partial-resetting papers were compared through abstracts only; their complete supplementary material was not fully inspected.",
+      "No independent verification or historical priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes approximate polynomial-tail stationary density, not the sharp fixed-jump OU stationary Gaussian tail.",
+        "evidence": [
+          "arXiv:2602.21635v1 dated 2026-02-25; equations (3)-(5) and linear example; readable https://www.researchgate.net/publication/401229385_A_diffusion_approximation_for_systems_with_frequent_weak_resetting"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.21635",
+        "material_read": "Public full text made accessible in HTML transcription, including introduction, model generator and Kramers–Moyal Eq. (3)-(4), stationary linear SDE formula Eq. (5), and multiparticle discussion Eq. (6)-(8).",
+        "method": "Read original complete accessible public text via hosted transcription; compared explicit formula and modeled objects against the claim.",
+        "title": "A diffusion approximation for systems with frequent weak resetting",
+        "trigger": "Direct motivating source: weak multiplicative resets and linear drift"
+      },
+      {
+        "assessment": "No stationary OU endpoint Gaussian tail or critical quadratic-exponential moment; OU is a different, conditioning-based example in closing remarks.",
+        "evidence": [
+          "Section 2 equations for Brownian partial resets; Remark 20 paragraphs 693-704 for OU Doob transform."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/blms.70314",
+        "material_read": "Accessible complete HTML article, especially Sec. 2 invariant Brownian Laplace construction, Sec. 3-5, concluding Remark 20 on OU positivity conditioning and references.",
+        "method": "Direct primary full-text inspection of the public Wiley HTML article.",
+        "title": "Brownian Motion With Partial Resetting Conditioned to Stay Positive",
+        "trigger": "Same multiplicative reset mechanism and OU example mentioned"
+      },
+      {
+        "assessment": "Distinct generator and exponential versus Gaussian stationary-tail regime; full-text historical comparison remains limited.",
+        "evidence": [
+          "arXiv:2406.08387 abstract; Phys. Rev. E 110 (2024) 044142."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.08387",
+        "material_read": "Abstract and primary source synopsis establishing driftless diffusion and exponential stationary far-tail; full article not fully read.",
+        "method": "Compared publicly accessible arXiv description and journal primary-page abstract.",
+        "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+        "trigger": "Natural possible implication from prior exact rescaling-tail theorem"
+      },
+      {
+        "assessment": "Driftless/constant drift results, not mean-reverting OU sharp Gaussian tails; full-text comparison remains limited.",
+        "evidence": [
+          "arXiv:2205.03363, Phys. Rev. E 106 (2022) 054116."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.03363",
+        "material_read": "Published source abstract and preprint synopsis (not full text).",
+        "method": "Compared models and stated results in primary abstract.",
+        "title": "Diffusion with Partial Resetting",
+        "trigger": "Foundational partial-reset Brownian diffusion stationary results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3b8b757f-8421-418a-a7bd-abf52c745f54",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact far-tail equivalence and prefactor quantify rare reset-free fluctuation events in a model explicitly motivated by new diffusion-approximation work. They establish a nontrivial invariant (a finite-endpoint variance power law with computable constant) and a sharp reset-rate critical moment boundary. The contrast with the approximate polynomial tail isolates a natural failure of a frequent-small-reset approximation for rare events, without disputing bulk accuracy. This is a motivated structural boundary rather than a routine substitution or numerical improvement.",
+    "status": "PASS"
+  }
+}
