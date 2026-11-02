@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Character orthogonality reduces the fourth moment to ordered pair fibers. The Gold derivative has kernel \(a\mathbb F_{2^{\gcd(m,k)}}\) for every nonzero step \(a\). The exact deficit splits into three independently nonnegative expressions; simultaneous equality forces constant modulus, a common squared phase, and precisely the stated subfield-line-affine Boolean condition. Both endpoint phase classifications and the explicit nonadditive trace family follow algebraically. The included code checked 21 finite fields/exponents and direct Fourier normalization in four cases. Risk: the finite calculations are corroborative, not proof of the unbounded family; that family follows from the field-kernel argument.
+## correctness
 
-**Originality — PASS, with residual risk.** [1] gives general finite-field extension methods; [2] gives known quadratic differential-uniformity and Walsh-spectral machinery; [3] gives sharp constants for different finite-field surfaces; [4] gives uniform-range large-Sidon restriction bounds. Their examined theorems do not imply the complete arbitrary-input Gold-graph fourth-moment equality geometry or its exact three-part deficit. Relevant semantic research-record searches found no matching statement, but synonyms involving Gold/APN differential tables, Boolean quadratics and additive energy may conceal an earlier equivalent theorem. No claim of exhaustive novelty is made.
+PASS
 
-**Value — PASS.** The result supplies a sharp Fourier endpoint and complete optimizer criterion for the classical Gold graph across all extension degrees, with a gcd-controlled change between arbitrary signs and subfield-line-compatible phases. For proper intermediate subfields, it constructs a large nonaffine family and gives a quantitative decomposition of all losses from optimality. This identifies an analytic invariant of a motivated nonlinear map rather than an arbitrary small parameter slice.
+Reconstructed the exact fourth-moment convolution from two output-character orthogonalities. For a≠0 the Gold derivative has linear kernel a*GF(2^gcd(m,k)), making each nonempty derivative fiber a size-s affine line. Fiber Cauchy–Schwarz, complex zero-fiber |sum f(x)^2|^2≤B^2, and amplitude variance establish (1+s−s/q)B^2, attained by f≡1. Independently expanded the three nonnegative deficit terms; equality forces flat nonzero |f|, one common squared phase (therefore scalar ±1 signs), and constant sign products on every derivative coset, equivalent to additive-F2 affinity on each affine GF(s) line. Checked d=1, d=m and 1<d<m branches, the explicit quadratic-trace nonlinear phases, projective counts at the endpoints, and the limits for all m,k≥1. A newly written independent GF(2^m) checker tested 10 parameter pairs (m≤6), 3 direct Walsh normalizations, 4 complex-vector exact deficit splits, nonlinear subfield examples and 48 random strict non-extremizer comparisons; finite evidence is corroboration only.
 
-**Scientific limits.** Only one even endpoint is treated; the total size of the general intermediate-subfield phase class is not evaluated. The Gold differential kernels themselves are established background. Independent review remains outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the full all-gcd Gold-graph result. The gcd=1 (APN) sharp constant, signs and a deficit are already covered by the published general APN graph result, as are the classical Gold differential fibers. The inspected published results and primary literature do not cover the gcd>1 exact sharp norm plus all complex extremizers characterized by F_{2^d}-line-affine Boolean phases, or its explicit three-piece deficit. A special case is credited rather than claimed new, and inaccessible plausible sources remain a named historical-priority risk.
+
+## value
+
+PASS
+
+This is the natural sharp Fourier L2→L4 invariant of Gold polynomial graphs, a canonical nonlinear family in finite-field harmonic analysis and cryptographic differential uniformity. The all-gcd formula identifies the quantitative transition in maximal ordered-pair collisions, while for d>1 the full complex equality class is neither arbitrary phases nor simply additive characters: it is precisely Boolean functions affine on every proper subfield line, with genuine nonlinear quadratic-trace examples. The exact deficit separates three mathematically meaningful obstructions (phase-square, amplitude variance, fiber-product alignment). This is useful precise structure even without a general theorem downstream. The APN case is already known and credited; the motivation rests chiefly on the sharp non-APN regimes and the natural full family, not on recycled APN tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

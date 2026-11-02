@@ -1,0 +1,288 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T11:50:28Z",
+  "axes": {
+    "correctness": {
+      "finite_verification": {
+        "complex_deficit_cases": [
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            6,
+            2
+          ]
+        ],
+        "direct_fourier_cases": [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "method": "Independent local Python implementation of finite-field multiplication, derivatives, character parity and ordered graph convolution; not a replay of the included verifier.",
+        "parameter_cases": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        "random_sign_comparisons": 48,
+        "result": "All checked moments/derivative-fiber sizes/norms/equality equivalences and exact three-term deficits agreed; strict deficits for random signs in d>1 cases."
+      },
+      "limitations": [
+        "Finite checks do not exhaust arbitrary extension degrees or complex weights.",
+        "Intermediate-subfield Boolean line-affine maximizers have a complete geometric criterion, but their total number is not computed; quadratic traces give a nonexhaustive subfamily.",
+        "No optimality is claimed for exponents other than fourth moment."
+      ],
+      "proof_components": [
+        "Exact normalization q^-2; in the a=0 convolution fiber the coefficient is sum f(t)^2 rather than sum |f(t)|^2.",
+        "Gold derivative P(x+a)+P(x) = a^{2^k+1}[u^{2^k}+u+1] after x=au; kernel of u^{2^k}+u is GF(2^gcd(m,k)).",
+        "Three-term exact nonnegative deficit from triangle inequality, amplitude Cauchy and fiber Cauchy; equality characterization on all affine subfield lines.",
+        "Mixed trace-quadratic Boolean phases restrict to F2-affine functions along subfield lines since u and u^2 are F2-linear; nonzero mixed polar cross terms prove non-global-affinity."
+      ],
+      "rationale": "Reconstructed the exact fourth-moment convolution from two output-character orthogonalities. For a≠0 the Gold derivative has linear kernel a*GF(2^gcd(m,k)), making each nonempty derivative fiber a size-s affine line. Fiber Cauchy–Schwarz, complex zero-fiber |sum f(x)^2|^2≤B^2, and amplitude variance establish (1+s−s/q)B^2, attained by f≡1. Independently expanded the three nonnegative deficit terms; equality forces flat nonzero |f|, one common squared phase (therefore scalar ±1 signs), and constant sign products on every derivative coset, equivalent to additive-F2 affinity on each affine GF(s) line. Checked d=1, d=m and 1<d<m branches, the explicit quadratic-trace nonlinear phases, projective counts at the endpoints, and the limits for all m,k≥1. A newly written independent GF(2^m) checker tested 10 parameter pairs (m≤6), 3 direct Walsh normalizations, 4 complex-vector exact deficit splits, nonlinear subfield examples and 48 random strict non-extremizer comparisons; finite evidence is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general APN extension result gives the exact L4 constant and all phases when d=1 but supplies only a nonsharp lower bound for non-APN maps, and Gold d>1 is non-APN.",
+          "Odd-characteristic Gold RESULT assumes p odd, incompatible with characteristic 2 and the binary additive-fiber proof.",
+          "General sharp paraboloid/cone and L8 large-Sidon restriction theorems have different objects and/or exponents."
+        ],
+        "reasoning": "The closest genuinely dominating hypothesis (arbitrary APN graph) covers one branch and is explicitly credited. Neither that theorem nor the odd-characteristic orbit theorem implies the non-APN s>2 branch or its F_s-line-affine equality classification, so the full all-gcd result is not covered by inspected stronger statements.",
+        "searches": [
+          "Resultary: general quadratic map uniform derivative fibers Fourier restriction L4 equality Boolean sign phases subfield lines",
+          "Resultary: finite field APN graph 2-to-4 norm phase optimizers hypercontractivity differential uniformity",
+          "Resultary/2026/2026/10/11/SCOPE-phase-rigid-sharp-fourth-moments-for-characteristic-two-apn-grap--673d8a1f1945/RESULT.md",
+          "Resultary/2026/2026/10/11/SCOPE-odd-characteristic-gold-graphs-sharp-fourth-moments-phase-constr--98154793418c/RESULT.md",
+          "arXiv:2405.16647v2 Theorems 1.1–1.5",
+          "arXiv:2505.09293v1 Section 5.1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1410.2903",
+        "https://arxiv.org/abs/2405.16647",
+        "https://arxiv.org/abs/2505.09293",
+        "https://repository.tudelft.nl/record/uuid:548f510a-fdd1-45a1-9b8f-b4c2249c39c4",
+        "https://eprint.iacr.org/2017/516.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-phase-rigid-sharp-fourth-moments-for-characteristic-two-apn-grap--673d8a1f1945/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-odd-characteristic-gold-graphs-sharp-fourth-moments-phase-constr--98154793418c/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For gcd=1 the Gold graph is APN and the published general APN result implies precisely 1+2(1-1/q) and scalar signs: this subcase is covered.",
+          "For gcd>1 its derivative has 2^d>2 preimages on each nonempty fiber and is not APN, defeating the general APN result hypothesis.",
+          "The odd-prime proof relies on 1/2 and multiplicative root-of-unity orbits, which do not transfer directly to characteristic 2; the binary proof instead uses fixed-subfield additive lines."
+        ],
+        "reasoning": "The actual implication is recorded for the APN branch, not hidden by different titles. Beyond that branch the main same-parameter novelty is the fully quantified non-APN sharp endpoint and line-affine optimizer geometry. Unavailable older δ-uniformity full text remains a risk, not grounds for unsupported claims of noncoverage.",
+        "searches": [
+          "Resultary: Fourier extension sharp fourth moment norm Gold monomial graph x^(2^k+1) characteristic two affine-subfield-line phase extremizers",
+          "Resultary: finite field APN graph 2-to-4 norm phase optimizers hypercontractivity differential uniformity",
+          "Resultary/2026/2026/10/11/SCOPE-phase-rigid-sharp-fourth-moments-for-characteristic-two-apn-grap--673d8a1f1945/RESULT.md",
+          "Resultary/2026/2026/10/11/SCOPE-odd-characteristic-gold-graphs-sharp-fourth-moments-phase-constr--98154793418c/RESULT.md",
+          "Carlet (2017) IACR ePrint 2017/516 abstract",
+          "arXiv:1410.2903v2 Propositions and Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dual finite-field formulation is an exact weighted additive-convolution L4 moment, not merely a fixed Gold Walsh spectrum or unweighted additive-energy count.",
+          "Carlet/Gong/Tan (2014) and Carlet (2017) study differential uniformity/Walsh data of the fixed polynomial; the inspected statements do not assert the entire arbitrary-complex-input equality class.",
+          "Known Gold APN iff gcd(m,k)=1 (Carlet--Picek 2023 Table 1), which matches only the s=2 branch."
+        ],
+        "reasoning": "A fixed unweighted Walsh fourth moment is obtained by f=1 and may determine the constant because f=1 attains it, but does not by itself imply the necessary-and-sufficient phase constraints for arbitrary complex coefficients. The full claim distinguishes all gcd regimes via the additive kernel GF(2^d) and all line-affine sign patterns.",
+        "searches": [
+          "Resultary: Fourier extension sharp fourth moment norm Gold monomial graph x^(2^k+1) characteristic two affine-subfield-line phase extremizers",
+          "Resultary: binary Gold APN function graph additive energy fourth moment weighted L2 L4 inequality extremizers",
+          "Resultary: general quadratic map uniform derivative fibers Fourier restriction L4 equality Boolean sign phases subfield lines",
+          "Carlet (2017) IACR ePrint 2017/516 abstract",
+          "Carlet and Picek (2023) Table 1",
+          "arXiv:1410.2903v2 Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Carlet--Picek Table 1 tabulates Gold APN exponents only when gcd(m,k)=1, not all fourth-power operator norms.",
+          "Differential uniformity tables and Walsh spectral magnitudes of a fixed mapping can supply the fiber size input but not by themselves the full equality classification.",
+          "The APN general result explicitly counts projective optimizer signs 2^(q-1) for s=2; no inspected table lists the d>1 line-affine optimizer families."
+        ],
+        "reasoning": "Known differential uniformity/APN tables are exact but answer a different invariant. The known s=2 optimizer table is an exact covered subcase, not a table of the remaining gcd>1 extremizers.",
+        "searches": [
+          "Resultary: binary Gold APN function graph additive energy fourth moment weighted L2 L4 inequality extremizers",
+          "Carlet--Picek (2023) Table 1 Gold APN exponents",
+          "arXiv:1410.2903v2 Theorem 3",
+          "Resultary/2026/2026/10/11/SCOPE-phase-rigid-sharp-fourth-moments-for-characteristic-two-apn-grap--673d8a1f1945/RESULT.md"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for the full all-gcd Gold-graph result. The gcd=1 (APN) sharp constant, signs and a deficit are already covered by the published general APN graph result, as are the classical Gold differential fibers. The inspected published results and primary literature do not cover the gcd>1 exact sharp norm plus all complex extremizers characterized by F_{2^d}-line-affine Boolean phases, or its explicit three-piece deficit. A special case is credited rather than claimed new, and inaccessible plausible sources remain a named historical-priority risk.",
+      "residual_risks": [
+        "The entire s=2/APN regime is already explicitly covered by a stronger arbitrary-APN graph extension result; novelty must attach to s>2 and the full classification, not the APN subcase.",
+        "Classical Gold differential uniformity and fixed-weight Walsh fourth moments may appear in earlier coding and cryptography literature under other names; unindexed weighted-extension/equality results remain possible.",
+        "Carlet 2017 δ-uniformity full paper and later portions of Carlet--Picek 2023 accepted manuscript could not be comprehensively read here; abstract/table comparisons alone do not prove noncoverage.",
+        "Resultary includes an indexed copy of the assigned finding itself, excluded as independent prior evidence; published near-date same-topic findings may have ambiguous priority order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers the gcd(m,k)=1 special case, including C=3-2/q, scalar sign optimizers and a two-term deficit. Explicitly stops short of sharp norms of non-APN maps; it does not cover gcd(m,k)>1 and F_s-line-affinity there.",
+          "evidence": [
+            "APN RESULT.md: Finding and Proof: C(F)>=3-2/q with equality iff APN, optimizer f=λ ε_t, and for non-APN only C(F)>=3-2/q+8/q^2.",
+            "Gold derivative kernel gives s=2 iff gcd(m,k)=1; when s>2 each nonzero derivative has s>2 solutions, so its graph is not APN."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-phase-rigid-sharp-fourth-moments-for-characteristic-two-apn-grap--673d8a1f1945/RESULT.md",
+          "material_read": "Complete RESULT.md: finding, hypotheses and normalization, convolution and deficit proof, non-APN quantitative separation, equality classification, limitations and references.",
+          "method": "Full GitHub repository file fetched and mathematically compared directly with all Gold gcd regimes.",
+          "title": "Phase-rigid sharp fourth moments for characteristic-two APN graph extension",
+          "trigger": "Strongest published generalization: any APN binary graph, same fourth moment and complex extremizers when gcd(m,k)=1"
+        },
+        {
+          "assessment": "Cannot cover binary characteristic: it requires odd prime p, uses h=(a-b)/2 and multiplicative roots ζ^{p^k+1}=1; the binary Gold derivative instead has additive subfield cosets and fixed common diagonal fiber.",
+          "evidence": [
+            "Odd-characteristic RESULT.md assumes p odd and proves g=gcd(p^k+1,q-1) by multiplicative root orbits, while its limitations explicitly exclude characteristic 2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-odd-characteristic-gold-graphs-sharp-fourth-moments-phase-constr--98154793418c/RESULT.md",
+          "material_read": "Complete RESULT.md: finding, orbit-square deficit, root-of-unity fiber proof, arithmetic dichotomy, finite phase rigidity and limitations.",
+          "method": "Full GitHub repository file fetched; checked stated odd-prime hypothesis and the 2-invertible midpoint/orbit proof.",
+          "title": "Odd-characteristic Gold graphs: sharp fourth moments, phase constraints and exact deficits",
+          "trigger": "Identical Gold exponent and sharp fourth moment on related prime-power fields, potentially a stronger uniform characteristic theorem."
+        },
+        {
+          "assessment": "Background establishes differential kernel/Walsh spectral structure of unweighted quadratic maps, not the full complex-input sharp Gold Fourier-extension norm and non-APN subfield-line optimizer class.",
+          "evidence": [
+            "arXiv:1410.2903v2 Proposition 3 and Theorem 3 concern zero-difference/Walsh uniformity and allowed spectral magnitudes of fixed functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1410.2903",
+          "material_read": "Available primary PDF: introduction, definitions, Sections 2–3 on zero-difference and differential uniformity, Section 5 including Theorem 3 and its spectral claims; screenshots examined for mathematical statements.",
+          "method": "Primary arXiv PDF text and page visual inspection; compared hypotheses and quantities with arbitrary complex-weight fourth moment.",
+          "title": "Quadratic Zero-Difference Balanced Functions, APN Functions and Strongly Regular Graphs",
+          "trigger": "Primary differential-uniformity / Walsh-spectrum background for quadratic Gold-type maps."
+        },
+        {
+          "assessment": "The sharp surfaces and characteristics in inspected statements are parabola/paraboloid/cone cases, not binary extension on the Gold monomial graph with s>2 and all complex phases.",
+          "evidence": [
+            "arXiv:2405.16647v2, Theorems 1.1–1.5 concern different algebraic surfaces/dimensional and characteristic hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.16647",
+          "material_read": "Accessible full HTML: introduction, Theorems 1.1–1.5 and relevant assumptions, output normalization and proof setup.",
+          "method": "Primary arXiv HTML inspected and mathematical parameter/domain comparison.",
+          "title": "Sharp extension inequalities on finite fields",
+          "trigger": "Sharp finite-field Fourier extension theorems might dominate this endpoint."
+        },
+        {
+          "assessment": "Provides nonexact higher-exponent estimates for large Sidon sets rather than a sharp L4 for general non-APN Gold graphs and all complex equality cases.",
+          "evidence": [
+            "arXiv:2505.09293v1 Section 5.1, Corollary 5.1 is an L2-to-L8 estimate, not exact L2-to-L4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.09293",
+          "material_read": "Accessible primary HTML introduction and Section 5.1, including Corollary 5.1 and its proof.",
+          "method": "Primary arXiv HTML mathematical comparison of exponent, sharpness and support hypotheses.",
+          "title": "An improved L2 restriction theorem in finite fields",
+          "trigger": "Broader Sidon-set Fourier estimates may imply the claimed endpoint."
+        },
+        {
+          "assessment": "Gold APN classification covers precisely d=1 premise and Sidon incidence; does not in inspected portion establish sharp weighted Gold fourth moments for d>1 or line-affine Boolean equality.",
+          "evidence": [
+            "Carlet--Picek (2023), accepted manuscript Table 1 Gold exponents 2^i+1 APN when gcd(i,n)=1 and introduction at PDF page 3; full later pages not obtained."
+          ],
+          "identifier_or_url": "https://repository.tudelft.nl/record/uuid:548f510a-fdd1-45a1-9b8f-b4c2249c39c4",
+          "material_read": "Open-access accepted author manuscript title/abstract, introduction and Table 1 on PDF page 3, including Gold exponent APN condition gcd(i,n)=1; full later-page retrieval timed out.",
+          "method": "University repository primary PDF accessed, PDF page screenshot inspected; article abstract/tables/intro compared with exact fourth-power optimizer theorem; full-text inspection not claimed.",
+          "title": "On the exponents of APN power functions and Sidon sets, sum-free sets, and Dickson polynomials",
+          "trigger": "Same Gold exponent class, known APN/Sidon equivalence and possibly tables dominating one gcd branch."
+        },
+        {
+          "assessment": "Abstract covers Walsh-transform criteria for differential δ-uniformity including fourth moment for constant/unweighted Walsh spectra; cannot rule out more exact implications without full text; residual priority risk retained.",
+          "evidence": [
+            "Carlet, IACR ePrint 2017/516 abstract: generalizes Chabaud–Vaudenay fourth-Walsh-moment characterization to δ-uniform functions; eprint PDF attempt HTTP 403."
+          ],
+          "identifier_or_url": "https://eprint.iacr.org/2017/516.pdf",
+          "material_read": "Bibliographic record and abstract only; PDF full text denied by ePrint endpoint, authorized institutional retrieval returned disconnected VPN. Not classified as whole-document noncoverage.",
+          "method": "Searched primary preprint abstract and lawful download; attempted authorized institutional access without bypass.",
+          "title": "Characterizations of the differential uniformity of vectorial functions by the Walsh transform",
+          "trigger": "Potential general δ-uniform Walsh fourth moment identity beyond APN and potentially stronger coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "Only fourth-power Fourier extension with counting input and uniform probability output; does not solve higher moments.",
+        "The proof reuses classical Gold derivative uniformity and basic Cauchy–Schwarz; the value is the complete cross-regime functional/equality classification, not new differential uniformity.",
+        "Intermediate-line-affine Boolean phase class not enumerated in closed form."
+      ],
+      "rationale": "This is the natural sharp Fourier L2→L4 invariant of Gold polynomial graphs, a canonical nonlinear family in finite-field harmonic analysis and cryptographic differential uniformity. The all-gcd formula identifies the quantitative transition in maximal ordered-pair collisions, while for d>1 the full complex equality class is neither arbitrary phases nor simply additive characters: it is precisely Boolean functions affine on every proper subfield line, with genuine nonlinear quadratic-trace examples. The exact deficit separates three mathematically meaningful obstructions (phase-square, amplitude variance, fiber-product alignment). This is useful precise structure even without a general theorem downstream. The APN case is already known and credited; the motivation rests chiefly on the sharp non-APN regimes and the natural full family, not on recycled APN tables.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1410.2903",
+    "https://arxiv.org/abs/2405.16647",
+    "https://arxiv.org/abs/2505.09293",
+    "https://repository.tudelft.nl/record/uuid:548f510a-fdd1-45a1-9b8f-b4c2249c39c4",
+    "https://eprint.iacr.org/2017/516.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-phase-rigid-sharp-fourth-moments-for-characteristic-two-apn-grap--673d8a1f1945/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-odd-characteristic-gold-graphs-sharp-fourth-moments-phase-constr--98154793418c/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": "All integer m,k≥1 and complex inputs covered analytically at the fourth moment. APN branch is previously covered by broader work; new non-APN subfield-line phase structure is best-of-knowledge original. Historical δ-uniformity formulations remain a cited priority risk. No external independent certification or repository publication was performed.",
+  "residual_risks": [
+    "The entire s=2/APN regime is already explicitly covered by a stronger arbitrary-APN graph extension result; novelty must attach to s>2 and the full classification, not the APN subcase.",
+    "Classical Gold differential uniformity and fixed-weight Walsh fourth moments may appear in earlier coding and cryptography literature under other names; unindexed weighted-extension/equality results remain possible.",
+    "Carlet 2017 δ-uniformity full paper and later portions of Carlet--Picek 2023 accepted manuscript could not be comprehensively read here; abstract/table comparisons alone do not prove noncoverage.",
+    "Resultary includes an indexed copy of the assigned finding itself, excluded as independent prior evidence; published near-date same-topic findings may have ambiguous priority order."
+  ],
+  "schema_version": 1
+}
