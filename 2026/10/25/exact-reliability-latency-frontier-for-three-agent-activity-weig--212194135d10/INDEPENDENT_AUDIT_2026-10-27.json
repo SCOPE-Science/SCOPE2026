@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T16:01:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The activity-weighted node-first/neighbor-second scheme exactly selects the two edges with probabilities p=u/(u+z) and q=z/(u+z), independent of center weight v. Initial selected edge is receptive; averaging it produces (a,a,b) or (a,b,b). If the other gap D≥c the configuration freezes forever; if D<c, both gaps remain receptive because convex averaging cannot increase diameter. Each switch in the iid selected-edge sequence, and only a switch, halves diameter; the switch-indicator strong law gives rate 2pq log2. Success probability is p 1_{D12<c}+q 1_{D23<c}. Conditional switches have alternating geometric waiting times, giving 1+ceil(m/2)/q+floor(m/2)/p. The sharp witness (0,2/5,1), c=3/4, δ=1/10 has success q, mean 1+2/p+1/q, optimum p=√2/(1+√2). Independently checked 64 rational positive weight triples; finite checks do not prove all real initial data.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary source defines the node-activity sampling rule and studies numerical outcomes; general convergence assertions do not supply the exact conditional finite-tolerance law."
+        ],
+        "reasoning": "The all-graph convergence theorem does not dominate a sharp P3 reliability-latency distribution.",
+        "searches": [
+          "Resultary semantic query: Deffuant Weisbuch three vertex path activity weighted edge sampling exact consensus probability conditional hitting time",
+          "Li Porter node-activity bounded-confidence dynamics; Su Chen Mei Bullo heterogeneous convergence"
+        ]
+      },
+      "checked_sources": [
+        "Li and Porter, A Bounded-Confidence Model of Opinion Dynamics with Heterogeneous Node-Activity Levels, arXiv:2206.09490, primary PDF",
+        "Su, Chen, Mei and Bullo, arXiv:2409.01593, heterogeneous Deffuant-Weisbuch convergence",
+        "Zhang and Chen, DOI:10.1007/s11424-015-3240-z, asymmetric DW convergence rate",
+        "Resultary 2026-10-11 seven-agent confidence switching-lifetime result 3aa033f36f32"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For witness (0,2/5,1), only first 23 branch succeeds; expected time 1+2/p+1/q and its optimum emerge from edge sequence."
+        ],
+        "reasoning": "These are not consequences of the numerical results alone; standard geometric renewals make the local calculation short but still give a motivated sharp tradeoff.",
+        "searches": [
+          "Resultary semantic query: Deffuant Weisbuch three vertex path activity weighted edge sampling exact consensus probability conditional hitting time",
+          "Li Porter numerical consensus/fragmentation; standard geometric waiting times"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Edge switch indicators of iid Bernoulli(p) selections give alternating geometric periods; initial success is a one-bit Bernoulli threshold event."
+        ],
+        "reasoning": "These probabilistic reductions justify tractability but do not make the combined sharp confidence-lockout and allocation frontier an explicitly known published formula.",
+        "searches": [
+          "Resultary semantic query: Deffuant Weisbuch three vertex path activity weighted edge sampling exact consensus probability conditional hitting time",
+          "asynchronous P3 stochastic gossip, two-state edge switch count, geometric renewal hitting time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary 7-agent switching lifetime is a different frozen-versus-switching graph phenomenon; Li Porter plots are large-network simulations, not a P3 exact table."
+        ],
+        "reasoning": "No exact known-table recomputation found; not proof of historical absence.",
+        "searches": [
+          "Resultary semantic query: Deffuant Weisbuch three vertex path activity weighted edge sampling exact consensus probability conditional hitting time",
+          "Resultary P3 confidence exact probability search; Li Porter plots"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified PASS: exact conditional success probability together with time-to-tolerance distribution/mean and optimal activity allocation for minimal P3 is not established by the inspected general and numerical bounded-confidence analyses. Edge-weight cancellation and generic geometric waiting identities are standard and are excluded from novelty.",
+      "residual_risks": [
+        "Exact P3 law could be implicit in standard asynchronous gossip chain or confidence-model appendix beyond inspected articles.",
+        "Strict confidence boundary and m=1 optimizer (unattained positive-weight endpoint) must not be conflated with m≥2 interior optimum.",
+        "No assertion for larger graphs or for heterogeneous compromise fractions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes model and numerical studies, but no inspected P3 joint conditional law",
+          "evidence": [
+            "Node-first/neighbor-weighted selection in model definition; numerical experiments on large networks."
+          ],
+          "identifier_or_url": "arXiv:2206.09490",
+          "material_read": "Primary PDF sections I–IV: rule for picking node and neighbor and large-network numerical consensus/fragmentation/time experiments",
+          "method": "Full published PDF relevant theory/method/experiments reading and page screenshot",
+          "title": "A Bounded-Confidence Model of Opinion Dynamics with Heterogeneous Node-Activity Levels",
+          "trigger": "Same exact node-activity sampling model"
+        },
+        {
+          "assessment": "General convergence proof does not visibly include exact probability and conditional switch counts; no whole-document exclusion asserted",
+          "evidence": [
+            "The result addresses convergence properties under heterogeneity."
+          ],
+          "identifier_or_url": "arXiv:2409.01593",
+          "material_read": "Bibliographic theorem summary, not full text",
+          "method": "arXiv record comparison",
+          "title": "Convergence of the Heterogeneous Deffuant–Weisbuch Model: A Complete Proof and Some Extensions",
+          "trigger": "Potentially broader heterogeneous convergence theorem"
+        },
+        {
+          "assessment": "Cannot exclude hidden elementary P3 corollary without full text",
+          "evidence": [
+            "Asymmetric compromise dynamics differ from symmetric half-compromise and random initial-edge lockout."
+          ],
+          "identifier_or_url": "DOI:10.1007/s11424-015-3240-z",
+          "material_read": "Journal indexed theorem description, not whole source",
+          "method": "Bibliographic comparison",
+          "title": "Convergence Rate of the Asymmetric Deffuant–Weisbuch Dynamics",
+          "trigger": "Related convergence rates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three-vertex path is the smallest model admitting stochastic first-update lockout and successful consensus under the same initial receptivity. Its exact and opposing reliability and latency responses offer a meaningful boundary benchmark for activity design, beyond a trivial edge-probability computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Li and Porter, A Bounded-Confidence Model of Opinion Dynamics with Heterogeneous Node-Activity Levels, arXiv:2206.09490, primary PDF",
+    "Su, Chen, Mei and Bullo, arXiv:2409.01593, heterogeneous Deffuant-Weisbuch convergence",
+    "Zhang and Chen, DOI:10.1007/s11424-015-3240-z, asymmetric DW convergence rate",
+    "Resultary 2026-10-11 seven-agent confidence switching-lifetime result 3aa033f36f32"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact P3 law could be implicit in standard asynchronous gossip chain or confidence-model appendix beyond inspected articles.",
+    "Strict confidence boundary and m=1 optimizer (unattained positive-weight endpoint) must not be conflated with m≥2 interior optimum.",
+    "No assertion for larger graphs or for heterogeneous compromise fractions."
+  ],
+  "residual_risks": [
+    "Exact P3 law could be implicit in standard asynchronous gossip chain or confidence-model appendix beyond inspected articles.",
+    "Strict confidence boundary and m=1 optimizer (unattained positive-weight endpoint) must not be conflated with m≥2 interior optimum.",
+    "No assertion for larger graphs or for heterogeneous compromise fractions."
+  ],
+  "schema_version": 1
+}
