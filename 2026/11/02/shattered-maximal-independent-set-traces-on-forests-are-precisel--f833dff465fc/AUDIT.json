@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Definitions and quantifiers cover any finite forest including isolates and empty graph. Easy direction extends any selection of one endpoint per induced-matching edge to an MIS. Reverse direction is induction on vertices: isolated outsiders can be deleted; a leaf inside S forces its neighbor when labeled zero and yields an induced-matching edge with residual outside N[u]; a leaf outside S whose neighbor is in S uses the fixed-positive u branch and again recurses outside N[u]; an outside leaf with neighbor outside S can be deleted without changing MIS trace patterns. Every case preserves actual shattering and the induced-matching property. The C5 obstruction is explicitly verified. The standalone checker independently compares traces against induced-matchings in all 3272 labeled forests of orders 0..6; these finite checks do not substitute for induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu et al., SoCG 2024, Lemma 27, states VCdim(M(G)) <= nu_bi(G) for every graph, where nu_bi is bipartite induced-matching number.",
+        "The same paper explicitly distinguishes ordinary induced matchings by requiring both endpoint sides to be independent. In P4, nu_bi(P4)=2 and nu_ind(P4)=VCdim(M(P4))=1."
+      ],
+      "reasoning": "The general upper bound cannot imply the stronger forest equality or the classification of individual shattered supports because its bound is genuinely slack even on P4. The theorem is not a special case of that stronger-parameter inequality.",
+      "searches": [
+        "Liu Shangguan Skokan Xu 2024 lemma 27 dual VC dimension bipartite induced matching; sharpen to ordinary induced matching for forests",
+        "\"VC dimension\" \"maximal independent sets\" \"induced matching\"",
+        "\"maximal independent sets\" \"induced matchings\" \"VC dimension\" forests trees"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1909.04283 (primary HTML sections of introduction)",
+      "arXiv:2205.04082 (primary HTML introduction and theorems)",
+      "arXiv:2403.17910 / SoCG 2024 (primary PDF pp. 9-12 incl. Lemma 27)",
+      "2026/9/20/SCOPE-cyclomatic-matching-induced-matching-gaps--ac8bd54efbfc (published mathematical-record result; claim comparison)",
+      "Available prior claim records for maximal-independent-set cycles and maximal/minimal domination (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "From any induced matching, choosing one endpoint per pair generates all trace patterns after maximal extension; this classical construction covers the easy direction only.",
+        "SoCG 2024 Lemma 27 proves that a shattered set yields a bipartite induced matching with no cross edges; the proof does not control edges within either endpoint class.",
+        "The leaf-based induction, in contrast, excludes all such within-side edges and proves an actual induced matching with its side fixed to the shattered support."
+      ],
+      "reasoning": "The missing implication is S shattered => ordinary induced matching saturating S. It does not follow from the cited general inequality; there is a sharp parameter distinction. The new proof uses the forest leaf-removal property in all three cases.",
+      "searches": [
+        "Liu Shangguan Skokan Xu 2024 lemma 27 dual VC dimension bipartite induced matching; sharpen to ordinary induced matching for forests",
+        "Beyond chromatic threshold via (p,q)-theorem Lemma 27 VC dimension dual maximal independent set hypergraph",
+        "VC dimension maximal independent sets tree induced matching forest theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Direct comparisons considered the maximal independent set incidence hypergraph, dual family of membership traces, and independent dominating sets; arXiv:2403.17910 Lemma 27 is the closest direct VC statement.",
+        "Published mathematical-record search found induced-matching gaps and MIS enumeration, but no record whose statement characterizes every shattered forest support."
+      ],
+      "reasoning": "The current statement is an if-and-only-if for each support S on every finite forest. General matching-to-MIS constructions give only one direction; the identified upper bound invokes a larger parameter. Neither is equivalent to the forest characterization.",
+      "searches": [
+        "For any forest F, shattered subsets by vertex-incidence vectors of maximal independent sets are exactly sides of induced matchings; VC dimension equals induced matching number, leaf-elimination proof.",
+        "Maximal independent sets hypergraph of trees, induced matching saturation of shattered vertex supports, trace reconstruction.",
+        "VC dimension hypergraph maximal independent sets forest induced matchings",
+        "\"VC dimension\" \"independent set hypergraph\" tree induced",
+        "\"maximal independent set\" \"shattered\" \"induced matching\" forest"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest accessible indexed records concerned induced-matching gaps (2026/9/20/SCOPE-cyclomatic-matching-induced-matching-gaps--ac8bd54efbfc) and maximal-independent-set cycle shattering; neither asserts the forest support criterion.",
+        "Kahn and Park 2019 and Palmer and Patkós 2022 count MIS rather than tabulating all shattering supports in forests."
+      ],
+      "reasoning": "A numerical induced-matching table, or enumeration of maximal independent sets, is not a classification of every VC-shattered vertex set. No exact table covering the claimed equivalence was identified.",
+      "searches": [
+        "maximal independent sets forest shattering induced matching VC dimension exact parameter theorem",
+        "For any forest F, shattered subsets by vertex-incidence vectors of maximal independent sets are exactly sides of induced matchings; VC dimension equals induced matching number, leaf-elimination proof.",
+        "Maximal independent sets hypergraph of trees, induced matching saturation of shattered vertex supports, trace reconstruction."
+      ]
+    },
+    "rationale": "The closest inspected same-object primary statement is the 2024 general inequality VCdim(M(G)) <= nu_bi(G). Its bipartite induced matching parameter is strictly larger than the ordinary induced matching parameter even on P4; thus it does not imply the forest-wide if-and-only-if support theorem. Earlier works on induced matching constructions or MIS enumeration give the lower direction only. Direct semantic searches of indexed mathematical findings and available historical claims did not identify stronger coverage. This is best-knowledge originality, not proof of global historical uniqueness.",
+    "residual_risks": [
+      "Undiscovered older characterization in the hypergraph literature under another name remains possible.",
+      "The published 2024 result is directly related but does not state the forest improvement; checking all related citations independently was not exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_BUT_NOT_COVERING",
+        "evidence": "Lemma 27 proves VCdim(M(G)) <= nu_bi(G); definition explicitly says ordinary induced matching further requires both endpoint classes independent. It neither gives forest equality nor all-support classification.",
+        "identifier_or_url": "arXiv:2403.17910; DOI:10.4230/LIPIcs.SoCG.2024.71",
+        "material_read": "Full-text SoCG 2024 article, relevant sections 2.2 and 2.4, definition of bipartite induced matching, Lemma 27 and proof, pages 9-12, including the page image.",
+        "method": "Primary open-access PDF text and page-image inspection",
+        "title": "Beyond Chromatic Threshold via (p,q)-Theorem, and Blow-Up Phenomenon",
+        "trigger": "Same hypergraph of maximal independent vertex sets, VC dimension and induced matching"
+      },
+      {
+        "assessment": "NOT_COVERING_IN_INSPECTED_RELEVANT_SECTIONS",
+        "evidence": "It studies asymptotic number of maximal independent sets in the hypercube and the independent choices on induced-matching edges, not VC shattering by the full class on arbitrary forests.",
+        "identifier_or_url": "arXiv:1909.04283",
+        "material_read": "Primary full-text HTML introduction including Theorem 1.1 and the induced-matching lower-bound construction (section 1.1).",
+        "method": "Open arXiv HTML text",
+        "title": "The number of maximal independent sets in the Hamming cube",
+        "trigger": "Induced matching construction for many maximal independent sets"
+      },
+      {
+        "assessment": "NOT_COVERING_IN_INSPECTED_RELEVANT_SECTIONS",
+        "evidence": "Theorems 3-6 concern extremal numbers of MIS subject to induced matching restrictions, without characterizing VC-shattered supports.",
+        "identifier_or_url": "arXiv:2205.04082",
+        "material_read": "Primary full-text HTML introduction and the statements of Theorems 3-6; related material checked for count rather than shattering.",
+        "method": "Open arXiv HTML text",
+        "title": "On the number of maximal independent sets: From Moon-Moser to Hujter-Tuza",
+        "trigger": "Same MIS and induced matching objects in triangle-free graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f833dff4-65fc-49e8-9e40-8717fffe9c2f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question has a natural model-theoretic/learning meaning: which finite sets of vertex membership statements can vary independently across maximal independent solutions? The exact support criterion answers more than the numerical dimension for the entire forest class and identifies the classical induced matching as the governing parameter. It also precisely locates an acyclic/cyclic boundary, illustrated by C5. The 2024 published general matching bound leaves a genuine gap on P4 even within forests, making the exact improvement nontrivial rather than a parameter renaming.",
+    "status": "PASS"
+  }
+}
