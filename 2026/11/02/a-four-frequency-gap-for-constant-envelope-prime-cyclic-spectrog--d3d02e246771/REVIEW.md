@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The single mathematical claim is the \(p\) versus \(4p-3\) STFT support dichotomy for two nonzero constant-envelope inputs on \(\mathbb Z_p\) at primes \(p\ge5\), together with the already-known characterization of the \(p\) case. The proof verifies its stated STFT normalization, a three-point nonzero-difference obstruction to two/three Fourier support frequencies, the unimodular autocorrelation identity, the multiplicative shift cocycle, and the prime-order subgroup conclusion. The quantitative total follows by summing all \(p\) row supports. The quadratic-chirp formula follows by telescoping a character ratio; its converse is direct. The standalone program passed 446 finite checks on primes 5, 7, and 11; it is not used as an infinite proof. No sharp attainment assertion is made for the nonminimum bound.
+
+## Originality — PASS (with historical-priority risk)
+Nicola (2022) proves an exact \(p\)-support minimizer classification, not a separation to at least \(4p-3\) for nonminimal full-support unimodular pairs. The published general-signal support-gap result proves the **weaker** \(p\) versus \(2p\) lower bound and does not impose constant magnitudes; its conclusion does not imply the new bound. The published four-sparse phase-only Fourier result concerns support-four **input signals** and no two-signal STFT, so it does not imply the new theorem. Full material inspected includes Nicola's theorem, introduction and proof, and the complete published general-gap and four-sparse RESULT.md statements and proofs. Targeted searches returned no stronger covering result, but the constant-modulus/Fourier-autocorrelation lemma may have analogues in older phase-code literature; non-discovery is not proof of historical uniqueness.
+
+## Mathematical value — PASS
+Constant-envelope/phase-only signal and window families are a natural restriction in time-frequency sequence design. General complex signals can have nontrivial support as low as \(2p\), whereas the phase-only constraint forbids the entire interval strictly above \(p\) and below \(4p-3\), a structurally different separation. The reason is an exact prime-cyclic Fourier support obstruction enforced simultaneously by all time rows and a global character-ratio cocycle. It goes beyond a single arbitrary finite example or a known-table recomputation. The exact second attained cardinality above \(p\) remains open here; the lower bound is not described as sharp.
+
+## Limitations and closest work
+The most relevant sources are F. Nicola, arXiv:2204.14176v1 (2022), the published general-signal support-gap result (2026), the four-sparse phase-only Fourier result (2026), and Krahmer–Pfander–Rashkov (2008). No claims for composite cyclic orders, amplitude perturbations, approximate support, stability or sharpness of \(4p-3\). An inaccessible older primary PDF was not represented as inspected; its published bound was compared through Nicola's primary citations and the general-gap full proof. Independent audit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
