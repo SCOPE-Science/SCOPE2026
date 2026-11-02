@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T12:51:55.973387Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For synchronous binary open-neighbour majority with lazy ties on K_a+single bridge+K_b, a,b>=3, separately reconstruct update of one clique from x one-bits among n-1 nondistinguished vertices, bridge bit w and opposite bridge bit e. For odd n=2p+1, all nondistinguished vertices move to majority immediately and only x=p pivotal cases cause one-step bridge discrepancy, entire clique constant by time 2. For even n=2p, unbalanced total s=x+w becomes permanent unanimous state; at s=p nondistinguished bits complement and bridge adopts e, staying balanced for next step iff bridge bits oppose. These exact case rules yield all recurrent states: four fixed, primitive 2-cycles only if both sizes even, all 2D_aD_b 2-periodic states with D_n=binom(n-1,n/2-1), and none entered after time zero. Inclusion-exclusion of odd pivotal events yields max T=2 and N2=2^b C_a+2^a C_b-2 C_aC_b with C_odd=binom(n-1,(n-1)/2). If both even, one balanced side and one strict majority yields max T=4 and N4=2[D_a(2^{b-2}-D_b)+D_b(2^{a-2}-D_a)]. If mixed parity, odd pivotal bridge prolongs balanced even side until t=5 and N5=binom(a-1,(a-1)/2)binom(b,b/2) for odd a; switched analog. Central binomial Stirling gives N5/2^{a+b}~1/(pi sqrt(ab)). Independent checker built neighbour masks anew and exactly enumerated all states for 25 pairs 3<=a,b<=7, verifying upper bounds, sharp populations, four fixed, primitive 2-cycles, and absence of late 2-cycle entry. Proof remains all-size, not extrapolated finite data.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General threshold dynamics shows eventual period at most two.",
+          "General voting-time theorems and clique-module contraction bounds give control of convergence but are not an exhaustive precise state census for two cliques joined by one bridge."
+        ],
+        "reasoning": "General period-two results are weaker and compatible with arbitrarily many possible transient maxima and basin populations; there is no known implication yielding 2/4/5 and exact N2/N4/N5.",
+        "searches": [
+          "Goles Olivos 1980 Periodic behaviour of generalized threshold functions",
+          "Kaaser Mallmann-Trenn Natale On the Voting Time of the Deterministic Majority Process arxiv:1508.03519",
+          "Benjamini Chan O’Donnell Tamuz Tan arxiv:1405.2486"
+        ]
+      },
+      "checked_sources": [
+        "Goles–Olivos DOI:10.1016/0012-365X(80)90121-1, theorem scope/abstract only",
+        "Kaaser–Mallmann-Trenn–Natale arxiv:1508.03519 voting time and modules",
+        "Benjamini et al arxiv:1405.2486 general majority dynamics",
+        "Resultary 2026/10/4 bridge-barbell zero-forcing polynomial, non-equivalent dynamics",
+        "Resultary searches for exact majority bridge graph parity, no covering record found"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The period-two theorem implies only the eventual period upper bound.",
+          "In this claim all nonperiodic states reach a fixed point, and primitive cycles are both-even and already entered at t=0, a much finer statement."
+        ],
+        "reasoning": "Neither general convergence nor known zero forcing supplies the exact bridge-pivotal case distinctions or binomial terminal strata; this needs direct state-rule analysis. An unindexed exact threshold-network special case remains possible.",
+        "searches": [
+          "arxiv:1508.03519 general modular majority contraction bound",
+          "arxiv:1405.2486 Theorem 1.1 eventual period two",
+          "zero forcing polynomial of bridge barbells same graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The majority map is a symmetric binary threshold network with state-preserving ties.",
+          "Barbell two-clique network is not equivalent to the previously published zero-forcing process or windmill graph."
+        ],
+        "reasoning": "Known periodicity theorems apply but do not identify which states are periodic from time zero nor their exact counts. Renaming to threshold network does not furnish the computed sharp stabilization levels.",
+        "searches": [
+          "two cliques joined single bridge deterministic synchronous majority tie stay sharp time period cycles",
+          "majority dynamics clique windmills barbell one bridge parity sharp convergence",
+          "generalized threshold networks symmetric adjacency Goles Olivos 1980"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published zero-forcing polynomial refers to same graph but different monotone forcing update.",
+          "Nearest majority classifications concern complete split graphs and clique windmills rather than an edge-bridged pair of cliques."
+        ],
+        "reasoning": "No exact table on the same majority map and all a,b was found; finite enumerations are corroboration of a general exact parity classification, not the asserted principal novelty.",
+        "searches": [
+          "majority barbell graph two clique bridge labelled states terminal transient population",
+          "zero forcing polynomial of bridge barbells Resultary 2026/10/4",
+          "complete split graph exact majority attractors"
+        ]
+      },
+      "rationale": "Goles–Olivos establishes eventual at-most-two periods for symmetric threshold maps, not the sharp 2/4/5 transient times, full explicit critical labelled populations or no-entry-after-time-zero on this graph. Kaaser–Mallmann-Trenn–Natale gives broad upper bounds/contraction methods but not the exact barbell counts. A previous Resultary bridge-barbell polynomial is a zero-forcing invariant, not majority dynamics; complete split graphs or clique windmills have different edge sets. A prior specialization might exist under threshold automata nomenclature, so qualified O PASS for exact bridge-resonance classification and strata.",
+      "residual_risks": [
+        "1980 Goles–Olivos complete text not inspected; possible hidden barbell example or a specialization in later threshold-network literature.",
+        "The result does not enumerate every intermediate transient stratum or four fixed basins."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes at-most-two eventual periods; no inferred all-document exclusion of exact graph subcase",
+          "evidence": "1980 Discrete Mathematics 30, 187–189, well-known threshold periodicity theorem.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Indexed abstract, bibliographic data and theorem characterization; complete 1980 article not read",
+          "method": "public index and source theorem scope comparison",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "generic symmetric majority periodicity potentially covering claim"
+        },
+        {
+          "assessment": "Known general time bounds not shown to determine sharp two-clique count",
+          "evidence": "Graph-module contraction addresses broad graph classes, not directly labelled bridge critical cases.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.03519",
+          "material_read": "OA abstract/summary of sections 1 and 3, including modular contraction theorem; complete HTML not accessible this run",
+          "method": "arXiv abstract and theorem-scope comparison",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "same synchronous majority process, convergence time"
+        },
+        {
+          "assessment": "Different monotone zero-forcing dynamics, so does not imply lazy-majority trajectory census",
+          "evidence": "Exact Z(B_{a,b};x) polynomial concerns sets under graph zero forcing, not majority map.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2",
+          "material_read": "Published Resultary title, summary and full polynomial expression from semantic search; not full GitHub mathematical proof",
+          "method": "published finding summary from Resultary, no whole-document negative conclusion",
+          "title": "Zero forcing polynomial of bridge barbells",
+          "trigger": "same graph exact previous combinatorial result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two highly cohesive communities connected by one bridge form a standard model for majority-consensus bottlenecks. The theorem gives a complete natural parity boundary for longest transients and a precise labelled count of each worst-case stratum, including when two-cycles can exist and the unexpected fact that they never acquire a positive transient. These are unknown nontrivial graph-dynamical invariants, not implied by generic period-two convergence. The single-bridge/majority/lazy-tie assumptions are explicit and necessary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Goles–Olivos DOI:10.1016/0012-365X(80)90121-1, theorem scope/abstract only",
+    "Kaaser–Mallmann-Trenn–Natale arxiv:1508.03519 voting time and modules",
+    "Benjamini et al arxiv:1405.2486 general majority dynamics",
+    "Resultary 2026/10/4 bridge-barbell zero-forcing polynomial, non-equivalent dynamics",
+    "Resultary searches for exact majority bridge graph parity, no covering record found",
+    "Assigned RESULT.md at https://github.com/SCOPE-Science/SCOPE2026/tree/6d974dcfb14703498a75fe00efd3c648426a494c/2026/10/25/sharp-parity-dependent-stabilization-and-critical-bridge-counts--006d27eae3ab",
+    "Source verifier at exact checked Git blob: barbell_verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Restricted to two cliques connected by exactly one edge, sizes >=3, synchronous open-neighbour majority with lazy ties.",
+    "No all-depth census or asynchronous/noisy extension; unindexed old threshold-network examples may affect priority.",
+    "The current-main directory and frozen assignment Git blob sets matched; external formal/expert verification not inferred."
+  ],
+  "residual_risks": [
+    "1980 Goles–Olivos complete text not inspected; possible hidden barbell example or a specialization in later threshold-network literature.",
+    "The result does not enumerate every intermediate transient stratum or four fixed basins."
+  ],
+  "schema_version": 1
+}

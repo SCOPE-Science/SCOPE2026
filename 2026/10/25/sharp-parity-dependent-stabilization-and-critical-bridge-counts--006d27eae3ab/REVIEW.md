@@ -1,19 +1,21 @@
-# Scientific review: sharp majority stabilization on bridged cliques
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each side, the majority update has an explicit three-case rule determined by the clique's total one-count and a single bridge bit. Odd cliques reach irreversible consensus by time two; even cliques can persist at half occupancy only while the two bridge bits disagree. These exact cases prove all dynamical and counting claims. The sharp terminal populations follow from binomial choices for half-filled nondistinguished vertices and, in the both-even case, strict binomial tail sums. The proof includes boundary sizes \(a=3\) and \(b=4\); every claimed count is corroborated by the standalone labelled-state simulation of \(254016\) configurations over 36 graph instances.
+PASS
 
-## Originality — PASS (bounded)
+For synchronous binary open-neighbour majority with lazy ties on K_a+single bridge+K_b, a,b>=3, separately reconstruct update of one clique from x one-bits among n-1 nondistinguished vertices, bridge bit w and opposite bridge bit e. For odd n=2p+1, all nondistinguished vertices move to majority immediately and only x=p pivotal cases cause one-step bridge discrepancy, entire clique constant by time 2. For even n=2p, unbalanced total s=x+w becomes permanent unanimous state; at s=p nondistinguished bits complement and bridge adopts e, staying balanced for next step iff bridge bits oppose. These exact case rules yield all recurrent states: four fixed, primitive 2-cycles only if both sizes even, all 2D_aD_b 2-periodic states with D_n=binom(n-1,n/2-1), and none entered after time zero. Inclusion-exclusion of odd pivotal events yields max T=2 and N2=2^b C_a+2^a C_b-2 C_aC_b with C_odd=binom(n-1,(n-1)/2). If both even, one balanced side and one strict majority yields max T=4 and N4=2[D_a(2^{b-2}-D_b)+D_b(2^{a-2}-D_a)]. If mixed parity, odd pivotal bridge prolongs balanced even side until t=5 and N5=binom(a-1,(a-1)/2)binom(b,b/2) for odd a; switched analog. Central binomial Stirling gives N5/2^{a+b}~1/(pi sqrt(ab)). Independent checker built neighbour masks anew and exactly enumerated all states for 25 pairs 3<=a,b<=7, verifying upper bounds, sharp populations, four fixed, primitive 2-cycles, and absence of late 2-cycle entry. Proof remains all-size, not extrapolated finite data.
 
-Goles and Olivos' period-two theorem is known prior work. Kaaser–Mallmann-Trenn–Natale (2015) explicitly address dense clique modules and give general convergence-time bounds, but their full-text main results do not imply an exact bridge-critical phase diagram or central-binomial terminal count. Benjamini–Chan–O'Donnell–Tamuz–Tan (2014) discuss general, infinite and random-graph majority convergence, not this graph family's exact basin boundary. Existing majority counts for split graphs and clique windmills involve different graph adjacency; the named published bridge-barbell zero-forcing formula concerns a different local rule. The underlying 1980 full text remains unchecked and historical duplication cannot be ruled out.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Joining dense communities by a single edge naturally models weakly coupled opinion blocks. The theorem identifies a sharp, size-independent stabilization bound that changes from \(2\) to \(4\) to \(5\) with clique parity, and computes the exact configurations realizing each bound. In particular, a mixed-parity graph has a thin but quantifiable class of five-step delays and their frequency decays as \(1/(\pi\sqrt{ab})\) when both cliques grow. The result also settles the entire recurrent-state population and all primitive two-cycles. This provides a structural characterization and a reusable boundary-counting mechanism, not merely finite computation.
+Goles–Olivos establishes eventual at-most-two periods for symmetric threshold maps, not the sharp 2/4/5 transient times, full explicit critical labelled populations or no-entry-after-time-zero on this graph. Kaaser–Mallmann-Trenn–Natale gives broad upper bounds/contraction methods but not the exact barbell counts. A previous Resultary bridge-barbell polynomial is a zero-forcing invariant, not majority dynamics; complete split graphs or clique windmills have different edge sets. A prior specialization might exist under threshold automata nomenclature, so qualified O PASS for exact bridge-resonance classification and strata.
 
-## Scope and risks
+## value
 
-The theorem applies only to labelled simple bridge barbells with clique sizes at least three, synchronous open-neighbour binary majority and ties retained. Intermediate basin strata and fixed-point basin sizes are not classified. The finite checker is corroboration of the general proof. Historical overlap assessment is not equivalent to an exhaustive literature certification, and the 1980 original full text remains a risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two highly cohesive communities connected by one bridge form a standard model for majority-consensus bottlenecks. The theorem gives a complete natural parity boundary for longest transients and a precise labelled count of each worst-case stratum, including when two-cycles can exist and the unexpected fact that they never acquire a positive transient. These are unknown nontrivial graph-dynamical invariants, not implied by generic period-two convergence. The single-bridge/majority/lazy-tie assumptions are explicit and necessary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
