@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The N-step clipped storage map contracts by at most r^N, providing a unique attracting periodic state. The reduced two-pulse fixed-point equations yield exhaustive no-overflow, one-overflow, and two-overflow regimes with exact threshold p0 and p1. Their runoff formulas combine into a max of zero and two explicit expressions. Each nonzero expression decreases strictly with the shorter cyclic gap; their maximum is nonincreasing and strictly decreases whenever the larger-gap schedule has positive runoff. Exact rational program reproduces 42,600 parameter/gap cases, verified recurrence equations and boundary examples; finite computations are supporting evidence rather than general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1029/93WR01934 states stationary stochastic storage/runoff distributions for Poisson storms and exponential depths; these hypotheses do not set arbitrary deterministic gaps",
+        "doi:10.1002/wrcr.20553, Methods 2.1 and Conclusions: Poisson yearly rainfall, a runoff-coefficient threshold and flood-frequency curvature; no comparison across exact schedules with two equal pulses"
+      ],
+      "reasoning": "General leaky-bucket comparison or convex-order theorems could imply monotonicity. Even if so, the exact event-specific p0/p1 thresholds and three-branch formula would need an explicit reduction. Such a dominating source was not identified from the actual comparisons; this remains a real residual risk.",
+      "searches": [
+        "fluid queue periodic batch arrivals overflow spacing convexity storage",
+        "periodic arrivals finite capacity overflow equal spacing",
+        "storm pulse rearrangement equidistant minimizes runoff bucket soil moisture model"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1029/93WR01934 (1993, abstract-level record)",
+      "doi:10.5194/hess-11-923-2007 (2006 first discussion, full PDF scientific sections)",
+      "doi:10.5194/hess-11-1515-2007 (2006 first discussion, full PDF scientific sections)",
+      "doi:10.1002/wrcr.20553 (2013, full HTML scientific sections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Milly (1993): explicit stochastic stationary runoff fractions and storage distributions under Poisson arrivals",
+        "McGrath et al. (2007): Sections 2, 5, 7 concern event-triggering distributions and inter-event time statistics; they explicitly adopt random arrivals and neglect seasonal forcing",
+        "Kusumastuti et al. (2007): deterministic storage/discharge bucket within a stochastic synthetic storm and flood-frequency study; reported conclusions concern parameter and seasonal effects on flood frequency, not optimizing two deterministic periodic event positions",
+        "Rogger et al. (2013): full Methods and Conclusions concern a return-period curvature of flood-frequency curves, using stochastic storm arrivals and a threshold runoff coefficient"
+      ],
+      "reasoning": "Knowledge that antecedent wetness matters does not imply the exact formula, its saturation regime topology, or the strict ordering for every real r and p. The inspected broader stochastic models neither assert nor entail the closed solution without an additional deterministic reduction. The possibility that queueing smoothness results yield the ordering is recorded, not assumed absent.",
+      "searches": [
+        "doi:10.1029/93WR01934",
+        "doi:10.5194/hess-11-923-2007",
+        "doi:10.5194/hess-11-1515-2007",
+        "doi:10.1002/wrcr.20553"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.5194/hess-11-923-2007, Sections 2 and 5 and summary: stochastic Poisson storm arrival assumptions and runoff-event statistics rather than a two-pulse periodic optimization",
+        "doi:10.5194/hess-11-1515-2007, model definitions and Conclusions: stochastic rainfall with deterministic catchment buckets, not a fixed two-storm cyclic-gap formula"
+      ],
+      "reasoning": "The store is equivalently a discrete-time finite buffer with linear decay, so a queueing or periodic-arrivals formulation must be considered. Searches across both runoff and finite-buffer terminology produced no identified exact match. Neither inspected hydrological paper specializes directly to a two-event deterministic period or derives the complete switch-threshold and strictness result. A missing hit is not evidence of exclusivity.",
+      "searches": [
+        "two identical periodic storms finite capacity soil moisture storage saturation excess runoff cyclic spacing exact optimal balanced pulses exponential drainage",
+        "two pulse finite capacity leaky bucket runoff periodic deterministic rainfall timing optimize spacing hydrology",
+        "equal spaced rainstorm events minimize spill nonlinear storage bucket capacity and exponential decay deterministic optimal periodic schedule"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closed formula is for arbitrary real rainfall ratio and retention with an arbitrary integer period; it is not a single empirically tabulated hydrological constant",
+        "No known finite runoff table or exact closed formula with these parameters was found in the inspected literature."
+      ],
+      "reasoning": "The main classification is an analytic full-parameter theorem, not a recomputation of finitely many cases. The rational example illustrates the strict threshold region; it is not the sole assessed novelty.",
+      "searches": [
+        "runoff W(g)=max(0,p(1+r^g)+r^N-1,2(p-1)+r^g+r^(N-g)) two periodic pulses",
+        "two storms per cycle periodic storage recurrence exact runoff threshold",
+        "storm spacing storage runoff analytical bucket"
+      ]
+    },
+    "rationale": "The assessed object is an exact deterministic infinite-horizon cyclic placement classification for two equal pulses, not the established stochastic runoff-distribution, threshold-triggering, or flood-frequency problems. Three particularly relevant full primary texts address random rainfall event statistics, synthetic stochastic storm time series, or flood return-period curves, and do not provide or directly imply the deterministic gap-indexed max-of-three formula, both event onset thresholds, and their exact ordering. The 1993 analytic soil-water storage source is publicly accessible at abstract level only. Broad fluid-queue and input-majorization antecedents remain a residual priority risk, so originality is provisional and not independently certified.",
+    "residual_risks": [
+      "A general periodic finite-buffer, deterministic queue or majorization theorem outside the inspected hydrological literature may imply the gap ordering; historical priority not independently established.",
+      "The 1993 foundational Milly paper full text could not be accessed; the comparison is limited to the dated abstract and a detailed later paper describing its methodology.",
+      "One-store exponentially draining discrete dynamics are a deliberate hydrological idealization; broader field significance would require physical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different stochastic forcing, no inspected exact periodic timing theorem; full primary text not accessed, so noncoverage of that whole paper is not asserted",
+        "evidence": "USGS abstract explicitly imposes Poisson storm arrivals, exponential storm depths, and stationary storage/runoff distributions.",
+        "identifier_or_url": "https://www.usgs.gov/publications/analytic-solution-stochastic-storage-problem-applicable-soil-water",
+        "material_read": "Dated 1993-11-01 USGS abstract and bibliographic record",
+        "method": "Public bibliographic abstract",
+        "title": "An analytic solution of the stochastic storage problem applicable to soil water",
+        "trigger": "Foundational finite-capacity water balance and overflow law"
+      },
+      {
+        "assessment": "Stochastic Poisson interstorm intervals, moment/first-passage analyses, no exact deterministic two-pulse cyclic-gap schedule law",
+        "evidence": "Section 2 assumes stationary rainfall without seasonality and independent Poisson instantaneous storms; Section 5 computes runoff statistics, Section 7 summarizes stochastic threshold-event timing.",
+        "identifier_or_url": "https://hess.copernicus.org/articles/11/923/2007/hess-11-923-2007.pdf",
+        "material_read": "Open full PDF, introduction and rainfall model pp. 923–924, storage and runoff equations pp. 927–928, relevant conclusions pp. 934–935; appendix structure checked",
+        "method": "Direct primary full-text comparison at governing assumptions/results/conclusions",
+        "title": "Temporal dynamics of hydrological threshold events",
+        "trigger": "Closest model connecting storm timing, capacity exceedance, and runoff"
+      },
+      {
+        "assessment": "Finite storage threshold in synthetic stochastic climate, simulated flood-frequency effects rather than exact two identical periodic pulse scheduling; no logical domination identified",
+        "evidence": "Equations 13 and 19 provide saturated bucket model; discussion/conclusions describe time series simulations with seasonal and stochastic storms, not two-pulse gap optimization.",
+        "identifier_or_url": "https://hess.copernicus.org/articles/11/1515/2007/hess-11-1515-2007.pdf",
+        "material_read": "Open full PDF model definitions/threshold equations pp. 1518–1519 and analysis/conclusions pp. 1524–1527, plus abstract/intro",
+        "method": "Direct primary full-text equations-to-claim comparison",
+        "title": "Threshold effects in catchment storm response and the occurrence and magnitude of flood events: implications for flood frequency",
+        "trigger": "Very closely related saturation-excess bucket hydrology with storm-timing effects"
+      },
+      {
+        "assessment": "Stochastic annual Poisson storm arrivals and flood-frequency curvature, not periodic two-pulse runoff volume ordering",
+        "evidence": "Methods Section 2.1 states Poisson number of storms and rainfall-runoff coefficient thresholds; Conclusions report flood-frequency curve responses.",
+        "identifier_or_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/wrcr.20553",
+        "material_read": "Accessible full HTML, abstract, Section 2.1 model methodology, sensitivity analysis, Section 5 conclusions",
+        "method": "Primary article full-HTML scientific comparison",
+        "title": "Quantifying effects of catchments storage thresholds on step changes in the flood frequency curve",
+        "trigger": "Explicit storage threshold and temporal variability could cover timing effect"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e537d5c1-eb7c-4ce9-9dc9-eb76d0b13044",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a complete exact schedule-selection rule over all placements of two equal storms in a repeated cycle, reveals precisely when a one-storm overflow changes to two-storm overflow, and provides a sharp, parameter-dependent no-runoff regime. For the same total rainfall and storage parameters, clustered storms yield 9/64 capacity units of runoff while less clustered schedules yield none. This nontrivial qualitative boundary is directly meaningful as a benchmark for nonlinear saturation-excess water-balance processes; no unrealistic claim about field flood peaks is made.",
+    "status": "PASS"
+  }
+}
