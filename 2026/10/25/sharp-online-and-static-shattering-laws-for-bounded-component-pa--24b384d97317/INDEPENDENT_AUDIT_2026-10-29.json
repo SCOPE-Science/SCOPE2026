@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T09:17:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All-true labeling forces an acyclic query digraph with weak components of size <=b. A redundant directed arc cannot be independently false when an alternate directed path is true. Conversely, the transitive closure of the positive query arcs realizes any assignment because any falsely queried arc would need precisely such an alternate path. A transitively reduced DAG has triangle-free underlying graph, so Mantel and the discrete convex increments of floor(t^2/4) establish the max for components <=b; bipartite orientations attain it. An always-false-until-seen online learner makes at most the number of true ordered pairs, bounded by sum binom(component_size,2). Actual depth-three and depth-six certificate JSONs were independently traversed: n=3 has seven valid internal nodes and eight distinct valid poset leaves; n=4 has 63 and 64, all paths consistent and transitively closed. Blockwise concatenation attains the upper bound for b<=4. Independent Boolean-relation enumeration counted 19 and 219 orders on 3 and 4 vertices and VC=2,4. The finite certificates establish only local bases; the unrestricted formulas require the preceding arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic Littlestone theory gives relationships and bounds but no exact b-dependent enumeration.",
+          "The poset-compatibility result does not bound online ordered-pair query trees."
+        ],
+        "reasoning": "No inspected theorem includes the required component cap and explicit local depth 3/6 obstructions. Generality of a theory does not imply the asserted exact values without a specific consequence.",
+        "searches": [
+          "arxiv:2108.05569 Littlestone stability",
+          "arxiv:2310.04812 online query learning compression",
+          "arxiv:2412.06402 whole-order compatibility"
+        ]
+      },
+      "checked_sources": [
+        "VC-dimensions between partially ordered sets and totally ordered sets — https://arxiv.org/abs/2412.06402 (material: Primary PDF definitions, introduction and Theorem 1.3 with its sample universe)",
+        "Agnostic Online Learning and Excellent Sets — https://arxiv.org/abs/2108.05569 (material: Accessible abstract/main-result overview and comparison with small-component order relations)",
+        "Applications of Littlestone dimension to query learning and to compression — https://arxiv.org/abs/2310.04812 (material: Accessible paper abstract and introduction/main statements)",
+        "Resultary semantic search: Littlestone dimension VC dimension partial orders bounded comparability components shattering transitive reduction exact (Resultary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.3 on whole-order compatibility can share numbers without yielding transitive-reduction shattering criterion on ordered edges."
+        ],
+        "reasoning": "The present claim includes two distinct ranks and first adaptive gap, not deducible from the prior identified mathematical statements.",
+        "searches": [
+          "arxiv:2412.06402 Theorem 1.3",
+          "arxiv:2108.05569 introductory theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Query shattering equivalent to a DAG with no alternate-path arc, i.e. its transitive reduction.",
+          "Duan–Ouyang–Wang sample points are whole orders, not ordered element pairs."
+        ],
+        "reasoning": "Same floor(n²/4) number for unrestricted VC does not establish equivalence: the query domains, concepts and adaptive tree dimensions differ.",
+        "searches": [
+          "Littlestone dimension VC dimension partial orders bounded comparability components shattering transitive reduction exact Resultary",
+          "arxiv:2412.06402"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct independent ordered-pair enumeration: 19 three-vertex and 219 four-vertex posets.",
+          "Actual depth3/6 certificate files independently validated for all 8/64 leaves."
+        ],
+        "reasoning": "Enumeration of finite posets or a VC table alone does not imply the uniform all-n concatenated online dimensions; no covering tabulation found.",
+        "searches": [
+          "Resultary exact poset Littlestone ranks component size 3 4",
+          "arxiv:2412.06402 floor n^2/4"
+        ]
+      },
+      "rationale": "Best-of-knowledge original relative to the materially inspected exact claims and implications; source-access and alternative-formulation limitations are not concealed. Exact transitive-reduction criterion plus VCdim for arbitrary b, alongside matching Littlestone dimensions through b=4, identifies the smallest comparability-component bound where adaptive query complexity exceeds static complexity. Unbounded gap alr",
+      "residual_risks": [
+        "Potential older poset learning papers may formulate the same ordered-edge class under transitive concept class terminology.",
+        "Exact online claim is deliberately restricted to caps b<=4; no extrapolation beyond it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_CONCEPT_DOMAIN",
+          "evidence": [
+            "Studies compatible pairs of whole posets/total orders; not the indicator of one ordered pair in a bounded-component strict order, and no corresponding online dimension theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.06402",
+          "material_read": "Primary PDF definitions, introduction and Theorem 1.3 with its sample universe",
+          "method": "PDF text and first-page visual inspection",
+          "title": "VC-dimensions between partially ordered sets and totally ordered sets",
+          "trigger": "Numerically similar floor(n^2/4) exact result"
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND",
+          "evidence": [
+            "Provides theory of stability and online ranks, not exact limited-comparability-component formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.05569",
+          "material_read": "Accessible abstract/main-result overview and comparison with small-component order relations",
+          "method": "Primary overview reading",
+          "title": "Agnostic Online Learning and Excellent Sets",
+          "trigger": "General Littlestone dimension theory"
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND",
+          "evidence": [
+            "Applies to general concept classes; does not identify this special poset class dimensions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.04812",
+          "material_read": "Accessible paper abstract and introduction/main statements",
+          "method": "Primary abstract/intro reading",
+          "title": "Applications of Littlestone dimension to query learning and to compression",
+          "trigger": "Broad online-learning/compression implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact transitive-reduction criterion plus VCdim for arbitrary b, alongside matching Littlestone dimensions through b=4, identifies the smallest comparability-component bound where adaptive query complexity exceeds static complexity. Unbounded gap already with three-point components gives a natural locality-vs-online-learning phenomenon, substantially beyond a small poset table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Potential older poset learning papers may formulate the same ordered-edge class under transitive concept class terminology.",
+    "Exact online claim is deliberately restricted to caps b<=4; no extrapolation beyond it.",
+    "Scientific PASS is not an independent historical priority certification or permission to publish; all tool reads and calculations were bounded; any inaccessible highly relevant full texts remain explicit risks."
+  ],
+  "schema_version": 1
+}

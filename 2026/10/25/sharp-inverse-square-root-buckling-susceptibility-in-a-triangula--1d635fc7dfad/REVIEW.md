@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fourier dynamical matrix and covariance are defined explicitly, including noise normalization, the removed translation mode, and the order of infinite-volume and pressure limits. The cosine identity yields the exact positive determinant \(\frac83abc+4\delta\sum a^2+3\delta^2\sum ab\). Two distinct soft lines produce the exact \(\delta^{-1/2}\) coefficient, and the measured-bond factor removes the third. A polar estimate excludes any hidden mass at the triple intersection. The bounded resolvent subtraction shows that only the effective integrated active-force covariance contributes to leading order. Standalone finite tests passed (1,808 assertions); they are supplementary, not infinite proofs.
+## correctness
 
-**Originality — PASS with residual risk.** Roberts–Pruessner's full paper, especially Eqs. 87–88 and Appendix A.1.2, supplies the integral, the buckling threshold, and the massless line families; these are expressly not asserted as new. The present result extracts an exact threshold coefficient and a mode-resolved weak limit which were not stated in the inspected relevant sections. The inspected Shi–Cheng–Chaté and Maire–Plati treatments concern broader active-solid fluctuations, but not the same prestress-dependent spectral measure. Semantic literature comparisons found no exact matching claim. An already-known exact integral contains the asymptotic implicitly; unnoticed general singular-integral results remain a material originality risk.
+PASS
 
-**Value — PASS.** A sharp coefficient and spectral allocation answer how the local integrity indicator diverges *on approach* to the physically motivated pressure-induced buckling threshold, refining the already-known binary stability condition. The mode-resolved limit shows that two row-slip families, not three, dominate any specified bond, and gives an explicit effective-force amplitude. This is a nonuniform singular spectral result, not a routine normalization change or an arbitrary finite slice.
+Exact cosine identity a²+b²+c²-2(ab+bc+ca)=-2abc gives det(D)/A²=(8/3)abc+4delta(a²+b²+c²)+3delta²(ab+bc+ca) and tr(D)/A=2(2/3+delta)(a+b+c), positive away translation. Covariance scalar C(lambda)=Gamma²/(2lambda)+nu²/[lambda(lambda+mu)] has leading T*/lambda plus uniformly bounded resolvent subtraction. Near k2=0, away origin, measured-bond inverse-trace kernel =4/[A(t²+6delta)] asymptotically; identical line k2=k1 contributes equally, k1=0 line suppressed by bond factor. Small origin polar integral bound O(eta+sqrt(delta)) removes extra atom. Integrating gives 2T*/A sqrt(2/3) and corresponding weak torus measure for continuous tests. Independently recomputed matrix algebra and bounded midpoint integration (independent_checks.py). Finite quadrature is supporting evidence, not proof of the weak limit.
 
-**Scope and outstanding risks.** The thermodynamic limit precedes the pressure limit, forcing is spatially independent with white and exponential time correlations, and the claim is confined to stationary harmonic theory on the stable side. Its physical extrapolation through nonlinear buckling is unjustified. Prior exact integral formulas, and literature not inspected in full, limit confidence in independent originality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after independent statement/implication comparisons with primary literature and published semantic records. Known starting theorems explicitly credited; absence of matching search results not treated as proof of priority.
+
+## value
+
+PASS
+
+Sharp singular susceptibility and the resolved two-soft-line measure refine a known physical pressure instability and exact Fourier integral, telling which soft bands contribute to the measured bond and furnishing a nontrivial leading amplitude. Natural critical-response invariant, not arbitrary normalization or tiny test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

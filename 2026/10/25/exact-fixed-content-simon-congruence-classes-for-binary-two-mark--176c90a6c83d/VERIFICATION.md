@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification procedures and limits
+# Independent mathematical audit
 
-The mathematical proof is in `RESULT.md`. The executable `checker.py` requires only Python 3 and can be run as `python checker.py` in the directory containing it. It independently constructs scattered-subsequence sets by a left-to-right finite-state expansion, rather than evaluating the five-coordinate signature to construct those sets.
+## correctness
 
-A successful run reports `PASS: 10374 independently constructed spectra, 126 exact count comparisons, saturation tests, and depth-two boundary cases.` The deterministic checks compare each direct spectrum to its proposed signature for \(3\le k\le9\) and \(0\le m\le3(k-2)+5\), verify exact class counts, test sharp stabilization and selected long zero counts, and check the depth-two edge case. Separately, 500 random pairs were compared directly against the signature at depths up to 20 and at most 99 zeros; this extra stress test is not required to run the standalone checker.
+PASS
 
-Finite tests do not prove assertions for all lengths. The proof's exhaustion of the zero-, one-, and two-marker cases and its bounded-integer counting provide the all-length argument. There is no independently authored mathematical audit and no formal proof certificate. Historical novelty remains subject to independent literature assessment.
+Every two-one subsequence recovers the three clipped zero gaps at q=k-2; one-one subsequences of maximal length recover two sum flags. Exhausting zero-, one- and two-one patterns establishes signature sufficiency at fixed m. Inclusion-exclusion counts realizable clipped triples and three exceptional signatures split by flags, giving +3 and +1 corrections and sharp saturation 3q^2+3q+5 at m>=3q (q>=2), m>=4 for q=1. Independent direct scattered-subsequence spectra and formula verified over 70 (k,m) cases; infinite proof uses formal pattern exhaustion and counting.
+
+## originality
+
+PASS
+
+Old Simon-index theorems and normal-form/equality algorithms concern unrestricted words or general necessary gap constraints, not this complete fixed-zero two-marker signature/census. Present claim is a natural exact restricted-class theorem.
+
+## value
+
+PASS
+
+Complete exact quotient-size law for a mathematically natural fixed-Parikh slice of a central piecewise-testable language equivalence; a five-coordinate complete invariant and sharp saturation replace long subsequence spectra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

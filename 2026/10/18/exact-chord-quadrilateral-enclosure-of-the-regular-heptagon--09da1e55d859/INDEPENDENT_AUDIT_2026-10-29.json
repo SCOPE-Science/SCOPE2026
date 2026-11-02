@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T13:13:16.838715Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md exact proof and normalize boundaries",
+        "certify_heptagon.py matching Git blob and executed exact fraction certificate",
+        "VERIFICATION.md scope/boundaries",
+        "independent high-precision half-plane intersection checker /mnt/data/heptagon_independent_geometry.py"
+      ],
+      "rationale": "A chord between the jth and kth heptagon vertices has normal angle pi(j+k)/7 modulo pi, yielding exactly 14 signed normal rays; support is 1 at even indices and c=cos(pi/7) at odd ones. Moving any enclosing side inward until support cannot increase area. A bounded four-normal intersection requires all four cyclic gaps to be 1..6, giving exactly 511 subsets. For an active four-line polygon, the edge-length identity A=sum_[adjacent i,j](h_i h_j-(h_i²+h_j²) cos(delta_ij)/2)/sin(delta_ij) follows from intersections and 2A=sum h_i*edge_length_i. Redundant lines produce enclosing triangles with area >=3 sqrt(3)c²>4.05, while winners have area <3.5. The actual bundled exact-rational certificate was reconstituted byte-for-byte from inspected source (Git blob 559efa2bd82951909169b86a6d9ca25a530183b0) and executed successfully: interval Machin pi bounds, Taylor remainder enclosures, 511 exhaustive four-normal values, exactly seven all-odd gap-(2,4,4,4) winning sets, all other 504 formal values > winner+1/40, and 1.2588<ratio<1.2589. Independent 70-digit direct half-plane intersection/shoelace enumeration separately found 511 bounded patterns, seven active winners, seven redundant triangles, normalized winner ratio 1.2588037735470042164 and minimum actual alternative margin 0.02594731998604824>0.025. Winners circumscribe the heptagon inball of radius c with angle gaps 2pi/7,4pi/7,4pi/7,4pi/7; tangential polygon area gives c²(tan(pi/7)+3tan(2pi/7)). The normal-gap configurations form exactly one orbit of seven under dihedral symmetry; affine maps preserve inclusion/parallelism and area ratio. The high-precision numerical experiment alone is not an exact proof; the independent reading of the rational bounds and the original exact certificate establish the finite inequalities.",
+      "residual_risks": [
+        "The discrete 1/40 area gap is only among support-saturated finite directions; there is no continuous perturbation stability theorem.",
+        "Reliance on standard circumscribed triangle inequality and elementary support-line area identity, verified analytically not formally in Lean."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "V. Vígh, A note on Kuperberg’s quadrilateral conjecture, arXiv:2610.08168v1 (2026), Definition 2.1, Section 2 numerical experiments, Theorem 4.1, Section 5; https://arxiv.org/html/2610.08168v1",
+          "E. Hong, D. Ismailescu, A. Kwak, G. Y. Park, On the smallest area (n-1)-gon containing a convex n-gon, arXiv:2108.00326v1 (2021), Lemma 2.1, regular heptagon Figure 1(c), Theorems 3.1 and 4.1, Section 5; https://arxiv.org/pdf/2108.00326",
+          "F. Fodor and F. Grundbacher, On the minimal area of quadrangles circumscribed about planar convex bodies, arXiv:2506.05185v1 (2025), Theorem 1.1 and Sections 2–5; https://arxiv.org/html/2506.05185v1",
+          "Vígh Theorem 4.1 supplies q_ch(P)≤sqrt(2)|P| for all polygons and its Section 2 reports numerical 1.2588 for affine-regular heptagons; Fodor–Grundbacher Theorem 1.1 supplies a weaker uniform unrestricted quadrangle bound; Hong et al. Theorem 3.1 treats pentagons."
+        ],
+        "reasoning": "The universal bounds and the general algorithmic finite-direction reduction do not imply the precise minimum and equality cases for P7. Hong et al. regular-heptagon Figure 1(c) concerns a six-sided enclosing hexagon rather than a chord quadrilateral. Search results did not show a stronger exact heptagon theorem; this is a bounded search conclusion, not a guarantee of novelty.",
+        "searches": [
+          "Vígh A note on Kuperberg quadrilateral conjecture heptagon 1.2588 2026",
+          "Hong Ismailescu Kwak Park smallest area n-1 gon regular heptagon quadrilateral",
+          "Fodor Grundbacher minimal area quadrangles circumscribed convex bodies 2025",
+          "Resultary semantic: exact chord quadrilateral regular nonagon heptagon polygon support directions"
+        ]
+      },
+      "checked_sources": [
+        "V. Vígh, A note on Kuperberg’s quadrilateral conjecture, arXiv:2610.08168v1 (2026), Definition 2.1, Section 2 numerical experiments, Theorem 4.1, Section 5; https://arxiv.org/html/2610.08168v1",
+        "E. Hong, D. Ismailescu, A. Kwak, G. Y. Park, On the smallest area (n-1)-gon containing a convex n-gon, arXiv:2108.00326v1 (2021), Lemma 2.1, regular heptagon Figure 1(c), Theorems 3.1 and 4.1, Section 5; https://arxiv.org/pdf/2108.00326",
+        "F. Fodor and F. Grundbacher, On the minimal area of quadrangles circumscribed about planar convex bodies, arXiv:2506.05185v1 (2025), Theorem 1.1 and Sections 2–5; https://arxiv.org/html/2506.05185v1",
+        "Resultary published exact minimum-area enclosing parallelograms for regular polygons (2026), 2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad/RESULT.md; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad",
+        "Resultary semantic queries of regular heptagon chord quadrilateral and near aliases (three actual searches; nearby other-polygon records but no matching heptagon exact record).",
+        "Targeted web searches for exact 1.258803773547 and four supporting edge lines did not locate an independent exact heptagon proof."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "V. Vígh, A note on Kuperberg’s quadrilateral conjecture, arXiv:2610.08168v1 (2026), Definition 2.1, Section 2 numerical experiments, Theorem 4.1, Section 5; https://arxiv.org/html/2610.08168v1",
+          "E. Hong, D. Ismailescu, A. Kwak, G. Y. Park, On the smallest area (n-1)-gon containing a convex n-gon, arXiv:2108.00326v1 (2021), Lemma 2.1, regular heptagon Figure 1(c), Theorems 3.1 and 4.1, Section 5; https://arxiv.org/pdf/2108.00326",
+          "F. Fodor and F. Grundbacher, On the minimal area of quadrangles circumscribed about planar convex bodies, arXiv:2506.05185v1 (2025), Theorem 1.1 and Sections 2–5; https://arxiv.org/html/2506.05185v1",
+          "Resultary published exact minimum-area enclosing parallelograms for regular polygons (2026), 2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad/RESULT.md; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad",
+          "Vígh Definition 2.1 specifies finite candidate directions, not a formal minimizer classification; the 2026 numerical experiment reports 1.2588 for n=7. In Hong et al. 2021, (n-1)-gons have six sides at n=7."
+        ],
+        "reasoning": "Finite computability of a minimum from an existing general definition is not itself a proof of this exact sharp identity or gap. The present result reduces the normal combinatorics analytically and supplies certified exact inequalities. None of the inspected quantitative bounds or unrelated regular-polygon parallelogram formulas subsumes it; its novelty resides in the exact proof, equality-orbit classification and separation, not in discovering the approximate 1.2588 value.",
+        "searches": [
+          "Vígh A note on Kuperberg quadrilateral conjecture heptagon 1.2588 2026",
+          "Hong Ismailescu Kwak Park smallest area n-1 gon regular heptagon quadrilateral",
+          "Fodor Grundbacher minimal area quadrangles circumscribed convex bodies 2025",
+          "Resultary semantic: minimum area enclosing quadrilateral regular heptagon chord parallel vertex segments exact 1.258803 tangent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "V. Vígh, A note on Kuperberg’s quadrilateral conjecture, arXiv:2610.08168v1 (2026), Definition 2.1, Section 2 numerical experiments, Theorem 4.1, Section 5; https://arxiv.org/html/2610.08168v1",
+          "Resultary published exact minimum-area enclosing parallelograms for regular polygons (2026), 2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad/RESULT.md; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad",
+          "Every heptagon chord segment has one of seven unoriented directions, equivalent to fourteen signed outward normal rays with alternating supports 1 and cos(pi/7). The heptagon result is affine-invariant; Resultary parallelogram M(P7)=4cos^3(pi/14), a different restriction."
+        ],
+        "reasoning": "Compared the affine-regular variant, support-function/tangent-line formulation, finite fourteen-normal optimization, and minimum enclosing parallelogram terminology. The published parallelogram theorem restricts opposite sides to parallel pairs; it does not optimize over the four nonparallel normals of the winning chord quadrilaterals. No equivalent heptagon exact optimizer theorem was found.",
+        "searches": [
+          "Resultary semantic: minimum area enclosing quadrilateral regular heptagon chord parallel vertex segments exact 1.258803 tangent",
+          "Resultary semantic: circumscribed chord quadrilateral regular 7-gon exact optimizer equality cases",
+          "regular heptagon chord quadrilateral exact",
+          "minimum area quadrilateral enclosing regular heptagon exact tangent four supporting edges",
+          "Resultary published exact minimum-area enclosing parallelograms for regular polygons (2026), 2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad/RESULT.md; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "V. Vígh, A note on Kuperberg’s quadrilateral conjecture, arXiv:2610.08168v1 (2026), Definition 2.1, Section 2 numerical experiments, Theorem 4.1, Section 5; https://arxiv.org/html/2610.08168v1",
+          "Resultary published exact minimum-area enclosing parallelograms for regular polygons (2026), 2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad/RESULT.md; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad",
+          "Vígh Section 2 quotes approximate 1.2588 for the regular heptagon, not the exact expression c²(tan(pi/7)+3tan(2pi/7)), seven equality sets, or strict >1/40 discrete gap. Search found exact-enclosure records for other polygon families but no matching heptagon exact table."
+        ],
+        "reasoning": "The known numerical table anticipates the magnitude and target polygon, but numerical output alone is not the sharp algebraic formula with an exhaustive strict separation certificate; no exact published table with seven optimizers was identified.",
+        "searches": [
+          "1.258803773547 heptagon quadrilateral",
+          "minimum area quadrilateral enclosing regular heptagon exact tangent four supporting edges",
+          "Resultary semantic: minimum area enclosing quadrilateral regular heptagon chord parallel vertex segments exact 1.258803 tangent",
+          "Resultary semantic: circumscribed chord quadrilateral regular 7-gon exact optimizer equality cases"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact sharp value, seven equality quadrilaterals and strict 1/40 combinatorial gap. The identical model is introduced in Vígh (2026), which already provides the approximate heptagon ratio 1.2588, but his full article does not give the exact formula or equality/certificate theorem. The primary Hong et al. and Fodor–Grundbacher results and the published exact parallelogram record do not logically imply it. Classical unindexed geometry literature remains a real priority risk.",
+      "residual_risks": [
+        "A classical circumscribed regular-heptagon formula or an uncatalogued exact optimizer table under different terminology could predate this package.",
+        "Vígh (2026) already identifies the same numerical optimum ~1.2588; discovery of the target value is not novel. Priority is limited to the exact certified equality classification and discrete gap.",
+        "General finite-candidate enumeration in Vígh makes n=7 decidable, so the exact evaluation is a focused specialized computation rather than a new universal theory.",
+        "No claim extends to arbitrary heptagons, unrestricted quadrilateral minimization, or the chord conjecture for all polygons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the same problem definition and an approximate heptagon ratio; no exact certified n=7 value or seven optimizer classification is stated in inspected full text.",
+          "evidence": [
+            "V. Vígh, A note on Kuperberg’s quadrilateral conjecture, arXiv:2610.08168v1 (2026), Definition 2.1, Section 2 numerical experiments, Theorem 4.1, Section 5; https://arxiv.org/html/2610.08168v1",
+            "Section 2: affine-regular heptagon q_ch(P)/|P|=1.2588... in numerical experiments; Theorem 4.1: q_ch(P)≤sqrt(2)|P|."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.08168v1",
+          "material_read": "Entire accessible arXiv HTML text: introduction; Definition 2.1 and numerical experiments in Section 2; Sections 3–5 including Theorem 4.1 and concluding remarks.",
+          "method": "Direct primary full-text HTML inspection, comparing Definition 2.1, numeric n=7 entry, universal inequality and conclusions with final exact theorem.",
+          "title": "A note on Kuperberg’s quadrilateral conjecture",
+          "trigger": "Defines precisely the same chord-constrained quadrilateral functional and reports regular-heptagon numerical ratio."
+        },
+        {
+          "assessment": "Regular-heptagon calculation constructs an enclosing six-gon (area ratio 1.1725...), and sharp four-sided result applies to pentagons. Does not supply a four-sided chord-heptagon classification.",
+          "evidence": [
+            "E. Hong, D. Ismailescu, A. Kwak, G. Y. Park, On the smallest area (n-1)-gon containing a convex n-gon, arXiv:2108.00326v1 (2021), Lemma 2.1, regular heptagon Figure 1(c), Theorems 3.1 and 4.1, Section 5; https://arxiv.org/pdf/2108.00326",
+            "Page 4 Figure 1(c) and adjoining formula: regular heptagon enclosed by a six-gon with ratio 1+tan(2pi/7)sec(pi/7)/7."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.00326",
+          "material_read": "Primary PDF 14 pages: introduction and problem definitions, Lemma 2.1, Figure 1(c) regular-heptagon circumscribed hexagon, Theorems 3.1 and 4.1 and conclusions; page 4 visually inspected.",
+          "method": "Direct PDF text throughout with rendered page screenshot, comparing n-1 enclosure side counts, restriction of directions and theorem scope.",
+          "title": "On the smallest area (n-1)-gon containing a convex n-gon",
+          "trigger": "The exact pentagon circumscribed-quadrilateral theorem and a regular-heptagon example could plausibly imply a stronger comparison."
+        },
+        {
+          "assessment": "Universal upper bound <(1-2.6e-7)sqrt(2) does not determine the much smaller exact heptagon chord minimum, optimizer orbit or discrete gap.",
+          "evidence": [
+            "F. Fodor and F. Grundbacher, On the minimal area of quadrangles circumscribed about planar convex bodies, arXiv:2506.05185v1 (2025), Theorem 1.1 and Sections 2–5; https://arxiv.org/html/2506.05185v1",
+            "Theorem 1.1 provides upper bound for every planar convex body, with no heptagon chord formula or equality classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2506.05185v1",
+          "material_read": "ArXiv primary HTML full document, particularly Theorem 1.1, Section 2, stability proof Sections 3–4, and Section 5 concluding remarks.",
+          "method": "Read primary article and compare universal unrestricted upper bound with exact constrained regular-heptagon minimization.",
+          "title": "On the minimal area of quadrangles circumscribed about planar convex bodies",
+          "trigger": "Potential general stronger quadrilateral bound covering the specific heptagon calculation."
+        },
+        {
+          "assessment": "Minimization over parallelograms requires two pairs of parallel sides; it does not optimize over nonparallel quadrilaterals with four distinct edge supports.",
+          "evidence": [
+            "Resultary published exact minimum-area enclosing parallelograms for regular polygons (2026), 2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad/RESULT.md; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad",
+            "For odd n the result is M(P_n)=4R² cos³(pi/(2n)), not the chord quadrilateral optimum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad",
+          "material_read": "Complete published RESULT.md theorem, assumptions, proof, verification, relationship to prior work, and limitations.",
+          "method": "Connected read of published primary mathematical record; compared optimization domains and n=7 formula.",
+          "title": "Exact minimum-area enclosing parallelograms for regular polygons",
+          "trigger": "Related published exact enclosure for the same regular polygon family, possible dominating specialization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "V. Vígh, A note on Kuperberg’s quadrilateral conjecture, arXiv:2610.08168v1 (2026), Definition 2.1, Section 2 numerical experiments, Theorem 4.1, Section 5; https://arxiv.org/html/2610.08168v1",
+        "E. Hong, D. Ismailescu, A. Kwak, G. Y. Park, On the smallest area (n-1)-gon containing a convex n-gon, arXiv:2108.00326v1 (2021), Lemma 2.1, regular heptagon Figure 1(c), Theorems 3.1 and 4.1, Section 5; https://arxiv.org/pdf/2108.00326",
+        "RESULT.md exact equation and minimizing support patterns"
+      ],
+      "rationale": "The exact chord-constrained quadrilateral area of a regular heptagon is a natural geometric invariant in the new chord conjecture, not an arbitrary subtable. For the first odd vertex count after the settled pentagon case, an exact value and complete optimizer orbit offer a rigorous benchmark for future extremal methods; the >1/40 discrete gap identifies a structural separation of competing permitted tangent configurations. The numeric value was already known approximately, so mathematical value rests on exact proof, equality and rigor, not the decimal itself or a claimed general polygon theorem.",
+      "residual_risks": [
+        "This is one fixed regular-polygon family plus affine images, not a broad stability or global conjecture result.",
+        "The lower-bound certificate depends on complete case accounting; independent numerical geometry confirms enumeration but is not a second formal exact proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the chord-constrained area for regular heptagon and its affine images; no general arbitrary-polygon theorem.",
+    "The strict 1/40 separation is finite-pattern-only; lines slightly moved outward may have arbitrarily small area difference.",
+    "Originality is qualified: Vigh already reports the 1.2588 numerical value and older exact tables may exist unindexed.",
+    "Public metadata was sanitized in two guarded complete-file operations before staging; this ready plan is not a publication."
+  ],
+  "schema_version": 1
+}

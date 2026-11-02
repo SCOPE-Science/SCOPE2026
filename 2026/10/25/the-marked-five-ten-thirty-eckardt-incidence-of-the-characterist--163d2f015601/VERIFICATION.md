@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproducibility
+# Independent mathematical audit
 
-Run `python CHECKER.py` using Python 3.9 or newer. The standard-library checker enumerates all finite-field projective points and contained lines over the field of four elements, computes the complete coordinate-permutation orbits and their incidence counts, and checks the crown graph. Its expected output is four PASS statements.
+## correctness
 
-## Mathematical limits
+PASS
 
-The checker exhausts the *finite* field geometry. The assertion that these enumerated lines and points exhaust the algebraic closure follows separately from the smooth cubic surface's twenty-seven-line theorem and the tritangent-plane bound. Published Hermitian facts imply all finite-field points are Eckardt, which is also checked here by their three contained lines. No independent audit, external proof certification, or relative scheme computation was performed.
+F4 field represented explicitly by F2[w]/(w²+w+1). Independent enumeration of all 85 projective P3(F4) points gives 45 cubic points and all 27 contained lines; S5 orbit sizes are exactly (5,10,30) and (15,12). Every L15 line contains (1,2,2), each L12 contains (0,0,5), and the 12-line intersection graph is the 6+6 crown. Hermitian smoothness follows A=J4+I4, A²=I4, so classical 27-line theorem ensures geometric exhaustiveness; point tritangent bound gives at most 45 Eckardt points. W(3,2) rational line condition is B(u,v)=0, verifying ovoid attachment. Domain is reduced points/lines of marked smooth special fiber over algebraic closure F2, not relative schemes.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality limited to the narrow final claim: Dolgachev–Duncan implies global numbers and double-six, but without a marked S5 orbit incidence argument does not directly imply the table.
+
+## value
+
+PASS
+
+The five-coordinate marking on a classical exceptional cubic is natural; orbit-by-orbit Eckardt/line incidence, rationality split and generalized-quadrangle ovoid attachment produce a complete finite-geometric invariant useful for comparison with marked cubic degenerations. This is finer than recomputing 45/27.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `verify_unbordered.py` reconstructs actual sets of scattered subsequences of every host word up to the stated finite bounds, using exact rational iid weights in six alphabets/probability profiles. It checks 30,260 host words, then compares exact expected counts against geometric waiting-time coefficients and the weighted shortest-border recurrence computed separately. It also independently enumerates short unbordered pattern strings, and compares the fair-binary limiting unbordered density with the established published value.
+## correctness
 
-Expected program terminal line:
+PASS
 
-`VERIFY_OK exact_source_words=30260 rational_sources=6 full_weighted_pattern_check=TRUE fair_binary_unbordered_limit=0.2677868402178891 fair_ternary_limit=0.556979839764`
+Greedy matching of a fixed scattered pattern in iid host yields independent geometric waits with GF product g_a(z), giving both exact expectation GFs by summing each distinct string once. Unique shortest unbordered border b shows w=bvb with 2|b|<=|w|; weighted series therefore (1-S)U=S-U(x²). The positive density theta(v) follows the finite-border probability limit plus a two-symbol first/last block lower bound. Analytic continuation of U(g(z)²) beyond unique positive r, and strict triangle inequality for S(z) on |z|=r, yield a unique simple dominant pole and exponentially smaller remainders. Independent brute-force host enumeration agrees with independently computed pattern-greedy expectation for binary and ternary cases; finite tests do not establish singularity claims.
 
-The finite checks do not certify the infinite analytic assertions, positivity, or literature originality; these are treated in the mathematical proof and review. External independent auditing has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality limited to the narrow final claim: Biers-Ariel’s unrestricted GF lacks the U(x²) border correction and thus does not imply the theta(v) ratio; Holub–Shallit whole-word density lacks the random-host distinct subsequence transform.
+
+## value
+
+PASS
+
+Unbordered pattern restrictions arise naturally in string algorithms and pattern avoidance, distinct scattered-subsequence complexity has independent interest, and the square-root probability tilt is a non-obvious asymptotic constant for biased hosts; exact expectation and limiting density can be directly reused in probabilistic combinatorics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

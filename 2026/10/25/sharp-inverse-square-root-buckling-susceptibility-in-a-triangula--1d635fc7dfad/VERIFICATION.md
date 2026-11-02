@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The analytical proof is in `RESULT.md` and comprises an exact two-by-two determinant identity, the stationary colored-noise covariance, and a singular integral argument controlling all three soft lines and their common crossing. `verify.py` uses only Python 3's standard library and runs 1,808 finite regression assertions. It independently constructs the dynamical matrix, compares its determinant and inverse trace to the compact identities, and checks midpoint quadrature against the predicted limit and soft-line Fourier markers.
+## correctness
 
-Run `python3 verify.py` with the script in the same directory. The observed pressure-gap values for the purely thermal unit-strength case are approximately 1.547708309 at 0.001 and 1.604868226 at 0.0001 for the product of square-root gap and bond variance; the analytical limit is approximately 1.632993162.
+PASS
 
-Neither a finite grid nor successful assertions establish uniform asymptotics. The proof excludes zero pressure gap and nonlinear rearrangement at or after instability. No independent audit has been performed.
+Exact cosine identity a²+b²+c²-2(ab+bc+ca)=-2abc gives det(D)/A²=(8/3)abc+4delta(a²+b²+c²)+3delta²(ab+bc+ca) and tr(D)/A=2(2/3+delta)(a+b+c), positive away translation. Covariance scalar C(lambda)=Gamma²/(2lambda)+nu²/[lambda(lambda+mu)] has leading T*/lambda plus uniformly bounded resolvent subtraction. Near k2=0, away origin, measured-bond inverse-trace kernel =4/[A(t²+6delta)] asymptotically; identical line k2=k1 contributes equally, k1=0 line suppressed by bond factor. Small origin polar integral bound O(eta+sqrt(delta)) removes extra atom. Integrating gives 2T*/A sqrt(2/3) and corresponding weak torus measure for continuous tests. Independently recomputed matrix algebra and bounded midpoint integration (independent_checks.py). Finite quadrature is supporting evidence, not proof of the weak limit.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS after independent statement/implication comparisons with primary literature and published semantic records. Known starting theorems explicitly credited; absence of matching search results not treated as proof of priority.
+
+## value
+
+PASS
+
+Sharp singular susceptibility and the resolved two-soft-line measure refine a known physical pressure instability and exact Fourier integral, telling which soft bands contribute to the measured bond and furnishing a nontrivial leading amplitude. Natural critical-response invariant, not arbitrary normalization or tiny test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

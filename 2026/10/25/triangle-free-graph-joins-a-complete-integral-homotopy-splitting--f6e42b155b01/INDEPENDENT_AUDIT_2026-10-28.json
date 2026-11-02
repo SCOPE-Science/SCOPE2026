@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T14:17:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An admissible face in CF3 of a graph join may meet at most two factors; a face meeting two factors must be an independent set in each. Thus CF3 is the union of P=union_{i<j}(A_i*A_j) and disjoint full factor simplices Delta_i, with P intersect Delta_i=A_i. The inclusion A_i into every adjacent A_i*A_j is nullhomotopic via a vertex in the opposite factor. In the cofibrant incidence graph-of-spaces diagram there are no higher composable morphisms, so the homotopy colimit splits using constant incidence maps. Its incidence graph first Betti number is binom(r-1,2); each singleton contributes r-2 unreduced suspensions, and all pairwise join vertex spaces remain. Attaching each contractible Delta_i along its nullhomotopic A_i inclusion contributes one further suspension. This derives the integral wedge of binom(r-1,2) circles, (r-1) suspensions per factor and all A_i*A_j. Works for disconnected independence complexes, r=2 and trivial factors. New full GF(2) simplicial enumerations for cycle combinations (4,4), (5,5), (4,4,4), (5,5,5) matched the predicted degrees; the all-graph statement follows from the homotopy-colimit argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.2 is disjoint-union functoriality. Theorem 3.3 shellability of diamond-free chordal graphs does not classify nonchordal joins of arbitrary triangle-free factors."
+        ],
+        "reasoning": "Neither stronger statement implies the homotopy formula under the dense join operation.",
+        "searches": [
+          "Ghosh Selvaraja arxiv:2602.09623 Prop 3.2 Theorem 3.3",
+          "triangle-free graph joins clique-free triangle-free subset complexes homotopy splitting"
+        ]
+      },
+      "checked_sources": [
+        "Graph-join RESULT.md blob 6c10a1b9d241c55b5e2fa6f436e29cb4e3d5487d",
+        "Independent GF2 complete face+boundary checks for four cycle-join tuples",
+        "Ghosh–Selvaraja arxiv:2602.09623 Proposition 3.2, Theorem 3.3",
+        "Adamaszek arxiv:1106.6250 / Kozlov cycle recurrence",
+        "Resultary query triangle-free graph joins clique-free triangle-free subset complexes homotopy splitting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known cycle Ind(C_n) recurrence supplies A_i homotopy only; it does not impose universal CF3 graph-join topology. Standard homotopy-colimit techniques require the novel explicit face/diagram analysis."
+        ],
+        "reasoning": "The claimed graph join does not equal graph disjoint union, so the identified prior proposition cannot yield its formula by substitution.",
+        "searches": [
+          "Ghosh Selvaraja Proposition 3.2",
+          "Adamaszek arxiv:1106.6250",
+          "triangle-free graph joins clique-free triangle-free subset complexes homotopy splitting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "CF3(G) is alternatively the independence complex of the 3-clique hypergraph. Graph join is distinct from disjoint union, whose CF complex is the simplicial join in Ghosh–Selvaraja Proposition 3.2."
+        ],
+        "reasoning": "Searched hypergraph independence and clique-free vocabulary. No equivalent arbitrary-factor graph-join wedge formula appeared in inspected texts.",
+        "searches": [
+          "triangle-free graph joins clique-free triangle-free subset complexes homotopy splitting",
+          "three-clique-free complex triangle-avoidance graph join homotopy",
+          "Ghosh Selvaraja arxiv:2602.09623"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Special known matching-multipartite family is obtained by restricting factors to matching/isolated graphs; cycle independence complex counts are established by Kozlov/Adamaszek."
+        ],
+        "reasoning": "A special-case table cannot dominate arbitrary factor A_i inputs. No exact general table/formula was located.",
+        "searches": [
+          "triangle-free graph joins clique-free triangle-free subset complexes homotopy splitting",
+          "Resultary matched multipartite triangle-free clique avoidance",
+          "Adamaszek arxiv:1106.6250"
+        ]
+      },
+      "rationale": "Ghosh–Selvaraja arxiv:2602.09623 Proposition 3.2 concerns *disjoint unions* and gives a simplicial-join identity for clique-free complexes; Theorem 3.3 shellability applies to chordal families. Neither addresses *graph joins* with complete cross-factor adjacency. Kozlov/Adamaszek establish the independent complex of cycles, which is used and credited. An earlier multipartite matching construction is a specialization, not a theorem covering arbitrary triangle-free factors with nontrivial homotopy. Standard graph-of-spaces splitting technique is credited rather than claimed novel.",
+      "residual_risks": [
+        "An earlier unindexed homotopy-colimit graph-join specialization is possible.",
+        "Equivariance under factor permutations is not established.",
+        "No assertion for triangle-bearing factors, larger forbidden clique size or r<2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong related prior definitions and disjoint-union identity but no graph-join homotopy classification in inspected relevant sections",
+          "evidence": [
+            "Proposition 3.2 concerns CF_t(G1 disjoint-union G2), not graph join."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.09623",
+          "material_read": "accessible full primary HTML: definition, Proposition 3.2 on disjoint-union joins, Theorem 3.3 and adjacent shellability discussion",
+          "method": "opened arXiv HTML and located cited proposition and theorem",
+          "title": "Shellability in Clique-Free Complexes of Graphs",
+          "trigger": "same clique-free complex and potentially dominating graph-operation theorem"
+        },
+        {
+          "assessment": "Cycle independence-complex recurrence is prior and appears only as input for the specialized corollary",
+          "evidence": [
+            "Ind(C_3k) and Ind(C_3k+1), Ind(C_3k+2) sphere descriptions are established, not claimed novel."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1106.6250",
+          "material_read": "arXiv abstract/introduction and cited cycle-complex recurrence from source package; did not inspect every section",
+          "method": "arXiv bibliographic primary material and mathematical comparison",
+          "title": "Splittings of independence complexes and the powers of cycles",
+          "trigger": "known cycle factor topology and potential general splitting"
+        },
+        {
+          "assessment": "No exact graph-join CF3 homotopy identity in read summaries; no full-source noncoverage assertion",
+          "evidence": [
+            "Near hits concern cut/robust clique/Čech complexes, which are different simplicial complexes."
+          ],
+          "identifier_or_url": "Resultary query: triangle-free graph joins clique-free triangle-free subset complexes homotopy splitting",
+          "material_read": "ranked semantic titles and summaries of results about cut and robust clique complexes",
+          "method": "Resultary semantic index",
+          "title": "Resultary graph join clique-free searches",
+          "trigger": "possibly known universal class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact and general homotopy classification of a natural forbidden-triangle complex under an important graph operation converts arbitrary factor independence-complex topology into explicit integral suspensions and joins; it detects the universal degree-one wedge and infinite mixed-dimensional cycle families. It is an all-input structural theorem, not a table of small graphs or a reformulation of a known disjoint-union identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Graph-join RESULT.md blob 6c10a1b9d241c55b5e2fa6f436e29cb4e3d5487d",
+    "Independent GF2 complete face+boundary checks for four cycle-join tuples",
+    "Ghosh–Selvaraja arxiv:2602.09623 Proposition 3.2, Theorem 3.3",
+    "Adamaszek arxiv:1106.6250 / Kozlov cycle recurrence",
+    "Resultary query triangle-free graph joins clique-free triangle-free subset complexes homotopy splitting"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "r>=2, nonempty finite simple triangle-free pairwise vertex-disjoint factors, ordinary integral homotopy, unreduced suspension and simplicial join.",
+    "An earlier unindexed homotopy-colimit graph-join specialization is possible.",
+    "Equivariance under factor permutations is not established.",
+    "No assertion for triangle-bearing factors, larger forbidden clique size or r<2."
+  ],
+  "schema_version": 1
+}

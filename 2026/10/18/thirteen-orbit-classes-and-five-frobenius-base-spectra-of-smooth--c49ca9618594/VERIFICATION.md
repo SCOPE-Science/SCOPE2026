@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The coefficient encoding, finite total search domain, orbit group and derivation of the Frobenius closed-point counts are specified in `RESULT.md`. The executable programs and actual stdout records in this package are:
+## correctness
 
-- `verify_groebner.py` and `verification/verify_groebner.stdout.txt`: all four product charts, exact unit-ideal smoothness over the algebraic closure, complete 804-pencil census and 13 orbit classes, transversality of every base scheme, and full Frobenius partitions through field degrees one to eight. Requires Python 3 and SymPy.
-- `verify_f16.py` and `verification/verify_f16.stdout.txt`: independently implemented field arithmetic in \(\mathbf F_{16}\), a second 144-form smoothness classifier, 804 pencils, absence of all-smooth nets, and 13 orbits via row/column/permutation actions on the nine rational grid points. Requires Python 3 only.
+PASS
 
-The independent finite-extension test is exhaustive, not merely suggestive: on each chart a bidegree-\((2,2)\) equation has \(f_x\in\mathbf F_2[y]\) and \(f_y\in\mathbf F_2[x]\), both of degree at most two. If both are nonzero, any common root has coordinates in \(\mathbf F_4\). If one vanishes identically, solving the equation in the other coordinate yields a quadratic over \(\mathbf F_4\), whose roots lie in \(\mathbf F_{16}\). If both derivatives vanish identically, the equation is a square of a bilinear section, which has a zero already over \(\mathbf F_2\). Thus any geometric singularity is visible over \(\mathbf F_{16}\).
+The 9 monomials of O(2,2) over F2 give 511 distinct nonzero forms. On all projective product charts the partials are univariate degree <=2 in opposite variables; their common geometric roots have coordinates in F4 when both nonzero, or in F16 after solving a quadratic over F4 when one vanishes; the both-zero derivative case is a square and has a small-field zero. Thus the independent exhaustive F16 singular-point test certifies all geometric points, giving exactly 144 smooth forms. A complete XOR-closed-triple enumeration gives 804 two-dimensional pencils and testing every additional vector coset forbids all-smooth nets. The independent evaluation-basis isomorphism F2^9 -> functions on the 3x3 rational grid and full 72-element (S3xS3)rtimes C2 action produce 13 orbits (10*72+2*36+12). For all 13 orbit representatives, independently computed unit Groebner ideals (f,g,f_x g_y+f_y g_x) on four charts prove geometric transversality; by invariance this holds for all 804. Distinct smooth members have no component in common, so (2,2).(2,2)=8 yields exactly eight distinct geometric base points. Independent exact counts of zeros in F_(2^d) for d=1..8 for each representative, using proven fields and Mobius/divisor recovery N_d=sum_{e|d} e c_e, yield precisely cycle spectra (8):72,(2,3,3):12,(1,7):288,(1,2,5):216,(1,1,6):216. The computation is genuinely exhaustive for this finite problem; saved stdout alone was not used as proof.
 
-The Frobenius-cycle recovery does not assume that sampling a finite extension is sufficient to prove geometric reducedness. That point is established separately by four-chart Gröbner unit-ideal checks of \((f,g,f_xg_y+f_yg_x)\) and the intersection product \((2,2)\cdot(2,2)=8\). The field-extension samples then exhaust all possible closed-point degrees because the resulting scheme is reduced and has length eight.
+## originality
 
-Both verification programs were executed from their actual packaged paths and their stdout was preserved. No external specialist validation, independent audit or formal proof assistant certificate is claimed. Limited bibliographic coverage and exact small-field scope are specified in `RESULT.md`.
+PASS
+
+Qualified best-of-knowledge: the checked Asgarli–Ghioca hypotheses concern ambient Pn hypersurface pencils, not curves in the fixed O(2,2) linear system; the Hamada–Hayano genus-one (2,2) theorem concerns complex smooth-isomorphism classes, not F2 coordinate orbits and Frobenius strata. Independent primary comparisons and actual published mathematical-record searches reveal no stronger theorem implying this exact 804-pencil / 13-orbit / five-cycle exhaustive classification. Historical unindexed finite-geometry catalogues remain a real priority risk; lack of a search hit is not proof of novelty.
+
+## value
+
+PASS
+
+The line bundle O(2,2) is the smallest positive bidegree with arithmetic genus one on the split quadric; asking for all rational pencil members to be geometrically smooth is a natural finite-field Bertini/existence extremal question, not an arbitrary slice. The complete classification gives an exact maximal pencil dimension, 13 coordinate-stabilizer types and five arithmetic base Frobenius patterns; its irreducible degree-eight base orbit is a distinguished natural extremal configuration. These are exact incidence/arithmetic invariants of a canonical minimal genus-one system, not simply a known elliptic-curve isomorphism count or a tiny normalization check. Finite and self-contained classification is independently useful without a demanded infinite-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

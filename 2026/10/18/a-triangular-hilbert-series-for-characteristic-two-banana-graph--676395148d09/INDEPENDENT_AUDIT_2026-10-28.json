@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T17:14:12.712420Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md blob b49f93a322fb0f7e2071b8233209c184fc5816ea",
+        "Git verify_hilbert.py blob 5e73cf783c9eb9b282179ca81d8e352df9eab632",
+        "Independent file scope_worker10_banana_independent_check.py verified exact Hilbert/Groebner for n=4..7 and leading-monomial Buchberger chain for n=4..20"
+      ],
+      "rationale": "For k algebraically closed of characteristic two and all n>=4, the source constructs G_(s,i)=P_s e_(s-2)(variables among x0..x(s-1) except xi). Derivative sum relation, recursive identities and F=(xi+x_(n-1))G_(n,i)+G_(n-1,i) prove ideal equality. Explicit same-level/adjacent syzygies and Buchberger chain criterion prove leading monomials for all n. Then initial ideal M_n=V_(n-1)+x_(n-1)^2 M_(n-1), standard monomial splitting and h_4=(1+t)^3 establish the symmetric triangular numerator for every n. Zero-coordinate case split proves support; normal quadratic ab+ac+bc gives generic length 2. New independent SymPy Groebner/monomial-Hilbert checks at n=4..7 confirm basis count C(n,2), degree 2*C(n,3), and coefficients; exhaustive leading-monomial chain divisibility and strictly descending syzygy right sides are also checked at n=4..20. Finite checks corroborate but do not establish universal induction.",
+      "residual_risks": [
+        "Universal Buchberger chain step rests on the divisibility and decreasing-pair argument in RESULT.md rather than a formal proof assistant.",
+        "No claims on global primary decomposition or Cohen–Macaulayness are established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aluffi–Marcolli compute graph-hypersurface motives/CSM classes rather than Hilbert series of positive-characteristic Jacobian schemes.",
+          "Patterson relates multiplicity and rank loci but explicitly does not identify full scheme structures from those loci.",
+          "Denham–Schulze–Walther give equidimensionality/codimension and generic nonreduced structure for connected configuration hypersurfaces, not explicit graded Hilbert numerators.",
+          "Orzel studies arithmetic complexity and dimensions of elementary-symmetric derivative loci, not the global graded series."
+        ],
+        "reasoning": "The claimed formula refines support, codimension and generic multiplicity. None of these structural results is stated with enough graded/global control to determine the complete numerator.",
+        "searches": [
+          "Aluffi–Marcolli arXiv:0807.1690 Sections 1,3,4",
+          "Patterson arXiv:1004.5166 introductory rank/scheme discussion",
+          "Denham–Schulze–Walther Matroid connectivity and singularities of configuration hypersurfaces, 2021, main theorem and Section 4",
+          "Orzel arXiv:2509.05009, introduction and Sections 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 82212b033e1e571cb5263710a37527310143ed94, RESULT.md blob b49f93a322fb0f7e2071b8233209c184fc5816ea",
+        "arXiv:2610.00259",
+        "Denham–Schulze–Walther (2021), DOI:10.1007/s11005-021-01388-3",
+        "arXiv:0807.1690",
+        "arXiv:1004.5166",
+        "arXiv:2509.05009",
+        "Resultary searches as recorded in four comparison objects"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic length-two result and support count give degree 2*C(n,3) but not the symmetric triangular h-polynomial.",
+          "Characteristic-zero single-size computations have different coefficient field and no all-parameter inference.",
+          "Matroid connectedness controls codimension/equidimensionality, not the full graded structure."
+        ],
+        "reasoning": "No compared theorem computes the universal initial ideal or lower-degree Hilbert coefficients by a reduction that would make the new theorem an immediate corollary. The overlap is explicitly credited as generic thickness and top-cycle degree.",
+        "searches": [
+          "Xie arXiv:2610.00259 Thm1.4 Section7",
+          "Denham–Schulze–Walther 2021 configuration hypersurface singularities Sections 1,4,5",
+          "Aluffi–Marcolli arXiv:0807.1690",
+          "Patterson arXiv:1004.5166",
+          "Related characteristic-zero seven-edge banana Jacobian and reciprocal-quartic records, as cited in source audit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xie arXiv:2610.00259 specializes at degree n-1, characteristic 2 to generic local length two but does not give all graded components or a universal initial ideal.",
+          "No searched record supplied the same triangular rational Hilbert series."
+        ],
+        "reasoning": "A local generic ring determines multiplicity of the top component, but cannot determine Hilbert coefficients associated with intersections and possible embedded components; so generic local formulas do not imply the full rational series.",
+        "searches": [
+          "Resultary: Hilbert series Jacobian ideal elementary symmetric polynomial degree n minus one characteristic two banana graph singular scheme Groebner basis triangular h-vector",
+          "Resultary: Gröbner basis modular Jacobian ideal Kirchhoff polynomial banana graph characteristic two full Hilbert series",
+          "arXiv:2610.00259 Thm 1.4 Sections 4 and 7",
+          "Web: Jacobian scheme elementary symmetric e_(n-1) Hilbert series"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Top Resultary hits concerned distinct apolar Hilbert functions, Hessian schemes or other singular loci; none furnished this all-n formula."
+        ],
+        "reasoning": "An exact table for finitely many n would not alone imply an all-n closed formula. No directly equivalent data source appeared, but negative retrieval does not establish novelty.",
+        "searches": [
+          "Resultary: Characteristic two e_(n-1) partial derivatives singular scheme Hilbert numerator symmetric triangular binomial n choose 3",
+          "Resultary: Gröbner basis modular Jacobian ideal Kirchhoff polynomial banana graph characteristic two full Hilbert series",
+          "Web: banana graph Jacobian ideal Hilbert series characteristic two"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge priority for the all-n characteristic-two Groebner basis and full graded Hilbert numerator, not for generic scheme thickness. Direct same-object results compute generic local data, and broader graph-hypersurface geometry does not give lower Hilbert coefficients. No exact duplicate identified; non-exhaustive search risk remains.",
+      "residual_risks": [
+        "An exact modular symmetric-ideal Groebner basis or an equivalent numerator may exist in unexamined historical algebra sources.",
+        "Search retrieval is not exhaustive and could miss a dominating theorem.",
+        "Patterson primary PDF could not be inspected throughout; assessment is confined to the available text and cited theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: generic multiplicity two/top cycle are known; all-degree triangular Hilbert series not given",
+          "evidence": [
+            "Theorem 1.4 calculates generic local thickening; Section 7 discusses incomplete lower-dimensional/embedded information."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.00259",
+          "material_read": "Author preprint full HTML: introduction; Theorems 1.1–1.4; local-ring analysis in Section 4 and limitations in Section 7",
+          "method": "Specialize p=2 and d=n-1 and compare full graded Hilbert numerator with generic local and top-cycle conclusions",
+          "title": "Derivative and multiplicity loci of elementary symmetric polynomials in positive characteristic",
+          "trigger": "Same elementary symmetric derivative/singular schemes in characteristic two"
+        },
+        {
+          "assessment": "NOT_COVERING the precise graded numerator",
+          "evidence": [
+            "Geometric codimension and generic nonreducedness do not specify Hilbert series at all degrees."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11005-021-01388-3",
+          "material_read": "Full open-access journal HTML: introduction, main codimension/equidimensionality statements, Section 4 and examples in Section 5",
+          "method": "Compare their general geometric constraints with a characteristic-two full Hilbert-series identity",
+          "title": "Matroid connectivity and singularities of configuration hypersurfaces",
+          "trigger": "Potential general theorem on Jacobian schemes of graph/configuration hypersurfaces"
+        },
+        {
+          "assessment": "NOT_COVERING the characteristic-two Jacobian Hilbert series",
+          "evidence": [
+            "Motivic/characteristic classes of a hypersurface are not the globally graded coordinate ring of its singular scheme."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0807.1690",
+          "material_read": "Accessible full author-uploaded text: introduction and Sections 1, 3, 4 describing equations, motivic classes and characteristic classes",
+          "method": "Examined whether full Jacobian ring Hilbert series is calculated or implied by the geometric invariants",
+          "title": "Feynman motives of banana graphs",
+          "trigger": "Primary study of same family of graph hypersurfaces"
+        },
+        {
+          "assessment": "NOT_COVERING global graded Hilbert numerator on the material accessible",
+          "evidence": [
+            "The paper distinguishes set-theoretic degeneracy loci from scheme-theoretic identifications."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1004.5166",
+          "material_read": "Author-paper introduction and relevant rank/multiplicity theorem and discussion; complete publisher PDF was inaccessible; assessment bounded to accessible scholarly text",
+          "method": "Compared statements about multiplicity/rank with equality of nonreduced Jacobian schemes",
+          "title": "On the Singular Structure of Graph Hypersurfaces",
+          "trigger": "Possibly stronger result on singular loci and schemes"
+        },
+        {
+          "assessment": "NOT_COVERING the graded Jacobian Hilbert series",
+          "evidence": [
+            "Complexity and dimension estimates do not imply full numerators."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.05009",
+          "material_read": "Full arXiv HTML introduction and first two technical sections",
+          "method": "Compared arithmetic computational complexity/dimension claims with full Hilbert-series formula",
+          "title": "Computing Elementary Symmetric Polynomials in Positive Characteristics",
+          "trigger": "Broad elementary-symmetric derivative locus theory in finite characteristic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md full proof, particularly initial ideal recursion",
+        "Xie arXiv:2610.00259, generic thickness results and open lower strata"
+      ],
+      "rationale": "The banana graph hypersurface is a canonical natural graph-polynomial family; its characteristic-two Jacobian ring is nonreduced at generic singular components. This theorem obtains all Hilbert coefficients with a structurally symmetric triangular numerator and universal Groebner basis, substantially finer than already-known support, generic thickness and total degree. Exact graded data are independently useful for modular singular-scheme comparison and intersection defects; not a parameter renaming or arbitrary small-instance exercise.",
+      "residual_risks": [
+        "Broader geometric implications such as depth, primary decomposition and embedded associated primes remain unproved and are not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md blob b49f93a322fb0f7e2071b8233209c184fc5816ea",
+    "Git verify_hilbert.py blob 5e73cf783c9eb9b282179ca81d8e352df9eab632",
+    "Independent file scope_worker10_banana_independent_check.py verified exact Hilbert/Groebner for n=4..7 and leading-monomial Buchberger chain for n=4..20",
+    "Git tree 82212b033e1e571cb5263710a37527310143ed94, RESULT.md blob b49f93a322fb0f7e2071b8233209c184fc5816ea",
+    "arXiv:2610.00259",
+    "Denham–Schulze–Walther (2021), DOI:10.1007/s11005-021-01388-3",
+    "arXiv:0807.1690",
+    "arXiv:1004.5166",
+    "arXiv:2509.05009",
+    "Resultary searches as recorded in four comparison objects"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Historical priority remains best-of-knowledge and expressly qualified; exact duplicate could escape searches.",
+    "Related generic nonreduced length two/top cycle is prior art.",
+    "Characteristic two only, n>=4; no depth, primary decomposition or lower-strata classification."
+  ],
+  "schema_version": 1
+}

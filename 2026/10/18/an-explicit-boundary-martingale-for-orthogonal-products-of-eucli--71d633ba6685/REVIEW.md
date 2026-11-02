@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact coupling can be reconstructed from Euclidean face-measure ratios and a radial two-point sign choice. The boundary marginal and conditional barycenter are independently verified in the derivation. Conditional Jensen and product independence yield convex-order and separately convex conclusions; block isotropy computes the exact covariance. The four-support-point argument gives Euclidean strictness even at exponent one. Exact rational checks across 128 configurations and 60,000 fixed-seed pair simulations independently check the normalization and the squared-distance identity. No finite test is used as proof.
+## correctness
 
-## Originality — PASS, conditional historical risk
-The dated July 2026 motivating result of Tokmachev covers planar centroid-aligned bodies and specified circumscribed polytopes; the high-dimensional curved ball products here lie outside the **stated** hypotheses. Shen's full accessible 2026 text proves a planar mean-distance theorem and high-dimensional counterexamples, not the same positive class. Lotnikov's 2026 abstract likewise concerns general high-dimensional failure and narrower special formulas. Source searches and published-finding corpus comparisons disclosed in AUDIT.json found no covering theorem. Risk: Tokmachev's full text could not be inspected despite lawful preprint/full-text retrieval attempts; an unindexed or appended ball-product case cannot be excluded. This is not an independently certified novelty determination.
+PASS
 
-## Value — PASS
-The original motivation is a current geometric inequality that has high-dimensional counterexamples even under central symmetry. The explicit transport isolates an infinite, curved, nonsmooth, high-dimensional family where a **stronger** measure-level order still holds; it applies simultaneously to every convex or separately convex observable and every chord moment, with a quantitative block covariance formula for all dimensions and radii. The boundary-face weights are geometrically essential, not a substitution of a ball's surface law without checking the product surface measure. No general all-body theorem is claimed.
+For K=∏ a_i B_2^{d_i}, codimension-one disjoint boundary strata have Hausdorff area V d_i/a_i, hence q_i=(d_i/a_i)/H with H=∑d_i/a_i. Conditional on uniform interior U and independently selected J=i, the two-point kernel ±a_i Θ_i with probabilities (1±R_i/a_i)/2 has exact barycenter U_i. Since Θ_i is uniform and independent of R_i, signed Θ_i has uniform sphere marginal; all other blocks retain their independent uniform ball laws. This explicitly yields normalized Euclidean boundary measure (not cone measure). Conditional Jensen implies all convex f and, by iterative independence, separately convex F on arbitrarily many independent points, including norm^p chords for p≥1. For d_i≥2 with positive q_i, conditioning both copies on selecting that block gives four positive-mass sign pairs with noncollinear projected differences, ensuring strict Euclidean Jensen even at p=1. Block covariance: q_i[a_i²/d_i−a_i²/(d_i+2)]I=2a_i/[H(d_i+2)]I. Cross blocks vanish by sign symmetry; twice the trace gives 4/H∑d_i a_i/(d_i+2) exactly. The d_i=1 endpoints, all-segment products, m=1 and positivity of a_i are handled. Independent rational checks ran 240 configurations of dimensions/radii and explicit strictness witnesses, corroborating but not replacing the infinite proof.
 
-## Closest literature, boundary, and limits
-- A. S. Tokmachev, arXiv:2607.08869 (abstract inspected; full text inaccessible).
-- Eric Shen, arXiv:2608.06470 (full author-posted text inspected).
-- A. S. Lotnikov, arXiv:2608.14848 (abstract inspected).
-- published-finding corpus search comparisons included the 2026/10/11 cylinder-shadow mixed-moment record and the difference-body-distance record; neither implies the surface-law coupling.
-- Only orthogonal products of Euclidean balls with standard Euclidean boundary Hausdorff measure; no arbitrary affine products or arbitrary centrally symmetric bodies. Independent historical review and audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality of the explicit normalized Euclidean-surface-law martingale for all orthogonal products of Euclidean balls and its blockwise covariance increment. The closest convex-order theorem has, in the accessible abstract, only planar centroid-alignment and centered circumscribed-polytope hypotheses; Shen and Kukushkin prove planar distance inequalities, while high-dimensional counterexamples of Shen/Lotnikov do not imply this positive family. The full Tokmachev paper remained inaccessible: the remaining priority risk is named, not represented as a disproof. Neither Resultary query nor directly read two published related SCOPE results establishes an equivalent or stronger assertion.
+
+## value
+
+PASS
+
+The natural infinite geometric family of orthogonal ball products includes nonpolyhedral cylinders in ambient dimension three where blanket symmetric-body claims fail. The explicit law-level martingale is strictly stronger than the motivating scalar distance inequality and uniformly supplies all separately convex observables, all chord p-moments, and an exact covariance gain for freely varying dimensions/radii. Surface weights are geometrically nontrivial for nonsmooth product boundaries; the theorem solves a motivated positive-subclass question rather than a numerical small-case exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

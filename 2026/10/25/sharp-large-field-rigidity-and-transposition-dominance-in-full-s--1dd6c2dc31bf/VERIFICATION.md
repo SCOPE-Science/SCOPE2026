@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof uses exact algebraic orbit counts and a degree-bound estimate for nonzero determinant polynomials. The latter is valid over arbitrary finite fields, not just prime fields. The full-support sample is conditioned on matrix invertibility; the checker independently tests that conditioning in three prime-field cases.
+## correctness
 
-Run `python evolution_fullsupport_checker.py` with standard Python 3; compare with `evolution_fullsupport_checker_output.txt`. The program directly enumerates 328192 full-support matrices over small prime fields, verifies transposition lift compatibility, independently evaluates ranks, and enumerates 5877 nonidentity index permutations to test the support/deficit inequalities. Outputs from finite enumeration are corroboration only; they cannot certify the infinitely many large-field cases.
+PASS
 
-The exact transposition count follows from the group-equation calculation rather than from a sampling extrapolation. A possible older equivalent asymptotic stabilizer result is not excluded by the searches performed. No independent mathematical audit or external certification is claimed.
+In a perfect evolution algebra the squares of natural basis vectors are a basis, so automorphisms monomial. Full-support nonzero diagonal forces trivial identity-permutation scalar kernel. For prescribed tau, compatibility scalars t,t^-1 and fixed other scalars give (q-1)^(n²-2n+3) matrices, probability (q-1)^(3-2n) before conditioning. Determinant polynomial is nonzero on torus and each transposition stratum (witness I+uJ), yielding relative O_n(q^-1) loss from conditioning on nonsingular matrices. Other permutations moving k>=3 have orbit deficit >=nk-k²/2, and union bound with permutation product controls overlapping swaps and gives event O_n((q-1)^(-(2n-2))) or O_n((q-1)^(-(2n-1))) for n>=6. Dividing by leading rare probability proves C2 with stated errors. Checked exact F3 n3 prescribed swap count, orbit deficits in n5,6 and matrix rank. All asymptotics require fixed n not dimension-growing.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS after independent statement/implication comparisons with primary literature and published semantic records. Known starting theorems explicitly credited; absence of matching search results not treated as proof of priority.
+
+## value
+
+PASS
+
+Rare symmetry in an intrinsically natural large-field family is quantitatively resolved: exact leading constant plus full conditional exceptional group, revealing discrepancy between complete graph symmetry and algebra automorphism rigidity; meaningful classification beyond standard monomial representation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

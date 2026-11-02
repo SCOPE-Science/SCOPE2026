@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The face criterion, disjoint high-dimensional relative chains, saturated integral inclusion and Whitehead/Hurewicz argument establish the universal sphere-wedge homotopy type. The character is a direct application of oriented-simplex fixed-point traces. The supporting code checks 67 path/homology profiles and 1,008 character comparisons; these are finite tests and not the infinite proof.
+## correctness
 
-**Originality — PASS, with a substantive access risk.** Deshpande, Goyal and Sawant (arXiv:2607.05358) previously proved the multipartite combinatorial decomposition and explicitly reported a full bipartite homotopy analysis. The new statements address at least three parts and all thresholds from five, add an integral equivariant quotient and give the full class-preserving rational character. The complete primary manuscript could not be inspected, so potential body-level overlap is a material unresolved risk. The 2021 directed source-target path-free object is not the same vertex-subset complex. The earlier four-path-free special case is excluded.
+PASS
 
-**Mathematical value — PASS.** The result resolves a parameter-uniform multi-part topology gap with a closed rank formula, proves integral torsion-freeness rather than inferring it from numerical Betti ranks, and determines all group characters rather than just Euler characteristics. These are natural invariants for a graph construction developed in recent literature, and no paper-sized contribution or external certification is asserted.
+Independently reconstructed the full proof with N>=t>=5, m>=3: a longest multipartite path uses min(|S|,2(|S|-a)+1) vertices, yielding the published majority-part face cover. Each C_i is a cone, all cells above degree d=t-2 belong to one cone, and at degree d the C_i skeleton supports are disjoint. The LES of (K,sk_d simplex) maps their top-cycle kernels injectively into the top simplex-skeleton cycle group; their direct sum is a saturated sublattice of the ambient free d-chain group, so homology is free only in degree d. Skeletal connectivity, van Kampen and Hurewicz plus homological Whitehead produce a wedge of R spheres, including R=0. Truncated Euler/binomial identities give R; orientation sign of a g-fixed simplex equals (-1)^(vertices-cycles), so the signed fixed-face polynomial, with Hopf trace, gives chi_t. This establishes the theorem for all parameters; independent finite checks are corroboration only.
 
-**Limitations.** Bibliographic uniqueness is not proved. The homotopy equivalence is nonequivariant; the integral quotient and rational character are equivariant. The software checks only finite examples.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge: the exact-matching 2026 work already gives the complete multipartite face decomposition, so this is expressly NOT original. Its accessible primary abstract and secondary technical outline state complete homotopy classification only for two parts. The present nontrivial disjoint-support relative homology, primitive integral quotient, all-multipartite wedge count, and complete within-part permutation character were not identified in the inspected primary statements or mathematical records. This assessment does not establish historical priority because the full 19-page closest paper was inaccessible.
+
+## value
+
+PASS
+
+A natural and timely topology problem for forbidden-path vertex-subset complexes of complete multipartite graphs, with all numbers of parts and threshold parameters, not an arbitrary small instance. The result determines the entire nonequivariant homotopy type and integral top homology, proves torsion-freeness, and supplies an explicit rational character for every within-part permutation (not merely ranks at identity). It fills a substantive topological/refinement gap relative to the previously published combinatorial decomposition and bipartite homotopy theorem; the classification and representations are plausible reusable invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

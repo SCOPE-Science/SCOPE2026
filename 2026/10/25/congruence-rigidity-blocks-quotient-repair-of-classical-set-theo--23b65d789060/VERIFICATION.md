@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,6 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is checked by a symbolic argument over the full domain \(M^I\). A coordinatewise singleton separates any two distinct functions, and the two-coordinate witness establishes the stated extensionality failure. No metatheoretic Choice or finite experiment is used to justify the universal statement. The cited primary source was read at its direct-power definition, extensionality counterexample, and adjacent separation discussion. The older direct-product thesis was not accessed in full text; this remains a literature-priority limitation. No independent audit or independent validation is claimed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For distinct f,g choose coordinate i with f(i)!=g(i), and s_f(j)={f(j)} ∈M by Pairing for all j. Then f∈*s_f but g∉*s_f, so compatibility in first relation argument rules out f~g. Every congruence is equality. For at least two indices take constant-empty f and g with one singleton coordinate and another empty coordinate; they are distinct and have no ∈*-predecessors, so extensionality fails. Only equality is a relation congruence, so no quotient with membership well-defined can identify this witness. This is a symbolic all-I proof, no finite experiments or external Choice.
+
+## originality
+
+PASS
+
+The October 2026 primary source studies the same classical direct-power relation and gives nonextensionality/Separation counterexamples, but its accessible abstract does not state all-congruence rigidity; the supplied argument is independently valid. Full paper inaccessible; best-of-knowledge assessment with an explicit priority risk, not whole-document noncoverage.
+
+## value
+
+PASS
+
+The elementary separator has a substantive direct application: it rules out the entire quotient-preserving-membership repair strategy for the exact model of arbitrary sets whose nonextensionality prompted the study. It is a motivated structural obstruction uniform in all nonempty state spaces, not an arbitrary finite or normalization check. It does not rule out altering semantics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

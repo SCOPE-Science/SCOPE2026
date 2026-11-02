@@ -1,0 +1,189 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T18:13:26.977606Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md SHA 9de9de85674ed485c064922983d3d9beeb444f05",
+        "Git verify.py SHA b0618b0efeb834efea277eb057255558a864c35b (read, not executed)",
+        "Independent checker independent_checks.py (240 exact rational cases; three noncollinear strictness witnesses with p=1,2,3,4)",
+        "Git tree independently reconstructed as 7c7d59f05379dfeafb3c046a5351081712204061"
+      ],
+      "rationale": "For K=∏ a_i B_2^{d_i}, codimension-one disjoint boundary strata have Hausdorff area V d_i/a_i, hence q_i=(d_i/a_i)/H with H=∑d_i/a_i. Conditional on uniform interior U and independently selected J=i, the two-point kernel ±a_i Θ_i with probabilities (1±R_i/a_i)/2 has exact barycenter U_i. Since Θ_i is uniform and independent of R_i, signed Θ_i has uniform sphere marginal; all other blocks retain their independent uniform ball laws. This explicitly yields normalized Euclidean boundary measure (not cone measure). Conditional Jensen implies all convex f and, by iterative independence, separately convex F on arbitrarily many independent points, including norm^p chords for p≥1. For d_i≥2 with positive q_i, conditioning both copies on selecting that block gives four positive-mass sign pairs with noncollinear projected differences, ensuring strict Euclidean Jensen even at p=1. Block covariance: q_i[a_i²/d_i−a_i²/(d_i+2)]I=2a_i/[H(d_i+2)]I. Cross blocks vanish by sign symmetry; twice the trace gives 4/H∑d_i a_i/(d_i+2) exactly. The d_i=1 endpoints, all-segment products, m=1 and positivity of a_i are handled. Independent rational checks ran 240 configurations of dimensions/radii and explicit strictness witnesses, corroborating but not replacing the infinite proof.",
+      "residual_risks": [
+        "The strictness proof depends on the nonnegative-ray equality condition for the Euclidean norm, explicitly checked on a positive-probability noncollinear event; arbitrary norms do not inherit strictness.",
+        "Finite checks alone do not prove a dimension-uniform statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tokmachev arXiv:2607.08869 abstract limits its hypotheses to planar matching-centroid bodies and centered circumscribed polytopes.",
+          "Shen arXiv:2608.06470 Theorem 1.2 is a planar projected-Gini result and Proposition 4.5 lifts counterexamples with segment products.",
+          "Kukushkin arXiv:2608.14833 proves the planar scalar distance inequality, not a high-dimensional convex order coupling.",
+          "Lotnikov arXiv:2608.14848 abstract concerns high-dimensional symmetric counterexamples."
+        ],
+        "reasoning": "In dimension three, [−a,a]×b B_2^2 has circular curved boundary patches and cannot be a circumscribed polytope; it is outside the stated earlier positive classes. General high-dimensional counterexamples do not contradict a constructive positive subclass, and neither negative result implies the new positive theorem. Full Tokmachev body text could contain additional statements outside its abstract.",
+        "searches": [
+          "Web: Tokmachev inequalities convex functions random points inside boundary convex bodies arxiv 2607.08869 pdf full text 2026",
+          "Web: Zaporozhets Tarasov product of Euclidean balls cylinder surface measure convex order theorem",
+          "Web: Zaporozhets Tarasov mean preserving product balls surface measure martingale general convex body proof cone measure",
+          "Web source turn898241academia37: Kukushkin arXiv:2608.14833 primary abstract"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md SHA 9de9de85674ed485c064922983d3d9beeb444f05",
+        "Git REVIEW.md SHA a2bc71c9bf371109c765ac5590c5f3ac52b47f76",
+        "Git AUDIT.json SHA 1d53cadff8315a9184d020b789ddd45bb1114f3a",
+        "arXiv:2607.08869 (primary abstract; full inaccessible)",
+        "arXiv:2608.06470 (Shen full author-hosted primary text)",
+        "arXiv:2608.14848 (primary abstract)",
+        "arXiv:2608.14833 (Kukushkin primary abstract)",
+        "Resultary/2026: difference-body beta RESULT.md SHA d1aff4ef1cb1887b332e384bdbed2c25ce01b8cb",
+        "Resultary/2026: cylinder-shadow RESULT.md SHA 11f2826746aaf92b9e5266754be9397f20bfc0bb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shen Theorem 1.2 is a dimension-two projected Gini comparison, and its Proposition 4.5 concerns failure for products with segments.",
+          "Tokmachev abstract addresses a convex-order relation with stronger observable implications but restricted hypotheses.",
+          "Difference-body beta stochastic domination uses only interior random points and a shape-adapted gauge, so it cannot yield Euclidean boundary convex order by specialization.",
+          "Cylinder shadow covariance concerns averaging over random projection orientations; its covariance is for different random variables than the claimed block covariance."
+        ],
+        "reasoning": "The proposed martingale implies all separately convex finite-product inequalities and all p>=1 norm difference inequalities, while the compared planar/difference-body results provide at most scalar directional or unrelated random variables. Their conclusions and hypotheses do not mathematically dominate the target claim on curved three-dimensional cylinders.",
+        "searches": [
+          "Web: Zaporozhets Tarasov cylinder inequality convex order product",
+          "Web: mean preserving spread uniform distribution ball product boundary surface area convex order martingale Hausdorff measure",
+          "Direct reading: Shen arXiv:2608.06470 Theorem 1.2, Example 4.2, Proposition 4.5",
+          "Direct reading: Resultary/2026 two related RESULT.md files"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Single-ball radial martingale is elementary but does not specify normalized Euclidean surface law on a product boundary.",
+          "Tokmachev arXiv:2607.08869 states restricted convex order under distinct geometry.",
+          "Resultary searches yielded unrelated convex-body estimates and no exact ball-product transport."
+        ],
+        "reasoning": "The exact joint law is a mixture of facet-product distributions with weights d_i/(a_i H), not the product of all sphere laws. The proposed explicit signed radial kernel realizes this mixture and reproduces the volume barycenter. An arbitrary ball-to-sphere coupling does not by itself imply the product surface-law relation; a general theorem covering it was not identified.",
+        "searches": [
+          "Resultary: Orthogonal Cartesian products of Euclidean balls convex order uniform interior versus normalized surface area mean preserving martingale coupling",
+          "Resultary: Uniform ball interior sphere boundary convex order by radial mean preserving dilation mixtures product bodies",
+          "Web: mean preserving spread uniform distribution ball product boundary surface area convex order martingale Hausdorff measure",
+          "Web: \"convex order\" \"boundary\" \"product\" balls uniform volume surface"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published SCOPE/Resultary 2026/10/11 beta difference-body theorem concerns normalized interior-pair distance gauge, not the boundary distribution (full RESULT.md read).",
+          "Published SCOPE/Resultary 2026/10/11 cylinder-shadow theorem concerns random projection area/perimeter moments, not sample transport between body and boundary (full RESULT.md read)."
+        ],
+        "reasoning": "No identified exact table or indexed record contains the normalized surface-face weights plus full conditional martingale and covariance difference. Failure to find one in the database is not proof of historical originality.",
+        "searches": [
+          "Resultary: Orthogonal Cartesian products of Euclidean balls convex order uniform interior versus normalized surface area mean preserving martingale coupling",
+          "Resultary: Zaporozhets Tarasov conjecture product cylinder balls normalized Euclidean Hausdorff boundary probability mean distance",
+          "Web: \"uniform\" \"boundary\" \"martingale\" \"Cartesian product\" convex"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality of the explicit normalized Euclidean-surface-law martingale for all orthogonal products of Euclidean balls and its blockwise covariance increment. The closest convex-order theorem has, in the accessible abstract, only planar centroid-alignment and centered circumscribed-polytope hypotheses; Shen and Kukushkin prove planar distance inequalities, while high-dimensional counterexamples of Shen/Lotnikov do not imply this positive family. The full Tokmachev paper remained inaccessible: the remaining priority risk is named, not represented as a disproof. Neither Resultary query nor directly read two published related SCOPE results establishes an equivalent or stronger assertion.",
+      "residual_risks": [
+        "Original Tokmachev 2607.08869 full text inaccessible; its appendices and potentially broader theorems were not read. The Oxford tool was safety-blocked, with no bypass.",
+        "Published and older martingale-transport literature may contain an equivalent product surface-law construction under other terminology.",
+        "No human historical-priority certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The explicitly stated hypotheses do not include mixed-dimensional curved ball products; cannot assert the uninspected full paper does not cover them.",
+          "evidence": [
+            "arXiv original abstract specifies d=2 with aligned centroids or centered circumscribed polytope."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.08869",
+          "material_read": "Complete public arXiv abstract and bibliographic descriptions; full paper not obtained.",
+          "method": "Primary abstract read; attempted arXiv PDF/HTML and lawful OA; authorized institutional retrieval was safety-blocked and not bypassed.",
+          "title": "Inequalities for convex functions of random points inside and on the boundary of convex bodies",
+          "trigger": "Same convex-order conclusion and therefore a plausible dominating primary source."
+        },
+        {
+          "assessment": "Proves planar scalar expected-distance comparison and non-ball three-dimensional counterexamples, with segment-product lifting; no surface-law martingale for ball products follows.",
+          "evidence": [
+            "Theorem 1.2 deals with projected Gini comparisons for K subset R^2; Example 4.2 has varying rectangular sections; Proposition 4.5 uses K_{L,eps}×[-M,M]^m."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/411851456_The_Zaporozhets-Tarasov_Conjecture_on_Mean_Distances (arXiv:2608.06470)",
+          "material_read": "Selected material from complete author-hosted primary text: introduction, Theorem 1.2 statement, Lemma 4.1, Example 4.2, Theorem 4.3, Remark 4.4, Proposition 4.5 and proof.",
+          "method": "Read open author-hosted full HTML extraction; compared explicit theorem hypotheses and conclusions.",
+          "title": "The Zaporozhets–Tarasov Conjecture on Mean Distances",
+          "trigger": "Closest complete primary paper and important higher-dimensional Cartesian-product mechanism."
+        },
+        {
+          "assessment": "Centrally symmetric high-dimensional failures do not give the sought positive curved-product convex-order coupling; full paper not read.",
+          "evidence": [
+            "Abstract describes high-dimensional counterexamples and narrow special geometric formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.14848",
+          "material_read": "Public indexed arXiv abstract only.",
+          "method": "Read abstract and compared stated counterexample scope.",
+          "title": "Mean distance between points inside and on the boundary of a convex body",
+          "trigger": "Same mean-distance problem in dimensions at least three."
+        },
+        {
+          "assessment": "Compares interior-pair difference-body gauge with beta law; no normalized boundary samples involved.",
+          "evidence": [
+            "Its finding defines T=gamma_{K-K}(X-Y) for independent X,Y uniform in K; no boundary-law marginal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-beta-stochastic-bound-for-difference-body-distances--4609b4d88176",
+          "material_read": "Complete published RESULT.md theorem, proof and related-work section.",
+          "method": "Read actual GitHub RESULT.md, directly compared random variables and order relations.",
+          "title": "A sharp beta stochastic bound for difference-body distances",
+          "trigger": "Published stochastic-order result on distances of uniform convex-body points."
+        },
+        {
+          "assessment": "Uses random orthogonal shadows and covariance of area/perimeter; distinct from interior/surface random-point covariance.",
+          "evidence": [
+            "Its finding concerns Cov(A,P) for a Haar-random projection plane."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-cylinder-shadow-mixed-moment-and-sharp-positive-covariance--1feeb231b707",
+          "material_read": "Complete published RESULT.md theorem, proof, limitations and related work.",
+          "method": "Read actual GitHub RESULT.md and compared measures.",
+          "title": "Exact cylinder shadow mixed moment and sharp positive covariance",
+          "trigger": "Same natural cylinder geometry and an exact covariance result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md complete theorem/proof and scope",
+        "Shen arXiv:2608.06470 higher-dimensional counterexamples",
+        "Tokmachev arXiv:2607.08869 positive classes in abstract",
+        "Independent exact covariance checks"
+      ],
+      "rationale": "The natural infinite geometric family of orthogonal ball products includes nonpolyhedral cylinders in ambient dimension three where blanket symmetric-body claims fail. The explicit law-level martingale is strictly stronger than the motivating scalar distance inequality and uniformly supplies all separately convex observables, all chord p-moments, and an exact covariance gain for freely varying dimensions/radii. Surface weights are geometrically nontrivial for nonsmooth product boundaries; the theorem solves a motivated positive-subclass question rather than a numerical small-case exercise.",
+      "residual_risks": [
+        "Does not imply the original conjecture for all convex bodies, all affine images or all norms with strict inequality.",
+        "Constructive proof is elementary once the product-face decomposition is observed, so the value rests on the natural curved higher-dimensional subclass and stronger all-convex consequence rather than technical difficulty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md SHA 9de9de85674ed485c064922983d3d9beeb444f05",
+    "Git verify.py SHA b0618b0efeb834efea277eb057255558a864c35b (read, not executed)",
+    "Independent checker independent_checks.py (240 exact rational cases; three noncollinear strictness witnesses with p=1,2,3,4)",
+    "Git tree independently reconstructed as 7c7d59f05379dfeafb3c046a5351081712204061",
+    "Git RESULT.md SHA 9de9de85674ed485c064922983d3d9beeb444f05",
+    "Git REVIEW.md SHA a2bc71c9bf371109c765ac5590c5f3ac52b47f76",
+    "Git AUDIT.json SHA 1d53cadff8315a9184d020b789ddd45bb1114f3a",
+    "arXiv:2607.08869 (primary abstract; full inaccessible)",
+    "arXiv:2608.06470 (Shen full author-hosted primary text)",
+    "arXiv:2608.14848 (primary abstract)",
+    "arXiv:2608.14833 (Kukushkin primary abstract)",
+    "Resultary/2026: difference-body beta RESULT.md SHA d1aff4ef1cb1887b332e384bdbed2c25ce01b8cb",
+    "Resultary/2026: cylinder-shadow RESULT.md SHA 11f2826746aaf92b9e5266754be9397f20bfc0bb"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Qualified best-of-knowledge historical priority; Tokmachev full text unavailable and authorized Oxford attempt safety-blocked, without bypass.",
+    "The result does not cover arbitrary affine transforms or every centrally symmetric body.",
+    "Source self-review metadata contained operational provenance identifiers and inherited first-publication date; replacement public files are staged only, never written to source."
+  ],
+  "schema_version": 1
+}

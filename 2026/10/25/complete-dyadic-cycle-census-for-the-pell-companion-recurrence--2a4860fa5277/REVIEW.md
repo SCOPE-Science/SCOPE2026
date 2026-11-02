@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Multiplication by the quadratic unit \(1+\sqrt2\) is exactly the Pell companion update after a unimodular change of coordinates. The quadratic norm determines the ramification shell of any seed, the unit-power valuations \(1,2,5,7,9,\dots\) determine its exact period, and counting each finite valuation shell and dividing by that period proves all cycle counts, including the low-precision exceptions. The standalone independent orbit tracer verifies all \(87{,}380\) states at precisions \(1\le k\le8\); those finite checks corroborate rather than replace the infinite proof.
+## correctness
 
-**Originality — PASS with residual risk.** The closest direct prior paper (Deveci–Karaduman, 2015) establishes the standard Pell sequence period and the companion matrix order. Those are **not** an all-seed classification or cycle census. A different finite-group Pell treatment by Deveci–Akdeniz–Karaduman (2015) examines generating initial data and noncommutative group recurrences. Earlier finite-group recurrence sources do not state this dyadic all-seed result. Existing broad quadratic-unit module theory might imply a general form of the classification; that literature risk remains. Similar prior studies of other Fibonacci companion maps establish neither the period-by-norm formula for this particular ramified unit nor the present numeric cycle counts.
+PASS
 
-**Mathematical value — PASS.** A global matrix period does not determine how many other seeds have each shorter period. The finding gives a motivated natural complete classification for every seed in the Pell recurrence, exposes the stabilization of short-period cycles, and yields a closed total-cycle formula at every dyadic precision. It is a structural finite-ring dynamical invariant, not a selected numerical example or unmotivated finite table.
+Identified (a,b) with (a+b)+b√2 in Z_2[√2]/(√2)^(2k). The noncancelling norm valuations are v(a+b√2)=min(2ν_2(a+b),1+2ν_2(b)), giving the source Delta. For λ=1+√2, verified v(λ-1)=1, v(λ²-1)=2, v(λ⁴-1)=5, and for s≥2 v(λ^(2^s)-1)=2s+1; odd multiples retain the same valuation. Return requires that unit-power valuation be ≥h=2k-truncated v(state). The shell of height h has 2^(h-1) states and yields exactly the stated cycles by division; k=1,2 and h=0,1,2,3,4,5 checked. Independent direct orbit enumeration k=1..6 gives 3,6,14,30,62,126 cycles, all states covered. Exhaustion for all k is symbolic, not inferred from finite checks.
 
-**Limitations.** The classification is specific to the coefficient-two recurrence modulo powers of two. Independence or universal coverage by prior literature is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary published Pell-sequence literature establishes standard-seed sequence period and matrix order, not the complete state-by-state distribution on the full dyadic state module. Exact shell census is a natural refinement; historical 2-adic quadratic-unit module results could imply it.
+
+## value
+
+PASS
+
+For a canonical Pell recurrence, a complete all-seed orbit decomposition is an intrinsically natural finite-ring dynamical invariant, more informative than matrix order. The stabilization and first-appearance disparity of 2^t cycles are precise features future 2-adic dynamical studies can use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

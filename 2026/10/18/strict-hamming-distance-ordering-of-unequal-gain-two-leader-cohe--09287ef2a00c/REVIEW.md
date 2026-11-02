@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finding specifies unit-edge Boolean cubes of integer dimension at least two and any two distinct pinned vertices with arbitrary positive feedback strengths. A rank-two determinant expansion of the Laplacian resolvent yields an exact trace formula. The cube heat kernel increases both relevant pseudoinverse differences strictly with Hamming distance. A discrete maximum principle proves \(2C<NB^2\), forcing the trace to decrease under either increase. The exact last-bit beta integrals and weak-gain expansion follow directly. Embedded exact-arithmetic tests agree with direct matrix inversions but are not presented as substitutes for the all-dimensional proof. The gain-zero case, anisotropic cubes and unequal driving-noise intensities are excluded.
+## correctness
 
-## Originality — PASS, with residual risk
-The 2014 public preprint by Fitch and Leonard provides a general two-*equal*-gain joint-centrality equation and explicitly observes maximal-resistance placement on equally central graphs; thus that narrower equal-gain optimum is prior work. Its relevant Sections V-B/V-C and Appendix A do not state the all-unequal-gain strict ranking among **every** Hamming-distance class, nor the unequal-gain one-bit placement penalty. The 2013 Lin–Fardad–Jovanović formulation and 2014 Patterson–McGlohon–Dyagilev path/ring study have different results; the 2017 Patterson–Yi–Zhang resistance approach treats cycles, paths and trees, not this theorem. Relevant indexed mathematical claims and accessible preceding scientific records were compared by mathematical implication. An equivalent undocumented specialized deduction remains a genuine risk; the general existing equal-gain results were not relabeled as original.
+PASS
 
-## Value — PASS
-This is an explicit, gain-robust complete preference ranking for two-leader placement on an infinite high-dimensional product-network family; it handles asymmetric controller strengths, not just identical leaders or hard pinning. The exact finite-horizon stationary-variance objective is a standard measurable metric in noisy consensus. The weak-gain penalty quantifies the cost of a one-bit placement error even when both total variances themselves diverge. It provides a usable placement and sensitivity rule beyond a mere counterexample or parameter substitution.
+From frozen RESULT.md, the two-column determinant lemma for (L+zI)^-1 with 1/(Nz) pole yields tr(M^-1)=2Ng+[N(1-ab B^2)-2ab C]/[a+b+2ab B]. Walsh eigenvalues 2j and odd-intersection character counts produce the stated binomial B,C,g. Product cube heat kernel 2^-d(1+e^-2t)^(d-k)(1-e^-2t)^k is strictly decreasing in k at every t>0, so B and C strictly increase. The potential w=L^+(e_u-e_v) solves Lw=e_u-e_v, is harmonic off u,v and satisfies w_u=B,w_v=-B. Connected discrete maximum principle gives |w_x|<B at other x, whence 2C=||w||^2<NB^2. At fixed C, derivative in B is -2ab[N(1+(a+b)B+ab B^2)-2ab C]/(a+b+2ab B)^2<0 and derivative in C is -2ab/(a+b+2ab B)<0. Thus all adjacent Hamming classes strictly improve for all independent a,b>0. The last-distance heat-kernel beta integrals give Delta B=1/(Nd), Delta C=H_d/(2Nd); expansion a=eps alpha,b=eps beta yields the exact finite penalty. Independent exact-rational checker verified 256 spectral-order and small direct-matrix identity comparisons for d=2..11 and four gains, plus all-endpoint and maximum-principle inequalities; reconstructed all seven Git blob entries into the assigned tree hash. Finite checks are corroboration; the above analytic argument proves the unrestricted quantifiers.
 
-## Limitations
-Publication equivalence can never be excluded by finite database searches. No generalized graph class, heterogeneous forcing, more than two leaders, or arbitrary coordinate weights is claimed. Direct symbolic tests are finite corroboration only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge. The oldest exact-model source Fitch–Leonard fixes a COMMON leader gain (arXiv:1407.1569, section II and Theorem 2) and establishes antipodal optimality for cycles and maximum resistance for equally central vertices (Corollary 2). The later resistance-network treatment permits variable gains in a general representation but explicitly restricts its multi-leader solved classes to unit gains, paths/cycles/trees (arXiv:1708.06873, p.4 and Theorem 15). These antecedents do not prove strict ordering of EVERY Hamming separation for two arbitrary independent finite gains, nor the exact weak-gain last-bit gap. No equivalent covering theorem was identified in fresh mathematical search or Resultary; this is a qualified priority assessment, not a novelty certificate.
+
+## value
+
+PASS
+
+The target is a natural control-design optimization: robustly placing two asymmetrically weighted leaders on an infinite high-dimensional product graph to minimize stationary isotropic-noise error. A strict complete distance preference ordering independent of both gain ratio and scale is more informative than the prior common-gain farthest-pair optimum. The explicit nonzero weak-gain near-antipodal regret gives sharp sensitivity to a one-coordinate placement error despite individual trace divergences. Neither ranking nor precise asymptotic is a routine renaming of existing equal-gain results, and both can inform network placement and benchmark more general graph classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

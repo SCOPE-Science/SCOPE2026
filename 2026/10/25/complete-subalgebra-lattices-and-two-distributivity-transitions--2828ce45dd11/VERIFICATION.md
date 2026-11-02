@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and checks
 
-The source code `verify.py` enumerates all one- and two-dimensional subspaces of a three-dimensional vector space over each of \(\mathbb F_3\), \(\mathbb F_5\), \(\mathbb F_7\), and \(\mathbb F_{11}\), adds the zero and full spaces, and tests the exact bilinear multiplication on every subspace basis. All nonzero values of \(\lambda\) are included, for 22 parameter-field pairs. The checker separately constructs the seven-or-fewer displayed generators and verifies set equality between all actual and predicted subalgebras. Run `python verify.py` with a Python 3 interpreter.
+# Independent mathematical audit
 
-The full test reported `VERIFY_OK`. It includes both characteristic-dependent special values wherever present, including the collision \(4=1\) in characteristic three. These exhaustive finite-field tests are not a proof over arbitrary fields: the symbolic case analysis given in `RESULT.md` is the proof. Independent audit has not been performed.
+## correctness
+
+PASS
+
+Direct expansion in u=e1+e3,v=e2+e3,w=e3 gives u²=0, uv=uw=vw=w²=u and v²=-u+λv. The quadratic map on the original natural basis forces exactly two isotropic lines Ku,K(w-u/2), and a nonzero-square line inside S=E² only when λ!=2. For planes containing Ku, closure forces S or T; otherwise intersection with S must be the extra line, and bilinear closure forces λ=4 and the sole plane P. All zero-, full-, characteristic-odd and exceptional-parameter branches are exhausted. The Boolean B3 case λ=4 and six-element order-ideal lattice λ=2 follow from concrete incidences; elsewhere the three line witness violates distributivity. Independent enumeration of every subspace over F3,F5,F7 at all λ!=0 reproduces 6/8/7 counts.
+
+## originality
+
+PASS
+
+Hu–Wen explicitly determines the same family and idempotents/non-solvability, not its full lattice. Ladra–Páez-Guillán–Pérez-Rodríguez studies solvable evolution algebras, excluding all E_λ. Prior published same-family automorphism jump at λ=4 does not determine lattice incidences or λ=2 transition.
+
+## value
+
+PASS
+
+Complete subalgebra lattice is a fundamental structural invariant. The two sharp distributivity boundaries in a canonical non-solvable family explicitly show lattice distributivity beyond solvability, including an eight-element Boolean case. Classification is motivated by the exact solvable-algebra literature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim applies to one explicitly defined bidirected Petersen graph, with paths required to be directed, simple, and mutually disjoint. Both an increasing-arc exhaustive enumeration and an independent orientation-of-undirected-path-forests enumeration yield the same complete augmented face vector, totaling 59,203. A 29,464-pair acyclic Morse matching passes a complete 333,390-incidence directed Hasse-diagram topological sort. The exact signed differential matrices have sizes 17-by-59, 59-by-101, 101-by-98. Full elementary integer reductions produce 5, 53, 4 unit Smith factors and no residual nonzero entry; consecutive boundaries square to zero. Hence the only reduced integral homology is free of ranks 12, 1, 44, 94 in degrees 4, 5, 6, 7. An ordinary matching with one critical vertex and no 1-, 2-, or 3-cells establishes three-connectivity. Direct mod-two simplicial ranks agree as an independent secondary check. Risk: code execution validates the given explicit finite input only, not a general graph theorem; external audit has not occurred.
+## correctness
 
-## Originality — PASS (qualified)
-The closely relevant full-text sources are the 2022 multipath homotopy paper (arXiv:2208.04656), the 2007 cycle-free chessboard paper (arXiv:0710.5252), the 2024 cycle-free-quiver comparison (arXiv:2401.01248), and the 2026 bidirectional polygon paper (arXiv:2601.05670). The 2007 paper introduces the **equivalent definition** for general digraphs, but proves its general connectivity estimate for the full complete-digraph complex; it does not compute the Petersen restriction. The 2022 family results and the 2026 bidirected path/polygon classifications do not include a cubic Petersen graph. The 2024 matching comparison requires absence of oriented cycles, false here. Direct and alternate-terminology searches and comparisons with published Petersen graph *Morse*, *matching*, and *cut* complexes identified no statement from which this thirty-arc multipath homology follows. Risk: inaccessible, unindexed, or very recent equivalent calculations may still exist. Mere search non-detection is not a novelty proof.
+PASS
 
-## Mathematical value — PASS
-The Petersen graph is the canonical smallest cubic graph of girth five, and its full bidirection is a natural non-polygonal next case for multipath topology. The complete integral computation finds nonzero groups in four consecutive degrees and determines both absence of torsion and lower connectivity, substantially distinguishing this graph from previously computed paths and cycles. The exact ranks and integral absence of torsion supply an interpretable datum for comparisons across symmetric graph families. This does not establish a general theorem or complete homotopy type; the natural object and topology, rather than computational work alone, motivate the finite classification.
+The independent forest-subset/path-orientation enumerator generates exactly 59,203 distinct augmented faces and the given 10-entry f-vector. A separately implemented repeated-toggle matching has 29,464 pairs and 275 critical cells; full topological sorting processes all 333,390 Hasse incidences without a cycle. Independently constructed signed critical-to-critical differentials have sizes 17x59,59x101,101x98 and compositions zero. Exact integer unimodular row/column operations yield only unit Smith factors of ranks 5,53,4 and zero residual blocks, hence no torsion; reduced ranks in degrees 4–7 are 12,1,44,94. Removing the empty-face matching gives one 0-cell and no 1/2/3-cells, yielding 3-connectivity; Hurewicz yields pi_4=Z^12. The finite enumeration is exhaustive for this one Petersen graph.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: the exact 30-arc Petersen restriction, its integral Betti quadruple and all-prime torsion-free result were not found in the materially inspected primary texts or Resultary records. The complete directed-graph cycle-free definition is old; the remaining value is an exact new finite natural-graph calculation. Non-detection is not proof of priority.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical smallest ten-vertex cubic graph of girth five. Full bidirection is a natural non-polygonal test for multipath/cycle-free partial-injection topology. Its exact integral Betti groups in four consecutive dimensions, proof of all-prime torsion-freeness, and 3-connectivity give a mathematically motivated finite invariant, not merely a routine tiny-instance check. No general graph family or wedge-of-spheres type is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

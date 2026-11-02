@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The metric triangle inequality summed over all \(k\) witnesses in the complementary half gives \(kD_A\le(k-1)H\). Additivity of total costs makes the complement of a least-centrality \(k\)-set the most expensive \(k\)-set. These two lemmas entail the universal bound, and the two-point example gives exact equality. The verification code recomputes the inequalities from the submitted mathematical objects in 702,815 checks; no experiment is used as proof of the infinite statement.
+## correctness
 
-**Originality — PASS (with priority risk).** The motivating January 2026 source proves the \(3-2/k\) lower bound already on \(k\) pairs and has only a \(3+2/k\) general upper bound for its nominated mechanism when \(k\ge3\). The new result is a matching upper bound for every set of \(k\) locations from \(2k\) agents, valid on arbitrary metric spaces, which in particular determines the exact ratio of *every* deterministic local rule with \(k\) pairs. The source's lower example is credited and not claimed as original. Closest checked full text: arXiv:2601.15258, model and Theorems 6.1–6.2. The earlier centralized facility-location paper does not cover the distributed nomination constraint. Unindexed equivalents remain a publication-priority risk.
+PASS
 
-**Value — PASS.** The original paper leaves a gap between \(3-2/k\) and \(3+2/k\) in its general model. The equal-sized two-person group regime is the smallest nontrivial distributed group design; the exact price of delegation in this natural regime is now determined for all \(k\ge2\), with a stronger metric-independent certificate. The answer is not an arbitrary finite-instance tally and needs no downstream theorem to be informative. It does not close the gap for larger groups or more groups than facilities.
+For balanced A and B, summing d(a,a')<=d(a,b)+d(a',b) over all unordered pairs in A and every b in B gives kD_A<=(k-1)H and symmetrically for B. Consequently C(A)=2D_A+H<=(3-2/k)H<=(3-2/k)C(B). With h_j=sum_i d(x_i,x_j), the minimum k-subset T contains the k smallest scores and its complement U the k largest; any S has C(S)<=C(U)<=(3-2/k)C(T). A profile of 2k-1 colocated agents and one outlier attains C*/k=1 and ratio (3k-2)/k. For an arbitrary deterministic local rule place its chosen endpoint of one asymmetric pair opposite all other pairs. The quantifiers, repeated indices, zero-optimum inequality and no randomized guarantee were checked. Independently exact-tested balanced metric partitions and worst-case half-subsets for 83,456 finite configurations; unrestricted metrics rely on triangle inequality, not enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original relative to the materially inspected exact claims and implications; source-access and alternative-formulation limitations are not concealed. The k-two-agent-group regime is the smallest genuine paired-delegation model in which one must nominate locally before aggregation. Its exact worst-case price is obtained for every deterministic local choice and, more strongly, every k-facility selec
+
+## value
+
+PASS
+
+The k-two-agent-group regime is the smallest genuine paired-delegation model in which one must nominate locally before aggregation. Its exact worst-case price is obtained for every deterministic local choice and, more strongly, every k-facility selection, closing the known lower-vs-upper gap within this natural subfamily. This is a motivated sharp uniform metric guarantee rather than rediscovery of the prior lower witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

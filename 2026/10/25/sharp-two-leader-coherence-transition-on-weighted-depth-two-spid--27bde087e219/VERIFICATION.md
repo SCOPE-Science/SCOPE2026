@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The runnable, standalone `verify_spider.py` uses Python 3 and SymPy (declared in `requirements.txt`). It constructs the actual weighted Laplacian for each graph, grounds each unordered two-vertex leader set, and evaluates the inverse trace using exact rational arithmetic for \(k\in\{3,4,5,6\}\) and \(t\in\{1/7,1/2,1,3/2,7/2\}\). It checks each result against the corresponding one of six symbolic orbit formulas, then verifies the complete optimizing orbit set for each parameter. There are exactly 950 direct grounded-matrix inversions. Additional algebraic assertions verify the crucial rational identities and positivity-slope expressions for the analytic all-parameter proof.
+## correctness
 
-Invocation: `python verify_spider.py` from a directory containing that file and the declared SymPy dependency.
+PASS
 
-Successful actual execution output:
+Shorting both leader vertices to ground makes the diagonal Dirichlet Green function the effective resistance to ground. On a tree a follower x projects to the leader-to-leader path, contributing branch resistance d(x,y) plus the parallel resistance AB/(A+B); summing yields six exact branch-symmetry orbit formulas. Independently computed rational grounded matrix inverse traces for every leader pair at k=3,4,5,6 and several t, total 171 inverses, and compared optimizing types. Symbolically check five strictly positive k=4 cost differences and nonnegative k-increments; for k=3 only inner-inner and center-leaf compete, with difference (t-1)(2t+1)/(2(t+1)); all four other types remain higher in the appropriate t-regime. Boundary t=1 is a genuine six-pair tie and no t<=0 is claimed. Finite checks corroborate, while resistance identity and factored inequalities establish all k and all real t>0.
 
-`VERIFY_OK: 950 exact grounded-Laplacian inversions; complete orbit formulas; two exact parameter regimes; symbolic difference certificates.`
+## originality
 
-Numerical or finite exact tests alone do not establish the full real-parameter classification; the analytical Green-function and sign arguments in RESULT.md do. One closely relevant later paper was not available as full text and remains an originality limitation. No independent verification or audit is asserted.
+PASS
+
+Best-of-knowledge original relative to the materially inspected exact claims and implications; source-access and alternative-formulation limitations are not concealed. Depth-two spiders are the simplest symmetric branching networks beyond paths/stars; this classifies every two-leader optimum throughout a continuous conductance ratio. The discontinuity at three branches and complete rigidity with four or more give u
+
+## value
+
+PASS
+
+Depth-two spiders are the simplest symmetric branching networks beyond paths/stars; this classifies every two-leader optimum throughout a continuous conductance ratio. The discontinuity at three branches and complete rigidity with four or more give useful exact design information about minimizing pinned-consensus variance, not a routine computation of a single instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The exhaustive representation classification follows from the conjugacy classes and the free complement action on the character group. The finite-group Drinfeld-double indicator identity is a published theorem, and the proof then explicitly partitions solutions of \((gx)^k=x^k\). The two special complement cases depend on \(A[k]\); all other cases use the invertibility of \(h-1\) for nontrivial complement elements. These establish the four indicator formulas. The action-blindness/reconstruction corollaries follow from orbit cardinalities and the torsion-count identities. The included exact group-element enumeration provides finite cross-checks for both elementary and nonelementary kernels. Correctness status: PASS.
+## correctness
 
-## Originality
-Keilberg's 2010 formulas cover cyclic kernels under an automorphism of prime order and therefore include genuine special cases. Iovanov–Mason–Montgomery provide general integrality criteria, and Schauenburg supplies a general character-table method. The inspected portions and searches did not yield the complete arbitrary-abelian-kernel/arbitrary-cyclic-complement indicator list or the kernel-reconstruction versus action-blindness result. This is a best-knowledge priority assessment; a differently worded earlier formula remains possible. Originality status: PASS, with residual literature risk.
+PASS
 
-## Value
-Higher indicators are natural representation-category invariants, and their complete values are useful even when general group-theoretic formulas exist. The result shows precisely which structural information the combined indicators retain and lose across an infinite family, with explicit nonisomorphic order-\(147\) examples. The nonelementary-kernel torsion correction cannot be seen from the elementary-abelian scalar family. This supplies a motivated invariant-level boundary rather than a purely numerical example. Value status: PASS.
+Conjugacy/centralizer types follow from fixed-point-free action. The published Drinfeld-double sum is partitioned by u^k=1 and the exceptional u=1,h^{-1}; S_k(u) invertibility and character orthogonality yield four formulas. All A[k] nonzero points have free C_m orbits, ensuring integral output. Prime-to-m kernel order and t_(m l)=t_l recover elementary divisors. Independently checked the complement, nonzero kernel and inflated identity cases via direct S3 character sum, k=1..10; induced identity follows by orbit-character orthogonality. The two F7^2 actions are scalar versus nonscalar and hence distinct.
 
-## Limitations
-The result does not classify doubles for nonabelian Frobenius kernels or noncyclic complements. Independent validation and definitive historical-priority certification are not supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality: Known generic sum plus representation theory does not by mere parameter substitution give four evaluated uniform formulas and action-blind reconstruction; prior special prime-complement calculations overlap and are credited. Prior formulation/implication comparisons are documented; search nonhits are not proof of priority.
+
+## value
+
+PASS
+
+The natural complete family of group-theoretic higher indicators with arbitrary abelian kernel and composite cyclic complement provides explicit uniform torsion-sensitive formulas, reconstructs A and complement size and proves genuinely nonisomorphic actions share every dimension-tagged indicator. This is not merely a routine small-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

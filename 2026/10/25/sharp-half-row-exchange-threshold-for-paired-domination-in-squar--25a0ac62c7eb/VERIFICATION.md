@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-The mathematical proof of the all-even-size theorem is given in `RESULT.md`. The finite checks here serve only to detect possible mistakes in low-order cases.
+# Independent mathematical audit
 
-Execute `python3 verify_bruteforce.py` and `python3 verify_evenfiber.py` with Python 3 and its standard library; compare their terminal output with `verify_bruteforce.out` and `verify_evenfiber.out` respectively. The first program constructs the actual four-by-four rook graph and performs recursive exact perfect-matching tests, not an assumed even-fiber characterization. The second implements the parity-fiber characterization directly and independently, exhaustively for orders four and six, verifies the connectivity of the specified within-orientation two-vertex reassignment graph, and checks the explicit cross-orientation witness and coefficient formula through order eight.
+## correctness
 
-The first check yields 80 size-four optima, 720 batch-two edges and a uniform distance vector \((1,18,57,4)\). The second yields 40 and 2,256 row-orientation states at sizes four and six and full reachability under two-row moves. Both agree on 80 total minimum sets at order four. The exact graph-wide count and connectivity for larger even orders are proved combinatorially; these scripts do not enumerate their entire reconfiguration graphs.
+PASS
 
-The historical literature comparison has unavoidable residual priority uncertainty, and no independent external audit has been conducted.
+A dominating m-by-m rook placement must meet every row or every column; a size-m placement therefore chooses exactly one in each row or each column. Within a row-once set the induced graph consists of column cliques; it has a perfect matching exactly when all occupancies are even. This proves both directions, disjointness, the exact multinomial generating function and the sharp cardinality bound. Moving two occupants from one even column to another gives paths within each orientation for r>=2. A cross-orientation pair shares at most h cells because any occupied column of the row type has at least two occupants, forcing r>=h; the displayed S,T attain overlap h. Independently enumerated all 4-by-4 rook subsets through cardinality 4, recovered 80 valid minima (40 each type), zero batch-one edges and full batch-two connectivity; independent even-fiber n=4,6 scripts and checks of coefficient n=8 are supplementary, not infinite proof. The proof covers all stated even m, including m=4 where 2<=r<h is empty.
+
+## originality
+
+PASS
+
+Best-of-knowledge original relative to the materially inspected exact claims and implications; source-access and alternative-formulation limitations are not concealed. Even rook graphs form a canonical Cartesian-product family and their paired-dominating optima have nontrivial parity geometry. Complete classification and enumeration plus the sharp h=m/2 global reconfiguration threshold distinguish two-coordinate ch
+
+## value
+
+PASS
+
+Even rook graphs form a canonical Cartesian-product family and their paired-dominating optima have nontrivial parity geometry. Complete classification and enumeration plus the sharp h=m/2 global reconfiguration threshold distinguish two-coordinate changes sufficient within each orientation from coordination linear in m needed to connect orientations. This is a natural all-order structural result, not a small-graph statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

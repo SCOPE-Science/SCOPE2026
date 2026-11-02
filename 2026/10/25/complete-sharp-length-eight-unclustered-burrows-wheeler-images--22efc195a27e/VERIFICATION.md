@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python3 verify_bwt_n8.py` using Python 3 with the standard library. The checker exhausts all 70, 420, 420, 420, and 2520 order-reduced profile candidates after the proved even-content restriction, checks the one-cycle criterion and Hamming distance, and asserts the exact six output patterns. A second route directly enumerates the 65,280 primitive four-letter source words, computes the cyclic input runs from the source, sorts their rotations, and computes the BWT. Both routes must agree and finish with `VALIDATION_OK`. A further direct check counts original-length-eight primitive BWT images for alphabet sizes three and four.
+# Independent mathematical audit
 
-The reduction to five profiles and the proof of the odd-block fixed-point obstruction are in RESULT.md. The direct finite checks do not establish analogous theorems at other lengths. Independent external verification was not performed.
+## correctness
+
+PASS
+
+Standard stable-sort permutation is one 8-cycle exactly for primitive necklaces, and input cyclic-run count is Hamming(L,sorted(L)). For any letter with odd count 2u+1 and too many coincident entries, the stable permutation has a fixed point, impossible. Hence sharp four-run inputs must have even counts <=4. Exhaustive exact independent enumeration of the resulting 3,850 reduced multiset words recovered 6 patterns with rows 0,1,1,1,3; order-preserving embeddings prove formula for all q. Four-letter direct construction is supplementary.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: General 4-run lower bound + existence of one 4-run example only proves the optimum value, not uniqueness, Parikh spectra, all six patterns or q-binomial counts. Prior formulation/implication comparisons are documented; search nonhits are not proof of priority.
+
+## value
+
+PASS
+
+A complete and parameter-uniform solution of the small sharpness and fixed Parikh question explicitly motivated by Kumallagov, not an arbitrary isolated value: classifies every optimal word, all positive symbol multiplicities and their dependence on q.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

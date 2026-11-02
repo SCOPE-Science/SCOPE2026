@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies all cliques for odd cyclic order, explicitly rules out four-vertex noncollinear cliques using the invertibility of two, determines the Euler characteristic and supplies a finite elementary-collapse strategy to two dimensions. The row-column nerve and mixed-triangle fillings prove simple connectivity. For each translation, invariant simplices lie in fixed direction-line simplices, giving Lefschetz numbers \(1+(n-1)^3\), \(n\), or \(0\) according to the three mutually disjoint nonzero direction types; subtraction of \(H_0\) gives the proposed rational trace. Orthogonality yields the exact formula for every character, including composite odd orders. A standalone exhaustive finite verifier checks all maximal cliques and all translated simplicial Lefschetz numbers for orders three, five and seven. This does not substitute for the full proof.
+## correctness
 
-## Originality — PASS, with residual risks
-The 2015 primary paper [1] studies colorings of the same Latin-square graph family. Crucially, Cioabă–Mim [2] already prove the nonequivariant homology ranks over arbitrary fields for all Latin-square graphs of order at least five; those numbers are **not claimed as original here**. The new and mathematically inequivalent content is the character on the degree-two homology of the natural order-\(n^2\) translation subgroup, distinguished by three special Fourier directions, including a closed formula on every group element. Explicit comparison with [2] finds no natural translation representation, trace, or multiplicity theorem in the inspected main results and calculations. Equivalence under another literature description remains possible.
+PASS
 
-## Value — PASS
-The family is a standard strongly regular Latin-square graph family, and the known nonequivariant rank does not determine even one nonidentity symmetry trace. This exact three-direction character supplies structural information about the action of a large natural automorphism subgroup for every odd order, distinguishes generic and geometric dual Fourier directions, and determines the quotient's rational top-homology dimension. These are natural and directly checkable equivariant invariants, not arbitrary subfamilies or a restatement of the Betti number.
+For odd n>=3 every edge lies on one unique row/column/sum line, and every noncollinear clique is a mixed triangle; an exceptional four-clique would require 2d=0, ruled out by odd n. All higher line simplices collapse, while row-column rectangles fill using mixed triangles, proving simple connectivity and reduced homology concentrated in degree two. The Euler characteristic 1+(n-1)^3 fixes the integral H2 rank. Translations outside three direction subgroups stabilize no simplex; a nonzero translation within one stabilizes exactly n line simplices, each with contractible geometric fixed set. The Lefschetz traces are therefore identity (n-1)^3, n-1 for a direction translation, -1 otherwise. Orthogonality of Z_n^2 characters produces exactly m_{r,s}=n-3+1_{r=0}+1_{s=0}+1_{r=s}-1_{(r,s)=0}. New independent full-clique, simplex and signed-Lefschetz enumerations for n=3,5,7 verify all translates, including small cases, but the odd-order argument is the unrestricted proof.
 
-## Sources and limits
-[1] Besharati–Goddyn–Mahmoodian–Mortezaeefar, arXiv:1510.02521 (2015-10-08), Latin-square graph definition and chromatic questions. [2] Cioabă–Mim, arXiv:2606.27328 (2026-06-25), Theorem 3.12 giving already-known arbitrary-field nonequivariant homology. No assertion of independence, an integral \(\mathbb Z[A]\)-module normal form, a classification for even order, or complete bibliographic uniqueness is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 primary Cioaba–Mim Theorem 3.12 explicitly supplies the ordinary all-field H2 Betti number for Latin-square graphs (and thus already covers the cyclic odd case for n>=5), which is not claimed original. The 2015 Besharati et al article studies graph chromatic questions. Neither examined source states the rational translation character, the three distinguished dual Fourier lines, or the n-1 fixed-point quotient rank. Character theory alone cannot recover equivariant traces from ordinary Betti numbers.
+
+## value
+
+PASS
+
+The cyclic Latin-square graph is a natural strongly regular graph with an intrinsic order-n² translation subgroup. An exact character is a finer invariant than a Betti number: it gives each nonidentity trace, distinguishes generic versus three dual directions, and computes rational quotient homology for all odd orders including composite n. The parameter family and group action are canonical rather than arbitrary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The accompanying `check_liquid_profiles.py` uses exact integer arithmetic and the Python standard library. It enumerates **all** delegation functions on each labeled set of sizes 1 through 6 and checks the counts of distinct positive-length reachability matrices against the Cayley-tree and SET recurrences. For **every** resulting matrix it counts its exact preimage and checks the explicit formula \(\prod_a(s_a-1)!s_a^{b_a}\). It checks the connected-profile count for each size as well.
+# Independent mathematical audit
 
-Exact results, in increasing order of sizes 1 through 6: total mappings \(1,4,27,256,3125,46656\); distinct approval matrices \(1,4,23,185,1942,25315\); connected matrices \(1,3,13,87,821,10023\). Additional computations at sizes 20, 50, 100 and 150 compare exact recurrence values to the analytic limiting constants.
+## correctness
 
-Analytic premises checked in the proof: every component has one sink cycle; contraction and its reversal preserve precisely the approval matrix; the labels and direct child attachments explain all fiber multiplicity; \(T=ze^T\) has the stated square-root expansion at \(e^{-1}\); and the mapping-component EGF is \(-\log(1-T)\). The square-root transfer arguments, not finite enumeration, support general and asymptotic conclusions. This is a self-review; independent audit has not been performed.
+PASS
+
+Every functional digraph component has an intrinsic sink cycle S, detected by self-approval; contracting it leaves a uniquely recovered rooted tree of off-cycle vertices. Cyclic order contributes (s-1)! and direct attachments s^b to each profile fiber. Labeled species gives connected EGF (exp(z)-1)exp(T), T=z exp(T), and all-profile EGF exp(u C). Square-root singularity at rho=1/e yields P_n~a exp(a)n^(n-1) and 1+Poisson(a); mapping EGF -log(1-T) yields connected-function probability sqrt(pi/(2n)). Independent direct closure/fiber census checks through n=4, not substitute for singularity proof.
+
+## originality
+
+PASS
+
+The quotient by positive-length reachability and its labeled fiber formula differs from mapping enumeration and general transitive-reduction algorithms; inspected relevant sources do not state the resulting exact EGF or the shifted-Poisson profile law.
+
+## value
+
+PASS
+
+Intrinsic sizes and fibers of the natural liquid approval ballot domain yield different sampling laws than uniform delegations. Exact enumerator, explicit fiber counts, and limiting shifted-Poisson number of components are independently useful for benchmark generation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The missing-row/missing-column observation gives the sharp cardinality lower bound; the even-size column-clique witness attains it. The two exclusive optimum forms are forced by covering every row or every column, and matching occurs precisely when the resulting disjoint selected cliques all have even size. Their multinomial enumeration yields the exact generating-function count. Batch-two parity-preserving moves connect every configuration within either orientation; at most half the columns of a row type can be occupied, giving a sharp batch-\(m/2\) lower bound for crossing orientations, attained by an explicit pair. These arguments cover every even \(m\ge4\). Both independent finite verification implementations executed successfully, as recorded in their output files; no finite extrapolation is used in the proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Haynes–Slater (1998) establishes the underlying parameter, not this complete rook-graph result in its available abstract. The inspectable preprint of Choudhary–Margulies–Hicks (arXiv:1109.2174) derives bounds on Cartesian products, not exact optimum-set enumeration or the specified batch-exchange transition. Brešar–Henning–Rall (2005) addresses product inequalities in its accessible abstract. Known dominating-set reconfiguration literature mainly studies token addition/removal or one-token changes and thus does not imply this sharp equal-batch threshold. Targeted mathematical literature searches and comparisons with previously stated mathematical claims found no logically covering result. Some full texts and unindexed equivalents remain uncertain; a search miss is not an originality proof.
+PASS
 
-## Mathematical value — PASS
-The exact shape of all optima and the counting series connect guard pairing to parity-restricted functions, and the half-size exchange threshold identifies a genuine growth-dependent phase boundary in feasible optimum reconfiguration. The theorem captures how local repair at batch size two is enough inside each geometric orientation but insufficient for global reachability, and determines the precise minimum coordination required to change orientations. This is a motivated all-order structural theorem, not merely a small-case table or incidental arithmetic coefficient.
+A dominating m-by-m rook placement must meet every row or every column; a size-m placement therefore chooses exactly one in each row or each column. Within a row-once set the induced graph consists of column cliques; it has a perfect matching exactly when all occupancies are even. This proves both directions, disjointness, the exact multinomial generating function and the sharp cardinality bound. Moving two occupants from one even column to another gives paths within each orientation for r>=2. A cross-orientation pair shares at most h cells because any occupied column of the row type has at least two occupants, forcing r>=h; the displayed S,T attain overlap h. Independently enumerated all 4-by-4 rook subsets through cardinality 4, recovered 80 valid minima (40 each type), zero batch-one edges and full batch-two connectivity; independent even-fiber n=4,6 scripts and checks of coefficient n=8 are supplementary, not infinite proof. The proof covers all stated even m, including m=4 where 2<=r<h is empty.
 
-## Closest literature, restrictions, and uncertainty
-The strongest directly relevant source examined in mathematical detail is Choudhary–Margulies–Hicks (2011/2013) on Cartesian product paired-domination bounds; it contains no theorem asserting the stated sharp exchange threshold. Haynes–Slater (1998) and Brešar–Henning–Rall (2005) were accessible in abstract/metadata form, not comprehensively compared from all full-text pages. The theorem concerns even rook graphs only, optimum states only, and simultaneous swaps that need not have feasible intermediate states. Scientific originality could require revision if an inaccessible source already provides equivalent consequences. The finite programs confirm instances but are not independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original relative to the materially inspected exact claims and implications; source-access and alternative-formulation limitations are not concealed. Even rook graphs form a canonical Cartesian-product family and their paired-dominating optima have nontrivial parity geometry. Complete classification and enumeration plus the sharp h=m/2 global reconfiguration threshold distinguish two-coordinate ch
+
+## value
+
+PASS
+
+Even rook graphs form a canonical Cartesian-product family and their paired-dominating optima have nontrivial parity geometry. Complete classification and enumeration plus the sharp h=m/2 global reconfiguration threshold distinguish two-coordinate changes sufficient within each orientation from coordination linear in m needed to connect orientations. This is a natural all-order structural result, not a small-graph statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

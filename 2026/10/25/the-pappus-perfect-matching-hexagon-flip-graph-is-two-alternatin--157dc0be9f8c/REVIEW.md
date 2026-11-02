@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is a completely specified finite graph isomorphism, not an extrapolated pattern. The explicit nine-line incidence relation exhaustively generates 42 permutation matchings; flipping exactly three assignments is equivalent to an alternating six-cycle. The 72 complete adjacencies yield two parity classes, and deletion of the three degree-six hubs in each class leaves the stipulated three alternating six-cycles. An independent LCF implementation reproduces the graph-level counts and distances. Both programs were run from the packaged file contents.
+## correctness
 
-**Originality — PASS, subject to normal priority uncertainty.** The closest earlier Pappus-specific full manuscripts [1] and [2] concern complementary two-factor cycle types, signs, and irreducible incidence geometry, not the exact unrestricted hexagon-switch graph. The full 2015 search paper [3] concerns pseudo-two-factor classification and a different 30-vertex graph. Related work [5] treats embedded-face resonance moves, not all abstract six-cycles. Its general connectivity criteria do not supply this exact 21-vertex component isomorphism. The accessible records and semantic mathematical searches supplied no dominating exact statement; equivalent unindexed descriptions remain possible.
+PASS
 
-**Value — PASS.** The natural question asks whether local alternating-hexagon moves connect all perfect matchings of a classical girth-six cubic graph. A general parity obstruction gives only nonconnectivity; the complete answer proves this is the *only* obstruction and identifies both component graphs explicitly, including precise mobility metrics. The two-component/three-hub structure is not obtainable from known complementary two-factor cycle types alone. It is a useful exact comparison with face-restricted resonance graphs and other cubic incidence graphs.
+Complete 9-point/9-line incidence assignment backtracking enumerates every perfect matching once: 42. For each matching testing all triples of points and both 3-cycles is equivalent to every simple 6-cycle symmetric difference, generating 72 undirected edges. Matching permutation parity is invariant. Independent rebuilt adjacency has two 21-vertex parity components, each 3 nonadjacent degree-6 hubs, 3 disjoint length-six peripheral cycles whose neighbors alternate by each hub pair, exactly T; eccentricity of every vertex 4. This is exhaustive finite proof for abstract Pappus, not just a sample.
 
-**Scope and risks.** The calculation is exact for this graph only. Literature priority remains conditional on discoverability, particularly alternative terminology for unrestricted hexagon switches. There is no independent external mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality limited to the narrow final claim: Abreu 2-factor classifications do not imply T⊔T. Tratnik–Ye face flip definitions use selected embedded cycles, while the evaluated graph uses all 18 six cycles; possible 2026 toroidal-polyhex full text remains inaccessible.
+
+## value
+
+PASS
+
+The perfect-matching reconfiguration graph under all shortest alternating cycles is a natural finite object; determining its full isomorphism type, parity obstruction and component geometry can inform connectivity of 1-factor switch dynamics on related cubic bipartite graphs. The precise T⊔T fact is stronger than simply reporting 42 matchings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

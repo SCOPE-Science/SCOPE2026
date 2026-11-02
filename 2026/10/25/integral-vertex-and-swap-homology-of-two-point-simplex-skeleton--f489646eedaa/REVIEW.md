@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The full deleted product is homeomorphic equivariantly to an orientation representation sphere. The skeleton truncation removes precisely \(2n\) open top cells, and the fundamental-class map into their oriented relative chains is primitive diagonal. The integral equivariant long exact sequence proves the claimed lattice without relying on finite experiments. A dependency-free finite checker independently reconstructs boundary matrices, top-cell incidences, orientations and sample character traces. No general conclusion is inferred from experimental bounds.
+## correctness
 
-## Originality: PASS, qualified
-The closest primary source is González and González, arXiv:2307.14454v1, Theorem 1.2(III), which already establishes the nonequivariant \((2n-1)\)-sphere wedge. Their Remark 1.7 explicitly notes that their gradient construction is not particle-swap equivariant. Abrams, Gay and Hower, arXiv:1009.2935v2, supply the ambient deleted-product sphere but do not calculate the relevant skeleton-restricted integral module. Targeted scientific-record searches for aliases, permutation-module quotients, particle interchange, and implicit relative-cell formulations yielded related but different objects; they did not show covering equivalence. An unindexed equivalent remains a genuine priority risk.
+PASS
 
-## Mathematical value: PASS
-The result gives the entire natural integral symmetry module of a canonical infinite-family configuration space, refining established nonequivariant topology. The canonical quotient lattice distinguishes integral representation information from the same rational character, and the parity-dependent rational homology of the unordered quotient supplies a concrete symmetry-sensitive consequence.
+The ambient ordered deleted product DConf(Δ^(n−1),2) is equivariantly homeomorphic via normalized x−y to the unit sphere in the sum-zero R^n hyperplane, dimension n−2. Vertex permutations act by sign and the swap by antipodal degree (−1)^(n−1). Truncating to the codimension-two skeleton removes exactly 2n open top-dimensional cells with first/second support of size n−1 and the other singleton; every lower cell survives. The relative cellular complex is therefore concentrated in dimension n−2 and, with ambient-induced coherent orientations, is Z_epsilon⊗P_n; the fundamental sphere class maps to the primitive all-ones vector in the relative group. The integral LES yields the quotient P_n/Z·1 (not the augmentation kernel) and vanishing of all other reduced groups. For t=0 permutation trace is 2fix(sigma)−1, and for t=1 it is −1, both multiplied by epsilon. The C2 invariant subspace ranks give n−1 for odd n and n for even n; S_n invariants vanish for n>=4. Independent full-cell Lefschetz sums checked 24 signed group actions at n=4..7. The universal statement uses the exact cellular proof and finite-group averaging over Q, not numerical extrapolation.
 
-## Scientific limitations
-Only the codimension-two skeleton and two particles are treated. Rational quotient homology does not imply integral torsion-freeness of quotient spaces. A complete publication-priority determination is not claimed. A further independent mathematical audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge ORIGINALITY PASS for the specific final claim, NOT a declaration that known nonequivariant calculations or general frameworks are new. González–González, An algorithmic discrete gradient field for non-colliding cell-like objects and the topology of pairs of points on skeleta of simplexes (arxiv:2307.14454), Theorem 1.2(III) gives exact nonequivariant (2n−1)-sphere wedge for the same skeleton. Remark 1.7 explicitly says its optimal gradient field is not particle-swap equivariant. This covers all nonequivariant ranks but does not give the joint integral module. Abrams–Gay–Hower, Discretized configurations and partial partitions (arxiv:1009.2935), Theorem 1.1 covers deleted product of entire simplex, the ambient sphere underlying the argument. It does not calculate the truncated skeleton homology with the complete S_n×C2 action. Residual priority risks are stated; no stronger indexed result was identified which logically implies the assessed claim.
+
+## value
+
+PASS
+
+The integral quotient lattice and joint vertex-permutation/particle-interchange action are new structures beyond the known 2n−1 sphere count. Unlike rational character alone, the canonical primitive diagonal quotient determines torsion-free integral representation data and explains the parity transition for unlabeled particles; it is a natural infinite family and the full action of its evident symmetry group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

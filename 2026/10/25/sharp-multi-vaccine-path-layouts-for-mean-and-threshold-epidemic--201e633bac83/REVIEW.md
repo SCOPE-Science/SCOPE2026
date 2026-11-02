@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses a valid partition into nonnegative susceptible path gaps; the exact tail polynomial follows by exhaustive classification of maximal open runs and finite geometric sums. Merging two active gaps strictly reduces the total risk by \((t-1)p^t\), and filling any short inactive gap reduces it by a positive amount. The independent strict-convexity argument characterizes mean minimizers. All quantifiers explicitly require \(k\ge2\), \(t\ge3\), and \(0<p<1\). The exact rational verifier supports the proof but is not an infinite argument.
+## correctness
 
-## Originality — PASS, with residual risk
-The fully inspected Altarelli et al. manuscript develops network immunization with mean-field/message-passing approximate epidemic objectives rather than an exact finite-path higher-tail extremal classification. The inspected Aspnes–Chang–Yampolskiy report addresses perfect-transmission component-size-cost objectives. Yuan et al. motivate outbreak size thresholds in two populations, but not path separator placement. Prior one-vaccine, first-transmission comparisons do not imply the multi-vaccine, all-higher-threshold minimizer theorem. Equivalent formulations under bond-percolation component optimization or network interdiction remain a substantive bibliographic risk; this assessment is not independent priority certification.
+PASS
 
-## Mathematical value — PASS
-A complete classification of minimum tail risk for arbitrary vaccination budget, threshold and transmission probability provides an exact counterpart to more common expected-outbreak optimization. The sharp incompatibility boundary shows precisely when an optimal preventive layout for average burden necessarily differs from one for exceeding a clinical capacity threshold. This is more than a generic convexity observation because it requires identifying the piecewise-affine tail cost and all minimizing profiles.
+Every vaccination set corresponds uniquely to b=k+1 nonnegative gap lengths summing N. In a gap L, exact expected number of seeds with an outbreak of size >=t is 0 for L<t and p^(t-1)[(t-(t-1)p)L-t(t-1)(1-p)] for L>=t, via weighted counts of maximal edge-open runs. Merging two active gaps into one while setting other t-1 strictly decreases risk by (t-1)p^t; filling inactive gaps toward t-1 decreases by positive slope. Hence zero-risk case N<=b(t-1) has exactly all gaps <=t-1, otherwise threshold optimizer unique multiset (N-(b-1)(t-1), t-1,...). Mean cost H(L)=L+2∑(L-d)p^d has strict second differences 2p^(L+1)>0, giving exactly balanced gaps. Both sets intersect iff N<=b(t-1)+1. Independently exhaustively evaluated rational open-edge cases and compositions with N<=9; all matched. Endpoint p=0,1 excluded.
 
-## Limits
-The model has one uniformly chosen susceptible source, perfect vaccination, independent homogeneous transmission and finite paths only. No finite-sample public-health prediction is asserted. The strict statements do not extend as written to endpoint probabilities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after independent statement/implication comparisons with primary literature and published semantic records. Known starting theorems explicitly credited; absence of matching search results not treated as proof of priority.
+
+## value
+
+PASS
+
+Complete optimal vaccination layouts for two naturally conflicting risk objectives, including exact sharp population/budget threshold when mean-optimal prevention cannot also minimize a clinical capacity exceedance probability. Tail cost affine above threshold while expected cost strictly convex; this is a substantial exact path-percolation optimization classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

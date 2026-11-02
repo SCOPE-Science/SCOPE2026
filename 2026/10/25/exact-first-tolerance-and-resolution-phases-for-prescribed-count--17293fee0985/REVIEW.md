@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A conditional Bernoulli point-mass inequality forces each site near a deterministic GC class, and at the first threshold a two-mixed-site point-mass bound forces separation by at least \(w\). The exact spacing polynomial, finite-state recurrence, and capacity root then follow. For general small tolerance, a window-union-bound argument yields both matching resolution-order bounds. An executable independent bin-level dynamic program checked 459 finite-parameter assertions using exact rational arithmetic. Finite computations do not prove the infinite claims; the paper supplies the analytic arguments.
+## correctness
 
-**Originality — PASS, with residual risk.** Bodur–Walter–Wachter-Zeh arXiv:2610.09998 Theorem 15 gives the broad weighted-transfer representation. The existing two-site result 0a044f66 gives a comparable two-position tolerance law. Both are credited; the novelty asserted is limited to \(w\ge3\), especially the explicit full finite-word first-threshold structure and the all-window resolution crossover. A generic transfer formula can compute particular cases but does not explicitly supply these uniform structural evaluations. Nguyen et al. arXiv:2501.10645 concerns deterministic worst-case constrained DNA, not these probabilistic exact-count phase laws. A previously unindexed equivalent long-window derivation is the primary remaining risk.
+PASS
 
-**Value — PASS.** Increasing composite-symbol resolution gives cubic alphabet growth. The theorem proves that exact local GC success has only a linear-resolution capacity scale at zero tolerance, yet every fixed positive per-window tolerance restores the full cubic scale. At the very first allowed defect probability, the entire word population admits an exact separated-mark characterization and a universal capacity gain. These are motivated capacity effects, not an arbitrary finite table or a claim of biological performance.
+Condition on other Bernoulli variables gives one-site deviation bound. At epsilon=1/k, any two nonextreme i/k sites in one window have maximal point-mass below 1-1/k for k>=3, forcing marks to be distance>=w and deterministic GC labels to be w-periodic with m ones. Exact bin weights (i+1)(k-i+1) give a weighted hard-core mark polynomial and characteristic equation lambda^w=lambda^(w-1)+2k/(k+1). For epsilon<1/(w+1), nearest-label rigidity and window union bounds sandwich the general capacity between W(floor(k epsilon/w)) and W(floor(k epsilon)), proving the high-resolution exponent. Independently recomputed 20 exact small first-threshold word counts.
 
-**Limits.** The result assumes independent synthesis and individual window compliance; it does not assert joint whole-strand success. Exact prescribed GC counts, not interval counts, are considered. The first-threshold identity assumes \(k\ge3\). No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general capacity automaton for probabilistic GC constraint is prior; the all-w>=3 symbolic first permitted defect classification, exact mark polynomial and k-dependent resolution crossover were not located in its indexed statement.
+
+## value
+
+PASS
+
+Provides a sharp first-defect transition in a natural composite-DNA probabilistic window model and a high-resolution capacity exponent independent of the exact interior count, clarifying a cubic-versus-linear alphabet scaling phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T23:12:46.305318Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md from the frozen seven-blob tree. For j≥3, the least likely living label has p≤1/j, so its next-round extinction probability is at least (1-1/j)^n≥(2/3)^n; holding-time summation gives E tau2≤n(3/2)^n, while the direct unanimity skip is ≤n²(3/2)^n(n^(c/sqrt n)/3)^n=o(1). On the two-label face p(a)=logistic((c/sqrt n)log(a/(n-a))), r_n=2^(1-n), and h(a)/r_n=cosh(n theta/2)/cosh(theta/2)^n; hence r_n≤h≤epsilon_n=r_n exp(c sqrt(n)log(n)/2), with epsilon_n²=o(r_n). The resurrected P=Q+h nu is stochastic, strictly positive and invariant under pi; Hoeffding forces every row into G={|a-n/2|≤n^(2/3)}, and Pinsker/KL gives P²(a,.) within O(n^(-1/3)) of fair conditioned binomial nu, uniformly in a. Dobrushin contraction gives stationary good-set mass 1-e^{-Omega(n^(1/3))}. For M=h/r_n, stationarity yields exactly (lambda_n/r_n)(1-r_n beta_n)=sum pi(a)g_n(a), where g=Q M and beta=nu M; central binomial CLT and exponential moments show g→E cosh(2cZ)=e^(c²/2), Z~N(0,1/4), uniformly on G. Polynomial g(a) off G times exponentially small pi(G^c) is negligible, implying lambda_n/r_n→e^(c²/2). Conditioning on survival perturbs P by at most epsilon_n per step; after O(n/log n) burn-in the hazard is lambda_n(1+o(1)), yielding Exp(1) survival and asymptotic mean (dominated by geometric rate r_n). The entrance time is o(1/r_n). Independently implemented 633 bounded floating-point comparisons corroborated the algebraic cosh hazard and stationary identity, stochastic P rows, and neutral c=0 case through n=320; reconstructed Git tree SHA-1 exactly. Finite checks corroborate, not prove, the all-n limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.22324 primary abstract: for alpha<1 the absorption time is at least exp(Omega(n)); alpha=1 is Wright–Fisher and alpha>1 gives logarithmic-logarithmic time.",
+          "https://arxiv.org/abs/1609.00838 concerns frequency-dependent Wright–Fisher fixation bounds in a regime favoring one type under strong selection, not the alpha_n-to-zero mean-reverting voting kernel.",
+          "https://arxiv.org/abs/2205.06480 derives selection-model fixation-time approximations with a different fitness map; its abstract does not give the present uniform rare-consensus correction.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-missing-entry-amplitude-factor-in-wolbachia-qsd-convergence-ti--fd85595e5575 full RESULT.md derives a reducible CTMC entry-amplitude correction for QSD mass ratios, not a binomial voting absorption distribution."
+        ],
+        "reasoning": "The primary abstract-level fixed-alpha exponential lower bound does not imply an upper bound, normalization constant or exponential weak limit in alpha_n=c/sqrt n, nor does a general rare-event perturbation argument determine the precise e^{c^2/2} hazard without model-specific computation. More general fixation frameworks may use related machinery, but an actual dominating implication was not identified; the primary complete v2 remains an access limitation.",
+        "searches": [
+          "\"The Conclave Process\" Benjamini Cai Chen Gong Li arxiv theorem 1.5 section 6",
+          "metastable Wright Fisher rare fixation binomial transition small selection square root strength asymptotic exponential law",
+          "Wright Fisher fixation time frequency-dependent selection asymptotically sharp distribution",
+          "Resultary: square-root reinforcement conclave process consensus time exponential distribution 2^(n-1) exp(-c^2/2)"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.22324",
+        "https://arxiv.org/abs/1609.00838",
+        "https://arxiv.org/abs/2205.06480",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-missing-entry-amplitude-factor-in-wolbachia-qsd-convergence-ti--fd85595e5575",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-an-n-1-4-finite-window-approach-to-the-two-state-sliding-count-o--523e1f91b8c1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.22324 v2 bibliographic and primary abstract: fixed-alpha phase transition, lower exponential bound when alpha<1, and Wright–Fisher alpha=1.",
+          "The assessed statement is T_n/(2^(n-1)e^(-c²/2)) ⇒ Exp(1) AND E T_n/(2^(n-1)e^(-c²/2))→1 for every fixed c≥0; it also proves P(S_{tau2}=2)→1.",
+          "Even knowing T_n≥exp(K(alpha)n) for each fixed alpha<1 gives no uniform K as alpha depends on n and cannot imply an exact leading constant or distribution."
+        ],
+        "reasoning": "The accessible prior statement is strictly weaker and its quantifier order differs: fixed alpha<1 versus triangular-array alpha_n=c/sqrt(n). The exact source-paper full-text comparison remains incomplete (August 10 revision not inspected), so no whole-document NOT_COVERING claim or unconditional priority assertion is made.",
+        "searches": [
+          "\"The Conclave Process\" Benjamini Cai Chen Gong Li arxiv theorem 1.5 section 6",
+          "\"conclave process\" consensus time weak reinforcement square root alpha",
+          "\"The Conclave Process\" \"Theorem 1.5\" \"proof\" Benjamini Cai Chen Gong Li"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Benjamini et al. primary abstract identifies the same power-proportional multinomial voting transition; https://arxiv.org/abs/2607.22324.",
+          "In the two-survivor reduction, p(a)=a^(c/sqrt n)/(a^(c/sqrt n)+(n-a)^(c/sqrt n)), and h(a)=p(a)^n+(1-p(a))^n; the claimed Gaussian-cosh correction is a property of repeated transitions, not a static binomial count.",
+          "Full published record https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-an-n-1-4-finite-window-approach-to-the-two-state-sliding-count-o--523e1f91b8c1 concerns the stationary projected sliding-window count spectral gap of a different two-state chain, not a killed multinomial absorption clock."
+        ],
+        "reasoning": "Searched the equivalent power-normalized conclave model, nonlinear binomial Wright–Fisher update, and rare two-candidate survival formulation. The inspected near matches change the transition kernel, target observable, or parameter regime. No actual equivalent full statement was obtained; failed indexing is not proof of priority.",
+        "searches": [
+          "\"conclave process\" consensus time weak reinforcement square root alpha",
+          "nonlinear Wright Fisher binomial chain small exponent power normalized rare unanimous absorption gaussian correction",
+          "\"power\" \"conclave\" \"consensus\" \"2^n\" random votes",
+          "Resultary: Benjamini Cai Chen Gong Li conclave process alpha n inverse sqrt n metastability last two labels exact clock"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166 full published RESULT.md determines covariance/precision of one-round multinomial occupied-box indicators, not iterative consensus times.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-an-n-1-4-finite-window-approach-to-the-two-state-sliding-count-o--523e1f91b8c1 gives an n^(-1/4) asymptotic Rayleigh witness for a two-state sliding-count spectral-gap problem, not a table for the target voting kernel.",
+          "No semantically indexed Resultary hit or search result contained an exact table for the triple (transition kernel, c/sqrt(n) regime, 2^(n-1)e^(-c²/2) scaling)."
+        ],
+        "reasoning": "The exact-database question is applicable to the special transition kernel and its asymptotic constant; the nearby finite/occupancy records do not supply these data. Search nonretrieval is not proof of novelty.",
+        "searches": [
+          "Resultary: power urn multi-candidate voting support extinction metastable absorption time consensus",
+          "Resultary: nonlinear Wright Fisher binomial chain small exponent power normalized rare unanimous absorption gaussian correction",
+          "Search: sharp exponential absorption law 2^(n-1) exp(-c^2/2) conclave weak power reinforcement"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for the specific sharp alpha_n=c/sqrt(n) limit and explicit e^{-c^2/2} prefactor in the repeated multinomial conclave process. The motivating Benjamini–Cai–Chen–Gong–Li paper defines the exact power-weighted update and its public primary abstract gives a subcritical exponential LOWER bound for fixed alpha<1, not a matching sharp n-dependent rate, limit law or c-dependent coefficient. The primary full text of its August-2026 v2 could not be retrieved in this execution: arXiv PDF/HTML and lawful mirrors failed, and authorized Oxford reported vpn_disconnected. This leaves a serious specific priority risk but no established mathematical implication of coverage from material obtained. Three related published mathematical sources were read in full and concern respectively reducible continuous-time epidemic QSD, sliding-window Rayleigh quotients, and static one-shot occupancy covariance, not the repeated reinforced binary absorption law. Generic rare-killing and Gaussian methods alone do not determine the explicit coefficient; the result does not claim those methods as new.",
+      "residual_risks": [
+        "Highly relevant exact-model arXiv:2607.22324v2 full text was not accessible this run; its August 10 revision must be compared before a strong priority claim. The prior self-review reports reading an older version, which is not independently counted as material read here.",
+        "Older unindexed quasi-stationary or frequency-dependent population-genetics results may imply the sharp coefficient under an equivalent parameter map.",
+        "A semantic Resultary search and the listed primary abstracts are not exhaustive; no claim of guaranteed novelty or external certification.",
+        "No claim is made that the general rare-killing perturbation method, Hoeffding, Pinsker or Gaussian moment calculation is itself new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The accessible abstract supports subcritical exponential lower growth at fixed alpha but does not state the n-dependent sharp clock; cannot exclude an equivalent result in unread full text.",
+          "evidence": "https://arxiv.org/abs/2607.22324; latest available version v2 dated 2026-08-10 in indexed arXiv metadata; abstract alpha<1 only gives an exponential lower bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.22324",
+          "material_read": "Primary abstract and v1/v2 public bibliographic metadata; secondary technical review screened for theorem scope. Full arXiv HTML/PDF and lawful alternate full texts unavailable; authorized Oxford access returned vpn_disconnected. Not a full-text inspection.",
+          "method": "Matched exact power-weighted multinomial generator, phase and quantifiers against the target statement, recording full-text access failure.",
+          "title": "The Conclave Process",
+          "trigger": "Exact transition rule, primary model introduction and subcritical exponential consensus-time result; v2 revised August 10, 2026."
+        },
+        {
+          "assessment": "Continuous-time reducible infection CTMC and class-mass ratios, not reinforced multinomial unanimous absorption.",
+          "evidence": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-missing-entry-amplitude-factor-in-wolbachia-qsd-convergence-ti--fd85595e5575/RESULT.md: Q block-triangular, M1(t)/M2(t)~(A1/A2)e^((alpha2-alpha1)t).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-missing-entry-amplitude-factor-in-wolbachia-qsd-convergence-ti--fd85595e5575",
+          "material_read": "Entire published RESULT.md, assumptions, three-block generator, Perron proof, and limitations.",
+          "method": "Compared state space, Markov generator, rare-event observable and leading asymptotic.",
+          "title": "A missing entry-amplitude factor in Wolbachia QSD convergence times",
+          "trigger": "Nearest Resultary search hit on quasi-stationary time-scale corrections."
+        },
+        {
+          "assessment": "Different kernel, different observable, no implication of the target c/sqrt(n) clock.",
+          "evidence": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-an-n-1-4-finite-window-approach-to-the-two-state-sliding-count-o--523e1f91b8c1/RESULT.md defines P=[[1-u,u],[r,1-r]] and normalized sliding-count Rayleigh quotient approaching 1/4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-an-n-1-4-finite-window-approach-to-the-two-state-sliding-count-o--523e1f91b8c1",
+          "material_read": "Entire published RESULT.md: finite-window stationary occupation-count kernel, Rayleigh formula, proof, scope and bibliography.",
+          "method": "Compared kernel/quantifier and spectral-gap statistic to the binomial killed chain.",
+          "title": "An n^(-1/4) finite-window approach to the two-state sliding-count obstruction",
+          "trigger": "Resultary hit with two-state chains and asymptotic rare-event scaling."
+        },
+        {
+          "assessment": "Static distribution/covariance result is not stronger coverage of the recurrent rare-consensus clock.",
+          "evidence": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166/RESULT.md gives Cov(I_i,I_j)=(1-p_i-p_j)^n-(1-p_i)^n(1-p_j)^n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+          "material_read": "Entire published RESULT.md, exact covariance identities and Neumann inverse proof, limitations.",
+          "method": "Contrasted one-shot occupancy indicators with iterated power-reinforced multinomial transitions.",
+          "title": "Occupied-box indicators have a strictly positive precision matrix",
+          "trigger": "Potential static multinomial occupancy entry in Resultary corpus."
+        },
+        {
+          "assessment": "Abstract describes strong advantageous-selection bounds, not the present near-neutral mean-reverting, power-normalized exact weak limit; full text not excluded.",
+          "evidence": "https://arxiv.org/abs/1609.00838 abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.00838",
+          "material_read": "Accessible bibliographic abstract only; not full technical document.",
+          "method": "Compared selection regime, conclusion (fixation probabilities/time bounds) and target absorbing distribution.",
+          "title": "Moran-type bounds for the fixation probability in a frequency-dependent Wright-Fisher model",
+          "trigger": "General frequency-dependent Wright–Fisher results might dominate special power selection."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The square-root exponent window is a natural, explicitly motivated small-reinforcement regime: central two-label tallies differ by O(sqrt n), so the logistic log-odds are O(1/n) and n-fold unanimous-killing probabilities retain a nontrivial Gaussian cosh factor. The result determines the sharp exponentially large consensus clock, its entire limiting Exp(1) law, the expectation, and the overwhelming two-label bottleneck, refining a fixed-subcritical exponential lower bound. The coefficient e^(-c²/2) varies genuinely with c and is not a change of notation or an arbitrary finite special case. This is an independently useful natural metastable asymptotic, without claiming a novel general probability method.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2607.22324",
+    "https://arxiv.org/abs/1609.00838",
+    "https://arxiv.org/abs/2205.06480",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-missing-entry-amplitude-factor-in-wolbachia-qsd-convergence-ti--fd85595e5575",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-an-n-1-4-finite-window-approach-to-the-two-state-sliding-count-o--523e1f91b8c1",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The asymptotic law applies only to fixed c≥0 as n→∞, complete unanimity, independent ballots each round, and initially singleton labels.",
+    "The main exact-model primary arXiv paper latest v2 full text could not be read; Oxford institutional access indicated vpn_disconnected, and source priority remains qualified.",
+    "The finite checker cannot verify the n→∞ limit without the analytical arguments; saved VERIFY_OK and source self-review not used as proof.",
+    "The plan is staged only; no repository or dispatcher closeout write occurred and no publication is claimed.",
+    "The source contains older first_public_date tied to cited arXiv rather than this record, removed rather than guessing provenance."
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T01:12:02.910009Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual assigned nine-entry source tree reconstructed to SHA 8da1321843fa956f37d947797b96205e2a7b2d0f from Git blob/tree identities; current main entry SHA list matched frozen reference.",
+        "Independent stdlib script independent_checks.py: SMOOTH_144_PASS, PENCILS_804_NETS_0_PASS, ORBITS_13_10x72_2x36_1x12_PASS, RATIONAL_BASE_POINT_STRATA_PASS, FROBENIUS_SPECTRA_PASS.",
+        "Independent SymPy script independent_geometric_check.py: EXACT_ALL_13_ORBIT_BASE_SCHEMES_TRANSVERSE_OVER_ALGEBRAIC_CLOSURE_PASS.",
+        "The 13 representative Frobenius partitions weigh 216+216+288+12+72=804; 72+2*36+10*72=804."
+      ],
+      "limitations": [
+        "No formal proof-assistant or external expert attestation; finite exhaustive algebra proof and independent exact replay are the stated verification standard.",
+        "Projective smoothness means over F2 algebraic closure and only three rational pencil members; extension-field pencil members need not all be smooth."
+      ],
+      "rationale": "The 9 monomials of O(2,2) over F2 give 511 distinct nonzero forms. On all projective product charts the partials are univariate degree <=2 in opposite variables; their common geometric roots have coordinates in F4 when both nonzero, or in F16 after solving a quadratic over F4 when one vanishes; the both-zero derivative case is a square and has a small-field zero. Thus the independent exhaustive F16 singular-point test certifies all geometric points, giving exactly 144 smooth forms. A complete XOR-closed-triple enumeration gives 804 two-dimensional pencils and testing every additional vector coset forbids all-smooth nets. The independent evaluation-basis isomorphism F2^9 -> functions on the 3x3 rational grid and full 72-element (S3xS3)rtimes C2 action produce 13 orbits (10*72+2*36+12). For all 13 orbit representatives, independently computed unit Groebner ideals (f,g,f_x g_y+f_y g_x) on four charts prove geometric transversality; by invariance this holds for all 804. Distinct smooth members have no component in common, so (2,2).(2,2)=8 yields exactly eight distinct geometric base points. Independent exact counts of zeros in F_(2^d) for d=1..8 for each representative, using proven fields and Mobius/divisor recovery N_d=sum_{e|d} e c_e, yield precisely cycle spectra (8):72,(2,3,3):12,(1,7):288,(1,2,5):216,(1,1,6):216. The computation is genuinely exhaustive for this finite problem; saved stdout alone was not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asgarli–Ghioca arXiv:2203.07169 Theorem 1.3 is an existence theorem for sufficiently large q; Examples 1.5–1.6 treat F2 conics; Propositions 3.3 and 3.5 construct pencils of ambient quadric surfaces.",
+          "Asgarli–Ghioca–Reichstein arXiv:2207.00918 Theorem 2 controls hypersurface systems of Pn and Theorem 6 their characteristic-two obstruction, with different ambient hypotheses.",
+          "Melle-Hernández–Wall, Pencils of Curves on Smooth Surfaces (2001): abstract addresses singular fibers/wild ramification, but full text not read and no whole-paper noncoverage inferred."
+        ],
+        "reasoning": "The n-dimensional hypersurface r-bounds do not apply unchanged to the 9-dimensional H^0(P1xP1,O(2,2)); the specific all-smooth r=1 maximum is a new small-field enumeration within a fixed surface, not a corollary of the stated general existence/obstruction theorems. Possible older broader finite-classification results remain a residual risk.",
+        "searches": [
+          "web: Asgarli Ghioca Smoothness in pencils of hypersurfaces over finite fields arxiv 2203.07169 pdf",
+          "web: Asgarli Ghioca Reichstein Linear families of smooth hypersurfaces 2207.00918",
+          "Resultary: all-smooth pencils of bidegree (2,2) curves over F2 on P1 x P1 genus one, exact automorphism orbits and Frobenius cycles of eight base points",
+          "web: classification pencils smooth curves on quadric surface over F2 base points"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2203.07169",
+        "https://arxiv.org/pdf/2207.00918",
+        "https://arxiv.org/pdf/2008.02925",
+        "https://arxiv.org/abs/2004.03479",
+        "https://doi.org/10.1112/plms/83.2.257",
+        "Resultary: all-smooth pencils of bidegree (2,2) curves over F2 on P1 x P1 genus one, exact automorphism orbits and Frobenius cycles of eight base points",
+        "Resultary: smooth genus one (2,2) divisors on split quadric F2 linear pencil 804 13 orbits",
+        "Resultary: finite field quadratic intersections genus one elliptic quartic pencils of quadrics Frobenius base point types"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Asgarli–Ghioca Example 1.6 proves no all-smooth projective dimension-3 plane-CONIC system over F2, not no all-smooth bidegree-(2,2) net on a split quadric.",
+          "Asgarli–Ghioca Proposition 3.5 constructs all-smooth P3 QUADRIC-SURFACE pencils in even characteristic, not embedded genus-one curve pencils.",
+          "Hamada–Hayano classify complex genus-one Lefschetz pencils up to smooth isomorphism; finite Frobenius base-point partitions are not invariants of their problem."
+        ],
+        "reasoning": "The precise claim is the complete finite set of all F2 coefficient subspaces with three smooth members, its Aut_F2(P1xP1) orbits, maximal dimension, and reduced base Frobenius cycle counts. None of the inspected prior implications yields all of these or the distinctive exact orbit census. Superficial matching degree/genus/pencil terminology is insufficient coverage.",
+        "searches": [
+          "web: Asgarli Ghioca Smoothness in pencils of hypersurfaces over finite fields arxiv 2203.07169 pdf",
+          "web: Asgarli Ghioca Reichstein Linear families of smooth hypersurfaces 2207.00918",
+          "Resultary: smooth genus one (2,2) divisors on split quadric F2 linear pencil 804 13 orbits",
+          "web: classification pencils smooth curves on quadric surface over F2 base points"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "O(2,2) on the Segre quadric corresponds to curves that are (fixed quadric)∩(varying quadric) in P3; smoothness of the varying quadric as a P3 hypersurface is not equivalent to smoothness of their intersection.",
+          "Hamada–Hayano arXiv:2008.02925 Theorems 1.1–1.2 treat complex topological genus-one Lefschetz pencil classification, not F2 coordinate orbits."
+        ],
+        "reasoning": "Relevant equivalent vocabulary includes genus-one elliptic quartics, bidegree (2,2) curves, fixed split-quadric intersections, genus-one Lefschetz pencils and Frobenius eight-point base schemes. These rewritings do not transform known ambient-quadric or complex topological classifications into the exact finite arithmetic assertions.",
+        "searches": [
+          "Resultary: all-smooth pencils of bidegree (2,2) curves over F2 on P1 x P1 genus one, exact automorphism orbits and Frobenius cycles of eight base points",
+          "Resultary: finite field quadratic intersections genus one elliptic quartic pencils of quadrics Frobenius base point types",
+          "web: smooth (2,2) pencils F2 P1 x P1 all smooth genus one 804 13 orbits",
+          "web: F2 genus one quartics bidegree (2,2) classification orbits elliptic curves smooth quadric",
+          "web: \"P1 x P1\" \"F2\" \"(2,2)\" \"pencils\" smooth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary queries returned tangential projective quartic, elliptic-curve, and finite-geometry records (including an elliptic-quartic tangent-bundle degree result), but no published table of these 804 fixed-surface coefficient pencils and Frobenius partitions.",
+          "The inspected Asgarli–Ghioca, Asgarli–Ghioca–Reichstein and Hamada–Hayano relevant theorems contain no 144/804/13 enumeration."
+        ],
+        "reasoning": "Direct and semantically broadened table searches found no published matching 804/13/five-partition census. This is positive best-knowledge search evidence only; an unindexed table or database could still dominate the numerical claim.",
+        "searches": [
+          "Resultary: all-smooth pencils of bidegree (2,2) curves over F2 on P1 x P1 genus one, exact automorphism orbits and Frobenius cycles of eight base points",
+          "Resultary: smooth genus one (2,2) divisors on split quadric F2 linear pencil 804 13 orbits",
+          "Resultary: finite field quadratic intersections genus one elliptic quartic pencils of quadrics Frobenius base point types",
+          "web: smooth (2,2) pencils F2 P1 x P1 all smooth genus one 804 13 orbits",
+          "web: all smooth bidegree 2 2 pencils finite field two genus one 804"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: the checked Asgarli–Ghioca hypotheses concern ambient Pn hypersurface pencils, not curves in the fixed O(2,2) linear system; the Hamada–Hayano genus-one (2,2) theorem concerns complex smooth-isomorphism classes, not F2 coordinate orbits and Frobenius strata. Independent primary comparisons and actual published mathematical-record searches reveal no stronger theorem implying this exact 804-pencil / 13-orbit / five-cycle exhaustive classification. Historical unindexed finite-geometry catalogues remain a real priority risk; lack of a search hit is not proof of novelty.",
+      "residual_risks": [
+        "Unindexed or unpublished tables of F2 (2,2) genus-one pencil orbits and eight-point arithmetic base configurations might explicitly or implicitly contain the 804/13/five-partition result.",
+        "The 2001 general pencils-of-curves article was screened only at publisher abstract level; no full-text noncoverage inference is made.",
+        "Only relevant theorem statements and sections, not all 41 pages, of Hamada–Hayano were inspected; distinct characteristic and equivalence give the strong inapplicability reason.",
+        "Resultary similarity ranking is not an exhaustive historical bibliography; search failure is not a proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING: ambient smooth hypersurfaces of P^n; their char-two examples classify neither fixed-S (2,2) curve pencils nor their eight-point Frobenius base schemes.",
+          "evidence": [
+            "Question 1.1 asks for smooth hypersurfaces in P^n of fixed degree; Theorem 1.3 asserts existence for large q.",
+            "Examples 1.5-1.6 concern F2 smooth plane CONICS, including no projective dimension 3 net.",
+            "Proposition 3.5 constructs smooth pencils of ambient QUADRIC SURFACES in P3 for even q; that is not a pencil of divisors on one fixed quadric."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.07169",
+          "material_read": "2022 v1, introductory Questions 1.1-1.2, Theorem 1.3, Examples 1.5-1.6, section 3 Propositions 3.3 and 3.5 (pp.1-2, 6-9); PDF text and page 2 rendered.",
+          "method": "Primary open-access full-text mathematical statement comparison and PDF page inspection.",
+          "title": "Smoothness in pencils of hypersurfaces over finite fields",
+          "trigger": "Same requirement that all F_q-rational pencil members be geometrically smooth, with F2 explicit conic and quadric examples."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING: all-smooth linear spaces of degree-d hypersurfaces in P^n, not sections of O(2,2) of fixed P1xP1; no exact 804/13/Frobenius census.",
+          "evidence": [
+            "Theorem 2 bounds projective dimension r for hypersurfaces of P^n.",
+            "Theorem 6 treats the obstruction to n-dimensional systems of quadric hypersurfaces in odd-dimensional projective space in characteristic 2; it does not imply maximal r=1 for this fixed surface."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.00918",
+          "material_read": "2022 v2, introduction, Theorem 2 (pp.1-2), and section 5 Theorem 6 and proof (pp.6-8); PDF text and page 2 rendered.",
+          "method": "Primary OA PDF full relevant mathematical result/hypothesis comparison.",
+          "title": "Linear families of smooth hypersurfaces over finitely generated fields",
+          "trigger": "General all-smooth system maximal-dimension theorem and characteristic-two obstruction might dominate net impossibility."
+        },
+        {
+          "assessment": "DIFFERENT_FIELD_AND_EQUIVALENCE: smooth isomorphism and complex Lefschetz pencil monodromy do not enumerate 804 F2 coefficient pencils or Frobenius cycle types.",
+          "evidence": [
+            "Theorem 1.1 places complex genus-one holomorphic Lefschetz pencils up to smooth isomorphism into standard plane-cubic or bidegree-(2,2) classes.",
+            "Theorem 1.2 concerns Hurwitz-equivalent monodromy factorizations, not F2 scheme point-count partitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2008.02925",
+          "material_read": "Introduction and Theorems 1.1–1.2 and standard P1xP1 construction, pp.1-3 of 41-page primary PDF, plus relevant result references (not the entire 41 pages).",
+          "method": "OA primary PDF, extracted statement reading and rendered page 2.",
+          "title": "Classification of genus-1 holomorphic Lefschetz pencils",
+          "trigger": "Same (2,2) genus-one pencils on P1 times P1 appear as complex holomorphic models."
+        },
+        {
+          "assessment": "ABSTRACT_INDICATES_DIFFERENT_PROBLEM: seeks smooth hyperplane sections to pencils of hypersurfaces; complete noncoverage not inferred from abstract.",
+          "evidence": [
+            "Author abstract states the problem of finding smooth hyperplane sections to a pencil of hypersurfaces over finite fields."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.03479",
+          "material_read": "2020 author abstract and bibliographic description only.",
+          "method": "Abstract-level screening; no claim of whole-paper exclusion.",
+          "title": "A Bertini type theorem for pencils over finite fields",
+          "trigger": "Related Bertini theorem over finite fields and pencil terminology."
+        },
+        {
+          "assessment": "PLAUSIBLE_BROAD_CONTEXT: discusses exceptional pencil members and wild ramification generally; whether an obscure specialization contains exact F2 census remains unverified.",
+          "evidence": [
+            "Published abstract treats singularities, exceptional members and Euler characteristics of pencils on surfaces in characteristic p, without reporting 804/13."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/plms/83.2.257",
+          "material_read": "Cambridge published abstract and publisher bibliographic entry only.",
+          "method": "Primary publisher abstract screening; full text not inspected, no NOT_COVERING claim.",
+          "title": "Pencils of Curves on Smooth Surfaces",
+          "trigger": "Potential stronger general result for pencils of curves on smooth surfaces in finite characteristic."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "Potential known historical census would undermine originality, not the intrinsic motivation; that residual priority risk remains recorded."
+      ],
+      "rationale": "The line bundle O(2,2) is the smallest positive bidegree with arithmetic genus one on the split quadric; asking for all rational pencil members to be geometrically smooth is a natural finite-field Bertini/existence extremal question, not an arbitrary slice. The complete classification gives an exact maximal pencil dimension, 13 coordinate-stabilizer types and five arithmetic base Frobenius patterns; its irreducible degree-eight base orbit is a distinguished natural extremal configuration. These are exact incidence/arithmetic invariants of a canonical minimal genus-one system, not simply a known elliptic-curve isomorphism count or a tiny normalization check. Finite and self-contained classification is independently useful without a demanded infinite-family theorem.",
+      "scope": [
+        "Split P1xP1 over F2 only, coefficient subspaces modulo its 72-element F2 automorphism group; not abstract genus-one isomorphism classes.",
+        "No nonsplit quadric, larger q, other bidegrees, arbitrary extension-field pencils or higher-genus classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2203.07169",
+    "https://arxiv.org/pdf/2207.00918",
+    "https://arxiv.org/pdf/2008.02925",
+    "https://arxiv.org/abs/2004.03479",
+    "https://doi.org/10.1112/plms/83.2.257",
+    "Resultary: all-smooth pencils of bidegree (2,2) curves over F2 on P1 x P1 genus one, exact automorphism orbits and Frobenius cycles of eight base points",
+    "Resultary: smooth genus one (2,2) divisors on split quadric F2 linear pencil 804 13 orbits",
+    "Resultary: finite field quadratic intersections genus one elliptic quartic pencils of quadrics Frobenius base point types"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Qualified originality because a historical unindexed characteristic-two finite-geometry table may already cover the exact census; primary source comparisons stated under actual inspected scope.",
+    "No GitHub writes or publisher submissions. Staged publication plan requires independent importer validation of source-tree/blob/content guards.",
+    "No Lean or expert formal attestation; preserve original protected verification channels.",
+    "Only prior metadata and self-review provenance are sanitized; RESULT.md and SLOGAN.txt are not modified."
+  ],
+  "schema_version": 1
+}

@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exponential correspondence is valid under the stated \(p\ge5\) hypothesis, and the truncated derivation bracket produces a Heisenberg group with a three-weight torus action. Successive conjugations remove nonresonant coordinates; square and cube orbits at the resonant multipliers exhaust the remaining possibilities. Class-size products account for all \(q^3\) elements in each multiplier fiber, and full direct polynomial-composition enumerations independently confirmed the complete table over \(\mathbb F_5\) and \(\mathbb F_7\). Boundary: no result for characteristics 2 or 3.
+## correctness
 
-**Originality — PASS within examined coverage.** Pálfy's Nottingham quotient counts concern unipotent-only conjugation, and Byszewski--Cornelissen--Tijsma's torsion work does not present the full four-jet semidirect-product spectrum. Gorshkov's results constrain general finite-group conjugacy sizes but do not imply the explicit formula. Checked semantic research records do not contain a matching full-group fourth-jet theorem. Residual risk: standard torus-extension class classification under alternative algebraic-group terminology, or prior work not accessible in full.
+PASS
 
-**Value — PASS.** The finite fourth-jet automorphism group is the first truncation whose unipotent radical is nonabelian. Its full conjugacy spectrum sharply detects exactly the square and cubic torus resonances, and the arithmetic cubic-root jump affects both conjugacy and commuting probability. The result supplies an intrinsic finite-group profile for all fields of characteristic at least five, rather than a single numerical example or a special case of an explicitly found table.
+Truncated exponential coordinates identify multiplier-one substitutions with the Heisenberg group because p>=5; degree-weight torus acts by a,a²,a³. Resonance elimination leaves only weight 2 at a=-1 and weight3 at nontrivial cube roots. Orbit stabilizers give one/two/three orbit types, and class-size products total q³ in each multiplier fiber. Independent direct 500-element F5 full composition-centralizer census gives exactly 14 classes, matches every claimed F5 multiplier fiber and 7,000 commuting pairs. Checks over F5 are not all prime powers.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: The key nontrivial contribution is the full multiplicative torus cosets, detecting a=-1 and cubic resonances and q modulo3; unipotent class counts alone are insufficient. Prior formulation/implication comparisons are documented; search nonhits are not proof of priority.
+
+## value
+
+PASS
+
+Computes the full multiplier-indexed centralizer spectrum and the sharp 8-class cube-root arithmetic jump for a natural finite jet automorphism group, rather than just a known Heisenberg unipotent class count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
