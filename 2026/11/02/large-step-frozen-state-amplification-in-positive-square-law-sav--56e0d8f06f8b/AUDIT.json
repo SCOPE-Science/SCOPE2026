@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The scalar update follows from the uniquely positive root of (1+h c(x)^2)r_next^2=r^2. The energy drop equals minus squared state increment divided by h. For h large the first state is -sgn(x0)q0 sqrt(h)+x0+O(h^-1/2), then a geometric bootstrap ensures convergence away from zero and r tends zero; the second step contributes q0^2/x0 and later steps O(h^-1/2). At C=x0=1,h=100 exact inequalities give X<-73/8. The package verifier reproduces diagnostics but is not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2020 paper treats earlier SAV damped-wave and Cahn-Hilliard schemes and modified steady states.",
+        "The 2021 paper gives an energy-consistency repair motivation.",
+        "2026 positive-root paper emphasizes auxiliary positivity and modified-energy stability."
+      ],
+      "reasoning": "Earlier general concerns motivate rather than establish this two-term large-step asymptotic on an explicitly new scalar recurrence. This is not a claim that the general warning is newly discovered.",
+      "searches": [
+        "REMARKS ON THE ASYMPTOTIC BEHAVIOR OF SCALAR AUXILIARY VARIABLE SAV SCHEMES FOR GRADIENT-LIKE FLOWS",
+        "Improving the Accuracy and Consistency of the Scalar Auxiliary Variable SAV Method with Relaxation",
+        "positive square-law scalar auxiliary variable backward Euler scalar convex quadratic physical energy grows linearly with time step"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.01063",
+      "https://doi.org/10.11948/20190373",
+      "https://arxiv.org/abs/2104.06620",
+      "https://doi.org/10.1016/j.jcp.2017.10.021",
+      "https://doi.org/10.1137/17M1159968"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Positive-root solvability proves sign preservation of the auxiliary, not correct long-time physical convergence.",
+        "A decrease in auxiliary energy does not control physical energy after discrete auxiliary inconsistency.",
+        "The earlier generic modified-stationary-equation observation lacks a quantitative first-step and long-time expansion for this map."
+      ],
+      "reasoning": "The new proof requires a large-step sign-reversal expansion, a uniform geometric invariant region, summable tail control and a second-step constant term. None follows as a stated corollary from positivity or modified-energy monotonicity alone; later uninspected parts of the motivating paper are residual risk.",
+      "searches": [
+        "Positivity-preserving scalar auxiliary variable schemes for gradient flows via a quadratic reformulation",
+        "SAV scheme unconditional energy stable scalar linear equation large timestep nonzero limit auxiliary variable zero",
+        "published semantic search: positive scalar square-law SAV large-step frozen-state asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Huang et al. 2026 introduces positive-root square-law SAV update (arxiv:2610.01063v1).",
+        "Bouchriti et al. 2020 identifies modified discrete stationary equations (DOI:10.11948/20190373).",
+        "The new theorem specifies a particular positive-root scalar map, consistent starting auxiliary, two ordered limits and an explicit two-term expansion."
+      ],
+      "reasoning": "Generic altered-equilibrium behavior and modified-energy decay are not equivalent to the new sharp trajectory law for the specified positive square-law update. No exact equivalent was recovered in the inspected material; inaccessible material remains an identified risk.",
+      "searches": [
+        "SAV scalar auxiliary variable tends to zero solution frozen nonzero long time energy stable convergence",
+        "scalar auxiliary variable scheme quadratic energy steady state zero auxiliary nonzero physical solution overshoot",
+        "arxiv:2610.01063v1",
+        "published semantic search: SAV square auxiliary variable positive root backward Euler scalar quadratic spurious noncritical nonzero attractor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Neither of the accessible abstract/full-text excerpts provides a table for the complete large-step limiting-state expansion.",
+        "The asymptotic coefficient is proved by an explicit scalar recurrence and bootstrap, not read from a numerical table."
+      ],
+      "reasoning": "This is an infinite-family dynamical asymptotic rather than a finite database lookup. Search non-retrieval is not treated as proof of uniqueness.",
+      "searches": [
+        "published semantic search: positive square-law scalar auxiliary variable backward Euler physical energy grows linearly with time step",
+        "published semantic search: quadratic SAV scheme positivity-preserving q(x) r next= r/sqrt(1+h x^2/q(x)^2) nonzero limit",
+        "arxiv:2610.01063v1; DOI:10.11948/20190373"
+      ]
+    },
+    "rationale": "The quantitative positive-root SAV long-time frozen-state law and its explicit two-term sqrt(h) expansion differ from already-known generic modified-equilibrium and relaxation concerns. Actual published-record searches and accessible prior literature were compared; unread technical sections of the motivating 2026 paper are recorded as residual priority risk.",
+    "residual_risks": [
+      "The 2026 source paper was inspected only in its abstract/introduction/early formulas; later technical sections could contain relevant examples.",
+      "The 2020 SAV-asymptotics paper was accessible by abstract rather than its full technical body.",
+      "Historical equivalents of the scalar positive-root map could exist under other SAV or invariant-energy-quadratization terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Inspected material establishes positivity and discrete modified-energy as central goals, but provides no displayed large-step infinite-iterate expansion in the accessible portion. The unread later sections remain a documented priority risk.",
+        "evidence": [
+          "arxiv:2610.01063v1 publicly dated 2026-10-01",
+          "https://arxiv.org/abs/2610.01063",
+          "https://arxiv.org/html/2610.01063"
+        ],
+        "identifier_or_url": "arxiv:2610.01063v1; https://arxiv.org/html/2610.01063",
+        "material_read": "Abstract, introduction, and Section 2 up to the classical BE equations (2.3); the table of contents and Section 3 descriptions; later technical sections were inaccessible on attempted re-opening.",
+        "method": "Open-access arXiv abstract and experimental HTML; repeated attempts to fetch Section 3 and the PDF did not succeed.",
+        "title": "Positivity-preserving scalar auxiliary variable schemes for gradient flows via a quadratic reformulation",
+        "trigger": "The present recurrence is the scalar square-law backward-Euler positive-root construction motivated by this paper."
+      },
+      {
+        "assessment": "Already identifies modified discrete equilibria for older damped-wave and Cahn-Hilliard SAV constructions. No evidence in the inspected abstract for the new positive square-law scalar update or its sharp large-step constant; priority risk remains.",
+        "evidence": [
+          "https://doi.org/10.11948/20190373",
+          "https://www.jaac-online.com/article/doi/10.11948/20190373"
+        ],
+        "identifier_or_url": "DOI:10.11948/20190373",
+        "material_read": "Author, bibliographic details and abstract; available article HTML did not expose its technical body.",
+        "method": "Journal open page and public bibliographic search.",
+        "title": "Remarks on the asymptotic behavior of scalar auxiliary variable (SAV) schemes for gradient-like flows",
+        "trigger": "Possible prior coverage of spurious SAV equilibria."
+      },
+      {
+        "assessment": "Proposes relaxation to correct the modified-vs-physical energy discrepancy; does not imply the displayed quantitative infinite-iterate large-step asymptotic for this later positive-root scheme.",
+        "evidence": [
+          "https://arxiv.org/abs/2104.06620"
+        ],
+        "identifier_or_url": "arxiv:2104.06620",
+        "material_read": "Public abstract and bibliographic record.",
+        "method": "Open-access abstract discovery.",
+        "title": "Improving the Accuracy and Consistency of the Scalar Auxiliary Variable (SAV) Method with Relaxation",
+        "trigger": "Earlier systematic explanation of original-vs-modified energy mismatch."
+      },
+      {
+        "assessment": "Foundational scheme and auxiliary construction; no claim of reading unaccessed full text.",
+        "evidence": [
+          "https://doi.org/10.1016/j.jcp.2017.10.021"
+        ],
+        "identifier_or_url": "DOI:10.1016/j.jcp.2017.10.021",
+        "material_read": "Bibliographic and secondary reference context.",
+        "method": "Reference matching from the source and prior SAV literature.",
+        "title": "The scalar auxiliary variable (SAV) approach for gradient flows",
+        "trigger": "Foundational SAV reduction and energy formalism."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "56e0d8f0-6f8b-4fdf-9bdb-b0c1eddd7146",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a strictly convex gradient flow with unique minimizer, exactly consistent auxiliary initial data, and a positive decreasing auxiliary at every step, the physical limiting energy nevertheless scales as (C+x0^2/2)h/2 and hence becomes arbitrarily worse for large fixed steps. This is a measurable and structurally motivated long-time fidelity benchmark, not just a generic sign-loss or low-order truncation check.",
+    "status": "PASS"
+  }
+}
