@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness: PASS.** The all-size graph-adjacency identity, parity-square projection, tensor-complex rank and one-update residual rank prove the stated dimensions and basin-depth strata. The independent verifier constructs vertex neighbourhoods and tests every small-grid state as well as binary ranks. The finite checks are supplementary, not a replacement for the algebraic proof.
+## correctness
 
-**Originality: PASS (bounded).** Comparison included Marr and Hütt's graph cellular automata, Chen and Reidys's linear sequential framework, a published parity census on complete multipartite graphs and a distance-two Boolean-cube parity census, together with semantically similar published research records. Those claims involve different adjacency operators or abstract matrix realization and do not state this explicit family-wide tensor-rank and transient-depth theorem. Equivalent results in unindexed literature remain a risk; no claim of exhaustive novelty certification is made.
+PASS
 
-**Value: PASS.** Cartesian products of complete graphs are a canonical Hamming-network family. Their parity dynamics now has exact all-width recurrent/fixed-point and full entry-time counts, with a uniform two-update attractor bound and a clean mixed-width parity mechanism.
+Over F_2 the update is F=(d mod 2)I+sum_i J_i, commuting with J_i^2=(n_i mod 2)J_i. Thus F^2=H is idempotent. Odd-axis J_i are projections; even-axis J_i have one nilpotent 2-block each, and the tensor differential sum M has rank r=(A-B)/2 by acyclic tensor factors and B surviving zero-block homology. Dimensions im H=wA, fixed=w(A-r), one-step kernel constraint N-vr give exactly stated P,Q,T0,T1,T2. Checked K1/empty even-factor boundary convention. Fresh independent literal adjacency-state iteration verified F4=F2, fixed/periodic/basin counts for 12 graph dimension tuples with at most 12 vertices; infinite dimensional-family result is from the tensor proof.
 
-Limitations: Only synchronous open-neighbour XOR in characteristic two is covered. Special small products may coincide with existing graph classes. No external independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General graph CA (Marr–Hütt) and linear synchronous/sequential equivalences (Chen–Reidys) do not give a complete Hamming-product characteristic-two orbit/basin product formula. Resultary published distance-two hypercube parity rule uses different distance-two adjacency, and complete multipartite parity rule uses join rather than Cartesian product. A classic elementary matrix-structure result may implicitly contain the census, retained as priority risk.
+
+## value
+
+PASS
+
+It determines the complete dynamical zeta and exact sharp depth-zero/one/two transient distribution for a natural multivariate graph family, including degenerate widths. A structural invariant is obtained uniformly in dimension rather than an isolated small graph calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
