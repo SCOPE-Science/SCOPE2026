@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The operator matches the source's all-positive spin-sector reduction, with phase applied before the Grover coin and direction-preserving hypercube flip. On each vertex with coin sum zero, the Grover coin acts as minus identity. This reduces the eigenvector condition to two directed amplitudes on each edge between adjacent Hamming shells, with squared eigenphase equal to the product of their source-vertex phases. The incidence matrix of the connected two-shell bipartite graph has rank its vertex count minus one; its kernel injects into each of the two eigenspaces. Distinct shell-pair eigenphases give orthogonal subspaces. Direct binomial summation proves the total dimension and an alternating six-edge flow gives the normalized six-vertex state. The supplied executable passed 546 checks for dimensions three through nine; separate dense matrix checks corroborated the eigenvalues for dimensions three through five.
+PASS
 
-## Originality — PASS with residual risk
+For each vertex v with zero coin-amplitude sum, Grover coin G=2J/d-I acts as -I. Restricting to edges of adjacent Hamming shells m,m+1, the forward/back amplitude equations are consistent exactly when µ²=p_m p_{m+1}=exp(-i(2m+1)π/d), giving both ± eigenvalues and an injective map from unsigned shell-edge incidence kernel. Shell bipartite graph is connected; its (signed) incidence rank is V-1, so r=(d-m)C(d,m)-C(d,m)-C(d,m+1)+1. Different shell pairs and eigenvalue signs yield distinct unitary eigenvalues, hence orthogonal subspaces. Summing ranks gives L_d=(d-4)2^d+2d+4, proportion tending to 1. A specific six-cycle has alternating ±1 edge values, zero sums at six vertices, two equal-norm directed components per site and normalized probability 1/6 on each of 6 sites. Independently checked d=3,4,5 every interior m, both signs and update/normalization. The theorem claims constructed subspaces only, not full eigenspace multiplicities or eigenvalue-one fixed points.
 
-The primary source, Wang (arXiv:2609.07267v1), derives the reduction and general spectral criterion but explicitly leaves the full dimension range and the possible role of non-unit eigenvalues open. Its dimension-four and dimension-six fixed points are distinct from the present non-fixed flow states. Higuchi–Portugal–Sato–Segawa (arXiv:1811.02116v1) provide the older, closely related cycle-space mechanism for fixed-angle two-tessellable walks, which is acknowledged. Their published statements do not give the source-specific Hamming-phase eigenvalues, incidence-rank family, odd-dimensional consequences, or asymptotically full-mode lower bound. Arkhipov–Minganti–Nori's hypercube localization concerns a continuous-time Hamiltonian; Sekido–Segawa concern magnetic perturbations. No equivalent specific statement appeared in checked research-record searches. A general theorem might imply this specialized result after a nontrivial operator translation; that is a material remaining priority risk, not a claim of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The primary paper specifically leaves open whether its localization mechanism extends beyond a handful of even dimensions and whether other spectral subspaces yield odd-dimensional localization. This construction answers the latter issue positively in every odd dimension at least three and gives all-dimensional six-site states. The formula \((d-4)2^d+2d+4\) exposes an extensive family of physically stationary position profiles occupying asymptotically all position-coin modes, whereas the published examples solve small fixed-point systems. The fact is structural and pertains to the natural spectral object, not an arbitrary finite parameter slice.
+Statement- and implication-level primary-source and mathematical-index comparisons found no directly covering result in the material actually inspected; related ingredients and covered special cases are credited. Best-of-knowledge originality is qualified by the explicit residual risks; a negative search result is not novelty proof.
 
-## Closest literature and scientific limits
+## value
 
-The six-cycle technique uses familiar Grover-walk flow cancellation, not a newly invented mathematical principle. Its source-specific phase resonance and exact multiplicities are the assessed result. The source's distinct eigenvalue-one conjecture is not resolved. The family is a lower bound, not a complete spectral classification; generic initial-state transport remains unproved. Independent priority and correctness review remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The motivating phased-hypercube walk explicitly raises odd-dimensional localization beyond its even-dimensional eigenvalue-one examples. The construction demonstrates six-site stationary states for every odd and even dimension >=3, supplies exact shell-flow dimensions, and exhibits an asymptotically full fraction of position-coin mode space. Graph-cycle cancellation is known, but its exact Hamming-phase resonance and dimensions are nontrivial information on this model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
