@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification scope
+# Independent mathematical audit
 
-The deterministic standard-library Python checker is `verification_direct.py`. Execute `python verification_direct.py` in the directory containing the extracted files; its expected output is `direct_output.txt`.
+## correctness
 
-The alternate C++17 checker is `verification_independent.cpp`. Compile with `g++ -std=c++17 -O2 -Wall -Wextra -pedantic verification_independent.cpp -o verification_binary` and run `./verification_binary`; compare its output with `independent_output.txt`.
+PASS
 
-The Python method enumerates all candidate four-edge selections from the 21 edges of \(K_7\), tests dominance and paired feasibility, and independently constructs all star-forest states. The C++ method recursively enumerates unordered triples with centers, encodes each selection as a bit mask, and constructs edges by attempting every intersecting-edge replacement rather than relying on the local move theorem. Both methods perform exact breadth-first searches for \(n\in\{4,7,10\}\).
+Translate line-graph domination to at most one uncovered K_n label. Each matched pair of selected incident edges covers three original labels, forcing 2k chosen edges at n=3k+1; equality forces k disjoint P3 stars with one hole. Count =n!/(2^k k!), and remove/insert classification gives exactly four moves per star. The bouquet-square token-swap quotient is connected via edge transpositions, and symmetric labeling yields transitivity, degree 4k, edges 2kN and triangles 2kN/3. Independently constructed canonical star forests and BFS all 12, 630, 75600 states: distance histograms exactly match claimed diameters 3,6,10, but only for k<=3; no larger diameter claimed.
 
-The independent computations both report \(12,630,75600\) configurations and \(24,2520,453600\) reconfiguration edges for these orders. The C++ enumerator additionally counts \(8,840,151200\) triangles. Root-distance histograms, listed in `RESULT.md` and in the output files, sum to the complete state counts. Vertex transitivity, established in the written proof, converts these root eccentricities into exact graph diameters.
+## originality
 
-The all-order structural statements rest on the direct mathematical argument. Computed cases are not an all-order proof of diameter values; no exact diameter is claimed for \(n\ge13\). External scientific audit remains unperformed.
+PASS
+
+Qualified PASS: Haynes–Slater introduces paired domination and general inequalities, but the accessible abstract has no exact saturated triangular-graph optimal solution reconfiguration; relevant triangulation paper concerns planar graphs, whereas T_n is the Johnson graph J(n,2). Exact bouquet quotient and finite diameters were not identified as prior classifications. Foundational original full text unavailable, recorded as a risk.
+
+## value
+
+PASS
+
+The natural saturated family n=3k+1 has a complete optimal paired-dominating-set classification and a structured token-swap reconfiguration graph; connectedness, counts and small exact diameter cutoffs are mathematically meaningful even without a general diameter formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
