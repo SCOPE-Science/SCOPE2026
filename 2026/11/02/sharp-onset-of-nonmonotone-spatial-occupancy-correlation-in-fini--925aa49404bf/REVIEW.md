@@ -1,0 +1,15 @@
+# Scientific review: sharp finite-patch correlation response
+
+## Correctness — PASS
+
+The claimed parameter space is \(n\ge2\), \(u>0\), \(v\ge0\), with strict statements at \(v>0\). The detailed-balance count weights determine the exchangeable finite-state stationary law. A positive Gamma-mixture representation proves strict positive pair covariance, not merely finite-sample positivity. For two patches the Pearson derivative is strictly positive. For three patches, explicit factorial moments give the rational Pearson formula, and the derivative quartic has precisely one positive root by a parameter-uniform Descartes sign-change argument and opposite endpoint signs. The mean occupancy derivative is positive. For every \(n\ge3\), ratios of the highest count weights prove \(\rho_n=O(v^{-1})\), and continuity plus positivity proves existence of an interior peak. The claim does not assert unique higher-order maxima. Exact symbolic identities and independent rational count-chain checks passed from the supplied checker. No empirical numerical pattern is substituted for the infinite-parameter proof.
+
+## Originality — PASS within inspected evidence; residual priority risk
+
+Alonso–McKane (2002), DOI 10.1006/bulm.2002.0307, proves the general stationary distribution and moment relations, which are explicitly credited. These prior results determine individual correlation values but do not state the global sharp shape theorem or its two-versus-three-patch boundary in the inspected complete PDF sections. Foxall (2014), DOI 10.1239/aap/1401369707, proves parameter monotonicity of stochastic processes; it does not establish monotonicity of nonlinear normalized correlations. Cator–Van Mieghem (2014), DOI 10.1103/PhysRevE.89.052802, proves nonnegative correlation, not the reported strict peak classification in its accessible abstract. Related 2012 and 2015 complete-graph covariance papers could not be inspected in full. Their potential coverage remains an explicit residual risk, not evidence of novelty. No earlier directly dominating peak theorem was found in the searches performed.
+
+## Value — PASS
+
+Spatial covariance and Pearson correlation are direct measures of patch co-occupancy and synchronization. The exact reentrant response at every positive immigration-to-extinction ratio demonstrates that increasing recolonization can first increase and then suppress normalized patch synchronization, while marginal habitat occupancy keeps rising. The minimum-patch threshold identifies when such behavior becomes possible, and the exact unique optimum gives a reproducible benchmark for finite metapopulation modeling. It is neither a trivial parameter substitution nor an arbitrary individual numeric evaluation: the global sign-change proof and the patch-number classification provide structural information absent from a generic stationary distribution formula. The result is an idealized model theorem and has no claimed observational calibration.
+
+Self-review: passed. Independent audit: not yet performed.
