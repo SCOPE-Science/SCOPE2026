@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T15:49:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at blob 38aee5a0fbd9330133c30024bb5f7f4ca29112b1, complete Proof steps 1–5.",
+        "Assigned verification/check_quadrilateral.py at blob 7c16423d1c4924623f09e235f90e82a4d750b42a, inspected algorithm and scope; not executed as authority.",
+        "Aliev arXiv:2511.14991 Theorem 1.1, full planar equality argument.",
+        "Independent exact Fraction half-plane clip checker, 368/368 exact cases."
+      ],
+      "rationale": "Every proper convex quadrilateral admits affine chart A=(t,0), B=(0,s), C=(t-1,0), D=(0,s-1) for 0<t,s<1; shoelace area is 1/2. All six unordered vertex differences give precisely the diagonal square constraints |x|<=1,|y|<=1 and the four listed side constraints. In opposite-sign quadrants the two minus-type constraints have coefficient sums t+s and 2-t-s: at most one removes the corner pair, with two equal triangle areas and total delta_minus^2/M_minus. In same-sign quadrants the plus constraints have sums 1+t-s and 1+s-t and remove the complementary corner pair, total delta_plus^2/M_plus; cuts cannot overlap in positive area. Intersecting with the square, polar area is 4-delta_minus^2/M_minus-delta_plus^2/M_plus, times 1/2 yields the exact formula. Interior transition lines have zero cut. Both deficits vanish iff t+s=1 and t=s, i.e. t=s=1/2, equivalent to a parallelogram. Eggleston Theorem 1.1 gives strict mu>3/2 for every genuine four-vertex polygon since equality is triangular. Along t=s=r, r in [1/2,1), mu=2-(2r-1)^2/(2r^2) decreases continuously from 2 to 3/2, giving full image (3/2,2]. Independent exact-rational clipping of all ordered difference half-planes confirms 368 distinct prescribed/random rational pairs and four diagonal-path checks; finite checks are not the proof.",
+      "residual_risks": [
+        "No general higher-polygon or higher-dimensional conclusion; t and s endpoints correspond to degenerations.",
+        "Finite rational checks verify only tested points, not arbitrary real parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haddad et al. Theorem 1 gives the ellipsoid-sharp global upper bound; in dimension 2, mu(K)<=pi^2/4, not the sharp quadrilateral value 2 or its profile.",
+          "Aliev Theorem 1.1, Eggleston, gives mu(K)>=3/2 with equality only for triangles.",
+          "Böröczky et al. give planar lower estimates and stability; scaled normalization is four times mu.",
+          "Kominers studies convexity of norms and triangle characterization for finite positive Rényi orders, not area of the order-zero body in quadrilateral moduli."
+        ],
+        "reasoning": "No checked stronger assertion fixes the precise value for every four-vertex convex polygon. The general lower/upper estimates can coexist with different profiles, so no formal implication covers the claim.",
+        "searches": [
+          "arXiv:2503.06191, Theorem 1; proof §3",
+          "arXiv:2511.14991, Theorem 1.1, §2",
+          "arXiv:1507.01481, pp.3,9–11",
+          "HBS Working Paper 27-031, Theorems 1.1/1.2, Remark 4.4",
+          "Resultary: quadrilateral difference body polar area exact formula parallelogram triangle affine shape"
+        ]
+      },
+      "checked_sources": [
+        "Haddad–Langharst–Livshyts–Putterman, On the polar of Schneider’s difference body, arXiv:2503.06191v4, Theorem 1 and §3.",
+        "Aliev, Mahler-type volume inequality for convex bodies with tetrahedral symmetry, arXiv:2511.14991v1, Theorem 1.1 and §2.",
+        "Böröczky–Makai–Meyer–Reisner, On the volume product of planar polar convex bodies — lower estimates with stability, arXiv:1507.01481, abstract and pp.9–11.",
+        "Scott Duke Kominers, A Covariance Identity for Marginal Rényi Entropy of Planar Convex Bodies, Harvard Business School Working Paper 27-031 (2026), Theorems 1.1–1.2 and Remark 4.4.",
+        "Resultary published findings semantic search, including SCOPE-exact-makai-volume-product-profile-of-convex-quadrilaterals--82932c1e6034 (self-match excluded) and SCOPE-the-maximal-triangle-formula-for-reflected-mixed-area-of-convex--ad85c8e58a4d (different invariant)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tested/derived profile evaluates to mu(t=s=1/2)=2 and mu(t=s=3/4)=16/9, while approaching 3/2 as t=s tends to 1.",
+          "Universal Eggleston 3/2 <= mu and polar-Schneider mu <= pi^2/4 do not yield the variable value 16/9 or distinguish diagonal ratios.",
+          "V_2(Q,-Q) gives area(Q-Q) via Minkowski polynomial but this does not determine area((Q-Q)^polar) in general."
+        ],
+        "reasoning": "No examined exact prior theorem entails the rational two-parameter function through a specialization, normalization, stronger-parameter optimization, or mixed-volume reduction. The present claim is a narrower complete-family evaluation, not a new universal inequality; historical equivalent calculation remains a risk.",
+        "searches": [
+          "arXiv:2503.06191 Theorem 1",
+          "arXiv:2511.14991 Theorem 1.1",
+          "arXiv:1507.01481 Eggleston–Zhang pp.9–11",
+          "HBS Working Paper 27-031 Remark 4.4",
+          "Resultary: quadrilateral difference body polar area exact formula parallelogram triangle affine shape"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For planar K, Pi K is a quarter-turn of K-K and its polar has equal area (arXiv:1507.01481 p.10).",
+          "Replacing K-K by (K-K)/2 multiplies the polar-area product by 4 (arXiv:1507.01481 p.9).",
+          "At Rényi order 0 the unit ball is B_0=(K-K)^polar (Working Paper 27-031, Remark 4.4)."
+        ],
+        "reasoning": "Checked Makai Jr. volume product, scaled polar difference body, Zhang/Eggleston polar projection body and order-zero marginal Rényi norm aliases. These are the same object under rotation/scaling, but inspected source statements provide a lower bound or body identification, not the complete t,s-dependent area formula.",
+        "searches": [
+          "Resultary: Makai volume product area(K) area((K-K)^polar) exact quadrilateral diagonal intersection ratios 3/2 2",
+          "Resultary: planar polar projection body quadrilateral exact area volume product trapezoid",
+          "\"polar of the difference body\" quadrilateral exact area parallelogram triangle",
+          "\"quadrilateral\" \"polar projection body\" exact volume product",
+          "arXiv:1507.01481 pp.9–11, planar projection-body equivalence",
+          "HBS Working Paper 27-031 Remark 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact matching item is the same record, not independent coverage.",
+          "Related Resultary maximal-triangle/reflected-mixed-area item concerns V_2(Q,-Q), hence area(Q-Q), not the polar-area factor.",
+          "No exact 2D table for all (t,s) appeared in inspected relevant primary sections; title searches for exact tables did not return one."
+        ],
+        "reasoning": "Specific relevant semantic, alias and table searches produced no independently identified full quadrilateral polar-area profile. Search absence is only a negative bibliographic screen; nonindexed historical tables remain possible.",
+        "searches": [
+          "Resultary: Makai volume product area(K) area((K-K)^polar) exact quadrilateral diagonal intersection ratios 3/2 2",
+          "Resultary: quadrilateral difference body polar area exact formula parallelogram triangle affine shape",
+          "Resultary: planar polar projection body quadrilateral exact area volume product trapezoid",
+          "\"Makai\" \"quadrilateral\" \"polar\" difference body formula",
+          "convex quadrilateral volume product polar difference body diagonal intersection t s",
+          "\"quadrilateral\" \"difference body\" \"polar\" \"area\" geometry",
+          "Petty projection body quadrilateral two parameter explicit polar area formula diagonal ratio",
+          "arXiv:2503.06191 text term search quadrilateral/polygon",
+          "arXiv:2511.14991 text term search quadrilateral"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the complete exact two-variable quadrilateral profile, its full image (3/2,2], and unique maximizing affine class are not stated or mathematically forced by the inspected primary statements. Universal planar Eggleston lower and polar-Schneider ellipsoid upper bounds do not distinguish the interior of quadrilateral moduli. A new 2026 entropy working paper identifies the order-zero norm unit ball as (K-K)^polar but does not calculate its quadrilateral area. Resultary returns the audited record itself, excluded as independent priority. The reflected-mixed-area result computes |Q-Q| rather than |(Q-Q)^polar|. Relevant unpublished/unindexed elementary formulas remain plausible; PASS is qualified, not priority certification.",
+      "residual_risks": [
+        "An older elementary tabulation of polar projection bodies of four-gons may contain an equivalent formula with different notation or normalization.",
+        "Search-index coverage is incomplete; no claim of exhaustive global priority certification is made.",
+        "The reflected mixed-area quadrilateral record was checked by returned result summary, not independently read in full; its announced invariant is different (area(Q-Q), not polar)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1 gives ellipsoid-sharp upper bound; no exact diagonal-ratio profile; not covering.",
+          "evidence": [
+            "Theorem 1 asserts |(D^m K)^polar| |K|^m <= ellipsoid value, equality iff ellipsoid; m=1 case applies to mu, not an exact quadrilateral formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.06191",
+          "material_read": "31-page searchable PDF: introduction and Theorem 1 pp.1–3, proof structure §3, searched full text for quadrilateral and polygon.",
+          "method": "Opened complete arXiv PDF; inspected extracted theorem and relevant proof passages, page screenshot 1, and full-document text matches.",
+          "title": "On the polar of Schneider’s difference body",
+          "trigger": "Same unscaled polar difference body and general upper bound."
+        },
+        {
+          "assessment": "Provides mu>=3/2, equality triangles, but no t,s quadrilateral profile.",
+          "evidence": [
+            "Theorem 1.1 states mu(K)>=3/2, equality iff triangle; §2 proves this by projection and hexagonal partition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2511.14991",
+          "material_read": "10-page searchable arXiv PDF, abstract and introduction, Theorem 1.1, complete planar §2 proof and equality, full-text quadrilateral search.",
+          "method": "Opened full arXiv PDF; inspected pages and extracted theorem and proof paragraphs, page screenshot 1.",
+          "title": "Mahler-type volume inequality for convex bodies with tetrahedral symmetry",
+          "trigger": "Same Makai product, sharp lower value and equality."
+        },
+        {
+          "assessment": "Establishes general lower bound with factor-four scaling and planar polar projection-body alias, but not exact moduli formula.",
+          "evidence": [
+            "Abstract and pp.9–10: |K| |((K-K)/2)^polar| >=6, equality only triangles; Pi K is a 90-degree rotation of K-K in the plane."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.01481",
+          "material_read": "49-page searchable PDF: abstract and pp.3,9–11, pertinent discussion of projection-body equivalence, lower bounds and stability; term search quadrilateral.",
+          "method": "Opened complete public arXiv PDF and inspected relevant extracted pages and page-4 screenshot.",
+          "title": "On the volume product of planar polar convex bodies — lower estimates with stability",
+          "trigger": "Original Eggleston-type product and planar projection-body duality under scaled normalization."
+        },
+        {
+          "assessment": "Identifies order-0 unit ball as (K-K)^polar but does not calculate its area as a function of quadrilateral diagonal parameters; finite alpha emphasis.",
+          "evidence": [
+            "Remark 4.4 identifies B_0=(K-K)^polar; Theorems 1.1–1.2 concern covariance identity and finite-order polygonality, not exact volume of B_0."
+          ],
+          "identifier_or_url": "https://www.hbs.edu/ris/Publication%20Files/27-031_6c51d0a4-c920-4f78-a7e3-42a3058effdf.pdf",
+          "material_read": "17-page working paper: abstract and introduction, Theorems 1.1 and 1.2, Sections 4.3–4.4/Remark 4.4 and examples, full-text quadrilateral references.",
+          "method": "Opened lawful author/institutional PDF; inspected matching extracted passages and title-page screenshot.",
+          "title": "A Covariance Identity for Marginal Rényi Entropy of Planar Convex Bodies",
+          "trigger": "Recent source explicitly using (K-K)^polar as an endpoint norm unit ball, plus quadrilateral discussion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Haddad et al. arXiv:2503.06191: global extremal upper comparison.",
+        "Aliev arXiv:2511.14991 and Böröczky et al. arXiv:1507.01481: global lower/stability context.",
+        "Exact affine chart and nonconstant profile in reviewed RESULT.md, plus independent sample t=s=3/4 giving 16/9."
+      ],
+      "rationale": "The planar quadrilateral is the first non-triangular polytope and its two affine diagonal ratios give a natural complete moduli chart. The Makai/Eggleston polar-difference volume product is a standard affine-invariant quantity used in sharp inequalities and stability theory. Computing its complete nonconstant profile, its full attainable interval, and its unique maximizing affine class is an exact reusable benchmark for restricted-body extremal and stability analysis. It is not simply a parameter rename or a known universal-bound recomputation: the shape-dependent rational terms are not implied by the known inequalities. It is an elementary two-dimensional calculation, not a universal sharp inequality, and its value should not be exaggerated.",
+      "residual_risks": [
+        "The computation is elementary given the polar inequalities; object/invariant completeness, not technical complexity, supplies the significance.",
+        "No universal quantitative stability modulus or polygon-count extension is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Genuine convex quadrilaterals only: 0<t,s<1. The lower endpoint 3/2 is not attained by a proper quadrilateral.",
+    "Affine product uses the unscaled polar difference body; scaling (Q-Q)/2 multiplies by four.",
+    "External prior-literature matching is best-of-knowledge; an old equivalent formula is possible.",
+    "Independent exact check is finite and corroborative, not a formal certificate or proof of all reals."
+  ],
+  "schema_version": 1
+}
