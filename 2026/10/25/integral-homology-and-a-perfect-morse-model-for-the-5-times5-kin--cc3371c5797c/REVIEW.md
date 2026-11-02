@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact integral Morse contractions, not finite-field agreement alone, prove the complete homology statement and the lack of torsion. All 6,426 nonempty simplices and 3,173 paired Hasse incidences were checked. Every unit pivot was verified and all final signed Morse boundaries vanished. The 2-connectedness and third homotopy group follow from the resulting CW dimensions and Hurewicz.
+PASS
 
-## Originality — PASS, with residual risk
+The precise object is Ind(P5 strong P5) without wraparound, on vertices indexed 5r+c. The inspected source script enumerates all 6,426 nonempty independent faces with f-vector (25,228,964,1987,1974,978,242,27,1), constructs 3,173 free-facet pairs and one critical vertex, 45 critical 3-cells, 32 critical 4-cells and two critical 5-cells, and topologically sorts every oriented Hasse incidence. The signed integer cancellation uses only unit pivots and yields exactly zero Morse boundaries. Independently enumerated all faces and computed mod-2 boundary ranks (24,204,760,1182,760,216,26,1), confirming Betti ranks 45/32/2. Integral vanishing relies on the checked complete signed unit-pivot algorithm, not mod-2 ranks. One vertex and no critical 1- or 2-cells gives 2-connectivity, then π3=Z^45 by Hurewicz. No wedge-of-spheres or higher attaching-map claim is made.
 
-The strongest direct overlap is Carnero Bravo, *On independence complexes of graph products* (arXiv:2505.06457v2), which explicitly treats king graphs but proves a width-at-most-four classification, not the \(5\times5\) graph. Engström, *Complexes of Directed Trees and Independence Complexes* (arXiv:math/0508148v1), treats independence and anti-Rips homotopy methods without this exact calculation. Barmak's *Star clusters in independence complexes of graphs* (arXiv:1007.0418v1) is general background (abstract inspected). Targeted searches for the Chebyshev-grid/strong-product/king-board formulations found no exact ranks or dominating result. This conclusion does not guarantee discovery of every unindexed computation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the first square king board beyond the known width-at-most-four classification, so the exact integral homology and perfect discrete-Morse model test a natural structural boundary. Its nonzero homology in three adjacent degrees, integrality, and 2-connectedness provide information that independence-set counting cannot recover and a concrete benchmark for future width-five theory.
+Qualified best-of-knowledge: searched Resultary by semantic same-object aliases, inspected relevant primary theorem statements, distinguished direct and partial coverage, and found no proven dominating statement of the final claimed exact invariant. Residual risks and incomplete primary sections are explicitly documented.
 
-## Scientific limits
+## value
 
-This review supports precisely the 2-connectedness, integral homology, third homotopy group, and zero-boundary Morse model in `RESULT.md`. It does not assert a wedge-of-spheres homotopy type; five-cell attachments can carry unstable order-two information. The result is finite, and no assertion for larger boards is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first square board of width five lies just beyond the published width-two, -three and -four strong-path-product classifications. Exact integral Betti groups, a perfect Morse model and 2-connectivity give a natural width-five topological benchmark for the king hard-square complex, not an arbitrary induced subgraph or a textbook deduction. This finite exact datum can be useful to test further width recurrences; it does not purport to prove an all-width theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
