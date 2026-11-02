@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T16:50:50.995455Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 929f479b3789f4ad6043979adecbee6444a2f2a2; inspected verify.py blob 5d4d52374a2fa57ffad8329357a2365022926262",
+        "Independent /mnt/data/scope_worker_06_finitecheck.py, independent direct boundary-coordinate sampling, high-precision mpmath checks"
+      ],
+      "rationale": "Checked conditional nonacute angle at X=(x,0) using ordered pairs on all four rectangle edges. The disjoint contributing side pairings give A=2wh+6x(w−x)+2(L+R+G+H), and elementary integration yields the two s=x(r−x) branches separated at s=1. Integrating the short and long sides gives B and S; when r>2 integrating ΔA=−r(s−1)²/s+2(s−1)log s over central interval gives C. Since at most one angle is nonacute for a nondegenerate triangle (including collinear triples on a side), the factor three is correct. Expansion with r=2+ε,x=r/2+sqrt(ε)t yields ΔA≈−ε³t²(1−t²)², ∫_{−1}¹t²(1−t²)²dt=16/105 and final coefficient 4/945. Thin-limit expansion agrees. Independent direct Monte Carlo for six r values, square value 23/96, cusp high-precision coefficients and thin r=1000 corroborated; no infinite claim inferred from sampling.",
+      "residual_risks": [
+        "Cancellation in C at very large r makes naive floating-point evaluation ill-conditioned; asymptotic is analytic rather than a floating-point extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Portnoy 1994 DOI 10.1214/ss/1177010497 abstract; Edelman–Strang 2015 arxiv:1501.03053"
+        ],
+        "reasoning": "No inspected broad theorem specializes to the exact rectangle-boundary piecewise law; the random-triangle laws use different input distributions.",
+        "searches": [
+          "probability acute triangle three uniformly random rectangle perimeter boundary points arbitrary aspect ratio 2 cusp",
+          "random acute triangle arbitrary convex domain boundary points rectangle general theorem"
+        ]
+      },
+      "checked_sources": [
+        "Math Stack Exchange question 126719 2012 square answer",
+        "arxiv:1501.03053 abstract/model",
+        "doi:10.1214/ss/1177010497 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2012 answer 126719 square-only; Portnoy 1994 abstract-only"
+        ],
+        "reasoning": "No prior formula available for substitution r>1; r=2 C^3/not-C^4 phase law not implied by square specialization or Gaussian shape law.",
+        "searches": [
+          "probability acute triangle three uniformly random rectangle perimeter boundary points arbitrary aspect ratio 2 cusp",
+          "rectangle perimeter uniformly sampled acute triangle exact C(r) arcosh"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2012 Math StackExchange question 126719; Edelman Strang arxiv:1501.03053"
+        ],
+        "reasoning": "The perimeter arclength law differs from interior, Gaussian, polygonal vertex and uniform-direction models. The earlier square result is exact only at r=1.",
+        "searches": [
+          "probability acute triangle three uniformly random rectangle perimeter boundary points arbitrary aspect ratio 2 cusp",
+          "random acute triangle vertices uniformly rectangle perimeter boundary arclength aspect ratio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mathematics Stack Exchange 2012 square 23/96; assigned derivation F(1)=23/96"
+        ],
+        "reasoning": "A single benchmark 23/96 or simulation table cannot determine the all-r analytic branch C and fractional-power cusp.",
+        "searches": [
+          "probability acute triangle three uniformly random rectangle perimeter boundary points arbitrary aspect ratio 2 cusp",
+          "probability acute triangle three points square boundary 23/96"
+        ]
+      },
+      "rationale": "The public 2012 square boundary answer gives r=1 but neither all-aspect F(r) nor r=2 branch onset. Gaussian random triangle and invariance-based models have distinct sampling distributions. Targeted Resultary and public literature searches did not identify stronger all-rectangle perimeter law; priority remains best of knowledge.",
+      "residual_risks": [
+        "Historical random-triangle literature may contain the same boundary law under an equivalent conditioning or aspect-ratio variable; Portnoy full text not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers square benchmark only",
+          "evidence": "23/96 agrees with derived F(1); no all-r transition in inspected material",
+          "identifier_or_url": "https://math.stackexchange.com/questions/126719/",
+          "material_read": "indexed 2012 square-boundary answer and value 23/96; edit history not reconstructed",
+          "method": "public mathematical discussion read",
+          "title": "What’s the probability that three points determine an acute triangle?",
+          "trigger": "precisely same arclength boundary sampling for square"
+        },
+        {
+          "assessment": "different Gaussian/random-shape model, not rectangle perimeter",
+          "evidence": "Gaussian triangle sampling is not uniform arclength on four rectangle edges",
+          "identifier_or_url": "https://arxiv.org/abs/1501.03053",
+          "material_read": "public abstract, model description",
+          "method": "arXiv abstract/index",
+          "title": "Random Triangle Theory with Geometry and Applications",
+          "trigger": "broad random triangle probability"
+        },
+        {
+          "assessment": "unread full text remains risk",
+          "evidence": "The publicly described invariance setting is not a proven match to the boundary rectangle; no whole-paper noncoverage claimed",
+          "identifier_or_url": "https://doi.org/10.1214/ss/1177010497",
+          "material_read": "bibliographic description and abstract only",
+          "method": "DOI/index reading",
+          "title": "A Lewis Carroll Pillow Problem: Probability of an Obtuse Triangle",
+          "trigger": "historical general obtuse triangle literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Derivation of B,S,C and cusp in frozen RESULT.md",
+        "Independent cusp and thin asymptotic numerical checks"
+      ],
+      "rationale": "Exact probability for a natural continuous one-parameter geometric model, including a genuine change of analytic regularity at the aspect ratio when the product threshold x(r−x)=1 first becomes possible. The new 7/2 cusp and thin-limit constant are motivated sharp invariants, not restated square data.",
+      "residual_risks": [
+        "Applies only to normalized-arclength boundary sampling and does not prove optimality for arbitrary convex domains."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For three independent normalized-arclength points on the perimeter of any rectangle of aspect ratio r≥1, the strict acute-triangle probability equals 1−3[B(r)+S(r)+C(r)]/[4(r+1)³], with the stated elementary B,S, and hyperbolic C (zero for r≤2); beyond r=2 it differs from analytic continuation by (4/945)(r−2)^(7/2)+O((r−2)^(9/2)) and decays (3log r−3/2)/r²+O(log r/r³) as r→∞.",
+  "limitations": [
+    "Cancellation in C at very large r makes naive floating-point evaluation ill-conditioned; asymptotic is analytic rather than a floating-point extrapolation.",
+    "Historical random-triangle literature may contain the same boundary law under an equivalent conditioning or aspect-ratio variable; Portnoy full text not inspected.",
+    "Applies only to normalized-arclength boundary sampling and does not prove optimality for arbitrary convex domains."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of acute-triangle law for rectangle boundaries
+# Independent mathematical audit
 
-## Correctness — PASS
-For any fixed base sample, the ordered-pair obtuse-angle measure was partitioned into bottom-including, vertical–top, opposite-vertical and top–top classes, all with explicit dot-product inequalities. Integration gives the exact piecewise aspect law. The coefficient of the emerging interval is \(-16/105\) for the unnormalized side integral, becoming \(4/945\) for the probability; thin-aspect cancellation leaves \((3\log r-3/2)/r^2\). The supplied `verify.py` checks the raw, unintegrated side-pair integrals independently and tests actual random Cartesian triples for multiple aspects. Random trials do not prove the theorem.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The square value \(23/96\) is explicitly previously known from a 2012 Mathematics Stack Exchange answer and is not claimed as a contribution. Read the relevant full answer text, arXiv:1501.03053 (Gaussian random-triangle models), bibliographic/abstract evidence for Portnoy (1994), and compared published-finding corpus mathematical statements on related but different pair-distance and polygon sampling statistics. Actual equivalence/alias/broader-coverage searches found no parameter law or aspect-two fractional-power transition. The publicly available Portnoy text was abstract-only, and the answer edit history leaves a publication-timing uncertainty; historical priority is not certified.
+PASS
 
-## Mathematical value — PASS
-The full one-parameter law of strict acuteness under perimeter sampling is a natural geometric probability invariant, and gives a sharp mechanism-driven aspect-two transition in differentiability together with a logarithmically enhanced thin-rectangle decay. These features are not entailed by the known square value, measure conventions, or pairwise-distance moments. No claim is made for interior sampling, arbitrary convex bodies or a global monotonicity theorem.
+Checked conditional nonacute angle at X=(x,0) using ordered pairs on all four rectangle edges. The disjoint contributing side pairings give A=2wh+6x(w−x)+2(L+R+G+H), and elementary integration yields the two s=x(r−x) branches separated at s=1. Integrating the short and long sides gives B and S; when r>2 integrating ΔA=−r(s−1)²/s+2(s−1)log s over central interval gives C. Since at most one angle is nonacute for a nondegenerate triangle (including collinear triples on a side), the factor three is correct. Expansion with r=2+ε,x=r/2+sqrt(ε)t yields ΔA≈−ε³t²(1−t²)², ∫_{−1}¹t²(1−t²)²dt=16/105 and final coefficient 4/945. Thin-limit expansion agrees. Independent direct Monte Carlo for six r values, square value 23/96, cusp high-precision coefficients and thin r=1000 corroborated; no infinite claim inferred from sampling.
 
-## Independent validation
-Not performed. The analytic proof and reproducible program are suitable for subsequent independent inspection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The public 2012 square boundary answer gives r=1 but neither all-aspect F(r) nor r=2 branch onset. Gaussian random triangle and invariance-based models have distinct sampling distributions. Targeted Resultary and public literature searches did not identify stronger all-rectangle perimeter law; priority remains best of knowledge.
+
+## value
+
+PASS
+
+Exact probability for a natural continuous one-parameter geometric model, including a genuine change of analytic regularity at the aspect ratio when the product threshold x(r−x)=1 first becomes possible. The new 7/2 cusp and thin-limit constant are motivated sharp invariants, not restated square data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

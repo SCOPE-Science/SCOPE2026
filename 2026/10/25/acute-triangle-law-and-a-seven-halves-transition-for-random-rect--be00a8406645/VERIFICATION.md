@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions and actual scope
+# Independent mathematical audit
 
-`verify.py` is a standalone Python 3 program requiring NumPy, SciPy and mpmath. Run it from the directory containing the file with `python verify.py`. It computes the side-conditional probability by numerical quadrature of the *raw geometry-based integrands*, independently samples uniform points directly on all four sides and tests all three angle-dot-products, checks the already-known square value \(23/96\), and numerically tests the precise \(7/2\) and thin-rectangle asymptotics using high-precision calculations. It prints `ALL_RECTANGLE_BOUNDARY_ACUTENESS_CHECKS_OK` only if all checks pass.
+## correctness
 
-One actual execution on the submitted program passed: independent quadrature agreed with the elementary formula to better than \(3\times10^{-10}\) for aspect ratios \(1,1.4,2,2.1,3,6\). Cartesian sampling used 180000 independently sampled triples at each ratio, and measured each probability within \(0.006\) of its formula. High-precision crossover tests at \(arepsilon=0.03,0.005,0.0002,0.000001\) converged to unnormalized coefficient \(-16/105\); ratios \(100,500,1000\) confirmed the stated leading thin asymptotic.
+PASS
 
-Finite sampling and numerical quadrature do not constitute infinite proof or historical-priority certification. The RESULT.md analytic proof handles all \(r\ge1\) and the stated limits. No external or independent review was performed.
+Checked conditional nonacute angle at X=(x,0) using ordered pairs on all four rectangle edges. The disjoint contributing side pairings give A=2wh+6x(w−x)+2(L+R+G+H), and elementary integration yields the two s=x(r−x) branches separated at s=1. Integrating the short and long sides gives B and S; when r>2 integrating ΔA=−r(s−1)²/s+2(s−1)log s over central interval gives C. Since at most one angle is nonacute for a nondegenerate triangle (including collinear triples on a side), the factor three is correct. Expansion with r=2+ε,x=r/2+sqrt(ε)t yields ΔA≈−ε³t²(1−t²)², ∫_{−1}¹t²(1−t²)²dt=16/105 and final coefficient 4/945. Thin-limit expansion agrees. Independent direct Monte Carlo for six r values, square value 23/96, cusp high-precision coefficients and thin r=1000 corroborated; no infinite claim inferred from sampling.
+
+## originality
+
+PASS
+
+The public 2012 square boundary answer gives r=1 but neither all-aspect F(r) nor r=2 branch onset. Gaussian random triangle and invariance-based models have distinct sampling distributions. Targeted Resultary and public literature searches did not identify stronger all-rectangle perimeter law; priority remains best of knowledge.
+
+## value
+
+PASS
+
+Exact probability for a natural continuous one-parameter geometric model, including a genuine change of analytic regularity at the aspect ratio when the product threshold x(r−x)=1 first becomes possible. The new 7/2 cusp and thin-limit constant are motivated sharp invariants, not restated square data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
