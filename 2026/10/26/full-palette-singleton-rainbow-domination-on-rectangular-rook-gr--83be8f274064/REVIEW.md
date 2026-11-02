@@ -1,15 +1,21 @@
-# Review: full-palette singleton rainbow domination on rectangular rook graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-A degree-sized palette forces every uncolored vertex to have only colored neighbors, hence an independent, nonattacking-rook support. Every pair of absent row-column intersections yields exactly two colored cells simultaneously adjacent to the corresponding two uncolored vertices. The resulting color-conflict multigraph is \(2K_j\). The requirement is necessary and sufficient because all remaining neighbor cells touch exactly one uncolored vertex and can receive the remaining distinct labels independently. The matching-size bound and explicit factorization constructions prove \(\chi'(2K_j)=2j-2\) for positive even \(j\) and \(2j\) for odd \(j\ge3\). Substitution yields precisely the stated exceptional maximum supports. All support coefficients and minimum values follow from standard matching counts. No finite experiment is used to infer an infinite theorem.
+## correctness
 
-## Originality — PASS (qualified by bibliographic risk)
-Lange, arXiv:2610.06906v1 (2026-10-01), defines the same singleton parameter, proves its general lower bound from independence number and provides exact results for other regular families, but no rook-graph classification or uncolored-support polynomial. Mertens, *Domination Polynomial of the Rook Graph* (2024), studies ordinary domination and its different polynomial, so neither result implies the coloring constraint, its doubled-clique obstruction, or all-support enumeration. Žerovnik (2026) studies singleton 3-rainbow domination for path-cycle cylinders rather than arbitrary rook boards at the full degree palette. Relevant semantic record searches returned related but noncovering results on multipartite 2-rainbow domination, rook graph topology, and rainbow connection. An unindexed equivalent result remains a genuine bibliographic risk.
+PASS
 
-## Value — PASS
-This is a complete support-level classification over every rectangular rook graph with two nontrivial sides, not a single numerical special case. It pinpoints a sharp parity-and-aspect-ratio phase transition not resolved by the usual independence-number bound and supplies the precise parity correction to the classical rook-matching support enumerator and the multiplicity of optimal supports. The edge-coloring reduction explains the obstruction, supports constructive recovery and illustrates a reusable distinction between independent uncolored configurations and globally consistent neighboring colors.
+An uncolored vertex must see all r=m+n−2 labels on its exactly r neighbors, so no two uncolored vertices share a row/column. For a j-matching support, any two uncolored vertices share precisely the two off-diagonal colored cells (i,h),(h,i), and all other colored neighbors are unique to one support vertex. Therefore a valid assignment is equivalent to an edge-coloring of 2K_j using <=r colors, with residual labels freely assigned to unique neighbors. Exact factorization gives chi’(2K_j)=2j−2 for even j>=2 and 2j for odd j>=3; j<=1 is vacuous. Comparing r with the index yields the sole obstruction j=m odd, n=m or m+1, with the stated binomial-matching polynomial and optimum. Independent backtracking against direct shared-neighbor proper color constraints checked j<=4 and boards up to 5x7; exhaustive finite checks corroborate, not replace, the infinite factorization proof.
 
-## Limits
-The colorings themselves are not counted, and the statement does not cover the multicolor-per-vertex model or general Cartesian products. The accompanying finite verification is corroborative. Independent mathematical review and definitive bibliographic priority remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Lange 2026 defines exactly this singleton full-degree rainbow model, but his general independence bound and results for cycles, Möbius ladders and prisms do not include rectangular rook graph support enumeration. Mertens 2024 studies the ordinary domination polynomial on rook graphs, which is a different invariant. Žerovnik 2026 studies singleton 3-rainbow domination on path-cycle cylinders. The edge-coloring obstruction and exact parity exceptional coefficient remain distinctive in inspected coverage; unindexed equivalent line-graph formulations are a plausible residual risk.
+
+## value
+
+PASS
+
+A full support-enumerator for the canonical Cartesian product of complete graphs is mathematically natural and stronger than its domination number. The doubled-clique obstruction yields a sharp odd near-square one-vertex transition and complete optimal support multiplicities, a genuine color-consistency phenomenon invisible to independence counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
