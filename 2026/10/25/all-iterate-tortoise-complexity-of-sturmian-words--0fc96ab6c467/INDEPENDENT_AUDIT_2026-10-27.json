@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T18:54:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/all-iterate-tortoise-complexity-of-sturmian-words--0fc96ab6c467/RESULT.md",
+        "2026/10/25/all-iterate-tortoise-complexity-of-sturmian-words--0fc96ab6c467/VERIFICATION.md",
+        "2026/10/25/all-iterate-tortoise-complexity-of-sturmian-words--0fc96ab6c467/verify_tortoise.py"
+      ],
+      "rationale": "PASS. The transformation that deletes the first one and appends it, applied k times, maps the ith zero position z_i to max(i,z_i−k), including k beyond the word’s number of ones. This preserves prefix-zero dominance and therefore monotone lexicographic phase ordering for lower-mechanical Sturmian coding. There are n+1 distinct phase factor intervals cut by fractional parts {−jα}, j=0..n. The final-letter boundary x_n cannot merge because one-count changes. For j=1..n−1, adjacent words are p01s/p10s; they have the same k-step output precisely when prefix p contains fewer than k ones. Its one count is ceil(jα)−1, so exactly min(n−1,floor(k/α)) boundaries merge for irrational α. Thus rho_(α,k)(n)=max(2,n+1−floor(k/α)) for all n≥1,k≥2, and n=0 gives 1. The agreement cutoff floor(k/α)+1 and slope limit k/floor(k/α)→α follow. Independent high-precision irrational mechanical-factor simulation checked 154 (n,k) cases (n=1..22,k=1..7) and reproduced the formula; finite simulation is corroboration only.",
+      "residual_risks": [
+        "Finite computational checks are bounded and independently corroborate rather than replace universal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sturmian factor complexity p(n)=n+1 and Abelian complexity 2 are classical; these inputs do not determine collisions of iterated tortoise image sets."
+        ],
+        "reasoning": "Neither the broader combinatorics of Sturmian words nor tortoise bounds on other automatic sequences imply the explicit min(n−1,floor(k/α)) collision count.",
+        "searches": [
+          "Campbell–Rampersad arXiv:2604.25811v1 Section 7",
+          "Morse–Hedlund 1940 Sturmian language classification"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.25811 primary HTML",
+        "arXiv:1809.09158 original operator",
+        "Morse–Hedlund 1940 Sturmian trajectories",
+        "Resultary tortoise Sturmian query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Campbell–Rampersad motivates extension to Sturmian sequences; k-fold phase-collision lemma proves new exact cutoffs B_k=floor(k/α)."
+        ],
+        "reasoning": "The previously defined concept and general inequalities are compatible with the formula, but do not logically imply it absent detailed Sturmian rotation and zero-position analysis.",
+        "searches": [
+          "arXiv:2604.25811v1 open Sturmian extension",
+          "arXiv:1809.09158 original word stack sorting",
+          "Resultary tortoise and Sturmian keyword results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General tortoise word transformation and factor-image counting is the defining existing framework. The exact Sturmian formula involves arithmetic of irrational rotation discontinuities and all iteration counts."
+        ],
+        "reasoning": "The k=1 result and general operator are special/weaker descriptions; no formula for arbitrary k≥2 found in inspected primary text.",
+        "searches": [
+          "Campbell–Rampersad arXiv:2604.25811v1 Sections 3–4, 7",
+          "Defant–Kravitz arXiv:1809.09158",
+          "Resultary: tortoise stack sorting operator Sturmian words iterates factor complexity slope cutoff n+1 floor k/alpha"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published tables and known single iteration computations do not specify arbitrary n,k irrational Sturmian images or all cutoffs."
+        ],
+        "reasoning": "No exact table giving the two-parameter formula was located; failed search alone would be insufficient, so primary result statements and the explicit open extension prompt were also compared.",
+        "searches": [
+          "Resultary tortoise Sturmian iterated complexity query",
+          "Campbell–Rampersad 2026 sample Thue–Morse and paperfolding tables"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge. Campbell–Rampersad 2026 formally defines iterated tortoise complexity and its Abelian comparison and explicitly invites Sturmian extensions; inspected Sections 3–4 and 7 do not state this all-k Sturmian formula. Defant–Kravitz previously defined the general finite-word tortoise operator but did not calculate Sturmian factor-language profiles. A previously known single-iterate case does not cover k≥2 without the new zero-position/phase-boundary argument. Slope recovery is presented only as a consequence, not separately claimed novel.",
+      "residual_risks": [
+        "Possible previously unindexed iterative Sturmian-tortoise formula or paper updated after inspected version; originality is qualified best-of-knowledge.",
+        "The exact claim concerns binary irrational slopes and does not automatically extend to rational or larger alphabet languages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides motivation and non-Sturmian cases; does not prove two-parameter irrational Sturmian formula in inspected text",
+          "evidence": [
+            "Section 7 explicitly invites investigating Sturmian cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.25811",
+          "material_read": "Full primary accessible HTML; Sections 3–4 defining iteration and Abelian-comparison cutoff and Section 7 open extension to Sturmian sequences",
+          "method": "Read original HTML definitions, main theorems and extension discussion",
+          "title": "Subword enumeration up to stack-sorting equivalence",
+          "trigger": "Direct definition of same tortoise complexity and invitation to Sturmian case"
+        },
+        {
+          "assessment": "Defines finite-word operation but does not furnish inspected Sturmian factor-image counts",
+          "evidence": [
+            "Its core concern is finite-word stack sorting, not irrational mechanical language image cardinality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1809.09158",
+          "material_read": "Primary abstract, definitions and portions defining finite-word transformations",
+          "method": "Read accessible original background, compare operator definition and language families",
+          "title": "Stack-sorting for Words",
+          "trigger": "Original tortoise operator and possible already known iterate action"
+        },
+        {
+          "assessment": "Sturmian factor complexity n+1 and mechanical coding are established prior inputs",
+          "evidence": [
+            "The new content is the effect of the k-fold tortoise map on this language."
+          ],
+          "identifier_or_url": "Morse and Hedlund, American Journal of Mathematics 62 (1940), pp. 1–42",
+          "material_read": "Classical standard result and bibliographic reference; original full article not newly accessed",
+          "method": "Used standard theorem only; did not claim whole-source noncoverage",
+          "title": "Symbolic dynamics II: Sturmian trajectories",
+          "trigger": "Classical factor-language boundary and complexity facts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2604.25811 primary HTML",
+        "arXiv:1809.09158 original operator",
+        "Morse–Hedlund 1940 Sturmian trajectories",
+        "Resultary tortoise Sturmian query"
+      ],
+      "rationale": "PASS. The complete n,k profile solves an explicit family proposed in recent complexity literature, quantifies an exact sharp phase transition from constant Abelian complexity to linear output growth and determines the irrational Sturmian slope from discrete cutoffs. The method is a structural order/collision lemma for the natural language of irrational rotations, not a small finite test or arbitrary alphabet slice.",
+      "residual_risks": [
+        "Possible previously unindexed iterative Sturmian-tortoise formula or paper updated after inspected version; originality is qualified best-of-knowledge.",
+        "The exact claim concerns binary irrational slopes and does not automatically extend to rational or larger alphabet languages."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Possible previously unindexed iterative Sturmian-tortoise formula or paper updated after inspected version; originality is qualified best-of-knowledge.",
+    "The exact claim concerns binary irrational slopes and does not automatically extend to rational or larger alphabet languages.",
+    "Audit does not certify absolute historical priority, external expert attestation, formal proof checking, or publication.",
+    "Current source administrative AUDIT.json and METADATA.json embed process-specific scope_run_id; unchanged public bytes are not safe to republish until sanitized and guarded."
+  ],
+  "schema_version": 1
+}
