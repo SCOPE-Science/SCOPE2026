@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "At AB-count level m, the exact state is (m-x,m-y,k-x-y) with \\(x+y\\le k\\). Every still-unmatched rare vertex is selected by the first edge of each level \\(m\\ge4k\\) with probability at least \\(1/m\\); a telescoping product and union bound yield \\(kM/n\\). At each rare match above level M, the dense endpoint A-probability differs from 1/2 by at most \\(k/[4(M-k)]\\); a common-uniform coupling over at most k rare matches yields \\(k^2/[4(M-k)]\\). If all rare vertices disappear, core matching leaves \\(|k-2B_k|\\) vertices. This proves the TV inequality and its asymptotic and binomial consequences; 165 finite exact checker assertions corroborate but are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arnosti Theorems 1–2 and Appendix B concern comparisons on bipartite random graphs and sparse input limits, with no tripartite rare-class terminal-defect distribution.",
+        "Krivelevich et al. develop local-limit greedy MIS density methods and identify the matching correspondence; no dense finite-defect distribution is stated in the inspected relevant sections.",
+        "Dyer–Frieze 1991 abstract highlights worst-case general guarantees and sparse families/forests, not the specified dense-tripartite law."
+      ],
+      "reasoning": "Approximation ratios, expected matching fractions, and local weak-limit densities do not determine an order-one unmatched-vertex law. Full coverage by an unavailable broad historical source cannot be ruled out absolutely; this is recorded as a priority risk, not silently counted as an inspected negative.",
+      "searches": [
+        "random greedy matching complete multipartite imbalance binomial asymptotic minority fixed size",
+        "Dyer Frieze 1991 Randomized greedy matching pdf full text",
+        "doi:10.1287/stsy.2021.0082"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1907.07216 (first public version 2019-07-16)",
+      "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf (relevant sections read)",
+      "doi:10.1080/00207160.2013.818668 (abstract only)",
+      "doi:10.1002/rsa.3240020104 (abstract only)",
+      "doi:10.1145/3614318 (query-commit matching paper abstract; algorithmic comparison)",
+      "published mathematical research records for greedy MIS and maximal matching comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arnosti full-text PDF pages 1,4–5,19 (Theorems 1–2 and Appendix B) studies random bipartite inputs, not K_{n,n,k}.",
+        "Krivelevich et al. open-access introduction cites the randomized greedy matching model, but the local-limit density framework does not specialize to a nontrivial order-one rare-class defect law.",
+        "The present claim specifies d_TV at n>=16k and an explicit binomial |k-2B_k| limiting distribution."
+      ],
+      "reasoning": "Neither algorithm-ranking comparison nor greedy MIS density bounds imply the exact binomial point probabilities, finite total-variation inequality or growing-k folded-normal corollary. Remaining risk is an unlocated specialized result rather than known logical subsumption.",
+      "searches": [
+        "Nick Arnosti Greedy Matching in Bipartite Random Graphs arxiv 2020 pdf",
+        "random greedy matching complete tripartite binomial unmatched probability",
+        "arxiv:1907.07216"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Krivelevich et al. explicitly identify random greedy matchings as random greedy independent sets in line graphs (open-access Introduction).",
+        "Uniform random-edge ordering and choosing a uniformly random currently feasible edge are equivalent for the greedy process."
+      ],
+      "reasoning": "The exact target can be rephrased as a terminal maximal-independent-set size law on the line graph of K_{n,n,k}; that line graph is not the complete multipartite input analyzed by the closest published MIS record. No equivalent binomial or folded-normal defect theorem was identified.",
+      "searches": [
+        "random greedy maximal matching line graph of K(n,n,k) limit distribution isolated vertices",
+        "random greedy matching complete tripartite graph edge arrival terminal unmatched vertices exact distribution",
+        "arxiv:1907.07216"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Song, Miao, Wang, Zhao abstract establishes exact minimum and maximum cardinalities of maximal matchings and edge-domination invariants for complete multipartite graphs.",
+        "Public enumeration of maximum matchings in balanced complete tripartite graphs counts maximum matchings, not the probability output by random edge order."
+      ],
+      "reasoning": "Counting all maximum matchings or finding deterministic extreme maximal-matching sizes does not give the probability induced by a greedy random edge order. This is a process-law question rather than a deterministic graph invariant table.",
+      "searches": [
+        "complete tripartite random greedy matching probability distribution K n n k",
+        "random greedy matching complete multipartite graphs expected unmatched vertices absorbing Markov chain",
+        "doi:10.1080/00207160.2013.818668"
+      ]
+    },
+    "rationale": "The target is the full random-edge terminal unmatched distribution in the dense deterministic complete tripartite graph with rare third part and a quantitative coupling. Full-text Arnosti compares random-edge to other algorithms on random bipartite inputs; full-text Krivelevich et al. uses line-graph correspondence and local limit methods; neither gives this binomial obstruction. Published research-record hits concern greedy MIS or deterministic matching, not the same output law. Limited access to two older sources remains a disclosed residual priority risk.",
+    "residual_risks": [
+      "Complete historical full text of Song et al. (2014) and Dyer–Frieze (1991) was unavailable; stronger implications in inaccessible material cannot be excluded without independent review.",
+      "Semantic retrieval and title/abstract searches cannot prove unique historical priority.",
+      "The finite coupling rate is an explicit sufficient bound and may not be optimal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorems address comparisons across algorithms on random bipartite inputs, not terminal unmatched distribution on fixed nonbipartite K_{n,n,k}.",
+        "evidence": [
+          "PDF pp.1,4–5 random-edge definition and two algorithm comparisons; p.19 B.1 sparse Erdős–Rényi asymptotics."
+        ],
+        "identifier_or_url": "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+        "material_read": "Author-hosted complete 22-page PDF; Introduction pp. 1–5, statements of Theorems 1–2, prior-work analysis, and Appendix B pp. 19–20 inspected in text and selected page images",
+        "method": "Lawful open author-provided full text inspected at relevant theorem and asymptotic sections",
+        "title": "Greedy Matching in Bipartite Random Graphs",
+        "trigger": "Exact random-edge greedy matching algorithm and possible dense-graph asymptotic coverage"
+      },
+      {
+        "assessment": "Relevant framework and equivalence are acknowledged; no finite rare-class matching-defect law or matching-specific quantitative TV estimate found in the inspected sections.",
+        "evidence": [
+          "Introduction section random-greedy matching/line-graph correspondence and local-limit density objective."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.07216",
+        "material_read": "Full open-access article available; inspected introduction, line-graph matching connection and stated local-limit density scope",
+        "method": "Open-access full-text article, with arXiv first-version date independently checked",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Greedy matching is a special case of line-graph greedy MIS; possible stronger general theory"
+      },
+      {
+        "assessment": "Accessible abstract concerns deterministic minimum and maximum sizes among maximal matchings; it does not state random-order probabilities, but uninspected body leaves priority uncertainty.",
+        "evidence": [
+          "Publisher abstract lists minimum and maximum cardinalities of maximal matchings and edge domination numbers."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00207160.2013.818668",
+        "material_read": "Publisher abstract and bibliographic record only; complete text could not be read",
+        "method": "Article searched through public title, DOI and lawful open versions; full text unavailable",
+        "title": "Maximal matching and edge domination in complete multipartite graphs",
+        "trigger": "Exact same graph family and maximal matching title"
+      },
+      {
+        "assessment": "Available description focuses worst-case ratios and forest/sparse graphs; complete-text comparison unresolved.",
+        "evidence": [
+          "Publisher abstract: worst-case guarantees and forest result; Arnosti references its 1/2 worst-case limit."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Publisher abstract and literature discussion only; full text not available in inspected open sources",
+        "method": "Public abstract, targeted full-text search and cited discussion in later complete papers",
+        "title": "Randomized greedy matching",
+        "trigger": "Original general random-edge greedy matching model; broad original theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e1c1b8b5-cc81-44f8-8870-d938eca7c067",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A rare third class constitutes a natural structural perturbation of a perfectly greedy-matchable complete bipartite graph. The theorem quantifies how an asymptotically vanishing vertex fraction creates a nonzero terminal optimality loss, gives the entire law with explicit approximation for \\(k=o(n^{1/3})\\), and reveals a folded-normal growing-minority regime. Deterministic extrema, generic algorithmic ratios and the known density-level results do not provide this observable.",
+    "status": "PASS"
+  }
+}
