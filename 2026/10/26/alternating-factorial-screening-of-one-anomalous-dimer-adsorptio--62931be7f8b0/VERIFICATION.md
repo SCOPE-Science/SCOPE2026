@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python verify_defect.py` with Python 3.10 or later after installing the dependency from `requirements.txt` (SciPy). The script uses no files outside this package. Its successful outcome is `PASS 250 finite rational and analytical comparisons`.
+## correctness
 
-The script computes exact rational greedy-matching probabilities on finite paths with 7, 9, 11 and 13 edges, using the earliest-first-clock recursion. It tests reflection, exact probability ranges, and alternating response signs against an equal-rate finite path. On a separate 25-edge path it compares four defect rates and five distances against independently evaluated infinite-line integrals. It checks factorial bounds and stable normalized triangular-integral ratios at increasing distances for three nontrivial rates.
+PASS
 
-The finite-path rational recursion and floating-point quadratures are independent implementations of the model; they are not an infinite proof. The infinite construction, cavity equation, monotonicity and triangular concentration argument are in RESULT.md. The calculation does not establish independent certification of originality or of the mathematical proof. The main originality limitation is an inaccessible highly related 1998 full text about heterogeneous dimer adsorption; no claim of exhaustive priority is made.
+PASS. Independently reconstructed first-clock greedy-matching equivalence, half-line empty-block ODE F_m(t)=exp(-(m-1)t) exp(e^-t-1), the edge-deleted cavity recurrence q_{j+1}=1-int_0^t exp(-s)q_j(s)ds, and iteration to the given triangle integral. First-clock stochastic monotonicity shows strict sign changes; the positive Volterra kernel alternates signs. The bound follows by induction in the integrated kernel; the normalized (x-y)^(j-1) density concentrates at (1,0), giving the coefficient e^-1(lambda-1), including a controlled integrable x=0 singularity for lambda<1. Fresh exact rational finite greedy-path tests found 54 reflection/sign checks at 7..13 edges and lambda=1/2,2,5; these do not prove infinite-volume concentration.
+
+## originality
+
+PASS
+
+PASS, with substantial explicit priority risk. Classical homogeneous RSA and randomly preadsorbed impurities do not assert this single designated kinetic-rate perturbation. The close 1998 Stacchiola et al. paper states exact one-dimensional heterogeneous dimer adsorption in its abstract, but its full text was not accessible after arXiv/OA attempts and authorized institutional access reported VPN disconnected. Neither alternating all-distance sign nor precise fixed-rate factorial coefficient was confirmed in accessible source material. No uninspected-paper NOT_COVERING conclusion is asserted.
+
+## value
+
+PASS
+
+PASS. The singled-out kinetic defect is a physically natural local perturbation of classical 1D RSA; exact response at every distance, strict parity sign alternation and the first sharp factorial screening amplitude address a nontrivial spatial sensitivity question. The factorial coefficient and sign pattern are not mere baseline recomputations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
