@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The power-value shell structure is proved from the index-one and coprimality hypotheses, matching Gu Proposition 1. Splitting ordered pairs into equal and unequal valuation cases gives an exhaustive formula, and the diagonal counts distinguish \(p\) odd, \(p=2,m=1\), and \(p=2,m\ge2\). The worst-case positivity analysis proves both necessity and sufficiency, including \(b=0\), the boundary \(m=d\), and binary residue-field examples. Independent finite-arithmetic implementations in the included verifier checked 234 individual targets on 12 small rings. Finite tests are supporting evidence, not infinite proof.
+
+**Originality — PASS, qualified.** Gu 2026, Proposition 1 and equation (17), together already produce the *implicit* exact answer via Fourier inversion; Appendix B explicitly covers \(m=1\). The new evaluated formula eliminates characters and gives a fully quantified all-target positivity criterion at **every finite ring length**. In particular, the sharp nilpotent-shell restoration at \(q=2\) and \(m>d\) is not stated in Gu's main theorems, Proposition 8, or appendices. published-finding corpus semantic searches for the exact object, aliases, equivalences, binary threshold, and stronger coverage returned no equivalent finding. General character identities remain a substantive priority/implication risk requiring independent scrutiny.
+
+**Value — PASS.** The object is the original source's canonical, naturally motivated distinct-power-value subset-sum count. Exact finite all-target coverage is a distinct mathematical question from the source's asymptotic equidistribution criterion: a newly appearing nilpotent shell changes the global answer for the smallest residue field. The full parameter classification is a natural boundary result, not an arbitrary finite slice, and the simple formulas give exact answers without additive-character calculation. No computational-efficiency or general-index claim is made.
+
+The closest work is Gu arXiv:2610.28837v1 (full text inspected); the relevant antecedents (Li–Wan, Ding–Zhou) are cited by Gu. Residual risks: prior implicit deductions from exact character identities, incomplete indexing, and no independent review.
+
+Self-review: passed. Independent audit: not yet performed.
