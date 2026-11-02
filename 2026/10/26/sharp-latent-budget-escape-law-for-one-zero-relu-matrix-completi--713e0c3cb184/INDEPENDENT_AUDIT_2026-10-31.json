@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T17:08:43.149549Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For rank-one positive 2×2 A, det[[A,u],[vᵀ,z]]=−γ independent of z. If γ=0 exact ReLU rank 2; else exact rank 3 and no finite negative cap achieves zero loss. With N=adj(A)ᵀ and η=vᵀAᵀu>0, t=−γ/(B||A||²+η) gives rank-two latent witness with error t²||A||², yielding upper coefficient γ²/||A||². For any o(1) near minimizer, eight strictly positive entries force latent perturbations O(1/B), determinant identity gives B|det(A+H)|≥|γ|−O(δ), while |det(A+H)|≤||A||δ+δ²/2, matching lower bound; monotonic inversion gives εBmin→|γ|/||A||. Independent exact SymPy 27 cases confirm rank/determinant witness; X=[[1,1,1],[1,1,2],[1,2,0]] coefficient 1/4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adjacent ReLU-NMD and subzero completion frameworks treat broader matrix classes but optimize different latent objectives."
+        ],
+        "reasoning": "No inspected full-text theorem dominates this sharply constrained rectified loss and one-entry magnitude cap; inaccessible main original remains a genuine risk.",
+        "searches": [
+          "arXiv:2503.23832v1",
+          "arXiv:2608.21607v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.22255v1",
+        "arXiv:2503.23832v1",
+        "arXiv:2608.21607v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source nonattainment proof supplies constructive escape; no verified published lower bound on B sqrt(E(B)).",
+          "New determinant inequality B||A+H|| and gamma continuity supply optimal lower bound; no logical implication from mere existence of escape path to optimal coefficient."
+        ],
+        "reasoning": "Distinguish mathematical nonimplication from literature absence; inaccessible full paper could still include implicit bounds.",
+        "searches": [
+          "arXiv:2610.22255v1 Prop 2.1",
+          "arXiv:2503.23832v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published abstract establishes Fro-RMD may fail to attain infimum; assigned work proves B^2 E(B)->gamma^2/L by matching determinant-based lower and upper bounds."
+        ],
+        "reasoning": "Nonattainment alone does not imply the leading coefficient or the exactness alignment class.",
+        "searches": [
+          "Resultary semantic: ReLU rank 2 nonattainment 3x3 positive one zero rank one block finite negative latent budget error asymptotic",
+          "arXiv:2610.22255v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published single 3x3 nonattainment example; new parameter L,gamma yields optimal coefficient 1/4 for X=[[1,1,1],[1,1,2],[1,2,0]]."
+        ],
+        "reasoning": "The known example is not a database with exact globally optimal capped error asymptotic; one-entry feasible path is nonoptimal.",
+        "searches": [
+          "Resultary ReLU low-rank positive one-zero 3-by-3 latent budget",
+          "arXiv:2610.22255v1"
+        ]
+      },
+      "rationale": "PASS with material access qualification: prior 2026 Fro-RMD established nonattainment via specific example; assessed new work gives a full positive rank-one-block dichotomy and exact optimal global coefficient under a single clipped-latent cap. The quantitative perturbation lower bound is absent from accessible abstract and no dominating theorem was found; original full text could not be inspected and risk retained.",
+      "residual_risks": [
+        "The highly relevant original Seraghiti–Vandaele–Gillis 2026 paper could not be read in full: arXiv/OA failed and authorized Oxford returned vpn_disconnected.",
+        "Result is strictly 3x3 rank-one positive 2x2 block and single zero; finite B global minimizer not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known nonattainment and one-entry perturbation path. Quantitative globally optimal latent-budget coefficient not substantiated by accessible material; possible primary-source stronger coverage remains a material priority risk.",
+          "evidence": "Abstract explicitly says ill-posedness and ReLU rank; result source cites Proposition 2.1; full text unavailable.",
+          "identifier_or_url": "arXiv:2610.22255v1",
+          "material_read": "Abstract and detailed proposition statement as quoted/referenced in the assigned source; full original text NOT retrieved",
+          "method": "arXiv abstracts and lawful OA attempts unsuccessful; authorized Oxford job reported vpn_disconnected",
+          "title": "The ReLU Matrix Decomposition: NP-Hardness, Ill-Posedness, and ReLU-Rank",
+          "trigger": "Same 3x3 positive one-zero counterexample; Proposition 2.1"
+        },
+        {
+          "assessment": "Contrasts latent vs directly rectified loss, not exact asymptotic one-zero cap law in inspected abstract.",
+          "evidence": "Abstract describes multiple objective formulations and nonattainment.",
+          "identifier_or_url": "arXiv:2503.23832v1",
+          "material_read": "Abstract, differentiating direct rectified and latent models",
+          "method": "arXiv abstract",
+          "title": "An extrapolated and provably convergent algorithm for nonlinear matrix decomposition with the ReLU function",
+          "trigger": "Earlier ReLU-NMD ill-posedness variants"
+        },
+        {
+          "assessment": "Different optimization formulation; not enough material to exclude an implicit coefficient theorem.",
+          "evidence": "Related low-rank completion and latent objective.",
+          "identifier_or_url": "arXiv:2608.21607v1",
+          "material_read": "Title/abstract/citation context; detailed paper not read",
+          "method": "Bibliographic/abstract review",
+          "title": "Subzero matrix completion for sparse data analysis: large-scale learning of latent low-rank structure",
+          "trigger": "Latent completion neighboring approach"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Optimal latent-escape cost quantifies ill-posedness of low-rank rectified completion, distinguishes exactness locus versus generic escape, and proves sharp coefficient rather than just one feasible perturbation. Natural model with single observed zero.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.22255v1",
+    "arXiv:2503.23832v1",
+    "arXiv:2608.21607v1",
+    "Git blob RESULT.md 50bf8b6758efc73eb6fa116051b2cd8dee791710, sections 1-4",
+    "Git blob check_math.py d15f5cba0f108bb76bf368242c2f266a22c7adc9 inspected; independent SymPy determinant checks",
+    "Seraghiti Vandaele Gillis arXiv:2610.22255 abstract and claimed Proposition 2.1; full text inaccessible, Oxford vpn_disconnected"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No globally exact finite-B optimizer claimed; only one zero in a 3x3 positive rank-one-block family.",
+    "Highly relevant 2026 original paper not readable in full; priority uncertainty material.",
+    "The highly relevant original Seraghiti–Vandaele–Gillis 2026 paper could not be read in full: arXiv/OA failed and authorized Oxford returned vpn_disconnected.",
+    "Result is strictly 3x3 rank-one positive 2x2 block and single zero; finite B global minimizer not claimed."
+  ],
+  "schema_version": 1
+}
