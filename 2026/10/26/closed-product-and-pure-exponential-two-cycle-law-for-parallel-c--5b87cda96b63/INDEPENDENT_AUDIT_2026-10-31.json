@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T04:45:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob a053decea4ce290c461f02927aecec5ed28b587d",
+        "Assigned verify.py blob fe9082a9260dabc9ecf50a7f496fc13d3f0e428a",
+        "Fresh private independent_checks.py and successful local run 2026-10-31 UTC"
+      ],
+      "rationale": "For each primitive 2-cycle x->y->x on the finite connected tree, the vector of total firing counts over two steps is harmonic under the graph Laplacian and hence constant; the only nonfixed case has exactly one firing at every vertex. For a phase vector p the number of opposite-phase neighbors k_v must be positive; the first-state chip interval has exactly k_v choices (firing: d_v through d_v+k_v-1; waiting: d_v-k_v through d_v-1). Conversely those choices ensure y has complementary phase and Phi(y)=x. On a tree, selected opposite-phase edges determine the phase up to complement, while the two complements are the same orbit, giving N(T)=sum_{S subset E} product_v deg_S(v). A leaf with a formal parent edge has (F_0(0),F_0(1))=(0,1). A height-h branch satisfies A_h=2B_{h-1}(A_{h-1}+B_{h-1}) and B_h=(A_{h-1}+B_{h-1})(A_{h-1}+3B_{h-1}), leading to the claimed matrix M=[[0,2],[1,3]] and product formula. Both linear coordinates obey z_{j+2}=3z_{j+1}+2z_j. The asymptotic uses positive dominant root (3+sqrt17)/2, negative subdominant root of smaller modulus, and the exact convergent weighted log-series tail; it gives coefficient kappa=4 exp(s)/(19+5 sqrt17), not merely a growth rate. Boundaries h=1 and h=2 yield N=2 and 30; all chip intervals are nonnegative. Independent new tests exhaustively enumerate all edge subsets for h=1,2,3, evaluate a separate branch recursion through h=4, enumerate every chip state with 0<=x_v<2d_v for h=1,2, and numerically check s and kappa. These finite tests only corroborate the general proof.",
+      "residual_risks": [
+        "The unrestricted conclusion relies on exact algebraic manipulations in RESULT.md, not a formal proof assistant. The tests cannot rule out bugs beyond the bounded heights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bitar–Goles 1992 abstract establishes tree periods of lengths 1 or 2 but full text inaccessible.",
+          "Jiang 2010 Theorem 3.10 is a period-feasibility theorem for K_{a,b}, not a binary-tree orbit census.",
+          "Jiang–Scully–Zhang 2014 Theorem 6.2 characterizes forbidden firing patterns; its corollaries concern tree-like subgraph behavior.",
+          "Inagaki et al. 2025 Theorem 4.3 counts sequential firings on an infinite binary tree with a root loop, not synchronous cycles."
+        ],
+        "reasoning": "An all-tree theorem about allowed period lengths or admissible phase words does not determine how many labelled chip configurations realize each allowed pattern, and different sequential infinite-tree results do not reduce to finite synchronous tree orbit counting. The existing general cut partition function is stronger as a representation, but the claimed nontrivial closed evaluation and asymptotic remain separate. Full inaccessible Bitar–Goles could conceivably state a stronger numeric formula; this was not ruled out.",
+        "searches": [
+          "web: parallel chip firing full binary tree number period two orbits closed formula",
+          "web: parallel chip firing binary trees two cycle count configurations phases enumeration",
+          "web: Bitar Goles 1992 Parallel chip firing games on graphs pdf",
+          "web: Jiang Scully Zhang motors impossible firing patterns trees period 2 2012 arxiv pdf",
+          "web: counting 2 cycles parallel chip firing tree complete binary tree number periodic configurations"
+        ]
+      },
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/1003.0943",
+        "https://arxiv.org/pdf/1211.6786",
+        "https://link.springer.com/article/10.1007/s00026-025-00779-6",
+        "https://doi.org/10.1016/0304-3975(92)90316-8",
+        "Resultary semantic searches of published findings (three actual queries)",
+        "https://arxiv.org/abs/2608.01350 (different K_{a,b} eventual-period parameter setting)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General connected-graph conservation forces common firing totals; that proof ingredient predates this record.",
+          "Generic tree two-cycle cut sum, acknowledged in package as earlier path analysis, is a finite-sum formula valid for all trees.",
+          "The new proof derives an exact two-child nonlinear branch DP, factors it through a constant 2x2 matrix and sums the asymptotic log tail for a nonzero prefactor."
+        ],
+        "reasoning": "Specialization of the generic cut sum to the full binary tree is an unevaluated exponentially large finite sum. It alone is not the asserted explicit all-height product and exact limiting factor without substantive extra evaluation; if a previous source explicitly analyzed this tree partition function or offered a stronger general closed solution, the novelty decision would change. Periodicity classification alone is strictly weaker than the claim.",
+        "searches": [
+          "Resultary: parallel chip firing period two orbits path Pell exact enumeration cut edges subset product degrees",
+          "web: parallel chip firing full binary tree number period two orbits closed formula",
+          "web: Jiang Scully Zhang motors impossible firing patterns trees period 2 2012 arxiv pdf",
+          "web: \"Parallel chip firing games on graphs\" Bitar Goles pdf full text 1992"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For any tree, the period-two population is equivalent to the edge-subset partition function sum_S product_v deg_S(v); this generic description is explicitly excluded from the novelty claim.",
+          "Full binary tree counts 2,30,9350,859413750 arise from the new recurrence product; searches found no exact matching formula in returned literature sources.",
+          "Jiang 2010, Sections 1–5, focuses on periods and graph classes other than this exact census."
+        ],
+        "reasoning": "Alternative vocabulary includes sandpile, firing-phase cuts, rooted two-child recursion, edge-subset degree-product partition functions, orbit entropy and primitive 2-cycles. The abstract weighted cut formula does give an algorithmically defined finite integer for all trees but does not state, nor immediately imply by trivial substitution, the evaluated linear recurrence product and positive prefactor.",
+        "searches": [
+          "Resultary: parallel chip firing full complete rooted binary trees primitive period two orbit count product recurrence asymptotic entropy",
+          "Resultary: parallel chip firing period two orbits path Pell exact enumeration cut edges subset product degrees",
+          "Resultary: closed product 9350 859413750 binary tree two cycle parallel sandpile",
+          "web: parallel chip firing full binary tree number period two orbits closed formula",
+          "web: \"9350\" \"859413750\" chip firing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic searches for the specific full-binary chip-firing count, path Pell analogue and integers 9350/859413750 returned no matching published finding among inspected returned hits.",
+          "Search results for the literal counts did not yield a table connecting them to this chip-firing model.",
+          "The submitted counts were independently recomputed from a separate algorithm, not accepted from a published database."
+        ],
+        "reasoning": "No existing exact table of primitive two-cycle counts 2,30,9350,859413750 was located in bounded checks; this is negative evidence only. A database sequence could contain these values without discoverable descriptors, so the exact-table priority risk remains.",
+        "searches": [
+          "Resultary: closed product 9350 859413750 binary tree two cycle parallel sandpile",
+          "web: \"9350\" \"859413750\" chip firing",
+          "Resultary: parallel chip firing full complete rooted binary trees primitive period two orbit count product recurrence asymptotic entropy",
+          "GitHub source-repository code search: \"The Pell mass law for two-cycles\" (no matches)"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge original contribution is the evaluated one-dimensional full-binary-tree recurrence product and sharp pure-exponential per-vertex limit, not the classical period-one-or-two theorem, the common-two-step firing-count lemma or the generic weighted cut representation. Jiang 2010 studies attainable periods; Jiang–Scully–Zhang 2014 studies firing patterns and tree-like subgraphs; Inagaki–Khovanova–Luo studies sequential stabilization on a different infinite tree. Search of the published mathematical finding corpus and targeted literature found no exact duplicate, but non-detection is not a novelty proof. The most relevant Bitar–Goles 1992 article was not fully accessible; this remains a substantive priority risk. The general cut sum does compute each finite case in principle but does not itself supply this exact closed height product or asymptotic prefactor without the additional branch recurrence and singular-limit analysis.",
+      "residual_risks": [
+        "Bitar–Goles 1992 full text inaccessible because authorized Oxford connection returned vpn_disconnected; could contain a dominating tree enumeration.",
+        "A known closed evaluation of the edge-weighted binary-tree partition function may exist under another field or notation, including statistical-mechanical vertex weights.",
+        "The generic cut representation is earlier work and is not being claimed original.",
+        "Published-finding and web search are incomplete; absence of hits does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes period restrictions and constructions on different graph families; no explicit all-height binary-tree cycle census, matrix product or per-vertex asymptotic constant in the read material.",
+          "evidence": [
+            "Theorem 3.10 classifies possible periods of K_{a,b}, not numbers of primitive period-two orbits.",
+            "Section 1.3 cites Bitar–Goles for tree periods 1 or 2; Section 5 proposes studying period lengths and transients."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1003.0943",
+          "material_read": "Accessible full HTML text, particularly Sections 1–5, Proposition 2.5, Section 3 period constructions, Theorem 3.10 and Section 5 discussion.",
+          "method": "Compared the exact statements for complete bipartite/multipartite periods and general Laplacian firing counts with the unrestricted all-height complete binary tree orbit count.",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "The same simultaneous firing rule and classical all-vertices-equal firing-count lemma could imply a graph-specific count."
+        },
+        {
+          "assessment": "Characterizes allowable periodic firing patterns and tree-subgraph passive behavior; does not provide the exact number of chip configurations on complete finite binary trees, their product or exponential prefactor in inspected material.",
+          "evidence": [
+            "Theorem 6.2: clumpy periodic firing patterns cannot occur.",
+            "Corollaries 7.1–7.4 concern nonclumpiness and tree-like subgraph behavior, not orbit counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.6786",
+          "material_read": "The 2014 arXiv v3 PDF, introduction, model definitions, Sections 3–4 (tree motors), Theorem 5.1, Theorem 6.2 and Sections 7–8, with PDF page images examined for pages 1 and 14.",
+          "method": "Read extracted primary PDF statements and proof portions and inspected representative page screenshots; compared nonclumpiness, motor behavior and tree subgraph reduction against weighted count and exact branching recurrence.",
+          "title": "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+          "trigger": "Main primary source on firing patterns of tree subgraphs, which might subsume phase data or an enumeration."
+        },
+        {
+          "assessment": "Different graph, dynamics and statistical object; neither the theorem nor its corollaries imply the finite synchronous two-cycle count.",
+          "evidence": [
+            "Theorem 4.3 computes the total firings at each level starting with N root chips until stabilization.",
+            "Abstract explicitly assumes an infinite binary tree with self-loop at root and studies stable configurations."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00026-025-00779-6",
+          "material_read": "Open-access publisher HTML introduction, research questions and Section 4 (Theorem 4.3 and its consequences); arXiv v1 PDF initial pages and first-page screenshot.",
+          "method": "Compared graph (infinite with root self-loop), model (sequential stabilization), initial configurations (root-loaded) and counted quantities (stable states and firing totals) against finite synchronous primitive two-cycle orbits.",
+          "title": "On Chip-Firing on Undirected Binary Trees",
+          "trigger": "A highly close title involving binary trees and enumeration of chip-firing phenomena."
+        },
+        {
+          "assessment": "Abstract establishes allowed periods on trees, not a full-cycle enumeration. Full text was inaccessible, so cannot assert it lacks a stronger enumeration; this is a material residual risk but not affirmative coverage evidence.",
+          "evidence": [
+            "Theoretical Computer Science 92(2), 291–300 (1992), DOI 10.1016/0304-3975(92)90316-8.",
+            "University archive abstract: on trees periods have length one or two.",
+            "Authorized retrieval status: vpn_disconnected; no full text read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0304-3975(92)90316-8",
+          "material_read": "Publisher-indexed bibliographic record and complete university repository abstract only; full article not obtained.",
+          "method": "Searched for arXiv copy and lawful open-access full text with targeted search queries, then attempted authorized institutional retrieval; Oxford connection returned vpn_disconnected. No authentication bypass.",
+          "title": "Parallel chip firing games on graphs",
+          "trigger": "Original tree-specific period-one-or-two theorem; a possibly dominating historic source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "The graph/model and exact recurrence/proof in assigned RESULT.md",
+        "Jiang 2010 period classifications",
+        "Jiang–Scully–Zhang 2014 phase restrictions",
+        "Inagaki et al. 2025 distinct stabilization model"
+      ],
+      "rationale": "Finite full binary trees are a canonical sequence of branching networks for the deterministic parallel chip-firing automaton. Beyond the known tree period restriction and generic finite sum, the exact closed product over heights resolves the full count across all chip masses and a natural exponential growth statistic per graph vertex, with a nontrivial nonzero prefactor. The result separates the branching structure from previously evaluated paths, yields the precise entropy s rather than a mere bound, and is a reproducible structural law for an infinite family rather than an arbitrary small-instance gain. Its natural restrictions (indistinguishable chips, open boundary, finite heights, primitive cycles counted once) are explicit, and no unjustified basin-size or fixed-point census is claimed.",
+      "residual_risks": [
+        "The result is specialized to full binary trees and does not count basins, mass-resolved cycles or arbitrary trees.",
+        "A deeper known exact tree partition-function evaluation could reduce its independent value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "On the finite full rooted binary tree T_h of height h>=1 with open boundaries and parallel chip-firing of nonnegative indistinguishable chips, the number of primitive period-two orbits over all masses is N_h=a_h product_{j=1}^{h-1} u_j^{2^{h-1-j}}, with (a_0,a_1)=(0,2), (u_0,u_1)=(1,5), and z_{j+2}=3z_{j+1}+2z_j for both sequences. If s=sum_{j>=1}2^{-j-2}log u_j and kappa=4 exp(s)/(19+5 sqrt17), then N_h~kappa exp(s(2^{h+1}-1)). Only the specialized evaluated product and asymptotic are proposed as original; the generic tree cut representation is prior work.",
+  "limitations": [
+    "All-height proof is analytical, not deduced from finite tests or from VERIFY_OK.",
+    "One assigned record; this run does not reassess historical reviews or other records.",
+    "Historical Bitar–Goles full text inaccessible through authorized Oxford access; originality is qualified best-of-knowledge and could be revised if stronger coverage is found.",
+    "The count is over primitive period-two orbits of labelled positions with indistinguishable chips; no basin size, exact total-mass refinement, transient, or fixed-point count.",
+    "Scientific assessment complete; publication transport not ready because public administrative metadata embeds operational run identifiers; no sanitized full replacement files staged. Original source preserved."
+  ],
+  "schema_version": 1
+}
