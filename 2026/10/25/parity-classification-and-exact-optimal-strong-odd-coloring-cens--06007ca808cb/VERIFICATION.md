@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify_so_incidence.py` to enumerate the complete three-color assignments on ten small parameter pairs and four-color assignments on the two-by-two and two-by-four cases. This checks the mathematical neighborhood definition directly.
+## correctness
 
-Run `python3 verify_theta_so.py` to perform a separate dynamic-programming census of all page configurations, independently reconstruct the signed-character expression, and verify the closed four-color count at even parameter values 2, 4, 6, and 8.
+PASS
 
-Observed outputs: `VERIFICATION_OK` and `THETA_VERIFICATION_OK`, including four-color counts 168, 3264, 52368, and 821184. The mathematical proof of all-parameter statements appears in `RESULT.md`, and no finite computation should be treated as a proof outside its tested range. All source references describe public literature, not external certification of these claims.
+At every degree-two subdivision vertex, its two original neighbours must have distinct colors, and a proper three-coloring forces the third color. Hence each used color class in the opposite original part must have odd size at every original vertex. Counting one/two odd classes gives the asserted parity-specific optimum and exact three-color counts; a two-color checkerboard on subdivisions gives the even-even four-color construction. For p=2, each page has exactly six valid triples given hub colors. Enforcing both parity and used support at both hubs (rather than parity alone) yields the stated all-even-q signed character enumeration; the zero case q even-even follows from the rigid three-color obstruction.
+
+## originality
+
+PASS
+
+Best-of-knowledge original exact parity classification and named-optimum exponential census for the fully subdivided bipartite incidence family; general strong-odd definitions and broader bounds are established prior work.
+
+## value
+
+PASS
+
+The once-subdivided complete bipartite family is the natural edge-incidence graph of K_{p,q}; parity of the two original sides is an intrinsic structural parameter. Determining its exact chromatic threshold for every side size and a full all-q labelled optimum count for the natural two-hub multitheta family is a motivated classification, not a parameter rename or small-case counting exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
