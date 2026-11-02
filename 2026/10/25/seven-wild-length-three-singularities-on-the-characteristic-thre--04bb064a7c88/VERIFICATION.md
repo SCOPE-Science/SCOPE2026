@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The attached `VERIFY.py` uses Python's standard library only. It checks the Laurent exponent recurrences in the characteristic-three partial derivatives, the defining equation modulo \(t^{21}-1\), the exact Hessian rank and kernel at \(P_1\), and the nonzero restricted cubic term. It checks the order of \(3\) modulo \(7\), and enumerates the prime-field normalized singular support. Execute `python3 VERIFY.py` in the extracted directory. The script reports `VERIFY_OK` when these identities pass.
+## correctness
 
-These are exact integer/modular checks; the universal assertions are established in the accompanying proof by explicit ideal elimination, factorization, and formal quadratic splitting. The finite-field enumeration does not imply the geometric point classification by itself. The formal splitting argument uses characteristic \(3\ne2\), Hessian corank one, and the nonzero cubic kernel coefficient; it has not been independently certified.
+PASS
+
+PASS: On the characteristic-three model F=ΣX_i² X_{i+1}, the equations ∂F/∂X_i=X_{i-1}²−X_iX_{i+1} force all singular coordinates nonzero. In X0=1 the first affine partials give t, t^-1, t³, t^-5, t^11 and last partial gives t^21−1. The cubic equation adds no relation mod3; hence full singular scheme is Spec k[t,t^-1]/(t^7−1)^3 and has seven length-three points. Independently checked Hessian modulo three has rank four, null vector (2,1,0,2,1), and degree-three term on it is 8≡2, giving formal type u³+Σ v_i² by the formal splitting lemma. Frobenius order of 3 mod7 equals 6; singular support finite implies geometric integrality and normality of the hypersurface.
+
+## originality
+
+PASS
+
+PASS, qualified best-of-knowledge: Seven A2 singularities on a different characteristic-zero family member, or a length-21 defect in a different Hessian, cannot imply that the coefficientwise mod3 Klein FOURfold has seven curvilinear length-three critical points. The explicit Laurent elimination is an independent computation. Residual risks: The 2025 full arXiv PDF was accessed and the explicit Klein model, complex singular-locus Propositions 3.11–3.12 and their proofs inspected; other unsearched positive-characteristic articles remain a priority risk.; Other positive-characteristic Klein cubic degeneration studies might tabulate the same Jacobian scheme.
+
+## value
+
+PASS
+
+PASS: A smooth characteristic-zero Klein fourfold acquires nonreduced wild singularities after the specified reduction. The exact Jacobian scheme, local completed type and arithmetic splitting are natural and jointly provide a concrete bad-reduction invariant not implied by the complex automorphism classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
