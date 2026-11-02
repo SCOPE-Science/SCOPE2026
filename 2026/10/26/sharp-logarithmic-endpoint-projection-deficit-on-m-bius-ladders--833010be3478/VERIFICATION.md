@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and scope
 
-The accompanying `verify_mobius.py` uses exact `fractions.Fraction` arithmetic. For each \(3\le n\le13\) it constructs the \(2n\)-vertex, \(3n\)-edge incidence matrix and grounded Laplacian, inverts that Laplacian exactly, reconstructs every cut-projection column, checks projector symmetry and \(\|Qe_j\|_2^2=Q_{jj}\), and compares both edge-orbit cut and cycle column sums with the positive-part formulas obtained from an independently solved rational recurrence. The test covers \(\sum_{n=3}^{13}3n=264\) exact columns and passed. It also checks strict rim dominance for \(n\ge4\) and orbit equality at \(n=3\).
+# Independent mathematical audit
 
-The source file is the complete standalone test, with no data files or third-party dependencies. Run `python verify_mobius.py` from the directory containing the extracted source file.
+## correctness
 
-This finite reconstruction does not certify an asymptotic theorem or all graph orders. The mathematical proof uses an explicit antiperiodic Green kernel, exact current signs, a closed-form pairwise absolute-value identity, inequalities for the two edge orbits, and a cutoff asymptotic. No external audit or independent validation has been performed.
+PASS
+
+PASS: Antipodal-even/odd Laplacian decomposition supplies g_j=(q^j-q^(n-j))/(2sqrt3(1+q^n)), q=2-sqrt3, and the rim current by a unit source. Summing paired opposite absolute currents uses |a+b|+|a-b|=2max(|a|,|b|), leaving S_n=sum_{j=1}^floor((n-1)/2)(g_j-1/(2n))_+. This gives the two exact rim-column formulas; chord formulas are 6g0+4sum g_j for Q and 1+2g0+4sum g_j for C. Positivity and explicitly treated small n prove strict rim dominance for n>=4. The moving threshold L_n=log n/log(2+sqrt3)+O(1) gives common 2 log n/(n log(2+sqrt3)) deficit. Independent exact-rational grounded-Laplacian inversion for every edge column M_{2n}, n=4..11, reproduced both orbit norms (C3_OK). The n=3 K3,3 boundary is explicitly excluded from strict orbit claim.
+
+## originality
+
+PASS
+
+PASS, qualified: Azimi–Farrokhi 2023 give complete Möbius-ladder incidence pseudoinverses and resistances; their algebra contains all projector entries in principle. The new asserted result is maximizing signed/absolute column sums over edge orbits and computing the moving log/n threshold. No explicitly equivalent endpoint norm or log defect was identified in examined relevant sections. A corollary of previously published formulas with short absolute-value casework or a separate graph projection theorem remains a substantial priority risk.
+
+## value
+
+PASS
+
+PASS: The canonical cycle/cut projection endpoint norm is a natural operator-geometric invariant. The sharp logarithmic finite-size correction is nontrivial because it arises from changing absolute-value signs in an exponentially decaying Green kernel, and all rim-versus-chord maximizers are classified. It is not a minimum norm over arbitrary projections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
