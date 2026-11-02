@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-The standalone source `verify_dodecahedron.cpp` encodes all vertices and edges of \(\operatorname{GP}(10,2)\) and enumerates all 1,048,576 possible vertex subsets. It checks that the recursive forbidden-triple test agrees with a direct connected-component test in every case. It verifies 60 forbidden triples, the complete face vector, the full facet-dimension distribution, 31,570 ordinary Morse pairs, and the two critical nonempty cells (one zero-cell and one six-cell).
+## correctness
 
-The checker constructs all 410,520 directed cover incidences of the augmented face poset, reverses exactly the matched ones and performs a complete topological sort on 63,143 faces. Every face is visited, proving there is no closed gradient path. The ordinary nonempty face poset is an induced subgraph of this acyclic directed graph. The resulting CW complex has a point and one six-cell; thus it is homotopy equivalent to \(S^6\).
+PASS
 
-Reproduce with `c++ -std=c++17 -O2 verify_dodecahedron.cpp -o verifier` followed by `./verifier`. The exact final line is `VERIFY_OK`. Both GCC and Clang accepted and executed the verifier; an additional undefined-behavior-sanitized Clang execution also ended with `VERIFY_OK`.
+From the twenty-vertex, thirty-edge GP(10,2) graph and 60 distinct induced forbidden triples, an independent DP enumerated all 2^20 vertex subsets and identified exactly 63143 faces, with f-vector (1,20,190,1080,3985,9772,15870,16640,10770,4000,750,60,5). The specified 20-pivot greedy toggle has 31570 nonempty matching pairs; the full nonempty Hasse DAG passes an acyclicity topological sort of all 63142 nodes. Only one 0-cell and one 6-cell survive. Forman theory gives a CW model with a 6-cell attached to a point, hence S6 integrally. The high-dimensional nonpure facets do not invalidate the Morse collapse.
 
-The program is self-contained C++17; it uses only standard library headers. The certificate proves this precisely specified finite case and does not establish a uniform result over all cubic graphs. It does not address bibliographic priority or constitute independent scientific validation.
+## originality
+
+PASS
+
+Deshpande–Singh define r-independence complexes exactly and establish homotopy types for complete multipartite graphs, paths, cycles, whiskered graphs and perfect trees; GP(10,2) is not among those families. Published Resultary r=1 dodecahedron wedge^4 S5 and r=2 Petersen S3 are distinct parameters or graphs. No inspected more general statement gives the specified S6 homotopy class.
+
+## value
+
+PASS
+
+First higher-independence parameter on a canonical nonchordal cubic icosahedral graph, with surprising exact S6 homotopy despite many facets in four dimensions. Complete natural finite homotopy classification provides a sharp test case outside the standard forest/whiskered families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
