@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every integer length 31..64 a literal ternary last column is supplied. The exact rank-stable permutation is a single n-cycle, the last column has no equal adjacent symbols, and the Hamming distance to its sorted rearrangement is ceil(n/2). Both verifier programs were executed successfully on all 34 rows; the independent inversion program reconstructs primitive necklaces and their BWT by directly sorting all rotations and counts cyclic runs. The published factor-two theorem supplies the universal lower bound. The at-most-six-third-letter property is checked explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fici et al. (2025), Theorem 15: existence of unclustered BWT images over nonbinary alphabets for all lengths, without minimizing cyclic input runs.",
+        "Kumallagov (2026), Proposition 8.1: sharp pairs at prime-primitive-root lengths; in the present range it includes 36,37,52,53,60,61."
+      ],
+      "reasoning": "Existence without the cyclic-run minimum is strictly weaker. The arithmetic result implies six of the 34 interval cases and is not claimed as new; the other 28 values require additional exact witnesses. Neither paper states an all-length unconditional sharpness theorem.",
+      "searches": [
+        "An extremal problem for completely unclustered Burrows Wheeler images subsequent conjecture solution",
+        "completely unclustered Fici Burrows Wheeler generalized de Bruijn 2026",
+        "arXiv:2508.20879v1 Theorem 15",
+        "arXiv:2606.01267v1 Proposition 8.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.01267v1",
+      "arXiv:2508.20879v1",
+      "2017 Mantaci et al. institutional-repository abstract",
+      "Semantic mathematical-record searches for BWT run sharpness and the length interval"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior unconditional run-amplification lower bound proves only \\(U_k(n)\\ge\\lceil n/2\rceil\\).",
+        "Previous general existence proves the feasible set is nonempty but permits a larger minimum.",
+        "Arithmetic prime-primitive-root sharpness accounts for six of the currently certified 34 values; no cited theorem forces sharpness for the remaining 28."
+      ],
+      "reasoning": "The new implication is exact upper bounds across all lengths 31–64 by a finite explicit certificate plus a restriction to at most six third-letter deviations. The paper lower bound proves only one inequality, and the existence theorem proves a different weaker property; the full claim is therefore not a paraphrase or numerical relabeling of either.",
+      "searches": [
+        "arXiv:2606.01267v1 Sections 6–10",
+        "arXiv:2508.20879v1 Sections 1–2 and Theorem 15",
+        "U_k(n) ceil(n/2) n64 sharpness 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kumallagov (2026), Proposition 4.3: for one-cycle last columns the cyclic run count is exactly the Hamming distance from the sorted column.",
+        "Kumallagov (2026), Conjecture 7.1: for all lengths at least seven the sharpness question is stated as open."
+      ],
+      "reasoning": "The target statement is equivalent to a one-cycle, adjacent-unequal last column having Hamming distance equal to the sharp lower bound. The 34 explicit last columns establish precisely this equivalent condition for lengths 31 through 64; the published statement of the conjecture is not an existing proof of this interval.",
+      "searches": [
+        "completely unclustered Burrows Wheeler U_3(n) minimum cyclic runs 13 14 15 16 2026 Kumallagov",
+        "Burrows Wheeler primitive necklace cyclic runs bound sharp ternary 13 14 15 16",
+        "arXiv:2606.01267v1 Proposition 4.3 and Conjecture 7.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kumallagov (2026), Table 1 and Proposition 6.1 give exact small examples through length 12.",
+        "Earlier finite counts through length 30, where known, do not imply results for any length 31 through 64.",
+        "The source theorem includes six particular 31–64 lengths as arithmetic corollaries, explicitly separated here."
+      ],
+      "reasoning": "The finite interval 31–64 is disjoint from previously recovered 13–30 exact-count claims and the original Table 1. Literature and indexed-record queries did not reveal a table or database of the 28 remaining lengths; absence of retrieval is not treated as proof of priority.",
+      "searches": [
+        "\"U_3(13)\" \"Burrows\" Wheeler unclustered",
+        "\"completely unclustered\" \"n = 13\" BWT 2026",
+        "exact successive counts 28 4 88 22 120 30 256 61 ternary BWT primitive necklaces input cyclic run ceil n half lengths 13 30",
+        "arXiv:2606.01267v1 Table 1"
+      ]
+    },
+    "rationale": "The inspected 2026 primary article leaves all-length sharpness as a conjecture and supplies examples through 12 and arithmetic families. Previously recoverable local enumeration through length 30 is outside this claim. Six specific lengths within 31..64 already follow from the cited prime-root theorem; the other 28 are newly certified by supplied explicit last columns. The 2025 complete-unclustering existence result does not control the minimum input-run count. Several actual literature/record searches returned no comparable interval-wide sharpness theorem; priority risk remains.",
+    "residual_risks": [
+      "Unindexed or unpublished witness sequences could predate these certificates.",
+      "The older factor-two paper was accessible at abstract level in this review; its inequality is explicitly restated and used in the inspected 2026 primary paper.",
+      "The 34-length certificate does not solve the general conjecture."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The exact interval 31–64 is not established as a consecutive block; six cases are already covered individually by Proposition 8.1.",
+        "evidence": [
+          "Proposition 3.2",
+          "Proposition 4.3",
+          "Table 1",
+          "Proposition 6.1",
+          "Conjecture 7.1",
+          "Proposition 8.1",
+          "Problem 10.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2606.01267v1",
+        "material_read": "Definitions and lower bound (pp. 2–4), exact small-value Table 1 and Conjecture 7.1 (p. 8), prime-root construction (pp. 9–10), relaxation and open problems (pp. 12–14).",
+        "method": "Read the accessible primary arXiv PDF, including its relevant theorem statements, examples, and arithmetic conditions.",
+        "title": "An extremal problem for completely unclustered Burrows–Wheeler images",
+        "trigger": "Defines the exact same minimum cyclic-run invariant and the open sharpness conjecture."
+      },
+      {
+        "assessment": "Shows complete unclustered existence and gives the cycle criterion, but does not assert the optimal cyclic input-run count.",
+        "evidence": [
+          "Theorem 15",
+          "Lemma 3",
+          "Introduction statement of scope"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2508.20879v1",
+        "material_read": "Introduction, Theorem 15, definition of the standard permutation and the one-cycle criterion, and the stated construction program (pp. 1–3).",
+        "method": "Read the primary arXiv PDF at the relevant definitions, claims, and construction description.",
+        "title": "Unclustered BWTs of any Length over Non-Binary Alphabets",
+        "trigger": "Could contain stronger universal existence or an equivalent cyclic-run implication."
+      },
+      {
+        "assessment": "Provides the background inequality but no identified interval-wide ternary sharpness statement.",
+        "evidence": [
+          "Repository abstract: BWT run count can at most double and the bound can be attained by some families."
+        ],
+        "identifier_or_url": "https://arpi.unipi.it/handle/11568/882899",
+        "material_read": "Accessible repository abstract describing the universal factor-two run bound and sharp families.",
+        "method": "Read repository abstract; full proof was not re-inspected.",
+        "title": "Measuring the clustering effect of BWT via RLE",
+        "trigger": "Supplies the factor-two lower bound used for correctness and may imply sharpness."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7a090c7d-8daf-48e3-a047-759e1ccb1184",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The open and specifically named sharpness conjecture motivates verifying a contiguous block, rather than arbitrary word statistics. The 34 cases extend the recovered certificate frontier from length 30 to the natural dyadic bound 64, closing 28 cases not implied by the published prime-root family. Every new witness uses at most six insertions of the third symbol into a binary alternating last column, providing additional structural information relevant to possible sparse constructive families. This is a meaningful finite cutoff, not a general proof.",
+    "status": "PASS"
+  }
+}
