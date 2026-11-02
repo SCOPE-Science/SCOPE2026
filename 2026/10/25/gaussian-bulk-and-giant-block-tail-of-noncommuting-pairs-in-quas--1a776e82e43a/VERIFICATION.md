@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python checks/check_quasitrivial.py` using the Python 3 standard library. The script independently enumerates \(4^{\binom n2}\) quasitrivial multiplication tables for each \(1\le n\le4\), evaluates associativity directly on triples, counts unordered noncommuting pairs, and compares the resulting polynomial with the block-composition recurrence. These four cases involve 1, 4, 64, and 4,096 candidate tables, respectively, and total 4,165.
+## correctness
 
-The observed numbers of associative quasitrivial laws are 1, 4, 20, and 138. At \(n=4\), direct enumeration and recurrence both give \(24+72w+24w^2+16w^3+2w^6\). The script also compares unmarked totals through \(n=8\) to published enumeration and reports moments from exact recurrence arithmetic through \(n=60\). The numerical coefficients \(\rho\), \(\alpha\), and \(\beta\) agree with the equations in RESULT.md.
+PASS
 
-The general central limit theorem is proved by the uniform complex-pole coefficient expansion of the real-parameter characteristic function. The superexponential tail law is proved by a direct large-block factorial upper bound and a one-large-block construction. Finite tests do not establish either infinite limit or historical novelty. Independent audit remains unperformed.
+The known unique ordered-block/projection classification of associative quasitrivial operations makes noncommutation of an unordered distinct pair equivalent to sharing a block. For ordered block size m, a_m=1 if singleton and 2 if m>=2; exponential composition yields the exact formal marked EGF and recurrence. For the Fourier mark e^{it}, coefficients of A(z,t) and its t-derivatives converge uniformly on bounded disks, and the unmarked denominator has a unique simple dominant zero rho>0 (positive z and z^2 coefficients force aperiodicity). Rouché plus implicit differentiation yields a uniform simple-pole coefficient expansion and characteristic function with drift alpha=E[R]/E[B] and variance beta=E[(R-alpha B)^2]/E[B]>0, hence CLT, means and variances at O(1). For a tail K>=delta n^2, mass s in blocks >=epsilon n obeys s>=sqrt(2delta-epsilon), and factorial weights imply probability <=4^n(epsilon n/e)^(-sn); one block size ceil(sqrt(2delta)n+2), rest singleton, gives the reverse nlogn exponent. Independent 4165 candidate multiplication tables at n<=4 reproduce the exact marked recurrence, including T4(w)=24+72w+24w^2+16w^3+2w^6; finite enumeration does not prove the limits.
+
+## originality
+
+PASS
+
+Qualified PASS on the full final probabilistic claim. Couceiro et al. already prove the quasitrivial block classification and unmarked enumeration, so the marked EGF is a routine weighted consequence and not separately counted as original. Their results and Devillet et al. classify total laws/endpoints but do not, in relevant inspected sections, state the explicit central-limit variance or the sharp positive-density nlogn tail rate for uniformly random labeled laws. The two-scale law is the assessed new content; unindexed renewal/preferential-arrangement equivalents remain possible.
+
+## value
+
+PASS
+
+The number of noncommuting pairs is a canonical invariant of associative laws. Its probability distribution has two mathematically distinct and compatible regimes: Gaussian fluctuations of linear order and an exponentially rarer giant-block event with exact nlogn rate, including explicit model-dependent alpha/beta. Understanding this regime change gives useful quantitative structure beyond existing total enumeration; the known weighted-EGF deduction alone is not offered as the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
