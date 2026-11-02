@@ -1,0 +1,9 @@
+# Scientific review of the complete-graph incidence-rowmotion theorem
+
+**Correctness — PASS.** Formula (1) is derived directly from minimal complement elements. Every orbit is proved to visit a full-singleton state within three iterations, and four explicit, exhaustive classifications of those states, together with the complement two-cycle and complete-graph three-cycle, give only periods \(2,3,5,6,8\). Universal-vertex counts prevent orbit double-counting; inclusion–exclusion counts graphs with neither isolates nor universals. Independent direct implementations exhaust all ideal states for \(3\le n\le6\). The larger-parameter stress tests are explicitly not presented as proofs.
+
+**Originality — PASS on the literature checked, with residual risk.** Striker–Williams (arXiv:1108.1172) and Striker (arXiv:1601.03710) provide foundational rowmotion and toggle results but not this specific infinite-family orbit classification. Trotter–Wang (arXiv:1308.2471) treats the same incidence-poset construction for order dimension, not rowmotion. Results on star, complete-bipartite and Fano incidence posets do not imply this statement because their incidence relations differ. Searches also considered the equivalent description as Boolean ranks one and two and the antichain action. Unindexed prior work remains possible; no independent priority certification is claimed.
+
+**Value — PASS.** The theorem supplies a complete closed-form dynamical census for an infinite and rapidly growing family of natural rank-selected Boolean posets. The uniformly bounded cycle lengths and exact order \(120\) for every \(n\ge4\) are structural information not given by generic rowmotion bijectivity. The formulas also quantify every cycle length, so the result goes beyond small-instance enumeration.
+
+Self-review: passed. Independent audit: not yet performed.
