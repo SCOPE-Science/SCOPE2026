@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verify_cycle_burning.py` with Python 3 (standard library only). The program uses a direct graph-distance definition of legal ignition and burning to enumerate all labeled length-\(k\) tuples at \(k=2,3,4\), independently of the formula-generating arc constructions. It checks both cycle orders \(k^2\) and \(k^2-1\) at these parameters. It separately generates all \(k^2-1\) optimal candidates via labeled cyclic arcs for \(2\le k\le7\), calculates exchange adjacencies by deleting each time coordinate, and computes component sizes with a disjoint-set union. Counts and degree histograms are asserted against closed formulas, and generated sequences through \(k=5\) are checked by the direct distance conditions.
+## correctness
 
-Expected near-square `(k, states, edges, components)` values are `(2,6,6,1)`, `(3,48,80,1)`, `(4,360,720,2)`, `(5,2880,6336,6)`, `(6,25200,58800,24)`, `(7,241920,587520,120)`. At square order for \(k=2,3,4\) the counts are \(4,18,96\) respectively, all isolated. A successful run concludes with `VERIFY_OK`.
+PASS
 
-The generated checks are finite. The proof for all integers \(k\ge2\) is the interval tiling, defect and adjacency argument in RESULT.md. No validation by an independent party has been performed.
+The final-time burning arcs have lengths 2k-1,2k-3,...,1 summing to k^2. A square-order cover forces disjoint tilings; the single-unit deficit forces exactly one duplicate point. Removing the radius-zero singleton partitions all schedules into (A) disjoint positive-radius arcs plus endpoint singleton, or (B) one adjacent overlap among positive arcs and one uncovered singleton position. Cyclic orders of positive arc centers are conserved by valid single-coordinate exchanges, while deficit transport and unit translations connect every schedule of fixed order. Enumerating the two types and their moves gives each count, component size and degree histogram. Independent brute-force generation from distance and cover definitions confirms all k=2,3,4 both orders, including complete exchange graphs. No finite extrapolation is needed for all k.
+
+## originality
+
+PASS
+
+Bonato–Janssen–Roshanbin establishes only b(C_N)=ceil(sqrt N), and Bessy et al give the distance-and-ball characterization and general bounds. Neither inspected primary paper enumerates labeled optimal schedules, exchange connectivity, edge counts or degree types at one slack vertex. Resultary returned other burning/graph problems, not this reconfiguration law. This is best-of-knowledge and may have aliases in the graph-burning reconfiguration literature.
+
+## value
+
+PASS
+
+One-site relaxation of the maximum coverage capacity k^2 is a natural sharp extremal boundary. It creates local mobility from fully isolated square-order solutions while leaving factorially many components; full degree, edge and component-size formulas characterize a nontrivial reconfiguration state space on every cycle length in the two natural regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The theorem gives an exact scope, definitions and all integer quantifiers. The sharp bound is the sum of odd ball lengths. Equality at square order forces a tiling; one-unit overcapacity forces exactly one doubled vertex. The two near-square schedule types exhaust this possibility under the ignition-separation condition. Cyclic order is invariant under all legal single-coordinate moves; moving the overlap deficit around the circle and translating interval tilings establish the converse connectivity. Counting both types and their allowed moves yields all numeric formulas. Direct enumeration for small cycles and constructed exchange graphs through \(k=7\) reproduce the claims. The infinite proof does not rely on an empirical extrapolation.
+PASS
 
-## Originality (PASS; residual risk)
+The final-time burning arcs have lengths 2k-1,2k-3,...,1 summing to k^2. A square-order cover forces disjoint tilings; the single-unit deficit forces exactly one duplicate point. Removing the radius-zero singleton partitions all schedules into (A) disjoint positive-radius arcs plus endpoint singleton, or (B) one adjacent overlap among positive arcs and one uncovered singleton position. Cyclic orders of positive arc centers are conserved by valid single-coordinate exchanges, while deficit transport and unit translations connect every schedule of fixed order. Enumerating the two types and their moves gives each count, component size and degree histogram. Independent brute-force generation from distance and cover definitions confirms all k=2,3,4 both orders, including complete exchange graphs. No finite extrapolation is needed for all k.
 
-The Bonato–Janssen–Roshanbin and Bessy–Bonato–Janssen–Rautenbach papers establish the scalar cycle burning number and ball-covering conditions. Fitzpatrick–Wilm study burning numbers of other circulant graphs. Their inspected results do not imply the count of labeled optimal burning schedules, the exchange-component partition, or the degree distribution at the one-vertex deficit. Mathematical-index and phrase searches found no covering equivalent result. A differently named or unindexed enumeration/reconfiguration result remains possible; these searches do not prove global uniqueness.
+## originality
 
-## Value (PASS)
+PASS
 
-The exact near-square boundary has a natural extremal meaning: \(k\) burning balls cover at most \(k^2\) cycle vertices. The theorem shows that changing from capacity equality to deficit one turns isolated schedules into locally mobile schedules, yet retains factorially many independent motion classes. This is a structural rigidity and reconfiguration result across an infinite, canonical graph family, not a marginal numerical refinement of the already known burning number.
+Bonato–Janssen–Roshanbin establishes only b(C_N)=ceil(sqrt N), and Bessy et al give the distance-and-ball characterization and general bounds. Neither inspected primary paper enumerates labeled optimal schedules, exchange connectivity, edge counts or degree types at one slack vertex. Resultary returned other burning/graph problems, not this reconfiguration law. This is best-of-knowledge and may have aliases in the graph-burning reconfiguration literature.
 
-## Limitations
+## value
 
-Only proper, time-labeled schedules and coordinate-replacement moves for orders \(k^2\) and \(k^2-1\) are covered. Other burning conventions may yield different exchange graphs. No mathematical originality search can exhaust all inaccessible or unindexed material.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One-site relaxation of the maximum coverage capacity k^2 is a natural sharp extremal boundary. It creates local mobility from fully isolated square-order solutions while leaving factorially many components; full degree, edge and component-size formulas characterize a nontrivial reconfiguration state space on every cycle length in the two natural regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
