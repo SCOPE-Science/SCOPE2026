@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A local necessary-and-sufficient swap criterion follows by checking the only newly changed relative order. It proves connectivity, supplies a pairwise-crossing lower bound of \((n-1)^2\), and certifies an attaining two-phase path. A maximum-element Catalan decomposition independently derives the complete edge-enumeration recurrence and closed form. The included executable exhaustively checks the entire relevant graph for each \(2\le n\le10\); small cases use a separate brute-force avoider predicate.
+## correctness
 
-**Originality — PASS, subject to literature risk.** Reifegerste (2002) supplies Catalan diagram descriptions rather than the adjacent-swap distance. Aisbett (2015) analyzes a nonadjacent insertion move and pattern popularity. The 2018 sorting-network analysis addresses minimal monotone paths to the reverse permutation, whereas this result is a nonmonotone shortest route to a different target. Ehrenborg–Kitaev–Steingrímsson (2015) study a distinct overlap graph. Targeted research-record and literature searches did not identify a statement implying the exact \((n-1)^2\) distance, but an unindexed sorting-reconfiguration analysis remains possible. The Catalan vertex count itself is prior work and is not presented as new.
+PASS
 
-**Value — PASS.** The ordinary Kendall-tau distance for the canonical pair is \(n-1\), but imposing a natural classical-pattern restriction multiplies it by \(n-1\). The sharp quadratic distortion is a structural limitation on sorting while maintaining pattern avoidance, rather than a small finite correction. Connectedness and the explicit edge count describe the ambient Catalan reconfiguration graph and make the metric phenomenon well-defined.
+A newly formed 132 pattern during an adjacent swap must use the swapped pair, yielding necessary/sufficient local criterion: ascent x<y may swap when no earlier z<x; descent x>y may swap when no later y<z<x. Repeatedly swapping leftmost ascent reaches the reverse permutation and proves connectivity. To move n left past each b<n legally, every pair a<b<n must reverse orientation twice, giving 2*binom(n-1,2)+(n-1)=(n-1)^2; a constructed ascent-sort-to-reverse followed by legal suffix sorting achieves exactly this. Catalan maximum decomposition yields E(z)=z(C(z)-1)/(1-2zC(z)), whose n coefficient is binom(2n-2,n-2). Independently constructed all 132 avoiders and full swap graph for 2<=n<=8, checked exact vertices, edges, connectivity and BFS distance, without extrapolating finite tests to all n.
 
-No full diameter formula is claimed, and the program's finite horizon is not used as an infinite proof. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Catalan vertex count and reduced 132-avoiding sorting networks are known, but the latter enumerate monotone inversion-increasing paths to the reverse permutation. The exact nonmonotone geodesic from identity to the right rotation, requiring wholesale reversal of n-1 other entries, does not follow from the inspected tableaux/sorting-network theorems. Aisbett uses a different non-adjacent block relocation relation.
+
+## value
+
+PASS
+
+The exact ratio n-1 between intrinsic and ambient geodesic distances is unbounded in an induced Catalan permutohedron subgraph. It is a concrete structural obstruction to assuming pattern-avoiding induced paths preserve the ambient metric and comes with the natural full vertex/edge count; it is neither an arbitrary small-case statistic nor an unsupported diameter assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

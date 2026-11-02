@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:46:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A newly formed 132 pattern during an adjacent swap must use the swapped pair, yielding necessary/sufficient local criterion: ascent x<y may swap when no earlier z<x; descent x>y may swap when no later y<z<x. Repeatedly swapping leftmost ascent reaches the reverse permutation and proves connectivity. To move n left past each b<n legally, every pair a<b<n must reverse orientation twice, giving 2*binom(n-1,2)+(n-1)=(n-1)^2; a constructed ascent-sort-to-reverse followed by legal suffix sorting achieves exactly this. Catalan maximum decomposition yields E(z)=z(C(z)-1)/(1-2zC(z)), whose n coefficient is binom(2n-2,n-2). Independently constructed all 132 avoiders and full swap graph for 2<=n<=8, checked exact vertices, edges, connectivity and BFS distance, without extrapolating finite tests to all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full permutohedron has distance n-1 for this pair, which is a LOWER bound for its induced subgraph; no inspected broad shortest-path theorem gives (n-1)^2."
+        ],
+        "reasoning": "A broader statement about sorting words from identity to reversal cannot imply the shortest path to a different endpoint through nonmonotone legal moves; the lower-bound pair-crossing argument is essential.",
+        "searches": [
+          "adjacent transposition graph of 132 avoiding permutations distance identity cyclic rotation quadratic detour Catalan edges",
+          "Catalan pattern avoiding permutohedron induced subgraph connected diameter metric"
+        ]
+      },
+      "checked_sources": [
+        "Linusson–Potka–Sulzgruber arXiv:1804.01795 full PDF §§2,5,6",
+        "Reifegerste arXiv:math/0208006 public abstract",
+        "Aisbett DMTCS 2015 public metadata",
+        "Frozen RESULT.md and its independently replayed finite graph invariants"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.2 connects monotone 132-avoiding sorting networks to shifted standard Young tableaux. The 312-overlap graph uses standardized window shifts, not adjacent transpositions."
+        ],
+        "reasoning": "Neither model yields lower bound (n-1)^2 for the non-monotone endpoint rotation; the proof explicitly tracks legal crossings of each smaller-symbol pair.",
+        "searches": [
+          "adjacent transposition graph of 132 avoiding permutations distance identity cyclic rotation quadratic detour Catalan edges",
+          "Linusson Potka Sulzgruber 2018 132-avoiding sorting networks theorem 2.2",
+          "Reifegerste 2002 diagrams 132 avoiding",
+          "Ehrenborg Kitaev Steingrimsson graph 312 overlap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Linusson–Potka–Sulzgruber analyze 132-avoiding reduced sorting networks from identity to longest permutation, not arbitrary/nonmonotone paths to n-prefix rotation. Aisbett studies moving an element over a block."
+        ],
+        "reasoning": "Sorting-network trajectories all increase inversion count; the audited shortest e_n-to-(n,1,...,n-1) path necessarily reverses many pairs twice and is not a reduced sorting network. Block relocation does not preserve this graph metric.",
+        "searches": [
+          "adjacent transposition graph of 132 avoiding permutations distance identity cyclic rotation quadratic detour Catalan edges",
+          "132 avoiding sorting networks geodesics reduced words shifted SYT arXiv 1804.01795",
+          "Aisbett relation on 132 avoiding patterns 2015"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalan C_n vertices are classical and the edge-count binomial may be derivable from Catalan decompositions, but no inspected source lists the exact geodesic pair (e_n,r_n) for all n."
+        ],
+        "reasoning": "The central result is the all-n sharp quadratic detour; known Catalan enumerations alone would not cover its geodesic claim. Exact edge table should not be marketed independently as novel if later found recorded.",
+        "searches": [
+          "adjacent transposition graph of 132 avoiding permutations distance identity cyclic rotation quadratic detour Catalan edges",
+          "132 avoiding adjacent-swap graph edge count Catalan binomial sequence"
+        ]
+      },
+      "rationale": "Catalan vertex count and reduced 132-avoiding sorting networks are known, but the latter enumerate monotone inversion-increasing paths to the reverse permutation. The exact nonmonotone geodesic from identity to the right rotation, requiring wholesale reversal of n-1 other entries, does not follow from the inspected tableaux/sorting-network theorems. Aisbett uses a different non-adjacent block relocation relation.",
+      "residual_risks": [
+        "An earlier general theory of pattern-restricted permutohedral distances may imply the same special pair, despite no matching checked primary theorem.",
+        "Full Reifegerste and Aisbett mathematical text was not read this run, so no whole-document NOT_COVERING assertion is made.",
+        "The theorem does not claim graph diameter or all-pair distances."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_ENDPOINT_AND_MONOTONE_PATH_CLASS",
+          "evidence": "The 132-avoiding sorting networks are reduced identity-to-longest words; no identity-to-right-rotation shortest path in the induced all-avoider graph.",
+          "identifier_or_url": "arXiv:1804.01795",
+          "material_read": "Public 26-page PDF §2 Definitions, Thm 2.2 and §§5–6 trajectories/adjacencies, page-5 image checked",
+          "method": "Read arXiv PDF and screenshot",
+          "title": "On random shifted standard Young tableaux and 132-avoiding sorting networks",
+          "trigger": "Direct adjacent transposition paths in 132 avoidance, plausible stronger coverage"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_FULL_TEXT_NONCOVERAGE",
+          "evidence": "Catalan/Dyck diagram correspondence is a known prerequisite; full paper not read, so unindexed metric implications remain possible.",
+          "identifier_or_url": "arXiv:math/0208006",
+          "material_read": "Public arXiv preprint metadata and accessible abstract/sections described, full current-version detailed theorem comparison not completed",
+          "method": "Public abstract and mathematical references only",
+          "title": "On the diagram of 132-avoiding permutations",
+          "trigger": "Classical Catalan/diagram equivalence could dominate edge or distance result"
+        },
+        {
+          "assessment": "POSSIBLY_ADJACENT_BUT_DIFFERENT_MOVES",
+          "evidence": "Described relation relocates an entry over a block rather than restricting elementary adjacent swaps, so direct metric implication not established.",
+          "identifier_or_url": "Aisbett, DMTCS (2015), https://dmtcs.episciences.org/2141/pdf",
+          "material_read": "Public description and source relationship; complete mathematical text not re-read during this run",
+          "method": "Public metadata/abstract only",
+          "title": "A relation on 132-avoiding permutation patterns",
+          "trigger": "Similar move relation on same pattern class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact ratio n-1 between intrinsic and ambient geodesic distances is unbounded in an induced Catalan permutohedron subgraph. It is a concrete structural obstruction to assuming pattern-avoiding induced paths preserve the ambient metric and comes with the natural full vertex/edge count; it is neither an arbitrary small-case statistic nor an unsupported diameter assertion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all n>=2 the adjacent-swap induced graph on classical 132-avoiding permutations is connected, has Catalan C_n vertices and binom(2n-2,n-2) edges, and its exact distance between identity e_n and one-step right rotation (n,1,...,n-1) is (n-1)^2 versus unrestricted adjacent-swap distance n-1; no diameter theorem.",
+  "limitations": [
+    "Classical 132-pattern avoidance, standard adjacent-position swaps only; exact distance for one canonical endpoint pair, not graph diameter."
+  ],
+  "schema_version": 1
+}
