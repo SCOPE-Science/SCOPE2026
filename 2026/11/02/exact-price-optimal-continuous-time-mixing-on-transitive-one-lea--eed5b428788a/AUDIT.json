@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The Rayleigh minimum is concave under independent rate averaging. Exact core/leaf spectral blocks give the smallest positive eigenvalue, and strict scalar convexity yields a unique two-rate optimum and value. A two-dimensional Fourier Fiedler eigenspace forces every independent spoke rate and rim rate in the cyclic case. The cost crossover and fixed-price n-asymptotics follow by direct expansion. Exact rational and independent finite matrix checks passed, without being used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. (2006), DOI 10.1137/S0036144504443821, abstract and §§1,3,5, formulate the general edge-cost SDP and examine bare paths and cycles.",
+        "Shakeri et al. (2015), arXiv:1510.06785, introduction and main theorems, optimize interlayer weights while both layer graphs are fixed.",
+        "Liu–Shao (2022), DOI 10.1155/2022/6884839, concerns corona spectral and degree-Kirchhoff formulas."
+      ],
+      "reasoning": "A general-purpose SDP covers the problem as an instance but does not state or imply a closed optimal solution without solving the instance. The interconnected-network optimization holds its intra-layer graph fixed, whereas the present theorem jointly allocates all base and pendant edge rates under their relative prices. Weighted corona spectral identities alone do not solve that maximin allocation.",
+      "searches": [
+        "arxiv:1510.06785",
+        "doi:10.1137/S0036144504443821",
+        "doi:10.1155/2022/6884839",
+        "one-leaf corona of a cycle optimal Laplacian second eigenvalue independent edge weights linear budget exact conductance square root"
+      ]
+    },
+    "checked_sources": [
+      "Sun et al. 2006, DOI 10.1137/S0036144504443821, original PDF §§1–5",
+      "Boyd et al. 2007, arXiv:0709.0955, problem and symmetry sections",
+      "Shakeri et al. 2015, arXiv:1510.06785, original preprint and principal theorems",
+      "Suzuki 2013, arXiv:1304.4315, full spectral preprint",
+      "Liu–Shao 2022, DOI 10.1155/2022/6884839, OA article"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun et al. (2006) give the universal FMMP method but not the two-price transitive corona optimizer.",
+        "Shakeri et al. (2015) adjust only cross-layer coupling; the present problem adjusts every edge.",
+        "Suzuki (2013) studies infinite periodic pendant-graph spectra, not finite total-cost spectral-gap optimization."
+      ],
+      "reasoning": "The new theorem requires a two-rate eigenvalue optimization and a distinct cyclic Fiedler-space rigidity argument. Neither is a specialization of an inspected exact closed solution. The general SDP does contain the problem formally, so the claim is novelty of the explicit analytic classification, not of the optimization framework.",
+      "searches": [
+        "doi:10.1137/S0036144504443821",
+        "arxiv:1510.06785",
+        "arxiv:1304.4315"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd–Diaconis–Parrilo–Xiao (2007), arXiv:0709.0955, §§1–2, treats stochastic transition matrices and second-largest eigenvalue modulus, not the continuous-time budget-maximized second Laplacian eigenvalue.",
+        "Sun–Boyd–Xiao–Diaconis (2006), DOI 10.1137/S0036144504443821, treats the latter general objective."
+      ],
+      "reasoning": "The discrete-time optimum controls both positive and negative transition eigenvalues under stochastic row constraints, while the new priced continuous-time problem maximizes the smallest positive Laplacian eigenvalue under two edge prices. A previously derived SLEM optimum on a corona therefore does not imply the present pair of square-root rates or cyclic uniqueness.",
+      "searches": [
+        "doi:10.1137/S0036144504443821",
+        "arxiv:0709.0955",
+        "weighted graph fastest Markov process algebraic connectivity corona"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inspected the explicit corona/SLEM results previously derived for discrete-time symmetric stochastic chains, and the weighted finite-ladder spanning-tree optimization, checking the objectives and budget domains.",
+        "No matching full-price, continuous-time two-edge-class formula or unrestricted cyclic uniqueness statement was identified in the targeted source comparisons."
+      ],
+      "reasoning": "The discrete-time corona statements involve a constrained transition matrix and SLEM; the finite ladder statement maximizes a spanning-tree determinant rather than a spectral gap. None implies this claim. Searches and inspected records do not establish global publication uniqueness.",
+      "searches": [
+        "Sunlet graph continuous time Markov process maximize algebraic connectivity spectral gap under separate cycle and leaf conductance prices optimum unique",
+        "one-leaf corona of a cycle optimal Laplacian second eigenvalue independent edge weights linear budget exact conductance square root",
+        "cycle corona fastest mixing spectral gap edge cost weighted spoke bridge unique allocation"
+      ]
+    },
+    "rationale": "Comparison against the original full continuous-time FMMP article, the discrete-time symmetry/SLEM article, the interlayer-only connectivity optimization, and weighted-corona spectral references found the general methods but not the exact two-price corona solution, nonuniform cyclic rigidity, or divergent rim/pendant scaling. Priority is provisional, with specialist overlap possible.",
+    "residual_risks": [
+      "General spectral-gap SDP techniques are prior work; an unlocated specialization to coronas may already yield the same formulas.",
+      "Some discrete-time corona results share the graph and automorphism group; they optimize a different eigenvalue functional and do not directly imply the present assertion.",
+      "A broad specialist literature beyond the inspected primary sources may overlap; independent priority assessment is not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general SDP and examples but not the explicit priced corona rates and cyclic nonuniform uniqueness",
+        "evidence": [
+          "The paper explicitly defines a positive weighted sum rate constraint in §1.2 and treats bare cycle and path examples in §5.",
+          "First publicly verified electronic date appears as November 2, 2006 on original page 681."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Original complete PDF accessible; materially inspected abstract, §§1–3 and §5 concrete examples and page images including pages 681 and 693",
+        "method": "Open-access publisher-author PDF, direct page inspection and text searching",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same continuous-time edge-rate spectral-gap objective and price constraint"
+      },
+      {
+        "assessment": "Uses discrete-time stochastic SLEM; neither its optimum nor symmetry argument supplies the present continuous-time price solution",
+        "evidence": [
+          "Its §1.1 defines symmetric stochastic matrices and the objective as the second-largest eigenvalue modulus."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+        "material_read": "Complete accessible HTML, abstract, §§1–2, symmetry statements and targeted searches for pendant and corona",
+        "method": "arXiv HTML and original preprint PDF page inspection",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Possible stronger symmetry-based result for corona fastest-mixing design"
+      },
+      {
+        "assessment": "Fixes both component layers and optimizes only one-to-one interlayer edges, while the present theorem jointly optimizes both edge families",
+        "evidence": [
+          "The introduction asks for optimal interlayer weights given fixed network layers; its main results distinguish uniform and nonuniform interlayer allocations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1510.06785",
+        "material_read": "Complete open preprint in searchable form, introduction, model, principal theorems and examples",
+        "method": "arXiv full HTML and PDF page image",
+        "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+        "trigger": "Possible stronger price-constrained algebraic-connectivity result for paired layers"
+      },
+      {
+        "assessment": "Infinite periodic-graph spectral analysis does not include finite independent priced edge-rate optimization",
+        "evidence": [
+          "The spectral object is a covering graph with pendants, not a finite-budget optimizer."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1304.4315",
+        "material_read": "Original full open PDF, abstract, setup and relevant spectrum statements",
+        "method": "arXiv PDF with page-image and selectable-text inspection",
+        "title": "Spectrum of the Laplacian on a Covering Graph with Pendant Edges I: The One-Dimensional Lattice and Beyond",
+        "trigger": "Potential exact spectral identity for one-leaf cyclic graphs"
+      },
+      {
+        "assessment": "Corona spectra are useful background but contain no inspected price-constrained optimal rate classification",
+        "evidence": [
+          "Its stated observables are Laplacian spectra and degree Kirchhoff indices, not a global maximin rate-budget problem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2022/6884839",
+        "material_read": "Open-access HTML abstract and weighted-corona spectrum statements, with targeted optimization-term searches",
+        "method": "Open article HTML inspection",
+        "title": "Two Kinds of Laplacian Spectra and Degree Kirchhoff Index of the Weighted Corona Networks",
+        "trigger": "Potential weighted-corona spectral factorization covering the eigenvalues"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eed5b428-788a-449c-9b74-5dc59e90970e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The solved object is a natural graph family comprising all vertex- and edge-transitive cores, with every edge rate independent and two physically motivated prices. Beyond a general SDP, the theorem gives one formula and explicit investable rates for all budgets and core sizes, and proves unusual all-nonuniform uniqueness on every cycle. The two investment scales and exact price crossover are structurally informative; no paper-sized extension is assumed.",
+    "status": "PASS"
+  }
+}
