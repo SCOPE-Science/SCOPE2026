@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Alexander-dual description has been derived directly from facet complements, the octagonal Alexander dual has an exact twenty-collapse sphere certificate, and the alternating block maps give the integer pairing matrix \(I-P\). Its unit minor proves a *split* rank-\(p-1\) summand. Integral Alexander duality and UCT transfer the obstruction to the next-to-top degree. The standalone finite computations were executed and do not substitute for the symbolic all-parameter proof. A full homotopy classification remains unproved.
+## correctness
 
-**Originality — PASS, subject to bibliographic uncertainty.** The closest March 2026 primary theorem treats the shellable range \(n\ge6p-3\), not the critical \(n=4p\) slice. A June 2024 conjecture predicts the complete wedge decomposition on this slice; its limited tabulated cases do not entail the unbounded split integral theorem. Published-record semantic searches did not identify an equivalent uniform proof; they do not establish absolute uniqueness. Existing results on cubic paths/four-cut complexes and rational high-range cyclic representations do not imply this critical-boundary claim.
+PASS
 
-**Value — PASS.** An explicit recent open threshold question is resolved across an infinite natural parameter family for the non-shellability implication, with a uniform integral direct-summand mechanism. This is mathematically useful even though the stronger exact homotopy conjecture remains open.
+The Alexander dual of the ordinary 3-cut complex is exactly the complex K_p of subsets whose every triple induces a connected C_{4p}^p graph. Independently reconstructed K_2 with f-cardinalities (8,28,32,10), verified all 20 specified elementary free-face removals, and checked the residual connected closed triangulated surface has f=(8,18,12), circular vertex links and Euler characteristic 2, hence K_2≃S². Rotation by one fixes no nonempty face, giving its degree -1 by Lefschetz. The alternating singleton/(p-1)-vertex 8-block quotients and sections are weak graph homomorphisms; source-edge and section checks were independently verified for 2<=p<=35, while the symbolic distance threshold >p for jumps across 3 blocks proves every p>=2. Relative offsets t=s, t=s-1 and all others respectively give identity, odd rotation and parity-simplex maps, hence deg(Q_s E_t)=δ_{st}-δ_{t,s-1}. Independently computed 338349 complete signed simplicial Lefschetz degrees for all s,t and 2<=p<=100 (including 5049 of each ±1), matching the formula. The principal (p-1)x(p-1) minor is unit triangular, giving a split Z^{p-1} in H_2(K_p;Z), and combinatorial Alexander duality+UCT give a split Z^{p-1} in reduced H_{4p-5}(Δ_3(C_{4p}^p);Z). Since Δ is pure of dimension 4p-4, this nonzero lower homology obstructs shellability. Finite calculations corroborate but do not replace the symbolic all-p proof; p=2 boundary included.
 
-**Residual risk.** An unindexed equivalent proof could exist. Some broader sources were reviewed selectively rather than exhaustively; there is no independent scientific audit. Full homology ranks and potential torsion were not determined.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the same critical n=4p ordinary 3-cut cycle-power family with established shellability ranges, prior explicit conjecture, special-case tables and published findings finds no established implication of a uniform integrally split next-to-top rank p-1 summand. The 2024 conjecture would imply stronger exact topology if proved, but is not a theorem. The 2026 proved range is disjoint. Unindexed equivalent proofs remain a residual risk.
+
+## value
+
+PASS
+
+A recent explicit conjecture predicted that the critical n=4p three-cut complexes should be non-shellable and have wedge topology. This theorem settles the non-shellability implication uniformly for the natural infinite family p>=2, with an integral primitive direct-summand mechanism rather than merely finite ranks. The exact splitting is a reusable structural obstruction; it is not just a table recomputation or arbitrary slice. It does not claim the stronger conjectured homotopy type or entire Betti group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
