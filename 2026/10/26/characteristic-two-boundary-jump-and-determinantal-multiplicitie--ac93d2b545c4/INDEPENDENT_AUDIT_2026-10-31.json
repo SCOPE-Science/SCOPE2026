@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:00:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/characteristic-two-boundary-jump-and-determinantal-multiplicitie--ac93d2b545c4/RESULT.md",
+        "2026/10/26/characteristic-two-boundary-jump-and-determinantal-multiplicitie--ac93d2b545c4/verify.py",
+        "2026/10/26/characteristic-two-boundary-jump-and-determinantal-multiplicitie--ac93d2b545c4/VERIFICATION.md"
+      ],
+      "rationale": "Exact toric reconstruction from the six lattice vertices confirms that every corner chart is unimodular and has the same six monomials in local coordinates a,b. The second Hasse-principal-parts matrix has a unit 3x3 block and residual B=[[b,0,b^2],[2a,2b,4ab],[0,a,a^2]]. An independent SymPy determinant and all 9 two-minor computation gives determinant identically zero, minor ideal (a^2,ab,b^2) whenever 2 is invertible, and (ab) in characteristic 2; entries give (a,b). These are universal polynomial identities, not evaluations at sample points. Thus rank <=4 scheme is six disjoint length-three infinitesimal points in characteristic !=2 (total length 18) and the reduced union of six toric boundary components in characteristic 2; rank <=3 is the reduced six torus-fixed points in all characteristics. The torus rank is 5 and scheme boundary interpretation follows by chart overlap.",
+      "residual_risks": [
+        "Independent symbolic check is exact, but the local chart-to-global smooth toric surface identification uses the standard toric gluing argument in the result.",
+        "Hasse jets, not divided ordinary derivatives in positive characteristic, are the correct evaluation map."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Perkinson 1996 constructs general toric principal-parts evaluation and lattice machinery, not an inspected explicit positive-characteristic ideal.",
+          "Perkinson 2000 full paper was inaccessible; only bibliographic and citations were examined."
+        ],
+        "reasoning": "General toric inflection methods make this computation natural but cannot establish the precise global scheme without applying them to this projection and characteristic; uninspected 2000 paper is material residual risk.",
+        "searches": [
+          "Perkinson principal parts toric varieties 1996",
+          "Inflections of toric varieties Perkinson 2000",
+          "Lanteri Mallavibarrena osculatory behavior second dual varieties degree six"
+        ]
+      },
+      "checked_sources": [
+        "https://paperzz.com/doc/7006127/osculatory-behavior-and-second-dual-varieties-of-del-pezzo",
+        "https://www.numdam.org/item/CM_1996__104_1_27_0/",
+        "https://doi.org/10.1307/mmj/1030132730"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2001 Prop4.3 uses ordinary complex derivatives and gives pointwise rank, not sheaf Fitting ideals.",
+          "Our residual block B has even coefficients which vanish mod 2, causing (ab) rather than (a,b)^2."
+        ],
+        "reasoning": "The characteristic-two result cannot follow by direct specialization of the characteristic-zero rank table; it needs the integral Hasse-jet matrix. Prior general machinery may produce it after new calculation, but no inspected explicit stronger result was found.",
+        "searches": [
+          "Advances in Geometry 1 (2001) 345–363 section 4 proposition 4.3",
+          "Perkinson 1996 principal parts of line bundles on toric varieties"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same monomial embedding admits a 6x6 second Hasse-jet map; rank<=4 is defined by all 5x5 minors, rank<=3 by all 4x4 minors.",
+          "Lanteri–Mallavibarrena 2001 Prop4.3 gives only complex-fiber ranks 5 away from fixed points and 3 at fixed points."
+        ],
+        "reasoning": "The scheme-theoretic determinantal ideals (ab) versus (a,b)^2 and local lengths are strictly stronger than support/rank labels; their characteristic-two dimension jump is outside the complex setup.",
+        "searches": [
+          "Togliatti jet rank second osculating characteristic 2 schemes",
+          "Lanteri Mallavibarrena 2001 Prop 4.3",
+          "Togliatti surface jet degeneracy characteristic 2 scheme theoretic second osculating inflection Perkinson"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2001 exact complex rank table gives ranks 5 and 3, but no scheme lengths or characteristic-two boundary stratum.",
+          "No matching all-characteristic scheme/table in inspected mathematical records."
+        ],
+        "reasoning": "An old table with matching rank values in characteristic zero is not the same as the determinantal scheme; negative searches do not establish novelty.",
+        "searches": [
+          "Togliatti surface jet degeneracy characteristic 2 scheme theoretic second osculating inflection Perkinson",
+          "projected Togliatti osculating ranks six vertices characteristic two",
+          "Resultary semantic search Togliatti char two jet scheme"
+        ]
+      },
+      "rationale": "Qualified PASS: the 2001 Lanteri–Mallavibarrena Proposition 4.3 describes precisely the same six-cubic projection, with rank five off six vertices and rank three at those vertices over the complex numbers. It does not determine scheme multiplicities or characteristic-two ranks. Perkinson 1996 gives general toric principal-parts tools; his 2000 Inflections of Toric Varieties is highly relevant but inaccessible in full after lawful route and authorized institutional attempt, so an older implicit proof cannot be excluded. The explicit all-characteristic determinantal scheme statement remains an apparent new contribution, not a novelty certificate.",
+      "residual_risks": [
+        "Perkinson 2000 Inflections of Toric Varieties likely examines nearly the same toric-inflection problem; full source inaccessible, authorized Oxford VPN disconnected; possible implicit or explicit overlap.",
+        "This finding is a targeted best-of-knowledge comparison, not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact complex pointwise ranks on same geometric object; does not establish characteristic-two reduced toric boundary or length-three local schemes",
+          "evidence": "Advances in Geometry 1 (2001), §4 pp.359–361; Proposition 4.3 states rank 5 outside six fixed points and rank 3 at fixed points",
+          "identifier_or_url": "https://paperzz.com/doc/7006127/osculatory-behavior-and-second-dual-varieties-of-del-pezzo",
+          "material_read": "Full text transcription read introduction, complete Section 4 and Proposition 4.3; exact shared monomial system and displayed second-derivative matrix; no char-2 scheme stated",
+          "method": "Direct full-paper primary text comparison (complex set-theoretic rank versus determinantal scheme)",
+          "title": "Osculatory behavior and second dual varieties of Del Pezzo surfaces",
+          "trigger": "Identical six-cubic projected degree-six Del Pezzo/Togliatti embedding"
+        },
+        {
+          "assessment": "Framework clearly relevant; whole-paper noncoverage NOT asserted because full text was not read",
+          "evidence": "Compositio Mathematica 104 (1996), 27–39",
+          "identifier_or_url": "https://www.numdam.org/item/CM_1996__104_1_27_0/",
+          "material_read": "Full bibliographic and reference metadata, primary paper text NOT retrieved this run",
+          "method": "Bibliographic scope check and risk identification",
+          "title": "Principal parts of line bundles on toric varieties",
+          "trigger": "General toric Hasse-principal-parts construction and possible dominating theory"
+        },
+        {
+          "assessment": "Possible historical implication remains unresolved; no inference from abstract that specific scheme is absent",
+          "evidence": "Michigan Math J 48 (2000) 483–515; earlier 1994 preprint noted in Perkinson 1996 references",
+          "identifier_or_url": "https://doi.org/10.1307/mmj/1030132730",
+          "material_read": "Bibliographic title, DOI, year, pages and referenced passages in 2001 Lanteri article; primary full text inaccessible; Oxford institutional attempt returned VPN disconnected",
+          "method": "Bounded lawful OA and authorized institutional access attempt; no bypass/retry",
+          "title": "Inflections of toric varieties",
+          "trigger": "Plausible closest specialized earlier primary result, including Togliatti-like toric inflection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/characteristic-two-boundary-jump-and-determinantal-multiplicitie--ac93d2b545c4/RESULT.md",
+        "https://paperzz.com/doc/7006127/osculatory-behavior-and-second-dual-varieties-of-del-pezzo",
+        "https://www.numdam.org/item/CM_1996__104_1_27_0/",
+        "https://doi.org/10.1307/mmj/1030132730"
+      ],
+      "rationale": "This is a motivated scheme-theoretic refinement of the classical projected Togliatti example. A support/rank table is insufficient to determine local nilpotent thickness or reducedness. The exact characteristic-two degeneration changes the dimension of the natural Hasse-jet degeneracy locus from a finite length-18 scheme to a reduced anticanonical boundary cycle, while the next stratum stays reduced.",
+      "residual_risks": [
+        "This precise statement does not generalize to arbitrary toric varieties or projections; that is a scope limit, not a reason to fail value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specific degree-six projected Togliatti surface and rank-2 Hasse jets only; no arbitrary toric embedding extension.",
+    "Inaccessible Perkinson 2000 specialist full text is an originality limitation, not an inferred noncoverage."
+  ],
+  "schema_version": 1
+}
