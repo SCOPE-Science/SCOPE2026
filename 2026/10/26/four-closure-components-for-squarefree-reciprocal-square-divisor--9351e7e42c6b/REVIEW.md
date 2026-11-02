@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The local factorization for squarefree integers is exact. The eight small-prime tail inequalities are exact rational inequalities; for all primes at least 31, Rosser–Schoenfeld's explicit interval prime count supplies six terms whose logarithms exceed the target local term. The subsum lemma then proves that the remaining logarithmic range is an interval, and the four prime choices at 2 and 3 give the stated endpoints.
+## correctness
 
-**Originality — PASS, with a documented parallel-result risk.** Defant's restricted-domain paper introduces the squarefree case and poses the component-count question but does not state this four-interval formula. A structurally similar component-count statement for an alternating divisor function has different local factors and a different domain, so it does not imply this claim. Literature searches cannot prove uniqueness.
+PASS
 
-**Value — PASS.** The theorem gives an exact, natural component classification for the squarefree reciprocal-square divisor range and answers one concrete instance of the published gap-count question. The result includes exact endpoints and an infinite proof of tail interval-filling, rather than a finite range scan.
+For squarefree n, sigma_{-2}(n)=product_{p|n}(1+p^{-2}). The positive log factors for primes >=5 are summable. Verified each of the eight exact rational product certificates for p=5,7,11,13,17,19,23,29: the exhibited finite Q_p tail product exceeds 1+p^{-2}. For p>=31, the stated explicit prime-counting lower bound pi(2p)-pi(p)>3p/(5 log p) implies at least six primes q in (p,2p], and log(1+q^{-2}) >=1/(4p²)-1/(32p^4) implies the total later logs exceed log(1+p^{-2}). The overlapping-tail subsum lemma then fills exactly a continuous interval of possible infinite subsums; finite squarefree products are dense therein. From Euler product zeta(2)/zeta(4)=15/pi², the >=5 tail endpoint is 54/(5pi²); independent multipliers 1,10/9,5/4,25/18 for primes 2,3 give exactly the four displayed pairwise disjoint closed intervals. Independent rational checks verify all finite certificates and separations. Infinite coverage relies on the cited valid prime-density bound and subsum proof, not enumeration.
 
-**Closest literature and limitations.** The closest source is Defant, arXiv:1507.02663, Theorem 2.3 and §3. The alternating-divisor literature studies a structurally similar but different multiplicative function. No claim is made for other exponents or for unrestricted prime powers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact four-component closure at the squarefree exponent-two specialization is different from unrestricted alternating or unitary divisor-function closures and concretely addresses a restricted-domain component-count problem. The primary Defant paper introduces the model and an open component enumeration question; it does not supply these four exact intervals in inspected mathematical sections.
+
+## value
+
+PASS
+
+A nontrivial exact four-component classification for the squarefree restriction of a classical arithmetic divisor function at a natural integer exponent. It gives one explicit solved instance of the prior component-count program via prime-gap lower bounds and subsum interval filling. The proof is self-contained modulo a cited explicit prime-counting estimate and does not claim the full parameter spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
