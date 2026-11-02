@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Every closed neighborhood is either a leaf singleton plus its internal ancestor chain or an internal singleton plus its descendant-leaf cluster. The exhaustive support classification is proved, the closed-form coefficients follow from depth summation, and a depth-h adaptive tree meets the h-bit counting upper bound. The chordal-bipartite and diameter-four claims have graph-theoretic proofs. Finite exhaustive traces and exact rank recursion independently reproduce all specified small cases; no finite observation is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Coudert–Csikós–Ducoffe–Viennot, arXiv:2405.07588, develops algorithms and upper bounds for graph closed-neighborhood VC dimension.",
+        "Bousquet–Thomassé, arXiv:1412.1793, studies distance-neighborhood VC complexity.",
+        "Paszke–Pilipczuk, arXiv:2003.14177, studies definable-family VC density in tree-like graph classes."
+      ],
+      "reasoning": "Generic VC bounds, density results and algorithmic computability do not imply the numerical coefficients or the exact Littlestone rank. The graph family is chordal bipartite and diameter four but it is a specially structured incidence graph; a broader bound is not a dominating exact enumerative theorem.",
+      "searches": [
+        "chordal bipartite graph closed neighborhoods VC dimension Littlestone dimension unbounded separation binary tree ancestor relation",
+        "tree-ancestor incidence graphs N vertices VCdim 3 Littlestone dimension floor log2 N",
+        "\"chordal bipartite\" \"Littlestone\" \"VC\"",
+        "graph closed neighborhood VC dimension bounded treewidth chordal bipartite"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2405.07588",
+      "DOI:10.4230/LIPIcs.SEA.2024.8",
+      "arXiv:2003.14177",
+      "DOI:10.4230/LIPIcs.MFCS.2020.78",
+      "arXiv:1412.1793",
+      "DOI:10.4230/LIPIcs.MFCS.2024.42"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2405.07588 concerns the same closed-neighborhood object on arbitrary graphs, but its investigated theorems are algorithms and broad VC bounds, not the exact coefficientwise formula or online dimension.",
+        "arXiv:2003.14177 supplies general first-/second-order definability VC-density bounds, not exact finite incidence-graph shattering profiles.",
+        "Accessible earlier graph convexity and neighborhood claims concern girth-five graphs, Hamming/Johnson spheres, tree halfspaces, or general-position systems; their hypotheses/objects differ and do not contain the present graphs as a proved exact-profile case."
+      ],
+      "reasoning": "The comparison was made by logical implication: a numerical upper bound cannot determine coefficients, and the earlier girth-five closed-neighborhood result cannot apply to this graph (which has four-cycles). The standard prefix-tree construction covers only the online lower bound, not the new support classification. Neither result subsumes the full theorem.",
+      "searches": [
+        "closed-neighborhood set system of ancestor incidence graph of rooted binary tree has bounded VC dimension three and unbounded Littlestone dimension",
+        "chordal bipartite graph closed neighborhoods VC dimension Littlestone dimension unbounded separation binary tree ancestor relation",
+        "binary rooted tree ancestor incidence bipartite graph closed neighborhood exact shattered triples polynomial 3*4^(h-1) minus (h+1)*2^h",
+        "tree-ancestor incidence graphs N vertices VCdim 3 Littlestone dimension floor log2 N",
+        "closed-neighborhood shattering polynomial chordal bipartite graph tree incidence",
+        "\"bipartite\" \"VC dimension\" \"Littlestone dimension\" \"neighborhood\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same set family is the transpose pair of laminar descendant leaf clusters and ancestor chains, with a singleton for each center.",
+        "The full proof accounts for the two bipartition sides and both singleton center coordinates."
+      ],
+      "reasoning": "The equivalent laminar formulation was compared directly at the level of trace structures. Classical laminarity alone gives neither the exact count of LCA-restricted triple supports nor the exact online depth of the combined closed-neighborhood family; no equivalent prior theorem was found in accessible comparisons.",
+      "searches": [
+        "closed-neighborhood set system of ancestor incidence graph of rooted binary tree has bounded VC dimension three and unbounded Littlestone dimension",
+        "binary rooted tree ancestor incidence bipartite graph closed neighborhood exact shattered triples polynomial 3*4^(h-1) minus (h+1)*2^h",
+        "\"ancestor\" \"closed neighborhoods\" \"Littlestone\" binary tree",
+        "laminar descendant-leaf clusters ancestor-chain membership traces"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact formula and small-height coefficient vectors were compared against ranked accessible mathematical records; no matching coefficient table was retrieved.",
+        "Finite exhaustive values 1,2; 1,7,16; 1,15,62,16; 1,31,218,112; 1,63,754,576 were computed independently."
+      ],
+      "reasoning": "The numerical test vectors serve as reproducibility checks only. No exact table covering this particular graph construction was located; finite search is not a proof of novelty.",
+      "searches": [
+        "binary rooted tree ancestor incidence bipartite graph closed neighborhood exact shattered triples polynomial 3*4^(h-1) minus (h+1)*2^h",
+        "closed-neighborhood shattering polynomial chordal bipartite graph tree incidence",
+        "ancestor incidence closed-neighborhood shattering polynomial exact coefficients binary height"
+      ]
+    },
+    "rationale": "Primary graph-VC literature treats closed neighborhoods in full generality, while the accessible comparisons do not imply the exact three-coefficient profile, its LCA classification, and its simultaneous sharp online rank on these ancestor-incidence graphs. The prefix online tree is standard; the contribution is the exact integrated graph-family profile. Searches cannot establish exhaustive historical priority, which remains a stated risk.",
+    "residual_risks": [
+      "Potential exact finite ancestor-incidence/laminar-system enumeration may exist under other names; search cannot rule this out.",
+      "Some plausible background sources were only abstract- or partial-text-inspected; none supplied a decisive contrary exact theorem in accessible material.",
+      "The binary prefix strategy as an online lower bound is classical; priority is claimed only for the integrated finite graph profile and exact full description."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same underlying notion, no theorem found implying the full ancestor-incidence profile or exact online rank",
+        "evidence": [
+          "2024-05-13 first arXiv submission; 2024-07-11 journal/proceedings date",
+          "Graph VC defined by closed neighborhoods; paper develops general computation algorithms and bounds"
+        ],
+        "identifier_or_url": "arXiv:2405.07588; DOI:10.4230/LIPIcs.SEA.2024.8",
+        "material_read": "Accessible full-text definitions, main algorithmic and bound statements, and text surrounding its graph VC dimension treatment; PDF first page visually inspected",
+        "method": "Open full text and compare theorem statements/parameters with proposed coefficient and adaptive-rank claims",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "Identical closed-neighborhood set-system definition and 2024 public source date"
+      },
+      {
+        "assessment": "No implication of exact finite shattering coefficients or adaptive dimension from a density theorem",
+        "evidence": [
+          "2020 paper proves bounded VC-density statements on bounded-cliquewidth/treewidth graph classes"
+        ],
+        "identifier_or_url": "arXiv:2003.14177; DOI:10.4230/LIPIcs.MFCS.2020.78",
+        "material_read": "Accessible abstract and stated scope of the main CMSO bounded-cliquewidth/treewidth theorems, with introductory PDF material",
+        "method": "Compare bounded VC-density conclusion with exact three-coefficient and Littlestone claims",
+        "title": "VC density of set systems definable in tree-like graphs",
+        "trigger": "General bound for definable families over tree-like graph classes"
+      },
+      {
+        "assessment": "Abstract-level material does not imply this exact result; incomplete text is a residual priority risk",
+        "evidence": [
+          "General distance-VC framework uses graph balls of varying radii and induced-subgraph comparisons"
+        ],
+        "identifier_or_url": "arXiv:1412.1793",
+        "material_read": "Accessible public abstract and introduction-level summary; not the complete text",
+        "method": "Compare general distance-neighborhood framework with exact radius-one closed-neighborhood family coefficients",
+        "title": "VC-dimension and Erdős–Pósa property",
+        "trigger": "Graph neighborhood VC-dimension can be studied through neighborhood hypergraphs"
+      },
+      {
+        "assessment": "No specific antecedent-incidence coefficient statement is established by inspected material",
+        "evidence": [
+          "General applications of Littlestone dimension to query learning and compression"
+        ],
+        "identifier_or_url": "DOI:10.4230/LIPIcs.MFCS.2024.42",
+        "material_read": "Public title/abstract metadata and bibliographic scope; complete article not inspected",
+        "method": "Compare general query-learning theorems with specific chordal bipartite neighborhood trace enumeration",
+        "title": "Applications of Littlestone Dimension to Query Learning and to Compression",
+        "trigger": "Foundational online-query dimension context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90d961c8-8e75-4ef7-b1f6-65d35015a809",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact polynomial is a complete natural invariant for a two-sided closed-neighborhood system on an infinite, geometrically restricted graph family. It gives a full classification and count of maximal shattered supports, identifies a sharp growing adaptive-static gap while VC remains three, and achieves the entropy upper bound despite diameter four and chordal bipartiteness; these quantified structural facts are not a mere normalization check.",
+    "status": "PASS"
+  }
+}
