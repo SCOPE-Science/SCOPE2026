@@ -1,0 +1,184 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T05:43:25.337901Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The all-delegating event has probability r^n and contributes zero correct ballots, zero caster weight, and a lost strict majority; it is kept explicitly. For k≥1 casters, clockwise positive run lengths are a composition of n; marking a starting caster gives multiplicity n/k per ordered k-composition. Independent caster correctness signs give the stated exact coefficient-extraction PGF. For the dispersion, ∑W_j² counts ordered pairs whose ballots terminate at the same caster. For two distinct voters at clockwise distance d, the common-caster probability is r^d+r^(n-d)-2r^n; diagonal entries contribute 1-r^n. Summing yields the exact Q formula. With fixed 0<q<1, a union bound on runs length L=ceil(4 log n/|log r|) gives max W=O_P(log n). Truncated local squared weights have dependency range O(log n) and Var(n^-1 sum)=O(log^5 n/n); their mean tends to (2-q)/q. The conditional centered weighted-sign array therefore satisfies Lindeberg, giving S_n/√n⇒N(2c_D,(2-q)/q). The direct indicators average to independent Bernoulli with mean 1/2+(qc_D+(1-q)c_A)/√n, giving a second binomial CLT. Strict normal CDF monotonicity yields the frontier, including exact no-claim on its equality line. Independent rational brute enumeration of all indicator and caster-signal realizations for q,p=(1/2,1/2),(2/5,3/5),(3/4,5/7) and n=2..9 confirms 24 PGF and exact Q instances; asymptotics rely on the proven probabilistic estimates, not these finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berinsky et al quantifies permissible power concentration under probabilistic delegation, not the exact cyclic composition formula or local-in-n competence frontier. Chatterjee et al give broad sufficient existence/variance guarantees; Grossi et al primarily first-moment expected delegated power."
+        ],
+        "reasoning": "The general frameworks motivate concentration effects; they do not give the exact E Q_n correction term or the conditional triangular-array CLT for this cycle without specializing and doing additional calculations. Grossi preprint full-text coverage remains incompletely inspected.",
+        "searches": [
+          "Berinsky et al, Tracking Truth with Liquid Democracy, arXiv:2107.11868, full primary text",
+          "Chatterjee et al, When is Liquid Democracy Possible? On the Manipulation of Variance, PODC 2025",
+          "Grossi et al, Power in Liquid Democracy: A Network Centrality Approach, arXiv:2608.13188"
+        ]
+      },
+      "checked_sources": [
+        "Berinsky et al, Tracking Truth with Liquid Democracy, arXiv:2107.11868, full primary text",
+        "Chatterjee et al, When is Liquid Democracy Possible? PODC 2025, doi:10.1145/3732772.3733544",
+        "Becker et al, When Can Liquid Democracy Unveil the Truth? arXiv:2104.01828",
+        "Colley et al, Measuring a Priori Voting Power—Taking Delegations Seriously, arXiv:2301.02462",
+        "Grossi et al, Power in Liquid Democracy, arXiv:2608.13188, abstract only",
+        "Resultary related cyclic delegation records and general voting index searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing mean caster influence is insufficient to compute ∑W_j², its concentration or majority CLT; a high-probability concentration bound also does not determine the exact local-normal coefficient (2-q)/q."
+        ],
+        "reasoning": "The examined prior implications stop short of this specific complete finite PGF and local-limit comparison; the exact variance and competence threshold require fresh pair-count and conditional-CLT arguments.",
+        "searches": [
+          "Berinsky et al arXiv:2107.11868, influence concentration and model theorems",
+          "Chatterjee et al PODC 2025 variance related conditions",
+          "Grossi et al arXiv:2608.13188, first-moment centrality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The random set of casters partitions a directed ring into geometric-length clockwise basins; each basin supplies one independent Bernoulli signal weighted by its length. This is a circular renewal-reward/weighted-majority model."
+        ],
+        "reasoning": "Searched aliases oriented cycle, directed-circle random delegation, guru influence, renewal partition, random cluster-weighted majority. General random target and optimizable network results do not define this fixed successor process.",
+        "searches": [
+          "Resultary: liquid democracy directed cycle clockwise delegation ballot variance competence threshold majority correctness",
+          "Resultary: cyclic fixed-guru delegation liquid democracy ballot weight on directed cycle",
+          "Web: liquid democracy directed cycle delegation ring Gaussian competence variance truth tracking accuracy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest retrieved voting and power records use different voting rules or input graphs. The source review cites a prior fixed-guru model but not the same independent caster-selection and correctness scheme."
+        ],
+        "reasoning": "No exact table or prior closed-form PGF/variance/frontier for this one-way Bernoulli ring was found. This does not establish absence of unindexed overlap.",
+        "searches": [
+          "Resultary semantic searches: directed cycle liquid democracy variance competence threshold",
+          "Resultary related early cyclic fixed-guru record cited in source AUDIT.json, private lookup",
+          "Web: exact circle delegation weighted vote variance all delegate"
+        ]
+      },
+      "rationale": "General liquid-democracy truth tracking and influence-concentration results are established, but the inspected prior work uses random-target delegations, optimization over networks, or broad variance criteria rather than this unique one-direction deterministic-target cycle with exact all-delegating convention and matched local-alternative truth-tracking frontier. First-moment expected voting-power centrality results are not identical to the exact squared-weight moment or conditioned majority CLT. Earlier related fixed-guru cyclic delegation records have different rules; without their fully identified primary complete texts, possible stronger equivalent coverage remains a stated residual risk rather than an unsupported failure. The specific formulas and combined comparison survive those bounded searches.",
+      "residual_risks": [
+        "Grossi et al (2026) primary full technical text could not be materially inspected; its expectation results are not prima facie the full second moment/accuracy theorem, but overlap remains possible.",
+        "Previously indexed cyclic fixed-guru delegated voting research uses near objects; an unlocated exactly matching special-case calculation could affect priority.",
+        "The result compares limiting accuracies only for fixed q in (0,1) and 1/√n competence advantages; no finite-size ordering on the equality frontier is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_AS_STATED: works on random-target/probabilistic delegation and broad concentration guarantees, not the fixed clockwise successor with exact PGF and q-dependent competence frontier",
+          "evidence": [
+            "Berinsky et al, arXiv:2107.11868, 2021-07-25, introduction and models"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.11868",
+          "material_read": "Read open-access full primary arXiv text introduction; delegation models, concentration theorems, model assumptions and concluding discussion",
+          "method": "primary full arXiv HTML/text",
+          "title": "Tracking Truth with Liquid Democracy",
+          "trigger": "Same transitive delegation and epistemic majority voting; strongest plausible broad conceptual precursor"
+        },
+        {
+          "assessment": "NOT_COVERING_AS_STATED: general delegation mechanism variance constraints, not fixed clockwise Bernoulli ring Q_n formula or exact limiting c_A/c_D frontier",
+          "evidence": [
+            "PODC 2025; author PDF research-explorer.ista.ac.at/download/20053/20122/2025_PODC_Chatterjee.pdf"
+          ],
+          "identifier_or_url": "https://doi.org/10.1145/3732772.3733544",
+          "material_read": "Primary author-hosted PDF and indexed conference text: abstract, model, main variance-related sufficient criteria and introduction",
+          "method": "primary paper, full technical text selectively checked",
+          "title": "When Is Liquid Democracy Possible? On the Manipulation of Variance",
+          "trigger": "Variance and truth tracking could dominate the network-specific dispersion bound"
+        },
+        {
+          "assessment": "PARTIAL_RISK: first-moment expected voting weights and centrality, not sufficient by itself for the claimed second-moment/CLT frontier; uninspected technical material could overlap",
+          "evidence": [
+            "Grossi et al, arXiv:2608.13188, posted 2026-08-13"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.13188",
+          "material_read": "Abstract and secondary scientific description; complete primary technical text inaccessible in this run",
+          "method": "primary abstract / secondary description, not full-text inspection",
+          "title": "Power in Liquid Democracy: A Network Centrality Approach",
+          "trigger": "Later closely related 2026 preprint on expected weights of random transitive delegation"
+        },
+        {
+          "assessment": "NOT_COVERING_AS_STATED: optimizes whom to delegate to, unlike independent fixed clockwise successor",
+          "evidence": [
+            "Becker et al, arXiv:2104.01828"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.01828",
+          "material_read": "Primary abstract and model/optimization statements inspected; exact directed-circle model not located",
+          "method": "primary model comparison",
+          "title": "When Can Liquid Democracy Unveil the Truth?",
+          "trigger": "Potential stronger algorithmic truth-tracking theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cyclic delegation network is a minimal analytically tractable locality-constrained social-choice system. Its exact generating function and E∑W² measure how repeated ballots reuse the same noisy expert, and the limit derives a sharp, nontrivial information-versus-concentration competence threshold. The comparison can reverse depending on relative caster/noncaster skill, with the critical competence ratio explicit at q=1/2; the exact model boundary is mathematically motivated, not an arbitrary numerical example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Berinsky et al, Tracking Truth with Liquid Democracy, arXiv:2107.11868, full primary text",
+    "Chatterjee et al, When is Liquid Democracy Possible? PODC 2025, doi:10.1145/3732772.3733544",
+    "Becker et al, When Can Liquid Democracy Unveil the Truth? arXiv:2104.01828",
+    "Colley et al, Measuring a Priori Voting Power—Taking Delegations Seriously, arXiv:2301.02462",
+    "Grossi et al, Power in Liquid Democracy, arXiv:2608.13188, abstract only",
+    "Resultary related cyclic delegation records and general voting index searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "On a fixed clockwise directed n-cycle with independent Bernoulli-q direct casters and transitive delegation, the correct-weight ballot PGF is r^n+∑_{k=1}^n (n/k)q^k r^(n-k)[t^n]((1-p)t/(1-t)+ptz/(1-tz))^k, with r=1-q; the exact weight dispersion is E∑W_j²=n[(2-q)/q-(2n-1+2/q)r^n]. Under local caster/noncaster accuracies 1/2+c_D/√n and 1/2+c_A/√n, c_D≥c_A≥0, the limiting delegated and direct strict-majority correctness probabilities are respectively Φ(2c_D√(q/(2-q))) and Φ(2(qc_D+(1-q)c_A)); delegation wins strictly in the limit iff c_D(√(q/(2-q))-q)>(1-q)c_A.",
+  "limitations": "Applies only to independent casters on a one-way directed cycle, independent competence signals and fixed 0<q<1 local alternatives. No conclusions for correlated signals, other topologies, q varying with n, or exact equal-frontier finite ordering.",
+  "residual_risks": [
+    "Grossi et al (2026) primary full technical text could not be materially inspected; its expectation results are not prima facie the full second moment/accuracy theorem, but overlap remains possible.",
+    "Previously indexed cyclic fixed-guru delegated voting research uses near objects; an unlocated exactly matching special-case calculation could affect priority.",
+    "The result compares limiting accuracies only for fixed q in (0,1) and 1/√n competence advantages; no finite-size ordering on the equality frontier is claimed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING_AS_STATED: works on random-target/probabilistic delegation and broad concentration guarantees, not the fixed clockwise successor with exact PGF and q-dependent competence frontier",
+      "evidence": [
+        "Berinsky et al, arXiv:2107.11868, 2021-07-25, introduction and models"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2107.11868",
+      "material_read": "Read open-access full primary arXiv text introduction; delegation models, concentration theorems, model assumptions and concluding discussion",
+      "method": "primary full arXiv HTML/text",
+      "title": "Tracking Truth with Liquid Democracy",
+      "trigger": "Same transitive delegation and epistemic majority voting; strongest plausible broad conceptual precursor"
+    },
+    {
+      "assessment": "NOT_COVERING_AS_STATED: general delegation mechanism variance constraints, not fixed clockwise Bernoulli ring Q_n formula or exact limiting c_A/c_D frontier",
+      "evidence": [
+        "PODC 2025; author PDF research-explorer.ista.ac.at/download/20053/20122/2025_PODC_Chatterjee.pdf"
+      ],
+      "identifier_or_url": "https://doi.org/10.1145/3732772.3733544",
+      "material_read": "Primary author-hosted PDF and indexed conference text: abstract, model, main variance-related sufficient criteria and introduction",
+      "method": "primary paper, full technical text selectively checked",
+      "title": "When Is Liquid Democracy Possible? On the Manipulation of Variance",
+      "trigger": "Variance and truth tracking could dominate the network-specific dispersion bound"
+    },
+    {
+      "assessment": "PARTIAL_RISK: first-moment expected voting weights and centrality, not sufficient by itself for the claimed second-moment/CLT frontier; uninspected technical material could overlap",
+      "evidence": [
+        "Grossi et al, arXiv:2608.13188, posted 2026-08-13"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2608.13188",
+      "material_read": "Abstract and secondary scientific description; complete primary technical text inaccessible in this run",
+      "method": "primary abstract / secondary description, not full-text inspection",
+      "title": "Power in Liquid Democracy: A Network Centrality Approach",
+      "trigger": "Later closely related 2026 preprint on expected weights of random transitive delegation"
+    },
+    {
+      "assessment": "NOT_COVERING_AS_STATED: optimizes whom to delegate to, unlike independent fixed clockwise successor",
+      "evidence": [
+        "Becker et al, arXiv:2104.01828"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2104.01828",
+      "material_read": "Primary abstract and model/optimization statements inspected; exact directed-circle model not located",
+      "method": "primary model comparison",
+      "title": "When Can Liquid Democracy Unveil the Truth?",
+      "trigger": "Potential stronger algorithmic truth-tracking theorem"
+    }
+  ]
+}
