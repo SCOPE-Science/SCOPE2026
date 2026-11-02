@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T01:51:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/exact-switching-staircase-for-discrete-gaussian-gradient-peaks--14f278a0557c/RESULT.md Git blob 3baf0cdbacccaef0eebd5cd2b137b45890d624b0",
+        "2026/10/25/exact-switching-staircase-for-discrete-gaussian-gradient-peaks--14f278a0557c/VERIFICATION.md",
+        "/mnt/data/scope_worker03_independent_checks_20261028.json"
+      ],
+      "rationale": "For all n>=0, x>0 use r=I_{n+1}(x)/I_n(x), a=n+1, q=x/(x+a); the Bessel recurrence gives H_n=2I_n[1-(1+a/x)r], hence sign H_n=-sign(r-q). Riccati r'=1-(2a-1)r/x-r² yields at each contact (r-q)'=(x-a²)/(x+a)². The near-zero series makes r-q<0; contact at x=a² has positive second derivative, so no first contact at or below a². Above a² every zero is an upward transversal crossing, hence at most one. The known Amos-type lower barrier L=x/(a-1/2+sqrt(x²+(a+1/2)²)) satisfies a strict differential subsolution inequality and r-L>0 for x small; at x=a(a+1), L=q, forcing the unique root in (a²,a(a+1)). This gives positive-to-negative sign and disjoint root brackets. b_n=I_n-I_{n+1}>0 and H_n=b_n-b_{n+1}, yielding unique unimodal discrete maximizer between consecutive switches and a two-way adjacent tie only at switches. Discrete heat kernel exp(-2t)I_|k|(2t) makes the ℓ¹→ℓ∞ convolution norm the largest absolute kernel difference. Independent symbolic checks reproduce Riccati contact and lower-barrier small-x coefficient; independent high-precision roots for n=0..12 lie in open intervals with correct signs.",
+      "residual_risks": [
+        "Proof is for n≥0, first forward difference of 1D nearest-neighbor heat lattice, all positive x/t; sampled roots do not prove all-n statements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hornik/Grün Theorem 3 supplies lower bounds for I_{n+1}/I_n, including the comparison function L, but not uniqueness of its intersection with q.",
+          "Ciaurri et al. give the heat kernel context and discrete harmonic analysis."
+        ],
+        "reasoning": "A known general ratio inequality only supplies one side of the quadratic window; the single-crossing Riccati argument gives the missing global structure.",
+        "searches": [
+          "modified Bessel I_n-2 I_{n+1}+I_{n+2} zero switching heat kernel discrete gradient norm maximal difference",
+          "Hornik Grün Amos type ratio bounds 2013 Theorem 3",
+          "arXiv:2409.14344"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1401.2091 (full relevant text)",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4047631/ (full article)",
+        "https://arxiv.org/abs/2409.14344"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior kernel formulas do not count sign changes; Amos bounds alone do not preclude multiple r=q crossings.",
+          "At r=q, w'=(x-a²)/(x+a)² and the barrier gives w(a(a+1))>0."
+        ],
+        "reasoning": "Conjunction of explicit known inequalities and a new transversal derivative argument yields the full switching law; neither checked primary result alone logically implies it.",
+        "searches": [
+          "Ciaurri et al. formulas (37)-(38)",
+          "Hornik and Grün 2013 Section 3 Theorem 3",
+          "Riccati crossing derivative at root"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ciaurri et al. explicitly analyze discrete Laplacian first and second kernel differences (formulas (37),(38)); no all-n zero count/transition indexing stated.",
+          "The ratios and recurrences are standard; the zero location and monotone sequence are not immediate identities."
+        ],
+        "reasoning": "Equivalent formulation in terms of maximizer of b_n or sign of consecutive differences was compared, not only the original title.",
+        "searches": [
+          "modified Bessel I_n-2 I_{n+1}+I_{n+2} zero switching heat kernel discrete gradient norm maximal difference",
+          "I_n-I_{n+1} discrete heat semigroup gradient Bessel zeros",
+          "Ciaurri et al. arXiv:1401.2091"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "11 nearest Resultary hits concern other maximal gradient or lattice operator properties; no indexed zero staircase table appeared.",
+          "New numerical x_0≈1.54512725799, x_1≈4.56148743756, x_2≈9.52904074311 are checks, not prior tables."
+        ],
+        "reasoning": "No proof of novelty from unsuccessful indexing or a few numerical values; classification is analytic all-order theorem.",
+        "searches": [
+          "modified Bessel I_n-2 I_{n+1}+I_{n+2} zero switching heat kernel discrete gradient norm maximal difference",
+          "Resultary discrete heat gradient peak Bessel switching search"
+        ]
+      },
+      "rationale": "First and second modified-Bessel differences and Amos ratio bounds are classical and explicitly acknowledged. The all-n single-root classification with quadratic brackets, unique peak-index staircase and sharp gradient norm transitions is a separate theorem not established by the inspected references.",
+      "residual_risks": [
+        "A different special-functions zero theorem under equivalent adjacent-peak terminology may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms known differences, does not present global zero/peak staircase.",
+          "evidence": "Discrete kernel identity and formulas (37)–(38)",
+          "identifier_or_url": "https://arxiv.org/abs/1401.2091",
+          "material_read": "Full relevant accessible arXiv article including equations (37)-(38), discrete heat kernel and surrounding analysis",
+          "method": "arXiv full HTML/text reading",
+          "title": "Harmonic Analysis associated with a discrete Laplacian",
+          "trigger": "Exact same first and second discrete Bessel differences"
+        },
+        {
+          "assessment": "Classical lower bound acknowledged; not the peak switching classification.",
+          "evidence": "Section 3, Theorem 3",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4047631/",
+          "material_read": "Accessible full open article, especially Section 3 and Theorem 3",
+          "method": "PMC full-text reading",
+          "title": "Amos-type bounds for modified Bessel function ratios",
+          "trigger": "Same Bessel ratio and candidate subsolution bound"
+        },
+        {
+          "assessment": "Provides kernel background rather than zero-switch classification.",
+          "evidence": "Discrete Gaussian Fourier–Bessel representation",
+          "identifier_or_url": "https://arxiv.org/abs/2409.14344",
+          "material_read": "Accessible title, abstract and core representation context",
+          "method": "arXiv source reading",
+          "title": "The discrete analogue of the Gaussian",
+          "trigger": "Background on same discrete Gaussian kernel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/25/exact-switching-staircase-for-discrete-gaussian-gradient-peaks--14f278a0557c/RESULT.md",
+        "https://arxiv.org/abs/1401.2091 (full relevant text)",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4047631/ (full article)"
+      ],
+      "rationale": "The exact location and unique order of every optimizer switch is a natural sharp norm profile of the one-dimensional lattice heat semigroup, rather than a cosmetic Bessel bound. Strict all-n brackets identify discrete scale transitions in terms of quadratic mode indices, potentially useful in optimal gradient estimates and extremizer geometry. Value is the full sharp staircase, not the classical ratio estimate.",
+      "residual_risks": [
+        "Scientific value concerns the precise stated invariant and scope, not a generalization beyond its explicit hypotheses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-switching-staircase-for-discrete-gaussian-gradient-peaks--14f278a0557c",
+    "https://arxiv.org/abs/1401.2091 (full relevant text)",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC4047631/ (full article)",
+    "https://arxiv.org/abs/2409.14344"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Proof is for n≥0, first forward difference of 1D nearest-neighbor heat lattice, all positive x/t; sampled roots do not prove all-n statements.",
+    "Preexisting public AUDIT.json and METADATA.json contain scope_run_id operational provenance. Complete confidentiality-neutral replacement scientific/metadata bytes were not supplied and semantically verified in this execution; publication withheld. The minimal server-generated status plan cannot itself certify removal from unchanged source public metadata.",
+    "Independent bounded checks do not imply unbounded mathematical claims or formal certification."
+  ],
+  "residual_risks": [
+    "A different special-functions zero theorem under equivalent adjacent-peak terminology may be unindexed.",
+    "Proof is for n≥0, first forward difference of 1D nearest-neighbor heat lattice, all positive x/t; sampled roots do not prove all-n statements."
+  ],
+  "schema_version": 1
+}

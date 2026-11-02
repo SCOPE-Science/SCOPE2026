@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Each statement was checked from the Bessel recurrence, the derivative Riccati equation, and the Fourier-convolution representation. At any equality of successive first differences, the ratio-crossing derivative is exactly \((x-(n+1)^2)/(x+n+1)^2\). The strict Amos-type subsolution is differentiated explicitly and touches the comparison rational function at \(x=(n+1)(n+2)\); this yields unique simple switching roots in the asserted interval. The discrete semigroup norm follows by testing point masses, not by an unproved functional-analytic bound.
+## correctness
 
-## Originality
-**PASS with bounded-search residual risk.** Ciaurri et al., arXiv:1401.2091, formula (38), already give an integral representation of **the same Bessel second difference**; that representation is prior, not an innovation here. Hornik and Grün (2013) and Amos (1974) establish the ratio lower bound used in the proof. Neither inspected source derives the global one-root-per-order law, the strict root brackets together with crossing uniqueness, or the exact first-gradient peak-index staircase. The discrete-Gaussian survey arXiv:2409.14344 supplies additional context, not the exact switching classification. Searches of equivalent Skellam/ratio/gradient formulations and accessible past claims found no covering result, but an unindexed equivalent remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The finding identifies a precise and naturally motivated invariant: the maximizing spatial site and sharp \(\ell^1\to\ell^\infty\) norm of the lattice heat gradient. Every switching time is unique and bracketed in a uniform index-dependent interval; the complete pattern is not a finite enumeration or routine tabulation. Applications to other lattices and higher differences are deliberately excluded.
+For all n>=0, x>0 use r=I_{n+1}(x)/I_n(x), a=n+1, q=x/(x+a); the Bessel recurrence gives H_n=2I_n[1-(1+a/x)r], hence sign H_n=-sign(r-q). Riccati r'=1-(2a-1)r/x-r² yields at each contact (r-q)'=(x-a²)/(x+a)². The near-zero series makes r-q<0; contact at x=a² has positive second derivative, so no first contact at or below a². Above a² every zero is an upward transversal crossing, hence at most one. The known Amos-type lower barrier L=x/(a-1/2+sqrt(x²+(a+1/2)²)) satisfies a strict differential subsolution inequality and r-L>0 for x small; at x=a(a+1), L=q, forcing the unique root in (a²,a(a+1)). This gives positive-to-negative sign and disjoint root brackets. b_n=I_n-I_{n+1}>0 and H_n=b_n-b_{n+1}, yielding unique unimodal discrete maximizer between consecutive switches and a two-way adjacent tie only at switches. Discrete heat kernel exp(-2t)I_|k|(2t) makes the ℓ¹→ℓ∞ convolution norm the largest absolute kernel difference. Independent symbolic checks reproduce Riccati contact and lower-barrier small-x coefficient; independent high-precision roots for n=0..12 lie in open intervals with correct signs.
 
-## Limitations
-The proof supplies implicit Bessel-characterized switching times and all-order open brackets, not elementary closed forms. The novelty assessment is bounded by inspected literature and available indexing; no independent audit or external validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+First and second modified-Bessel differences and Amos ratio bounds are classical and explicitly acknowledged. The all-n single-root classification with quadratic brackets, unique peak-index staircase and sharp gradient norm transitions is a separate theorem not established by the inspected references.
+
+## value
+
+PASS
+
+The exact location and unique order of every optimizer switch is a natural sharp norm profile of the one-dimensional lattice heat semigroup, rather than a cosmetic Bessel bound. Strict all-n brackets identify discrete scale transitions in terms of quadratic mode indices, potentially useful in optimal gradient estimates and extremizer geometry. Value is the full sharp staircase, not the classical ratio estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
