@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and logical boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The checker forms coefficient polynomials by exact integer multinomial arithmetic, reduces them modulo each prime between 5 and 199, checks the claimed factor relations with nonzero constants, checks the Gegenbauer equation, and checks the coefficient polynomial's degree, squarefreeness, and nonvanishing at both excluded parameters.
+## correctness
 
-The run completed with `VERIFY_OK` for all 44 primes in that range. This is a finite corroboration, not an exhaustive proof over infinitely many primes. The general argument is the coefficient calculation, Lucas congruence divisibility, recurrence uniqueness, and ordinary elliptic/Prym decomposition in `RESULT.md`. Numerical output does not determine any factorization degrees of the exceptional divisor over arbitrary finite fields. Neither independent mathematical validation nor an external audit has been performed.
+PASS
+
+Riemann–Hurwitz for a tame cyclic cubic covering branched at four simple quartic roots and infinity gives genus three. On regular differentials dx/y², xdx/y², dx/y, Cartier coefficient extraction and evenness of x-quartic produce 3x3 sparse blocks. The relevant coefficients E,G,A factor, mod p, as nonzero multiples of (T²-1)^r H, (T²-1)^r, and (T²-1)^(r+1) H respectively. Lucas binomial vanishing provides endpoint powers; Gegenbauer ODE and its unique polynomial solution of degree ≤r prove proportionality; highest T coefficients give degree exactly r and values at ±1 are nonzero. The ODE and r<p make all roots simple. Frobenius-stable diagonal/swap blocks give stable Cartier ranks (3,1,2,0), hence a=(0,2,1,3), and the bielliptic degree-two isogeny to a j=0 elliptic factor and dimension-two Prym yields NP slopes as asserted. I independently computed these coefficient factorizations, endpoint values, derivative gcd and distinctness at every prime 5<=p<80; these cannot replace the prime-uniform ODE/Lucas proof.
+
+## originality
+
+PASS
+
+The displayed bielliptic Picard family and its elliptic/Prym geometry are already known. The novel part assessed is the all-prime *explicit marked parameter polynomial*, its reduced geometric divisor, and the complete Newton, p-rank and a-number table. Same-family geometry and narrower special-curve finite-field papers were compared; specialized Shimura/Hasse tables could already contain an equivalent criterion and remain a material priority risk.
+
+## value
+
+PASS
+
+The family is a canonical genus-three bielliptic Picard pencil, and the distribution of p-rank, a-number and Newton strata is a natural arithmetic invariant. An explicit squarefree parameter-level Hasse divisor uniform in p provides exact loci for a geometrically meaningful superspecial/nonordinary transition, useful beyond a small prime table; it is structurally derived from Cartier and Shimura/Prym decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

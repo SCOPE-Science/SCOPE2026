@@ -1,13 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact Cartier--Manin extraction on the holomorphic-differential basis reduces the three-dimensional Frobenius action to a diagonal or swap block. Modular Gegenbauer identities, with their degree and leading-coefficient checks, prove that the exceptional block is governed by a single coefficient polynomial. The differential equation proves separability of its roots away from \(t=\pm1\); nonvanishing binomial coefficients verify the endpoints. The split elliptic quotient and the dimension-two Prym fix all Newton polygons. The independent coefficient computations for the 44 primes from 5 through 199 corroborate but do not replace the uniform proof. The proof excludes characteristics two and three, as stated.
+## correctness
 
-**Originality — PASS, with residual risk.** Laga--Shnidman (2023, arXiv:2308.15297) analyzes the identical bielliptic Picard moduli pencil, elliptic quotient, and quaternionic Prym but does not state the explicit degree-\(\lfloor(p-1)/6
-floor\) reduced Hasse divisor together with all four ranks/Newton strata in the inspected material. Its Ceresa companion (2023, arXiv:2312.12965) studies the same curves through a different invariant. Kazemifard--Tafazolian (2015) treats the Newton polygons of two individual Picard equations, so its special cases do not imply the full parameter classification. General formulas for superspecial points on Shimura curves (Terakado--Xue--Yu, 2026, arXiv:2608.16036) are closer in broad moduli implications, but do not yield the displayed parameter polynomial or the intermediate p-rank strata in the material read. Targeted semantic and exact-phrase mathematical-literature comparisons revealed no equivalent/stronger formula. Residual risk is specialized quaternionic Hasse-invariant tables or unpublished classical computations, not a proof of mathematical uniqueness.
+PASS
 
-**Value — PASS.** The explicit Hasse polynomial answers a natural reduction-theoretic question for a geometrically distinguished one-parameter genus-three family: precisely where the generic Jacobian Newton polygon jumps. Reducedness and the exact geometric count \(\lfloor(p-1)/6
-floor\) make the stratification a complete divisor statement, rather than finite sampling or an isolated example. Its combination of an elliptic quotient, a two-dimensional Prym, and the Cartier coefficient formula explains all four arithmetic types uniformly in every prime characteristic at least five.
+Riemann–Hurwitz for a tame cyclic cubic covering branched at four simple quartic roots and infinity gives genus three. On regular differentials dx/y², xdx/y², dx/y, Cartier coefficient extraction and evenness of x-quartic produce 3x3 sparse blocks. The relevant coefficients E,G,A factor, mod p, as nonzero multiples of (T²-1)^r H, (T²-1)^r, and (T²-1)^(r+1) H respectively. Lucas binomial vanishing provides endpoint powers; Gegenbauer ODE and its unique polynomial solution of degree ≤r prove proportionality; highest T coefficients give degree exactly r and values at ±1 are nonzero. The ODE and r<p make all roots simple. Frobenius-stable diagonal/swap blocks give stable Cartier ranks (3,1,2,0), hence a=(0,2,1,3), and the bielliptic degree-two isogeny to a j=0 elliptic factor and dimension-two Prym yields NP slopes as asserted. I independently computed these coefficient factorizations, endpoint values, derivative gcd and distinctness at every prime 5<=p<80; these cannot replace the prime-uniform ODE/Lucas proof.
 
-**Limitations.** All roots are counted geometrically, not by degrees of definition over individual finite fields. Marked parameters need not distinguish isomorphism classes. The work does not establish independent validation or rule out unindexed equivalent calculations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The displayed bielliptic Picard family and its elliptic/Prym geometry are already known. The novel part assessed is the all-prime *explicit marked parameter polynomial*, its reduced geometric divisor, and the complete Newton, p-rank and a-number table. Same-family geometry and narrower special-curve finite-field papers were compared; specialized Shimura/Hasse tables could already contain an equivalent criterion and remain a material priority risk.
+
+## value
+
+PASS
+
+The family is a canonical genus-three bielliptic Picard pencil, and the distribution of p-rank, a-number and Newton strata is a natural arithmetic invariant. An explicit squarefree parameter-level Hasse divisor uniform in p provides exact loci for a geometrically meaningful superspecial/nonordinary transition, useful beyond a small prime table; it is structurally derived from Cartier and Shimura/Prym decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
