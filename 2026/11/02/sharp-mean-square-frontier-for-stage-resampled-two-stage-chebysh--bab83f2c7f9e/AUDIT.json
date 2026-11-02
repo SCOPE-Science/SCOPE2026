@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact two-stage Chebyshev coefficients recover M=1-(C1+C2)/2+C1*C2/8. Independence yields E[M²]-1=(μ²-4μ+v)(μ²-12μ+v+32)/64 with no omitted higher moments. Factor signs prove the complete strict/critical/unstable classification. Direct rational enumeration gives E[M]=-31/32 and E[M²]=409/256 for clients 1 and 6; iid strong law yields log(√7/4)<0 almost surely. Shared-client squared gain is exactly 17/128 in the witness. A standalone symbolic/rational checker replays the identities; finite checks supplement, not replace, proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2020 randomized RK analysis uses random stage time and assumes fixed differential equation coefficients for linear stability.",
+        "The public Richardson result optimizes deterministic stagewise-nonexpansive Richardson factors, not stochastic stage-resampled Chebyshev RK."
+      ],
+      "reasoning": "Mean-square stability frameworks would cover the statement only after deriving this exact random multiplier and its expected-square phase diagram; the closely inspected frameworks do not prove those concrete formulas or the same-batch counterexample comparison. No stronger implication was found; this is not proof of global uniqueness.",
+      "searches": [
+        "stochastic Runge Kutta gradient stagewise independently sampled batches random Hessian 2023 variance stability",
+        "arxiv:2006.12131 random stage inexact information",
+        "stochastic Runge Kutta stagewise independent batches versus common random number stability gap"
+      ]
+    },
+    "checked_sources": [
+      "Stillfjord and Williamson, arxiv:2201.12782v1, sections 2–4, full HTML",
+      "Bochacik et al, arxiv:2006.12131, accessible abstract and stability discussion",
+      "Public exact deterministic Richardson stagewise-safe frontier, 2026-09-20",
+      "Public mean-square two-client Loopless SVRG frontier, 2026-10-04",
+      "Abdulle, Vilmart and Zygalakis (2013), abstract-only comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source SRKCD formula (3.2) uses a single random draw in all internal stages, and section 4 explicitly retains the same batch.",
+        "Loopless SVRG mean-square bounds concern snapshot refresh, not multistage RK randomization.",
+        "The two-stage iid Chebyshev multiplier yields a two-polynomial factorization and an explicit almost-sure-versus-L2 gap."
+      ],
+      "reasoning": "The source deterministic per-client stability does imply contraction for the same-client implementation, and that fact is credited. It does not imply mean-square stability for independent stage redraws. The stated first/second-moment and almost-sure properties of the stage-resampled method are not consequences of the cited source conclusions.",
+      "searches": [
+        "arxiv:2201.12782v1 equations (3.1), (3.2), section 3.4 and section 4",
+        "arxiv:2006.12131 §5 mean-square stability",
+        "SRKCD Stillfjord Williamson arxiv 2201.12782 two stage Chebyshev resampling different minibatches independent stage curvature mean variance instability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The SRKCD source uses the same random client across stages in equations (3.2) and section 4; the present product uses two independent client curvatures.",
+        "The randomized Runge–Kutta ODE paper concerns a random intermediate evaluation time and noisy ODE information, not two iid curvature draws."
+      ],
+      "reasoning": "The result may also be formulated as a scalar product of iid bilinear random multipliers, or as exact stability of an RK scheme with independent random Hessians at its two internal stages. A generic E[M²]<1 test is not claimed new; neither inspected source states the Chebyshev-specific mean–variance factorization or the sampling-correlation reversal.",
+      "searches": [
+        "SRKCD Stillfjord Williamson arxiv 2201.12782 two stage Chebyshev resampling different minibatches independent stage curvature mean variance instability",
+        "Chebyshev polynomial 1-z+z²/8 independent curvatures stage sampling mean-square stability",
+        "arxiv:2201.12782v1 §3.2–3.4",
+        "arxiv:2006.12131 §5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source computes deterministic RKC scalar stability polynomials but not the exact two-stage independent-client distribution.",
+        "Exact rational two-client amplifications are derived from the stage update here rather than read from any table."
+      ],
+      "reasoning": "The problem is an exact infinite-horizon mean-square classification rather than a finite indexed lookup. The numerical constants are certificates of the analytic frontier and have not been identified in an existing table.",
+      "searches": [
+        "SRKCD 2201.12782 2022 stabilized stochastic Runge Kutta Chebyshev descent stage resampled clients stochastic quadratic",
+        "RKC two-stage independent curvature 1 6 409/256 17/128"
+      ]
+    },
+    "rationale": "Best-knowledge comparison with full original Chebyshev stochastic optimizer, randomized time-stage RK stability, and nearby numerical stability records. Source SRKCD samples a single batch across stages, so its deterministic/clientwise stability and diminishing-step convergence results do not imply the independent stage-resampled variance frontier or paradoxical counterexample. Generic iid second-moment theory credited as background. Residual priority risk from older random-coefficient Runge–Kutta theory.",
+    "residual_risks": [
+      "An unexamined random-coefficient Runge–Kutta or stochastic numerical optimization source could imply the same quadratic identity.",
+      "Complete full text was not available for all stochastic stabilized integrator papers; their possible specializations remain lower-priority uncertainty.",
+      "Independently audited mathematical priority is not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: uses one batch across stages; establishes source formulas and fixed-client stability, but does not state the independent stage-resampled mean–variance frontier.",
+        "evidence": [
+          "First public version dated 2022-01-30; primary classification 90C15.",
+          "Equation (3.2) has common ξ_k in every stage, section 4 explicitly notes the same minibatch across consecutive stages.",
+          "Source section 3.4 considers deterministic RKC scalar stability."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.12782v1",
+        "material_read": "Full accessible HTML text: introduction, section 2 convergence assumptions, sections 3.1–3.4 with equations, section 4 implementation, conclusions and references.",
+        "method": "Read original open-access full text; reconstructed undamped two-stage coefficients; compared the random-draw index in (3.2) with section 4.",
+        "title": "SRKCD: a stabilized Runge–Kutta method for stochastic optimization",
+        "trigger": "Exact method recurrence, coefficients, sampling protocol and convergence scope"
+      },
+      {
+        "assessment": "NOT_IDENTIFIED_AS_COVERING: stage-time randomized ODE evaluation and inexact information are distinct from iid curvature at each Chebyshev stage. General second-moment multiplier tests are treated as prior background.",
+        "evidence": [
+          "First public arXiv version 2020-06-22.",
+          "Randomized intermediate-stage evaluation / noisy ODE information, not same-vs-fresh client sampling."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.12131",
+        "material_read": "Abstract and the accessible stability discussion of randomized stage evaluation and mean-square stability; no claim of checking all independent Hessian specializations.",
+        "method": "Compared randomness object and stage formula, not merely the title or method name.",
+        "title": "Randomized Runge–Kutta method — stability and convergence under inexact information",
+        "trigger": "Potential wider mean-square stability theorem for random two-stage RK methods"
+      },
+      {
+        "assessment": "Different diffusion model; full document coverage NOT concluded from abstract.",
+        "evidence": [
+          "Description concerns explicit stabilized weak integrators for stiff Itô stochastic differential equations."
+        ],
+        "identifier_or_url": "Abdulle, Vilmart and Zygalakis (2013)",
+        "material_read": "Accessible abstract/bibliographical description only.",
+        "method": "Compared its stochastic differential equation Brownian forcing to random-client discrete gradient evaluation.",
+        "title": "Weak second order explicit stabilized methods for stiff Itô stochastic differential equations",
+        "trigger": "Plausible generic stochastic stabilized integrator stability coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bab83f2c-7f9e-4800-b1d7-074a0daaf854",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp necessary-and-sufficient distribution-free mean/variance stability criterion for a natural independently stage-resampled variant of a published stabilized stochastic optimizer, plus an exact separation of same-batch L2 contraction from independent-stage exponential L2 explosion despite first-moment and almost-sure convergence. It provides a concrete sampling-design safeguard and nontrivial complete phase diagram, not a generic stability-test restatement.",
+    "status": "PASS"
+  }
+}
