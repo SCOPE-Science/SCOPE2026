@@ -1,12 +1,21 @@
-# Scientific review: Brik-word block entropy
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact subsequence embedding of each stage into repeated copies of an earlier stage follows directly from the defining prefix-deletion recursion. The deleted-symbol count is computed from the exact stage lengths. The span of an output window counts each deleted source symbol in at most one contribution for each of at most \(t-1\) windows. A window is encoded by a periodic-source phase, its number of internal deletions, and a deletion mask; the entropy chain rule, maximal-entropy geometric law, and concavity of logarithmic binomial coefficients give the displayed finite-scale Shannon inequality. Explicit elementary bounds on the selected source period give the advertised constant \(7\). A separate occurrence recurrence proves the needed existence of factor frequencies for all prefix lengths; Shallit's recurrence/language results give positive support. The proof makes no ergodicity assumption. The packaged checker reproduces finite instances of the embedding and deletion-span inequality, without replacing the infinite argument.
+## correctness
 
-## Originality — PASS within inspected evidence
-Shallit, *Brik's sequence: a strange recursion*, arXiv:2605.07542v1 (2026-05-08), proves recurrence, a complete golden-mean factor language, symbol density, and further arithmetic properties, but not Shannon block entropy. A preceding accessible finding `8508728d-2547-41f9-9c6b-a88eb78cb63e` proves factor-frequency convergence, positivity and genericity, but its claim does not contain an entropy estimate; these facts are explicitly excluded from novelty. Full support does not imply zero metric entropy: the golden-mean Parry measure is a positive-entropy counterexample to that implication. published-finding corpus queries for Brik block entropy, near-doubling words, and the logarithmic entropy envelope found no matching or dominating claim. General rank-one zero-entropy principles may cover the qualitative consequence, but the explicit \(\log_2 t+2\log_2\log_2 t+O(1)\) block entropy estimate was not found. Unindexed generalizations remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-The new estimate resolves a quantitative information-theoretic question for a naturally defined word with full exponential factor complexity. It proves a sharp qualitative separation between the word's positive topological entropy and the zero entropy of the full-support measure selected by its own long-prefix statistics, and supplies a reusable periodic-source/deletion-mask method. The logarithmic-scale upper bound is materially stronger than merely proving that entropy per symbol tends to zero. Neither an optimal lower bound nor ergodicity is asserted.
+Reconstructed B_{j+1}=B_j concatenated with its suffix after the first j symbols, with exact length ell_j=2^(j-1)+j+1. Occurrence counts satisfy T_{j+1}=2T_j-A_j+J_j, 0<=A_j<=j, 0<=J_j<=d-1, giving a cylinder-frequency limit along stages; the prefix decomposition and limsup rho<=rho/2 extend convergence to every prefix length. Each B_n embeds as an increasing subsequence into B_k repeated 2^(n-k) times, with exactly 2^(n-k)(k+1)-(n+1) deletions and limiting deletion density q_k=(k+1)/2^(k-1). A length-t block is determined by its periodic phase, internal deletion number and deletion mask. The entropy chain rule, maximum entropy G(m) of a nonnegative-integer variable of mean m, and concave binomial-mask bound F_t(m) give H_mu(t)<=log2(ell_k)+G((t-1)q_k)+F_t((t-1)q_k). Choosing k=ceil(L+2log2(L+2)+3), L=log2(t+2), yields H_mu(t)<=L+2log2(L+2)+7 for all t>=2. Hence h_mu=0; Shallit establishes that the factor language is the golden-mean language and its topological entropy is positive. Finite embedding/entropy checks corroborate only finite instances, not the universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS after comparison of theorem statements, hypotheses, reductions and implications. The inspected sources do not establish the complete final claim for this record; known components are acknowledged. Logarithmic Shannon block entropy for the Brik sequence retains explicit residual priority risks. An inaccessible plausible source alone is not treated as failure or as a whole-document NOT_COVERING finding.
+
+## value
+
+PASS
+
+This quantitatively bounds the information carried by a naturally defined self-overlapping word even though its permitted-factor language grows exponentially. The explicit O(log t) Shannon-entropy envelope for the empirical full-support measure is a substantive information-theoretic refinement beyond factor-frequency existence or generic zero entropy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
