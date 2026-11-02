@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:03:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md spectral and KKT argument, verify.py and VERIFICATION.md recorded blobs",
+        "Independent SymPy exact rational eigenvalue/inverse trace test at (m,s)=(2,2)",
+        "Independent interval check 2≤m,s≤19 and symbolic bound analysis"
+      ],
+      "rationale": "For connected weights, K=N(tr((L+J/N)^-1)-1) is strictly convex in individual edge weights since Laplacian edge coordinates are injective in a simple graph and trace inverse has positive quadratic Hessian. A global minimizer exists because K diverges at disconnectivity and graph symmetry forces the unique optimum to three edge orbits a,b,c. Direct eigenspace decomposition produces eigenvalues 0, ms a+2c, Na, 2a (m-1 copies), 2a+sb (m(s-1) copies). The transformed budget and positivity constraints reduce the c=0 face to A/a+Nm(s-1)/y with cost m(s+1)a+m(s-1)y/2=B; Cauchy–Schwarz gives T²/B at a*/y*. The all-parameter inequality 2<rho=y*/a*<ms proves b*>0 and strictly positive multiplier mu=N/y*²−N/(m²s²a*²)>0 for active spine constraint, satisfying the full three-variable KKT system; thus this is globally, not merely facewise, optimal. Independent exact-rational 6x6 Laplacian charpoly and inverse trace verified at m=s=2, and separately coded inequality checks covered every 2≤m,s≤19; finite tests support but do not prove the global integer range.",
+      "residual_risks": [
+        "All edges have identical linear unit cost; different objectives or heterogeneous petals excluded.",
+        "Strict convexity applies in connected positive-definite Laplacian region and existence relies on objective tending infinite near disconnection; not true for arbitrary disconnected zero-weight supports."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi full PDF general convex program and worked wheel/bridged barbell cases",
+          "Johnson–Chertkov arXiv:1004.2285 sparsity regularizer is nonconvex and separate"
+        ],
+        "reasoning": "General ERMP KKT conditions supply methodology, not the evaluated book eigenvalues and universal strict multipliers. Bridge barbell cannot delete necessary edge. Penalized topology optimization does not imply spontaneous deletion with uniform linear cost.",
+        "searches": [
+          "two-hub clique book graph K2 join disjoint m Ks optimized Kirchhoff index total effective resistance conductance budget zero weight hub spine",
+          "optimal conductance distribution minimization total effective resistance Ghosh Boyd Saberi",
+          "power grid optimize line conductance zero edge penalized sparsity"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Boyd–Saberi SIAM Review 2008 DOI:10.1137/050645452 primary PDF",
+        "Johnson–Chertkov arXiv:1004.2285 primary PDF",
+        "Ellens et al DOI:10.1016/j.laa.2011.02.024 indexed summary only",
+        "Resultary semantic queries for K2∨mKs ERMP and zero-spine weights"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic convexity + symmetry reduction leaves a constrained 3-parameter nonlinear objective; active constraint is determined here by strict 2<rho<ms inequality",
+          "Original bridge-barbell compulsory bridge has no alternative path; in K2∨(mKs) the spine is redundant"
+        ],
+        "reasoning": "Existing general optimization principles can reproduce the calculation once the new spectral/KKT specialization is supplied, but published worked examples do not logically state or immediately imply its universal zero-spine support classification.",
+        "searches": [
+          "Ghosh Boyd Saberi Kirchhoff index conductance budget KKT strict convexity book graph",
+          "Ghosh Boyd Saberi weighted barbell bridge wheel optimal effective resistance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi DOI:10.1137/050645452 establishes general conductance ERMP, not an explicit book solution",
+          "Resultary closest matches involved clique partitions and fractional edge resolvers, distinct functional objectives"
+        ],
+        "reasoning": "Checked aliases clique book, two-hub windmill, join-of-cliques, hub-spine and trace-Laplacian-inverse; the exact support deletion and radical formula not identified.",
+        "searches": [
+          "two-hub clique book graph K2 join disjoint m Ks optimized Kirchhoff index total effective resistance conductance budget zero weight hub spine",
+          "clique-book optimal effective resistance budget sparse edge deletion common hubs",
+          "K_2 join m K_s optimal effective resistance hub spine graph optimization budget"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact formula T²/B or zero-spine claim in inspected Ghosh–Boyd–Saberi examples",
+          "No directly matching theorem in semantic Resultary corpus"
+        ],
+        "reasoning": "The target is an infinite two-parameter graph family with an analytic optimizer rather than a finite table. Searched for exact support and weights including alternate graph names; no covering source found, not a proof of worldwide novelty.",
+        "searches": [
+          "clique-book optimal effective resistance budget sparse edge deletion common hubs",
+          "Kirchhoff index optimization two hub book zero spine exact radical formula table"
+        ]
+      },
+      "rationale": "General convex effective-resistance design and weighted graph symmetry criteria are prior, but the inspected primary worked examples do not entail the exact zero-spine solution for K2∨(mKs), all m,s≥2, including proof of strict positivity of all non-spine weights. Neither nonconvex sparsity-regularized network designs nor topology-only optimizations imply the claimed unpenalized optimum. Historical specialized terminology/uncaptured general formula remains a risk.",
+      "residual_risks": [
+        "A specialized graph-theoretic conductance design theorem under an alternate name might already include this example.",
+        "No whole-document noncoverage claim for Ellens et al; read material was indexed summary, not the full article.",
+        "General ERMP KKT and convexity are old and are not asserted new; novelty is the sharp family-specific closed form and universal spine deletion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives general strict/convex effective resistance design and worked barbell/wheel examples; not an explicit all m,s book zero-spine result. Its barbell bridge is necessary for connectivity, so cannot imply spine deletion there.",
+          "evidence": [
+            "ERMP objective as sum of pair effective resistances under linear budget; barbell example is bridged two cliques"
+          ],
+          "identifier_or_url": "DOI:10.1137/050645452; https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Lawful full primary PDF; introduction, convexity/symmetry reduction, wheel and barbell examples; screenshot of relevant PDF page",
+          "method": "Compared objective, unit-budget conductance, and bridge-barbell geometry to two-hub book with OPTIONAL redundant hub-to-hub edge",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General ERMP with exact conductance budget and convexity; possibly specialized barbell cover"
+        },
+        {
+          "assessment": "Uses a different design and explicitly nonconvex sparsity considerations; does not supply unpenalized exact clique-book formula",
+          "evidence": [
+            "Distinguishes conductance budget objective and sparsity-inducing regularization"
+          ],
+          "identifier_or_url": "arXiv:1004.2285",
+          "material_read": "Primary arXiv PDF introduction, optimization objective and separate nonconvex sparsity encouragement discussion; inspected PDF page",
+          "method": "Compared power-grid objectives and optional nonconvex line-count penalty with pure linear cost Kirchhoff index minimization",
+          "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+          "trigger": "Possible earlier emergent sparse weighted-network optimality"
+        },
+        {
+          "assessment": "No whole-document noncoverage conclusion: uninspected full text remains a novelty risk; problem constraints described in available material differ",
+          "evidence": [
+            "Indexed abstract concerns effective graph resistance/topological graph properties"
+          ],
+          "identifier_or_url": "DOI:10.1016/j.laa.2011.02.024",
+          "material_read": "Title, abstract/reference and available indexed description (not confirmed full-text read in this execution)",
+          "method": "Compared changing graph topology or adding unweighted edges to allocating real conductance budget over each allowed edge",
+          "title": "Effective graph resistance",
+          "trigger": "Earlier topological effective resistance optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ghosh–Boyd–Saberi general effective resistance design",
+        "Frozen exact spectrum and KKT positivity proof"
+      ],
+      "rationale": "Kirchhoff-index minimization is a natural practical/electrical network-design objective. A pre-existing dense hub edge strictly reduces resistance if added without cost yet receives exactly zero optimal budget; the theorem proves that counterintuitive network-support transition for an infinite structured graph family, excludes asymmetric improvement, and evaluates every positive conductance and optimal value explicitly. This is a substantive sharp structural design result, not a generic restatement of convexity.",
+      "residual_risks": [
+        "Restricted to two hubs, m≥2 cliques of same size s≥2, identical linear cost, and all-pairs resistance target."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No nonlinear budget, heterogeneous petal sizes, directed graph, or alternative graph functional.",
+    "Existing universal convexity and matrix spectral tools not claimed as new.",
+    "Specialized unindexed network-design literature might imply an equivalent result."
+  ],
+  "schema_version": 1
+}

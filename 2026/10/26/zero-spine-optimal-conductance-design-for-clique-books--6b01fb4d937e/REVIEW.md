@@ -1,19 +1,21 @@
-# Scientific review: zero-spine conductance optimum for clique books
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The object is the simple graph \(K_2\vee(mK_s)\), \(m,s\ge2\), and the target is the all-pairs Kirchhoff index under an exact positive total conductance budget. Strict convexity of the inverse trace and edge-Laplacian injectivity give a unique global optimizer and justify three edge-orbit classes without an assumption of symmetric competitors. The exact Laplacian spectrum yields a strictly convex three-variable transformed problem. Its analytic KKT solution has an active spine-zero constraint and an inactive petal-internal-edge-zero constraint for every stated integer pair. Crucially, the inequalities \(2<y_*/a_*<ms\) are proved for every integer in range and imply both positivity of all other edges and strict positivity of the active KKT multiplier. The matrix-reconstruction and exact-symbolic tests give secondary evidence, not substitutes for the proof.
+PASS
 
-## Originality (O): PASS, with residual risk
+For connected weights, K=N(tr((L+J/N)^-1)-1) is strictly convex in individual edge weights since Laplacian edge coordinates are injective in a simple graph and trace inverse has positive quadratic Hessian. A global minimizer exists because K diverges at disconnectivity and graph symmetry forces the unique optimum to three edge orbits a,b,c. Direct eigenspace decomposition produces eigenvalues 0, ms a+2c, Na, 2a (m-1 copies), 2a+sb (m(s-1) copies). The transformed budget and positivity constraints reduce the c=0 face to A/a+Nm(s-1)/y with cost m(s+1)a+m(s-1)y/2=B; Cauchy–Schwarz gives T²/B at a*/y*. The all-parameter inequality 2<rho=y*/a*<ms proves b*>0 and strictly positive multiplier mu=N/y*²−N/(m²s²a*²)>0 for active spine constraint, satisfying the full three-variable KKT system; thus this is globally, not merely facewise, optimal. Independent exact-rational 6x6 Laplacian charpoly and inverse trace verified at m=s=2, and separately coded inequality checks covered every 2≤m,s≤19; finite tests support but do not prove the global integer range.
 
-Primary comparison: Ghosh–Boyd–Saberi (DOI:10.1137/050645452) treats convex total-resistance design, including trees, wheels and barbell bridges; its exact barbell geometry differs, and its bridge is not optional under connectivity. Johnson–Chertkov (arXiv:1004.2285) studies power-grid conductances and separately encourages edge sparsity via a nonconvex cost; it does not give the stated zero-spine classification under the unpenalized linear budget. Ellens et al. (DOI:10.1016/j.laa.2011.02.024) optimize graph topologies with order/diameter or edge-addition constraints rather than an individual conductance budget. The closest recoverable comparison claims involving a single-hub clique windmill Kirchhoff-index optimization and a two-hub spectral-gap book optimization do not imply the theorem because the first has no spine and the second optimizes a different spectral functional. Targeted indexed searches for all-pairs effective resistance, the exact graph join, common-spine deletion, and conductance budgets found no equivalent claim. This is a scoped comparison, not an exhaustive global novelty certificate; a specialized source using different graph terminology remains a risk.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-A dense edge can be present in the candidate topology, strictly lower the electrical resistance when added at fixed other weights, and nonetheless receive **exactly zero optimal budget** under all-pairs resistance minimization. The theorem identifies an infinite natural class where this nonobvious support effect is universal, specifies every optimal individual conductance and the exact value, and rules out asymmetric competitors. It is motivated by practical network allocation and by the theoretical question of which available links are worth funding under a linear budget. The result is not an isolated table entry or a mere reformulation of generic convexity.
+General convex effective-resistance design and weighted graph symmetry criteria are prior, but the inspected primary worked examples do not entail the exact zero-spine solution for K2∨(mKs), all m,s≥2, including proof of strict positivity of all non-spine weights. Neither nonconvex sparsity-regularized network designs nor topology-only optimizations imply the claimed unpenalized optimum. Historical specialized terminology/uncaptured general formula remains a risk.
 
-## Limitations and relationship to literature
+## value
 
-Unit per-conductance costs, equal nontrivial petal cliques and two hubs are essential assumptions of the proved statement. Literature access covered selected full source texts and indexed records; it does not exclude prior specialized coverage. Reproducible finite matrix and symbolic tests are included; independent human verification has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Kirchhoff-index minimization is a natural practical/electrical network-design objective. A pre-existing dense hub edge strictly reduces resistance if added without cost yet receives exactly zero optimal budget; the theorem proves that counterintuitive network-support transition for an infinite structured graph family, excludes asymmetric improvement, and evaluates every positive conductance and optimal value explicitly. This is a substantive sharp structural design result, not a generic restatement of convexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

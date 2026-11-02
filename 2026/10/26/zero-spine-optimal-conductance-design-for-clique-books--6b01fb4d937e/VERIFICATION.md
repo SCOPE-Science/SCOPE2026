@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python, NumPy and SymPy installed. The exact terminal output from the package run appears in `verification_output.txt`.
+## correctness
 
-The script directly constructs every graph edge of \(K_2\vee(mK_s)\), adds symmetric Laplacian contributions, and checks the claimed eigenvalue multiset against numerical symmetric eigensolvers for 30 integer parameter pairs \(2\le m\le7\), \(2\le s\le6\). It recomputes the minimum Kirchhoff index from the resulting spectrum, compares resource use against the exact budget, and verifies the positivity of the transformed KKT multiplier.
+PASS
 
-SymPy characteristic polynomials are exactly compared to the claimed factorizations for ten rational weighted examples, including both positive and zero hub-spine edge cases. Two additional examples compare the claimed Kirchhoff-index expression with the exact rational inverse trace. In six graph configurations, the exact proposed optimizer is compared against 500 randomly generated asymmetric budget allocations, for 3,000 finite comparisons.
+For connected weights, K=N(tr((L+J/N)^-1)-1) is strictly convex in individual edge weights since Laplacian edge coordinates are injective in a simple graph and trace inverse has positive quadratic Hessian. A global minimizer exists because K diverges at disconnectivity and graph symmetry forces the unique optimum to three edge orbits a,b,c. Direct eigenspace decomposition produces eigenvalues 0, ms a+2c, Na, 2a (m-1 copies), 2a+sb (m(s-1) copies). The transformed budget and positivity constraints reduce the c=0 face to A/a+Nm(s-1)/y with cost m(s+1)a+m(s-1)y/2=B; Cauchy–Schwarz gives T²/B at a*/y*. The all-parameter inequality 2<rho=y*/a*<ms proves b*>0 and strictly positive multiplier mu=N/y*²−N/(m²s²a*²)>0 for active spine constraint, satisfying the full three-variable KKT system; thus this is globally, not merely facewise, optimal. Independent exact-rational 6x6 Laplacian charpoly and inverse trace verified at m=s=2, and separately coded inequality checks covered every 2≤m,s≤19; finite tests support but do not prove the global integer range.
 
-The finite tests do not prove a universal theorem or establish exhaustive search optimality. The complete mathematical certificate is the spectral decomposition, strict convexity and analytic KKT inequalities proved in `RESULT.md`. No external or independent certification has been performed.
+## originality
+
+PASS
+
+General convex effective-resistance design and weighted graph symmetry criteria are prior, but the inspected primary worked examples do not entail the exact zero-spine solution for K2∨(mKs), all m,s≥2, including proof of strict positivity of all non-spine weights. Neither nonconvex sparsity-regularized network designs nor topology-only optimizations imply the claimed unpenalized optimum. Historical specialized terminology/uncaptured general formula remains a risk.
+
+## value
+
+PASS
+
+Kirchhoff-index minimization is a natural practical/electrical network-design objective. A pre-existing dense hub edge strictly reduces resistance if added without cost yet receives exactly zero optimal budget; the theorem proves that counterintuitive network-support transition for an infinite structured graph family, excludes asymmetric improvement, and evaluates every positive conductance and optimal value explicitly. This is a substantive sharp structural design result, not a generic restatement of convexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
