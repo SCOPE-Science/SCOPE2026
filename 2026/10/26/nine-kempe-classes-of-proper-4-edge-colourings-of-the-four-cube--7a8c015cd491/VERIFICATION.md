@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite verification record
+# Independent mathematical audit
 
-The standalone `verify.py` uses Python's standard library and requires the co-located `mk_isomorphism_certificates.json`. It checks all \(272\) perfect matchings, all \(1840\) unordered four-factorizations, and reproduces the same family by a separate proper edge-colouring recursion. It checks all \(8808\) Kempe edges by two different implementations, all \(9\) components, every sign, every square face, all eight explicit small-component graph isomorphisms, all \(384\) cube automorphisms acting on the exceptional classes, and all pairwise shortest-path distances inside each component.
+## correctness
 
-The matching recursion is exhaustive because it branches on every available mate of the least unmatched vertex. The colouring recursion is exhaustive because at every step it branches on every locally permitted colour of one uncoloured edge. The complement method uniquely completes three disjoint perfect matchings to a four-factorization; all four factor indices are strictly increasing, so no duplicates are counted. A two-colour union is a disjoint union of alternating even cycles, hence the programme checks every permitted Kempe move. The saved eight isomorphism maps are each checked edge-by-edge and nonedge-by-nonedge against the standard definition of \(GP(8,3)\).
+PASS
 
-The proof is finite and complete only for the explicitly defined \(Q_4\). Full checks of this finite domain do not prove an analogous theorem for all hypercubes. An independent audit of these calculations and mathematical novelty has not been performed.
+The complete finite domain was reconstructed independently from all 272 perfect matchings of Q4: enumerate disjoint unordered 4-factorizations by complement, then every two-factor alternating component, and perform every valid flip. The independent Python implementation obtains exactly 1840 states, 8808 undirected edges, one size-1712 and eight size-16 components. All-state breadth-first distances in the large component independently give eccentricity counts 133 at 6, 1342 at 7, 237 at 8. Small components independently match GP(8,3), and the product-of-matching-permutation-signs is preserved by alternating-cycle swaps. The supplied eight 16-element isomorphism maps and verify.py were inspected. Exhaustive finite enumeration is proof for precisely Q4, not for higher-dimensional cubes. The saved generator and BFS routines were checked for exhaustive branching rather than trusting a log.
+
+## originality
+
+PASS
+
+The exact minimum-palette Kempe connectivity and geometry of Q4 are not implied by 2010/2014 results requiring extra colours, by 1993 rainbow-existence constructions, or by Behague’s hypercube factorization sign and square-switch invariance. The Behague sign is prior and agrees with the matching-product sign in dimension four; no novelty is claimed for the sign itself. The eight GP(8,3) exchange graphs, giant-component distances and full 1840-state decomposition are separate finite claims, checked against published-claim searches. Literature and databases cannot rule out unindexed preexisting computations.
+
+## value
+
+PASS
+
+Q4 is the canonical first four-regular hypercube, exactly at the minimum-palette boundary not settled by the five-colour connectivity theorems. Complete reconfiguration classes, their unexpectedly nontrivial 16-vertex geometry, symmetry orbit, and exact connected-component metrics provide a motivated finite obstruction and reproducible structural benchmark, not an arbitrary small example or assertion of higher-dimensional novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

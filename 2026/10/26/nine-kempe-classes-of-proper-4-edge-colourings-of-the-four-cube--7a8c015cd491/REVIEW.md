@@ -1,19 +1,21 @@
-# Review of the four-cube Kempe-class classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. An exhaustive recursion generates all perfect matchings and unordered four-factor partitions, while an independent constrained edge-colouring backtrack with fixed colour gauge reproduces the same 1840 states. Independently implemented colour-component and matching-cycle constructions agree on every Kempe neighbour list. Complete breadth-first searches establish the nine components and metric counts. Eight explicit maps certify the small components as Möbius–Kantor graphs; all 384 cube automorphisms are checked for the component orbit. The matching-product sign invariant has a separate mathematical proof; the precise class sizes and rainbow-face frequencies are finite exhaustive conclusions.
+PASS
 
-## Originality
+The complete finite domain was reconstructed independently from all 272 perfect matchings of Q4: enumerate disjoint unordered 4-factorizations by complement, then every two-factor alternating component, and perform every valid flip. The independent Python implementation obtains exactly 1840 states, 8808 undirected edges, one size-1712 and eight size-16 components. All-state breadth-first distances in the large component independently give eccentricity counts 133 at 6, 1342 at 7, 237 at 8. Small components independently match GP(8,3), and the product-of-matching-permutation-signs is preserved by alternating-cycle swaps. The supplied eight 16-element isomorphism maps and verify.py were inspected. Exhaustive finite enumeration is proof for precisely Q4, not for higher-dimensional cubes. The saved generator and BFS routines were checked for exhaustive branching rather than trusting a log.
 
-PASS on accessible evidence, not a certification of global absence. The 2010 and 2014 edge-colouring Kempe papers prove results with extra colours or for other graphs. Behague's 2018 hypercube paper supplies the factorization sign and square-switch invariance, not the exact full Kempe-switch component graph on the four-cube. The 1993 rainbow hypercube work establishes existence of fully rainbow colourings, not the full reconfiguration census. Targeted research-record and literature queries did not identify a dominating exact table. An unindexed earlier calculation remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. This is a complete solution to a natural minimum-palette Kempe-connectivity question at the first quartic cube: it finds eight genuine obstructions, identifies their nontrivial Möbius–Kantor geometry, separates them by a natural parity, and determines the large class's exact radius and diameter. Four-colour and five-colour connectivity differ sharply here. Its finite scope is explicit; no higher-dimensional extension is claimed.
+The exact minimum-palette Kempe connectivity and geometry of Q4 are not implied by 2010/2014 results requiring extra colours, by 1993 rainbow-existence constructions, or by Behague’s hypercube factorization sign and square-switch invariance. The Behague sign is prior and agrees with the matching-product sign in dimension four; no novelty is claimed for the sign itself. The eight GP(8,3) exchange graphs, giant-component distances and full 1840-state decomposition are separate finite claims, checked against published-claim searches. Literature and databases cannot rule out unindexed preexisting computations.
 
-## Closest sources and limitations
+## value
 
-McDonald–Mohar–Scheide (2010), Asratian–Casselgren (2014), Faudree–Gyárfás–Lesniak–Schelp (1993), and Behague (2018). No external independent mathematical audit has been conducted; possible unindexed prior computational coverage and generalization beyond the four-cube are open limitations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Q4 is the canonical first four-regular hypercube, exactly at the minimum-palette boundary not settled by the five-colour connectivity theorems. Complete reconfiguration classes, their unexpectedly nontrivial 16-vertex geometry, symmetry orbit, and exact connected-component metrics provide a motivated finite obstruction and reproducible structural benchmark, not an arbitrary small example or assertion of higher-dimensional novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
