@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the affine covariance kernel K(x,y)=1+κ x·y, verified boundary-row maximizers and an actual sign extremizer, derived the incomplete-beta formula by subtracting scaled full-ball integrals, checked strictly nested supports of leverage-scaled radial variables using the displayed positive derivative polynomial, and established strict increasing-convex order by a one-crossing CDF and decreasing means. Analytic differentiation gives the sharp hole-loss beta coefficient; a uniform concentration/CLT argument gives the dimension limit. All domain endpoints (r=0 ball and r↑1 surface) and d≥2 are treated. Independent mpmath integration passed 51 supporting checks; finite tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Figueroa arXiv:1503.04485 Theorem 3.9 concerns approximation Sobolev rates on a filled weighted disk, not sharp affine endpoint norms on shells.",
+        "Wang–Sloan arXiv:1509.03792 establishes filtered approximation on a sphere, not a volume annulus with varying thickness.",
+        "Xu DOI:10.1137/S0036141096307357 (abstract): sphere-ball orthogonal-polynomial identities, which can account for the limiting dimension-shift identity; we do not claim that identity as novel.",
+        "Defant et al. DOI:10.1112/jlms.70429 (abstract): projection constants on spheres, potentially encompassing the r=1 endpoint, not the strict volume-annulus curve."
+      ],
+      "reasoning": "A theorem for the filled ball or for the boundary sphere does not logically imply the full continuum of hollow-domain norms, their strict ordering, or the sharp small-hole coefficient. The 2026 spherical paper is a plausible source for an endpoint subcase but not known to dominate the main annulus theorem; its full text was not accessed, recorded as risk.",
+      "searches": [
+        "arxiv:1503.04485",
+        "arxiv:1509.03792",
+        "DOI:10.1137/S0036141096307357",
+        "DOI:10.1112/jlms.70429",
+        "spherical shell affine least squares projection norm stability",
+        "spherical annulus orthogonal polynomial Lebesgue constant"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1503.04485",
+      "arxiv:1509.03792",
+      "DOI:10.1137/S0036141096307357 (abstract only)",
+      "DOI:10.1112/jlms.70429 (abstract only)",
+      "published-finding corpus search results for four annulus/shell/convex-order queries",
+      "Previously available mathematical results on affine projections over balls, products and polygons (statement-level comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known/reproducible ingredients: affine covariance kernel, beta-coordinate marginal, filled-ball limiting norm and sphere/ball dimension shift.",
+        "Distinct claimed implication: for all integers d at least two and every pair of hole radii, the sharp norm strictly decreases, with explicit all-radius incomplete-beta law and positive sharp \\(r^d\\) first correction.",
+        "The proof supplies a one-crossing/increasing-convex ordering of normalized annulus radii; this is not stated in the inspected primary material."
+      ],
+      "reasoning": "The theorem is not a mere restatement of the ball/sphere endpoints: interpolating them requires control of the changing Gram matrix and the truncated radial law. The mathematical gain is the strict global monotonicity and sharp hole-loss coefficient, not the already classical endpoint kernel identities.",
+      "searches": [
+        "For the uniform measure on a spherical annulus with variable inner radius, exact sharp L infinity norm of the orthogonal projection onto affine functions is strictly decreasing in inner radius; beta-function formula.",
+        "Spherical shell hollow ball affine polynomial least-squares projector Lebesgue constant outer boundary maximizers",
+        "annulus affine Lebesgue constant projection L infinity",
+        "arxiv:1503.04485 §3",
+        "arxiv:1509.03792 §1",
+        "DOI:10.1112/jlms.70429 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The proposed endpoint norm is the row absolute integral of the affine reproducing kernel; equivalently twice a one-sided tail expectation, and its strict variation is implied by a new explicitly proved increasing-convex order of the leverage-scaled radius.",
+        "arXiv:1503.04485 (2015), introduction and §3: disk polynomial Sobolev errors/Zernike expansions; annulus not found in searchable 24-page document.",
+        "arXiv:1509.03792 (2015), introduction: filtered spherical polynomial approximation and Sobolev convergence; a different parameter from variable hole radius."
+      ],
+      "reasoning": "Checked projection norm, Lebesgue constant, scaled-radius convex order and shell/ball aliases. The direct formulas for covariance or beta integrals alone do not imply strict hole-radius monotonicity without a distributional ordering argument; no checked source states the one-crossing comparison or its consequence for all hole radii. This is a best-knowledge priority assessment, not a uniqueness proof.",
+      "searches": [
+        "For the uniform measure on a spherical annulus with variable inner radius, exact sharp L infinity norm of the orthogonal projection onto affine functions is strictly decreasing in inner radius; beta-function formula.",
+        "convex order of leverage-scaled radius dR/E R squared for annulus distributions",
+        "increasing convex order truncated beta distributions normalized by second moment",
+        "least squares affine projection shell annulus sphere uniform volume endpoint norm",
+        "arxiv:1503.04485 full text search: annulus",
+        "arxiv:1509.03792 full text search: Lebesgue constant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest hit 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34 concerns a uniform simplex, not a spherical annulus.",
+        "published-finding corpus hit 2026/10/11/SCOPE-exact-endpoint-norm-of-the-second-johnson-spherical-projector--f9735429621e concerns a finite Johnson scheme."
+      ],
+      "reasoning": "No exact table or database record containing the target all-radius annulus formula/strict order surfaced. Searches cannot rule out offline or differently indexed compilations; this is not a formal novelty certificate. Earlier mathematical claims on filled-ball, product and polygon projection norms were compared by theorem statements, not merely by titles.",
+      "searches": [
+        "For the uniform measure on a spherical annulus with variable inner radius, exact sharp L infinity norm of the orthogonal projection onto affine functions is strictly decreasing in inner radius; beta-function formula.",
+        "Spherical shell hollow ball affine polynomial least-squares projector Lebesgue constant outer boundary maximizers",
+        "small spherical hole first-order coefficient for affine least-squares maximum norm"
+      ]
+    },
+    "rationale": "Actual searches of published-finding corpus, accessible own claims and relevant original articles did not identify the claimed strict all-hole-radius dependence or its coefficient. Endpoint cases and generic reproducing-kernel identities are explicitly disclaimed as prior background; the new statement is the proved global one-crossing comparison and associated sharp stability curve. Residual risk remains for older radial polynomial/stochastic-order literature and unavailable full text on spherical polynomial projection constants.",
+    "residual_risks": [
+      "An older analysis of truncated radial beta distributions might already imply the increasing-convex order after a parameter change.",
+      "The full 2026 paper on spherical polynomial projection constants was not inspected; the limiting-sphere subcase is not claimed novel.",
+      "Broad historical radial orthogonal-polynomial references or numerical tables may contain equivalent all-radius formulas under different terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant approximation framework; the stated theorem is weighted Sobolev approximation for filled disks, not a sharp L∞ affine projection norm on a hollow ball.",
+        "evidence": [
+          "arXiv:1503.04485 abstract, introduction and Theorem 3.9 context; initial submission dated 2015-03-15."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1503.04485",
+        "material_read": "PDF abstract, introduction, page 9 polynomial framework, Section 3 main-result descriptions and searchable full text for annulus and endpoint-norm terms; not every proof line read.",
+        "method": "Open and inspect original 24-page arXiv PDF, page screenshots and full-document text searching.",
+        "title": "Orthogonal polynomial projection error measured in Sobolev norms in the unit disk",
+        "trigger": "Closest pre-2016 paper on the canonical orthogonal polynomial projector for filled disks."
+      },
+      {
+        "assessment": "Addresses spherical filtered degree-dependent approximation and Sobolev rates; no identified all-radius uniform-volume annulus statement.",
+        "evidence": [
+          "arXiv:1509.03792 abstract and introductory construction; first submission dated 2015-09-13."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.03792",
+        "material_read": "Original 12-page PDF abstract, introduction and stated smooth-filter approximation goal; scanned searchable text for Lebesgue-constant terminology.",
+        "method": "Open original arXiv PDF and first-page screenshot; inspect introductory theorem description and search full text.",
+        "title": "On filtered polynomial approximation on the sphere",
+        "trigger": "Closest pre-2016 spherical approximation counterpart and possible surface endpoint domination."
+      },
+      {
+        "assessment": "Supports conventional sphere/ball reduction; does not by abstract establish or rule out the annulus monotonicity.",
+        "evidence": [
+          "DOI:10.1137/S0036141096307357 abstract on relationships between sphere and ball polynomials."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0036141096307357",
+        "material_read": "Publisher abstract and bibliographic description; full primary text not obtained.",
+        "method": "Read indexed SIAM abstract.",
+        "title": "Orthogonal Polynomials and Cubature Formulae on Spheres and on Balls",
+        "trigger": "Potential older source of the sphere-to-ball coordinate identity."
+      },
+      {
+        "assessment": "Explicit projection-constant formulas for real sphere polynomial spaces likely cover some surface values; full volume-annulus variable-hole implication unresolved, noted as a residual risk.",
+        "evidence": [
+          "DOI:10.1112/jlms.70429 abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/jlms.70429",
+        "material_read": "Publisher abstract and bibliography; full paper content not verified.",
+        "method": "Read publication page and abstract (first published 2026-01-22).",
+        "title": "Minimal projections onto spaces of polynomials on real Euclidean spheres",
+        "trigger": "Potentially stronger modern projection-constant coverage of limiting surface case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f78563e-df0a-46a0-a53f-6560440f44d4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp affine least-squares stability under removing a concentric hole is a natural geometry-dependent design issue absent from the filled-ball and sphere endpoint theories. The result supplies an exact computable norm for every hole size, complete row maximizers, a strict global monotonicity theorem with a distribution-order proof, a sharp small-hole coefficient proportional to deleted volume, and a uniform high-dimensional law. These jointly quantify how a macroscopic topological/geometric change improves worst-case approximation stability; the all-radius assertion is not a routine isolated numerical slice.",
+    "status": "PASS"
+  }
+}
