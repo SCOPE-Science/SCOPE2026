@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T21:43:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Petersen Laplacian eigenvalues 0,2^5,5^4 give 2000 spanning trees by matrix-tree. Every omitted edge has a unique fundamental path; two and only two pivot choices remove the path endpoints adjacent to the new chord, giving degree 12. An independently written graph builder enumerated exactly all 5005 nine-edge candidates, confirmed 2000 acyclic connected trees, built each legal incident-edge exchange, verified 12 regular neighbors, ran BFS for each of the 2000 sources and counted unordered pair distances [12000,72000,266940,588060,678350,327080,52500,2070] and pivot-vs-basis-exchange excess [565010,1045740,363290,24810,150]. Independent natural 120-element S5 group action gives 21 tree orbits and 2 extreme-pair orbits [30,120] with 60 endpoints. Finite exhaustive census proves exact natural invariant; no assertion about all cubic graphs or Hamiltonicity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cameron et al. develop pivot listings for fan graphs and apply Gray-code constructions.",
+          "Behrooznia–Mütze establish pivot Gray-code listings for outerplanar graph family. Petersen is non-outerplanar and not a fan."
+        ],
+        "reasoning": "A Hamiltonian/Gray-code theorem would not imply diam=8, all-pairs distances, or orbit data even on a common graph; here graph families differ.",
+        "searches": [
+          "Petersen graph spanning tree pivot exchange graph diameter distance polynomial edge slide or Gray code",
+          "https://arxiv.org/abs/2108.09363",
+          "https://doi.org/10.4230/LIPIcs.STACS.2025.16"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: Petersen graph spanning tree pivot exchange graph diameter distance polynomial edge slide or Gray code",
+        "https://arxiv.org/abs/2108.09363",
+        "https://doi.org/10.4230/LIPIcs.STACS.2025.16"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known pivot Gray-code existence/algorithms control adjacency listings, not the metric diameter or distance enumerator.",
+          "Classical matroid exchange b(T,U)=9-|T∩U| is an immediate lower bound but can underestimate pivot distances by up to four."
+        ],
+        "reasoning": "The 150 excess-4 pairs and S5 orbit structure require direct graph distances, not implied by prior lower bound or enumeration of trees.",
+        "searches": [
+          "Petersen graph spanning tree pivot exchange graph diameter distance polynomial edge slide or Gray code",
+          "https://arxiv.org/abs/2108.09363",
+          "https://doi.org/10.4230/LIPIcs.STACS.2025.16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A pivot is an adjacent-incident edge exchange preserving tree; equivalent to removing the first or last edge of fundamental path for each added chord.",
+          "This is not unrestricted matroid basis exchange because removed edge must be incident to inserted edge."
+        ],
+        "reasoning": "A result for edge slides of Petersen spanning trees could be equivalent even without word pivot; inspected Gray-code results concern different graphs or listing rather than full metric.",
+        "searches": [
+          "Petersen graph spanning tree pivot exchange graph diameter distance polynomial edge slide or Gray code",
+          "https://arxiv.org/abs/2108.09363",
+          "https://doi.org/10.4230/LIPIcs.STACS.2025.16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2000 spanning trees is known from matrix-tree theorem; no indexed table of the 8-degree distance polynomial or 150 extremal pairs was retrieved.",
+          "The source proof provides a deterministic all-pairs certificate rather than quoting a known table."
+        ],
+        "reasoning": "The graph is canonical and finite, but a previously published exact table could make this recomputation non-original; negative search alone is inconclusive.",
+        "searches": [
+          "Petersen graph spanning tree pivot exchange graph diameter distance polynomial edge slide or Gray code",
+          "https://arxiv.org/abs/2108.09363",
+          "https://doi.org/10.4230/LIPIcs.STACS.2025.16"
+        ]
+      },
+      "rationale": "PASS, qualified. Pivot-spanning-tree Gray-code frameworks are established for fans and outerplanar graphs; known count 2000 is classical. Those results are not the metric distance/excess distribution of Petersen tree pivot graph. No all-Petersen pivot distance metric table was found; unindexed prior computation remains a risk.",
+      "residual_risks": [
+        "Earlier unindexed local-exchange metric computation for Petersen may exist.",
+        "No general graph-family theorem follows from this complete one-graph census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fan graph and Gray listing, not full Petersen pivot metric",
+          "evidence": "Cameron, Grubb, Sawada (2021): pivot Gray-code listing for fans.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.09363",
+          "material_read": "Accessible primary full ar5iv HTML introduction, pivot definitions and algorithmic statements",
+          "method": "Read primary HTML for targeted framework and scope",
+          "title": "A Pivot Gray Code Listing for the Spanning Trees of the Fan Graph",
+          "trigger": "Same pivot move but fan tree family"
+        },
+        {
+          "assessment": "Petersen not outerplanar; no Petersen exact metric implication",
+          "evidence": "Behrooznia and Mütze 2025, algorithmic Gray listing.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.STACS.2025.16",
+          "material_read": "STACS 2025 paper main text/abstract and scope of outerplanar graph algorithm",
+          "method": "Read accessible primary proceedings page and title/abstract; not a whole-document negative claim",
+          "title": "Listing Spanning Trees of Outerplanar Graphs by Pivot-Exchanges",
+          "trigger": "Same edge-pivot geometry in a potentially broader class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete 2000-vertex natural pivot-configuration graph metric and symmetry spectrum for the canonical Petersen graph is a substantial exact finite combinatorial classification. The sharp additional four pivots and two extremal pair orbits distinguish local from free basis exchanges; not merely re-counting spanning trees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The incident-edge pivot-exchange graph of the 2000 labelled spanning trees of Petersen KG(5,2) is connected 12-regular diameter 8, with exact distance/excess histograms, 1040 ecc-7 and 960 ecc-8 trees, 150 maximum-excess-four pairs splitting into 30/120 S5-orbits with 60 endpoints.",
+  "limitations": [
+    "Exact metric classification only for Petersen and this incident-edge pivot definition.",
+    "Does not assert a pivot Hamilton cycle or general cubic graph bounds.",
+    "Earlier unindexed local-exchange metric computation for Petersen may exist.",
+    "No general graph-family theorem follows from this complete one-graph census.",
+    "Publication not_ready because operational identifiers occur in source public administrative files."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducing the finite certificate
+# Independent mathematical audit
 
-Execute `python3 verify_petersen_pivots.py` with Python 3.9 or later, from the directory containing the supplied file. The script requires only the standard library and reads no data files. It completes with `VERIFY_OK` after every stated assertion succeeds.
+## correctness
 
-The graph is specified as disjointness among the ten two-subsets of a five-symbol set. All 5,005 nine-edge subsets of its 15 edges are classified by disjoint-set connectivity and cycle tests. The result is checked against the exact 9-by-9 Laplacian determinant (2,000). Two independently coded definitions produce identical pivot neighborhoods for all trees; every neighborhood has 12 members, with symmetric adjacency.
+PASS
 
-Breadth-first search is executed from each of the 2,000 trees. In addition, all 120 natural automorphisms of the Petersen graph are explicitly constructed, the 2,000 trees are partitioned into 21 orbits, and a second, independently generated adjacency graph is used to reproduce all distance and detour tables using only representatives with orbit weights. The 150 maximum-excess pairs are partitioned into group orbits of sizes 30 and 120 and have 60 endpoints in one tree orbit.
+Petersen Laplacian eigenvalues 0,2^5,5^4 give 2000 spanning trees by matrix-tree. Every omitted edge has a unique fundamental path; two and only two pivot choices remove the path endpoints adjacent to the new chord, giving degree 12. An independently written graph builder enumerated exactly all 5005 nine-edge candidates, confirmed 2000 acyclic connected trees, built each legal incident-edge exchange, verified 12 regular neighbors, ran BFS for each of the 2000 sources and counted unordered pair distances [12000,72000,266940,588060,678350,327080,52500,2070] and pivot-vs-basis-exchange excess [565010,1045740,363290,24810,150]. Independent natural 120-element S5 group action gives 21 tree orbits and 2 extreme-pair orbits [30,120] with 60 endpoints. Finite exhaustive census proves exact natural invariant; no assertion about all cubic graphs or Hamiltonicity.
 
-The exact computed unordered-distance counts for distances \(1\) through \(8\) are \((12000,72000,266940,588060,678350,327080,52500,2070)\). Eccentricities are \(7\) for 1,040 trees and \(8\) for 960. The excess counts for values \(0\) through \(4\) are \((565010,1045740,363290,24810,150)\). The first histogram sums to \(1,999,000\) unordered pairs. All counts are exact integers; there are no random tests or floating-point thresholds.
+## originality
 
-This verifies the finite computational claim only. It neither establishes a new general theorem about all graphs nor constitutes an independently performed audit or a proof of research novelty.
+PASS
+
+PASS, qualified. Pivot-spanning-tree Gray-code frameworks are established for fans and outerplanar graphs; known count 2000 is classical. Those results are not the metric distance/excess distribution of Petersen tree pivot graph. No all-Petersen pivot distance metric table was found; unindexed prior computation remains a risk.
+
+## value
+
+PASS
+
+A complete 2000-vertex natural pivot-configuration graph metric and symmetry spectrum for the canonical Petersen graph is a substantial exact finite combinatorial classification. The sharp additional four pivots and two extremal pair orbits distinguish local from free basis exchanges; not merely re-counting spanning trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
