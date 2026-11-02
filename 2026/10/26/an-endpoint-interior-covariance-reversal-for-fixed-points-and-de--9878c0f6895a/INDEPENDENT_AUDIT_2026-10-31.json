@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T15:49:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all n≥4, θ>0, prescribed adjacent-arrow contraction gives q_n=1/2+θ(1−θ)/[2(θ+n−2)(θ+n−1)]. Ewens deletion conditioned on fixed B_i leaves Ewens(θ) on n−1 points and Pr(B_i)=θ/(θ+n−1). The expected descent count conditional on endpoint fixation is (n−2)q_(n−1); for interior it is (n−3)q_(n−1)+(n−1)/(θ+n−2). The covariance identity yields exact endpoint −θQ/(2H), interior −θ(θ−1)P/H, and total −θ²(n−1)[n²−4n+2+2θ(n−1)]/H; H,P,Q positive. Thus endpoints always negative, interiors flip sign at θ=1, fixed-θ n^-1 vs n^-2 scaling and total negative. Independently enumerated all permutations at n=4,5,6 for θ=1/2,1,3 with exact rational cycle weights and checked every fixed-position covariance. Infinite n, real θ follow symbolic formulas, not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pinsky–Schickentanz establishes unconditioned pair inversion probabilities and conditional laws given NUMBER of fixed points; Kammoun investigates limiting conjugation-invariant descent process."
+        ],
+        "reasoning": "Conditioning on total fixed-point count is coarser than event π(i)=i; the inspected full primary Theorem 5 and Proposition 10 do not by themselves specify which fixed label is involved. A refined source could imply the formula, residual risk maintained.",
+        "searches": [
+          "Ewens permutation specified fixed point descent covariance endpoint interior conditional descent sign",
+          "Pinsky–Schickentanz arXiv:2510.20654v2 Theorem 1, Theorem 5, Proposition 10",
+          "Kammoun arXiv:1805.05253"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.20654v2 full primary HTML",
+        "Resultary uniform special case published RESULT.md full text",
+        "arXiv:1805.05253 asymptotic descent literature",
+        "Resultary semantic query: Ewens permutation specified fixed point descent covariance endpoint interior conditional descent sign",
+        "Frozen 2026/10/26/an-endpoint-interior-covariance-reversal-for-fixed-points-and-de--9878c0f6895a/RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The marginal q_n is already derivable from Pinsky–Schickentanz inversion marginal, the uniform θ=1 covariance is covered by Resultary; the conditional fixed-label expectation requires additional Ewens deletion analysis."
+        ],
+        "reasoning": "Aggregate conditioning/marginal inversion is insufficient to determine fixed-labelled B_i,D covariance, so genuinely distinct labelled event analysis is needed to establish claimed θ<1 positive bulk covariance. Explicit prior coverage is acknowledged rather than relabeled.",
+        "searches": [
+          "Ewens permutation specified fixed point descent covariance endpoint interior conditional descent sign",
+          "arXiv:2510.20654v2 Theorem 1(a), 5, Proposition 10",
+          "Resultary uniform RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The uniform θ=1 special case is ALREADY covered: interior covariances vanish, endpoints −1/(2n), total −1/n; the prior Resultary source proves these and finer cross-covariance entries."
+        ],
+        "reasoning": "The prior θ=1 theorem is a strict covered specialization; the new all-θ identity and opposite signs when θ<1 and θ>1 are not implied by this one-parameter slice alone.",
+        "searches": [
+          "Ewens permutation specified fixed point descent covariance endpoint interior conditional descent sign",
+          "Resultary uniform case 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Uniform θ=1 cross covariance is exact in published Resultary, not new. Continuous θ-dependence for every n≥4 and θ>0 is not supplied by a fixed θ table."
+        ],
+        "reasoning": "Prior exact uniform formulas cover a genuine subset; no search result supplies the full Ewens endpoint/interior rational functions or their sign-change parameter.",
+        "searches": [
+          "Ewens permutation specified fixed point descent covariance endpoint interior conditional descent sign",
+          "Resultary 2026/10/4 uniform covariance RESULT.md",
+          "Pinsky–Schickentanz exact pair inversion tabulation"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for exact Ewens θ-dependent labelled fixed-point covariance and interior sign reversal; the θ=1 uniform special case and unconditioned pair inversion marginals are explicitly prior art, not re-claimed.",
+      "residual_risks": [
+        "An unlocated fixed-labelled Ewens inversion covariance theorem or stronger conditioning formula could imply all-θ claim.",
+        "Only θ fixed in asymptotic results; cyclic descents are not part of conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives pair inversion probabilities and conditional on total fixed-point count; does not display labelled fixation covariance in inspected theorems",
+          "evidence": "Theorem 1(a), Theorem 5, Proposition 10",
+          "identifier_or_url": "arXiv:2510.20654v2",
+          "material_read": "Full publicly accessible primary HTML with Theorem 1, Theorem 5 and Proposition 10 read",
+          "method": "Primary full-text HTML inspection",
+          "title": "Inversions in Random Permutations Under the Ewens Sampling Distribution With and Without a Prescribed Number of Fixed Points",
+          "trigger": "Same Ewens θ and pairwise descents, fixed points"
+        },
+        {
+          "assessment": "COVERS θ=1 endpoint −1/(2n), interior 0, total −1/n; does not cover varying θ outside 1",
+          "evidence": "Equations (5),(6), local cross-covariance (1)-(3)",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495/RESULT.md",
+          "material_read": "Entire primary RESULT.md fetched and read, including equations 1–9 and proof",
+          "method": "Full GitHub source at published Resultary finding",
+          "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation",
+          "trigger": "Exact θ=1 special case and position-resolved covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact sign reversal of a natural local-fixed-point/total-descents dependence at the canonical Ewens θ=1 boundary, with provably different endpoint/bulk orders and persistently negative total covariance, resolves a structural statistical question obscured by global fixed-point-count conditioning.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2510.20654v2 full primary HTML",
+    "Resultary uniform special case published RESULT.md full text",
+    "arXiv:1805.05253 asymptotic descent literature",
+    "Resultary semantic query: Ewens permutation specified fixed point descent covariance endpoint interior conditional descent sign",
+    "Frozen 2026/10/26/an-endpoint-interior-covariance-reversal-for-fixed-points-and-de--9878c0f6895a/RESULT.md and verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unlocated fixed-labelled Ewens inversion covariance theorem or stronger conditioning formula could imply all-θ claim.",
+    "Only θ fixed in asymptotic results; cyclic descents are not part of conclusion."
+  ],
+  "schema_version": 1
+}
