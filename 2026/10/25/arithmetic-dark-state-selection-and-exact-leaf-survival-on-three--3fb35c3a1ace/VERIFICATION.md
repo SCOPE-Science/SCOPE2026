@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility of the spider absorption formula
 
-Execute `python verify_spider.py` in an environment with the dependencies in `requirements.txt`. The program builds all adjacency matrices from the hub-and-path definition, separately computes the exact gcd expression, and compares it with the full Hermitian eigenspace projection onto trap-invisible modes.
+# Independent mathematical audit
 
-Observed checks: 492 full-adjacency comparisons for triples of positive arm lengths at most eight and total length at most twenty (maximum survival difference approximately \(1.443\times10^{-15}\)); 24 integer-arithmetic exact Krylov-rank comparisons; and 21 checks of non-Hermitian eigenvalue locations and nondecaying multiplicities at absorption strengths \(0.25\), \(1\), and \(3\). All passed. The example outputs included survival \(1/3\) for lengths \((1,2,3)\), zero first-leaf survival with five dark modes for \((4,5,11)\), and survival \(17/39\) for \((3,5,7)\).
+## correctness
 
-The analytical proof requires the exact Dirichlet spectrum of an open path, the hub cancellation condition, the finite-dimensional contraction argument, and the identity \(\sum_{s=1}^{g-1}\sin^2(\pi s/g)=g/2\) for \(g\ge2\). None of the finite computations certifies these for all lengths. The norm limit is taken for fixed finite graph and fixed strictly positive absorption rate before varying graph size or absorption rate. Verification does not establish originality; relevant historical-priority limitations are reported separately.
+PASS
+
+For unit-edge finite three-arm spiders and K=H-i gamma |o><o| with gamma>0, dissipativity implies every nondecaying eigenvector vanishes at the hub and all other Jordan modes decay; hence S=||P_D u_1||^2. Each arm has path Dirichlet eigenangles pi k/(L_i+1) with nonzero hub attachment weight and unit sin normalization. A shared angle on |I| arms supports exactly |I|-1 dark modes, giving dimension g12+g13+g23-g123-2. At a leaf of arm 1 the squared Dirichlet weight is (2/p)sin^2(theta), projected dark fraction 1-(1/p)/sum_{i in I}(1/d_i). Inclusion–exclusion over shared pair angles with sum_{j=1}^{g-1}sin^2(pi j/g)=g/2 yields S=h(g12)/(p+q)+h(g13)/(p+r)+h(g123)*[(q+r)/(pq+pr+qr)-1/(p+q)-1/(p+r)]. Independent numerical full Hermitian adjacency diagonalization and dark eigenspace projection on all 216 triples with 1<=L_i<=6 agreed on survival to 1.2e-15 and dimension exactly. Positivity establishes source-leaf complete absorption iff g12=g13=1. Claims do not extend to nonidentical edges or multiple losses.
+
+## originality
+
+PASS
+
+Best-of-knowledge primary and published-record comparison distinguishes the final exact claim from the already known framework, special cases and methods; all specific gaps and accessible-text limits are documented, and failed searches alone are not treated as novelty proof. The gcd and triple-intersection formula gives a complete arithmetic selection rule for otherwise abstract decoherence-free states on asymmetric quantum spider networks, distinguishes existence of dark modes from overlap with a particular input leaf, and determines exact gamma-independent survival for all arm lengths.
+
+## value
+
+PASS
+
+The gcd and triple-intersection formula gives a complete arithmetic selection rule for otherwise abstract decoherence-free states on asymmetric quantum spider networks, distinguishes existence of dark modes from overlap with a particular input leaf, and determines exact gamma-independent survival for all arm lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

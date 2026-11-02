@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T13:55:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unit-edge finite three-arm spiders and K=H-i gamma |o><o| with gamma>0, dissipativity implies every nondecaying eigenvector vanishes at the hub and all other Jordan modes decay; hence S=||P_D u_1||^2. Each arm has path Dirichlet eigenangles pi k/(L_i+1) with nonzero hub attachment weight and unit sin normalization. A shared angle on |I| arms supports exactly |I|-1 dark modes, giving dimension g12+g13+g23-g123-2. At a leaf of arm 1 the squared Dirichlet weight is (2/p)sin^2(theta), projected dark fraction 1-(1/p)/sum_{i in I}(1/d_i). Inclusion–exclusion over shared pair angles with sum_{j=1}^{g-1}sin^2(pi j/g)=g/2 yields S=h(g12)/(p+q)+h(g13)/(p+r)+h(g123)*[(q+r)/(pq+pr+qr)-1/(p+q)-1/(p+r)]. Independent numerical full Hermitian adjacency diagonalization and dark eigenspace projection on all 216 triples with 1<=L_i<=6 agreed on survival to 1.2e-15 and dimension exactly. Positivity establishes source-leaf complete absorption iff g12=g13=1. Claims do not extend to nonidentical edges or multiple losses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Entropy 23 (2021) 85, Sec.2 general spectral projector, examples including complete-bipartite star; arXiv:2210.17524 full model assumes equal-length branches."
+        ],
+        "reasoning": "General projector methods can be specialized to derive S but do not themselves tabulate resonant unequal path lengths and rational projection weights. Symmetric-branch exact reductions are special cases, not coverage of the full unequal-arm formula.",
+        "searches": [
+          "Razzoli Paris Bordone 2021 Transport Efficiency of Continuous-Time Quantum Walks on Graphs",
+          "Yalouz Pouthier 2018 central-trap extended star",
+          "Yalouz Pouthier 2022 equal-length branch model"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob ad175e9ead4d6af488c4fef40912f0fdf7fc21d8, verify_spider.py blob 8d0ad0606768c906a84803a189e4b3fd1f252349",
+        "Razzoli, Paris, Bordone, Entropy 23:85 (2021) https://pmc.ncbi.nlm.nih.gov/articles/PMC7826824/",
+        "Yalouz and Pouthier PRE97 022304 (2018) DOI 10.1103/PhysRevE.97.022304",
+        "Yalouz and Pouthier arxiv:2210.17524 (2022)",
+        "Resultary semantic spider/dark-state query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal-arm stars have one symmetric bright channel and a simple trap-insensitive sector; general projector formula follows from dissipative linear algebra."
+        ],
+        "reasoning": "The existence of a general method does not explicitly imply this result without the nontrivial number-theoretic intersection and normalization calculation. The highly relevant 2018 full paper is inaccessible, so an exact formula in an appendix cannot be conclusively excluded.",
+        "searches": [
+          "Yalouz Pouthier PhysRevE97 022304 abstract",
+          "Razzoli et al 2021 projection Eq.16",
+          "2022 arXiv:2210.17524 model p.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Razzoli–Paris–Bordone Entropy 2021 gives a general projection-based transport efficiency formula; Yalouz–Pouthier PRE 2018 studies a symmetric star with central trap."
+        ],
+        "reasoning": "The generic bright/dark subspace projection is established; the new specific content is the arithmetic gcd selection and closed leaf weights for three unequal Dirichlet chains. The equality of symmetric-arm case S=2/3 is already implied by older symmetric models.",
+        "searches": [
+          "Resultary: star graph three unequal arm lengths quantum walk central trap survival gcd dark states",
+          "web: extended star graph trapping superradiance unequal chain branch length dark states gcd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed exact gcd table for all (L1,L2,L3) found; source scripts tabulate 492 finite examples, not literature certification."
+        ],
+        "reasoning": "This is an infinite all-length closed formula, not merely a finite spectral table; a future explicit spectral-controllability formula could still be equivalent.",
+        "searches": [
+          "Resultary semantic three-arm gcd dark state search",
+          "Yalouz Pouthier 2018 and 2022 model comparisons"
+        ]
+      },
+      "rationale": "Best-of-knowledge primary and published-record comparison distinguishes the final exact claim from the already known framework, special cases and methods; all specific gaps and accessible-text limits are documented, and failed searches alone are not treated as novelty proof. The gcd and triple-intersection formula gives a complete arithmetic selection rule for otherwise abstract decoherence-free states on asymmetric quantum spider networks, distinguishes existence of dark modes from overlap with a particular input leaf, and determines exact gamma-independent survival for all arm lengths.",
+      "residual_risks": [
+        "2018 Yalouz–Pouthier full text inaccessible due Oxford VPN disconnection; no claim that unseen appendix lacks unequal lengths.",
+        "An older exact GCD controllability or arithmetic quantum-walk transport theorem may imply the formula without matching graph terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General spectral projection framework covered; inspected examples do not provide the unequal-three-arm gcd and leaf projection formula",
+          "evidence": "Entropy 23 (2021) 85, Sec.2 spectral method and Eq.16",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7826824/",
+          "material_read": "Full freely available main text, spectral projection method and examples including complete bipartite star",
+          "method": "Read full-text HTML, searched star and projection sections",
+          "title": "Transport Efficiency of Continuous-Time Quantum Walks on Graphs, Razzoli, Paris and Bordone (2021)",
+          "trigger": "Prior potentially dominating transport-efficiency theorem"
+        },
+        {
+          "assessment": "Model uses N_B equivalent branches of common length L_B and peripheral defects; not the arbitrary unequal-three-arm classification",
+          "evidence": "Model equations and branch definition near p.2",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.17524",
+          "material_read": "Physical model, eigenstates and branch assumptions in downloaded full PDF, including page 2",
+          "method": "Read PDF text and page-2 screenshot",
+          "title": "Extended star graph as a light-harvesting-complex prototype, Yalouz and Pouthier (2022)",
+          "trigger": "Follow-up to directly similar 2018 paper"
+        },
+        {
+          "assessment": "The abstract studies trap-insensitive modes on symmetric extended stars, a strong plausible predecessor; no whole-paper noncoverage conclusion drawn",
+          "evidence": "PRE97 022304 (2018), abstract mentions three decaying modes and absorption controlled by size",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.97.022304",
+          "material_read": "Publisher/PubMed abstract only; complete primary full text inaccessible (authorized Oxford VPN disconnected)",
+          "method": "Publisher abstract and Oxford authorized retrieval status",
+          "title": "Continuous-time quantum walk on an extended star graph: Trapping and superradiance transition (2018)",
+          "trigger": "Very close central-trap dark-mode model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The gcd and triple-intersection formula gives a complete arithmetic selection rule for otherwise abstract decoherence-free states on asymmetric quantum spider networks, distinguishes existence of dark modes from overlap with a particular input leaf, and determines exact gamma-independent survival for all arm lengths.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md blob ad175e9ead4d6af488c4fef40912f0fdf7fc21d8, verify_spider.py blob 8d0ad0606768c906a84803a189e4b3fd1f252349",
+    "Razzoli, Paris, Bordone, Entropy 23:85 (2021) https://pmc.ncbi.nlm.nih.gov/articles/PMC7826824/",
+    "Yalouz and Pouthier PRE97 022304 (2018) DOI 10.1103/PhysRevE.97.022304",
+    "Yalouz and Pouthier arxiv:2210.17524 (2022)",
+    "Resultary semantic spider/dark-state query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite dimension, uniform hopping, strictly positive local hub loss, terminal-leaf initial state, asymptotic survival only.",
+    "No finite-time absorption law or perturbation/disorder stability bound; incomplete 2018 primary full-text comparison."
+  ],
+  "residual_risks": [
+    "2018 Yalouz–Pouthier full text inaccessible due Oxford VPN disconnection; no claim that unseen appendix lacks unequal lengths.",
+    "An older exact GCD controllability or arithmetic quantum-walk transport theorem may imply the formula without matching graph terminology."
+  ],
+  "schema_version": 1
+}

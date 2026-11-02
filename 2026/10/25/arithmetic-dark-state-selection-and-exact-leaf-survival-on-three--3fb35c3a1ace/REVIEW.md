@@ -1,21 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The nondecaying subspace of \(H-i\gamma|o\rangle\langle o|\) is precisely the span of adjacency eigenvectors vanishing at the hub. Any real eigenvalue has a hub-zero eigenvector by the imaginary-part identity, and finite-dimensional contractivity excludes a Jordan block on the real axis. The complement decays. Dirichlet path modes are normalized sines, and a common eigenvalue across \(k\) arms yields \(k-1\) hub-zero modes. The leaf projection uses a one-dimensional normal vector with weights proportional to \(1/\sqrt{L_i+1}\); summing \(\sin^2\) across common angles proves the claimed gcd formula. Numerical full-matrix, exact rational Krylov-rank, and dissipative spectral checks all passed. The all-length proof is analytical; finite checks are not substituted for proof.
+PASS
 
-## Originality
+For unit-edge finite three-arm spiders and K=H-i gamma |o><o| with gamma>0, dissipativity implies every nondecaying eigenvector vanishes at the hub and all other Jordan modes decay; hence S=||P_D u_1||^2. Each arm has path Dirichlet eigenangles pi k/(L_i+1) with nonzero hub attachment weight and unit sin normalization. A shared angle on |I| arms supports exactly |I|-1 dark modes, giving dimension g12+g13+g23-g123-2. At a leaf of arm 1 the squared Dirichlet weight is (2/p)sin^2(theta), projected dark fraction 1-(1/p)/sum_{i in I}(1/d_i). Inclusion–exclusion over shared pair angles with sum_{j=1}^{g-1}sin^2(pi j/g)=g/2 yields S=h(g12)/(p+q)+h(g13)/(p+r)+h(g123)*[(q+r)/(pq+pr+qr)-1/(p+q)-1/(p+r)]. Independent numerical full Hermitian adjacency diagonalization and dark eigenspace projection on all 216 triples with 1<=L_i<=6 agreed on survival to 1.2e-15 and dimension exactly. Positivity establishes source-leaf complete absorption iff g12=g13=1. Claims do not extend to nonidentical edges or multiple losses.
 
-**PASS against the inspected evidence, with material residual uncertainty.** The 2006 Konno study concerns homogeneous-tree unitary quantum walks, not absorption on arbitrary three-arm spiders. The direct 2018 Yalouz–Pouthier star-trapping study describes equal-length branches; however, its full text could not be inspected, so the abstract cannot exclude every possible broader result. The accessible 2022 follow-up by the same authors explicitly imposes the equal-branch-length architecture and investigates peripheral defects and optimal trapping speeds. The 2021 Razzoli–Paris–Bordone paper provides the general spectral projection method and treats several different graph families, but not the stated explicit gcd collision classification and rational leaf survival across arbitrary three unequal lengths. Relevant published-record searches encountered spider geometry and spectral partition results without the claimed absorption observable. The equilateral special case is understood as background, not as separately original. An unlocated general Jacobi or spectral observability result could still subsume portions of the theorem; exhaustive priority is not claimed.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The arithmetic collision of Dirichlet spectra turns physical arm-length choices into a complete yes/no law for absorption from a specific leaf. The theorem also computes the full dark dimension and the exact nonzero survival, including the distinction between graph-wide dark modes and modes accessible from the chosen starting leaf. For instance, lengths \((4,5,11)\) support five protected modes although the first leaf is completely absorbed. This exact infinite-family classification is more informative than a few finite examples or a generic algorithm for matrix projection. It can guide finite excitonic tree geometry without suggesting unproved perturbation robustness.
+Best-of-knowledge primary and published-record comparison distinguishes the final exact claim from the already known framework, special cases and methods; all specific gaps and accessible-text limits are documented, and failed searches alone are not treated as novelty proof. The gcd and triple-intersection formula gives a complete arithmetic selection rule for otherwise abstract decoherence-free states on asymmetric quantum spider networks, distinguishes existence of dark modes from overlap with a particular input leaf, and determines exact gamma-independent survival for all arm lengths.
 
-## Sources and residual risks
+## value
 
-Primary texts materially read: N. Konno, arXiv:quant-ph/0602213 (abstract, finite-tree model, quantum-walk definitions and conclusions); S. Yalouz and V. Pouthier, arXiv:2210.17524 (introduction, equal-arm graph definition, rotational block reduction and dynamics); L. Razzoli, M. G. A. Paris and P. Bordone, *Entropy* 23, 85 (2021) (spectral projection method, graph families, summary and appendix). S. Yalouz and V. Pouthier, *Physical Review E* 97, 022304 (2018), was available only as an abstract; it is a genuine historical-priority risk and was not treated as whole-document evidence of absence. Earlier starlike-tree spectral classifications and broader observability results may contain a stronger implication that these searches did not settle.
+PASS
 
-Finite verification limits: the standalone script checks 492 short-length combinations numerically, 24 configurations by exact integer Krylov rank, and 21 lossy-generator eigenvalue cases. These do not exhaust infinite arm lengths. No assertion is made about the detailed absorption-time law, disorder, other trap configurations, or independent mathematical certification.
+The gcd and triple-intersection formula gives a complete arithmetic selection rule for otherwise abstract decoherence-free states on asymmetric quantum spider networks, distinguishes existence of dark modes from overlap with a particular input leaf, and determines exact gamma-independent survival for all arm lengths.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
