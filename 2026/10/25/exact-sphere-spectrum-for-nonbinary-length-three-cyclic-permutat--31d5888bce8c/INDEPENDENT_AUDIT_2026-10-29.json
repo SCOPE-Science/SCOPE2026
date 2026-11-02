@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:46:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each of the n−2 length-three windows, a nonconstant triple supplies two nonidentity rotations while a constant triple supplies zero. Distinct nonidentity outputs cannot coincide across windows separated by >=2 because their altered supports intersect in <=1 position and each permutation changes at least two letters. Adjacent windows coincide exactly when a length-four abcd has b != c and a,d ∈ {b,c}; the unique overlapping adjacent swap gives one duplicate. Therefore |B_3(x)|=2n−3−2H−K for every q>=2,n>=3. The T/S/D three-state transfer tracks b=c, b!=c and a∈{b,c}, or all distinct, giving exactly the displayed v_q and M_q and hence the complete population polynomial for all n by induction. Setting defect variable t=0 and inverting I−zM_q(0) gives the stated extremizer generating function for q>=3; three distinct symbols repeated attain 2n−3. Linearity of expected H and K gives the mean. Independently reconstructed output sets for q=2,n=9; q=3,n=7; q=4,n=6; q=5,n=5; q=4,n=6 exact spectrum 4u+24u^3+60u^4+132u^5+312u^6+720u^7+972u^8+1872u^9. These bounded tests corroborate the all-length structural argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior paper focuses on asymptotic code redundancy and k-dependent constructions, including k>=9 cyclic lower bound; those are not exact all-q length-three sphere populations.",
+          "Resultary code-size record is binary and n<=8, not q>=3,n arbitrary sphere-size census."
+        ],
+        "reasoning": "A stronger published theorem giving exact outputs for every cyclic k-burst would cover k=3, but none was established from the material actually inspected; full Chen–Milenkovic text is an explicit residual priority risk.",
+        "searches": [
+          "arXiv:2610.15701v1 main abstract and overview",
+          "Resultary semantic search: unrestricted length-three substring permutations sphere spectrum"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding/Proof 1-4 and verify_cyclic3.py, Git blob sha 3b9196bbbdb4fffa41310dae234a8ab7174faa97; independent_checks.py",
+        "Chen–Milenkovic arXiv:2610.15701v1 accessible abstract",
+        "Resultary published binary burst-code result; two distinct search queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen–Milenkovic treats cyclic substring permutations but describes lower/upper redundancy, not an implication to E_{q,n}(t) in the accessible material.",
+          "Exact code sizes at finitely many binary lengths do not imply the distribution of sizes of all q-ary one-burst spheres."
+        ],
+        "reasoning": "The local overlap proof and evaluated transfer matrix supply extra counting content beyond published bounded code-size optimization; no claim of full-paper noncoverage for inaccessible Chen preprint.",
+        "searches": [
+          "Chen and Milenkovic arXiv:2610.15701v1",
+          "Resultary 2026/10/4/SCOPE-exact-binary-3-1-burst-code-sizes-through-length-8--531630cac2ea"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cyclic three-cycles form a proper subgroup of S3 for triples with three different symbols (3 outputs versus 6 unrestricted outputs).",
+          "Arxiv preprint introduces cyclic permutation bursts for coding, not the full q-ary ball population in its accessible abstract."
+        ],
+        "reasoning": "A general substring-permutation sphere count cannot be identified with an exact length-three cyclic subgroup sphere count; the new collision invariant and three-state transfer must be compared as formulas, not only terminology.",
+        "searches": [
+          "Resultary: cyclic length three substring rotation burst error nonbinary word sphere size exact distribution collisions three state transfer matrix",
+          "arXiv:2610.15701v1",
+          "Published Resultary: Exact binary (3,1)-burst code sizes through length 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full q=4,n=6 spectrum has eight nonzero coefficients and 4096 total words, including 1872 maxima.",
+          "Resultary search returned binary (3,1)-burst maximum code sizes, not this population polynomial."
+        ],
+        "reasoning": "Finite table agreement alone is no novelty proof; the all-n transfer-matrix enumerator is the substantive claim and was not a retrieved known table.",
+        "searches": [
+          "Resultary: cyclic length three substring rotation burst error nonbinary word sphere size exact distribution collisions three state transfer matrix",
+          "Resultary: unrestricted length-three substring permutations sphere spectrum",
+          "Independent q=4,n=6 exhaustive population table"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact q-ary cyclic-three output-sphere population law, collision defect and extremal finite-state enumeration. Chen–Milenkovic define cyclic bursts and code redundancy, so the channel is prior art; the inspected abstract does not state the exact q-ary enumerator, but the article full text was inaccessible and no whole-document noncoverage is asserted. The published binary (3,1)-burst code-size record answers a different optimization problem and is not the requested channel population; previous unrestricted S3 permutation sphere results use a strictly larger output set for q>=3. No indexed source examined entails the specific matrix distribution. Residual priority risk retained for the full 2026 primary preprint and unindexed enumerations.",
+      "residual_risks": [
+        "Full Chen–Milenkovic arXiv:2610.15701v1 text could not be read; its Section III/V or appendix might contain an equivalent cyclic-three count.",
+        "Unindexed exact local-channel enumeration or original unrestricted-permutation sphere paper may imply the three-state formula by a nontrivial specialization.",
+        "Does not establish codes, minimum distance, decoding or unions of shorter burst lengths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_CHANNEL_PARTIAL_ACCESS: cyclic burst defined, exact q-ary length-three enumeration not asserted in available abstract; whole-paper assessment withheld",
+          "evidence": [
+            "Abstract describes code redundancy lower/upper bounds and constructions, with cyclic lower bound for k>=9; k=3 exact spectrum absent from abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.15701v1",
+          "material_read": "Accessible primary abstract, date and listed main results; direct arXiv HTML/PDF and alternate PDF viewer failed",
+          "method": "arXiv metadata/abstract and attempted source PDF/HTML",
+          "title": "Correcting Burst Errors with Applications to DNA-Based Data Storage",
+          "trigger": "Same cyclic substring-burst operation and most likely source of equivalent exact count"
+        },
+        {
+          "assessment": "DIFFERENT_QUANTITY: binary optimal code sizes n<=8 versus all-input q-ary output sphere spectrum",
+          "evidence": [
+            "Reported optimum code sizes (1,1,2,2,4,8) for binary lengths 3..8, not counts of all q-ary source-word spheres."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-3-1-burst-code-sizes-through-length-8--531630cac2ea",
+          "material_read": "Published title and semantic summary; no complete source proof inspected",
+          "method": "Resultary published-record semantic lookup",
+          "title": "Exact binary (3,1)-burst code sizes through length 8 (published mathematical record)",
+          "trigger": "Closest retrieved published same local burst code setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full spectrum of one-error output balls is a natural exact invariant for combinatorial burst coding: it identifies the actual variation of packing-ball sizes, the sharp maximum and how frequently each sphere size occurs, not merely a routine single evaluation. Collision classification is necessary because overlapping windows break the naive 2(n−2)+1 count. The result is a uniform finite-alphabet/length formula useful independently of any new error-correcting code construction; it does not itself claim improved redundancy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact complete q-ary one-burst sphere distribution for contiguous length-three cyclic permutations, with collision formula, extremizer generating function and mean.",
+  "limitations": [
+    "Full Chen–Milenkovic arXiv:2610.15701v1 text could not be read; its Section III/V or appendix might contain an equivalent cyclic-three count.",
+    "Unindexed exact local-channel enumeration or original unrestricted-permutation sphere paper may imply the three-state formula by a nontrivial specialization.",
+    "Does not establish codes, minimum distance, decoding or unions of shorter burst lengths."
+  ],
+  "schema_version": 1
+}
