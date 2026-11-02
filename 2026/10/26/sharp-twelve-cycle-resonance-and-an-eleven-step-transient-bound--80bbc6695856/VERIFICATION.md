@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The result follows from an exact finite abstraction, not from numerical extrapolation. For each of the three parts and each of its three states, truncate the exact count at two. The excitation threshold is preserved, so the complete deterministic quotient has 19,683 states. The tagged-vertex product has 177,147 states, sufficient to recover the evolution of every labelled vertex for arbitrary part sizes.
+## correctness
 
-`verify.py` reconstructs this quotient directly from the update rule, verifies \(T^{23}=T^{11}\) for **every** tagged state, and finds 108 nonmatching states at the preceding bound \(T^{22}\ne T^{10}\). The separately checked labelled configuration on \(K_{5,2,3}\) shows that the eleven-step bound is also sharp for an actual graph. The script checks the period-two and period-six exclusions for every capped occupancy profile and verifies by exact set equality that there are precisely 42 primitive-twelve capped population patterns, all of the two-large-one-small form.
+PASS
 
-A separate direct vertex-level implementation (no capped profile used to generate its transitions) checks nine graph sizes, including \(K_{4,4,1}\), \(K_{4,4,2}\), \(K_{4,4,3}\) and \(K_{4,4,4}\). Exact multinomial profile sums are compared with the corresponding direct periodic-state totals. The precise command to rerun is `python3 verify.py`, from a directory containing the file. The output is embedded as `verify_output.txt`.
+PASS: The cap-two phase count q_(i,s)=min(2,m_(i,s)) is an EXACT quotient for threshold two: its update and each tagged vertex transition depend only on the nine capped coordinates. The quotient has 3^9=19683 states; the driven tagged lift has 177147 states. An independently coded complete traversal verified T^23=T^11 on EVERY tagged state, not merely selected sizes, and tested all 19683 profiles for H2=>H1 and H6=>H3. It identified the complete 42-profile primitive-twelve set, exactly a small part of 1–3 phase-singletons plus two differently phased large parts containing at least two vertices in each of two states. Multinomial lifts give R12=2*[J(a)B(b)B(c)+cyclic], B(n)=2^n-2n-2 for n>=4 and zero otherwise, J(n)=3!/(3-n)! for n=1,2,3; cycle count =R12/12. The tagged quotient yields all-orders F^23=F^11. The provided direct K_(5,2,3) witness has F^22(x)!=F^10(x) and F^23(x)=F^11(x), establishing sharp preperiod 11. Independent exhaustive check supplies the needed finite certificate and the analytic exact-quotient lemma transports it to ALL positive a,b,c. K_(4,4,1) has 216 period-twelve states; 1 is the only fixed-point count.
 
-The finite quotient lemma and the deterministic dynamics prove the all-size theorem; the direct small-graph checks are additional corroboration only. The proof and program do not claim a result for other thresholds, more than three independent parts, stochastic rules, or independent external validation.
+## originality
+
+PASS
+
+PASS (qualified): Greenberg–Hastings excitable-media papers study threshold-range lattice waves and general graph threshold ONE. The threshold-two complete-tripartite all-size period spectrum, exact 42-profile resonance and 11-step global bound are distinct. Two-state multipartite parity automata have different updates and cannot imply this refractory three-state census. Resultary search found no same update rule; Durrett–Griffeath (1993) full text inaccessible, so priority qualified.
+
+## value
+
+PASS
+
+PASS: A uniform finite quotient of a natural threshold-two excitable automaton yields a sharp global transient cutoff and exact period/cycle census for an unbounded graph family. Twelve-cycle resonance appears only for a small spectator part, a nontrivial structural phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

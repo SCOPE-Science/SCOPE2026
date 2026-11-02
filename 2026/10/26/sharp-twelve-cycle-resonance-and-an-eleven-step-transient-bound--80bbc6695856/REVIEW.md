@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The labelled graph update is an exact factor of the nine-coordinate capped population dynamics together with one tagged vertex in a specified part. The update and cap threshold are explicitly derived in `RESULT.md`, so the finite-state enumeration does not extrapolate beyond its domain. The standalone verifier exhaustively checks the 177,147-state tag lift and all 19,683 capped population profiles; the relevant equality is \(F^{23}=F^{11}\), not an empirical eventual-period guess. The whole set of 42 profiles of primitive twelve is checked by equality with a declarative pattern set, and a fully separate vertex-level enumeration checks nine graph instances and multinomial counts. The \(K_{5,2,3}\) witness establishes sharpness at step eleven. There is no claim of infinite-state certification beyond the exact quotient theorem.
+PASS
 
-## Originality — PASS, bounded evidence
+PASS: The cap-two phase count q_(i,s)=min(2,m_(i,s)) is an EXACT quotient for threshold two: its update and each tagged vertex transition depend only on the nine capped coordinates. The quotient has 3^9=19683 states; the driven tagged lift has 177147 states. An independently coded complete traversal verified T^23=T^11 on EVERY tagged state, not merely selected sizes, and tested all 19683 profiles for H2=>H1 and H6=>H3. It identified the complete 42-profile primitive-twelve set, exactly a small part of 1–3 phase-singletons plus two differently phased large parts containing at least two vertices in each of two states. Multinomial lifts give R12=2*[J(a)B(b)B(c)+cyclic], B(n)=2^n-2n-2 for n>=4 and zero otherwise, J(n)=3!/(3-n)! for n=1,2,3; cycle count =R12/12. The tagged quotient yields all-orders F^23=F^11. The provided direct K_(5,2,3) witness has F^22(x)!=F^10(x) and F^23(x)=F^11(x), establishing sharp preperiod 11. Independent exhaustive check supplies the needed finite certificate and the analytic exact-quotient lemma transports it to ALL positive a,b,c. K_(4,4,1) has 216 period-twelve states; 1 is the only fixed-point count.
 
-The closest related finite-family result is the prior complete-bipartite threshold-two attractor census (periods one, three and four); it cannot imply what happens when an additional nonempty independent part is completely joined to the others. Full-text examination of Fisch–Gravner–Griffeath's threshold-range work addresses two-dimensional lattices and wave phase diagrams, while the arbitrary-graph comparison theorem of Gravner–Lyu–Sivakoff is explicitly for threshold one. Searches of indexed mathematical findings for tripartite threshold-two excitation and period-twelve census did not surface an equivalent theorem. This is not a uniqueness certification: inaccessible portions of related historical literature and unindexed results remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The twelve-cycle resonance is a qualitative dynamical effect produced by coupling two four-step excitation populations to a third nonempty part, with a **sharp** cutoff at a third-part size of three. The result determines exact labelled orbit multiplicity at every graph size, excludes all longer periods, and gives a sharp *size-independent* eleven-step settling bound. The structural threshold and infinite-family exact census are not routine reparametrizations of a known bipartite formula.
+PASS (qualified): Greenberg–Hastings excitable-media papers study threshold-range lattice waves and general graph threshold ONE. The threshold-two complete-tripartite all-size period spectrum, exact 42-profile resonance and 11-step global bound are distinct. Two-state multipartite parity automata have different updates and cannot imply this refractory three-state census. Resultary search found no same update rule; Durrett–Griffeath (1993) full text inaccessible, so priority qualified.
 
-## Limits
+## value
 
-The scientific assertions concern exactly three nonempty parts and threshold two. The computer-assisted finite certificate is transparent and reproducible but has not been independently audited. The Durrett–Griffeath 1993 full text was not available from the attempted open route and is not claimed to have been read. An unindexed equivalence remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A uniform finite quotient of a natural threshold-two excitable automaton yields a sharp global transient cutoff and exact period/cycle census for an unbounded graph family. Twelve-cycle resonance appears only for a small spectator part, a nontrivial structural phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
