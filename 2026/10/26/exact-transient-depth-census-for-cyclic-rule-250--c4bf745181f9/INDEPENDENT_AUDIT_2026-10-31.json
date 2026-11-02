@@ -1,0 +1,272 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T04:51:23.768454Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md Git blob 3ee45b0bfa85a8a6f7ed454add85a56e56f067e2",
+        "Frozen Git verify.py Git blob 208a64bcf97b922e581783c56dcbe949cb19a107",
+        "independent_math_checks.py: direct Boolean rotate update and first-repetition detection; cyclic gap statistic; independent DP compositions and inclusion-exclusion, all n=3..16",
+        "https://arxiv.org/pdf/2104.04403",
+        "https://mathworld.wolfram.com/Rule250.html"
+      ],
+      "rationale": "For synchronous binary ring length n>=3, Boolean distributivity gives S(F^t x)=S(x)+{-t,-t+2,...,t}. Translation by -t leaves each length-(t+1) interval in the +2 cyclic order; on each nonempty orbit first saturation occurs iff all positive cyclic gaps are at most t+1. Since S(F^2x) contains S(x), a periodic state must have each +2 orbit either empty or full, and those states are truly periodic (odd n: two fixed; even n: two fixed plus an alternating 2-cycle). Thus the preperiod is max gap minus 1, with empty support assigned zero. For an orbit of size q, rooted cyclic compositions count gap-bounded k-subsets by (q/k)[u^q](u+...+u^h)^k, and inclusion-exclusion yields the asserted binomial coefficient. Two independent parity orbits give B_{q,h}^2 in even rings. A maximal q-gap occurs iff that orbit contains a singleton; this proves the odd n extremizer count n and even n count n*2^(n/2)-(n/2)^2 by inclusion-exclusion, with maxima n-1 and n/2-1. The proof reconstructs all n,t,k including n=3,4, t=0, empty support and q=2. Independently written brute force reproduces every preperiod and occupancy-weight coefficient for all 131064 states over n=3..16, verifies both closed polynomial derivations and sharp extrema; finite computations only corroborate the all-n analytical argument.",
+      "residual_risks": [
+        "The exhaustive independent test covers only labelled rings 3 through 16; random or finite checks alone cannot prove all n.",
+        "All formulas require synchronous binary two-neighbor OR updates with cyclic spatial boundaries and n>=3; they do not extend to asynchronous, infinite-line or other elementary rules.",
+        "The binomial expression assumes out-of-range coefficients are zero and includes empty support separately; these conventions are essential at t=0 and k=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gadouleau Theorem 5 and Corollary 2 cover periodic-set classification and allowable periods on all strongly connected disjunctive networks.",
+          "Koller–Hudcová equations (4)–(16) give a general finite-size exact transfer matrix and time/density partition function for all elementary automata.",
+          "Wolfram 1984 constructs finite-time and periodic regular languages, while Zhu–Richard 2026 addresses finite Koopman spectra rather than the time-by-weight distribution."
+        ],
+        "reasoning": "Two stronger-formalism sources cover meaningful pieces of the claim and are credited. Neither inspected result supplies the explicit closed evaluated Rule-250 cyclic-gap coefficient family, sharp universal convergence depth and all-n labelled extremizer census as a direct quoted specialization; deriving these requires exploiting the special OR reachability and rooted cyclic gap formula. A missing broader Boolean network theorem could still subsume the reduction, retained as risk.",
+        "searches": [
+          "Resultary: Rule 250 synchronous Boolean OR nearest-neighbor binary cellular automaton on periodic ring exact transient preperiod histogram by Hamming weight bounded cyclic gap composition counts maximal convergence time (24 ranked hits)",
+          "Resultary: elementary cellular automata Boolean OR Rule 250 exact relaxation census cyclic ring preperiod maximal gap odd even (25 ranked hits)",
+          "https://arxiv.org/pdf/2104.04403",
+          "https://arxiv.org/html/2508.09768v1",
+          "https://content.wolfram.com/uploads/sites/34/2020/07/computation-theory-cellular-automata.pdf",
+          "https://arxiv.org/html/2610.10967v1",
+          "Boolean semiring graph power convergence and cyclic gap saturation theorems"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: Rule 250 synchronous Boolean OR nearest-neighbor binary cellular automaton on periodic ring exact transient preperiod histogram by Hamming weight bounded cyclic gap composition counts maximal convergence time (24 ranked hits)",
+        "Resultary: elementary cellular automata Boolean OR Rule 250 exact relaxation census cyclic ring preperiod maximal gap odd even (25 ranked hits)",
+        "https://mathworld.wolfram.com/Rule250.html",
+        "https://arxiv.org/pdf/2104.04403",
+        "https://arxiv.org/html/2508.09768v1",
+        "https://content.wolfram.com/sites/13/2024/01/32-3-1.pdf",
+        "https://content.wolfram.com/uploads/sites/34/2020/07/computation-theory-cellular-automata.pdf",
+        "https://arxiv.org/html/2610.10967v1",
+        "https://users.sussex.ac.uk/~andywu/downloads/papers/2009_encryption.pdf",
+        "https://users.sussex.ac.uk/~andywu/downloads/papers/2017_BoAinCA-DDN-preprint.pdf",
+        "https://www.damtp.cam.ac.uk/user/ajm25/Papers2016/GFsForCAsOfEvenRuleNo.ps"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5 in Gadouleau 2021 immediately implies that all recurrent Rule-250 supports are whole parity classes; therefore the two/four-periodic-states assertion alone is not original.",
+          "Koller–Hudcová 2025 defines Z with density fugacity and proves Z=Tr(T^n), so it provides a general implicit algorithm for the same cumulative distribution when c=2 and p=t.",
+          "Wuensche gives the exact n=15 maximal delay as prior special case.",
+          "Rule 128, parity automata on Boolean cubes and other top Resultary hits use different local updates or state spaces and cannot specialize to this Rule-250 formula."
+        ],
+        "reasoning": "The full claimed novelty cannot be assigned to familiar OR periodicity, implicit exact enumeration or n=15 maximum delay; these are substantively covered. The unprovided mathematical step is an explicit all-n all-t all-density closed cyclic composition polynomial plus general extremizer formula. On inspected evidence this nontrivial evaluated classification is not a direct corollary with the same stated conclusion; historical unknowns remain in residual risks.",
+        "searches": [
+          "Resultary: Rule 250 synchronous Boolean OR nearest-neighbor binary cellular automaton on periodic ring exact transient preperiod histogram by Hamming weight bounded cyclic gap composition counts maximal convergence time (24 ranked hits)",
+          "Resultary: elementary cellular automata Boolean OR Rule 250 exact relaxation census cyclic ring preperiod maximal gap odd even (25 ranked hits)",
+          "https://arxiv.org/pdf/2104.04403",
+          "https://arxiv.org/html/2508.09768v1",
+          "https://users.sussex.ac.uk/~andywu/downloads/papers/2009_encryption.pdf",
+          "arXiv:2610.10967v1",
+          "Rule 250 maximum transient fixed density closed form",
+          "general Boolean OR cyclic powers longest gap exact preperiod"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Local Rule 250 is exactly the OR of its two nearest neighbors (MathWorld).",
+          "The investigated polynomial equivalently counts bounded cyclic +2 gaps among occupied sites, a one-orbit gap-composition enumeration (RESULT.md steps 1–3).",
+          "Gadouleau Theorem 5 treats this as a disjunctive Boolean network and already classifies periodic supports; not the complete transient counts.",
+          "Koller–Hudcová (11)–(16) gives a general exact weighted transfer-matrix count applicable to the SAME initial-state event, without evaluating its closed B polynomial."
+        ],
+        "reasoning": "Same-rule/disjunctive-network and generalized weighted-transfer-matrix formulations were explicitly compared. General transfer matrices imply a finite algorithm for the same count and periodic-class theory covers attractors; however, no inspected source states or mathematically evaluates the all-n all-t Hamming-weight polynomial B_{q,t+1} or its even n square. The claimed novel scope excludes the generic trace algorithm and periodic point classification.",
+        "searches": [
+          "Resultary: Rule 250 synchronous Boolean OR nearest-neighbor binary cellular automaton on periodic ring exact transient preperiod histogram by Hamming weight bounded cyclic gap composition counts maximal convergence time (24 ranked hits)",
+          "Resultary: elementary cellular automata Boolean OR Rule 250 exact relaxation census cyclic ring preperiod maximal gap odd even (25 ranked hits)",
+          "https://mathworld.wolfram.com/Rule250.html",
+          "https://arxiv.org/pdf/2104.04403",
+          "https://arxiv.org/html/2508.09768v1",
+          "Boolean disjunctive network cyclic classes eventual convergence maximum gap cyclic OR automata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wuensche Figure 3 already gives n=15 longest transient 14, all-one basin size 32767 (one numerical special case).",
+          "Stricker 2023 tables summarize attainable cycle lengths and limited-size scans, not universal preperiod-by-weight generating polynomials.",
+          "MathWorld and Wolfram Atlas provide single-seed and visual evolution illustrations."
+        ],
+        "reasoning": "One genuine n=15 numerical consequence is known and credited; a finite table of small n cannot imply the all-n formula merely by extrapolation. A large historical basin database could nevertheless contain further special coefficients; no absolute database uniqueness assertion is made.",
+        "searches": [
+          "https://content.wolfram.com/sites/13/2024/01/32-3-1.pdf",
+          "https://users.sussex.ac.uk/~andywu/downloads/papers/2009_encryption.pdf",
+          "https://users.sussex.ac.uk/~andywu/downloads/papers/2017_BoAinCA-DDN-preprint.pdf",
+          "https://atlas.wolfram.com/01/01/250/",
+          "Rule 250 transient period histogram n 15 maximum time number of states",
+          "Rule 250 finite cyclic basin fixed density counts OEIS"
+        ]
+      },
+      "rationale": "Qualified PASS for explicit evaluated all-size all-time fixed-density Rule-250 gap-enumeration polynomial and sharp labelled-extremizer count, NOT for Rule-250 OR definition, periodic orbit classification, generic transfer matrix count or Wuensche n=15 maximum-delay example. Public primary materials were read in relevant full-text form, and two semantic Resultary searches did not expose the particular explicit bounded-gap polynomial; known broader/corollary coverage is explicitly credited. The Macfarlane PostScript and early Wolfram source remain material priority risks, so no absolute novelty certification is claimed.",
+      "residual_risks": [
+        "Gadouleau (2021), Theorem 5 already proves the recurrent-set classification for general disjunctive networks; Koller–Hudcová (2025) already supplies a general exact transfer-matrix formula for weighted transient/cycle counts; the claim is assessed only for its evaluated closed form and extremizers.",
+        "Wuensche explicitly gives the n=15 Rule-250 longest transient 14, a covered special consequence; novelty must not be attributed to that example.",
+        "Macfarlane (2016) even-rule generating-function paper is linked as PostScript but its full text was inaccessible; no inference of complete noncoverage is made.",
+        "The full 1983 Wolfram paper and possible 1982 precursor remain materially uninspected; an old exact OR-neighbor gap census or general Boolean-semiring formula may have escaped search.",
+        "Limited topical Resultary and public primary searches do not establish absolute historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives classical rule definition and isolated-seed infinite-line evolution; it does not state the complete finite cyclic, fixed-Hamming-weight transient histogram.",
+          "evidence": [
+            "Rule 250 is OR(left neighbor,right neighbor).",
+            "It discusses a single black-cell start and notes other rules can share that infinite-line trajectory; those models are not equivalent on arbitrary configurations."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/Rule250.html",
+          "material_read": "Complete visible MathWorld entry and references, including OR-neighbor definition and single-seed evolution.",
+          "method": "Full accessible HTML page read.",
+          "title": "Rule 250",
+          "trigger": "Exact update-rule identification and previously known single-seed dynamics"
+        },
+        {
+          "assessment": "Theorem 5 says periodic points on strongly connected digraphs are unions of cyclic classes, already covering odd/even periodic-state characterization for the Rule-250 cycle. It does not supply the all-size time-by-weight preperiod polynomial or labelled max-delay extremizer count.",
+          "evidence": [
+            "Theorem 5: a support is periodic iff D-partite; Corollary 2: period divides loop number l(D).",
+            "For the bidirected n-cycle l(D)=1 (odd) or 2 (even), yielding two or four recurrent states.",
+            "Generic eventual-partiteness and temporal bounds are weaker than exact levelwise bounded-gap counts."
+          ],
+          "identifier_or_url": "arXiv:2104.04403v2; https://arxiv.org/pdf/2104.04403",
+          "material_read": "14-page primary text: setup and §3.1 image rank, §3.1.2 periodic points including Theorem 5 and Corollary 2, and statements of its convergence-time bounds; PDF page 7 visually inspected.",
+          "method": "Public full-text PDF with page screenshot and theorem/claim comparison.",
+          "title": "Dynamical properties of disjunctive Boolean networks",
+          "trigger": "Same Boolean-disjunctive synchronous network and potentially dominating periodic-point theorem."
+        },
+        {
+          "assessment": "The paper ALREADY provides the general weight-tilted finite-ring count via Z=Tr(T^N), applicable to Rule 250 with c=2. This covers implicit algorithmic enumeration, so originality is restricted to its explicit evaluated B_{q,h} polynomial for every n,t,k, sharp max transient and extremizer counts; those statements are not in the inspected treatment and require a nontrivial Boolean-gap analysis beyond instantiating a displayed numerical table.",
+          "evidence": [
+            "Equations (4)–(5): initial-weighted partition function of configurations reaching c-periodic sets after p steps.",
+            "Equations (11)–(16): exact finite-N Z=Tr(T^N), matrix of dimension 4^(p+c).",
+            "Primary emphasis is fixed short p,c and thermodynamic entropy; no Rule-250 closed bounded-gap formula or all-time sharp maximum stated."
+          ],
+          "identifier_or_url": "arXiv:2508.09768v1; https://arxiv.org/html/2508.09768v1",
+          "material_read": "Complete available HTML, including §2 counting trajectories (4)–(10), §3 transfer matrix (11)–(19), technical implementation, classes 1–4 and discussion.",
+          "method": "Public full HTML primary paper; verified the exact matrix trace expression and time-cycle constraints.",
+          "title": "Counting Short Trajectories in Elementary Cellular Automata using the Transfer Matrix Method",
+          "trigger": "Same elementary CA, same cyclic boundary, initial density weights, and preperiod/cycle counting—strongest generic exact framework."
+        },
+        {
+          "assessment": "General cellular-automaton finite-time image and periodic languages, including classical information relevant to Rule 250, do not exhibit a closed preperiod-by-weight enumeration for all finite rings. Its existence/regularity methods are credited.",
+          "evidence": [
+            "Sections 2 and 5 cover regular language / periodic-state characterization, not max cyclic gaps.",
+            "Tables may contain Rule 250 language data but do not present all-n, all-time, all-density transient forest counts."
+          ],
+          "identifier_or_url": "DOI:10.1007/BF01217347; https://content.wolfram.com/uploads/sites/34/2020/07/computation-theory-cellular-automata.pdf",
+          "material_read": "Original paper accessible as open PDF: abstract and main results §§1–5, regular-language and periodic-set algorithms, tables and references. Full-document text searched for source-local rule descriptions.",
+          "method": "Public PDF text inspection; page screenshot attempted but unavailable because web screenshot service exceeded source-size limit.",
+          "title": "Computation Theory of Cellular Automata",
+          "trigger": "Classical general language-theoretic dynamical results and tables containing Rule 250."
+        },
+        {
+          "assessment": "Reports attainable limit-cycle lengths and computational bounded-size catalogues, not counts of initial states at transient time t and weight k or the universal B formula.",
+          "evidence": [
+            "Central statistic is set of possible limit-cycle lengths, rather than incoming transient-tree level multiplicities.",
+            "Computations bounded in ring size do not amount to an all-n fixed-weight polynomial identity."
+          ],
+          "identifier_or_url": "DOI:10.25088/ComplexSystems.32.3.229; https://content.wolfram.com/sites/13/2024/01/32-3-1.pdf",
+          "material_read": "Open 23-page primary PDF: abstract, §§2–5, numerical tables, main classification and references; first-page screenshot checked.",
+          "method": "Public full-text PDF with screenshot and source text searches.",
+          "title": "Classification of Elementary Cellular Automata Based on Their Limit Cycle Lengths in Z/k",
+          "trigger": "Potential exact finite ECA dynamics table including Rule 250."
+        },
+        {
+          "assessment": "Finite Koopman eigenvalue spectrum retains possible cycle periods but not unique full weight-resolved basin preperiod counts; the explicit Rule-250 formula is not stated.",
+          "evidence": [
+            "Introduction explicitly notes eigenvalues are less informative than the full state-transition matrix.",
+            "No Rule-250 fixed-density transient polynomial presented in the inspected article."
+          ],
+          "identifier_or_url": "arXiv:2610.10967v1; https://arxiv.org/html/2610.10967v1",
+          "material_read": "Accessible entire HTML, §§1–4 and references; targeted search for Rule 250 and incoming transient multiplicities.",
+          "method": "Public arXiv full-text HTML.",
+          "title": "Elementary cellular automata: spectral properties of Koopman operator for finite periodic realizations",
+          "trigger": "2026 same finite periodic ECA family and potentially generic exact spectral classification."
+        },
+        {
+          "assessment": "Already shows the n=15 maximum transient 14 and the basin volume 32767 for the all-ones fixed point. This genuinely covers one special case of the maximal-time consequence, but not the complete n,t,k generalization.",
+          "evidence": [
+            "Figure 3 / associated text gives Rule 250 at n=15 with t=14 and basin size 32767.",
+            "The present claim generalizes arbitrary n, t and weight, and includes even-ring two-orbit cases."
+          ],
+          "identifier_or_url": "https://users.sussex.ac.uk/~andywu/downloads/papers/2009_encryption.pdf",
+          "material_read": "Primary PDF section and Figure 3 description of Rule-250 size-15 basin; full PDF screenshot was attempted but timed out.",
+          "method": "Public PDF text search and contextual paragraph reading; no successful full-article visual comparison.",
+          "title": "Cellular Automata Encryption",
+          "trigger": "Contains the exact same Rule 250, finite n=15 basin and longest transient, potentially a published special case."
+        },
+        {
+          "assessment": "Describes finite attractor-basin algorithms and examples rather than the assessed closed all-n fixed-weight transient census; absence from unseen figures cannot be certified.",
+          "evidence": [
+            "Example basin diagrams and numerical attraction-tree approaches concern finite cases.",
+            "No inspected theorem giving B_{q,h} or its parity-square formula."
+          ],
+          "identifier_or_url": "https://users.sussex.ac.uk/~andywu/downloads/papers/2017_BoAinCA-DDN-preprint.pdf",
+          "material_read": "Public preprint PDF portions on finite basin enumeration and Rule-250 examples; attempted figure screenshot unavailable.",
+          "method": "Public PDF text inspection and targeted find.",
+          "title": "Basins of Attraction of Cellular Automata and Discrete Dynamical Networks",
+          "trigger": "Detailed attractor-basin statistics possibly hiding a Rule-250 preperiod histogram."
+        },
+        {
+          "assessment": "Cannot exclude historical overlap from inaccessible PostScript. Its cited focus appears to involve evolution sequences from single-seed configurations, but exact document content is unverified and priority risk remains.",
+          "evidence": [
+            "MathWorld bibliography explicitly names this 2016 even-rule generating-function study.",
+            "No claim of whole-document noncoverage is made without material access."
+          ],
+          "identifier_or_url": "A. J. Macfarlane, 2016; https://www.damtp.cam.ac.uk/user/ajm25/Papers2016/GFsForCAsOfEvenRuleNo.ps",
+          "material_read": "Bibliographic entry and link in MathWorld; linked PostScript was not retrievable as readable full text (unsupported content type).",
+          "method": "Bibliographic referral, attempted open of original PostScript; no whole-document inspection.",
+          "title": "Generating Functions for Integer Sequences Defined by the Evolution of Cellular Automata with Even Rule Numbers",
+          "trigger": "A plausible paper explicitly about generating functions for even elementary rules, potentially including Rule 250."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Git RESULT.md sections Finding, Proof steps 1–5, Assumptions and Scope",
+        "Independent direct finite verification n=3..16",
+        "https://arxiv.org/pdf/2104.04403",
+        "https://arxiv.org/html/2508.09768v1",
+        "https://users.sussex.ac.uk/~andywu/downloads/papers/2009_encryption.pdf"
+      ],
+      "rationale": "Finite cyclic Rule-250 dynamics is a natural, classical Boolean dynamical system. Its entire incoming transient forest is not resolved by knowing its eventual periods: explicit E_{n,t}(z) gives simultaneously every time-to-attractor distribution and Hamming-weight slice for arbitrary ring length. The odd/even step-two orbit structure yields a sharp parity transition in maximal delay and counts of slowest initial conditions, natural invariants needed for finite-size convergence and exact benchmark statistics. The gap composition coefficient is classical and is not asserted to be new; the useful contribution is an explicit complete dynamical classification rather than a tiny arbitrary parameter slice or raw simulation.",
+      "residual_risks": [
+        "No assertion extends to arbitrary Boolean networks, asynchronous updates, or infinite lattice.",
+        "Practical utility is the closed family and sharp extremal counts; the local update and cyclic bounded-composition identity were known."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://mathworld.wolfram.com/Rule250.html",
+    "https://arxiv.org/pdf/2104.04403",
+    "https://arxiv.org/html/2508.09768v1",
+    "https://content.wolfram.com/uploads/sites/34/2020/07/computation-theory-cellular-automata.pdf",
+    "https://content.wolfram.com/sites/13/2024/01/32-3-1.pdf",
+    "https://arxiv.org/html/2610.10967v1",
+    "https://users.sussex.ac.uk/~andywu/downloads/papers/2009_encryption.pdf",
+    "https://users.sussex.ac.uk/~andywu/downloads/papers/2017_BoAinCA-DDN-preprint.pdf",
+    "Resultary: Rule 250 synchronous Boolean OR nearest-neighbor binary cellular automaton on periodic ring exact transient preperiod histogram by Hamming weight bounded cyclic gap composition counts maximal convergence time (24 ranked hits)",
+    "Resultary: elementary cellular automata Boolean OR Rule 250 exact relaxation census cyclic ring preperiod maximal gap odd even (25 ranked hits)",
+    "Frozen Git seven source files, audited tree 26078c8b7905f71127b57f8bf39a482331834cbc",
+    "independent_math_checks.py output RULE250_INDEPENDENT_EXACT_FINITE_CHECKS_PASS complete_binary_states 131064"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Synchronous binary Rule 250 on n>=3 labelled cyclic rings, not general Boolean networks or infinite lattice.",
+    "Finite checks n<=16 are corroboration only; all-size proof uses cyclic-gap saturation and compositions.",
+    "Generic exact transfer-matrix count, general periodic state theorem and n=15 special-case delay already in prior literature; novelty judgment applies to explicit evaluated closed polynomial and extremal generalization.",
+    "Potentially public metadata not sanitized, publication withheld."
+  ],
+  "residual_risks": [
+    "Gadouleau (2021), Theorem 5 already proves the recurrent-set classification for general disjunctive networks; Koller–Hudcová (2025) already supplies a general exact transfer-matrix formula for weighted transient/cycle counts; the claim is assessed only for its evaluated closed form and extremizers.",
+    "Wuensche explicitly gives the n=15 Rule-250 longest transient 14, a covered special consequence; novelty must not be attributed to that example.",
+    "Macfarlane (2016) even-rule generating-function paper is linked as PostScript but its full text was inaccessible; no inference of complete noncoverage is made.",
+    "The full 1983 Wolfram paper and possible 1982 precursor remain materially uninspected; an old exact OR-neighbor gap census or general Boolean-semiring formula may have escaped search.",
+    "Limited topical Resultary and public primary searches do not establish absolute historical priority.",
+    "Unchanged public metadata contains confidential provenance and unsupported first-disclosure date; no authorized publication changes are present."
+  ],
+  "schema_version": 1
+}
