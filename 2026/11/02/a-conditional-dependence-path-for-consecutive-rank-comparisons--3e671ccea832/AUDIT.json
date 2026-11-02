@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The proof conditions on disjoint independent blocks, proves conditional independence upon any missing intermediate edge, and applies a TP2 kernel composition identity with an explicit strictly interlaced positive-density witness when all intervening edges are fixed. The adjacent case is handled separately. Exact enumeration verifies all 105796 conditional pair sign cases in uniform permutations for n=3..10 and the nonstability certificate; finite checks do not replace the all-n argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 4.9 of arXiv:0707.2340 requires a stable multiaffine polynomial",
+        "Theorem 4.1 of arXiv:0707.2340 makes the exact degree-five evaluation F=76, d2F=16, d4F=-44, d2d4F=-9 a nonstability certificate because 16*(-44)-76*(-9)=-20",
+        "arXiv:1001.0610 studies competing-urn thresholds and an orientation-degree enumeration lemma"
+      ],
+      "reasoning": "General strong-Rayleigh conditional-negative-association theorems do not cover the descent indicators: their generating polynomial fails the necessary real-stability inequality. A different occupancy model with conditional negative association and the old one-dependence theorem do not directly imply this result.",
+      "searches": [
+        "\"uniform random permutation\" \"descent indicators\" \"negative association\"",
+        "\"conditional negative association\" \"descents\" permutation",
+        "arXiv:0707.2340 Theorem 4.9",
+        "arXiv:1001.0610 Lemma 8"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0904.3740v1 (Borodin–Diaconis–Fulman)",
+      "arXiv:0707.2340 (Borcea–Brändén–Liggett)",
+      "arXiv:1001.0610v1 (Kahn–Neiman)",
+      "arXiv:1609.01370v1 (Crane–DeSalvo–Elizalde)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Borodin–Diaconis–Fulman Theorem 7.1 gives determinantal representations for one-dependent point processes",
+        "Crane–DeSalvo–Elizalde arXiv:1609.01370 describes weak dissociation for Mallows consecutive patterns",
+        "Kahn–Neiman arXiv:1001.0610 Theorem 1 concerns competing-urn threshold indicators"
+      ],
+      "reasoning": "Unconditional 1-dependence does not imply a sign under arbitrary conditioning. The cited consecutive-pattern theory does not classify the conditional comparison-pair law; the urn and strong-Rayleigh results have different hypotheses. The new theorem supplies a direct order-kernel proof rather than claiming those general methods are new.",
+      "searches": [
+        "arXiv:0904.3740 Theorem 7.1 determinantal one-dependent",
+        "arXiv:1609.01370 weak dissociation",
+        "arXiv:1001.0610 conditional negative association"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Borodin–Diaconis–Fulman arXiv:0904.3740, sections 2, 5 and 7",
+        "Borcea–Brändén–Liggett arXiv:0707.2340, Theorems 4.1 and 4.9"
+      ],
+      "reasoning": "Exact conditional covariance sign/conditional independence, full-conditioning Boolean-lattice negative condition and compressed retained-index one-dependence were compared as equivalent or consequential formulations, not just by title. The sources describe ordinary one-dependence and general conditional negative association only under different hypotheses.",
+      "searches": [
+        "\"descents\" \"conditionally negatively associated\" permutation",
+        "\"descent indicators\" \"negative association\"",
+        "\"descent set\" \"negative lattice condition\" permutations",
+        "\"descent set\" \"log-submodular\" random permutations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:0904.3740 Proposition 5.2 provides determinant expressions and one-dependence",
+        "The exact verifier independently counts full descent masks for all n=3..10"
+      ],
+      "reasoning": "Existing enumeration of descent masks allows numerical evaluation of individual conditional tables but is not itself the sharp universal sign/independence theorem for all n, all conditioned patterns and heterogeneous distributions; the main claim is not an isolated finite table.",
+      "searches": [
+        "arXiv:0904.3740 Proposition 5.2 descent set",
+        "classical permutation descent set counts",
+        "\"descent set\" \"negative lattice condition\" permutations"
+      ]
+    },
+    "rationale": "The exact criterion for all observed subsets and patterns, plus extension to non-identically distributed independent continuous variables, is not asserted by the close inspected papers. One-dependence alone is insufficient for conditioning, the strongly Rayleigh sufficient condition is falsified by a length-five exact Rayleigh witness, and the competing urn results concern a different probability law. Residual implicit-priority risk remains.",
+    "residual_risks": [
+      "Potential unlocated earlier theorem for conditional descent-set log-submodularity or related total-positivity chains; exhaustive literature priority is not established.",
+      "Positive-density common-interval hypothesis is essential to the proof of strictness; do not extend strictness to arbitrary disjoint supports or discrete tied laws."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes unconditional one-dependence, exact marginal patterns and determinantal representation, not the all-conditioning criterion",
+        "evidence": [
+          "Proposition 5.2 on PDF page 15, Theorem 7.1 on PDF page 24"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0904.3740",
+        "material_read": "Introduction and section 2 factual statements; Proposition 5.2 in section 5; Theorem 7.1 and surrounding setup in section 7.",
+        "method": "PDF text passages covering identified results and a screenshot of printed page 15.",
+        "title": "On adding a list of numbers (and other one-dependent determinantal processes)",
+        "trigger": "Same descent process and candidate stronger conditional dependence"
+      },
+      {
+        "assessment": "General implication requires strong Rayleigh stability; length-five descent-set polynomial violates its necessary criterion",
+        "evidence": [
+          "Theorems 4.1 and 4.9; exact polynomial certificate in verification script"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0707.2340",
+        "material_read": "Introduction and definitions, Theorem 4.1 real-stability criterion, and Theorem 4.9 on conditional negative association.",
+        "method": "PDF text passages covering identified results and a screenshot of printed page 10.",
+        "title": "Negative dependence and the geometry of polynomials",
+        "trigger": "Potential stronger conditional negative association theorem"
+      },
+      {
+        "assessment": "Distinct independent-ball occupancy and orientation-degree model; no direct theorem about threshold comparisons on a chain",
+        "evidence": [
+          "Theorem 1 and Lemma 8 of arXiv:1001.0610"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1001.0610",
+        "material_read": "Abstract and introduction; conditional-association Theorem 1 and graph-orientation Lemma 8 with its setup.",
+        "method": "PDF text passages of identified results and screenshots of printed pages 1 and 9.",
+        "title": "Conditional negative association for competing urns",
+        "trigger": "Closest general conditional negative association and graph orientation comparison"
+      },
+      {
+        "assessment": "Provides weak dissociation and enumerative/asymptotic pattern avoidance, not exact all-subset conditional sign or heterogeneous independence",
+        "evidence": [
+          "Section 1.1 and section 8; source first arXiv v1 6 September 2016"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1609.01370",
+        "material_read": "Introduction on consecutive patterns, section 1.1 weak dissociation discussion and later comparison of local pattern dependence.",
+        "method": "PDF text passages covering identified results and a screenshot of printed page 3.",
+        "title": "The probability of avoiding consecutive patterns in the Mallows distribution",
+        "trigger": "Consecutive rank patterns and weak dissociation in permutation models"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e671cce-a832-47b6-9240-6e201aa240fe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete sharp negative/zero conditional covariance classification for a natural rank-statistic process, under arbitrary observation masks and signs, identifies the exact conditional independence graph and reverses independence after conditioning. The statement holds for nonidentical independent continuous variables and is stronger than unconditional one-dependence, marginal formulae, or any single covariance computation.",
+    "status": "PASS"
+  }
+}
