@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Explicit all-integer piecewise pair rank bijection, exhaustive parity split of letter transitions, and unique minimal upward jump yield an all-n proof; weak compositions and arbitrary terminal suffixes give exact coefficients. Standalone verifier independently checks all pairs through n=22 and literal words through n=5. The two-state boundary is separately stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kisielewicz–Kowalski–Szykuła 2013 online §5.2 examines polynomial algorithmic complexity for full-state Černý reset words.",
+        "Montoya–Nolasco 2017 §2.1 examines maximal pair merger times, not all short pair-merging word counts."
+      ],
+      "reasoning": "A maximum distance for one pair or a method to find shortest full-state words does not imply the claimed low-slack generating law without classifying nondescending transitions. No inspected stronger coverage settles this enumeration.",
+      "searches": [
+        "Computing the shortest reset words of synchronizing automata Kisielewicz Kowalski Szykuła 2013",
+        "On the Synchronization of Small Sets of States Montoya Nolasco 2017",
+        "Cerny automaton shortest pair synchronizing words multiplicity"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.12988/ams.2017.77232",
+      "https://doi.org/10.1007/s10878-013-9682-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Montoya–Nolasco Theorem 1 proves the global maximum and supplies a path traversing all pairs for even order.",
+        "New argument identifies every off-path jump, the unique least jump, the exact loop multiplicity, and the first correction."
+      ],
+      "reasoning": "The known Hamilton path entails the rank spectrum and is not asserted as new. Its bare existence leaves alternative shorter paths and extra words undetermined; the complete off-path transition analysis supplies the additional implications needed for exact counts.",
+      "searches": [
+        "Montoya Nolasco 2017 Cerny pair traverses all unordered pairs",
+        "Kisielewicz Kowalski Szykuła 2013 Černý reverse preimage sequence",
+        "Cerny unique shortest pair words slack window"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Montoya–Nolasco §2.1 establishes the extremal even-order pair-merging path, equivalent under a cyclic state relabeling; it does not provide a word-multiplicity generating law.",
+        "The proof here explicitly separates the already implied pair-distance permutation from low-slack counts."
+      ],
+      "reasoning": "Reversal of the cycle orientation or interchanging letter names does not alter pair-word multiplicities. The closest equivalent pair-path formulation accounts for the distance lemma but not the coefficient sequence and first correction.",
+      "searches": [
+        "Cerny automaton shortest pair synchronizing words multiplicity",
+        "Černý automaton pair automaton Hamiltonian path all unordered pairs unique shortest synchronizing paths",
+        "Montoya–Nolasco 2017 §2.1 doi:10.12988/ams.2017.77232"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected scholarly articles contain no matching finite table of low-slack pair-word counts or an exact rational coefficient formula."
+      ],
+      "reasoning": "A finite computer census would not automatically cover arbitrary pair and ring size; conversely the lack of an indexed table is not proof of priority.",
+      "searches": [
+        "pair synchronizing language Černý automaton slack t generating function",
+        "number of pair synchronizing words Cerny automaton",
+        "Černý square automaton near optimal synchronization word multiplicity shortest plus t"
+      ]
+    },
+    "rationale": "The Montoya–Nolasco extremal pair path is explicitly prior and excluded from the novel claim. The new full state-dependent low-slack word enumerator, its linearly growing certified domain, and the exactly-one first correction were not found in the inspected relevant primary passages or the performed exact/alias/implication searches. The difference requires bounding every nondescending transition, rather than merely exhibiting a Hamiltonian pair path. Historical priority is qualified, not independently guaranteed.",
+    "residual_risks": [
+      "Unindexed earlier work on square automata or pair synchronization could establish the same enumeration.",
+      "Not every section of all historical primary sources could be examined in full; independent novelty validation remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the pair Hamilton-path bound; does not present low-slack word counts in the relevant inspected section",
+        "evidence": [
+          "Theorem 1 and proof on p. 2156 explicitly assert that an even-order pair visits all unordered pairs before merging."
+        ],
+        "identifier_or_url": "https://doi.org/10.12988/ams.2017.77232",
+        "material_read": "Public PDF pp. 2155–2156, §2.1, including theorem and figure; adjacent §2.2 context; text searches for unique and word counts",
+        "method": "Read accessible primary PDF text and page images",
+        "title": "On the Synchronization of Small Sets of States",
+        "trigger": "Direct overlap: pair-graph extremal path and Černý construction"
+      },
+      {
+        "assessment": "Concerned with full-state reset algorithms and complexity; does not supply the claimed pairwise low-slack enumeration",
+        "evidence": [
+          "§5.2 states the exact Černý transition definition and proves polynomial performance of the shortest-reset search algorithm."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10878-013-9682-0",
+        "material_read": "Open-access full HTML, abstract, §2.5 and §5.2 including Theorem 3 and proof",
+        "method": "Read accessible primary article sections",
+        "title": "Computing the shortest reset words of synchronizing automata",
+        "trigger": "Foundational 2013 online study of shortest reset words and Černý automata"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c13f69c4-bf21-4ec6-8c2f-b3650531bfce",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Counts the full language of pair-merging commands within a linearly growing overhead window, including sharp onset of non-idling excursions. This natural near-optimal reliability measure is distinct from classical reset length and from a finite table; the state-dependent exact formula and sharp first failure provide a structural classification.",
+    "status": "PASS"
+  }
+}
