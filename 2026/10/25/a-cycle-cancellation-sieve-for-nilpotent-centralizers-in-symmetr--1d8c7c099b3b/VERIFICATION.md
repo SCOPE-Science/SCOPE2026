@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The two included programs use Python's standard library and require no data files. Run `python3 general_verify.py` and `python3 verify.py` in a directory containing those scripts.
+# Independent mathematical audit
 
-`general_verify.py` creates actual partial injective maps and compares all rank coefficients for all nilpotent chain types of total vertex-count at most six. It also compares an independently enumerated decorated-chain matching count with the signed cycle sieve for chain types of total vertex-count seven through eleven with at most five chains. Its expected success message is `VERIFY_OK_NILPOTENT_CENTRALIZER_SIEVE`.
+## correctness
 
-`verify.py` checks the equal-length exponential generating function using exact rational polynomial arithmetic, compares it with independent decorated-matching enumeration, and exhaustively enumerates actual partial bijections in eight small cases. Its expected success message is `VERIFY_OK_UNIFORM_CHAIN_CENTRALIZER_RANK_PROFILES`.
+PASS
 
-These checks establish exact agreement in their stated finite ranges only. The general proof is the chain-prefix/terminal-suffix bijection followed by signed cycle cancellation; no independent mathematical audit has been performed.
+Commutation with a disjoint-union-of-chains nilpotent partial injection forces each source chain domain either empty or an initial segment of length s and image a terminal segment of a target chain of the same s, where 1<=s<=min(source length,target length); injectivity makes participating source-target chains a partial permutation. The weight of each edge is t^s, giving Cλ weighted rook polynomial. Iterating along a chain-label directed cycle only creates an actual periodic vertex if all positional offsets λ_target−s vanish; cyclic inequalities force all participating lengths equal and decorations full length. Sign inclusion-exclusion over these fully aligned equal-size cycles evaluates sum_{π∈S_m}(-1)^cycles(π)=0 for m>=2, leaving at most one selected chain of each distinct length; exactly Nλ(t)=Σ_{T⊆H}(-1)^|T|∏(m_h t^h)C_{λ\T}(t). For equal L, labeled paths/cycles with weights w_L and subtracting all-full cycles give N-EGF=(1−t^L z)C-EGF, hence the rank-shift coefficient identity. Independently enumerated every partial injective map in seven chain partitions totaling up to 5 vertices, checked commutation and actual nilpotence, and matched exact coefficient lists to the signed sieve. Includes L=1 singleton and empty cases.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified PASS only for the rank-refined nilpotent centralizer cycle-cancellation identity and its simple uniform-chain rank shift, not for characterizing commuting maps. Konieczny (2013) Theorem 3.4 already supplies the structural chain normal form; Gomes–Howie (1987) characterize nilpotent partial injections generally; Laradji–Umar (2004) count unrestricted nilpotent elements. These results do not state the signed deletion sieve of nilpotents in a specified nilpotent centralizer. Konieczny 2020 focuses Green relations and second centralizers in the accessible abstract; its full primary text remains inaccessible via authorized institutional VPN and could contain implicit equivalents.
+
+## value
+
+PASS
+
+The intersection of nilpotent elements with the centralizer of a fixed nilpotent partial bijection, stratified by rank, is a natural finite inverse-semigroup enumeration problem. Cycle cancellation converts a large signed sum over cycles to an exact 2^|H| sum indexed by distinct chain lengths for all chain partitions, and uniform chains have an especially sharp rank-shift identity. It provides structural coefficients not supplied by a bare commuting-element classification or unconditioned nilpotent count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
