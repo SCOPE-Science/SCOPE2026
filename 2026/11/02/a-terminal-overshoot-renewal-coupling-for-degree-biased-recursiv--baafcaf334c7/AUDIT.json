@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The precise p_m(k) transition law and splitting property are verified directly against arXiv:2408.05168v2, Proposition 1.2 and equation (1). The q tail telescopes to Q_m=(H_(m-1)+1)/m. Oversized proposals accepted with b_m/Q_m and otherwise redrawn from q conditioned on k<m yield every p_m(k) exactly; coupling paths agree to first renewal crossing. Rejection probability is bounded by 1/(H_(R-1)+1), and the event of bounded residual has probability bounded by finitely many aperiodic infinite-mean renewal masses u(r), tending to zero by the lattice Blackwell theorem. Truncation and concentration of iid jumps yield tau_n~2n/(log n)^2 in probability, transferred to K_n by total variation. Boundary m=2 is handled separately. Standalone verify.py passed 17265 exact rational assertions across transition probabilities, recursions, renewal identities and finite stochastic ordering. No finite check is used as a substitute for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:0710.5826: equation (2) and Theorems 1.1, 1.5",
+        "arXiv:2408.05168v2: Proposition 3.2, Section 3.1"
+      ],
+      "reasoning": "General decrement absorption theorems in arXiv:0710.5826 assume p_m(k)=p_k/sum_{j<m}p_j for all permissible k, which fails here because a separate state-mass b_m is placed at instant deletion. The harmonic renewal increment law in the current proof agrees with small decrements only after the explicit corrective mixture, not by the hypothesis of the general theorem.",
+      "searches": [
+        "degree-biased cutting random recursive tree number cuts asymptotic K_n tight renewal coupling exact 2024 2025",
+        "Iksanov Möhle 2007 probabilistic proof weak limit random recursive tree cuts coupling renewal process arxiv",
+        "On a random recursion related to absorption times of death Markov chains arXiv 0710.5826"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2408.05168v1; revised arXiv:2408.05168v2",
+      "doi:10.1214/ECP.v12-1253 and full-text mirror",
+      "arXiv:0710.5826",
+      "Blackwell renewal theorem (classical)",
+      "arXiv:2212.00183 (different deterministic targeted-cut model, abstract-level contextual comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2408.05168v2 Proposition 1.3: harmonic-weighted p_m(k) and instant-deletion mass",
+        "arXiv:2408.05168v2 Theorem 1.5: K_n stochastically dominated by barrier-walk J_n",
+        "doi:10.1214/ECP.v12-1253: uniform-edge p_m(k) proportional to 1/[k(k+1)]"
+      ],
+      "reasoning": "Neither an upper stochastic bound on K_n nor the asymptotics of J_n imply the lower matching asymptotic for K_n. The new first-overshoot coupling establishes a different pathwise lower comparison tau_n<=K_n and asymptotic equality with tau_n in probability. Existing uniform-edge cutting results have no H_(k-1) factor and no state-dependent root-kill mass b_m; transferring their theorem requires a new argument.",
+      "searches": [
+        "\"degree-biased cutting\" \"renewal\" recursive trees",
+        "Iksanov Möhle 2007 random recursive tree cuts renewal coupling",
+        "arXiv:2408.05168 Proposition 1.3 Remark 3.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2408.05168v2: Theorem 1.5, Theorem 1.6, Remark 3.3",
+        "doi:10.1214/ECP.v12-1253: uniform-edge-cut coupling, Sections 1–3"
+      ],
+      "reasoning": "Equivalent formulations include asymptotically exact iid renewal first-passage counting, coupling failure probability tending to zero, and distributional total variation between the two counts. The matching auxiliary walk in the 2024 source counts accepted jumps under a barrier, not the first passage count; its upper bound does not imply the new relation. The classic 2007 renewal coupling is for a different uniform-edge kernel.",
+      "searches": [
+        "\"degree-biased cutting\" \"K_n\" asymptotic \"law of large numbers\" 2026",
+        "\"degree-biased cutting\" \"renewal\" recursive trees",
+        "exact total variation coupling degree-biased random recursive tree destruction cuts K_n to iid harmonic-tailed renewal first passage stopping time; first-order 2n/(log n)^2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research record on root-degree/leaves covariance concerns a different observable",
+        "Published research record on root-attachment/path-length dependence concerns a different observable",
+        "Published renewal-overshoot record on two-point increments has a different renewal law"
+      ],
+      "reasoning": "Record searches found no entry giving the specific degree-biased cut count law, the harmonic terminal-overshoot acceptance, or the first-order limit of the actual destruction time. No existing finite table was used to infer novelty; finite checks were solely correctness checks.",
+      "searches": [
+        "exact total variation coupling degree-biased random recursive tree destruction cuts K_n to iid harmonic-tailed renewal first passage stopping time; first-order 2n/(log n)^2",
+        "degree-biased recursive tree root isolation logarithmic squared cuts law of large numbers full distribution coupling",
+        "harmonic-biased cutting random recursive tree overshoot rejection probability Blackwell renewal theorem stopping time",
+        "random recursive tree degree biased root degree path length covariance",
+        "Blackwell renewal theorem infinite mean lattice renewal mass tends zero"
+      ]
+    },
+    "rationale": "The 2024 initial model paper proves decrement probabilities, splitting and a comparison-walk upper stochastic bound, but not a total-variation coupling of its actual number of cuts. Classical recursive-tree cutting renewal couplings treat uniform nonroot-edge selection and different step distributions. General absorption-recursion results require normalized truncation, not the terminal atom of this model. The novel argument controls the first overshoot via acceptance instead of imposing conditional truncation. Direct record and published-literature searches identified no implying theorem; historical priority is not guaranteed.",
+    "residual_risks": [
+      "An unindexed or subsequently revised paper could independently derive the same first-passage approximation.",
+      "The lattice renewal theorem is standard, but the cited encyclopedia page was intermittently inaccessible on direct retrieval; the invocation is the classical span-one infinite-mean version.",
+      "The source model may have other distributional representations in literature not surfaced by the searches; independent priority review remains appropriate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the model, splitting/decrement law and barrier-walk comparison. Does not provide the asserted first-passage total-variation coupling or the actual-cut-count weak law; explicitly notes approximation difficulty from instant deletion.",
+        "evidence": [
+          "arXiv:2408.05168v2, pages 2–4, 7–9; Proposition 1.3, Theorems 1.5–1.6, Remark 3.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2408.05168",
+        "material_read": "Entire 13-page preprint text examined for relevant results, with visual inspection of pages 3 and 8 and detailed reading of pages 2–4 and 7–9.",
+        "method": "Full-text search plus direct reading of definitions, Proposition 1.2, equation (1), Proposition 3.2, Theorems 1.5–1.6 and Remark 3.3.",
+        "title": "A degree-biased cutting process for random recursive trees",
+        "trigger": "Exactly matching cutting object, decrement kernel, and a potential dominating auxiliary random-walk theorem."
+      },
+      {
+        "assessment": "The uniform-edge cutting kernel is proportional to 1/[k(k+1)] and permits a different coupling; this does not contain the harmonic-degree-biased overshoot acceptance result.",
+        "evidence": [
+          "Iksanov–Möhle 2007, equation (1), Section 2, pages 28–35"
+        ],
+        "identifier_or_url": "https://studylib.net/doc/10598850/a-probabilistic-proof-of-a-weak-limit-law",
+        "material_read": "Full-text HTML including introduction, decrement recursion, Sections 2–3 and the first-passage coupling.",
+        "method": "Read mathematical statements and compared the exact decrement probabilities and stop rules.",
+        "title": "A probabilistic proof of a weak limit law for the number of cuts needed to isolate the root of a random recursive tree",
+        "trigger": "A direct candidate covering result through a renewal coupling for recursive-tree cuts."
+      },
+      {
+        "assessment": "Its normalized-truncation hypothesis does not hold for the present p_m; cannot invoke its theorems without a new coupling.",
+        "evidence": [
+          "arXiv:0710.5826, equation (2), Theorems 1.1 and 1.5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0710.5826",
+        "material_read": "Full accessible HTML description and Sections 1–2, especially normalized transition assumption (2) and main theorems.",
+        "method": "Hypothesis-level comparison to the explicit state-dependent full-deletion atom.",
+        "title": "On a random recursion related to absorption times of death Markov chains",
+        "trigger": "General absorption-time theorem might imply the stated first-order law under a reduction."
+      },
+      {
+        "assessment": "Supports the classical limit u(r)->1/E[zeta]=0 used in the proof; does not address the cutting process.",
+        "evidence": [
+          "Blackwell renewal theorem, lattice version and infinite-mean convention"
+        ],
+        "identifier_or_url": "https://encyclopediaofmath.org/wiki/Blackwell_renewal_theorem",
+        "material_read": "Publicly indexed statement of the theorem and arithmetic-span definitions; page intermittently inaccessible at direct fetch.",
+        "method": "Theorem statement checked against standard lattice renewal theorem and its mean-infinite convention.",
+        "title": "Blackwell renewal theorem",
+        "trigger": "Check the renewal-mass limit for span-one infinite-mean arithmetic increments."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "baafcaf3-34c7-424c-b980-134f1ff0e36b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This addresses the central asymptotic cut-count problem for an explicitly published degree-biased random recursive-tree model. The original work supplies an auxiliary upper bound but cannot identify the actual number of cuts from that alone. A direct, asymptotically exact total-variation coupling is a structural statement that both resolves the first-order scale and permits transfer of further verified renewal-count distributional statements. The result is neither a normalization check, nor a finite experiment, nor a routine bound improvement; it exploits the anomalous instant-deletion atom to overcome a specific published obstruction. Its limitations and historical-priority risk are stated.",
+    "status": "PASS"
+  }
+}
