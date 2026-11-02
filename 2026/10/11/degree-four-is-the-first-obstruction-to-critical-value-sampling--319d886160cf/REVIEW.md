@@ -2,18 +2,16 @@
 
 ## Correctness — PASS
 
-The proof splits all complex quadratics and cubics into exhaustive derivative-multiplicity cases; the two-cubic-fiber identity is obtained for general complex coefficients by affine normal form, with no numerical or genericity assumption. The degree-four witness is certified by three exact polynomial factorizations and explicit convex combinations. The symbolic checker replays these exact identities; it does not purport to prove the arbitrary-cubic argument by finite testing.
+For every complex quadratic, its only critical-level fiber is the derivative zero. A cubic with a repeated derivative zero is a translated pure cube. Otherwise the two critical fibers have root triples (b+u,b+u,b-2u) and (b-u,b-u,b+2u), whose convex hull segments intersect exactly in the derivative segment. These are identities for arbitrary complex coefficients. The displayed monic quartic has derivative 4(z+8/5)(z²+1), three exact critical-level factorizations, and the rational point 2/21 in all three fiber hulls, while all critical points have nonpositive real parts. Independent exact arithmetic checked the factorizations and barycentric coordinates. It does not replace the all-cubic argument.
 
-## Originality — PASS
+## Originality — PASS, qualified
 
-Teng Zhang's first version (arXiv:2601.16102v1, Theorems 1.2 and 1.3) studies respectively all shifts and single-shift hull equality, whereas the new question restricts the intersection to critical-value shifts and determines its exact first failure degree. The February 2026 replacement withdrew Theorems 1.2 and 2.5 as incorrect; no withdrawn claim is used as a premise. Targeted mathematical-record searches and comparisons with classical Gauss–Lucas refinements did not reveal a dominating critical-value finite-sampling theorem. Residual risks include an unindexed equivalent or an incompletely inspected related historical manuscript.
+The 2026 Zhang preprint (arXiv:2601.16102v1) addressed all shifts and a separate single-shift equality test. Its all-shifts theorem was withdrawn in February 2026, and even a valid all-shifts equality would not imply equality for finite sampling. Rüdinger's 2014 strengthened Gauss–Lucas result concerns triangles and sectors cut out by a single polynomial's zeros, not critical-level shift intersections. Searches of published mathematical records found no distinct earlier statement of the sharp degree-four finite-sampling obstruction. The August 2026 JMAA article by Teng Zhang on equality of the zero and critical-zero hulls was checked through its accessible abstract; its complete text was unavailable, so an equivalent uninspected result remains a priority risk. Originality is assessed on the actual implications of the compared statements, not title overlap or failed-search certainty.
 
-## Value — PASS
+## Scientific value — PASS
 
-Critical values are a canonical finite candidate set for detecting the convex geometry of polynomial critical points through root hulls. The degree-four example establishes the first exact obstruction to this natural shortcut, while degrees two and three are universally and completely classified. The result is a structural degree threshold, not an arbitrary low-degree isolated coefficient identity.
+Critical values form an intrinsic finite candidate set for testing all-shift root-hull geometry. The universal success through degree three and a rational witness of first failure in degree four give a sharp structural boundary, rather than an arbitrary coefficient computation. The theorem does not classify all quartics, extend to higher degrees, or settle the withdrawn all-shifts assertion.
 
-## Scope and evidence limits
+## Evidence scope
 
-The claim is independent of the withdrawn full-shifts statement and makes no assertion about that question. The quartic witness establishes existence of failure in degree four, not a classification of all quartics. Exact algebraic verification is supplied alongside the proof. Prior-publication and indexing limitations prevent a guarantee of global novelty.
-
-Same-model review: passed. Independent audit: not yet performed.
+The proof is an elementary analytic/algebraic argument; exact symbolic checks verify its concrete polynomial and barycentric identities. No Lean or external expert attestation is claimed. The full scientific comparisons and material source inspections are recorded in AUDIT.json.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-## Reproducible checks
+# Independent mathematical audit
 
-Execute `python3 checks/verify.py` from a directory containing the supplied checker after installing `sympy` (version \(1.12\) or later). The checker was executed successfully with exact symbolic arithmetic and printed `EXACT_SYMBOLIC_CHECK_PASS`.
+## correctness
 
-It checks
-\[
-p_*'(z)=4(z+8/5)(z^2+1),
-\]
-all three factorizations of \(p_*(z)-p_*(\zeta)\) for \(\zeta\in\{-8/5,i,-i\}\), and the convex combinations for \(w=2/21\). In the first fiber the average of its noncritical conjugate roots is \(8/15\), and the exact barycentric weight of that midpoint relative to \(-8/5\) is \(89/112\). For the conjugate fibers the exact weights are \(9/14\) and \(5/14\).
+PASS
 
-## Proof obligations not delegated to computation
+For all p of degree 2 the sole derivative zero is the sole critical-level root. For cubic p with a double derivative zero the centered normal form is a pure cube. With distinct derivative zeros b±u, the general normal form p(b+t)=a(t^3-3u^2t)+c factors at each critical value as a(t-u)^2(t+2u) or a(t+u)^2(t-2u), yielding collinear segments [b-2u,b+u] and [b-u,b+2u] whose intersection is [b-u,b+u]. For the specific quartic, p′=4(z+8/5)(z^2+1), so its derivative hull is in Re z<=0. The exact three critical-level factorizations contain w=2/21 through convex combinations with weights 89/112, 9/14 and 5/14; the positive real witness lies outside the derivative hull. An independent SymPy program checked all three polynomial factorizations, all three barycentric identities, and both generic cubic polynomial identities, with no inference from finite examples to the universal claim.
 
-The all-quadratic and all-cubic cases are proved symbolically for arbitrary complex coefficients in `RESULT.md`. The finite symbolic check is not offered as exhaustive evidence for infinitely many cubics. Convexity and the real-part separation used to exclude the witness from the derivative hull are elementary exact inequalities. No general full-shifts theorem is assumed, in particular none from the withdrawn primary manuscript.
+## originality
+
+PASS
+
+Best-of-knowledge PASS. The claimed finite critical-value sampling threshold is not implied by the inspected Gauss-Lucas variants, the withdrawn all-shifts formula, the fixed-shift equality characterization or the 2014 triangle-location theorem. The relevant 2026 JMAA journal article was identified and its abstract compared; full text could not be inspected, leaving a named priority risk. An unsuccessful search alone is not treated as novelty proof.
+
+## value
+
+PASS
+
+The critical values are a canonical finite family of shifts when attempting to recover the derivative-zero convex hull from fiber-zero convex hulls. Proving the exact low-degree success and providing the first rational quartic obstruction identifies a motivated sharp boundary that is useful when deciding whether that finite sampling shortcut is valid. The result does not classify quartic failures, cover degrees above four, or resolve an arbitrary-shifts intersection identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
