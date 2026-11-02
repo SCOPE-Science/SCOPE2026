@@ -1,0 +1,19 @@
+# Scientific review: sharp three-site positivity recovery
+
+## Correctness — PASS
+
+The domain is explicitly \(0<\alpha\le2\), any \(h>0\), and the three-site principal restriction of Fourier multiplier \(|\xi|^\alpha\). The coefficient integrals determine a positive definite symmetric Toeplitz matrix. Integration by parts proves signs of the first and second offdiagonal coefficients, including \(0<g<b\) for \(\alpha>1\). A symmetric–antisymmetric block diagonalization gives every matrix-exponential entry. The one questionable offdiagonal is controlled by a strictly convex two-exponential scalar function: its derivative at zero is strictly negative and its long-time limit is positive, so one positive crossing and no return are proved. The isolated nonnegative time zero is included. Taylor expansion at \(\alpha=1\) plus a cosine-integral identity yields the threshold and negative-dip constants. The executable verifier independently evaluates the defining Fourier integrals and agrees with matrix exponentials for all 461 tested check groups. Finite tests are not substituted for all-parameter proofs.
+
+## Originality — PASS, with publication-priority caveat
+
+Huang–Oberman (2016, arXiv:1611.00164, Sections 4.1–4.2 and 5.1) **already establishes** the exact-symbol spectral weights and reports their negative signs for orders exceeding one; that qualitative positivity obstruction is therefore not new. Zhou–Zhang (2023, arXiv:2311.07814, Sections 2–3) studies the same exact-symbol Toeplitz discretization, not the exact three-site semigroup crossing. Noutsos–Tsatsomeros (2008, doi:10.1137/070693850, Sections 2–4) defines the general exponential positivity index and illustrates it with other matrices; Daners–Glück–Kennedy (2015, arXiv:1511.09020, Section 6.1) gives general finite-dimensional spectral criteria for eventual positivity. Chen et al. (2020, arXiv:2009.03581, Section VI) concerns signed Laplacians and general eventual positivity. Those works imply or explain qualitative failure and eventual recovery, **not** the particular unique sharp three-site onset, its exact scalar equation, its \(\alpha\downarrow1\) linear coefficient or its sharp quadratic negative excursion. Actual alias, parameter and implication searches found no directly dominating published formula. A broader unpublished or earlier special-case diagonalization may exist; no independent priority certification is claimed.
+
+## Value — PASS
+
+The first positive distance-two coupling in this standard nonlocal stencil occurs at three sites, so three is a motivated minimal test of the continuous-time discrete maximum principle, not an arbitrary numerical slice. Existing warnings about negative Fourier weights do not specify whether or when the resulting exact semigroup ceases to violate positivity. The result supplies a complete sharp time set, including the surprising isolated positive time \(t=0\), and resolves the near-boundary scaling of both duration and severity of the negative response. The exact threshold can be used as a small-grid verification benchmark for semigroup evaluation and numerical fractional diffusion, without claiming a general multi-site guarantee or practical severity at finite precision.
+
+## Closest literature and limits
+
+The starting coefficient facts are from Huang–Oberman (2016). General eventual semigroup positivity and its index predate this result (Noutsos–Tsatsomeros 2008; Daners–Glück–Kennedy 2015). Full or targeted primary-text examination found no direct same-family classification; the remaining originality risk concerns specialized three-by-three Toeplitz exponentials and prior finite-dimensional index examples. The claim is analytically restricted to the stated three-site, continuous-time exact-symbol matrix. No independent human or computer-formal verification occurred.
+
+Self-review: passed. Independent audit: not yet performed.
