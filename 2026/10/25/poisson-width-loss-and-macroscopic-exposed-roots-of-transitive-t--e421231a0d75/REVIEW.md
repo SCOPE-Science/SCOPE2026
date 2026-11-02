@@ -1,15 +1,21 @@
-# Review of the Poisson width-loss theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The supporting vertex in a Gaussian direction is exactly the maximum forward difference of independent coordinates; the opposite support is the maximum reverse difference. This leads to the exact deficit identity and the direction/radius separation. Two independent marked Poisson limits arise from rare positive and negative Gaussian tails. The noncompact ordered-pair extrema are treated by an explicit finite-mark truncation; the unique maximizing times yield the macroscopic exposed-gap limit. A half-sample lower support bound controls the normalized deficit in uniformly bounded moments, proving mean convergence. A conditioned Poisson void probability produces the exact constant representation. The delivered standard-library checker passed 900 exhaustive finite-root comparisons and 45 independent truncated-Poisson brute-force comparisons, plus finite distributional diagnostics. These finite checks do not establish the limiting claims.
+## correctness
 
-## Originality — PASS, qualified
-The primary literature on directed-edge and positive-root polytopes (Numata–Takahashi–Tamaki, arXiv:2203.14521; Setiabrata, arXiv:2001.05191; Gutekunst–Mészáros–Petersen, arXiv:1903.06595) was compared against the exact distributions and implications, not merely the titles. A published same-object theorem on the minimum enclosing sphere identifies simple roots as the only contacts; it does not imply the new random normal-cone measure or loss process. Wider mathematical-record searches for iid Gaussian drawdown/drawup and Poisson extrema found no decisive covering result. Bibliographic risk remains: an equivalently formulated joint iid drawdown limit could subsume some or all of the statement. The foundational extreme-value limit and polytope construction are credited, not claimed as original.
+PASS
 
-## Mathematical value — PASS
-The finding relates two basic convex-geometric observables—width and typical exposed vertices—on an infinite canonical polytope family. It establishes a genuine second-order stochastic limit and positive asymptotic mean deficit, and shows that the entire set of minimum-sphere contact vertices becomes angularly negligible. This has mathematical motivation independent of numerical checks.
+Uniform intrinsic-spherical direction is Gaussian mean-zero vector divided by independent chi norm; coordinate differences cancel centering. Forward/reverse maximum ordered differences F_n,B_n give exact width deficit Delta_n=2(max G-min G)-F_n-B_n. Normal extremes at b_n+a_n x with a_n=(2logn)^(-1/2) converge jointly as positive and negative independent marked Poisson processes; truncating low-mark candidates by high-probability ordered pairs justifies the noncompact maximum and unique gap. R_n/sqrt(n-1)->1 gives joint width-loss and gap limit. At one global max/min order exactly one directed root realizes full span (probability 1/2); unique limit endpoints imply simple-root angular mass tends to zero. Split-halves bound Delta_n by differences of full/half sample ranges with uniformly bounded normalized second moments, yielding mean convergence. Poisson void probability conditional on lower cloud produces constant 2(gamma_E-E log A). Independently checked exact forward/reverse support identities on 1000 continuous finite Gaussian samples; finite sampling is NOT the infinite proof.
 
-## Limitations
-All Euclidean observations refer to the intrinsic standard-coordinate realization. The universal limiting law is an explicit Poisson functional, with no elementary closed density asserted. The numerical checker is supportive only, and complete bibliographic exhaustiveness cannot be certified. The results have not received independent mathematical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Gaussian Poisson extremes and graph positive-root face theory are acknowledged ingredients; random joint width deficit and exposed pair gap are different observables from minimum enclosing sphere contacts or facial structure. Resultary search found no exact same joint distribution, though literature on max drawdown, high-frequency range estimators and Gaussian increment records might include a dominating formulation. Full primary probabilistic sources not fully inspected; best-of-knowledge PASS is qualified with that possibility.
+
+## value
+
+PASS
+
+Relates intrinsic mean widths and typical normal-cone exposed roots of a standard growing family. Shows a sharp second-order stochastic width loss and a nonzero mean constant despite identical first-order mean widths, and resolves the paradox that min-sphere contacting simple roots carry vanishing angular exposure mass. Nontrivial Poisson ordered-extrema law is meaningful beyond finite numerical checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
