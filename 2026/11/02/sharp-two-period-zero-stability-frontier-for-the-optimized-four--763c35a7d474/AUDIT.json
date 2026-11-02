@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Analytic reconstruction of both variable-step normalized stencils gives the exact difference-state matrices. The two-step product has an explicit cubic, and precise Schur expressions prove its roots lie inside the unit disk exactly in the open interval, with a simple -1 endpoint and an eigenvalue below -1 outside. All 278 local symbolic and finite checks passed; continuum proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Söderlind et al. 2018 smooth-grid hypotheses",
+        "Li–Liao 2022 BDF2/BDF3",
+        "Hadjimichael et al. 2016 explicit SSP family"
+      ],
+      "reasoning": "Existing results concern smooth grids, different method families, or general stability criteria; they do not give the exact constants for the source-specific four-step oscillating grid.",
+      "searches": [
+        "variable-step multistep zero stability smooth nonuniform grid Söderlind Fekete Faragó 2018",
+        "variable step BDF2 BDF3 Li Liao stability",
+        "strong stability preserving variable-step explicit linear multistep methods Hadjimichael"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.22685v1, Sections 6.2–6.3, Appendix A",
+      "Söderlind–Fekete–Faragó 2018",
+      "Li–Liao 2022 abstract/metadata",
+      "Hadjimichael et al. 2016 arXiv preprint"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Sec. 6.3 frozen-coefficient stability does not imply product spectral stability",
+        "Smooth-grid theory assumes asymptotically small adjacent-step perturbations"
+      ],
+      "reasoning": "The four-step cubic reciprocal polynomial and stability boundary require computing and analyzing noncommuting phase matrices; each cited prior result lacks the full joint hypotheses and conclusion.",
+      "searches": [
+        "Jensen Ketcheson Loczi optimal BDFL4 order two adaptive variable step alternating steps period two monodromy zero stability sharp ratio 4.22",
+        "optimized BDFL4 variable step stiff methods frozen root unstable but two-cycle Floquet stable periodic mesh",
+        "2026 optimized linear multistep methods A stable BDFL4 L stable variable steps parasitic multipliers Schur cubic",
+        "two periodic step size ratios stability 4-step BDF-like linear multistep exact periodic root condition",
+        "Jensen Ketcheson Lóczi optimized BDFL4 2026 variable step coefficients frozen root condition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.22685v1 Sections 6.2–6.3; exact coefficient product absent",
+        "Söderlind et al. 2018 smooth-grid scope; nonunit periodic ratio not covered"
+      ],
+      "reasoning": "Equivalent aliases include Floquet multiplier, periodic-grid zero stability, alternating step lengths, and two-phase companion matrices; source only freezes one phase.",
+      "searches": [
+        "\"BDFL4\" \"periodic\" \"step\" stability",
+        "\"BDFL4\" \"alternating\" step size",
+        "Jensen Ketcheson Lóczi Floquet stability BDFL4",
+        "optimized BDFL4 zero-stability two periodic",
+        "Jensen Ketcheson Loczi optimal BDFL4 order two adaptive variable step alternating steps period two monodromy zero stability sharp ratio 4.22",
+        "optimized BDFL4 variable step stiff methods frozen root unstable but two-cycle Floquet stable periodic mesh",
+        "2026 optimized linear multistep methods A stable BDFL4 L stable variable steps parasitic multipliers Schur cubic",
+        "two periodic step size ratios stability 4-step BDF-like linear multistep exact periodic root condition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathematical-record semantic searches returned other periodically forced recurrences and optimization algorithms, not the four-step variable coefficient method",
+        "Source Appendix A contains coefficients but no exact alternating-grid monodromy table"
+      ],
+      "reasoning": "No equivalent parameterized formula or numerical table was found; negative search results are evidence of search coverage, not uniqueness proof.",
+      "searches": [
+        "Jensen Ketcheson Loczi optimal BDFL4 order two adaptive variable step alternating steps period two monodromy zero stability sharp ratio 4.22",
+        "optimized BDFL4 variable step stiff methods frozen root unstable but two-cycle Floquet stable periodic mesh",
+        "2026 optimized linear multistep methods A stable BDFL4 L stable variable steps parasitic multipliers Schur cubic",
+        "two periodic step size ratios stability 4-step BDF-like linear multistep exact periodic root condition"
+      ]
+    },
+    "rationale": "The published optimized four-step paper studies frozen coefficients but leaves the alternating product unanalysed. The exact monodromy cubic, reciprocal threshold and frozen-versus-periodic example are not stated in the inspected source or located comparisons; originality remains conditional on available evidence, not certified historically.",
+    "residual_risks": [
+      "Specialist prior literature might contain a more general periodic coefficient criterion yielding the same numerical threshold by substitution.",
+      "Li–Liao full article not read, but its BDF2/BDF3 scope is not the optimized four-step scheme.",
+      "A closely related periodic stability result for optimized three-step BDF-like methods exists; the present four-step claim is separately proved, is not a direct corollary, and has a different threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the source method and its frozen-coefficient analysis, but does not supply the two-phase monodromy polynomial or exact zero-stability interval",
+        "evidence": [
+          "arXiv:2610.22685v1 Sections 6.2–6.3 and Appendix A",
+          "https://arxiv.org/html/2610.22685v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.22685v1",
+        "material_read": "Full HTML scientific main sections 6.2–6.3, discussion of frozen coefficients, Appendix A and variable coefficients",
+        "method": "Read mathematical definitions, published coefficient formulas and claimed stability comparisons; reconstructed coefficients independently",
+        "title": "Optimized linear multistep methods for stiff problems",
+        "trigger": "Same optimized four-step variable-step method and frozen stability analysis"
+      },
+      {
+        "assessment": "Smoothly varying step ratios approach unity as the grid refines; no identical fixed periodic ratio frontier for source-specific method",
+        "evidence": [
+          "Söderlind, Fekete, Faragó (2018), BIT Numerical Mathematics 58, 1125–1143"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10543-018-0716-y",
+        "material_read": "Accessible complete Springer HTML text of hypotheses, smooth-grid framework and stability statements",
+        "method": "Compared regularity of step variation and applications with fixed nontrivial alternating ratio",
+        "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "trigger": "General variable-grid zero-stability may dominate periodic-grid finding"
+      },
+      {
+        "assessment": "Different classical BDF2/BDF3 families; its material has not established the optimized four-step monodromy bound",
+        "evidence": [
+          "Li and Liao (2022), SIAM J. Numer. Anal. 60, 2253–2272"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/21M1462398",
+        "material_read": "Published abstract and metadata, not a full-text inspection",
+        "method": "Compared method identifiers and orders",
+        "title": "Stability of Variable-Step BDF2 and BDF3 Methods",
+        "trigger": "Classical implicit multistep variable-step stability"
+      },
+      {
+        "assessment": "Different explicit SSP family and monotonicity requirements, not a preexisting computation of the stated implicit four-step frontier",
+        "evidence": [
+          "Hadjimichael, Ketcheson, Lóczi and Németh (2016), SIAM J. Numer. Anal. 54"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.04107",
+        "material_read": "Accessible arXiv full preprint text",
+        "method": "Compared explicit SSP parameter regime with implicit optimized method and monodromy condition",
+        "title": "Strong stability preserving explicit linear multistep methods with variable step size",
+        "trigger": "Potential broader variable-step multistep stability principle"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "763c35a7-d474-46c7-ba55-f30757dc2f96",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact admissible alternating step-ratio frontier for a newly optimized implicit four-step method directly addresses deployment of variable-step stiff solvers. Its novel structural point is that a frozen step is unstable even though noncommuting two-step dynamics is stable; it supplies both the threshold and boundary eigenstructure, a non-routine cubic rather than extrapolating a simpler two- or three-step result.",
+    "status": "PASS"
+  }
+}
