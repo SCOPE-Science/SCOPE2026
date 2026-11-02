@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T14:47:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md Git blob 44925ff0393e33843dd5ec06cded2161cfd90a99, Finding/Proof",
+        "Independent bounded checker independent_checks_1434.py: exact symbolic identities and numerical beta quadrature",
+        "Canonical Git tree SHA-1 6abb949d85f2caf0d0cb7447cd24ad66f5c23874"
+      ],
+      "rationale": "The symmetric trace-zero quadratic matrix decomposes orthogonally under axial O(d-1) into zonal (dx_d^2-1), meridional (x_dx_i), and equatorial trace-zero quadratics. Conditional on U=x_d^2 with Beta(1/2,(d-1)/2) density, their conditional energy profiles are (dU-1)^2,U(1-U),(1-U)^2. The full-sphere beta second moments give exactly the three denominators in RESULT.md. Direct differentiation of (1-du)sqrt(u)(1-u)^((d-1)/2) and sqrt(u)(1-u)^((d+1)/2), followed by upper-end integration, proves both exact gap identities and strict ordering, for all d>=3 (including multiplicities at d=3) and t strictly interior. Independently symbolic-tested both derivative identities at d=3..15 and integrated all three branches at 65 dimension/threshold pairs; these checks corroborate, do not prove, the general derivative argument.",
+      "residual_risks": [
+        "The t=0,1 endpoints are excluded and genuinely scalar; the claim does not include mixtures of harmonic degrees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simons-Dahlen-Wieczorek arxiv:math/0408424 general full harmonic-band concentration framework and Simons-Dahlen arxiv:math/0603271 full-low-pass double-cap kernel",
+          "Resultary 2026/10/11/SCOPE-uniform-dimension-bandwidth-crossover-for-zonal-hemispherical-sp--ff7d4d2424fb concerns determinant asymptotics for hemispherical zonal bands"
+        ],
+        "reasoning": "These prior works cover wider harmonic band spaces but do not imply this exact ordering over the pure-degree-two subspace in every dimension by their stated comparison results; broader setup does not alone prove the sharp inequality.",
+        "searches": [
+          "antipodal spherical cap pure degree two quadrupole Slepian eigenvalue crossing meridional zonal threshold 1/d",
+          "Simons Dahlen 2006 antipodal double polar cap degree two order m=0 m=1 cap kernel eigenvalue crossing",
+          "pure degree 2 spherical harmonic two polar caps sharp concentration eigenvalues all dimensions"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0603271",
+        "https://arxiv.org/abs/math/0408424",
+        "Resultary 2026/10/11/SCOPE-exact-half-energy-multiplicities-for-hemispherical-spherical-sle--0284b88cef7a",
+        "Resultary 2026/10/11/SCOPE-uniform-dimension-bandwidth-crossover-for-zonal-hemispherical-sp--ff7d4d2424fb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:math/0603271 (double-cap kernel; its specialization yields d=3 restricted matrix entries)",
+          "arxiv:math/0408424 (general Slepian variational method)",
+          "Resultary 2026/9/20/SCOPE-sharp-l4-degree-two-spherical-harmonics--d4106097159f (fourth moment vs cap-restricted second moment)"
+        ],
+        "reasoning": "An existing general kernel is sufficient to mechanically compute low-dimensional eigenvalues; it does not state or deduce the global d>=3 maximizing-mode crossing without a separate spectral-gap comparison, whose factor (dt-1) is the substantive addition. Retain the possibility of another older explicit comparison.",
+        "searches": [
+          "antipodal spherical cap pure degree two quadrupole Slepian eigenvalue crossing meridional zonal threshold 1/d",
+          "Simons Dahlen 2006 antipodal double polar cap degree two order m=0 m=1 cap kernel eigenvalue crossing",
+          "pure degree 2 spherical harmonic two polar caps sharp concentration eigenvalues all dimensions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Simons-Dahlen arxiv:math/0603271, double-cap concentration matrix order/parity treatment around equations (82)-(89)",
+          "Resultary published 2026/10/11/SCOPE-exact-half-energy-multiplicities-for-hemispherical-spherical-sle--0284b88cef7a (hemisphere eigenvalue 1/2, not two-cap leading branch)"
+        ],
+        "reasoning": "Analogues include quadrupole Slepian taper, m=0 versus |m|=1 angular modes, zonal versus tesseral harmonics. The earlier double-cap matrix can express the three-dimensional specialization but an exact all-d critical-crossing theorem is not in the inspected portions; hemispherical half-energy multiplicity is a different operator question.",
+        "searches": [
+          "antipodal spherical cap pure degree two quadrupole Slepian eigenvalue crossing meridional zonal threshold 1/d",
+          "Simons Dahlen 2006 antipodal double polar cap degree two order m=0 m=1 cap kernel eigenvalue crossing",
+          "pure degree 2 spherical harmonic two polar caps sharp concentration eigenvalues all dimensions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full-band Slepian matrix gives computable d=3 entries, not a tabulation of the arbitrary-d gap roots",
+          "Resultary indexed spherical related results give no matching all-d antipodal quadrupole crossing formula"
+        ],
+        "reasoning": "The target is a continuous-parameter spectral phase boundary, not a finite table; the d=3 special case can be recomputed from older kernels, and the result claims the uniform family and equality classification.",
+        "searches": [
+          "antipodal spherical cap pure degree two quadrupole Slepian eigenvalue crossing meridional zonal threshold 1/d",
+          "Simons Dahlen 2006 antipodal double polar cap degree two order m=0 m=1 cap kernel eigenvalue crossing",
+          "pure degree 2 spherical harmonic two polar caps sharp concentration eigenvalues all dimensions"
+        ]
+      },
+      "rationale": "The classic Slepian double-cap formalism contains an algorithmic way to form d=3 spectral matrix entries, which is a real prior-implication risk; the inspected primary sections do not provide the dimension-uniform pure-degree-two leading-branch inequalities or the exact universal tie at t=1/d. Related published hemispherical results compare other masks, bandwidths or spectral invariants. Best-of-knowledge PASS for the joint sharp all-d result, not for invention of the Slepian operator or basic symmetry decomposition.",
+      "residual_risks": [
+        "The d=3 case is computable by earlier Slepian kernel formulas; unknown fully explicit older specialization may dominate the theorem.",
+        "Not every older full-band paper or unpublished result was exhaustively searched."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OVERLAPPING_FRAMEWORK_NOT_EXPLICIT_ALL_DIMENSION_SHARP_COMPARISON",
+          "evidence": [
+            "Double-cap eigenproblems are formulated by spherical harmonic order/parity, with low-pass matrix kernels; no all-real-d degree-two crossing proof identified in read sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0603271",
+          "material_read": "Original PDF text and rendered pages discussing polar-cap concentration, double-cap parity/order kernels, especially the equations 82-89 context; not a claim of entire PDF absence",
+          "method": "arxiv public PDF inspected using text and page screenshots",
+          "title": "Simons and Dahlen, Spherical Slepian functions and the polar gap in geodesy, arxiv:math/0603271",
+          "trigger": "same operator geometry, two antipodal polar caps and Slepian matrix"
+        },
+        {
+          "assessment": "BACKGROUND_BROADER_METHOD_PRIORITY_RISK",
+          "evidence": [
+            "Concentration eigenproblem and bandlimited spectral matrices are classical."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0408424",
+          "material_read": "Abstract and relevant spherical cap/bandwidth framework; full text not exhaustively searched",
+          "method": "arxiv abstract and indexed text",
+          "title": "Simons, Dahlen, and Wieczorek, Spatiospectral concentration on a sphere, arxiv:math/0408424",
+          "trigger": "foundational spherical Slepian spatial-spectral operator"
+        },
+        {
+          "assessment": "DIFFERENT_HEMISPHERICAL_HALF_ENERGY_INVARIANT",
+          "evidence": [
+            "The earlier statement counts eigenvalues at 1/2 for hemispherical degree masks, rather than double-cap top eigenvalue."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-half-energy-multiplicities-for-hemispherical-spherical-sle--0284b88cef7a",
+          "material_read": "Published result title and complete short finding summary, not repository proof",
+          "method": "Resultary published-finding semantic search",
+          "title": "Exact half-energy multiplicities for hemispherical spherical Slepian concentration",
+          "trigger": "published same family of Slepian operators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md spectral decomposition and explicit gap factor",
+        "Simons-Dahlen antipodal polar-gap motivation"
+      ],
+      "rationale": "The lowest nonconstant even spherical-harmonic sector is a natural physically relevant restricted Slepian space. Exact analytic determination of which symmetry type wins under cap size, its universal d-dimensional critical surface, and the complete equality eigenspace is a meaningful complete structural classification. This is more than numerically evaluating matrix entries, though it does not assert new general Slepian formalism.",
+      "residual_risks": [
+        "Scope is pure degree two with symmetric caps, not broad-band or arbitrary missing-data regions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all integer d>=3 and t in (0,1), the pure degree-two real spherical-harmonic concentration operator on the antipodal caps {x_d^2>=t} has three explicitly beta-integrated eigenspaces Z, M and E with dimensions 1, d-1 and (d-2)(d+1)/2; M-E is positive and the Z-M gap has sign(dt-1), so the maximizer switches uniquely from meridional to zonal at t=1/d, with exact d-fold tie.",
+  "limitations": [
+    "The operator is probability-normalized real pure-degree-two on antipodal caps only; 0<t<1, integer d>=3.",
+    "Prior general low-pass kernels and potential unlocated analytic all-d inequalities remain originality risk."
+  ],
+  "schema_version": 1
+}
