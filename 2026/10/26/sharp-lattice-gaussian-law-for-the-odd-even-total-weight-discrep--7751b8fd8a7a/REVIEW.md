@@ -1,19 +1,21 @@
-# Review of the odd–even total-weight discrepancy local law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The odd/even partition split gives exact counts \(N_n(d)=Q((n+d)/2)p((n-d)/4)\) with the requisite integrality conditions. The standard asymptotics of ordinary and distinct/odd partitions lead, after a uniform quadratic expansion, to the stated \(n^{3/4}\)-scale Gaussian law and the exact balanced count. The proof handles arbitrary congruence classes of \(n\) modulo four and all fixed local windows; the Riemann-sum normalization accounts for lattice spacing four. The `verify.py` checks are auxiliary, not a proof of the limit.
+PASS
 
-## Originality — PASS with stated priority risk
+For an unrestricted partition, independently choose the odd-part subpartition of total a=(n+d)/2 and the halved even-part partition of total t=(n-d)/4. This is an exact bijection N_n(d)=Q(a)p(t) when both are nonnegative integers and zero otherwise; hence d=n (mod 4). Applying classical p(t) and Q(a) asymptotics uniformly on fixed |d|<=K n^{3/4} yields the exponent -pi d^2/(4 sqrt(6) n^{3/2}) and prefactor 2/(6^{1/4} n^{3/4}); Taylor remainder O_K(n^{-1/2}), prefactor relative error O_K(n^{-1/4}). Lattice spacing four and tightness yield CLT with variance 2 sqrt(6)/pi. For 4|n, exact balance Q(n/2)p(n/4) and its asymptotic follow. Independently enumerated all partitions for n=0..17 and confirmed the bijection; finite cases do not prove asymptotics.
 
-The Andrews–Ghosh Dastidar and Bardhan–Saikia original papers on `SOME(n)` were inspected, including all nineteen pages of the latter. Their theorems concern aggregated signed weights, identities, congruences and monotonicity, not the partition-level local distribution. Craig–Li's alternating sum is by position, not by part-size parity; Bringmann and collaborators analyze numbers rather than weights of residue-class parts. The closest indexed published result involving weighted-representation partitions does not logically entail this exact coefficient distribution. Nevertheless, a more general partition ensemble theorem could contain the law implicitly; independent bibliographic confirmation is outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The statement obtains a complete Gaussian local description of the distribution of a natural arithmetic weight-imbalance statistic, fixes the first-order constant and lattice, and determines an asymptotic probability of exact odd/even weight balance. It is more informative than an aggregate moment congruence. The triviality of the factorization alone is not offered as mathematical value.
+Andrews–Ghosh Dastidar studies SOME(n) signed aggregate and congruences, not partition-level local distributions. Craig–Li alternates by part position, not size parity; Bringmann et al focus numbers of parts rather than total weight. Published weighted-representation partition claims concern different combinatorial objects. The exact Qp factorization is elementary and explicitly not new; novelty is at most the uniform local probability asymptotic.
 
-## Scientific limits
+## value
 
-Fixed compact scaling windows only; no rate or large-deviation tail asymptotics are claimed. General-priority risk remains; the underlying Hardy–Ramanujan asymptotics are classical.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The total odd-minus-even PART WEIGHT is a genuine arithmetic statistic studied through aggregate signed sums. Its local partition-level Gaussian law, variance scale n^{3/4}, lattice-four support, and exact-balance rarity n^{-3/4} are a useful, non-obvious probability description, even though the generating-function factorization is classical and not claimed original.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

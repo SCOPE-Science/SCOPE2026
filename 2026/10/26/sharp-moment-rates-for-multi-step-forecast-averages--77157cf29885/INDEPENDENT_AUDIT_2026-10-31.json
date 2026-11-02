@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:51:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "D_{N,n}=Y_{N,n}-E[Y_{N,n}|F_{N,n-K_N}] is F_{N,n}-measurable and conditioned mean zero at lag K_N. For each residue r mod K_N, the terms D_{N,r+jK_N} are martingale differences along the subsequence filtration. Conditional Jensen gives uniform ||D||_p<=2M^(1/p), martingale p inequalities give O(m_r^(1/p)) for 1<p<=2 and O(m_r^(1/2)) for p>=2; Minkowski across K_N classes yields (K_N/N)^min(1-1/p,1/2). Clipping UI Y at B, applying bounded-variable result then taking N->infinity followed by B->infinity yields L1 convergence. For N=mK_N, shared independent block values X_j yield T_N=m^-1 sum X_j: sparse ±m^(1/p) with probability 1/m attain p<2 rate, Rademachers p>=2 rate, ±m sparse spikes contradict convergence with only first-moment bounds. Each construction can be checked analytically; no computation is invoked as an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard martingale estimates provide classwise p bounds; their application to K coupled residue sequences is explicitly a standard ingredient.",
+          "No inspected general theorem states the exact forecast array result with K=o(N), uniformly integrable unbounded observations, and matching p-spike minimax rates."
+        ],
+        "reasoning": "General martingale inequalities imply much of the upper rate after decomposition, making this a limited extension; they do not give the exact combined problem statement and sharp examples without further work.",
+        "searches": [
+          "arXiv:2508.17507",
+          "doi:10.1214/aop/1176997023",
+          "martingale Burkholder Rosenthal inequality p moments"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.17507v2 (full primary PDF, theorem and Section 5)",
+        "DOI:10.1214/aop/1176997023 (classical inequality citation, abstract only)",
+        "Resultary forecast/moment published search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original source bounded conclusion cannot apply to unbounded UI variables without clipping and uniform-integrability remainder control.",
+          "Sharp p<2 obstruction uses rare heavy-tailed blocks excluded by bounded model."
+        ],
+        "reasoning": "The claim adds unbounded sufficient condition and sharp p-dependent rates beyond an exact implication of the source's bounded theorem.",
+        "searches": [
+          "arXiv:2508.17507 Theorem 1, Proposition 5, §5",
+          "Burkholder Distribution Function Inequalities for Martingales (1973)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vovk's theorem is bounded and its conclusion expressly proposes removal of boundedness.",
+          "Resultary nearest hits concern unrelated averaging schemes, not these lag-K conditional centered arrays."
+        ],
+        "reasoning": "The unbounded UI extension is not equivalent to the bounded theorem without a separate uniform tail truncation argument.",
+        "searches": [
+          "arXiv:2508.17507 Theorem 1 and §5",
+          "Resultary: Multi-step ahead prediction forecast martingale difference triangular array uniform integrability sharp Lp moment rate K/N"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Vovk includes a bounded-array lower bound, not a p<2 sparse-spike rate table.",
+          "Resultary search was dominated by unrelated spectral/forecast optimization problems."
+        ],
+        "reasoning": "No finite database is relevant to a universal triangular-array moment theorem; closest exact source is a published theorem, which is compared directly.",
+        "searches": [
+          "Resultary: Multi-step ahead prediction forecast martingale difference triangular array uniform integrability sharp Lp moment rate K/N",
+          "arXiv:2508.17507 Proposition 5"
+        ]
+      },
+      "rationale": "Vovk arXiv:2508.17507 Theorem 1 requires uniformly bounded Y and §5 specifically raises removing that assumption. Vovk's residue-class method is credited. Classical Burkholder/Rosenthal p-moment inequalities give method but do not state the forecast-specific combined UI law and matching sharp p-regime examples in the inspected sources. Directly covered bounded result is excluded from novelty.",
+      "residual_risks": [
+        "The upper rate follows quickly from classical martingale inequalities, so specialist priority or significance judgment may regard this as implicit in a broad known result.",
+        "No optimized constants, necessary UI condition, strong law or random horizon claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier bounded case and residue grouping covered; unbounded UI and sharp p<2 rates not stated",
+          "evidence": "Source Theorem 1 assumes |Y_n|<=1, and §5 asks to remove uniform boundedness.",
+          "identifier_or_url": "arXiv:2508.17507v2; DOI:10.1016/j.spl.2026.110785",
+          "material_read": "Complete 9-page primary PDF; abstract, Theorem 1, lower examples, Section 5 and appendix",
+          "method": "Read all main statements and compared moment/boundedness hypotheses",
+          "title": "A law of large numbers for predicting several steps ahead",
+          "trigger": "Same conditional averages, closest possible earlier theorem"
+        },
+        {
+          "assessment": "Source is standard martingale tool; broader-implication priority risk retained",
+          "evidence": "General p-inequalities alone do not explicitly mention forecast arrays.",
+          "identifier_or_url": "DOI:10.1214/aop/1176997023",
+          "material_read": "Bibliographic abstract only; full paper not independently retrieved in this run",
+          "method": "Identified classic inequalities as background, not evidence of noncoverage",
+          "title": "Distribution Function Inequalities for Martingales",
+          "trigger": "General p-moment tool potentially dominating rate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The primary source itself identifies removal of boundedness as a useful open direction. Uniform integrability supplies a robust unbounded-variable LLN, while the optimal moment-dependent exponents and explicit heavy-tail boundary counterexample characterize a natural predictive sharpness threshold. This is a substantive quantified extension, even though standard martingale tools are used.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2508.17507v2 (full primary PDF, theorem and Section 5)",
+    "DOI:10.1214/aop/1176997023 (classical inequality citation, abstract only)",
+    "Resultary forecast/moment published search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The upper rate follows quickly from classical martingale inequalities, so specialist priority or significance judgment may regard this as implicit in a broad known result.",
+    "No optimized constants, necessary UI condition, strong law or random horizon claimed."
+  ],
+  "residual_risks": [
+    "The upper rate follows quickly from classical martingale inequalities, so specialist priority or significance judgment may regard this as implicit in a broad known result.",
+    "No optimized constants, necessary UI condition, strong law or random horizon claimed."
+  ],
+  "schema_version": 1
+}

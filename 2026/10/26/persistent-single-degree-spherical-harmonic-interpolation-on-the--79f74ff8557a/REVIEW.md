@@ -1,9 +1,21 @@
-# Review of the truncated-octahedral harmonic rank theorem
+# Independent mathematical audit
 
-**Correctness.** The spherical addition identity identifies Gram rank with harmonic-evaluation rank. Antipodal symmetry reduces all 24 rows to a canonical 12-by-12 rational Legendre matrix. The finite checker independently builds all coordinates, computes each degree from the three-term Legendre recurrence in exact rational arithmetic, and verifies 129 matrix ranks plus the explicit degree-eight annihilator. Strict Gershgorin dominance for every degree at least 129 follows from the classical Bernstein inequality; therefore the finite checks cover the entire remaining domain rather than extrapolating from samples.
+## correctness
 
-**Originality.** The closest full-text primary source inspected is Khalid–Kennedy–McEwen (2014), arXiv:1403.4661, addressing bandlimited spherical transforms on iso-latitude sampling rings. An–Chen–Sloan–Womersley (2010), DOI 10.1137/100795140, is available in a full open-access manuscript: the introduction, sampling definitions, spherical-design constructions, and interpolation sections were inspected. It studies spherical-design and multidegree interpolation rather than an exact-degree rank table for this Archimedean orbit. Neither available statement yields this Archimedean 24-point, single-degree rank profile. Related reported exact harmonic-sampling results on the dodecahedron and the four-dimensional 24-cell do not imply this one: the evaluation domains and associated zonal kernels are different. Residual risk remains from unindexed specialized Archimedean sampling calculations ; the inspected sources are not an exhaustive literature census.
+PASS
 
-**Value.** This is a natural complete exact-degree sampling classification for a symmetric 24-vertex lattice-related solid, not an arbitrary slice or a generic rank test. Its sharp persistent threshold and an exceptional one-degree rank loss after a full-rank degree reveal a representation-theoretic blind direction relevant to fixed-frequency spherical interpolation. A degree-six harmonic gives that missing mode explicitly, and a rational certificate plus analytic tail proves no further defects for arbitrarily large degree. No claim of a paper-sized contribution or numerical-stability advantage is made.
+PASS. The 24 truncated-octahedral vertices are all permutations of (0,±1,±2)/√5, grouped into 12 antipodal pairs. For fixed degree ℓ, the spherical addition theorem makes evaluation rank equal to rank of the 12×12 real symmetric Gram matrix G_ℓ=(P_ℓ(v_i·v_j)) on parity-compatible representatives; positive scalar factors do not alter rank. Legendre arguments are rational j/5, −4≤j≤5, so the three-term recurrence supplies exact rational certificates. Independent exact Gaussian elimination freshly computed all 129 ranks ℓ=0..128 and reproduced [1,3,5,6,9,9,10,12,11] for ℓ=0..8, followed by rank 12 through 128; it also verified that the degree-six harmonic H=(x²−y²)(y²−z²)(z²−x²) evaluated on representatives spans a nonzero annihilator for G_8. For all ℓ≥129, distinct nonantipodal reps satisfy |dot|≤4/5, and Bernstein |P_ℓ(t)|≤sqrt(2/(πℓ sqrt(1−t²))) bounds each off-diagonal by sqrt(10/(3πℓ)), giving Gershgorin row sum ≤11 sqrt(10/(3πℓ))<1; the last inequality is rigorously established at 129 using π>223/71 and 85910/86301<1. Therefore no extrapolation from ℓ≤128 is required. Full rank at ℓ=7 then dip ℓ=8 makes the permanent threshold ℓ≥9 sharp; parity-compatible data, not arbitrary inconsistent antipodal values, is interpolated.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge for the explicit all-degree RANK PROFILE of exact-degree harmonics on the 24-point truncated-octahedral orbit, including a nonmonotone ℓ=8 defect and permanent threshold ℓ=9. The addition theorem, interpolation criteria and general spherical designs are known and not presented as novel. The inspected An–Chen–Sloan–Womersley 2010 and Khalid–Kennedy–McEwen 2014 primary full texts concern low-pass spherical-design or bandlimited sampling schemes (with varying node sets), not this fixed single-degree 24-vertex rank classification. Related finite-group and lattice-orbit harmonic decompositions might already encode the same profile, and inaccessible/unindexed tables remain genuine risk. No inspected stronger theorem was found to imply all listed ranks and tail.
+
+## value
+
+PASS
+
+PASS. The Archimedean truncated octahedron is a canonical symmetric 24-point sampling orbit. Fixed-frequency spherical-harmonic interpolation differs from band-limited interpolation, and an exact exceptional loss at degree 8 after full rank at degree 7 is a meaningful representation-theoretic obstruction. Identifying the persistent degree-nine threshold and explicit blind mode, with a complete rational/analytic certificate, is a natural complete classification rather than an arbitrary computed slice. No claim of good numerical conditioning is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-`check_dicyclic_moment.py` was executed on the files accompanying this result. It verified all 78 finite signs for \(n=2,\ldots,79\), both exact boundary values and an exact positive rational tail lower bound at \(n=80\). The recurrence is derived in the proof rather than treated as a black-box formula.
+# Independent mathematical audit
 
-`check_small_dicyclic.c` was compiled with a standard C11 compiler and executed. It exhaustively checked every subset of the five groups with \(2\le n\le6\), including 16,777,216 subsets at \(n=6\), with independent group-table arithmetic and the group associativity/inverse checks. Outputs for the first moment were \(-32,-156,-5376,-47280,-779184\), agreeing with the symbolic formula. For \(n\ge80\), positivity rests on the explicit monotone rational lower bound, not finite enumeration.
+## correctness
 
-Limitations: this verification does not independently establish literature priority and does not address the sign-count majority comparison. Independent audit has not been performed.
+PASS
+
+On Dic_n (n>=2), the missing-element identity expresses sum_A(|AA|-|AA^{-1}|) as a sum of cycle-independence counts. Rotation and nonrotation elements give the exact 2n-term formula with the nonrotation contribution -4n*7^(n-1). The independently derived Lucas recurrence reproduces M(29)=-203011530049362987071455440 and M(30)=397569666293094423242677920 and the signs for every 2<=n<=79. The displayed analytic lower bound normalized by 9^n is strictly positive at n=80 by rational arithmetic; its three adverse terms strictly decrease for n>=80, completing the infinite statement. Direct finite enumeration is corroboration, not substituted for the tail proof.
+
+## originality
+
+PASS
+
+Primary published results were compared by their mathematical implications; the stated precisely delimited new theorem is not established by the inspected statements, with incomplete-source and implicit-folklore risks retained. Originality is a qualified best-of-knowledge assessment, not a priority certificate.
+
+## value
+
+PASS
+
+The sharp n=30 transition is an exact naturally motivated threshold in the all-subset first moment for a canonical nonabelian family, especially one not covered by existing general asymptotic criteria. The mean claim does not assert that the majority of subsets are product-dominant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

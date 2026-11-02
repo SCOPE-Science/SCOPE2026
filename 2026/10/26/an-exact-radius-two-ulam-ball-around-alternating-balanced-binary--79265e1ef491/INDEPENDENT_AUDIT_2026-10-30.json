@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:49:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nonempty binary subsequence u, greedy earliest embedding in the alternating word 0101... consumes exactly |u|+e(u)+1_{u1=1} positions. Thus after exactly two deletions from a length 2m word, embeddability into w_m=(01)^m requires e(u)+1_{u1=1}<=2. One deletion can decrease equal-adjacency count by at most one, ruling out e(v)>=5. When e(v)=4 and initial bit is one, at most two deleted letters cannot both remove its initial run and the at least two further equalities needed; hence impossible. Conversely deleting nonfirst letters from repeated runs twice reduces e by two while preserving first bit (and the e<=1 cases embed after at most one appropriate deletion), yielding membership exactly e<=3 or e=4 with first zero. Balanced constant-run compositions enumerate k=0..3 as 2,2(m-1),2(m-1)^2,(m-1)^2(m-2); qualifying k=4 contributes C(m-1,2)^2, summing to (m^4-2m^3+5m^2+4)/4, m>=1. Independent dynamic-programming LCS enumeration of all 2^(2m) binary words for m=1..6 verifies the membership and balanced counts 2,6,19,53,126,262. The proof, not enumeration, handles all m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kong/Hagiwara distinguish generic-center radius one and sorted-center arbitrary radius; alternating does not belong to the sorted-center orbit.",
+          "Fleischmann et al. give general neighborhood upper bounds and embedding-count recurrences, not exact count for alternating balanced center."
+        ],
+        "reasoning": "A formula for sorted multiplicity blocks or a general upper bound does not imply the exact alternating radius-two center count without further run-level analysis.",
+        "searches": [
+          "arXiv:1701.03896v1 main sphere theorems",
+          "arXiv:1712.03639v2 Ulam sphere size discussion",
+          "arXiv:2610.17910v1 full sections 2-4"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md SHA 032329f369053ec40c5e3d14712fb83c5f96d78c",
+        "Assigned verify_alternating_jumble.py SHA f74c3c6e3b71cd0da16b83fc3af24dfce2c95f18",
+        "arXiv:2610.17910v1 full HTML",
+        "arXiv:1701.03896v1 primary PDF",
+        "arXiv:1712.03639v2",
+        "Resultary: alternating binary word constant composition Ulam distance two longest common subsequence ball run adjacent equality exact formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Lemma 8 upper bound grows as a polynomial O(m^4) but has a different coefficient and no exact center-dependent equality statement; sorted-center Ulam result does not specialize to phase-alternating center."
+        ],
+        "reasoning": "The exact sum requires new equal-adjacency deletion criterion and balanced-run composition, not mechanically obtained from the prior upper bound or unrelated-center theorem.",
+        "searches": [
+          "arXiv:2610.17910v1 Lemma 8 full text",
+          "arXiv:1701.03896v1 sphere classifications",
+          "arXiv:1712.03639v2 center comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 jumbled neighborhood for l=2 is exactly the same LCS>=n-2 neighborhood (with matching Parikh when length fixed), so it is a genuine alias, not a different problem.",
+          "Their Lemma 8 is only an upper bound C(n,2)^2*2!; the audited count is exact and center-specific."
+        ],
+        "reasoning": "Full-text comparison under equivalent jumbled-neighborhood terminology finds the framework but not the exact alternating-center membership or quartic.",
+        "searches": [
+          "Resultary: alternating binary word constant composition Ulam distance two longest common subsequence ball run adjacent equality exact formula",
+          "Fleischmann et al. arXiv:2610.17910v1 Definition 6 Lemma 8",
+          "Kong–Hagiwara arXiv:1701.03896v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby indexed Resultary computations enumerate adjacent-pair spectra and substring reconstruction, not the fixed-composition Ulam metric ball B_m."
+        ],
+        "reasoning": "The formula covers every m and admits an infinite structural characterization; neither an unrelated coding table nor small m computer checks establish it.",
+        "searches": [
+          "Resultary: alternating binary word constant composition Ulam distance two longest common subsequence ball run adjacent equality exact formula",
+          "Resultary: exact binary two-multispectrum code-size",
+          "Resultary: binary deletion-code neighborhoods"
+        ]
+      },
+      "rationale": "The full original 2026 Fleischmann et al. arXiv HTML text defines jumbled neighborhoods via LCS and proves the general upper bound C(n,l)^2 l!, not the alternating-center radius-two exact membership criterion or composition-specific quartic. Kong–Hagiwara 2017 and Kong 2017/2019 concern arbitrary-center radius-one and sorted-center arbitrary-radius Ulam spheres; alternating center is not a sorted center for m>1. The indexed other binary reconstruction/RLCS records address different invariants. Best-of-knowledge PASS with possible unindexed alternating-string special cases.",
+      "residual_risks": [
+        "Result counts fixed-composition center neighborhood at LCS radius <=2 only; no globally extremal center or radius >=3 statement.",
+        "Equivalent formula under niche binary run combinatorics may exist outside indexed papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same neighborhood object but only general bound and algorithmic embedding theory; no exact alternating-center enumeration",
+          "evidence": "Definition equates two jumbles with LCS>=n-2; Lemma 8 states at most binom(n,2)^2*2!, not a sharp balanced center count; no alternating result in original text.",
+          "identifier_or_url": "https://arxiv.org/html/2610.17910v1",
+          "material_read": "Complete open arXiv HTML introduction, Definition 6, Lemma 8 with proof, embedding-count sections, conclusion and the original reference list",
+          "method": "primary full-text HTML read",
+          "title": "Jumbled Simon’s Equivalence and Embeddings",
+          "trigger": "identical LCS/jumbled-neighborhood definitions and radius two"
+        },
+        {
+          "assessment": "Does not determine alternating balanced center at radius two",
+          "evidence": "Its main formula special cases use either one translocation or a sorted center, which is not (01)^m for m>1.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.03896",
+          "material_read": "Primary accessible PDF results on radius-one arbitrary centers and sorted centers at greater radii, with rendered page inspected",
+          "method": "full primary PDF theorem/result comparison",
+          "title": "Multipermutation Ulam Sphere Analysis Toward Characterizing Maximal Code Size",
+          "trigger": "multipermutation Ulam ball radii and center dependence"
+        },
+        {
+          "assessment": "Known sorted-center/all-radius and radius-one results do not directly imply target",
+          "evidence": "The center-specific run order is essential and is not a sorted multipermutation under symbol relabeling.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.03639",
+          "material_read": "Original arXiv theorem summaries and identified radius/center classes",
+          "method": "primary abstract and selected theorem comparison only, not claimed full-text noncoverage",
+          "title": "Ulam Sphere Size Analysis for Permutation and Multipermutation Codes Correcting Translocation Errors",
+          "trigger": "plausible broader arbitrary-radius sphere theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An alternating balanced word is a canonical maximally switching constant-composition center in deletion/translocation coding. Its exact radius-two Ulam/jumble ball size is a natural local metric-volume invariant relevant to coding bounds and neighborhood growth. The unexpectedly simple universal e(v) adjacency criterion also describes unrestricted-composition membership, giving a structural result beyond the quartic count. The theorem does not claim extremality among all centers or arbitrary-radius classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen RESULT.md SHA 032329f369053ec40c5e3d14712fb83c5f96d78c",
+    "Assigned verify_alternating_jumble.py SHA f74c3c6e3b71cd0da16b83fc3af24dfce2c95f18",
+    "arXiv:2610.17910v1 full HTML",
+    "arXiv:1701.03896v1 primary PDF",
+    "arXiv:1712.03639v2",
+    "Resultary: alternating binary word constant composition Ulam distance two longest common subsequence ball run adjacent equality exact formula"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Result counts fixed-composition center neighborhood at LCS radius <=2 only; no globally extremal center or radius >=3 statement.",
+    "Equivalent formula under niche binary run combinatorics may exist outside indexed papers."
+  ],
+  "residual_risks": [
+    "Result counts fixed-composition center neighborhood at LCS radius <=2 only; no globally extremal center or radius >=3 statement.",
+    "Equivalent formula under niche binary run combinatorics may exist outside indexed papers."
+  ],
+  "schema_version": 1
+}

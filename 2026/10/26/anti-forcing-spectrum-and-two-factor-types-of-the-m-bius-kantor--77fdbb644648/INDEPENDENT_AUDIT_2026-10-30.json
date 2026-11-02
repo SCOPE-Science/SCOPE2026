@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:49:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For labelled GP(8,3) on u_i,v_i, exactly 24 simple edges form a cubic bipartite graph with sixteen vertices. Independent bipartite permanent subset DP and vertex-matching backtracking count 33 perfect matchings. For each M, contracting the eight matching edges yields a directed graph on eight vertices and sixteen nonmatching arcs, whose directed cycles correspond bijectively to M-alternating cycles. The minimum feedback-arc-set recurrence over all 256 vertex subsets computes af(M) exactly, and complementing M yields cycle types: three (8,8) matchings have af=4, six (16) and twenty-four (6,10) have af=5. Independent from the submitted verifier, independently generated all perfect matchings and evaluated directed feedback-arc DP, reproducing {((8,8),4):3, ((16,),5):6, ((6,10),5):24}. The inspected separate complete verifier enumerates all 96 automorphisms and three orbits and independently certifies deletion witnesses and arc-disjoint alternating-cycle packings of matching sizes 4,5,5; the elementary DP lower bounds independently corroborate af. Therefore anti-forcing polynomial 3z^4+30z^5 and claimed matching-specific equality follow for exactly this graph; no general nonplanar minimax assertion is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2016 cyclomatic upper bound af(M)<=9 here is nonsharp versus 4 or 5.",
+          "The 2025 matching polynomial Table1 computes the number 33 and group 96, but gives no anti-forcing distribution."
+        ],
+        "reasoning": "Published broader invariants and bounds do not mathematically entail exact af(M)=4 or5 by complement cycle class; the finite census requires a new exact calculation.",
+        "searches": [
+          "arXiv:1607.05392v1 full HTML extremal and cyclomatic theorems",
+          "arXiv:1406.3796 anti-forcing plane graph theorem",
+          "Balasubramanian DOI:10.3390/sym17010133 original full text"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md SHA 7446de87c2e9392c552a8578c549de03863f1472",
+        "Assigned mk_antiforcing_verify.py SHA 1d837c01d89c1f930703c5eb2bf14263677fac8e",
+        "DOI:10.3390/sym17010133 full-text Table1",
+        "arXiv:1607.05392v1 full HTML",
+        "arXiv:1406.3796",
+        "Resultary: Mobius Kantor generalized Petersen GP(8,3) graph anti forcing numbers polynomial perfect matchings alternating cycles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known matching polynomial fixes count 33 but does not indicate which nonmatching edge deletions isolate the matchings; the planar minimax is inapplicable to this nonplanar graph.",
+          "Finite exact feedback-arc DP and orbit classification establish the missing distribution and nonplanar cycle packing individually."
+        ],
+        "reasoning": "Neither the count 33 nor the bound 9 implies 4/5 by type. The extra computation/classification is small and specific but not an automatic substitution into a known table.",
+        "searches": [
+          "Balasubramanian Symmetry 17(1):133, 2025 full Table1",
+          "Deng–Zhang 2016 nonplanar cyclomatic bound",
+          "Lei–Yeh–Zhang 2014 planar minimax"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anti-forcing of a perfect matching is exactly minimum feedback arc deletion in its contracted bipartite digraph; this is the actual equivalence used to compute the census.",
+          "The planar alternating-cycle packing minimax theorem does not directly apply because GP(8,3) is nonplanar."
+        ],
+        "reasoning": "No accessible identical feedback-arc-set/minimax census of all 33 GP(8,3) matchings was found; general computational definitions alone do not determine the three values.",
+        "searches": [
+          "Resultary: Mobius Kantor generalized Petersen GP(8,3) graph anti forcing numbers polynomial perfect matchings alternating cycles",
+          "Lei–Yeh–Zhang arXiv:1406.3796",
+          "Deng–Zhang arXiv:1607.05392v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Balasubramanian Table1 lists perfect matching coefficient 33 and automorphism group 96, prior and not original here.",
+          "Resultary hits on GP(8,3) matching complex topology and independence homology concern different invariants."
+        ],
+        "reasoning": "No inspected exact database/table already lists 3z^4+30z^5 or complementary cycle types with af numbers; finite-table duplication remains a generic residual risk, not an identified match.",
+        "searches": [
+          "Resultary: Mobius Kantor generalized Petersen GP(8,3) graph anti forcing numbers polynomial perfect matchings alternating cycles",
+          "Balasubramanian 2025 Table 1 complete matching polynomial",
+          "Resultary Möbius–Kantor matching-complex and homology records"
+        ]
+      },
+      "rationale": "Lei–Yeh–Zhang (2014) introduced anti-forcing and planar bipartite minimax results; the Möbius–Kantor graph is nonplanar (cubic bipartite girth six on 16 vertices and 24 edges exceeds planar bound 21), so that theorem does not directly cover it. Deng–Zhang (2016) full arXiv HTML gives broad cyclomatic bounds and examples, not the inspected graph-specific census. Balasubramanian (2025) primary full-text Table 1 already records 33 GP(8,3) perfect matchings and automorphism group 96, so those numerical facts are acknowledged prior; it does not record their anti-forcing numbers, complementary two-factor partition or arc-disjoint cycle packing. The new claim is exactly the anti-forcing distribution/cycle type. No directly covering Resultary entry was found; best-of-knowledge, with finite-graph tabulation risk.",
+      "residual_risks": [
+        "No general assertion is made for nonplanar graphs; independent anti-forcing equality was checked only for this one finite graph.",
+        "An obscure existing GP(8,3) anti-forcing polynomial or archived database row may evade the searches, although the primary known matching-polynomial table does not contain it.",
+        "Known counts 33 matchings and group order 96 are deliberately not claimed as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known 33 perfect matchings and 96 group order; no anti-forcing distribution in the primary matching-polynomial study",
+          "evidence": "Table1 coefficient for x^0 is 33, row lists group order 96; no af(M) or complementary (8,8),(16),(6,10) classification supplied.",
+          "identifier_or_url": "https://doi.org/10.3390/sym17010133",
+          "material_read": "Complete openly accessible publisher full-text as presented at https://www.researchgate.net/publication/388113886_Matching_Polynomials_of_Symmetric_Semisymmetric_Double_Group_Graphs_Polyacenes_Wheels_Fans_and_Symmetric_Solids_in_Third_and_Higher_Dimensions, Table1 and Möbius–Kantor discussion, references",
+          "method": "read original full-text table and matching-polynomial sections",
+          "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+          "trigger": "exact same GP(8,3), perfect matchings and symmetry class could include a hidden AF table"
+        },
+        {
+          "assessment": "General bound r(G) and different graph families, not exact nonplanar GP(8,3) census",
+          "evidence": "Cyclomatic-number estimate 24-16+1=9 bounds maximum but does not entail exact 5.",
+          "identifier_or_url": "https://arxiv.org/html/1607.05392v1",
+          "material_read": "Full primary arXiv HTML definitions, cyclomatic bound and even polygonal-chain families",
+          "method": "read primary full-text HTML and theorem/result ranges",
+          "title": "Extremal anti-forcing numbers of perfect matchings of graphs",
+          "trigger": "broad anti-forcing extremal and cyclomatic results"
+        },
+        {
+          "assessment": "Planar alternating-cycle minimax does not apply directly to nonplanar GP(8,3)",
+          "evidence": "GP(8,3) has 24 edges and girth six on 16 vertices, contradicting planar bipartite girth-six edge upper bound 21.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.3796",
+          "material_read": "Original abstract and identified plane-bipartite alternating-cycle theorem",
+          "method": "targeted theorem/abstract and scope comparison; no whole-document noncoverage claim",
+          "title": "Anti-forcing numbers of perfect matchings of graphs",
+          "trigger": "original matching anti-forcing definition and alternating-cycle minimax"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Möbius–Kantor graph GP(8,3) is the canonical small cubic symmetric nonplanar bipartite graph (Levi graph of the Möbius–Kantor configuration). Anti-forcing number is a natural measure of how many nonmatching edges must be removed to make each perfect matching unique. The full anti-forcing spectrum, three complementary 2-factor types and nonplanar equality of packing/covering provide a complete classification of this natural invariant, not a mere repetition of its known matching count. A finite-graph invariant can have independently useful mathematical value without yielding a general theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen RESULT.md SHA 7446de87c2e9392c552a8578c549de03863f1472",
+    "Assigned mk_antiforcing_verify.py SHA 1d837c01d89c1f930703c5eb2bf14263677fac8e",
+    "DOI:10.3390/sym17010133 full-text Table1",
+    "arXiv:1607.05392v1 full HTML",
+    "arXiv:1406.3796",
+    "Resultary: Mobius Kantor generalized Petersen GP(8,3) graph anti forcing numbers polynomial perfect matchings alternating cycles"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No general assertion is made for nonplanar graphs; independent anti-forcing equality was checked only for this one finite graph.",
+    "An obscure existing GP(8,3) anti-forcing polynomial or archived database row may evade the searches, although the primary known matching-polynomial table does not contain it.",
+    "Known counts 33 matchings and group order 96 are deliberately not claimed as novel."
+  ],
+  "residual_risks": [
+    "No general assertion is made for nonplanar graphs; independent anti-forcing equality was checked only for this one finite graph.",
+    "An obscure existing GP(8,3) anti-forcing polynomial or archived database row may evade the searches, although the primary known matching-polynomial table does not contain it.",
+    "Known counts 33 matchings and group order 96 are deliberately not claimed as novel."
+  ],
+  "schema_version": 1
+}

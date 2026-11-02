@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python verify.py` in a standard Python 3 installation (no dependencies). A successful execution prints `2LI_EXACT 2 6 / 16`, `2LI_EXACT 3 210 / 512`, `ODD_FIELD_DIM_TWO 3 two_LI 48 unique 56 out_of 81`, `ODD_FIELD_DIM_TWO 5 two_LI 480 unique 480 out_of 625`, `SINGULAR_RIGID_CRITERION_WITNESS 5 rank 4 rows [25, 4, 17, 27, 10]`, and `VERIFY_OK`. Exhaustive binary enumeration checks all \(n=2,3\) structure matrices and every corresponding invertible change of basis. The prime-field two-dimensional enumeration corroborates the stated restriction on the necessity of 2LI: a field of three elements has more unique-natural-basis algebras than 2LI algebras, whereas the counts agree at field size five.
+# Independent mathematical audit
 
-The five-dimensional binary witness has singular structure matrix, nonzero pairwise distinct square rows, and a strongly connected asymmetric directed support containing a loop. It is a witness to the deterministic criterion, not a proof of genericity.
+## correctness
 
-The general argument uses exact ranks, the multiplicative automorphism identity, independent random support bits, the bound on Bernoulli orbit invariance, and elementary finite-field matrix rank probabilities. Code cannot verify the asymptotic bounds for all dimensions; no independent audit, formal proof certification, or external validation is claimed.
+PASS
+
+Each square row of M is uniform over F_q^n. Pairwise nonzero, nonproportional rows (2LI) occur with probability ∏_{j=0}^{n-1}(1-[1+j(q-1)]/q^n) by projective-direction occupancy. If 2LI holds, multiplication by each vector of any alternative natural basis annihilates the span of its other columns, hence has rank <=1. A column supported in >=2 coordinates would span >=2 independent square rows, contradiction: all such basis changes are monomial. For q>3 a zero row or proportional pair permits a nonmonomial orthogonal pair, so necessity holds in that field range only. Any monomial automorphism induces a permutation of the nonzero support digraph; if the digraph is asymmetric the permutation is identity. Arc relations t_j=t_i^2 then force all scalars 1 in a strongly connected support graph with a loop. The probability of no loop is q^-n, failure of strong connectivity at most sum_{s=1}^{n-1}C(n,s)q^{-s(n-s)}, and a nontrivial permutation moving k labels can preserve at least k(2n-k) moved Bernoulli positions with probability <=rho^{kn/2}, giving sum_{k=2}^n n^k rho^{nk/2}=O_q(n^2 rho^n). Combining with 2LI failure gives O_q(n^2 rho^n); Pr(M singular)=1-∏_{i=1}^n(1-q^-i)>=1/q, hence the conditional bound follows without independence assumptions. Separately independently enumerated projective 2LI occupancy: 6/16 for q=2,n=2; 210/512 for q=2,n=3; 48/81 for q=3,n=2. Finite checks illustrate, not prove asymptotic claims.
+
+## originality
+
+PASS
+
+PASS for the random uniform-coefficient strong asymptotic trivial-automorphism theorem including positive-density singular matrices; known 2LI deterministic criterion, finite-projective occupancy idea, and random directed-graph asymmetry are acknowledged building blocks, not original discoveries.
+
+## value
+
+PASS
+
+Automorphism rigidity of a random evolution algebra is a natural open structural-probability question. The exact failure-rate estimate with an unrestricted dense matrix is nontrivial because generic matrices can be singular with positive limiting density; extending rigidity to that nonperfect subpopulation is mathematically meaningful. The result integrates deterministic natural-basis geometry and asymmetric random support to control actual algebra automorphisms, beyond a routine projective occupancy calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

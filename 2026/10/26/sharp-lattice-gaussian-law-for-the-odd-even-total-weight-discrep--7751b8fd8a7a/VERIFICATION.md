@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Running `python3 verify.py` returns `VERIFY_OK` after checking the exact odd/even partition factorization by independent exhaustive enumeration for \(0\le n\le16\), exact normalization against \(p(n)\) at several larger cutoffs through \(n=2000\), and finite numerical consistency with the local Gaussian expression at admissible lattice values. The checker uses only the Python standard library.
+## correctness
 
-The analytical argument is not predicated on enumeration. Its noncomputational inputs are the classical asymptotics for ordinary and odd/distinct partitions. The proof's Taylor remainder is uniform for each fixed scaled compact window. No all-support relative estimate, rate of convergence, or independently validated proof is asserted.
+PASS
+
+For an unrestricted partition, independently choose the odd-part subpartition of total a=(n+d)/2 and the halved even-part partition of total t=(n-d)/4. This is an exact bijection N_n(d)=Q(a)p(t) when both are nonnegative integers and zero otherwise; hence d=n (mod 4). Applying classical p(t) and Q(a) asymptotics uniformly on fixed |d|<=K n^{3/4} yields the exponent -pi d^2/(4 sqrt(6) n^{3/2}) and prefactor 2/(6^{1/4} n^{3/4}); Taylor remainder O_K(n^{-1/2}), prefactor relative error O_K(n^{-1/4}). Lattice spacing four and tightness yield CLT with variance 2 sqrt(6)/pi. For 4|n, exact balance Q(n/2)p(n/4) and its asymptotic follow. Independently enumerated all partitions for n=0..17 and confirmed the bijection; finite cases do not prove asymptotics.
+
+## originality
+
+PASS
+
+Andrews–Ghosh Dastidar studies SOME(n) signed aggregate and congruences, not partition-level local distributions. Craig–Li alternates by part position, not size parity; Bringmann et al focus numbers of parts rather than total weight. Published weighted-representation partition claims concern different combinatorial objects. The exact Qp factorization is elementary and explicitly not new; novelty is at most the uniform local probability asymptotic.
+
+## value
+
+PASS
+
+The total odd-minus-even PART WEIGHT is a genuine arithmetic statistic studied through aggregate signed sums. Its local partition-level Gaussian law, variance scale n^{3/4}, lattice-four support, and exact-balance rarity n^{-3/4} are a useful, non-obvious probability description, even though the generating-function factorization is classical and not claimed original.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

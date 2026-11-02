@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:49:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For arbitrary m>=1, a chronological equal-length accepted interval of length ell is rejected exactly when m accepted jobs cover its start. In any optimum that agrees with the greedy prefix, the first disagreeing accepted interval I can replace the next future job on a free-at-start machine: equal lengths imply end(I)<=end(J), so no later job is harmed; a first rejecting disagreement is impossible because m earlier greedy accepted intervals already overlap I. Thus every prefix is cardinality optimal. Cycling labels by cumulative acceptance count is feasible because, if the previous same-label job remained live, all m preceding accepted jobs would still be live at the new start; acceptance would fail. Cumulative machine counts differ <=1, exactly unit-value EF1/EFX. For m=2, [0,1),[1,2),[2,3) and [1-delta,2+delta), delta>0 arbitrarily small rational, have optimum four with forced (3,1) loads and max fair three; any <=3-job feasible two-machine interval graph has a balanced (<=2,1) coloring. Independently checked greedy against a separately enumerated interval-capacity optimum over bounded small grids and four rational witnesses. These do not replace the universal exchange/graph arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borst et al. give general unweighted offline 3/2 and online 2-1/m bounds, with duration-varying adverse cases; equal-length weighted lower bounds are not equal-weight equal-length cases.",
+          "Claw-free equitable coloring is a static existence claim even for fixed conflict graphs, not an all-prefix online cardinality theorem."
+        ],
+        "reasoning": "The broader algorithmic settings do not dominate the exact stronger guarantee on the doubly restricted class; the constant-duration and unit-valuation conjunction matters.",
+        "searches": [
+          "arXiv:2608.15159 abstract/model/guarantees",
+          "doi:10.23638/DMTCS-21-1-8 equitable coloring",
+          "doi:10.1016/j.ipl.2012.01.015 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen Git RESULT.md SHA 78ede9ce718a6ba1a292c2beccb689f2d89a75dd",
+        "Assigned check.py SHA 855c1a11f8a96bbde1692577e90e162be489debc",
+        "arXiv:2608.15159, dated 2026-08-15",
+        "DOI:10.1016/j.ipl.2012.01.015, published May 2012",
+        "DOI:10.23638/DMTCS-21-1-8",
+        "Resultary: online interval scheduling equal length unit weight start-time arrival cardinality optimal EFX envy free up to any job prefix optimal cyclic round robin four jobs perturbations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest general bound 2-1/m allows positive loss and does not imply exact unit ratio; a balancing recoloring theorem does not preserve machine histories irreversibly.",
+          "The four-interval witness has a common long overlap, forcing loads 3 versus 1 on two machines whenever all four are accepted."
+        ],
+        "reasoning": "The current strict all-prefix efficiency/fairness and length-dispersion threshold follow from additional exchange and cyclic-invariant arguments, not directly from these prior implications.",
+        "searches": [
+          "arXiv:2608.15159 abstract",
+          "DOI:10.1016/j.ipl.2012.01.015 abstract",
+          "2019 equitable coloring paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An equitable coloring of a unit-interval conflict graph balances a fixed feasible set, but does not specify an irrevocable online optimum at every prefix.",
+          "The 2012 study optimizes weighted completed intervals with preemptive algorithms; the current theorem has equal values and nonpreemptive irrevocable placement."
+        ],
+        "reasoning": "Equivalence would require a theorem simultaneously preserving greedy optimal throughput, cyclic irrevocable coloring, and every-prefix EFX; the inspected statements give no such implication.",
+        "searches": [
+          "Resultary: online interval scheduling equal length unit weight start-time arrival cardinality optimal EFX envy free up to any job prefix optimal cyclic round robin four jobs perturbations",
+          "Borst–Shahkarami–Vaish arXiv:2608.15159",
+          "Fung–Poon–Yung DOI:10.1016/j.ipl.2012.01.015"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No returned indexed Resultary finding was about the exact four-job perturbed-duration interval witness or prefixwise optimal EFX under chronological arrivals."
+        ],
+        "reasoning": "The minimal instance and universal m-machine policy are not simply lookup entries; the finite four-job census requires the structural interval-overlap argument.",
+        "searches": [
+          "Resultary: online interval scheduling equal length unit weight start-time arrival cardinality optimal EFX envy free up to any job prefix optimal cyclic round robin four jobs perturbations",
+          "Resultary matching allocation hits",
+          "Borst et al. 2026 witness classes"
+        ]
+      },
+      "rationale": "Zero-price all-prefix irreversible EFX at simultaneous equal unit lengths and the four-job arbitrarily small duration-perturbation boundary are not implied by the surveyed general EF1 interval-scheduling guarantees or static equitable recoloring. The directly relevant 2026 Borst–Shahkarami–Vaish abstract states general unweighted offline 3/2 and online 2-1/m guarantees with revocation, and equal-length weighted lower bounds, rather than this fixed-weight zero-loss theorem. The relevant 2012 Fung–Poon–Yung abstract concerns preemptive weighted equal-length throughput; its complete text is inaccessible (authorized Oxford attempt reports vpn_disconnected). This is a best-of-knowledge PASS qualified by unavailable primary full texts and possible equivalent classic scheduling formulations.",
+      "residual_risks": [
+        "Full 2026 fair-interval-scheduling paper and 2012 equal-length weighted preemptive paper were not fully readable; hidden stronger corollaries cannot be excluded.",
+        "No equality for the perturbed-duration competitive ratio is proved; only a 4/3 lower bound.",
+        "All-prefix model requires nondecreasing start times, equal positive durations, equal unit valuations, and no reassignment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant framework prior work; no assertion of whole-document noncoverage",
+          "evidence": "Abstract states 3/2 offline unweighted bound, 2-1/m online bound, revocation possible, and equal-length weighted lower bounds; it does not itself give all-prefix unit-weight zero loss.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.15159",
+          "material_read": "Full public arXiv abstract and stated offline/online theorem bounds; arXiv HTML full text inaccessible",
+          "method": "read abstract and full result description from public arXiv metadata",
+          "title": "Fair Division Meets Scheduling: Approximately Envy-Free Interval Scheduling",
+          "trigger": "nearest exact fairness-and-scheduling model"
+        },
+        {
+          "assessment": "Preemptive weighted objective; potential hidden special-case coverage retained as residual risk",
+          "evidence": "Abstract gives preemptive weighted m-machine approximation ratios and describes no EF1/EFX mechanism.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ipl.2012.01.015",
+          "material_read": "Original journal abstract from CityUHK institutional profile and ResearchGate metadata; full paper not obtained",
+          "method": "public abstract/metadata only; arXiv and lawful OA search not yielding full text, Oxford attempt blocked by vpn_disconnected",
+          "title": "On-line scheduling of equal-length intervals on parallel machines",
+          "trigger": "historical equal-length algorithms could dominate the claim"
+        },
+        {
+          "assessment": "Static feasible recoloring does not imply chronological irrevocable assignment",
+          "evidence": "Equal-size classes for a fixed claw-free graph can be chosen after all vertices arrive; no historical machine assignment preservation.",
+          "identifier_or_url": "https://doi.org/10.23638/DMTCS-21-1-8",
+          "material_read": "Cited theorem summary and mathematical applicability in package; no full-text claim",
+          "method": "theorem-level contextual comparison, not entire-paper noncoverage",
+          "title": "Parameterized Complexity of Equitable Coloring",
+          "trigger": "old claw-free equitable coloring of interval conflict graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All-prefix optimum acceptance under irrevocable machine assignment and EFX gives a sharp, motivated online fairness-efficiency theorem on a natural duration-homogeneous class. The four-job instance is a minimum-size boundary witness proving a discontinuous change for arbitrarily tiny positive duration dispersion. The claim intentionally does not assert a sharp ratio for nonuniform durations; both the exact zero price and minimal perturbation are independently useful.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen Git RESULT.md SHA 78ede9ce718a6ba1a292c2beccb689f2d89a75dd",
+    "Assigned check.py SHA 855c1a11f8a96bbde1692577e90e162be489debc",
+    "arXiv:2608.15159, dated 2026-08-15",
+    "DOI:10.1016/j.ipl.2012.01.015, published May 2012",
+    "DOI:10.23638/DMTCS-21-1-8",
+    "Resultary: online interval scheduling equal length unit weight start-time arrival cardinality optimal EFX envy free up to any job prefix optimal cyclic round robin four jobs perturbations"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full 2026 fair-interval-scheduling paper and 2012 equal-length weighted preemptive paper were not fully readable; hidden stronger corollaries cannot be excluded.",
+    "No equality for the perturbed-duration competitive ratio is proved; only a 4/3 lower bound.",
+    "All-prefix model requires nondecreasing start times, equal positive durations, equal unit valuations, and no reassignment."
+  ],
+  "residual_risks": [
+    "Full 2026 fair-interval-scheduling paper and 2012 equal-length weighted preemptive paper were not fully readable; hidden stronger corollaries cannot be excluded.",
+    "No equality for the perturbed-duration competitive ratio is proved; only a 4/3 lower bound.",
+    "All-prefix model requires nondecreasing start times, equal positive durations, equal unit valuations, and no reassignment."
+  ],
+  "schema_version": 1
+}

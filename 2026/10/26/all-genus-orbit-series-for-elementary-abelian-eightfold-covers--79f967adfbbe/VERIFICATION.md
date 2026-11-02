@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_orbit_series.py`. The test uses only the Python 3 standard library. It generates all \(168\) automorphisms of \(\mathbb F_2^3\), all sixteen subspaces, and their five permutation cycle types. It performs exact coefficient arithmetic for the Burnside–Möbius expression and the stated rational function through degree \(70\). The symbolic common denominator \(E(t)\) is explicitly the product over all five full-cycle denominators and has degree \(70\); each term's denominator divides \(E(t)\). The stated degree-\(27\) denominator divides \(E(t)\) exactly, and its numerator after clearing \(E(t)\) has degree \(63\). Agreement of all \(71\) coefficients proves the identity of rational functions. A separate actual brute-force orbit enumeration for \(3\le r\le12\) is included.
+# Independent mathematical audit
 
-Expected exact output:
+## correctness
 
-```
-VERIFY_OK GL3_order=168 conjugacy_types=5 subspaces=16 denominator_degree=70
-VERIFY_OK rational_identity_exact=true coefficients_0_to_70=true independent_orbits_r3_to_r12=true
-first_coefficients [1, 1, 3, 4, 8, 9, 17, 20, 34, 39, 61, 72, 106, 123, 174, 204, 277]
-```
+PASS
 
-The computation certifies the finite rational identity; the geometric equivalence and pole analysis are established in the accompanying written proof. It does not constitute independent validation, an exhaustive priority search or a statement about other signatures.
+C PASS. Riemann existence, abelian braid transpositions and GL(3,F2) relabeling identify faithful sphere covers of inertia 2 with spanning zero-sum 7-color multisets. Riemann–Hurwitz gives genus 2r−7, r>=5 (r=4 formal genus-one boundary). The 168 automorphisms have exactly five orbit-cycle types with counts 1,21,42,56,48; sixteen subspace Möbius terms remove nonspanning multisets. I independently reconstructed the exact 71-coefficient identity, verified the common degree-70 denominator is divisible by the stated degree-27 denominator, and matched coefficients r=4..20, in particular 1,1,3,4,8,9,17,20,34,39,61,72,106,123,174,204,277. Identity class pole order seven yields a_r~r^6/967680, while all others yield lower orders. This checks the finite rational certificate for ALL coefficients under the proved degree bound, not merely an empirical sample.
+
+## originality
+
+PASS
+
+O PASS (best knowledge): General Nielsen-class/abelian action classification and the rank-three r=4 case are prior, and Fano-plane counting is an established Burnside method; this claim concerns the evaluated all-branch-length rational generating function with precise numerator, poles and asymptotic. In the full Broughton–Wootton primary treatment, explicit precise signature results are limited to 3 or 4 branch points; modern finite-genus classification does not state this series. Equivalent implicit derivability from an older general algorithm remains a priority risk.
+
+## value
+
+PASS
+
+V PASS. The explicit rational Hilbert/orbit series and growth constant classify a natural infinite family of compact-curve group actions; the all-genus coefficient sequence is a directly reusable invariant, not a random small-case table. The exact computation is nontrivial despite use of established orbit methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

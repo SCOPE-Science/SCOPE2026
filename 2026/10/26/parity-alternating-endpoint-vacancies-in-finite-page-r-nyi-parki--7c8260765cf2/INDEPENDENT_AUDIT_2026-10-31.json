@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:50:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Uniform iid continuous bond priorities on an open path produce the same greedy parking law as the discrete Page–Rényi process. Conditioning on the earliest accepted bond yields independent residual left and right path processes, hence a_n=Pr(left endpoint vacant)=(Σ_{j=0}^{n−2}a_j)/(n−1) and b_n=Pr(both endpoints vacant)=(Σ_{j=0}^{n−2}a_j a_{n−2−j})/(n−1), initialized a_0=0,a_1=1. The exponential generating manipulation yields a_n=Σ_{j=0}^{n−1}(−1)^j/j!; a beta-integral representation of joint remainder is strictly positive, giving cov(I_1,I_n)=b_n−a_n² with sign (−1)^n for n≥3, zero for n=2, and |cov|~2^{n−2}/(n−1)! with the stated exact coefficient. This is an analytical all-n sign and factorial asymptotic, not an extrapolation. Independent from-scratch enumeration of all (n−1)! priority orders for n=2..9 yielded cov n=3 −1/4, n=4 2/9, n=5 −9/64, n=6 59/900, n=7 −505/20736, etc., matching recurrences; a_n and signs checked through n=29. The supplied checker additionally verifies exact b_n formulas through n=79.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gerin §2 bounds covariance on the infinite line by c/floor(distance/3)! and evaluates vacancy pair at separation three, e^-2/3.",
+          "Page gives moments of the TOTAL number of remaining vacancies; complete primary formulas were inaccessible in this run."
+        ],
+        "reasoning": "General bulk dependence bounds and the moments of vacancy count do not by themselves establish the exact finite opposite-endpoint correlation. Stronger earlier multisite formulas are a material unresolved priority comparison, acknowledged explicitly.",
+        "searches": [
+          "Gerin 2015 full arXiv:1411.8002/EJC 22(4) #P4.4",
+          "Page E.S. 1959 JRSS B 21(2), 364–374 abstract",
+          "Downton 1961 A note on vacancies on a line bibliographic citation"
+        ]
+      },
+      "checked_sources": [
+        "Full frozen RESULT.md, REVIEW.md, VERIFICATION.md, SLOGAN.txt and verify.py; administrative JSON checked for privacy",
+        "Full Gerin arXiv:1411.8002/EJC 2015 PDF, theorem and two-point discussion, screenshot pages 1,5",
+        "Page 1959 DOI publisher bibliographic abstract (full paper inaccessible)",
+        "Resultary: finite Page Rényi parking endpoint vacancy two point covariance parity",
+        "Independent all-order permutation enumeration n=2..9, exact recurrence through n=29"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An absolute factorial upper bound on an INFINITE-line covariance cannot imply finite endpoint alternating sign with sharp leading coefficient.",
+          "Moments of the TOTAL count conflate all pair locations, hence do not automatically determine one chosen opposite-end pair."
+        ],
+        "reasoning": "These inspected statements do not imply the all-n parity sign law; a more general unseen exact multisite identity might, and that potential implication is preserved as a risk.",
+        "searches": [
+          "Gerin 2015 arXiv:1411.8002 §2 Theorem 4 and discussion of pair at distance 3",
+          "Page 1959 doi:10.1111/j.2517-6161.1959.tb00343.x abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Random-priority greedy placement of dimers coincides with the standard discrete Page–Rényi parking/\"unfriendly seating\" model.",
+          "The assigned covariance concerns two endpoint vacancy indicators on the FINITE n-site line."
+        ],
+        "reasoning": "Model is not novel and can be rephrased as a two-boundary adsorption correlation or a pair-cumulant. That equivalence motivated primary comparisons, but does not prove historical coverage of the sharp parity formula.",
+        "searches": [
+          "Resultary: finite Page Rényi parking endpoint vacancy two point covariance parity",
+          "Gerin 2015 The Page–Rényi Parking Process arXiv:1411.8002",
+          "Page 1959 The Distribution of Vacancies on a Line"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gerin has a finite-process definition and infinite-line short-distance calculation, not a table of b_n−a_n² for opposite finite endpoints.",
+          "No inspected exact finite-endpoint table reproduces the alternating sign at every n."
+        ],
+        "reasoning": "No exact table observed in full inspected Gerin primary; inaccessible Page source prevents ruling out earlier implicit table, so residual risk remains.",
+        "searches": [
+          "Resultary: finite Page Rényi parking endpoint vacancy two point covariance parity",
+          "Gerin The Page–Rényi Parking Process full primary PDF",
+          "Page 1959 original article bibliographic database"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for parity-alternating correlation of the TWO OPPOSITE BOUNDARY vacancies at every finite n, with exact factorial asymptotic; the random parking process, first-split recurrence, and one-point marginal are classical and not new. Gerin 2015 primary full text establishes infinite-line vacancy density, factorial DECAY BOUNDS for long-range correlation, and one short-range positive pair, but does not state the finite-endpoint all-parity sign or exact sharp asymptotic. Page 1959 original and the 1961 Downton note are highly plausible sources of general finite moment or multisite identities but their complete primary text was not read; this is an explicit priority risk. No decisive stronger prior implication was identified, so literature inaccessibility alone is not treated as failure.",
+      "residual_risks": [
+        "Page 1959 and follow-up Downton 1961 primary full texts not inspected; an earlier multisite generating formula could imply the finite-endpoint result.",
+        "Applies only to open finite path, length-two dimers and uniform random priorities; cycles/heterogeneous rates and infinite-line sites differ.",
+        "Finite permutation checks do not prove sign for arbitrary n; analytic positivity of remainders and beta-integral asymptotics are essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR; NOT_DIRECT_COVERAGE",
+          "evidence": "Gerin proves infinite-line vacancy marginal 1−e^−2 and factorial correlation envelope, not exact finite two-endpoint sign/amplitude.",
+          "identifier_or_url": "arXiv:1411.8002; EJC 22(4) #P4.4 (2015), doi:10.37236/5150",
+          "material_read": "Full primary 13-page PDF, especially §1 random-priority equivalence, §2 Theorem 4 and distance-three calculation, pages 1 and 5 visually inspected",
+          "method": "arXiv/EJC lawful PDF text plus screenshots",
+          "title": "The Page–Rényi Parking Process",
+          "trigger": "Identical random dimer parking and long-distance vacancy correlations"
+        },
+        {
+          "assessment": "INACCESSIBLE_MATERIAL_RISK",
+          "evidence": "Abstract states mean and other moments of total number of vacancies; no whole-document noncoverage conclusion is warranted.",
+          "identifier_or_url": "E. S. Page (1959), JRSS B 21(2):364–374, doi:10.1111/j.2517-6161.1959.tb00343.x",
+          "material_read": "Publisher article summary/abstract only; full historical PDF not read",
+          "method": "Publisher bibliographic result and abstract; no statement extrapolated from inaccessible PDF",
+          "title": "The Distribution of Vacancies on a Line",
+          "trigger": "Foundational finite-line random parking and moment formulas, could implicitly cover boundary pair"
+        },
+        {
+          "assessment": "UNASSESSED_PLAUSIBLE_PRIOR",
+          "evidence": "Cited by later sequential-adsorption treatments; precise implication remains unknown.",
+          "identifier_or_url": "F. Downton, JRSS B 23 (1961):207–214",
+          "material_read": "Bibliographic citation only, not full text",
+          "method": "Reference-chain identification",
+          "title": "A note on vacancies on a line",
+          "trigger": "Historical follow-up to Page may contain finite-point formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The two vacancies lie at maximum distance across the finite parking interval. Their correlation switches sign under every one-site increase and remains nonzero for all n≥3, yet dies at a precise factorial scale. This is a natural finite-volume boundary effect invisible to the standard bulk occupancy law and is more informative than a routine one-point recurrence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Full frozen RESULT.md, REVIEW.md, VERIFICATION.md, SLOGAN.txt and verify.py; administrative JSON checked for privacy",
+    "Full Gerin arXiv:1411.8002/EJC 2015 PDF, theorem and two-point discussion, screenshot pages 1,5",
+    "Page 1959 DOI publisher bibliographic abstract (full paper inaccessible)",
+    "Resultary: finite Page Rényi parking endpoint vacancy two point covariance parity",
+    "Independent all-order permutation enumeration n=2..9, exact recurrence through n=29"
+  ],
+  "disposition": "passed",
+  "limitations": "Open finite path of n sites; greedy dimers accepted in independent exchangeable continuous priority order. Two endpoint vacancy indicators, not arbitrary separation; covariance n=2 zero, strict alternation n>=3, factorial asymptotic at n→∞.",
+  "residual_risks": [
+    "Page 1959 and follow-up Downton 1961 primary full texts not inspected; an earlier multisite generating formula could imply the finite-endpoint result.",
+    "Applies only to open finite path, length-two dimers and uniform random priorities; cycles/heterogeneous rates and infinite-line sites differ.",
+    "Finite permutation checks do not prove sign for arbitrary n; analytic positivity of remainders and beta-integral asymptotics are essential."
+  ],
+  "schema_version": 1
+}

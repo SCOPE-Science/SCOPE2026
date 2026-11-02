@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:51:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For KG(n,2), vertices are 2-subsets of [n] and adjacency is disjointness. The initial observed set consists of the selected vertices and all 2-sets disjoint from a selected edge; a white 2-set must meet every selected edge. No single vertex dominates by the update rule. At n=5 precisely 30 intersecting pairs initially force the remaining vertices. For n>=6 no pair suffices. With >=3 selected edges, either their common endpoint is absent, so the remaining white 2-sets form a (possibly empty) set of at most two that can be forced from observed vertices, or all selected edges form a star. A star with k spokes leaves precisely the white incident 2-sets and forces iff n-1-k<=3 (equivalently k>=n-4). Thus for n>=8 the only unsuccessful k>=3 sets are k-edge stars with 3<=k<=n-5; they are uniquely centered and counted by n*C(n-1,k). Every nonstar triple is minimal, and n-4-spoke stars are the additional minimal sets when n>=8. Total minimal-set count C(C(n,2),3) for n>=6 follows from cancellation. Independent direct-definition forcing and coefficient counts were executed for ALL 2^10 n=5 subsets, ALL 2^15 n=6 subsets and all k<=3 subsets at n=7,8,9: 46,844 sets, no mismatches. These finite tests corroborate, but the structural white-pair proof establishes the all-n result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brimkov et al. introduce and analyze the general generating polynomial and compute several graph families; full text was unavailable, so those families were not exhaustively verified.",
+          "Cornet–Torres explicitly characterize STATIC k-tuple dominating subsets in K(n,2), which does not track propagation of initially unobserved vertices."
+        ],
+        "reasoning": "A general definition of the polynomial, or static domination bounds, does not alone imply the n-dependent failed-star coefficient correction or minimal-set counts.",
+        "searches": [
+          "arXiv:1805.10984, Brimkov et al., power-domination polynomials",
+          "arXiv:2308.15603, Cornet–Torres, k-tuple domination on Kneser graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify_power_kneser.py",
+        "Independent direct-definitional test, /mnt/data/scope_worker07_current_run/independent_checks.py: 46,844 subsets",
+        "arXiv:1805.10984 (Brimkov et al.)",
+        "arXiv:2308.15603 (Cornet–Torres)",
+        "Resultary query: power domination polynomial Kneser KG(n,2) minimal power dominating sets stars zero forcing upper power domination"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General power domination polynomial work establishes the invariant and generic bounds.",
+          "The Kneser k-tuple paper studies simultaneous neighborhood domination and does not incorporate the one-white-neighbor forcing closure."
+        ],
+        "reasoning": "Neither inspected implication identifies exactly which common-center stars fail and how this changes both polynomial and inclusion-minimal families; generic minimum gamma_P=3 would not determine all coefficients.",
+        "searches": [
+          "arXiv:1805.10984, general power domination polynomial",
+          "arXiv:2308.15603, Kneser k-tuple domination"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned exact formulas on book graphs, double stars, and spiders, not Kneser disjointness graphs.",
+          "The general polynomial definition is identical to Brimkov et al.; no observed statement about KG(n,2) coefficients."
+        ],
+        "reasoning": "The claim is not a renaming of ordinary domination, zero forcing or a generic power-domination polynomial; it classifies all selections via the common-intersection criterion in the Kneser two-subset graph.",
+        "searches": [
+          "Resultary: power domination polynomial Kneser KG(n,2) minimal power dominating sets stars zero forcing upper power domination",
+          "Web: power domination Kneser KG(n 2) full polynomial minimal sets",
+          "arXiv:1805.10984 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matching KG(n,2) polynomial or upper-minimal-family table appeared in the inspected search records.",
+          "The examined published Resultary power-domination-polynomial entries involve book graphs, spiders, and double stars."
+        ],
+        "reasoning": "This is an infinite parameter coefficient classification, not reprinting a known finite table; absent search matches are only negative search evidence, not proof of novelty.",
+        "searches": [
+          "Resultary: power domination polynomial Kneser KG(n,2) minimal power dominating sets stars zero forcing upper power domination",
+          "Web: exact power domination polynomial Kneser KG(n,2) coefficient table"
+        ]
+      },
+      "rationale": "No prior source inspected establishes the exact full KG(n,2) power-domination polynomial and large-star/nonstar minimal-set dichotomy; best-of-knowledge PASS restricted to these quantitative claims, with the underlying power-domination process and general polynomial already published.",
+      "residual_risks": [
+        "Full Brimkov et al. 2018 primary paper could not be read; an uninspected explicit Kneser family or stronger identity would override this originality judgment.",
+        "The finite tests are not a proof of the all-n formula; the result depends on the analytic white-set/forcing argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible broader-source risk; no full-text NOT_COVERING assertion",
+          "evidence": [
+            "Full abstract confirms general definition, decomposition formulas and multiple explicit families; no verified complete list of families."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.10984",
+          "material_read": "Primary abstract and bibliographic summary only; original arXiv PDF retrieval disabled and ResearchGate listed no file",
+          "method": "arXiv record, targeted PDF/OA attempt and alternate publisher-preview search",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "Same invariant (full power domination polynomial), plausibly broader graph-family tables"
+        },
+        {
+          "assessment": "DISTINCT_HYPOTHESIS: static k-tuple domination rather than iterative power domination",
+          "evidence": [
+            "Abstract describes k-tuple dominating sets and minimum sizes under static multiplicity constraints."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.15603",
+          "material_read": "Full abstract listing contributions and K(n,2) characterization, not primary full text",
+          "method": "Original arXiv abstract and searches",
+          "title": "k-tuple domination on Kneser graphs",
+          "trigger": "Same graph KG(n,2), different domination notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Power domination measures propagation-assisted observability rather than static coverage, so exact coefficients and inclusion-minimal sensors in the highly symmetric Kneser KG(n,2) family are motivated. The failure criterion and n-4-spoke threshold yield a nontrivial family-size transition while the total number of minimal solutions remains invariant; neither minimum cardinality nor a generic polynomial definition gives this distribution. This is an exact structural classification for infinitely many graphs, not a gratuitous special-case computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verify_power_kneser.py",
+    "Independent direct-definitional test, /mnt/data/scope_worker07_current_run/independent_checks.py: 46,844 subsets",
+    "arXiv:1805.10984 (Brimkov et al.)",
+    "arXiv:2308.15603 (Cornet–Torres)",
+    "Resultary query: power domination polynomial Kneser KG(n,2) minimal power dominating sets stars zero forcing upper power domination"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n>=5 and ordinary closed-neighborhood, then synchronous or sequential one-white-neighbor forcing; only K(n,2), not KG(n,k) for arbitrary k.",
+    "The polynomial and minimal families, not generic power-domination definitions, are assessed as contributions."
+  ],
+  "residual_risks": [
+    "Full Brimkov et al. 2018 primary paper could not be read; an uninspected explicit Kneser family or stronger identity would override this originality judgment.",
+    "The finite tests are not a proof of the all-n formula; the result depends on the analytic white-set/forcing argument."
+  ],
+  "schema_version": 1
+}

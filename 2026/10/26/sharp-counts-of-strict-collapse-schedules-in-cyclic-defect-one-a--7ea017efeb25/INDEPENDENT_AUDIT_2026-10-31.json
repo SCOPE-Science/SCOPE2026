@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T04:50:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For Q=Z/nZ, a(i)=i+1 and b replacing only state 0 by d, every strict rank-decreasing b in coordinates undone by cumulative rotations removes p and requires p+d still present. Consequently to delete H=Q\\S with minimum k=n−|S| b letters, legal orders are exactly the linear extensions of induced forward-d paths; each maximal run of length ℓ_j is internally fixed, and interleavings give k!/∏ℓ_j!. A whole d-orbit in H would form an impossible directed cycle, so reachability occurs iff S meets all g=gcd(n,d) residue classes; converse uses rotations to implement each legal p sequence. For coprime d, run count at most min(k,n−k); factorial log-convexity and splitting show the balanced maximum with r=min(k,n−k), k=qr+t, count k!/(q!^(r−t)(q+1)!^t). Singleton complement is one long d-path, enforcing p_{j+1}=p_j+d and each minimal inter-b rotation a^(n−d), yielding the unique shortest reset word AMONG those with exactly n−1 b letters: b(a^(n−d)b)^(n−2), total length 1+(n−2)(n−d+1). No claim about unrestricted shortest reset words. Independent 0–1 shortest-path subset BFS exhaustively confirmed nonempty targets n=2..7 and all 1<=d<n; primary artifacts/verify.py implements all-target/schedule permutation checks through n=8. Infinite-parameter proof is combinatorial, not finite-sample inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Don establishes aperiodically 1-contracting/coprime subset reachability; this is correctly acknowledged.",
+          "Shortest-reset algorithms optimize unrestricted length rather than exact min-b-letter schedules.",
+          "Related Resultary theorem addresses two deletions in general rank-defect models, not all k factorial schedules."
+        ],
+        "reasoning": "The inspected known existence theorem covers a corollary but does not by itself count exact deletion schedules, prove balanced maximum or constrain reset uniqueness. An uninspected general all-defect enumeration remains possible.",
+        "searches": [
+          "Don arxiv:1507.06070 Proposition 2",
+          "Kisielewicz Kowalski Szykuła doi:10.1007/s10878-013-9682-0",
+          "Resultary two-defect 2026/10/4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1507.06070",
+        "https://doi.org/10.1007/s10878-013-9682-0",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Don implies coprime reachability but not the number of minimal-defect schedules for a fixed H.",
+          "Two-defect result proves reachability in length <=2n except antipodal obstacle, not all-k schedule counts or unique min-resource reset word."
+        ],
+        "reasoning": "The claimed counting and constrained optimality require identifying exact forward-d path orders, a further combinatorial argument absent from inspected prior implications. The known coprime reachability component is explicitly not independently valuable as a new theorem.",
+        "searches": [
+          "Don arxiv:1507.06070 full primary Proposition 2",
+          "Resultary SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cyclic rank-defect automata may be described as circular 1-contracting or one-cluster automata; strict-collapse sequences become topological sorts/linear extensions of directed d-run posets.",
+          "Reachability iff every modulo-g orbit has a survivor and exact count k!/∏ℓ_j! follows from the path-poset identification."
+        ],
+        "reasoning": "Generic multinomial shuffles are elementary but do not imply which automaton deletion constraints produce disjoint paths and which full-state images are attainable; claim is the full family classification.",
+        "searches": [
+          "Resultary query: cyclic defect one automata a cycle b rank n-1 strict collapse deletion schedules count reset word",
+          "arxiv:1507.06070",
+          "Resultary SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No examined published table provides every n,d,H schedule count; a finite automaton image BFS would not supply a formula for arbitrary n.",
+          "The verified schedule formula is a closed factorial all-parameter expression, not a recomputation of a single known table."
+        ],
+        "reasoning": "Direct enumeration n<=8 is finite corroboration only. There is no inspected exact database whose entries mechanically establish the infinite-poset theorem.",
+        "searches": [
+          "Resultary query: cyclic defect one automata a cycle b rank n-1 strict collapse deletion schedules count reset word",
+          "Resultary search for cyclic defect-one reset words and deletion schedules",
+          "arxiv:1507.06070"
+        ]
+      },
+      "rationale": "PASS, carefully limited. Don 2015/2016 already proves strong subset reachability for coprime circular 1-contracting automata, so coprime existence itself is not new. The related 2026 published Resultary record proves a two-deletion target classification for arbitrary rank-(n−1) transitions, but not a factorial enumeration of all strict-collapse orders for arbitrary H. New potential content is exact poset/schedule count, all-k sharp envelope, noncoprime reachability obstruction and resource-constrained unique reset word. A generic poset linear-extension lemma is prior and not claimed original; its precise identification and all-parameter optimized schedule counts for this automaton family are not located in relevant primary results. An older automata enumeration under alternative labels could cover the result; priority is best-of-knowledge.",
+      "residual_risks": [
+        "Earlier equivalent linear-extension counts for cyclic 1-contracting automata may exist under different terminology or in less-indexed sources.",
+        "The N(H) counts deletion-site schedules only, not literal words, which depend on intervening rotations.",
+        "The length formula is constrained to exactly n−1 occurrences of b and is not a theorem about unrestricted shortest resets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_COPRIME_REACHABILITY_ONLY",
+          "evidence": "Establishes substantial known subset reachability; inspected statements do not enumerate all minimal b-deletion schedules, their factorial envelope or the constrained unique reset word.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.06070",
+          "material_read": "Full arXiv primary PDF, especially definitions, Proposition 2 and consequences on aperiodic 1-contracting/coprime circular automata",
+          "method": "ArXiv full PDF with relevant proposition and proofs examined",
+          "title": "The Černý Conjecture and 1-Contracting Automata",
+          "trigger": "Highly relevant coprime circular subset reachability theorem"
+        },
+        {
+          "assessment": "COVERAGE_PARTIAL_REACHABILITY_NOT_ARBITRARY_K_ENUMERATION",
+          "evidence": "Two-hole reachability theorem for arbitrary rank-(n−1) replacement letter; cannot justify whole-document NOT_COVERING from a summary. No evidence of all-k schedule count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e",
+          "material_read": "Published record statement/summary of exact two-deletion reachability; full underlying repository proof not separately read in this execution",
+          "method": "Resultary semantic search matched record statement",
+          "title": "Two-defect reachability in cyclic defect-one automata",
+          "trigger": "Same cycle and defect-one transition objects at k=2"
+        },
+        {
+          "assessment": "GENERAL_UNRESTRICTED_LENGTH_ALGORITHM",
+          "evidence": "Unrestricted word length differs from the exact shortest word subject to minimal b-letter resource; no whole-document noncoverage inference.",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-013-9682-0",
+          "material_read": "Bibliographic and abstract-level information on shortest reset-word algorithms, not complete full text",
+          "method": "Literature search/abstract comparison",
+          "title": "Computing shortest reset words of synchronizing automata",
+          "trigger": "Potential unrestricted reset-length domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The natural target-set reachability problem in a canonical one-defect synchronizing automaton is sharpened to exact counts of all minimum-resource deletion schedules, a sharp balanced extreme over missing sets, and rigidity of a resource-constrained reset witness. General multinomial identities alone cannot identify the automaton poset or optimize it; the invariant is a plausible reusable precise combinatorial fact.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1507.06070",
+    "https://doi.org/10.1007/s10878-013-9682-0",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Schedules are abstract deletion orders, not literal automaton words, and final result applies to nonempty target sets.",
+    "Balanced envelope requires gcd(n,d)=1; reset-word uniqueness is among words with exactly n−1 b uses."
+  ],
+  "residual_risks": [
+    "Earlier equivalent linear-extension counts for cyclic 1-contracting automata may exist under different terminology or in less-indexed sources.",
+    "The N(H) counts deletion-site schedules only, not literal words, which depend on intervening rotations.",
+    "The length formula is constrained to exactly n−1 occurrences of b and is not a theorem about unrestricted shortest resets."
+  ],
+  "schema_version": 1
+}

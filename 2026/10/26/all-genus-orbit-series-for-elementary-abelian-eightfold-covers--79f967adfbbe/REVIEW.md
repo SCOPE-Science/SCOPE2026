@@ -1,11 +1,21 @@
-# Review: All-genus orbit series for elementary abelian eightfold covers
+# Independent mathematical audit
 
-**Correctness — PASS.** The Riemann-existence/Nielsen-class interpretation, Möbius inversion on all sixteen binary subspaces, and Burnside computation over the \(168\)-element automorphism group give a rigorous rational-series expression. The attached standard-library checker proves the simplification by a denominator-degree bound (not extrapolation from examples); separate low-length orbit enumeration is supplementary. The asymptotic follows from the unique pole of order seven at \(t=1\).
+## correctness
 
-**Originality — PASS, qualified by residual priority risk.** Broughton–Wootton (2007) supply the complete general elementary abelian enumeration method and the four-branch-point boundary count. Weaver (2017) treats rank two over odd primes. Disney-Hogg–Zuev (2026) enumerate equivalence classes only through genus \(48\). Their statements do not provide the evaluated infinite rank-three binary rational function. It remains possible that a previous source derived this specialization implicitly; exhaustive priority is not claimed.
+PASS
 
-**Mathematical value — PASS.** The complete all-genus sequence and \(r^6/967680\) asymptotic are precise invariants of a natural infinite family of genus-varying covers. They yield exact targets beyond finite-genus tables for comparison of equivalence-class enumerations. These computations depend on the Fano-plane structure and cannot be obtained by simply reporting one small case.
+C PASS. Riemann existence, abelian braid transpositions and GL(3,F2) relabeling identify faithful sphere covers of inertia 2 with spanning zero-sum 7-color multisets. Riemann–Hurwitz gives genus 2r−7, r>=5 (r=4 formal genus-one boundary). The 168 automorphisms have exactly five orbit-cycle types with counts 1,21,42,56,48; sixteen subspace Möbius terms remove nonspanning multisets. I independently reconstructed the exact 71-coefficient identity, verified the common degree-70 denominator is divisible by the stated degree-27 denominator, and matched coefficients r=4..20, in particular 1,1,3,4,8,9,17,20,34,39,61,72,106,123,174,204,277. Identity class pole order seven yields a_r~r^6/967680, while all others yield lower orders. This checks the finite rational certificate for ALL coefficients under the proved degree bound, not merely an empirical sample.
 
-**Limits.** Quotient genus zero, rank three over \(\mathbb F_2\), faithful actions and all order-two branch points only. No classification of curves up to holomorphic isomorphism or of their full automorphism groups. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O PASS (best knowledge): General Nielsen-class/abelian action classification and the rank-three r=4 case are prior, and Fano-plane counting is an established Burnside method; this claim concerns the evaluated all-branch-length rational generating function with precise numerator, poles and asymptotic. In the full Broughton–Wootton primary treatment, explicit precise signature results are limited to 3 or 4 branch points; modern finite-genus classification does not state this series. Equivalent implicit derivability from an older general algorithm remains a priority risk.
+
+## value
+
+PASS
+
+V PASS. The explicit rational Hilbert/orbit series and growth constant classify a natural infinite family of compact-curve group actions; the all-genus coefficient sequence is a directly reusable invariant, not a random small-case table. The exact computation is nontrivial despite use of established orbit methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

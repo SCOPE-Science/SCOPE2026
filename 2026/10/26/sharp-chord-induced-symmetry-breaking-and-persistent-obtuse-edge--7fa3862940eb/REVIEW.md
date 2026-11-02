@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The equilibrium equations are checked at all vertices after reducing both equal-length arms to constant increments. The scalar coupling map is a strictly increasing bijection from \((0,\pi/m)\) onto the range above \(2\cos(\pi/m)/m\) by monotonicity of \(t\cot t\). The weighted-Laplacian energy on each arm is bounded below by its harmonic fixed-endpoint energy, yielding an exact stability criterion. For the nonuniform family the required sign is exactly the same derivative inequality as branch monotonicity. The linear index at the uniform twist follows from a single rank-one negative edge. The chord-angle boundary and onset expansion are direct consequences. Direct full-vector-field and Hessian tests passed at 232 parameter/branch points for eight graph sizes; these are checks rather than substitutes for proof.
+## correctness
 
-## Originality — PASS (inspected-evidence standard)
-The closest primary work, Bronski–DeVille–Ferguson (arXiv:1508.01507), provides signed network Laplacian inertia methods, not explicit nonlinear chord-weight branch continuation; Delabays–Coletta–Jacquod (arXiv:1512.04266) treats single-cycle phase winding, and their planar multi-loop paper (arXiv:1609.02359) gives general winding bounds and unequal-arm examples but not this symmetric all-parameter formula in the inspected relevant sections. The closest indexed result about Braess locking on a four-oscillator closure has different frequencies, graph size, and an onset threshold, not a persistence theorem for identical-frequency antipodal twists. Search can miss earlier equivalent specializations; this is a residual historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-The single-chord perturbation is a natural minimal violation of ring topology. The result determines a sharp nonhyperbolic onset in every admissible even size, constructs four persistently stable vortex branches, and isolates a parameter interval in which an attractive physical edge carries a negative linearized conductance without destabilizing the state. These are nonlinear existence and stability facts across an infinite graph-size family, rather than finite illustrative numerics or a routine numerical example.
+PASS. On the 2m-cycle, m>=4, with antipodal chord weight κ, each equispaced ± unit twist is an equilibrium with negative chord conductance −κ and positive ring conductance cosδ. Fixed-endpoint two-arm Dirichlet energy is at least 2 cosδ (v_m−v_0)^2/m, giving exactly one additional zero mode at κc=2cosδ/m, and one unstable direction above it. For broken branch, arm increments δ±x with 0<x<δ, current balance reduces to 2cosδ sin x=κ sin(mx). The ratio κ(x) grows continuously from κc to infinity since cot x−m cot(mx)>0 for x∈(0,δ), so every κ>κc gives exactly one positive x. Sign reversal and arm interchange yield four distinct equilibria. Along either branch c±=cos(δ±x)>0, and the harmonic energy lower bound gives [(c++c−)/m−κ cos(mx)](v_m−v_0)^2; equilibrium converts the bracket to positive [2cosδ sin x/m][cot x−m cot(mx)]. Thus all four branch Hessians have precisely one rotational zero mode, every other eigenvalue positive (flow stable), while synchrony persists. The principal chord gap π−mx crosses π/2 at κo=2 cosδ sin(π/(2m)); the square-root onset follows κ/κc=1+(m²−1)x²/6+O(x^4). Own independent full vector-field and Hessian construction passed 108 branch states m=4..12. The theorem says at least five, not exactly all stable classes.
 
-## Limits
-The result supplies a lower bound of five stable phase classes for stronger chords, not all equilibrium counts, basins, or critical nonlinear normal forms. The general graph Laplacian and winding frameworks are credited, and independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS bounded best-of-knowledge for explicit all-coupling symmetric chord bifurcation, four stable branches and obtuse persistence interval. Prior Bronski–DeVille–Ferguson graph-homology signed Laplacian is acknowledged as the stability method. Delabays–Coletta–Jacquod (2016, arxiv:1609.02359) full text treats planar multi-loop Kuramoto, sharing-edge topologies and long-edge stable states, so its stronger general framework merits careful comparison; its inspected examples and statements do not state the equal-arm antipodal chord one-parameter exact κ(x), uniqueness, κo. Narrow originality, priority risk remains if general results implicitly entail it.
+
+## value
+
+PASS
+
+PASS. A single natural graph perturbation destroys canonical twisted equilibria at a sharp threshold but generates four explicitly stable symmetry-broken branches persisting for all stronger chord coupling. The exact interval where those stable states maintain an obtuse attractive-edge phase gap is a motivated boundary/classification for multistability, not a trivial recasting of a known signed-Laplacian test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

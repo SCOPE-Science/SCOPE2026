@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The centered terms have conditional mean zero at lag \(K_N\). Splitting indices by residue modulo \(K_N\) produces martingale-difference sequences. Standard \(L^p\) martingale inequalities and Minkowski's inequality give the stated rates; clipping plus uniform integrability gives the \(L^1\) limit. The sparse-spike and Rademacher block constructions verify the rate exponents and the failure of a mere first-moment bound.
+PASS
 
-## Originality — PASS
+D_{N,n}=Y_{N,n}-E[Y_{N,n}|F_{N,n-K_N}] is F_{N,n}-measurable and conditioned mean zero at lag K_N. For each residue r mod K_N, the terms D_{N,r+jK_N} are martingale differences along the subsequence filtration. Conditional Jensen gives uniform ||D||_p<=2M^(1/p), martingale p inequalities give O(m_r^(1/p)) for 1<p<=2 and O(m_r^(1/2)) for p>=2; Minkowski across K_N classes yields (K_N/N)^min(1-1/p,1/2). Clipping UI Y at B, applying bounded-variable result then taking N->infinity followed by B->infinity yields L1 convergence. For N=mK_N, shared independent block values X_j yield T_N=m^-1 sum X_j: sparse ±m^(1/p) with probability 1/m attain p<2 rate, Rademachers p>=2 rate, ±m sparse spikes contradict convergence with only first-moment bounds. Each construction can be checked analytically; no computation is invoked as an infinite proof.
 
-The closest primary source is Vovk's bounded-variable multi-step law of large numbers, whose conclusion explicitly lists removal of the uniform-boundedness assumption as further work. Targeted literature searches found no directly matching multi-step forecast theorem with the uniform-integrability extension, the \(p\)-dependent rate, and matching sharpness examples. Classical martingale inequalities are ingredients rather than claimed contributions. Residual risk: the rate proof is a concise application of standard inequalities, and an unindexed general result may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a usable condition for unbounded forecast variables and identifies the optimal rate exponent under uniform \(p\)-moment assumptions. The block examples distinguish the \(p<2\) and \(p\ge2\) regimes and show why a uniform first-moment bound is insufficient.
+Vovk arXiv:2508.17507 Theorem 1 requires uniformly bounded Y and §5 specifically raises removing that assumption. Vovk's residue-class method is credited. Classical Burkholder/Rosenthal p-moment inequalities give method but do not state the forecast-specific combined UI law and matching sharp p-regime examples in the inspected sources. Directly covered bounded result is excluded from novelty.
 
-## Closest literature and limitations
+## value
 
-V. Vovk, arXiv:2508.17507, version 2 (2026), published as DOI 10.1016/j.spl.2026.110785. The constants \(C_p\) are not optimized; uniform integrability is sufficient rather than claimed necessary; random horizons and stronger limit theorems are outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The primary source itself identifies removal of boundedness as a useful open direction. Uniform integrability supplies a robust unbounded-variable LLN, while the optimal moment-dependent exponents and explicit heavy-tail boundary counterexample characterize a natural predictive sharpness threshold. This is a substantive quantified extension, even though standard martingale tools are used.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

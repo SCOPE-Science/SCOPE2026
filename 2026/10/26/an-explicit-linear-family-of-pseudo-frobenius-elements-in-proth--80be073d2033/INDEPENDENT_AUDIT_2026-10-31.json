@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T03:51:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For n>=3, M=7*2^n, a=M+1 and S_n=<M2^i+1:i>=0>, published finite-generator and greedy coin-Apéry results imply W(t)=Mt+a ell(t), 0<=t<=M, where ell is minimal coin number for coins 2^i-1 up to i=n+2. An Apéry-maximality criterion gives W(t)-a pseudo-Frobenius iff every eligible coin c_i with t+c_i<=M has ell(t+c_i)<=ell(t); wraparound generator additions are strictly above corresponding Apéry minima. The greedy-digit constraint bounds ell<=n+2, giving the two length-n+2 witnesses tA=4*2^n-n-2 and tB=6*2^n-n-2. Popcount contradiction proves ell(M-j)=j for 3<=j<=n+2, and direct boundary counts ell(M)=4,ell(M-1)=5,ell(M-2)=4 give the n-2 indexed family j5..n+2 plus two endpoints. There are 2+(n-2)+2=n+2 distinct indices, so type>=n+2=e-1; equality of type for all n is NOT established. Independently rebuilt Apéry shortest paths with Dijkstra for n=3,4,5, exactly checked all 57/113/225 residues and each proposed PF witness; actual types equal 5/6/7 in these finite tests. Finite equality is not promoted into a global theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.2 of Srivastava–Thakkar applies k=2^r+1 and cannot be specialized to 7; Liu et al provides a broader Apéry method but its inspected claims do not list this particular PF family."
+        ],
+        "reasoning": "Generic algorithms for all k determine Apéry sets computationally but do not state the all-n explicit linear family. The nearest closed PF theorem uses a nonmatching multiplier class; this is substantive inapplicability, not a title mismatch.",
+        "searches": [
+          "Srivastava Thakkar arxiv:2311.12462 theorem 5.2",
+          "Liu Xin Ye Yin arxiv:2306.03459"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2311.12462",
+        "https://arxiv.org/abs/2306.03459",
+        "Resultary semantic search (actual query in each comparison)",
+        "Assigned RESULT.md and relevant code blobs at frozen tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exact PF Theorem 5.2 requires 7=2^r+1, impossible; Liu et al's general Apéry theorem is a hypothesis for the new coin-maximality proof."
+        ],
+        "reasoning": "The output of a general minimum-coin algorithm is not an explicit formula for an unbounded set of Apéry-maximal elements. The popcount argument is a substantive extraction and cannot be dismissed as direct parameter substitution.",
+        "searches": [
+          "arxiv:2311.12462 §5",
+          "arxiv:2306.03459 generalized repunit/Proth results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proth k=7 is a special case of the Apéry coin representation in Liu et al; pseudo-Frobenius elements correspond to Apéry poset maxima."
+        ],
+        "reasoning": "Equivalent interpretation is an explicit family of n+2 maximum residues for the greedy coin-length order, not a theorem on the already-known Frobenius number or generator count. Current proof derives their maximality via new popcount bounds.",
+        "searches": [
+          "Resultary: Proth numerical semigroup 7*2^n+1 pseudo-Frobenius type lower bound coin lengths 2^i-1",
+          "arxiv:2311.12462",
+          "arxiv:2306.03459"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite exact cases n=3..10 may be algorithmically enumerated, but no consulted table gives explicit n+2 elements as functions of every n."
+        ],
+        "reasoning": "Known finite enumerations and the existing Apéry formula do not alone establish the linear-in-n all-case maximality without analysis; a hidden complete class table remains possible.",
+        "searches": [
+          "Resultary Proth PF multiplier seven query",
+          "arxiv:2311.12462",
+          "arxiv:2306.03459"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for a uniform explicit multiplier-seven pseudo-Frobenius family and linear type lower bound, not the known Apéry/greedy algorithm or Frobenius/genus formulas. Srivastava–Thakkar 2023 complete primary text §5 Theorem 5.2 gives full PF sets and types for k=2^r+1, which excludes k=7 since 7-1=6 is not a power of two. Liu–Xin–Ye–Yin 2023 full primary text gives general greedy Apéry formula including this k7 specialization but does not explicitly list the present PF witnesses; a simple consequence might exist for experts, but deriving an unbounded maximal-element family via sharp popcount constraints is additional content. Related general semigroup algorithms can compute examples but are not a preexisting all-n witness theorem. The result claims only lower bound, preserving its limited scope.",
+      "residual_risks": [
+        "More comprehensive PF classifications for Proth multiplier seven may exist or be readily extractable from a different unindexed source.",
+        "All-n exact type equality is unproved by this package; finite n3..10 checks cannot establish it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_DIFFERENT_MULTIPLIER_FAMILY",
+          "evidence": "Theorem 5.2 states PF and type n+r-1 for k=2^r+1, which does not cover multiplier 7.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.12462",
+          "material_read": "Complete lawful primary arXiv 2023 paper including §5, Lemmas and Theorem 5.2, §6",
+          "method": "arXiv primary PDF/full HTML and theorem comparison; PDF first-page screenshot previously inspected",
+          "title": "The Frobenius Problem for the Proth Numbers",
+          "trigger": "Exactly same semigroup construction and previously published type results"
+        },
+        {
+          "assessment": "PRIOR_GENERAL_APERY_NOT_EXPLICIT_PF_FAMILY",
+          "evidence": "Provides greedy Apéry/Frobenius/genus framework, but the multiplier-seven n+2 explicit PF witnesses are not displayed in the inspected complete source.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.03459",
+          "material_read": "Complete accessible primary arXiv paper, Section 2 coin framework and Sections 4–5 on semigroup family and Proth specialization",
+          "method": "arXiv full paper text and sections; first-page PDF screenshot previously inspected",
+          "title": "A Combinatorial Model of Numerical Semigroup",
+          "trigger": "Broad general greedy Apéry theorem that may dominate Proth class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS, narrowly. Type is a central numerical-semigroup invariant, and a family of at least e(S)-1 explicit distinct maximal gaps for the natural Proth multiplier seven is a linear, uniform structural obstruction rather than an arbitrary finite sample. The result is a meaningful lower bound despite not determining exact type; its value depends on the explicit uniform family and cannot be attributed to the known generic algorithm alone. Earlier multiplier 2^r+1 exact types are prior and not reassigned novelty.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2311.12462",
+    "https://arxiv.org/abs/2306.03459",
+    "Resultary semantic search (actual query in each comparison)",
+    "Assigned RESULT.md and relevant code blobs at frozen tree"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "More comprehensive PF classifications for Proth multiplier seven may exist or be readily extractable from a different unindexed source.",
+    "All-n exact type equality is unproved by this package; finite n3..10 checks cannot establish it."
+  ],
+  "residual_risks": [
+    "More comprehensive PF classifications for Proth multiplier seven may exist or be readily extractable from a different unindexed source.",
+    "All-n exact type equality is unproved by this package; finite n3..10 checks cannot establish it."
+  ],
+  "schema_version": 1
+}

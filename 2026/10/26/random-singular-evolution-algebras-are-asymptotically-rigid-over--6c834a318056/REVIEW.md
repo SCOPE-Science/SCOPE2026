@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each fixed prime-power field size, the full uniform matrix model is explicit. The proof of sufficient unique-basis rigidity is elementary: one natural-basis vector is orthogonal to an \((n-1)\)-dimensional space, forcing its multiplication map to have rank at most one; pairwise-independent original squares would force rank at least two if the vector had support greater than one. Monomial automorphisms give an exact coefficient identity; a loop and strong connectedness force identity scalars when the support digraph is asymmetric. The uniform-entry support law yields all probability estimates using independent Bernoulli orbits and union bounds. The finite enumerations in `verify.py` test, but do not replace, these universal deductions. The exact equivalence for all fields was deliberately *not* asserted: the necessity argument is restricted to fields of size above three, and the binary/ternary cases are treated only by sufficiency.
+## correctness
 
-## Originality — PASS, with literature risk
-The 2026 survey (arXiv:2610.22248, Question 22) explicitly poses random finite-field automorphism probabilities. The 2020 primary work arXiv:2006.14460 supplies the deterministic pairwise-square condition, not the independent random-matrix occupancy formula or singular-conditioned asymptotic automorphism rigidity. A previously established random-rigidity comparison restricted to perfect evolution algebras does not cover singular matrices: a positive limiting proportion of all matrices is singular. The closest semantically indexed mathematical results inspected concern fixed algebra families, not the singular-conditioned random model. We do **not** claim the established 2LI basis criterion or generic asymmetry of random digraphs to be new. Residual risk: independently derived probability result may appear under another name or in unindexed work; the fixed-graph 2025 arXiv paper was only available as abstract material.
+PASS
 
-## Mathematical value — PASS
-This is a positive-density extension of the perfect-only random model, not an isolated example: at least \(1/q\) of random structure matrices are singular for every dimension, and the singular proportion has a nonzero limit. It gives an affirmative, exponentially quantified answer to the trivial-automorphism component of an explicitly posed 2026 random-evolution-algebra problem, and simultaneously quantifies uniqueness of natural bases. The exact finite-field occupancy product, including the necessary small-field caveat, makes the structural mechanism explicit. The argument combines a deterministic algebraic rigidity threshold with graph asymmetry and proves that conditioning on rank deficiency does not destroy generic rigidity. No numerical experiment is used as a proof of the asymptotic theorem.
+Each square row of M is uniform over F_q^n. Pairwise nonzero, nonproportional rows (2LI) occur with probability ∏_{j=0}^{n-1}(1-[1+j(q-1)]/q^n) by projective-direction occupancy. If 2LI holds, multiplication by each vector of any alternative natural basis annihilates the span of its other columns, hence has rank <=1. A column supported in >=2 coordinates would span >=2 independent square rows, contradiction: all such basis changes are monomial. For q>3 a zero row or proportional pair permits a nonmonomial orthogonal pair, so necessity holds in that field range only. Any monomial automorphism induces a permutation of the nonzero support digraph; if the digraph is asymmetric the permutation is identity. Arc relations t_j=t_i^2 then force all scalars 1 in a strongly connected support graph with a loop. The probability of no loop is q^-n, failure of strong connectivity at most sum_{s=1}^{n-1}C(n,s)q^{-s(n-s)}, and a nontrivial permutation moving k labels can preserve at least k(2n-k) moved Bernoulli positions with probability <=rho^{kn/2}, giving sum_{k=2}^n n^k rho^{nk/2}=O_q(n^2 rho^n). Combining with 2LI failure gives O_q(n^2 rho^n); Pr(M singular)=1-∏_{i=1}^n(1-q^-i)>=1/q, hence the conditional bound follows without independence assumptions. Separately independently enumerated projective 2LI occupancy: 6/16 for q=2,n=2; 210/512 for q=2,n=3; 48/81 for q=3,n=2. Finite checks illustrate, not prove asymptotic claims.
 
-## Scope and remaining comparison risk
-The original cited question includes Gaussian real and sparse random models, which remain open here. Results for perfect structure matrices are not imported as assertions for nonperfect matrices. Published source inspection does not certify global originality; confirmation from a domain specialist is not represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the random uniform-coefficient strong asymptotic trivial-automorphism theorem including positive-density singular matrices; known 2LI deterministic criterion, finite-projective occupancy idea, and random directed-graph asymmetry are acknowledged building blocks, not original discoveries.
+
+## value
+
+PASS
+
+Automorphism rigidity of a random evolution algebra is a natural open structural-probability question. The exact failure-rate estimate with an unrestricted dense matrix is nontrivial because generic matrices can be singular with positive limiting density; extending rigidity to that nonperfect subpopulation is mathematically meaningful. The result integrates deterministic natural-basis geometry and asymmetric random support to control actual algebra automorphisms, beyond a routine projective occupancy calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

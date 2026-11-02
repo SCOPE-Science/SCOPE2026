@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:51:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For scalar OU dX=-lambda X dt+sqrt(2)dB, K>=2 and s=lambda h, derive the published predictor-index convention A_H=1-s+(s²/K)sum_i i H_i and Gaussian-noise coefficient 1-s sum_{i>j}H_i. Indicator first and second moments give m_j=(1-s+cs²)^2+d_j s^4 with c=(K-1)/(2K), d_S=(K²-1)/(12K²), d_B=(K-1)²(2K-1)/(6K³), and n_S=2s/lambda(1-2cs+cs²), n_B=n_S+2s³(K-1)(K-2)/(3lambda K²). Then 1-m_j=sQ_j(s) for strictly decreasing cubic Q_j (Q_j'<=1/3-2c<0); unique roots yield exact finite second-moment stability intervals and s_B<s_S for K>=3. Since m_B>m_S and n_B>=n_S, 1/lambda<V_S<V_B over their shared stable interval. K=2 agrees in law. Verified exact moment algebra by independent rational enumeration of all Bernoulli patterns K=2..8.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original paper proves sampling efficiency and qualitatively says one-choice option reduces update variance.",
+          "Follow-up concerns sampling complexity bounds; published STORM harmonic target uses a different algorithm."
+        ],
+        "reasoning": "The broad methods have the hypotheses and machinery to compute OU moments but the all-step root ordering plus finite stationary variance comparison is not an explicitly inspected corollary.",
+        "searches": [
+          "arXiv:2405.17068 (full original paper)",
+          "arXiv:2506.07614 (follow-up log-concave sampling)",
+          "Resultary 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.17068 (primary full PDF, Section 2.2 and Appendix A.6)",
+        "arXiv:2506.07614 (primary full HTML)",
+        "Resultary related randomized OU and STORM studies"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lower one-step selection variance does not alone imply a larger stability interval and lower stationary thermal bias without evaluating both drift multipliers and Gaussian noise.",
+          "The generic V=n/(1-m) relation is standard; explicit two-law m,n polynomials and inequalities are the mathematical work."
+        ],
+        "reasoning": "The final theorem is not merely a restatement of the original qualitative variance remark.",
+        "searches": [
+          "arXiv:2405.17068 Section 2.2, Appendix A.6",
+          "arXiv:2506.07614",
+          "random affine scalar stationary variance equation V=n/(1-m)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source defines Option 1 Bernoulli per point and Option 2 uniform one-point selection, with earlier micro-increments in the theoretical predictor.",
+          "Resultary 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b analyzes underdamped UBU/ULMC, not these random affine multipliers."
+        ],
+        "reasoning": "Equivalent language of Gaussian equilibrium or random affine recursion does not supply the two selectors' exact comparative stability polynomials in inspected sources.",
+        "searches": [
+          "arXiv:2405.17068 Section 2.2 and Appendix A.6",
+          "Resultary: Poisson midpoint method Langevin scalar Ornstein Uhlenbeck Bernoulli versus one random midpoint mean square stability stationary covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original Section 2.2 contains options and qualitative claims, no table with all K cubic roots and strict stationary bias ordering.",
+          "Numerical K=3 roots are illustrations, while new theorem covers every K."
+        ],
+        "reasoning": "No known exact database/table of the compared stability thresholds was retrieved; absence is not proof of priority.",
+        "searches": [
+          "arXiv:2405.17068 Appendix A.6",
+          "Resultary: exact stationary covariance Poisson midpoint Bernoulli one uniform sample"
+        ]
+      },
+      "rationale": "Kandasamy–Nagaraj (arXiv:2405.17068) explicitly introduces both midpoint selectors and notes qualitative lower variance without replacement; no priority is claimed for those facts. Its reviewed Section 2.2 and later log-concave sampling follow-up concern general sampling bounds, not this scalar all-K sharp stationary mean-square stability pair and temperature ordering. Related published random-OU/ULMC covariance comparisons concern different schemes.",
+      "residual_risks": [
+        "An unindexed scalar OU calculation or general random-affine numerical-integration result could implicitly contain the comparison.",
+        "Only fresh independent selections, scalar OU, and the original theoretical index-0..K-1 convention are covered; the distribution need not be Gaussian."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Selection options and qualitative variance improvement covered; no identified all-K stability boundary",
+          "evidence": "Theorem compares exact OU m_j, n_j, Q_j, not broad mixing bounds in source.",
+          "identifier_or_url": "arXiv:2405.17068",
+          "material_read": "Full 47-page primary PDF, Section 2.2 displayed Options 1/2, predictor interpolation formula and Appendix A.6 discussion",
+          "method": "Read mathematical update formulas and compared indexing/variant and variance statements",
+          "title": "The Poisson Midpoint Method for Langevin Dynamics: Provably Efficient Discretization for Diffusion Models",
+          "trigger": "Original source defines exactly two midpoint selections"
+        },
+        {
+          "assessment": "General log-concave convergence results, not pairwise OU stationary-temperature ordering",
+          "evidence": "Different guarantees do not imply exact two-selector stability intervals.",
+          "identifier_or_url": "arXiv:2506.07614",
+          "material_read": "Full available arXiv HTML: introduction, methods Section 2.2 and main sampling results",
+          "method": "Compared algorithm, predictor convention and theorem quantifiers",
+          "title": "Poisson Midpoint Method for Log Concave Sampling: Beyond the Strong Error Lower Bounds",
+          "trigger": "Possible stronger follow-up"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It gives exact admissible stepsizes and a strict stationary covariance-bias ranking of two published stochastic integrators at the same expected midpoint workload; the strictly larger one-choice interval is a substantive design distinction, not simply the already-known variance-of-update comparison.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2405.17068 (primary full PDF, Section 2.2 and Appendix A.6)",
+    "arXiv:2506.07614 (primary full HTML)",
+    "Resultary related randomized OU and STORM studies"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed scalar OU calculation or general random-affine numerical-integration result could implicitly contain the comparison.",
+    "Only fresh independent selections, scalar OU, and the original theoretical index-0..K-1 convention are covered; the distribution need not be Gaussian."
+  ],
+  "residual_risks": [
+    "An unindexed scalar OU calculation or general random-affine numerical-integration result could implicitly contain the comparison.",
+    "Only fresh independent selections, scalar OU, and the original theoretical index-0..K-1 convention are covered; the distribution need not be Gaussian."
+  ],
+  "schema_version": 1
+}

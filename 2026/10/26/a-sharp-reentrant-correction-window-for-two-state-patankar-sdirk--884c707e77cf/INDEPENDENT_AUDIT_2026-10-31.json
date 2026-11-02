@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T05:50:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For constant two-state conservative Q, uncorrected SDIRK predictors have first components u=pi+(x-pi)/(1+gamma*s) and v=pi+R(s)(x-pi). Direct evaluation of the cited final-stage-only Patankar column scalings L,M gives the strictly positive conservative corrected output (x+h*b*M)/(1+h*(a*L+b*M)); as epsilon tends to zero at fixed a,b,h,x this is exactly clip(v,0,1). With x=1, R has unique minimum (1-sqrt(2))/2 at s=4+3sqrt(2), giving negative predictor iff 0<pi<3-2sqrt(2) and precisely the quadratic-root open stiffness interval. At a=9,b=1,h=4/5 the limit zero disagrees with exact component >0.1; the first-order O(epsilon) boundary-layer coefficient follows by rational asymptotics. Independent fresh tests used 300 parameter sets and three cutoffs, plus threshold checks; finite experiments are not the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary arXiv:2602.15271 preprint, equation (25) and Section 4.2.1",
+          "Torlo–Öffner–Ranocha arXiv:2108.07347 addresses other Patankar schemes"
+        ],
+        "reasoning": "Earlier positivity and order theorems in broader nonlinear/system settings apply different asymptotic quantifiers; they do not settle fixed-h limit epsilon down to zero or exact reentrant window for this final-stage-only scheme.",
+        "searches": [
+          "Nurkhametova Gomillion Subrahmanya Sandu Patankar predictor corrector SDIRK21 order analysis",
+          "Patankar SDIRK21 two species positivity correction vanishing epsilon floor stiff reentrant window exact"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2602.15271 — Original 64-page arXiv primary PDF, pages 15–18 and 21, including displayed equations (21), (25) and SDIRK21 coefficients, examined; screenshots verified",
+        "https://arxiv.org/abs/2108.07347 — Primary abstract and substantial Sections 2–5 original-paper discussion inspected",
+        "Resultary semantic research index: Patankar SDIRK21 two species positivity correction vanishing epsilon floor stiff reentrant window exact"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (25) defines a positive corrected matrix update with denominator clipping",
+          "The special two-by-two correction limit is piecewise face saturation despite a strictly positive exact flow"
+        ],
+        "reasoning": "Positivity of the finite-epsilon algorithm only implies corrected outputs lie in the simplex; it does not imply convergence to correct physical solution as epsilon→0 at fixed stiff h. The obtained counterexample requires evaluating the exact two-stage formulas.",
+        "searches": [
+          "Nurkhametova Patankar equations 21 25 negative stage denominator floor two state",
+          "Patankar SDIRK21 two species positivity correction vanishing epsilon floor stiff reentrant window exact"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nurkhametova et al., arXiv:2602.15271, equations (21) and (25) and SDIRK21 tableau",
+          "The resulting corrector uses distinct first-stage and second-stage ratios with floored denominators"
+        ],
+        "reasoning": "The prior correction scheme is adopted without claiming its construction as new. Its exact singular limit on the two-species exchange ODE is not the same as the positive finite-epsilon property or h→0 convergence.",
+        "searches": [
+          "Patankar SDIRK21 two species positivity correction vanishing epsilon floor stiff reentrant window exact",
+          "Patankar final stage clipped SDIRK21 epsilon tends zero simplex projection two component"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact algebraic critical pi=3-2sqrt2, s=4+3sqrt2",
+          "300 fresh independently evaluated finite parameters plus analytic sign proof"
+        ],
+        "reasoning": "No database/table determines the all-positive-real-parameter exact sharp phase boundary. Numeric samples merely corroborate the derived continuous minimum, which itself proves the classification.",
+        "searches": [
+          "SDIRK21 Patankar two state positivity negative predictor threshold pi 3-2 sqrt2",
+          "Patankar SDIRK21 two species positivity correction vanishing epsilon floor stiff reentrant window exact"
+        ]
+      },
+      "rationale": "Primary published results were compared by their mathematical implications; the stated precisely delimited new theorem is not established by the inspected statements, with incomplete-source and implicit-folklore risks retained. Originality is a qualified best-of-knowledge assessment, not a priority certificate.",
+      "residual_risks": [
+        "Claims are specific to fixed-h epsilon→0 and final-stage-only correction; no conclusion for higher dimensions, all-stage correction, or h→0.",
+        "An earlier specialized singular-cutoff analysis under different nomenclature could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirmed adopted method; no inspected stated fixed-h epsilon-down limit/critical stiffness window",
+          "evidence": [
+            "Eq. (25) applies last-stage ratio/correction; Section 4.2.1 supplies gamma=1-1/sqrt(2) tableau"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.15271",
+          "material_read": "Original 64-page arXiv primary PDF, pages 15–18 and 21, including displayed equations (21), (25) and SDIRK21 coefficients, examined; screenshots verified",
+          "method": "Re-derived two-state final-stage-only correction against actual denominator clipping and coefficients",
+          "title": "A Patankar Predictor-Corrector Approach for Positivity-Preserving Time Integration",
+          "trigger": "Exact claimed algorithm and crucial potential schematic mismatch"
+        },
+        {
+          "assessment": "Earlier oscillation/order issues concern distinct Patankar schemes; cannot be imported as fixed-stage sharp formula",
+          "evidence": [
+            "Explores earlier schemes and timestep/order artifacts, not the 2026 correction"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.07347",
+          "material_read": "Primary abstract and substantial Sections 2–5 original-paper discussion inspected",
+          "method": "Compare discretization and limit ordering to 2026 SDIRK21 final-stage-only method",
+          "title": "Issues with Positivity-Preserving Patankar-type Schemes",
+          "trigger": "Potential earlier 2-state negative/oscillation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-step singular-floor limiting map and a sharp window where positivity correction converges to the wrong face expose a meaningful boundary of an actively studied positivity-preserving integration method, distinct from routine timestep convergence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2602.15271 — Original 64-page arXiv primary PDF, pages 15–18 and 21, including displayed equations (21), (25) and SDIRK21 coefficients, examined; screenshots verified",
+    "https://arxiv.org/abs/2108.07347 — Primary abstract and substantial Sections 2–5 original-paper discussion inspected",
+    "Resultary semantic research index: Patankar SDIRK21 two species positivity correction vanishing epsilon floor stiff reentrant window exact",
+    "2026/10/26/a-sharp-reentrant-correction-window-for-two-state-patankar-sdirk--884c707e77cf/RESULT.md Git blob c22c80d3b7e3123de90a373101273bb6807df2c8",
+    "2026/10/26/a-sharp-reentrant-correction-window-for-two-state-patankar-sdirk--884c707e77cf/verification program(s) at frozen commit 57942b82afde67e498695bda088cb31b5352311f"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Claims are specific to fixed-h epsilon→0 and final-stage-only correction; no conclusion for higher dimensions, all-stage correction, or h→0.",
+    "An earlier specialized singular-cutoff analysis under different nomenclature could exist."
+  ],
+  "residual_risks": [
+    "Claims are specific to fixed-h epsilon→0 and final-stage-only correction; no conclusion for higher dimensions, all-stage correction, or h→0.",
+    "An earlier specialized singular-cutoff analysis under different nomenclature could exist."
+  ],
+  "schema_version": 1
+}

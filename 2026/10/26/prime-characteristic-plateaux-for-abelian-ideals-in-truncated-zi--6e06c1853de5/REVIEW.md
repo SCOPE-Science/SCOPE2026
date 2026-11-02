@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The defined multiplication satisfies the Zinbiel identity by a binomial identity over the integers, then reduction in any characteristic. Left multiplication by the first basis vector is a single Jordan shift, forcing every ideal to be a suffix span. For the displayed dimension interval the internal products of the candidate suffix all vanish by a forced base-prime carry. The immediately larger suffix has an explicit product with coefficient congruent to one. These arguments establish the exact invariant and uniqueness for all claimed parameters. Independent bounded computations reproduce 40 parameter instances, but the proof is not based on finite sampling.
+PASS
 
-## Originality
+The finite algebra has e_i∘e_j=binom(i+j-1,j)e_{i+j} modulo p for i+j<=n; the integer half-shuffle identity verifies the Zinbiel axiom even after modular reduction. Left multiplication by e_1 sends e_j to e_{j+1}, a single Jordan shift. Hence every nonzero two-sided ideal is a terminal span I_r=(e_r,...,e_n). Let P=p^k and (p+ceil(p/2))P<=n<=(2p-1)P, set r=n-pP+1. For any product e_i∘e_j with i,j>=r and i+j<=n, both i-1 and j have P-digit at least ceil(p/2), so their base-p addition has a carry. Lucas's theorem makes binom(i+j-1,j)=0 mod p; I_r is abelian. I_{r-1} contains e_{n-pP},e_{pP}, whose product is binom(n-1,pP)e_n=e_n mod p because the base-p P-digit of n-1 equals p. Thus I_{r-1} is not abelian, and every larger ideal is also not. Since every ideal is a suffix, I_r is the unique maximizing abelian ideal, of dimension pP. An independently implemented exhaustive modular-coefficient test checked 32 (p,k,n) triples over primes p=2,3,5,7, all claimed bounds, with no exceptions. The proof relies on Lucas and the Jordan shift, not numerical evidence.
 
-Ceballos–Towers (arXiv:2202.03214v2), Section 4, Proposition 4.2, treats complex null-filiform Zinbiel algebras with the same binomial structure and proves a different characteristic-zero invariant. In the examined primary full text, no positive-characteristic plateaux or corresponding sharp boundary are claimed. Towers (arXiv:2202.12026v1) treats arbitrary-field nilpotence, a logically weaker and different property. The 2022 combinatorial-structures paper was available as metadata/abstract in the retrieved material, not examined in full; its advertised focus is graph descriptions and low-dimensional classification, leaving a residual priority risk. Searches using the modular, half-shuffle, binomial-carry and maximal-abelian-ideal formulations did not surface an equivalent published result. Search nonreturn alone is not a proof of novelty.
+## originality
 
-## Value
+PASS
 
-The theorem computes exactly the same structural invariant as the motivating paper but exhibits a sharp modular exception on infinite, parametrically long intervals. It distinguishes positive-characteristic half-shuffle ideals from their complex counterparts, identifies the unique extremizing ideal, and explains the mechanism by a forced digit carry. It is not merely a small finite-table entry or a renaming of the complex formula.
+PASS on the explicit modular plateau intervals, sharp boundary and unique maximal ideal, with the complex-field null-filiform result credited; a characteristic-zero beta formula cannot be transported through the vanishing of binomial coefficients modulo p.
 
-## Limits
+## value
 
-The result does not compute the maximum abelian subalgebra dimension or values outside the stated dimension intervals. It is a direct statement for an explicit algebra family, with possible unindexed earlier modular analogues as an originality risk. Computational experiments verify only bounded parameters.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximal dimension of an abelian ideal is a natural structural invariant of nilpotent nonassociative algebras. Prime characteristic changes the invariant discontinuously via Lucas carrying, generating exact infinite-dimensional plateaux with a sharp first-failing boundary and unique maximizer. This isolates a genuine modular phenomenon absent in the known complex theory, not a formal substitution of p into the complex answer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

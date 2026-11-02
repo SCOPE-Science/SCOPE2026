@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is the complete sharp spectral ordering for the product-coordinate cap, including its parity-specific second spectral level, branch crossover, quantitative stability and chi-square critical edge. Normalized monomial moments give a three-parameter Dirichlet density and an exact beta integral. Two strict stochastic comparisons force all degree into the distinguished pair and then balance the pair. The runner-up is obtained by comparing exactly two adjacent structural families, with even-degree strict domination. Small-product tails and boundary shape asymptotics force the odd-degree second branch to switch at least once. The gamma representation and central limit theorem establish the chi-square limit. The extracted Python checker passed 5190 reproducibility assertions; an independent mathematical audit is not claimed.
+PASS
 
-## Originality: PASS, best knowledge
+For n>=3,d>=2 and 0<tau<1/4, independent coordinate phase rotations diagonalize the cap multiplier on homogeneous holomorphic degree-d monomials. A monomial-weighted Haar law is Dirichlet(alpha_1+1,...,alpha_n+1); the eigenvalue at exponents a,b is P(XY>tau) with shapes (a+1,b+1,n+d-a-b-2). Conditional beta likelihood-ratio dominance strictly increases concentration on transferring an exponent from unused coordinates to coordinate 1 or 2. The exact beta-binomial centered interval identity changes sign at 2(a+1)=s+1 and forces balanced top powers. For even d the second eigenvalue comes from pure powers (r-1,r+1); for odd d it is max{lambda_(r-1,r+2),lambda_(r,r)}, and the small-tau deficit orders tau^r versus tau^(r+1)log(tau), whereas near the critical cap the residual Dirichlet powers establish the opposite ordering, proving at least one branch crossing. Diagonality proves the sharp stability gap. Gamma variables and the CLT give d(1/4-XY) converging to chi-square_(2n-3)/4. Independently checked alternative conditional-beta integral values, symmetric ordering and 36 numerical finite spectral cases plus edge Monte Carlo; finite data not treated as proof of all n,d,tau.
 
-The 2018 complex-ball product-type Toeplitz algebra paper and the 2021 torus-invariant Toeplitz paper were inspected in their accessible full-text primary forms. They describe broad operator structures and monomial integrals, which are acknowledged as prior knowledge. Their examined theorem statements do not establish the strict ordering of the product-cap eigenvalues, the parity-dependent exact second level, the branch crossover or the edge distribution. Published mathematical-result comparisons involving Johnson-face concentration and zonal spherical spectral concentration concern different operators and domains. No negative search alone is considered proof of novelty; older specialized Dirichlet or Toeplitz literature remains a residual risk.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The result solves an entire natural finite-degree sharp concentration family with a nontrivial geometry, identifies all extremizers and an optimal stability constant, and reveals both a genuine odd-degree second-eigenspace transition and a universal high-degree edge limit. These are intrinsic mathematical properties rather than arbitrary numerical slices. The theorem does not determine how many odd-degree crossings occur.
+General torus-invariant/product-symbol Toeplitz diagonalization and beta integral representation are established prior results. The inspected primary works do not supply the strict product-cap degree-transfer/balancing classification, second-distinct-eigenvalue parity switch, optimal stability gap and critical chi-square edge law on the exact-degree sphere. Best-of-knowledge originality PASS with residual risk of a specialized older Dirichlet tail/Toeplitz ordering result.
 
-## Scientific limitations
+## value
 
-The space is the boundary Hardy norm of exact homogeneous holomorphic polynomials on complex spheres of dimension at least three. Generic Bergman-space Toeplitz results, nonhomogeneous bands and unrestricted spherical harmonics are not covered. The old literature was used only for mathematical comparison. The scientific novelty assessment awaits independent expert evaluation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact top eigenspaces and first positive spectral gap answer a natural sharp holomorphic concentration problem and provide a quantitative stability inequality. The parity-dependent runner-up branch transition and chi-square edge scaling are structural, infinite-family conclusions, not mere numerical evaluation of known eigenvalue integrals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

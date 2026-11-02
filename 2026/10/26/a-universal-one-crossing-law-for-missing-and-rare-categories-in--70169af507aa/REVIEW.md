@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Dirichlet-multinomial probabilities lead to a normalized ratio whose consecutive quotients differ from unity by an explicit strictly positive amount. Strict convexity of the log Gamma function makes its limiting value less than one, while the positive initial value is immediate. Strictly decreasing trigamma integrals prove uniqueness of the real crossing. Telescoping reciprocal sums and a controlled second-order expansion yield the symmetric asymptotic, and a direct rational identity yields the exact unit-concentration threshold. Exact rational enumeration and high-precision tests independently stress-test the algebra; they do not replace analytic proof.
+PASS
 
-## Originality — PASS (provisional)
+For m>=3, a=alpha_i>0, b=alpha_j>0, c=T-a-b>0, n>=r>=1, direct Dirichlet-multinomial integration gives P(X_i=0)=(T-a)_n/(T)_n, P(X_j=r)=C(n,r)(b)_r(T-b)_(n-r)/(T)_n, and P(X_i=0,X_j=r)=C(n,r)(b)_r(c)_(n-r)/(T)_n. The claimed Q_n follows and the adjacent denominator minus numerator equals a(b+r)>0. Q_r=(T)_r/(T-a)_r>1, and strict convexity of log Gamma shows its gamma-ratio limit is below one. Digamma differentiation, using strict decrease of trigamma, makes the continuous interpolation strictly decreasing and yields the unique real crossing. For fixed r,alpha, the telescoping first- and second-order expansion at n=rm+u has logarithm -(alpha*u+r(alpha+1)/2)/((alpha+r)m^2)+O(m^-3), yielding rho=rm-r(alpha+1)/(2alpha)+O(m^-1); alpha=1 telescopes exactly to rho=r(m-1). Independently enumerated weak compositions with exact rational Dirichlet-multinomial probabilities over 63 nonidentical (alpha,n,r) combinations, matching the joint/marginal formulas and signs. Experiments corroborate but do not establish infinite quantifiers.
 
-The 2007 Gnedin–Hansen–Pitman survey studies deterministic occupancy probabilities and frequency-count moments; the 2012 Holmes–Harris–Quince article uses Dirichlet-multinomial components for clustering. Neither inspected full text gives the finite sample-size one-crossing law or its symmetric refined threshold. The closest published occupancy one-switch theorem concerns aggregate richness with an occupancy-frequency count in independent uniform sampling, a different implication. Generic Dirichlet-multinomial mass formulas yield the event probabilities but not the monotonicity and offset without further argument. Unread older mathematical treatments remain a historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves a natural dependence question for rare species counts and zeros in overdispersed categorical samples: the sign reverses only once, even under heterogeneous concentrations. Its leading transition lies at the intuitive mean-load scale, while the order-one shift measures reinforcement and has a completely exact finite special case. This is structural dependence information, not merely a restatement of a distribution table or a small numerical improvement.
+The Dirichlet-multinomial marginal and joint mass formulas are elementary prior art, and one-switch results for aggregate occupancy measures are known. The actual claim is the strictly decreasing normalized covariance ratio for a fixed distinct labelled missing/rare category pair across varying n under an arbitrarily asymmetric one-shot Dirichlet mixture, with a unique real crossing and explicit symmetric-reinforcement shift. No inspected published theorem entails all these results; this is a qualified best-of-knowledge PASS, not a statement of absolute novelty.
 
-## Limits
+## value
 
-The result concerns labeled vacancy versus positive exact-frequency indicators within one Dirichlet component. It does not claim that aggregation across categories, prior mixing, or arbitrary exchangeable categorical laws preserve a one-switch sign pattern. No independent scientific audit is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The vacancy-versus-exactly-r cell covariance is a natural occupancy statistic for overdispersed finite categorical sampling. Determining its sign over every n, its unique transition and its reinforcement-dependent order-one shift gives an exact dependence invariant useful for sensitivity analyses and statistical sampling design; it is neither merely restating the mass formula nor an arbitrary finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

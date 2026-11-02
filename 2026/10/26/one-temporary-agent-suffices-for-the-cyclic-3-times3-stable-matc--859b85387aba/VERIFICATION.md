@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone checker `verification/check_history.py` was executed with the Python standard library. It enumerates all matchings for the specified finite market, filters for individual rationality and absence of blocking pairs, verifies that the full market has exactly three stable matchings, verifies the unique stable matching of each five-agent submarket, checks the final-entry outcome for each missing terminal agent, and replays the one-temporary-woman history.
+## correctness
 
-The checker output was:
+PASS
 
-`PASS: exactly three stable matchings; all six five-agent submarkets have unique stable matchings; every terminal-agent final-entry transition misses the middle matching; one temporary woman realizes it; the minimum temporary-agent count is exactly 1.`
+PASS: The explicit strict 3-by-3 complete market has exactly the three perfect stable matchings A, middle 0 and B; independent stability enumeration confirmed that each of the six five-agent submarkets has a unique stable matching, and the final missing entrant leads only to A (man) or B (woman). Considering the first full-market occurrence proves nonreachability of the middle target for every finite history of original agents, even with repeated exits and entries. Independently traced the eight-step rejection/acceptance chain after one woman a enters µ_B: a→m1 accept, w3→m1 reject, w3→m2 accept, w1→m2 reject, w1→m3 accept, w2→m3 reject, w2→m1 accept, a→m1 reject; the target µ0 is stable and a exits unmatched. Preferences preserve the original strict order and acceptability. Therefore the minimum temporary population for this exact market-target pair is 1, not a general bound.
 
-`Temporary-entry proposal chain: 6:0:accept -> 5:0:reject -> 5:1:accept -> 3:1:reject -> 3:2:accept -> 4:2:reject -> 4:0:accept -> 6:0:reject`
+## originality
 
-The infinite-history exclusion is proved separately in `RESULT.md`: every terminal-agent history's first full-market occurrence of the middle matching would have to arise from one of the six tabulated final-entry transitions, none of which yields that matching. The checker does not claim a general result for larger markets. Independent audit and independent validation have not been performed.
+PASS
+
+The exact source cyclic market, its three stable matchings and nonreachability with zero temporary agents are already Yang Example 1/Theorem 1. Yang Theorem 2 gives target-dependent augmentation with larger temporary scaffolds, and §6.3 explicitly says minimization is not done. The specific one-auxiliary-woman constructive upper bound, hence sharp minimum 1, is a genuine additional statement; do not count the nonreachability example itself as original.
+
+## value
+
+PASS
+
+PASS: The exact minimum historical augmentation for the canonical smallest known obstruction is a natural quantitative strengthening of a new reachability theorem that expressly leaves agent minimization open. A one-agent constructive witness is nontrivial because each event must end in a stable matching while preserving all original preference orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

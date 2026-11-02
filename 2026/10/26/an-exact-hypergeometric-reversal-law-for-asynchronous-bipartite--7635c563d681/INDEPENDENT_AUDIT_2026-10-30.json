@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:49:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd m,n>=3, opposite initial part majorities cause only L's initial red and R's initial blue vertices to move their opinions until the first group tips. Their distinct first-selection order is a uniform permutation; L flips first iff among the first a+b-1 relevant activations at least a are from the r=x L-red vertices, giving exactly the hypergeometric tail H. Once part majorities agree, all further updates reinforce them, and every vertex is almost surely eventually updated; initial part-majority agreement is already monotone. Binomial initial counts and color exchange give the stated unconditional R excluding initial global ties. With m/n->rho in [1,infinity), independent unit-rate first-activation order statistics concentrate around |X|/m, |Y|/n for CLT margins; the inversion wedge XY<0, |Y|<|X|<rho |Y| has Gaussian probability (1/pi)arcsin((rho-1)/(rho+1)). Independently recoded an absorbing state recursion and rational hypergeometric first-tip count; tested all 324 conditional count configurations over m,n in {3,5,7}, plus example R_(3,3)=9/160 and other samples. Finite checks do not establish the asymptotic limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schoenebeck–Yu defines iterative majority among general Node Dynamics but proves times on complete/dense Erdos–Renyi graphs, which do not include complete bipartite without intrapart edges.",
+          "Pickering–Lim models neighbor copying, a different transition kernel."
+        ],
+        "reasoning": "Broader node-dynamics formalism alone does not yield exact reversal probabilities; a topology-specific absorbing tipping race is required.",
+        "searches": [
+          "2018 Schoenebeck–Yu primary full text",
+          "arxiv:2309.04691 abstract/model",
+          "Pickering–Lim DOI:10.1103/PhysRevE.91.012812"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md SHA 3837b3b0498284d51b543c38c9701040bec245a9",
+        "Assigned verify.py SHA e6de162c7995259d777259ee05566ac288a24f8f",
+        "Schoenebeck–Yu SODA 2018 primary PDF",
+        "arXiv:2309.04691",
+        "DOI:10.1103/PhysRevE.91.012812",
+        "Resultary: asynchronous random sequential majority complete bipartite graph exact consensus reversal hypergeometric initial majority arcsin ratio"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Consensus-time O(n log n) for complete/dense random graphs does not imply reversal law on two asymmetric bipartite communities; a voter-model spectral calculation does not implement strict majority."
+        ],
+        "reasoning": "One must condition on opposite part-majority counts, use order statistics to determine the first tipping event, and then integrate a Gaussian wedge. Those are not direct corollaries of the inspected prior results.",
+        "searches": [
+          "Schoenebeck–Yu SODA2018 full PDF",
+          "Mohan–Prałat arXiv:2309.04691",
+          "Pickering–Lim PRE2015"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform random sequential vertex updates can be represented by independent exponential clocks, whose first-activation order gives a hypergeometric race.",
+          "Schoenebeck–Yu study consensus time on homogeneous complete/random graphs; Mohan–Prałat begin with initially unset announcements."
+        ],
+        "reasoning": "Potential aliases include urn first-passage, part-majority tipping and global-majority inversion; none of the inspected exact claims equates the complete-bipartite law to a prior formula.",
+        "searches": [
+          "Resultary: asynchronous random sequential majority complete bipartite graph exact consensus reversal hypergeometric initial majority arcsin ratio",
+          "Schoenebeck–Yu DOI:10.1137/1.9781611975031.127",
+          "Mohan–Prałat arXiv:2309.04691"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching published Resultary table of K_(m,n) exact strict-initial-majority reversal was found; main hits address tournament orbits and other systems."
+        ],
+        "reasoning": "The result is an infinite odd-m,n finite hypergeometric identity plus asymptotic law, not a finite stored count table.",
+        "searches": [
+          "Resultary: asynchronous random sequential majority complete bipartite graph exact consensus reversal hypergeometric initial majority arcsin ratio",
+          "Resultary consensus and tournament search",
+          "Schoenebeck–Yu 2018 principal theorems"
+        ]
+      },
+      "rationale": "The precise complete-bipartite random-sequential strict-majority reversal probability and finite-ratio Gaussian-arcsine limit are not implied by the inspected node-dynamics consensus-time results on complete/dense random graphs, or by signal-revelation majority on sparse random graphs and neighbor-copy voter processes. The public 2018 primary full text explicitly focuses on complete and dense Erdos–Renyi consensus-time estimates, not two odd bipartition groups with exact hypergeometric first-tipping law. Best-of-knowledge originality with possibility of an unindexed two-community majority race identity.",
+      "residual_risks": [
+        "The exact formula excludes even part sizes and globally tied initial profiles by definition.",
+        "The arcsine limit requires both parts to diverge and their size ratio to converge to a finite rho>=1; it does not justify diverging-ratio interchanges.",
+        "An unindexed exact bipartite majority first-passage law could be an older equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete and dense Erdos–Renyi graphs, focused on consensus time not K_mn exact reversal",
+          "evidence": "Abstract: consensus time Θ(n log n) on complete and dense Erdos–Renyi; Definitions 2.1/2.2 fix update functions, and main results focus on these networks.",
+          "identifier_or_url": "https://schoeneb.people.si.umich.edu/papers/Voter-Model.pdf",
+          "material_read": "Primary full-text PDF introduction, definitions of iterative majority and node dynamics, main consensus-time theorems, model graph class",
+          "method": "read the primary PDF text; inspected rendered PDF screenshot page one as required",
+          "title": "Consensus of Interacting Particle Systems on Erdős–Rényi Graphs",
+          "trigger": "same majority-like random sequential node dynamics and consensus"
+        },
+        {
+          "assessment": "Different initialization protocol and sparse random-graph geometry",
+          "evidence": "The initially unset-announcement signal process is not fully visible independent fair opinions on fixed K_mn.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.04691",
+          "material_read": "ArXiv abstract/model description with initially unset public opinions from private signals",
+          "method": "public abstract, not claimed full text comparison",
+          "title": "Asynchronous Majority Dynamics on Binomial Random Graphs",
+          "trigger": "same asynchronous majority terminology"
+        },
+        {
+          "assessment": "Uses voter neighbor-copying, not deterministic neighbor majority",
+          "evidence": "Transition kernel copies a neighbor; the audited rule selects a strict majority across all neighbors.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.91.012812",
+          "material_read": "Article title and abstract-level spectral-model description",
+          "method": "bibliographic and model-level comparison only",
+          "title": "Solution of the Voter Model by Spectral Analysis",
+          "trigger": "possible published consensus probabilities for bipartite graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Majority reversals are the central efficiency/fidelity question for social learning; complete bipartite communities are an elementary but nontrivial topology exhibiting opposing group majorities. The exact finite hypergeometric probability and nontrivial arcsine size-imbalance law quantify when almost-sure consensus contradicts the initial global majority. These distinguish convergence from aggregation accuracy, with a sharp 3:1 limiting value 1/6.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen RESULT.md SHA 3837b3b0498284d51b543c38c9701040bec245a9",
+    "Assigned verify.py SHA e6de162c7995259d777259ee05566ac288a24f8f",
+    "Schoenebeck–Yu SODA 2018 primary PDF",
+    "arXiv:2309.04691",
+    "DOI:10.1103/PhysRevE.91.012812",
+    "Resultary: asynchronous random sequential majority complete bipartite graph exact consensus reversal hypergeometric initial majority arcsin ratio"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The exact formula excludes even part sizes and globally tied initial profiles by definition.",
+    "The arcsine limit requires both parts to diverge and their size ratio to converge to a finite rho>=1; it does not justify diverging-ratio interchanges.",
+    "An unindexed exact bipartite majority first-passage law could be an older equivalent."
+  ],
+  "residual_risks": [
+    "The exact formula excludes even part sizes and globally tied initial profiles by definition.",
+    "The arcsine limit requires both parts to diverge and their size ratio to converge to a finite rho>=1; it does not justify diverging-ratio interchanges.",
+    "An unindexed exact bipartite majority first-passage law could be an older equivalent."
+  ],
+  "schema_version": 1
+}

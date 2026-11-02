@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rank-one count is a bijection of factor pairs with maps whose images lie in a single kernel fiber, multiplied by the outer-permutation cardinality. The binomial strict inequality \(m^n>n(m-1)^{n-1}\) prevents lower parts masking a highest differing block; it justifies both the greedy inverse and injectivity. An independent conservation-of-mass argument for the doubleton boundary, paired with the monotone strict lower bound for larger differing parts, proves the exact smallest gap. The isomorphism equivalence explicitly relies on Tsyaputa's published Theorem 2. The included exhaustive direct calculations are corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Tsyaputa (arXiv:math/0508386, Theorem 2) established kernel-partition classification and analyzed an entire collection of equivalence-class sizes. The new assertion isolates a single mixed rank-one product fiber count, proves that this particular scalar is enough, gives a reconstruction algorithm, and computes its smallest possible separation. Dolinka–East (arXiv:1410.5253, introduction/Section 4) emphasize structure/generation rather than the asserted scalar. The older classification of the variants is not re-claimed as novel; the possibility of an unlocated equivalent power-sum observation remains a priority risk.
+PASS
 
-**Value — PASS.** The kernel-fiber partition is a fundamental invariant that completely classifies the full transformation variants abstractly, whereas the sandwich map's rank alone forgets it. Recovering this entire discrete classification from one natural multiplication experiment is a strict information reduction. The explicit inverse and sharp gap provide mathematically optimal separation and distinguishability within this family, without artificial fixed dimensions.
+For sandwich product f star_a g=f∘a∘g, ordinary outer permutations preserve rank, so B_n(a)=n! sum over nonempty kernel fibers lambda_z^n. For each n, m^n>n(m-1)^(n-1) for integers 2<=m<=n ensures the largest part-count discrepancy dominates all smaller parts and supports the descending greedy decoder. For largest differing part 2, mass balance forces gap at least 2^n-2; for part >=3 the increasing lower h_n(m)=m^n-n(m-1)^(n-1) strictly exceeds 2^n-2. Thus sharp gap n!(2^n-2) for n>=2, attained by one doubleton against all singletons. The isomorphism equivalence uses Tsyaputa known Theorem 2 for kernel partitions (not claimed new). Independent complete integer partitions through n=23 verify injectivity and gap; the proof covers all n including n=1 special case.
 
-**Scope and risk.** The count uses a marked ordinary permutation set in the canonical transformation representation. We claim invariance of its *numerical value* on abstract isomorphism classes by an external classification theorem, not intrinsic characterization of the marker set. No independent mathematical validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary published results were compared by their mathematical implications; the stated precisely delimited new theorem is not established by the inspected statements, with incomplete-source and implicit-folklore risks retained. Originality is a qualified best-of-knowledge assessment, not a priority certificate.
+
+## value
+
+PASS
+
+The natural rank-one mixed multiplication count compresses the full kernel partition of a finite transformation variant into one O(n log n)-bit scalar, with exact decoder and optimal guaranteed separation. This is a meaningful quantitatively robust invariant despite not replacing the known partition classification; outer permutation marking is declared representation-dependent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

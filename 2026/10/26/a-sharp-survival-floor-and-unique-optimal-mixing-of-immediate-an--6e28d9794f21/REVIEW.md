@@ -1,11 +1,21 @@
-# Scientific review of a two-pathway dispersal threshold theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** The quadratic spectral law follows from the stated discrete recurrence, and its tilt log-growth is strictly convex by an explicit positive second-derivative identity. The pure-channel identities and endpoint comparisons establish the nonenhancing range, including the equality boundary. An envelope-derivative equation forces every interior optimum to one unique tilt; strict monotonicity of the remaining allocation condition gives exactly one optimal mixing fraction. A concavity argument proves the unique universal survival floor and the bounded growth interval. The bundled program successfully checks identities, thresholds and representative parameter domains; finite computations are supplemental, not an infinite proof.
+## correctness
 
-**Originality (PASS, with material residual risk).** General age-structured invasion speeds, spectral sensitivities, seed-bank models and beneficial mixing phenomena precede this work. The claimed distinction is the simultaneous necessary-and-sufficient allocation rule, global uniqueness, exact optimizing fraction, and universal minimum survival floor for this explicitly specified two-generation pair of kernels. The accessible primary sources and mathematical research-record comparisons did not establish this entire classification. The full 2013 Meyer–Li paper and full 1980 Venable–Lawlor article were not available, and a stronger general spectral-optimization theorem could imply this result. Such uncertainty remains a limitation; unavailable text is not asserted to be noncovering.
+PASS
 
-**Mathematical value (PASS).** The spatial/temporal dispersal and survival tradeoff is a motivated population-dynamics question. The theorem resolves the complete optimum rather than a local perturbation or isolated numerical simulation, discovers a nontrivial universal survival bound, and predicts a reentrant interval of growth factors supporting superior mixed strategies. These findings are structurally useful for interpreting idealized dispersal models, without claims about empirical biology or nonlinear invasion waves.
+For 1<R<2, 1/R<s≤1, θ∈[0,1], exponential modes in the specified positive second-order recurrence give λ²=R(1−θ)cosh(t) λ+Rsθ cosh(2t), and the precisely defined speed is c(θ)=inf_{t>0}logλ/t. The weighted implicit differentiation in RESULT.md gives strictly positive gθ″(t), while gθ(0)>0 and its large-t linear asymptote has a coefficient Lθ<1; hence each cθ has a unique finite minimizer. At θ=0 the endpoint derivative switches at s_c(R)=R/(1+tanh² t_R), t_R tanh t_R−logcosh t_R=log R. For s≤s_c, a fixed-tilt test yields strict global superiority of θ=0, including equality via the nonstationary shifted tilt. For s>s_c the maximizing θ is interior; the vanishing θ-derivative fixes unique tilt τ=atanh(sqrt(R/s−1)), and monotone tilt derivative fixes unique θ_opt=(v−u)/(2z−u−v), speed v. Differentiating log s_c in the R(t) parametrization yields sech²t[t−tanh(2t)], with unique zero t*=0.957504024…, giving s_min=0.878135713950414…. Independent numerical minimizations across below/above regimes and the global floor agreed. The theorem is explicitly about the linear exponential-envelope functional, not nonlinear selected fronts.
 
-**Closest literature and scope limitations.** Neubert–Caswell (2000) supplies the general structured-speed and sensitivity framework; Meyer–Li (2013) concerns age-structured seed banks and spreading, without an accessible full-text comparison of this particular allocation problem; Lutscher (2019) discusses broader mixed-strategy speed enhancement; Venable–Lawlor (1980) studies space–time seed strategies under a different optimization objective. The theorem applies only to the specified linear lattice recursion for \(1<R<2\), \(1/R<s\le1\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Targeted source and implication comparisons did not identify prior coverage of the precisely scoped final theorem; best-of-knowledge PASS with named residual risks, not a priority certificate.
+
+## value
+
+PASS
+
+Optimizing a short/fast and delayed/long dispersal channel is a natural structured-population design question. This result classifies the entire admissible phase diagram, an interior strategy that beats both pure channels, and a nontrivial survival floor and reentrant growth window. It is an analytically determined optimization boundary rather than a mere simulation of one seed-bank scenario.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

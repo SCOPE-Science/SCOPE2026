@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:51:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each square row of M is uniform over F_q^n. Pairwise nonzero, nonproportional rows (2LI) occur with probability ∏_{j=0}^{n-1}(1-[1+j(q-1)]/q^n) by projective-direction occupancy. If 2LI holds, multiplication by each vector of any alternative natural basis annihilates the span of its other columns, hence has rank <=1. A column supported in >=2 coordinates would span >=2 independent square rows, contradiction: all such basis changes are monomial. For q>3 a zero row or proportional pair permits a nonmonomial orthogonal pair, so necessity holds in that field range only. Any monomial automorphism induces a permutation of the nonzero support digraph; if the digraph is asymmetric the permutation is identity. Arc relations t_j=t_i^2 then force all scalars 1 in a strongly connected support graph with a loop. The probability of no loop is q^-n, failure of strong connectivity at most sum_{s=1}^{n-1}C(n,s)q^{-s(n-s)}, and a nontrivial permutation moving k labels can preserve at least k(2n-k) moved Bernoulli positions with probability <=rho^{kn/2}, giving sum_{k=2}^n n^k rho^{nk/2}=O_q(n^2 rho^n). Combining with 2LI failure gives O_q(n^2 rho^n); Pr(M singular)=1-∏_{i=1}^n(1-q^-i)>=1/q, hence the conditional bound follows without independence assumptions. Separately independently enumerated projective 2LI occupancy: 6/16 for q=2,n=2; 210/512 for q=2,n=3; 48/81 for q=3,n=2. Finite checks illustrate, not prove asymptotic claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 survey prominently treats automorphism questions and random evolution algebras; the original package identifies Question 22 as asking for asymptotic trivial-aut probability. Only the published abstract was accessible for verification of exact question wording.",
+          "Boudi et al. establish structural natural-basis criteria; prior perfect/invertible random models do not directly imply conditioning on matrix singularity."
+        ],
+        "reasoning": "A broad survey posing questions or a deterministic 2LI lemma does not imply an exponentially small exceptional probability in the unrestricted singular-positive-density ensemble.",
+        "searches": [
+          "arXiv:2610.22248, Kaygorodov–Martín González–Viruel, survey and 50 questions",
+          "arXiv:2006.14460, natural families",
+          "Resultary: random finite field evolution algebra singular structure matrix trivial automorphism probability natural basis uniqueness"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py",
+        "Independent 2LI occupancy exact enumeration q=2,n=2,3 and q=3,n=2",
+        "arXiv:2006.14460 (Boudi et al., natural families, 2LI)",
+        "arXiv:2610.22248 (Kaygorodov et al., survey, abstract read)",
+        "Resultary evolution random rigidity query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known 2LI implies all natural bases monomial, but does not preclude nontrivial permutations or scalings.",
+          "Loop+strong-connectivity+zero-pattern asymmetry excludes both remaining automorphism modes; the resulting event fails with probability O_q(n^2 rho^n)."
+        ],
+        "reasoning": "The proof genuinely couples algebraic natural-basis uniqueness with graph rigidity. The conditioned singular statement follows from an unconditional bound and fixed positive probability singularity, which is transparent and not touted as independent hard theory.",
+        "searches": [
+          "Kaygorodov et al. 2026 arXiv:2610.22248 (survey/open questions)",
+          "Boudi et al. 2020/2022 arXiv:2006.14460 (2LI criterion)",
+          "Random digraph asymmetry probability union bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boudi–Cabrera Casado–Siles Molina study natural-family extension and the two-linearly-independent-square condition in evolution algebras, not a distribution over all random structure matrices.",
+          "Related probabilistic graph asymmetry statements address the support graph only; nonzero coefficients and natural-basis uniqueness require further algebraic conditioning."
+        ],
+        "reasoning": "The 2LI deterministic property is known; its projective occupancy probability and combination with directed graph support rigidity give the new random-algebra theorem, including singular matrices.",
+        "searches": [
+          "Resultary: random finite field evolution algebra singular structure matrix trivial automorphism probability natural basis uniqueness",
+          "Web: random evolution algebra asymptotically automorphism group trivial Fq",
+          "arXiv:2006.14460 2LI natural families"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite-field random singular automorphism-rigidity probability bound appeared in returned Resultary titles/abstracts.",
+          "The 2LI probability is an explicit projective occupancy product, not a quoted tabulated distribution."
+        ],
+        "reasoning": "The central claim is an all-n asymptotic with explicit exception bounds, not a small-field table; the exact 2LI factor is an elementary but useful component, not by itself sufficient to establish the automorphism result.",
+        "searches": [
+          "Resultary: random finite field evolution algebra singular structure matrix trivial automorphism probability natural basis uniqueness",
+          "arXiv:2006.14460 natural families property (2LI)"
+        ]
+      },
+      "rationale": "PASS for the random uniform-coefficient strong asymptotic trivial-automorphism theorem including positive-density singular matrices; known 2LI deterministic criterion, finite-projective occupancy idea, and random directed-graph asymmetry are acknowledged building blocks, not original discoveries.",
+      "residual_risks": [
+        "Full recent 2026 survey could not be read; the exact historical status of its Question 22 and possible stronger solutions remains to be confirmed.",
+        "For q=2,3 the equivalence 2LI iff uniqueness of natural bases is not asserted; only sufficiency and the asymptotic conclusion survive.",
+        "Fixed q only; sparse structure matrices and uniform isomorphism-class sampling are outside the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS natural-family background and 2LI input, not evidenced to cover unrestricted random singular ensemble",
+          "evidence": [
+            "Abstract describes characterization and extension of natural orthogonal families in nondegenerate evolution algebras."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.14460",
+          "material_read": "Primary abstract/section descriptions and theorem identifiers from package; direct PDF full text not acquired",
+          "method": "arXiv abstract, targeted searches, deterministic criterion independently re-proved from source",
+          "title": "Natural families in evolution algebras",
+          "trigger": "Same 2LI deterministic condition and natural-basis change criterion"
+        },
+        {
+          "assessment": "PLAUSIBLE priority benchmark but not a verified whole-document NOT_COVERING conclusion",
+          "evidence": [
+            "Abstract names 50 open questions and 11 conjectures; no statement in the available abstract of dense-random singular-conditioned rigidity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.22248",
+          "material_read": "Full primary abstract and public descriptions; recent arXiv PDF/HTML unavailable through tool; no complete Question 22 text read",
+          "method": "Original public arXiv record and alternative search; PDF/HTML retrieval attempted",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Contemporary source on probability of trivial automorphism and proposed open questions"
+        },
+        {
+          "assessment": "NO_EXACT_MATCH among retrieved results, with coverage caveat",
+          "evidence": [
+            "Hits describe specific evolution algebra families and finite field group automorphisms, not dense random singular evolution algebras."
+          ],
+          "identifier_or_url": "Resultary semantic search: 2026-10-30 query batch",
+          "material_read": "20 relevant semantic hits inspected by titles and summaries; no direct match",
+          "method": "Resultary semantic search",
+          "title": "Resultary algebra/graph rigidity matches",
+          "trigger": "Potential same random-evolution finite-field theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Automorphism rigidity of a random evolution algebra is a natural open structural-probability question. The exact failure-rate estimate with an unrestricted dense matrix is nontrivial because generic matrices can be singular with positive limiting density; extending rigidity to that nonperfect subpopulation is mathematically meaningful. The result integrates deterministic natural-basis geometry and asymmetric random support to control actual algebra automorphisms, beyond a routine projective occupancy calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verify.py",
+    "Independent 2LI occupancy exact enumeration q=2,n=2,3 and q=3,n=2",
+    "arXiv:2006.14460 (Boudi et al., natural families, 2LI)",
+    "arXiv:2610.22248 (Kaygorodov et al., survey, abstract read)",
+    "Resultary evolution random rigidity query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent uniform q-ary entries, fixed q, n->infinity; the exact finite-n probability of Aut nontrivial is not determined.",
+    "For q>3 exact probability of monomial-natural-basis uniqueness equals the stated product; for smaller fields only a sufficient lower bound is asserted."
+  ],
+  "residual_risks": [
+    "Full recent 2026 survey could not be read; the exact historical status of its Question 22 and possible stronger solutions remains to be confirmed.",
+    "For q=2,3 the equivalence 2LI iff uniqueness of natural bases is not asserted; only sufficiency and the asymptotic conclusion survive.",
+    "Fixed q only; sparse structure matrices and uniform isomorphism-class sampling are outside the theorem."
+  ],
+  "schema_version": 1
+}

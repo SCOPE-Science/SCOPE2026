@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof partitions all admissible labelings by the hub's four possible values. In each case independence permits no more than one zero in a clique blade (none if the hub is zero); all remaining neighborhood conditions are independently characterized inside blades. The hub-zero case needs two blades, and the proof checks this boundary explicitly. Taking minimal powers of the local factors proves the exact minimum, minimum multiplicity, and second-weight coefficient. Exhaustive direct-predicate testing against the product expression passed on ten predefined and six additional nonuniform instances (up to ten vertices). Finite computations are corroborative, not substitutes for the proof.
+## correctness
 
-**Originality — PASS, conditional on accessible-literature evidence.** The inspected 2019 preprint Theorem 12 **does apply**: this bouquet is the corona \(K_1\odot(\bigsqcup_iK_{m_i})\), and its scalar minimum is prior-implied. This novelty assessment therefore excludes that optimum and the obvious optimum construction, and concerns the full all-weight counting polynomial and second-weight coefficient. The scalar optimization theorem does not enumerate nonminimal labelings. Inspected 2021 and 2024 papers concern bounds, extremal trees or stability. Related indexed work includes dissociation enumerators of generalized windmills and Roman label enumerators of complete multipartite graphs, neither of which implies the stated four-label protected-zero predicate. The original 2019 article was available only by abstract, not full text. Full-text priority risk and unindexed literature remain expressly unresolved; no claim of universal novelty is made.
+PASS
 
-**Mathematical value — PASS.** The arbitrary nonuniform blade vector gives a natural exact weight distribution for a connected block graph with one cut vertex, strictly refining an optimum value. The coefficient formula distinguishes full-labeled defensive configurations by every budget, while its next-weight coefficient displays an explicit two-blade boundary effect. Equal blade sizes recover standard generalized windmill and friendship families. The fact is self-contained; no unsupported broader theorem is asserted.
+PASS. On B=K_1∨(⊔_{i=1}^t K_{m_i}) for t≥2 and every m_i≥2, the four values of the unique hub exhaust all possible configurations. Independent zeros prohibit two zeros in one blade, and prohibit any blade zero when hub=0. The zero/one/defense conditions split independently by blade after fixing hub; local factors are T^m−z^m, T^m−z^m+m(T^{m−1}−z^{m−1}−(m−1)z^m), T^m+m(T^{m−1}−z^{m−1}), and T^m+mT^{m−1} for hub values 0,1,2,3, T=z+z²+z³. The hub-zero defense requires t≥2 (or a 3-valued vertex), and the proof handles it. Summing z^h∏_i A_{h,m_i} gives ALL labeling weights. Minimal term has weight 3+Σ_i(m_i−1) with count ∏m_i; comparing next terms gives the stated distinct t=2 correction. Independently built adjacency lists and enumerated all 4^N labelings for five heterogeneous vectors, obtaining exact total enumerators and next coefficients; examples (2,2) total 558,min5,next25, (2,3) total2121,min6,next50, (2,2,2) total7084,min6,next36. The actual verifier compares full histograms for ten test vectors. Finite cases are corroboration only; local-case proof establishes all t and sizes.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS on the complete four-label WEIGHT ENUMERATOR and its second coefficient, but not on the scalar minimum. Crucially, the clique bouquet is a one-vertex corona K1⊙(⊔ K_mi), and Mojdeh–Samadi–Shao–Yero (arXiv:1909.01775) Theorem 12 already covers its optimum by a general corona formula; treating the minimum as newly discovered would be false. Theorem 12 optimizes one scalar; it does not count the nonminimal admissible functions, their weights, or the t=2 next-weight correction. Original introductory Ahangar–Chellali–Sheikholeslami paper (AMC 364:124617) was found only in abstract; authorized Oxford full-text access returned VPN disconnected, so material priority risk is explicit rather than a verdict from lack of access. Published nearby weight enumerators on complete multipartite graphs concern distinct Roman variants/graphs. No inspected stronger implication covered the full stated polynomial.
+
+## value
+
+PASS
+
+PASS. For a natural heterogeneous clique bouquet (connected block graph with a single common cut vertex), counting ALL defensive labelings by cost yields a complete combinatorial distribution that strictly refines the already-known scalar optimum. The second coefficient exhibits a genuine two-blade-only boundary term, and uniform sizes recover common friendship/generalized windmill families. The result is narrower than a general graph domination theory but a motivated exact natural invariant, not an unmotivated tiny gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
