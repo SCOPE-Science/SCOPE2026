@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact law follows by choosing the cyclic core, counting rooted forests and permutations with two cycles, and correctly dividing the equal-length case by two. The normalization \(Z_n\) is derived rather than assumed. The Gaussian product bound controls the core-count Riemann sums; the macroscopic bivariate intensity follows by a second lattice Riemann sum and an explicit antiderivative. For any fixed \(q>0\), the singularity in the smaller-cycle moment kernel is integrable, which justifies Gaussian domination and yields the sharp integral coefficient. The variance calculation discards the squared mean only after showing that it has smaller logarithmic order. The logarithmic weak limit is distinguished from the nonuniformly integrable moment law. Exact exhaustive enumeration verifies every stratum for mapping sizes two through six; it is not used as an infinite proof.
+PASS
 
-## Originality
+PASS: A map with k cyclic points has probability a_{n,k} k/n with a=(n)_k/n^k, and its cyclic permutation is uniform; permutations with two cycles count (k-1)!H_{k-1}. This gives P(M=2)=Z_n/n and the exact conditional pair weights a/Z*[1/s+1/(k-s)] for 2s<k, or a/(Zs) for 2s=k (half correction). The Gaussian bound a<=exp(-k(k-1)/(2n)) and H_{k-1}=log k+O(1) yield Z_n~(I0/2)sqrt(n)log n. For k~x sqrt(n), s~y sqrt(n), local mass times log n has the stated two-dimensional Riemann intensity (2/I0)e^{-x²/2}(1/y+1/(x-y)); diagonal equal-cycle lattice has zero scaled macroscopic measure. Integrating y from a to x/2 yields log((x-a)/a) and Gaussian tails justify limit. For every fixed q>0, the endpoint singularity t^{q-1} is integrable, unnormalized k-moment scales k^q I_q, and Gaussian dominated Riemann sums give coefficient 2I_q mu_q. Variance uses squared mean lower order; tight k-window plus harmonic smaller-cycle law gives joint independent (|G|,U/2) logarithmic weak scale. Independent exact enumeration of all maps n=2..6 gave conditional stratum counts and probability formulas matching exactly; finite enumerations do not prove asymptotics.
 
-**PASS on inspected evidence, with residual priority risk.** Arratia and Tavaré (1992) treat unconditioned random-mapping core cycles and small-cycle Poisson approximation, including its \(o(\sqrt n)\) range. Their 1994 assembly framework supplies general conditional enumerations, but the inspected sections do not calculate the two-component macroscopic minimum-cycle intensity or its all-positive-power moments. Granville (2006) covers fixed-cycle-count permutation behavior on logarithmic scales, so the logarithmic weak law and exact two-cycle enumeration are credited as classical consequences, not as the novelty. Finch (2022) analyzes fixed-component mapping cycles. The proposed quantitative contribution isolates the \(1/\log n\) boundary layer and the exact associated moment constants. This is not implied by weak-log-scale convergence alone. A prior tailored use of the 1994 generating-function framework or an older mapping monograph could remain unlocated.
+## originality
 
-## Value
+PASS
 
-**PASS.** The shortest of two directed cycles in a random mapping is a natural order statistic under a natural rare component-count conditioning. Its logarithmic typical scale suggests a smaller-than-macroscopic cycle, yet *every* fixed positive moment is controlled by logarithmically rare cycles of order \(\sqrt n\). The complete boundary-layer measure explains that mismatch, gives a testable tail integral at every positive scale, and supplies sharp mean and variance constants, not merely an isolated finite coefficient or routine marginal recomputation.
+PASS, qualified: Arratia–Tavaré 1992 and 1994 give mapping-core/permutation-cycle conditioning and small-cycle Poisson laws; Granville 2006 covers weak logarithmic cycle behavior with fixed cycle count. Finch 2022 examines longest cycles and one-component random mappings. These are substantive prior ingredients; no inspected primary theorem gives the two-component macroscopic shorter-cycle 1/log n boundary-layer density, fixed positive-power moment constants, or joint rare-event spatial formulation. The exact finite joint law and weak-scale observation are classical specializations, not asserted new. General assembly moment formulas could implicitly contain the constants under specialization; residual risk remains.
 
-## Literature and limits
+## value
 
-The closest inspected primary sources are Arratia–Tavaré (1992, 1994), Granville (2006), Finch (2022), and Tavaré (2022). General conditioned-component enumerations make historical priority difficult to prove exhaustively; a result with the same conditional macroscopic tail would supersede the proposed contribution, but no such claim was located in the inspected material. The theorem is only for fixed component count two, uniform self-maps and fixed positive moment orders. Independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Conditioning a mapping to exactly two components produces a nontrivial rare-event boundary separating the typical n^{U/2} shorter cycle from macroscopic sqrt(n) contributions that govern positive moments. The precise vague intensity, sharp tail and variance constants are natural exact probability invariants, not mere numerical corrections or arbitrary slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
