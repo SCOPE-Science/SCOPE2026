@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness: PASS.** The theorem's four-step proof is self-contained. Back and forth force each source singleton to have a singleton target image; forth and back then give exact direct-image behavior; back at the full target yields surjectivity; and every surjection meets both axioms. Composition, hom-set enumeration and automorphisms follow formally. The checker exhausts seven small carrier-size pairs and verifies 2,676 additional surjection-induced maps. Exhaustive finite testing is not used to justify the unrestricted claim.
+
+**Originality: PASS, subject to historical-priority risk.** The closest source, Jockwich–Tarafder–Venturi, arXiv:2607.25977, §6, provides partition-induced Boolean embeddings, not a classification of all bounded morphisms of the full frames. The separate report *Every finite stage of the internal forcing logic hierarchy is strict* studies complete-graph bounded-morphic quotients of induced subframes, not all maps between full co-consistency frames. Generic modal p-morphism definitions and classical powerset duality do not themselves supply the required singleton-image rigidity. Searches for co-consistency/compatibility frames, nonempty powerset intersection relations, p-morphisms, surjections, and Stirling hom-set counts located no exact coverage. Historical equivalence under contact-algebra or graph-transformation terminology remains possible.
+
+**Value: PASS.** The motivating paper supplies a natural finite hierarchy of modal semantics, and the classification determines its entire full-frame morphism calculus: quotient existence, exact hom-sets, all automorphisms, compatibility with composition, and the infinite-atom case. This is a structural, not arbitrary finite, invariant. The formula \\(n!\\,S(m,n)\\) is a consequence of identifying all maps; the novelty/value is not in re-deriving classical Stirling numbers.
+
+**Limitations.** No claims about proper induced subframes, non-atomic Boolean algebras, or valuation-preserving model morphisms. Related classical duality raises a nonzero priority risk, especially if an equivalent frame-rigidity theorem appears in terminology not covered by searches.
+
+Self-review: passed. Independent audit: not yet performed.
