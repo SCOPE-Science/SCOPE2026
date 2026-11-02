@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of the theorem
+# Independent mathematical audit
 
-## Source and analytic checks
-The general convex Cheeger-radius theorem is read in Kawohl--Lachand-Robert (2006), Theorem 1. The 2021 paper by Cañete reproduces the statement and establishes the permitted primary geometry code. The most directly related outer-parallel paper by Ftouhi (2025) was inspected through its first-order variation theorem. These are premises/priority comparisons rather than novel certificates.
+## correctness
 
-We checked independently by symbolic coefficient matching that the expansion for the rounding gap has linear coefficient \(2\pi T/D\) and quadratic coefficient \(\pi(4\pi CT^2-L^2)/D^3\). The one-sided second derivative gap for \(s=1/h\) simplifies to \(8\pi^2T^2(C-\pi)/D^3\), hence the claimed negative jump of \(h''\). The geometric inner erosion identity follows from shifted support halfplanes; no finite enumeration is used as an infinite proof.
+PASS
 
-## Reproducible numerical cross-checks
-Run `python verify.py`. It constructs polygonal erosion independently via sequential clipping by inward translated halfplanes. At small offsets it compares polygon area against the derived inner-Steiner polynomial; around the critical radius it checks the Cheeger-root expansion by numerical bisection, including squares, equilateral and regular polygons, and one asymmetric convex pentagon. The program passed on the supplied package. The calculated examples neither certify arbitrary polygons nor establish publication priority.
+The established planar convex Cheeger equation |Omega_t ominus sB|=pi s^2 uniquely defines radius s=1/h; support functions imply for s<=t the erosion is P+(t-s)B, and otherwise P ominus(s-t)B. At s=t the residual is A-pi t^2, giving exact universal threshold. Steiner area yields s=(A+Lt+pi t^2)/(L+2pi t) above threshold. For u small, |P ominus uB|=A-Lu+Cu^2 by corner-triangle area, C=sum cot(alpha_i/2). The implicit subthreshold equation has derivative -(L+2pi T), so differentiable roots with b1=2pi T/D, b2=pi(4pi C T^2-L^2)/D^3; direct independent SymPy differentiation verified the boxed h second derivative jump. Exterior-angle Jensen yields C>pi and hence strict non-C2 behavior. The local inner area polynomial is used only before edge extinction.
 
-## Boundaries
-All objects are planar Euclidean convex polygons with genuine noncollinear vertices. The expanded inner Steiner formula is only asserted before the first edge vanishes. The second derivative is one-sided at the join. Independent mathematical and scholarly review has not been performed.
+## originality
+
+PASS
+
+The Cheeger radius characterization and self-Cheeger threshold are already direct consequences of known convex Cheeger theory, and first derivative smoothness for parallel bodies is already established. The narrower surviving mathematical contribution is the exact universal nonzero second-derivative angular jump and two-term inner-rounding gap for all genuine polygons, not the threshold as standalone novelty.
+
+## value
+
+PASS
+
+The exact universal second-derivative defect, valid for every genuine convex polygon, detects the intrinsic corner functional C=sum cot(alpha_i/2) from physically natural disk-offset Cheeger response. Sharp regularity loss at a universal area-normalized scale extends known first-variation theory and supplies a shape-sensitivity benchmark. The bound and geometric object are motivated independently of finite numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

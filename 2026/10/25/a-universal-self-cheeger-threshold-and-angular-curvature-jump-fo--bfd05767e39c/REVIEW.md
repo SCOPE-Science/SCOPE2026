@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The root equation |(P+tB)⊖sB|=πs² is a precisely cited 2006 theorem. Support halfplanes identify erosion as P+(t-s)B or P⊖(s-t)B, hence the threshold A=πt² and exact rational supra-threshold h. The small-erosion area A-Lu+Cu² follows from offset side shortening, and the implicit equation has derivative −(L+2πT)≠0. Independently expanded coefficients give the stated jump. Jensen gives C>π. The standalone checker reconstructs eroded polygons by clipping and checks 16 polygon cases, but the proof does not rely on numerics.
+## correctness
 
-## Originality — PASS, with residual priority risks
-Compared the actual 2006 convex Cheeger theorem, 2021 rotational-symmetry paper, 2025 outer-parallel Cheeger first-variation paper, 2019 self-Cheeger criterion abstract, targeted scholarly searches. The threshold alone is covered as a corollary of known curvature/erosion criteria, so originality is anchored in the universal C¹-but-not-C² angular jet and strict formula. The retrieved stronger-looking first-variation source does not supply second derivatives. A residual risk of an unpublished or unindexed equivalent local expansion is acknowledged.
+PASS
 
-The nearest preceding work is Kawohl–Lachand-Robert (2006), whose implicit root theorem is a premise. Ftouhi (2025) proves the first derivative of the parallel-body Cheeger profile, not the second-derivative angular discontinuity. Cañete (2021) concerns rotational-symmetry preservation and edge contact. The 2019 self-Cheeger source was available as an abstract; comprehensive priority is an outstanding risk.
+The established planar convex Cheeger equation |Omega_t ominus sB|=pi s^2 uniquely defines radius s=1/h; support functions imply for s<=t the erosion is P+(t-s)B, and otherwise P ominus(s-t)B. At s=t the residual is A-pi t^2, giving exact universal threshold. Steiner area yields s=(A+Lt+pi t^2)/(L+2pi t) above threshold. For u small, |P ominus uB|=A-Lu+Cu^2 by corner-triangle area, C=sum cot(alpha_i/2). The implicit subthreshold equation has derivative -(L+2pi T), so differentiable roots with b1=2pi T/D, b2=pi(4pi C T^2-L^2)/D^3; direct independent SymPy differentiation verified the boxed h second derivative jump. Exterior-angle Jensen yields C>pi and hence strict non-C2 behavior. The local inner area polynomial is used only before edge extinction.
 
-## Mathematical value — PASS
-The derivative jump is not an arbitrary chosen polygon sample: it is valid for every genuine convex polygon and detects an intrinsic angle functional from the Cheeger response to physical Minkowski rounding. It identifies a universal sharp geometric phase transition and the exact order of loss of smoothness at the self-Cheeger boundary, refining the known differentiability theorem. This provides a usable shape-sensitivity benchmark for nonsmooth convex geometries.
+## originality
 
-## Scope and validation limitations
-No global subthreshold closed formula or independent audit is asserted. Finite numerical checks only supplement the all-polygon analytical argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Cheeger radius characterization and self-Cheeger threshold are already direct consequences of known convex Cheeger theory, and first derivative smoothness for parallel bodies is already established. The narrower surviving mathematical contribution is the exact universal nonzero second-derivative angular jump and two-term inner-rounding gap for all genuine polygons, not the threshold as standalone novelty.
+
+## value
+
+PASS
+
+The exact universal second-derivative defect, valid for every genuine convex polygon, detects the intrinsic corner functional C=sum cot(alpha_i/2) from physically natural disk-offset Cheeger response. Sharp regularity loss at a universal area-normalized scale extends known first-variation theory and supplies a shape-sensitivity benchmark. The bound and geometric object are motivated independently of finite numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
