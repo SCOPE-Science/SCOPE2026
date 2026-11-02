@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 quadrangulation_threecut_checker.py` with Python 3 (standard library only). The program builds the cubical sphere, the ordinary \(7\times7\) torus grid, and the twisted \(7\times7\) and \(7\times8\) Klein-bottle grids. It independently enumerates induced connected triples and tetrahedral squares, checks square uniqueness and common-neighbor bounds, explicitly removes each proposed free-face/cell pair, and validates the final complex's exact triangular faces, surface edges, extra chords, closed surface links, Euler characteristic and boundary rank modulo \(2\), \(3\), and \(5\).
+## correctness
 
-Expected elementary-collapse pair counts: `12`, `196`, `196`, `224`. Expected extra chord counts: `4`, `882`, `882`, `1204`. For the toroidal case, the residual surface has second Betti number one in all three tested characteristics. For each Klein case, the surface has second Betti number one in characteristic two and zero in odd characteristics. Full test output has four `PASS` records.
+PASS
 
-These executions are finite checks of concrete cases. The proofs of the infinite-family theorem and integral two-torsion use the free-face uniqueness argument for arbitrary allowed quadrangulations, the standard integral homology of orientable/nonorientable surfaces, and combinatorial Alexander duality. No external or independent audit was performed.
+For N≥8 closed cellular triangle-free quadrangulations with each C4 facial and no K2,3, the Alexander dual Y has all vertices/edges, induced-path triples (T=∑ binom(deg,2)), and 4-element faces exactly facial squares. Mantel excludes 5-faces. Each square tetrahedron has a unique free path-triangle; collapsing that pair then a diagonal/path triangle, and removing remaining unique-common-neighbor path triangles, retains exactly a face-triangulated Σ plus q=binom(N,2)−T extra chords. Every such chord adds a free S¹ summand: Y≃Σ∨∨^q S¹. Integral combinatorial Alexander duality gives H~_(N−5)=Z or Z/2 according to orientability, H~_(N−4)=Z^(q+2g) or Z^(q+h−1). The nonzero next-to-top group precludes shellability. A horizontal translation/glide-reflection quotient of Z² with m,n≥7 gives Klein bottle, q=N(N−13)/2, hence H~_44=Z/2 and H~_45=Z^883 for N=49. Independently checked all triangle and tetrahedron dual-face sets and q for the cube and the twisted 7×7 grid; structural proof, not these finite cases, covers the all-surface theorem.
+
+## originality
+
+PASS
+
+QUALIFIED PASS. Bayer et al define k-cut complexes and give graph-family homology, including some torsion examples in high-k constructed graphs; these are not ordinary k=3 face-closed nonorientable quadrangulations. Their conditional torsion-free theorem needs skeleton conditions not satisfied here. The related published edge-disjoint-four-cycle 3-cut collapse is not applicable: quadrangulations have each edge in two facial squares, producing a persistent surface instead of graph. The 2-to-3-cut collapse in C4-free diameter-two graphs excludes every quadrangulation here. An integral orientability-dependent infinite torsion family is not implied by these results.
+
+## value
+
+PASS
+
+The construction makes the geometry/topology of an embedded surface directly control the integral homology of a natural graph cut complex. The orientation-detecting order-two class is a structural distinction invisible over characteristic ≠2 and yields an infinite explicit family, not a routine instance of a known open-grid computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
