@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact Gaussian-moment expansion produces a nonnegative irreducible five-dimensional fourth-moment operator; its determinant and resolvent yield the quartic and fourth-moment rational function. Descartes' rule after an interval-to-halfline change proves a unique critical root. Perron monotonicity, a positive forcing vector, and conditional Jensen establish the finite/infinite fourth-moment dichotomy, including the critical point. The standalone verifier reproduces the key exact identities. The claim is restricted to the causal stationary law.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Shaikhet (1997) already proves the general one-lag mean-square threshold, and Lan–Liu (2023) develops stability theory for stochastic-delay Euler schemes. Both are excluded from the novelty claim. Classical random-coefficient AR moment-operator theory is also acknowledged. The narrow result is the explicit algebraic **fourth**-moment boundary and exact stationary fourth-moment/pole classification for the balanced delay-Euler benchmark; no equivalent explicit result was found in the searched primary sources and mathematical records. The inaccessible full text of Truquet–Yao (2012), and other possible time-series treatments, prevent publication-priority certainty.
+PASS
 
-**Value — PASS.** This is a sharp, interpretable exact test model for the distinction between mean-square stability and reliable fourth-moment/kurtosis estimation in numerical stochastic-delay dynamics. The interval between the two thresholds is substantial, not an infinitesimal perturbation. The specialization p=q=1/3 gives equal current and delayed weights with strict deterministic contraction and an exact integer-coefficient polynomial cutoff; fourth-moment finiteness is directly relevant to sampling uncertainty and validation of long-time stochastic numerical output. No extension to arbitrary coefficients or non-Gaussian noise is claimed.
+Re-derived the 3×3 second-moment recurrence and stationarity equations yielding T=S/2 and S=1/(2/3−u); irreducible nonnegative moment map crosses spectral radius one at u=2/3. Independently reconstructed the 5×5 Gaussian Wick fourth-moment map K_4(u) for all degree-four mixed monomials; exact symbolic determinant equals Q(u)/19683 and solving (I−K)m=f with f=(0,0,S,3S/2,6S−3) gives m4=27R/[(2−3u)Q]. Transform u=(2/3)t/(1+t) yields −2(901t^4+10549t^3+5667t²−12929t−7004), having exactly one positive root by Descartes, with opposite rational signs at u=1/3 and 7/20. Positivity/irreducibility of K_4 and increasing Perron radius give finite fourth moments only below the crossing; for u>=u4 while u<2/3, the positive left eigenvector and finite-past conditional-Jensen construction force infinite fourth moment rather than merely a singular matrix. The positive simple Perron crossing makes Q' negative at u4 and gives simple-pole divergence. The independent symbolic check matched the exact determinant, resolvent and polynomial transform; the initial unexpanded SymPy expression equality failure was a simplification artifact and vanished after computing the zero difference.
 
-**Limitations.** A matrix-spectral moment criterion in full generality is known, and the exact cutoff does not certify independent novelty without exhaustive specialized literature review. The stationary law is an Euler-iteration stationary law, not the continuous SDDE's invariant law.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The second-moment stability, random-coefficient autoregressive stationarity and spectral moment approach are prior theory. The candidate new result is the explicitly determined fourth-moment algebraic threshold and exact stationary fourth-moment rational function for the balanced Gaussian lag-one Euler benchmark. The highly relevant Truquet–Yao primary paper is now read in lawful full text and gives general moment existence machinery, not this special closed form.
+
+## value
+
+PASS
+
+A balanced, contractive yet randomly forced stochastic-delay Euler benchmark has a substantial parameter interval with finite variance and infinite fourth moment, directly relevant to stability diagnostics, kurtosis estimates and high-moment numerical-analysis assumptions. The exact cutoff Q(u), full rational stationary moment and divergence constant go beyond known second-moment stability checks and give a reproducible sharply located stress test; this is a motivated benchmark rather than an arbitrary tiny parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
