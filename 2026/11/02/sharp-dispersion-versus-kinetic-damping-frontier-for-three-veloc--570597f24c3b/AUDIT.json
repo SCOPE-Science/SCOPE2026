@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "An exact rational variable transformation reduces the published necessary-and-sufficient stability criterion to Φ=a(8p−1)+b(4p−1)≥0. It implies strict p>1/8 and the quadratic root lower bound with b≥ℓ. Both piecewise equality designs obey the cap, the relaxation interval and Φ≥0, and are unique. The physical-phase coefficient follows from the actual eigenvalue expansion via log-series cancellation. The standalone rational/decimal verifier completed successfully; finite checks are supplementary, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 16 characterizes all stable pairs, and §6 explicitly says third-order accuracy is forbidden; it does not state the quantitative best cubic phase coefficient under any bound on nonconserved zero-frequency factors.",
+        "Ginzburg and d’Humières analyze primarily steady lattice Boltzmann errors and boundary conditions; the available 2008 abstract addresses a distinct advection-diffusion scheme."
+      ],
+      "reasoning": "The motivating stability theorem supplies a feasible set but not the optimized objective, unique extremizing design, or piecewise cap-dependent law. An existing full solution to this exact constrained optimization would cover the claim; none was located in the material read. An older paper cannot be ruled out on its abstract alone.",
+      "searches": [
+        "arxiv:2610.32810v1 Theorem 16, Corollaries 17–18 and §6",
+        "Ginzburg and d’Humières 2009 magic collision numbers and recurrence equations",
+        "Servan-Camas and Tsai 2008 third order stability two relaxation advection-diffusion"
+      ]
+    },
+    "checked_sources": [
+      "Bellotti et al., arXiv:2610.32810v1 §§2–6, 8",
+      "Servan-Camas–Tsai, 2008, DOI:10.1016/j.advwatres.2008.05.001 abstract",
+      "Ginzburg–d’Humières, 2009, DOI:10.1016/j.camwa.2009.02.008 accessible excerpts",
+      "Lallemand–Luo, 2000, DOI:10.1103/PhysRevE.61.6546 abstract",
+      "Current available published mathematical-record summaries for D1Q3/phase-damping/relaxation queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source implies the positivity of the cubic defect under stability qualitatively and supplies all the model equations; it does not provide a universal sharp lower magnitude of 1/24 or the cap-dependent minimizer.",
+        "Prior general TRT parameter methods have overlapping notation, but the compared statements do not specify the same constrained design problem or give a dominating bound."
+      ],
+      "reasoning": "The new envelope is a constrained optimization over the exact known stable set, not a claim of a new stability set or a new eigenvalue series. The source results can be used to prove it, but their statements alone do not already identify the optimized invariant or its equality configurations. Risk remains that older optimization literature covers this indirectly.",
+      "searches": [
+        "arxiv:2610.32810v1 Theorem 16 equation (14), Section 3 equation (8), Section 6 equation (23)",
+        "2008 Servan-Camas Tsai advection diffusion stability and third-order dispersion",
+        "2009 Ginzburg d’Humières steady-flow TRT magic collision numbers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bellotti et al. equations (8), (14), (23) explicitly identify the stability set and the cubic dispersion coefficient, but the inspected sections do not give an optimal envelope indexed by a kinetic damping cap.",
+        "Older collision-number literature uses the same general inverse-relaxation variables, but concerns different flow, diffusion, or boundary setups."
+      ],
+      "reasoning": "Converting relaxation rates to a=1/s_v-1/2, b=1/s_w-1/2 yields an equivalent feasibility inequality. The new problem is the global minimization of ab under a separate damping cap; it requires a nontrivial quadratic minimax inequality, produces two optimizer branches and unique attained extremizers, and is not an existing special-case parameter substitution. No searched equivalent result was found, but absence from search is not priority proof.",
+      "searches": [
+        "arxiv:2610.32810v1 §§3–6: relaxation-product magic parameter, physical and parasitic eigenvalue expansions",
+        "Web search: lattice Boltzmann D1Q3 stability magic parameter lower bound 1/8 2026",
+        "Web search: lattice Boltzmann advection dispersion damping trade off two relaxation parameters magic parameter sharp"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating paper already contains 5-2√6 as the crossover for equal-rate stability, but not as the threshold between two constrained optimum branches.",
+        "The inspected historical sources and mathematical record hits showed no table of the exact p_min(q) function."
+      ],
+      "reasoning": "Matching the known crossover constant alone is insufficient: it is the optimizer transition and full function that are claimed. No exact table with this function was found, and a failed search is not a novelty certificate.",
+      "searches": [
+        "Search for exact symbolic threshold 5-2√6 together with D1Q3 third-order phase error and relaxation cap",
+        "Search for D1Q3 Lax-Wendroff dispersion optimal damping",
+        "Search for magic parameter 1/8 and two-relaxation lattice Boltzmann"
+      ]
+    },
+    "rationale": "The motivating paper provides the full stability region and Fourier coefficient and qualitatively forbids third order, but does not state or solve the cap-constrained global minimization, its unique two-branch extremizers, or the sharp numeric dispersion floor. Matching general collision-parameter literature was searched and compared, with a specific older full-text priority risk.",
+    "residual_risks": [
+      "Full text of the 2008 Servan-Camas–Tsai study was unavailable and could contain an equivalent special-model optimization.",
+      "The 2009 and 2000 broad lattice Boltzmann papers were not fully accessible; only indexed excerpts or abstracts were read.",
+      "The exact optimization might exist in earlier literature under a different inverse-relaxation convention; no independent priority certification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Derives necessary/sufficient stability, third-order modified coefficient and kinetic multipliers; does not state the cap-dependent sharp minimization or optimizer design.",
+        "evidence": "Theorem 16, Corollary 17, equations (8), (14), (23), and §8.",
+        "identifier_or_url": "https://arxiv.org/html/2610.32810v1",
+        "material_read": "HTML introduction, model specification §2, consistency §3, stability theorem §4, relevant proof passages §5, physical and kinetic dispersion §6 and conclusion §8",
+        "method": "Read accessible original full-text HTML at the theorem, formula, corollary and eigenvalue passages",
+        "title": "Numerical analysis of a Lax–Wendroff type lattice Boltzmann scheme for the advection equation",
+        "trigger": "Identical D1Q3 scheme and exact published stability region"
+      },
+      {
+        "assessment": "Potentially similar parameter optimization but treats advection-diffusion with varied equilibria; exact coverage of the new constrained D1Q3 frontier cannot be decided from the abstract.",
+        "evidence": "LSU repository publication record for Servan-Camas–Tsai (2008); institutional access unavailable.",
+        "identifier_or_url": "https://doi.org/10.1016/j.advwatres.2008.05.001",
+        "material_read": "Institutional repository bibliographic record and abstract only; repository states full document unavailable",
+        "method": "Open-access repository and broader full-text search, then authorized institutional access attempt",
+        "title": "Lattice Boltzmann method with two relaxation times for advection-diffusion equation: Third order analysis and stability analysis",
+        "trigger": "Closest older title coupling two-relaxation accuracy and stability"
+      },
+      {
+        "assessment": "Steady recurrence and boundary-error invariance concern related shifted-rate products but not the indicated transient D1Q3 phase-vs-damping optimum in inspected material.",
+        "evidence": "Ginzburg–d’Humières (2009) abstract, introduction and concluding summary.",
+        "identifier_or_url": "https://doi.org/10.1016/j.camwa.2009.02.008",
+        "material_read": "Search-accessible article abstract, introduction and selected conclusion/recurrence excerpts",
+        "method": "Read indexed publisher excerpts; direct publisher fetch unsuccessful",
+        "title": "Viscosity independent numerical errors for lattice Boltzmann models: From recurrence equations to magic collision numbers",
+        "trigger": "Possible alias for product of shifted reciprocal relaxation rates"
+      },
+      {
+        "assessment": "General two-dimensional lattice Boltzmann analysis and dispersion optimization methods; no direct same sharp D1Q3 constrained result visible.",
+        "evidence": "Lallemand–Luo (2000) abstract, model and scope.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.61.6546",
+        "material_read": "APS journal abstract and bibliographic page only",
+        "method": "Read publisher abstract; full text requires institutional access",
+        "title": "Theory of the lattice Boltzmann method: Dispersion, dissipation, isotropy, Galilean invariance, and stability",
+        "trigger": "Broad possible antecedent for optimal dispersion vs kinetic damping"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "570597f2-4c3b-4093-9050-ce079c93ddd1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The zero-frequency nonconserved collision multiplier cap is a natural quantitative kinetic-relaxation design constraint. The exact two-branch Pareto law supplies a global best possible long-wavelength dispersion magnitude, a sharp crossover from equal to unequal relaxation, unique realizable optimal schemes, and an unattainable 1/24 dispersion floor when damping is allowed to degenerate. This is more than an isolated negative check or a routine parameter substitution. It does not purport to control full Fourier damping or total solver error.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "All q range endpoints verified by explicit block decompositions. The digit complement formula and Legendre factorial identity prove every term has valuation a, and a self-contained integer forward-difference argument rules out all other gcd primes. 21 prime-power instances, 1136 valuation checks and 164 direct binomials cross-checked by a standalone checker. The finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hong (2016), Theorem 1.1, fixes the binomial upper index mn and varies a coprime lower index k.",
+        "Guo et al. (2026), Theorem 1 and Lemma 4, treat D(k) but prove only the unit-gcd criterion and allowed prime support."
+      ],
+      "reasoning": "The upper-index-fixed gcd and Ram classical whole-row gcd cannot imply our specific varying upper-index all-multiplier valuation by specialization. Guo et al. covers the supporting prime-support lemma but does not dominate the exact exponent.",
+      "searches": [
+        "Siao Hong (2016) The greatest common divisor of certain binomial coefficients full text",
+        "Exact p-adic valuation of the gcd D(k) = gcd over q=2,...,k+1 of binomial(qk,k), not just primality; formula when k+1=p^a m."
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.22997v1 (full HTML)",
+      "Hong (2016) author-hosted seven-page PDF",
+      "OEIS A080170",
+      "Targeted published mathematical research-record semantic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For n=p^a, the published criterion only implies D(n-1)≠1; its Lemma 4 implies all prime factors of D(n-1) equal p.",
+        "The new claim proves the stronger fixed exponent a of each individual binomial coefficient."
+      ],
+      "reasoning": "Prime support does not determine multiplicity; independent Legendre digit-sum proof supplies the unprovided multiplicity. The supporting lemma is explicitly acknowledged and reproduced, not presented as original.",
+      "searches": [
+        "arXiv:2606.22997 Lemma 4 and Theorem 1 exact values",
+        "valuation restricted binomial greatest common divisor varying upper index qk with fixed lower k; p-adic exponent and largest prime power component n=k+1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guo et al. arXiv:2606.22997v1, §§1–2,6: the criterion concerns whether D(k)=1, plus prime support.",
+        "Legendre digit-sum valuations distinguish exact exponents from mod-p support."
+      ],
+      "reasoning": "The all-q equality of valuations is equivalent to an exact uniform lower-bound-and-upper-bound statement, not merely the result that p divides every term. No indexed record returned this implication.",
+      "searches": [
+        "For any prime p and a>=1, every binomial coefficient C(q(p^a-1),p^a-1) for 2<=q<=p^a has exactly p-adic valuation a; gcd is p^a.",
+        "gcd_{2<=q<=p^a} binomial(q(p^a-1),p^a-1) equals p^a for all prime powers.",
+        "valuation of C(q(p^a-1),p^a-1) constant a for 2<=q<=p^a"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A080170 enumerates k for which D(k)=1; it does not provide a table of D(k) itself."
+      ],
+      "reasoning": "No checked database or table gave exact gcds in the infinite prime-power family; no claim of exhaustive database coverage is made.",
+      "searches": [
+        "OEIS A080170 gcd C(2k,k) C(3k,k) prime power exact values",
+        "gcd_{2<=q<=p^a} binomial(q(p^a-1),p^a-1) equals p^a for all prime powers."
+      ]
+    },
+    "rationale": "The exact value D(p^a-1)=p^a and uniform valuations for every multiplier are not implied by the unit-gcd criterion or prime-support condition of Guo et al. 2026: knowing p divides a gcd does not establish its precise exponent. Hong 2016 concerns a different indexing family. Checks of the fully accessible primary source and targeted research-record queries found no equivalent proposition. Residual implicit-priority risk is expressly recognized.",
+    "residual_risks": [
+      "Simple Legendre digit-sum identities may have been implicitly observed by earlier authors without an indexed exact statement.",
+      "No independent priority audit; indexing/search cannot prove worldwide novelty.",
+      "The result is scoped to the prime-power-index family and does not resolve full gcd values for all k."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supporting prime-support lemma is present; exact prime-power gcd magnitudes and all-multiplier uniform valuations not stated",
+        "evidence": "Theorem 1 concerns D(k)=1; Lemma 4 says every prime divisor of D(k) divides k+1; Theorem 1 completion only has p divides D(k) iff n/p^a≤p^a.",
+        "identifier_or_url": "https://arxiv.org/html/2606.22997",
+        "material_read": "Full arXiv HTML text, including Theorem 1, Lemma 4, primary criterion, and concluding proof, plus searchable text for valuation statements",
+        "method": "Read the definitions, proofs, and comparison of their conclusions with the proposed exact valuations",
+        "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+        "trigger": "The precise same gcd family and most plausible coverage"
+      },
+      {
+        "assessment": "Different family (fixed upper index mn and varying lower indices coprime to m); does not supply our theorem",
+        "evidence": "Theorem 1.1 uses gcd of binomial(mn,k) over 1≤k≤mn, gcd(k,m)=1.",
+        "identifier_or_url": "https://cfc.nankai.edu.cn/_upload/article/files/df/40/efc64af04e259f995bd362023756/1319f8ac-d800-4127-a197-1482daea9ec0.pdf",
+        "material_read": "Full seven-page author-hosted PDF text, including Theorem 1.1, proof, and concluding questions; initial page inspected visually",
+        "method": "Compare the two index sets and which variable is fixed",
+        "title": "The greatest common divisor of certain binomial coefficients",
+        "trigger": "Highly relevant title and exact p-adic gcd theorem"
+      },
+      {
+        "assessment": "Indexes with D(k)=1 only; not a table of exact values D(k)",
+        "evidence": "Entry description: numbers k such that gcd(C(2k,k),...,C((k+1)k,k))=1.",
+        "identifier_or_url": "https://oeis.org/A080170",
+        "material_read": "Entry definition, data, comments, references, and programs",
+        "method": "Checked whether displayed sequence enumerates gcd values or unit-gcd indices",
+        "title": "OEIS A080170",
+        "trigger": "Original benchmark and potential table of exact values"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "569d4926-e411-4cc7-acf0-8c7cc5659981",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This exact natural gcd invariant is the quantitative prime-power case of the recently solved OEIS A080170 gcd support problem. Uniform valuation across every multiplier is a nontrivial additional structural property, not merely another gcd>1 witness. The prime-power condition is mathematically intrinsic to the existing theorem rather than an unmotivated finite slice. The limitation to prime powers and possible elementary earlier implicit derivations are explicitly acknowledged.",
+    "status": "PASS"
+  }
+}

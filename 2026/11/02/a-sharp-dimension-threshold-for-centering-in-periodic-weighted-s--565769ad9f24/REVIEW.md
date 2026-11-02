@@ -1,0 +1,9 @@
+# Review of the centering projection theorem
+
+**Correctness — PASS.** The two-periodic case follows from the triangle inequality. For three-periodic vectors with at most two supported coefficients, the positive three-cycle variational principle, an exact two-complex-variable dual calculation, and a completed-square bound prove a sharp ratio \(4/\sqrt{15}\). The displayed complex vector attains it by exact algebra. In all dimensions \(n\ge4\), two isolated equal-weight edges create a double top eigenvalue, and the mean-subtraction perturbation creates an explicit first-order splitting. The finite checker verifies algebraic identities and representative spectral computations but is not an infinite proof.
+
+**Originality — PASS, qualified.** Sharif's 2023 full text explicitly defines the periodic weight-space norm and studies multiplier and shift norms; it does not state a theorem for the complementary centering projection. The older periodic-weight variational principle is acknowledged as an ingredient. published-finding corpus searches for centering, mean subtraction, sparse triangle amplification, and equivalent cyclic Perron norms did not identify the stated dimension threshold. A close Green-kernel Hessian record concerns nondegenerate positive backgrounds, whereas the higher-period proof here uses a degenerate sparse background. The original Ridge paper and those close published records were not fully accessible; equivalent prior coverage remains a genuine priority risk.
+
+**Mathematical value — PASS.** The theorem settles a natural qualitative operator-norm question for every period, finds a sharp non-Hilbertian amplification constant in the smallest exceptional period for a canonically sparse test class, and quantifies the failure mechanism in higher dimensions. The exact unrestricted norm in any exceptional period is deliberately left open.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Möbius inversion reduces all irreducible polynomial counts for prime-power degree to a single integer-valued polynomial. For each rational prime, all prime-power field sizes are partitioned according to divisibility by that prime. The divisible branch has attained minimum t; the unit branch has attained minimum h_l(k), using primitive roots, explicit two-adic lifting, and Dirichlet prime witnesses. Subtracting the denominator valuation produces the exact uniform gcd. The Fermat-prime corollary follows from elementary factorization of x^odd+1. Finite independently computed examples confirm, but do not prove, the theorem.
+
+**Originality — PASS, subject to residual literature risk.** The closest explicit finite-field paper (Bodin, arXiv:0910.1680) contains the classic Möbius count, but the inspected section does not classify common divisors as the field size varies. General fixed-divisor theorems (Peruginelli 2014 and a full-text survey) provide broader abstract machinery, not the explicit formula or Fermat-prime consequence in the inspected material. Published related records on Artin-Schreier factors, cyclotomic degree multiplicities and Fermat-prime witness questions have different hypotheses and conclusions and do not imply this exact family classification. Hyde's potentially related article on cyclotomic factors of necklace polynomials could not be fully inspected; an unlocated equivalent statement remains possible.
+
+**Value — PASS.** The gcd of all finite-field irreducible-degree counts is a natural arithmetic invariant. This determines its full prime factorization simultaneously for every prime-power degree; even in the two-power subfamily the invariant exhibits prime jumps precisely at Fermat-prime thresholds, connecting elementary finite-field enumeration to a notable open primality family without claiming to settle that question. This is more structural than a finite table of values.
+
+**Limits.** Degrees with more than one distinct prime factor, unrelated polynomial sequences and the Fermat-prime infinitude question remain outside the result. The general fixed-divisor theory gives abstract algorithms and must not be represented as novel.
+
+Self-review: passed. Independent audit: not yet performed.

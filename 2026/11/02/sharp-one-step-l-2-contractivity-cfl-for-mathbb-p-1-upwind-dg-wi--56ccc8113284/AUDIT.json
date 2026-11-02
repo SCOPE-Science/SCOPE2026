@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Full proof gives exact P1 DG Fourier matrix and third-order SSPRK polynomial; two rationally certified identities for the \\(2\\times2\\) energy decrement; 18 strictly positive tensor Bernstein coefficients on the complete needed rectangle; a uniquely increasing quartic whose root is the exact determinant sign boundary; semidefinite sign and zero-mode treatment for all frequencies; negative determinant on arbitrarily small nonzero frequencies above threshold, transferred to real finite periodic grids. VERIFY.py certifies algebraic identities by exact degree-bounded interpolation, not sampling as substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang–Shu (2010), DOI:10.1137/090771363, proves L2 stability for scalar linear laws and polynomial degree \\(k\\ge1\\) under some positive small CFL \\(\\gamma\\), but the accessible abstract does not identify the maximal gamma.",
+        "Sun–Shu (2019), arxiv:1811.10680, studies strong stability for seminegative operators in a general class, with non-sharp sufficient steps."
+      ],
+      "reasoning": "A general small-step stability theorem covers some interval but does not imply the exact critical value or necessity above it. The uninspected 2010 full paper poses a specific residual priority risk that could dominate this exact claim.",
+      "searches": [
+        "\"Zhang Shu 2010 stability third order RKDG linear convection L2 sharp CFL constant theorem\"",
+        "\"fully-discrete energy stable linear advection p1 upwind dg ssp rk3 sharp CFL exact quartic\"",
+        "\"sharp one-step L2 entropy energy stability CFL SSP RK3 DG degree one periodic Fourier symbol quartic\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.30535v1 (available original HTML sections)",
+      "arxiv:1811.10680 (available original manuscript and statements)",
+      "doi:10.1137/090771363 (abstract and metadata only)",
+      "Wei–Shu 2025 publicly accessible PDF (source material)",
+      "Recent public search results for degree-one upwind DG SSPRK3 exact energy CFL"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu–Jiang–Zhang (2026), arxiv:2610.30535v1, treats compact DG/entropy mechanisms and a nonlinear exponential entropy failure; linear quadratic-energy SSPRK3 has different quantified hypotheses.",
+        "Wei–Shu (2025), freely available manuscript, discusses different third-order RK schemes and nonlinear cell entropy, not the exact global L2 threshold of standard SSPRK3.",
+        "Zhang–Shu (2010), same base SSPRKDG method, only the accessible abstract was available; its stated result is existence of some CFL bound gamma and not a sharp iff coefficient."
+      ],
+      "reasoning": "The nonlinear entropy obstruction cannot imply this precise quadratic-energy theorem; methods with altered stages are inequivalent; generic existence of a stable time step does not entail the largest admissible time step. A fully inspected archival paper could still contain a specialized stronger result.",
+      "searches": [
+        "\"High-Order Fully Discrete Entropy-Stable DG Methods with Compact Explicit Single-Step Time Discretizations\" 2610.30535",
+        "\"Fully-discrete cell entropy inequality of third-order explicit Runge-Kutta discontinuous Galerkin method\" 2025",
+        "\"Stability Analysis and A Priori Error Estimates\" \"Zhang\" \"Shu\" 2010"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The unmodified SSPRK(3,3) operator on a uniform P1 upwind DG Fourier symbol is uniquely characterized by \\(R=I+sL+s^2L^2/2+s^3L^3/6\\) and \\(W=\\operatorname{diag}(1,1/3)\\).",
+        "A sharp uniform one-step L2 contractivity boundary must determine positivity of \\(W-R^*WR\\) over all unit Fourier frequencies, not just spectral radius at most \\(1\\).",
+        "No equivalent critical quartic or long-wave negative-determinant statement was located in the public texts inspected."
+      ],
+      "reasoning": "Searching Fourier, SSP/TVDRK, modal-energy and quartic formulations produced no matching result in accessible sources. This is absence of identified overlap, not proof of global uniqueness.",
+      "searches": [
+        "\"DG\" \"SSP RK3\" \"P1\" \"energy\" \"0.186\" stability",
+        "\"DG piecewise linear upwind SSP RK3 strong energy stability CFL 18 s^4 -9 s^3 +3 s^2 +5 s -1\"",
+        "\"SSP RK3 DG P1 upwind advection exact L2 energy stability CFL 0.18645728\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The proposed critical value is the unique positive root of \\(18s^4-9s^3+3s^2+5s-1\\); neither a published numerical table with this root nor an equivalent documented sharp CFL theorem was identified in the accessible search results.",
+        "The root is independently certified by the complete rational energy-symbol derivation, not inferred from table matching."
+      ],
+      "reasoning": "No exact database entry/table was identified as already specifying this sharp threshold; a failed search alone cannot certify historical priority.",
+      "searches": [
+        "\"DG\" \"SSP RK3\" \"P1\" \"energy\" \"0.186\" stability",
+        "\"DG piecewise linear upwind SSP RK3 strong energy stability CFL 18 s^4 -9 s^3 +3 s^2 +5 s -1\"",
+        "\"SSP RK3 DG P1 upwind advection exact L2 energy stability CFL 0.18645728\"",
+        "\"P1 RKDG energy stability sharp linear advection\""
+      ]
+    },
+    "rationale": "No identified source asserts the same exact universal iff L2-contractivity CFL for the fixed degree-one standard SSPRKDG operator. General L2 stability exists in 2010 literature, and nonlinear cell/exponential entropy statements exist, but their accessible conclusions do not imply the exact sharp algebraic constant or its long-wave necessity. Historical priority remains uncertain because an unusually relevant complete 2010 paper could not be checked.",
+    "residual_risks": [
+      "The full 2010 Zhang–Shu RKDG L2 stability paper was not accessible; its appendices or specialized calculations could contain a stronger equivalent sharp constant.",
+      "Possible earlier Fourier/symbol calculus under alternative nomenclature not indexed by the searches.",
+      "Self-review is not independent mathematical or historical-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source does not furnish the exact global L2 contractivity boundary for unmodified P1 upwind DG with standard SSPRK3.",
+        "evidence": [
+          "Its nonlinear counterexample concerns exponential entropy, not quadratic energy.",
+          "Its compact-stage methods are not the unmodified RK polynomial of the present theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.30535v1",
+        "material_read": "Full available HTML main exposition, spatial DG setup, time-integration formulas, entropy results and relevant conclusions",
+        "method": "Read publicly accessible HTML manuscript sections and compared hypotheses, operator modifications and entropies",
+        "title": "High-Order Fully Discrete Entropy-Stable DG Methods with Compact Explicit Single-Step Time Discretizations",
+        "trigger": "Recent motivating numerical-analysis paper, same DG entropy family and third-order Runge–Kutta"
+      },
+      {
+        "assessment": "General framework establishes qualitative strong stability/sufficient small steps, not this exact fixed-symbol sharp constant.",
+        "evidence": [
+          "The hypotheses cover broader operators but the exposed estimates do not identify the maximum CFL of this specific DG symbol."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.10680",
+        "material_read": "Accessible full-text introduction and main energy-stability theorem statements",
+        "method": "Read original open manuscript sections on seminegative operators and compare exact versus sufficient CFL conclusions",
+        "title": "Strong Stability of Explicit Runge–Kutta Time Discretizations",
+        "trigger": "General nonnormal strong-stability theorem potentially encompassing the claim"
+      },
+      {
+        "assessment": "Its published abstract proves existence of a positive method-dependent CFL coefficient for L2 stability, but does not disclose the sharp constant; priority remains uncertain.",
+        "evidence": [
+          "The abstract quantifies \\(\\tau\\le\\gamma h\\), \\(\\gamma>0\\), without specifying an optimal gamma.",
+          "Public author-uploaded full-text link could not be retrieved."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/090771363",
+        "material_read": "Original abstract and publicly indexed metadata; complete paper not accessible despite checking author-uploaded preview",
+        "method": "Compared abstract assertion to sharp statement; attempted public manuscript retrieval, without claiming full-text exclusion",
+        "title": "Stability Analysis and A Priori Error Estimates of the Third Order Explicit Runge–Kutta Discontinuous Galerkin Method for Scalar Conservation Laws",
+        "trigger": "Highly relevant same-method source, potentially stronger coverage"
+      },
+      {
+        "assessment": "Different explicit RK family and nonlinear cell entropy results; no implication of current global L2 iff boundary.",
+        "evidence": [
+          "The chosen RK methods are distinguished from SSPRK3 in the introduction.",
+          "Cellwise nonlinear entropy conditions are distinct from a full-grid quadratic norm statement."
+        ],
+        "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/sites.brown.edu/dist/0/348/files/2025/09/Fully-discrete-cell-entropy-inequality-of-third-order.pdf",
+        "material_read": "Original PDF introduction, selected time-integrator definitions, and relevant entropy-theorem statements",
+        "method": "Read PDF source and visually inspected source pages of relevant scheme comparisons",
+        "title": "Fully-discrete cell entropy inequality of third-order explicit Runge–Kutta discontinuous Galerkin method for nonlinear conservation laws",
+        "trigger": "Close third-order RKDG nonlinear entropy analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "56ccc811-3284-4982-8113-18480899954d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact endpoint quantitatively separates prefactor-one global L2 contraction from ordinary RKDG qualitative CFL stability in a canonical nonnormal semidiscrete operator. The explicit low-frequency obstruction is structurally informative and testable, and the algebraic constant is a natural benchmark for nonlinear-entropy stabilization and precise time-step selection; it is not a mere restatement of semidiscrete energy decay or generic RK stability. The theorem has clearly bounded applications and does not claim relevance to other entropies or all DG degrees.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "All parameters and stochastic conventions are explicit. Itô conditional-generator equations produce exact 3x3 symmetric and antisymmetric moment blocks, whose cubic characteristic coefficients and Routh–Hurwitz determinants were reconstructed. The first-moment 2x2 blocks yield q(b-2a)<a². The second-moment positive block yields 4a²(a+q)-b²q>0; its antisymmetric block is stable whenever this holds, excluding a hidden earlier mode. At equality the irreducible Metzler Perron mode has eigenvalue zero and positive noise projection, proving linear growth; above equality it yields exponential growth. Solving the affine stationary equations gives the displayed covariance. Exact rational checks and RK4 diagnostics replay from artifacts/verify.py; finite computations are supporting diagnostics only. The critical covariance correlation limit equals 2a/b by direct substitution and the positive null eigenvector.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ogura and Preciado (2015), Theorem 5 and Section 3: generic mth-moment stability spectral test",
+        "Ferraro et al. (2024), Sections 2–5: large-N Gaussian annealed interaction model, dynamic mean-field correlations and transition diagrams"
+      ],
+      "reasoning": "General jump-linear theory covers the existence of spectral tests and hence gives a starting point, not a directly stated closed-form first-/second-moment gap in this concrete two-dimensional continuous-time model. The 2024 Gaussian annealed mean-field model has different interaction law, number of degrees of freedom and limiting regime, and does not dominate this exact finite Poisson-switching classification.",
+      "searches": [
+        "Markov jump linear system alternating shear noise first second moment stability threshold stable matrices",
+        "stochastically switching stable linear systems Markov upper lower triangular shear mean square stability rate",
+        "https://arxiv.org/pdf/1501.03474",
+        "https://arxiv.org/pdf/2405.05183"
+      ]
+    },
+    "checked_sources": [
+      "Ferraro et al., arXiv:2405.05183v1 (2024)",
+      "Ogura and Preciado, arXiv:1501.03474 (2015)",
+      "Sturman and Thiffeault, doi:10.1007/s00332-018-9497-3 (2019)",
+      "Q. Ling and H. Deng, A New Proof to the Necessity of a Second Moment Stability Condition of Discrete-Time Markov Jump Linear Systems with Real States, doi:10.1155/2012/642480 (2012); distinct discrete-time general theory"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ferraro et al. (2024) have Gaussian correlated disorder with N growing and no deterministic two-mode alternating upper/lower shears; its Figure 6 already has a generic mean-stable/variance-unstable sector",
+        "Sturman and Thiffeault (2019), Section 2 and Section 5, bound discrete i.i.d. shear-product Lyapunov exponents",
+        "Ogura and Preciado (2015) provide a general induced-matrix spectral condition, not the solved characteristic polynomials for this diffusion"
+      ],
+      "reasoning": "The claim is not a renaming of the large-N correlated-Gaussian result or the discrete-i.i.d.-shear exponent bounds. The general Markov-jump stability criterion is broad enough to test this model in principle, but does not state the exact polynomial reduction, stationary covariance or strict interval of first/second-moment behavior. Implicit coverage by an older explicit special case remains a priority risk.",
+      "searches": [
+        "Random two shear matrices switched Markov exponential dwell second moment stability threshold separation first mean second moment exponential growth",
+        "https://eprints.whiterose.ac.uk/id/eprint/136194/13/Sturman-Thiffeault2019_Article_LyapunovExponentsForTheRandomP.pdf",
+        "https://arxiv.org/pdf/2405.05183"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ogura and Preciado, arXiv:1501.03474, Theorem 5: Markov-regenerative induced-matrix moment stability criterion",
+        "Sturman and Thiffeault, doi:10.1007/s00332-018-9497-3, Theorems 1–6 and Section 5: bounds for independent discrete products of shear matrices"
+      ],
+      "reasoning": "The observable is the conditional covariance of a continuously switched diffusion, not the largest almost-sure Lyapunov exponent of an i.i.d. discrete matrix product. The related spectral criterion is algorithmically applicable but does not supply the exact critical-rate expressions or affine Brownian covariance without further nontrivial block reduction.",
+      "searches": [
+        "two triangular shear matrices -a b random telegraph switching mean square instability threshold exact",
+        "\"b^2-4a^2\" \"switching\" \"shear\" covariance",
+        "\"randomly switching\" \"two shear\" \"stability\" covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected comparator publications give general analytical criteria, bounds or different large-system formulas; no exact two-threshold table for the specified finite model was found."
+      ],
+      "reasoning": "No checked source or database entry stated the exact pair of critical rates, their positive gap and the finite-noise stationary covariance as an already tabulated result. This is only a bounded literature/database check, not a global nonexistence proof.",
+      "searches": [
+        "\"switching\" \"shear\" \"mean square\" \"instability\" \"Ornstein-Uhlenbeck\"",
+        "\"telegraph\" \"shear\" \"variance\" \"switching\" linear",
+        "two-dimensional annealed directed interaction graph alternating orientation stochastic Brownian linear system stable microscopic states but diverging covariance exact formula"
+      ]
+    },
+    "rationale": "The claim is an exact fully solved finite-dimensional alternating-shear phase diagram with different first/second-moment transition rates and a finite stationary covariance. Ferraro et al. already exhibit mean/variance separation in a distinct Gaussian-disordered large-N self-consistency model, Ogura and Preciado give general spectral stability criteria without these explicit shear-specific rates or stationary Brownian covariance, and Sturman and Thiffeault bound discrete random shear-product exponents. The explicit thresholds and exact nonempty gap were not present in the primary materials inspected, nor in the closest mathematical research records. Residual implicit-coverage risk remains; lack of exact matches is not considered proof of uniqueness.",
+    "residual_risks": [
+      "A broader Markov-jump spectral theorem specializes algorithmically to this two-shear example, and a prior explicit evaluated example might exist under alternate parameters.",
+      "The stochastic-energetics and random-matrix literature may contain an unindexed special case with the same moments.",
+      "No independent publication-priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_MODEL_NOT_DIRECT_COVERAGE",
+        "evidence": "Its interactions are Gaussian colored, scaled with dimension, and solved by large-N dynamical mean-field theory; they are not a two-state common alternating directed shear. Figure 6 already shows a mean-finite/variance-divergent phase; only the exact finite two-shear classification is assessed here.",
+        "identifier_or_url": "https://arxiv.org/pdf/2405.05183",
+        "material_read": "Abstract; introduction; Section 2 model; Sections 3–5 analytic treatment and transition discussion",
+        "method": "Open-access preprint, text and page inspection",
+        "title": "Exact solution of Dynamical Mean-Field Theory for a linear system with annealed disorder",
+        "trigger": "Primary 2024 motivating source: temporally random linear interactions and variance transitions"
+      },
+      {
+        "assessment": "GENERAL_CRITERION_ONLY",
+        "evidence": "Theorem 5 provides a general induced-matrix spectral stability criterion, not the exact two-shear moment thresholds or noise-supported stationary covariance.",
+        "identifier_or_url": "https://arxiv.org/pdf/1501.03474",
+        "material_read": "Abstract; Sections 1–3; Theorem 5 and spectral stability proof/application framework",
+        "method": "Open-access arXiv text and original page inspection",
+        "title": "Stability of Markov regenerative switched linear systems",
+        "trigger": "Broadest plausible moment-stability coverage"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_CLOCK_AND_OBSERVABLE",
+        "evidence": "Uses i.i.d. discrete shear products and proves analytic bounds on Lyapunov exponents; it does not present an exact stationary covariance for Markov-modulated Brownian OU flow.",
+        "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/136194/13/Sturman-Thiffeault2019_Article_LyapunovExponentsForTheRandomP.pdf",
+        "material_read": "Abstract; Sections 1–2; Theorems on generalised exponents; Section 5 conclusions",
+        "method": "Author-institutional open-access PDF text and page inspection",
+        "title": "Lyapunov Exponents for the Random Product of Two Shears",
+        "trigger": "Same shear generators and random products, possibly stronger exact exponents"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5923cd96-028a-47c3-8d0a-c82f57a0ca67",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Time-alternating directional couplings are a minimal physically interpretable annealed two-degree-of-freedom network. The exact finite-noise covariance and sharp, nonzero interval in which all means relax but variances diverge quantify a genuine failure of a commonly used mean-stability design criterion. The result is a complete natural phase classification, not a parameter-specific numerical increment or routine variance sample. The critical fluctuation direction also has an exact nonunit correlation ratio 2a/b.",
+    "status": "PASS"
+  }
+}

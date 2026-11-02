@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The sparse n=3 norm reduction is exact: dualize the Perron Rayleigh quotient and two-dimensional Euclidean maximization, then bound F by 9x(1-x)+9(1-x)^2/16<=12/5; the vector (3-i sqrt111,0,3+i sqrt111) realizes input 2 sqrt15 and output 8. For n=2 triangle inequality yields norm one. For n>=4 two disjoint weight edges create a two-dimensional top eigenspace at 1/2; one or two weak coupling edges of magnitude |epsilon|/n give exactly the asserted first-order splittings. Checked symbolic certificate and finite spectral diagnostics in CHECKER.py. Higher-dimensional leading coefficients are for each fixed n. No overall n=3 operator norm is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus ID 2026/10/11/SCOPE-universal-green-kernel-hessian-for-the-numerical-radius-of-cycli--523521e92cd4 linearizes near a strictly positive constant background in cyclic l_p spaces",
+        "published-finding corpus ID 2026/10/11/SCOPE-global-rearrangement-rigidity-for-two-weight-four-cycle-numerica--98f41306ac40 compares weight arrangements, not centering operators",
+        "Sharif 2023 Theorem 3.1 treats multiplication and shift operators only"
+      ],
+      "reasoning": "A positive-background Hessian does not establish the exact sparse-three-coordinate constant or split a double eigenvalue at zero background. Global rearrangement of weights does not compare a vector to itself minus its arithmetic mean. The cited coefficient-space norm equivalences give only coarse upper bounds.",
+      "searches": [
+        "published-finding corpus: Sharp second-order perturbation numerical radius of n-periodic weighted shifts near constant and alternating degeneracy",
+        "published-finding corpus: Conditional expectation complementary projection on Perron eigenvalue cycle edge-weight space contractivity",
+        "published-finding corpus: For periodic weighted shifts numerical radius equals arithmetic mean if and only if adjacent weights sum constant; Fourier Hessian cotangent squared curvature"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2303.00876 (full HTML sections 1–4)",
+      "doi:10.2307/2041852 (unavailable original; variational formula secondarily quoted)",
+      "2026/10/11/SCOPE-universal-green-kernel-hessian-for-the-numerical-radius-of-cycli--523521e92cd4 (summary)",
+      "2026/10/11/SCOPE-strict-convexity-and-the-full-smooth-locus-of-graph-edge-numeric--12716bf88722 (summary)",
+      "Current accessible prior collection snapshot (claims/IDs only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sharif provides the base norm and proves norm one for coordinate multiplication and shifts, not their mean-zero projection complement",
+        "Ridge variational characterization reduces each radius to a positive cyclic matrix, but neither states a norm of P_n nor evaluates the optimized sparse amplification",
+        "published-finding corpus closest entries study convexity/hessians at different objects and do not report the projection threshold"
+      ],
+      "reasoning": "The prior variational formula is a required ingredient, but the new claim requires optimizing a linear operator across pairs of coefficient vectors, a distinct problem. The restricted sharp constant follows from a quartic phase optimization, and the higher-period obstruction from degenerate eigenvalue splitting, neither a corollary of the cited assertions alone.",
+      "searches": [
+        "Sharif arXiv:2303.00876 §1 Example 1.6 and §3 Theorem 3.1",
+        "Ridge 1976 periodic weighted shift variational formula as quoted by Sharif",
+        "published-finding corpus ID 2026/10/11/SCOPE-strict-convexity-and-the-full-smooth-locus-of-graph-edge-numeric--12716bf88722",
+        "published-finding corpus ID 2026/10/11/SCOPE-universal-green-kernel-hessian-for-the-numerical-radius-of-cycli--523521e92cd4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sharif, arXiv:2303.00876, Definition/Example 1.6, sections 3 and 4; no complementary centering norm computed",
+        "published-finding corpus ID 2026/10/11/SCOPE-strict-convexity-and-the-full-smooth-locus-of-graph-edge-numeric--12716bf88722 concerns convexity/smoothness of graph-edge norms, not norm of averaging-complement map"
+      ],
+      "reasoning": "The natural aliases are mean-zero projection, centering/de-meaning, complement of cyclic averaging or conditional expectation, and triangle Perron edge-weight norm. Equality of input spaces alone does not imply equality of a projection norm statement; neither closest record determines this map on the specified space.",
+      "searches": [
+        "published-finding corpus: Periodic weighted shift numerical radius Banach space centering projection P=I-averaging is contractive only for period two, sparse complex witness",
+        "published-finding corpus: Numerical radius norm weighted triangle sharp amplification 4/sqrt(15) mean subtraction two sparse coefficients",
+        "Web: \"numerical radius\" \"centering projection\" periodic weighted shift",
+        "Web: \"weighted shift\" \"mean-zero\" \"projection norm\" numerical radius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus results list Fourier projections, conditional expectations in L4, weighted-shift radii, and graph-edge smoothness; no entry reports the 4/sqrt(15) sparse amplification or all-period contractivity dichotomy"
+      ],
+      "reasoning": "No exact database record was identified. The sharpness proof independently constructs the pair of complex nonzero coefficients and matches its upper bound. Absence from a database does not certify novelty.",
+      "searches": [
+        "published-finding corpus: Numerical radius norm on complex C^3, operator norm of centering projection 4/sqrt(15), conditional expectation complement",
+        "published-finding corpus: Sharp mean-zero projection constant for triangle-edge Perron eigenvalue norm weighted cyclic shifts",
+        "Web: \"4/sqrt(15)\" \"numerical radius\" projection"
+      ]
+    },
+    "rationale": "The theorem concerns norm amplification by the complementary arithmetic-mean projection on periodic coefficient vectors. The motivating 2023 full text establishes the coefficient numerical-radius norm, general Banach-limit bounds, and norm-one multiplier/shift operators, not the complementary projection; exact three-period sparse sharpness and the dimension-wide degeneracy-splitting obstruction are additional assertions. published-finding corpus semantic searches with exact objects, aliases and the 4/sqrt(15) constant found no dominating same-claim record. This is a best-knowledge assessment, not a claim of exhaustive priority.",
+    "residual_risks": [
+      "Original Ridge 1976 full text and two close published records were not independently inspected beyond accessible quotations or indexed summaries.",
+      "A prior theorem on centering projections under an equivalent cyclic Perron norm may exist under different terminology.",
+      "No assertion is made about the unrestricted exact operator norm at n=3 or higher."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BASE NORM / OPERATOR CLASSES COVERED; COMPLEMENTARY CENTERING PROJECTION NOT FOUND",
+        "evidence": [
+          "First submission 2023-03-02",
+          "Section 1 invokes Ridge periodic-weight numerical radius formula",
+          "Theorem 3.1 gives exactly norm one for coordinate multipliers and shifts, not I-E_n"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.00876",
+        "material_read": "Sections 1, 2, 3, and 4 of accessible full-text HTML, including the periodic formula, Example 1.6, Theorem 3.1 and Banach-limit discussion",
+        "method": "Read HTML text lines and theorem statements directly",
+        "title": "On the numerical radius of weighted shifts on l2 as a norm on linfinity and connections to Banach limits",
+        "trigger": "Exact motivating norm and possible earlier projection-norm coverage"
+      },
+      {
+        "assessment": "FOUNDATIONAL FORMULA ONLY CONFIRMED THROUGH SECONDARY SOURCE; OLDER PRIORITY RISK RETAINED",
+        "evidence": [
+          "Sharif 2023 §1, numbered identity (5) quotes the periodic Rayleigh quotient"
+        ],
+        "identifier_or_url": "doi:10.2307/2041852",
+        "material_read": "Original primary full text inaccessible through DOI; precise variational formula accessible as quoted by Sharif 2023 §1",
+        "method": "Attempted DOI follow; used independently identified secondary quotation for the one reduction, not for novelty exclusion",
+        "title": "Numerical range of a weighted shift with periodic weights",
+        "trigger": "Foundational periodic variational principle and potential older overlap"
+      },
+      {
+        "assessment": "A positive-background Hessian is not a projection norm or sparse two-edge degeneracy statement; no claim of full-text noncoverage",
+        "evidence": [
+          "Indexed summary describes Hessian at positive cyclic weights and exceptional alternating flat mode"
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-universal-green-kernel-hessian-for-the-numerical-radius-of-cycli--523521e92cd4",
+        "material_read": "published-finding corpus indexed title and summary only; public full contents were not retrievable from GitHub",
+        "method": "published-finding corpus semantic search, comparison with claim scope and background",
+        "title": "Universal Green-kernel Hessian for the numerical radius of cyclic shifts on l_p",
+        "trigger": "Closest published-finding corpus report about local changes in periodic weighted numerical radius"
+      },
+      {
+        "assessment": "Summary classifies strict convexity and differentiability, not mean-zero projection norm; full coverage not ruled out by snippets",
+        "evidence": [
+          "Indexed summary gives graph-edge smooth-locus and three-periodic smoothness law"
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-strict-convexity-and-the-full-smooth-locus-of-graph-edge-numeric--12716bf88722",
+        "material_read": "published-finding corpus indexed title and summary only; public full contents were not retrievable from GitHub",
+        "method": "published-finding corpus search plus attempted public repository access",
+        "title": "Strict convexity and full smooth locus of graph-edge numerical-radius norms",
+        "trigger": "Same triangular edge norm and possible norm-geometry overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "565769ad-9f24-4dff-b415-d1453216982a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharif 2023 motivates studying operator norms relative to numerical-radius norms and identifies norm-one examples, but centering is a natural complementary operator whose contractivity is unresolved by those examples. The theorem fully determines the period threshold for norm nonexpansivity for all n>=2, not one arbitrary example. Its exact sparse amplification in the first exceptional dimension and perturbative eigenvalue-splitting coefficients explain how and why the failure starts; no general unrestricted norm formula is claimed.",
+    "status": "PASS"
+  }
+}

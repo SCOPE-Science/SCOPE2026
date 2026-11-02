@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact minimum-solution characterization is proved via connected edge domination of K_n. All jumps either preserve support and replace a fundamental-cycle edge, counted by \\(W(F)-(m-1)\\), or replace a leaf by the omitted vertex, counted by (m-1)ell(F). Prüfer leaf frequencies and tree-split Wiener sums give the exact edge census. Star/path and double-broom computations close regularity, including \\(m=8\\); the common-center star exchange path proves connectivity. Actual CHECK.py enumerated 33,864 original line-graph subsets for \\(3\\le n\\le6\\); every optimum, degree and global edge count passed, with supplementary algebraic shape checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bousquet, Mouawad, Nishimura, Siebertz (2022), section 4.1, studies complexity of CDSR-TJ, not a full-solution degree formula for triangular graphs.",
+        "Lokshtanov, Mouawad, Panolan, Siebertz (2019) considers CDS reconfiguration on general graph classes; the inspected abstract states hardness and planar positive results."
+      ],
+      "reasoning": "Algorithmic complexity results for general host graphs do not specify the degree of the minimum-solution exchange graph or the complete edge census in this dense named family. They are not stronger coverage of the quantified formulas.",
+      "searches": [
+        "Wiener leaf degree law for token-jump reconfiguration of minimum connected dominating sets of triangular graphs L(K_n)",
+        "minimum connected dominating set reconfiguration graph line graph complete graph degree Wiener index spanning trees"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A373395 — prior exact optimal-set enumeration, June 2024",
+      "https://ar5iv.labs.arxiv.org/html/2204.10526 — accessible full text, section 4.1 token-jump CDSR",
+      "https://arxiv.org/abs/1910.00581 — original 2019 public abstract/date",
+      "https://jgaa.info/index.php/jgaa/article/view/paper517 — related 2020 minimum dominating-set reconfiguration on trees, not connected domination of triangular graphs",
+      "https://mathworld.wolfram.com/ConnectedDominationNumber.html — known scalar connected domination for triangular graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "OEIS A373395 implies the number of vertices of the exchange graph and the minimum CDS size, but not the asserted adjacency count or regularity.",
+        "Known Cayley/Prüfer counting and fundamental-cycle tree exchanges supply proof ingredients, but the support-changing leaf swaps and their combination must still be proved.",
+        "The 2022 survey contains no “triangular” occurrence and presents CDSR-TJ results in section 4.1 as complexity bounds."
+      ],
+      "reasoning": "The result is not claimed independent of standard graph-theoretic ingredients. Neither the scalar minimum/count nor a fixed-support exchange theorem implies, without the new two-type enumeration, the exact all-solution degree law, edge count, and regularity boundary. Residual risk is specialized rephrased literature.",
+      "searches": [
+        "minimum connected dominating sets triangular graphs line graph complete graphs reconfiguration degree formula Wiener index leaf number",
+        "token jumping minimum connected dominating sets L(K_n) edge exchange spanning trees one isolated vertex exact edge count",
+        "Wiener leaf degree law for token-jump reconfiguration of minimum connected dominating sets of triangular graphs L(K_n)",
+        "minimal connected edge dominating sets K_n tree on n minus one vertices connected dominating token jumps"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Triangular graph alias: \\(T_n=J(n,2)=L(K_n)\\). Minimum CDS correspond to labeled trees on all but one ground vertex.",
+        "The fixed-support exchange graph is a spanning-tree basis-exchange graph, while the full token-jump graph additionally permits support changes through leaf swaps.",
+        "OEIS A373395 contains the cardinality \\(n(n-1)^{n-3}\\) but not local exchange degrees or edge counts."
+      ],
+      "reasoning": "The aliases were compared by identifying ground edges and line-graph vertices, not by title. The familiar spanning-tree exchange count accounts only for \\(W(F)-(m-1)\\); the separate leaf term and support-changing global edge census are not stated by the referenced minimum-set enumeration.",
+      "searches": [
+        "minimum connected dominating sets triangular graphs line graph complete graphs reconfiguration degree formula Wiener index leaf number",
+        "token jumping minimum connected dominating sets L(K_n) edge exchange spanning trees one isolated vertex exact edge count",
+        "tree graph of complete graph edge swaps Wiener index degrees formula leaves one isolated vertex"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A373395: number of minimum connected dominating sets of the n-triangular graph; formula \\(n(n-1)^{n-3}\\) credited 2024-06-20.",
+        "The new edge sequence begins 3,36,540,9420,187845,4227048, obtained from the proved weighted tree-split sum; no matching exact count was located by the targeted searches."
+      ],
+      "reasoning": "The database explicitly covers the number of optimal configurations, which is used solely as prior context. Configuration counts cannot alone determine edges or local degrees of a reconfiguration graph. A failed sequence search is not regarded as a novelty proof.",
+      "searches": [
+        "triangular graph connected domination number n-2 minimum connected dominating sets \\(n(n-1)^{n-3}\\) OEIS A373395",
+        "triangular graph L(K_n) exchange graph edge count spanning trees with one isolated vertex and regularity n equals 3 4"
+      ]
+    },
+    "rationale": "The known triangular-graph minimum connected domination number and enumeration (OEIS A373395) are excluded from the claimed novelty. The 2022 survey discusses CDS token-jump reconfiguration, mainly parameterized complexity, not local solution degree, global exchange counts, regularity or a Wiener/leaf decomposition. Prior records about spanning-tree polytope geometry and Wiener energy concern different maps and cannot imply the exact degree of minimum connected dominating solutions. No covering statement was found in actual indexed scientific/primary searches. Unindexed fixed-support tree-exchange work remains a genuine residual risk.",
+    "residual_risks": [
+      "The original 2019 full article was not materially inspected; only its public abstract and the comprehensive 2022 survey treatment of its main theorems were read.",
+      "A specialized basis-exchange or tree-graph paper might formulate the same full-support-changing degrees and edge census without the words connected domination; indexed search does not eliminate this priority possibility.",
+      "No independent third-party theorem validation was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the all-solution degree law and exact edge count; complexity framework and parameterized results, not these formulas.",
+        "evidence": [
+          "Section 1 definitions explicitly distinguish token jumps and slides.",
+          "Section 4.1 reports hardness/general tractability for CDSR-TJ; no triangular-graph treatment or Wiener–leaf formula identified."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2204.10526",
+        "material_read": "Abstract, Introduction, formal token-jump definitions, section 4.1 CDSR-TJ and its general complexity results, full text searched for “triangular”.",
+        "method": "Accessible full HTML reading and section/text comparison",
+        "title": "A survey on the parameterized complexity of the independent set and (connected) dominating set reconfiguration problems",
+        "trigger": "Most relevant literature using exactly the connected-dominating-set token-jump framework"
+      },
+      {
+        "assessment": "Abstract does not state local degree and edge census; inability to inspect the entire original limits priority confidence.",
+        "evidence": [
+          "First public arXiv v1 date 2019-10-01.",
+          "Abstract describes W[1]-hardness and polynomial kernel on planar graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.00581",
+        "material_read": "Public 2019 v1 abstract, bibliographic information; survey comparison of its main results, but not verified reading of the entire original article.",
+        "method": "Accessible abstract and secondary full-text survey comparison",
+        "title": "On the Parameterized Complexity of Reconfiguration of Connected Dominating Sets",
+        "trigger": "Original 2019 article underlying the surveyed connected-domination reconfiguration result"
+      },
+      {
+        "assessment": "COVERS the preexisting minimum count and number, which are credited; does not provide the new exchange adjacency/degree census.",
+        "evidence": [
+          "Comment: connected domination number n-2 for n>2.",
+          "Formula: a(n)=n*(n-1)^(n-3), credited 2024-06-20."
+        ],
+        "identifier_or_url": "https://oeis.org/A373395",
+        "material_read": "Entire public record: title, formula, author/extension dates, comments, examples, references.",
+        "method": "Full HTML inspection and exact comparison of counts and parameters",
+        "title": "OEIS A373395: Number of minimum connected dominating sets in the n-triangular graph",
+        "trigger": "Direct mathematical match for ground graph and minimum-solution cardinality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5a331514-f663-4807-ae51-eb4fc5dd8c86",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The local Wiener-plus-leaf law resolves an all-optimal-solution reconfiguration statistic, quantifies structural flexibility in internal edge swaps versus changed omitted vertices, and yields a closed labeled all-edge census. Connectedness and the \\(n\\in\\{3,4\\}\\)-only regularity boundary, including the exceptional equal star/path degree at \\(n=9\\) resolved by double brooms, provide new structural consequences. These are not mere re-statements of the known count of minimum sets.",
+    "status": "PASS"
+  }
+}

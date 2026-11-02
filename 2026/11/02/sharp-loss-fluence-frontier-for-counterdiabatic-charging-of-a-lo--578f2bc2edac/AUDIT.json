@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The model ODE and coherent-state energy–loss identity are direct consequences of the Lindblad generator. The full complex field has a fixed mixed term \\(aA^2/G^2\\). With fixed quadratic loss the global energy defect for hyperbolic/sine ramps is \\(\\int h\\prime{}^2+\\sigma\\int h^2\\); the sine branch is positive by the sharp Dirichlet Poincaré gap. In the obstacle regime the exact defect is \\(\\int_{\\mathrm{front}}(h\\prime{}^2-k^2h^2)+\\int_{\\mathrm{tail}}h\\prime{}^2+k^2\\int_{\\mathrm{tail}}(1-F^2)\\), nonnegative by the sharp Dirichlet–Neumann gap and the amplitude cap. Equality analysis proves uniqueness. Source-derived evolution and 149 actual numerical consistency checks verified all stated formulas; finite tests alone are not used for universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abah et al. 2019 ar5iv:1906.07201, §§III.1–III.3: general CD ramp-cost comparison, explicit Landau–Zener optimal ramp, parametric frequency modulation of harmonic oscillators.",
+        "Cavina et al., arxiv:1807.07450, abstract/introduction: variational and Pontryagin framework for general driven open systems, explicit two-level examples.",
+        "Čepaitė et al. 2023 PRX Quantum 4 010312: joint local CD and optimal control with numerical examples in lattice and spin models."
+      ],
+      "reasoning": "Generic variational necessary conditions can motivate this optimization but are not a published exact sufficient optimality inequality under the fixed quadratic-loss constraint and finite envelope obstacle. The 2019 harmonic oscillator is parametric compression with a different cost, not a dissipative, displaced coherent-state cavity. A broader textbook variational obstacle theorem might imply the shape but was not identified as expressly covering this physical frontier; priority remains qualified.",
+      "searches": [
+        "Quantum battery cavity counterdiabatic exact tracking of coherent state monotone envelope at fixed integrated cavity loss, minimal total microwave fluence; optimal hyperbolic sine sine then sine plateau, sharp transitions at loss fractions one third and one half",
+        "sharp dissipation control-fluence Pareto frontier counterdiabatic coherent-state cavity charging monotone envelope hyperbolic sine sinusoidal plateau",
+        "arxiv 1906.07201 energetic cost quantum control optimal ramp Landau Zener harmonic oscillator"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.32610v1",
+      "https://ar5iv.labs.arxiv.org/html/1906.07201",
+      "https://arxiv.org/pdf/1807.07450",
+      "https://strathprints.strath.ac.uk/83615/",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?btn=Current&t=81Sxx"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.32610v1, Eqs.(8),(22),(24) imply the coherent-state tracking model; its Eq.(29) gives only the sin-squared fluence integrals and Eq.(31) a fixed-family optimal T.",
+        "arxiv:1906.07201 Eq.(13) derives a tangent-profile optimal Landau–Zener ramp, while §III.2 treats time-dependent frequency squeezing, not a fixed-loss pulse-intensity Pareto frontier.",
+        "The exact new proof uses both Dirichlet and Dirichlet–Neumann sharp Poincaré inequalities and an obstacle remainder; no cited result furnishes the resulting global equality characterization."
+      ],
+      "reasoning": "The target-and-cost identities are prior-model deductions. The genuinely assessed new consequence is a complete sufficient (global) sharp lower bound and unique optimizer for every normalized loss q in (0,1), including the plateau at q>1/2 and a quantified same-loss comparison with the selected source pulse. Neither the narrow source time optimization nor the broader generic necessary conditions imply this formula absent the specific global optimization argument.",
+      "searches": [
+        "Positive damping yields a nonzero fixed endpoint cross term in complex counterdiabatic microwave drive field fluence; sharp Pareto dissipation frontier",
+        "arxiv 2610.32610 Eq. 18 Eq. 24 Eq. 29 and Eqs. 30-31",
+        "arxiv 1906.07201 Sec III.1 Sec III.2 ramp optimization",
+        "arxiv 1807.07450 open quantum optimal control variational Hamiltonian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.32610v1 §IV.3 defines exact tracking U=f+f′/γ for a selected smooth envelope, but §IV.4 optimizes time for that envelope and does not solve the fixed-loss isoperimetric problem.",
+        "arxiv:1906.07201 §III.1 Eq.(13) optimizes a Landau–Zener control ramp in the fast-driving limit; its cost functional and admissible path are different."
+      ],
+      "reasoning": "The exact new implication is an infinite-dimensional full-fluence lower bound at specified physical cavity loss, with unique hyperbolic, sine and saturated free-boundary optimizers. Expressing it as constrained Dirichlet energy makes the proof elementary but does not turn the previously derived time-optimal fixed-envelope protocol into the claimed all-envelope phase diagram. No equivalent statement was located in the named materials or semantic searches.",
+      "searches": [
+        "Minimize integral of squared pulse derivative subject to endpoints 0 and A, monotone bounded 0<=f<=A and fixed integral of squared amplitude; global solution hyperbolic sine for q<1/3, sine for 1/3<q<1/2, sine plateau for q>1/2",
+        "counterdiabatic drive cavity quantum battery dissipative coherent state optimal pulse fluence variational control envelope 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper arxiv:2610.32610v1 lists one quarter-period sine-squared envelope and its integrated fluence components (Eqs.(18),(29)); no complete table of all fixed-loss optimal ramps is present in the inspected full text.",
+        "The nearest separately published mathematical records address sampled qubit bang-control discretization and two-cavity amplitude damping, neither with this variable, model or implication."
+      ],
+      "reasoning": "Actual search queries and ranked comparison results do not show the three-sector loss-coordinate frontier or a table with its exact H(q) values. This is best-knowledge noncoverage, not a database-based uniqueness certificate.",
+      "searches": [
+        "Ahmadi Salimi Optimizing Quantum Battery via Counterdiabatic driving 2610.32610 exact minimal control fluence dissipative budget",
+        "minimum derivative energy monotone bounded ramp with fixed L2 norm three regimes",
+        "source arxiv:2610.32610v1 Eq. (24) Eq. (28) Eq. (31)"
+      ]
+    },
+    "rationale": "The 2026 source gives the CD oscillator reduction and a single sin-squared ramp; Abah (2019) optimizes a different Landau–Zener/parametric control cost, Cavina (2018) develops general variational control, and the other inspected CD methods are not an exact fixed-loss coherent-state cavity obstacle solution. Source and alias/implication searches found no formula for the all-loss sharp three-shape frontier; broader variational reduction priority risk explicitly remains.",
+    "residual_risks": [
+      "General isoperimetric obstacle problems may imply the same three profiles under an alternative name; no exhaustive historical theorem census is claimed.",
+      "General control literature is much larger than the reviewed subset; broad topically plausible sources do not establish absolute publication uniqueness.",
+      "The 2018 PDF and the 2023 local-CD article were inspected only in the stated relevant portions, not exhaustively; no whole-document not-covering certificate is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_MODEL_AND_FIXED_ENVELOPE_ONLY",
+        "evidence": [
+          "Eq.(24) U_cd=f′/γ and Eq.(29) selected sin-squared pulse; Eq.(31) optimal duration within that family; no all-envelope minimax with fixed loss budget."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.32610v1",
+        "material_read": "Full HTML manuscript: model, Lindblad equations, charge and ergotropy, protocol and field-cost sections, geometrical discussion, conclusions, appendices",
+        "method": "Primary arXiv full-text HTML, read Eqs.(4),(7)–(12),(18),(22)–(31) and appendix",
+        "title": "Optimizing Quantum Battery via Counterdiabatic driving",
+        "trigger": "Same dissipative coherent-state quantum battery and exact counterdiabatic drive"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE_AND_CONTROL_CLASS",
+        "evidence": [
+          "Eq.(13) Landau–Zener tangent ramp in rapid limit; §§III.2 oscillator frequency compression and cost based on energy; no monotone coherent-displacement fixed-dissipation frontier."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1906.07201",
+        "material_read": "Full ar5iv HTML manuscript including §§II, III.1, III.2, III.3, conclusion, and explicit ramp optimizations; also inspected institutional open PDF excerpts",
+        "method": "Open ar5iv complete text plus OA PDF introduction and optimization passages",
+        "title": "Energetic cost of quantum control protocols",
+        "trigger": "Close prior work explicitly optimizing counterdiabatic ramps and including an oscillator"
+      },
+      {
+        "assessment": "GENERAL_VARIATIONAL_METHOD_ONLY_WITH_RESIDUAL_RISK",
+        "evidence": [
+          "Abstract describes control cost minimization and explicit two-level systems, with no claim of explicit monotone cavity envelope constrained by fixed cumulative loss. Full later technical cases not exhaustively inspected."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1807.07450",
+        "material_read": "PDF title, abstract and introduction, framework and models overview; searched for oscillator",
+        "method": "Primary arXiv PDF text and visual first-page inspection",
+        "title": "A variational approach to the optimal control of coherently driven, open quantum system dynamics",
+        "trigger": "Plausible stronger general open-system optimal control framework"
+      },
+      {
+        "assessment": "DIFFERENT_CONTROL_AND_PARTIAL_ACCESS",
+        "evidence": [
+          "Abstract: approximate local CD plus control optimization for lattice transport and spin problems; no explicit exact displaced-cavity loss–fluence frontier asserted."
+        ],
+        "identifier_or_url": "https://strathprints.strath.ac.uk/83615/",
+        "material_read": "Institutional detailed abstract and article description; full 21-page article not read",
+        "method": "Institutional author repository article metadata and abstract",
+        "title": "Counterdiabatic optimized local driving",
+        "trigger": "Optimized CD driving with shaped controls might dominate the present variational statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "578f2bc2-edac-40bc-847b-a46f8e4084c3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At fixed measurable final cavity ergotropy and cumulative dissipated energy, the microwave intensity is an independent real control burden. The result gives its global exact Pareto frontier and unique optimal envelopes over a physically natural monotone class, identifies two sharp phase boundaries with a saturation plateau and yields ~17.49% control derivative-cost reduction at an existing benchmark q=3/8. Those facts go beyond routine renormalization, shape-parameter fitting or a small correction and characterize useful pulse constraints in a lossy quantum battery.",
+    "status": "PASS"
+  }
+}

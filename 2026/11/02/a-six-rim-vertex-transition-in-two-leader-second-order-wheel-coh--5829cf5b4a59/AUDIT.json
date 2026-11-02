@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "All candidate leader pairs fall into one hub-rim orbit and floor(n/2) rim-distance orbits. The hub grounding gives a Toeplitz path inverse-square eigenvalue sum; an explicit positive Schur complement gives the exact rim-pair objective. For rim count 3..10, verify.py independently checks all 216 labelled pairs by exact rational matrix inversion and cross-checks the orbit formula. For n>=11, the Rayleigh quotient of the all-ones follower vector gives J_rim>= (n-1)^2/36; the nonnegative walk-series Green-kernel comparison gives J_hub<=3(n-1)/(5sqrt(5))<27(n-1)/100<(n-1)^2/36. Modal Lyapunov covariance for xddot+eta L xdot+Lx=noise is exactly L^-2/(2eta). Strict inequalities and ties are enumerated correctly; independent proof sources are not asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lin–Fardad–Jovanović, arXiv:1302.0450, develops SDP relaxations and general techniques, not an exact inverse-square wheel pair classification",
+        "Patterson–McGlohon–Dyagilev, arXiv:1412.6595, polynomial algorithm on paths and rings for the first-inverse objective",
+        "Sun–Ding–Zhang–Chen, Chaos 24 (2014), 043112, inverse-square ungrounded metrics on tree networks"
+      ],
+      "reasoning": "General algorithms can evaluate a finite graph but do not state this formula or the sharp all-n phase transition. Paths, rings, and trees exclude the wheel graph; ungrounded spectral inverse-square measures are not the principal two-pinned grounded matrix here.",
+      "searches": [
+        "arXiv:1302.0450",
+        "arXiv:1412.6595",
+        "network coherence second order consensus inverse square 2014 papers",
+        "leader selection second order consensus networks trace inverse squared grounded laplacian 2010 2013"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1302.0450 (primary accessible PDF; original 2013-02-03)",
+      "arXiv:1412.6595 (primary accessible PDF; original 2014-12-20)",
+      "DOI:10.1063/1.4897568 (abstract only, 2014)",
+      "published-finding corpus search hits: 2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818",
+      "published-finding corpus search hits: 2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "This theorem: inverse-square J_2 with hub placement beginning at rim count six",
+        "At six rim vertices, first-inverse values 25/12 (hub/rim) versus 2 (opposite rims), but inverse-square values 157/144 versus 9/8; the preference reverses by strict margins",
+        "Published first-inverse leader selection framework: arXiv:1302.0450; first-inverse path and ring algorithms: arXiv:1412.6595"
+      ],
+      "reasoning": "An earlier first-inverse result cannot entail the inverse-square conclusion, because minimizing one matrix spectral moment does not control a different moment and the wheel at n=6 directly separates their optima. General inverse-square coherence formulas without optimized leaders also do not entail this all-pair classification.",
+      "searches": [
+        "arXiv:1302.0450",
+        "arXiv:1412.6595",
+        "wheel graph leader selection noisy consensus coherence inverse squared",
+        "\"wheel\" \"biharmonic\" \"leaders\" noisy consensus"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1302.0450, section II uses trace of first inverse as noise performance",
+        "arXiv:1412.6595, section II Eq. (3) uses trace of first inverse",
+        "published-finding corpus 2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818 concerns bandlimited Fourier sensor conditioning rather than grounded noisy dynamics"
+      ],
+      "reasoning": "Equivalent terms include biharmonic grounded coherence, inverse-squared Dirichlet Laplacian trace, H2 position variance with relative damping, and two noise-free pinned leaders. None of the checked records states all-size optimal wheel placements for this quantity; first-inverse scores are genuinely different at the six-rim example.",
+      "searches": [
+        "wheel graph two noise free leaders inverse square grounded Laplacian trace second order noisy acceleration hub versus antipodal rim optimal placement six rim",
+        "wheel W_n two leader second order coherence trace L_F^{-2} phase switch at six rim nodes",
+        "\"wheel graph\" \"leader selection\" \"inverse\" \"squared\"",
+        "\"grounded\" \"wheel\" \"trace\" \"inverse\" \"second-order\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus record 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2 has unrelated cover-free-family invariants",
+        "published-finding corpus 2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0 concerns ellipsoid edge weights, not leader placement",
+        "Finite cases csv in this package independently evaluates all relevant wheel pair orbits up to rim count 10"
+      ],
+      "reasoning": "No exact wheel leader inverse-square table or stronger database result appeared among returned searches. The finite table here is newly computed, but absence from databases is not a uniqueness guarantee.",
+      "searches": [
+        "Sharp two-leader coherence transition on unweighted wheels hub rim leader noise free graph Laplacian",
+        "wheel W_n two leader second order coherence trace L_F^{-2} phase switch at six rim nodes",
+        "\"wheel network\" \"leader selection\" \"second-order\" variance",
+        "\"wheel\" \"biharmonic\" \"leaders\" noisy consensus"
+      ]
+    },
+    "rationale": "The closest accessible primary texts treat first-inverse leader selection (arXiv:1302.0450; arXiv:1412.6595) and do not state an inverse-square optimal pair classification on wheels. The explicit six-rim numerical reversal establishes that a theorem optimizing the first-inverse criterion alone cannot imply the present inverse-square winner. A second-order coherence study on trees is different in both graph and leader formulation. Targeted literature and published-finding corpus searches found no equivalent or strictly stronger stated theorem, subject to residual coverage risk.",
+    "residual_risks": [
+      "Specialized inverse-square leader-selection results may be poorly indexed by title and search descriptions; absolute historical priority cannot be guaranteed.",
+      "A publicly available tree-network second-order paper was checked by abstract only and cannot be asserted absent on whole-text grounds; its stated tree-graph scope does not logically subsume wheel placement.",
+      "General optimization routines can calculate individual finite wheel sizes; the value claimed is the exact infinite-family phase classification and the first-versus-second moment reversal, not that the underlying inverse-square definition is novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general first-inverse noisy consensus leader-selection method, not the inverse-square wheel pair theorem",
+        "evidence": "Section II covariance trace(L+diag gains)^-1, page 5 Eq. (2); no wheel or second-order matches in accessible PDF text",
+        "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+        "material_read": "Accessible PDF, abstract/introduction, model and definitions in Section II, convex/SDP formulation in Section III, representative later optimization sections; text search for wheel and second-order; source itself has 32 pages",
+        "method": "Read arXiv PDF textual sections and page image of its covariance/first-inverse formulation",
+        "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+        "trigger": "General predecessor for exact noise-free leader selection"
+      },
+      {
+        "assessment": "Deals with first-inverse objective and 1D path/ring graphs, not inverse-square wheels",
+        "evidence": "Section II Eq. (3) is half trace(L_ff^-1); wheel and second-order text search found none",
+        "identifier_or_url": "https://arxiv.org/pdf/1412.6595",
+        "material_read": "Accessible seven-page PDF: abstract, complete problem formulation/criterion, core path/ring algorithm sections and computational examples, text search for wheel and second-order",
+        "method": "Read arXiv PDF text and screenshot of page containing Eq. (2)-(3)",
+        "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+        "trigger": "Possible dominating exact leader placement algorithm on ring graphs"
+      },
+      {
+        "assessment": "Describes first and second order ungrounded coherence on a recursive tree family; no available evidence of wheel leader pair classification",
+        "evidence": "2014 abstract describes sums of reciprocals and square reciprocals of nonzero Laplacian eigenvalues of tree networks",
+        "identifier_or_url": "https://doi.org/10.1063/1.4897568",
+        "material_read": "Publisher/abstract description and bibliographic record only; full text not inspected",
+        "method": "Online abstract and identifier review",
+        "title": "Coherence in a family of tree networks with an application of Laplacian spectrum",
+        "trigger": "Possible general second-order coherence formula precursor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5829cf5b-4a59-4ab5-bfcb-c630a120967b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact leader-allocation geometry of an infinite natural graph family changes between first-order and relative-damping second-order noise models. The theorem resolves all two-pair options for every rim count, with a strict six-vertex threshold, rational exact boundary witnesses and a uniform non-finite all-size proof. This is motivated design information beyond isolated numeric tables, and it gives a concrete counterexample to treating inverse and inverse-square coherence objectives as interchangeable. Restriction to unweighted wheels is explicit.",
+    "status": "PASS"
+  }
+}

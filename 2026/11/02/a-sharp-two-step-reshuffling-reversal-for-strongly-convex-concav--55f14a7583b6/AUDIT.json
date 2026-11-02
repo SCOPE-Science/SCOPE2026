@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The component GDA matrices are exactly \\(M\\) and \\(M^\\top\\) because their common curvature is symmetric and the opposing coupling is skew-symmetric. For any real M and any independent initialization with second moment \\(I\\), enumerating the four IID index pairs and two reshuffling permutations gives difference \\(\\frac12(\\|MM^\\top\\|_F^2-\\|M^2\\|_F^2)\\). Trace cyclicity proves this equals \\(\\frac14\\|MM^\\top-M^\\top M\\|_F^2\\). The block commutator is \\([H,K]=\\begin{psmallmatrix}0&AC-CB\\\\(AC-CB)^\\top&0\\end{psmallmatrix}\\), so the difference is exactly \\(2h^4\\|AC-CB\\|_F^2\\). Direct expansion proves the planar direction cone. The rational witness has a positive definite contraction certificate with minors \\(19/32\\) and \\(33/256\\); directions give \\(-5/1024\\) and \\(+7/1024\\), summing to \\(+1/512\\). Standalone standard-library verifier checked 1011 rational assertions, and the analytic proof, not finite tests, establishes all dimensions and parameters. No independent audit was performed.",
+    "residual_risks": [
+      "No independent mathematical referee has reconstructed the proof.",
+      "The executable tests sample finite matrices; the trace proof is the basis for infinite quantifiers."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Das–Schölkopf–Muehlebach, arXiv:2206.02953v2, Algorithm 1, Theorem 1, Appendix C and Section 5: multi-epoch upper bounds and numerical behavior, not the exact one-epoch trace difference.",
+        "Recht–Ré, COLT 2012, Sections 2–3: positive-semidefinite product comparisons; Israel–Krahmer–Ward arXiv:1411.0333, Section 1: same semidefinite hypothesis.",
+        "Koloskova et al. arXiv:2305.19259v4, Section 3 and Theorem section: scalar-objective minimization with shuffled gradients, not simultaneous saddle game operators."
+      ],
+      "reasoning": "Published multi-epoch upper/lower rates, PSD matrix AMGM inequalities, and scalar minimization guarantees do not imply the opposite sign for nonsymmetric adjoint game matrices under a one-pass shared step. In particular no PSD-product inequality covers \\(M_\\pm\\) with nonzero skew block.",
+      "searches": [
+        "random reshuffling stochastic gradient descent ascent symmetric quadratic opposing bilinear terms h cubed skew commutator advantage",
+        "sampling without replacement worse stochastic gradient ascent descent matrix nonnormal commutator",
+        "random permutation versus independent random products adjoint matrices Frobenius norm commutator",
+        "Sampling without Replacement Leads to Faster Rates in Finite-Sum Minimax Optimization Section 3 Appendix C"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2206.02953v2",
+      "https://arxiv.org/abs/2206.02953",
+      "https://proceedings.mlr.press/v23/recht12/recht12.pdf",
+      "https://arxiv.org/abs/1411.0333",
+      "https://arxiv.org/html/2305.19259v4",
+      "https://arxiv.org/abs/2106.06880"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Das et al. Theorem 1 bounds RR/SO for a selectable sufficiently small step and general epoch count; it neither compares both sampling laws exactly at one fixed step nor proves a strict isotropic reversal.",
+        "Recht–Ré two-matrix inequalities assume each factor positive semidefinite, while \\(M_\\pm\\) are nonsymmetric for C nonzero.",
+        "Israel–Krahmer–Ward Theorem 1.4 assumes positive-semidefinite matrix factors and handles up to three products.",
+        "Koloskova et al. analyze single-variable minimization of a finite sum, not monotone saddle operators with skew coupling."
+      ],
+      "reasoning": "None of these statements implies the exact equality, all-dimensional iff \\(AC=CB\\) condition, or fixed-vector cone. The contrast with the RR-improvement literature is finite-horizon and metric-specific, not a contradiction of longer-run rates or upper bounds.",
+      "searches": [
+        "arxiv:2206.02953 Section 3.2 Appendix C",
+        "pmlr:v23:recht12 Section 3.1 Appendix B",
+        "arxiv:1411.0333 Theorem 1.4",
+        "arxiv:2305.19259v4 Section 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The trace formula is equivalent to one quarter of squared departure from normality, \\(\\|MM^\\top-M^\\top M\\|_F^2\\).",
+        "The game formula is equivalent to zero obstruction \\(AC=CB\\); the planar case produces a sharp sign cone rather than a trace-only statement."
+      ],
+      "reasoning": "The natural aliases are adjoint-pair sampling, nonnormality, Frobenius/Schatten-two product inequality, and two-step RR versus IID for saddle operators. No checked source or retrieved mathematical record directly stated their coupled minimax two-update specialization. This is a qualified priority conclusion, not uniqueness.",
+      "searches": [
+        "uniform random reshuffling versus with-replacement one-epoch mean squared norm for two adjoint nonnormal matrices equals squared commutator Frobenius norm",
+        "one epoch GDA RR versus iid exact four matrix products commutator A C minus C B",
+        "random reshuffling versus with replacement two transpose update matrices Frobenius nonnormality commutator exact difference"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact rational example: \\(A=3, B=1, C=1, h=1/8\\) has isotropic gap \\(1/512\\) and opposite basis-start signs; no inspected tabulation contained this comparison.",
+        "Closest indexed analyses concerned inverse-positive coordinate sampling, delayed randomized Gauss-Seidel, or scalar noninterpolating reshuffling; the matrix-coupled minimax equality is different in domain and claim."
+      ],
+      "reasoning": "Searches targeted the exact constant, two adjoint products, finite epoch, curvature-coupling mismatch, and deterministic cone. No matching exact database/table was found. A negative search is not evidence that an unseen table cannot exist.",
+      "searches": [
+        "one epoch GDA RR versus iid exact four matrix products commutator A C minus C B",
+        "two component strongly convex strongly concave game opposite bilinear couplings sampling without replacement one epoch is worse than uniform sampling",
+        "random sampling without replacement pointwise first epoch minimax gradient descent ascent curvature mismatch isotropic covariance",
+        "two matrices opposite rotations symmetric anisotropic part random reshuffling SGD worse than iid after one epoch"
+      ]
+    },
+    "rationale": "The direct 2022 strongly convex-concave RR literature supplies epoch-level convergence bounds, rather than an identity equating a same-step two-call isotropic reversal to the squared curvature-coupling defect. PSD noncommutative product comparisons require symmetric semidefinite step factors and cannot imply the reversal for the nonsymmetric GDA factors here. General shuffled scalar-objective SGD analysis uses a gradient-field setting distinct from primal-dual game dynamics. The exact general adjoint-product identity may be classical; the asserted contribution is its complete, sharp finite-epoch game consequence and deterministic cone, not an independent discovery of all such trace identities.",
+    "residual_risks": [
+      "The elementary adjoint-product trace identity may appear in earlier numerical linear algebra or nonnormal matrix literature under different terminology.",
+      "No claim of globally exhaustive literature or database coverage; specialized finite-epoch SGDA comparisons may be undiscovered.",
+      "The general convergence-rate literature concerns different time, tuning, or assumptions, so the result must not be portrayed as contradicting those theorems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates question and provides asymptotic/nonasymptotic multi-epoch bounds, but does not give the same-step exact two-call isotropic difference or deterministic cone",
+        "evidence": "Algorithm 1 is simultaneous component GDA; Theorem 1 is a selectable-small-step expected last-iterate bound; Section 5 tunes steps independently and compares 100-epoch experiments; Appendix C controls epoch maps by norm bounds.",
+        "identifier_or_url": "https://arxiv.org/html/2206.02953v2",
+        "material_read": "Full-text Introduction and Section 3 including Algorithm 1 and Theorem 1, Section 5 quadratic experiments, Appendix C.1–C.2 and comparisons",
+        "method": "Open-access arXiv HTML section-by-section inspection of models, assumptions, theorem statements, proof tools, and quadratic-experiment setup",
+        "title": "Sampling without Replacement Leads to Faster Rates in Finite-Sum Minimax Optimization",
+        "trigger": "Direct same-algorithm paper for strongly convex–concave finite-sum GDA with random reshuffling"
+      },
+      {
+        "assessment": "The two-matrix PSD product inequality does not apply to nonsymmetric adjoint GDA updates, which permit reverse ordering in squared Frobenius expectation",
+        "evidence": "Section 3.1 explicitly assumes positive-semidefinite A and B for two-matrix inequality (9), while \\(M_\\pm\\)=I-h(H±K) have nonzero skew parts.",
+        "identifier_or_url": "https://proceedings.mlr.press/v23/recht12/recht12.pdf",
+        "material_read": "Full PDF text for Introduction and Sections 2–3, especially Section 3.1 on two matrices and supporting Appendix B, plus examination of representative PDF page imagery",
+        "method": "Open-access PMLR PDF text and rendered-page inspection of hypotheses, order symmetrization, and positive-semidefinite matrix requirement",
+        "title": "Toward a Noncommutative Arithmetic-geometric Mean Inequality: Conjectures, Case-studies, and Consequences",
+        "trigger": "Potentially stronger two-matrix with- versus without-replacement product inequality"
+      },
+      {
+        "assessment": "Theorem for products of up to three positive-semidefinite matrices is inapplicable to nonsymmetric saddle-operator steps",
+        "evidence": "Theorem 1.4 requires each input matrix positive semidefinite; the GDA pair has nonzero antisymmetric parts.",
+        "identifier_or_url": "https://arxiv.org/abs/1411.0333",
+        "material_read": "Open-access arXiv full HTML Introduction, Conjectures 1.2–1.3 and Theorem 1.4 including hypotheses and displayed inequalities",
+        "method": "Inspection of primary arXiv source and exact statement/assumptions",
+        "title": "An arithmetic-geometric mean inequality for products of three matrices",
+        "trigger": "Possible stronger theorem dominating the two-product comparison"
+      },
+      {
+        "assessment": "Results concern minimization of a smooth finite sum, not simultaneous minimax GDA on skew-coupled games",
+        "evidence": "Equation (1) minimizes scalar f(x), and Eq. (2) is standard SGD x←x−γ∇f_i(x), unlike (x,y) saddle updates.",
+        "identifier_or_url": "https://arxiv.org/html/2305.19259v4",
+        "material_read": "Open-access arXiv HTML Abstract, Introduction, Algorithm, main convergence theorem, random reshuffling section, and proof/appendix headings",
+        "method": "Comparison of target scalar objective, update operator, expected risk and theorem hypotheses",
+        "title": "On Convergence of Incremental Gradient for Non-Convex Smooth Functions",
+        "trigger": "Possible all-iteration reshuffling advantage dominating the finite-epoch comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "55f14a75-83b6-4256-a22c-c523d26d7751",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact all-dimensional equality and iff criterion \\(AC=CB\\) make coupling–curvature imbalance a structural diagnostic for when a full reshuffled pass is worse in averaged squared saddle distance. The obstruction persists for arbitrarily small contractive steps, so it is not a trivial divergence counterexample. The complete planar start-direction cone shows why isotropic averages conceal locally beneficial reshuffling and gives a quantitative finite-evaluation sampling tradeoff. This is a motivated mathematical boundary within finite-sum saddle optimization rather than an arbitrary matrix slice or a generic AMGM restatement.",
+    "residual_risks": [
+      "It is a two-evaluation, two-component benchmark, not a guarantee for many-epoch practical optimization or dynamically selected learning rates."
+    ],
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The eight-letter-pair language of the four-symbol Rudin–Shapiro uniform morphism is closed under the substitution and all eight pairs occur in the fourth iterate; hence all factors at each specified length are exhausted by coding two adjacent substitution blocks. Complete exact partitions of the length-14 and length-18 factor sets show T² and T³ respectively have the same fibers as T; minimum one-counts are 3 and 5, meeting the prefix-inheritance hypotheses. For arbitrary longer factors, equality after deleting the first k ones implies equality of the first N prefixes under T^k; the base finite equivalence gives equality under T on the prefixes, and deletion-string equality forces identical remaining tails. This proves the infinite part. Concrete length-13 and length-17 pairs witness strict sharpness. Both Python verification programs reproduced all critical data, the second via an independent arithmetic word generator.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1809.09158v2 Definition 1.1 introduces tortoise and iterates but does not specialize to Rudin–Shapiro factors; arXiv:2604.25811v2 studies different automatic words."
+      ],
+      "reasoning": "Results determining the map on arbitrary words or only first-pass factor complexity do not entail the sharp relative stabilization thresholds; at lengths 13 and 17 distinct higher-pass merges actually occur.",
+      "searches": [
+        "Rudin Shapiro T squared cubed stack-sorting equivalence factor complexity eventual 8n-16",
+        "Defant Kravitz Stack sorting for words tortoise iteration Rudin Shapiro"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2604.25811",
+      "https://arxiv.org/pdf/2604.25811",
+      "https://arxiv.org/pdf/1809.09158",
+      "https://oeis.org/A005943"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The formal implication T(u)=T(v) => T^k(u)=T^k(v) is immediate but its converse is generally false; explicit factors of lengths 13 and 17 refute it at the preceding critical lengths.",
+        "The source gives only different words/parameters."
+      ],
+      "reasoning": "The claimed converse requires an exact finite partition check and a separate prefix-inheritance proof; it does not follow by reducing to a known one-pass count or by renaming iteration parameters.",
+      "searches": [
+        "arXiv:2604.25811 iterated tortoise paperfolding Rudin Shapiro",
+        "Rudin Shapiro second third iterated tortoise maps equivalence kernels stabilize at length 14 and 18"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.25811v2 Section 3 defines iterated tortoise fiber equivalence; Section 5 treats paperfolding and Section 6 treats Thue–Morse; the two requested Rudin–Shapiro kernel equalities are absent from those analyses."
+      ],
+      "reasoning": "The claim is equivalent to injectivity of the additional pass or passes on the first-pass image set; searching for kernel equality, equivalence classes, and complexity after 2/3 passes found no matching result.",
+      "searches": [
+        "Rudin-Shapiro second third iterated tortoise maps equivalence kernels stabilize at length 14 and 18",
+        "Rudin Shapiro 2-fold 3-fold Defant Kravitz tortoise equivalence sharp threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A005943 records ordinary Rudin–Shapiro factor counts, not equality of tortoise-equivalence partitions.",
+        "arXiv:2604.25811v2 reports iterated thresholds for paperfolding, not Rudin–Shapiro."
+      ],
+      "reasoning": "The values 14 and 18 are exact boundaries of an equality-of-partitions property, not ordinary factor counts and not special cases of the paperfolding table.",
+      "searches": [
+        "Rudin-Shapiro 2-fold 3-fold Defant Kravitz tortoise equivalence sharp threshold",
+        "Rudin Shapiro T squared cubed stack-sorting equivalence factor complexity eventual 8n-16",
+        "OEIS A005943 Rudin Shapiro ordinary factor complexity"
+      ]
+    },
+    "rationale": "The 2018 Defant–Kravitz paper defines the word operator; the April 2026 Campbell–Rampersad work treats iterated tortoise on the paperfolding word and a different one-step analysis on Thue–Morse. Neither inspected source gives Rudin–Shapiro two- and three-iterate fiber stabilization or exact thresholds 14 and 18. One-pass complexity alone cannot imply equality of these two higher-iterate partitions; the preceding-length counterexamples show they differ at adjacent parameters. Searches and accessible prior-claim comparisons identified no stronger equivalent or dominating claim, subject to normal unindexed-work priority risk.",
+    "residual_risks": [
+      "An unindexed or inaccessible prior computation of the exact relative higher-pass thresholds may exist.",
+      "The proof depends on a finite certificate of the complete eight-pair substitution language and the stated prefix-inheritance lemma; independently rechecking these is appropriate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the two Rudin–Shapiro higher-iterate kernel thresholds; paperfolding and Thue–Morse are different objects",
+        "evidence": [
+          "First public date 2026-04-28 from arXiv submission record",
+          "PDF Section 5 states paperfolding one-pass result and suggests higher-pass thresholds",
+          "Section 6 analyzes the Thue–Morse word"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.25811",
+        "material_read": "Abstract; definitions and statements in Sections 2–3; full paperfolding Section 5 including Theorem 3 and the open s(k) discussion; relevant Thue–Morse Section 6 and references; original PDF page 10 viewed graphically",
+        "method": "Read authorized open-access primary PDF and inspected its displayed definitions, principal claims, and nearby references",
+        "title": "Subword enumeration up to stack-sorting equivalence",
+        "trigger": "Directly motivates higher iterates on automatic-word factor languages"
+      },
+      {
+        "assessment": "NOT_COVERING for Rudin–Shapiro factor-language kernel stabilization; operator theory is background only",
+        "evidence": [
+          "Definition 1.1 gives the recursive tortoise operator",
+          "Paper investigates word sorting, preimages and pattern avoidance"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1809.09158",
+        "material_read": "Introduction, Definition 1.1 and associated iteration notation; PDF definition page visually inspected; abstract and section outline",
+        "method": "Direct open-access primary PDF text and displayed page",
+        "title": "Stack-sorting for Words",
+        "trigger": "Original definition and behavior of the tortoise map"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "58683a30-4c32-4e54-a859-25e7ef155c44",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 literature explicitly motivates iterated stack-sorting equivalence on automatic words. Iterating tortoise may merge previously distinct first-pass classes, so identifying when such additional merges disappear permanently is a natural invariant not determined by the one-pass complexity. The sharp lengths 14 and 18 exhibit an informative stability boundary in a classical automatic sequence, and the prefix-inheritance lemma offers a reusable route from exact morphic factor certificates to infinite all-length theorems. The result is not a mere small-n census: finite data are used as complete base certificates for an unbounded quantitative statement.",
+    "status": "PASS"
+  }
+}

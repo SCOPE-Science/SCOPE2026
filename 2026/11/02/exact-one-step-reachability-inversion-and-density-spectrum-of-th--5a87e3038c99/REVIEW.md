@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The proof first establishes a complete local four-output image truth table, then a separate five-input truth table locating exactly the failures of the Rule-226 predecessor selector. The latter implies both directions of the reachability characterization on *all* finite rings, including short periodic rings. The unborderedness of `1100` justifies nonoverlapping-occurrence inclusion–exclusion. The marked cyclic-block counting formula is independently derived by block-gap distributions. A deterministic four-state suffix machine gives the rational generating function, and the factorized characteristic polynomial proves the recurrence and asymptotic. The standalone verifier returned `VERIFY_OK`, including image/predecessor checks through ring length 13 and an independent weighted-matrix comparison through length 18. These experiments supplement the complete symbolic proof.
+
+## Originality — PASS, with priority qualification
+The established Rule-184 traffic dynamics and number-conserving rule classification in Fukś (1997) and Boccara–Fukś (1997/1998) are close background, and the latter explicitly identifies Rule 226 as the reflected rule. Inspection of their relevant primary material found no identical periodic one-step reachability criterion, right-inverse theorem, or fixed-occupancy image enumeration. Work on eventual/limit behavior of Rule 184, and on generic regular-language enumeration, does not alone imply the concrete one-step characterization. Research-record searches and accessible preceding claims did not identify a dominating statement. Unindexed sources and specialist cellular-automata literature present genuine residual priority risk. This review is an evidence-based comparison, not a proof of uniqueness or independent historical certification.
+
+## Value — PASS
+The inverse-reachability problem for deterministic traffic flow on a ring is directly motivated: given a desired post-update configuration at a known particle count, decide whether it is realizable and construct a predecessor. An exact forbidden-pattern condition, a *local* predecessor selector, and the density-refined count jointly answer the existence, synthesis and state-space-size questions for every ring size. They are nontrivial structural statements about a standard dynamical system, rather than a parameter substitution or an arbitrary finite slice.
+
+## Closest literature and limitations
+Fukś, *Solution of the Density Classification Problem with Two Cellular Automata Rules*, arXiv:comp-gas/9703001, studies density-classification and preimage dynamics; Boccara and Fukś, *Cellular Automaton Rules Conserving the Number of Active Sites*, arXiv:adap-org/9712003, classifies number-conserving rules and relates Rules 184 and 226. Both are foundational but examined claims differ. The formula counts indexed cyclic configurations at one step; it does not solve arbitrary time-depth preimage multiplicities. Historical-priority uncertainty remains and independent mathematical assessment has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.

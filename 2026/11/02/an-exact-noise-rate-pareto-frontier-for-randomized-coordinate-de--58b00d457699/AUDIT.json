@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The conditional-coordinate second-moment affine recurrence gives exact invariant variances and sharp coordinate factors; contraction supplies a unique invariant law. Saturating the step constraints gives a strictly convex simplex program whose KKT system has a unique scalar root. Cauchy–Schwarz and uniform endpoint expansions prove the two different weight exponents. Attached stdlib verifier passes 9,499 exact/numeric checks but does not prove infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Qu–Richtárik arXiv:1412.8060 provides arbitrary sampling of a convex objective but makes no stationary-noise claim in accessible abstract.",
+        "Rodomanov–Kropotov DOI 10.1137/19M125532X treats determinant-based volume sampling and convergence of deterministic coordinate descent, not a measured stationary floor in accessible abstract.",
+        "The public full text of DOI:10.1007/s11590-015-0916-1 optimizes deterministic serial selection probability using \\(p_i\\) proportional to curvature/norm ratio, not noise-weighted stationary loss with a prescribed exact second-moment factor."
+      ],
+      "reasoning": "A broad arbitrary-sampling convergence theorem alone does not imply the exact optimizer with independent nonzero gradient noise and an endogenous per-coordinate step. Potential stronger noise-aware results in other primary literature remain a residual risk; full-text noncoverage of the abstract-only sources is not asserted.",
+      "searches": [
+        "randomized block coordinate descent exact optimal probabilities for stationary variance and linear contraction rate noisy oracle",
+        "arxiv:1412.8060",
+        "doi:10.1137/19M125532X",
+        "doi:10.1007/s11590-015-0916-1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.00088 (inspected full text relevant parts, arxiv posted 2023-10-31)",
+      "arxiv:1412.8060 (abstract only)",
+      "doi:10.1137/19M125532X (abstract only)",
+      "Published public record on inverse-positive SPD optimal sampling (record summary only)",
+      "Published public record on STORM stationary covariance (record summary only)",
+      "On optimal probabilities in stochastic coordinate descent methods, DOI:10.1007/s11590-015-0916-1 (inspected public full text, especially Section 4.1)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ding et al. prove noisy RCD stability and iteration complexity under local PL with uniform sampling, rather than a global p-and-eta optimizer.",
+        "The noise-free inverse-positive SPD optimal-sampling record fixes the objective as deterministic linear contraction; our minimand is stationary noisy loss under a rate constraint.",
+        "The optimal serial method published online in 2015 sets \\(p_i\\) proportional to (L_i+v_i)/v_i, independent of oracle noise variances; its deterministic convergence complexity objective is distinct from the stationary noisy objective."
+      ],
+      "reasoning": "Both rate and nonzero stationary variance must enter the same optimization to imply this statement. The prior rate-only theorems and uniform-sampling noise bounds do not supply the KKT scalar equation or both endpoint allocation laws without an additional nontrivial joint optimization.",
+      "searches": [
+        "diagonal quadratic randomized coordinate descent persistent additive gradient noise sampling probabilities individual coordinate learning rates exact steady state objective subject to second moment contraction rate minimax",
+        "coordinate stochastic gradient quadratic sampling probability stepsizes Pareto noise floor convergence frontier water filling Lagrange multiplier",
+        "arxiv:2311.00088",
+        "arxiv:1412.8060",
+        "doi:10.1007/s11590-015-0916-1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ding et al. arXiv:2311.00088 explicitly use uniformly drawn coordinate with common step; no joint probability/step Pareto optimization in inspected material.",
+        "Qu–Richtárik arXiv:1412.8060 covers arbitrary sampling but the accessible abstract focuses algorithmic complexity without a persistent-noise stationary limit."
+      ],
+      "reasoning": "The same claim can be expressed either as stationary covariance minimization under a second-moment spectral-radius bound, or as optimizing weighted scalar AR(1) noise floors subject to per-coordinate update-probability contraction. Comparisons required both objective and constraints; no inspected primary result or accessible record states their complete joint optimization or the endpoint weight exponents. General textbook Lagrange-multiplier methods are ingredients, not an identical solved statement.",
+      "searches": [
+        "diagonal quadratic randomized coordinate descent persistent additive gradient noise sampling probabilities individual coordinate learning rates exact steady state objective subject to second moment contraction rate minimax",
+        "coordinate stochastic gradient quadratic sampling probability stepsizes Pareto noise floor convergence frontier water filling Lagrange multiplier",
+        "arxiv:2311.00088",
+        "arxiv:1412.8060"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A retrieved public record titled “Closed-form optimal coordinate sampling for inverse-positive SPD quadratics” optimizes the noise-free expected A-energy contraction, not the stationary additive-noise objective at a fixed rate.",
+        "A retrieved record titled “Exact stationary covariance and stability factorization for constant-template STORM” concerns a scalar estimator-memory algorithm, not sampled coordinates."
+      ],
+      "reasoning": "The exact scalar-root optimizer, sharp feasibility boundary, and square-root versus squared-weight asymptotics did not match an inspected natural database/table entry. This is a comparison to retrieved evidence, not a proof of unique priority.",
+      "searches": [
+        "randomized coordinate descent noisy gradient two dimensional anisotropic quadratic optimal sampling probability stationary noise",
+        "separable quadratic random coordinate descent noise floor asymptotically square root sampling weights squared weights high speed",
+        "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73"
+      ]
+    },
+    "rationale": "Full-text inspection of the directly motivating 2023 noisy RCD paper (arXiv:2311.00088) shows uniform sampling and complexity/stability bounds, not the complete probability-step stationary-noise Pareto design. Accessible abstracts of arbitrary sampling and volume sampling treat different objectives. Retrieved public mathematical records optimize noise-free rate or other algorithms. Wider noise-aware optimization literature remains an explicit priority risk; search nonmatch is not proof of novelty. A relevant older full-text primary study, DOI:10.1007/s11590-015-0916-1, derives optimal serial selection probabilities for noise-free rate complexity; it does not furnish this joint persistent-noise Pareto problem.",
+    "residual_risks": [
+      "Uninspected full texts of Qu–Richtárik and volume-sampling literature could provide a stronger theorem or corollary.",
+      "Other noise-aware random coordinate descent studies may solve the same stationary optimization under alternate normalizations or water-filling notation.",
+      "No independent publication-priority review has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides uniform-coordinate noisy RCD and high-probability complexity, not a stationary second-moment exact joint sampling-and-step optimization",
+        "evidence": [
+          "https://www.researchgate.net/publication/375184643_Random_coordinate_descent_a_simple_alternative_for_optimizing_parameterized_quantum_circuits",
+          "https://arxiv.org/abs/2311.00088"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.00088",
+        "material_read": "Public full text covering the stochastic gradient and coordinate algorithms (8)–(9), main theorems 3–4, appendix theorems 7–8, setup, discussion and cited related-work sections",
+        "method": "Read text edition mirrored with complete article content at ResearchGate and checked arXiv first-post date",
+        "title": "Random coordinate descent: a simple alternative for optimizing parameterized quantum circuits",
+        "trigger": "Closest same-method, noisy-coordinate primary source"
+      },
+      {
+        "assessment": "Optimizes an expected-separable-overapproximation iteration-complexity bound for deterministic gradients; despite treating arbitrary \\(p_i\\) and coordinate steps, the analyzed objective and constraints have no additive gradient-oracle variance or stationary risk and do not imply the joint noise–rate Pareto solution.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s11590-015-0916-1",
+          "Its Section 4.1 gives \\(p_i\\) proportional to (L_i+v_i)/v_i, independent of a persistent additive noise variance and independent of a target second-moment contraction."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11590-015-0916-1",
+        "material_read": "Public HTML full text: abstract, algorithm, assumptions, Theorem 3, Sections 2–4 including optimal serial probabilities in equation (13)",
+        "method": "Read primary HTML full text of Springer article through the published webpage",
+        "title": "On optimal probabilities in stochastic coordinate descent methods",
+        "trigger": "Directly relevant full-text exact nonuniform optimal serial sampling probabilities and coordinate steps"
+      },
+      {
+        "assessment": "Abstract emphasizes arbitrary sampling and convergence complexity without an exact additive-noise invariant-loss Pareto result; full text not excluded",
+        "evidence": [
+          "https://www.alphaxiv.org/fr/abs/1412.8060"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.8060",
+        "material_read": "Public abstract and bibliographic description; full text not obtained in this comparison",
+        "method": "ArXiv bibliographic/abstract and alternate indexed text",
+        "title": "Coordinate Descent with Arbitrary Sampling I: Algorithms and Complexity",
+        "trigger": "Plausible broader coverage: arbitrary nonuniform coordinate probabilities"
+      },
+      {
+        "assessment": "Volume sampling is based on curvature principal minors and deterministic convergence; accessible abstract does not present the noisy Pareto optimization; full text not excluded",
+        "evidence": [
+          "https://epubs.siam.org/doi/10.1137/19M125532X"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/19M125532X",
+        "material_read": "Publisher abstract and methodological description only",
+        "method": "SIAM public abstract",
+        "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+        "trigger": "Plausible broader optimal-sampling result"
+      },
+      {
+        "assessment": "Optimizes unnoised expected A-energy contraction, whereas new claim optimizes persistent-noise invariant loss subject to a sharp rate; full text not excluded",
+        "evidence": [
+          "Public record summary describes p proportional to the inverse-normalized-Hessian times the all-ones vector and no noise-variance budget."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "material_read": "Record title, abstract-style scientific summary; detailed proof text unavailable in this comparison",
+        "method": "Semantic scholarly-record search and comparison of objective and constraints",
+        "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "trigger": "Closest public exact sampling optimizer by title and search results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "58b00d45-7699-4bff-a12f-2c8185031ce1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural one-noisy-derivative-per-step method poses a joint stationary-noise versus sharp rate design problem. A unique globally optimal design reduces all high-dimensional nonlinear choices to one monotone scalar equation and reveals a nontrivial crossover from square-root noise weights to squared noise weights at the fastest-rate boundary. A two-coordinate example reduces the exact stationary objective by approximately 20% against uniform sampling for the same rate. Scope is deliberately restricted to diagonal quadratics and independent additive noise.",
+    "status": "PASS"
+  }
+}
