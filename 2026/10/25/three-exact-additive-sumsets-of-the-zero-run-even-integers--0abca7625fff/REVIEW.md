@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit binary decomposition \(A=4A\sqcup(8A+1)\sqcup(4A+3)\) is checked by binary trailing-run cases. The simultaneous strong induction supplies all representation witnesses at each nonnegative integer, and the modulo-four reverse inclusion is constructive. The standard Fibonacci count is independently rederived here by tiling ordinary binary words; its numerical values are not claimed as novel. The packaged standalone program independently checks the digit criterion, witnesses and finite dyadic counts, but no infinite claim relies on extrapolation.
+## correctness
 
-**Originality — PASS within inspected evidence.** The closest directly relevant source is Dekking, *Sumsets and fixed points of substitutions*, arXiv:2105.04959 (2021), which studies exact sumsets for other automatic/morphic supports. OEIS A060142 exactly names the zero-run-even integer set, and OEIS A086747 differs at zero. Inspection of Dekking’s open-access text, including its object list and targeted Baum–Sweet searches, found no identical additive basis or dilation formula. Searches for the additive basis, sumset, and alias/zero-run formulations located the sequence's definition but no equivalent theorem. Other published work on binary parity and sumsets concerns different objects or weaker/global profiles. Risk: an equivalent implicit consequence of the existing substitution sumset formalism or an unindexed prior theorem may exist; independent priority assessment remains outstanding.
+PASS
 
-**Mathematical value — PASS.** An exact sparse additive basis of optimal order two with cardinality \(F_{k+2}\) below \(2^k\) is a motivated nontrivial additive phenomenon, and the sharp contrast between complete coverage by \(A+2A\) and the precise residue obstruction for \(A+4A\) is a structural boundary, not a finite numerical observation. No general claim about arbitrary dilations is made.
+A={0} plus positive binary words having only even-length maximal zero runs, with the zero convention stated distinctly from A086747. The disjoint digit decomposition A=4A ⊔(8A+1)⊔(4A+3) is exact. Simultaneous strong induction covers every residue class, with explicit base n=2 and n=5, proving A+A=A+2A=N0. The modulo-four exclusion 2 and constructive reverse inclusions then give A+4A=N0\{n≡2 mod4}. Allowed binary words are tiled by 1 and 00; their dyadic counts F_{k+2} show density zero. Independent direct binary recognition for 20,001 values and direct sumset witnesses through 4000 passed. The finite tests do not replace mutual induction.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Baum–Sweet zero-run digit condition and Fibonacci growth are old, as are substitution sumset methods (Dekking 2021/2022). The three universal exact additive-basis/dilate identities are additional claims not stated by inspected Dekking theorem examples or OEIS entries. Possible implicit derivation from a wider automatic-set theorem is qualified.
+
+## value
+
+PASS
+
+Establishes sparse zero-density automatic integer set as an exact additive basis of sharp order two and classifies two natural dilated sumsets. This connects digit-language combinatorics to exact additive representation; not merely an OEIS count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
