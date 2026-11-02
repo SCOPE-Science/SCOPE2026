@@ -1,9 +1,21 @@
-# Review of the curvature plateau theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact equivalence of the generalized-parabola target and the quadratic inequality is checked from the source definition. The universal upper obstruction uses a genuine canonical exponential extremal. Below the threshold, the circle Taylor coefficient is strictly negative and continuity moves the counterexample into the open disk. At and above the threshold, the monotone auxiliary polynomial and exact rational interval certificate give an analytic global inclusion, with equality only at the boundary point. The executable checker verifies every stated algebraic certificate inequality, including logarithm bracketing; the infinite-dimensional step is the explicit analytic argument.
+## correctness
 
-**Originality — PASS (self-review).** Direct comparison with the published generalized-parabolic paper (Janowski and related classes), the geometric-radius atlas, and the nearest public exact exponential parabolic result (only the fixed parameter \(\alpha=1/2\)) found no implication of the full sharp curvature phase boundary. published-finding corpus queries for parameter aliases, the numerical constant and exponential-to-parabola containment returned the fixed-parameter record but no covering record. The earlier exact classical radius \(0.690544\ldots\) is explicitly excluded from the contribution. Residual risk: another parameterized containment theorem may imply the plateau under an unnoticed reduction; independent literature review remains warranted.
+PASS
 
-**Value — PASS.** The new two-parameter target leads to a natural optimization about which obstruction controls the universal radius. A complete, sharp curvature threshold gives a global phase distinction for an established Ma–Minda class, not a single arbitrary substitution or a numerical recalculation. It also explains why the familiar real-axis candidate becomes sharp only after sufficient parabolic widening. The statement intentionally avoids claiming the remaining off-axis radius function.
+For alpha>0 and normalized f with zf′/f subordinate to exp, the universal radius is the largest R with exp(R D) inside v²<4alpha(u-1/2). The extremal canonical exponential function gives necessity. The leftmost point exp(-log2)=1/2 forces R<=L=log2. Expanding the boundary near -L yields y² coefficient alpha(1-L)/L-1/4, so for alpha<L/[4(1-L)] an interior off-axis violation forces R<L. At alpha*=L/[4(1-L)], the source proves global positivity using alternating trigonometric polynomial bounds on |z|<=L, monotonicity in U=y², and a rigorous exact-rational polynomial certificate for Q(t,L). An independently reconstructed SymPy/rational calculation verified the polynomial degree 17, log2 enclosure 0.693<L<0.694, constant coefficient >0.04684, negative terms <0.00023 and strict margin >0.0466. Thus exp(LD) contained in target for alpha>=alpha*. The proof is an infinite-disk inclusion with exact rational bounds, not a finite search. No exact radius below alpha* is claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS qualified. Lecko–Madhumitha–Ravichandran (Oct 5, 2026) introduce generalized parabolic targets and radius results for other starlike classes; inspected full text does not give exp-subordinate alpha-plateau. Resultary published 2026-10-04 exact uniform-convexity phase boundary for exponential functions treats exactly alpha=1/2 and obtains 0.690544..., a narrower value below log2; the present alpha*~0.56472 plateau is not implied from just that single-parameter result, and the source proof verifies all alpha>=alpha* and <alpha*. Classical parabolic-radius claims of log2 at alpha=1/2 require caveat. Alternative general geometric inclusion radius formula might imply plateau but not identified in inspected statements.
+
+## value
+
+PASS
+
+PASS. The generalized parabolic target introduces a geometrically motivated curvature parameter and the exact switch between real-axis contact and earlier off-axis contact is a natural phase transition, not a tiny numerical improvement. It corrects extrapolation of log2 across all alpha and isolates an exact sharp threshold while openly leaving the more difficult full below-threshold radius profile unsolved. The certified global inequality at a nonlinear boundary is substantive despite an auxiliary lengthy polynomial certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
