@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed counts are reconstructed from explicit rooted bisimulations, depth-two distinguishing formulas and the finite wreath-product action. The root sees only its colour and the set of distinct terminal-cluster colour supports; the centered stabilizer instead sees the multiset of full cluster histograms. Both counting formulas and their difference follow exactly from these classifications. The proof separately checks boundary cases with zero propositional letters, one cluster of size one, and the first strict-gap cases. The finite executable check enumerates fourteen parameter triples, but the unrestricted theorem rests on the written proofs rather than these examples.
+## correctness
 
-## Originality — PASS, with priority limitation
-The motivating 2026 modal exchangeability theorem studies stabilizer-invariant measures and orbit-sensitive learning; it expressly distinguishes finite orbits from infinite de Finetti representations. Its inspected sections do not provide the present exact finite-bouquet observable/orbit simplex counts or their sharp onset. Dawar–Otto's bisimulation characterization is genuinely broader qualitative modal expressive-power theory, not an exact enumeration of centered-exchangeable valuation priors or observational fibers. A previous exact enumeration in special-purpose modal logic, Pólya counting or bisimulation theory could subsume the formulas, so priority is not independently guaranteed.
+PASS
 
-## Value — PASS
-The complete family of formulas answers a motivated identifiability question left by the symmetry-of-credence framework: how many genuinely different centered-symmetric priors exist, and how many can be distinguished from all modal observations available at the designated world's location? The strict four-world threshold and polynomially growing hidden affine dimension under increased terminal-cluster multiplicity give structural information, not a single arbitrary small example. The result makes the limits of observation quantitatively exact without claiming new generic bisimulation or enumeration principles.
+Ordinary reflexive-transitive root modalities cannot count duplicated terminal-cluster support sets or color multiplicities within clusters. A matching-support back-and-forth bisimulation gives modal invariance. Conversely depth-one δ_S detects terminal support S, and depth-two ◇δ_S, with an extra P_b witness when S is the global support T, separates each different support family; root color a and T are directly definable. Thus root types are pairs (a,H), where H is a nonempty set of at most t feasible color supports; M=q Σ_{j=1}^{min(t,N)} C(N,j), N=Σ_{j=1}^{min(s,q)} C(q,j), q=2^k. The root-fixing wreath product S_s wr S_t sees histograms with C(s+q−1,q−1) possible types and their multisets; E=q C(t+Hcount−1,Hcount−1). Every modal class receives an invariant orbit measure, so the observation map is onto the M-simplex with affine kernel E−M. Collision if and only if k≥1 and (s≥3 or t≥3): vary a two-color histogram inside a cluster (s≥3) or duplicate support multiplicities (t≥3). k=0 and (t,s)=(1,1) depth boundaries checked; t→∞ asymptotic follows the finite support count. Independent literal world-valuation enumeration checked small q,t,s against depth-zero/two signatures and wreath histogram orbits. Finite checks corroborate, rather than prove, all-parameter bisimulation and counting.
 
-The theorem uses ordinary ungraded propositional modal observations at the root, and excludes counting, hybrid, global or multiworld observations. The historical originality determination is necessarily conditional on the publications inspected; external independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zantedeschi, arXiv:2603.27547, establishes centered modal exchangeability and finite-orbit representational caveats, but the materially inspected group/credal sections do not state the finite observable root-theory quotient M, histogram-orbit E, exact affine hidden dimension E−M, sharp four-world onset or formula depth bound for this bouquet. Dawar–Otto (2009) establishes modal characterization and bisimulation framework, not the exact simplex fibers. A published Resultary semantic search retrieved finite S4-like chain-frame counts and finite modal measurability but no equivalent pair of finite bouquet formulas. The root theory for singleton terminal clusters is covered by general two-level modal frame counts and is not itself novel. The additional joint invariant-prior versus observability classification requires the new two-level support/histogram comparison. Historical exact finite S4 bouquet counts could still exist under alternative terminology.
+
+## value
+
+PASS
+
+The exact information loss in learning automorphism-invariant valuation distributions from ordinary modal observations is a motivated identifiability problem. The four-world strict-loss onset, full simplex-image dimensions and sharp depth-two test give a complete quantitative answer for a natural finite star-of-S5-clusters S4 family. The computation is not a mere relabeling of generic bisimulation invariance; it resolves whether distinct symmetric priors are distinguishable by any permitted modal event.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
