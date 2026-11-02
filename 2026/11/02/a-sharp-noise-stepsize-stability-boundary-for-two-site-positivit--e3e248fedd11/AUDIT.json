@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The exact independent lognormal second-moment factors and positive heat semigroup give the displayed two-by-two covariance matrix. Perron–Frobenius rigorously dominates the antisymmetric moment mode. A monotonic Perron crossing, explicit determinant, and fully factored strictly negative second derivative establish the exact sharp critical noise curve and its one-interval law. The continuous Itô moment generator has exact leading eigenvalue and sharp threshold 3b. An exact rational witness demonstrates the strict stable-continuous/unstable-split discrepancy. The bundled rational and numerical verifier was executed successfully; the infinite-parameter proof is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lang–Petersson–Thalhammer 2017 treats spectral mean-square stability across wide classes of methods; it does not explicitly evaluate the present exact lognormal splitting family.",
+        "Erdogan–Lord, doi:10.1093/imanum/dry008, develops exponential integrators and scalar stability analyses under different steps/noise structures.",
+        "Torkzadeh–Ranjbar–Micula–Nouri, doi:10.3390/sym14112413, analyzes a distinct exponential split-step method."
+      ],
+      "reasoning": "General second-moment spectral theorems can be applied to a specific integrator, but their hypotheses alone do not imply the explicit one-interval monotonic critical curve or rational witness absent the present lognormal covariance calculation. Different numerical schemes are not encompassing claims about this scheme.",
+      "searches": [
+        "mean square exponential stability Lie Trotter splitting linear stochastic heat equation diagonal multiplicative noise two dimensional stability step size",
+        "stochastic split step exponential integrator exact mean square stability matrix diagonal noise geometric Brownian splitting",
+        "exact critical noise mean-square decay of lognormal multiplicative heat splitting 2-site step"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2302.08858",
+      "https://doi.org/10.1007/s10543-017-0684-7",
+      "https://doi.org/10.1093/imanum/dry008",
+      "https://doi.org/10.3390/sym14112413"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The arXiv source §3.1 defines noise-then-heat splitting; its §§3.2, 5.3 and 5.4 establish finite-horizon moment bounds and strong convergence under mesh/timestep conditions.",
+        "The 2017 BIT article supplies a general spectral characterization but not the closed-form evaluation of the particular lognormal scheme.",
+        "The exact rational witness here gives a logically new comparison of this semidiscrete Itô flow with its long-time split dynamics."
+      ],
+      "reasoning": "Positivity of each timestep does not imply long-time moment decay; finite-horizon strong convergence does not determine infinite-horizon stability at fixed timestep. A general spectral-radius theorem subsumes the decision framework but does not directly state the exact decreasing threshold without a new model-specific calculation. It remains possible that a less prominent previous specialization already computes it.",
+      "searches": [
+        "2302.08858 Bréhier Cohen Ulander positive stochastic heat Lie Trotter splitting moment stability",
+        "mean-square stability stochastic Lie Trotter method parabolic Anderson model large time step asymptotic stability",
+        "mu critical exponential lognormal noise diagonal stochastic heat splitting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bréhier–Cohen–Ulander, arXiv:2302.08858, numerical construction in §3.1, nonnegativity in Proposition 4, finite-horizon results in §3.2.",
+        "Lang–Petersson–Thalhammer 2017, general Kronecker/covariance spectral-radius condition, §§2–3."
+      ],
+      "reasoning": "The covariance spectral-radius criterion is a known equivalent stability formulation; the new statement does not present that general criterion as original. The specific geometric-noise-then-heat two-site matrix and strictly monotone closed-form noise boundary were not stated in the inspected material. The source method uses finite-horizon convergence and positivity, neither of which implies the exact long-time phase curve.",
+      "searches": [
+        "\"two-site\" \"Lie-Trotter\" \"mean-square\" stochastic heat splitting",
+        "\"geometric Brownian\" \"heat\" \"mean-square stability\" \"Lie-Trotter\" two",
+        "two-node stochastic heat Lie Trotter splitting independent lognormal noise exact mean-square stability threshold spectral radius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published records examined include Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson (deterministic lattice CN filtering), A square-root step-size bias in the balanced implicit SIS invasion threshold (stochastic epidemic threshold), and Exact joint-noise mean-square stability boundary for a square-root predator–prey equilibrium (nonlinear predator–prey diffusion)."
+      ],
+      "reasoning": "These nearest identified statements concern different update matrices/models. No exact two-site threshold table for the geometric-Brownian-then-heat map was located. Searches cannot certify that no such table exists.",
+      "searches": [
+        "random multiplicative diagonal noise deterministic heat semigroup 2x2 mean square stability exact",
+        "two spatial nodes parabolic Anderson finite difference splitting critical noise ratio 3 to 2",
+        "\"lognormal\" \"spectral radius\" \"stochastic heat\" splitting \"stability\""
+      ]
+    },
+    "rationale": "The specific exact lognormal two-site threshold, its strict decrease from 3b to 2b, and stable-flow/unstable-splitting witness were not identified in inspected primary material or nearby published records. The general spectral-radius test and the positivity-preserving splitting construction are explicitly acknowledged as prior work; priority remains qualified by specialist-literature coverage.",
+    "residual_risks": [
+      "Specialized older work on lognormal matrix-product integrators could contain an equivalent two-node formula not surfaced by available searches.",
+      "Yang–Yang–Zhang (2022), Stochastic heat equation: numerical positivity and almost surely exponential stability, https://doi.org/10.1016/j.camwa.2022.05.031, was only inspected at abstract/record level and addresses a different backward-Euler/truncation method; no whole-document exclusion claim is made.",
+      "A general abstract covariance theorem contains the principal spectral technique; originality pertains only to the explicit sharp evaluation and parameter phase law, not the general technique."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_METHOD_NOT_DIRECTLY_COVERING_EXACT_LONG_TIME_CURVE",
+        "evidence": "§3.1 noise-first/heat-second Lie–Trotter construction and Proposition 4 positivity; §§3.2 and 5 convergence for fixed finite T under a CFL condition, not a sharp all-steps long-time mean-square boundary.",
+        "identifier_or_url": "https://arxiv.org/abs/2302.08858",
+        "material_read": "Full web-accessible article, sections 2.2, 3.1, 3.2, 4.2, 5.3, 5.4 and relevant definitions and results",
+        "method": "Read original open article HTML rather than search snippets; checked splitting order, coefficients, and declared convergence scope",
+        "title": "Analysis of a positivity-preserving splitting scheme for some nonlinear stochastic heat equations",
+        "trigger": "Exact method to which the new two-site model specializes"
+      },
+      {
+        "assessment": "GENERAL_METHOD_COVERAGE_EXPLICIT_FORMULA_NOT_FOUND",
+        "evidence": "General mean-square spectral tests and applications to Euler/Crank–Nicolson, rather than the specific lognormal Lie–Trotter heat step and its critical function.",
+        "identifier_or_url": "https://doi.org/10.1007/s10543-017-0684-7",
+        "material_read": "Open-access full article sections on moment stability, tensor evolution and examples in §§2–3",
+        "method": "Reviewed published full-text HTML and compared its general conditions with model-specific exact matrix algebra",
+        "title": "Mean-square stability analysis of approximations of stochastic differential equations in infinite dimensions",
+        "trigger": "Strong broader-coverage candidate for covariance spectral-radius characterization"
+      },
+      {
+        "assessment": "RELATED_METHOD_NOT_DECISIVE_COVERAGE",
+        "evidence": "Exponential integrators and stability analyses for different schemes; no explicit identical two-site noise-then-heat threshold identified.",
+        "identifier_or_url": "https://doi.org/10.1093/imanum/dry008",
+        "material_read": "Lawful author manuscript, sections 3.1 and 4, including setup and numerical constructions",
+        "method": "Read author-deposited PDF text and inspected a rendered page; contrasted noise and propagation composition",
+        "title": "A new class of exponential integrators for SDEs with multiplicative noise",
+        "trigger": "Possible stronger theorem for stochastic exponential methods"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_SPLIT_STEP_NOT_DIRECTLY_COVERING",
+        "evidence": "The work treats a distinct exponential split-step integrator and different noise-drift structure.",
+        "identifier_or_url": "https://doi.org/10.3390/sym14112413",
+        "material_read": "Full open HTML, abstract, scheme definition and stability analysis",
+        "method": "Compared update construction and generality of stated mean-square stability results",
+        "title": "Convergence and Stability of a Split-Step Exponential Scheme Based on the Milstein Methods",
+        "trigger": "Nearby split-step exponential mean-square stability work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e3e248fe-dd11-460d-8b7c-5b2fe0f2cbc0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact phase diagram pinpoints a practically motivated and counterintuitive failure: every numerical step preserves nonnegative states but the long-time numerical mean-square norm grows even when the underlying two-site Itô stochastic heat flow is exponentially mean-square stable. The monotone threshold gives a concrete and sharp timestep-selection condition rather than a narrow unmotivated invariant; an exact rational witness supports its interpretation.",
+    "status": "PASS"
+  }
+}
