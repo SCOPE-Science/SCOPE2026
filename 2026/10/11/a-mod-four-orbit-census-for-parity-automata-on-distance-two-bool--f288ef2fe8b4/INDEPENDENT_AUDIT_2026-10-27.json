@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T14:49:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all n≥2, write the exact GF2 distance-two adjacency operator as multiplication in the truncated group algebra R_n=F2[y_1,...,y_n]/(y_i²). Its shifted positive-degree multiplier N=F+binom(n,2)I squares to zero by Frobenius. If n is even, N=e1+e2=(1+s)y1+p with (1+s)²=1, so an explicit invertible generator substitution sends N to a single generator and gives rank 2^{n-1}. For n=2m+1, N=e2 has alternating coefficient form J+I with one-dimensional radical; symplectic generator normal form N=sum u_jv_j and tensor homology (dimension 2^{m+1}) imply rank 2^{n-1}-2^m. The graph paths independently give F²=cI, c=binom(n,2) mod2, distinguishing n=0,1 mod4 nilpotent from n=2,3 mod4 involutory. Rank-nullity yields fixed/two-cycle and initial/one-step/two-step hitting counts, including n=2 and nonzero vs initially zero. Independently implemented GF2 Hamming-mask elimination agrees for 2≤n≤10 with ranks 2,2,8,12,32,56,128,240,512, and exact low-dimensional orbit enumeration agrees with formulas. Finite tests corroborate, not replace, the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Key–Fish–Mwambene (2011) all-k result covers the same graphs but ranks the rectangular incidence G and line-graph adjacency G^TG, not vertex A_k+cI.",
+          "Peeters (2002) ranks distance-one Hamming graph adjacency, and the relation A_1^2=nI+2A_2 collapses modulo two.",
+          "Rollier–Baetens (2026) arbitrary-graph rule gives real Lyapunov behavior, which does not determine GF2 operator rank."
+        ],
+        "reasoning": "More general graph parameter domains alone do not imply a stronger result on a different operator/invariant. For n even the present rank 2^{n-1}, while incidence G rank 2^n-2 (2011) and G^TG rank 2^n-4, so they are provably not the same rank. No covering general modular A_2 rank theorem was identified.",
+        "searches": [
+          "\"Hamming graph rank over GF2 binary distance two adjacency p rank\" [web]",
+          "Peeters, On the p-ranks of the adjacency matrices of distance-regular graphs (2002)",
+          "Key–Fish–Mwambene (2011) H^k(n,2) full-text Theorem 1 and Proposition 4",
+          "Rollier–Baetens arxiv:2606.14521 section 4"
+        ]
+      },
+      "checked_sources": [
+        "Key, Fish, Mwambene, Adv. Math. Commun. 5 (2011), 373-394, DOI 10.3934/amc.2011.5.373, full mathematical statements/proofs as specified",
+        "Rollier, Baetens, arXiv:2606.14521v1 (2026), full author-posted manuscript sections as specified",
+        "René Peeters, J. Algebraic Combin. 15 (2002), 127-149, targeted primary PDF Hamming theorems",
+        "J. D. Key, Linear codes from designs from Hamming graphs (2010), targeted public slides including screenshot",
+        "Resultary published findings semantic search: sharp Turán weight-two Boolean shell; boundary-controlled modular Laplacian parity; complete multipartite parity four-cycles, compared from returned abstracts only, not asserted as fully read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known G incidence rank 2^n-2 and line-graph rank 2^n-4 are consistent with, but do not imply, rank GG^T; in odd n the submitted rank includes a nontrivial tensor-homology correction.",
+          "The prior real graph spectrum and unrelated Hamming-shell positive-definiteness optimization do not determine the GF2 nullity of the specific operator.",
+          "Other published parity results concern complete multipartite graphs or time-varying modular Laplacians, not Hamming distance-two adjacency."
+        ],
+        "reasoning": "The orbit counts follow immediately once one knows the exact shifted-rank formula; no claim of novelty is made for rank-nullity alone. The key possible covering antecedent would be a GF2 rank theorem for A_2+binom(n,2)I or a complete distance-two Hamming graph code classification. The closest inspected primary paper computes different incidence/line-graph matrices; its all-k result does not eliminate the extra argument needed here.",
+        "searches": [
+          "Key–Fish–Mwambene (2011), Proposition 1, Proposition 4: G and G^TG ranks",
+          "Peeters (2002), Theorem 3.4: p-rank of Hamming adjacency",
+          "Rollier–Baetens (2026), sections 2–5",
+          "Published Resultary searches for Hamming weight-two shell, parity network cycles, and modular Laplacian dynamics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For A_2 distance-two adjacency, the exact shifted kernel dimension equals the count of fixed points of F when c=1 and one-step-zero fibers when c=0. The rank in published 2011 code theory is for G (vertex-edge incidence) and G^TG (line graph), not the equivalent GG^T=A_2+cI.",
+          "Rollier–Baetens (2026) section 4 specifies network parity but reports real tangent exponents, not binary orbit counts."
+        ],
+        "reasoning": "The search compared the rank, binary code dimension, nilpotent orbit census and the adjacency/line-graph transforms, not just titles. A rank formula for GG^T would immediately imply the orbit census; none was located. Rank G and rank G^TG do not determine rank GG^T in characteristic two without further structure.",
+        "searches": [
+          "\"binary Hamming distance-two graph adjacency matrix rank over GF(2), halved cube 2-rank, exact group algebra multiplication rank\" [Resultary semantic query]",
+          "\"Boolean distance-two parity cellular automaton fixed points two cycles modulo four exact orbit census\" [Resultary semantic query]",
+          "web: \"rank over F2 of distance-two adjacency matrix hypercube A2 rank Hamming graphs square\"",
+          "Peeters (2002), Theorem 3.4; Key–Fish–Mwambene (2011), Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Key (2010) reported binary adjacency-code dimensions for standard cube; Key–Fish–Mwambene (2011) tabulates incidence and line-graph ranks for H^k(n,2), but not the shifted vertex A_2+cI ranks or corresponding state orbits.",
+          "Independent exact GF2 rank checks in dimension 2–10 give 2,2,8,12,32,56,128,240,512, respectively; these checks are correctness evidence, not novelty proof."
+        ],
+        "reasoning": "No inspected specialized all-dimensional table has the odd-rank correction 2^{n-1}-2^{(n-1)/2}. Unsearched catalogs/unindexed tables remain a risk; absence in searched tables alone is not proof of priority.",
+        "searches": [
+          "\"2-rank adjacency matrix distance-two hypercube halved cube\" [web]",
+          "\"binary Hamming distance-two 2-rank A_2 table\" [web]",
+          "\"ternary simplex and binary graph codes from Hamming distance k adjacency matrices 2-rank\" [Resultary semantic query]",
+          "Key (2010) adjacency code survey and Key–Fish–Mwambene (2011) graph code tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge original natural all-dimensional finite-field rank and complete binary orbit census. Especially relevant full-text Key–Fish–Mwambene (2011) computes incidence and line-graph ranks of the same distance-two cube, but not the shifted vertex adjacency rank GG^T; Rollier–Baetens (2026) treats real Jacobian Lyapunov spectra, not GF2 state counts; Peeters (2002) treats distance-one Hamming adjacency. Searches of published mathematical findings found no mathematically dominating rank/orbit theorem. The possibility of an older specialist distance-two 2-rank formula remains a stated risk.",
+      "residual_risks": [
+        "An earlier characteristic-two code theorem could directly give rank of the shifted distance-two adjacency GG^T and make the orbit count a routine corollary, even though the read 2011 paper gives ranks of G and G^TG instead.",
+        "An unindexed Hamming association scheme 2-rank table, special graph halved-cube code, or thesis could cover the exact all-dimensional formula.",
+        "ResearchGate-derived manuscript text and targeted PDF sections may omit an appendix or equivalent formula not explicitly compared; the reviewed specialized 2011 Theorem 1 and relevant propositions are nevertheless materially read.",
+        "Finite rank checks do not demonstrate originality, and the assessment is best-of-knowledge, not exhaustive historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does NOT state the claimed rank of A_2+cI or orbit census. It computes rank(G)=2^n-2 when k even (as displayed in its exponent notation), and rank(G^T G)=2^n-4, neither equal to rank(GG^T) in characteristic two in general; the unresolved intersection/nullity of G G^T is substantive. Exact same graph is treated, so it remains the strongest direct specialized prior comparison.",
+          "evidence": [
+            "Theorem 1 parts (1)-(2): ranks of vertex-edge incidence and line-graph adjacency; Proposition 1 gives binary rank of G_n^2; Proposition 4 derives rank of G^TG, whereas current invariant is GG^T.",
+            "General graph identity GG^T=A_2+binom(n,2)I mod2; rank(G) or rank(G^TG) cannot be substituted for rank(GG^T)."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/amc.2011.5.373",
+          "material_read": "Full-text research-hosted 2011 article navigated; read Theorem 1, definitions, Proposition 1, Lemma 2, Proposition 4 and its proof, and adjacency/incidence matrix identities. Not every bibliography entry or ancillary decoding proof was read.",
+          "method": "Inspected full-text mathematical statements and proofs at https://www.researchgate.net/publication/264966971_Codes_from_the_incidence_matrices_and_line_graphs_of_Hamming_graphs_Hkn2_for_k_geq_2 ; compared rectangular vertex-edge incidence matrix G, line-graph adjacency G^T G, and distance-two vertex adjacency A_2+cI=G G^T in characteristic two.",
+          "title": "Codes from the incidence matrices and line graphs of Hamming graphs H^k(n,2) for k >= 2",
+          "trigger": "Same distance-two Boolean Hamming graph, published characteristic-two code ranks; particularly plausible direct prior coverage"
+        },
+        {
+          "assessment": "Gives the arbitrary-graph rule and its real singular-value/adjacency Lyapunov spectrum, but no binary finite-field rank or complete temporal state-cycle census for the distance-two cube. General state recurrence is shared; specific finite-field rank is not implied by the real spectrum.",
+          "evidence": [
+            "Section 4 equation (15) identifies parity-rule graph update, and identifies constant real Jacobian J=A+aI; section 5 concludes Lyapunov spectrum is log absolute adjacency eigenvalues.",
+            "Discussion of true difference A^t e_j mod2 distinguishes binary defect evolution from real tangent-space growth; no specialized distance-two shifted rank formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.14521",
+          "material_read": "Author-posted public 12-page manuscript text: abstract, sections 1, 2, 3, section 4 on graph parity, true binary defect passage, and section 5 conclusion and references; read technical parts needed to compare dynamical invariants.",
+          "method": "Read openly accessible complete manuscript text at https://www.researchgate.net/publication/407061656_Exact_Lyapunov_spectra_of_affine_cellular_automata_and_the_parity_rule_on_networks ; checked the distinction between Boolean state evolution and real tangent-space singular-value Lyapunov exponents.",
+          "title": "Exact Lyapunov spectra of affine cellular automata and the parity rule on networks",
+          "trigger": "Identical binary network parity update on arbitrary graphs, potential dominating general theorem"
+        },
+        {
+          "assessment": "Computes characteristic-p ranks for adjacency matrices of named distance-regular graphs, including Hamming distance-one matrices and shifted cases. The binary distance-two adjacency A_2 is not the same matrix, and A_1^2=nI+2A_2 cannot be divided by 2 over F2; no directly covering formula was established.",
+          "evidence": [
+            "Peeters 2002 Theorem 3.4 treats Hamming H(d,q) adjacency for one-coordinate differences; its rank does not give shifted A_2 rank in characteristic two.",
+            "The standard relation A_1^2=nI+2A_2 loses A_2 in characteristic two."
+          ],
+          "identifier_or_url": "https://doi.org/10.1023/A:1013842904024",
+          "material_read": "Public full PDF, with representative PDF screenshot and targeted reading of Hamming graph definition, Theorem 3.1, Corollary 3.2 and Theorem 3.4 (including rank-domain parameters); not a cover-to-cover examination.",
+          "method": "Opened public primary PDF and viewed a rendered page; compared the adjacency matrix of Hamming H(d,q) for distance-one neighbors against A_2 of the distance-two graph.",
+          "title": "On the p-ranks of the adjacency matrices of distance-regular graphs",
+          "trigger": "Foundational modular rank formula for distance-regular graphs, potentially stronger than claimed Hamming A_2 rank"
+        },
+        {
+          "assessment": "Defines general distance-k Hamming graphs, but the inspected adjacency-code dimensions are given for distance-one hypercube or incidence codes, not the displayed all-n shifted A_2 operator rank.",
+          "evidence": [
+            "Slides 38–41 explicitly concern binary Hamming adjacency codes and extensions of distance-k graphs; the claimed odd-dimensional correction rank 2^{n-1}-2^{(n-1)/2} was not stated in the inspected slides."
+          ],
+          "identifier_or_url": "https://www.algorithm.uni-bayreuth.de/en/research/alcoma2010/participants/talk_key.pdf",
+          "material_read": "Targeted pages/slides 14, 31, 38-41 in the 47-slide public PDF, including rendered PDF screenshots; not the full deck line-by-line.",
+          "method": "Used public PDF navigation plus page-image inspection for graph family definitions and numerical/code-rank assertions.",
+          "title": "Linear codes from designs from Hamming graphs",
+          "trigger": "Same exact Hamming distance-two graph family and adjacency codes, potential modular rank table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distance-two Boolean cubes are natural distance-regular Hamming graphs, and the XOR update is a standard graph parity dynamical model. The infinite family has 2^{2^n} configurations, yet the result classifies all trajectories exactly for every n≥2 with sharp modular-four nilpotent/involutory transition and odd-dimensional lower rank correction. The nonstandard alternation-to-Künneth computation supplies substantive mathematical content: neither ordinary adjacency eigenvalues over the reals nor published incidence/line-graph ranks make the GF2 orbit census automatic. The exact rank also describes code dimension and fixed configurations that researchers of additive dynamics and Hamming schemes may need. No unproved other-shell/forcing generalization or unstated application is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Applies only to synchronous binary distance-two parity rule with no forcing, n≥2; it does not classify arbitrary graphs, other Hamming shells, or real Lyapunov spectrum.",
+    "Finite computations do not prove the all-n theorem; proof uses group algebra and alternating-form homology.",
+    "Originality is best-of-knowledge with specialist binary adjacency-code rank coverage residual risk; comparison of exact incidence vs adjacency matrices is decisive for the inspected closest source.",
+    "Original repository public METADATA.json and AUDIT.json contain operation-specific provenance; publication plan remains not_ready without complete verified neutral replacement files.",
+    "No GitHub files modified, no formal Lean/expert certification claimed."
+  ],
+  "schema_version": 1
+}
