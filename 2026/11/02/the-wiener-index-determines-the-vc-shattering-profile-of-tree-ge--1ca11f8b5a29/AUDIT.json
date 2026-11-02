@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Full direct proof: convex complements in a tree are single-edge sides; all supports of size <=2 are shattered; a triple is shattered exactly when it has no point between the other two; compatible tree splits forbid a four-point shattering. Unique middle-point counting gives W(T)-binom(n,2) unshattered triples. Edge-cut distance formula yields sharp star/path cases. Standalone checker independently reconstructed graph geodesic convexity for all 1,442 labeled trees up to six vertices and 120 deterministic larger cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Thiessen–Gärtner 2021 official full-text Sections 2–4 and Proposition 14",
+        "Thiessen–Gärtner 2022 accessible abstract; full text unavailable"
+      ],
+      "reasoning": "The general treewidth VC bound proves no 4-element support is shattered, and tree S4 Radon theory gives the VC dimension, but neither determines the number of 3-element shattered supports or proves its exact equality with a Wiener index. Any putative full-paper enumeration outside accessible material remains a risk.",
+      "searches": [
+        "2021 2022 2023 2024 paper VC dimension geodesic convexity graph convex sets online learning",
+        "2021 Active Learning Convex Halfspaces Graphs pdf trees VC dimension halfspaces",
+        "tree geodesic halfspaces all proper halfspaces edge components; VC-shattered supports exactly size at most two and non-collinear triples"
+      ]
+    },
+    "checked_sources": [
+      "Thiessen–Gärtner, 2021 NeurIPS official full text, https://papers.nips.cc/paper/2021/file/c4bf1e24f3e6f92ca9dfd9a7a1a1049c-Paper.pdf",
+      "Thiessen–Gärtner 2021 workshop bibliographic record, DOI 10.34726/3901",
+      "Anthony–Ratsaby 2018 accepted-version definition, DOI 10.1016/j.dam.2018.02.004",
+      "Thiessen–Gärtner 2022 ECML PKDD bibliographic record/abstract, DOI 10.1007/978-3-031-26412-2_22",
+      "Published research record 68e55186437b",
+      "Thiessen–Gärtner 2021 official halfspace full text, page 8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 14: VC<=2tw+1; for tw=1 yields VC<=3 but no coefficients",
+        "2018 prototype comparison halfspace not necessarily convex",
+        "Published tree–Wiener energy identity about simplex configurations, not Boolean membership on vertices"
+      ],
+      "reasoning": "The new polynomial implies the known VC<=3 bound on trees. The converse fails: knowing only VC<=3 does not determine any cubic coefficient; two trees of the same size can have different Wiener indices and distinct counts (star vs path). The energy identity and prototype-halfspace results require nontrivial unrelated changes of object and do not entail the target claim.",
+      "searches": [
+        "2021 2022 2023 2024 paper VC dimension geodesic convexity graph convex sets online learning",
+        "\"Large-width bounds for learning half-spaces on distance spaces\" 2018 pdf",
+        "For every finite tree the number of triples shattered by geodesic convex halfspaces equals choose(n,3)+choose(n,2) minus its Wiener distance index; shattering polynomial degree three",
+        "tree geodesic halfspaces all proper halfspaces edge components; VC-shattered supports exactly size at most two and non-collinear triples"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Thiessen–Gärtner 2021 Proposition 14 gives only VC<=3 on trees",
+        "Classical compatible tree splits imply the degree cutoff but not by themselves the Wiener enumeration in inspected references",
+        "Anthony–Ratsaby 2018 defines a different distance-comparison class"
+      ],
+      "reasoning": "Compared edge-cut splits, compatible-split systems, noncollinear tree triples, and counting internal path vertices. No accessible source states their exact identity as a complete VC-shattering polynomial. The compatible split description alone does not list the counts, although the new identity is an elementary consequence of combining it with distance counting.",
+      "searches": [
+        "For every finite tree the number of triples shattered by geodesic convex halfspaces equals choose(n,3)+choose(n,2) minus its Wiener distance index; shattering polynomial degree three",
+        "tree geodesic halfspaces all proper halfspaces edge components; VC-shattered supports exactly size at most two and non-collinear triples",
+        "Wiener index sum of pairwise distances equals number of collinear vertex triples plus choose(n,2) and VC shattering",
+        "\"shattering polynomial\" \"edge cuts\" trees VC"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record 68e55186437b is an affine Wiener-index energy rather than shattering",
+        "No exact graph-halfspace shattering coefficient table identified in searched published records",
+        "Prior mathematical claims on graph-convex, tree, and matroid concept classes were compared by their implications"
+      ],
+      "reasoning": "The searched record includes similarly named Wiener or tree results but their exact objects differ. No table or explicit support enumeration dominates this infinite-family statement; absence of a hit is not proof of global uniqueness.",
+      "searches": [
+        "For every finite tree the number of triples shattered by geodesic convex halfspaces equals choose(n,3)+choose(n,2) minus its Wiener distance index; shattering polynomial degree three",
+        "Wiener index sum of pairwise distances equals number of collinear vertex triples plus choose(n,2) and VC shattering",
+        "\"shattering polynomial\" \"edge cuts\" trees VC",
+        "\"VC\" \"Wiener index\" \"shattered\" \"tree\""
+      ]
+    },
+    "rationale": "The accepted claim is the exact full shattering polynomial for every finite tree and the cubic coefficient identity with the Wiener index, not the preexisting upper bound VC<=3. The directly relevant full 2021 primary paper establishes the upper bound and learning-query results but not this coefficient identity. Distance-prototype halfspaces are a different class. Published mathematical queries and relevant prior claims did not reveal dominating coverage; historical priority under phylogenetic split terminology remains uncertain.",
+    "residual_risks": [
+      "Equivalent count may be implicit or explicitly published in older compatible tree-split, phylogenetic or Wiener-index literature under different terms.",
+      "2022 ECML PKDD full text was not retrieved, so only abstract-level evidence is available for that work.",
+      "No independent historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers halfspaces and bounds VC by 2tw+1, so already gives upper bound three for trees. It does not state the tree-wide shattering polynomial or its Wiener-index coefficient. Its query-complexity results do not imply the coefficient enumeration.",
+        "evidence": [
+          " lines 54–110",
+          " lines 241–245",
+          " lines 439–462",
+          " page 7 screenshot"
+        ],
+        "identifier_or_url": "https://papers.nips.cc/paper/2021/file/c4bf1e24f3e6f92ca9dfd9a7a1a1049c-Paper.pdf",
+        "material_read": "Main text, definitions in Section 2, tree-family query-complexity comparison, Section 4 VC-dimension Propositions 13–14, references, PDF page 8 image",
+        "method": "Opened official 13-page PDF, read relevant parsed sections, visually inspected page containing Proposition 14",
+        "title": "Active Learning of Convex Halfspaces on Graphs",
+        "trigger": "Exact geodesically convex graph-halfspace concept and known VC bounds"
+      },
+      {
+        "assessment": "Verified public date 2021-07-24. It anchors chronology only; the distinct 2021 NeurIPS full text supplies the substantive comparison.",
+        "evidence": [
+          ""
+        ],
+        "identifier_or_url": "https://repositum.tuwien.at/handle/20.500.12708/175967",
+        "material_read": "Institutional bibliographic record identifying the workshop occurrence on 24 July 2021; abstract",
+        "method": "Read repository publication metadata and abstract",
+        "title": "Active Learning Convex Halfspaces on Graphs (workshop record)",
+        "trigger": "Verify a public date for the middle-cohort primary literature direction"
+      },
+      {
+        "assessment": "Its halfspace depends on which of two prototypes is closer, and need not be geodesically convex. Thus its VC estimates concern a nonidentical concept class and do not entail the tree cut polynomial.",
+        "evidence": [
+          " lines 19–35 and 95–124",
+          " lines 439–447"
+        ],
+        "identifier_or_url": "https://eprints.lse.ac.uk/87357/1/Anthony_Ratsaby_Large-width%20bounds%20for%20learning.pdf",
+        "material_read": "Accepted-version title, abstract, Section 1 and Section 2.1 definition",
+        "method": "Opened available PDF parsed text and examined displayed classifier definition, no claim to complete-text inspection",
+        "title": "Large-width bounds for learning half-spaces on distance spaces",
+        "trigger": "Potential prior coverage under distance-halfspace terminology"
+      },
+      {
+        "assessment": "Describes online mistake bounds and graph convexity; accessible evidence does not contain the exact static tree-halfspace polynomial. Full text was not inspected, leaving explicit priority risk.",
+        "evidence": [
+          "",
+          "",
+          ""
+        ],
+        "identifier_or_url": "https://mlanthology.org/ecmlpkdd/2022/thiessen2022ecmlpkdd-online/",
+        "material_read": "Public metadata and abstract; full conference PDF was inaccessible",
+        "method": "Reviewed abstract and institutional record, attempted public full-text URL",
+        "title": "Online Learning of Convex Sets on Graphs",
+        "trigger": "Plausible online-learning primary result about graph convex concepts"
+      },
+      {
+        "assessment": "Energy identity of simplex edge configurations, not a graph halfspace trace enumeration; summary gives no theorem covering the target statement.",
+        "evidence": [
+          "Semantic publication query: For every finite tree the number of triples shattered by geodesic convex halfspaces equals choose(n,3)+choose(n,2) minus its Wiener distance index; shattering polynomial degree three",
+          "Published research record 68e55186437b"
+        ],
+        "identifier_or_url": "published-record:68e55186437b",
+        "material_read": "Published research title and summary, not full text",
+        "method": "Semantic published-record search",
+        "title": "Balanced edge configurations of simplices and the tree–Wiener energy identity",
+        "trigger": "Closest published mathematical record combining trees and Wiener index"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ca11f8b-5a29-4d6d-8ae9-ea590031b25c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem determines the full natural shattering-support distribution for every finite tree, not merely a VC dimension or finite benchmark. Its exact cubic coefficient recovers the classic Wiener metric index and transfers sharp extremal path/star behavior to a learning-theoretic invariant. Characterizing all shattered supports and providing an interpretable relation between traces and aggregate distances is a substantive structural bridge, independent of any downstream conjecture.",
+    "status": "PASS"
+  }
+}
