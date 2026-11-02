@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The exact-domain claim is reconstructed for all integers d>=1, q>=2. The local-ball coordinate-group lemma controls all four-point supports and classifies every candidate triple into three mutually disjoint coordinate types. Explicit centers realize each required trace whenever stated; for d=2 the missing empty trace is proved impossible at q=3 and available at q>=4. Counts have unique centers and collapse by Pascal identity to q^d(q-1)^3 binom(d+1,3). Singleton/pair exceptions are proved. A standard-library checker independently enumerates traces for sixteen small cases and reproduces the polynomial, including four-point non-shattering. Computation is not used to claim an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2007.16042v1 Theorems 4.6–4.8 concern open neighborhoods and VC density, with a short sentence extending boundedness to closed neighborhoods.",
+        "Coudert et al., arXiv:2405.07588v1, abstract and §§1–2, general closed-neighborhood graph VC algorithms and bounds; text search did not find a Hamming-graph theorem."
+      ],
+      "reasoning": "General VC upper bounds, exact VC dimension and algorithms for finding a maximum support cannot logically determine all shattered-support counts. Neither inspected source has a stronger coefficientwise all-(d,q) identity. The relevant historical closed-ball result is dimension-only.",
+      "searches": [
+        "web: VC dimension Hamming graph closed neighborhoods exact radius one balls Littlestone",
+        "web: \"Hamming graph\" \"closed neighborhood\" \"VC-dimension\" exact",
+        "published-finding corpus: hypercube closed neighborhood shattered triples radius-one Hamming ball complete shattering polynomial",
+        "published-finding corpus: closed neighborhoods hypercube VC dimension 3 count shattered triples V configuration equilateral"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2007.16042v1 (Hamming §4 and Table 1)",
+      "arxiv:2405.07588v1 (abstract, introduction, definitions, searchable text)",
+      "Targeted public mathematical record searches for closed Hamming-ball shattering coefficients",
+      "Accessible pre-existing exact dimension-only result, for logical implication comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.7 of arXiv:2007.16042v1 gives the exact VC dimension for OPEN Hamming neighborhoods, and Theorem 4.8 their VC density; neither counts closed-neighborhood supports.",
+        "An accessible pre-existing closed-Hamming-ball result proves exact VC and online dimensions and no coefficients.",
+        "arXiv:2405.07588v1 defines closed-neighborhood graph VC dimension and algorithmic bounds without the Hamming support enumeration."
+      ],
+      "reasoning": "The new claim implies (as a corollary) the dimension profile, which is acknowledged as already known. The converse fails: the VC dimension is just the degree of the polynomial. The new theorem additionally identifies three support shapes and counts every support size, not a notation change or a special case of a reported stronger theorem.",
+      "searches": [
+        "published-finding corpus: exact shattering polynomial Hamming balls radius one binary cube and online Littlestone dimension",
+        "published-finding corpus: closed neighborhood VC dimension incidence graph complete uniform hypergraph rank k all k subsets",
+        "web: \"Hamming graph\" \"closed neighborhoods\" \"shattering polynomial\"",
+        "web: \"Hamming balls\" \"shattering polynomial\" \"radius 1\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adler–Benediktsson–Macpherson 2020, arXiv:2007.16042v1, §4: Hamming open-neighborhood set system; closed-neighborhood VC boundedness is mentioned only as a consequence.",
+        "Known separate exact closed-ball dimension-only statement specifies only maximum shattered support size, not counts of all supports."
+      ],
+      "reasoning": "Translated to radius-one Hamming balls, graph closed neighborhoods, traces of center membership queries and shattering coefficients. A bounded or exact VC dimension is not an equivalent statement to all polynomial coefficients. The 2020 open adjacency formula is a distinct set system, so its examples cannot imply closed-ball counts. Search was negative but does not prove priority.",
+      "searches": [
+        "web: \"Hamming balls\" \"shattering polynomial\" \"radius 1\"",
+        "web: \"Hamming graph\" \"closed neighborhoods\" \"shattering polynomial\"",
+        "published-finding corpus: closed Hamming ball complete VC shattering polynomial counting supports of each size",
+        "published-finding corpus: q^d (q-1)^3 binomial(d+1,3) shattered triples closed Hamming neighborhood polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Adler et al. 2020, Table 1 on p.23, lists examples of open-neighborhood shattered triples for three small Hamming graphs, not counts of all closed-ball supports.",
+        "The sixteen-case direct census in the present reproducibility artifact is a new computation, not a previously published table."
+      ],
+      "reasoning": "A few explicit support witnesses or generic graph VC datasets cannot dominate an exact closed formula for every d and q. The searched primary table is for a different concept class and contains no matching coefficient spectrum.",
+      "searches": [
+        "web: \"number of shattered triples\" Hamming neighborhoods",
+        "web: \"Hamming graphs\" \"shattered triples\" \"closed neighbourhood\"",
+        "published-finding corpus: all shattered triples of closed radius-one Hamming ball neighborhoods include two same-coordinate and a third different coordinate"
+      ]
+    },
+    "rationale": "The exact coefficientwise formula and classification of shattered supports differ materially from earlier VC/Littlestone dimension-only results and open-neighborhood Hamming theory. The primary 2020 paper proves open-neighborhood VC bounds and examples, not closed-ball support counts. The 2024 general graph VC algorithm provides no Hamming coefficientwise closed-ball enumeration. Targeted database, title, formula, and equivalence searches found no dominating prior theorem. Under alternative terminology a historical precedence risk remains.",
+    "residual_risks": [
+      "An equivalent support census might appear under Hamming-code, association-scheme, or finite-geometry terminology not surfaced by these searches.",
+      "A dimension-only result for the identical concept family is pre-existing; the accepted difference is the complete support census, not the dimension threshold.",
+      "Independent mathematical review has not yet occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the claimed closed-ball coefficientwise enumeration. The investigated set system is open adjacency and the exact results are VC dimension/density, plus finite witness examples.",
+        "evidence": [
+          "The abstract and Theorem 1.1 explicitly define the work in terms of open neighborhoods.",
+          "§4 Theorems 4.6–4.8 and Table 1 address open-neighborhood dimension, density and sample witnesses."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+        "material_read": "Abstract, introduction and definitions; §4 Hamming graphs pp.20–23, Lemmas 4.1–4.5, Theorems 4.6–4.8, and Table 1.",
+        "method": "Primary arXiv PDF text and page-image inspection.",
+        "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Exactly the Hamming graph and the neighborhood VC notion; plausible dominant bound and local configuration classification."
+      },
+      {
+        "assessment": "NOT_COVERING in the inspected material; paper supplies generic graph algorithms/bounds and contains no Hamming-specific enumeration in retrieved searchable text.",
+        "evidence": [
+          "The abstract identifies practical VC computation and parameterized complexity as the main contributions.",
+          "The full-text search returned no occurrence of Hamming."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SEA.2024.8",
+        "material_read": "Abstract, §1 introduction, definition of closed neighborhoods in §2, overview of general algorithms and bounds, document-wide text search for Hamming.",
+        "method": "Authorized open-access full-text rendering and exact-term search.",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "The graph VC dimension is explicitly defined using closed neighborhoods, making this a plausible broad-coverage source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aa51868a-9314-438c-9de5-6fa2acecb532",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The class of radius-one q-ary Hamming balls is central in coding and graph neighborhood VC analysis. Knowing only VC dimension three cannot recover the all-size shattering profile or counts. The theorem gives an exact natural invariant over every alphabet size and dimension and an explicit coordinate-geometry decomposition; it also pinpoints the nontrivial two-coordinate exceptional progression q=2,3,4. It is a complete classification, not a tiny numerical increment or arbitrary subcase.",
+    "status": "PASS"
+  }
+}
