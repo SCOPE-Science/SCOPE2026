@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Frucht graph is given by a precise twelve-vertex LCF encoding. Exhaustive testing of all \(2^{18}-1\) nonzero masks produces the complete face vector \((18,117,333,397,152,8)\). A specified greedy face-coface pairing creates 502 matched Hasse edges and leaves one critical zero-cell and twenty critical three-cells. A topological sort of the entire 1,025-vertex, 3,629-incidence oriented Hasse graph verifies acyclicity. Forman's finite discrete-Morse theorem then gives a wedge of twenty three-spheres. The fully included standard-library checker was run successfully. The independent mod-two boundary ranks agree and are not used as a substitute for the homotopy proof.
+PASS
 
-## Originality — PASS
+From the LCF edges independently reconstruct a simple cubic 12-vertex graph with 18 edges; exhaustively enumerate all 2^18-1 nonempty subsets, test matching validity, obtain 1,025 matching simplices with f=(18,117,333,397,152,8). Deterministic pivot matching yields 502 unique face-coface pairs and precisely one 0-critical cell plus twenty 3-critical cells; orient all 3,629 nonempty Hasse incidences matching upwards and others downwards; independent Kahn topological sort visits all 1,025 nodes, so acyclic. Finite discrete Morse gives CW of one 0-cell and twenty 3-cells, all attaching maps constant, hence wedge of twenty 3-spheres integrally, not merely mod-two homology.
 
-Frucht's 1949 primary source identifies the graph but not the matching complex. Bayer, Jelić Milutinović and Vega's full paper covers outerplanar matching complexes, while the Frucht graph is cubic and nonouterplanar. The published Frucht independence-complex computation concerns independent graph vertices, not disjoint graph edges; the published Franklin matching computation concerns a different cubic graph. Exact aliases, broader coverage and these statements were compared, not just titles. No covering theorem was identified. A small residual risk of an unindexed equivalent computation remains.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a complete homotopy classification for a canonical planar cubic graph with trivial automorphism group. The nontrivial reduction from a five-dimensional matching complex to twenty three-spheres provides a concrete structural benchmark beyond an Euler characteristic or a rational Betti calculation. It is not claimed to settle a general planar matching-complex problem.
+Qualified best-of-knowledge PASS on complete stated final result; exact same-object full primary theorems and Resultary published findings compared by mathematical implication, not titles. Older tools or special cases acknowledged as prior. A published result about Ind(F), about M(Franklin), or a general outerplanar classification cannot imply M(Frucht) wedge20S^3. A generic discrete-Morse theorem needs the specifically enumerated acyclic matching and critical cells supplied here; it does not itself calculate them.
 
-Independent validation is outstanding, and the graph and literature scopes are limited as stated in the main result.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordinary matching complex of the asymmetric, named twelve-vertex Frucht graph is a natural exact finite graph-complex invariant. A full certified integral wedge-of-spheres homotopy type, beyond field Betti ranks, is independently useful; the claim expressly does not pretend to classify cubic or planar graphs. Modest scope is acknowledged; complete finite classification can have mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
