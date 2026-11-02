@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact one-round inclusion–exclusion followed by independent temporal products gives the covariance and time-independent sign. Strict monotonicity of the pair-inclusion probability in union overlap proves a single transition, including boundary cases. Omission duality proves the r=n-1 identity. A uniform falling-factorial log expansion, integral mean-value identity and hypergeometric-to-Poisson factorial moments give the proportional-block square-root transition, time-scaled covariance and global sign census. All proof hypotheses are explicit, and bundled exact enumeration/numerical checks passed 2,870 assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Godbole–Janson (1996) describes covering thresholds and Poisson approximation for random families of blocks, including a model with independently selected blocks; its accessible abstract does not mention the signed overlap phase.",
+        "Athreya et al. (2025), Theorems 2.1–2.3 and Lemma 3.1, provide marginal cover limits and joint-target estimates, but no growing s~sqrt(n), r~rho*n sign census."
+      ],
+      "reasoning": "Independent per-block inclusion and a fixed number of iid sampled blocks are different probability models. The original cover-time asymptotics for fixed s,r do not supply a proportional-block square-root-scale pair-covariance expansion. However full older covering-design literature was not exhaustively accessible.",
+      "searches": [
+        "\"Random covering designs\" Godbole Janson 1996 full text covariance overlap",
+        "random covering designs pairwise correlation overlapping blocks containment sign",
+        "\"inclusion probabilities\" \"overlapping subsets\" \"negative correlation\" \"threshold\" hypergeometric",
+        "doi:10.1006/jcta.1996.0065"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2304.01145v2",
+      "https://link.springer.com/article/10.1007/s10959-025-01417-w",
+      "https://digitalcommons.mtu.edu/michigantech-p/3964/",
+      "arxiv:2304.01145",
+      "doi:10.1006/jcta.1996.0065"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source establishes inclusion probability of two fixed target sets by their union size, which is exactly the b_j input here.",
+        "The new proof adds a strict monotonic sign comparison across feasible overlap sizes, an order-one log-collision correction when s is of order sqrt(n), and a global Poisson-weighted sign census.",
+        "Earlier Johnson-walk cover-time claims concern dependent temporal sampling at fixed s and r; they neither imply independent-round signed pair covariance nor growing-size correlation phases."
+      ],
+      "reasoning": "There is a direct derivation from the known pair-inclusion expression, so novelty is limited to the phase classification and asymptotic/global dependence geometry, not the underlying count. The implication is not an asserted new cover-time result, and no published stronger theorem was found that already states or entails the entire critical-scale phase as a specified conclusion.",
+      "searches": [
+        "arxiv:2304.01145 proof of Lemma 3.1 probability of pair S_j S_j prime union",
+        "On a Generalisation of the Coupon Collector Problem 2025 Lemma 3.1",
+        "Godbole Janson Random covering designs 1996 pair intersection",
+        "coupon collector with group drawings overlapping subcoupon indicators joint covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Athreya–Mukherjee–Mukherjee (2023), Section 3, Lemma 3.1 and proof: paired target inclusion is determined by size of the union; the source uses bounds on factorial moments of the uncollected count.",
+        "The source main results concern expected collection times, the Gumbel limit and a Markovian conjecture; the overlap-sign phase and proportional-block square-root regime are not stated.",
+        "No exact equivalent statement was located among the most closely matching indexed research summaries."
+      ],
+      "reasoning": "The elementary inclusion probability is not claimed new. The new theorem classifies the sign of covariance for all overlap classes, derives its sharp critical growing-size limit, and integrates it against the random-target intersection law. Matching pair counts alone do not explicitly provide this phase analysis, although they supply its starting identity.",
+      "searches": [
+        "super-coupon collector covariance sign intersection overlapping s subsets sampled r-subset without replacement threshold sqrt n",
+        "Joint noncoverage indicators super-coupon sets with intersection j, hypergeometric inclusion probabilities b_j-p² sign threshold",
+        "\"super-coupon\" \"covariance\" \"overlap\" \"correlation\"",
+        "arxiv:2304.01145 Lemma 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary literature derives analytic bounds for global cover time and uncollected counts rather than a finite table of pairwise covariance signs.",
+        "Related indexed entries on occupied-box indicator precision and successive species discovery covariance concern different random variables and therefore do not tabulate this theorem."
+      ],
+      "reasoning": "The claim concerns every finite n,s,r,k and a growing-parameter asymptotic rather than recomputation of a tabulated instance. A database search is not proof of uniqueness.",
+      "searches": [
+        "Missed s-supercoupon covariance positive negative overlap phase for repeated independent r-subset group drawings; finite exact sign and square root s growing asymptotic",
+        "Signed correlation kernel for random covering designs in proportional block size regime",
+        "random covering design sign threshold n r s overlap data table"
+      ]
+    },
+    "rationale": "The published pair-inclusion probability for the general coupon model is explicitly credited to prior work. Inspected main results and relevant proof material do not state the global overlap-sign census, its square-root target-size threshold, or the time-rescaled covariance limit. Indexed neighboring claims concern different occupancy/sampling questions or dependent Johnson walks. A previously published equivalent specialization or general sampling theorem remains a genuine residual priority risk.",
+    "residual_risks": [
+      "The exact pair-inclusion identity is already in the motivating paper; parts of the sign theorem are elementary consequences of that identity. A prior author might regard the sign phase as implicit.",
+      "The complete 1996 random-covering-design article and all sampling-association literature were not available for exhaustive priority comparison.",
+      "The noninteger-critical-threshold assumption is essential to the stated global sign fractions; equality may require second-order analysis.",
+      "The result has not undergone independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODEL_AND_PAIR_PROBABILITY_PRIOR; NO_MATCHING_SIGN_PHASE_LOCATED",
+        "evidence": "Section 3 expresses pair inclusion as probability the union is contained in an r-block; Theorems 2.1–2.3 describe collection-time quantities for fixed sizes.",
+        "identifier_or_url": "https://arxiv.org/html/2304.01145v2",
+        "material_read": "Introduction, main theorems, Section 3 Lemma 3.1 and proof with pair-union probability",
+        "method": "Accessible complete HTML primary text; read pertinent equations and surrounding proof, not only abstract",
+        "title": "On a generalisation of the coupon collector problem",
+        "trigger": "Identical independent group-draw model and pair-inclusion calculation"
+      },
+      {
+        "assessment": "PAIR_PROBABILITY_PRIOR; NO_RELEVANT_SIGN_CENSUS_FOUND",
+        "evidence": "Journal Theorems 2.1–2.3 and Lemma 3.1; independent-round group sampling and union calculation present.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10959-025-01417-w",
+        "material_read": "Open-access introduction, theorem statements, and Section 3 Lemma 3.1 with proof material",
+        "method": "Publisher HTML, checked substantive theorem and lemma locations",
+        "title": "On a Generalisation of the Coupon Collector Problem (journal version)",
+        "trigger": "Possible later stronger version of motivating paper"
+      },
+      {
+        "assessment": "PLAUSIBLE_BACKGROUND; FULL_TEXT_UNAVAILABLE",
+        "evidence": "Abstract describes threshold and Stein–Chen approximation in random covering designs; no explicit overlap-sign law in accessible material.",
+        "identifier_or_url": "https://digitalcommons.mtu.edu/michigantech-p/3964/",
+        "material_read": "Institutional bibliographic abstract and available description; complete 1996 paper not accessible",
+        "method": "Institutional archive metadata/abstract inspection",
+        "title": "Random covering designs",
+        "trigger": "Classical potential domination by covering-design correlation analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f54e057e-8eb2-43b3-9b8d-bf132f7277ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sign of pairwise noncoverage dependence is structurally relevant to second-moment and Poisson analyses of random covering designs. The natural square-root regime is where independent target intersections become nondegenerate and finite-population sampling competes with shared overlap. The phase theorem gives a complete all-parameter sign ordering and an asymptotic global fraction of negative covariance pairs; in a natural example most intersecting target pairs are negatively correlated. This is a motivated dependence phenomenon rather than an arbitrary parameter slice or a repeated cover-time estimate.",
+    "status": "PASS"
+  }
+}
