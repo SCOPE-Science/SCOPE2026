@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses a fresh uniform relabeling to reduce the two-step occupied support to a uniform pair, computes joint zero indicators using shared neighborhoods, counts codegrees and identical two-neighborhoods on cycle components, and passes from factorial moments at layer two to mean emptiness at layer three. The extremal cycle decomposition and the first separating graph order are exact. All boundary conventions (simple undirected two-regular graphs, \(d\ge7\), one initial path, independent full permutations) are specified. A standalone independent exact-fraction enumerator passed 579 assertions; the unbounded theorem does not rely on them.
+## correctness
 
-**Originality — PASS, qualified.** Chiclana (arXiv:2610.14724, 2026-10-10) establishes the path model, asymptotic universal Poisson profile, and quadratic contraction, but the accessible abstract, introduction and main-result statements do not include the finite-layer codegree/four-cycle identities. The two seven-vertex graphs have the same layer degree and are therefore indistinguishable by its geometry-independent quadratic contraction factor, whereas their vacancy variance and third-layer mean differ. Searches of mathematical literature and accessible prior claims using path occupancy, shuffled regular graphs, three-step vacant counts and codegrees found no equivalent classification. Only part of the primary article's text could be inspected; an unexamined derivation or older general motif formula is the principal historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** The exact formulas locate the first nontrivial graph-shape signature in a model otherwise known for geometry-independent limiting occupancy. The same motif controls a finite-time fluctuation and, at the next layer, an expected observable; it admits complete extremal classification for every graph order, with a sharp seven-vertex onset. This gives a concrete structural boundary for finite-size universality, rather than an isolated numerical correction. No assertion about other degrees or asymptotic corrections is made.
+After the first two outgoing edges, the subsequent globally uniform shuffle places two unit piles at a uniform unordered pair S of distinct vertices; no unjustified independent-ball approximation is made. Empty indicator at target v is 1[S cap N(v)=empty], giving E Z2=d*C(d-2,2)/H=mu. For a,b, k_ab=|N(a) cap N(b)| and P(both empty)=C(d-4+k_ab,2)/H. The global codegree sum over a<b is d, while k_ab=2 exactly at the two opposite pairs per C4 component, so E C(Z2,2)=(H*C(d-4,2)+d(d-4)+2q)/H. This gives variance. A fresh independent global permutation sends the two input neighbors of any target to a uniform pair, so E[Z3/d]=E C(Z2,2)/H. Simple-cycle partitions classify extremal q and first q-variation at d=7. Direct exact enumeration of all cycle partitions d=7..14 and uniform pairs corroborated 156 formulas; unrestricted conclusion follows from the codegree counting.
 
-**Limits and closest literature.** The result is finite-depth and restricted to two-regular simple graphs. The first-public supporting manuscript is Chiclana (2026). Historical priority is not independently certified. The primary text was available through its introduction/main theorems; deeper sections could not be fully retrieved in this run.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Chiclana's 2026 paper uses precisely the same path/pile permutations and proves asymptotic empirical Poisson universality and universal quadratic contraction identities, but the inspected theorems do not give these nonlinear exact finite-depth vacant-site variance/third-layer formulas. A standard common-neighbor 4-cycle count makes the result accessible; an unindexed finite-layer moment consequence could exist. Originality is for the motif fingerprint and first d=7 discriminating pair, not for random-permutation model or the factorial-moment identity itself.
+
+## value
+
+PASS
+
+PASS: a sharp first graph-geometric signature at finite depth in an otherwise geometry-independent asymptotic occupancy model is a motivated structural counterpoint. The 4-cycle motif coefficient and all cycle-partition extremizers yield a complete natural subclass classification, including the smallest witness size d=7. Its small asymptotic magnitude is disclosed but does not remove mathematical interest.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
