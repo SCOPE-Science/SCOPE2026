@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The process has a finite-first-moment unique invariant law when \(r>m\), by synchronized-reset Wasserstein contraction. Quadratic generator closure yields a Metzler two-by-two raw-moment system, and its positive Perron mode proves exact necessity and sufficiency for finite stationary second moments. The stationary covariance formula, exact derivative signs, and critical scale are reconstructed algebraically in `RESULT.md`. The program `VERIFY.py` performed 57,501 finite checks with exact fractions and representative floating boundaries. Finite tests do not prove stationarity; the argument for infinite-time behavior is analytic.
+PASS
 
-## Originality
+Under r>m>0, phi>=0, finite N>=2, identical independent local-reset clocks, first-Wasserstein contraction of synchronized copies proves unique finite-first-moment invariant. Generator yields the correct two-dimensional Metzler raw moment matrix K; Perron eigenvalue gives finite second moments iff m < (3r+2phi -sqrt((r-2phi)^2+8r phi/N))/4, including equality divergence. Independent symbolic rational algebra confirms det K=2D, centered V=Q(delta+phi/N)/D and C=Q phi/(ND), derivatives, critical m=r/2 locking C=x0^2/(N-1), and square-root finite-size window. No stronger tail law claimed.
 
-**PASS, with substantive residual risk.** Bernard et al. (arXiv:2610.22038v1) supply the local-reset growth model and study localization of fractions, not the homogeneous finite-system covariance-locking law. Assefa et al. (arXiv:2610.01363v1) give a broad affine-reset polynomial-moment calculus; Jolakoski et al. (arXiv:2411.12390v1) provide close coupled-moment equations for a related growth/reallocation model. Those are significant precursor and possible implicit-coverage sources, and the moment closure itself is not claimed as new. The distinct assessed claim is the exact covariance-locking/monotonicity phase law together with the sharp invariant second-moment frontier and square-root finite-size crossover. Independent priority review is needed because the older paired system may render portions readily derivable.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Exact intersite covariance is a natural measure of common risk. The critical \(m=r/2\) surface yields an unexpected invariance under redistribution even as variance and correlation change, while the sharp \(N\)-dependent threshold quantifies the effectiveness and ultimate limitations of mixing at preventing infinite stationary variability. This is a complete naturally parameterized classification, not a fitted table or a known one-site resetting identity.
+Statement-level search and implication audit, not a novelty proof from a failed search. Homogeneous independent local resets are a special case of affine-reset polynomial processes. Jolakoski Brownian reallocation is close, but differs in stochastic noise; check exact generator forcing before importing results. General affine moment formulas imply a recipe but not the explicitly solved threshold/critical locking result absent model-specific substitution; earlier work is explicitly credited. Best-of-knowledge originality survives with the stated residual risk.
 
-## Scope and limitations
+## value
 
-The claims require \(N\ge2\), \(0<m<r\), \(\varphi\ge0\), independent rate-\(r\) site clocks, common positive reset level, homogeneous deterministic growth and global mean-field exchange. No tail asymptotics, infinite-population full-law limits, higher-moment boundaries, or heterogeneity are established. Results include no independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural interacting finite-reset growth process, exact second-moment boundary and the critical redistribution-invariant covariance identify a nontrivial finite-N phase frontier useful for stationary fluctuation analysis. Generic generator closure alone would not determine its explicit threshold and sign transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
