@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:46:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/c1720ff0b67b3546854d2433f31b3ff198bbd831/2026/10/26/all-minimum-simple-path-edge-decompositions-of-cycle-bouquets--5223dd0295b3/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/c1720ff0b67b3546854d2433f31b3ff198bbd831/2026/10/26/all-minimum-simple-path-edge-decompositions-of-cycle-bouquets--5223dd0295b3/verify_path_partitions.py"
+      ],
+      "rationale": "Hub degree 2t forces >=t paths because a graph-simple path uses at most two hub spokes. Pair one spoke from each of two different cycles and split the remaining internal path of every cycle at a chosen vertex, yielding t paths. In an equality decomposition each path must use two spokes and visit hub exactly once; pairing both spokes from the same cycle would create an impossible simple path on that cycle (branches meet/repeat), hence forbidden. For each petal the two paths adjacent to its spokes must cover the hub-deleted internal path by two disjoint endpoint prefixes: exactly one of ell_i−1 cut vertices, uniquely recoverable. Thus bijection, not merely lower bound. Inclusion–exclusion on t forbidden matching pairs proves D_t sum and recurrence. Independently enumerated all simple paths and exact t-path edge partitions for seven bouquets (2- and 3-petal, lengths up to 5), obtaining 8,12,18,16,64,96,144, agreeing with formula; all-parameter proof is bijective, not empirical. t=1 boundary handled separately.",
+      "residual_risks": [
+        "Finite diagnostics are supporting and do not substitute for infinite/general argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General 2-degenerate graph upper bound p(G)<=floor(n/2) except triangle and other broad path decomposition results are known."
+        ],
+        "reasoning": "The broad results give existence/bounds only, not the exact t decomposition number or enumeration of all optimal partitions. A general cactus circuit-partition enumeration might subsume the special bouquet and remains possible.",
+        "searches": [
+          "Resultary search: cycle bouquet cut vertex simple path edge decomposition number minimum paired spokes",
+          "arXiv:2211.07159 Theorem 1",
+          "arXiv:2306.06487"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.06487 Introduction and path-odd-cover definitions",
+        "arXiv:2211.07159 Theorem 1",
+        "Resultary cycle bouquet/cactus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hub-degree lower bound t is elementary and fully credited; previous papers bound p(G) but do not count its minimizers."
+        ],
+        "reasoning": "The exact bijection requires excluding same-petal spokes and proving exactly ell_i−1 available cuts for every petal. That structure is not implied by a generic optimum-size bound; specialized older enumeration risk remains.",
+        "searches": [
+          "arXiv:2306.06487",
+          "arXiv:2211.07159",
+          "Resultary search: cycle bouquet cut vertex simple path edge decomposition number minimum paired spokes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary path decomposition partitions E into disjoint simple paths; path odd-cover is weaker and can reuse nonedges."
+        ],
+        "reasoning": "One cannot infer enumeration of ordinary minimum path partitions from an odd-cover optimum or from a generic path-number upper bound. Spoke-matchings with forbidden within-petal pairs are an equivalent parametrization established in this proof.",
+        "searches": [
+          "Resultary search: cycle bouquet cut vertex simple path edge decomposition number minimum paired spokes",
+          "web search: cycle bouquet simple path decomposition enumeration graph perfect matching",
+          "arXiv:2306.06487 Introduction",
+          "arXiv:2211.07159 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "D_t is a standard inclusion–exclusion matchings count; seven small bouquets independently exhaustive, giving counts 8,12,18,16,64,96,144."
+        ],
+        "reasoning": "Known matching derangement sequences do not by themselves state graph-simple-path cut bijection or the entire ell-product decomposition census; no exact prior bouquet decomposition table identified.",
+        "searches": [
+          "Resultary search: cycle bouquet cut vertex simple path edge decomposition number minimum paired spokes",
+          "web search: cycle bouquet simple path decomposition enumeration graph perfect matching",
+          "perfect matchings forbidding t disjoint pairs D_t recurrence",
+          "Resultary cactus transportation-projection record"
+        ]
+      },
+      "rationale": "Borgwardt et al arXiv:2306.06487 distinguish ordinary edge-partition path number p(G) from relaxed symmetric-difference path odd-covers; only broad bounds in inspected sections, not complete t-petal optimum census. Anto/Basavaraju arXiv:2211.07159 prove an upper bound for all 2-degenerate graphs, not exact minimum decomposition count. The forbidden perfect-matching inclusion-exclusion D_t is itself classical enumerative machinery and is not claimed as new; claimed contribution is its bijection to all optimal cycle-bouquet decompositions and the length product factor. Unindexed circuit-partition/cactus specializations remain a priority risk.",
+      "residual_risks": [
+        "A preexisting exact bouquet/circuit-partition enumeration may imply the formula under different terminology.",
+        "Only ordinary graph-simple edge-disjoint paths; no odd-covers or multi-hub cactus classifications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines a wider odd-cover invariant distinct from disjoint path decomposition; inspected results do not provide bouquet optimum census",
+          "evidence": [
+            "Introduction distinguishes p(G) and p_2(G); broad bounds for paths not exact bouquet enumeration"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.06487",
+          "material_read": "Accessible full 31-page PDF; introduction, definitions, decomposition bounds and term searches for bouquet/cactus examined",
+          "method": "open-access arXiv PDF text search and screenshot",
+          "title": "Path Odd-Covers of Graphs",
+          "trigger": "Same broader problem family; potential confusion between partition and odd-cover"
+        },
+        {
+          "assessment": "Proves a generic at-most-floor(n/2) upper bound; no count of t optimum bouquet partitions found in examined theorem",
+          "evidence": [
+            "Theorem 1 concerns upper bound, not enumeration of optimal path edge partitions"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.07159",
+          "material_read": "Full accessible PDF; abstract, Introduction, Theorem 1, definitions inspected",
+          "method": "open-access arXiv PDF text plus screenshot",
+          "title": "Gallai's Path Decomposition for 2-degenerate Graphs",
+          "trigger": "Potential covering all-cycle bouquet family as 2-degenerate graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2306.06487 Introduction and path-odd-cover definitions",
+        "arXiv:2211.07159 Theorem 1",
+        "Resultary cycle bouquet/cactus search"
+      ],
+      "rationale": "Natural class of Eulerian block-cactus graphs and natural invariant: complete enumeration of all minimum ordinary simple-path edge partitions, refining hub-degree bound. All cycle lengths and arbitrary petal count classified, with combinatorial structural parametrization useful for restricted path decomposition and network routing. Distinguished from path odd-covers (may use cancelling nonedges), which the formula does not enumerate.",
+      "residual_risks": [
+        "A preexisting exact bouquet/circuit-partition enumeration may imply the formula under different terminology.",
+        "Only ordinary graph-simple edge-disjoint paths; no odd-covers or multi-hub cactus classifications."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a bouquet of t>=2 simple cycles lengths ell_i>=3 sharing just one hub, the minimum number of edge-disjoint graph-simple undirected paths partitioning all edges equals t, and every optimum is uniquely a perfect matching of 2t hub spokes with no same-cycle matched pair plus one of ell_i−1 internal cut vertices in each cycle. Total N(G)=prod_i(ell_i−1) times sum_{j=0}^t (-1)^j binom(t,j)(2t−2j−1)!!, with single-cycle boundary p=2,N=binom(ell,2).",
+  "limitations": [
+    "A preexisting exact bouquet/circuit-partition enumeration may imply the formula under different terminology.",
+    "Only ordinary graph-simple edge-disjoint paths; no odd-covers or multi-hub cactus classifications.",
+    "No GitHub writes or certificates; independent review is a recorded best-of-knowledge assessment with priority risks, not an external attestation."
+  ],
+  "schema_version": 1
+}
