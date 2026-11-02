@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "In the full stated domain, each vertex has exactly \\(2r\\) distinct odd-offset neighbors. The complete equation list \\(T_j=1\\) telescopes under shift two, forcing \\(4r\\)-periodicity of any solution. Regularity forces \\(2r\\mid n\\). If \\(4r\nmid n\\), the shorter period makes every neighbor sum even, contradicting one. If \\(4r\\mid n\\), every opposite-parity residue class occurs exactly once in each neighborhood. Selecting one residue class of each parity is both necessary and sufficient, yielding exactly \\((2r)^2\\) codes. The standalone verifier passed six literal subset enumerations, 45 independent recurrence enumerations, and 7,800 direct construction checks. None of the finite checks replaces the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2507.11871 Theorem 5.3 handles order n=p|S| with prime p and classifies all codes there. For the present S, that supplies the base case n=2|S| only.",
+        "arXiv:2507.11871 Theorem 5.2 concerns subgroup codes; the base and lifted codes here generally have two distinct residue classes, not a subgroup. Its further Section 5 cases require coprimality or other restrictive conditions.",
+        "arXiv:2510.20376 Theorem 3.13 requires gcd(|S|,n/|S|)=1; for every possible positive case here, both factors are even, so the hypothesis fails."
+      ],
+      "reasoning": "A general tiling factorization criterion supplies a necessary framework but no stronger all-lift classification in the inspected results. The new equation-by-equation period-rigidity lemma is indispensable to derive that every larger-order total perfect code is a base pullback. Lower bounds by pullback alone do not imply upper bounds or completeness.",
+      "searches": [
+        "arXiv:2507.11871 Theorems 3.1, 5.2, 5.3, 5.4, 5.5, 5.6 and Table 1",
+        "arXiv:2510.20376 Theorems 3.4, 3.7, 3.8, 3.13 and Table 1",
+        "\"total perfect codes\" \"circulant graphs\" \"8\" \"n\"",
+        "cyclic lifts complete bipartite efficient open domination total perfect codes n multiple 4r"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2507.11871, Section 5 Table 1 and Theorems 5.2-5.6",
+      "arXiv:2510.20376, Table 1 and Theorems 3.2,3.4,3.7,3.13",
+      "arXiv:1703.08652, Theorems 1.1-1.4 and Lemmas 2.3-2.5",
+      "DOI:10.1016/j.ipl.2007.02.004 (abstract only)",
+      "Targeted mathematical research records: the five-point support Turán-mass result and unrelated total-domination papers, no matching exact lift census"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The base graph at n=4r is K_{2r,2r}, with (2r)^2 two-vertex total perfect codes. This portion is previously covered and is not separately claimed as new.",
+        "For larger lifts, previously known base codes can be pulled back to give at least (2r)^2 total perfect codes, but existence of these pullbacks does not imply there are no additional codes.",
+        "The new argument subtracts the conditions at cyclic vertices separated by two, forcing u_{j+4r}=u_j for every solution; it then excludes a shorter period and obtains completeness without prior graph-classification assumptions.",
+        "arXiv:1703.08652 contains existence criteria, not this all-lift enumeration. The 2007 paper accessible abstract deals with ordinary closed-neighborhood efficient domination, a different invariant."
+      ],
+      "reasoning": "The precise extra implication beyond prior base-case theorems is an all-solution periodicity constraint for arbitrary lift factor, which transforms a known lower-bound construction into a sharp complete classification. None of the inspected primary implications entails this rigidity for all larger n. The inaccessible older closed-domination source remains a named residual priority risk rather than evidence of noncoverage.",
+      "searches": [
+        "arXiv:2507.11871 Theorem 5.3 for n=2|S| and Section 5 for larger n",
+        "arXiv:2510.20376 Theorem 3.4 at n=2|S|, Theorem 3.13 coprimality",
+        "arXiv:1703.08652 Theorems 1.1-1.4 and Lemmas 2.4-2.5",
+        "\"Efficient domination in circulant graphs with two chord lengths\" Obradović Peters Ružić 2007"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2510.20376 Theorem 3.4 classifies total perfect codes in a square-free Cayley sum graph at order n=2|S|, and Table 1 identifies the scope of its other theorems.",
+        "The odd connection set makes the Cayley difference graph bipartite. Negating the odd-side vertices yields an explicit isomorphism with the Cayley sum graph for the same S.",
+        "None of the inspected 2025 all-length theorems states a rigidity classification for every lift n divisible by 2|S|."
+      ],
+      "reasoning": "Equivalent formulations through efficient open domination and cyclic group tilings were compared, not just titles. Even after translating the graph to the Cayley-sum model, the inspected source covers the complete bipartite base n=2|S| but not the asserted elimination of new patterns in every larger cyclic lift.",
+      "searches": [
+        "total perfect efficient open dominating sets cyclic circulant odd step neighborhood S={±1,±3,...,±(2r-1)} period 4r count (2r)^2",
+        "\"efficient open domination\" \"odd\" \"circulant\" complete bipartite",
+        "\"total perfect codes\" \"odd\" \"circulant\" consecutive",
+        "arXiv:2510.20376 Theorem 3.4 and Table 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved mathematical records cover Turán mass for the set {0,±1,±3}, cubic/other domination problems, and cycle neighborhood complexes; they do not enumerate total perfect codes of the odd-step graph family.",
+        "Relevant reviewed primary tables are Table 1 of arXiv:2507.11871 and Table 1 of arXiv:2510.20376; these delineate known existence and restricted classification theorems, not a table of the all-lift code counts."
+      ],
+      "reasoning": "Actual targeted record/table and literature searches found no exact enumeration table or stronger known classifying statement for this family. This absence is not by itself treated as a proof of novelty; direct comparison with the most plausible primary theorems supplies the substantive originality evidence.",
+      "searches": [
+        "circular bipartite circulant odd consecutive step total perfect codes 4k divides n and 4k squared count",
+        "total perfect efficient open dominating sets cyclic circulant odd step neighborhood S={±1,±3,...,±(2r-1)} period 4r count (2r)^2",
+        "\"C_n(1,3)\" \"total perfect\" code",
+        "\"efficient open domination\" \"circulant\" \"1,3\" pdf"
+      ]
+    },
+    "rationale": "The new statement classifies every code for all cyclic lift factors, not merely base n=4r or existence. Direct comparisons with relevant primary full-text sections of 2025/2026 Cayley and Cayley-sum papers distinguish the all-lift rigidity from base-case theorems and from limited subgroup/coprimality situations. The analogous Cayley-sum formulation is explicitly addressed by an isomorphism and checked. Targeted mathematical-record searches did not identify a covering theorem. Historical priority is qualified due to older inaccessible literature and alternate terminology.",
+    "residual_risks": [
+      "The 2007 closed-neighborhood circulant paper could not be inspected beyond its abstract; terminology or an unadvertised observation could overlap.",
+      "Equivalent classifications under cyclic tiling or efficient-open-domination language outside searchable primary literature cannot be completely ruled out.",
+      "The base complete-bipartite graph classification is prior work; new value is only the all-lift rigidity and resulting exact count.",
+      "No independent historical-priority or mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Base case n=2|S| classified; all-lift rigid enumeration not stated in inspected relevant material. Other cases have subgroup, coprimality, or prime-order restrictions not covering all positive orders.",
+        "evidence": [
+          "Theorem 5.3 classifies n=p|S| with p prime, in particular n=2|S|.",
+          "Table 1 explicitly marks several broader total-code classification cases as unknown.",
+          "Theorem 5.2 covers subgroup total perfect codes only."
+        ],
+        "identifier_or_url": "arXiv:2507.11871v1; https://arxiv.org/pdf/2507.11871",
+        "material_read": "Abstract and introduction, perfect/total definitions and factorization lemma; Theorem 3.1 and proof material; Section 5 Table 1 and Theorems 5.2-5.6, especially Theorem 5.3 and its proof.",
+        "method": "Full-text PDF viewed via parsed text and selected page image.",
+        "title": "Perfect codes in Cayley graphs of abelian groups",
+        "trigger": "Primary recent work on total perfect codes of abelian Cayley graphs, including circulants."
+      },
+      {
+        "assessment": "Theorem 3.4 addresses the same base order n=2|S| after the sign isomorphism, but the remaining inspected results do not cover the exact all-lift count or the forced universal period.",
+        "evidence": [
+          "Theorem 3.4 concerns n=p|S|.",
+          "Theorem 3.13 assumes coprime |S| and n/|S|, impossible here when 2|S| divides n."
+        ],
+        "identifier_or_url": "arXiv:2510.20376v1; https://arxiv.org/pdf/2510.20376",
+        "material_read": "Introduction, definition of Cayley sum graph, Section 3 Table 1, Theorems 3.2, 3.4 and their proofs, statements and hypotheses of Theorems 3.7 and 3.13.",
+        "method": "Full-text PDF viewed through text and page image; explicitly checked the parity-side sign isomorphism.",
+        "title": "Total perfect codes in Cayley sum graphs of cyclic groups",
+        "trigger": "Cayley sum duality provides a plausible exact covering formulation."
+      },
+      {
+        "assessment": "Provides general existence criteria and tiling identities, not all-lift enumeration of this symmetric odd-step family; ordinary perfect code is distinct from open-neighborhood total code.",
+        "evidence": [
+          "Theorems 1.1-1.2 classify existence of ordinary perfect codes under degree conditions.",
+          "Lemma 2.5 supplies a sufficient condition for subgroup total perfect codes."
+        ],
+        "identifier_or_url": "arXiv:1703.08652v1; https://arxiv.org/pdf/1703.08652",
+        "material_read": "Abstract and introduction, Lemmas 2.3-2.5, proofs around Theorems 1.1-1.4, and reference list.",
+        "method": "Full-text PDF parsed; page 4 screenshot visually checked.",
+        "title": "Perfect codes in circulant graphs",
+        "trigger": "Foundational cyclic tiling results and an alternate ordinary perfect-code terminology."
+      },
+      {
+        "assessment": "Abstract identifies ordinary efficient domination (closed neighborhoods), not total perfect codes; historical-priority uncertainty remains explicit.",
+        "evidence": [
+          "Abstract states characterization of efficient dominating sets for 3- and 4-regular circulants, rather than total efficient open dominating sets."
+        ],
+        "identifier_or_url": "DOI:10.1016/j.ipl.2007.02.004",
+        "material_read": "Publisher/author abstract and bibliographic entry only; no lawful full-text copy obtained.",
+        "method": "Lawful open-access/preprint searches were performed; no full-text copy was accessible.",
+        "title": "Efficient domination in circulant graphs with two chord lengths",
+        "trigger": "Older exact structural circulant classification, potentially relevant especially to four-regular members."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "adbdd206-d520-45dc-b301-47326c2745b9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Total perfect codes and efficient open domination are directly motivated by the two recent primary papers. The complete two-parameter classification of connected odd-step circulants includes all orders, including larger cyclic lifts that are not covered by the existing base-case classification. It gives exact existence, every code, and the stable number \\((2r)^2\\) across arbitrarily large lifts. The bounded universal period is a structural insight rather than an arbitrary parameter choice or isolated computation.",
+    "status": "PASS"
+  }
+}
