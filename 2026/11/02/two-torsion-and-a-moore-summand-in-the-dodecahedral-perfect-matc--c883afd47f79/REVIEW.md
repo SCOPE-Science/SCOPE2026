@@ -1,0 +1,15 @@
+# Scientific review: dodecahedral perfect-matching complex
+
+## Correctness — PASS
+The graph is fixed as \(\operatorname{GP}(10,2)\), and each simplex consists of edges contained in at least one perfect matching. The exhaustive checker enumerates all 36 perfect matchings and all 30,503 nonempty simplices, then verifies the complete 15,231-pair Morse matching on 163,650 codimension-one incidences and confirms acyclicity by a topological sort of every face. The critical-cell vector consists of one 0-cell, ten 2-cells and thirty 3-cells. Every signed gradient projection is reconstructed. A 9-by-9 determinant of minus one, a 10-by-10 determinant of two, and mod-two rank nine force integral Smith invariants comprising nine units and one factor two. A simply connected three-dimensional CW complex with this two-level attaching map is homotopy equivalent to \(M(\mathbb Z/2,2)\vee\bigvee^{20}S^3\). Original mod-two boundary elimination independently agrees with the integral conclusion. A standalone pure-Python program and exact matrix certificate are supplied.
+
+## Originality — PASS against inspected evidence
+Closest exact-graph prior result: the published ordinary dodecahedral matching-complex classification, which has 111,375 nonempty faces and a torsion-free wedge of spheres. This does **not** include homology of its proper perfect-matching subcomplex, which has only 30,503 faces. Closest exactly matching construction: the public Heawood perfect-matching-complex classification, on a different graph with 24 facets. The inspected first-public 2022 honeycomb paper and 2024 polygonal-line paper have graph-family hypotheses excluding the closed pentagonal dodecahedron. Targeted indexed searches for 1-factors, extendible matchings, GP(10,2), two-torsion and Moore attachments found no mathematically equivalent statement or stronger implication. An inaccessible or unindexed equivalent source remains possible; negative search alone is not treated as proof of novelty.
+
+## Mathematical value — PASS
+The dodecahedral graph is a distinguished 20-vertex cubic planar graph. Its perfect matching complex is a natural, strictly smaller object than the well-studied ordinary matching complex; the former unexpectedly carries integral two-torsion even though the latter is a torsion-free sphere wedge. The Moore-space classification is a precise qualitative obstruction to extending previously observed sphere-wedge phenomena from special perfect-matching families to all cubic polyhedral graphs. The full homotopy result is more informative than a numerical Betti table, while making no unsupported generalization to an infinite family.
+
+## Scope and residual risks
+The finite computation has an exact, executable proof checker, but does not establish equivariant homotopy, a general cubic-graph classification or results about other graphs. Only the inspected papers and actual indexed matches support the comparative novelty assessment; there may be equivalent unindexed literature. The independent audit channel has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
