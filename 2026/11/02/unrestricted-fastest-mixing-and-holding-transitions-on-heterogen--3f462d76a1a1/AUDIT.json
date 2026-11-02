@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The coordinatewise automorphism average is feasible and preserves or reduces the convex SLEM. Tensor Laplacian eigenspaces indexed by nonempty coordinate subsets give the exact extremal eigenvalues. Independent spectral- and budget-based lower bounds attain equality at a common coordinate decrement. Invariant uniqueness follows from equality in the active bounds. For any unrestricted optimum, every single-coordinate contrast is a saturated top eigenvector after averaging; equality in the Rayleigh bound forces it to be a top eigenvector of the original chain. This determines every fiber Laplacian and every edge probability, proving unrestricted uniqueness. An independent standalone implementation passed 362 assertion groups over 19 finite graph instances. The proof establishes the infinite family; tests alone do not.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:0709.0955 §3.2 explicitly discusses Cartesian products of graphs and §3.3.3 H(d,n), but gives a single common alphabet n",
+        "DOI:10.1109/ACCESS.2026.3680803: association-scheme spectral/LP method and H(4,3) examples in accessible excerpts"
+      ],
+      "reasoning": "The broad SDP and association-scheme algorithms provide possible computational routes, but generic solvability is not a theorem that the unrestricted optimum is unique nor an explicit heterogeneous capacity/holding formula. The 2026 full text was not exhaustively read; this is listed as a residual risk.",
+      "searches": [
+        "fastest mixing Markov chain Cartesian product of complete graphs unequal factors Hamming graph optimal edge weights",
+        "\"fastest mixing\" \"Hamming\" \"nonuniform\" graph",
+        "\"fastest mixing\" \"generalized Hamming graph\" alphabet"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "https://arxiv.org/pdf/0709.0955",
+      "https://doi.org/10.1109/ACCESS.2026.3680803"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0709.0955 §2 guarantees an invariant optimum, §3.2 gives spectrum of Cartesian products, §3.3.3 gives homogeneous Hamming optima",
+        "DOI:10.1137/S0036144503423264 develops convex formulation and numerical solution"
+      ],
+      "reasoning": "The homogeneous Hamming optimum is a special case of the claimed formula and is expressly excluded as a new result. The extra claim is that every unrestricted optimizer equals the anisotropic orbit-constant chain, derived from the saturated coordinate contrast eigenspaces. Symmetry averaging alone only proves existence of an invariant optimum, not that all other optimizers coincide with it. Multi-alphabet arbitrary-dimension critical boundary is not stated in the inspected earlier sources.",
+      "searches": [
+        "fastest mixing Markov chain Cartesian product of complete graphs unequal factors Hamming graph optimal edge weights",
+        "fastest mixing symmetric Markov chain Cartesian product complete graphs uniqueness optimal transition weights",
+        "fastest mixing Markov chain on graphs with symmetries Cartesian products of graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0709.0955 §§3.2,3.3.3: Cartesian-product Laplacian spectrum; equal-size Hamming formulas",
+        "DOI:10.1137/S0036144503423264: general FMMC SDP"
+      ],
+      "reasoning": "Rephrased the claim as fastest reversible uniform-stationary mixing, operator-norm SDP, anisotropic Hamming graphs, and multi-axis coordinate-update kernels. Equal-factor exact values are known, but these readings do not state uniqueness among all nonsymmetric-orbit weight assignments for arbitrary different alphabet sizes.",
+      "searches": [
+        "\"fastest mixing\" \"Cartesian product\" \"complete graphs\" probabilities",
+        "fastest mixing symmetric Markov chain Cartesian product complete graphs uniqueness optimal transition weights",
+        "Hamming graph nonuniform coordinate update optimal Markov chain"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:0709.0955 §3.3.3 contains equal-factor Hamming values",
+        "DOI:10.1109/ACCESS.2026.3680803 tables visible in accessible text concern equal-factor H(4,3) schemes"
+      ],
+      "reasoning": "The checked explicit tables and formulas address homogeneous alphabets or general schemes. No exact heterogeneous all-dimension optimality/rigidity table was retrieved. Failure to retrieve one is not uniqueness evidence.",
+      "searches": [
+        "\"fastest mixing\" \"Cartesian product\" \"complete graphs\" probabilities",
+        "fastest mixing Cartesian powers complete graph coordinate update stochastic semidefinite spectral gap"
+      ]
+    },
+    "rationale": "The inspected 2007 original preprint, especially Sections 3.2 and 3.3.3, proves Cartesian-product spectral factorization and equal-factor Hamming optimal chains, but not a complete arbitrary-alphabet formula or a pointwise uniqueness theorem for unrestricted feasible matrices. Earlier published general convex/SDP machinery does not itself assert uniqueness. A related earlier two-factor product calculation has no unrestricted-rigidity assertion and does not supply the general multi-alphabet theorem. The recent association-scheme paper gives broad method and ordinary Hamming examples; partial access leaves a qualified residual risk rather than a demonstrated covering implication.",
+    "residual_risks": [
+      "Specialized or unindexed prior exact heterogeneous product formulas may exist.",
+      "The 2026 association-scheme source was only partially readable; no conclusive comparison of every example and table is claimed.",
+      "Independent validation of the new mathematical proof has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUND_GENERAL_FRAMEWORK_NO_SPECIFIC_HETEROGENEOUS_RIGIDITY",
+        "evidence": [
+          "PDF pages 1-3: definitions and SLEM optimization",
+          "Original source electronic publication date 2004-10-29"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Title, abstract, admissible stochastic conditions, SLEM definition, convex problem formulation, inspected sections 1 and source text for special graph coverage",
+        "method": "full PDF text and first-page visual inspection",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational SDP problem and convexity potentially covering uniqueness"
+      },
+      {
+        "assessment": "COVERS_HOMOGENEOUS_VALUES_AND_GENERAL_TECHNIQUE_NOT_THE_NEW_RIGIDITY_CLAIM",
+        "evidence": [
+          "§3.2 equations (12)-(13): Cartesian-product spectrum",
+          "§3.3.3: exact homogeneous H(d,n) FMMC edge weight and SLEM",
+          "No claim of all-optimizer pointwise rigidity found in those source sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "Full available preprint text searched for Cartesian product, Hamming, uniqueness and unequal; introduction and Sections 2, 3.2 and 3.3.3 materially read; pages 10, 11 and 14 visually inspected",
+        "method": "arXiv full-text access, section reading and PDF screenshots",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Plausible exact Cartesian-product and Hamming-graph coverage"
+      },
+      {
+        "assessment": "GENERAL_METHOD_POSSIBLE_RESIDUAL_RISK_NO_DEMONSTRATED_FULL_COVERAGE",
+        "evidence": [
+          "Paper formulates scheme-based spectral LP and homogeneous Hamming examples",
+          "Full text was not exhaustively verified"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ACCESS.2026.3680803",
+        "material_read": "Abstract and accessible author full-text excerpts, including the Hamming H(4,3) example and related tables; publisher full text not obtained",
+        "method": "open access indexed excerpts; publisher DOI open attempted but unavailable",
+        "title": "Pareto–Optimal Design of Markov Chains on Networks Based on Association Schemes",
+        "trigger": "Modern broadly framed scheme optimization that could subsume the result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3f462d76-a1a1-4d28-8b4e-7c73873d5ea1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an exact classification of optimal weights, one-step spectral contraction and the holding/nonholding frontier on all anisotropic multi-alphabet Hamming networks, a natural class for coordinate-resampling Markov chains. The strengthened assertion is global rigidity of every unrestricted optimizer, where basic graph-symmetry reduction guarantees only an invariant representative. The sharp 3-factor reciprocal-size boundary isolates genuine heterogeneous critical arrays (2,3,6) and (2,4,4). It does not rely on numerical small gains or an arbitrary graph slice; equal-factor formulas are credited as known.",
+    "status": "PASS"
+  }
+}
