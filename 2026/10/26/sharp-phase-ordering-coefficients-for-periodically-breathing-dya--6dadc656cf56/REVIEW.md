@@ -1,15 +1,21 @@
-# Scientific review of the periodic dyadic-hole phase-ordering result
+# Independent mathematical audit
 
-## Correctness
-The binary-to-zero-run equivalence is exact, and each complete safe run is represented by one weighted transition in the finite \(q\)-phase renewal matrix. Perron renewal asymptotics give the infinite-time escape rate. Perturbing the explicitly known unconstrained matrix about its simple eigenvalue at one yields the displayed \(O(m4^{-m})\) estimate. The all-period minimum follows from a pointwise erosion inequality, with equality characterized by the unique cyclic descending permutation. The finite maxima and maximizing counts through eight phases are established by exhaustive enumeration of precisely \((q-1)!\) cyclic classes using exact rational arithmetic. The attached standard-library checker was executed and printed `VERIFY_OK`.
+## correctness
 
-## Originality
-The closest direct mathematical antecedent is Poo–Marcus (2006), which treats equivalent phase-dependent maximum-run constraints, reduces vectors to canonical tight forms, gives exact characteristic methods, and compares capacity through period four. This general method determines individual capacities in principle, but the inspected text does not formulate the small-hole coefficient or the complete extremal finite enumeration for periods five through eight. Livorati et al. (2013/2014) motivate time-dependent holes and short-orbit overlaps, without these exact permutation-optimization results. The 2011 periodic-finite-type formalism is broader, and the 2010 escape-rate asymptotics concern stationary holes. These are bounded comparisons, not proof of global literature uniqueness. The equivalent coding-theoretic setting is explicitly acknowledged; unindexed follow-up calculations and unread equations in one HTML transcription are residual risks.
+PASS
 
-## Mathematical value
-For a fixed multiset of periodic hole sizes, rearrangement changes the leading escape rate rather than merely a finite-time constant. The all-period unique optimum is a structural ordering principle, while the exact periods five to eight include the first periods beyond the earlier low-period capacity order and disprove an attractive first-six-period linear extremal extrapolation. The finite enumeration is a natural initial optimization census in the relevant periodic family, not an arbitrary parameter slice.
+The Bernoulli shift representation converts falling into H_{s+k} into a zero run with length >=m+k+a_{s+k}; minimizing over offsets modulo q yields b_s exactly. Complete safe runs give finite nonnegative q-phase renewal matrix K_m(z); its spectral-radius singularity determines the exponential survival rate. For the uncapped matrix K_inf(z)=zP/2(I-zP/2)^-1, Perron eigenvalue is z/(2-z), left/right vectors uniform/all-ones, derivative 2 at z=1. Missing row mass is 2^-(m+b_s); finite-dimensional perturbation yields gamma_m=2^-m(2q)^-1 sum 2^-b_s+O_{q,a}(m4^-m). b_s<=a_s gives sharp general minimum; equality requires the cyclic reverse staircase, uniquely. Independent exact Fraction enumeration of all (q-1)! cyclic representatives for q=2,...,8 recovered maximum coefficients and counts (3/8,1);(1/3,1);(9/32,4);(1/4,10);(11/48,12);(23/112,144);(3/16,864), confirming finite exhaustive claims. No extrapolation to q>8 maxima.
 
-## Limits
-Only small-hole leading coefficients are classified. At finite hole size the total ordering can differ, and the maximum is not determined for arbitrary period. The same source's general capacity algorithm could allow further related results to be derived; independent literature assessment is still needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Poo-Marcus 2006 gives the same family of periodically varying maximum-run constraints and a characteristic-matrix capacity method, and explicitly orders capacities only through period four. The assessed refinement is the closed leading small-hole erosion coefficient, unique all-period minimizer and exact q5-8 maximizing schedule classification. Livorati et al study breathing holes at the same map but in different geometric parameterization, not nested dyadic phase permutations. Best-of-knowledge PASS with implicit-capacity derivation risk.
+
+## value
+
+PASS
+
+Choosing when holes are largest is a natural extremal design problem for a non-autonomous dynamical system. The exact leading escape coefficient separates schedules asymptotically, the reverse-staircase uniqueness holds for arbitrarily many phases, and the fully enumerated first nontrivial maximal periods reveal a real break from a misleading linear pattern at q=7.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
