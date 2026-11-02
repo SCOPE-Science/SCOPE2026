@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "At each infected-set size k in a K_(m+1) petal the exact cut rate is k(m+1-k). Exponential race and permutation symmetry imply independent spacings and a hub infection rank J uniform independently of spacings. Since the petal components are edge-disjoint, the exact finite maximum and decompositions follow. Two end rates equal m, all internal rates exceed m, and their m-exponential moment telescopes to (m-1)^2; thus the exact survival leading term m(m-1)^2 t exp(-m t) gives the displayed Gumbel centering. Uniform-integrability tail bounds imply mean convergence, and the non-source-petal maximum swamps the fixed remaining source-petal time. The source delay expectation equals H_m/m. A separate m=1 calculation recovers the star. Replayed 187 exact or numerical checks in verify_windmill.py (including independent full-graph CTMC and Dijkstra) support but do not prove the infinite result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1806.09568 hypothesis 2.2 requires uniformly bounded empirical degree (2+epsilon) moments",
+        "arxiv:2311.16088 uses torus-embedded complete graph with length-dependent edge times"
+      ],
+      "reasoning": "The hub has degree nm and contributes (nm)^(2+epsilon)/(nm+1), unbounded for fixed m and growing n, so random sparse degree-moment results cannot specialize. Complete-graph spatial FPP with all-pair edges does not contain deterministic petals joined only by hub as a special case.",
+      "searches": [
+        "Extreme value of independent complete clique SI epidemic finish times with two equal minimal birth rates",
+        "friendship graph generalized windmill clique SI infection flooding time Gumbel with logarithmic correction log log n starting at leaf",
+        "arxiv:2311.16088",
+        "arxiv:1806.09568"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1806.09568",
+      "https://arxiv.org/abs/1909.04563",
+      "https://arxiv.org/abs/2311.16088",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc (published summary and title only)",
+      "https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f (published summary and title only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1806.09568: logarithmic sparse-graph random-network flooding but requires incompatible bounded degree moments",
+        "arxiv:1909.04563: stochastic configuration-model flooding laws",
+        "arxiv:2311.16088: spatial complete-graph distances, flooding and diameter"
+      ],
+      "reasoning": "Standard pure-birth and extreme-value facts together allow the result to be derived but none of the inspected theorems immediately implies the exact bouquet finite law, its repeated minimal-rate tail constant, or an independent random peripheral-source shift. The explicit combination and source classification, not its general ingredients, are assessed.",
+      "searches": [
+        "Random SI epidemic exponential edge passages on friendship graph (triangles sharing common vertex), exact infection completion time distribution, Gumbel and log log n",
+        "Flooding time source leaf versus center on clique bouquet, asymptotic mean difference harmonic H_m/m",
+        "arxiv:1806.09568",
+        "arxiv:1909.04563",
+        "arxiv:2311.16088"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Birth-time equivalent formulation is independent rate-one SI process on clique bouquet.",
+        "arxiv:1806.09568 models FPP flooding on configuration-model random graphs",
+        "arxiv:1909.04563 gives random-graph FPP flood scale"
+      ],
+      "reasoning": "An SI description and a hypoexponential maximum are mathematically equivalent formulations of the claim. The inspected sources have matching FPP terminology but different graph models and do not state the fixed-clique maximum with multiplicity-two rate and peripheral rank delay.",
+      "searches": [
+        "First passage percolation on generalized windmill K1 join n copies Km, hypoexponential petal clearance tail m(m-1)^2 t exp(-m t)",
+        "Random SI epidemic exponential edge passages on friendship graph (triangles sharing common vertex), exact infection completion time distribution, Gumbel and log log n",
+        "Susceptible infected pure birth process clique network petals independent completion maximum, hypoexponential coupon collector rates k(m+1-k), extreme value",
+        "arxiv:1806.09568",
+        "arxiv:1909.04563"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical-index query closest generalized-windmill match: 2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+        "Public mathematical-index query closest windmill match: 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f"
+      ],
+      "reasoning": "Published named-graph exact results found were dissociation or general-position polynomial identities, not first-passage flooding distributions or tabulated hypoexponential times. No exact distribution table matching the claim was identified; this is evidence only for searched records.",
+      "searches": [
+        "First passage percolation on generalized windmill K1 join n copies Km, hypoexponential petal clearance tail m(m-1)^2 t exp(-m t)",
+        "Flooding time source leaf versus center on clique bouquet, asymptotic mean difference harmonic H_m/m",
+        "friendship graph generalized windmill clique SI infection flooding time Gumbel with logarithmic correction log log n starting at leaf"
+      ]
+    },
+    "rationale": "Full primary-work inspections and mathematical-record searches identify standard FPP ingredients but no dominating exact statement about the deterministic clique bouquet with two slow holding-rate stages, its loglog limit, and an independent harmonic source delay. Related random-graph and torus complete-graph theories have different graph ensembles or assumptions. Identical graph names in retrieved literature concern unrelated combinatorial invariants. Priority is qualified; search misses remain possible.",
+    "residual_risks": [
+      "A historically earlier explicit friendship-graph/windmill SI infection result could be missed by title or semantic search.",
+      "A general finite-graph hypoexponential network decomposition could imply part of the claim even without the graph-specific keywords.",
+      "No independent priority review has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not imply exact bouquet law: configuration-model random graphs require bounded empirical (2+epsilon) degree moments and min degree >=3; a hub of degree nm violates this; paper gives asymptotic logarithmic scales, not exact decomposition and source delay.",
+        "evidence": [
+          "arxiv:1806.09568, main hypotheses (2.1)–(2.3), introduction, main results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.09568",
+        "material_read": "Introduction, main hypotheses (2.1–2.3), principal flooding claims and relevant scope in accessible full-text HTML",
+        "method": "Assumption-by-assumption comparison of graph family, degree moment and claimed observables",
+        "title": "First passage percolation in sparse random graphs with boundary weights",
+        "trigger": "First-passage exponential-edge flooding, directly same observable and relevant MSC"
+      },
+      {
+        "assessment": "Configuration-model random graph, not a fixed-petal deterministic one-hub articulation; no all-n exponential hypoexponential maximum or loglog/source-penalty law found in inspected statements.",
+        "evidence": [
+          "arxiv:1909.04563, model and flooding theorem, full HTML version"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.04563",
+        "material_read": "Accessible full paper HTML: model introduction, assumptions and flooding statements",
+        "method": "Compared graph ensemble assumptions, bottleneck structure and normalization/limit claims",
+        "title": "Flooding and Diameter in General Weighted Random Graphs",
+        "trigger": "Flooding asymptotics for exponentially tailed weights"
+      },
+      {
+        "assessment": "Long-range weighted complete graph embedded on a torus; lacks independent finite cliques joined by a sole hub and does not imply source-order harmonic law or multiplicity-two rate tail.",
+        "evidence": [
+          "arxiv:2311.16088, introduction, main results, Theorem 1.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.16088",
+        "material_read": "Accessible full-text HTML, introduction, main results, theorem and comparison discussion",
+        "method": "Compared spatial complete-graph model, passage-time scaling and hub-articulation geometry",
+        "title": "Long-range first-passage percolation on the complete graph",
+        "trigger": "Complete-graph exponential FPP and refined flooding asymptotics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b342e8b9-7dcd-485e-a3cf-9d79fbeebdb1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Clique bouquets are canonical homogeneous community graphs joined at an articulation vertex, for which flooding by random passage times is a natural observable. The nontrivial repeated minimal rate of the infection chain yields a sharp loglog critical correction, and the exact finite decomposition displays a stochastic source penalty of mean H_m/m. These explain both a qualitatively new second-order limiting scale and the precise influence of source location, beyond textbook single-exponential maxima or small-order computations.",
+    "status": "PASS"
+  }
+}
