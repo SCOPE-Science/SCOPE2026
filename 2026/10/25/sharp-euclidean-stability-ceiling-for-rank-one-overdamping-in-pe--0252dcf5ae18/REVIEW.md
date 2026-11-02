@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stage equation matches the one-stage perturbed midpoint method and yields the stated noncommutative map. An exact matrix congruence reduces Euclidean contraction to a symmetric Loewner inequality for arbitrary SPD pairs. The rank-one symmetric Jordan product has the two explicitly calculated eigenvalues, giving the precise inclusive threshold and eigenvector exception. A second congruence proves weighted contraction; a positive-definite spectral comparison proves all-step spectral stability. The rational two-dimensional witness attains and crosses the frontier. The standalone verifier checks 1,792 configurations but is not substituted for the dimension-independent proof.
+## correctness
 
-**Originality — PASS (subject to historical-priority risk).** The 2026 primary perturbed-DIRK paper describes the unequal stage/end generator and treats perturbation propagation, not the rank-one Euclidean norm threshold. The April 2026 closely related paper treats smooth perturbations and high-order local-consistency conditions. The older Grant framework is acknowledged; its full text was not available for line-by-line comparison, so an equivalent specialization remains a documented risk. Relevant published mathematical-record searches surfaced one-step stability for weighted Jacobi and Richardson splitting, neither of which implies this exact rank-one midpoint threshold in the inspected descriptions. Classical Jordan-product facts and B-stability are not claimed as new. Absence of a search match is not treated as novelty proof.
+PASS
 
-**Mathematical value — PASS.** The result resolves a natural numerical-method design issue: even replacing an SPD implicit-stage generator by a Loewner-larger one does not ensure Euclidean stepwise energy decay. It identifies exactly which rank-one surrogate directions preserve all-step Euclidean nonexpansivity, supplies a sharp stability budget otherwise, and separates transient Euclidean amplification from both spectral and weighted-energy stability. This is not merely a renaming of a norm inequality, and the explicit minimal two-dimensional witness makes the mechanism tangible.
+For real finite-dimensional SPD A and B, C=I+hB/2 and T=I-h A C^-1, direct noncommutative expansion gives C(I-T^T T)C=h(2A+hK), K=(A(B-A)+(B-A)A)/2. Thus Euclidean nonexpansivity is equivalent to 2A+hK positive semidefinite; no commutativity is presumed. When B=A+vv^T, S=A^-1/2 K A^-1/2=(ab^T+ba^T)/2 with a=A^1/2 v,b=A^-1/2 v has nonzero eigenvalues (s ± sqrt(alpha beta))/2. Strict Cauchy-Schwarz gives delta=sqrt(alpha beta)-s>0 iff Av is not parallel to v, so h*=4/delta is the inclusive sharp one-step norm boundary. Alignment gives positive definite 2A+hK for all h>0. A second exact congruence C(A^-1-T^T A^-1 T)C=h(2I+h vv^T) is positive definite, and h C^-1/2 A C^-1/2 has eigenvalues in (0,2) because B>=A>0, establishing weighted strict contraction and spectrum in (-1,1) even for h>h*. Exact rational witness A=diag(1,4), v=(1,1) has h*=8 and h=16 ratio 1557/1301; independent exact congruences checked 12 matrix cases.
 
-**Limits and risks.** Only one stage, exact linear SPD matrices, a fixed surrogate and exact arithmetic are treated; no general convergence order, nonlinear stability or arbitrary-stage theorem follows. Potential equivalents in older mixed-accuracy and matrix-contractivity literature remain unexcluded. Independent examination has not been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS only for the sharp rank-one Loewner-larger stage-generator Euclidean one-step ceiling with simultaneous weighted/spectral stability. Original perturbed midpoint scheme and mixed-precision perturbation bounds, elementary Jordan-product eigenvalues, and ordinary B-stability were already established; their implications do not give this necessary-and-sufficient rank-one threshold. Older matrix norm contractivity results may formulate the same criterion.
+
+## value
+
+PASS
+
+The exact permissible timestep under a common stage-surrogate error model is a concrete numerical design question: a more strongly damped SPD stage can exhibit Euclidean transient amplification. Separating all-step weighted stability from Euclidean norm loss and identifying the eigenvector exception supplies a useful sharp mechanism rather than a routine consistency estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
