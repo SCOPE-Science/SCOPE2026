@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The successor map is forced to be a binary bijection at each length-\((k-1)\) middle word. Each crossing choice therefore induces a permutation of all binary length-\(k\) states, and its single-cycle condition is exactly the de Bruijn condition. A length-\((k+1)\) factor from an uncrossed pair has the same first and last symbol; a crossed pair gives the two explicitly tested words. The all-order weighted formula follows. Each flip of a crossing bit composes the rotation permutation with a transposition, proving the necklace-based lower and parity constraints. For order five, exhaustive feedback-mask checking and a distinct direct cyclic-word generator both gave the exact same eight-cell table and all \(2048\) cycles; weight and moment assertions were replayed from `verify.py`. No finite experiment is used to claim the all-order formulas without proof.
+PASS
 
-## Originality
+For each (k−1)-word v, successors of states av must be v(a⊕ε_v) with a common ε_v, since successor map is a permutation. Conversely a mask defines a permutation, and a single 2^k-cycle gives one de Bruijn cycle up to rotation. Uncrossed windows have equal first/last bits and thus a border; crossed windows contribute c_k(v). All-zero mask is cyclic word rotation partitioned by N_k necklaces; switching one ε composes a transposition, so attaining one cycle needs >=N_k−1 flips of the prescribed parity. At k=5, independent exhaustive loop over all 2^16 masks visited permutation orbits and accepted exactly 2048 single cycles, reproducing eight-cell distribution and moments; 4 weight-two v values verified. Exhaustion of all 65,536 masks is finite exact certificate for order five; no extrapolation needed for all-order identities.
 
-The 2015 unbordered-factor paper was inspected in full-text sections on definitions, expected maximal factor length, proofs, and algorithms; it does not give de Bruijn-cycle transition spectra. The author-supplied full text of Kari–Xu treats multi-shift and antimorphic de Bruijn generalizations and their overall counts. The relevant 2021 locally constrained de Bruijn article discusses window uniqueness, codes, and an enumeration of the \(2048\) order-five cycles for a different statistic, but not an unbordered-factor histogram. Related extant order-five palindrome and cycle-overlap statistics do not imply the current weighted unbordered-factor law. Searches returned no directly matching distribution; this is not absolute evidence of absence.
+## originality
 
-## Value
+PASS
 
-Order \(k+1\) is the first circular factor length not forced to be complete in every order-\(k\) de Bruijn cycle, so border-freeness at that scale is a natural structural measure of pattern diversity. The theorem gives an all-order feedback interpretation and a complete, nonconsecutive order-five spectrum, sharp bounds, and exact moments, rather than a numerical sample or a predicate swap applied to a previous census.
+Best-of-knowledge PASS for all-order weighted local transition identity plus complete nonconsecutive order-five unbordered-factor spectrum; classical total 2048 de Bruijn count and general de Bruijn permutation representations are known and not claimed as new. No inspected equivalent unbordered-factor spectrum, but specialized catalogues or unindexed combinatorics-on-words work remain a priority risk.
 
-## Residual risks and scope
+## value
 
-This is a self-review only. No independent audit was performed. Specialized unpublished or unindexed enumerations of border-free patterns could exist; the novelty search is not exhaustive. The numerical distribution is confined to binary order five, and the proof gives no general-order spectrum.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A binary order-k de Bruijn cycle contains all length-k factors, making the next length k+1 the first nontrivial diversity scale. Complete order-five unbordered spectrum, excluded value 16, exact moments and all-order crossing-weight relation are natural concrete combinatorics-on-words invariants rather than arbitrary table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

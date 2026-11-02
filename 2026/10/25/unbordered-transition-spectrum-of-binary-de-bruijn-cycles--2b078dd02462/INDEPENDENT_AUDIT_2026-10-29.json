@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:09:36.547791Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Snapshot RESULT.md Git blob 25376298a4b3a8fec21726ad064cb6a2c0934a85 and verify.py blob 5d26ecf33ea922ed34260410ac10a93737a3985e, confirmed tree 3e03689b52f7b41ee48d21978e9c55f29e33cacb.",
+        "Independent 65,536-mask exhaustive enumerator on P_ε, 2048 accepted masks; exact eight counts and rational moments reproduced.",
+        "Permutation-switch parity and necklace-cycle lower bound proved abstractly for k>=2."
+      ],
+      "limitations": [
+        "The exact distribution is only binary order 5 and cycles distinguished up to rotation, not reversal/complement.",
+        "All-order feedback identities do not yield complete distributions at arbitrary k."
+      ],
+      "rationale": "For each (k−1)-word v, successors of states av must be v(a⊕ε_v) with a common ε_v, since successor map is a permutation. Conversely a mask defines a permutation, and a single 2^k-cycle gives one de Bruijn cycle up to rotation. Uncrossed windows have equal first/last bits and thus a border; crossed windows contribute c_k(v). All-zero mask is cyclic word rotation partitioned by N_k necklaces; switching one ε composes a transposition, so attaining one cycle needs >=N_k−1 flips of the prescribed parity. At k=5, independent exhaustive loop over all 2^16 masks visited permutation orbits and accepted exactly 2048 single cycles, reproducing eight-cell distribution and moments; 4 weight-two v values verified. Exhaustion of all 65,536 masks is finite exact certificate for order five; no extrapolation needed for all-order identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known enumeration counts 2048 cycles of order 5 up to rotation but provides no distribution of U5; locally constrained code constructions impose window uniqueness but do not derive the unbordered histogram in inspected statements."
+        ],
+        "reasoning": "A general cycle-index theorem could in principle yield this table as a corollary, but no such implication was verified.",
+        "searches": [
+          "Kari–Xu 2012 de Bruijn sequence variants",
+          "Chee et al. 2021 locally-constrained de Bruijn codes DOI:10.1109/TIT.2021.3112300",
+          "Resultary semantic unbordered transition query"
+        ]
+      },
+      "checked_sources": [
+        "Kari–Xu 2012 DOI:10.1142/S0129054112400540 (bibliographic abstract)",
+        "Loptev–Kucherov–Starikovskaya arXiv:1504.07406 (abstract/statistic description)",
+        "Chee et al. 2021 DOI:10.1109/TIT.2021.3112300 (publication description)",
+        "Resultary de Bruijn unbordered semantic query, no matching spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maximal unbordered substring length and total cycle count do not determine per-cycle number of length k+1 unbordered factors."
+        ],
+        "reasoning": "All-order transposition argument is elementary permutation theory, but the weighted border count and exact k5 classification are not automatic consequences of the cited published theorems.",
+        "searches": [
+          "Loptev et al. arXiv:1504.07406 maximal unbordered factors",
+          "Kari–Xu 2012 de Bruijn variants",
+          "Chee et al. 2021 locally-constrained codes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kari–Xu primarily study multishift/antimorphic de Bruijn generalizations and total counting; Loptev et al. study maximal unbordered factors of strings, not the full circular de Bruijn order-five histogram."
+        ],
+        "reasoning": "Unbordered length-(k+1) factor statistic requires joint border and cyclic window structure, not mere total de Bruijn cycle enumeration. Related unbordered word results cannot be equated to spectrum without a mathematical reduction.",
+        "searches": [
+          "Resultary query: de Bruijn sequences unbordered length n+1 factor transition spectrum order five 2048",
+          "Kari Xu De Bruijn Sequences Revisited DOI:10.1142/S0129054112400540",
+          "Loptev Kucherov Starikovskaya arXiv:1504.07406"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only denominator 2048 is pre-existing; new cells include absent 16 and an attainable 17.",
+          "Independent exhaustive 65536 masks verifies all 2048 cycles and exact U5 distribution."
+        ],
+        "reasoning": "An exact prior U5 table would cover finite claim even if described using feedback functions; none found in searched literature, not an exhaustive database census.",
+        "searches": [
+          "Known order-five total cycle count (binary de Bruijn count 2^(2^(k-1)−k)=2048 at k=5)",
+          "Resultary exact-spectrum semantic search"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for all-order weighted local transition identity plus complete nonconsecutive order-five unbordered-factor spectrum; classical total 2048 de Bruijn count and general de Bruijn permutation representations are known and not claimed as new. No inspected equivalent unbordered-factor spectrum, but specialized catalogues or unindexed combinatorics-on-words work remain a priority risk.",
+      "residual_risks": [
+        "Full text of Kari–Xu and specialized unbordered de Bruijn enumerations were not completely read this run; historical overlap possible.",
+        "At k=5 finite exact table could appear in a specialized sequence database or unpublished enumeration despite negative semantic search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant source but not declared whole-document NOT_COVERING; residual priority risk remains.",
+          "evidence": [
+            "Key terms antimorphic involution, multishift and pseudo de Bruijn sequence rather than unbordered spectrum."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0129054112400540",
+          "material_read": "Bibliographic abstract, subject terms and primary description; full author manuscript not independently obtained in this run.",
+          "method": "Publication bibliographic page and author manuscript search",
+          "title": "De Bruijn Sequences Revisited",
+          "trigger": "Same cyclic combinatorial object"
+        },
+        {
+          "assessment": "Different maximal-factor statistic and random-word regimes; not a whole-document negative finding.",
+          "evidence": [
+            "Length of longest unbordered factor vs count of all unbordered length-(k+1) circular factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.07406",
+          "material_read": "Primary abstract and published summary; full text not independently reread during this execution.",
+          "method": "arXiv abstract / referenced prior discussion",
+          "title": "On Maximal Unbordered Factors",
+          "trigger": "Same unbordered predicate"
+        },
+        {
+          "assessment": "Related code construction; full-text overlap risk not fully excluded.",
+          "evidence": [
+            "Locally constrained codes and window multiplicities; all-order U_k formula not found in material read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2021.3112300",
+          "material_read": "Primary bibliographic description and self-review bibliography, not whole article.",
+          "method": "Publisher metadata and Git package citations",
+          "title": "Locally-Constrained de Bruijn Codes",
+          "trigger": "Same de Bruijn cycle constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kari–Xu 2012 DOI:10.1142/S0129054112400540 (bibliographic abstract)",
+        "Loptev–Kucherov–Starikovskaya arXiv:1504.07406 (abstract/statistic description)",
+        "Chee et al. 2021 DOI:10.1109/TIT.2021.3112300 (publication description)",
+        "Resultary de Bruijn unbordered semantic query, no matching spectrum"
+      ],
+      "rationale": "A binary order-k de Bruijn cycle contains all length-k factors, making the next length k+1 the first nontrivial diversity scale. Complete order-five unbordered spectrum, excluded value 16, exact moments and all-order crossing-weight relation are natural concrete combinatorics-on-words invariants rather than arbitrary table recomputation.",
+      "residual_risks": [
+        "Full text of Kari–Xu and specialized unbordered de Bruijn enumerations were not completely read this run; historical overlap possible.",
+        "At k=5 finite exact table could appear in a specialized sequence database or unpublished enumeration despite negative semantic search."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kari–Xu 2012 DOI:10.1142/S0129054112400540 (bibliographic abstract)",
+    "Loptev–Kucherov–Starikovskaya arXiv:1504.07406 (abstract/statistic description)",
+    "Chee et al. 2021 DOI:10.1109/TIT.2021.3112300 (publication description)",
+    "Resultary de Bruijn unbordered semantic query, no matching spectrum",
+    "2026/10/25/unbordered-transition-spectrum-of-binary-de-bruijn-cycles--2b078dd02462/RESULT.md (frozen Git blob and full proof read)",
+    "2026/10/25/unbordered-transition-spectrum-of-binary-de-bruijn-cycles--2b078dd02462/verify.py (frozen package file read)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The exact distribution is only binary order 5 and cycles distinguished up to rotation, not reversal/complement.",
+    "All-order feedback identities do not yield complete distributions at arbitrary k."
+  ],
+  "residual_risks": [
+    "Full text of Kari–Xu and specialized unbordered de Bruijn enumerations were not completely read this run; historical overlap possible.",
+    "At k=5 finite exact table could appear in a specialized sequence database or unpublished enumeration despite negative semantic search."
+  ],
+  "schema_version": 1
+}
