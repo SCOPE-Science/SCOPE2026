@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T13:47:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A first color class either consists of a deleted matching nonedge pair (allowing an exact recursive peel of one crown index), or a full bipartition side, in which case exactly two colors are used. For t pair peels, predecessor constraints a_i<b_j and b_i<a_j for all 1<=i<=t<j describe an exact poset; different ordered pair-index choices yield disjoint permutations. Direct first-two/three vertex decomposition proves L(n,1)=(2n)!/n² and L(n,t)=3L(n−1,t−1); multiplied by n!/(n−t)! ordered choices yields the asserted tail distribution for all n≥2. Independent complete enumeration of all vertex permutations for n=2,3,4 matched counts (2:24), (2:480,3:240), and (2:30240,3:7200,4:2880), respectively. The source C++ verifier was inspected and checks all n≤5 and 28 poset cases through n9; our finite test is not used to prove the recurrence at arbitrary n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ye et al bound expected FirstFit colors by constant on crowns",
+          "Li–Li prove polynomial expected colors possible for other random bipartite graphs"
+        ],
+        "reasoning": "O(1) expectation is weaker than precise mass distribution; general bipartite lower-bound constructions cannot instantiate the formula for fixed crowns.",
+        "searches": [
+          "Ye et al arXiv:2608.29603 §3.1 Thm3",
+          "Li–Li arXiv:2610.15468"
+        ]
+      },
+      "checked_sources": [
+        {
+          "identifier_or_url": "https://arxiv.org/abs/2608.29603",
+          "title": "FirstFit online coloring in the random order model"
+        },
+        {
+          "identifier_or_url": "https://arxiv.org/pdf/1601.00252",
+          "title": "Greedy online colouring with buffering"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior expectation upper bound <=2.5+O(1/n) does not determine P(X>=k)",
+          "Buffered alternating-arrival algorithm has different sample space than uniform unbuffered orders"
+        ],
+        "reasoning": "No inspected stronger law mathematically implies entire exact distribution; the specific poset enumerator is new best-of-knowledge.",
+        "searches": [
+          "Ye–Xu–Wang–Zheng–Li arXiv:2608.29603 Theorem3",
+          "Kordecki–Łyczkowska-Hanćkowiak arXiv:1601.00252 Sec3 vs Sec4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Crown graph = complete bipartite minus perfect matching, a canonical large-Grundy graph",
+          "High-color event equals linear extensions of explicit bipartition precedence posets"
+        ],
+        "reasoning": "Checked Grundy (max-order) and poset linear-extension formulations, not just FirstFit title.",
+        "searches": [
+          "Resultary: crown graph K n n minus matching greedy random order First Fit exact color distribution",
+          "Resultary: random vertex permutation FirstFit crown graph Grundy coloring statistics",
+          "Ye et al arXiv:2608.29603"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published table simulates unbuffered random-order color counts, not factorial exact mass",
+          "Returned Resultary crown graph results concern proper conflict-free and odd coloring, distinct invariants"
+        ],
+        "reasoning": "A published statistical table is not automatically equivalent to complete factorial formulas; an older exhaustive table is a residual risk.",
+        "searches": [
+          "Kordecki–Łyczkowska-Hanćkowiak arXiv:1601.00252 Sec4/Table1",
+          "Resultary: crown graph K n n minus matching greedy random order First Fit exact color distribution"
+        ]
+      },
+      "rationale": "The 2016 crown-graph simulation deals with randomly ordered *unbuffered* greedy coloring but its analytic distribution section concerns a buffered algorithm; Ye–Xu–Wang–Zheng–Li 2026 prove only O(1) expected colors/weak upper expectation bound on uniform random crown graphs. Their estimates do not imply individual exact probabilities, linear-extension factor-three recursion, or 40n!3^{n−3} extremal-order counts. Li–Li 2026 address random bipartite inputs rather than an exact fixed crown law.",
+      "residual_risks": [
+        "Earlier Grundy-coloring / linear-extension enumeration could encode this same distribution under another name.",
+        "The 2016 random-order unbuffered entries in Table 1 are Monte Carlo estimates rather than a complete exact probability distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior bounded-mean theory does not give exact n-dependent distribution or worst-order count",
+          "evidence": [
+            "Theorem 3/Section 3.1 prove O(1) expected FirstFit colors on crowns"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.29603",
+          "material_read": "Primary complete HTML exposition; introduction, Section 3.1 crown graphs and Theorem 3 expectation bound",
+          "method": "Primary full HTML",
+          "title": "FirstFit online coloring in the random order model",
+          "trigger": "Closest exact same crown graph and uniform random-order algorithm"
+        },
+        {
+          "assessment": "Distinguishes buffered process analytic formula from unbuffered random-order simulation",
+          "evidence": [
+            "Source specifically attributes formulas to buffered setting"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1601.00252",
+          "material_read": "Primary original 12-page PDF; Section 3.1 Theorems 5–6 for b=2 alternate-order buffered algorithm, plus Section 4 random-order unbuffered b=1 simulation Table 1; relevant pages 5–6 and 10 examined",
+          "method": "Primary 12-page PDF, relevant mathematical sections 3.1 and 4 inspected",
+          "title": "Greedy online colouring with buffering",
+          "trigger": "Potential same graph with exact color tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Crown graphs are the canonical bipartite Grundy/greedy-coloring gap examples. An explicit complete random-order law and exact rare worst-order count quantitatively explain how random arrival regularizes a worst-case n-color instance; these facts are useful independent exact benchmarks in online-coloring probability.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "identifier_or_url": "https://arxiv.org/abs/2608.29603",
+      "title": "FirstFit online coloring in the random order model"
+    },
+    {
+      "identifier_or_url": "https://arxiv.org/pdf/1601.00252",
+      "title": "Greedy online colouring with buffering"
+    }
+  ],
+  "disposition": "passed",
+  "final_claim": "The exact distribution of the number of FirstFit colors under a uniformly random labeled crown-graph vertex order has factorial/3-power tails T_{n,k}, mean 2+1/n+3/(4n²)+O(n^-3), and exactly 40n!3^{n−3} worst-order permutations for n≥3.",
+  "limitations": [
+    "Uniform permutations on labeled crown graphs only; n≥2; irreversibly smallest available color and no buffer."
+  ],
+  "residual_risks": [
+    "Earlier Grundy-coloring / linear-extension enumeration could encode this same distribution under another name.",
+    "The 2016 random-order unbuffered entries in Table 1 are Monte Carlo estimates rather than a complete exact probability distribution."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Prior bounded-mean theory does not give exact n-dependent distribution or worst-order count",
+      "evidence": [
+        "Theorem 3/Section 3.1 prove O(1) expected FirstFit colors on crowns"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2608.29603",
+      "material_read": "Primary complete HTML exposition; introduction, Section 3.1 crown graphs and Theorem 3 expectation bound",
+      "method": "Primary full HTML",
+      "title": "FirstFit online coloring in the random order model",
+      "trigger": "Closest exact same crown graph and uniform random-order algorithm"
+    },
+    {
+      "assessment": "Distinguishes buffered process analytic formula from unbuffered random-order simulation",
+      "evidence": [
+        "Source specifically attributes formulas to buffered setting"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1601.00252",
+      "material_read": "Primary original 12-page PDF; Section 3.1 Theorems 5–6 for b=2 alternate-order buffered algorithm, plus Section 4 random-order unbuffered b=1 simulation Table 1; relevant pages 5–6 and 10 examined",
+      "method": "Primary 12-page PDF, relevant mathematical sections 3.1 and 4 inspected",
+      "title": "Greedy online colouring with buffering",
+      "trigger": "Potential same graph with exact color tables"
+    }
+  ]
+}

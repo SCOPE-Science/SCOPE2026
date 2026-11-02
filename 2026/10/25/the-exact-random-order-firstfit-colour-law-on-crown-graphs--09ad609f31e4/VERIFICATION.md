@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-The standalone `verify.cpp` uses only the C++17 standard library; compile with `c++ -O2 -std=c++17 verify.cpp -o verify` and execute `./verify`. It directly simulates ordinary irrevocable smallest-admissible-colour vertex arrivals in every order of each \(K_{n,n}-M_n\) for \(2\le n\le5\). There are exactly \(4!+6!+8!+10!=3{,}669{,}864\) orders. For each cardinality it compares the histogram with the differences of two integer-valued predicted tail counts. It independently calculates linear extensions by exhaustive subset dynamic programming on the precedence relations for \(3\le n\le9\), \(1\le t\le n-2\), and compares to the closed-form recurrence (28 checks). The check printed:
+# Independent mathematical audit
 
-`VERIFY_OK exhaustive_crown_orders=3669864 poset_cases=28 maximal_order_count_n5=43200`
+## correctness
 
-The source code and mathematical exposition are included, rather than only a log. The proof of the dichotomy and the poset recurrence is general for all \(n\ge2\). Running finite cases does not by itself certify the infinite statement. Potential historical coverage under other terminology and independent proof review remain unresolved.
+PASS
+
+A first color class either consists of a deleted matching nonedge pair (allowing an exact recursive peel of one crown index), or a full bipartition side, in which case exactly two colors are used. For t pair peels, predecessor constraints a_i<b_j and b_i<a_j for all 1<=i<=t<j describe an exact poset; different ordered pair-index choices yield disjoint permutations. Direct first-two/three vertex decomposition proves L(n,1)=(2n)!/n² and L(n,t)=3L(n−1,t−1); multiplied by n!/(n−t)! ordered choices yields the asserted tail distribution for all n≥2. Independent complete enumeration of all vertex permutations for n=2,3,4 matched counts (2:24), (2:480,3:240), and (2:30240,3:7200,4:2880), respectively. The source C++ verifier was inspected and checks all n≤5 and 28 poset cases through n9; our finite test is not used to prove the recurrence at arbitrary n.
+
+## originality
+
+PASS
+
+The 2016 crown-graph simulation deals with randomly ordered *unbuffered* greedy coloring but its analytic distribution section concerns a buffered algorithm; Ye–Xu–Wang–Zheng–Li 2026 prove only O(1) expected colors/weak upper expectation bound on uniform random crown graphs. Their estimates do not imply individual exact probabilities, linear-extension factor-three recursion, or 40n!3^{n−3} extremal-order counts. Li–Li 2026 address random bipartite inputs rather than an exact fixed crown law.
+
+## value
+
+PASS
+
+Crown graphs are the canonical bipartite Grundy/greedy-coloring gap examples. An explicit complete random-order law and exact rare worst-order count quantitatively explain how random arrival regularizes a worst-case n-color instance; these facts are useful independent exact benchmarks in online-coloring probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
