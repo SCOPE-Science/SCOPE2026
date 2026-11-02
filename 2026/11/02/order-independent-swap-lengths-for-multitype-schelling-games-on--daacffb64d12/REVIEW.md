@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness (PASS)
+For any positive bipartition sizes and any finite number of types, the two individual utility inequalities are cross-multiplied without approximation. They yield exactly one positive and one negative imbalance condition. Under a swap, the corresponding imbalances shift by the constant part-size sum in opposite directions. Strict threshold inequalities prevent an updated surplus from becoming a deficit, or vice versa. The ceiling-ticket counts therefore each fall by exactly one; a swap exists exactly when both are positive. This establishes the exact length for every maximal sequence, including boundary cases. The linear bound follows from the number of occupied vertices in each positive-ticket type. Standalone exhaustive finite checks and the declining-edge-potential witness executed successfully; finite checks are not offered as an infinite proof.
+
+## Originality (PASS; residual publication-priority uncertainty)
+The nearest conceptual antecedent is the regular/almost-regular finite improvement theorem of Bilò et al.; it neither includes arbitrarily unbalanced bicliques nor gives exact schedule-independent durations. Agarwal et al. provide the underlying strategic model and general equilibrium results but no exact all-update-order count for bicliques. Kreisel et al. focus on hardness and robustness. Related work on continuous-type distance swap games gives different payoff objects and potential identities; a potential-increase identity alone does not imply equal lengths of all improving trajectories. The closest inspected research-index hits concern different graph invariants rather than swap Schelling dynamics. This is a same mathematical model literature assessment, not a proof of global novelty. A specialized unidentified equivalent statement remains possible.
+
+## Mathematical value (PASS)
+An exact, computable initial-state clock for *every* adversarial update order is substantially stronger than equilibrium existence, finite improvement, or a worst-case estimate. It holds uniformly for any number of types and even highly unbalanced bicliques; it also classifies all equilibria by two scalar inequalities. The explicit strict swap on an irregular biclique that decreases the usual monochromatic-edge potential demonstrates the need for a distinct argument. This gives a structural convergence invariant for an economically natural graph game, with a linear bound and matching-order examples.
+
+## Verification and limits
+Run `python3 verify_biclique.py` alongside these files. All reported finite checks passed using exact integer arithmetic; the universal theorem follows from the proof, not exhaustion. Only full occupancy, homogeneous like-neighbor fraction utilities, global bilateral strict swaps, and complete bipartite graphs are covered. The result fixes the length, not the final equilibrium state, and does not claim an all-parameter sharp universal worst-case value. No independent external audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.

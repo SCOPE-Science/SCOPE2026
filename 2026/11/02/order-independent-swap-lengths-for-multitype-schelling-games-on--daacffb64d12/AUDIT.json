@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For every integer a,b≥1 and arbitrary k≥2, the two payoff inequalities are algebraically equivalent to d_i>b and d_j<−a. Every legal swap shifts exactly two imbalances by ±(a+b), without sign reversal across opposite thresholds; both integer ceiling-ticket totals therefore decrease exactly one. A legal swap exists exactly when both totals are positive. Hence all maximal paths have the exact initial minimum length, and the linear bound follows from type occupancy. Integer verifier reproduced 191080 explicit comparisons and 310832 profile moves; these are checks, not a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 source proves FIP for regular and almost-regular graphs, with a restricted degree-difference-two extension, not arbitrary degree gap of K_{a,b}.",
+        "The new claim fixes the exact maximal trajectory length for every update policy; generic FIP is weaker even on balanced graphs."
+      ],
+      "reasoning": "No inspected theorem with broader graph coverage implies exact order-independent length. The regular-graph theorem has overlapping topology only when a=b, and states an upper bound on trajectory length, not equality across schedules.",
+      "searches": [
+        "Schelling swap games K_{a,b} with unequal part sizes characterization of equilibria and convergence",
+        "swap Schelling biclique two partitions counts of colors invariant number of steps no cycles, every improvement path equal length",
+        "arxiv:2005.02752 §2 Theorems 1–2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1909.02421; HTML §1–3",
+      "arxiv:2005.02752; publisher OA HTML §2",
+      "arxiv:2105.06561; arXiv and publisher OA HTML",
+      "published-finding corpus semantic research records queried with the six recorded searches",
+      "Previously accessible scientific claims with opaque IDs dbd1a811-fcf4-4fcc-afad-12685c7505d1, ab51a302-81fc-49cb-94d2-2a578f5d8e9d, 8174c9db-f7d9-42ce-a904-9015e63f86d7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Agarwal et al. arXiv:1909.02421, complete HTML §2 defines strict mutually profitable exchange; §3 treats general existence and regular/max-degree-two cases, not the two-ticket length law.",
+        "Bilò et al. arXiv:2005.02752, OA HTML §2 Lemma 2 and Theorems 1–2 establish monochromatic-edge potential behavior for degree difference ≤1 and restricted difference 2; arbitrary K_{a,b} with |a-b| large is not included.",
+        "Kreisel et al. arXiv:2105.06561, HTML §3 and introduction concern equilibrium complexity and robustness, not exact iteration counts.",
+        "Explicit strict swap on K_{2,7} decreases monochromatic-edge potential 6→5, disproving a direct application of its monotonicity on arbitrary bicliques."
+      ],
+      "reasoning": "Original-model definitions do not entail the new theorem; regular/near-regular FIP bounds assert termination but not equal duration; hardness/robustness analyses classify different properties. Explicit unbalanced-biclique monochromatic-edge decrease prevents transplanting the most relevant prior potential argument. The exact paired ticket-decrement formula proves the claimed additional property.",
+      "searches": [
+        "complete bipartite graph Schelling swap game arbitrary colors strictly improving swaps finite improvement potential two-part color composition quadratic",
+        "multi type Schelling games complete bipartite K_{a,b} strict mutually profitable swaps finite improvement order independent length exact surplus deficit quotas",
+        "arxiv:1909.02421 sections 2–3",
+        "arxiv:2005.02752 section 2",
+        "arxiv:2105.06561 section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A two-color discrete-distance specialization of earlier continuous-type biclique swap costs has the same qualitative utility, but its potential identity does not calculate universal schedule-independent move counts.",
+        "The present integer ceilings depend on homophilic type counts and simultaneous bilateral strict gains."
+      ],
+      "reasoning": "Equating an increasing potential with a fixed length would require exactly constant increments or a confluence theorem, neither follows from a generic potential. The earlier continuous-type theorem concerns absolute real-valued distances and optimal placements and does not supply the two-ticket decrement law. Even if a two-color game can be embedded, the claimed invariant is strictly stronger.",
+      "searches": [
+        "complete bipartite graph Schelling swap game arbitrary colors strictly improving swaps finite improvement potential two-part color composition quadratic",
+        "multi type Schelling games complete bipartite K_{a,b} strict mutually profitable swaps finite improvement order independent length exact surplus deficit quotas",
+        "arxiv:1909.02421 §2 strict swap utility",
+        "accessible prior-claim ID ab51a302-81fc-49cb-94d2-2a578f5d8e9d"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Research-index matches for complete multipartite colorings, graph constraints, and equilibrium concepts contain no stated strict Schelling swap trajectory-count table.",
+        "Finite enumerations in the verifier serve as checks and are not extracted from a known classification table."
+      ],
+      "reasoning": "Existing retrieved exact graph-coloring and static-packing tables count different objects and have no transition dynamics. No equivalent exact database or table was found in the actually queried sources.",
+      "searches": [
+        "multi-type Schelling swap dynamics on biclique k colors L1 discrepancy potential exact termination",
+        "complete bipartite Schelling swap equilibrium iff no color has surplus on one side and deficit another; positive part potential",
+        "published-finding corpus query on majority colorings of complete multipartite graphs"
+      ]
+    },
+    "rationale": "Closest primary results supply the Schelling swap model, FIP for nearly regular graphs, and complexity or robustness statements, but none of the inspected claims implies a precise order-independent all-schedule length for arbitrary K_{a,b}. Accessible earlier biclique studies concern continuous real-type distance costs or vacancy jumps, different objects or weaker dynamic assertions. A specialized undiscovered equivalent remains a residual priority risk.",
+    "residual_risks": [
+      "An undiscovered specialized treatment of fully occupied complete bipartite Schelling swap dynamics might imply the identical two-ticket law.",
+      "General potential-game and abelian-network techniques are related methods; without a reduction to the same mathematical model they do not establish the claimed exact length.",
+      "Search and source inspections reduce but cannot certify novelty across all publications."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Definition and general results do not include the exact K_{a,b} all-schedule length law.",
+        "evidence": "Strict profit model in §2 and §3 statements distinguish equilibrium existence from trajectory lengths.",
+        "identifier_or_url": "https://arxiv.org/html/1909.02421v3",
+        "material_read": "§1.1 contribution; §2 definitions, utility and strictly profitable swaps; §3 equilibrium existence, theorem 3.1 and discussion of regular/degree-two graphs.",
+        "method": "Read lawful arXiv HTML full-text sections.",
+        "title": "Swap Stability in Schelling Games on Graphs",
+        "trigger": "Foundational source defining multi-type bilateral swaps and equilibrium existence."
+      },
+      {
+        "assessment": "Almost-regular FIP plus restricted extensions; exact length not stated and arbitrary imbalance not covered.",
+        "evidence": "§2 Theorem 1 says at most m moves on almost regular graphs, and Lemma 2 derives restrictions by degree gap.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10458-022-09573-7",
+        "material_read": "OA article introduction and §2 Lemma 1, Lemma 2, Theorems 1–2, proof and stated degree constraints.",
+        "method": "Read lawful publisher full-text HTML.",
+        "title": "Topological Influence and Locality in Swap Schelling Games",
+        "trigger": "Nearest theorem about finite improvement and potential for general type count."
+      },
+      {
+        "assessment": "No claim of fully strategic K_{a,b} exact universal swap-path length; a complete bipartite component there is part of a gadget containing immobile agents.",
+        "evidence": "§3 Theorem 1 NP-completeness and proof construction with stubborn agents.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10458-023-09632-7",
+        "material_read": "OA article introduction, model assumptions, §3 equilibrium complexity and robustness topics, including complete-bipartite component of a hardness gadget.",
+        "method": "Read arXiv arxiv:2105.06561 and lawful publisher HTML sections.",
+        "title": "Equilibria in Schelling Games: Computational Hardness and Robustness",
+        "trigger": "Motivating first-public 2021 preprint and nearby swap equilibrium analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "daacffb6-4d12-4a4e-818b-5aac60ddead5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact schedule-independent termination time is a structurally stronger convergence invariant than FIP or a worst-case estimate, with a linear upper bound for arbitrary degree imbalance, a precise equilibrium criterion and a family realizing linear trajectories. A strict improving K_{2,7} swap decreases the standard monochromatic-edge potential; this shows why the problem calls for a new argument, not a routine application of regular-graph theorems.",
+    "status": "PASS"
+  }
+}
