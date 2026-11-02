@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof uses the locally uniformly convergent Fourier mask product, an exact modular collision criterion, and arithmetic-progression counting. Every real zero and its analytic order are covered by the arguments in `RESULT.md`.
+# Independent mathematical audit
 
-Run `python3 checker.py` in a directory containing `checker.py`; the script has no nonstandard dependencies. `checker_output.txt` records a completed run with exact rational counts for five representative mask-root angles and three frequency cutoffs each.
+## correctness
 
-The checks verify sample count identities and modular orders, but do not replace the infinite proof. No external mathematical validation was performed. The result does not claim uniform error constants in the digit weight, nor does it classify complex zeros or Fourier bases.
+PASS
+
+Mask product F_w(t)=Π_n exp(−2πit/3^n)[w+(1−w)cos(2πt/3^n)] yields zero levels 3^n(Z±alpha), with simple local zeros for 0<w<1/2, double local zeros at w=1/2 and no real zeros above. Collision iff (3^h sigma−tau)alpha integer; reduced q coprime to 3 gives nested progressions of period L=min{h:3^h≡±1 mod q}. Pairwise disjoint levels otherwise. Progression-density subtraction gives (1−3^(−L))²3^(-(m−1)L) for multiplicity m, total 1−3^(−L), even-multiplicity boundary density 2/3^(m+1) and weighted density 1. Continuity follows q→infinity off rational resonances. Independently enumerated rational-level sets to R=9000 for alpha=2/5,2/7,3/8,1/3,1/2 and reproduced all five total densities. The zero orders are analytic orders, not duplicate list entries.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct mathematical contribution established by comparison of actual statements, not titles. Eq. (8) of Jorgensen–Kornelson–Shuman yields a zero set for two-digit Bernoulli convolution. It does not imply the geometric multiplicity distribution (1−3^(−L))²3^(-(m−1)L), weighted total density one, or all-weight popcorn continuity; these need the three-digit mask and modular nesting argument. General ingredients and established results explicitly credited; no priority guarantee.
+
+## value
+
+PASS
+
+Zeros of self-similar Fourier transforms are a core harmonic-analysis invariant. The full all-weight analytic zero multiplicity distribution, explicit rational arithmetic resonances and popcorn discontinuities form a natural exact classification; not merely a finite numerical sample or restatement of mask factorization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

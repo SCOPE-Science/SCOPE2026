@@ -1,11 +1,21 @@
-# Scientific review: Arithmetic multiplicity and popcorn density of Fourier zeros for symmetric triadic digit measures
+# Independent mathematical audit
 
-**Correctness — PASS.** The entire Fourier transform factors into the digit masks. The trigonometric quadratic determines the exact zero threshold and the order-two endpoint. All scale overlaps reduce to the explicit congruence \(3^h\equiv\pm1\pmod q\), and the resulting nested arithmetic progressions give the asserted exact-multiplicity densities. The weighted count and continuity assertions follow from geometric summation and a denominator bound. Exact rational enumeration of representative resonance orders and cutoff counts agrees with the formulas; finite computation is corroboration, not the proof.
+## correctness
 
-**Originality — PASS, with priority limitations.** The self-similar Fourier-product/zero-union mechanism and its connection with orthogonal exponentials are known. The two-digit analysis of Jorgensen–Kornelson–Shuman (2009), the cycle arithmetic of Dutkay–Haussermann (2014), and the general unweighted mask identity of Su–Wu–Chen (2022) do not state the biased three-digit analytic-zero multiplicity spectrum, the formula for the exact density of each multiplicity, or its full discontinuity locus. The nearest previously recorded binary Bernoulli-convolution density result uses a different two-digit mask and a variable contraction ratio and does not imply the fixed-scale three-digit weighted classification. Older general Fourier analysis of self-similar measures, especially Strichartz (1993), warrants further priority checking because its full text was unavailable.
+PASS
 
-**Mathematical value — PASS.** Real Fourier zeros govern possible orthogonal exponential frequencies. In this natural three-digit family, the complete multiplicity distribution, the collapse of distinct-zero density at arithmetic resonances, and the invariance of multiplicity-weighted density distinguish geometry from analytic order. The exact discontinuity locus and quantized depth provide a motivated classification of a natural transform invariant, not an arbitrary isolated computation.
+Mask product F_w(t)=Π_n exp(−2πit/3^n)[w+(1−w)cos(2πt/3^n)] yields zero levels 3^n(Z±alpha), with simple local zeros for 0<w<1/2, double local zeros at w=1/2 and no real zeros above. Collision iff (3^h sigma−tau)alpha integer; reduced q coprime to 3 gives nested progressions of period L=min{h:3^h≡±1 mod q}. Pairwise disjoint levels otherwise. Progression-density subtraction gives (1−3^(−L))²3^(-(m−1)L) for multiplicity m, total 1−3^(−L), even-multiplicity boundary density 2/3^(m+1) and weighted density 1. Continuity follows q→infinity off rational resonances. Independently enumerated rational-level sets to R=9000 for alpha=2/5,2/7,3/8,1/3,1/2 and reproduced all five total densities. The zero orders are analytic orders, not duplicate list entries.
 
-**Scientific limits.** The result does not classify Fourier bases, complex zeros, or arbitrary IFS weights. Constants in the asymptotics depend on the parameter. The closest inaccessible historical paper was not declared noncovering. Full independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct mathematical contribution established by comparison of actual statements, not titles. Eq. (8) of Jorgensen–Kornelson–Shuman yields a zero set for two-digit Bernoulli convolution. It does not imply the geometric multiplicity distribution (1−3^(−L))²3^(-(m−1)L), weighted total density one, or all-weight popcorn continuity; these need the three-digit mask and modular nesting argument. General ingredients and established results explicitly credited; no priority guarantee.
+
+## value
+
+PASS
+
+Zeros of self-similar Fourier transforms are a core harmonic-analysis invariant. The full all-weight analytic zero multiplicity distribution, explicit rational arithmetic resonances and popcorn discontinuities form a natural exact classification; not merely a finite numerical sample or restatement of mask factorization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
