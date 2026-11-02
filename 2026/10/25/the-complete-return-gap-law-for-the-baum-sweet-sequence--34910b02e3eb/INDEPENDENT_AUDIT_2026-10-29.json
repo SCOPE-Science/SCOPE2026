@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T22:51:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Valid positive binary strings have language 1(1|00)*. Length-m suffix-value lists V_m split in increasing numerical order as V_(m−2) concatenated with 2^(m−1)+V_(m−1), and hence internal gaps W_m split into W_(m−2), one bridge G_m, W_(m−1). A fixed G_m bridge occurs F_(L−m) times inside positive support elements of binary length L, and all length-boundary gaps alternate between 1 and 2. Summation L=m+1..K gives F_(K−m+2)−1; prefix support count F_(K+2) and gap count F_(K+2)−1. G2=G3=3 and others distinct; Fibonacci ratios give limiting point masses and exact geometric tail. Since G_m grows like 2^m and φ<2 the mean diverges. Direct independent binary predicate against complete histogram for K=1..16 passed. These prefix checks do not prove unbounded K or the tail law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allouche–Shallit Automatic Sequences (2003) as background on 2-automaticity",
+          "Known fixed-point substitution produces the Baum–Sweet binary word"
+        ],
+        "reasoning": "Automaticity is a more general framework; neither it nor the substitution alone states the closed Fibonacci histogram or heavy-tailed limit. One must solve the ordered suffix-language and bridge recursion.",
+        "searches": [
+          "Baum Sweet sequence return gaps consecutive ones exact frequency histogram",
+          "automatic sequence return word gap frequencies Baum Sweet"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A060142",
+        "OEIS A086747",
+        "Resultary Baum–Sweet return-gap semantic search",
+        "Baum–Sweet classical zero-run definition",
+        "Assigned RESULT.md, verification and SLOGAN"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Support is already recursively and automata described",
+          "A support-generating recurrence is not itself an explicit probability measure on adjacent return gaps"
+        ],
+        "reasoning": "The exact Fibonacci multiplicities and probability tails require a separate increasing-order bridge analysis. A prior work on return words/gaps hidden under alternate terminology remains possible.",
+        "searches": [
+          "OEIS A060142 support characterization",
+          "A086747 automatic sequence",
+          "Baum–Sweet 1976 original definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A060142 support 0, closure under 2s+1 and 4s",
+          "OEIS A086747 Baum–Sweet indicator",
+          "Classical language 1(1|00)*"
+        ],
+        "reasoning": "Gap lengths are a derived equivalent invariant of the support sequence. Known support recurrences imply a way to compute gaps, but the inspected source entries do not give exact bridge multiplicities or limit masses.",
+        "searches": [
+          "Baum Sweet sequence return gaps consecutive ones exact frequency histogram",
+          "Baum Sweet sequence gap lengths ones Fibonacci closure OEIS A060142"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A060142 lists actual support indices and Fibonacci pattern",
+          "Resultary search returned unrelated gap/spectrum records, no matching Baum–Sweet return-gap frequency record"
+        ],
+        "reasoning": "Some values 1,2,3,6,9,… can be read as differences from the sequence, but that finite list does not determine the complete scale-by-scale histogram, limiting weights, or infinite mean. Failure to locate a table is not priority proof.",
+        "searches": [
+          "Baum Sweet sequence return gaps consecutive ones exact frequency histogram",
+          "OEIS A060142 A086747 first differences frequency table",
+          "Resultary Baum Sweet return-gap histogram search"
+        ]
+      },
+      "rationale": "The Baum–Sweet support itself and Fibonacci recurrence are known, including the equivalent closure language in OEIS A060142 and automatic sequence A086747. Those sources characterize support sites, not the exact all-K adjacent-return gap counts by each bridge scale or the size-biased heavy-tailed limiting distribution. Unlike a new binary indicator definition, the claimed contribution is a complete statistical invariant extracted from the known language.",
+      "residual_risks": [
+        "An unindexed return-word enumeration for Baum–Sweet may contain an equivalent histogram.",
+        "The limit is uniform over gaps with both endpoints below 2^K, not site-uniform over [0,2^K).",
+        "No correlations between successive gaps are computed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same support sequence; no complete frequency law in inspected entry",
+          "evidence": [
+            "Closure under 2x+1 and 4x and initial support indices are known"
+          ],
+          "identifier_or_url": "https://oeis.org/A060142",
+          "material_read": "Entry definition, initial terms and comments mentioning Fibonacci-word pattern",
+          "method": "Read OEIS entry as a database/source comparison",
+          "title": "OEIS A060142: Ordered set S defined by 0 and closure under 2x+1,4x",
+          "trigger": "known support characterization and potential exact gap table"
+        },
+        {
+          "assessment": "Provides indicator, not all-K return-gap frequency theorem",
+          "evidence": [
+            "The binary zero-run characterization agrees with the audited definition"
+          ],
+          "identifier_or_url": "https://oeis.org/A086747",
+          "material_read": "Entry definition and formula for binary zero runs",
+          "method": "Read sequence entry and compared indexing conventions",
+          "title": "OEIS A086747: Baum–Sweet sequence",
+          "trigger": "classical underlying automatic sequence"
+        },
+        {
+          "assessment": "Background only; cannot certify absence of an equivalent result in the full book",
+          "evidence": [
+            "General automata context is not a specific gap-law statement"
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/books/automatic-sequences/",
+          "material_read": "Bibliographic description and general automaticity context only; full book not read",
+          "method": "Secondary accessible summary and references",
+          "title": "Automatic Sequences: Theory, Applications, Generalizations",
+          "trigger": "general automatic-sequence theory and potential broader result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete return gap spectrum and exact dyadic-prefix probability law describe a natural and mathematically useful recurrence invariant of a classical automatic sequence. Heavy tail and infinite mean despite structured Fibonacci support growth is a notable sharp classification, with clear sampling convention and exact finite histogram.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "OEIS A060142",
+    "OEIS A086747",
+    "Resultary Baum–Sweet return-gap semantic search",
+    "Baum–Sweet classical zero-run definition",
+    "Assigned RESULT.md, verification and SLOGAN"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the Baum–Sweet support 0=s0<s1<… the dyadic-prefix adjacent-return gap histogram has exact values N_K(g) from bridge lengths G_m=2^(m−2)+1+1_(2|m) and Fibonacci multiplicities; the limiting gap law has P(3)=φ^-1, P(G_m)=φ^-m (m≥4), exact tail φ^(2−m), exponent log_2 φ and infinite mean.",
+  "limitations": [
+    "Support includes 0, and the finite histogram requires both endpoints inside the dyadic prefix.",
+    "G2=G3=3 is a duplicated bridge value; summed mass P(3)=φ^-1.",
+    "A finite histogram alone is not an exhaustion argument for the full infinite spectrum."
+  ],
+  "residual_risks": [
+    "An unindexed return-word enumeration for Baum–Sweet may contain an equivalent histogram.",
+    "The limit is uniform over gaps with both endpoints below 2^K, not site-uniform over [0,2^K).",
+    "No correlations between successive gaps are computed."
+  ],
+  "schema_version": 1
+}

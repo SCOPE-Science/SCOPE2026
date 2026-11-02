@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-token description produces a disjoint, numerically ordered binary-language recursion. Its join gap is exact, and occurrences of each join at each digit length are counted by Fibonacci-sized token prefixes. The base lengths and cross-digit boundaries are included; summation gives the full exact histogram. A separate script independently checks the digit predicate, token-generation and histogram through exponent 15, and dyadic convergence at exponent 19. Finite cases are corroboration only.
+## correctness
 
-## Originality — PASS against inspected material
-OEIS A060142 already defines the same positive support and its Fibonacci-word structure; those facts are credited. OEIS A086747 is its indicator. The inspected sources do not state the exact histogram or heavy-tailed dyadic limit. Kimberling’s 2000 golden-mean article studies a related but differently generated set. Targeted searches for equivalent return-word, successive-position and gap-frequency formulations yielded no covering statement. Since the underlying support is old, an overlooked derived gap theorem is a real historical-priority risk.
+PASS
 
-## Value — PASS
-This is a complete natural return-gap classification, not a single preselected finite computation. Its exact multiplicities connect automatic-language recursion with a normalized Fibonacci/geometric heavy-tailed distribution of infinite mean. It identifies an unusual scale hierarchy of return distances for a sparse sequence and provides precise statistics useful in recurrence and combinatorics-on-words questions.
+Valid positive binary strings have language 1(1|00)*. Length-m suffix-value lists V_m split in increasing numerical order as V_(m−2) concatenated with 2^(m−1)+V_(m−1), and hence internal gaps W_m split into W_(m−2), one bridge G_m, W_(m−1). A fixed G_m bridge occurs F_(L−m) times inside positive support elements of binary length L, and all length-boundary gaps alternate between 1 and 2. Summation L=m+1..K gives F_(K−m+2)−1; prefix support count F_(K+2) and gap count F_(K+2)−1. G2=G3=3 and others distinct; Fibonacci ratios give limiting point masses and exact geometric tail. Since G_m grows like 2^m and φ<2 the mean diverges. Direct independent binary predicate against complete histogram for K=1..16 passed. These prefix checks do not prove unbounded K or the tail law.
 
-## Sources and limitations
-The closest prior exact object is OEIS A060142, first recorded March 5, 2001. OEIS A086747 describes the associated word, and Allouche–Shallit (2003) gives foundational automatic-sequence context. The conclusion is about dyadic-prefix sampling, not stationarity across sites; successive-gap correlations are not determined. The original historical literature has not been exhaustively searched or independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Baum–Sweet support itself and Fibonacci recurrence are known, including the equivalent closure language in OEIS A060142 and automatic sequence A086747. Those sources characterize support sites, not the exact all-K adjacent-return gap counts by each bridge scale or the size-biased heavy-tailed limiting distribution. Unlike a new binary indicator definition, the claimed contribution is a complete statistical invariant extracted from the known language.
+
+## value
+
+PASS
+
+The complete return gap spectrum and exact dyadic-prefix probability law describe a natural and mathematically useful recurrence invariant of a classical automatic sequence. Heavy tail and infinite mean despite structured Fibonacci support growth is a notable sharp classification, with clear sampling convention and exact finite histogram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

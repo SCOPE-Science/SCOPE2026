@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproduction
-Run `python3 verify.py`. The script uses the Python standard library only. It builds valid support values from the regular-language recursion and separately evaluates the binary zero-run predicate for all integers in every dyadic prefix of size up to \(2^{15}\). It tests exact histograms for every \(1\le K\le15\) and tests numerical convergence of individual limiting masses with a prefix of size \(2^{19}\).
+# Independent mathematical audit
 
-Observed status: `VERIFY_OK independent_integer_predicate_vs_token_recursion K=1..15`; `VERIFY_OK exact_histogram_recurrence_and_boundary_gaps K=1..15`; `VERIFY_OK dyadic_fibonacci_limit_samples K=19, bridge_m=4..12`.
+## correctness
 
-These are finite checks; the unbounded result depends on the symbolic ordered-language argument and Fibonacci limit in `RESULT.md`. Mathematical independence and external certification are not claimed.
+PASS
+
+Valid positive binary strings have language 1(1|00)*. Length-m suffix-value lists V_m split in increasing numerical order as V_(m−2) concatenated with 2^(m−1)+V_(m−1), and hence internal gaps W_m split into W_(m−2), one bridge G_m, W_(m−1). A fixed G_m bridge occurs F_(L−m) times inside positive support elements of binary length L, and all length-boundary gaps alternate between 1 and 2. Summation L=m+1..K gives F_(K−m+2)−1; prefix support count F_(K+2) and gap count F_(K+2)−1. G2=G3=3 and others distinct; Fibonacci ratios give limiting point masses and exact geometric tail. Since G_m grows like 2^m and φ<2 the mean diverges. Direct independent binary predicate against complete histogram for K=1..16 passed. These prefix checks do not prove unbounded K or the tail law.
+
+## originality
+
+PASS
+
+The Baum–Sweet support itself and Fibonacci recurrence are known, including the equivalent closure language in OEIS A060142 and automatic sequence A086747. Those sources characterize support sites, not the exact all-K adjacent-return gap counts by each bridge scale or the size-biased heavy-tailed limiting distribution. Unlike a new binary indicator definition, the claimed contribution is a complete statistical invariant extracted from the known language.
+
+## value
+
+PASS
+
+The complete return gap spectrum and exact dyadic-prefix probability law describe a natural and mathematically useful recurrence invariant of a classical automatic sequence. Heavy tail and infinite mean despite structured Fibonacci support growth is a notable sharp classification, with clear sampling convention and exact finite histogram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
