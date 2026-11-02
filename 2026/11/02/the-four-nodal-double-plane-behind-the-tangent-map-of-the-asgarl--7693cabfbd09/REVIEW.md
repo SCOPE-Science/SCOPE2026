@@ -1,0 +1,11 @@
+# Review of the four-nodal tangent double plane
+
+**Correctness (PASS).** The seven distinct simple cubic base points are solved exactly; the evaluation matrix of cubics has rank seven. The displayed quadratic inverse equation has discriminant \(B\), and factoring \(B\) over a primitive cubic root of unity produces two transverse nonsingular conics. The double cover therefore has exactly four \(A_1\) singularities. The four boundary lines through triples of base points resolve them as disjoint \((-2)\)-curves. A standalone finite-field check reproduces the branch-point count over ten fields; the proof is independent of enumeration.
+
+**Originality (PASS, provisional priority assessment).** The 2023 Asgarli–Ghioca article introduces the plane curve, its tangent formula, and tangent-filling behavior. A previous arithmetic treatment of exactly this curve already gives the full one-/two-contact line counts and a rational deck involution, which this finding explicitly excludes from its novelty claim. The new claim is the four-nodal anticanonical surface, factorization of the branch quartic into conjugate conics, and geometric resolution of the special seven-base-point net. Classical Geiser/weak del Pezzo theory covers the general construction but does not specify this special configuration or its split branch. Residual priority risk: an equivalent explicit special Geiser construction might appear in classical literature or in papers not inspected in full.
+
+**Value (PASS).** The precise degeneration of an anticanonical degree-two map, including the resolution graph and field-dependent splitting of its branch divisor, is geometric information not determined by tangent multiplicity statistics. The two-conic branch is an intrinsically motivated complete classification of the discriminant of a canonical rational tangent map, not an arbitrary parameter slice.
+
+**Limits.** This is not a claim about full geometric tangency at all nonrational points of the original high-degree curve; no independent audit or priority certification has occurred. The exact branch-point count is an arithmetic corollary of the conic splitting, not a new rational-contact count.
+
+Self-review: passed. Independent audit: not yet performed.
