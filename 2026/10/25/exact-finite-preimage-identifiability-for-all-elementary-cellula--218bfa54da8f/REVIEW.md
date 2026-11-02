@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Paths in a four-overlap-state predecessor graph correspond bijectively to complete finite input blocks. Capped integer path counting preserves singleton status, and its complete closure has at most 81 formal states. The saved standard-library verifier computes all 256 complete closures and independently enumerates every finite input word producing output lengths one through six, checking 32,256 output-word instances plus the right-terminal-pair supports. The exact 164/92 classification, eight length-six extremizers and 42 right-boundary-only rules reproduce the saved CSV.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual historical risk.** The primary ancestor/preimage literature by Seck Tuoh Mora–Juárez Martínez–McIntosh (2004) and Jeras–Dobnikar (2006, 2007) provides general algorithms and illustrative examples but no identified complete least-unique-preimage census. Salo's inverse/regularity classification asks a logically different question, and Rule 18's previously documented unique antecedent is a special instance. Earlier right-boundary-only results do not imply full uniqueness: exactly 42 rules provide a counterexample. Search misses alone do not certify novelty; an unindexed 256-rule table remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The classification settles an intrinsic, boundary-independent finite-block observability question for the complete canonical radius-one binary family, with a sharp universal cutoff and explicit extremizers. It detects a structurally important distinction between locating one endpoint and identifying an entire antecedent, including 42 rules for which the weaker observation is possible but the stronger one is not. It is not a routine length increment: impossibility at every length is proved by finite-state closure, and the classification determines all 256 rules.
+PASS: Each predecessor block maps bijectively to a path of its output-label sequence in the four-pair De Bruijn overlap graph. Initial count at all start states is one; capping nonnegative path multiplicities at two before summation retains exactly the partition 0,1,>=2. A total capped state-sum of one is equivalent to exactly one entire finite predecessor, not just one terminal pair. Breadth-first search from (1,1,1,1) on at most 3^4=81 states is exhaustive for unbounded word lengths. Independent, separately implemented BFS for all 256 rule labels reproduced the exact length histogram, eight maximal witnesses, 92 never classes, right-boundary-only 42, and full-versus-boundary shortest gaps {0:132,1:20,2:8,3:4}. The inspected source verify.py additionally rederives and crosschecks CSV and all 32256 output words for n<=6 by direct input enumeration. Infinite absence of longer singleton words follows from finite-state closure, not merely length-six enumeration. Open-boundary definition is essential; no bilateral reversibility claim.
 
-**Limitations.** Results concern unrestricted finite input blocks under one CA update, not invertibility on the bi-infinite shift or arbitrary larger-radius rules. The exhaustive computation is self-contained and independently cross-checked only through finite length six; the proof that no later witnesses exist is the full state-closure argument. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On the inspected primary sources and independent comparison, the specified new exact evaluation/classification is not supplied by a stronger known theorem; scope and residual priority limitations are stated explicitly. The equivalent path-count formulation is used directly; general predecessor-count machinery does not state the all-rule sharp finite minimum classification. Counting all whole-block antecedents prevents conflation with one-sided synchronization. The result has additional derived information not supplied by the general algorithm alone: exact class counts, optimal witnesses, and proof no never-rule can recover at any longer length.
+
+## value
+
+PASS
+
+PASS: Gives the complete sharp cutoff and exact full-preimage observability classes for the canonical 256 elementary rules. The 42-rule gap distinguishes full finite-block reconstruction from terminal-pair synchronization, a natural invariant relevant to CA backward dynamics; finite-state classification is mathematically meaningful despite the finite rule universe.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

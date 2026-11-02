@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:47:06.474547Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-finite-preimage-identifiability-for-all-elementary-cellula--218bfa54da8f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-finite-preimage-identifiability-for-all-elementary-cellula--218bfa54da8f/verify.py"
+      ],
+      "rationale": "PASS: Each predecessor block maps bijectively to a path of its output-label sequence in the four-pair De Bruijn overlap graph. Initial count at all start states is one; capping nonnegative path multiplicities at two before summation retains exactly the partition 0,1,>=2. A total capped state-sum of one is equivalent to exactly one entire finite predecessor, not just one terminal pair. Breadth-first search from (1,1,1,1) on at most 3^4=81 states is exhaustive for unbounded word lengths. Independent, separately implemented BFS for all 256 rule labels reproduced the exact length histogram, eight maximal witnesses, 92 never classes, right-boundary-only 42, and full-versus-boundary shortest gaps {0:132,1:20,2:8,3:4}. The inspected source verify.py additionally rederives and crosschecks CSV and all 32256 output words for n<=6 by direct input enumeration. Infinite absence of longer singleton words follows from finite-state closure, not merely length-six enumeration. Open-boundary definition is essential; no bilateral reversibility claim.",
+      "residual_risks": [
+        "Any finite computation is corroboration only; unrestricted statement depends on the stated structural proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jeras–Dobnikar provide general algorithms for finite CA predecessor configurations.",
+          "Salo discusses continuous generalized inverses, and indexed SCOPE work classifies different ring bijectivity."
+        ],
+        "reasoning": "A general algorithm capable of computing a table is not itself a theorem evaluating all 256 sharp minima; global reversibility quantifies over all configurations rather than one finite output word.",
+        "searches": [
+          "Jeras Dobnikar preimage counting algorithm 2007 full article",
+          "arXiv:2209.13373 Salo von Neumann regularity",
+          "Resultary 2026/10/11/SCOPE-exact-odd-ring-and-twice-odd-bijectivity-for-quadratic-five-site--8948cda228be"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py, classification.csv and full Git tree",
+        "Jeras–Dobnikar 2007 accessible full manuscript",
+        "Seck Tuoh Mora et al. 2004 DOI",
+        "Salo 2022 arxiv:2209.13373",
+        "Cambridge 2026 Rule18 abstract",
+        "Resultary ECA query and related but distinct reversible ring topics",
+        "Independent full 256-rule capped count machine and support automata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A labeled 4-state graph and generic path enumeration can compute each u_r but provide no evaluated sharp six-symbol uniform result without complete 256-rule finite-state exploration.",
+          "Right-boundary synchronization is weaker: 42 rules exhibit a finite terminal-pair singleton yet never a singleton whole predecessor path."
+        ],
+        "reasoning": "The result has additional derived information not supplied by the general algorithm alone: exact class counts, optimal witnesses, and proof no never-rule can recover at any longer length.",
+        "searches": [
+          "Jeras Dobnikar 2007 predecessor count and list",
+          "Salo 2022 regularity",
+          "Resultary elementary cellular automata unique finite predecessor blocks shortest output length all 256 rules de Bruijn graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The four-overlap-state labeled De Bruijn graph realizes exactly the finite-word predecessor count from older ancestor/preimage matrix methods.",
+          "Full predecessor uniqueness differs from terminal pair synchronization and from injectivity on bilateral shifts."
+        ],
+        "reasoning": "The equivalent path-count formulation is used directly; general predecessor-count machinery does not state the all-rule sharp finite minimum classification. Counting all whole-block antecedents prevents conflation with one-sided synchronization.",
+        "searches": [
+          "Resultary elementary cellular automata unique finite predecessor blocks shortest output length all 256 rules de Bruijn graph",
+          "Jeras Dobnikar Algorithms computing preimages cellular automata configurations 2007",
+          "Seck Tuoh Mora ancestor graph subset diagram"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact complete 256-row classification.csv and independent regenerated 256-rule BFS agree on all histogram bins and eight maximizers.",
+          "Some isolated ECA unique preimage words, including Rule18, are already documented."
+        ],
+        "reasoning": "A known isolated example or visual atlas of 256 rules does not imply the precise finite open-boundary predecessor uniqueness spectrum. No equivalent preexisting complete table was identified in the inspected primary works.",
+        "searches": [
+          "\"256\" \"elementary cellular automata\" unique finite predecessor six cutoff",
+          "classification.csv 256 Wolfram rules and 42 right-only",
+          "Seck Tuoh Mora ancestor subset diagram ECA 2004"
+        ]
+      },
+      "rationale": "On the inspected primary sources and independent comparison, the specified new exact evaluation/classification is not supplied by a stronger known theorem; scope and residual priority limitations are stated explicitly. The equivalent path-count formulation is used directly; general predecessor-count machinery does not state the all-rule sharp finite minimum classification. Counting all whole-block antecedents prevents conflation with one-sided synchronization. The result has additional derived information not supplied by the general algorithm alone: exact class counts, optimal witnesses, and proof no never-rule can recover at any longer length.",
+      "residual_risks": [
+        "Another earlier exhaustive table could be unpublished or indexed under synchronizing inverse automata rather than ECA preimages.",
+        "Classification applies to one-step finite-open-boundary outputs, not periodic rings or global two-sided injectivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic machinery and example calculations; no inspected evaluated 256-rule open-boundary singleton spectrum",
+          "evidence": "Full PDF text and page images; distinction between counting/listing and complete sharp classification.",
+          "identifier_or_url": "https://rattus.info/al/files/preimages.pdf",
+          "material_read": "Author-hosted full manuscript inspected, including graph/matrix predecessor counts, algorithms and examples such as Rule110",
+          "method": "Lawful full manuscript PDF, extracted text and page-image inspection",
+          "title": "Algorithms for computing preimages of cellular automata configurations",
+          "trigger": "Most directly overlapping path-count algorithm and boundary conventions"
+        },
+        {
+          "assessment": "Related general path/subset algorithm, cannot certify absent table in unread text",
+          "evidence": "Residual risk explicitly noted for uninspected complete original.",
+          "identifier_or_url": "https://doi.org/10.1142/S0129183104006625",
+          "material_read": "Abstract and bibliographic description; complete article not retrieved",
+          "method": "Publisher/abstract metadata only",
+          "title": "Calculating Ancestors in One-Dimensional Cellular Automata",
+          "trigger": "Historical ancestor/subset diagram potentially same invariant"
+        },
+        {
+          "assessment": "Studies continuous generalized inverse rather than finite open-boundary singleton output",
+          "evidence": "Different logical quantifiers and dynamical boundary model.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.13373",
+          "material_read": "Abstract and available introductory material",
+          "method": "Open preprint description",
+          "title": "On von Neumann regularity of cellular automata",
+          "trigger": "Potential stronger invertibility criterion"
+        },
+        {
+          "assessment": "Isolated special-case witness already known; cannot imply 256-rule histogram",
+          "evidence": "Do not present Rule18 example as new.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/limit-dynamics-of-elementary-cellular-automaton-18/8D236BAA96D6BB0F894ABCFEF3C1312B",
+          "material_read": "Abstract and accessible description of Rule18 preimages",
+          "method": "Publisher accessible abstract",
+          "title": "Limit dynamics of elementary cellular automaton 18",
+          "trigger": "Published isolated unique-preimage example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py, classification.csv and full Git tree",
+        "Jeras–Dobnikar 2007 accessible full manuscript",
+        "Seck Tuoh Mora et al. 2004 DOI",
+        "Salo 2022 arxiv:2209.13373",
+        "Cambridge 2026 Rule18 abstract",
+        "Resultary ECA query and related but distinct reversible ring topics",
+        "Independent full 256-rule capped count machine and support automata"
+      ],
+      "rationale": "PASS: Gives the complete sharp cutoff and exact full-preimage observability classes for the canonical 256 elementary rules. The 42-rule gap distinguishes full finite-block reconstruction from terminal-pair synchronization, a natural invariant relevant to CA backward dynamics; finite-state classification is mathematically meaningful despite the finite rule universe.",
+      "residual_risks": [
+        "Another earlier exhaustive table could be unpublished or indexed under synchronizing inverse automata rather than ECA preimages.",
+        "Classification applies to one-step finite-open-boundary outputs, not periodic rings or global two-sided injectivity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For each of 256 elementary binary radius-one rules r, the shortest nonempty finite output word admitting exactly one unrestricted n+2-bit finite predecessor has frequency by shortest length {1:16,2:52,3:56,4:28,5:4,6:8,infinity:92}; six is sharp, extremal rules are 37,57,91,99,156,164,198,218; 42 rules have a right-boundary-synchronizing word but no full unique predecessor word, with all rule-level witnesses and closure certificates in classification.csv.",
+  "limitations": [
+    "Another earlier exhaustive table could be unpublished or indexed under synchronizing inverse automata rather than ECA preimages.",
+    "Classification applies to one-step finite-open-boundary outputs, not periodic rings or global two-sided injectivity."
+  ],
+  "schema_version": 1
+}

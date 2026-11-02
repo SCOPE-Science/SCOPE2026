@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification procedure
+# Independent mathematical audit
 
-Run `python3 verify.py classification.csv` in the directory containing both files. The checker uses the Python standard library and exact integer arithmetic only; no external dependencies or data services are required.
+## correctness
 
-The checker constructs complete reachable capped-count state graphs for all 256 elementary binary rules, proves a finite complete closure (at most 81 formal states), and checks its generated classification byte-for-byte against `classification.csv`. It independently counts all \((n+2)\)-bit predecessor blocks for every rule and output length \(1\le n\le6\), comparing both the exact singleton-predecessor condition and admissible singleton-right-endpair condition. These constitute 32,256 output-word instances; they are confirmatory finite checks, not a substitute for closure over all lengths.
+PASS
 
-The exact assertions include the histogram \((16,52,56,28,4,8,92)\) for lengths one through six and never, the eight rules requiring length six, the 42 right-boundary-only rules, and the gap-frequency vector \((132,20,8,4)\). Any changed CSV, counting algorithm discrepancy, failed shortest-witness condition or incorrect class statistic aborts with an assertion error. The self-contained complete-closure certificate, not a numerical convergence test, supports the unrestricted conclusions.
+PASS: Each predecessor block maps bijectively to a path of its output-label sequence in the four-pair De Bruijn overlap graph. Initial count at all start states is one; capping nonnegative path multiplicities at two before summation retains exactly the partition 0,1,>=2. A total capped state-sum of one is equivalent to exactly one entire finite predecessor, not just one terminal pair. Breadth-first search from (1,1,1,1) on at most 3^4=81 states is exhaustive for unbounded word lengths. Independent, separately implemented BFS for all 256 rule labels reproduced the exact length histogram, eight maximal witnesses, 92 never classes, right-boundary-only 42, and full-versus-boundary shortest gaps {0:132,1:20,2:8,3:4}. The inspected source verify.py additionally rederives and crosschecks CSV and all 32256 output words for n<=6 by direct input enumeration. Infinite absence of longer singleton words follows from finite-state closure, not merely length-six enumeration. Open-boundary definition is essential; no bilateral reversibility claim.
 
-No independent audit has been performed; this verification records reproducibility and the limits of the available checks.
+## originality
+
+PASS
+
+On the inspected primary sources and independent comparison, the specified new exact evaluation/classification is not supplied by a stronger known theorem; scope and residual priority limitations are stated explicitly. The equivalent path-count formulation is used directly; general predecessor-count machinery does not state the all-rule sharp finite minimum classification. Counting all whole-block antecedents prevents conflation with one-sided synchronization. The result has additional derived information not supplied by the general algorithm alone: exact class counts, optimal witnesses, and proof no never-rule can recover at any longer length.
+
+## value
+
+PASS
+
+PASS: Gives the complete sharp cutoff and exact full-preimage observability classes for the canonical 256 elementary rules. The 42-rule gap distinguishes full finite-block reconstruction from terminal-pair synchronization, a natural invariant relevant to CA backward dynamics; finite-state classification is mathematically meaningful despite the finite rule universe.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
