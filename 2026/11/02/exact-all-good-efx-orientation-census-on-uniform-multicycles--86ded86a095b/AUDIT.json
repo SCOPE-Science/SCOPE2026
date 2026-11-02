@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The proof explicitly handles all-good (not EFX0) deletions: a zero-valued item in the left/right neighbor bundle forces a stronger load inequality. The two shifted length-three inequalities are necessary/sufficient for n>=3. Weighted closed walks enumerate all and only labeled endpoint orientations. Both small matrix determinants are exact finite identities, reconstructed by integer Newton identities; an independently implemented direct EFX checker examined 491320 orientations in 21 complete finite cases. Infinity relies on the proved bijection, not experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2606.18665 proves EFX existence of multigraph allocations for cancelable valuations, without enumerating endpoint-only orientations.",
+        "arxiv:2410.17002 Theorem 5.1 proves EFX allocation existence on multicycles, while Table 1 and §3 concern orientation existence/nonexistence in broader valuation classes.",
+        "arxiv:2512.25033 studies EF(X) orientation decision and charity algorithms but no exact counts for uniform multicycles.",
+        "Prior accessible own claim 0558aa85-4ca5-43d8-a186-0013f8a9ef97 counts one good per simple-cycle edge; prior claim 8ea69324-d8af-4cf6-a3b0-a233d70c79fc counts multistars."
+      ],
+      "reasoning": "Existence and decision theorems are logically weaker for the requested count and sharp density. The existing simple-cycle enumeration is the q=1 boundary rather than a theorem implying q=2 or q=3. A multistar is not a cycle: it has no cyclic neighborhood consistency constraint and its exact multiplicity-q count does not imply this theorem.",
+      "searches": [
+        "published-finding corpus: EFX fair orientations multicycle q parallel items per cycle edge counting closed recurrence spectral asymptotics",
+        "Web: \"EFX\" \"doubled cycle\" number orientations",
+        "Web: \"EFX\" \"enumerate\" multicycles exact number",
+        "arxiv:2606.18665 full-text §1.1, §2",
+        "arxiv:2410.17002 pp.1–3 and §5, PDF text",
+        "arxiv:2512.25033 §§1–2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.18665",
+      "https://arxiv.org/pdf/2410.17002",
+      "https://arxiv.org/abs/2512.25033",
+      "https://doi.org/10.3233/FAIA251259",
+      "research record 2026/10/4/SCOPE-cycle-graphical-groups-have-an-explicit-character-degree-enumera--a874723da77e",
+      "research record 2026/9/9/SCOPE087"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2606.18665 establishes an EFX allocation, which may allocate to non-endpoints, without giving the orientation count even when all goods are unit-valued.",
+        "arxiv:2410.17002 orientation existence results depend on weights and graph diameter; the exact cardinality of all EFX orientations under fixed identical endpoint valuations is a different invariant.",
+        "doi:10.3233/FAIA251259 proves existence under a forbidden odd-multitree condition for certain bi-valued symmetric graphs, without giving the multicycle orientation enumerator.",
+        "published-finding corpus nearest items include 2026/10/4/SCOPE-cycle-graphical-groups-have-an-explicit-character-degree-enumera--a874723da77e and 2026/9/9/SCOPE087; these concern group characters and chromatic quasisymmetric functions rather than EFX orientation counts."
+      ],
+      "reasoning": "No inspected existing theorem dominates or specializes to the exact all-q transfer and q=2/3 algebraic count. We neither claim that EFX existence is new nor that finding a finite automaton is automatically sufficient for research value; the claimed novelty is its exact EFX specialization and explicit nontrivial algebraic census.",
+      "searches": [
+        "published-finding corpus: Exact enumeration number of all-good EFX orientations of uniform doubled cycles with two parallel unit-value edges per adjacency, transfer matrix characteristic polynomial lambda^3-4lambda^2+4lambda-2",
+        "published-finding corpus: EFX fair orientations multicycle q parallel items per cycle edge counting closed recurrence spectral asymptotics",
+        "arxiv:2606.18665 §1.1 and §2",
+        "arxiv:2410.17002 Table 1 and Theorem 5.1",
+        "arxiv:2512.25033 §1.2 and §2.1",
+        "doi:10.3233/FAIA251259 §2 and Theorem 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The cycle enumeration is equivalent to weighted periodic words with the two length-three inequalities in RESULT.md; this is a derived reformulation, not a preexisting named theorem.",
+        "arxiv:2606.18665 §2 uses all-good EFX; arxiv:2512.25033 §§1–2 discusses EFX orientation existence and algorithmic parameterization; neither inspected section states a transfer-matrix enumeration.",
+        "No query yielded a scientific record or paper explicitly matching the two characteristic polynomial factors."
+      ],
+      "reasoning": "The equivalence to a finite-type weighted cyclic shift was derived and tested. Generic transfer-matrix enumerability is not claimed novel by itself: the exact local EFX encoding, cubic spectral factors and resulting sharp random-orientation laws are the claimed new mathematics. Available search results did not supply a stronger equivalent.",
+      "searches": [
+        "published-finding corpus: EFX fair orientations multicycle q parallel items per cycle edge counting closed recurrence spectral asymptotics",
+        "published-finding corpus: EFX orientation directed cycle homogeneous multigraph count spectral characteristic polynomial",
+        "Web: \"envy-free up to any\" \"transfer matrix\" cycle",
+        "Web: \"EFX\" \"orientations\" \"enumeration\" parallel cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact q=2 counts 22,66,184,522,1488,4226 and q=3 counts 236,1466,9068,56090,347012,2146946 arose from the independently checked transfer matrix, not copied from a table.",
+        "Targeted phrase/number and research-record searches did not identify an extant equivalent enumeration or explicit database entry."
+      ],
+      "reasoning": "Search nonmatches do not establish novelty, but there was no known table from which this formula was merely recomputed. Any later-discovered identical sequence with a proved fair-division interpretation would require reassessment.",
+      "searches": [
+        "published-finding corpus: EFX edge orientations doubled cycle n agents counts 22 66 184 522",
+        "Web: \"22, 66, 184, 522\" graph sequence",
+        "Web: \"22 66 184 522\" EFX cycles",
+        "Web: \"236 1466 9068 56090\" cycle allocation",
+        "Web: \"number of EFX orientations\" \"multicycle\""
+      ]
+    },
+    "rationale": "The accessible 2026 source proves allocation existence; 2024 and 2025 sources treat existence/complexity of orientations, not counting. Accessible previous related exact findings are limited to q=1 simple cycles or arbitrary-q multistars. The all-multiplicity transfer rule and q=2/q=3 cubic spectral counts are not an implication of those results. Full-text comparison and targeted queries found no equivalent enumeration, subject to unindexed-work risk.",
+    "residual_risks": [
+      "Automata enumeration or transfer-matrix counts of the exact same EFX language may exist under a different name or in unindexed work.",
+      "The prior literature has broad EFX-orientation algorithms; none inspected supplies the same count, but inaccessible appendices of additional related sources could alter publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general EFX allocation existence/computability but not orientation enumeration on uniform multicycles",
+        "evidence": [
+          "2026-06-17 initial public date on arXiv",
+          "Section 2 explicitly quantifies over any good in the envied bundle; Section 1.1 states existence and polynomial-time construction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.18665",
+        "material_read": "Accessible full-text arXiv rendering: introduction and contributions, Sections 1.1 and 2, EFX definition, unit-bundle construction and discussion of graph orientation",
+        "method": "Primary full-text HTML read and targeted in-document search",
+        "title": "EFX Allocations Exist on Multi-Graphs",
+        "trigger": "Fresh recent result about multigraph EFX allocations and exact all-good EFX definition"
+      },
+      {
+        "assessment": "Multicycle EFX allocation existence; orientation existence/nonexistence for broader bipartite cases, no verified complete uniform cycle orientation counts",
+        "evidence": [
+          "Theorem 5.1 supplies multicycle EFX allocation existence",
+          "Table 1 classifies orientation-existence regimes, not counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2410.17002",
+        "material_read": "Primary accessible PDF pages 1–3 including Table 1 and pages 9–10 regarding orientation obstruction; scanned parsed §5 theorem and relevant source text; images of pages 3 and 10 inspected",
+        "method": "Primary PDF parsed text plus page screenshots and targeted count/section search",
+        "title": "EFX Allocations and Orientations on Bipartite Multi-graphs: A Complete Picture",
+        "trigger": "Same multicycle class and orientation-versus-allocation distinction"
+      },
+      {
+        "assessment": "Complexity/algorithms and charity, no claim counting homogeneous multicycle EFX orientations",
+        "evidence": [
+          "Table 1 enumerates running times and parameters, not cardinalities of solutions",
+          "EFX is all-good rather than positive-good-only in §2.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.25033",
+        "material_read": "Accessible arXiv full-text HTML, Introduction §§1.1–1.2 and Preliminaries §2.1, contributions, targeted counting search",
+        "method": "Primary full-text HTML read and in-document search",
+        "title": "EF(X) Orientations: A Parameterized Complexity Perspective",
+        "trigger": "Could cover cycle enumeration as a special case of graph-orientation algorithm"
+      },
+      {
+        "assessment": "Shows existence for graph families characterized by odd multitrees; contains no found orientation cardinality formula",
+        "evidence": [
+          "Theorem 3 states existence and polynomial-time construction when no problematic heavy component exists"
+        ],
+        "identifier_or_url": "https://doi.org/10.3233/FAIA251259",
+        "material_read": "Accessible journal HTML abstract, Preliminaries, main Theorem 3 and technical exposition",
+        "method": "Primary publication HTML read",
+        "title": "EFX Orientations of Multigraphs",
+        "trigger": "Special bi-valued symmetric multigraph orientation results may imply present statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "86ded86a-095b-452c-b024-77e171f2cf24",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Enumerating fair orientations and their frequency is a motivated quantitative refinement of binary all-good EFX graph allocations, distinct from existence: random orientations can be fair with exponentially small sharp probability. The strict deletion quantifier yields a nontrivial three-local constrained language and q=2/3 cubic recurrences, not a mere binomial count. The q=2 and q=3 probability bases differ substantially and are exact for every cycle size.",
+    "status": "PASS"
+  }
+}
