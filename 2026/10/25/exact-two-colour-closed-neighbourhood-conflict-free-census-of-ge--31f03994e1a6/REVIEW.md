@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every condition in a four-vertex closed neighbourhood is equivalent to an odd red-bit sum, and the outer constraints uniquely determine inner bits. Eliminating those bits reduces the full system to one homogeneous cyclic polynomial operator, whose kernel dimension is the gcd degree by Euclid's lemma for the quotient ring. The \(k=1\) repeated-root argument and the \(k=2\) five-periodic difference recurrence establish the explicit cases for all positive allowed parameters. A separate direct assignment enumerator and a reduced outer-assignment enumerator confirm every tested case (see `checker.py`). No unproved asymptotic inference is used.
+## correctness
 
-## Originality
-**PASS, subject to independent historical priority.** Sedlar–Škrekovski (2026) determine planar lower bounds for the same improper closed-neighbourhood notion, not all two-colour enumerations on generalized Petersen graphs. Fabrici et al. (2022) address bounds and proper variants. Collins et al. (2025) classify **balanced** closed-neighbourhood binary colourings on generalized Petersen graphs; their two-and-two condition is opposite to the one-and-three property proved here. Targeted research-record and published-literature comparisons identified no statement from which the polynomial-gcd census or the five-divisibility formula follows. The 2025 balanced paper was read particularly at its generalized Petersen §5.3. A missed prior enumeration under coding-theoretic terminology remains possible.
+PASS
 
-## Value
-**PASS.** The recent planar conflict-free question motivates understanding small-palette colourings on canonical cubic graphs. This result computes *every* fully coloured two-palette assignment across an infinite two-parameter family, with a direct finite-field formula requiring only a small polynomial gcd. The explicit \(k=2\) count demonstrates a sharp five-divisibility resonance and gives complete patterns of successive colour differences, providing more than an isolated small-graph census or a general existence bound.
+For n>=3 and 1<=k<n/2 each generalized Petersen vertex has four distinct closed neighbors. Among two named colors, exactly one occurrence of a color iff the red indicator sum on that neighborhood is odd (1 or 3). Outer constraints determine each inner bit uniquely y_i=1+x_{i−1}+x_i+x_{i+1} in F2; inner constraints become the homogeneous cyclic linear equation [1+(T^-1+1+T)(T^-k+1+T^k)]x=0. Multiplication by t^(k+1) yields polynomial h_k, and the kernel of multiplication by h_k in F2[t]/(t^n+1) has size 2^deg gcd for repeated factors too. For k=1 h=(1+t)^4 and the t+1 multiplicity of t^n+1 yields 2/4/16 cases. For k=2 h=(1+t)(1+t^5), so cyclic differences of outer colors are 5-periodic; closure parity yields exactly the 2/4/32/64 cases and complete characterization. All-red and all-blue fail. Independent brute reconstruction for all admissible k at n=3..10 matched gcd; GP(5,2)=32, GP(10,2)=64.
 
-## Scope and outstanding checks
-The theorem does not determine the number of colourings with three or more named colours. Independent mathematical audit and historical priority assessment have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the complete two-color odd-parity/unique-neighbor assignment census on the natural GP(n,k) family. Related balanced-closed-neighborhood Petersen results require exactly two red and two blue per closed neighborhood (even parity), mathematically disjoint from the present 1/3 split. Sedlar–Škrekovski study improper closed-neighborhood conflict-free coloring but focus on existence, planar bounds and gadgets, not the all-(n,k) gcd kernel count. The general linear-algebra kernel method is standard and not independently novel; the graph-specific reduction and exact phase diagram are the assessed results. A previously published binary-kernel census under odd-neighborhood coloring terminology remains a residual risk.
+
+## value
+
+PASS
+
+Closed-neighborhood conflict-free coloring is natural, and a full count of all named assignments on the generalized Petersen family refines mere chromatic feasibility. The exact polynomial gcd formula measures dimension of a cyclic binary code attached to the graph, with a nontrivial five-periodicity transition at k=2. This is a complete infinite-family invariant, not an arbitrary small-case table or an unsupported generalization to proper coloring.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

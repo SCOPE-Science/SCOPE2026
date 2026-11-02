@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:46:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 and 1<=k<n/2 each generalized Petersen vertex has four distinct closed neighbors. Among two named colors, exactly one occurrence of a color iff the red indicator sum on that neighborhood is odd (1 or 3). Outer constraints determine each inner bit uniquely y_i=1+x_{i−1}+x_i+x_{i+1} in F2; inner constraints become the homogeneous cyclic linear equation [1+(T^-1+1+T)(T^-k+1+T^k)]x=0. Multiplication by t^(k+1) yields polynomial h_k, and the kernel of multiplication by h_k in F2[t]/(t^n+1) has size 2^deg gcd for repeated factors too. For k=1 h=(1+t)^4 and the t+1 multiplicity of t^n+1 yields 2/4/16 cases. For k=2 h=(1+t)(1+t^5), so cyclic differences of outer colors are 5-periodic; closure parity yields exactly the 2/4/32/64 cases and complete characterization. All-red and all-blue fail. Independent brute reconstruction for all admissible k at n=3..10 matched gcd; GP(5,2)=32, GP(10,2)=64.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sedlar’s planar four-color lower bound treats arbitrary graphs, not an exact count of binary assignments on GP(n,k).",
+          "Fabrici et al concerns proper conflict-free constraints among others; proper colorings exclude many counted improper assignments."
+        ],
+        "reasoning": "A general theorem characterizing all odd closed-neighborhood 2-colorings via adjacency+I over F2 is elementary but does not by itself give the explicit all-n,k gcd count or the k2 spectrum. No inspected primary theorem dominates the full claim.",
+        "searches": [
+          "Sedlar–Škrekovski arXiv:2610.22559v1 full text",
+          "Fabrici et al arXiv:2202.02570",
+          "Collins et al 2025 full article and Petersen section"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and checker.py (f3f1704da99220b390173345fd1ffd09d18bf309), independent_checks.py direct enumeration n<=10",
+        "Collins et al Springer OA full HTML; Sedlar–Škrekovski full accessible primary HTML",
+        "Resultary published search for related odd-neighborhood coloring"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Petersen balanced case solves local parity 0, whereas unique color in a 4-set solves parity 1; one solution set does not imply the other count.",
+          "General planar CF upper/lower chromatic bounds cannot imply the rank/gcd of a particular 2n-by-2n circulant parity matrix."
+        ],
+        "reasoning": "The inspected coverage is about different predicates/quantities, so the exact kernel formula survives rather than being a special case.",
+        "searches": [
+          "Collins et al 2025 Theorems in Section 5.3",
+          "Sedlar–Škrekovski 2026 Introduction and constructions",
+          "arXiv:2202.02570 definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a four-element closed neighborhood, CF with exactly two colors is equivalent to odd parity of red labels.",
+          "Collins et al defines balanced CNB as even split 2 red/2 blue, the complementary parity constraint."
+        ],
+        "reasoning": "The correct aliases are odd neighborhood 2-colorings, zero-kernel cyclic code, or unique-color assignments. A balanced-coloring existence theorem cannot be substituted because its equations demand opposite parity.",
+        "searches": [
+          "Resultary: generalized Petersen graph two color closed neighborhood conflict free coloring exact enumeration binary kernel polynomial gcd",
+          "Sedlar–Škrekovski arXiv:2610.22559v1",
+          "Collins et al DOI:10.1007/s00373-025-02950-5 §5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct enumeration for n=5 k=2 gives 32 and for n=10 k=2 gives 64 named maps, matching analytic formulas.",
+          "Collins derives balanced Petersen existence, not the odd-parity named-assignment table."
+        ],
+        "reasoning": "The new formula is all-parameter and not just a recomputation of an available small graph table. Search nonmatches are not treated as a novelty proof.",
+        "searches": [
+          "Resultary semantic query generalized Petersen two color odd closed-neighborhood census",
+          "Independent q=2, GP(n,k) brute n<=10",
+          "Collins §5.3 generalized Petersen classification"
+        ]
+      },
+      "rationale": "PASS for the complete two-color odd-parity/unique-neighbor assignment census on the natural GP(n,k) family. Related balanced-closed-neighborhood Petersen results require exactly two red and two blue per closed neighborhood (even parity), mathematically disjoint from the present 1/3 split. Sedlar–Škrekovski study improper closed-neighborhood conflict-free coloring but focus on existence, planar bounds and gadgets, not the all-(n,k) gcd kernel count. The general linear-algebra kernel method is standard and not independently novel; the graph-specific reduction and exact phase diagram are the assessed results. A previously published binary-kernel census under odd-neighborhood coloring terminology remains a residual risk.",
+      "residual_risks": [
+        "Unindexed generalized Petersen parity-coloring/cyclic-code enumeration may give same gcd formula.",
+        "For graphs not cubic/closed neighborhoods not size four, odd parity is not equivalent to the conflict-free predicate.",
+        "No proper coloring, partial-coloring, or ≥3-color census established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_PREDICATE: balanced 2/2 not conflict-free odd 1/3",
+          "evidence": [
+            "Definitions require equal numbers of each color in every N[v]; generalized Petersen discussion classifies this balanced property, not full odd-parity counting."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-025-02950-5",
+          "material_read": "Full open-access Springer HTML, definitions §§1-2, regular graph count/§5.3 generalized Petersen result and conclusions",
+          "method": "Full primary HTML reading and in-page section search",
+          "title": "Closed Neighborhood Balanced Coloring of Graphs",
+          "trigger": "Exactly generalized Petersen graphs, two colors and closed neighborhoods"
+        },
+        {
+          "assessment": "PARTIAL_CONTEXT: defines same property, addresses planar color-number threshold not exact two-color GP(n,k) census",
+          "evidence": [
+            "The goal and constructed gadgets establish four-color necessity; no displayed generalized Petersen all-parameter gcd census in inspected proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.22559v1",
+          "material_read": "Full accessible HTML rendition: definitions, gadget argument, lower bound and concluding discussion",
+          "method": "Primary full article HTML reading",
+          "title": "Four colours are needed for closed-neighbourhood conflict-free colouring of all planar graphs",
+          "trigger": "Same improper fully colored closed-neighborhood conflict-free definition"
+        },
+        {
+          "assessment": "LIMITED_READ: proper-coloring constraints not the same as unconstrained improper two-color assignments",
+          "evidence": [
+            "Article title and abstract explicitly incorporate proper conflict-free coloring."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.02570",
+          "material_read": "Primary abstract and bibliographic page only; full source not separately read",
+          "method": "arXiv abstract read",
+          "title": "Proper conflict-free and unique-maximum colorings of planar graphs with respect to neighborhoods",
+          "trigger": "Potential stronger known conflict-free graph coloring"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closed-neighborhood conflict-free coloring is natural, and a full count of all named assignments on the generalized Petersen family refines mere chromatic feasibility. The exact polynomial gcd formula measures dimension of a cyclic binary code attached to the graph, with a nontrivial five-periodicity transition at k=2. This is a complete infinite-family invariant, not an arbitrary small-case table or an unsupported generalization to proper coloring.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "All-parameter exact number of two named-color fully colored closed-neighborhood conflict-free assignments of GP(n,k), via a binary polynomial gcd, with k=1,2 classifications.",
+  "limitations": [
+    "Unindexed generalized Petersen parity-coloring/cyclic-code enumeration may give same gcd formula.",
+    "For graphs not cubic/closed neighborhoods not size four, odd parity is not equivalent to the conflict-free predicate.",
+    "No proper coloring, partial-coloring, or ≥3-color census established."
+  ],
+  "schema_version": 1
+}
