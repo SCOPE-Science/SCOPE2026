@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-`verify_exact.py` is a pure-Python complete enumeration, not random sampling. It constructs all 36 McGee edges, obtains all 60 matchings by branching on each free neighbor of the smallest uncovered vertex, and for each matching enumerates all potential deletion sets of increasing cardinality until the first successful size. Each deleted set is successful exactly when it hits every one of the other 59 perfect matchings. That criterion is equivalent to unique survivability.
+## correctness
 
-`verify_independent.py` uses a separate hardcoded edge list, a differently organized matching recursion, SciPy mixed-integer linear programming for 60 set-cover problems, and direct tests of each stored optimal deletion witness. It additionally uses NetworkX to enumerate all graph automorphisms and their induced matching orbits. Thus the integer-programming solver confirms the same optimum, while the complete exhaustive lower-bound check remains supplied by `verify_exact.py`.
+PASS
 
-Run these commands in a directory containing `certificate.json` and both scripts:
+The reduction from unique surviving perfect matching to a hitting set of all rival matchings is biconditional. Reconstructed the LCF 36-edge graph and enumerated all 60 perfect matchings by smallest-free-vertex recursion; independently exhausted all k-subsets of 24 nonmatching edges through k=6 for all 60 matchings. Recovered exact full spectrum, refined 2-factor table, 18,200 optimal deletion sets. This is exhaustive finite proof, not extrapolation.
 
-```sh
-python verify_exact.py certificate.json
-python verify_independent.py certificate.json
-```
+## originality
 
-Requirements: Python 3.10+ for both; additionally `networkx`, `numpy`, `scipy` for the independent check. Executed standard outputs are preserved in `verify_exact.out` and `verify_independent.out`; their only evidentiary role is to record completed runs. The programs and certificate are the reproducible source.
+PASS
 
-Scope: finite exact graph specified in the result, not a universal anti-forcing bound. Indexed-literature overlap checks leave an explicit publication-priority risk. The independent-audit channel is unperformed.
+Best-of-knowledge comparison of the precise final mathematical statement against relevant published frameworks and Resultary findings; priority remains qualified, not asserted conclusively. NOT_COVERING stated finite McGee census in inspected portions
+
+## value
+
+PASS
+
+The unique (3,7) cubic cage is a canonical natural test graph; its complete anti-forcing spectrum and explicit obstruction to prediction from complementary 2-factor lengths are independently useful invariants and a motivated counterexample, not a random numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

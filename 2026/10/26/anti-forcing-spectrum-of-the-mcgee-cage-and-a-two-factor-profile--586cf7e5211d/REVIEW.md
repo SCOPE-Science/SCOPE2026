@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The graph is specified as an explicit 36-edge LCF construction. The proof that deleted-edge sets anti-force a matching exactly when they meet all rival matchings is elementary and fully quantified. The pure-Python program enumerates each perfect matching uniquely by recursive coverage of vertices, checks every deletion subset at sizes below and equal to the claimed optimum, and validates the complete two-factor refinement. Its output matches the independent exact integer-programming and graph-automorphism checks. Both scripts were executed from the accompanying files, and the complete 60-row certificate is provided.
+## correctness
 
-**Originality (PASS, with literature-access risk).** The matching anti-forcing definition, alternating-cycle equivalence, and general bounds are prior results of Lei–Yeh–Zhang and Deng–Zhang. The new content is the exact anti-forcing polynomial of the McGee \((3,7)\)-cage, its two-factor refinement, and an explicit failure of the two-factor cycle partition to determine anti-forcing. Inspected primary texts treat plane bipartite graphs, general extremal bounds, polygonal chains, and chemical examples, not this cage. Source and database searches did not find a dominating equivalent theorem; this is evidence of non-coverage in checked material, not proof that no equivalent work exists.
+PASS
 
-**Value (PASS).** The McGee graph is the unique smallest cubic graph of girth seven, making it a canonical finite test case for matching uniqueness under adversarial edge deletion. Its complete spectrum distinguishes 40 five-deletion matchings from 20 six-deletion matchings and shows that the complementary two-factor cycle type, even \((8,8,8)\) versus itself, is insufficient to predict robustness. The result supplies a complete reproducible baseline for anti-forcing questions on higher-girth cubic graphs rather than an arbitrary parameter slice.
+The reduction from unique surviving perfect matching to a hitting set of all rival matchings is biconditional. Reconstructed the LCF 36-edge graph and enumerated all 60 perfect matchings by smallest-free-vertex recursion; independently exhausted all k-subsets of 24 nonmatching edges through k=6 for all 60 matchings. Recovered exact full spectrum, refined 2-factor table, 18,200 optimal deletion sets. This is exhaustive finite proof, not extrapolation.
 
-**Closest literature and limits.** Lei–Yeh–Zhang (arXiv:1406.3796v1) establishes the general anti-forcing framework and planar-bipartite theorems. Deng–Zhang (arXiv:1607.05392v1) covers extremal graphs and even polygonal chains. Alikhani–Soltani (2017) studies other specific graph classes, without a McGee result. The theorem is confined to the labeled 24-vertex graph, and inaccessible or unindexed literature could contain an equivalent computation. The attached second computational method is not an independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the precise final mathematical statement against relevant published frameworks and Resultary findings; priority remains qualified, not asserted conclusively. NOT_COVERING stated finite McGee census in inspected portions
+
+## value
+
+PASS
+
+The unique (3,7) cubic cage is a canonical natural test graph; its complete anti-forcing spectrum and explicit obstruction to prediction from complementary 2-factor lengths are independently useful invariants and a motivated counterexample, not a random numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
