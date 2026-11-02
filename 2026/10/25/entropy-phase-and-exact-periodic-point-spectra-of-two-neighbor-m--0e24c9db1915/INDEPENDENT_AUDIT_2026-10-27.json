@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T10:13:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md residue-mask proof Steps 1–4",
+        "verify.py Git blob ecc563235e4bd35561270e4f1b04d6e1100ec8ab",
+        "independent binary enumeration /mnt/data/audit05_independent_checks.py"
+      ],
+      "rationale": "Residue support reduces exactly to independent sets of C_m^2; each mask gives independent binary coordinates at density |S|/m. Bernoulli maximization and phase cycles determine invariant ergodic MMEs; cyclic gaps ≥3 classify maximum masks, including the opposite two-excess-gap half-period exception. For n-periodic words, residue occupancy repeats in classes mod g=gcd(n,m); each selected class has 2^{n/g}-1 nonempty fillings; stars-and-bars cyclic gap enumeration yields g/j·binom(g−2j−1,j−1). Independently enumerated mask rotation classes m=3..12 and all periodic words m=3..12,n=1..10 with exact matches. Infinite formulas come from analytic arguments, not finite tables.",
+      "residual_risks": [
+        "One must distinguish measurable eigenvalues from topological eigenvalues; Bernoulli on each phase has no other point spectrum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Preexisting general template entropy mechanism",
+          "General C_m^r independent-set counting"
+        ],
+        "reasoning": "The two general ingredients reduce the proof to concrete cyclic-gap/orbit and gcd fixed-word calculations. The inspected broader results do not themselves state the exact mod-3 MME table, phase eigenvalue exception or n-iterate fixed-point formula; historical combined-corollary priority remains a risk.",
+        "searches": [
+          "arxiv:1406.3745 Bernoulli thinning of periodic template shifts",
+          "arxiv:2605.03083 independent-set enumerators and cyclic sieving"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1406.3745",
+        "arxiv:2605.03083",
+        "arxiv:1111.0190",
+        "doi:10.3934/dcds.2015.35.4743",
+        "Resultary: modular spacing shifts forbidden residues plus minus 1 and 2 maximal entropy measures periodic points",
+        "arxiv:1406.3745 periodic-template entropy and multiple maximal measures",
+        "arxiv:2605.03083 cyclic sieving independent sets powers of cycles",
+        "Banks Oprocha Stanley transitive sofic spacing shifts 2015"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:1406.3745 supplies periodic-template entropy principle",
+          "arxiv:2605.03083 supplies graph independent-set counts",
+          "separate gcd congruence sweep lemma and max-gap orbit classification checked"
+        ],
+        "reasoning": "The cyclic-sieving polynomial does not alone count shift-periodic words: n-periodicity forces selected residue classes modulo gcd(n,m) and yields a weight (2^{n/g}-1)^j. Previous periodic-template examples do not give exceptional half-period MME spectrum. A knowledgeable reader can combine known principles, but exact synthesis over this whole natural family is nontrivial and not seen stated.",
+        "searches": [
+          "Resultary: modular spacing shifts forbidden residues plus minus 1 and 2 maximal entropy measures periodic points",
+          "arxiv:1406.3745 periodic-template entropy and multiple maximal measures",
+          "arxiv:2605.03083 cyclic sieving independent sets powers of cycles",
+          "Banks Oprocha Stanley transitive sofic spacing shifts 2015"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spacing condition corresponds exactly to independent residues of C_m^2",
+          "arxiv:2605.03083 computes these graph mask counts"
+        ],
+        "reasoning": "Periodic-template subshift is a finite union of cyclic translates of independent-mask full shifts; it is not the usual S-gap condition on successive marker distances alone. Correct originality comparison credits the graph mask equivalence and counts, but distinguishes invariant measures and all n-periodic binary points.",
+        "searches": [
+          "Resultary: modular spacing shifts forbidden residues plus minus 1 and 2 maximal entropy measures periodic points",
+          "arxiv:1406.3745 periodic-template entropy and multiple maximal measures",
+          "arxiv:2605.03083 cyclic sieving independent sets powers of cycles",
+          "Banks Oprocha Stanley transitive sofic spacing shifts 2015"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "General coefficient g/j binom(g-2j-1,j-1) is known graph combinatorics"
+        ],
+        "reasoning": "No directly covering dynamical all-period table identified; the finite independent-set coefficient is preexisting mathematics and is credited.",
+        "searches": [
+          "Resultary: 1+floor(k/2) modular two-neighbor spacing MME",
+          "Resultary: gcd(n,m) modular spacing periodic point count",
+          "arxiv:2605.03083 independent sets cyclic graph table"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the all-modulus dynamical census, phase eigenvalue periods, and all-iterate fixed-point arithmetic; cyclic independent-set enumeration and general periodic-mask Bernoulli principles are prior.",
+      "residual_risks": [
+        "Banks–Oprocha–Stanley 2015 full article could not be read due to institutional VPN restriction; no whole-paper noncoverage conclusion.",
+        "Existing independent-set sieving and template results make derivations natural; an earlier exact corollary may exist under another label."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior framework explains fair Bernoulli maximizers on periodic masks and examples with nonunique measures, but inspected text does not classify every modular two-neighbor mask and all shift fixed points.",
+          "evidence": [
+            "Section 3.2 periodic templates and multiple ergodic maximal entropy measures"
+          ],
+          "identifier_or_url": "arxiv:1406.3745",
+          "material_read": "Relevant Section 3.2 and periodic examples, entropy/maximal-measure construction",
+          "method": "Primary arXiv open PDF with text and page inspection",
+          "title": "On invariant measures for B-free systems",
+          "trigger": "Prior general periodic-mask template Bernoulli mechanism"
+        },
+        {
+          "assessment": "Graph independent-set enumeration is prior and acknowledged; does not directly determine symbolic fixed-point counts or MME phases for the new residue-difference condition.",
+          "evidence": [
+            "Theorem 1 general cycle power independent-set structure"
+          ],
+          "identifier_or_url": "arxiv:2605.03083",
+          "material_read": "General cyclic-sieving theorem and cycle-power examples",
+          "method": "Primary arXiv full text/PDF and page inspection",
+          "title": "Cyclic Sieving Phenomenon for Independent sets of graphs",
+          "trigger": "Counts independent sets of powers of cycles: exact prior coefficient"
+        },
+        {
+          "assessment": "General entropy and distributional chaos not a full all-modulus phase and gcd periodic-point classification.",
+          "evidence": [
+            "Hereditary spacing shift entropy criteria"
+          ],
+          "identifier_or_url": "arxiv:1111.0190",
+          "material_read": "Introductory spacing shift definition, entropy and recurrence theorem sections",
+          "method": "Primary accessible arXiv text",
+          "title": "Topological entropy and distributional chaos in hereditary shifts with applications to spacing shifts and beta shifts",
+          "trigger": "General entropy and spacing-shift foundation"
+        },
+        {
+          "assessment": "UNRESOLVED whole-document comparison; abstract focuses on sofic/transitivity, not enough to rule out hidden modular periodic-point examples.",
+          "evidence": [
+            "Banks–Oprocha–Stanley 2015 abstract on canonical bunched-cycle presentations; full paper not read"
+          ],
+          "identifier_or_url": "doi:10.3934/dcds.2015.35.4743",
+          "material_read": "Publisher bibliographic entry and full abstract; PDF not obtained from arXiv/OA; authorized institutional request blocked by disconnected VPN",
+          "method": "AIMS Sciences official abstract and authorized institutional access attempt",
+          "title": "Transitive sofic spacing shifts",
+          "trigger": "Direct earlier work on ultimately periodic spacing shifts potentially subsuming modular example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "symbolic dynamics of hereditary and periodic-template shifts",
+        "periodic-point and entropy-measure invariants"
+      ],
+      "rationale": "Natural modular spacing-shift family exhibits an unbounded MME count only in one congruence class, a sharp half-period eigenvalue exception, and exact n-periodic orbit data invisible to entropy. Resolves intrinsic symbolic invariants for every modulus and iterate, not arbitrary small parameter cases.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Forbid all distinct-pair differences ±1,±2 modulo m, not merely consecutive gaps.",
+    "No classification for arbitrary sets of forbidden residues; 2015 full paper unavailable."
+  ],
+  "schema_version": 1
+}

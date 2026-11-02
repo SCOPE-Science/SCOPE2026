@@ -1,9 +1,21 @@
-# Review of the two-neighbor modular spacing-shift classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The residue-mask equivalence gives an exact finite invariant decomposition, with free-bit density and unique fair Bernoulli maximizing measure on each cyclic phase orbit. Cyclic gaps of length at least three determine every maximum mask and the lone possible half-period stabilizer. Fixing \(n\) and reducing by \(\gcd(n,m)\) gives an exact orbit-residue constraint; the stars-and-bars coefficient is algebraically derived. The standalone checker independently enumerates boundary cases, but the unrestricted proof does not rely on those finite tests.
+## correctness
 
-**Originality — PASS on inspected evidence.** Kwietniak's spacing-shift entropy criterion is contextual. Kułaga-Przymus–Lemańczyk–Weiss already establish the periodic-template thinning and multiple-maximizer mechanism, which is acknowledged. White already proves cyclic-sieving and independent-set counts for powers of cycles, which are acknowledged. The contribution is the precise dynamical synthesis for all modular two-neighbor exclusions, with the complete maximizer/eigenvalue phase portrait and the exact \(\gcd(n,m)\)-dependent periodic-point function. Banks–Oprocha–Stanley (2015) could not be inspected beyond the abstract, a historical-priority risk. The possibility of an unindexed combined corollary remains.
+PASS
 
-**Mathematical value — PASS.** The non-nearest-neighbor exclusion has an unbounded number of ergodic entropy-maximizers on one congruence class and a unique maximizer on the other two, together with a distinct half-period eigenvalue exception. Its exact all-period fixed-point law detects dynamics invisible to topological entropy. The classification is an infinite and intrinsically motivated symbolic family, not an isolated tabulation.
+Residue support reduces exactly to independent sets of C_m^2; each mask gives independent binary coordinates at density |S|/m. Bernoulli maximization and phase cycles determine invariant ergodic MMEs; cyclic gaps ≥3 classify maximum masks, including the opposite two-excess-gap half-period exception. For n-periodic words, residue occupancy repeats in classes mod g=gcd(n,m); each selected class has 2^{n/g}-1 nonempty fillings; stars-and-bars cyclic gap enumeration yields g/j·binom(g−2j−1,j−1). Independently enumerated mask rotation classes m=3..12 and all periodic words m=3..12,n=1..10 with exact matches. Infinite formulas come from analytic arguments, not finite tables.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the all-modulus dynamical census, phase eigenvalue periods, and all-iterate fixed-point arithmetic; cyclic independent-set enumeration and general periodic-mask Bernoulli principles are prior.
+
+## value
+
+PASS
+
+Natural modular spacing-shift family exhibits an unbounded MME count only in one congruence class, a sharp half-period eigenvalue exception, and exact n-periodic orbit data invisible to entropy. Resolves intrinsic symbolic invariants for every modulus and iterate, not arbitrary small parameter cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

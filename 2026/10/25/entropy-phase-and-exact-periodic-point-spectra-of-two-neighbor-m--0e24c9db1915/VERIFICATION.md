@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.10 or later; only its standard library is needed. The checker independently enumerates all independent residue masks for moduli 3 through 16 and checks cyclic-rotation orbit counts and periods. It enumerates every n-periodic binary word for moduli 3 through 12 and periods 1 through 12, testing forbidden congruences over the full common period and comparing with the exact formula. The tests are exact integer computations and are reproducible from the embedded standalone source.
+## correctness
 
-Finite enumeration cannot prove statements for all moduli or periods. The unrestricted proof is the residue-mask reduction, unique Bernoulli maximization on each cyclic phase orbit, cyclic-gap enumeration, and the independent finite-composition formula for periodic words. Historical priority relative to a full-text-inaccessible 2015 article and any unindexed equivalent statement remains unresolved. No external independent audit was performed.
+PASS
+
+Residue support reduces exactly to independent sets of C_m^2; each mask gives independent binary coordinates at density |S|/m. Bernoulli maximization and phase cycles determine invariant ergodic MMEs; cyclic gaps ≥3 classify maximum masks, including the opposite two-excess-gap half-period exception. For n-periodic words, residue occupancy repeats in classes mod g=gcd(n,m); each selected class has 2^{n/g}-1 nonempty fillings; stars-and-bars cyclic gap enumeration yields g/j·binom(g−2j−1,j−1). Independently enumerated mask rotation classes m=3..12 and all periodic words m=3..12,n=1..10 with exact matches. Infinite formulas come from analytic arguments, not finite tables.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the all-modulus dynamical census, phase eigenvalue periods, and all-iterate fixed-point arithmetic; cyclic independent-set enumeration and general periodic-mask Bernoulli principles are prior.
+
+## value
+
+PASS
+
+Natural modular spacing-shift family exhibits an unbounded MME count only in one congruence class, a sharp half-period eigenvalue exception, and exact n-periodic orbit data invisible to entropy. Resolves intrinsic symbolic invariants for every modulus and iterate, not arbitrary small parameter cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
