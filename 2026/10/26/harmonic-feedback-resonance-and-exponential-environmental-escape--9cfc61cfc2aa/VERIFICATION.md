@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks and limits
+# Independent mathematical audit
 
-Execute `python3 checks.py` with a standard CPython installation; no third-party packages are required.
+## correctness
 
-The script checks 180 distinct exact-rational cancellations of the three environmental log-odds derivatives and the harmonic resonance relation; 250 random environmental triples for both logistic envelopes and their equality-attaining configurations; a 30-time-unit fourth-order Runge--Kutta integration of all five equations for admissible payoff matrices and mismatched feedback, obtaining a maximum absolute affine-drift residual of approximately \(3.05\times10^{-11}\); and a fully asymmetric resonance example with zero residual in all five equations. The original source's illustrative parameters \((3,5,8)\) give the exact identities \(\Delta=-7/36\) and \(\lvert\Delta\rvert/W=7/23\).
+PASS
 
-The unrestricted theorem is proved algebraically from the environmental differential equations; finite rational and numerical checks do not verify behavior for all times or all initial states. The optimality claim is pointwise conditional on \(H\), not a claim that a particular trajectory realizes equality at arbitrarily late times. No global convergence to an individually chosen boundary face is asserted.
+For the specified equal-sized two-population game with three logistic environmental rates, differentiate each logit. With u_j=1/(1+theta_j), u1 d(logit n1)/dt=x-u1, u2 d(logit n2)/dt=y-u2, and 2u12 d(logit n12)/dt=x+y-2u12. The combination H=u1 logit n1+u2 logit n2-2u12 logit n12 therefore has exact constant slope Delta=2u12-u1-u2 for every interior-environment trajectory, regardless of bounded payoff matrices and interaction rate. If Delta !=0, H diverges linearly, excluding compact fully interior recurrent trajectories/invariant sets; the extremal weighted-logit inequality H<=W max{logit n1,logit n2,-logit n12} with W=u1+u2+2u12 proves exponential approach to one of the appropriate boundary-face union, rate |Delta|/W, with pointwise equality at equal signed logits. At resonance Delta=0, choosing A(0)=[[3,2],[1,0]], A(1)=[[1,0],[3,2]] and x=u1,y=u2,n12=q,n1=n2=(1/2-delta q)/(1-delta) for q near 1/2 gives explicit one-parameter continuum of interior equilibria, showing the necessary condition is attainable. Signed sign cases, invariant boundary caveats, and only core-residence bound are respected.
+
+## originality
+
+PASS
+
+Betz, Fu and Masuda (2024) give the same five-dimensional evolutionary-game equations and a symmetric equilibrium reduction; their reported mismatched-ratio equilibrium obstruction is prior. The exact payoff-independent affine log-odds drift for arbitrary asymmetric feedback triples, quantified optimal exponential boundary-union envelope and explicit asymmetric resonant equilibrium continuum are not stated in the inspected original primary versions. Other two-population feedback papers model one environment or moving network densities and do not have these three cancellation equations.
+
+## value
+
+PASS
+
+The resonance surface is a natural structural boundary between the possibility and impossibility of compact fully interior dynamics, independent of the population game payoffs. The sharp quantitative boundary-face escape and constructive asymmetric interior equilibrium family make the cancellation a useful dynamical theorem beyond an elementary normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

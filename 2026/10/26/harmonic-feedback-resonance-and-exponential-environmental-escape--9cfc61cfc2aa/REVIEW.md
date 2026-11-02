@@ -1,27 +1,21 @@
-# Scientific review: harmonic-feedback resonance and environmental escape
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The environmental equations in Betz--Fu--Masuda [1, Eqs. (8)--(10)] yield three exact logit derivatives. Their cooperation terms cancel in the combination \(H=u_1\ell(n_1)+u_2\ell(n_2)-2u_{12}\ell(n_{12})\), giving \(\dot H=\Delta\). Interior preservation ensures the calculation is global at every finite time. A positive-weight maximum inequality proves the sign-selected logistic environmental-boundary envelope, with equality obtainable at any fixed value of \(H\). Unbounded affine drift rules out compact invariant dynamics and compactly supported invariant probability measures in the environmental interior. The resonant equilibrium continuum is verified by direct substitution into all five equations for explicitly admissible games. Exact-rational and numerical checks reproduced these steps; their finite scope is not treated as proof.
+PASS
 
-## Originality: PASS, subject to independent checking
+For the specified equal-sized two-population game with three logistic environmental rates, differentiate each logit. With u_j=1/(1+theta_j), u1 d(logit n1)/dt=x-u1, u2 d(logit n2)/dt=y-u2, and 2u12 d(logit n12)/dt=x+y-2u12. The combination H=u1 logit n1+u2 logit n2-2u12 logit n12 therefore has exact constant slope Delta=2u12-u1-u2 for every interior-environment trajectory, regardless of bounded payoff matrices and interaction rate. If Delta !=0, H diverges linearly, excluding compact fully interior recurrent trajectories/invariant sets; the extremal weighted-logit inequality H<=W max{logit n1,logit n2,-logit n12} with W=u1+u2+2u12 proves exponential approach to one of the appropriate boundary-face union, rate |Delta|/W, with pointwise equality at equal signed logits. At resonance Delta=0, choosing A(0)=[[3,2],[1,0]], A(1)=[[1,0],[3,2]] and x=u1,y=u2,n12=q,n1=n2=(1/2-delta q)/(1-delta) for q near 1/2 gives explicit one-parameter continuum of interior equilibria, showing the necessary condition is attainable. Signed sign cases, invariant boundary caveats, and only core-residence bound are respected.
 
-The strongest primary comparison is Betz, Fu and Masuda [1,2]. The paper proves absence of interior equilibria in a specific symmetric reduction when enhancement parameters differ, and gives an extensive full-system equilibrium census and numerical anti-synchronous oscillations. Its inspected model, results, discussion and appendices do not state an affine log-odds drift, a generic five-dimensional compact-recurrence exclusion, a quantitative optimal environmental-face envelope, or the general asymmetric resonant realization. Gong, Gao and Cao [3] have a single shared resource variable; Govaert, Zino and Tegling [4] have migrating community densities. Their main results do not imply the three-edge-environment identity. Searches for equivalent logarithmic, odds, resonance, and environment-feedback formulations did not identify an implication covering the final conjunction. Residual risk: a related general coboundary criterion or later analysis might subsume it, and a failed search is not proof of uniqueness.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The original network game displays rich transient behavior, anti-synchronous oscillations, and boundary multistability. This theorem supplies a global obstruction in the full five-dimensional system that is independent of strategy payoffs or mixing: unless enhancement-to-degradation ratios satisfy one harmonic relation, *no* compact interior stationary or periodic regime can persist. It additionally gives an all-time optimal logistic envelope and a finite uninterrupted interior-residence bound. The explicit asymmetric resonant equilibrium continuum demonstrates that the parameter condition is structurally meaningful rather than an artificial impossibility. The result does not claim convergence to a fixed boundary face, sufficiency of resonance for all games, or a stochastic analog.
+Betz, Fu and Masuda (2024) give the same five-dimensional evolutionary-game equations and a symmetric equilibrium reduction; their reported mismatched-ratio equilibrium obstruction is prior. The exact payoff-independent affine log-odds drift for arbitrary asymmetric feedback triples, quantified optimal exponential boundary-union envelope and explicit asymmetric resonant equilibrium continuum are not stated in the inspected original primary versions. Other two-population feedback papers model one environment or moving network densities and do not have these three cancellation equations.
 
-## Sources and uncertainty
+## value
 
-[1] Betz, Fu, Masuda, arXiv:2404.17082v1, Sections 2--6 and Appendix G, https://arxiv.org/html/2404.17082v1.
+PASS
 
-[2] Betz, Fu, Masuda, arXiv:2404.17082v2, Sections 2--6 and appendices, https://arxiv.org/html/2404.17082v2.
+The resonance surface is a natural structural boundary between the possibility and impossibility of compact fully interior dynamics, independent of the population game payoffs. The sharp quantitative boundary-face escape and constructive asymmetric interior equilibrium family make the cancellation a useful dynamical theorem beyond an elementary normalization check.
 
-[3] Gong, Gao, Cao, arXiv:1806.03194, model and Sections III-A--III-B, https://arxiv.org/abs/1806.03194.
-
-[4] Govaert, Zino, Tegling, arXiv:2203.00371, model and Section III, https://arxiv.org/abs/2203.00371.
-
-The novelty comparison remains best-knowledge and not independently certified. None of the finite tests establishes uniqueness of the mathematical observation in the literature.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

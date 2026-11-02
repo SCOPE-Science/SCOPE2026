@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T06:59:33.423335Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Only deterministic continuous-time model with three logistic edge qualities, equal-sized community mean (x+y)/2, and theta_j>0.",
+        "No claim of impossibility of recurrent boundary states, or sufficiency of resonance for arbitrary games."
+      ],
+      "rationale": "For the specified equal-sized two-population game with three logistic environmental rates, differentiate each logit. With u_j=1/(1+theta_j), u1 d(logit n1)/dt=x-u1, u2 d(logit n2)/dt=y-u2, and 2u12 d(logit n12)/dt=x+y-2u12. The combination H=u1 logit n1+u2 logit n2-2u12 logit n12 therefore has exact constant slope Delta=2u12-u1-u2 for every interior-environment trajectory, regardless of bounded payoff matrices and interaction rate. If Delta !=0, H diverges linearly, excluding compact fully interior recurrent trajectories/invariant sets; the extremal weighted-logit inequality H<=W max{logit n1,logit n2,-logit n12} with W=u1+u2+2u12 proves exponential approach to one of the appropriate boundary-face union, rate |Delta|/W, with pointwise equality at equal signed logits. At resonance Delta=0, choosing A(0)=[[3,2],[1,0]], A(1)=[[1,0],[3,2]] and x=u1,y=u2,n12=q,n1=n2=(1/2-delta q)/(1-delta) for q near 1/2 gives explicit one-parameter continuum of interior equilibria, showing the necessary condition is attainable. Signed sign cases, invariant boundary caveats, and only core-residence bound are respected.",
+      "status": "PASS",
+      "verification": [
+        "Frozen Git tree sha 7029b613d0e6949aa839c839f6c24bf620cadef7 and RESULT.md blob 03b80eb023c12632b04e5ccfe6a53c5b216d8198 verified, tree nontruncated.",
+        "Independent exact-rational cancellation for theta=(3,5,8) yields Delta=-7/36, W=23/36, escape exponent 7/23; verified the three weighted coefficients of x,y cancel identically.",
+        "Independently evaluated equality case n1=n2=logistic(H/W), n12=logistic(-H/W), yielding exact sharp envelope; checked the proposed resonance equilibria satisfy the five coordinate equations.",
+        "Escape is only distance to a union of faces; it is not convergence to one fixed face, nor proof of a global attractor."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Betz, Fu and Masuda, Evolutionary game dynamics with environmental feedback in a network with two communities, arXiv:2404.17082 v1/v2, full HTML Eqs. (8)-(10), symmetrical reductions and general fixed-point discussion: same exact model and prior symmetric threshold; no exact five-dimensional log-odds drift/bound in material inspected.",
+          "Gong, Gao and Cao, arXiv:1806.03194, uses two interacting populations with a shared environment rather than three edge-type logistics; comparison at model equation level.",
+          "Govaert, Zino, Tegling, arXiv:2203.00371, changes community network densities rather than independent edge-environment qualities; does not imply this three-coordinate logit identity.",
+          "Resultary targeted feedback environmental game query returned distinct ecology/replicator models, no exact three-environment resonance in the ranked results."
+        ],
+        "reasoning": "Stronger-coverage test compared actual object, parameters, hypotheses, and source-theorem implications, not just matching titles. Betz, Fu and Masuda (2024) give the same five-dimensional evolutionary-game equations and a symmetric equilibrium reduction; their reported mismatched-ratio equilibrium obstruction is prior. The exact payoff-independent affine log-odds drift for arbitrary asymmetric feedback triples, quantified optimal exponential boundary-union envelope and explicit asymmetric resonant equilibrium continuum are not stated in the inspected original primary versions. Other two-population feedback papers model one environment or moving network densities and do not have these three cancellation equations.",
+        "searches": [
+          "environmental feedback two community evolutionary game logistic log odds invariant resonance boundary escape",
+          "arXiv:2404.17082v1; arXiv:2404.17082v2; DOI:10.1007/s11538-024-01310-3",
+          "arXiv:1806.03194",
+          "arXiv:2203.00371"
+        ]
+      },
+      "checked_sources": [
+        "Betz, Fu and Masuda, Evolutionary game dynamics with environmental feedback in a network with two communities, arXiv:2404.17082 v1/v2, full HTML Eqs. (8)-(10), symmetrical reductions and general fixed-point discussion: same exact model and prior symmetric threshold; no exact five-dimensional log-odds drift/bound in material inspected.",
+        "Gong, Gao and Cao, arXiv:1806.03194, uses two interacting populations with a shared environment rather than three edge-type logistics; comparison at model equation level.",
+        "Govaert, Zino, Tegling, arXiv:2203.00371, changes community network densities rather than independent edge-environment qualities; does not imply this three-coordinate logit identity.",
+        "Resultary targeted feedback environmental game query returned distinct ecology/replicator models, no exact three-environment resonance in the ranked results."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Betz, Fu and Masuda, Evolutionary game dynamics with environmental feedback in a network with two communities, arXiv:2404.17082 v1/v2, full HTML Eqs. (8)-(10), symmetrical reductions and general fixed-point discussion: same exact model and prior symmetric threshold; no exact five-dimensional log-odds drift/bound in material inspected.",
+          "Gong, Gao and Cao, arXiv:1806.03194, uses two interacting populations with a shared environment rather than three edge-type logistics; comparison at model equation level.",
+          "Govaert, Zino, Tegling, arXiv:2203.00371, changes community network densities rather than independent edge-environment qualities; does not imply this three-coordinate logit identity.",
+          "Resultary targeted feedback environmental game query returned distinct ecology/replicator models, no exact three-environment resonance in the ranked results."
+        ],
+        "reasoning": "If the old generic method implies components of the final theorem, those components are explicitly credited. The distinctive final combination is not a logical restatement of the cited prior theorem as read. Betz, Fu and Masuda (2024) give the same five-dimensional evolutionary-game equations and a symmetric equilibrium reduction; their reported mismatched-ratio equilibrium obstruction is prior. The exact payoff-independent affine log-odds drift for arbitrary asymmetric feedback triples, quantified optimal exponential boundary-union envelope and explicit asymmetric resonant equilibrium continuum are not stated in the inspected original primary versions. Other two-population feedback papers model one environment or moving network densities and do not have these three cancellation equations.",
+        "searches": [
+          "environmental feedback two community evolutionary game logistic log odds invariant resonance boundary escape",
+          "arXiv:2404.17082v1; arXiv:2404.17082v2; DOI:10.1007/s11538-024-01310-3",
+          "arXiv:1806.03194",
+          "arXiv:2203.00371"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Betz, Fu and Masuda, Evolutionary game dynamics with environmental feedback in a network with two communities, arXiv:2404.17082 v1/v2, full HTML Eqs. (8)-(10), symmetrical reductions and general fixed-point discussion: same exact model and prior symmetric threshold; no exact five-dimensional log-odds drift/bound in material inspected.",
+          "Gong, Gao and Cao, arXiv:1806.03194, uses two interacting populations with a shared environment rather than three edge-type logistics; comparison at model equation level."
+        ],
+        "reasoning": "Equivalent terminology and reductions checked using Harmonic-feedback resonance and exponential environmental escape in a two-community game alongside named same mathematical model primary sources: Betz, Fu and Masuda (2024) give the same five-dimensional evolutionary-game equations and a symmetric equilibrium reduction; their reported mismatched-ratio equilibrium obstruction is prior. The exact payoff-independent affine log-odds drift for arbitrary asymmetric feedback triples, quantified optimal exponential boundary-union envelope and explicit asymmetric resonant equilibrium continuum are not stated in the inspected original primary versions. Other two-population feedback papers model one environment or moving network densities and do not have these three cancellation equations.",
+        "searches": [
+          "environmental feedback two community evolutionary game logistic log odds invariant resonance boundary escape",
+          "arXiv:2404.17082v1; arXiv:2404.17082v2; DOI:10.1007/s11538-024-01310-3",
+          "arXiv:1806.03194",
+          "arXiv:2203.00371"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Betz, Fu and Masuda, Evolutionary game dynamics with environmental feedback in a network with two communities, arXiv:2404.17082 v1/v2, full HTML Eqs. (8)-(10), symmetrical reductions and general fixed-point discussion: same exact model and prior symmetric threshold; no exact five-dimensional log-odds drift/bound in material inspected.",
+          "Gong, Gao and Cao, arXiv:1806.03194, uses two interacting populations with a shared environment rather than three edge-type logistics; comparison at model equation level."
+        ],
+        "reasoning": "Exact database/table check: the searched prior reports contain related methods and models, not an identified exact table or parameter-wide table of this final claim. This is bounded search evidence, not a claim of exhaustive absence.",
+        "searches": [
+          "environmental feedback two community evolutionary game logistic log odds invariant resonance boundary escape",
+          "environmental feedback two community evolutionary game logistic log odds invariant resonance boundary escape"
+        ]
+      },
+      "rationale": "Betz, Fu and Masuda (2024) give the same five-dimensional evolutionary-game equations and a symmetric equilibrium reduction; their reported mismatched-ratio equilibrium obstruction is prior. The exact payoff-independent affine log-odds drift for arbitrary asymmetric feedback triples, quantified optimal exponential boundary-union envelope and explicit asymmetric resonant equilibrium continuum are not stated in the inspected original primary versions. Other two-population feedback papers model one environment or moving network densities and do not have these three cancellation equations.",
+      "residual_risks": [
+        "The three-logit cancellation is elementary once all three environmental equations are written; novelty/value is the complete resonance/escape/invariance conclusion rather than the chain-rule identity alone.",
+        "Unindexed conservation-law results for this same model may exist; targeted searches are not proof of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "symmetric ratio constraints and equilibria are prior; specific asymmetric constant-drift/pointwise envelope not found in inspected full text",
+          "evidence": "Eqs (8)-(10) give three distinct logistic feedback equations; symmetric reduction concerns special feedback/population equalities.",
+          "identifier_or_url": "arXiv:2404.17082v1; arXiv:2404.17082v2; DOI:10.1007/s11538-024-01310-3",
+          "material_read": "full versioned arXiv HTML primary manuscript, five-dimensional equations including Eqs (8)-(10), symmetric reduction, equilibrium and numerical discussion",
+          "method": "arXiv primary full HTML",
+          "title": "Evolutionary game dynamics with environmental feedback in a network with two communities",
+          "trigger": "exact model and potential prior invariant"
+        },
+        {
+          "assessment": "one shared environment versus three edge-environments, so the exact weighted three-logit cancellation is inapplicable",
+          "evidence": "Study describes two populations and shared environment, not independent n1,n2,n12.",
+          "identifier_or_url": "arXiv:1806.03194",
+          "material_read": "abstract and model synopsis, not full article",
+          "method": "arXiv metadata/index",
+          "title": "Evolutionary Game Dynamics for Two Interacting Populations under Environmental Feedback",
+          "trigger": "possible earlier two-community environmental dynamics"
+        },
+        {
+          "assessment": "network-density model differs from three logistic edge-quality variables",
+          "evidence": "Dynamic network populations rather than fixed communities with three independent environmental quality coordinates.",
+          "identifier_or_url": "arXiv:2203.00371",
+          "material_read": "abstract and bibliographic synopsis, not full paper",
+          "method": "arXiv metadata/index",
+          "title": "Population games on dynamic community networks",
+          "trigger": "possible broader population-network reductions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The resonance surface is a natural structural boundary between the possibility and impossibility of compact fully interior dynamics, independent of the population game payoffs. The sharp quantitative boundary-face escape and constructive asymmetric interior equilibrium family make the cancellation a useful dynamical theorem beyond an elementary normalization check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Betz, Fu and Masuda, Evolutionary game dynamics with environmental feedback in a network with two communities, arXiv:2404.17082 v1/v2, full HTML Eqs. (8)-(10), symmetrical reductions and general fixed-point discussion: same exact model and prior symmetric threshold; no exact five-dimensional log-odds drift/bound in material inspected.",
+    "Gong, Gao and Cao, arXiv:1806.03194, uses two interacting populations with a shared environment rather than three edge-type logistics; comparison at model equation level.",
+    "Govaert, Zino, Tegling, arXiv:2203.00371, changes community network densities rather than independent edge-environment qualities; does not imply this three-coordinate logit identity.",
+    "Resultary targeted feedback environmental game query returned distinct ecology/replicator models, no exact three-environment resonance in the ranked results."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only deterministic continuous-time model with three logistic edge qualities, equal-sized community mean (x+y)/2, and theta_j>0.",
+    "No claim of impossibility of recurrent boundary states, or sufficiency of resonance for arbitrary games.",
+    "No convergence to any single specified environmental face is proved; resonance does not guarantee recurrence for arbitrary payoff matrices."
+  ],
+  "residual_risks": [
+    "The three-logit cancellation is elementary once all three environmental equations are written; novelty/value is the complete resonance/escape/invariance conclusion rather than the chain-rule identity alone.",
+    "Unindexed conservation-law results for this same model may exist; targeted searches are not proof of absolute priority.",
+    "No convergence to any single specified environmental face is proved; resonance does not guarantee recurrence for arbitrary payoff matrices."
+  ],
+  "schema_version": 1
+}
