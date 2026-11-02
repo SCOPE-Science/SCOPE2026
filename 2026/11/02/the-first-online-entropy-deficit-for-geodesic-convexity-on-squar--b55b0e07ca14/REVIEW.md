@@ -1,0 +1,19 @@
+# Scientific review: online shattering of squared-path convexity
+
+## Correctness — PASS
+
+The concept classification is proved from the exact shortest-path metric and the odd/even geodesic interval dichotomy; its all-parameter count and static dimension follow from explicit counting and trace constructions. The exact finite online claim is not an extrapolation: `verify.py` evaluates the complete version-space recursion for every allowed query and every recursively reachable state. At ten vertices it constructs a complete five-level witness tree and proves by exhaustive first-query ranks that no six-level tree exists. Its independent Boolean depth-feasibility check agrees through order twelve, while a graph-distance census independently reproduces the claimed concept family through eleven. The asymptotic online bound has a separate constructive two-threshold lower bound and a counting upper bound. The finite spectrum is asserted only through order twenty.
+
+## Originality — PASS within the inspected material, with explicit priority limitations
+
+The closest primary source is Tian and Xu (2024), Theorem 3.2 and Lemma 4.2, which already establish the general-position number three and the alternating-parity criterion for triples in the squared path. These **are credited and are not claimed to be novel**; the shattering polynomial is an immediate enumeration of their triples once the concept class is known. The new result assessed here is the exact Littlestone first entropy deficit at ten vertices and the complete online rank spectrum through twenty. Iršič et al. (2024) develop general-position polynomials rather than online shattering ranks. Thiessen and Gärtner (2022) study online graph-convex learning, but the accessible abstract alone cannot settle whether an exact squared-path table is buried in their text. Their full paper was not obtained, so that specific comparison remains a real historical-priority risk. Targeted literature and published-record searches revealed no explicit statement of the asserted online ranks; failure to find one is not a proof of global novelty.
+
+## Mathematical value — PASS
+
+The power-of-a-path construction is a canonical way to change geodesic convexity while retaining a bounded-degree geometric graph. It raises static VC dimension from two to three and adds parity-progression hypotheses, making counting-based online predictions tempting but unreliable. The first failure at ten vertices is a sharp, motivated finite cutoff: 76 distinguishable concepts admit an information ceiling of six, but every query forces a shallower branch and the exact dimension is five. Further nonattainment windows at thirteen through fifteen and nineteen through twenty demonstrate that the first cutoff is not an isolated arithmetic accident. The complete exact initial spectrum and self-contained all-parameter structural input are useful benchmarks for online graph-node learning. The asymptotic separation of logarithmic online depth from static dimension three provides broader context. This is a narrowly scoped mathematical contribution, not a claim of a general-purpose learning algorithm or a paper-sized advance.
+
+## Sources and remaining risks
+
+J. Tian and K. Xu, *On the general position number of the k-th power graphs*, DOI 10.2989/16073606.2024.2352568, especially Theorem 3.2 and Lemma 4.2; V. Iršič, S. Klavžar, G. Rus and J. Tuite, *General Position Polynomials*, DOI 10.1007/s00025-024-02133-3; M. Thiessen and T. Gärtner, *Online Learning of Convex Sets on Graphs*, DOI 10.1007/978-3-031-26412-2_22. The exact finite rank is machine-checkable but has not been independently scientifically audited. Complete historical priority, especially the unavailable full text of the graph-online-learning paper, remains unverified.
+
+Self-review: passed. Independent audit: not yet performed.
