@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Iteration gives \(G_d(c)=h_d(c^{d-1})\), where \(h_d(t)=t(t+1)^d+1\). The derivative factorization \(h_d'(t)=(t+1)^{d-1}((d+1)t+1)\) gives \(\operatorname{Res}(h_d,h_d')=(d+1)^{d+1}-d^d\). Resultant multiplicativity under the power substitution gives the stated discriminant, including its sign and exponent. The proof covers every integer \(d\ge2\); exact Sylvester determinants for \(d=2,\ldots,7\) provide independent finite consistency checks, not the proof.
+PASS
 
-## Originality
+Write m=d-1, h(t)=t(t+1)^d+1 and G(c)=h(c^m). Its derivative h'=(t+1)^(d-1)((d+1)t+1), and h(-1)=1, h(-1/(d+1))=1-d^d/(d+1)^(d+1). Evaluating resultants at these derivative factors gives Res(h,h')=R=(d+1)^(d+1)-d^d. Composition product over m-th roots gives Res(G,h'(c^m))=R^m and Res(G,m c^(m-1))=m^N(-1)^(N(m-1)) for N=d^2-1; multiplying and the discriminant sign (-1)^(N(N-1)/2) simplify to (-1)^(d+1). R positive for d>=2, so polynomial discriminant nonzero and exact v_p formula follows. Independent exact small-d discriminants confirm sign and powers. This is not a number-field discriminant or a higher-period result.
 
-PASS on the inspected sources and bounded literature searches. Hutz–Towsley study the same period-three parameter polynomial and give the \(d=5\) and \(d=7\) discriminant factorizations, but the inspected full text does not state the general formula. Buff studies the transformed polynomial \(t(t+1)^d+1\) and its irreducibility; Goksel studies Misiurewicz-polynomial irreducibility and arithmetic. Neither inspected full text states the exact integer discriminant formula. The retained contribution is the closed form and exact valuation consequence, not the dynatomic construction or the general transversality criterion. Because the computation is a short application of classical resultant identities, an unindexed prior derivation remains a genuine risk.
+## originality
 
-## Value
+PASS
 
-PASS. Hutz–Towsley motivate these discriminants through the primes where transversality fails in characteristic \(p\). The formula gives the complete prime support and exact valuation of the first nontrivial period-three discriminant for every degree \(d\), rather than isolated numerical examples. This is a natural arithmetic invariant for studying reduction and ramification of critical-orbit parameter polynomials.
+Hutz–Towsley establish the same exact period-three parameter polynomial family and characterize bad characteristic through discriminants, with explicit d5/d7 factorizations. Buff studies the equivalent transformed polynomial t(t+1)^d+1 and irreducibility, and Goksel related Misiurewicz arithmetic. Inspected full source mathematical statements do not state the boxed all-d closed discriminant; nonetheless the classical resultant calculation is short and earlier specialist implicit derivations are a material risk.
 
-## Closest literature and limitations
+## value
 
-The primary comparison is Hutz and Towsley (arXiv:1309.4048v1; *New York Journal of Mathematics* 21 (2015), 297–319), whose examples for \(d=5\) and \(d=7\) agree with the formula. Buff (2018) and Goksel (2020) treat related period-three polynomials, irreducibility, and arithmetic properties, but do not state this discriminant. The result does not classify higher periods, irreducibility, Galois groups, or number-field discriminants. Search coverage is finite.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Dynatomic critical-orbit discriminants control bad-reduction/transversality primes in a well-motivated arithmetic dynamical family. Exact all-degree prime support and valuations extend previously displayed isolated d5/d7 cases and provide a natural unknown invariant, even though the resultant method is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

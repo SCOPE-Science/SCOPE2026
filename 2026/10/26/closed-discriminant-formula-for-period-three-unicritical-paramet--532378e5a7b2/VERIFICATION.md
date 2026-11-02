@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Mathematical checks
+# Independent mathematical audit
 
-The symbolic proof derives the period-three polynomial, the derivative factorization of \(h_d\), both required resultants, the composition resultant, and the discriminant sign. The standalone `verify.py` constructs the integer coefficient list of \(G_d\), computes its Sylvester determinant exactly with fraction-free Bareiss elimination, and compares the discriminant with the closed formula for \(d=2,\ldots,7\). All checks pass. For \(d=5\), the formula yields \(2^{48}101^4 431^4\); for \(d=7\), it yields \(2^{48}3^{54}19^{12}14731^6\), matching the period-three examples in Hutz–Towsley.
+## correctness
 
-## Scope and limits
+PASS
 
-The exact proof covers every integer \(d\ge2\), while the program checks only the listed finite degrees. The result is a polynomial discriminant and does not establish a number-field discriminant, irreducibility, or any higher-period formula. The finite-characteristic interpretation is inherited from the published transversality criterion. Independent audit and external validation have not been performed.
+Write m=d-1, h(t)=t(t+1)^d+1 and G(c)=h(c^m). Its derivative h'=(t+1)^(d-1)((d+1)t+1), and h(-1)=1, h(-1/(d+1))=1-d^d/(d+1)^(d+1). Evaluating resultants at these derivative factors gives Res(h,h')=R=(d+1)^(d+1)-d^d. Composition product over m-th roots gives Res(G,h'(c^m))=R^m and Res(G,m c^(m-1))=m^N(-1)^(N(m-1)) for N=d^2-1; multiplying and the discriminant sign (-1)^(N(N-1)/2) simplify to (-1)^(d+1). R positive for d>=2, so polynomial discriminant nonzero and exact v_p formula follows. Independent exact small-d discriminants confirm sign and powers. This is not a number-field discriminant or a higher-period result.
+
+## originality
+
+PASS
+
+Hutz–Towsley establish the same exact period-three parameter polynomial family and characterize bad characteristic through discriminants, with explicit d5/d7 factorizations. Buff studies the equivalent transformed polynomial t(t+1)^d+1 and irreducibility, and Goksel related Misiurewicz arithmetic. Inspected full source mathematical statements do not state the boxed all-d closed discriminant; nonetheless the classical resultant calculation is short and earlier specialist implicit derivations are a material risk.
+
+## value
+
+PASS
+
+Dynatomic critical-orbit discriminants control bad-reduction/transversality primes in a well-motivated arithmetic dynamical family. Exact all-degree prime support and valuations extend previously displayed isolated d5/d7 cases and provide a natural unknown invariant, even though the resultant method is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

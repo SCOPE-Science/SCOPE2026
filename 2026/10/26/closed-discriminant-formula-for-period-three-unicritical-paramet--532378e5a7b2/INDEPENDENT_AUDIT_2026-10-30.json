@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:44:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md 2b111a2c5fb3c62ea35d6fc30a7784506f882bbe",
+        "assigned verify.py 3541a2f149cc6a8cc02ff48a472a8257394b9d7f",
+        "Independent diagnostic suite check5, exact Sylvester determinants"
+      ],
+      "rationale": "Write m=d-1, h(t)=t(t+1)^d+1 and G(c)=h(c^m). Its derivative h'=(t+1)^(d-1)((d+1)t+1), and h(-1)=1, h(-1/(d+1))=1-d^d/(d+1)^(d+1). Evaluating resultants at these derivative factors gives Res(h,h')=R=(d+1)^(d+1)-d^d. Composition product over m-th roots gives Res(G,h'(c^m))=R^m and Res(G,m c^(m-1))=m^N(-1)^(N(m-1)) for N=d^2-1; multiplying and the discriminant sign (-1)^(N(N-1)/2) simplify to (-1)^(d+1). R positive for d>=2, so polynomial discriminant nonzero and exact v_p formula follows. Independent exact small-d discriminants confirm sign and powers. This is not a number-field discriminant or a higher-period result.",
+      "residual_risks": [
+        "Transversality interpretation depends on the cited Hutz–Towsley theorem and its characteristic restrictions; only polynomial discriminant is directly proved.",
+        "Finite Sylvester determinants corroborate but do not prove all d."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hutz–Towsley general criterion equates divisibility of their D_d(0,n) with characteristic-p transversality failure; examples for d5/d7."
+        ],
+        "reasoning": "This general theorem covers the interpretation and defines the invariant, but does not directly compute the period-three discriminant at all d; the present closed form adds an exact value.",
+        "searches": [
+          "Hutz Towsley Misiurewicz Points for Polynomial Maps and Transversality bad primes discriminants",
+          "unicritical z^d+c period 3 dynatomic discriminant (d+1)^(d+1) - d^d"
+        ]
+      },
+      "checked_sources": [
+        "Hutz–Towsley arXiv:1309.4048 (full PDF)",
+        "Buff NYJM 24 (2018) 1111–1122 (full PDF)",
+        "Goksel JTNB 32 (2020) 373–385 (bibliographic only)",
+        "Resultary semantic search unicritical z^d+c period 3 dynatomic discriminant (d+1)^(d+1) - d^d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Buff irreducibility theory uses h_d(t), while discriminant concerns common roots with h' and factors m and R.",
+          "Irreducibility does not imply the exact resultant/discriminant or bad-prime multiplicities. The basic computation is elementary but not directly stated in compared results."
+        ],
+        "reasoning": "The implication from irreducibility to discriminant is not valid.",
+        "searches": [
+          "Buff On postcritically finite unicritical polynomials t(t+1)^d+1 irreducible discriminant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hutz–Towsley arXiv:1309.4048 studies identical dynatomic parameter G_d(0,3) and exhibits d=5,7 discriminant factorizations.",
+          "Buff NYJM 2018 works with h(t)=t(t+1)^d+1, same polynomial under c^(d-1)."
+        ],
+        "reasoning": "Identical objects and equivalent variables were identified and inspected, but exact arbitrary-d discriminant and prime valuation were absent from the inspected results.",
+        "searches": [
+          "unicritical z^d+c period 3 dynatomic discriminant (d+1)^(d+1) - d^d",
+          "Misiurewicz polynomial G_d(0,3) discriminant formula general degree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic results concerned unrelated cubic polynomial and spectral discriminants, not an exact all-d dynatomic discriminant table.",
+          "Hutz–Towsley tabulates finite d=5 and d=7, which agree with the formula but cannot constitute the all-d statement."
+        ],
+        "reasoning": "Finite examples do not identify an exact general formula without proof; a hidden exact table in older sources remains possible.",
+        "searches": [
+          "Resultary: unicritical z^d+c period 3 dynatomic discriminant (d+1)^(d+1) - d^d"
+        ]
+      },
+      "rationale": "Hutz–Towsley establish the same exact period-three parameter polynomial family and characterize bad characteristic through discriminants, with explicit d5/d7 factorizations. Buff studies the equivalent transformed polynomial t(t+1)^d+1 and irreducibility, and Goksel related Misiurewicz arithmetic. Inspected full source mathematical statements do not state the boxed all-d closed discriminant; nonetheless the classical resultant calculation is short and earlier specialist implicit derivations are a material risk.",
+      "residual_risks": [
+        "A direct application of well-known resultants makes all-d formula potentially an earlier implicit exercise in arithmetic dynamics; full specialist priority cannot be certified.",
+        "Goksel (2020) complete article not inspected, so no whole-document NOT_COVERING conclusion is drawn."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General meaning and d5/d7 examples covered, but exact all-d period-three discriminant not located in relevant inspected statements",
+          "evidence": "Distinct printed d=5 and d=7 factorizations match formula; no displayed expression for arbitrary d.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.4048",
+          "material_read": "Full 18-page primary PDF, especially exact-period definition, discriminant/transversality theorem, period-three examples and screenshot of relevant pages",
+          "method": "arXiv PDF extracted text and PDF screenshots",
+          "title": "Misiurewicz Points for Polynomial Maps and Transversality",
+          "trigger": "Same exact-period critical-orbit polynomial and bad-prime interpretation"
+        },
+        {
+          "assessment": "Equivalent polynomial identified but exact resultant/discriminant is not among inspected claims",
+          "evidence": "Irreducibility of period-three parameter polynomial does not imply the integer discriminant factorization.",
+          "identifier_or_url": "https://nyjm.albany.edu/j/2018/24-54p.pdf",
+          "material_read": "Full primary PDF with relevant transformed-period-three polynomial, irreducibility argument, and screenshot of theorem context",
+          "method": "NYJM full PDF text and page-image verification",
+          "title": "On postcritically finite unicritical polynomials",
+          "trigger": "Equivalent h_d(t)=t(t+1)^d+1 formulation; potential prior implication"
+        },
+        {
+          "assessment": "No full-text exclusion claimed; possible earlier arithmetic implication retained as risk",
+          "evidence": "The accessible metadata establishes focus on irreducibility/arithmetic, insufficient alone to exclude a discriminant result.",
+          "identifier_or_url": "https://www.numdam.org/item/JTNB_2020__32_2_373_0.pdf",
+          "material_read": "Published article title/abstract and bibliographic relevance from search; complete text not independently read",
+          "method": "Publication metadata and source cross-reference",
+          "title": "A note on Misiurewicz polynomials",
+          "trigger": "Arithmetic of same portrait polynomials"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned mathematical claim and proof at 2026/10/26/closed-discriminant-formula-for-period-three-unicritical-paramet--532378e5a7b2/RESULT.md",
+        "Hutz–Towsley arXiv:1309.4048 (full PDF)",
+        "Buff NYJM 24 (2018) 1111–1122 (full PDF)",
+        "Goksel JTNB 32 (2020) 373–385 (bibliographic only)",
+        "Resultary semantic search unicritical z^d+c period 3 dynatomic discriminant (d+1)^(d+1) - d^d"
+      ],
+      "rationale": "Dynatomic critical-orbit discriminants control bad-reduction/transversality primes in a well-motivated arithmetic dynamical family. Exact all-degree prime support and valuations extend previously displayed isolated d5/d7 cases and provide a natural unknown invariant, even though the resultant method is elementary.",
+      "residual_risks": [
+        "No generalization to higher critical periods or new transversality criterion; the value resides in the explicit all-degree invariant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all integers d>=2 the exact polynomial discriminant of the period-three unicritical critical-orbit polynomial G_d(c)=c^(d-1)(1+c^(d-1))^d+1 equals (-1)^(d+1)(d-1)^(d^2-1)((d+1)^(d+1)-d^d)^(d-1), yielding exact prime valuations and support.",
+  "limitations": [
+    "Transversality interpretation depends on the cited Hutz–Towsley theorem and its characteristic restrictions; only polynomial discriminant is directly proved.",
+    "Finite Sylvester determinants corroborate but do not prove all d.",
+    "A direct application of well-known resultants makes all-d formula potentially an earlier implicit exercise in arithmetic dynamics; full specialist priority cannot be certified.",
+    "Goksel (2020) complete article not inspected, so no whole-document NOT_COVERING conclusion is drawn.",
+    "No generalization to higher critical periods or new transversality criterion; the value resides in the explicit all-degree invariant.",
+    "Scientific PASS is a best-of-knowledge assessment, not external verification, publication or authorization to release unsanitized source files."
+  ],
+  "schema_version": 1
+}
