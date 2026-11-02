@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For two autonomous environmental states, direct stationary flux balance gives a fractional-linear occupancy whose derivative is ab*s1*s2*(s1-s2)*(theta1-theta2)/((a+b)*[s1*s2+q*(b*s1+a*s2)]^2); the sign is independent of q. For symmetric complete n-state environment, exact joint balance gives P=(sum c_i/(s_i+nq))/(sum s_i/(s_i+nq)); substituting c=(1,7,7), e=(1,1,7) gives P=5/8+9q/[8(9q^2+39q+28)] with derivative sign(28-9q^2), unique global maximum q=2sqrt(7)/3 and exact value (27-sqrt(7))/38. Positive finite rates ensure uniqueness. The standalone verify.py independently solves 319 exact rational joint CTMC stationary systems and checks symbolic equalities; finite checks supplement, not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fidino, Simonis, Magle 2018 DOI:10.1111/2041-210X.13117 (full text inspected), offers general multistate occupancy transition matrices and equilibrium probabilities.",
+        "Smith 2017 DOI:10.1016/j.mbs.2017.07.003 (abstract only), studies spatial stochastic-environment extinction regimes.",
+        "Schreiber 2010 DOI:10.1098/rspb.2009.2006 (background), studies spatial persistence and dispersal, not one-patch stationary colonization occupancy under a common rate multiplier."
+      ],
+      "reasoning": "General stationary matrix inversion can compute the specific occupancy curve but does not by itself provide the qualitative minimum regime count or strict unique finite optimum. More general Markov-environment literature might nevertheless derive both as a corollary: this remains a priority risk rather than a proved absence.",
+      "searches": [
+        "published-finding corpus: Markov modulated binary patch occupancy colonization extinction with symmetric switching environments exact stationary occupancy monotone in switching speed turnover rate weighted occupancy",
+        "published-finding corpus: Environmental switching speed monotonic stationary population occupancy Markov telegraph two states habitat colonization extinction no intermediate optimum",
+        "Schreiber interactive effects temporal correlations spatial heterogeneity dispersal population persistence 2010"
+      ]
+    },
+    "checked_sources": [
+      "MacKenzie et al. 2003 DOI:10.1890/02-3090 (abstract and publication date)",
+      "Yackulic et al. 2015 DOI:10.1890/14-1361.1 (full text)",
+      "Fidino et al. 2018 DOI:10.1111/2041-210X.13117 (full text)",
+      "Smith 2017 DOI:10.1016/j.mbs.2017.07.003 (abstract)",
+      "Schreiber 2010 DOI:10.1098/rspb.2009.2006 (background publication/search)",
+      "published-finding corpus 2026/9/21/SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54",
+      "published-finding corpus 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+      "published-finding corpus 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "MacKenzie et al. 2003 DOI:10.1890/02-3090 developed dynamic occupancy with colonization/extinction but accessible abstract does not claim this Markov-environment rate-scaling extremal result.",
+        "Yackulic et al. 2015 full text sections with occupancy differential equations do not vary environmental transition speed.",
+        "Fidino et al. 2018 full text presents multistate occupancy modeling and equilibrium calculation, but not the sharp environmental-regime count theorem.",
+        "published-finding corpus 2026/9/21/SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54 studies two-time law aliasing; its conclusion does not imply an ecological stationary occupancy optimum."
+      ],
+      "reasoning": "The new claim is the universal two-regime monotonicity for arbitrary positive rates, sharp three-regime attainability with an exact unique optimum, and minimality. Standard occupancy models and general Markov stationary computations are strictly weaker statements absent a universal qualitative argument. No inspected source entails the entire claimed result, with a residual uninspected-literature risk.",
+      "searches": [
+        "Yackulic 2015 To predict the niche model colonization and extinction equations full text",
+        "Fidino Simonis Magle 2018 multistate dynamic occupancy stationary distribution full text",
+        "Smith 2017 spatially structured metapopulation stochastic environment abstract",
+        "published-finding corpus: Sharp minimal number of Markov environmental states for nonmonotone stationary binary patch occupancy as common environmental switching speed varies: two-state monotonic, three-state unique optimal switching frequency"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact two-state fractional-linear law and explicit three-state strict optimum were contrasted with published-finding corpus hit 2026/9/21/SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54; this studies memory-law identifiability, not ecological stationary-occupancy optimization.",
+        "Yackulic et al. 2015 DOI:10.1890/14-1361.1, inspected full text; analyses habitat variation with environment treated as fixed labels."
+      ],
+      "reasoning": "Equivalent Markov-modulated occupation/fraction of occupied sites or stationary environmental mixture formulations were sought. Neither the cited stationary alternating-renewal identification result nor the examined fixed-environment occupancy model states the sharp two-vs-three environmental-state obstruction; this is best-knowledge noncoverage, not uniqueness certification.",
+      "searches": [
+        "published-finding corpus: Sharp minimal number of Markov environmental states for nonmonotone stationary binary patch occupancy as common environmental switching speed varies: two-state monotonic, three-state unique optimal switching frequency",
+        "published-finding corpus: Mean occupancy versus environment turnover time two environmental states is fractional linear in switching rate; three or more environments yield finite optimum",
+        "literature terms: Markov modulated occupancy, randomly switching habitat quality, telegraph colonization-extinction stationary occupancy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813 addresses sampling frequency statistics, not environmental transition speed.",
+        "published-finding corpus 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7 addresses positivity of numerical Runge–Kutta methods, not habitat occupancy.",
+        "The exact rational example is derived analytically by balance equations and tested from its generator, not copied from a preexisting ecological parameter table."
+      ],
+      "reasoning": "Targeted exact parameter/equivalence and repository searches returned no relevant matching table or identity. An unindexed table or theorem remains possible.",
+      "searches": [
+        "published-finding corpus: Nonmonotone stationary colonization extinction probability under three-state complete-graph environmental Markov modulation, exact three-state counterexample to monotonic two-state response",
+        "published-finding corpus: Two-state randomly switching environment colonization extinction stationary occupancy formula rate dependence",
+        "published-finding corpus: Mean occupancy versus environment turnover time two environmental states is fractional linear in switching rate; three or more environments yield finite optimum"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and primary-literature searches did not identify a theorem classifying the minimum number of autonomous Markov environmental states necessary for a strict interior optimum of stationary binary-patch occupancy. Known dynamic/multistate occupancy equations and generic stationary Markov calculations are acknowledged. Distinct sharp two-regime impossibility and three-regime exact attainment are compared by logical implication, with risks from inaccessible earlier literature.",
+    "residual_risks": [
+      "MacKenzie 2003 full article was inaccessible; no whole-document negative coverage assertion is made.",
+      "Smith 2017 full paper was inaccessible, though abstract concerns a different spatial persistence criterion.",
+      "Broader Markov-modulated fluid/occupancy or stochastic-averaging literature may imply a close theorem not found in searched primary records.",
+      "Novelty is best-knowledge historical comparison, not an independent priority guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No autonomous common-speed Markov environmental switching or regime-count optimization statement identified in inspected article",
+        "evidence": [
+          "DOI 10.1890/14-1361.1",
+          "Displayed fixed-environment colonization–extinction occupancy dynamics rather than moving environment"
+        ],
+        "identifier_or_url": "https://research.fs.usda.gov/download/treesearch/49806.pdf",
+        "material_read": "Full accessible article including the differential occupancy equations, discussion and references",
+        "method": "Downloaded official lawful open-access PDF, inspected rendered pages and parsed full text",
+        "title": "To predict the niche, model colonization and extinction",
+        "trigger": "Direct mathematical precursor for habitat colonization/extinction and environmental variation"
+      },
+      {
+        "assessment": "Computes multistate occupancies in a different ecological model; no minimax number of autonomously switching environmental states or rate-optimum law found",
+        "evidence": [
+          "DOI 10.1111/2041-210X.13117",
+          "Stationary laws through transition matrices are known and acknowledged"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.13117",
+        "material_read": "Accessible article full text, including stationary occupancy computation section",
+        "method": "Accessed publisher or hosted lawful full-text HTML and inspected methods including stationary matrix reasoning",
+        "title": "A multistate dynamic occupancy model to estimate local colonization–extinction rates and patterns of co-occurrence between two or more interacting species",
+        "trigger": "General multistate stationary ecological occupancy may dominate claim"
+      },
+      {
+        "assessment": "Foundational dynamic occupancy model; no assertion that full article excludes our result",
+        "evidence": [
+          "DOI 10.1890/02-3090",
+          "Publisher first-public date 2003-08-01"
+        ],
+        "identifier_or_url": "https://doi.org/10.1890/02-3090",
+        "material_read": "Publisher metadata and accessible abstract; complete article inaccessible in current access",
+        "method": "Read bibliographic metadata and abstract; full-text retrieval not successful",
+        "title": "Estimating Site Occupancy, Colonization, and Local Extinction When a Species Is Detected Imperfectly",
+        "trigger": "Earliest archival source and founding occupancy model"
+      },
+      {
+        "assessment": "Spatial metapopulation extinction-focused and potentially relevant but not resolvable as whole-document NOT_COVERING",
+        "evidence": [
+          "DOI 10.1016/j.mbs.2017.07.003",
+          "Uninspected complete source leaves priority risk"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.mbs.2017.07.003",
+        "material_read": "Abstract and bibliographic description only; full paper inaccessible",
+        "method": "Read publisher-indexed abstract and bibliographic record; open-access search unsuccessful",
+        "title": "A spatially structured metapopulation model within a stochastic environment",
+        "trigger": "Potential broader Markov environmental ecology theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ec05bfd9-4434-437b-8d9e-3386badba7db",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The contrast between monotonic stationary occupancy under every two-state Markov environmental switcher and a unique interior optimum under the smallest possible three-state environment establishes an exact structural threshold in ecological fluctuation-frequency response. The three-state witness has identical slow and fast stationary limits but a strict improvement at each finite speed, proving that endpoint comparisons can conceal a meaningful optimal switching rate. The claim is not a routine table lookup or only a numerical curiosity; it gives a full all-positive-parameter impossibility and an exact sharp attainable boundary with clear ecological interpretation. It does not claim downstream nonlinear ecosystem management predictions.",
+    "status": "PASS"
+  }
+}
