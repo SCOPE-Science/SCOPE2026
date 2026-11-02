@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The spectral projectors are exact polynomials in the Laplacian; they yield edge, nonedge and common diagonal entries. Both r and q=(1-r(z))/z are strictly decreasing on positive inputs by explicitly factored rational derivative numerators with positive denominators. All offdiagonal entries are thus strictly positive at all positive times; the common diagonal crosses zero exactly once by monotonicity and endpoint values. A Python stdlib verifier checks 4 polynomial identities, 2945 exact entries, 2670 strict offdiagonals, 275 row sums, and six exact root brackets; the infinite family follows from proof, not finite cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth–Song–Terlaky give general invariance criteria, but only sufficient step-length bounds from a general radius; no graph-family exact characterization in the inspected Section 3.2.",
+        "Wade et al. address combined positivity-preserving smoothing methods; complete text unavailable, so the abstract is not used to exclude hidden stronger coverage.",
+        "The complete bipartite sixth-order theorem already covers K_{m,m}; it does not assert primitive strongly regular graph cases.",
+        "The fourth-order strongly regular theorem has some unconditionally positive graphs and potentially negative edge entries; it treats a different rational function."
+      ],
+      "reasoning": "General-purpose procedures capable of verifying any specified finite matrix do not logically imply a uniform sharp theorem over all strongly regular graphs, strict off-diagonal positivity for all h, or uniqueness and synchrony of diagonal crossings. The previous sixth-order biclique theorem is a genuine included special case and is credited; the new scope is the full three-eigenvalue strongly regular family.",
+      "searches": [
+        "Diagonal Padé [3/3] on any graph Laplacian with exactly three eigenvalues, strongly regular graph, nonnegative stochastic transition horizon and rational derivative",
+        "https://doi.org/10.3934/dcds.2015.35.2997",
+        "\"Smoothing with positivity-preserving Padé schemes\" Wade pdf",
+        "Smoothing with positivity-preserving Padé schemes for parabolic problems with nonsmooth data",
+        "Sharp timestep positivity of third order diagonal Padé [3/3] Gauss Legendre diffusion on cycles paths strongly regular graphs and complete multipartite graphs"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/num.20039",
+      "https://doi.org/10.1016/j.apnum.2004.08.026",
+      "https://doi.org/10.3934/dcds.2015.35.2997",
+      "https://doi.org/10.1137/060661739",
+      "Earlier fourth-order strongly regular graph exact positivity theorem (different rational scheme)",
+      "Earlier sixth-order complete bipartite graph exact positivity theorem (overlapping balanced biclique special cases)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 rational scheme radius condition gives a sufficient positive step-length but not the largest parameter-dependent one or the absence of re-entry; section 3.2 was read.",
+        "The previously known fourth-order strongly regular theorem differs fundamentally: edges can turn negative or positivity can be unconditional.",
+        "The sixth-order complete bipartite theorem already proves part of the present result on equal balanced bicliques.",
+        "The present full proof uses the strongly regular nonedge/edge projector dichotomy, r strictly decreasing, and q strictly decreasing to settle primitive families not covered by a biclique claim."
+      ],
+      "reasoning": "Neither generic sufficient criterion nor the fourth-order conclusion entails the sixth-order universal diagonal-only mechanism. The balanced biclique implication is recognized explicitly, rather than presented as novel; the claim is the full arbitrary strongly regular graph classification.",
+      "searches": [
+        "\"On the positivity step size threshold of Runge-Kutta methods\" Horvath pdf",
+        "https://engineering.lehigh.edu/sites/engineering.lehigh.edu/files/_DEPARTMENTS/ise/pdf/tech-papers/14/14T_007.pdf",
+        "\"Wade\" \"Khaliq\" \"Siddique\" \"Yousuf\" 2005 pdf positivity preserving Pade",
+        "Sixth-order [3/3] Padé three-stage Gauss Legendre endpoint diffusion on connected noncomplete strongly regular graph positivity of offdiagonal entries and exact diagonal crossing time"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The sixth-order endpoint is the rational matrix r(hL), so stochasticity is exactly invariance of the nonnegative cone plus r(0)=1.",
+        "Exact spectral interpolation reduces all distinct off-diagonal entries to two formulas; nonedge positivity equals strict decrease of q(z)=(1-r(z))/z.",
+        "The 2015 primary manuscript, Section 3.2, states a sufficient rational radius-of-absolute-monotonicity threshold, not this exact three-eigenvalue divided-difference sign theorem."
+      ],
+      "reasoning": "The scalar q-decrease formulation is equivalent to the required nonedge signs inside the three-eigenvalue association scheme, but a general sufficient monotonicity radius is neither an exact horizon nor evidence of off-diagonal positivity at arbitrarily large steps. No consulted source equated the two as a strongly regular graph theorem.",
+      "searches": [
+        "Sixth-order [3/3] Padé three-stage Gauss Legendre endpoint diffusion on connected noncomplete strongly regular graph positivity of offdiagonal entries and exact diagonal crossing time",
+        "\"Padé\" \"three eigenvalues\" positivity graph Laplacian",
+        "Padé approximants maximum principle positivity [3/3] diffusion Gauss Legendre Runge Kutta fourth sixth order parabolic 2004",
+        "https://doi.org/10.3934/dcds.2015.35.2997"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database entry stating the rational unique diagonal threshold for the entire strongly regular class was located in the searched public records.",
+        "Direct rational full-matrix tests cover six named graphs only; those finite numbers are supporting checks and not exhaustive graph-family evidence.",
+        "Previously known balanced biclique formulas are special cases of the new scalar spectral equation."
+      ],
+      "reasoning": "Absence from sampled searches or reference tables is not proof of uniqueness. The result is a parametric family theorem for arbitrary admissible strongly regular parameters, not a claimed new individual graph value.",
+      "searches": [
+        "\"strongly regular graph\" \"Padé\" \"nonnegative\" Laplacian",
+        "\"strongly regular graphs\" \"Gauss-Legendre\" \"positivity\" diffusion",
+        "Padé sixth order positivity strongly regular graphs contrast fourth order"
+      ]
+    },
+    "rationale": "The complete sixth-order strongly regular graph classification is not implied by inspected general sufficient invariance results, the different fourth-order strongly regular scheme, or the special-case sixth-order complete-bipartite theorem. The full spectral parameter theorem and universal diagonal-only positivity failure on primitive strongly regular graphs were not found under the recorded alias, coverage, and implication searches. Existing overlapping cases and incomplete full-text access are explicitly stated.",
+    "residual_risks": [
+      "The complete Wade et al. 2004/2005 article was inaccessible; no whole-document noncoverage inference is made.",
+      "The Horváth 2005 full article was inaccessible; abstract-level evidence cannot rule out specialized results.",
+      "Specialized earlier unindexed strongly regular graph/RK integration treatments might exist.",
+      "The result is self-reviewed and not independently externally audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides a sufficient radius-of-absolute-monotonicity threshold for rational methods on invariant polyhedra, not a specialized exact stochasticity horizon over all strongly regular graphs or all-positive off-diagonal law.",
+        "evidence": [
+          "Section 3.2 defines rational schemes and Theorem 3.12 gives tau=rho/gamma as a valid threshold.",
+          "The manuscript explicitly distinguishes a valid threshold from the largest one and allows disconnected valid positivity windows in general."
+        ],
+        "identifier_or_url": "https://engineering.lehigh.edu/sites/engineering.lehigh.edu/files/_DEPARTMENTS/ise/pdf/tech-papers/14/14T_007.pdf",
+        "material_read": "Full manuscript text inspected for abstract, introduction, definitions, Section 3.2 and Theorem 3.12, with page image inspection of mathematical content.",
+        "method": "Authorized open preprint; sections and equation statements inspected.",
+        "title": "Steplength thresholds for invariance preserving of discretization methods of dynamical systems on a polyhedron",
+        "trigger": "Most relevant general rational discretization step-length framework; potentially broad enough to imply a family result."
+      },
+      {
+        "assessment": "Shows substantial earlier Padé positivity methods and must be credited. Not enough full-text material to declare its exact graph parameter results absent.",
+        "evidence": [
+          "Publisher verifies first online date 2004-09-29 and describes combined diagonal/positivity-preserving Padé smoothing.",
+          "The abstract is method-level rather than a claimed strongly regular graph theorem; residual uncertainty remains."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/num.20039",
+        "material_read": "Publisher bibliographic page, abstract, reference list and author bibliography; full article not accessible.",
+        "method": "Looked for arXiv and lawful OA full text; institutional full-text retrieval unavailable.",
+        "title": "Smoothing with positivity-preserving Padé schemes for parabolic problems with nonsmooth data",
+        "trigger": "Same Padé method family and explicit positivity in the title; plausibly relevant prior work."
+      },
+      {
+        "assessment": "Studies general RK positivity thresholds and invariant sets, not evidence of exact strongly regular graph sixth-order formula in accessible material.",
+        "evidence": [
+          "Accessible abstract describes universal RK threshold classes and special invariant subsets, without named graph-family classification."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "Bibliographic abstract and scope; full paper was not accessible from the consulted sources.",
+        "method": "Publisher/repository abstract inspection and full-text search.",
+        "title": "On the positivity step size threshold of Runge-Kutta methods",
+        "trigger": "Potential dominance by a general sharp RK monotonicity theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e88b4f30-5ae5-4ad9-b4fb-383d7b544ebd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural complete graph-family criterion gives an exact finite positivity horizon for a commonly used sixth-order diffusion integrator. The universal all-positive off-diagonal law and simultaneous diagonal failure are structurally stronger than a numerical threshold table. Unlike the fourth-order method, sixth-order has finite positivity horizon even for C4, making the nonmonotone order-versus-positivity tradeoff explicit and useful for safe timesteps.",
+    "status": "PASS"
+  }
+}
