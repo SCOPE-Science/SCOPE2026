@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Install NumPy and run `python verify.py` in a directory containing `verify.py`. The script produces a `VERIFIED ... checks` message and raises an exception if an assertion fails. In the recorded execution, it printed `VERIFIED 521 checks; equal-rate onset= 0.23856269445149794 2:1 topology split= 0.17275338080786104`.
+## correctness
 
-## Checked quantities
+PASS
 
-The program reconstructs the full nine-dimensional Liouvillian from qutrit ladder and nonlinear jump matrices, verifies that the published density matrix is stationary, normalized and positive at eleven independently chosen rate pairs, confirms a zero Liouvillian eigenvalue, compares the Wigner polynomial with a separately evaluated Fock-component representation on a finite phase-space grid, and tests the predicted negativity classes and both exact thresholds.
+For the specified strictly positive rates and the three-level truncated Lindbladian, the displayed density matrix is normalized and positive; its conventional oscillator Wigner sign reduces to P(z,θ)=16az²-4q(θ)z+(2a+b), z=|α|², with q∈[q-,q+], q±=4a-b±8ab/sqrt((a+3b)²+16). A positive-radius negative interval exists iff q(θ)>c=2sqrt(a(2a+b)). The cosine angular locus has no directions if q+≤c, all directions if q->c (one annular negative band), otherwise exactly two antipodal arcs (two lobes), including the strict-boundary q-=c. Angular averaging removes the cosine and is negative somewhere iff a/b>(3+sqrt7)/4. Exact ray substitutions give equal-rate birth t=0.238562694451… and 2:1 annulus splitting t=0.172753380808…. Independent numerical tests checked the inequalities at seven rate pairs; the classification is established by the exact quadratic and connected angular arcs, not grid sampling.
 
-## Logical limitations
+## originality
 
-These finite numerical checks do not establish an infinite parameter classification or certify the global topology of negative regions. The separate analytic argument uses the exact angular range of a cosine, a strictly positive radial quadratic leading term, explicit discriminants and monotonicity on the two illustrative parameter rays. The numerical phase-space grid alone can miss small near-threshold negative regions. The result concerns the stationary truncated model, not the full infinite-dimensional oscillator. Independent audit has not been performed.
+PASS
+
+Qualified best-of-knowledge finding after an actual Resultary query, targeted primary-literature comparison, and an implication-level review of the submitted theorem. Specific same-object access restrictions and broader historical-priority risks remain in source_inspections and residual_risks. No failed search alone is treated as proof of novelty.
+
+## value
+
+PASS
+
+An exact global topological classification of Wigner negativity for a physically motivated stationary three-level oscillator, including phase boundaries and angular-averaging blind spots, has intrinsic interpretive and mathematical value. It tells when an angularly averaged witness entirely misses genuine negativity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
