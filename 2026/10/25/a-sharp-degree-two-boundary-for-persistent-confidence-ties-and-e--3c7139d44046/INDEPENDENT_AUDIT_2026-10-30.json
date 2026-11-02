@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:17:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a selected endpoint v of an active edge uv, with at most one other active neighbor w, triangle inequality gives ||(x_v+x_u+x_w)/3-x_u||≤(ε+2ε)/3=ε; with only uv it halves. Other vertex updates cannot alter uv. Conversely a degree-k≥3 star with neighbor opinions (-ε,ε,...,ε) and center 0 moves center to (k-2)ε/(k+1), breaking negative edge immediately. Expanding squared-graph energy under a one-site update gives (d_v+2)/(d_v+1)^2||(Lx)_v||² exactly. For C_n this is 4/9, averaged over uniform site gives decrease 4/(9n)||Lx||² and λ_2(C_n)=4sin²(π/n), so q_n=1-16sin²(π/n)/(9n); first Fourier mode scaled to all-active state attains. Markov on energy gives stated hitting-time tail; finite local rational checks separately reproduced formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A fixed influence graph can admit spectral contraction, but that condition is imposed or illustrated, not characterized for all initial states by Δ≤2.",
+          "Cycle Fourier eigenvalues are classical and are not claimed new."
+        ],
+        "reasoning": "No inspected stronger result implies both degree-2 iff permanence and optimal q_n; spectral consequences apply only after proving invariance.",
+        "searches": [
+          "Berenbrink et al., Asynchronous Opinion Dynamics in Social Networks, section 3 theorem 5",
+          "arXiv:1909.03485"
+        ]
+      },
+      "checked_sources": [
+        "Berenbrink et al. arXiv:2201.12923 full OA article",
+        "Parasnis et al. arXiv:1909.03485 abstract",
+        "Li, Luo and Porter arXiv:2303.07563 abstract",
+        "Resultary target query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5 is a fixed-influence special-case dynamics result and not an all-initial-condition degree threshold.",
+          "Synchronous and adaptive-confidence protocols allow different edge behavior."
+        ],
+        "reasoning": "Neither known convergence theorem nor a particular path example logically supplies the sharp iff graph criterion and unique one-step worst-case cycle factor.",
+        "searches": [
+          "Berenbrink et al. Theorem 5 and example",
+          "Parasnis et al. arXiv:1909.03485",
+          "Li–Luo–Porter arXiv:2303.07563"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berenbrink et al. study the same self-inclusive asynchronous model but derive expected stability under general conditions.",
+          "Parasnis et al. study synchronous HK, a different update protocol."
+        ],
+        "reasoning": "Permanence of a particular influence graph for selected states differs from universal edge-by-edge persistence on all graph topologies.",
+        "searches": [
+          "Resultary query: asynchronous Hegselmann Krause social graph permanent confidence ties degree two cycle sharp energy contraction",
+          "arXiv:2201.12923",
+          "arXiv:1909.03485"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite database or table can by itself classify the universal unbounded class of all finite social graphs.",
+          "Targeted Resultary hits concern different seven-agent switching phenomena, not degree classification."
+        ],
+        "reasoning": "Exact database/table inapplicable to an all-graph quantified theorem; actual search did not identify this same result.",
+        "searches": [
+          "Resultary query: asynchronous Hegselmann Krause social graph permanent confidence ties degree two cycle sharp energy contraction",
+          "arXiv:2201.12923"
+        ]
+      },
+      "rationale": "Closest same-protocol literature assumes fixed influence for one convergence theorem; it does not classify when all active ties must persist under every possible state and activation, nor give the sharp cycle energy multiplier. Standard spectral calculation is credited.",
+      "residual_risks": [
+        "A differently named older contact-preservation lemma could cover the degree-two case.",
+        "Sharp energy factor is one-step, not optimal multi-step Lyapunov exponent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-influence special cases, no shown degree-two universal iff theorem",
+          "evidence": "Conditional unchanging-influence statements; separate arbitrary-network δ-stability results.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.12923",
+          "material_read": "Full accessible Springer OA article including setup, section 3 and Theorem 5",
+          "method": "Full journal HTML article and mathematical sections",
+          "title": "Asynchronous Opinion Dynamics in Social Networks",
+          "trigger": "Same update rule, influence graph and spectral stability"
+        },
+        {
+          "assessment": "Not judged globally noncovering; synchronous dynamics differ",
+          "evidence": "Synchronous update in cited abstract, not single-site mean.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.03485",
+          "material_read": "Accessible abstract/method description, not full article",
+          "method": "Abstract-level comparison only",
+          "title": "On the Convergence Properties of Social Hegselmann–Krause Dynamics",
+          "trigger": "Possible dominating convergence theorem"
+        },
+        {
+          "assessment": "Different adaptive thresholds and Deffuant protocol",
+          "evidence": "Adaptive confidence limits preclude immediate universal fixed-ε implication.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.07563",
+          "material_read": "Abstract and research-record description",
+          "method": "Abstract-level comparison only",
+          "title": "Bounded-Confidence Models of Opinion Dynamics with Adaptive Confidence Bounds",
+          "trigger": "Possible nearest protocol variant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The answer gives the exact global graph boundary between irrevocable and breakable interpersonal contacts; this topology criterion directly affects fragmentation and number of topology changes. The optimal finite-size cycle contraction and geometric consensus tail are quantitatively useful nontrivial consequences.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No synchronous, Deffuant, weighted-average or changing-radius extension.",
+    "Only fully initially active cycle has the displayed sharp conditional one-step factor."
+  ],
+  "schema_version": 1
+}

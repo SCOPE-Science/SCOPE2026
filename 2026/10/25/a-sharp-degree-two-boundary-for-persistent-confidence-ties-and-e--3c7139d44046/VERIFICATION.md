@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the stated theorem
+# Independent mathematical audit
 
-Run `python hk_contact_monotonicity_verifier.py` using only the Python standard library. The checker uses exact rational arithmetic for all first-update and random-sequence contact comparisons, then tests the harmonic cycle energy expression numerically. Its output from the provided file is:
+## correctness
 
-```
 PASS
-Exhaustive exact first-update cases: 163105
-Exact high-degree witness graphs: 23
-Exact randomized path/cycle updates: 84000
-First-mode spectral tests, cycle lengths: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
-```
 
-The exhaustive domain is **all labeled simple graphs with at most four vertices**, with each vertex's scalar initial opinion in \(\{-2,-1,0,1,2\}\), confidence radius \(1\), and every possible first activated vertex. The finite random-path/cycle cross-check covers more update sequences, but does not exhaust them or the continuum of initial opinions. The cycle spectral cross-check uses floating-point arithmetic with tolerance \(10^{-11}\). The published proof, not the tests, establishes the theorem for arbitrarily large finite networks, arbitrary initial real vectors, and every activation sequence. No independent audit has taken place.
+At a selected endpoint v of an active edge uv, with at most one other active neighbor w, triangle inequality gives ||(x_v+x_u+x_w)/3-x_u||≤(ε+2ε)/3=ε; with only uv it halves. Other vertex updates cannot alter uv. Conversely a degree-k≥3 star with neighbor opinions (-ε,ε,...,ε) and center 0 moves center to (k-2)ε/(k+1), breaking negative edge immediately. Expanding squared-graph energy under a one-site update gives (d_v+2)/(d_v+1)^2||(Lx)_v||² exactly. For C_n this is 4/9, averaged over uniform site gives decrease 4/(9n)||Lx||² and λ_2(C_n)=4sin²(π/n), so q_n=1-16sin²(π/n)/(9n); first Fourier mode scaled to all-active state attains. Markov on energy gives stated hitting-time tail; finite local rational checks separately reproduced formula.
+
+## originality
+
+PASS
+
+Closest same-protocol literature assumes fixed influence for one convergence theorem; it does not classify when all active ties must persist under every possible state and activation, nor give the sharp cycle energy multiplier. Standard spectral calculation is credited.
+
+## value
+
+PASS
+
+The answer gives the exact global graph boundary between irrevocable and breakable interpersonal contacts; this topology criterion directly affects fragmentation and number of topology changes. The optimal finite-size cycle contraction and geometric consensus tail are quantitatively useful nontrivial consequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
