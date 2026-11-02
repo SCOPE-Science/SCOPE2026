@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "All domains and hypotheses are explicit. The path summation identities and mass-weighted Jacobi oscillation establish positive eigenfluxes and identify lambda_2. A unique positive quadratic root, sharp monotone cap threshold, budget identity and global Rayleigh upper-bound equality imply optimality and unrestricted uniqueness. The U-down-to-zero expansion is derived by asymptotic balance. Standalone verification checks 245 exact rational constructions, 585 eigenvalue comparisons and 3852 alternative allocations; finite computations are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. general graph and stationary-mass SDP covers the problem implicitly as an optimization instance but supplies no one-cap formula",
+        "Wan et al. algorithm for trees treats total edge-weight budgets without a local cap",
+        "Fiedler 1990 full text not accessible; abstract and secondhand primary citations address uncapped tree algebraic connectivity",
+        "Kempton et al. 2016 develops constrained dynamic adjustment for spectral functions, not this closed-form exact solution"
+      ],
+      "reasoning": "A general semidefinite optimization formulation makes numerical solvability prior art, but does not establish the exact closed-form threshold, quadratic branch or bottleneck asymptotic. No material reviewed proves a more general theorem from which this explicit conclusion follows without new analysis.",
+      "searches": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf sections 3–6",
+        "https://skoge.folk.ntnu.no/prost/proceedings/cdc-2008/data/papers/0353.pdf tree design",
+        "https://doi.org/10.1080/03081089008817967 abstract",
+        "https://research-information.bris.ac.uk/files/87903988/final_update_CDC2016.pdf constrained adaptation"
+      ]
+    },
+    "checked_sources": [
+      "Sun et al. (2006) primary full text, Result 5 and Section 6, https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "Wan et al. (2008) primary tree-design text, https://skoge.folk.ntnu.no/prost/proceedings/cdc-2008/data/papers/0353.pdf",
+      "Fiedler (1990) abstract/citations only, https://doi.org/10.1080/03081089008817967",
+      "Kempton et al. (2016) accessible parsed sections, https://research-information.bris.ac.uk/files/87903988/final_update_CDC2016.pdf",
+      "published-finding corpus semantic hits for constrained fastest mixing and path capacity; no exact matching result surfaced",
+      "Accessible own earlier claim collection, including general-mass uncapped priced-path formula inside priced-cycle screening"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Uncapped formula and mass-weighted SDP are credited as existing; the capped branch differs at every U strictly below the threshold",
+        "The new flux equalities and Rayleigh certificate explicitly use the additional local cap and produce a positive root z>sqrt(c_k)",
+        "The small-cap leading and second-order coefficients follow from this new root and are not in the inspected uncapacitated statements"
+      ],
+      "reasoning": "The new claim is not the uncapacitated theorem as a special case, a price substitution or a numerical SDP evaluation; the active constraint shifts the optimal eigenvector and yields a distinct analytic phase. Risk of an uninspected specialist general theorem is acknowledged.",
+      "searches": [
+        "Sun et al. Result 5 / Section 6",
+        "Wan et al. Theorem 2 and tree algorithm",
+        "prior uncapacitated path premise in priced-cycle theorem",
+        "published-finding corpus cap / bottleneck / reversible birth–death semantic queries"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. Result 5: arbitrary-price uncapped path with equal masses; section 6: reversible stationary-mass SDP",
+        "Wan et al. tree optimizer: total-weight constraint, no designated upper edge capacity"
+      ],
+      "reasoning": "The generalized eigenvalue formulation is equivalent to reversible birth–death relaxation. The source formulations cover the uncapacitated optimization and abstract SDP, but the new individual edge inequality is not removable by reparametrizing the prices, as the Fiedler increment changes from the square-root price to a new quadratic root.",
+      "searches": [
+        "A finite path graph with arbitrary node masses, edge conductance prices, total budget, and an upper bound on one edge: exact optimal spectral gap, quadratic cap crossover, bottleneck limit",
+        "fastest mixing reversible birth death chain path single capped edge conductor spectral gap optimal rates",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf sections 5.2 and 6",
+        "https://skoge.folk.ntnu.no/prost/proceedings/cdc-2008/data/papers/0353.pdf sections II–IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic hit 2026/10/11/SCOPE-weighted-odd-cycle-fourth-power-edge-converges-to-an-antiperiodi--9299e65764af concerns a nonlinear odd-cycle energy, not capped path conductances",
+        "Own earlier priced reversible-cycle edge-screening result includes the UNCAPPED arbitrary-mass path profile as a premise, not a cap on path-edge conductance",
+        "Other similar fast-mixing results cover circles, stars, complete bipartite graphs, other objectives or uncapacitated paths"
+      ],
+      "reasoning": "No inspected record/table lists the new capped-path quadratic solution or its first two small-cap terms. Search nonappearance is not treated as independent novelty proof.",
+      "searches": [
+        "published-finding corpus semantic search: A finite path graph with arbitrary node masses, edge conductance prices, total budget, and an upper bound on one edge: exact optimal spectral gap, quadratic cap crossover, bottleneck limit",
+        "published-finding corpus semantic search: fastest mixing reversible birth death chain path single capped edge conductor spectral gap optimal rates",
+        "published-finding corpus semantic search: weighted path Laplacian maximization algebraic connectivity one edge capacity constrained budget explicit closed form",
+        "prior claim: 2026-10_week4 prior priced-cycle edge-screening theorem"
+      ]
+    },
+    "rationale": "The inspected 2006 primary source already solves the uncapped equal-mass path and formulates the general reversible SDP; earlier tree-weight structural results are also known. The accepted claim is restricted to a new explicit one-capped-edge two-phase quadratic classification, arbitrary vertex masses and prices, globally unique saturated-edge allocation, and its two-term bottleneck law. Neither those reviewed primary statements nor the accessible records provide that constrained conclusion. Inaccessible specialist work is a documented priority risk.",
+    "residual_risks": [
+      "Fiedler 1990 original full text inaccessible via open access and authorized institutional VPN; its exact detailed hypotheses could contain nearby capped variants.",
+      "Additional specialized path-capacity optimization or edge-constrained semidefinite literature not surfaced by semantic and web search may have priority.",
+      "The 2016 constrained network paper was inspected only via accessible parsed sections (PDF rendering was denied); no whole-document novelty claim rests solely on its snippet."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS uncapped equal-mass path rates and general mass-weighted SDP; does not state the single-cap phase formula",
+        "evidence": [
+          "Result 5 section 5.2 gives unique cost-weighted path rates",
+          "Section 6 equations (11)–(13) give reversible SDP and stationary-mass MVU; no local upper capacity appears"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Full 19-page source text, especially Sections 3, 4, 5.2 and 6 and references; PDF page images 16–17 checked",
+        "method": "Primary PDF text and rendered PDF pages",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Exact uncapped price-weighted paths and general mass-weighted reversible dynamics"
+      },
+      {
+        "assessment": "COVERS unconstrained total-weight tree optimal designs, not one local upper edge capacity with heterogeneous masses and prices",
+        "evidence": [
+          "Theorem 2 is an unconstrained tree edge-weight design theorem; text uses the total edge-weight budget",
+          "No fixed upper-bound single-edge phase classification found"
+        ],
+        "identifier_or_url": "https://skoge.folk.ntnu.no/prost/proceedings/cdc-2008/data/papers/0353.pdf",
+        "material_read": "Available primary 2008 conference full text (methods and Theorems 1–2 on tree edge designs)",
+        "method": "Primary full-text methods/theorem reading (also mirrored as searchable full text)",
+        "title": "On the Structure of Graph Edge Designs that Optimize the Algebraic Connectivity",
+        "trigger": "Potentially dominating tree design optimizer"
+      },
+      {
+        "assessment": "UNKNOWN full original coverage; established role is the unconstrained tree algebraic-connectivity theorem",
+        "evidence": [
+          "Sun et al. Section 5.2 explicitly credits Fiedler for path uniform-price and general uncapped trees",
+          "Full article unavailable, retained as residual originality risk"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081089008817967",
+        "material_read": "Bibliographic and abstract information, plus the precise coverage cited in Sun et al. and Wan et al.; original full text NOT obtained",
+        "method": "Open-access and arXiv attempts failed; authorized institutional source returned VPN disconnected",
+        "title": "Absolute algebraic connectivity of trees",
+        "trigger": "Fiedler original tree priority"
+      },
+      {
+        "assessment": "Addresses numerical/distributed constrained edge-weight adaptation, not an explicit all-parameter one-cap weighted-path optimum",
+        "evidence": [
+          "Section II gives generic constrained gradient adaptation using KKT conditions",
+          "No single-capped reversible path quadratic or bottleneck asymptotic in materially inspected sections"
+        ],
+        "identifier_or_url": "https://research-information.bris.ac.uk/files/87903988/final_update_CDC2016.pdf",
+        "material_read": "Accessible PDF parsed text (intro, weight adaptation, constrained KKT and spectral gradient methodology); rendered PDF access gave HTTP 403",
+        "method": "Primary parsed PDF and accessible publisher abstract; PDF page rendering unsuccessful",
+        "title": "Distributed Adaptive Optimization and Control of Network Structures",
+        "trigger": "An existing method for algebraic-connectivity design under constraints"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "708685d2-7d1e-46c3-8f23-d40efa7fd33b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A single restricted bottleneck is a natural physically constrained reversible path or consensus network investment problem. The theorem covers every positive stationary mass profile, edge-price vector, budget and cap, with an exact two-regime threshold, closed quadratic solution, unique global optimum and universal severe-bottleneck leading law plus explicit next coefficient. The precise capped optimization is not merely an unpriced path calculation or tiny numerical improvement.",
+    "status": "PASS"
+  }
+}
