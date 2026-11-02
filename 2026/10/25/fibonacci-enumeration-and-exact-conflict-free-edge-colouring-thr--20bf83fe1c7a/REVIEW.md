@@ -1,19 +1,21 @@
-# Scientific review: spider conflict-free two-edge-colouring
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The central vertex sees either \(k\) spokes or \(k\) spokes and one second-arm edge, giving exactly four possible red-spoke counts \(0,1,k-1,k\). The boundary conditions for every arm determine Fibonacci completion factors: \(F_{L-2}\) when the first two colours agree and \(F_{L-1}\) when they differ. These factors are multiplied across independent paths and summed over the four disjoint central regimes. Positivity yields the exact obstruction; a complete, explicit depth-modulo-three construction proves the upper value three. The finite independent verifier compared graph-neighbourhood enumeration with the count on 356 test profiles; the infinite proof does not depend on enumeration.
+PASS
 
-## Originality
+For each spoke the closed edge neighbourhood has k spokes plus optional second edge; with two colours its unique-colour condition gives R in {0,1,k-1,k}, and forces second colours. Every internal path-edge neighbourhood of three edges must be nonmonochromatic and terminal pair must differ; backward tail recursion A_{L+1}=B_L, B_{L+1}=A_L+B_L with A2=0,B2=1 yields u/v Fibonacci values. Counting the disjoint spoke cases yields the formula, including length-one arms. Exactly two length-two u-factors vanish under the length-one prohibition, yielding zero binary counts. A tree levels-mod3 colouring provides the three-colour bound, and center degree>=3 blocks one colour. Independently built actual graph neighbourhoods and exhaustively enumerated 1,563 length profiles at small sizes; no exceptions.
 
-**PASS, subject to bibliographic uncertainty.** The closest primary works establish general tree and bipartite upper bounds, a decision criterion for trees without degree-two vertices, a sufficient condition for certain degree-two trees, and a general necessary-and-sufficient two-colouring condition phrased as an unknown feasible edge subset. None of the relevant full-text statements inspected gives the mixed arm-length spider obstruction or this Fibonacci count of all named two-colourings. The general local feasibility reformulation is credited; it requires further nontrivial solution counting to produce the formula. Equivalent results in unindexed literature remain a risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Spiders are a canonical controlled class of trees containing arbitrary degree-two subdivisions, precisely the aspect excluded from the main earlier algorithmic tree theorem. The result both settles the two-versus-three question and counts every optimum two-colouring throughout an infinite family of unbounded degree and arm length. The count reveals a Fibonacci tail phenomenon coupled to a sharp branch-center obstruction.
+General conflict-free edge-chromatic upper bounds for trees and local two-colour feasibility are known. The complete Fibonacci-labelled binary colour enumeration for arbitrary subdivided spider arms and the exact short-arm chromatic obstruction were not in the inspected source statements. This narrower calculation makes meaningful use of arbitrary subdivision lengths and avoids conflating proper/selective colouring.
 
-## Scope and residual limits
+## value
 
-Spiders must have at least three arms. The number counts all red/blue maps on named edges, not colour-swap or graph-automorphism orbits. It does not classify arbitrary trees, and independent validation has not been performed. The checked literature is not guaranteed exhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Spider trees are a canonical branching tree family and conflict-free edge colourability is an active natural graph invariant. The exact Fibonacci enumeration and sharp length1-plus-two-length2 obstruction provide both a complete labelled counting answer and a clean feasibility boundary; not merely a routine chromatic upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

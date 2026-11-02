@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:49:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md full center constraints and tail induction; verify.py read",
+        "Independent_checks.py graph-edge-neighbourhood brute-force across 1563 length profiles"
+      ],
+      "rationale": "For each spoke the closed edge neighbourhood has k spokes plus optional second edge; with two colours its unique-colour condition gives R in {0,1,k-1,k}, and forces second colours. Every internal path-edge neighbourhood of three edges must be nonmonochromatic and terminal pair must differ; backward tail recursion A_{L+1}=B_L, B_{L+1}=A_L+B_L with A2=0,B2=1 yields u/v Fibonacci values. Counting the disjoint spoke cases yields the formula, including length-one arms. Exactly two length-two u-factors vanish under the length-one prohibition, yielding zero binary counts. A tree levels-mod3 colouring provides the three-colour bound, and center degree>=3 blocks one colour. Independently built actual graph neighbourhoods and exhaustively enumerated 1,563 length profiles at small sizes; no exceptions.",
+      "residual_risks": [
+        "Small finite enumeration alone cannot prove all arm lengths; k>=3 and named colours matter."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jin and Gao Theorem 1.3 supplies sharp bipartite <=3 bound; tree level modulo 3 is classical.",
+          "The source 2-colour tree characterization is a system of local degree equations with no displayed complete length-profile solution."
+        ],
+        "reasoning": "Known upper bound establishes only χ<=3. A more general decision criterion may imply existence after nontrivial specialization, but neither its published explicit statement nor proof gives exact spider N2.",
+        "searches": [
+          "https://arxiv.org/abs/2604.24183",
+          "https://arxiv.org/abs/2409.10899",
+          "conflict-free edge coloring spider trees Fibonacci count two colors degree-two arms"
+        ]
+      },
+      "checked_sources": [
+        "conflict-free edge coloring spider trees Fibonacci count two colors degree-two arms",
+        "https://arxiv.org/abs/2604.24183",
+        "https://arxiv.org/abs/2409.10899"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic 2-colour local-degree criterion can test a given tree, but not count all colourings or make a single closed length-profile formula without a new transfer recurrence.",
+          "The new zero-count condition depends precisely on simultaneous length1 and two length2 arms."
+        ],
+        "reasoning": "The submitted count and sharp obstruction require evaluating the center constraints and arbitrary-length tails, beyond the cited general tree bound.",
+        "searches": [
+          "https://arxiv.org/abs/2604.24183",
+          "https://arxiv.org/abs/2409.10899",
+          "conflict-free edge coloring spider trees Fibonacci count two colors degree-two arms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jin and Gao Theorem 1.9: general local-subset feasibility criterion; does not enumerate all colourings.",
+          "Guo et al: trees without degree-two vertices and partial sufficient conditions, not fully arbitrary arm subdivisions."
+        ],
+        "reasoning": "Closed edge-neighbourhood conflict-free differs from proper conflict-free vertex colouring; the prior feasibility condition could be specialized but does not already contain the evaluated Fibonacci counts.",
+        "searches": [
+          "conflict-free edge coloring spider trees Fibonacci count two colors degree-two arms",
+          "https://arxiv.org/abs/2604.24183",
+          "https://arxiv.org/abs/2409.10899",
+          "spider subdivision strong conflict free edge coloring edge neighborhood Fibonacci"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent enumeration of N2(1,2,2)=0, N2(1,2,3)=2, N2(2,2,2)=2 and all small profiles confirms proposed formula.",
+          "Resultary nearest spider title concerns edge general-position sets, a different invariant."
+        ],
+        "reasoning": "No directly applicable pre-existing table found; an unknown table of arbitrary small spider cases would not imply arbitrary Fibonacci-length formula.",
+        "searches": [
+          "conflict-free edge coloring spider trees Fibonacci count two colors degree-two arms",
+          "spider conflict free edge colouring enumeration length 1 2 obstruction",
+          "Fibonacci spider named red blue edge colourings count"
+        ]
+      },
+      "rationale": "General conflict-free edge-chromatic upper bounds for trees and local two-colour feasibility are known. The complete Fibonacci-labelled binary colour enumeration for arbitrary subdivided spider arms and the exact short-arm chromatic obstruction were not in the inspected source statements. This narrower calculation makes meaningful use of arbitrary subdivision lengths and avoids conflating proper/selective colouring.",
+      "residual_risks": [
+        "Possible prior explicit transfer-matrix enumeration of subdivided stars under an alias; the selected search is not a systematic bibliography."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TREE <=3 AND FEASIBILITY CRITERION, NOT EXPLICIT SPIDER FIBONACCI COUNT",
+          "evidence": "General 2-colour feasibility formulation does not furnish exact named-colour count for all spider subdivisions.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.24183",
+          "material_read": "Primary arXiv 6-page PDF read Theorems 1.3 and 1.9, including hypotheses and local edge subset criterion; rendered page inspected",
+          "method": "Primary arXiv PDF text and screenshot",
+          "title": "Conflict-free chromatic index of bipartite graphs",
+          "trigger": "Potential stronger general tree bicolouring theorem"
+        },
+        {
+          "assessment": "PARTIAL TREE RESULTS; LENGTH-PROFILE COUNT NOT SHOWN",
+          "evidence": "The stated conditions focus on trees without degree-two vertices or sufficient conditions, unlike arbitrary spider arm lengths.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.10899",
+          "material_read": "Primary arXiv 14-page PDF read sections concerning no degree-two vertices and generalized sufficient conditions; page screenshot inspected",
+          "method": "Primary arXiv PDF text and screenshot",
+          "title": "Conflict-free chromatic index of trees",
+          "trigger": "Potential exact tree characterization, including spiders"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Natural spider family and edge conflict-free chromatic number in Jin–Gao and Guo et al",
+        "Proof-based arm-local transfer and center obstruction"
+      ],
+      "rationale": "Spider trees are a canonical branching tree family and conflict-free edge colourability is an active natural graph invariant. The exact Fibonacci enumeration and sharp length1-plus-two-length2 obstruction provide both a complete labelled counting answer and a clean feasibility boundary; not merely a routine chromatic upper bound.",
+      "residual_risks": [
+        "No generalization to arbitrary trees, proper colourings, or automorphism-quotiented counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every spider with k>=3 arms of lengths ell_i>=1 and named red/blue edge colours, the number of conflict-free edge-colourings is 2 sum_j v_j prod_{i!=j}u_i + 2 1_{all ell>=2} prod_i v_i, u_i=1 at length1 else F_{ell_i-2}, v_i=1 at length1 else F_{ell_i-1}; the minimum full conflict-free edge chromatic number is 3 iff a length1 arm and at least two length2 arms exist, otherwise 2.",
+  "limitations": [
+    "Only named two-colour edge assignments are enumerated; length-one arms have no second edge and need special handling.",
+    "A prior disguised binary transfer enumeration is a residual priority risk.",
+    "No external expert attestation or Lean formal proof; finite experiments support but do not prove unbounded parameters.",
+    "Publication withheld until guarded privacy-safe complete public metadata replacements exist."
+  ],
+  "schema_version": 1
+}

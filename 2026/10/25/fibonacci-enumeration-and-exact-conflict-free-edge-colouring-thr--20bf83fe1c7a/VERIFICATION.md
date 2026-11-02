@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof handles every integer number of arms \(k\ge3\) and every positive integer length vector; it uses no infinite extrapolation from the finite checker. It reduces the central-spoke conditions to four disjoint cases, proves a Fibonacci path-tail lemma including its \(L=2\) base case, and verifies the exact positivity obstruction and three-colour upper bound.
+## correctness
 
-To reproduce the independent finite checks run `python verify.py` in the directory containing the verifier. `verify_output.txt` contains the output of the shipped script. The verifier constructs the actual spider graph and closed edge neighbourhoods from edge incidences; it directly tests each binary edge-colouring and does not reuse the symbolic central-vertex constraints in its enumeration.
+PASS
 
-The tests cover 300 systematic nondecreasing arm-length profiles with \(3\le k\le6\), positive lengths at most eight and total edge number at most fourteen; and 56 seeded sampled profiles with \(3\le k\le8\) and at most seventeen edges. The positive-index classification is checked for every profile, together with named small obstruction and non-obstruction witnesses.
+For each spoke the closed edge neighbourhood has k spokes plus optional second edge; with two colours its unique-colour condition gives R in {0,1,k-1,k}, and forces second colours. Every internal path-edge neighbourhood of three edges must be nonmonochromatic and terminal pair must differ; backward tail recursion A_{L+1}=B_L, B_{L+1}=A_L+B_L with A2=0,B2=1 yields u/v Fibonacci values. Counting the disjoint spoke cases yields the formula, including length-one arms. Exactly two length-two u-factors vanish under the length-one prohibition, yielding zero binary counts. A tree levels-mod3 colouring provides the three-colour bound, and center degree>=3 blocks one colour. Independently built actual graph neighbourhoods and exhaustively enumerated 1,563 length profiles at small sizes; no exceptions.
 
-Expected output: `VERIFY_OK tested_profiles=356 systematic=300 sampled=56`.
+## originality
 
-These computations are finite corroboration only; they do not constitute exhaustive coverage of unbounded spiders. Independent mathematical audit has not been performed.
+PASS
+
+General conflict-free edge-chromatic upper bounds for trees and local two-colour feasibility are known. The complete Fibonacci-labelled binary colour enumeration for arbitrary subdivided spider arms and the exact short-arm chromatic obstruction were not in the inspected source statements. This narrower calculation makes meaningful use of arbitrary subdivision lengths and avoids conflating proper/selective colouring.
+
+## value
+
+PASS
+
+Spider trees are a canonical branching tree family and conflict-free edge colourability is an active natural graph invariant. The exact Fibonacci enumeration and sharp length1-plus-two-length2 obstruction provide both a complete labelled counting answer and a clean feasibility boundary; not merely a routine chromatic upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
