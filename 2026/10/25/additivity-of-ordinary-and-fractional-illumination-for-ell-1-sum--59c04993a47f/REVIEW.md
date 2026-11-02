@@ -1,12 +1,21 @@
-# Review of exact illumination additivity for normed-ball free sums
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof verifies the exact domain (finite positive-dimensional real normed spaces), differentiability only from the right of convex norm profiles, and strict boundary illumination. At each embedded unit vector of block \(j\), the other blocks grow by the sum of their norms; an illuminating global direction therefore strictly dominates the others in block norm \(j\). Distinct strict dominance cones are disjoint, yielding independent lower constraints for both cardinality and fractional weight. Conversely, every boundary point has a nonzero coordinate block, and each isolated factor illumination decreases the total \(\ell_1\)-sum. This proves the general identities, with no finite-dimensional enumeration required. The Euclidean-ball values follow from open-hemisphere covering, an antipodal average, and a finite discretization of spherical measure for fractional infima.
+## correctness
 
-## Originality — PASS under inspected evidence
-The 2026 Gorodzha theorem gives a general dimension-dependent bound rather than an exact construction law. The 2007 and 2020 direct-vector-sum works concern Cartesian products; the 2020 full text defines those sums through independent simultaneous coordinates, so no equality about a convex-hull free sum follows. The 2022 convex-hull paper provides covering-factor inequalities but no equality for the weighted fractional invariant. The 2024 complex-illumination preprint gives exact values for products of disks, and a publicly documented block example has fractional value four in \(\mathbb C^2\) without the all-factor formula. Relevant direct-sum and weighted searches yielded no same statement or stronger implication. A 2025 title *Covering the unit balls of direct sums* remains an unresolved source risk because only bibliographic data were accessible; no not-covering claim is made about its full text. An equivalent historical theorem with different terminology could exist.
+PASS
 
-## Mathematical value — PASS
-The two identities hold simultaneously for every finite family of normed balls in arbitrary real dimensions and control both integer and fractional illumination by a *composition law*, rather than giving an isolated numerical example. The sharp disjoint-dominance mechanism explains why free sums exhibit additive behavior while products can require exponentially many directions. It gives exact formulas \(d+r\) and \(2r\) for Euclidean blocks and the previously unverified ordinary count \(3r\) for the complex \(\ell_1\)-ball; these are natural test cases for illumination and its fractional relaxation. The result is independent of the source's universal bound and leaves higher \(p\)-sums and nonsymmetric free sums open.
+For a pure-block boundary point ιj y, convexity and the one-sided derivative of Σ||xj+tvj|| imply strict dominance ||vj||>Σk≠j||vk|| whenever a global direction illuminates it. The strict dominance cones are disjoint, and projection of any ordinary or fractional illuminating family from each such cone gives the factor lower bounds. Conversely extend factor directions by zero outside their block; at a boundary point with some nonzero coordinate, any direction illuminating its normalized factor boundary point illuminates the entire free sum. Fractional infima pass via arbitrary finite ε-approximation. For Euclidean balls, open hemispheres require d+1 directions, and uniform integration gives the sharp fractional lower bound 2; finite spherical partition approximants approach mass 2. The argument explicitly treats dimension one and r=1, strict tangent directions, and Borel-versus-finite weights. No numerical experiments are required or presented as proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The key free-sum (convex hull in complementary subspaces) is distinct from the Cartesian product studied in Rotem–Schejter–Slomka and from certain papers calling product decompositions direct vector sums. Prior Naszódi work provides fractional definitions and upper bounds, not inspected full additivity. Closely relevant 2025 Lyu–Gao–Chen–Wu article on covering unit balls of direct sums was unavailable despite OA search and authorized institutional attempt, so originality is qualified rather than automatically failed.
+
+## value
+
+PASS
+
+The all-factors equality is a motivated structural calculus for a fundamental convex-body operation. It gives sharp ordinary and fractional numbers for many nonsmooth norm balls and explains linear rather than product/exponential scaling; the exact identities for arbitrary factors are useful independently of future theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

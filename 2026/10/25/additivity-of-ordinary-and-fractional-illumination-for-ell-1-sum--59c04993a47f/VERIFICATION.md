@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification of the free-sum illumination formulas
+# Independent mathematical audit
 
-The claim is an all-dimensional deductive theorem; no standalone numerical certificate is needed. Independent scientific audit has not been performed.
+## correctness
 
-## Critical proof checks
+PASS
 
-1. For every boundary pure-block point \(\iota_jy\), write the sum norm along any direction as \(\|y+tv_j\|_j+t\sum_{k\ne j}\|v_k\|_k\). Since the norm is convex and \(\|y+tv_j\|_j\ge1-t\|v_j\|_j\), actual illumination implies the strict dominance inequality \(\|v_j\|_j>\sum_{k\ne j}\|v_k\|_k\). Equality cannot illuminate because the right derivative is not negative.
-2. Distinct dominant cones cannot intersect, since both would demand a distinct block norm larger than half of the same nonnegative total. Projection of every direction illuminating an embedded boundary point illuminates the corresponding factor, preserving weighted constraints. Thus ordinary direction counts and fractional total masses each sum.
-3. For any boundary point with a nonzero coordinate \(x_j\), a factorwise inward direction for the normalized block point \(x_j/\|x_j\|_j\) decreases the original \(\ell_1\) norm without changing other blocks. Union (respectively, summed weighted union) of block coverings gives the matching upper bounds.
-4. For Euclidean factors, every fixed direction illuminates half the spherical boundary. Uniform spherical measure of mass two gives equality; the finite-measure definition is matched by discretizing a strict cap with a positive gap and rescaling, so no unproved limiting interchange is needed.
+For a pure-block boundary point ιj y, convexity and the one-sided derivative of Σ||xj+tvj|| imply strict dominance ||vj||>Σk≠j||vk|| whenever a global direction illuminates it. The strict dominance cones are disjoint, and projection of any ordinary or fractional illuminating family from each such cone gives the factor lower bounds. Conversely extend factor directions by zero outside their block; at a boundary point with some nonzero coordinate, any direction illuminating its normalized factor boundary point illuminates the entire free sum. Fractional infima pass via arbitrary finite ε-approximation. For Euclidean balls, open hemispheres require d+1 directions, and uniform integration gives the sharp fractional lower bound 2; finite spherical partition approximants approach mass 2. The argument explicitly treats dimension one and r=1, strict tangent directions, and Borel-versus-finite weights. No numerical experiments are required or presented as proof.
 
-## Boundary cases and normalization
+## originality
 
-The proof includes \(r=1\), one-dimensional real factors, and any finite mixture of factor dimensions. Positive direction rescaling does not change illumination. For \(r=2\) with one-dimensional real factors, the free sum is the planar diamond with ordinary and fractional values four; for two real two-dimensional Euclidean factors, values are six and four. The complex \(\ell_1\)-ball identification is as a real \(2r\)-dimensional convex body, with ordinary and fractional illumination based on all real directions; no holomorphic restriction is inserted.
+PASS
 
-## Limits and reproducibility
+The key free-sum (convex hull in complementary subspaces) is distinct from the Cartesian product studied in Rotem–Schejter–Slomka and from certain papers calling product decompositions direct vector sums. Prior Naszódi work provides fractional definitions and upper bounds, not inspected full additivity. Closely relevant 2025 Lyu–Gao–Chen–Wu article on covering unit balls of direct sums was unavailable despite OA search and authorized institutional attempt, so originality is qualified rather than automatically failed.
 
-Nothing in the proof claims an analogous statement for non-centrally-symmetric gauges or \(\ell_p\)-sums with \(p>1\). Historical priority, especially versus the inaccessible 2025 direct-sum covering article, remains uncertain. Every displayed identity can be reconstructed from the five proof steps without external computations or numerical heuristics.
+## value
+
+PASS
+
+The all-factors equality is a motivated structural calculus for a fundamental convex-body operation. It gives sharp ordinary and fractional numbers for many nonsmooth norm balls and explains linear rather than product/exponential scaling; the exact identities for arbitrary factors are useful independently of future theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
