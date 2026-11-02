@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact face decomposition distinguishes zero, one, and two common endpoints. The inclusion of the connected complete-bipartite graph into a join of connected one-skeleta is nullhomotopic because the latter is simply connected. Two mapping-cone splittings and one path-connecting one-cell give the claimed wedge. The complete graphs' graph-cycle ranks determine the remaining sphere multiplicities. The universal integral homotopy proof does not infer wedge structure from finite Betti data. All boundary parameters are included. The independent adjacency-based enumeration and mod-two chain checker passed 25 cases, 4,875 total faces.
+## correctness
 
-**Originality — PASS under inspected-source coverage; residual bibliographic risk remains.** The motivating 2026 paper establishes shellability for diamond-free chordal graphs and a one-vertex clique-attachment criterion. A pair of cliques sharing an edge violates the former hypothesis and is not the latter construction; its full text supplies no equivalent integral homotopy classification. Searches of related recorded results and the wider literature under clique-free, triangle-avoidance, hypergraph-independence, and edge-clique-sum terminology found no statement entailing the three sphere multiplicities. A missing unindexed equivalent remains possible; failure to find one is not a proof of priority.
+PASS
 
-**Mathematical value — PASS.** The result fills a motivated structural boundary: the smallest positive-dimensional overlap of maximal cliques outside the block-graph/diamond-free setting. It gives an all-parameter mixed-dimensional integral homotopy classification, a stable essential first-homology class, and two nontrivial higher-dimensional multiplicity families. This information is not determined by known shellability assertions or Euler characteristics, and does not require a speculative downstream application.
+For integers a,b>=2, faces split according to the zero, one or both shared vertices u,v. The no-shared-vertex part is X=skel1(Delta^A)*skel1(Delta^B), the one-shared-vertex parts are two cones on the connected K_{a,b}, and the both-shared part is only the edge uv. The graphs skel1(Delta^A) and skel1(Delta^B) are connected, so X is simply connected and indeed two-connected; inclusion K_{a,b}->X is nullhomotopic, permitting two actual cofibration/mapping-cone splittings. The final edge joins two points already connected and contributes one S1. Graph cycle ranks C(a-1,2), C(b-1,2) yield X a wedge of their product many S3, and K_{a,b} has rank (a-1)(b-1), yielding twice that many S2. The integral wedge argument includes a=b=2 and zero S3 cases. Independent combinatorial graph adjacency and triangle prohibition enumeration reconstructed 16 full face-count polynomials for 2<=a,b<=5; those finite counts do not assert integral or infinite proofs.
 
-Scientific limitations: only the fixed three-clique-free functor and a two-clique edge-sum are treated. The topological pushout identities are standard; the new object-specific full classification is the contribution. Independent auditing and exhaustive bibliographic priority determination remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest original work treats shellability under diamond exclusion or attachment at one vertex. Here the induced diamond on shared endpoints plus one private vertex per clique defeats that hypothesis; the new output is a precise integral mixed-sphere classification, not shellability. Actual Resultary search hits are different complex functors.
+
+## value
+
+PASS
+
+A two-clique edge intersection is the smallest genuine edge-gluing boundary beyond single-vertex block attachments. The entire integral homotopy type varies in multiple dimensions, with a persistent loop and exact independent sphere multiplicities for all parameters. This is an object-specific topology classification, not a mere generic mapping-cone identity or known table recomputation. No new general theorem for arbitrary clique sums is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

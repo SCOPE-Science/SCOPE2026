@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T20:51:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026-10-25 source RESULT.md, exact face decomposition and mapping-cone proof",
+        "independent_checks.py: exhaustive forbidden-triangle face enumeration 16 pairs",
+        "arXiv:2602.09623v1, relevant original Theorems 3.3 and 4.2, Example 3.6"
+      ],
+      "rationale": "For integers a,b>=2, faces split according to the zero, one or both shared vertices u,v. The no-shared-vertex part is X=skel1(Delta^A)*skel1(Delta^B), the one-shared-vertex parts are two cones on the connected K_{a,b}, and the both-shared part is only the edge uv. The graphs skel1(Delta^A) and skel1(Delta^B) are connected, so X is simply connected and indeed two-connected; inclusion K_{a,b}->X is nullhomotopic, permitting two actual cofibration/mapping-cone splittings. The final edge joins two points already connected and contributes one S1. Graph cycle ranks C(a-1,2), C(b-1,2) yield X a wedge of their product many S3, and K_{a,b} has rank (a-1)(b-1), yielding twice that many S2. The integral wedge argument includes a=b=2 and zero S3 cases. Independent combinatorial graph adjacency and triangle prohibition enumeration reconstructed 16 full face-count polynomials for 2<=a,b<=5; those finite counts do not assert integral or infinite proofs.",
+      "residual_risks": [
+        "Finite tests provide corroboration only; the claimed uniform or asymptotic theorem relies on the inspected analytical proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Selvaraja arXiv:2602.09623v1, Theorem 3.3 diamond-free chordal hypothesis and Theorem 4.2 one-vertex clique attachment.",
+          "The shared edge plus one private vertex from each clique induces K4 minus one edge (a diamond)."
+        ],
+        "reasoning": "Theorem 3.3 cannot apply due to an induced diamond; Theorem 4.2 cannot apply because gluing is on two vertices. Shellability alone cannot determine the given integral homotopy multiplicities.",
+        "searches": [
+          "triangle-free clique-free simplicial complex of two complete graphs glued along an edge, integral homotopy wedge S1 S2 S3",
+          "Ghosh Selvaraja t diamond free chordal clique free shellability Theorem 3.3 4.2"
+        ]
+      },
+      "checked_sources": [
+        "2026-10-25 source RESULT.md, exact face decomposition and mapping-cone proof",
+        "independent_checks.py: exhaustive forbidden-triangle face enumeration 16 pairs",
+        "arXiv:2602.09623v1, relevant original Theorems 3.3 and 4.2, Example 3.6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary theorems assert shellability for a different hypothesis and a one-vertex attachment, not the map K_{a,b}->X.",
+          "Source RESULT.md proof explicitly splits two cofibrations to extract integral wedge degrees."
+        ],
+        "reasoning": "There is no identified implication of earlier shellability statements for this induced-diamond graph; the present proof constructs an actual nullhomotopy-driven wedge, with standard topological tools but new object-specific count.",
+        "searches": [
+          "triangle-free clique-free simplicial complex of two complete graphs glued along an edge, integral homotopy wedge S1 S2 S3",
+          "arXiv:2602.09623v1 Theorem 3.3 Theorem 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2602.09623v1 defines t-clique-free complexes, same functor but different graph family and invariants.",
+          "Resultary closest 2026/10/11/SCOPE-three-cut-complexes-of-four-cycle-free-graphs-with-triangles--06da2f0ef7ce uses a cut complex, not triangle avoidance."
+        ],
+        "reasoning": "No matching integral wedge formula or functor-preserving alias was found among genuinely compared primary and indexed results; a generic cone decomposition is a proof tool rather than a known answer.",
+        "searches": [
+          "triangle-free clique-free simplicial complex of two complete graphs glued along an edge, integral homotopy wedge S1 S2 S3",
+          "three-uniform clique hypergraph independent set complex 2-clique sum edge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest SCOPE-clique-fiber-ech-nerves-over-graphs-of-girth-at-least-five--bcf5b8b96c75 concerns graph Čech nerves of H square K_m.",
+          "Direct independent 16-case enumeration agrees with all claimed face counts, not a prior mathematical table."
+        ],
+        "reasoning": "No Resultary exact table for the triangle-avoiding complex of K_{a+2} cup_{K2} K_{b+2} was identified; the indexed similar sphere wedges use different face predicates.",
+        "searches": [
+          "triangle-free clique-free simplicial complex of two complete graphs glued along an edge, integral homotopy wedge S1 S2 S3",
+          "Resultary clique edge glue triangle free complex homotopy"
+        ]
+      },
+      "rationale": "The closest original work treats shellability under diamond exclusion or attachment at one vertex. Here the induced diamond on shared endpoints plus one private vertex per clique defeats that hypothesis; the new output is a precise integral mixed-sphere classification, not shellability. Actual Resultary search hits are different complex functors.",
+      "residual_risks": [
+        "An unindexed theorem about independence complexes of clique hypergraphs might give an equivalent formula.",
+        "The mapping cone and join methods are standard, so novelty is only the specific all-parameter edge-glued family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different hypotheses and shellability conclusion; does not supply a 2-clique edge-sum integral homotopy classification",
+          "evidence": [
+            "3-diamond-free chordal shellability and single-vertex gluing theorem; induced diamond from the tested family"
+          ],
+          "identifier_or_url": "arXiv:2602.09623v1; https://arxiv.org/pdf/2602.09623",
+          "material_read": "Public primary PDF, definition, Theorem 3.3, Theorem 4.2 and Example 3.6; inspected corresponding page images",
+          "method": "arXiv PDF full-document access with text retrieval and page images",
+          "title": "Shellability in Clique-Free Complexes of Graphs",
+          "trigger": "Identical 3-clique-free simplicial functor and possible chordal graph coverage"
+        },
+        {
+          "assessment": "Different graph Čech nerve functor and parameter family; summary-only nonimplication, not full-document noncoverage",
+          "evidence": [
+            "Indexed statement H square K_m scale-two graph Čech nerve"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-clique-fiber-ech-nerves-over-graphs-of-girth-at-least-five--bcf5b8b96c75",
+          "material_read": "Title and indexed published-result summary, not its full proof",
+          "method": "Resultary semantic search",
+          "title": "Clique-fiber Čech nerves over graphs of girth at least five",
+          "trigger": "Topologically similar sphere-wedge search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026-10-25 source RESULT.md, exact face decomposition and mapping-cone proof",
+        "independent_checks.py: exhaustive forbidden-triangle face enumeration 16 pairs",
+        "arXiv:2602.09623v1, relevant original Theorems 3.3 and 4.2, Example 3.6"
+      ],
+      "rationale": "A two-clique edge intersection is the smallest genuine edge-gluing boundary beyond single-vertex block attachments. The entire integral homotopy type varies in multiple dimensions, with a persistent loop and exact independent sphere multiplicities for all parameters. This is an object-specific topology classification, not a mere generic mapping-cone identity or known table recomputation. No new general theorem for arbitrary clique sums is claimed.",
+      "residual_risks": [
+        "An unindexed theorem about independence complexes of clique hypergraphs might give an equivalent formula.",
+        "The mapping cone and join methods are standard, so novelty is only the specific all-parameter edge-glued family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed theorem about independence complexes of clique hypergraphs might give an equivalent formula.",
+    "The mapping cone and join methods are standard, so novelty is only the specific all-parameter edge-glued family."
+  ],
+  "schema_version": 1
+}
