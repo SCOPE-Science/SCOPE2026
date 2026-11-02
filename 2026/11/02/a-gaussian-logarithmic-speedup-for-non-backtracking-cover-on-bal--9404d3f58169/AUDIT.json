@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The simple walk decomposes into independent iid parity streams, whose separate run-length compression exactly produces the non-backtracking process. The compressed cover stages have independent geometric waiting times, and conditional repeat counts are negative binomial. The finite CDF is obtained by inclusion–exclusion. Factorial moments show Gumbel convergence; an independent terminal geometric bound gives O(1/n) atom probabilities and an L1 bound on winner switching. Conditional triangular-array characteristic functions show Gaussian fine fluctuations, stably independent of the macro Gumbel limit. Uniformly integrable exponential tails establish the mean constant. The actual embedded standard-library checker passed 8,764 assertions; these do not replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://www.jstage.jst.go.jp/article/comex/12/1/12_2022XBL0146/_pdf §§2–5 analyzes mean hitting/cover times on other graph ensembles.",
+        "https://doi.org/10.1142/S0219199707002551 concerns mixing on regular expanders (abstract/metadata inspected).",
+        "https://doi.org/10.1017/apr.2020.5 analyzes independent random coupon-subsets, not correlated parity streams under non-backtracking transitions (abstract inspected)."
+      ],
+      "reasoning": "A general cover-time or Markov-chain theorem might dominate, but none inspected states a joint coupled speedup distribution or its asymptotic independence. Single-stream complete graph results cover the marginal macro law, not the two-scale comparison. Unexamined literature remains a risk.",
+      "searches": [
+        "nonbacktracking random walk complete bipartite graph cover time exact distribution coupon collector",
+        "non-backtracking walk K m n cover time Gumbel complete bipartite",
+        "asymptotic distribution speedup nonbacktracking cover time and simple walk under natural coupling on K_n or K_nn"
+      ]
+    },
+    "checked_sources": [
+      "https://www.jstage.jst.go.jp/article/comex/12/1/12_2022XBL0146/_pdf",
+      "https://www.stat.berkeley.edu/users/aldous/RWG/Book_Ralph/Ch6.S2.html",
+      "https://doi.org/10.1142/S0219199707002551",
+      "https://doi.org/10.1017/apr.2020.5",
+      "https://arxiv.org/abs/2110.13592",
+      "https://doi.org/10.1142/S0219199707002551"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://www.stat.berkeley.edu/users/aldous/RWG/Book_Ralph/Ch6.S2.html §6.2 provides one-stream coupon-collector Gumbel laws.",
+        "https://www.jstage.jst.go.jp/article/comex/12/1/12_2022XBL0146/_pdf pp.43–47 covers mean non-backtracking quantities on different graph classes.",
+        "Related known work on alternating simple walk versus global iid sampling addresses a different comparison; non-backtracking cycle-bouquet calculations address another graph family."
+      ],
+      "reasoning": "The candidate requires independent A/B parity streams, their coordinate-wise compression coupling, conditional negative-binomial repeat counts, an anti-concentration bound for the two completion times, and the resulting stable normal limit. Classical Gumbel theory alone lacks the shared coupling and microscopic savings; prior graph-specific mean results do not imply this joint claim. Related bipartite simple-versus-iid comparisons are not a hidden special case of the present process.",
+      "searches": [
+        "coupling simple and non-backtracking random walks complete bipartite graph cover-time difference Gaussian logarithmic savings",
+        "random walk complete graph coupon collector delete immediate returns cover time savings CLT Poisson normal",
+        "asymptotic distribution speedup nonbacktracking cover time and simple walk under natural coupling on K_n or K_nn",
+        "non-backtracking walk K m n cover time Gumbel complete bipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://www.jstage.jst.go.jp/article/comex/12/1/12_2022XBL0146/_pdf describes non-backtracking motion on random regular/configuration-model networks without a parity-stream coupling.",
+        "https://www.stat.berkeley.edu/users/aldous/RWG/Book_Ralph/Ch6.S2.html explains the coupon-collector and loopless complete-graph single-stream cover distributions.",
+        "Searches for run-length thinning and Gaussian savings found no identified matching theorem."
+      ],
+      "reasoning": "Equivalent formulations could say thinning repeated parity labels, suppressing two-step returns, or a Gaussian number of discarded coupon repeats selected by the slower of two collectors. The precise conditional repeat-count plus random winner coupling is not a restatement of an existing one-stream Gumbel theorem.",
+      "searches": [
+        "non-backtracking random walk cover time complete bipartite graph K_mn exact distribution independent Gumbel partition cover times",
+        "random walk on complete bipartite graph nonbacktracking coupon collector no immediate repetition",
+        "coupling simple and non-backtracking random walks complete bipartite graph cover-time difference Gaussian logarithmic savings",
+        "random walk complete graph coupon collector delete immediate returns cover time savings CLT Poisson normal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact coefficient or joint limit was identified in available mathematical record search results; uninformative off-topic search hits are not mathematical evidence of novelty.",
+        "The exact finite CDFs were independently derived as two-stream products, and standard one-stream enumerations are credited."
+      ],
+      "reasoning": "An existing coupon-collector formula for each parity stream does not tabulate the coupled saving or its dependence on which stream finishes last. Negative search evidence is weak and is not treated as proof.",
+      "searches": [
+        "non-backtracking random walk cover time complete bipartite graph K_mn exact distribution independent Gumbel partition cover times",
+        "nonbacktracking complete bipartite graph joint cover time logistic last covered side imbalance crossover",
+        "coupling simple and non-backtracking random walks complete bipartite graph cover-time difference Gaussian logarithmic savings",
+        "coupon collector delete consecutive repeats cover time difference asymptotically normal"
+      ]
+    },
+    "rationale": "The 2022 motivating primary paper studies approximate or averaged first-passage and mean cover times on random regular/configuration-model networks, not exact balanced-biclique parity compression or the joint Gaussian-saving/Gumbel limit. Aldous–Fill supply the classical one-stream loopless and iid coupon collector laws, explicitly used but insufficient alone to deduce a coupling-specific, last-side-selected negative-binomial Gaussian with an independent Gumbel companion and constant-order mean savings. The derivation proves the additional structural coupling and anti-concentration step. Search produced no directly covering claim; this is best-knowledge rather than a certificate of priority.",
+    "residual_risks": [
+      "General coupon-collector thinning or Markov cover-time literature may contain an implication-equivalent result not found by index queries.",
+      "Some potentially relevant broader literature was accessed only by abstract/metadata, not full text.",
+      "The Gaussian saving distribution depends on the specified coupling; interpretations omitting it would overclaim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers random regular and configuration-model means, not balanced complete-bipartite exact parity coupling or coupled saving distribution",
+        "evidence": "pp.43–45 specify the graph ensembles and approximate/mean formulas; pp.46–47 contain numerical results and conclusion.",
+        "identifier_or_url": "https://www.jstage.jst.go.jp/article/comex/12/1/12_2022XBL0146/_pdf",
+        "material_read": "Entire six-page text (abstract, introduction, equations (1)–(9), numerical experiments and conclusion), with visual page inspections of introduction, equations and plots",
+        "method": "Public full-text PDF extraction followed by page screenshots and semantic comparison",
+        "title": "On the mean first passage time and mean cover time of a non-backtracking random walk on graphs",
+        "trigger": "Same non-backtracking process and mean cover-time observable; earliest verified public online date November 7, 2022"
+      },
+      {
+        "assessment": "Classical one-stream Gumbel and expectation laws are assumed; does not address coupling two cover times via separate parity-stream erasure",
+        "evidence": "Section (a) gives coupon collector; (b) gives complete graph without loops; (c) discusses stars.",
+        "identifier_or_url": "https://www.stat.berkeley.edu/users/aldous/RWG/Book_Ralph/Ch6.S2.html",
+        "material_read": "Complete available HTML section §6.2, including equations (6.7)–(6.12)",
+        "method": "Full HTML text inspection and implication comparison",
+        "title": "Reversible Markov Chains and Random Walks on Graphs, Chapter 6 §6.2",
+        "trigger": "Classical potential dominating coupon-collector and loopless-complete-graph exact results"
+      },
+      {
+        "assessment": "Mixing rate and high-girth expander visit counts, different graph observable; full-text coverage not certified",
+        "evidence": "2007 abstract states expander mixing and occupancy results.",
+        "identifier_or_url": "https://doi.org/10.1142/S0219199707002551",
+        "material_read": "University-hosted abstract and publication metadata only; full article not inspected",
+        "method": "Abstract and problem-scope comparison",
+        "title": "Non-backtracking random walks mix faster",
+        "trigger": "Potential strong general non-backtracking improvements"
+      },
+      {
+        "assessment": "Its stated model has iid random subset coupons; present no-return Markov streams are dependent, while their iid antecedents are standard. Do not infer that every theorem in the inaccessible full body is inapplicable.",
+        "evidence": "2020 abstract defines independent identically distributed subset-valued draws.",
+        "identifier_or_url": "https://doi.org/10.1017/apr.2020.5",
+        "material_read": "Institutional repository abstract and bibliographic metadata only; full paper not inspected",
+        "method": "Model-class comparison at abstract level",
+        "title": "Speed and concentration of the covering time for structured coupon collectors",
+        "trigger": "Potential general covering theorem for dependent/structured coupons"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9404d3f5-8169-4447-aeaf-9d0bdd50ad3e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Non-backtracking is a natural minimal-memory intervention in network exploration, and this exact graph family exposes a previously unquantified two-scale performance difference: unchanged O(n)-Gumbel cover fluctuations but growing O(log n) saved steps with independent O(sqrt(log n)) Gaussian noise. The result includes an intrinsic mean correction and a physically interpretable coordinate-wise coupling; it is not merely a recitation of single-collector expectation formulas. The limitation to balanced complete bipartite networks is essential.",
+    "status": "PASS"
+  }
+}
