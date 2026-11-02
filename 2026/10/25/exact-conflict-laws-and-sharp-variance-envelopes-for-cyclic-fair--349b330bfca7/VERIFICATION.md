@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and checks
+# Independent mathematical audit
 
-Run `python3 verify.py` from this directory using Python 3.8 or later; it requires only standard-library modules. The observed output was:
+## correctness
 
-```
-VERIFICATION_OK 1353 exact checks; triangle distribution {3: 2, 1: 6}
-```
+PASS
 
-The program exhausts feasible histogram vectors for \(n=2,3,4\) and checks both claimed sharp variance values at every feasible edge total. It enumerates all independent block shifts to check expectation and variance for sampled finite interaction graphs with \(2\) to \(4\) blocks; where those graphs are forests, it separately checks the distributional convolution formula. It exhaustively checks pairwise uniformity of differences among block pairs in four-block systems for \(n=2,3,4,5\). Finally, it checks the exact cycle-law obstruction.
+Each inter-block conflict is violated exactly for offset D_ab=S_b-S_a. Any two distinct edges of the block-interaction graph have jointly uniform offsets, so their centered cost covariance vanishes. For n integers x_d in [0,n] of fixed total, balancing or concentrating gives exact lower/upper sum-of-squares bounds, realizable because offset classes partition possible conflict edges. Character expansion followed by vertex shift averages projects to divergence-zero flows; cycle rank counts flows and a forest has only zero flow. A 3-block n=2 triangle gives P(Z=3)=1/4 and P(Z=1)=3/4. Independently enumerated 27 shifts for n=q=3 with exact mean 3 and variance 2.
 
-The finite test does not prove the theorem for arbitrary numbers of blocks or agents; that follows from the Fourier-orthogonality, independence, and integer-extremal arguments in `RESULT.md`. The general Fourier flow formula is proved algebraically in the text rather than tested through symbolic root-of-unity arithmetic. No independent external audit has been performed.
+## originality
+
+PASS
+
+Yoneda–Yoneda Lemmas 5,6 and Theorem 7 establish EF1 round-robin construction and |E|/n mean guarantee; these are prior work. The exact conditional variance sharp envelopes and full random-shift flow law are additional statements for the random baseline. Finite-group Fourier-flow expansions are classical and not claimed generically new.
+
+## value
+
+PASS
+
+First-moment guarantees mask large variance and cyclic dependence of conflicts. Exact attainable extrema at fixed cross-block conflict counts, a forest product law and a minimal triangle counterexample give informative sharp robustness structure for a natural random fair allocation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

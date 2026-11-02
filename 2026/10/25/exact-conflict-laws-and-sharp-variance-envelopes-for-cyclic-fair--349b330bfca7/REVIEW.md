@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Each conflict edge is violated exactly when its endpoint-position difference equals the difference of two independent uniform block shifts. Distinct block-pair differences are pairwise independent, even on an interaction cycle; this proves the exact additive variance identity without presuming joint independence. The sharp integer extrema follow by strict balancing and concentration of sums of squares under the feasible histogram bounds. Every histogram is realized by selecting edges within disjoint offset matchings. Fourier inversion and character orthogonality prove the full distribution; spanning-forest elimination counts admissible flows and establishes joint independence exactly for forest-shaped interactions as a general guarantee. The explicit triangle demonstrates possible dependence on cycles. The finite independent calculations in `verify.py` corroborate, but do not prove, the unbounded quantifiers.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+Each inter-block conflict is violated exactly for offset D_ab=S_b-S_a. Any two distinct edges of the block-interaction graph have jointly uniform offsets, so their centered cost covariance vanishes. For n integers x_d in [0,n] of fixed total, balancing or concentrating gives exact lower/upper sum-of-squares bounds, realizable because offset classes partition possible conflict edges. Character expansion followed by vertex shift averages projects to divergence-zero flows; cycle rank counts flows and a forest has only zero flow. A 3-block n=2 triangle gives P(Z=3)=1/4 and P(Z=1)=3/4. Independently enumerated 27 shifts for n=q=3 with exact mean 3 and variance 2.
 
-The closest inspected primary source is Yoneda and Yoneda, *Fair Division with Soft Conflicts* (arXiv:2602.20929v1), especially Section 4, which proves cyclic-round-robin EF1 and derives the mean/conditional expectation benchmark but does not derive the complete random-shift law, the variance envelopes, or the interaction-graph independence criterion. A relevant older full-text mathematical source, Huijben, Patel, and Regts, *Sampling from the low temperature Potts model through a Markov chain on flows* (DOI:10.1002/rsa.21089), develops general finite-group graph flows in a Potts context. That standard Fourier method is credited, and the generic flow expansion is not separately represented as original. Searches for equivalent randomized round-robin conflict-distribution results and checks against accessible mathematical research records identified no specific dominating theorem. Other graph-spin formulations of the same distribution may exist, so priority remains uncertain.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A first-moment guarantee alone does not quantify fluctuations of the random EF1 baseline. Sharp conditional minimum and maximum variances describe exactly when random shifts are deterministic, nearly concentrated, or maximally unstable at fixed block-pair conflict density. Simultaneous attainability makes these genuine worst-case bounds rather than loose inequalities. The forest law gives an exactly computable full distribution by convolution, while the triangle exhibits a minimally sized obstruction to assuming joint independence. This is a structural fairness-versus-conflict variability result, not a textbook restatement of independent hashing: the shifts are shared by all goods within each ranked EF1 block.
+Yoneda–Yoneda Lemmas 5,6 and Theorem 7 establish EF1 round-robin construction and |E|/n mean guarantee; these are prior work. The exact conditional variance sharp envelopes and full random-shift flow law are additional statements for the random baseline. Finite-group Fourier-flow expansions are classical and not claimed generically new.
 
-## Risks and boundaries
+## value
 
-The results are confined to identical additive values and independent random block rotations. They do not concern the deterministic min-cost-shift algorithm's own output distribution; within-block conflict edges are never violated. The methodology for the Fourier expansion is established in prior graph-flow literature. No claim of external or independent verification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+First-moment guarantees mask large variance and cyclic dependence of conflicts. Exact attainable extrema at fixed cross-block conflict counts, a forest product law and a minimal triangle counterexample give informative sharp robustness structure for a natural random fair allocation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
