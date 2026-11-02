@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The full proof is reconstructed from the explicit syndrome criterion, which excludes exactly the \(n+1\) vectors of weights \(n\) and \(n-1\). The character-sum count is calculated for each subspace dimension, Möbius inversion forces full rank, and a free \(\mathrm{GL}(r,2)\) action removes matrix-basis multiplicity. No infinite statement rests solely on computation: direct and parity-check exhaustive checks were separately run, with full coverage only through their declared bounds. The fixed-codimension asymptotic is obtained from the dominant exponential term and Gaussian-binomial asymptotics.
+
+**Originality — PASS, with residual priority uncertainty.** The most relevant available full texts were examined: Horlemann–Ravi (arXiv:2610.31618v1) gives total asymptotics and a support decomposition whose coefficients are not explicitly enumerated, and Di Giusto–Gorla–Ravagnani (arXiv:2512.17542v1) classifies optimal anticodes but not the \(r\ge3\) lower-dimensional slices. Searches using the equivalent formulations “binary linear code without words of weight \(n\) or \(n-1\),” “labeled linear Hamming anticode of codiameter two,” and “parity-check columns avoiding their sum” found no pre-existing dimension-resolved all-parameter formula. The \(r=2\) case is subsumed by the known optimal classification and is not the novelty claim. There is a real residual risk of an unlocated classical formula for subspace avoidance of small prescribed sets.
+
+**Value — PASS.** Exact enumeration by dimension is a natural refinement of a newly studied total-count invariant at the first nontrivial missing-distance layer. The result supplies a uniform count for all dimensions and a closed two-base expression for the first nonoptimal codimension, beyond the published global order bounds. The distinction between fixed dimension and aggregate counts matters for the distribution of anticodes in code ensembles; no downstream engineering application is claimed.
+
+**Scientific limitations.** Binary and linear only; no classification modulo permutations or exact-diameter refinement. The theorem is self-reviewed and does not have independent external validation.
+
+Self-review: passed. Independent audit: not yet performed.
