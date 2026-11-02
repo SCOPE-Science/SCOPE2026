@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For any mixed allowed cyclic word, maximal alternating zero/one runs give nonnegative integers (a,y,x,b) with t=a+y>=1, 0<=x<=t and x=0 => b=0. Its exact 3-gram profile is (b,x,a,y,x,t-x,y,0), and conversely an explicit run construction realizes every such quadruple. The coordinates recover the quadruple. With weight w=a+2y and length \\(n=2w-y+x+b\\), elementary counting gives \\(C_{n,w}\\); independent polynomial-series arithmetic establishes its rational generating function, while Riemann sums and exact pole analysis prove the asymptotic and period. Literal exhaustive verification to n=16, constructive verification to n=70 and bivariate coefficients to n=70 all passed. No finite test is used as the proof of an infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1502.00517 establishes order-of-growth and quasipolynomial behavior of broad classes, not the actual coefficients of this particular constrained cyclic profile polynomial.",
+        "Shen–Shangguan–Lin–Ge, arXiv:2407.16449, count legal source words N_F(n), not observation equivalence classes modulo 3-gram multiplicity."
+      ],
+      "reasoning": "A theorem giving degree and possible period, or exact counts of source strings avoiding forbidden factors, cannot imply the precise per-weight number of distinct gram-multiplicity outcomes. The circular source restriction changes normalization and the necessary connected-support condition. No stronger inspected statement subsumes the coefficient formula.",
+      "searches": [
+        "arXiv:1502.00517, Theorem 3.3, Corollary 3.4 and Sec. 4",
+        "arXiv:2407.16449, Sec. 1 and definitions of forbidden-factor-avoiding codes",
+        "published-finding corpus: run length limited binary sequence profile read length three exact code size generating function"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1502.00517 (full arXiv HTML, Sections 2-6) — general DNA profile and Ehrhart framework",
+      "arXiv:2403.01454 (full arXiv indexed text, Introduction and Section 4) — run-limited de Bruijn words and necklaces",
+      "arXiv:2407.16449 (full arXiv indexed text, Introduction) — forbidden factor word counts",
+      "published-finding corpus semantic searches for exact forbidden-111 cyclic fixed-weight three-gram profiles and aliases, with nearest records compared to claim statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chee et al. arXiv:2403.01454 consider distinct windows, longest RLL cycles and counts of admissible source words. Section 4.10-4.11 discusses fixed-weight RLL words, not fixed-weight gram-count classes.",
+        "Kiah et al. arXiv:1502.00517, Section 2 says specialized forbidden 3-gram sets are beyond that treatment, and Theorem 3.3 stops at general quasipolynomiality.",
+        "Shen et al. arXiv:2407.16449 count source strings avoiding substrings through a cluster method."
+      ],
+      "reasoning": "The prior implications justify the use of restricted de Bruijn graphs and that similar enumerators are tractable; none gives the claimed exact fixed-weight cyclic observation-cardinality formula, sharp saturation at n=3w, composition-density law or exact period 12. These are distinct from a generic parameter substitution in a previously evaluated formula.",
+      "searches": [
+        "arXiv:2403.01454, Sections 1 and 4: run-length-limited necklaces/window enumeration",
+        "arXiv:1502.00517, Sections 2-6: profile map and Ehrhart enumeration",
+        "arXiv:2407.16449, Section 1: finite-type legal-word count",
+        "published-finding corpus: homopolymer-2 constrained cyclic trinucleotide read vector spectrum capacity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kiah–Puleo–Milenkovic, arXiv:1502.00517, Sec. 3: restricted de Bruijn flow characterization, Thm. 3.3: general quasipolynomial degree/period properties; Sec. 2 explicitly leaves specialized forbidden 3-grams untreated.",
+        "No ranked published-finding corpus result found by those queries stated an equivalent forbidden-111 weight-refined three-gram count or its bivariate generating function."
+      ],
+      "reasoning": "The equivalence classes here are oriented cyclic 3-gram count vectors at fixed total Hamming weight. General linear-word q-gram pseudometric and Markov-type flow framework results define analogous objects, but the searched published statements do not give the explicit per-weight count and its two internal density breakpoints. The absence of a retrieved matching result is only best-knowledge evidence.",
+      "searches": [
+        "published-finding corpus: exact fixed Hamming weight cyclic binary 3-gram profile count forbidden 111 rational bivariate generating function",
+        "published-finding corpus: binary circular run 1 length at most 2 connected 3-gram flows weight enumerator",
+        "web: \"3-gram\" \"111\" \"profile\" enumeration de bruijn",
+        "arXiv:1502.00517, Secs. 2-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Literal-sequence web searches did not surface a relevant table or database entry; returned material was not a constrained read-profile table.",
+        "The inspected 2024 RLL paper arXiv:2403.01454, Section 4, tabulates counts of allowed windows and necklaces, rather than distinct multiplicity spectra; the 2015 profile paper treats broader asymptotics."
+      ],
+      "reasoning": "Counts of legal words, necklaces, and de Bruijn sequence lengths are not the same invariant as the number of distinct full 3-gram profiles. No exact table covering the present invariant was verified; absence from search cannot rule out unindexed tables or implicit computational databases.",
+      "searches": [
+        "web: \"1,2,3,4,5,8,10,14,18,23\" OEIS",
+        "web: \"8,10,14,18,23,29,37,44,54\" cyclic profile",
+        "published-finding corpus: cyclic 3-gram profile no 111 generating function period 12 cubic"
+      ]
+    },
+    "rationale": "The closest inspected general paper develops profile flow/Ehrhart asymptotics without this forbidden triple or weight resolved coefficient evaluation; 2024 constrained code works count distinct words and windows rather than distinct three-gram multiplicity classes. published-finding corpus and web searches for equivalent profiles, aliases, broader enumerations and tables did not produce an implicit or explicit stronger covering claim. This is an evidence-based best-knowledge conclusion, not a uniqueness certification.",
+    "residual_risks": [
+      "An unindexed exact Markov-type spectrum table or a specialization buried in another work could duplicate the coefficient formula despite negative directed searches.",
+      "Generic exact lattice-point tools can compute this small network in principle, even though the inspected articles do not state its explicit weight coefficients or phase diagram.",
+      "No independent mathematician or formal prover has checked this result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_WEIGHT_REFINED_CYCLIC_FORBIDDEN_TRIPLE",
+        "evidence": "Section 2 paragraph on forbidden grams says specialized forbidden-gram studies are deferred; Theorem 3.3 gives quasipolynomiality/degree/period bounds; example in Section 5 quotes a general unconstrained leading constant.",
+        "identifier_or_url": "https://arxiv.org/html/1502.00517v1",
+        "material_read": "Sections 2-4 (profile metrics, restricted digraph, Theorem 3.3, Ehrhart), relevant sections 5-6 and discussion of forbidden grams",
+        "method": "Full arXiv HTML text and section-specific reading",
+        "title": "Codes for DNA Sequence Profiles",
+        "trigger": "Same DNA profile observation and restricted de Bruijn graph; risk of a more general exact count"
+      },
+      {
+        "assessment": "COUNTS_WINDOWS_NECKLACES_NOT_MULTIPLICITY_PROFILES",
+        "evidence": "Section 1 defines distinct-window constrained cycles; Section 4 counts legal source words, necklaces and maximum sequence lengths, including at fixed weight.",
+        "identifier_or_url": "https://arxiv.org/abs/2403.01454",
+        "material_read": "Introduction, structural definitions, Section 4 enumeration and fixed-weight Lemmas 4.10-4.11",
+        "method": "Full arXiv indexed text, relevant paragraphs/theorems",
+        "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+        "trigger": "2024 run-constrained binary necklaces in de Bruijn graphs, fixed-weight enumeration potential"
+      },
+      {
+        "assessment": "COUNTED_OBJECT_DIFFERS_FROM_PROFILE_QUOTIENT",
+        "evidence": "N_F(n) defined as number of F-free source words; paper uses the cluster method to count source strings, not their cyclic 3-gram observation images.",
+        "identifier_or_url": "https://arxiv.org/abs/2407.16449",
+        "material_read": "Abstract, Section 1 definition of finite-type source-code cardinality and examples, searches for profile count",
+        "method": "Full arXiv indexed text, focused section and term reading",
+        "title": "Constrained coding upper bounds via Goulden-Jackson cluster theorem",
+        "trigger": "2024 general exact constrained-code enumeration might dominate the counting claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fc906629-5e5b-4402-b18c-60f37b9ccc69",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The invariant is exactly the noiseless message capacity of a fixed-composition constrained cyclic three-gram multiset channel used as a model of bounded-homopolymer string readout. Fixed-weight coefficients matter because codebooks often fix symbol composition. The answer resolves all n and weights, not a selected tiny instance, gives constructive code representatives, a sharp \\(n=3w\\) saturation boundary, a composition-density phase law and an exact order-12 quasipolynomial. These facts are not supplied by source-word counts or generic growth rates.",
+    "status": "PASS"
+  }
+}
