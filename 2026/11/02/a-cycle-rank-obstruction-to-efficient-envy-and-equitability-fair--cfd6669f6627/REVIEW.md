@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** A supported assignment is exactly Pareto optimal; PO+EQX forces all agent utilities into either \(\{0,1\}\) or \(\{1,2\}\), equivalent to a one-side-saturating incidence matching. A connected component of the approval multigraph has an edge-saturating endpoint matching exactly for tree/unicyclic types, and a vertex-saturating endpoint matching exactly for unicyclic/multicyclic types. Explicit six- and four-agent obstructions establish sharpness, and the standalone verifier checks small profiles independently. All quantifiers and definitions are fixed in RESULT.md.
+
+**Originality — PASS, with residual risk.** Freeman et al. (arXiv:1905.10656, Theorem 4) already establish general binary PO+EF1+EQ1 polynomial existence testing and the upgrade to EFX/EQX; these are credited, not counted as original. The new exact tree-versus-multicyclic obstruction and sharp degree-two lower boundaries are not stated by the inspected 2019 source or the accessible 2026 abstract/technical summary. The inaccessible full 2026 paper and differently formulated graph incidence work create genuine residual uncertainty, but no identified statement implies the present exact cycle-rank criterion without new specialized analysis.
+
+**Value — PASS.** A natural constant-support, equally normalized binary domain has a complete, easily visualized forbidden-component classification and linear-time constructive explanation of exactly when fairness and efficiency conflict. The smallest bad instances at four agents and six with pairwise distinct approvals provide structural boundary information that is not supplied by the general Nash-welfare decision algorithm. This is not a claim of general algorithmic improvement.
+
+Self-review: passed. Independent audit: not yet performed.
