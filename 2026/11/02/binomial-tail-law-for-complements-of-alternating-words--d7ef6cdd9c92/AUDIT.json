@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For every even-length prefix of any complement, discrepancy of a minus b is both even and within [-1,1], hence zero; residual pairs are ab/ba. At each pair start the parity of previously deleted alternating-word letters is 0 for ab and 1 for ba, so each new ba-run consumes a distinct deleted a, bounding runs by k. Conversely each run (ba)^q is obtained by deleting first a and last b from (ab)^(q+1); concatenate and pad to k deletions. Choosing 2r run boundaries among m+1 gives C(m+1,2r), and Pascal gives the binomial tail. The independent exhaustive checker passed 78 pairs with n<=11.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2603.20790v1",
+        "Related published-finding corpus 2026/9/30/SCOPE-fixed-color-shuffle-needs-at-least-one-jumped-lpo-bit-per-color--c2d7326600bf addresses computability strength rather than finite word complements."
+      ],
+      "reasoning": "The finite algorithm handles every instance but supplies no closed all-parameter expression. The paper expressly leaves special-case formulas open. Other semantic hits on self-shuffles, two-read deletion reconstruction, and universality concern different maps and do not subsume the classification.",
+      "searches": [
+        "Adamson Fleischmann Huch complement scattered factors alternating periodic words exact binomial counts",
+        "count interleavings two alternating words complement subsequences shuffle binomial tails",
+        "arXiv:2603.20790 Theorem 4.5 and conclusion"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.20790v1",
+      "https://arxiv.org/abs/2603.20790",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v22i1p27",
+      "published-finding corpus queries and listed closest IDs in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2603.20790v1",
+        "Primary conclusion identifies upper bounds and special-case closed forms as future work.",
+        "published-finding corpus semantic hit 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91 has alternating opposite phases but counts distinct confusable pairs after ONE deletion, not complements after deleting (ab)^k."
+      ],
+      "reasoning": "Even if the general dynamic program computes every fixed case, the published formula would require deriving precisely the new run-language characterization. The 2026 singleton characterization applies to C(w,u)={u}; this result gives arbitrarily large C(w,u). Neither known implication covers the full claim.",
+      "searches": [
+        "\"complement scattered factors\" \"(ab)\" \"binomial\" shuffle",
+        "\"shuffle\" \"(ab)^n\" \"(ab)^k\" complements binomial",
+        "\"Complement Scattered Factors\" \"alternating\" \"binomial\" \"runs\" \"shuffle\"",
+        "arXiv:2603.20790 Theorem 4.5 and Section 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2603.20790",
+        "https://arxiv.org/html/2603.20790v1",
+        "The language description is equivalent to a bound on maximal consecutive reversed-block runs, or avoidance of the scattered pattern ba,ab,ba,... of 2k+1 block symbols."
+      ],
+      "reasoning": "The primary source defines C(w,u) via shuffle and supplies a general DP, but does not state a reversed-block-run language for w=(ab)^(m+k),u=(ab)^k. Its perfect-shuffle singleton theorem does not imply this full two-parameter count without new structural analysis.",
+      "searches": [
+        "complement scattered factors alternating words (ab)^n deleting (ab)^k binomial sum runs ba (ba)^r",
+        "shuffle of two alternating words (ab)^k and (ab or ba) blocks 1-runs count closed form",
+        "\"complement scattered factors\" alternating periodic word runs",
+        "arXiv:2603.20790 Sections 3 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper presents illustrative complement sets but no alternating double-parameter table.",
+        "Local prior research records scan found no matching claim; closest distinct prior record 47ef0e5d-de29-4ed0-83c8-935dcbfa9b90 studies minimal absent scattered subsequences of (01)^m."
+      ],
+      "reasoning": "A published table of the same values would count as coverage; neither the inspected paper nor the accessible historical summaries contains this census. A separate absent-subsequence theorem has different quantified objects and does not determine complement residuals.",
+      "searches": [
+        "complement scattered factors alternating words (ab)^n deleting (ab)^k binomial sum runs ba (ba)^r",
+        "Adamson Fleischmann Huch complement scattered factors alternating periodic words exact binomial counts",
+        "prior prior research records claim scan for complement scattered; shuffle; alternating word; Adamson; Fleischmann; Huch; C(w,u)"
+      ]
+    },
+    "rationale": "The full text of Adamson–Fleischmann–Huch arXiv:2603.20790 (first public 2026-03-21) introduces complements, general algorithms and singleton shuffle characterization; its conclusion explicitly leaves closed special-case counts open. No structurally equivalent alternating-word binomial-tail theorem found in actual semantic published-finding corpus queries, accessible prior research records, or targeted primary/other web queries. No universal proof of priority is claimed.",
+    "residual_risks": [
+      "An unindexed earlier theorem on alternating shuffle complements might be equivalent.",
+      "General known shuffle identities might provide an alternate proof of the binomial count without using the same terminology.",
+      "Full independent publication-priority review remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the exact two-parameter alternating-word classification, though it contains a general per-instance algorithm and basic definitions",
+        "evidence": [
+          "https://arxiv.org/html/2603.20790v1",
+          "https://arxiv.org/abs/2603.20790"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+        "material_read": "Full-text HTML sections 1-4, including Definitions 2 and 6, Algorithm 1, Theorem 4.5, and Section 5 conclusion",
+        "method": "Read and compared the language, shuffle equivalence, algorithm, singleton theorem and listed future work against the quantified binomial-tail and run-language theorem",
+        "title": "(Sets of) Complement Scattered Factors",
+        "trigger": "Direct motivating new complement-scattered-factor definition and its stated open problem for closed formulas in specific cases"
+      },
+      {
+        "assessment": "Not covering the alternating complement-scattered-factor claim",
+        "evidence": [
+          "https://arxiv.org/abs/1405.3532"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.3532",
+        "material_read": "Abstract and introduction discussion of period-doubling 2-block abelian complexity",
+        "method": "Statement-level comparison; unrelated candidate excluded",
+        "title": "A new approach to the 2-regularity of the ell-abelian complexity of 2-automatic sequences",
+        "trigger": "Alternative direction concerning reduced complexity and preexisting general results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d7ef6cdd-9c92-432b-9b70-e143d7d9d987",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating primary source explicitly poses closed special-case complement counts; this infinite two-parameter classification for canonical alternating words gives the exact residual language, minimal number of removed alternating pairs, binomial-tail spectrum, and a sharp all-outputs threshold m<=2k. It is not a table recomputation or a relabeling of the authors general dynamic program.",
+    "status": "PASS"
+  }
+}
