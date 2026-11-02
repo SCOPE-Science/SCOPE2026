@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The claimed dynamics follows from the exact surplus-cut equation of the model on the invariant fully mobilized line at the boundary parameter \(\gamma=2\). The odd function \(J_p\) is an increasing homeomorphism; the sign of its curvature is exactly \(\operatorname{sgn}((p-1)(p-2))\). Strict chord comparison proves the global attraction trichotomy, including the two exceptional exponents with identity amplitude map. Exponent differentiation and the inverse-function theorem yield the explicit logarithmic drift fields; strict curvature and endpoint conditions prove their signs. Standard compact-time Euler estimates prove the stated uniform limit and the first-passage integral. The packaged script checks symbolic identities and 179 finite representative computations. It is not the proof of the infinite-time classifications.
+
+## Originality — PASS under the evidence inspected
+The motivating study by Fontanari (arXiv:2610.25210v1, Sections 2–4) specifies the underlying map, symmetric fixed-point multiplier, and generic flip/oscillatory regimes. Its full accessible HTML does not state the two exact continua of neutrally periodic states or the nonlocal exponent-perturbation ODEs and sharp passage-time integrals. The latter are not corollaries of the published linear stability multiplier or of the generic claim of a stable two-cycle. Venegeroles (arXiv:2410.11512) treats strategic candidate positioning in a different model; Borghesi and Galam (Phys. Rev. E 73, 066118) treat group-majority contrarian dynamics. Search of related mathematical research records and accessible same-topic research history found no matching source/claim. This is a best-knowledge historical comparison, not an independent priority certification; less-indexed specialized analyses remain a risk.
+
+## Mathematical value — PASS
+At the maximal parameter for which the surplus-cut rule is defined at every fully mobilized state, ordinary isolated two-cycles become a full continuum at exactly two physically distinct shape exponents. The theorem rigorously determines which side selects balance or complete alternation, gives two explicit and different finite-amplitude nonlinear drift fields, and obtains exact integral constants for the diverging number of rounds needed to change an initial lead. These are motivated dynamical limits, not arbitrary parameter samples or merely a restatement of local eigenvalue conditions.
+
+## Literature comparison and limits
+The strongest directly relevant prior result is the complete arXiv HTML of Fontanari, particularly equations (7), (14), (17) and the discussion of oscillatory regimes. The new statement is confined to \(\gamma=2\), the fully mobilized invariant line, fixed interior starting amplitude and finite rescaled time horizons. It does not classify the full simplex or behavior for \(\gamma>2\). The inverse map is exact; the perturbation expansion is uniform only away from the two endpoints. No publication priority or independent mathematical validation has been claimed.
+
+Self-review: passed. Independent audit: not yet performed.
