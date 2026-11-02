@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Exact direct Gaussian-increment second-moment recursion and cross-mode bound; factorized determinant and unique root; positive Perron forcing at and beyond boundary; unique W2 stationary law below; explicit inverted stationary covariance and strict inflation; complete power-law limits. Exact symbolic calculations and 1500 supplementary random full-operator tests reproduced in verify.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Buckwar–Sickenberger uses scalar complex test equations; a planar interpretation has isotropic drift and does not subsume the anisotropic parameters.",
+        "The published UBU covariance finding concerns a distinct underdamped integrator.",
+        "Generic linear SDE mean-square stability theory supplies a method but no located dominating closed-form result for this specific family."
+      ],
+      "reasoning": "A theorem about an arbitrary linear map may imply the positivity test, but not the evaluated parametric frontier and nonuniform stationary-bias laws without additional derived algebra. No located broader theorem stated those as direct corollaries, and general tools are credited.",
+      "searches": [
+        "exact mean-square stability step size reversible Stratonovich perturbation Langevin Gaussian 2D Euler Maruyama delta=lambda^{-alpha} singular eigenvalue",
+        "Reversible Stratonovich Langevin Euler discretization invariant covariance error unadjusted two dimensional Gaussian",
+        "arxiv:0912.1968; linear scalar stability framework",
+        "2026 arxiv Langevin UBU configurational variance covariance formula"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.03191v1 full HTML including Sections 3.1, 4.2, 6.1 and appendix outline",
+      "arxiv:1903.03024 full HTML",
+      "arxiv:0912.1968 full HTML with emphasis on linear scalar tests",
+      "Published summary: Fractional midpoint noise creates configurational superconvergence in UBU-type Langevin sampling"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 result gives the continuous decay gap g, which is exactly the numerator of the derived Euler hstar.",
+        "The 2019 theorem gives the continuous invariant Gaussian target but does not guarantee that its Euler chain preserves the target covariance.",
+        "Generic Euler tests use the 3D second-moment propagator as an established technique, not the finished exact phase diagram."
+      ],
+      "reasoning": "The present identity hstar=g/[(1+c)(lambda+c)] is a new computed bridge from continuous covariance contraction to a sharp discrete step ceiling; the 2026 continuous result alone does not imply it because Euler introduces terms quadratic in h. The forced stationary covariance and noncommuting alpha>1/2 limit also do not follow from continuous invariant-law preservation.",
+      "searches": [
+        "arxiv:2610.03191v1 Section 4.2 continuous covariance ODE and Section 6.1 Euler-Maruyama",
+        "arxiv:1903.03024 continuous invariant-measure theorem and Euler experiment",
+        "arxiv:0912.1968 scalar test equations",
+        "Fractional midpoint noise creates configurational superconvergence in UBU-type Langevin sampling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original source (2026) computes continuous covariance decay but reports Euler simulations only at a fixed h.",
+        "2019 source establishes reversibility and invariant target in continuous time, not the present discrete covariance.",
+        "2009 paper considers scalar linear test equations rather than this anisotropic 2D additive-noise target."
+      ],
+      "reasoning": "An equivalent discrete statement would have to establish the rho(T)<1 iff h<hstar condition for anisotropic m,n,c together with forced stationary covariance and the joint lambda,h scaling. Continuous ODE eigenvalues and generic spectral-radius criteria do not already assert those explicit discrete claims.",
+      "searches": [
+        "arxiv:2610.03191v1; Sections 3.1, 4.2, 6.1",
+        "arxiv:1903.03024; Sections 1–3",
+        "arxiv:0912.1968; Sections 2–4",
+        "Euler Maruyama 2610.03191 reversible Stratonovich perturbations critical stepsize covariance invariant",
+        "multiplicative rotation noise Euler Maruyama mean square stability stationary covariance sharp 2 by 2 rank two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted public scientific-record searches returned unrelated covariance and time integrator examples.",
+        "Source Section 6.1 gives fixed timestep 10^(-4), not a tabulated sharp two-parameter stability ceiling."
+      ],
+      "reasoning": "No checked exact database row, table, or published source provides hstar(lambda,c), both stationary variances, or the limit 1/(1-t); no inference of global novelty follows from this negative search.",
+      "searches": [
+        "Euler Maruyama 2610.03191 reversible Stratonovich perturbations critical stepsize covariance invariant",
+        "Stratonovich Gaussian perturbation exact stability step ceiling 3 minus square root 5 over 2",
+        "Euler-Maruyama stationary covariance nonuniform bias stiffness lambda perturbation lambda inverse alpha",
+        "https://arxiv.org/html/2610.03191v1 Section 6.1"
+      ]
+    },
+    "rationale": "Source-specific exact discrete threshold and covariance scaling have no located equivalent in the full primary 2026/2019 papers, the classical scalar linear stability framework, accessible previous claim records or the actual targeted published-finding corpus semantic searches. Comparison concerns logical implication rather than only title agreement. Historical priority remains provisional because an older specialized 2D SDE calculation could state an equivalent theorem.",
+    "residual_risks": [
+      "An older two-dimensional multiplicative linear-SDE textbook exercise or specialist paper may imply the exact hstar in different symbols.",
+      "Relevant UBU published record was compared by summary, not full text; distinct algorithm and moment process make direct implication unlikely.",
+      "No independent historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The continuous-time rate and fixed-h Euler experiments are present. No sharp necessary-and-sufficient discrete mean-square threshold, invariant Euler covariance, or nonuniform supercritical joint limit is stated in the inspected sections.",
+        "evidence": [
+          "Section 3.1, Eq. (17), Theorem 2, S=diag(1,lambda), delta=lambda^(-1/2).",
+          "Section 4.2, Eq. (23), Lemma 1: continuous covariance gap g.",
+          "Section 6.1, Eq. (30): actual Euler-Maruyama update and h=10^(-4) experiments."
+        ],
+        "identifier_or_url": "arxiv:2610.03191v1; https://arxiv.org/html/2610.03191v1",
+        "material_read": "Full HTML article and contents; Section 3.1 definition and optimal continuous scaling; Section 4.2 full moment ODE and Lemma 1; Sections 6.1 numerical integrator and 7 conclusions; appendix outline.",
+        "method": "Read public arXiv HTML paragraphs and displayed equations, including the explicit Ito scheme in equation (30) and covariance ODE (23); compared hypotheses and conclusions.",
+        "title": "Reversible Stratonovich perturbations for accelerating convergence to equilibrium of Langevin dynamics",
+        "trigger": "Identical Gaussian target, same two-dimensional reversible noise and the same Euler discretization in Section 6.1."
+      },
+      {
+        "assessment": "Establishes original continuous-time reversibility and invariant-law properties and simulates with a very small step, but no matching exact anisotropic Euler mean-square phase diagram or covariance joint limit was located.",
+        "evidence": [
+          "Reversibility and invariant-measure theorems from Section 2.",
+          "Section 3 reports Euler-Maruyama with step 10^(-5)."
+        ],
+        "identifier_or_url": "arxiv:1903.03024; https://arxiv.org/abs/1903.03024",
+        "material_read": "Complete arXiv HTML article, original theorems and proofs in Section 2 and Section 3 numerical experiments.",
+        "method": "Read the public arXiv full-text HTML with relevant equations and Euler-Maruyama experiment specification.",
+        "title": "Accelerated convergence to equilibrium and reduced asymptotic variance for Langevin dynamics using Stratonovich perturbations",
+        "trigger": "Foundational reversible Stratonovich construction and pre-existing Euler experiments."
+      },
+      {
+        "assessment": "Generic scalar stochastic test equations cover the notion of mean-square stability, not the exact two-parameter anisotropic sampler with additive forcing, its stationary variance and the singular-perturbation joint limit; general second-moment spectral criteria remain prior knowledge.",
+        "evidence": [
+          "Section 2 explicitly treats scalar linear equation with multiple scalar multiplicative noises.",
+          "No quadratic-Gaussian reversible sampler parameterized by lambda and delta identified."
+        ],
+        "identifier_or_url": "arxiv:0912.1968; https://arxiv.org/abs/0912.1968",
+        "material_read": "Complete publicly accessible arXiv HTML introduction and scalar-test formulation, plus the framework of Sections 2–4 and section headings.",
+        "method": "Inspected scope and exact scalar test equations in full HTML, distinguishing scalar multiplicative noise from anisotropic planar drift and additive forcing.",
+        "title": "A comparative linear mean-square stability analysis of Maruyama- and Milstein-type methods",
+        "trigger": "Potential broader classical linear-SDE mean-square stability theory, including representations as complex planar noise."
+      },
+      {
+        "assessment": "The result concerns underdamped UBU and altered midpoint noise; its claim neither implies nor gives the Euler limit for a reversible Stratonovich overdamped multiplicative-noise sampler.",
+        "evidence": [
+          "Summary describes second-order configurational covariance error and a midpoint-noise tuning parameter; no multiplicative reversible two-dimensional Euler model."
+        ],
+        "identifier_or_url": "Published scientific record: Fractional midpoint noise creates configurational superconvergence in UBU-type Langevin sampling",
+        "material_read": "Published title and scientific abstract/summary from searchable record; complete full text was not accessed.",
+        "method": "Semantic comparison of algorithm, state and parameter domains of the published summary.",
+        "title": "Fractional midpoint noise creates configurational superconvergence in UBU-type Langevin sampling",
+        "trigger": "Closest publicly summarized numerical sampler covariance-bias result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e79af3d6-3165-4996-82f7-48626aabc6ec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The continuously rate-optimal Stratonovich scaling competes with numerical stiffness; the identity between continuous covariance gap and exact timestep frontier and the three-regime scaling law guide feasible choices. A disappearing numerical step at a fixed stability-scale fraction can retain order-one normalized sampling bias, a meaningful noncommuting-limit obstruction rather than a routine moment computation.",
+    "status": "PASS"
+  }
+}
