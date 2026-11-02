@@ -1,0 +1,180 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T19:41:55.319128Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read actual frozen RESULT.md and verify.py: the script contains rational-arithmetic toy checks only; the invariant-measure result is analytic, not proved by VERIFY_OK.",
+        "Independently computed with SymPy the exact transformed flow residual (0,0,0), the generator Ly=x, Lz=alpha(x^2-1), and Var(x^2) residual identity.",
+        "Independently reconstructed canonical Git tree from all eight assigned immutable blob SHAs and obtained 0cf5b85066068fc28b29c32f8bf2008cbf2cecf0. Frozen and current main blob identities agree.",
+        "Inspected full earlier October 4 proof and reproduced its strict compactness argument for the equivalent positive-parameter Sprott A flow."
+      ],
+      "limitations": [
+        "Every measure asserted is compactly supported and invariant for the genuine continuous flow; no conclusion is made for unbounded trajectories or nonstationary probability laws.",
+        "The equality E[x^2|z]=1 is for the conditional expectation with respect to the z-marginal, not a pointwise identity x^2=1.",
+        "The result does not show a unique invariant measure or ergodicity; source code only checks algebraic examples, not conditional expectation."
+      ],
+      "rationale": "The assigned normalized Nosé–Hoover vector field is xdot=-y-xz, ydot=x, zdot=alpha(x^2-1), alpha>0. For compactly supported invariant mu, invariance gives E[LH(y)]=0 and E[LK(z)]=0 for every one-variable C1 antiderivative: L H(y)=H′(y)x and L K(z)=alpha K′(z)(x^2-1). Continuous test functions on the compact coordinate ranges determine conditional expectations, proving E[x|y]=0 and E[x^2|z]=1, including all bounded Borel tests by measure uniqueness/monotone class. Mean x^2=1 then gives Var(x^2)=E[(x^2-1)^2]=alpha^-2 E[zdot^2]. If this variance vanished, support invariance and continuity force x=+1 or -1 along every support orbit, hence ydot=x forces unbounded y, contradicting compactness. Strict variance with mean 1 yields positive mass in x^2<1 and x^2>1. Every nonempty compact invariant set carries an invariant measure by time averaging, so it intersects both regions. No ergodicity or numerical trajectory exhaustion is assumed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-conditional-temperature-and-radial-covariance-laws-in-the--63c9e534d0d4/RESULT.md",
+          "Earlier result additionally proves E[W|Q]=0, strict Cov(V^2,Q)>0, absence of compact invariant measures at a<0, classification at a=0, and sign excursions in both V and W.",
+          "https://doi.org/10.1155/2020/6864573",
+          "https://doi.org/10.1007/s11071-016-3277-0"
+        ],
+        "reasoning": "The earlier result is strictly broader: all real a, radial-shell laws and covariance, and the same positive-a conditional thermostat and kinetic threshold crossing. The assigned alpha>0 range maps onto its full positive-a range; prior scope is not a special-parameter near match.",
+        "searches": [
+          "Resultary search: Nosé Hoover oscillator invariant measure conditional expectation p^2 given zeta thermostat kinetic energy fiberwise crossing |p|=1",
+          "Resultary search: compact invariant dynamical system bounded coordinate derivative crossing positive negative thermostat nullcline",
+          "Primary full-text Niu and Li, 2020, doi:10.1155/2020/6864573",
+          "Primary original Messias and Reinol, 2017, doi:10.1007/s11071-016-3277-0"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-conditional-temperature-and-radial-covariance-laws-in-the--63c9e534d0d4/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-conditional-temperature-and-radial-covariance-laws-in-the--63c9e534d0d4/INDEPENDENT_AUDIT_2026-10-04.md",
+        "https://doi.org/10.1155/2020/6864573",
+        "https://doi.org/10.1007/s11071-016-3277-0",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/fiberwise-kinetic-temperature-calibration-in-the-nos-hoover-osci--d6ca547638ab/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given Xdot=-Y-XZ, Ydot=X, Zdot=alpha(X^2-1), let U=sqrt(alpha)Y, V=sqrt(alpha)X, W=Z, a=alpha: Udot=V, Vdot=-U-VW, Wdot=V^2-a.",
+          "Prior E[V^2|W]=a means alpha E[X^2|Z]=alpha, hence E[X^2|Z]=1.",
+          "Prior all-measure positive mass in |V|<sqrt(a) and |V|>sqrt(a) maps identically to both regions |X|<1 and |X|>1.",
+          "Compact invariant K carries a Krylov–Bogolyubov invariant measure; hence prior all-measure strict crossing implies assigned all-K crossing.",
+          "E[X|Y]=0 comes from invariant integration of L H(Y)=H′(Y)X; the defect Var(X^2)=alpha^-2 E[Zdot^2] is algebra after E[X^2]=1."
+        ],
+        "reasoning": "A direct positive-parameter conjugacy transports compactness, stationarity, conditional expectations, positive measure of open regions, periodic orbits and invariant compact sets. Every central assertion is either already published or a textbook one-line generator/variance consequence. Different names and coordinates do not constitute mathematical novelty.",
+        "searches": [
+          "Full Resultary 2026-10-04 Sprott A/Nosé–Hoover RESULT.md and published independent-audit record",
+          "Web/open original Niu and Li 2020 full HTML article",
+          "Web/open Messias and Reinol 2017 open institutional PDF, including page-1 screenshot",
+          "Assigned actual RESULT.md (2026-10-11)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-conditional-temperature-and-radial-covariance-laws-in-the--63c9e534d0d4/RESULT.md",
+          "https://doi.org/10.1155/2020/6864573",
+          "https://doi.org/10.1007/s11071-016-3277-0",
+          "Direct symbolic map U=sqrt(alpha)*y, V=sqrt(alpha)*x, W=z, a=alpha matches all three right-hand sides exactly.",
+          "Original and earlier theorem quantify over every compact invariant Borel probability for every positive parameter, not merely analogous constants."
+        ],
+        "reasoning": "Searches included the Sprott A alias, thermostat friction zeta, momentum p, conditional drift and squared-momentum/nullcline statements. These are identical flow families under an invertible linear map for every alpha>0; the earlier conditional law is equivalent after scaling.",
+        "searches": [
+          "Resultary search: Nosé Hoover oscillator invariant measure conditional expectation p^2 given zeta thermostat kinetic energy fiberwise crossing |p|=1",
+          "Resultary search: stationary one-dimensional coordinate in deterministic flow conditional coordinate velocity zero E[dot z | z] invariant measure",
+          "Web: Nosé Hoover oscillator conditional mean kinetic energy given friction invariant measures",
+          "Web: steady state continuity equation conditional drift E dot X given X equals zero one-dimensional stationary deterministic dynamical system"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-conditional-temperature-and-radial-covariance-laws-in-the--63c9e534d0d4/RESULT.md",
+          "Ranked Resultary search directly returned the October 4 Sprott A/Nosé–Hoover conditional-temperature and radial covariance theorem, id 2026/10/4/SCOPE-exact-conditional-temperature-and-radial-covariance-laws-in-the--63c9e534d0d4.",
+          "Assigned October 11 finding also appeared in results, and was excluded as prior-work evidence."
+        ],
+        "reasoning": "The published Resultary index provides a precise earlier theorem, not merely absent matches or a numerical table. The October 4 full RESULT.md was read; its asserted conditional law and threshold-crossing theorem imply the October 11 claim after the verified conjugacy. Other results for different dynamical systems do not alter this decisive comparison.",
+        "searches": [
+          "Resultary query #1: Nosé Hoover oscillator invariant measure conditional expectation p^2 given zeta thermostat kinetic energy fiberwise crossing |p|=1",
+          "Resultary query #4: compact invariant dynamical system bounded coordinate derivative crossing positive negative thermostat nullcline",
+          "Resultary query #3: Nosé–Hoover thermostat exact stationary moment balance conditional kinetic energy friction"
+        ]
+      },
+      "rationale": "Published October 4, 2026 Sprott A/Nosé–Hoover theorem covers the central October 11 fiberwise law and kinetic-nullcline crossing for the exact same positive-parameter family. Set U=sqrt(alpha)*y, V=sqrt(alpha)*x, W=z, a=alpha. Then (Udot,Vdot,Wdot)=(V,-U-VW,V^2-a) identically, with no time rescaling. Under the pushforward of ANY compact invariant measure, E[V^2|W]=a transfers to E[x^2|z]=1. The earlier theorem states strictly positive mass on |V|<sqrt(a) and |V|>sqrt(a), which is precisely the assigned |x|<1/>1 law. Every nonempty compact invariant K supports an invariant probability, giving the assigned set crossing. Its strict crossing proof is the same constant-nonzero-momentum/unbounded-position argument. Additional E[x|y]=0 follows immediately from the same standard generator antiderivative test for coordinate y; the variance formula is the squared equation zdot=alpha(x^2-1) combined with E[x^2]=1. Neither residue yields an original substantive theorem.",
+      "residual_risks": [
+        "The source file uses a generic invariant-generator principle; no exhaustive survey of older statistical-mechanics texts is needed to establish rejection because the exact prior October 4 theorem is decisive.",
+        "The 2017 open original PDF was inspected in relevant sections and page image rather than every figure; its scope is supporting, not decisive.",
+        "Potential wider conditional-current theorems could yield additional prior coverage, but do not weaken the direct same-system implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE COVERAGE. For every a>0 and compact invariant probability of Udot=V, Vdot=-U-VW, Wdot=V^2-a, establishes E[V^2|W]=a and strictly positive invariant mass on each side of |V|=sqrt(a). The same original system is obtained for ALL alpha>0 by (U,V,W)=(sqrt(alpha)*y,sqrt(alpha)*x,z) and a=alpha. It also gives strict periodic crossings. After scaling, this is the assigned E[x^2|z]=1 and |x|=1 positive-mass crossing law, with the compact-set statement following by Krylov–Bogolyubov.",
+          "evidence": [
+            "RESULT.md: Finding and Proof explicitly state E[V^2|W]=a for every compact invariant measure and positive mass in |V|<sqrt(a) and |V|>sqrt(a).",
+            "RESULT.md: Lh(W)=h′(W)(V^2-a), and if V^2=a everywhere on a compact invariant support, Udot=V forces unbounded U.",
+            "October 4, 2026 result predates the assigned October 11, 2026 record; the source explicitly identifies Sprott A as Nosé–Hoover equivalent."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-conditional-temperature-and-radial-covariance-laws-in-the--63c9e534d0d4/RESULT.md",
+          "material_read": "Complete RESULT.md including assumptions, full finding, full generator proof, exact conditional identity, strict two-sided kinetic/nullcline crossing, relation to Nosé–Hoover, limitations and reference list; additionally read published independent audit and VERIFICATION/metadata for scope only, not as a substitute for mathematical checking.",
+          "method": "Full-primary-result statement-to-statement and implication comparison, followed by independent symbolic conjugacy and direct reproduction of the conditional and crossing implications.",
+          "title": "Exact conditional-temperature and radial covariance laws in the Sprott A/Nosé–Hoover flow",
+          "trigger": "Exact same physical dynamical system under the Sprott A alias, published October 4, 2026, before the assigned October 11 claim; Resultary direct semantic hit."
+        },
+        {
+          "assessment": "The 2020 abstract explicitly gives Udot=V, Vdot=-U-VW, Wdot=V^2-a as an equivalent Nosé–Hoover form and proves infinitely many invariant tori for sufficiently small a>0. This supports the exact same-object comparison but does not itself supply the decisive conditional-temperature theorem, which appears in the 2026 prior Resultary finding.",
+          "evidence": [
+            "Abstract and Introduction: the same Sprott A equations and equivalence to Nosé–Hoover by linear change (equations 1–3).",
+            "Theorem 1: invariant tori for sufficiently small a>0; Section 3 proof uses reversible twist mapping, not invariant-measure conditional moments."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2020/6864573",
+          "material_read": "Complete accessible HTML article through introduction, definitions, transformations, invariant-curve proof, conclusion and references (equations display in places as equation images; introductory abstract gives explicit equivalent equations).",
+          "method": "Full-article reading focused on exact dynamical equations, equivalence and domain of invariant tori; mathematical comparison rather than title match.",
+          "title": "The Existence of Invariant Tori and Quasiperiodic Solutions of the Nosé–Hoover Oscillator",
+          "trigger": "Open-access full original 2020 article on the precise oscillator and its Sprott A equivalent equation, to independently confirm the alias and parameter domain."
+        },
+        {
+          "assessment": "Provides Udot=V, Vdot=-U-VW, Wdot=V^2-a (Equation 1), calls it a special case of Nosé–Hoover, and studies a=0 invariant spheres plus hidden-attractor/invariant-torus dynamics for positive a. Does not itself supply the decisive prior stationary conditional identity; it independently verifies the historical name/parameter equivalence.",
+          "evidence": [
+            "Published Equation (1) on printed p.808 exactly matches the Sprott A field in the October 4 prior theorem.",
+            "Theorem 1 establishes the a=0 foliation by invariant spheres, and numerical/qualitative results describe small-positive-a recurrence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11071-016-3277-0",
+          "material_read": "Lawful 15-page open original PDF accessible in the UNESP institutional repository; directly inspected abstract, first page, Section 1 equations and Theorem 1 (including page-1 screenshot), and extracted statements from the invariant-sphere, numerical and global-dynamics sections; not represented as a line-by-line reading of every PDF figure or proof.",
+          "method": "Primary-text exact-system matching plus theorem-scope comparison.",
+          "title": "On the formation of hidden chaotic attractors and nested invariant tori in the Sprott A system",
+          "trigger": "Highly relevant 2017 primary research article directly treating Sprott A and its relation to the Nosé–Hoover oscillator."
+        },
+        {
+          "assessment": "Correct conditional-moment and strict-crossing calculations, but the priority assessment omits an October 4 same-object stronger published result under the Sprott A name. Source itself acknowledges standard global thermostat balance.",
+          "evidence": [
+            "RESULT.md: invariance with antiderivatives H(y) and K(z); generator LK=alpha K′(z)(x^2-1).",
+            "RESULT.md: strictness x^2=1 would make x constant and y unbounded; variance defect is pointwise thermostat residual."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/fiberwise-kinetic-temperature-calibration-in-the-nos-hoover-osci--d6ca547638ab/RESULT.md",
+          "material_read": "Complete RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md, verify.py, verification_output.txt, AUDIT.json and METADATA.json from frozen Git commit, plus current main directory identity check.",
+          "method": "Independent proof reconstruction, cross-file scope comparison, and symbolic checking without running opaque upstream code.",
+          "title": "Fiberwise kinetic-temperature calibration in the Nosé–Hoover oscillator (assigned source)",
+          "trigger": "Actual assigned final claim and proof, not prior priority evidence."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "evidence": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-conditional-temperature-and-radial-covariance-laws-in-the--63c9e534d0d4/RESULT.md",
+        "Original RESULT.md states the main new contribution as E[x^2|z]=1, strict variance defect, and |x|=1 crossing; all three are covered by the prior exact conditional temperature, crossing proof and pointwise thermostat identity.",
+        "The source itself excludes global E[x^2]=1 from novelty; the remaining E[x|y]=0 is a routine invariant-derivative identity."
+      ],
+      "limitations": [
+        "This V verdict applies to the submitted October 11 claim, not to the independent mathematical significance of the earlier broader October 4 theorem.",
+        "No revised surviving, novel, valuable theorem was supplied, so no repair is permitted."
+      ],
+      "rationale": "The Nosé–Hoover thermostat and its conditional kinetic-temperature calibration are natural objects and invariants. Nevertheless, the earlier October 4 result establishes exactly the fiberwise identity and the |x|=1 two-sided crossing for every positive-parameter invariant probability, and even supplies new radial-shell balance and covariance information. The assigned strict speed defect is a rewriting of zdot=alpha(x^2-1), while E[x|y]=0 is the universal one-coordinate stationary transport identity, verified by the same antiderivative trick. The compact-set corollary is standard existence of invariant measures on nonempty compact invariant sets. There is no new parameter regime, independent structural classification, sharper bound, or substantive nonlinear phenomenon beyond the stronger published theorem. Correctness and a physical interpretation do not independently make this covered restatement scientifically valuable.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-conditional-temperature-and-radial-covariance-laws-in-the--63c9e534d0d4/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-conditional-temperature-and-radial-covariance-laws-in-the--63c9e534d0d4/INDEPENDENT_AUDIT_2026-10-04.md",
+    "https://doi.org/10.1155/2020/6864573",
+    "https://doi.org/10.1007/s11071-016-3277-0",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/fiberwise-kinetic-temperature-calibration-in-the-nos-hoover-osci--d6ca547638ab/RESULT.md"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Scientific result correct but wholly covered by a prior stronger published same-system theorem via explicit scaling; avoid citing the original self-review as independent evidence.",
+    "Publication metadata has confidential operational identifiers and provenance: the finding is scientifically failed but publication remains not_ready.",
+    "No GitHub writes, dispatcher closeout, external credential escalation or scheduling changes performed."
+  ],
+  "residual_risks": [
+    "The source file uses a generic invariant-generator principle; no exhaustive survey of older statistical-mechanics texts is needed to establish rejection because the exact prior October 4 theorem is decisive.",
+    "The 2017 open original PDF was inspected in relevant sections and page image rather than every figure; its scope is supporting, not decisive.",
+    "Potential wider conditional-current theorems could yield additional prior coverage, but do not weaken the direct same-system implication."
+  ],
+  "schema_version": 1
+}
