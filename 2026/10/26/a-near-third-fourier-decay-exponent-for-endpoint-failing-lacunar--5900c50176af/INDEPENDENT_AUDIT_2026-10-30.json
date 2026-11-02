@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:50:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read complete 9831-byte RESULT.md blob 90cc766ed1b4813dae4ec5163fef5b2b897621cb and reconstructed each proof component rather than relying on an absent verifier. The one-per-cell random x_j selection has expectation equal to uniform[1,2] Fourier integral; Hoeffding for real/imaginary parts, O(N⁴) mesh, 7π derivative bound and t=5sqrt(log N/N) give uniform empirical error. N^{-3/2}-radius density bumps have mass 1/N each, total mass one, at most two overlaps, ||K_N||∞=O(N^{1/2}), and sinc factor. Across frequency intervals |ξ|≤N^{3/2}, N^{3/2}..N³, and ≥N³ the worst noise exponent is N^{(3β−1)/2}sqrt(log N), uniformly controlled for β<1/3. For dyadic N=2^L a normalized cancellative atom and widely separated left-neighbor spikes yield disjoint positive output sets E_k with |E_k|≥c for ~L scales k∈[L/4,3L/8]; N^{-3/2} spike radii scale to o(N^{-1}). Superlacunary N_m=2^{q^{2m}} and positive mixture weights (q−1)q^{-m} preserve uniform Fourier decay; low-index density terms are O(N_m^{-1/4+1/(2q²)}), high-index mass errors are O(q^{-m}) in L1. After exceptional sets, the target contributions ≥cq^{1-m} on ≥c q^{2m} disjoint measure, giving weak quasi-norm ≥cq^{m+1}→∞ with uniformly normed atoms. Independent rational exponent checks corroborate 4 strict β choices; these numeric/symbolic checks are not infinite proof. Endpoint 1/3 and smooth density are excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cen–Hong–Wu primary HTML states singular support is Lebesgue-null and Fourier exponents ε<1/2, with independent Hardy counterexample; complete proof examined.",
+          "Zhou primary HTML Theorem 1.1 has absolute continuity, decay exponent 1/8; its full §2–§3 construction is similar but uses weaker concentration and narrower bumps."
+        ],
+        "reasoning": "The stronger decay exponent among singular witnesses does not establish a stronger theorem in the absolute-continuity category; continuous regularity is part of this final claim and mathematical distinction. No inspected broader continuous-measure theorem reaches β<1/3.",
+        "searches": [
+          "arxiv:2610.23563 Theorem 1.1 and Remark 1.1 fixed singular measure",
+          "arxiv:2610.21197 Theorem 1.1 and Remark 1.2 continuous example",
+          "Seeger Wright 2011 endpoint geometric smoothing conditions",
+          "Lacunary maximal operator H1 to weak L1 Fourier decay exponent 1/3 absolutely continuous spike measure random samples Zhou"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.21197 (full primary HTML Theorem 1.1, Lemma2.1, Lemma2.2, §3)",
+        "arxiv:2610.23563 (full primary HTML Theorem1.1, §§2–3; singular)",
+        "arxiv:1701.06637 (original problem cited by both papers)",
+        "Resultary semantic search: Lacunary maximal operator H1 to weak L1 Fourier decay exponent 1/3 absolutely continuous spike measure random samples Zhou"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhou Lemma 2.1 reports empirical approximation N^−1/4 (rather than optimal sqrt(logN/N)) and §2 uses bump radius N^−2; Theorem 1.1 explicitly exponent 1/8.",
+          "Cen–Hong–Wu uses a distinct separated Cantor digit/singular construction of Fourier dimension one with exact #scale bound; it is not a density construction."
+        ],
+        "reasoning": "The new empirical concentration and bump-width optimization changes uniform Fourier bounds in a way not provided by simply quoting Zhou Thm1.1. The later singular near-half exponent is a major close comparison but its category differs and no known direct theorem implication to absolutely continuous μ was found.",
+        "searches": [
+          "Zhou arxiv:2610.21197 full HTML §2.1 Lemma 2.1 §2.2 Lemma 2.2 §3.1",
+          "Cen Hong Wu arxiv:2610.23563 full HTML §1.2 Theorem 1.1 and §2",
+          "Pith review of arxiv:2610.21197 1/8 construction (secondary)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhou Theorem 1.1: absolutely continuous μ and β=1/8 in every dimension, with one-dimensional proof; his Remark 1.2 explicitly leaves optimal Fourier exponent open.",
+          "Cen–Hong–Wu Theorem 1.1: ONE singular μ on Lebesgue-null compact set with every β<1/2 and exact finite-scale constants."
+        ],
+        "reasoning": "Fourier decay exponents compare by implication for the same type of measure. β<1/2 would dominate <1/3 only if regularity matched; a singular witness is not itself absolutely continuous, and no trivial convolution preserves endpoint failure, so this cannot be counted as known coverage without an explicit reduction.",
+        "searches": [
+          "Lacunary maximal operator H1 to weak L1 Fourier decay exponent 1/3 absolutely continuous spike measure random samples Zhou",
+          "arxiv:2610.21197 Zhou absolute continuous one dimensional Fourier decay 1/8 H1 L1 weak",
+          "arxiv:2610.23563 Cen Hong Wu singular Fourier decay near 1/2 H1 endpoint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The question concerns existence with quantified Fourier rate rather than a finite database or numerical table.",
+          "Resultary search returned unrelated Fourier projection, maximal-operator and spectral estimates; no registered all β<1/3 continuous example."
+        ],
+        "reasoning": "This named check is specifically inapplicable as an exact finite table, but exponent counterexample catalogues would cover it; no exact continuous-rate catalogue identified.",
+        "searches": [
+          "lacunary maximal Fourier endpoint exponent 1/3 absolute continuity 2026 Fourier concentration",
+          "Lacunary maximal operator H1 to weak L1 Fourier decay exponent 1/3 absolutely continuous spike measure random samples Zhou",
+          "Zhou 1/8 Cen 1/2 threshold table of examples"
+        ]
+      },
+      "rationale": "Qualified PASS for the specified ABSOLUTELY CONTINUOUS one-dimensional measure: Zhou (Oct 15, 2026) already proves the same endpoint failure for an absolutely continuous measure but with Fourier exponent 1/8, and his complete source makes explicit the N^{-1/4} sampling error and bump radius N^{-2}. Here a sharpened Hoeffding O(sqrt(log N/N)) bound and radius N^{-3/2} give all β<1/3, a strict new quantitative regime. Cen–Hong–Wu (Oct 16) independently proves stronger β<1/2 but its full primary theorem explicitly constructs a SINGULAR Lebesgue-null measure, so it does not directly entail an absolutely continuous counterexample. This distinction is essential; possible unsurveyed smoothing/mixture arguments extracting an absolutely continuous example from their theorem remain residual priority risk.",
+      "residual_risks": [
+        "A more recent or unindexed absolutely continuous near-half-decay construction may already dominate the near-third improvement.",
+        "A subtle regularization construction applied to Cen–Hong–Wu singular measure might yield the continuous case, but no direct implication is established in the inspected primary source.",
+        "β=1/3 itself is unproved, and no smooth or uniformly bounded density is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_AT_1_OVER_8_NOT_COVERING_NEAR_THIRD",
+          "evidence": "Theorem 1.1 states β=1/8 for absolutely continuous μ, and Remark 1.2 explicitly does not claim this optimal.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.21197",
+          "material_read": "Complete arXiv HTML article: Theorem 1.1, Remark 1.2, Lemma 2.1 empirical estimate, Lemma 2.2, §§2–3 construction and mixture, dimension scope",
+          "method": "Read entire primary HTML including equations and proof",
+          "title": "Fourier decay and endpoint estimates for lacunary maximal operators",
+          "trigger": "Exactly same endpoint/regularity, earlier exponent"
+        },
+        {
+          "assessment": "STRONGER_DECAY_BUT_SINGULAR_NOT_DIRECTLY_COVERING_CONTINUOUS",
+          "evidence": "Theorem 1.1 constructs μ_d supported on a compact Lebesgue-null set for all 0<ε<1/2; does not state absolutely continuous counterexample.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.23563",
+          "material_read": "Complete available primary HTML: Theorem 1.1, §1 quantitative remarks, all §2 proofs, §3 Fourier-mask lemmas, regularity statements",
+          "method": "Read full article as HTML; separate PDF not available",
+          "title": "Disproof of Wright’s Problems 14 and 15 on lacunary maximal functions",
+          "trigger": "Stronger Fourier exponent on matching maximal operator may dominate"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "The existence of endpoint counterexamples resolves open problems; the audited new claim strengthens the continuous-example Fourier exponent.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.06637",
+          "material_read": "Problem statement as quoted in both fully inspected 2026 primary papers; original full PDF not independently retrieved",
+          "method": "Cross-check exact quoted problem context in both primaries",
+          "title": "Some problems in harmonic analysis",
+          "trigger": "Original endpoint Problems 14 and 15 context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Improving the Fourier decay of an absolutely continuous one-dimensional counterexample from a fixed 1/8 exponent to every β<1/3 is a substantial quantitative strengthening of a newly resolved endpoint problem, with a single fixed measure and explicit Hardy-atom failure. The result identifies a strong decay regime compatible with endpoint breakdown, rather than a trivial change of constants. It does not claim optimal exponent 1/3.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "One compactly supported absolutely continuous probability measure μ on R has |μ̂(ξ)|≤C_β(1+|ξ|)^−β for every 0<β<1/3, while its dyadic convolution lacunary maximal operator is unbounded H¹(R)→L^{1,∞}(R). The exponent β=1/3 is not asserted.",
+  "limitations": [
+    "A more recent or unindexed absolutely continuous near-half-decay construction may already dominate the near-third improvement.",
+    "A subtle regularization construction applied to Cen–Hong–Wu singular measure might yield the continuous case, but no direct implication is established in the inspected primary source.",
+    "β=1/3 itself is unproved, and no smooth or uniformly bounded density is asserted."
+  ],
+  "schema_version": 1
+}
