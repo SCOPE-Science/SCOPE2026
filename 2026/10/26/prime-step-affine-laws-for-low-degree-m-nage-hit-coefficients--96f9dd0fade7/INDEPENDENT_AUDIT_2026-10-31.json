@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T15:48:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md blob 99980a251abfa6e9a237367b15ffab5aa28f4b4a",
+        "OEIS A058087 original ménage polynomial",
+        "independent_checks.py direct integer polynomial and explicit modular sums"
+      ],
+      "rationale": "Changing the rook index to j=n-k gives integer factorial-binomial expansions: at r=0 a sum of (-1)^(n+j) j! [C(n+j,2j)+C(n+j-1,2j)]; for 1<=r<p the extracted coefficient is (-1)^(n-r)(2n/r!) sum_j (-1)^j j!(n-j-1)_(r-1) C(n+j-1,2j). The integer binomial/falling-factorial support justifies extension to all j>=0. Mod p, all terms j>=p vanish, while Frobenius (1+X)^(N+kp)=(1+X)^N(1+X^p)^k mod p and 2j<=2p-2 leave only zeroth/first carry C(N,2j)+k C(N,2j-p). As other factors are p-periodic, A and B are exactly the displayed formulas, for all k>=0 and every n>=1. The alternating sign yields the 1,2,1 second difference for odd p; p=2 gives a two-step equality, and its r=2 nonincluded diagonal follows separately. The original integer sum verifies h3(1)=0,h3(4)=8,h3(7)=994, with weighted sum 1010=2 mod3. Independent direct construction tested 5 shifts of every r<p for p=2,3,5,7,11, n<=14, plus boundary. This is a proof of infinite prime progression, not extrapolated from 2485 tests.",
+      "residual_risks": [
+        "Claims only modulus p and degrees r<p; normalized degree-2 OEIS prior identity is expressly excluded from novelty."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alekseyev arXiv:1510.07926 primarily constructs weighted de Bruijn graph enumeration and exponential generating functions for generalized ménage arrangements.",
+          "Kaplansky–Riordan supply the classical hit polynomial (OEIS A058087), not on its face this prime-step modular family."
+        ],
+        "reasoning": "The original factorial-binomial formula is an input, not a prior assertion of its uniform affine behavior. A general digitwise-binomial theorem plus factorial truncation could imply the calculation, but no inspected stronger ménage theorem stated all low-degree shifts.",
+        "searches": [
+          "menage rook hit polynomial prime modulus affine three term congruence low degree",
+          "Alekseyev Weighted de Bruijn Graphs for the Menage Problem and Its Generalizations arxiv:1510.07926",
+          "Kaplansky Riordan probleme des menages rook polynomials"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A000033",
+        "https://oeis.org/A000426",
+        "https://oeis.org/A000179",
+        "https://oeis.org/A058087",
+        "arXiv:1510.07926"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A000426 normalized relation implies the A000033 three-term degree-two relation by multiplying by n congruent to n+p mod p.",
+          "A000426 contains no all-r<p formula; the Frobenius truncation proof yields new information for each other degree."
+        ],
+        "reasoning": "The known scalar coefficient congruence is a logical corollary already in the record. The full law is not a logical consequence of knowing any single coefficient; the sharp next-degree counterexample distinguishes the scope.",
+        "searches": [
+          "OEIS A000426 ratio congruence n+kp",
+          "OEIS A058087 hit rook formula",
+          "menage rook hit polynomial prime modulus affine three term congruence low degree"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A000426 already asserts a normalized coefficient h2(n)/n prime-step congruence, which implies the A000033 second difference modulo p; that r=2 special case is covered.",
+          "The audit claim simultaneously gives all r<p and explicit affine k dependence with A_(p,r),B_(p,r), which neither sequence entry states."
+        ],
+        "reasoning": "Treat the scalar r=2 corollary as prior covered, not a novelty claim. The full uniform coefficientwise affine law is stronger than an isolated three-term recurrence and not equivalent to the known normalized diagonal alone.",
+        "searches": [
+          "menage rook hit polynomial prime modulus affine three term congruence low degree",
+          "OEIS A000033 prime step menage conjecture 2019",
+          "OEIS A000426 divided coefficient prime step"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000033 r2 originally conjectured; A000426 states an already covering normalized identity.",
+          "A000179 addresses a different step 2p relation on zero-hit counts; A058087 tabulates the coefficients but not simultaneous affine residues."
+        ],
+        "reasoning": "One cannot claim that the familiar r=2 congruence is new; the asserted new exact classification is coefficientwise for all 0<=r<p, with A/B explicit and a witnessed boundary at r=p.",
+        "searches": [
+          "OEIS A058087 hit polynomial triangle",
+          "OEIS A000033 prime-step conjecture",
+          "OEIS A000426 normalized congruence",
+          "OEIS A000179 menage numbers",
+          "menage rook hit polynomial prime modulus affine three term congruence low degree"
+        ]
+      },
+      "rationale": "The original claim survives only as the simultaneous, explicit affine progression theorem for all low-degree coefficients and its sharp cutoff; existing specific degree-two and original rook formulas are credited as prior work.",
+      "residual_risks": [
+        "The 1946 primary scan was not read and a general theorem on factorial-weighted binomial sums might subsume the law.",
+        "The degree-two consequence is covered by a known normalized OEIS identity, not counted as a new result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Its recorded identity covers the normalized r=2 consequence, not the full all-r<p coefficientwise affine law.",
+          "identifier_or_url": "https://oeis.org/A000426",
+          "material_read": "Complete online sequence entry, comments and formulas for p-step normalized coefficients",
+          "method": "Primary sequence entry",
+          "title": "A000426 — normalized ménage hit coefficient",
+          "trigger": "Potential direct overlap on prime-step congruence"
+        },
+        {
+          "assessment": "COVERED_BY_A000426",
+          "evidence": "A000426 implies the A000033 scalar modular relation; this corollary is not claimed new.",
+          "identifier_or_url": "https://oeis.org/A000033",
+          "material_read": "Complete sequence entry and dated conjecture comment",
+          "method": "Primary database entry",
+          "title": "A000033 — ménage-hit coefficient",
+          "trigger": "2019 prime-step three-term conjecture"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_COVERING",
+          "evidence": "Addresses enumeration/graph encodings rather than coefficientwise prime-step affine residues.",
+          "identifier_or_url": "arXiv:1510.07926",
+          "material_read": "Full arXiv PDF, setup and main de Bruijn/EGF enumeration theorems including Sections 3–4",
+          "method": "Full PDF text and screenshot",
+          "title": "Weighted de Bruijn Graphs for the Menage Problem and Its Generalizations",
+          "trigger": "Closest modern general ménage theorem"
+        },
+        {
+          "assessment": "HISTORICAL_FULL_TEXT_NOT_READ",
+          "evidence": "Could contain earlier modular observations; no claim of whole-document noncoverage.",
+          "identifier_or_url": "Scripta Mathematica 12 (1946), 113–124",
+          "material_read": "Historical citation and formula as archived in OEIS A058087; original full scan not obtained",
+          "method": "Secondary formula in primary OEIS entry",
+          "title": "The problème des ménages",
+          "trigger": "Original source for rook hit formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A058087 polynomial",
+        "OEIS A000426 scalar congruence",
+        "Git RESULT.md modular factorial proof"
+      ],
+      "rationale": "The classical ménage hit polynomial is an intrinsic permutation/rook enumerator; classifying all coefficients below the prime in one uniform law, rather than an isolated digit congruence, is a natural p-adic arithmetic statement. The sharp failure exactly at the first excluded degree identifies the mechanism boundary of the single carry. These explicit residue forms are useful independent of an unproved downstream conjecture.",
+      "residual_risks": [
+        "No higher prime-power or degree >=p assertion; the degree-two statement is already known."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For classical ménage hit polynomials H_n, every coefficient h_r with 0<=r<p follows an exact alternating affine law along n+kp modulo prime p, with the specified finite A_(p,r), B_(p,r), yielding H_n+2H_(n+p)+H_(n+2p)=0 mod (p,t^p); the cutoff is uniformly sharp at p=3,r=3.",
+  "limitations": [
+    "Prime modulus only, degrees 0<=r<p, n>=1; no blanket r>=p claim.",
+    "The historical 1946 full text was unavailable; value rests on the full all-coefficient affine law, not the r2 corollary."
+  ],
+  "schema_version": 1
+}
