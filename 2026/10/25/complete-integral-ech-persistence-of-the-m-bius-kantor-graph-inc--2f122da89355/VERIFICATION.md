@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Verification evidence
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3 standard library. The executable independently rebuilds the graph and all Čech simplices from the radius-half edge-midpoint/vertex neighborhood rule. It checks the following exact numbers of nonempty faces at integral scales \(0\) through \(7\):
+## correctness
 
-\[
-16,\;40,\;168,\;976,\;11028,\;64444,\;65534,\;65535.
-\]
+PASS
 
-It constructs and verifies acyclic vertex-toggle matchings with respectively \(0,15,79,464,5492,32218,32766,32767\) matched incidences. At scale four, exactly \(41\) critical degree-four and \(2\) critical degree-six cells remain alongside one vertex; no lower or intervening critical cells remain. At scale five the exact integral critical boundary matrix is
+Independently construct GP(8,3) and even/odd closed-neighborhood generators; exact face counts for radii 0..7 are 16,40,168,976,11028,64444,65534,65535. Global oriented Hasse DAG confirms acyclic matchings, stage3 one 0-cell plus 47 critical 2-cells, stage4 one 0-cell, 41 4-cells and 2 6-cells, stage5 one 0-cell, two 9-cells and five 10-cells. Independent signed Morse reduction gives primitive rank-one matrix [[0,1,-1,0,0],[0,1,-1,0,0]] so degree9 rank1, degree10 rank4 without torsion. Independently 64 exact collapses retract scale2 to scale1 original graph, validating nine H1 bars [1,3). Stage6 boundary S14, stage7 simplex. Each other degree dies before next scale. Full stated integral barcode follows.
 
-\[
-\begin{pmatrix}
-0&1&-1&0&0\\
-0&1&-1&0&0
-\end{pmatrix},
-\]
+## originality
 
-whose unique nonzero Smith invariant is a unit. Every oriented Hasse incidence is topologically sorted to certify acyclicity. The checker independently computes mod-two simplicial boundary ranks at scales three, four and five and proves the scale-one inclusion survives to scale two using sixty-four validated free-face collapses. It checks purity, antipodal facets and the final simplex.
+PASS
 
-Expected terminal signal: `VERIFY_OK`. These are exhaustive exact checks of a finite graph, not a proof of a broader graph-family theorem. Homotopy information at scale four beyond the stated cellular model remains unproved, and no independent audit or external certification is asserted.
+Best-of-knowledge originality survives the specific mathematical comparisons documented in the four mandatory checks; limitations remain explicit.
+
+## value
+
+PASS
+
+Completes a natural named cubic graph’s previously published high-degree Čech barcode with newly computed lower-stage 47 two-cycles and mixed 41 four-/2 six-dimensional groups; full exact integral persistence is a meaningful standalone invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

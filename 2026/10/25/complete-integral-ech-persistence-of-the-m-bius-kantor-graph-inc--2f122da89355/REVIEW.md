@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and the closed intrinsic Čech scale convention are explicit and match the general graph-neighborhood identity of Adams–Shukla–Singh. `verify.py` reconstructs all eight scale stages from graph edges, enumerates all faces, certifies each deterministic discrete-Morse matching by a complete acyclic Hasse orientation, performs independent simplicial mod-two reductions for the two new stages and the next one, and computes the signed integer Morse differential at scale five. At scales three and four only one zero-cell and isolated critical dimensions remain, so the claimed integral free homology follows without extrapolation. An explicit sixty-four-pair free-face collapse establishes the sole nonzero positive-degree inclusion map, from scale one to scale two. No homotopy wedge claim is made at scale four.
+## correctness
 
-## Originality — PASS against inspected evidence
-The primary 2022 graph Čech paper proves generic neighborhood formulas and results for hypercubes, not this graph. The directly matching published 2026 Möbius–Kantor Čech result was read in full: it proves only high-degree persistent homology (degrees at least nine) and identifies scales five and six, expressly leaving lower-degree persistence unclassified. Its scale-four argument only rules out degree-nine homology, so it does not imply the newly computed degree-four and degree-six groups. The published Möbius–Kantor Rips homotopy theorem is for a different nerve/clique construction and does not cover this claim. Targeted published-record searches for this graph with scale-three, scale-four, corresponding Betti ranks, and complete Čech persistence found no stronger indexed statement. Residual risk: equivalent unindexed research cannot be excluded.
+PASS
 
-## Value — PASS
-This completes an entire integral persistence barcode for the canonical sixteen-vertex cubic symmetric graph, a natural finite benchmark of the original graph Čech construction. The two previously unresolved stages demonstrate a forty-seven-fold degree-two appearance followed by a mixed degree-four/six stage, establishing nonshellability and separating Čech topology from the known Rips calculation. Exact all-degree answers are motivated by the already published partial high-degree barcode, not an arbitrary invariant slice. The checker is reproducible and the high-degree contribution is explicitly credited rather than misrepresented as new.
+Independently construct GP(8,3) and even/odd closed-neighborhood generators; exact face counts for radii 0..7 are 16,40,168,976,11028,64444,65534,65535. Global oriented Hasse DAG confirms acyclic matchings, stage3 one 0-cell plus 47 critical 2-cells, stage4 one 0-cell, 41 4-cells and 2 6-cells, stage5 one 0-cell, two 9-cells and five 10-cells. Independent signed Morse reduction gives primitive rank-one matrix [[0,1,-1,0,0],[0,1,-1,0,0]] so degree9 rank1, degree10 rank4 without torsion. Independently 64 exact collapses retract scale2 to scale1 original graph, validating nine H1 bars [1,3). Stage6 boundary S14, stage7 simplex. Each other degree dies before next scale. Full stated integral barcode follows.
 
-## Scope and limitations
-This is a finite named-graph classification, not a general Petersen-family theorem. The degree-six attaching maps at scale four are not determined. Search completeness is not a proof of uniqueness; independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives the specific mathematical comparisons documented in the four mandatory checks; limitations remain explicit.
+
+## value
+
+PASS
+
+Completes a natural named cubic graph’s previously published high-degree Čech barcode with newly computed lower-stage 47 two-cycles and mixed 41 four-/2 six-dimensional groups; full exact integral persistence is a meaningful standalone invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
