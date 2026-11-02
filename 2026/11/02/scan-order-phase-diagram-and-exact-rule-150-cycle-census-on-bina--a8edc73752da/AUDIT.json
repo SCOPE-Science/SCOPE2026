@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Explicit reversible local swaps induce two edge rotations plus an anchor bit; the two rank constraints on period-t rotation patterns have rank 1+epsilon_t. The faithful edge action and anchor parity determine the exact full order. The given Python verifier directly checks 12,310 matrix/order instances and 695,472 exhaustive states; these finite checks supplement the algebraic infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:0802.4412 gives general cycle-equivalence classes for a range of graph dynamics and orientation moves.",
+        "arxiv:0808.1238 §5 gives a group-theoretic description and its orbit classes for Rule 150."
+      ],
+      "reasoning": "General cycle equivalence determines when schedules have isomorphic orbit structures; without a representative fixed-power enumeration it does not supply the exact numbers. The broader generated-group theorem describes all products of local involutions but does not enumerate each special Coxeter scan product by its cyclic ascent statistic.",
+      "searches": [
+        "arxiv:0802.4412 cycle equivalence source sink reversal",
+        "arxiv:0808.1238 dynamics groups rule 150 §5",
+        "published-finding corpus: Coxeter toggles parity three cycle graph arbitrary sequential scan order number periodic points"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1511.06966",
+      "https://arxiv.org/pdf/0808.1238",
+      "https://arxiv.org/abs/0802.4412",
+      "published-finding corpus: Rule 150 full period spectrum for every vertex update permutation on cycle graph using cyclic ascents two rotations and gcd fixed point count",
+      "published-finding corpus: asynchronous parity rule 150 all scan permutations exact fixed-point 2^(gcd(k,t)+gcd(n-k,t)-epsilon)",
+      "published-finding corpus: symmetric invertible asynchronous elementary cellular automata arbitrary permutation update order cycle graph Rule 150 fixed point periods gcd ascents"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Macauley–McCammond–Mortveit determine the Rule 150 global dynamics group, not a numerical cycle census for every simple scan.",
+        "Macauley–Mortveit prove source/sink shifts preserve orbit structure, supplying the known conjugacy mechanism.",
+        "Defant gives an exact primitive-period count in the identity-order subcase."
+      ],
+      "reasoning": "The new claims strengthen the known fixed-order enumeration and combine known orientation equivalence and known edge-boundary swapping with an explicit two-block anchor calculation. Those antecedents make the statement plausible but do not immediately imply the displayed gcd formula, its correction term, or the valuation-sensitive exact scan order. A hidden corollary of existing representation theory is the main residual originality risk.",
+      "searches": [
+        "arxiv:0808.1238 Theorem 5.4 §5 Rule 150 group action and orbit classification",
+        "arxiv:0802.4412 cycle-equivalence of simple scans",
+        "arxiv:1511.06966 Theorem 4.1 identity update order"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:0808.1238 Theorem 5.4 identifies the entire Rule 150 dynamics group, and derives local boundary swapping; arxiv:1511.06966 Theorem 4.1 counts periodic points for identity update order only.",
+        "No returned published-finding corpus summary stated the full permutation-by-permutation fixed-power formula."
+      ],
+      "reasoning": "The same rule can be described as an affine Coxeter element acting on edge-differences or as two rotating edge blocks with an anchor cocycle. We compared the mathematical consequences: the group isomorphism and identity-scan count are not, as stated, an explicit count of fixed points of every arbitrary simple scan. No directly equivalent formula was found, while deriving it from the known group action may be possible with nontrivial new counting.",
+      "searches": [
+        "published-finding corpus: Rule 150 full period spectrum for every vertex update permutation on cycle graph using cyclic ascents two rotations and gcd fixed point count",
+        "published-finding corpus: asynchronous parity rule 150 all scan permutations exact fixed-point 2^(gcd(k,t)+gcd(n-k,t)-epsilon)",
+        "Web: \"rule 150\" \"update order\" \"cycle lengths\" asynchronous cellular automaton",
+        "arxiv:0808.1238 §5 Theorem 5.4",
+        "arxiv:1511.06966 Theorem 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:1511.06966 Table 1 gives primitive periods for identity scans for several small sizes; the table does not index all cyclic ascent classes.",
+        "published-finding corpus returned related asynchronous, parity and symmetric-group topics, but no exact two-block scan-dependent table or formula."
+      ],
+      "reasoning": "The identity-scan table is a special case (k=1 or n-1), whereas n=6 supports three distinct scan orders (5, 8, 3). Search coverage cannot rule out an unindexed independent table or older terminology.",
+      "searches": [
+        "arxiv:1511.06966 Theorem 4.1 Table 1",
+        "published-finding corpus: sequential parity ring dynamics Coxeter elements cycle permutation orbit enumeration order lcm ascent descent",
+        "published-finding corpus: symmetric invertible asynchronous elementary cellular automata arbitrary permutation update order cycle graph Rule 150 fixed point periods gcd ascents"
+      ]
+    },
+    "rationale": "Inspected full primary source text shows the 2008 Rule 150 group-action classification, the 2008 general source/sink cycle equivalence, and the 2015 identity-order primitive-period census. No inspected theorem states the arbitrary-permutation gcd fixed-power count, sharp full-scan order valuation law, and Eulerian profile together; the present classification is a specific new enumerative extension of known structural machinery. Residual risk of prior implicit equivalence is disclosed.",
+    "residual_risks": [
+      "Existing Coxeter or affine permutation theory might contain the same formula without naming Rule 150.",
+      "Index coverage for unpublished, obscure or inaccessible prior work is incomplete.",
+      "The 2008 group theorem supplies a significant mechanism; only the all-scan exact quantitative census is asserted as newly identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Identity scan only, not arbitrary cyclic-ascent scan classes",
+        "evidence": [
+          "Theorem 4.1 explicitly specifies identity order; table enumerates identity-order periods.",
+          "Initial arXiv submission 2015-11-22."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.06966",
+        "material_read": "Abstract, Section 4 around Theorem 4.1 and its proof, identity-scan tables, surrounding scope",
+        "method": "Accessible arXiv full-text HTML; read theorem and comparison portions",
+        "title": "Flexible Toggles and Symmetric Invertible Asynchronous Elementary Cellular Automata",
+        "trigger": "Exact Rule 150 periodic point formula; nearest same-object predecessor"
+      },
+      {
+        "assessment": "Identifies global group and orbit equivalence, not arbitrary simple-scan fixed-power formula",
+        "evidence": [
+          "PDF Section 5, pages 13–15, explains boundary swaps and Theorem 5.4 group (binary translation semidirect symmetric group).",
+          "The surrounding analysis counts group-action orbits by number of binary blocks, a different count from cycles of a chosen one-pass update word."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0808.1238",
+        "material_read": "PDF pages 1, 12–15, especially Section 5 Rule 150, proof of Theorem 5.4, adjacent orbit-class discussion",
+        "method": "ArXiv full PDF inspected with source text and rendered page",
+        "title": "Dynamics Groups of Asynchronous Cellular Automata",
+        "trigger": "Same Rule 150 and arbitrary generators; strongest plausible broad coverage"
+      },
+      {
+        "assessment": "Provides general conjugacy/equivalence relation, not fixed-point formula",
+        "evidence": [
+          "Acyclic orientation and source-to-sink moves classify cycle equivalence for simple sequential schedules.",
+          "First arXiv submission 2008-02-29."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0802.4412",
+        "material_read": "Accessible arXiv article sections on acyclic orientations, cycle equivalence, and cycle graph orientation count",
+        "method": "ArXiv HTML text inspected at equivalence and cycle-count results",
+        "title": "Cycle Equivalence of Graph Dynamical Systems",
+        "trigger": "Source/sink schedule shifts under graph orientation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8edc737-52da-4b62-807f-ae507f27cd21",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural, large schedule-choice problem is completely classified for every n, with a meaningful order transition and exact orbit populations. At fixed n=6 distinct schedules yield order 3, 5 and 8; the result is neither a single toy invariant nor a routine reparameterization of the 2015 identity-order theorem.",
+    "status": "PASS"
+  }
+}
