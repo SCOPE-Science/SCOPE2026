@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The Pauli eigenvalue formula turns each qubit Schatten distance into a scalar Euclidean distance. Exact Parseval multipliers for half-period and ternary increments yield the claimed maximum at the all-odd first Fourier band; pure qubit states realize it. Four rational commuting qutrit states give long energy \(20/9\) and short energy \(4/9\), establishing ratio \(5\) and a strict comparison with the qubit constant \(9/2\). The standalone code checks these exact rational values and numerical examples.
+## correctness
 
-## Originality (PASS; qualified)
-Mendel–Naor gives the metric-cotype framework. Jiao–Luo–Wu gives a dimension-uniform bound, not optimal state-space constants. A published scalar Hilbert Fourier theorem uses sign-only increments, and a published qutrit projection result addresses a different operator. The Hilbert Fourier idea is similar and not itself treated as the scientific advance; the three-outcome strict dimensional separation is the additional claim. An earlier unindexed exact four-cycle comparison remains a priority risk.
+PASS
 
-## Mathematical value (PASS)
-The result provides a complete exact three-parameter qubit benchmark and identifies the first state dimension in which this benchmark ceases to be universally valid for trace distance. This matters to finite-scale metric-cotype sharpness in trace-class geometry; noncommutativity is not needed for the obstruction.
+A qubit difference (rho(r)-rho(s)) has eigenvalues +/-|r-s|/2, so all Schatten p distances differ from Euclidean Bloch distance only by a common factor. Characters on (Z/m)^n diagonalize both squared energies: L multiplier 4 s(k) with s the number of odd coordinates; R multiplier 2(1-product_j q(k_j)), q(h)=(1+2cos(2pi h/m))/3. Because |q(h)|<=a for odd h and |q(h)|<=1 otherwise, 2s/(1-a^s) is bounded by 2n/(1-a^n), and is strict except the +/-1 all-odd band. A real pure Bloch Fourier plane realizes equality and preserves the ball. For four displayed diagonal qutrit states, verify all PSD unit-trace entries; direct exact arithmetic yields long energy 20/9 and ternary short energy 4/9, quotient 5, compared with qubit 9/2. Independent rational witness calculation and nine independent Fourier-mode checks passed. Crucially the qutrit inequality is a lower bound only, not an exact d>=3 constant.
 
-## Boundaries and source access
-No optimal qutrit constant is claimed, and the distinction does not imply different asymptotic orders. The original Wang paper could not be read directly; its sign-only method was compared using a complete published follow-up. Independent priority review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison after fresh Resultary searches, focused primary-source proof inspection and explicit implication checks. A related method, family or parameter alone does not establish identity/coverage; historical risk remains noted.
+
+## value
+
+PASS
+
+A complete sharp finite-scale benchmark for the natural qubit state geometry under a specific ternary torus Poincare inequality is paired with the first possible state-dimension contrast. The three-outcome obstruction is classical (commuting), showing dimension/non-Hilbert geometry, not quantum noncommutativity, matters. This sharp boundary is not just routine scalar Fourier generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

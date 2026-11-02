@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes the commutator convention, partitions the deterministic permutation into fixed and moved points, and counts the ordered pair of images under a uniformly random permutation. Conditioning on an original-permutation fixed point gives an exhaustive five-branch conditional-probability classification; subtracting the two Bernoulli means yields the six disjoint covariance cases. Exact row sums then give \(fg/[(n-1)(n-2)]\). Pairwise independence for \(f=0\) follows from equality of Bernoulli conditional and unconditional success probabilities, and necessity follows by choosing a fixed index when \(0<f<n\). Aggregate dependence for a derangement follows from conditioning on the identity permutation and the nontriviality of the symmetric group's center for \(n\ge3\).
+PASS
 
-The standalone program compares exact rational covariances computed from all original permutations against the analytic formula for every deterministic partner through five points and five representative partners on six points, giving 3,773 cross-covariance and aggregate assertions. The finite checks are confirmatory and do not replace the proof.
+With composition eta^{-1}Pi^{-1}eta Pi, A_x=1 iff eta(Pi(x))=Pi(eta(x)). If eta(x)=x, P(A_x)=f/n and fixing Pi(j)=j makes Pi(x) uniform on the remaining n-1 values unless j=x. If eta(x)!=x, the ordered distinct images of x and eta(x) give P(A_x)=g/[n(n-1)]. Conditioning on Pi(j)=j yields probability 1/(n-1) for j=x or eta(x), and (g-2+2*1_{j fixed eta})/[(n-1)(n-2)] otherwise. Bernoulli subtraction gives all six claimed covariance branches. Summing the fixed-x and moved-x row contributions g/[n(n-1)] and 2f/[n(n-1)(n-2)] yields fg/[(n-1)(n-2)]. f=0 gives each cross-pair Bernoulli independence; f=n makes A_x constant; 0<f<n gives positive diagonal covariance. When f=0, Pi=id forces C=n whereas a noncommuting Pi exists (center S_n trivial for n>=3), establishing aggregate dependence. Independent exact enumeration of all eta,Pi for n=3,4,5 checked 3438 pair covariances; finite tests only corroborate the unrestricted conditional-counting argument.
 
-## Originality — PASS, with a historical-priority risk
+## originality
 
-Diaconis–Evans–Graham (2013/2014), particularly Section 6, is the closest full-text commutator source. It develops marginal commutator fixed-point statistics and Poisson approximation, not the same-permutation cross-covariance law or all cross-indicator independence. Diaconis–Fulman–Guralnick (2007) treats fixed-point laws for actions of symmetric groups, not the paired commutator/original-permutation diagnostic. Related published fixed-point/descent and linear-succession covariance profiles have different event definitions; the latter do not cover arbitrary deterministic permutation partners or cyclic commutation agreements. Searches by fixed-point commutator covariance, derangement shielding, individual commutation agreements, and alternative formulations found no statement implying the theorem.
+PASS
 
-An earlier implicit representation-theoretic calculation is possible, so historical novelty must not be read as independently certified.
+The related marginal commutator fixed-point laws of Diaconis–Evans–Graham and permutation fixed-point action laws of Diaconis–Fulman–Guralnick do not state or imply the joint moments with the same Pi. An n-cycle is a special eta, but known circular-successions distribution cannot determine these mixed covariances. Claim is the fully indexed arbitrary-partner exact matrix and surprising derangement pairwise-vs-aggregate separation; priority remains best of knowledge.
 
-## Value — PASS
+## value
 
-The random commutator fixed-point count is a natural measure of how a shuffled permutation fails to commute with a fixed test permutation, and fixed-point count is a standard permutation statistic. The theorem characterizes their complete cross-indicator dependence and shows the aggregate covariance depends only on the test permutation's fixed-point count, not its other cycles. Particularly striking is the exact independence of every cross-indicator pair for **all** derangement tests, despite dependence of the aggregate counts. This is a structural classification over every finite order, not an arbitrary numerical example or a repackaging of marginal Poisson approximation.
+PASS
 
-## Closest literature and limitations
+The statistic C is a natural measure of a permutation commutator, and F is the most basic statistic of the same random permutation. A complete local cross-dependence classification for every deterministic eta and the exact positive covariance depending only on f distinguish genuine pairwise independence from dependence of the totals; the n>=3 family and exact boundary cases are mathematically meaningful beyond routine marginal expectations.
 
-Relevant full text: Diaconis–Evans–Graham, *Unseparated pairs and fixed points in random permutations* (arXiv:1308.5459, Sections 1, 5, 6). General fixed-point background: Diaconis–Fulman–Guralnick, *On fixed points of permutations* (arXiv:0708.2643). No full bivariate distribution or convergence-rate bound is asserted. A uniform marginal result cannot settle the same-permutation joint moments. Historical-priority risk remains from possible generalized mixed character identities.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

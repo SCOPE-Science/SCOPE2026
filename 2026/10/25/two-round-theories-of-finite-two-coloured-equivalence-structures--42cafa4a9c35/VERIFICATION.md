@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_colored_equivalence.py` in the directory containing the script. This creates `CLASSIFICATION.csv` and prints a deterministic transcript (a captured execution is supplied as `verification_output.txt`). The assertions check all \(6560\) nonempty canonical profiles, the \(207\) distinct rank-two signatures, the representative-size distribution, and the two size-\(13\) extremizers. The proof that every finite structure has one of these canonical signatures uses a two-round Ehrenfeucht–Fraïssé game argument in `RESULT.md`; executable enumeration verifies only the resulting finite exact instance.
+## correctness
 
-Two implementations of the one-step character partition are compared on all canonical profiles: a five-bit formula using per-class colour counts, and direct enumeration of atomic two-point extensions for every individual element. They induce identical partitions, as asserted by the program. Neither is external or independent scientific validation. The classification table is regenerated without external packages or network access.
+PASS
 
-# Limits
+In the two-move Ehrenfeucht–Fraïssé game, a first selected point is classified by colour and the four existential possibilities of a different red/blue member inside/outside its E-class. Matching these characters in both structures is both necessary and sufficient to answer the second move. Capping each class colour count at two and each of eight nonzero class-shape multiplicities at two preserves every possible two-move response. All 3^8−1=6560 profiles are then exhaustive (not an extrapolation). Independently recomputed both the direct quantifier-free one-point type partition and the five-bit formula: exactly 207 groups with minimum-size distribution 2,6,10,17,22,28,30,29,26,18,12,5,2 (sizes 1..13); both extremal profiles require size 13.
 
-The exhaustive census is complete only because the block truncation lemma reduces the unbounded finite class to a finite set. No amount of finite enumeration alone establishes that lemma. No checks were performed for counting-quantifier languages, additional predicates, or larger quantifier rank.
+## originality
+
+PASS
+
+Comparisons of actual mathematical implications support a best-of-knowledge original contribution beyond cited prior facts, with explicit overlap credit and residual priority risks; not a universal guarantee.
+
+## value
+
+PASS
+
+Complete exact logical-type census and sharp minimal representative bound for a natural unary expansion of equivalence relations. The five-bit invariant is a reusable structural normal form, and the tight 13-element obstruction matters for finite-model testing beyond the existence of a generic decision procedure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

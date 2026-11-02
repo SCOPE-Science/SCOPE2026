@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T10:04:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Reviewed pinned RESULT.md proof, SLOGAN.txt, REVIEW.md, VERIFICATION.md and verification source code",
+        "Fresh independently written numerical/exact corroboration: {\"counts\": [[3, 3], [4, 6], [5, 10], [6, 2], [7, 14], [8, 6], [9, 27], [10, 2], [11, 33], [12, 6], [13, 52], [14, 2], [15, 60]], \"minimum_sets_checked\": 223, \"n_range\": [3, 15]}"
+      ],
+      "rationale": "For n>=5 each edge-neighborhood union is the four-block {i-1,i,i+1,i+2}; double counting its selected incidences gives |D|>=ceil(n/2). Cyclic selection every other vertex attains this. For cyclic gaps d_i between selected vertices, the every-four-block constraint is equivalent to d_i+d_{i+1}<=4. With e_i=2-d_i in {-1,0,1}, require e_i+e_{i+1}>=0 and sum e_i=2k-n (zero for even, one for odd). Every minus is flanked by plusses; each nonzero run separated by zeroes has positive total; this forces the stated all-2 or cyclic 1,3 patterns. An odd alternating run with r threes has r+1 ones and remaining 2s, yielding k cyclic anchored words and exactly n labeled sets per r. Exceptions C3,C4 checked directly. Independent exhaustive actual edge-neighborhood enumeration n3..15 verified 223 minimum sets and no smaller feasible sets. There is no reliance on the transfer counts to prove the infinite classification.",
+      "residual_risks": [
+        "No all-feasible-set polynomial or general graph algorithm is claimed; n=3,4 require separate cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General bounds and algorithms do not determine the count of every optimum for each length."
+        ],
+        "reasoning": "A stronger statement about all 2-vertex-edge dominating sets could imply the census, but no such theorem was identified in inspected material.",
+        "searches": [
+          "Resultary semantic search: double vertex edge domination cycle minimum sets count rotation orbits cyclic gap 1 3",
+          "arXiv:2310.07452",
+          "doi:10.3390/math7111010",
+          "2017 abstract unicyclic lower bounds"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.07452 full primary PDF",
+        "doi:10.1142/S1793830917500458 abstract only, authorized VPN disconnected",
+        "doi:10.3390/math7111010 full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Double edge-vertex domination selects edges to dominate vertices whereas this theorem selects vertices to dominate edges."
+        ],
+        "reasoning": "Swapping the object type does not give an implication for optimizer counts on cycles, and general inequalities do not imply unique rotation-orbit structure.",
+        "searches": [
+          "Resultary semantic search: double vertex edge domination cycle minimum sets count rotation orbits cyclic gap 1 3",
+          "doi:10.1142/S1793830917500458",
+          "doi:10.3390/math7111010"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalence of domination to cyclic binary 4-window occupancy >=2; the derived adjacent-gap constraint governs minimum words."
+        ],
+        "reasoning": "The known domination parameter is not itself new, but the full minimum-word classification was not located in material actually read; original 2017 complete text remains unchecked.",
+        "searches": [
+          "Resultary semantic search: double vertex edge domination cycle minimum sets count rotation orbits cyclic gap 1 3",
+          "arXiv:2310.07452 full PDF",
+          "doi:10.1142/S1793830917500458 publisher abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The scalar optimum ceil(n/2) is elementary/known; the count 6,2,n floor((n+3)/4) and gap-orbit census have no located matching table."
+        ],
+        "reasoning": "No exact matching database/table was found; failed search is explicitly not novelty proof.",
+        "searches": [
+          "Resultary semantic search: double vertex edge domination cycle minimum sets count rotation orbits cyclic gap 1 3",
+          "Resultary cycle domination-related hits; arXiv:2310.07452"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison after fresh Resultary searches, focused primary-source proof inspection and explicit implication checks. A related method, family or parameter alone does not establish identity/coverage; historical risk remains noted.",
+      "residual_risks": [
+        "The full 2017 original parameter paper was inaccessible; its uninspected sections could already contain a cycle minimum-set characterization. This is a priority uncertainty, not scientific disproof.",
+        "No all-feasible-set polynomial or general graph algorithm is claimed; n=3,4 require separate cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_IN_READ_TEXT",
+          "evidence": "Broad graph complexity and algorithms for trees are analyzed; no all-minimum-labeled-cycle gap enumeration is stated.",
+          "identifier_or_url": "arXiv:2310.07452; https://arxiv.org/abs/2310.07452",
+          "material_read": "Primary full PDF: definitions, complexity results, tree algorithm, theorem statements and conclusion",
+          "method": "Lawful public primary text or bibliographic material inspected to the specific extent described in material_read; no full-document noncoverage inferred from abstracts alone",
+          "title": "On k-vertex-edge domination of graph",
+          "trigger": "Same parameter general k-fold extension"
+        },
+        {
+          "assessment": "POSSIBLE_COVERAGE_UNCHECKED_FULL_TEXT",
+          "evidence": "Abstract discusses bounds, NP-completeness and trees; cannot conclude full 2017 text lacks cycle minimizer counting.",
+          "identifier_or_url": "doi:10.1142/S1793830917500458",
+          "material_read": "Publisher abstract and bibliographic metadata only; complete paper not available through OA or institutional access",
+          "method": "Publisher abstract and DOI metadata; arXiv/OA attempts did not yield lawful full text; authorized institutional retrieval returned vpn_disconnected",
+          "title": "Double vertex-edge domination",
+          "trigger": "Original 2017 definition and closest historical priority risk"
+        },
+        {
+          "assessment": "RELATED_BOUNDS_NOT_CENSUS",
+          "evidence": "Its tree/equality cases do not supply the exact labeled cycle optimum census.",
+          "identifier_or_url": "doi:10.3390/math7111010",
+          "material_read": "Open full article mathematical definitions and tree-related theorems",
+          "method": "Lawful public primary text or bibliographic material inspected to the specific extent described in material_read; no full-document noncoverage inferred from abstracts alone",
+          "title": "On Two Open Problems on Double Vertex-Edge Domination in Graphs",
+          "trigger": "Later paper about identical graph parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "The submitted exact mathematical invariant and all-range structural proof in pinned RESULT.md",
+        "Primary comparison evidence arXiv:2310.07452 full primary PDF, doi:10.1142/S1793830917500458 abstract only, authorized VPN disconnected"
+      ],
+      "rationale": "For a standard redundant vertex-to-edge coverage constraint on cycles, the complete labeled minimizer count, orbit structure and exact alternating-gap classification answer a mathematically natural enumeration/optimization question not resolved by the elementary minimum cardinality. Distinct parity classes give drastically different optimizer multiplicities and symmetry.",
+      "residual_risks": [
+        "Scope-specific result; not a claim of a general-graph/general-system theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2310.07452 full primary PDF",
+    "doi:10.1142/S1793830917500458 abstract only, authorized VPN disconnected",
+    "doi:10.3390/math7111010 full text"
+  ],
+  "disposition": "passed",
+  "final_claim": "For labeled simple C_n, n>=3, each edge uv double dominated when >=2 selected vertices lie in N[u] union N[v]. Minimum size ceil(n/2); exact number of minimum sets M_n=6 for n=0 mod4, 2 for n=2 mod4, n floor((n+3)/4) for n odd; all minimizers classified by two-gaps or one alternating 1,3 run.",
+  "limitations": [
+    "The full 2017 original parameter paper was inaccessible; its uninspected sections could already contain a cycle minimum-set characterization. This is a priority uncertainty, not scientific disproof.",
+    "No all-feasible-set polynomial or general graph algorithm is claimed; n=3,4 require separate cases.",
+    "Standalone code checks are finite evidence only, not unlimited-parameter proofs.",
+    "All 5 parent Git tree SHAs reconstructed independently from exact child blob SHA values and verified equal assigned trees.",
+    "Full public metadata replacements were not prepared; publication withheld, independent audit disposition not yet imported."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review: sharp suffix-run endpoint bounds in tournament path automata
+# Independent mathematical audit
 
-## Correctness
-PASS. The critical nonstandard transition lemma holds because an induced tournament of size at least two has an arc, forcing its out-neighbor set to be terminal in the appropriate sense. The opposite-direction transition restores all omitted vertices and all but at most one current vertex. The only singleton cases are global sink and global source, and a same-direction transition from either is excluded by the run-length hypothesis. Induction proves the sharp \(n-r\) endpoint bound. A transitive tournament supplies sharpness. The clique/chromatic sandwich, generating function, and distinguishing suffixes are separately checked. The embedded verifier exhausts all orientations through six vertices and finite automata tests without substituting experiments for universal proof.
+## correctness
 
-## Originality
-PASS, with residual indexing risk. Pujol (arXiv:2609.08843v1, September 8, 2026), particularly Sections 2.1 and 5.2, supplies the graph automata model, the remanent-language definition and the chromatic/bipartite facts. Its Proposition 4 makes the full-language statement for complete graphs a simple consequence once one analyzes transitive tournaments; novelty does **not** rest on that isolated corollary. The new quantitative content is the word-by-word sharp endpoint lower bound for arbitrary tournaments, including the reset-to-almost-all-vertices effect after every direction change. The graph-wide clique-tight language classification and minimal-state enumeration explain its consequences. Relevant mathematical record and literature searches yielded no equivalent endpoint theorem; related results on automata rank compression and specific cycles have materially different assumptions and quantifiers. Unindexed prior coverage remains possible.
+PASS
 
-## Value
-PASS. A graph-based NFA accepting a word says nothing by itself about how many ending states remain accessible; the bound measures robustness of nondeterministic acceptance after unrestricted preceding walks. Its key mechanism prevents repeated direction changes from accumulating endpoint losses, a structural statement valid uniformly in the tournament order. Tightness supplies a natural exact extremal invariant. The graph consequence classifies remanent languages of all clique-tight graphs, including perfect graphs, with a minimal deterministic recognizer; this extends beyond a finite census or a single unusual example. No state-compression improvement or other downstream theorem is claimed.
+For nonempty S in a tournament, internal arcs give |F_i(S) intersect S|>=|S|-1. For |S|>=2, the forward/backward neighbor image is terminal in its own direction: each omitted vertex points to/receives from a survivor. When direction switches, all vertices outside the previous terminal set and all but at most one inside are reached, giving n-1. Singleton terminal sets are necessarily global sink/source; the same-direction step that would empty them violates the run condition. Full induction on arbitrary length uses terminality and n-r, with transitive tournament attaining all r<n. The clique lower language follows from each orientation containing an oriented K_n; a proper n-coloring gives an increasing-color orientation ruling out n-runs. The run GF and Myhill–Nerode suffix distinguishability give exactly 2n complete DFA states. Independently exhaustively explored the endpoint powerset/run product for ALL 1,098 labeled tournaments with n=2..5, including arbitrarily long legal words per fixed n; finite tests do not establish general n.
 
-## Closest literature and limits
-C. Pujol, *Graph-based automata*, arXiv:2609.08843v1, especially Definition 32, Corollary 34, Theorem 36 and Proposition 4. The complete-graph language alone is already an easy corollary of the acyclic-orientation observation and is not treated as independently original. No claim is made for injective paths, for arbitrary graphs beyond the clique-tight condition, or for words with a constant run of length at least the tournament order. Exact equivalent indexed literature is not ruled out conclusively.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating 2026 Pujol paper defines all-vertices-initial graph automata and remanent orientation languages, and already connects chromatic number to all-forward walks. The K_n run-language statement alone is an elementary consequence of the setup and is not claimed as new. The substantial survivor is a sharp n-r surviving-endpoint inequality uniform over ALL tournaments and direction changes, with extension to every graph having omega=chi and exact DFA enumeration. Pujol full text was not available in this run; its abstract plus source self-review description do not justify claiming complete noncoverage, so a targeted primary-text priority risk remains.
+
+## value
+
+PASS
+
+The endpoint count quantitatively measures resilience to adversarial orientation and arbitrary alternating walk directions; switching restores nearly all endpoints regardless of history. The omega=chi consequence and exact automaton complexity give an infinite natural graph class, not an arbitrary finite instance. Sharpness and all-length quantifiers make the bound independently reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

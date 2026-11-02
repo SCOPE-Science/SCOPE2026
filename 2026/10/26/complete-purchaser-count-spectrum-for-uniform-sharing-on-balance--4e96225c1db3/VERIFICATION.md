@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification of the purchaser-count classification
-The proof in `RESULT.md` supplies the infinite, all-parameter argument through exact capacities, coverage inequalities, and an explicit modular nomination construction. No numerical approximation is needed in the proof.
+# Independent mathematical audit
 
-The independent finite checker `verify_spectrum.py` enumerates all possible exact-\(k\) nomination subsets of the opposite-part nonpurchasers for each fixed number of purchasers on both sides, independently of the proof inequalities. It computes feasible count spectra for all \(35\) pairs with \(2\le n\le8\) and \(1\le k\le n\), and asserts agreement with the theorem. Executing `python3 verify_spectrum.py` returned a PASS for all pairs and the gap instances \(\mathcal E(4,3)=\{2,4\}\) and \(\mathcal E(8,7)=\{2,8\}\).
+## correctness
 
-Finite verification cannot certify larger network orders. The result does not address unbalanced networks, variable capacities, nonspecialised equilibria, or arbitrary utility/welfare rankings. Independent mathematical audit has not occurred.
+PASS
+
+PASS: A one-sided purchaser configuration forces the entire side (n buyers); mixed purchaser counts p,q≥1 have exact necessary and sufficient feasibility 1≤p,q≤n-k, kp+q≥n, p+kq≥n. Sufficiency follows by independently covering recipients with distinct length-k cyclic nomination blocks. For fixed s=p+q, balanced p,q maximize min(p,q), yielding 2≤s≤2(n-k) and s+(k-1)floor(s/2)≥n. The inequality is monotone, with first even and odd feasible thresholds equal to the displayed a(n,k); the maximal s is feasible. k=n precludes mixed buyers. Fresh exhaustive exact recipient-subset coverage agreed on every (n,k) with 2≤n≤8 (35 pairs). The all-size theorem follows from the constructive inequalities, not enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS on the particular final statement after comparing objects, hypotheses, quantifiers, dominating statements and actual inspected materials; accessible primary evidence does not imply this exact result. No search failure constitutes a novelty proof. Specific same-source risks are retained; any inaccessible literature remains explicitly qualified.
+
+## value
+
+PASS
+
+PASS: The full cardinality spectrum (rather than its min or max) displays arbitrarily long unattainable intervals on connected regular graphs and a sharp one-step capacity transition from minimum 2 to n purchasers. This matters for equilibrium multiplicity and structure in capacitated public-goods networks and is not mechanically equivalent to standard domination extrema.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

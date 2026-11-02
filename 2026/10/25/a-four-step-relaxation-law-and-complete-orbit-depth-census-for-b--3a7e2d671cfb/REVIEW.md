@@ -1,15 +1,21 @@
-# Review: a four-step relaxation law and complete orbit-depth census for bipartite excitable dynamics
+# Independent mathematical audit
 
-## Correctness — PASS
-For every positive part size, the map on each side sends each of the three input colors to a single output color determined only by whether the opposite side has an excited vertex. Thus every configuration projects to one of at most 49 nonempty ordered support pairs. The full 7-by-7 table is computed by an explicitly defined transition map. Its only closed support classes are `(0,0)`, `(012,012)`, and `(01,02) ↔ (02,01)`, whose actual microconfiguration periods are respectively 1, 3, and 4. Support classes outside them cannot already contain a periodic microconfiguration, establishing the exact first-entry depths. The finite support argument is exhaustive for all graph sizes, not an extrapolation from finite graph examples. For labelled parts of sizes \(a,b\), each color subset contributes the corresponding onto-assignment count, yielding the ten displayed formulas. Their sum is \(3^{a+b}\), and the periodic-state counts yield the stated integer orbit counts and zeta expression. A separately implemented complete-state simulator exhaustively checked 72,720 configurations on small bipartite graphs and 3,000 seeded larger configurations. This does not replace the all-size finite-support proof.
+## correctness
 
-## Originality — PASS against inspected accessible evidence; historical priority provisional
-General qualitative Greenberg–Hastings behavior is established by prior authors. The complete accessible text of Gravner–Lyu–Sivakoff (arXiv:1610.07320) concerns arbitrary-graph asymptotic activity, covering-space approaches and cycle integrals, while Doba (DOI:10.25088/ComplexSystems.27.2.101) characterizes limiting dynamics using graph cycles and time evolution. Those results are significantly broader in graph scope, but the inspected statements do not directly give the sharp four-step bound on every \(K_{a,b}\), its 49-support microconfiguration classification, or all ten labelled-state preperiod/period formulas. Searches for equivalently stated complete-bipartite three-color excitable dynamics, relevant stored results and finite-table databases did not locate the exact census. The 1978 founding Greenberg–Hastings article and the 1993 Durrett–Griffeath preprint were accessible only in summary/abstract form, leaving a genuine residual historical-priority risk. This pass is a best-knowledge statement, not proof of global priority; older inaccessible specialized literature could contain the result.
+PASS
 
-## Mathematical value — PASS
-The exact relaxation horizon and two-parameter labelled basin census address a natural quantification gap for a canonical excitable dynamics on the simplest dense nontrivial bipartite graph family. The classification separates transient depth from eventual period and shows that all period-three attractor states have no transient predecessors, while period-four attractors do. It identifies precisely when competing recurrent modes arise and supplies complete finite-system zeta functions. These are structurally motivated exact results rather than a table of arbitrary small numerical examples; the 49-state reduction is uniform in both part sizes.
+Every side updates a color 0,1,2 via a deterministic map depending only on whether the opposite side contains an excited color 1. Consequently the ordered pair of nonempty color supports maps to another such pair in a finite 7x7 quotient independently of a,b. Enumerating the 49 transitions yields only closed support configurations: both-zero fixed, both-full supports with actual period three, and a two-support alternating class with actual period four; all other pairs have first-entry depth <=4. Within each closed class the vertex-level map is a permutation on colors, so macro periodicity and actual microperiod coincide after checking these classes. For side size a, the counts of assignments to exactly one/two/three named colors are 1, 2^a-2 and 3^a-3*2^a+3, respectively. Summing products over the 49 support cases gives the ten displayed polynomial formulas, their sum exactly 3^{a+b}, and cycles of lengths three and four counted by their periodic states. A completely separate enumeration of all 49 quotient types and symbolic formulas and all 810 labelled states for a,b in {(2,2),(3,3)} was completed; uniformity rests on exact support factorization, not sampling.
 
-## Scope and limitations
-Threshold-one three-state synchronous dynamics with nonempty labelled independent graph parts. No statements for incomplete bipartite graphs, random updates, stochastic excitation or higher refractory-state counts. The full independent scientific and historical-priority audit is not yet performed. The 1978 founding publication's exact first-public day was not independently established; the day-verified first motivating archival preprint is dated 1993-03-22.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge original contribution: A four-step relaxation law and complete orbit-depth census for bipartite excitable dynamics. Closest prior work and limits are compared by implication, not title; priority risk retained.
+
+## value
+
+PASS
+
+On a canonical dense bipartite graph family, the full labelled basin census is a natural quantitative invariant of excitable dynamics. The 49-support reduction yields an all-size exact relaxation horizon, a classification by both first periodic-entry time and eventual period, and exact dynamical zeta functions. This complete parametric classification is useful independently of the well-known eventual activity criterion and is not arbitrary small-size experimentation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

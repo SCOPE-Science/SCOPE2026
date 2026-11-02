@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The companion standalone `verify.py` uses only Python's standard library. Run `python3 verify.py` from the directory containing the extracted package; it prints a PASS line on completion or raises an assertion if any checked equality or inequality fails.
+## correctness
 
-The program constructs the exact binomial-sum success probability for a vaccine completing \(h\) exponential stages before the infection traverses \(d\) edges, and independently obtains the same probability by a finite-state race recurrence. It checks strict log-concavity of depth rewards for every nontrivial sampled index, identifies maximizers by exact rational comparisons, tests the universal one-stage first-layer result and the complete two-stage branching/height classification, and verifies the exact witness and threshold tie.
+PASS
 
-Parameters checked: \(b\in\{2,3,4,5\}\), \(H\in\{2,\ldots,11\}\), \(h\in\{1,\ldots,8\}\), and \(q\in\{1/10,1/3,1/2,2/3,3/4,9/10\}\), giving \(1{,}920\) exact parameter families. All checks passed in the packaged program execution. The arbitrary-positive-rate and arbitrary-height results are proved analytically in `RESULT.md`; sampled computations cannot establish them on their own.
+PASS: Exact infection arrival is sum of d i.i.d. Exp(λ) stages, immunization completion sum h i.i.d. Exp(μ). Interleaved event streams give the negative-binomial race (1-q)^h Σ_{j<d}C(h+j-1,j)q^j; strict descendants N_d=Σ_{i=1}^{H-d}b^i. For w_j=C(h+j-1,j)q^j the ratios w_(j+1)/w_j=q(h+j)/(j+1) decrease, implying strict log-concavity of partial sums S_d. The geometric descendant sequence N_d is strictly log-concave too, so W_d has decreasing adjacent ratios, allowing a unique optimum or two adjacent tied depths. Adjacent ratio S_{d+1}/S_d strictly increases with q from 1 to 1+h/d, so crossings exist exactly at the displayed strict inequality; the monotone depth-ratio order makes them an initial segment with increasing q_d. Since N_d/N_{d+1}>b, h=1 never crosses, and for h=2 only b=2,d=1 can cross, with Q_H as claimed. Recomputed exact 2,4,2,3/4 example (7/8,15/16,67/128). Independent rational race-DP checks passed for 1920 b,H,h,q cases; proof applies to all positive λ,μ.
 
-No independent scientific audit or external formal proof has been performed. Publication-priority claims are bounded by the cited original manuscript, related accessible descriptions and the documented literature comparison.
+## originality
+
+PASS
+
+Best-of-knowledge PASS on the particular final statement after comparing objects, hypotheses, quantifiers, dominating statements and actual inspected materials; accessible primary evidence does not imply this exact result. No search failure constitutes a novelty proof. Specific same-source risks are retained; any inaccessible literature remains explicitly qualified.
+
+## value
+
+PASS
+
+PASS: Exact ordered vaccination-depth phase transitions isolate a nontrivial effect of maturation-time shape at fixed mean, sharply distinguishing one from two Erlang stages and showing when b-ary geometry suppresses outward shift. It is a complete optimization classification within a natural idealized epidemic model, not just an isolated numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

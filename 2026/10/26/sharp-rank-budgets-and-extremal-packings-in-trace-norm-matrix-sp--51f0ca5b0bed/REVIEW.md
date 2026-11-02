@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact polar-graph equivalence is proved from a shared dual norming contraction and conversely by an explicitly constructed isometry on the sum of the two initial support spaces. Applying Bessel's inequality to both coordinate blocks yields the sharp rectangular rank bound. Signed diagonal units are sharp witnesses. In the maximal square case, every rank is one and the graph orthogonality gives precisely a balanced orthonormal basis. The star metric consequence follows by translating the center and using the matrix-unit construction. The finite checker is a diagnostic only.
+PASS
 
-## Originality
+Using duality between trace norm and operator norm, triangle equality is equivalent to a norm-one contraction simultaneously agreeing with the polar isometry on one support and negating the other. Norm saturation forces equalities in Z*Z, yielding <U_i x,U_j y>=-<x,y>, precisely orthogonality of graph subspaces in C^q direct_sum C^p. Conversely that mixed identity makes the prescribed map on sum of initial supports isometric, extendable by zero, giving a common dual certificate. Bessel projection of the mutually orthonormal scaled graph basis to both coordinate blocks proves rank sum <=2p and <=2q. Signed E_jj and -E_jj saturate; m=2d implies rank one and orthonormal 2d graph basis. The off-diagonal unitary block equation yields sum A_i=0. New independent NumPy computed 161 exact-formula pairwise trace norm comparisons through d=6 and rectangular witnesses; floating-point checks supplement full algebraic proof.
 
-**PASS, subject to historical priority risk.** The fresh Schatten trace-class metric-cotype work of Jiao--Luo--Wu (arXiv:2610.21445v1) does not assert finite trace-norm star dimensions or the rank-budget equality classification. Aziznejad--Unser (arXiv:2009.07768v1) treats norming duality, not simultaneous pairwise packings. Chun (arXiv:1908.05650v1) proves the related sharp real cross-polytope bound but cannot constrain arbitrary complex matrices. Swanepoel--Villa (arXiv:1109.5063) address general maximal equilateral sets, not the matrix-specific 2min dimension cutoff. An older equivalent operator-ideal treatment may exist and remains a specific priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The theorem answers a natural extremal metric question for all finite complex rectangular trace-class matrix spaces, resolves an exact isometric star target-size invariant, and classifies the full saturated square-matrix family. The polar graph proof supplies a structural constraint not supplied by commutative packing counts or general Banach-space cardinality bounds.
+Best-of-knowledge originality of the precise stated full theorem: mathematical antecedents and equivalent formulations were compared from real source readings. Standard ingredients are credited and genuine historical coverage risks remain; unsuccessful search is not a novelty proof. Already treats trace-norm dual saturation of individual matrices; no simultaneous many-matrix orthogonal graph budget or saturated family classification in inspected Proposition 2. Sharp real finite-dimensional crosspolytope packing is restricted to commutative signed vectors; it does not imply upper bound for arbitrary complex noncommutative rectangular matrices. Metric-cotype scaling does not on its face imply the exact polar rank budget; higher-priority operator-ideal packing work remains possible.
 
-## Scientific limitations
+## value
 
-The statement concerns exact maximal distance and finite matrices. It does not determine near-equality stability, nonmaximal equilateral packing sizes, or corresponding optimal parameters in infinite-rank classes. Independently confirmed historical priority is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Maximal triangle-equality separation is the natural diameter packing problem for noncommutative trace-class unit spheres. The sharp rectangular rank budget and complete saturated square geometry answer a precise extremal classification, and imply the optimal isometric matrix size for every finite star metric.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

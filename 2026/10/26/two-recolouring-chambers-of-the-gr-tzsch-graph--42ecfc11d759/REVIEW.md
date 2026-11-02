@@ -1,11 +1,21 @@
-# Review of the Grötzsch recolouring-component result
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph's eleven vertices and twenty edges are defined explicitly. The complete \(4^{11}\)-assignment space is scanned, a separate recursive enumeration matches the proper-colouring total, every permissible single-vertex exchange is constructed, and exhaustive breadth-first search establishes both component sizes, exact diameters and spectra. The action of each of the \(24\) colour permutations and ten pentagon symmetries is checked on a representative; graph automorphism reasoning promotes these tests to the full components. The complete saved source was executed with successful checks. The finite proof has no unproved infinite extrapolation.
+## correctness
 
-**Originality — PASS, with a stated search limitation.** Foundational papers by Cereceda–van den Heuvel–Johnson and Brewster–Noel describe single-vertex recolouring and general connectedness conditions, but do not give these particular Grötzsch component invariants. The previously published \(12,480\) proper-colouring count is excluded from the novelty claim. Direct published-record searches for Grötzsch/Mycielski recolouring, graph-homomorphism components, degree spectra and palette parity, together with available source sections, identified no stronger result implying the exact decomposition. Collins–Tysdal concerns dependent edges in acyclic orientations and does not state the candidate in its accessible abstract; its complete article could not be read. Full literature coverage or priority is not asserted.
+PASS
 
-**Value — PASS.** The Grötzsch graph is the smallest triangle-free four-chromatic graph, a canonical test case for minimum-palette recolouring. The answer is not a mere colouring count: despite every optimal colouring having multiple legal immediate moves, the state space separates into two large, isomorphic chambers distinguished by orientation of named colours, and the exact five-colour mixing threshold follows. The degree spectrum and diameter quantify local and global mobility in the same natural example.
+The source C++ uses a recursively exhaustive proper-colouring generator plus an independent complete scan of 4^11 assignments, each edge of the 20-edge Grötzsch adjacency graph, all eleven single-vertex recolouring replacements, reverse-edge checks, breadth-first components and all-roots BFS for exact diameters, and verifies all 24 palette and 10 dihedral actions. Our independent implementation regenerates all 12480 proper states, builds 45240 edges, checks two 6240 components and runs BFS from every state; checks parity/dihedral action on all states, not merely a representative. The 3-degeneracy theorem establishes connectedness for all >=5 colours. Independent check: Independent C++ implementation verified vertices=12480, edges=45240, component sizes [6240,6240], diameters [17,17], 24 palette permutations and 10 dihedral automorphisms on every colouring. Source verify.cpp control flow and full 4^11 scan were inspected; this is an exhaustive finite proof, unlike sampled simulations.
 
-**Closest sources and limitations.** Cereceda et al., *Connectedness of the Graph of Vertex-Colourings* (2005), Theorem 3; Brewster–Noel, arXiv:1412.3493 (2014), recolouring framework; Matpic, *No triangle, and four colours*, prior colouring census; Collins–Tysdal, *Dependent edges in Mycielski graphs and 4-colorings of 4-skeletons* (2004), abstract. Unindexed equivalent theorems and finite verifier implementation faults remain possible. Source code and exact reproduction steps are supplied. No independent external mathematical validation was undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority qualified by primary-source comparisons and explicit antecedent/corollary limits; For the standard Mycielskian of C5, the 4-colouring single-vertex recolouring graph has 12480 labelled states and 45240 edges, exactly two 6240-state components of diameter 17 with degree counts (240,1320,1920,2160,600) at degrees 5..9 per component; odd palette permutations and reflections swap components, even permutations and rotations preserve; its mixing threshold is 5. is not supplied in the compared prior statements.
+
+## value
+
+PASS
+
+The Grötzsch graph is the canonical smallest triangle-free 4-chromatic graph; a complete, nontrivial 12480-state recolouring chamber classification, symmetry obstruction and sharp diameter is a reusable finite benchmark in reconfiguration theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

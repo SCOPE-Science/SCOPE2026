@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:10:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/uniform-linear-variance-for-single-vertex-noisy-voter-repetition--3fff36789a8d/RESULT.md Git blob 57c30ff4f1a49269b5e524addcae1cc6aac76354",
+        "Actual source verifier Git blobs 709bca1b8f62ac261a6f2b21585a9919cae5c6eb"
+      ],
+      "rationale": "For t_j=d+1+j(2d+2), retain the independent fresh refresh bit U_j at vertex u, expose all other update randomness. The source event A_j uses only exposed variables: u refreshes at t_j and at t_j±d, all members of closed N[u] refresh at t_j+1, and the two lag endpoint bits equal. P(A_j)≥ε^{Δ+4}/2 (with a redundant requirement at d=1). The closed-neighborhood refresh barrier prevents U_j propagating past t_j+1, leaving precisely two Q_T indicators, both 1{U_j=b_j}, whose combined conditional variance is 1. Disjoint time windows make these bits independent; hence conditional variance equals the number of successful events, and total variance proves the bound. Derivation covers arbitrary locally finite graphs independent of finite-state mixing. Existing published Lemma 2.3 and Theorem 2.7 are explicitly imported only for existence of σ² and unthinned CLT. Independent exact Markov transition/counter moment computations on the two-vertex edge for d=1,2 and six horizons verified the bound.",
+      "residual_risks": [
+        "CLT is asserted under the original fair independent initial state assumptions; the variance inequality itself allows arbitrary initial law independent of future updates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original paper handles general locally finite graphs and has CLT conditional on variance, while density-process paper concerns global observables."
+        ],
+        "reasoning": "Existing breadth of graph class is acknowledged; the new contribution removes a condition within precisely the original broad class.",
+        "searches": [
+          "arxiv:2207.01224",
+          "arxiv:2112.01478"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2207.01224",
+        "https://doi.org/10.1214/23-AOP1637",
+        "https://arxiv.org/abs/2112.01478"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited Lemma 2.3 allows a logarithmic-variance alternative rather than excluding it; Theorem 2.7 assumes a growth condition which follows from the new bound."
+        ],
+        "reasoning": "Positive linear variance is not a consequence of either antecedent alone. The conditional-innovation construction adds the needed hypothesis-free inequality.",
+        "searches": [
+          "arxiv:2207.01224",
+          "arxiv:2112.01478"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q_T is the source paper’s temporally local repetition count; variance lower bound is a quantitative resolution of its logarithmic-versus-linear alternative."
+        ],
+        "reasoning": "The observed variable is the same, not a renamed different statistic; prior paper does not supply the positive lower bound for arbitrary locally finite graphs.",
+        "searches": [
+          "noisy voter model single vertex lag repetition count variance linear central limit theorem locally finite graph",
+          "arxiv:2207.01224",
+          "single vertex lag-d repetition noisy voter model variance positive linear"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is a uniform inequality and a CLT implication, not a finite lookup-table constant; original paper states an unresolved asymptotic branch."
+        ],
+        "reasoning": "No exact database/table is a plausible dominating vehicle for the all-graph statement; this is a specifically inapplicable database comparison, supplemented by direct paper search.",
+        "searches": [
+          "noisy voter model single vertex lag repetition count variance linear central limit theorem locally finite graph",
+          "arxiv:2207.01224"
+        ]
+      },
+      "rationale": "Comparisons of actual mathematical implications support a best-of-knowledge original contribution beyond cited prior facts, with explicit overlap credit and residual priority risks; not a universal guarantee.",
+      "residual_risks": [
+        "A recent proof of the local-variance question could appear outside the inspected literature; best-of-knowledge priority only.",
+        "CLT is asserted under the original fair independent initial state assumptions; the variance inequality itself allows arbitrary initial law independent of future updates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly relevant prior work explicitly leaves the variance lower bound open; its CLT requires a variance condition supplied by this new proof",
+          "evidence": "Lemma 2.3 gives logarithmic-or-linear alternative; Theorem 2.7 gives original unthinned normal limit under sufficient variance.",
+          "identifier_or_url": "arxiv:2207.01224",
+          "material_read": "Primary full text, particularly §2.2 Lemma 2.3 and §2.3 Theorem 2.7 and discussion of the possible logarithmic branch",
+          "method": "Full lawful arXiv PDF and page screenshot, pertinent hypotheses and conclusions checked",
+          "title": "Global information from local observations of the noisy voter model on a graph",
+          "trigger": "Exactly same synchronous model, local lagged equality statistic, and explicit open variance question"
+        },
+        {
+          "assessment": "Different density observable and update mechanism; no verified theorem for local synchronous lag equality variance",
+          "evidence": "A global empirical-density fluctuation result does not bound temporal equality count at one vertex in arbitrary locally finite G.",
+          "identifier_or_url": "arxiv:2112.01478",
+          "material_read": "Primary abstract and introduction about global density process",
+          "method": "Open preprint abstract/intro inspected",
+          "title": "Asymptotic behaviour of the noisy voter model density process",
+          "trigger": "Potentially broader variance/fluctuation analysis for noisy voter models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2207.01224",
+        "https://doi.org/10.1214/23-AOP1637",
+        "https://arxiv.org/abs/2112.01478"
+      ],
+      "rationale": "Closes a concrete open logarithmic-vs-linear variance alternative for temporal local observations of noisy voter dynamics, with an explicit degree-and-noise constant valid on infinite locally finite graphs. The local refresh barrier also establishes the published CLT variance condition without time thinning.",
+      "residual_risks": [
+        "A recent proof of the local-variance question could appear outside the inspected literature; best-of-knowledge priority only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2207.01224",
+    "https://doi.org/10.1214/23-AOP1637",
+    "https://arxiv.org/abs/2112.01478"
+  ],
+  "disposition": "passed",
+  "final_claim": "In synchronous binary noisy voting on any connected locally finite graph with positive degree Δ at observed vertex u, refreshing independently with probability 0<ε<1, the lag-d equality count Q_T has Var(Q_T)≥(ε^{Δ+4}/2)[1+floor((T−d−1)/(2d+2))], for d≥1,T≥d+1. In particular the variance is uniformly positive linear in T, ruling out the logarithmic branch of Benjamini–Helman Tov–Zhukovskii and implying their unthinned CLT under their initially independent fair law.",
+  "limitations": [
+    "A recent proof of the local-variance question could appear outside the inspected literature; best-of-knowledge priority only.",
+    "CLT is asserted under the original fair independent initial state assumptions; the variance inequality itself allows arbitrary initial law independent of future updates.",
+    "Publication withheld: original public metadata retain operational provenance; no complete confidentiality-safe replacements with Git guards and UTF-8 SHA-256 were staged.",
+    "No GitHub writes, dispatcher closeouts, or scheduling modifications were made."
+  ],
+  "schema_version": 1
+}

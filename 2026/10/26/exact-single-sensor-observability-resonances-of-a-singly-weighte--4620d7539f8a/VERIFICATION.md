@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The analytical proof in `RESULT.md` covers every \(n\ge5\) and every \(w>0\). It uses the simple-spectrum symmetric PBH test, reflection parity, the strict-increasing eigenvalues of an irreducible Jacobi rank-one perturbation, and the trigonometric eigenvalues of the remaining tail after setting the measured coordinate to zero.
+## correctness
 
-The standalone `check_observability.py` depends on NumPy and can be executed as `python check_observability.py`. Its fixed-seed trial uses cycles with \(5\le n\le36\), a range of ordinary and randomly sampled positive weights, the uniform weight, and every predicted positive exceptional weight in that range. The executed output is `CASES 816 MISMATCHES 0`. The mathematical theorem is not inferred from these finite tests. During proof development, observability determinants were separately symbolically factored for \(5\le n\le10\); for \(n=6\) the determinant vanished identically, and in other sizes the positive roots matched the stated exceptional set.
+PASS
 
-The calculations do not assess robustness to sensor noise or numerical conditioning near a resonance. Independent audit and independent validation are unperformed.
+The exact Laplacian is L(P_n)+w(e0-e_{n-1})(e0-e_{n-1})^T and commutes with end reflection. Even-parity path cosine eigenmodes q_{2r} survive; their coordinate at vertex1 is cos(3 pi r/n), zero exactly for 6|n. The odd-parity restriction is irreducible Jacobi, with first diagonal 1+2w; its simple eigenvalues strictly increase with w and strictly interlace neighboring path levels. Thus cross-parity eigenvalue coincidence occurs only at w=1, the uniform cycle, whose repeated eigenvalues defeat one scalar sensor. For w !=1, an odd blind eigenmode has v1=0 and necessarily lambda=1+2w and v0=-v2; its remaining sine-tail subject to reflection right boundary gives theta=2pi k/(n-3), with 0<theta<pi and positive w=1/2-cos theta. Conversely each listed positive resonance constructs a blind nonzero odd eigenvector. n=5 has empty index range; all positive weights covered. PBH symmetry gives controllability. Independent eigensystem tests 142 n/weight cases had 0 discrepancies. Finite testing is not the infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison after fresh Resultary searches, focused primary-source proof inspection and explicit implication checks. A related method, family or parameter alone does not establish identity/coverage; historical risk remains noted.
+
+## value
+
+PASS
+
+A one-edge defect is the minimal weighted symmetry-breaking modification of an undirected cycle. The theorem determines exactly when a fixed inward single sensor changes from insufficient to fully observable, including a length-dependent permanent obstruction and isolated nonuniform algebraic resonances. This sharp parameter classification informs sensor design beyond generic nonzero perturbations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

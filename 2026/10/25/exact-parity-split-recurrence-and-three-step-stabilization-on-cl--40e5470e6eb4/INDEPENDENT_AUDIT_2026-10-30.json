@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:09:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/exact-parity-split-recurrence-and-three-step-stabilization-on-cl--40e5470e6eb4/RESULT.md Git blob 850b11a6b83c6617a0303811a38ed0ec690052e0",
+        "2026/10/25/exact-parity-split-recurrence-and-three-step-stabilization-on-cl--40e5470e6eb4/verify_clique_corona.py Git blob 6ecd5927c9fd08a0da013e315bad3b27b19be889",
+        "Private independent-check script and actual JSON output in accompanying delivered audit bundle"
+      ],
+      "rationale": "Every private leaf copies its core state at each update. A clique vertex sees S−x_i+y_i ones out of m neighbors. For m=2k this yields three branches x′=0 if S<k, x′=y if S=k, x′=1 if S>k; paired balanced words give c² recurrent states plus 2 homogeneous states. The other first-entry classes partition by whether x is homogeneous and whether the next core is balanced, homogeneous, or intermediate, giving D1=2(2^m−1), D3=c(2^m−c−2). For m=2k+1, borderline outputs are (1−x)∧y at S=k or (1−x)∨y at S=k+1; disjointness/complement-cover forces only recurrent balanced-border pairs, 2c(k+2) plus 2 homogeneous states, and their free leaf-bit multiplicities yield D1 and D3. D2 is the nonnegative complement of the partition. Stirling's central binomial estimate gives even recurrence fraction 2/(πm) and odd 2^(−m)√(2m/π). Fresh independent direct-neighborhood orbit enumeration for m=3..7 (21,824 labelled states) matched exact formulas, including m=3 depth vector (20,32,12,0), m=5 (82,302,400,240), m=6 (402,126,2728,840), and fixed counts. All-order proof comes from the branch partition, not finite checks.",
+      "residual_risks": [
+        "No asynchronous, stochastic or arbitrary graph extension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goles–Olivos establishes eventual primitive period 1 or 2 for finite undirected majority systems.",
+          "Zehmakan studies general worst-case stabilization and selected cycle statistics; it does not state the binomial clique-with-leaf first-entry populations."
+        ],
+        "reasoning": "Global eventual-period results do not imply the uniform three-step bound and exact parity-dependent population formulas for the specified corona.",
+        "searches": [
+          "Zehmakan 2024 full article §2",
+          "Goles–Olivos 1980 period≤2 theorem referenced therein",
+          "Benjamini et al arXiv:1405.2486"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s10458-024-09651-y",
+        "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "Resultary published mathematical record search: Resultary: synchronous tie retaining binary majority dynamics complete graph with private pendant leaves clique corona exact basins preperiod"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-cycle bound applies to every finite undirected graph, leaving unrestricted potential preperiods; specific update branches need direct counting.",
+          "Zehmakan counts stable configurations of cycles, not cliques with private leaves."
+        ],
+        "reasoning": "The exact D_t formulas are not corollaries of a mere period bound or cycle enumeration; distinct state-count and first-entry statements require a new calculation.",
+        "searches": [
+          "Zehmakan 2024 definitions and results",
+          "Goles–Olivos 1980 title and cited period theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tie-retaining majority model in Zehmakan uses the same open-neighbourhood update and counts stabilization and periodicity on general graphs and cycles.",
+          "The claimed formulas count exact first recurrence depth on K_m∘K1, not an eventual period bound."
+        ],
+        "reasoning": "Equivalent dynamical language as threshold automata or one-step delayed clique updates was considered; known period-two constraints are necessary but do not determine this complete depth census.",
+        "searches": [
+          "Resultary semantic query: synchronous tie retaining binary majority dynamics complete graph with private pendant leaves clique corona exact basins preperiod",
+          "Zehmakan 2024 DOI:10.1007/s10458-024-09651-y"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7 is a parity/XOR cellular automaton, not majority.",
+          "No complete identical depth enumerator surfaced."
+        ],
+        "reasoning": "No known table matching both even and odd population formulas was located in actual searches; negative search alone does not establish novelty.",
+        "searches": [
+          "Resultary: clique corona majority exact recurrence D_t",
+          "Resultary: complete multipartite parity automata cycle census",
+          "majority dynamics K_m corona with leaves"
+        ]
+      },
+      "rationale": "A fresh closest-prior comparison finds no accessible theorem or database record implying the final all-parameter conclusion. The exact overlap/special-case antecedents are credited and remaining literature-access or terminology risks are recorded; PASS is a best-of-knowledge judgment, not external historical certification. Exact parity-split recurrence and three-step stabilization on clique coronas: Tie-retaining synchronous binary majority on K_m∘K1 for every m≥3 has exact transient-depth counts D0..D3, fixed and primitive two-cycle counts, sharp depth ≤3 (depth ≤2 at m=3), and sharply different even/odd recurrent-state asymptotics.",
+      "residual_risks": [
+        "Possible older exact majority census for cliques with one private leaf under threshold/network names not located.",
+        "The 1980 original source was not inspected in full.",
+        "No asynchronous, stochastic or arbitrary graph extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same update convention; general and cycle statements, not all K_m corona depth counts.",
+          "evidence": "Definitions explicitly preserve bit in ties; Section 1.2 cites Goles–Olivos period≤2 and specializes stabilization on cycles.",
+          "identifier_or_url": "https://doi.org/10.1007/s10458-024-09651-y",
+          "material_read": "Full open-access article, including §1.1 model definition, §§1.2–2 convergence/periodicity and the cycle-specific results.",
+          "method": "Read Springer full-text sections, statements and model convention.",
+          "title": "Majority opinion diffusion: when tie-breaking rule matters",
+          "trigger": "same synchronous tie-retaining majority model, stabilization and periodicity"
+        },
+        {
+          "assessment": "General eventual-period antecedent credited; original full text not claimed inspected.",
+          "evidence": "Period at most two does not imply three-step uniform transient or depth frequencies.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Cited theorem statement as reproduced in Zehmakan, not original 1980 full article.",
+          "method": "Secondary primary-author attribution in accessible 2024 article.",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "classical period-two theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/090ff0833df2138b40a9e80fe13d572878fbdc2f/2026/10/25/exact-parity-split-recurrence-and-three-step-stabilization-on-cl--40e5470e6eb4",
+        "https://doi.org/10.1007/s10458-024-09651-y",
+        "https://doi.org/10.1016/0012-365X(80)90121-1"
+      ],
+      "rationale": "A complete distribution of first entrance into periodic states, including the sharp bounded transient and a dramatic even/odd asymptotic recurrence split, is a natural dynamical invariant for a dense binary majority network with attached one-step-memory leaves. General period≤2 results alone do not give basin-depth populations. The result addresses synchronous unweighted tie-retaining majority only.",
+      "residual_risks": [
+        "No asynchronous, stochastic or arbitrary graph extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/10/25/exact-parity-split-recurrence-and-three-step-stabilization-on-cl--40e5470e6eb4/RESULT.md Git blob 850b11a6b83c6617a0303811a38ed0ec690052e0",
+    "2026/10/25/exact-parity-split-recurrence-and-three-step-stabilization-on-cl--40e5470e6eb4/verify_clique_corona.py Git blob 6ecd5927c9fd08a0da013e315bad3b27b19be889",
+    "Private independent-check script and actual JSON output in accompanying delivered audit bundle",
+    "https://doi.org/10.1007/s10458-024-09651-y",
+    "https://doi.org/10.1016/0012-365X(80)90121-1"
+  ],
+  "disposition": "passed",
+  "final_claim": "Tie-retaining synchronous binary majority on K_m∘K1 for every m≥3 has exact transient-depth counts D0..D3, fixed and primitive two-cycle counts, sharp depth ≤3 (depth ≤2 at m=3), and sharply different even/odd recurrent-state asymptotics.",
+  "limitations": [
+    "Possible older exact majority census for cliques with one private leaf under threshold/network names not located.",
+    "The 1980 original source was not inspected in full.",
+    "No asynchronous, stochastic or arbitrary graph extension.",
+    "Publication withheld due to unsanitized existing public administrative metadata; this is an operational readiness limit, not a scientific rejection.",
+    "All exact Git tree SHAs were independently retrieved as tree identities at the assigned immutable commit; no repository writes were performed."
+  ],
+  "schema_version": 1
+}

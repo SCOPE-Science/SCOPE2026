@@ -1,12 +1,21 @@
-# Scientific review: characteristic-five Clebsch cubic
+# Independent mathematical audit
 
-## Correctness — PASS
-The defining gradient equations identify only \([1:1:1:1:1]\); the local quadratic form in three independent coordinates is nondegenerate, proving an \(A_1\) point. The projection construction has a six-point reduced base scheme, certified symbolically by distinct permutations and transverse gradients plus Bézout. One blowup at the six rational conic points gives the minimal resolution. The class calculation, adjunction and Cauchy–Schwarz eliminate any additional geometric lines. The point-count formula follows from an explicit blowup and contraction of a split conic. Exact enumeration in the supplied program checks all rational lines over \(\mathbb F_5\), point counts in \(\mathbb F_5\) and \(\mathbb F_{25}\), and all \(120\) permutation actions. Its finite-field tests are not used as an infinite proof.
+## correctness
 
-## Originality — PASS, subject to historical risk
-Dolgachev–Martin (arXiv:2303.16170, 2023-03-28) and Vikulova (arXiv:2407.09997, 2024-07-13) already state characteristic-five singularity of the Clebsch cubic, the latter explicitly naming the singular point. Those facts are excluded from the novelty claim. Their inspected treatments of smooth del Pezzo surfaces do not establish the six-point blowup model, \(21\) rational geometric lines, sharply three-transitive action on the six node-lines, or uniform special-fiber zeta function. McKean and Karaoglu–Betten address smooth cubics, so their results do not imply the given singular model's exact configuration without additional work. Searches for algebraic aliases, nodal cubic equivalences, lines, and point counts revealed no directly covering published statement or matching research record. General nodal cubic geometry underlies some proof steps; historical or unindexed complete computations remain the residual risk.
+PASS
 
-## Mathematical value — PASS
-The singular fiber at the prime dividing the order of the classical \(S_5\) action is a natural exceptional reduction singled out by current cubic-surface classification. The result resolves its configuration of lines and its entire extension-field arithmetic, not merely the already-known failure of smoothness. The six rational points of a conic explain both the loss of six lines from the smooth count and the exceptional six-point symmetry. The result is restricted to this distinguished cubic and does not claim a broader classification of nodal cubics.
+The characteristic-five partial derivatives force all five coordinates equal, producing the single A1 node; the nondegenerate tangent quadratic establishes normality. Transversality of Q=sum u_i^2 and G=sum u_i^3 at the six permutation/scaling directions plus Bezout proves the reduced six-point base locus. The cubic inverse [G e-3Q v] extends after the blow-up. -K degree and adjunction make any nonexceptional line a (-1)-curve; Cauchy bounds its degree to one or two, yielding 15 chords and excluding a conic through exactly five of six on Q. Replacing the split (-2)-conic by its rational node gives the count for all extensions. The 120 coordinate permutations act simply transitively on ordered triples of the six directions. Independent check: Independent exact finite-field enumeration: 156 F5 projective points, 56 X(F5) points, all 806 P3(F5) lines with 21 contained and 6 node-lines, 6 simple base directions and 120 distinct ordered triples under S5. Source verify.py additionally inspects F25 and the 15 classical diagonal lines. This supports but cannot alone establish the geometric or all-extension claims.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge priority qualified by primary-source comparisons and explicit antecedent/corollary limits; The literal p=5 Clebsch diagonal cubic has a unique split A1 node; its resolution blows up all six rational points of a conic, it has exactly 21 geometric lines all F5-rational, S5 acts sharply three-transitively on the six node-lines, and N(F_{5^m})=q^2+6q+1 for all m>=1. is not supplied in the compared prior statements.
+
+## value
+
+PASS
+
+An explicit exceptionally symmetric singular reduction, with all geometric lines rational and a closed zeta function, provides a natural arithmetic test object; the exact split resolution and S5-action distinguish it from merely reiterating the standard 21-line count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

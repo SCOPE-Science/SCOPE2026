@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact-artifact reproducer consists of `verify.cpp` and `check_arithmetic.py` in this package. Compilation with `g++ -std=c++17 -O2 -Wall -Wextra -Werror verify.cpp -o verify` and execution of `./verify` gives counts for all eight smooth companion representatives in extension degrees one through six and terminates with `VERIFY_OK`. Running `python3 check_arithmetic.py` checks the eight cubic parameters, their two affine orbits, irreducibility of the six field moduli, Newton identities, Weil duality, and irreducibility of the claimed numerator factors; it terminates with `ORBIT_AND_WEIL_CHECK_OK`.
+# Independent mathematical audit
 
-The proof additionally relies on the cited published completeness and equivalence results for the matrix representation. The programs prove exact finite computations and polynomial identities, not independently the global classification of plane-filling curves or the completeness of all published literature. No independent audit has been performed.
+## correctness
+
+PASS
+
+Homma–Kim representation and Homma equivalence criterion reduce all smooth degree-five plane-filling F3 curves to irreducible characteristic cubics modulo affine scalar/shift. The eight cubic polynomials form two orbits of sizes two and six, as verified from coefficient transforms. For each companion representative, the given affine equation over F_{3^n}, together with exactly four rational points at infinity, was independently exhaustively enumerated for ALL n=1..6 using a new finite-field implementation: A point counts (13,13,55,13,208,913); B (13,13,16,117,273,640). The genus-six Weil functional equation and Newton identities reconstruct all twelve coefficients from n≤6, not from infinite extrapolation. Separate exact mod-2 irreducibility tests of the quartic and degree-12 factors support the simple isogeny decomposition; middle coefficients coprime to 3 prove ordinarity. Geometric two-class classification is explicitly a prior theorem, not novel.
+
+## originality
+
+PASS
+
+Comparisons of actual mathematical implications support a best-of-knowledge original contribution beyond cited prior facts, with explicit overlap credit and residual priority risks; not a universal guarantee.
+
+## value
+
+PASS
+
+Complete arithmetic Frobenius spectrum and Jacobian isogeny contrast for an extremal natural family of smooth plane-filling curves, beyond prior geometric/projective classification. Exact zeta functions are reusable arithmetic invariants and determine point counts over every finite extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

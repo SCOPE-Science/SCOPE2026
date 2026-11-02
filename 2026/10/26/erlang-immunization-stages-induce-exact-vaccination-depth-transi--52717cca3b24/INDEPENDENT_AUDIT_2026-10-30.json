@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:08:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Exact infection arrival is sum of d i.i.d. Exp(λ) stages, immunization completion sum h i.i.d. Exp(μ). Interleaved event streams give the negative-binomial race (1-q)^h Σ_{j<d}C(h+j-1,j)q^j; strict descendants N_d=Σ_{i=1}^{H-d}b^i. For w_j=C(h+j-1,j)q^j the ratios w_(j+1)/w_j=q(h+j)/(j+1) decrease, implying strict log-concavity of partial sums S_d. The geometric descendant sequence N_d is strictly log-concave too, so W_d has decreasing adjacent ratios, allowing a unique optimum or two adjacent tied depths. Adjacent ratio S_{d+1}/S_d strictly increases with q from 1 to 1+h/d, so crossings exist exactly at the displayed strict inequality; the monotone depth-ratio order makes them an initial segment with increasing q_d. Since N_d/N_{d+1}>b, h=1 never crosses, and for h=2 only b=2,d=1 can cross, with Q_H as claimed. Recomputed exact 2,4,2,3/4 example (7/8,15/16,67/128). Independent rational race-DP checks passed for 1920 b,H,h,q cases; proof applies to all positive λ,μ.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Li et al submodularity and greedy approximation for multiple nodes does not yield b-ary depth thresholds or Erlang shape transitions.",
+          "Other models include compartmental vaccination or coupled-city targeting, not this one-source one-dose rooted-tree phase diagram."
+        ],
+        "reasoning": "The general reward identity is a premise but its optimization consequences need new log-concavity/crossing analysis.",
+        "searches": [
+          "Li et al arXiv:2307.06889 Theorem and numerical experiments",
+          "DeLegge et al DOI:10.1007/s11538-015-0069-5",
+          "Nguyen–Carlson 2016 stochastic SIR"
+        ]
+      },
+      "checked_sources": [
+        "Actual source RESULT.md and verify.py",
+        "Li–Huang–Lee–Eun arXiv:2307.06889 full preprint",
+        "DeLegge et al DOI:10.1007/s11538-015-0069-5",
+        "Nguyen–Carlson DOI:10.1371/journal.pone.0152950",
+        "Resultary: Erlang maturation optimal tree-depth query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known generic expression N_d P(τ<Z_d) does not imply strict log-concavity across depth or unique ordered crossings.",
+          "Mean-wait comparisons of success probability cannot determine optimal placement over branching geometry."
+        ],
+        "reasoning": "The source model is used legitimately but the stage-count and branching thresholds require distinct new calculations.",
+        "searches": [
+          "Li et al arXiv:2307.06889 Eq. (1), submodularity theorem, Appendix/simulations",
+          "Mean-matching Resultary vaccine waiting-time bias result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li et al introduce one-target expected protected descendants N_d Pr(vaccine finishes before infection); the generic reward identity is credited, not novel.",
+          "A multi-stage compartmental vaccine model is not optimal single-node placement with independent SI traversal clocks."
+        ],
+        "reasoning": "Compared delay distributions, tree geometry and objective strict descendants; derived negative-binomial stage race and complete optimizer not found as stated in source.",
+        "searches": [
+          "Li–Huang–Lee–Eun arXiv:2307.06889 expected-descendant reward (2023)",
+          "DeLegge et al 2015 multistage vaccine",
+          "Resultary mean-matching vaccine delay"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all b,H,h transition table and monotonic sequence of thresholds found in inspected sources.",
+          "Finite numerical experiments with exponential maturation do not give the ordered general Erlang-stage solution."
+        ],
+        "reasoning": "No covering exact table located, subject to incomplete index coverage.",
+        "searches": [
+          "Resultary vaccine Erlang maturation optimal-depth query",
+          "Li et al numerical tree simulations"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS on the particular final statement after comparing objects, hypotheses, quantifiers, dominating statements and actual inspected materials; accessible primary evidence does not imply this exact result. No search failure constitutes a novelty proof. Specific same-source risks are retained; any inaccessible literature remains explicitly qualified.",
+      "residual_risks": [
+        "A specialized stochastic precedence/race optimization result may already imply the adjacent crossing theorem under another terminology.",
+        "Model is idealized homogeneous SI with no recovery and protection of strict descendants only, not efficacy estimation in real populations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides prior one-dose objective and generic probability reward but not the complete Erlang-stage depth-crossing/log-concavity classification",
+          "evidence": [
+            "Expected reward Eq. (1); theorem/submodular approximation; numerical examples"
+          ],
+          "identifier_or_url": "arXiv:2307.06889; https://arxiv.org/pdf/2307.06889",
+          "material_read": "Full accessible 9-page preprint, model, reward expression, main theorem and experiments",
+          "method": "primary PDF text and page screenshot inspection",
+          "title": "Controlling Epidemic Spread Under Immunization Delay Constraints",
+          "trigger": "identical one-source SI tree, vaccine delay and expected-descendant reward"
+        },
+        {
+          "assessment": "No comparable single-target finite-tree optimization in read material",
+          "evidence": [
+            "Abstract and title"
+          ],
+          "identifier_or_url": "DOI:10.1007/s11538-015-0069-5",
+          "material_read": "abstract/description of multistage compartmental epidemic model",
+          "method": "publisher index/abstract",
+          "title": "An epidemic model with a multistage vaccine",
+          "trigger": "potential prior Erlang vaccine stages"
+        },
+        {
+          "assessment": "Delayed real-time allocation for coupled stochastic cities, not this complete rooted SI tree",
+          "evidence": [
+            "Abstract"
+          ],
+          "identifier_or_url": "DOI:10.1371/journal.pone.0152950",
+          "material_read": "abstract and model description",
+          "method": "publisher abstract",
+          "title": "Optimizing real time vaccine allocation in a stochastic SIR model",
+          "trigger": "vaccination delay placement literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact ordered vaccination-depth phase transitions isolate a nontrivial effect of maturation-time shape at fixed mean, sharply distinguishing one from two Erlang stages and showing when b-ary geometry suppresses outward shift. It is a complete optimization classification within a natural idealized epidemic model, not just an isolated numerical example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual source RESULT.md and verify.py",
+    "Li–Huang–Lee–Eun arXiv:2307.06889 full preprint",
+    "DeLegge et al DOI:10.1007/s11538-015-0069-5",
+    "Nguyen–Carlson DOI:10.1371/journal.pone.0152950",
+    "Resultary: Erlang maturation optimal tree-depth query"
+  ],
+  "disposition": "passed",
+  "final_claim": "On complete rooted b-ary SI trees (b≥2,H≥2) under one-target Erlang(h,μ) vaccine and Exp(λ) edge transmission, the expected strict-descendant protection W_d=N_d(1-q)^h Σ_{j=0}^{d-1}binom(h+j-1,j)q^j, q=λ/(λ+μ), is strictly log-concave in 1≤d≤H-1. Crossing from d to d+1 occurs iff N_d/N_{d+1}<1+h/d, at unique ordered q_d; h=1 always optimal depth1, h=2 depth2 only on binary trees H≥4 above Q_H=2^{H-2}/(2^{H-1}-2).",
+  "limitations": [
+    "Single initially infected root and single time-zero vaccine, homogeneous independent exponential SI edges, i.i.d. Erlang maturation stages, complete finite b-ary trees.",
+    "The reward excludes vaccinated target; changing that convention alters thresholds.",
+    "A specialized stochastic precedence/race optimization result may already imply the adjacent crossing theorem under another terminology.",
+    "Model is idealized homogeneous SI with no recovery and protection of strict descendants only, not efficacy estimation in real populations."
+  ],
+  "schema_version": 1
+}

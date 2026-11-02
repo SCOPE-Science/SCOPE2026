@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytic proof derives each diagonal entry of \(|T^n|^{1/n}\) from the product of the underlying positive weights. Its superlacunary estimate, the bounded-versus-diverging distance-to-next-spike dichotomy, and explicit subsequence construction jointly establish both inclusions of the claimed cluster set. The uniform bound \(0\le |T^n|^{1/n}\le I\) converts coordinatewise convergence into strong operator convergence. A coordinate-difference functional separates the copies of \(K\) in the cluster set. The scalar range follows from the exact operator cluster set.
+## correctness
 
-To reproduce supplementary tests, execute `python3 check.py` using the enclosed standalone file. The verified outcome was `PASS: 4997 index/formula, spike-limit and topology tests`. The script compares exact finite index formulas, checks finite approximations to specified limits, and tests coordinate-jump separation. No finite test proves infinite convergence, all possible clusters, or literature originality. The result has not undergone independent scientific audit.
+PASS
+
+PASS: Reconstructed exact diagonal entries exp[-n^{-1} Σ_{k≤N_j≤k+n-1}a_jN_j] with superlacunary N_j=2^(2^j), whose earlier total Q_{j-1}/N_j→0. A subsequence with h_n=N_j-n fixed positive yields finite-head P_h plus e^{-a} tail; h_n→∞ gives scalar e^{-s}I where 0≤s≤max K. Explicit n=N_j-h, n=ceil(a_jN_j/s), n=N_j and n≈sqrt(N_jN_{j+1}) realize all listed limits. Uniform bounded diagonal WOT convergence implies coordinatewise and SOT; F_h(A)=A_hh-A_(h+1,h+1) separates each clopen h-family because min K>0. Every scalar expectation of these limits lies in the realized scalar interval. Independent small-index log-product and spike-window calculations corroborate formulas; no finite simulation proves cluster completeness.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS on the particular final statement after comparing objects, hypotheses, quantifiers, dominating statements and actual inspected materials; accessible primary evidence does not imply this exact result. No search failure constitutes a novelty proof. Specific same-source risks are retained; any inaccessible literature remains explicitly qualified.
+
+## value
+
+PASS
+
+PASS: Arbitrarily prescribed compact K appears as an entire clopen component of an explicit operator cluster set, allowing uncountably many connected components despite identical scalar asymptotic numerical intervals for every vector. The result is a strong/weak operator-topology realization classification rather than a cosmetic variant of one disconnected example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

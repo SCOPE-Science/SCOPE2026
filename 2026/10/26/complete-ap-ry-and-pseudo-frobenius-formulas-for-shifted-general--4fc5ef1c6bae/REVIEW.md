@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The closed-form recurrence establishes the tail reduction for every index. A coin-exchange normal form and a strict shift inequality establish the complete Apéry set, from which the genus and Frobenius number follow. Exact maximal-residue inequalities prove the pseudo-Frobenius classification. Independently computed shortest-path Apéry sets agree across bases \(2\le b\le17\); those tests corroborate, rather than replace, the symbolic proof.
+## correctness
 
-**Originality — PASS within checked evidence.** The closest paper on infinite shifted Fibonacci semigroups treats the standard Fibonacci recurrence (arXiv:2210.00816), while the generalized Jacobsthal study concerns triples rather than the present four-generator reduction (arXiv:2304.00443). The subsequent shifted \(r\)-Fibonacci work excludes the opposite ordering of recurrence parameters present here. published-finding corpus searches targeting the exact offsets, aliases, pseudo-Frobenius type and numerical-semigroup invariants did not identify an equivalent theorem. An unindexed or implicit antecedent remains possible; no independent priority certification is claimed.
+PASS
 
-**Value — PASS.** An infinite generator system is reduced uniformly to four generators with a complete Apéry formula, a closed genus/Frobenius formula and an exact type-two classification. This answers natural invariants in a recurrence regime explicitly left outside a related broader construction. The fixed shift of four is a natural first four-distinct-generator case.
+PASS: Directly verified U_n=(b^n-(-1)^n)/(b+1), U4=m, and the generator-reduction identity U4+U4+t=bU_t(U4+U3)+(1+(-1)^t)U4. Coin exchange gives greedy optimality for 1,c,d, including the c=1 degenerate case; key shift inequality α(x+m)≥α(x)+c and Apéry representative minimality (other residues need x+tm) were reconstructed. Taking the Apéry maximum gives F, summing all α(x) gives the closed genus, and testing maximal Apéry residues under adding generators yields precisely two pseudo-Frobenius gaps (boundary x=cd-1 and x=m-1), including b=2. Fresh independent Dijkstra shortest paths for all 5,500 residues over b=2..12 corroborate exact Apéry, genus, F and PF; infinite b proof comes from exchange and residue arguments.
 
-**Limitations.** These claims cover \(b\ge2\) and shift index four only. They do not settle other indices, nor certify exhaustive literature novelty or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS on the particular final statement after comparing objects, hypotheses, quantifiers, dominating statements and actual inspected materials; accessible primary evidence does not imply this exact result. No search failure constitutes a novelty proof. Specific same-source risks are retained; any inaccessible literature remains explicitly qualified.
+
+## value
+
+PASS
+
+PASS: The infinite generating set collapses to four minimal generators (three for b=2) and all standard numerical-semigroup arithmetic invariants are explicitly determined uniformly in b. This is an exact natural family in the recurrence regime excluded by existing generalized Fibonacci-shift results, not a table recomputation for a few bases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

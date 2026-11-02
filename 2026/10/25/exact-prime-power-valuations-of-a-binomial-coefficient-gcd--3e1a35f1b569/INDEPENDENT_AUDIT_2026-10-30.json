@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:09:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/exact-prime-power-valuations-of-a-binomial-coefficient-gcd--3e1a35f1b569/RESULT.md Git blob 55fa33d61504b9038289404595c08b3c5e2a73ec",
+        "2026/10/25/exact-prime-power-valuations-of-a-binomial-coefficient-gcd--3e1a35f1b569/verify.py Git blob b32fd4aa8205e6f1574d7c62bf0196d9be8e71d2",
+        "Private independent-check script and actual JSON output in accompanying delivered audit bundle"
+      ],
+      "rationale": "The external Guo–Qiu–Cao–Feng–Gao Lemma 4 confines prime support to n=k+1; its Lemma 9 establishes v_p(D)>0 iff b≤p^a. For b≤p^a, put c=floor(log_p(b−1)), and for each q set r=q−1, s=v_p(r). Kummer carries at digit positions s<j≤a contribute max(0,a−s); positions j=a+t with c<t≤s contribute max(0,s−c), disjoint because t>c≥0. Hence every coefficient has p-valuation at least a−c. Selecting q=1+p^a t, 1≤t≤b−1, reduces valuation exactly to a−v_p binom(b−1,t); Lucas gives a t with v_p binom(b−1,t)=c (take t=b mod p^c), giving equality. For pure p^a, the carry lower bound a and the choice q=2 supply equality. Two distinct p^a components cannot both be at least √n since their product divides n, giving single-prime support. Fresh direct exact integer gcds k=2..89 and 683 independent Legendre-factorial p-adic minimizations for n≤350 all match. The cited external lemmas were examined in the actual primary text, not inferred from source logs.",
+      "residual_risks": [
+        "No claim on other binomial gcd families."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo et al Theorem 1 provides D(k)=1 iff n/P>P where P is the maximum exact prime-power component; it does not provide nonzero exponents.",
+          "Wu varies binomial lower index rather than fixing k and varying upper multiple qk."
+        ],
+        "reasoning": "No inspected broader GCD theorem dictates the exact p-adic exponent for this exact family; two distinct binomial gcd index structures cannot be equated by title alone.",
+        "searches": [
+          "Guo et al arXiv:2606.22997 full primary text",
+          "Chai Wah Wu arXiv:2606.20940 (different binomial-index family)"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2606.22997v1",
+        "https://arxiv.org/abs/2606.20940",
+        "Resultary published mathematical record search: Resultary: gcd binomial coefficients binom(q k,k) q 2 to k+1 exact p-adic valuations Guo"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From p∣D(k) one cannot infer the exponent of p without examining higher powers.",
+          "The submitted proof derives exact minimal carries and constructs q=1+p^a t meeting the valuation lower bound."
+        ],
+        "reasoning": "The arithmetic combination of classical carry and digit tools is genuinely more informative than the earlier binary divisibility lemma; though the methods are elementary, the exact formula and witness are not immediate from the prior theorem.",
+        "searches": [
+          "Guo arXiv:2606.22997 Lemma 4, Lemma 9, Theorem 1, §2",
+          "Kummer base-p carry theorem and Lucas digit theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guo et al define precisely D(k) as this full q-indexed gcd. Lemma 4 confines its support; Lemma 9 states only p∣D(k) iff b≤p^a.",
+          "The new claim asks for the exact valuation a−floor(log_p(b−1)), not just whether it is positive."
+        ],
+        "reasoning": "The objects coincide exactly, so this is the decisive closest-prior comparison; the earlier existence criterion is weaker, and the submitted carry extremizer supplies additional quantitative information.",
+        "searches": [
+          "Resultary semantic query: gcd binomial coefficients binom(q k,k) q 2 to k+1 exact p-adic valuations Guo",
+          "arXiv:2606.22997 Lemmas 4 and 9 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A080170 records k for which D(k)=1, not full values of D(k).",
+          "The Guo main theorem is the unit/nonunit criterion, and its paper does not state a valuation theorem."
+        ],
+        "reasoning": "Exact nonunit exponents are not a known table recomputation in the checked sources; a targeted negative database search is not a historical uniqueness proof.",
+        "searches": [
+          "OEIS A080170 unit values of D(k)",
+          "Resultary semantic gcd binomial exponent query",
+          "Guo et al table/lemmas search"
+        ]
+      },
+      "rationale": "A fresh closest-prior comparison finds no accessible theorem or database record implying the final all-parameter conclusion. The exact overlap/special-case antecedents are credited and remaining literature-access or terminology risks are recorded; PASS is a best-of-knowledge judgment, not external historical certification. Exact prime-power valuations of a binomial-coefficient gcd: For k≥2, D(k)=gcd_{2≤q≤k+1} binom(qk,k), n=k+1: for p^a||n and b=n/p^a, v_p(D)=a if b=1, otherwise max(0,a−floor(log_p(b−1))); no p outside n divides D. Thus D is 1 or a power of a single prime.",
+      "residual_risks": [
+        "An unindexed exact valuation refinement could exist despite the closest 2026 primary paper omitting it.",
+        "The proof relies on the cited Lemmas 4 and 9; their statements are explicitly checked but not independently re-proved here.",
+        "No claim on other binomial gcd families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior work resolves unit criterion and positive-prime support, not the exact positive valuations claimed.",
+          "evidence": "Lemma 9 asserts p∣G_n iff b≤p^a; Theorem 1 uses only P max and unit criterion.",
+          "identifier_or_url": "https://arxiv.org/html/2606.22997v1",
+          "material_read": "Entire accessible arXiv HTML, especially Theorem 1, Lemma 4 in §2.2, Lemma 9 in §2.5 and §2.6.",
+          "method": "Read full primary mathematical text and compared exact logical strength of each lemma.",
+          "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+          "trigger": "identical gcd, primary 2026 source with stated support and positivity lemmas"
+        },
+        {
+          "assessment": "Different gcd family; no whole-paper noncoverage claim.",
+          "evidence": "Wu varies the lower index mk, unlike fixed lower k in the audited D(k).",
+          "identifier_or_url": "https://arxiv.org/abs/2606.20940",
+          "material_read": "Primary arXiv abstract and index-family statement; full text not inspected.",
+          "method": "Compared upper/lower binomial index quantifiers from abstract.",
+          "title": "Computing the Greatest Common Divisor of Binomial Coefficients binom(mn,mk)",
+          "trigger": "same arithmetic topic and possible stronger gcd coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/090ff0833df2138b40a9e80fe13d572878fbdc2f/2026/10/25/exact-prime-power-valuations-of-a-binomial-coefficient-gcd--3e1a35f1b569",
+        "https://arxiv.org/html/2606.22997v1",
+        "https://arxiv.org/abs/2606.20940"
+      ],
+      "rationale": "The gcd family and its unit/nonunit threshold were the precise subject of a 2026 OEIS conjecture resolution. This theorem strengthens that binary classification to the unknown exact exponent whenever a prime divides, gives a constructive coefficient attaining the gcd valuation, and proves the single-prime-power structure. It is a natural arithmetic invariant with uses in divisibility and prime-power strength, not a random recomputation of a table. The previously known support/positivity lemmas are explicitly credited.",
+      "residual_risks": [
+        "No claim on other binomial gcd families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/10/25/exact-prime-power-valuations-of-a-binomial-coefficient-gcd--3e1a35f1b569/RESULT.md Git blob 55fa33d61504b9038289404595c08b3c5e2a73ec",
+    "2026/10/25/exact-prime-power-valuations-of-a-binomial-coefficient-gcd--3e1a35f1b569/verify.py Git blob b32fd4aa8205e6f1574d7c62bf0196d9be8e71d2",
+    "Private independent-check script and actual JSON output in accompanying delivered audit bundle",
+    "https://arxiv.org/html/2606.22997v1",
+    "https://arxiv.org/abs/2606.20940"
+  ],
+  "disposition": "passed",
+  "final_claim": "For k≥2, D(k)=gcd_{2≤q≤k+1} binom(qk,k), n=k+1: for p^a||n and b=n/p^a, v_p(D)=a if b=1, otherwise max(0,a−floor(log_p(b−1))); no p outside n divides D. Thus D is 1 or a power of a single prime.",
+  "limitations": [
+    "An unindexed exact valuation refinement could exist despite the closest 2026 primary paper omitting it.",
+    "The proof relies on the cited Lemmas 4 and 9; their statements are explicitly checked but not independently re-proved here.",
+    "No claim on other binomial gcd families.",
+    "Publication withheld due to unsanitized existing public administrative metadata; this is an operational readiness limit, not a scientific rejection.",
+    "All exact Git tree SHAs were independently retrieved as tree identities at the assigned immutable commit; no repository writes were performed."
+  ],
+  "schema_version": 1
+}

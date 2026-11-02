@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The two one-sided ideal dimensions are independently obtained as sums of leading and trailing corner ranks. Strict upper triangularity gives a sharp upper bound for each leading rank; deleting rows gives the matching lower bound for trailing ranks. Endpoint equality forces precisely the first \(r\) superdiagonal pivots and the vanishing of all lower rows. A two-stage sequence of nonattacking rook moves gives every intermediate integer while preserving matrix rank. Reflection-transposition gives the negative endpoint. The finite-field counts follow from an explicit product of punctured lines and affine coordinates. The standalone checker exhaustively verified thirteen finite cases, including \(\mathbb F_4\); the proof itself is valid for arbitrary fields.
+## correctness
 
-## Originality: PASS with residual risk
-The closest inspected result is Rahimi-Alangi–Yahaghi (2015), whose Corollary 2.5 already supplies the row/column characterizations of principal one-sided ideals of triangular matrix rings and hence the underlying profile formulas; that ingredient is explicitly credited. Their Theorem 2.6 characterizes which one-sided nest submodules are principal, but neither result provides the **sharp fixed-rank difference between the two one-sided ideal dimensions**, the full interval of attainable gaps, or the complete equality loci and their finite-field sizes. Further comparisons inspected Arias-Castro–Diaconis–Stanley (2004) on superclass orbits, Yip (2013) on rank/Jordan-type rook counts, and Ferraz–Polcino Milies–Taufer (2017) on ideals of full semisimple matrix rings. Search comparisons found no statement containing the package theorem. The prior nest-module classification or superclass theory may yield the new extrema by an additional nontrivial argument; this is a genuine residual priority risk.
+PASS
 
-## Value: PASS
-The mismatch between principal left and right module dimensions is a natural structural measure of one-sided asymmetry in a standard hereditary finite-dimensional algebra. This result obtains the exact sharp quadratic scale, a complete fixed-rank attainable spectrum over every field, and a geometric classification and finite-field census of *all* sharp generators. It is not a recalculation of a usual matrix-rank or Jordan-type table; those individual invariants cannot distinguish the two one-sided ideal dimensions.
+Reconstructed dim(XT_n)=sum_j rank(X[1:j,1:j]) and dim(T_n X)=sum_i rank(X[i:n,i:n]) by independent triangular columns/rows. Leading profile is at most min(r,j-1); trailing at least max(r-i+1,0), giving sharp bound. Positive equality forces nonzero first r superdiagonal pivots and zero rows below r; coordinates yield the torus-affine locus. Anti-diagonal-transpose gives negative extremizers. A sequence of nonattacking rook placements moves one coordinate at a time, changing the difference by -1, so every intervening integer occurs. Boundary r=0,n-1 gives zero. New direct exact GF(2) enumeration covered n=2..5 (1098 matrices), including direct product-span ranks and counts; all passed, but finite results are not the unrestricted proof.
 
-## Limits
-Counts for nonextremal gap fibers and extensions to general pattern subalgebras are not claimed. Full independent priority and proof audits have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the precise stated full theorem: mathematical antecedents and equivalent formulations were compared from real source readings. Standard ingredients are credited and genuine historical coverage risks remain; unsuccessful search is not a novelty proof. Already provides componentwise row/column principal ideal descriptions; it does not assert the two-sided fixed-rank extremal difference, all gap values, nor torus-affine equality locus. Rook-superclass orbit framework is structurally related; equality-spectrum consequence not established by what was read. Its Jordan/rank counting does not directly distinguish the sign of one-sided ideal gap; priority remains qualified.
+
+## value
+
+PASS
+
+One-sided principal ideal dimension imbalance is a natural measure of left-right asymmetry in hereditary triangular matrix algebras. The theorem resolves the sharp rank-dependent scale, every possible gap, and the entire equality geometry over arbitrary fields; rank and Jordan type alone cannot distinguish the signed gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The signed odd-part identities give the four exact recurrences for the auxiliary prefix deficit. The residue-sensitive induction for \(Q(n)\) uses all three relevant parity classes and the essential identity \(\delta(3n+2)=1\) for \(n\equiv2\pmod4\). This restricts a hypothetical Abelian-cube prefix to an explicitly characterized sequence of roots, all excluded by exact prefix-deficit values. The modulo-four match at \(i_k\) transfers the obstruction to the original paperfolding word. The bundled independent generators and finite checks corroborate the symbolic calculations but are not infinite proofs.
+## correctness
 
-**Originality — PASS against investigated evidence.** Holub's 2012 paper establishes existence of arbitrarily high Abelian powers at some positions; it does not bound or forbid their roots at every fixed position. Madill–Rampersad's 2012 work concerns factor-wise Parikh complexity; their formulas involving third-scaled powers of four do not imply the consecutive triple equalities. Published paperfolding prefix-normal defect concerns a different one-versus-maximum-factor comparison. Sturmian local-power results do not transfer to paperfolding. Targeted searches for the explicit index family, its odd-part aliases and local-root formulation did not reveal a stronger covering claim. Historical-priority risk from unindexed work remains.
+PASS
 
-**Mathematical value — PASS.** The local-versus-global distinction is natural in Abelian repetition theory: arbitrarily high Abelian powers exist somewhere in paperfolding words, while the present construction proves no bounded search radius can guarantee even three equal-Parikh blocks at every position. The obstruction has explicit exponentially growing root bounds, with an exact auxiliary prefix-discrepancy proof rather than an isolated numerical example. The theorem is qualitative and quantitative, though it does not classify the larger roots.
+Define auxiliary sign a_j=−chi(oddpart(3j+1)) and deficit P(n)=−Σ_{j<n}a_j. The derived four-residue recurrences give P(n)≥1 and characterize P(n)=1 exactly at m_j=(2·4^j+1)/3. A simultaneous strong induction from the stated Q(n)=P(3n)−2P(n) residue recurrences gives Q(n)≤0 for even n, ≤−1 for n≡1 mod4, ≤1 for n≡3 mod4. A prefix Abelian cube would require P(2m)=2P(m) and P(3m)=3P(m); the Q bound forces m=m_j, but P(2m_j)=2j+2 rules all j≥1 out, and m=1 is checked. The congruence 3(i_k+j+1)=2·4^k+3j+1 recovers the first L_k=(4^k−1)/3 auxiliary signs as a genuine paperfolding factor, yielding each local obstruction. Independent checks verified recurrences/absence through over 11,000 prefixes and precise factor matches k=1..6; induction, not checks, proves unboundedness.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Comparisons of actual mathematical implications support a best-of-knowledge original contribution beyond cited prior facts, with explicit overlap credit and residual priority risks; not a universal guarantee.
+
+## value
+
+PASS
+
+Explicit quantitative lower bounds on local Abelian-cube roots distinguish global existence of large Abelian powers from local availability. The exact dyadic sequence of hard starting positions is a mathematically motivated boundary in combinatorics on automatic words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

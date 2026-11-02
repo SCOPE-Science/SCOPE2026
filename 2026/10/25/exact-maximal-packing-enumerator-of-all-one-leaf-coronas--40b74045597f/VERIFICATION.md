@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible computational checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.9 or later, in the same directory as the supplied script. The expected terminal log is provided verbatim in `verify_output.txt` and ends in `VERIFY_OK`.
+## correctness
 
-The script uses all labelled graphs on one through five vertices and seeded pseudorandom edge masks for another 120 six-vertex and 30 seven-vertex graphs. It constructs each corona, computes graph distances, enumerates all vertex subsets, tests the closed-neighborhood packing criterion, and independently tests maximality by trying to adjoin every omitted vertex. It then compares the exact family of maximal vertex sets with the candidate sets constructed from all base packings; comparison is set equality, not just coefficient equality. The script also checks the complete-graph corollary for orders two through six.
+PASS
 
-Actual recorded output: 1,249 graph instances tested; 10,647 maximal packing sets agreed with the bijection. The complete-graph polynomial checks passed for all five orders from two through six, displayed individually in the log. The final machine status is `VERIFY_OK`.
+The corona distance equalities show that every selected private leaf is labelled outside N_H[S] and every such unselected leaf could be appended; thus maximality forces exactly the complement leaves. Conversely each missing core vertex is blocked by the core packing or its selected leaf. Pairwise disjoint closed core neighborhoods give |P_S|=n−Σdeg(v), including isolated components and empty packing. Regularity makes size exponents n−dk, and every k≤ρ(H) occurs by taking subpackings. The cyclic gap composition count n/(n−2k)·binom(n−2k,k) follows by distinguished selected vertex and k-fold overcount. Fresh independent enumeration verified the bijection as equality of labelled sets for every one of 75 base graphs of orders 1..4 (496 maximal corona packings); finite verification is corroborative, not the all-graph proof.
 
-Only finite graphs were computationally enumerated. The universal bijection, degree-weight polynomial, regular-base support, and cyclic enumeration are justified by the mathematical proof in `RESULT.md`; they are not extrapolated from the computations. No third-party or independent mathematical audit has been performed.
+## originality
+
+PASS
+
+A fresh closest-prior comparison finds no accessible theorem or database record implying the final all-parameter conclusion. The exact overlap/special-case antecedents are credited and remaining literature-access or terminology risks are recorded; PASS is a best-of-knowledge judgment, not external historical certification. Exact maximal-packing enumerator of all one-leaf coronas: For every finite simple H, the map S ↦ S ∪ {v′:v∉N_H[S]} bijects all distance-three core packings S with inclusion-maximal distance-three packings of H∘K1, with exact polynomial Σ_S z^{n−Σ_{v∈S}deg(v)}, extrema n and n−max_SΣdeg(v), top coefficient 2^{i(H)}, and regular-base and cycle formulas.
+
+## value
+
+PASS
+
+All maximal distance-three packings, not merely maximum ones, of arbitrary one-leaf coronas are described by a reversible structural correspondence. The complete size enumerator, lower packing number, top-coefficient multiplicity, and connected regular examples with arbitrarily large gaps address natural graph packing invariants. The statement applies to all finite base graphs, disconnected and irregular; computing the polynomial remains as hard as core packing enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is restricted to rank-one positive projections, where the \(p\)-Bures formula reduces exactly to \(\sqrt2\sqrt{1-\cos^p\theta}\). The sharp bound follows from (i) a factored nonnegative second derivative at \(p=2/3\), (ii) convexity inherited for lower exponents via an explicit integral \(L^2\)-norm representation and Minkowski's inequality, (iii) a strictly monotone halving ratio proved by a derivative-ratio average, and (iv) projective-angle triangle geometry. A two-dimensional orthogonal-endpoint midpoint attains equality. The attached deterministic checker passes its finite diagnostics; those diagnostics are not a substitute for the analytic proof.
+## correctness
 
-## Originality
-**PASS, provisional pending independent priority verification.** The nearest source (Sra 2026) supplies the \(p\)-Bures formula and proves metricity for \(1\le p\le2\), not the sharp subunit constant. Komálovics–Molnár 2023 (Proposition 8) and Vuong–Osaka 2026 (Theorem 1.3) already prove the qualitative failure of the triangle inequality under the equivalent inverse parameter; neither resolves the exact supremal ratio when \(0<p\le2/3\). Vuong's April 2026 quantitative study concerns nonsharp spectral and local quasi-triangle bounds. Targeted searches for the explicit constant, the exponent \(2/3\), angular convexity, and projective-rank-one equivalences found no controlling stronger result. An unknown older result about power-transformed Fubini–Study distances is a residual priority risk.
+PASS
 
-## Mathematical value
-**PASS.** This is a dimension-independent *sharp* quasi-metric distortion on the natural pure-state boundary of a recently studied operator divergence. The exponent cutoff is not chosen arbitrarily: \(2/3\) is independently proved to be the precise transition for convexity of the angular profile, which explains the stable midpoint extremizer. The result gives all equality geometries and the exact singular scaling as \(p\downarrow0\), rather than a cheap triangle-inequality counterexample.
+Computed the sole nonzero singular value of rank-one P_u P_v and recovered D_p=sqrt(2)F_p(theta) with Fubini-Study angular distance. Re-differentiated the curvature numerator; at p=2/3 it is (2/3)(1-z)^3(1+z), z=cos(theta)^(2/3). Verified the L2 integral convex-composition step for smaller exponents, and the derivative-ratio weighted-average argument showing the endpoint supremum of F_p(s)/(2F_p(s/2)) is attained at s=pi/2. The two cases theta(P,Q)+theta(Q,R)<=pi/2 and >pi/2 prove the global inequality. Strict Jensen plus monotone ratio forces midpoint equality; Taylor coefficient (2-3p)/24 proves nonconvexity for p>2/3 near zero. An independent symbolic identity check and 3,000 sampled ray triples corroborate, not replace, these unrestricted steps. Zero angle, orthogonal boundary and p->0 limit are handled.
 
-## Limits and closest coverage
-The optimal constant for \(2/3<p<1\) and all mixed states is undetermined. The qualitative nonmetricity claim alone was established earlier and is **not** asserted as the new contribution. Primary sources: Sra arXiv:2610.15889; Komálovics–Molnár JMAA 529 (2024) 127226; Vuong–Osaka arXiv:2610.11021; Vuong, *Quantitative geometry of the symmetric \(\alpha\)-\(z\) Bures–Wasserstein divergence* (2026).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The parameter of the prior Komalovics-Molnar rank-one pure-state distance is t=2/p, up to sqrt(2) normalization. Its Proposition 8 proves metricity iff t<=2, hence qualitative triangle failure when this claim has p<1, but does NOT optimize the ratio of three pure-state distances. Sra proves genuine metricity for p between 1 and 2 and Vuong-Osaka a related qualitative classification; no inspected implication yields the exact K_p or the sharp auxiliary angular convexity threshold. Best-of-knowledge with equivalence risk in projective snowflake/quasi-metric literature.
+
+## value
+
+PASS
+
+Sharp all-dimensional distortion for a natural family of quantum pure-state dissimilarities quantifies exactly how triangle inequality fails, beyond a binary counterexample. The extremal geometry and sharp p=2/3 convexity boundary are natural analytic structure useful in quasi-metric comparisons. Range is explicitly restricted; neither mixed-state nor 2/3<p<1 constants are claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

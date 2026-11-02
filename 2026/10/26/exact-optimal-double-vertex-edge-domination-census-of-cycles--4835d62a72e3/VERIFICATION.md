@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3. The program separately (a) enumerates vertex subsets and checks actual graph-edge closed-neighborhood unions for \(3\le n\le18\), including exclusion of all smaller cardinalities and the asserted optimum gap types, and (b) evaluates the weighted closed-walk trace of an independently defined eight-state sliding-window transition system for \(5\le n\le80\). Both agree with the formula and the program prints `PASS`.
+## correctness
 
-The closed-walk trace weights each appended bit and accepts exactly windows with at least two selected vertices; its proof of equivalence to feasible labeled cycle configurations is separate from the selected-vertex gap proof. These finite checks are neither exhaustive over all cycle lengths nor an independent mathematical audit. The paper's infinite claims are proved in `RESULT.md`.
+PASS
+
+For n>=5 each edge-neighborhood union is the four-block {i-1,i,i+1,i+2}; double counting its selected incidences gives |D|>=ceil(n/2). Cyclic selection every other vertex attains this. For cyclic gaps d_i between selected vertices, the every-four-block constraint is equivalent to d_i+d_{i+1}<=4. With e_i=2-d_i in {-1,0,1}, require e_i+e_{i+1}>=0 and sum e_i=2k-n (zero for even, one for odd). Every minus is flanked by plusses; each nonzero run separated by zeroes has positive total; this forces the stated all-2 or cyclic 1,3 patterns. An odd alternating run with r threes has r+1 ones and remaining 2s, yielding k cyclic anchored words and exactly n labeled sets per r. Exceptions C3,C4 checked directly. Independent exhaustive actual edge-neighborhood enumeration n3..15 verified 223 minimum sets and no smaller feasible sets. There is no reliance on the transfer counts to prove the infinite classification.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison after fresh Resultary searches, focused primary-source proof inspection and explicit implication checks. A related method, family or parameter alone does not establish identity/coverage; historical risk remains noted.
+
+## value
+
+PASS
+
+For a standard redundant vertex-to-edge coverage constraint on cycles, the complete labeled minimizer count, orbit structure and exact alternating-gap classification answer a mathematically natural enumeration/optimization question not resolved by the elementary minimum cardinality. Distinct parity classes give drastically different optimizer multiplicities and symmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

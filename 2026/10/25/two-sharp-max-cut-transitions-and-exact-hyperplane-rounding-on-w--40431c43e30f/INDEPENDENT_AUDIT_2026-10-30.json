@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:10:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/two-sharp-max-cut-transitions-and-exact-hyperplane-rounding-on-w--40431c43e30f/RESULT.md Git blob f8d1bd2c1bf713202d0d41afcd99ccf10175ffe1",
+        "Actual source verifier Git blobs 36f3cd7987d77a8b6e2411b3d42ce2a1a762c305"
+      ],
+      "rationale": "Circulant adjacency eigenvalues 2 cos(pi k/n)+t(−1)^k give the sharp unit-vector SDP bound by trace(A X)≥lambda_min tr(X). The alternating and two-dimensional extremal modes provide attaining Gram matrices. The latter eigenspace has only discrete sine/cosine modes, whose diagonal constraints force Q=I, proving uniqueness for t>1−cos(pi/n). A cut either crosses all 2n cycle edges (forcing zero antipodal cuts for even n) or misses at least two cycle edges; the explicit antiperiodic sign assignment attains 2n−2+nt. The rank-two vectors are all points of a regular 2n-gon, and any generic halfspace separates n consecutive points, crossing exactly 2n−2 cycle edges and all antipodal edges. Ratio monotonicity on each branch locates the unique maximizer; t=0, equality and t_sdp are handled. Independent brute-force CUT on 3≤n≤9 across five weights and Fourier-eigenvalue checks agreed (873760 masks/test instances).",
+      "residual_risks": [
+        "Uniqueness and universal rounding exclude exactly the spectral crossing t=1−cos(pi/n) and degenerate normals; arbitrary nonuniform weights are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General walk-regular spectra produce SDP upper bounds; GW rounding gives broad approximation ratios."
+        ],
+        "reasoning": "Neither dominates the entire joint exact all-t integer+SDP+Gram+rounding classification; the spectral SDP value alone is covered, not claimed new.",
+        "searches": [
+          "arxiv:1503.06595",
+          "doi:10.1145/227683.227684"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1503.06595",
+        "https://doi.org/10.1145/227683.227684"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Van Dam–Sotirov theorem plus Fourier eigenvalues implies only SDP branch. Goemans–Williamson statement is probabilistic, not that all generic rounding normals attain the same integer cut."
+        ],
+        "reasoning": "Integer parity obstruction and arc-labelling count are additional arguments necessary for the claimed dichotomy and maximizer.",
+        "searches": [
+          "arxiv:1503.06595",
+          "doi:10.1145/227683.227684"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weighted Möbius ladder is a circulant/antipodal chorded cycle; the SDP value follows from smallest adjacency eigenvalue via a walk-regular graph theorem."
+        ],
+        "reasoning": "The new claim explicitly credits the known spectral equivalence and isolates integer transition, unique Gram and hyperplane details not implied by the value-only statement.",
+        "searches": [
+          "weighted Möbius ladders maxcut semidefinite relaxation antipodal weight thresholds hyperplane rounding uniqueness",
+          "arxiv:1503.06595",
+          "weighted circulant graph spectral Max-Cut eigenvalue SDP"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary similarity search returned weighted geometric optimizations but no matching graph phase curve; existing Möbius-ladder graph tables primarily concern unweighted parameters."
+        ],
+        "reasoning": "No verified exact numerical database covering both t thresholds and every nondegenerate hyperplane; no-search-hit cannot establish historical novelty.",
+        "searches": [
+          "weighted Möbius ladders maxcut semidefinite relaxation antipodal weight thresholds hyperplane rounding uniqueness",
+          "weighted Möbius ladder max cut exact phase curve antipodal edge weights"
+        ]
+      },
+      "rationale": "Comparisons of actual mathematical implications support a best-of-knowledge original contribution beyond cited prior facts, with explicit overlap credit and residual priority risks; not a universal guarantee.",
+      "residual_risks": [
+        "An unindexed specialized weighted Möbius-ladder Max-Cut or GW-rounding paper could predate the joint classification.",
+        "Uniqueness and universal rounding exclude exactly the spectral crossing t=1−cos(pi/n) and degenerate normals; arbitrary nonuniform weights are not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known theorem covers standard spectral SDP equality for walk-regular/vertex-transitive graphs, but not exact weighted Möbius integer transition, Gram uniqueness, all-hyperplanes rounding",
+          "evidence": "Theorem 6 identifies sharp spectral SDP value under walk regularity; it does not assert cut counts or deterministic rounding pattern.",
+          "identifier_or_url": "arxiv:1503.06595",
+          "material_read": "Primary full-text theorem 6 and surrounding walk-regular spectral analysis, including proof and conditions",
+          "method": "Open arXiv PDF full-text inspection and visual page screenshot",
+          "title": "New bounds for the Max-k-Cut and chromatic number of a graph",
+          "trigger": "General vertex-transitive SDP formula could dominate exact spectral branch"
+        },
+        {
+          "assessment": "General rounding guarantee is antecedent, no exact all-normal outcome for this graph",
+          "evidence": "Expected approximation ratio is not equivalent to pointwise deterministic rounding optimality.",
+          "identifier_or_url": "doi:10.1145/227683.227684",
+          "material_read": "Foundational definitions and principal rounding claim; abstract and theorem context",
+          "method": "Primary published source abstract/sections",
+          "title": "Improved Approximation Algorithms for Maximum Cut and Satisfiability Problems Using Semidefinite Programming",
+          "trigger": "Foundational GW SDP and random hyperplane rounding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1503.06595",
+        "https://doi.org/10.1145/227683.227684"
+      ],
+      "rationale": "Exact parameter phase diagram of a standard graph optimization relaxation, including a strict separation of SDP and integer transition parameters, unique Gram factors and a striking deterministic rounding-optimality regime despite a positive relaxation gap. This is more informative than computing one weighted graph optimum.",
+      "residual_risks": [
+        "An unindexed specialized weighted Möbius-ladder Max-Cut or GW-rounding paper could predate the joint classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1503.06595",
+    "https://doi.org/10.1145/227683.227684"
+  ],
+  "disposition": "passed",
+  "final_claim": "For M_{2n} with unit cycle edges and weight t≥0 on n antipodal edges, odd n has CUT=SDP=n(2+t). For even n≥4, SDP changes at 1−cos(pi/n), integer CUT changes at 2/n, the ratio is maximized at 2/n, and above the SDP transition the unique rank-two optimal Gram matrix has deterministic generic hyperplane-rounding value 2n−2+nt (optimal integer iff t≥2/n).",
+  "limitations": [
+    "An unindexed specialized weighted Möbius-ladder Max-Cut or GW-rounding paper could predate the joint classification.",
+    "Uniqueness and universal rounding exclude exactly the spectral crossing t=1−cos(pi/n) and degenerate normals; arbitrary nonuniform weights are not covered.",
+    "Publication withheld: original public metadata retain operational provenance; no complete confidentiality-safe replacements with Git guards and UTF-8 SHA-256 were staged.",
+    "No GitHub writes, dispatcher closeouts, or scheduling modifications were made."
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:09:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/exact-sharp-redundancy-two-gabor-bounds-for-asymmetric-two-sided--400c3e36998f/RESULT.md Git blob 4b3be84c4da303503be0c7b2a2acaf8380ba4ee1",
+        "2026/10/25/exact-sharp-redundancy-two-gabor-bounds-for-asymmetric-two-sided--400c3e36998f/check_asymmetric_exponential_gabor.py Git blob bd9f399a9e61d9c902bf08609b35c282a8a05654",
+        "Private independent-check script and actual JSON output in accompanying delivered audit bundle"
+      ],
+      "rationale": "At x∈[0,1] the Zak transform is the sum of two convergent geometric series U/(1−r/z)+Vz/(1−sz); the unitary Zak representation for modulation step 1/2 has multiplier |Zg(x,ω)|²+|Zg(x,ω+1/2)|² without extra factor. Writing u=cos(2πω), the rational function F_x(u) has strictly positive second derivative on [−1,1] because its numerator is nonnegative and nondecreasing and its denominator is the product of two positive decreasing affine terms. Therefore F_x(u)+F_x(−u) is strictly increasing with |u|, establishing frequency min at 1/4 and max at 0 modulo 1/2. The maximum spatial fiber is a strictly convex positive combination of e^(−2ax),e^(2bx),e^((b−a)x) with equal endpoint values, hence x=0 on the Zak torus. At ω=1/4, the matrix [[D,−H],[−H,E]] has determinant (1−rs)²/((1+r²)²(1+s²)²)>0; its derivative becomes bE τ²−(b−a)Hτ−aD with exactly one positive root τ=V/U, giving the unique interior minimum x_*. Fresh independent Zak multiplier checks on 5,766 space-frequency samples over six asymmetric/equal decay pairs and 49 exact rational Gram determinant identities all passed. These bounded checks corroborate, but do not replace, the continuous full-parameter proof.",
+      "residual_risks": [
+        "Only the translation-1, modulation-1/2 lattice and unnormalized window are classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Faulhuber–Shafkulovska use g_gamma(t)=√gamma e^(−gamma|t|), explicitly symmetric.",
+          "The later totally positive frame-set theorem gives the density condition for frame existence, not exact two-rate sharp A,B.",
+          "Janssen studies several windows at integer redundancy, but his 19-page full text could not be obtained; no whole-document noncoverage is asserted."
+        ],
+        "reasoning": "Broader frame existence and symmetric optimization results do not establish general two-sided unequal-exponent extremal fibers; Janssen creates a qualified priority risk rather than automatic failure.",
+        "searches": [
+          "arXiv:2204.02917 full text §8",
+          "de Dios Pont et al arXiv:2608.04992 complete characterization summary",
+          "Janssen 1996 research portal abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2204.02917",
+        "https://doi.org/10.1016/0019-3577(96)85088-9",
+        "https://arxiv.org/abs/2608.04992",
+        "Resultary published mathematical record search: Resultary: Gabor frame optimal bounds asymmetric two sided exponential different decay rate redundancy 2 Zak"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Symmetric parameter gamma produces only a=b, and dilation preserves equal ratios; the new quadratic root depends independently on a and b.",
+          "Strict lattice-density sufficiency implies A>0 but cannot identify the sharp magnitude or optimizing x."
+        ],
+        "reasoning": "The inequality defining a frame is substantially weaker than computing the exact spectrum, and the symmetric formulas do not algebraically determine the asymmetric pair.",
+        "searches": [
+          "arXiv:2204.02917 §§2.4 and 8",
+          "arXiv:2608.04992 abstract",
+          "Janssen DOI and original-paper homepage entry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The g_{a,b} window with a=b is the symmetric two-sided exponential up to a constant, and that one-parameter diagonal is already covered by symmetric theory.",
+          "For a≠b reflection, scaling and translation do not simultaneously equalize left and right decay rates; these are intrinsic separate parameters."
+        ],
+        "reasoning": "The new spectral formulas concern the true unequal-rate extension, not a renaming or normalization of the known equal-rate case.",
+        "searches": [
+          "Resultary: Gabor frame optimal bounds asymmetric two sided exponential different decay rate redundancy 2 Zak",
+          "Faulhuber–Shafkulovska arXiv:2204.02917 §8",
+          "Janssen DOI:10.1016/0019-3577(96)85088-9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related 2026/10/11/SCOPE-sharp-shifted-sampling-bounds-and-two-tight-phases-for-asymmetri--acaeec402fe4 is an integer-grid translation-sampling problem, not this time-frequency Gabor frame.",
+          "The known equal-decay frame-bound formula appears as the a=b slice; no verified same unequal-rate spectral table found."
+        ],
+        "reasoning": "A different sampling operator or an equal-rate table is not a complete two-parameter exact Gabor frame bound; negative searches do not prove absence of an older result.",
+        "searches": [
+          "Resultary: Gabor frame asymmetric two-sided exponential exact bounds",
+          "Resultary: sharp shifted sampling asymmetric two sided exponentials",
+          "Faulhuber–Shafkulovska arXiv:2204.02917 formulas"
+        ]
+      },
+      "rationale": "A fresh closest-prior comparison finds no accessible theorem or database record implying the final all-parameter conclusion. The exact overlap/special-case antecedents are credited and remaining literature-access or terminology risks are recorded; PASS is a best-of-knowledge judgment, not external historical certification. Exact sharp redundancy-two Gabor bounds for asymmetric two-sided exponentials: For all real a,b>0, the unnormalized piecewise-exponential window e^(−at) for t≥0, e^(bt) for t<0 generates a Gabor frame on translations 1 and modulations 1/2 with explicit optimal bounds A=2(DU_*²+EV_*²−2HU_*V_*) and B=(1−rs)²[(1−r)^(−2)(1−s)^(−2)+(1+r)^(−2)(1+s)^(−2)], where the minimizing Zak fiber x_* is a unique quadratic-root expression and ω=1/4; the maximizing fiber is x=0,ω=0.",
+      "residual_risks": [
+        "Janssen 1996 author-hosted full PDF could not be read; authorized institutional retrieval reports vpn_disconnected, so hidden exact unequal-rate antecedents remain possible.",
+        "The equal-rate specialization is known and is not claimed novel.",
+        "Only the translation-1, modulation-1/2 lattice and unnormalized window are classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact symmetric a=b case and lattice optimization; no inspected unequal-rate two-parameter theorem.",
+          "evidence": "Section 8 explicitly fixes one symmetric decay γ and density n, and cites Janssen for existence.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.02917",
+          "material_read": "Complete accessible arXiv text, especially §2.4 definition g(t)=√γ e^(−γ|t|) and §8 exact bound formulas and lattice optimization.",
+          "method": "Read full arXiv HTML, parameters, equations 8.1–8.2 and adjacent proof discussion.",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "same two-sided exponential and sharp frame constants"
+        },
+        {
+          "assessment": "Substantial priority risk retained; abstract is not evidence of whole-paper noncoverage.",
+          "evidence": "1996 abstract says exact frame bounds for several windows at integer inverse lattice density, which could plausibly include a relevant window.",
+          "identifier_or_url": "https://doi.org/10.1016/0019-3577(96)85088-9",
+          "material_read": "Author institutional homepage publication list and publisher/institution abstract; full article not obtained.",
+          "method": "Checked arXiv/OA routes; author-hosted original PDF entry exists but its fetch timed out; authorized Oxford institutional retrieval returned vpn_disconnected.",
+          "title": "Some Weyl-Heisenberg frame bound calculations",
+          "trigger": "1996 same integer-redundancy exact frame-bound topic"
+        },
+        {
+          "assessment": "The claimed exact bounds are not implied by qualitative density sufficiency.",
+          "evidence": "General frame-set characterization asserts existence, not numerical optimal bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.04992",
+          "material_read": "Primary arXiv abstract and statement of strict density criterion; complete text not re-read in this run.",
+          "method": "Compared existence statement with sharp spectral optimization task.",
+          "title": "Gabor Frames of Totally Positive Functions: A Complete Characterization",
+          "trigger": "more general window family, frame existence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/090ff0833df2138b40a9e80fe13d572878fbdc2f/2026/10/25/exact-sharp-redundancy-two-gabor-bounds-for-asymmetric-two-sided--400c3e36998f",
+        "https://arxiv.org/abs/2204.02917",
+        "https://doi.org/10.1016/0019-3577(96)85088-9"
+      ],
+      "rationale": "Sharp two-parameter spectral frame bounds for non-even exponential windows quantify exact stability and an asymmetric drift of the worst Zak fiber. This natural frame-design question goes beyond mere frame existence and the known symmetric one-parameter results; exact extremal constants and the minimizing fiber can be reused for fixed-lattice conditioning calculations. The lattice is fixed at redundancy two and no optimality over all lattices is claimed.",
+      "residual_risks": [
+        "Only the translation-1, modulation-1/2 lattice and unnormalized window are classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/10/25/exact-sharp-redundancy-two-gabor-bounds-for-asymmetric-two-sided--400c3e36998f/RESULT.md Git blob 4b3be84c4da303503be0c7b2a2acaf8380ba4ee1",
+    "2026/10/25/exact-sharp-redundancy-two-gabor-bounds-for-asymmetric-two-sided--400c3e36998f/check_asymmetric_exponential_gabor.py Git blob bd9f399a9e61d9c902bf08609b35c282a8a05654",
+    "Private independent-check script and actual JSON output in accompanying delivered audit bundle",
+    "https://arxiv.org/abs/2204.02917",
+    "https://doi.org/10.1016/0019-3577(96)85088-9",
+    "https://arxiv.org/abs/2608.04992"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all real a,b>0, the unnormalized piecewise-exponential window e^(−at) for t≥0, e^(bt) for t<0 generates a Gabor frame on translations 1 and modulations 1/2 with explicit optimal bounds A=2(DU_*²+EV_*²−2HU_*V_*) and B=(1−rs)²[(1−r)^(−2)(1−s)^(−2)+(1+r)^(−2)(1+s)^(−2)], where the minimizing Zak fiber x_* is a unique quadratic-root expression and ω=1/4; the maximizing fiber is x=0,ω=0.",
+  "limitations": [
+    "Janssen 1996 author-hosted full PDF could not be read; authorized institutional retrieval reports vpn_disconnected, so hidden exact unequal-rate antecedents remain possible.",
+    "The equal-rate specialization is known and is not claimed novel.",
+    "Only the translation-1, modulation-1/2 lattice and unnormalized window are classified.",
+    "Publication withheld due to unsanitized existing public administrative metadata; this is an operational readiness limit, not a scientific rejection.",
+    "All exact Git tree SHAs were independently retrieved as tree identities at the assigned immutable commit; no repository writes were performed."
+  ],
+  "schema_version": 1
+}

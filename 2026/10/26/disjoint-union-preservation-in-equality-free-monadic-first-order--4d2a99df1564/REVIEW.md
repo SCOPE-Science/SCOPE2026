@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The finding precisely restricts itself to equality-free purely unary first-order sentences over nonempty finite or infinite domains. The known support invariance follows by formula induction without equality. Model disjoint unions exactly union the supports, and every union of a nonempty family of supports reduces to a finite one because the colour set is finite. Each finite union-closed support family decomposes uniquely into its join-irreducible generators. The displayed rank-two outer-universal sentence is satisfied exactly on that family, including the empty-family boundary; the explicit finite counterexample bound and the syntactic rank-one limitation are logically valid. Exhaustive four-colour tests corroborate the finite combinatorics, not the infinite proof.
+PASS
 
-## Originality: PASS (qualified)
+Without equality, the truth of any first-order formula under assignments depends only on assigned unary colors and on which colors occur globally: this follows inductively through quantifiers. Thus sentences are support-set Boolean functions. Nonempty disjoint union takes set union of supports; all arbitrary unions of finitely many colors reduce to a finite subfamily, so binary union-closure is necessary and sufficient. Every member of a finite union-closed support family is the union of its uniquely necessary join-irreducibles, yielding Theta_F=forall x OR_{J irreducible}(B_J(x) AND all color-presence existentials E_J). Direct semantic reasoning proves both directions, including F empty and k=0. The quantifier-rank-two bound is explicitly only for the restricted outer-universal syntax, since unrestricted rank-one existential sentences may already express a given example. Independently enumerated all union-closed support families for 1,2,3,4 colors (2,7,61,2480) and 37650 canonical semantics tests; all matched.
 
-The motivating van Benthem--ten Cate--Yang 2026 Section 3.4 asks about equality-free disjoint-union preservation, after giving a counterexample that uses equality; this result answers only a natural purely unary case. Carreiro--Facchini--Venema--Zanasi's 2021/2022 monadic logical normal form already establishes the key support lemma. The contribution assessed is the precise disjoint-union-preservation equivalence and canonical minimal join-irreducible rank-two universal-outer normal form, not the known monadic type normal form or union-closed-family numerical counts. published-finding corpus searches were completed with comparison to the closest retrieved team-union and tagged-disjoint-union items. Broader related preservation literature could contain a subsuming corollary, so absolute priority is unproved.
+## originality
 
-## Value: PASS
+PASS
 
-The new classification delivers a complete, effectively decidable syntactic preservation result in a natural first-order fragment directly related to an active 2026 problem, and distinguishes the unary case from higher-arity obstacles. The sharp grammar-specific rank and bounded witnesses give explicit mathematical content beyond routine evaluation of a finite catalogue.
+Carreiro et al. (2021/2022), full article Section 3.1, already gives realized-type normal forms for equality-free monadic first-order logic. Van Benthem, ten Cate and Yang (2026), full HTML Section 3.4, discuss an outer-universal conjecture for disjoint-union preservation and an equality-based counterexample, leaving general equality-free languages distinct. The submitted claim resolves only the unary fragment, using a canonical join-irreducible support basis and small obstruction theorem. The underlying support reduction and finite semilattice theory are prior art; no inspected result states or immediately implies the exact union-preservation normal form in these constraints, but priority could be subsumed by older unary-preservation folklore.
 
-## Limitations
+## value
 
-No equality, higher-arity predicates, constants, or empty domains. The general equality-free preservation conjecture is not resolved. The two-quantifier rank is only optimal among formulas with outer universal and quantifier-free versus existential positive matrix, not among unrestricted first-order sentences. Priority remains qualified by an established predecessor providing the colour-support normal form.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete characterization with effective canonical synthesis and fixed quantifier-rank bound for a natural decidable fragment of a live preservation question. It identifies the smallest finite witness models and clarifies exactly why equality matters. The 2480 number itself is known finite-set enumeration and not presented as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

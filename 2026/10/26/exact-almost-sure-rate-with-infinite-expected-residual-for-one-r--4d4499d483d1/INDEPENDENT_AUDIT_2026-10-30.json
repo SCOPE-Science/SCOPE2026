@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T12:07:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Diagonalizing symmetric A preserves Gaussian sketches. Direct algebra gives r^+=((b-a)uv/(aXu+bYv))(Y,-X), a.s. nonzero and never aligned with an eigenspace; its direction is perpendicular to a fresh isotropic Gaussian sketch. Hence the postfirst-step orientations are iid uniform modulo pi, log norm multipliers are stationary 1-dependent (separated even/odd subsequences iid), and logarithmic singularities are integrable. The circular integral E log|c cos t+d sin t|=log(sqrt(c^2+d^2)/2) gives the exact average log multiplier. For the moments, the denominator is ||Ar||T with T normal and independent perpendicular W contributes at least a constant |W/T|, whose pth moment diverges p>=1; conditioning at each step proves all positive times. The probability-zero zero-denominator/eigenspace events and definite/indefinite cases are handled. Independent SymPy identity proof and 300000 angle-pair samples for each of (1,3),(-1,-3),(-1,2) gave observed means -0.692714,-0.691933,0.000583 against targets -0.693147,-0.693147,0; numerical tests are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing sketch-accuracy analyses relate true/sketched residuals through subspace-embedding quality, which a 1x2 Gaussian sketch lacks uniformly."
+        ],
+        "reasoning": "High-probability embedding guarantees do not dominate the pathological undersketched regime with arbitrary near-zero denominators; no inspected theorem proves or rules out the claimed exact pathwise/moment split.",
+        "searches": [
+          "one row sketched GMRES(1) Gaussian resampled two-dimensional exact almost sure Lyapunov exponent infinite expected residual",
+          "https://arxiv.org/abs/2311.14206",
+          "https://arxiv.org/abs/2111.00113"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2111.00113",
+        "https://authors.library.caltech.edu/records/sfhkg-s9j41",
+        "https://epubs.siam.org/doi/10.1137/23M1565413",
+        "https://arxiv.org/abs/2311.14206",
+        "https://arxiv.org/pdf/2311.14206",
+        "Resultary semantic query: one row sketched GMRES(1) Gaussian resampled two-dimensional exact almost sure Lyapunov exponent infinite expected residual"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known optimal Richardson stationary factor for definite two-eigenvalue spectra matches the derived factor, but the iterations and distribution of residual norms are different."
+        ],
+        "reasoning": "Equality to the deterministic minimax factor is an interesting consequence of the new averaging proof, not prior proof of the same stochastic algorithm. Previous sketched GMRES bounds do not imply unconditional infinite residual moments.",
+        "searches": [
+          "one row sketched GMRES(1) Gaussian resampled two-dimensional exact almost sure Lyapunov exponent infinite expected residual",
+          "https://arxiv.org/abs/2311.14206"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-row scalar sketched GMRES(1) is the same generic sketched one-dimensional residual minimization object, specialized to a fresh underdimensioned sketch in R^2."
+        ],
+        "reasoning": "The method identity alone does not imply its exact resampled product Lyapunov exponent nor divergence of every p>=1 moment of true residual at each finite time.",
+        "searches": [
+          "one row sketched GMRES(1) Gaussian resampled two-dimensional exact almost sure Lyapunov exponent infinite expected residual",
+          "https://arxiv.org/abs/2111.00113",
+          "https://arxiv.org/abs/2311.14206"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact almost-sure exponent is a stochastic infinite-product invariant rather than a tabulated small-matrix entry; no published table for the scalar-resampled scheme was identified."
+        ],
+        "reasoning": "The result uses precise angular integrals and normal inverse moments, not a finite numerical catalogue. Generic Gaussian ratio heavy tails alone are prior and do not determine the long-time exponent.",
+        "searches": [
+          "one row sketched GMRES(1) Gaussian resampled two-dimensional exact almost sure Lyapunov exponent infinite expected residual",
+          "https://arxiv.org/abs/2111.00113"
+        ]
+      },
+      "rationale": "Nakatsukasa–Tropp (2021 preprint, 2024 SIAM) introduced sketched GMRES. Burke–Güttel–Soodhalter (2023/2024) established its projector and convergence theory. The latter complete 24-page paper was inspected, especially Sections 3–5: assumption (3.1) requires an epsilon-subspace embedding with m<s and epsilon<1; Sections 4–5 give true/sketched residual bounds conditional on this approximation. The fresh Gaussian 1x2 row in the assessed one-dimensional restart is intentionally not a uniform embedding on R2. No read theorem implies the exact two-eigenvalue pathwise Lyapunov exponent jointly with infinite true-residual moments at every positive time. The deterministic optimal Richardson rate is prior mathematics, not claimed new. The former Nakatsukasa–Tropp full text was unavailable after arXiv and lawful repository PDF failures; authorized institutional access returned vpn_disconnected, leaving a specific priority risk, as does possibly unindexed random-matrix product literature.",
+      "residual_risks": [
+        "Nakatsukasa–Tropp full text remained inaccessible: arXiv PDF and Caltech OA PDF retrieval failed, and authorized institutional download returned vpn_disconnected; Burke–Güttel–Soodhalter 2024 full Sections 3–5 were materially read. This is a specific priority risk, not a scientific failure.",
+        "An exact planar randomly projected iteration identity could preexist in a specialized stochastic linear solver or random-products literature.",
+        "An indefinite spectrum has zero almost-sure log rate; this is not a convergence or divergence theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covered general sketched projection methodology; no claim of fully inspecting the methods/proofs and no whole-document NOT_COVERING inference",
+          "evidence": "The published method aims at subspace embedding quality with accuracy close to classical GMRES; the investigated one-row fresh-restart model lacks that embedding guarantee.",
+          "identifier_or_url": "https://authors.library.caltech.edu/records/sfhkg-s9j41",
+          "material_read": "Caltech repository full abstract/metadata; linked accepted PDF attempted but redirected to inaccessible expired object; 2024 SIAM published abstract read",
+          "method": "Caltech institutional OA landing page, publisher abstract, attempted accepted PDF",
+          "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Introduces the relevant sketched GMRES model and assumptions"
+        },
+        {
+          "assessment": "Covers projection/minimization machinery and residual bounds contingent on epsilon-subspace embedding; its stated model does not prove a fresh undersketched 1x2 Gaussian pathwise exponent",
+          "evidence": "Equation (3.1) assumes m<s<<N and epsilon<1 approximate isometry; equation (4.8) is the sketched minimal residual functional; bounds (4.5)/(4.9) depend on that embedding condition. Here a 1-row sketch on a 2D residual space is intentionally not a uniform embedding.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.14206",
+          "material_read": "Full 24-page arXiv PDF obtained; material read includes Sections 3–4, assumption (3.1), Equation (4.8), Lemmas 4.2–4.3, Corollaries 4.4/4.7, and Section 5 introduction",
+          "method": "arXiv PDF text and screenshots pages 1, 5, 14",
+          "title": "GMRES with randomized sketching and deflated restarting",
+          "trigger": "Potentially strongest prior convergence theorem for restarted sketched GMRES"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finding sharply separates pathwise linear convergence and divergent unconditional Euclidean residual moments for a natural minimal stochastic residual-minimization experiment. It gives an exact Lyapunov exponent and a concrete failure mode of inadequate sketch dimension, with a nonconvergent-exponent boundary for opposite-sign eigenvalues. These are meaningful structural facts rather than a tiny arbitrary numerical counterexample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2111.00113",
+    "https://authors.library.caltech.edu/records/sfhkg-s9j41",
+    "https://epubs.siam.org/doi/10.1137/23M1565413",
+    "https://arxiv.org/abs/2311.14206",
+    "https://arxiv.org/pdf/2311.14206",
+    "Resultary semantic query: one row sketched GMRES(1) Gaussian resampled two-dimensional exact almost sure Lyapunov exponent infinite expected residual"
+  ],
+  "disposition": "passed",
+  "final_claim": "For planar symmetric invertible A with two distinct real eigenvalues a,b and a starting residual with both eigencomponents nonzero, independently regenerated Gaussian one-row sketched restarted GMRES(1) has almost-sure log Euclidean-residual rate log(|a-b|/(|a|+|b|)), while E||r_k||^p=+infinity for every k>=1 and p>=1; the exponent is zero in the indefinite case.",
+  "limitations": [
+    "Nakatsukasa–Tropp full text remained inaccessible: arXiv PDF and Caltech OA PDF retrieval failed, and authorized institutional download returned vpn_disconnected; Burke–Güttel–Soodhalter 2024 full Sections 3–5 were materially read. This is a specific priority risk, not a scientific failure.",
+    "An exact planar randomly projected iteration identity could preexist in a specialized stochastic linear solver or random-products literature.",
+    "An indefinite spectrum has zero almost-sure log rate; this is not a convergence or divergence theorem."
+  ],
+  "schema_version": 1
+}

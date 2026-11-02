@@ -1,19 +1,21 @@
-# Review of the three-state permutation-equivalence profile
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every three-state permutation is an affine map on \(\mathbb F_3\). Four choices of letter-sign parameters determine a complete same-length evaluation invariant of one mod-six and three mod-three coordinates. The stated recurrence is derived from the signed-prefix definitions. Two direct exhaustive implementations agree through length thirteen: one iterates the 162-state recurrence, and the other evaluates all words under all 36 pairs of permutations. The 162-row certificate gives an independently replayable witness for each signature at length thirteen. Both letter transitions are bijections of the full signature space, proving stabilization for all higher lengths. No finite-to-infinite inference is assumed without the bijection lemma.
+PASS
 
-## Originality — PASS within examined evidence
+Every S3 permutation is affine z->eps z+a over F3; for each of four sign assignments the product coefficients are fixed by N0 mod6 and three signed prefix sums T,U,V. Equality under all 36 two-letter substitutions is equivalent to equality of these four residues, because translation parameters vary independently. The derived append-zero/append-one maps are bijections on the full 6*3^3=162 signature space. Independently enumerated all binary words of length 0..13 and direct evaluations for all 36 S3 substitution pairs; recovered exactly (1,2,4,8,15,26,41,60,84,108,133,148,159,162). Independently replayed all 162 length-13 CERTIFICATE.tsv witnesses and verified no incorrect or duplicate signatures. Full reachability at 13 and bijective transition prove all n>=13, while 159 at 12 proves sharpness; not an infinite inference from samples.
 
-Xu–Regan (2026, arXiv:2610.11098v1, full HTML) studies asymptotic separation bounds and positive identities, not the complete number of three-state indistinguishability classes at each length. Bulatov–Karpova–Shur–Startsev (2017, full PDF, Section 3) gives the shortest \(S_3\) identity, not a complete quotient-growth or saturation theorem. Searches for affine signatures, relatively free \(S_3\) word evaluations, numerical count sequences, and related indexed mathematical records did not identify an equivalent result. Karpova–Shur (2021) is a relevant source with only its abstract inspected: it remains an explicitly acknowledged possible overlap risk, not an asserted negative full-text finding. The affine representation itself is standard and is not claimed as new.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result resolves the complete length-dependent classification of all binary word behaviors visible to any three-state permutation automaton. Its sharp length-thirteen threshold distinguishes eventual saturation from merely bounding the number of evaluation functions; the exact finite growth sequence and constructive 162-type signature provide concrete benchmarks for the words-separation problem recently sharpened asymptotically. This is a natural quotient of a standard automata-equivalence relation, not an arbitrarily chosen word slice or a small numerical improvement. The contribution does not assert progress on asymptotic separation or larger groups.
+The contribution is the entire equal-length quotient-growth sequence for binary positive words under every S3 substitution and its first full 162-type realization at length 13. It is not the affine model of S3 itself, a shortest positive identity, or an asymptotic separation bound. Full accessible relevant texts and published-record searches were compared by implication. The inaccessible 2021 closely related paper remains an explicit priority risk, not assumed to be irrelevant.
 
-## Risks and scope
+## value
 
-The exact profile is limited to the binary alphabet and three-state permutation actions. A fully available version of Karpova–Shur (2021), or unindexed work on relatively free groups, might give an equivalent count. Independent checking by a different investigator remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quotient of binary words by all substitutions into S3 is a natural finite-state automata invariant. This exact full length profile, constructive complete 162-type signature and sharp first saturation length 13 settle a meaningful finite analogue of word separation, beyond detecting one shortest identity. The result is small-group specific but complete and not an arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

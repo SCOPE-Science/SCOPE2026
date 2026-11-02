@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T06:08:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/induced-matching-polynomials-of-rook-graphs-and-minimum-strong-t--3b0a0b2213f8/RESULT.md Git blob badd43074330beb5b73d32daded64c18d8d6642e",
+        "2026/10/25/induced-matching-polynomials-of-rook-graphs-and-minimum-strong-t--3b0a0b2213f8/VERIFICATION.md",
+        "Independent bounded verification file included in private delivery"
+      ],
+      "rationale": "An induced horizontal edge consumes one row and two columns, and a vertical edge consumes two rows and one column; distinct edges cannot reuse any consumed coordinate because an endpoint would be adjacent to an endpoint of another edge. Conversely disjoint coordinate packets yield induced matchings. Choosing ordered row/column coordinates and pairing gives exactly m!n!/[2^(h+v)h!v!(m-h-2v)!(n-2h-v)!], with h+2v<=m and 2h+v<=n. Existence of h,v for t=h+v reduces to max(0,2t-n)<=v<=min(t,m-t), giving t<=min(m,n,floor((m+n)/3)). In a strong total cover selecting vertex set X, unselected U, required internal edges and one crossing edge for each isolated U vertex force cost>=|V|-|U|+|E(G[U])|+isolates(U). Each nontrivial component contributes <=1 to |U|-edges-isolates; one edge per component is an induced matching. Equality yields the known general minimum |V|-alpha_ind. For the two-row family n>=4, equality forces two disjoint induced K2 components in different rows with four distinct columns and no U isolates; choosing two disjoint column pairs gives binomial product. For width 2 and 3, enumerate U induced path and isolates, obtaining 8 and 45. Independent raw-graph enumeration confirms six polynomial instances plus two-row n2..7 cover counts, but infinite proof is combinatorial.",
+      "residual_risks": [
+        "Strong total cover definition must include a selected edge covering itself and both endpoints; different edge-cover conventions invalidate the formula.",
+        "The exact n=3 count includes crossing-edge multiplicity three for each extra isolated vertex, not just the six U subsets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aprile–Ferrarini arXiv:2610.23312 establishes min strong cover = |V|-alpha_ind; the abstract discusses algorithmic hardness and complete bipartite graph hosts, not the rook graph K_m square K_n polynomial."
+        ],
+        "reasoning": "General identity supplies only cover size once alpha_ind is computed, not every induced matching count or the optimum cover census. This antecedent is attributed explicitly.",
+        "searches": [
+          "Aprile Ferrarini Strong Total Cover Problem general identity induced matching; Yuan Yang Zheng Gong maximum induced matching connected graph",
+          "Resultary search: rook graph K_m Cartesian K_n induced matching polynomial strong total cover enumeration",
+          "Aprile–Ferrarini arXiv:2610.23312, 2026-10-30 public literature search"
+        ]
+      },
+      "checked_sources": [
+        "All eight frozen rook graph source files, including two verification scripts",
+        "Aprile–Ferrarini arXiv:2610.23312 open-access statement and general cover theorem",
+        "Yuan–Yang–Zheng–Gong arXiv:2410.11288 introductory scope",
+        "Resultary rook graph and matching searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general cover identity is invoked correctly and combined with the newly derived alpha_ind; the source abstract and inspected scope do not state the two-row 8/45/binomial census."
+        ],
+        "reasoning": "The previous theorem is a proper partial implication: size follows from it after a new graph-specific maximum, while coefficient and minimum-solution multiplicity require additional combinatorial classification.",
+        "searches": [
+          "Aprile Ferrarini 2026 implies exact cover size but not number of optimal covers; line graph equivalence edge matching covers",
+          "Resultary search: rook graph K_m Cartesian K_n induced matching polynomial strong total cover enumeration",
+          "Aprile–Ferrarini arXiv:2610.23312, 2026-10-30 public literature search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook graphs are line graphs of complete bipartite graphs; an induced matching in the rook graph differs from a matching in the host K_mn and is not the ordinary rook polynomial."
+        ],
+        "reasoning": "The coordinate-resource bijection addresses induced matchings of the line graph itself, equivalent to an independent 1-regular induced subgraph in the rook graph.",
+        "searches": [
+          "rook graph K_m square K_n line graph of K_mn strong matching induced 1-regular subgraph polynomial",
+          "Resultary search: rook graph K_m Cartesian K_n induced matching polynomial strong total cover enumeration",
+          "Aprile–Ferrarini arXiv:2610.23312, 2026-10-30 public literature search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related rook-graph entries concern homology of cut and Cech complexes, not strong matching polynomials or optimum vertex-edge cover counts."
+        ],
+        "reasoning": "No matching prior exact enumerator found, but unindexed sequence tables and graph-polynomial literature could overlap; absence is not priority certification.",
+        "searches": [
+          "Resultary rook graph K_m Cartesian K_n induced matching polynomial strong total cover two row enumeration",
+          "Resultary search: rook graph K_m Cartesian K_n induced matching polynomial strong total cover enumeration",
+          "Aprile–Ferrarini arXiv:2610.23312, 2026-10-30 public literature search"
+        ]
+      },
+      "rationale": "Aprile–Ferrarini 2026 establishes the general strong-cover/maximum induced matching identity; this is correctly treated as antecedent, not a novel theorem. The new work is the full two-parameter induced-matching enumerator and exact minimum-cover multiplicities for R_{2,n}, not generic covering duality. Other available results treat matching bounds, Hamming graph homology or complete bipartite hosts, without the same polynomial. Historical risk remains for an older rook-graph induced 1-regular-subgraph enumerator.",
+      "residual_risks": [
+        "An earlier rook-graph strong matching / induced 1-regular subgraph polynomial may already encode the same factorial sum.",
+        "The cover-size identity is prior work and not new, regardless of the novel count details."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_IDENTITY_ANTECEDENT",
+          "evidence": [
+            "General min cover = |V|-alpha_ind is earlier; not a statement of the K_m square K_n enumerator or two-row optimum count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.23312",
+          "material_read": "full 28-page open-access text in available HTML as previously retrieved; definitions, general induced-matching connection and relevant graph-class scope compared",
+          "method": "primary mathematical definitions and general theorem implication comparison",
+          "title": "The Strong Total Cover Problem",
+          "trigger": "same vertex-plus-edge covering definition and stronger general identity"
+        },
+        {
+          "assessment": "EXTREMAL_BACKGROUND",
+          "evidence": [
+            "Bounds on connected-graph induced matchings do not tabulate the full two-index polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.11288",
+          "material_read": "abstract and relevant introductory extremal theorem statements; full article not re-read in this run",
+          "method": "limited theorem implication comparison",
+          "title": "Maximal and maximum induced matchings in connected graphs",
+          "trigger": "possibility of general induced-matching bound determining rook maximum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "All eight frozen rook graph source files, including two verification scripts",
+        "Aprile–Ferrarini arXiv:2610.23312 open-access statement and general cover theorem",
+        "Yuan–Yang–Zheng–Gong arXiv:2410.11288 introductory scope",
+        "Resultary rook graph and matching searches"
+      ],
+      "rationale": "Rook graphs and induced matchings are canonical in extremal and covering graph theory. A uniform all-coefficient formula solves more than a maximum bound; the sharp two-row minimum-cover census identifies a structural rigidity transition and exceptional small widths. These exact counts are natural invariants relevant to the newly formalized strong-total-cover problem, not arbitrary parameter slices.",
+      "residual_risks": [
+        "An earlier rook-graph strong matching / induced 1-regular subgraph polynomial may already encode the same factorial sum.",
+        "The cover-size identity is prior work and not new, regardless of the novel count details."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "All eight frozen rook graph source files, including two verification scripts",
+    "Aprile–Ferrarini arXiv:2610.23312 open-access statement and general cover theorem",
+    "Yuan–Yang–Zheng–Gong arXiv:2410.11288 introductory scope",
+    "Resultary rook graph and matching searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each rook graph K_m square K_n, m,n>=2, every induced-matching coefficient is given by an explicit two-index factorial sum and maximal size min(m,n,floor((m+n)/3)). The minimum strong total cover has size mn minus this number; for two rows, the full optimum census is 8 at n=2, 45 at n=3, and binom(n,2)binom(n-2,2) for n>=4.",
+  "limitations": [
+    "The complete optimal-cover census is only for two-row rook graphs; arbitrary m,n have size and matching polynomial, not full optimum multiplicity.",
+    "Older equivalent graph polynomial or sequence indexing may exist."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## What was checked
+# Independent mathematical audit
 
-Running `python verify.py` with Python 3 and no third-party dependencies verifies, by literal occurrence enumeration, the claimed two-class profile for partial layers with zero and three ones, and injectivity after adding the one-one layer, for every weight-three binary word of length \(3\le n\le24\). It also checks explicit ambiguity witnesses and the separate historical weight-four full-spectrum ambiguity example. The expected success report counts exactly 12,650 weight-three strings.
+## correctness
 
-## Proof boundaries
+PASS
 
-The finite check does not prove the infinite theorem. Infinite correctness rests on the zero-run histogram inversion, outer-gap retrieval from \(G_aG_d\), and the nonvanishing product identity in the proof. The absence of observed equalities in limited searches is not an originality certificate. Independent validation has not been performed.
+For any a,b,c,d>=0 the zero-only occurrence counts have differences f_l-f_(l+1)=#{g>=l}, recovering the four gap lengths including zero lengths. P3=z^(b+c)G_aG_d reads the inner sum and the unordered outer pair via triangular coefficients and degree; the remaining unordered inner pair follows. Reversal leaves exactly 1+1_(a!=d)1_(b!=c) candidates. Swapping inner gaps changes P1 by (G_a-G_d)(G_b-G_c), nonzero precisely when the two candidates are inequivalent. Independently re-enumerated literal substring histograms and reversal fibers for 8855 words of lengths 3..22; all 2640 sparse fibers and enrichment were correct. Finite tests corroborate the complete algebraic proof and do not prove it alone.
+
+## originality
+
+PASS
+
+The assessed theorem is a sharp classification of the fibers of a selective composition observation channel, not full-spectrum reconstruction. After searching published mathematical records and comparing the most relevant primary papers by their hypotheses and observables, no theorem was identified that implies the exact one-or-two reversal-class formula for the zero/three ones-count layers or injectivity after adding the one-ones layer. The conclusion is best-of-knowledge with explicitly retained unindexed-priority risk.
+
+## value
+
+PASS
+
+Weight-three words are a natural minimal multirun model of substring-composition reconstruction. The theorem resolves exact ambiguity under a genuinely selective measurement channel uniformly at every length, and identifies exactly the extra one-count observation required to resolve orientation; this is not an arbitrary finite enumerative slice or a mechanical corollary of full-spectrum algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of selective composition spectra
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The gap decomposition is unique for weight-three binary words. Consecutive differences of the zero-only substring histogram recover all four zero-gap lengths as a multiset, including the number of zeros among gap lengths. The three-one generating polynomial factors as a known shift times two finite geometric sums, whose coefficient growth identifies the unordered outer-gap pair. Exactly two candidate reversal classes remain when both gap pairs are unequal, and the difference of their one-one polynomials is a nonzero product in \(\mathbb Z[z]\) in precisely those cases. The proof covers all nonnegative zero-gap lengths. Literal exhaustive checks through length 24 are corroborative only.
+PASS
 
-## Originality
+For any a,b,c,d>=0 the zero-only occurrence counts have differences f_l-f_(l+1)=#{g>=l}, recovering the four gap lengths including zero lengths. P3=z^(b+c)G_aG_d reads the inner sum and the unordered outer pair via triangular coefficients and degree; the remaining unordered inner pair follows. Reversal leaves exactly 1+1_(a!=d)1_(b!=c) candidates. Swapping inner gaps changes P1 by (G_a-G_d)(G_b-G_c), nonzero precisely when the two candidates are inequivalent. Independently re-enumerated literal substring histograms and reversal fibers for 8855 words of lengths 3..22; all 2640 sparse fibers and enrichment were correct. Finite tests corroborate the complete algebraic proof and do not prove it alone.
 
-**PASS, subject to a residual unindexed-priority risk.** The closest primary study of full-spectrum equicomposability is Acharya et al. (2014/2015), including their length-eight four-one counterexample. Ye–Elishco (2022) investigates prefix/suffix and length-bounded partial observations, not filtering by the number of marked symbols. Gupta–Mahdavifar (2022) improves reconstruction from the full spectrum. The publicly available exact length-two composition classification similarly has a different observation channel. These stronger or adjacent results do not assert the exact zero-plus-three ambiguity formula or the one-one layer's resolution for every three-one word. The fact that an indexed search did not return the same theorem is not, by itself, proof of novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** Partial mass/composition measurements can lose all substrings of a given number of marked symbols; the theorem gives a closed, sharp ambiguity census rather than only a sufficient decoding condition. It locates a precise one-bit orientation obstruction and removes that obstruction with one natural additional observation layer, for every blocklength. This is a meaningful low-weight boundary case for reconstruction with selective substring measurements, not a numeric table or a routine substitution into a length restriction.
+The assessed theorem is a sharp classification of the fibers of a selective composition observation channel, not full-spectrum reconstruction. After searching published mathematical records and comparing the most relevant primary papers by their hypotheses and observables, no theorem was identified that implies the exact one-or-two reversal-class formula for the zero/three ones-count layers or injectivity after adding the one-ones layer. The conclusion is best-of-knowledge with explicitly retained unindexed-priority risk.
 
-## Limits
+## value
 
-The theorem is confined to noise-free weight-three sources and does not establish robustness or optimality of the observation-layer selection. Unindexed early observations of an equivalent low-weight formula cannot be excluded without broader expert literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Weight-three words are a natural minimal multirun model of substring-composition reconstruction. The theorem resolves exact ambiguity under a genuinely selective measurement channel uniformly at every length, and identifies exactly the extra one-count observation required to resolve orientation; this is not an arbitrary finite enumerative slice or a mechanical corollary of full-spectrum algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
