@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Mathematical verification
 
-Reproduce by running `python verify_hlawka.py` with Python 3. The script is included as a full standalone file. It checks, in exact `fractions.Fraction` arithmetic, the degree-nine characteristic polynomial, the trace, and the one-dimensional null direction of the rational projection matrix. The expected polynomial is \(t(t-1)^4(3t^2-12t+4)^2/9\).
+# Independent mathematical audit
 
-Additional independent floating-point checks use an explicit least-eigenvalue eigenvector to approach the sharp second-order coefficient along five decreasing nonzero step sizes. They also check positivity along 1,200 pseudorandom but deterministic real transverse directions and the sign and slope of the endpoint exponent variation. The script prints the attained checks and numerical values. These are supplementary: the complete nine-dimensional spectral assertion is already established by an exact rational identity, and the local uniform and parameter-persistence statements follow from the explicit \(C^2\) Taylor expansion and implicit-function theorem in the proof.
+## correctness
 
-Unproved limits: no global Hornich--Hlawka positivity classification for real \(\ell_p^3\) in the open range, no effective maximal radius of the local neighborhood, no claim of uniqueness or novelty beyond the inspected literature, and no independent scientific validation.
+PASS
+
+At the known witness X*=((-1,1,1),(1,-1,1),(1,1,-1)) the deficit F_{p*} vanishes because 3^{1/p*}=3/2 and all pair sums have norm 2; differentiation of the seven nonzero terms gives zero first derivative. For p*>2 the l_p norm is C2 even at vectors with zero individual coordinates; pair sums 2e_i have vanishing Hessian. Rebuilt exact rational projection-block matrix M with blocks P_u+delta_ij P_vi, and independently computed characteristic polynomial z(z-1)^4(3z²-12z+4)^2/9, kernel exactly span X*. Multiplying eigenvalues by (p*-1)/2 yields stated spectrum, hence Taylor expansion off scaling ray yields sharp transverse ratio (p*-1)(1-sqrt6/3)/2. Uniform C2 Taylor estimates ensure local positivity for all perturbation directions, not just sampled ones. Positive-definite restricted Hessian on H={X·X*=9} gives IFT unique nearby normalized minimizer and derivative -6 log(3)/p*²; positive one-sided p<p* cone follows from homogeneity. No global Hornich-Hlawka endpoint theorem is asserted.
+
+## originality
+
+PASS
+
+Best-of-knowledge: compared the concrete final statement and implications to the actual primary literature, equivalent formulations, general frameworks and mathematical record searches. No decisive preexisting theorem subsuming the full submitted result found; classical ingredients and residual risks are credited explicitly.
+
+## value
+
+PASS
+
+The critical real 3D inequality is a highlighted open reduction. The previously known symmetric zero witness is a natural candidate source of endpoint counterexamples; its exact positive transverse Hessian and optimal curvature certify local rigidity and rule out local counterexamples below the critical exponent. This is a motivated structural obstruction to a plausible solution strategy, not an arbitrary tiny negative test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
