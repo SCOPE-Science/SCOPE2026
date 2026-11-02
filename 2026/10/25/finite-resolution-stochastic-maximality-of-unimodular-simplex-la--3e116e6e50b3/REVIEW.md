@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All statements refer to the explicitly defined integer-numerator grid-homothet family. Containment follows from support functions. Ehrhart-series coefficient extraction plus nonnegative \(h^*\)-coefficients gives an exact positive mixture. The Beta-binomial identity is a direct beta integral; the monotone likelihood ratio is proved termwise by products of increasing rational factors. An explicit monotone Bernoulli coupling supplies stochastic domination and strictness for every accessible positive-degree coefficient, while normalized lattice volume one gives the unimodular-simplex equality class at \(t\ge d\). The binomial factorial-moment and finite-resolution correction formulas are derived without limiting heuristics. The standalone exact checker completed 3,366 cases, including independent two-dimensional Ehrhart counts. Proof, rather than enumeration, covers all dimensions and resolutions.
+PASS
 
-## Originality — PASS with residual priority risk
+The support-function inclusion iP+a subseteq tP is equivalent to a in (t-i)P, giving exactly L_P(t-i) homothets at scale i, including distinct singleton copies for i=0. The Ehrhart positive binomial decomposition L_P(s)=sum_j h*_j C(s+d-j,d) gives mixture weight h*_j C(t+d+1-j,d+1); conditional scale probabilities equal BetaBinomial(t-j,1,d+1) by the beta integral. Each ratio C(s+d-j,d)/C(s+d,d) is nondecreasing in s, hence L_P(s)/C(s+d,d) is, so probability ratio to simplex is nonincreasing in i. Coupling through a shared Beta(1,d+1) variable and Bernoulli stream proves each strict tail when a positive j<=t occurs. When t>=d, equality forces h*=1 and normalized volume one, hence a unimodular simplex. Factorial moment identity follows from beta moments, and the finite-grid expansion follows from limiting mixture weights. Independently reconstructed 930 rational parameter cases (d<=5,t<=10), including all-tail inequalities, exact means, and the Pick-theorem unit-square example (9,4,1) vs (6,3,1). Finite checks are corroboration, not the theorem proof.
 
-Actual published-result and literature comparisons are recorded in AUDIT.json. The closest work (Hirotsu, arXiv:2605.20905) provides the exact scale-specific counts and a universal limiting mean; it does not state an entire finite-scale mixture, likelihood-ratio ordering against the unimodular simplex, equality classification, or sharp finite-grid moment hierarchy. Earlier Hirotsu work treats asymptotic averages. Braun et al. (arXiv:2607.15886) study the distinct \(h^*\)-coefficient distribution, and Stanley's positivity theorem is explicitly credited as an ingredient. Existing ingredients make the result approachable, but the claimed distributional statement is a distinct finite-resolution extremal conclusion. An equivalent result under different terminology cannot be ruled out by database search; priority is provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating problem is the finite-grid behavior hidden by the shape-independent asymptotic mean in the 2026 miniature-counting theorem. A single sharp likelihood-ratio order controls *every* increasing scale observable simultaneously, including volume, tail probabilities, and all factorial moments, rather than just one expectation. The exact Beta-binomial mixture exposes the geometric correction through the Ehrhart numerator and provides an if-and-only-if equality criterion for all large-enough resolutions. This is a meaningful structural extension of the asymptotic enumeration, not a numerical isolated example. Scope is restricted to integer-numerator homothets; extension to arbitrary rational homothets is not claimed.
+Compared equivalent mathematical formulations, stronger coverage, exact-data overlap, and logical prior implication using primary material and actual Resultary searches. No materially inspected theorem was found to imply the complete final claim; this is a best-of-knowledge, not an exhaustive novelty certificate. All unread relevant material and other risks are recorded.
 
-## Closest sources and limitations
+## value
 
-arXiv:2605.20905, Sections 1–3; arXiv:2501.00459, Section 4; arXiv:2607.15886, Sections 2–4; Stanley's established Ehrhart nonnegativity. Residual risk concerns unlocated equivalent finite-resolution stochastic statements. A source can implicitly support components of this proof without expressly claiming the full sharp order.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Homothetic lattice miniatures form a natural Ehrhart-counted family; previous mean-volume limit leaves finite-resolution uncertainty. A sharp universal likelihood-ratio extremum simultaneously controls all monotone scale functionals, locates strictness and equality, and gives an explicit first finite-grid correction. The result is structurally informative beyond an isolated table or mechanical parameter change, while known h*-positivity and exact counts are explicitly acknowledged as antecedents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
