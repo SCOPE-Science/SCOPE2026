@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The generator is fully specified and reversible. Direct block multiplication gives all off-diagonal entries. Distinct-leaf quadratic discriminants are negative; diagonal entries are positive by the spectral theorem and positivity of the degree-four Taylor polynomial on the negative real axis. Weighted Cauchy–Schwarz proves 9AD>4C² for each one-hop cubic, so it decreases and has exactly one positive root. The exact three-state stable-but-nonpositive matrix was reconstructed; the standalone rational checker passed 387 configurations. No finite check is treated as the infinite proof.
+PASS
 
-## Originality — PASS
+Block multiplication of Q=[[-B,b^T],[a,-diag(a)]] yields P0j=b_j h g_j(h), Pj0=a_j h g_j(h) with A=B+a_j, C=B^2+Ba_j+a_j^2+S1, D=B^3+B^2a_j+Ba_j^2+a_j^3+(2B+a_j)S1+S2 and g=1-Ah/2+Ch²/6-Dh³/24. For distinct leaves, Pij=a_i b_j h²[1/2-(B+a_i+a_j)h/6+U_ij h²/24]; 3U_ij-(B+a_i+a_j)^2>0 gives no real root. Reversibility provides real symmetric negative spectrum; scalar R4(-z)>0 for z>=0 ensures strict positive diagonals. Weighted Cauchy v=S2/B³>=(S1/B²)^2=u² makes 9AD-4C² positive via the displayed quartic with positive coefficients; hence g_j has derivative negative everywhere and exactly one positive zero. The rational 3x3 example at h=1/2 has P02=-1/96, P20=-1/32 but eigenvalues 1,3/8,83/128, while dimension two scalar stability forces off-diagonal positivity. Independent symbolic calculations reconfirmed exact example and monotonicity certificate.
 
-The exact all-rate one-edge cutoff and minimal three-state spectral-stability counterexample are not implied by the inspected generic SSP theory. Closest accessible local statement treats symmetric weighted-star graph Laplacians (the special case a_j=b_j); its proof and claim do not cover nonuniform stationary distribution nor the stable-but-negative reversible example. The 2011 two-step SSP study and 2014 explicit SSP study concern general timestep methods and bounds, not these star-generator entrywise identities. Searches of published mathematical records for reversed-edge, birth–death and directed-star equivalents found no stronger claim; this is best-knowledge originality, not a proof of absence.
+## originality
 
-The closest research backgrounds are Ketcheson–Gottlieb–Macdonald (2011), Gottlieb–Grant–Higgs (2014), and Higueras et al. (2014). The nonuniform bidirected-star claim genuinely extends the reversible-but-uniform-stationary specialization. The exact equivalence to the symmetric case only holds when inward and outward rates coincide. An unindexed stronger prior theorem remains a residual risk; comparison is based on actually inspected texts, not title matching.
+PASS
 
-## Mathematical value — PASS
+General SSP positivity bounds and the classical RK4 stability polynomial are prior work, but those are method-wide sufficient bounds or scalar spectral properties. The assessed contribution is the *sharp end-step* positivity interval and one-entry-family obstruction for arbitrarily nonuniform, reversible, directed star generators, plus the minimal 3-state spectrally stable counterexample. Other published SCOPE positivity results address distinct integrators.
 
-The arbitrary bidirected star is a natural minimal model of hub-mediated state transitions with nonuniform stationary weights, rather than an arbitrary parameter slice. The theorem gives a complete all-rate positivity interval, identifies which matrix entries alone control failure, and exhibits the smallest reversible Markov chain where scalar RK4 spectral stability fails to protect probabilistic nonnegativity. These are motivated qualitative distinctions relevant to numerical propagation; the proof extends beyond mere computation.
+## value
 
-## Limitations
+PASS
 
-The proof concerns completed linear RK4 only. It does not assert internal-stage positivity, a general-graph criterion, or independent external validation.
+For CTMC transition integrators, entrywise nonnegativity is required to preserve probabilistic meaning and is not implied by stable eigenvalues. The complete exact rate-dependent positivity horizon for an infinite family of reversible but nonuniform stars, together with a minimal stable/nonpositive witness, provides a natural reusable numerical-analysis boundary. Its univariate cubic certificates are not merely a textbook scalar stability computation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

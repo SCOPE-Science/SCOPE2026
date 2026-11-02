@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T00:47:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md matrix factorizations and Cauchy derivative discriminant; actual verify_rk4_star.py inspected",
+        "Independent SymPy 3-state P(1/2) example, eigenvalues and strict derivative-polynomial checks"
+      ],
+      "rationale": "Block multiplication of Q=[[-B,b^T],[a,-diag(a)]] yields P0j=b_j h g_j(h), Pj0=a_j h g_j(h) with A=B+a_j, C=B^2+Ba_j+a_j^2+S1, D=B^3+B^2a_j+Ba_j^2+a_j^3+(2B+a_j)S1+S2 and g=1-Ah/2+Ch²/6-Dh³/24. For distinct leaves, Pij=a_i b_j h²[1/2-(B+a_i+a_j)h/6+U_ij h²/24]; 3U_ij-(B+a_i+a_j)^2>0 gives no real root. Reversibility provides real symmetric negative spectrum; scalar R4(-z)>0 for z>=0 ensures strict positive diagonals. Weighted Cauchy v=S2/B³>=(S1/B²)^2=u² makes 9AD-4C² positive via the displayed quartic with positive coefficients; hence g_j has derivative negative everywhere and exactly one positive zero. The rational 3x3 example at h=1/2 has P02=-1/96, P20=-1/32 but eigenvalues 1,3/8,83/128, while dimension two scalar stability forces off-diagonal positivity. Independent symbolic calculations reconfirmed exact example and monotonicity certificate.",
+      "residual_risks": [
+        "No formal Lean proof; bounded independent calculations corroborate but are not an infinite proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic SSP radius can bound sufficient safe steps but does not assert optimality for every positive-rate bidirected star",
+          "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab studies [2/2] Padé, a different rational map"
+        ],
+        "reasoning": "Broader integrator theory provides context and tools but does not dominate the proven exact positive interval for this particular completed RK4 method and graph subclass.",
+        "searches": [
+          "Resultary: RK4 Markov star directed rate generator entrywise positivity threshold reversible nonuniform stable negative transitions",
+          "Strong stability preserving general RK literature",
+          "Resultary Padé positivity barriers"
+        ]
+      },
+      "checked_sources": [
+        "Gottlieb–Grant–Higgs arXiv:1403.6519 full PDF",
+        "Ketcheson–Gottlieb–Macdonald arXiv:1106.3626 full PDF",
+        "Resultary Markov Crank–Nicolson and Padé positivity records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar eigenvalue stability is weaker than entrywise positivity when the reversible stationary measure is nonuniform",
+          "The explicit negative stable example excludes a false implication from spectral stability"
+        ],
+        "reasoning": "The new result requires exact block entries and sign certificates rather than following by renaming a generic SSP coefficient. Possible specialist earlier RK4 positivity-of-Markov-star result is a residual risk.",
+        "searches": [
+          "Gottlieb–Grant–Higgs arXiv:1403.6519 SSP order theorem",
+          "Ketcheson et al. arXiv:1106.3626",
+          "Resultary Crank–Nicolson Markov positivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior SSP theorems give convex-combination sufficient positivity for classes of methods",
+          "Resultary 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a is for Crank–Nicolson, not RK4"
+        ],
+        "reasoning": "Classical RK4 on this Markov star subclass requires exact polynomial entrywise analysis; no searched published equivalent g_j-positive-root theorem was found.",
+        "searches": [
+          "Resultary: RK4 Markov star directed rate generator entrywise positivity threshold reversible nonuniform stable negative transitions",
+          "Ketcheson–Gottlieb–Macdonald arXiv:1106.3626",
+          "Gottlieb–Grant–Higgs arXiv:1403.6519"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strong positivity examples for other integrators use other matrices and orders",
+          "Exact negative 3x3 example reconstructed from Q and verified, rather than read from a prior table"
+        ],
+        "reasoning": "No table/listing covering all parameter-rate cubics and unique h_j was found. A small counterexample is part of the theorem but not the sole scientific contribution.",
+        "searches": [
+          "Resultary: RK4 Markov star directed rate generator entrywise positivity threshold reversible nonuniform stable negative transitions",
+          "Resultary Markov numerical positivity records"
+        ]
+      },
+      "rationale": "General SSP positivity bounds and the classical RK4 stability polynomial are prior work, but those are method-wide sufficient bounds or scalar spectral properties. The assessed contribution is the *sharp end-step* positivity interval and one-entry-family obstruction for arbitrarily nonuniform, reversible, directed star generators, plus the minimal 3-state spectrally stable counterexample. Other published SCOPE positivity results address distinct integrators.",
+      "residual_risks": [
+        "Specialized non-SSP exact RK4 positivity literature may contain the same star-rate cubic.",
+        "The claim concerns completed linear steps only; RK4 internal stages need not be nonnegative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT METHOD-WIDE PROBLEM",
+          "evidence": "No exact arbitrary-rate reversible bidirected-star RK4 cutoff in inspected text.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.6519",
+          "material_read": "Accessible full arXiv paper, order/convexity conditions and theorem sections, including page image",
+          "method": "Primary PDF text and screenshot",
+          "title": "Optimal Explicit Strong Stability Preserving Runge–Kutta Methods with High Linear Order and Optimal Nonlinear Order",
+          "trigger": "General SSP RK theory might supply a sharper end-step classification"
+        },
+        {
+          "assessment": "DIFFERENT MULTISTEP METHODS",
+          "evidence": "Two-step SSP families are not the same completed classical one-step RK4 positivity polynomial on CTMC stars.",
+          "identifier_or_url": "https://arxiv.org/pdf/1106.3626",
+          "material_read": "Accessible full PDF including first page, method definitions and principal sufficient guarantees; page image inspected",
+          "method": "Primary arXiv full text and screenshot",
+          "title": "Strong Stability Preserving Two-step Runge–Kutta Methods",
+          "trigger": "Potential overlap of positivity radii and RK methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md matrix factorizations and Cauchy derivative discriminant; actual verify_rk4_star.py inspected",
+        "Independent SymPy 3-state P(1/2) example, eigenvalues and strict derivative-polynomial checks",
+        "Gottlieb–Grant–Higgs arXiv:1403.6519 full PDF"
+      ],
+      "rationale": "For CTMC transition integrators, entrywise nonnegativity is required to preserve probabilistic meaning and is not implied by stable eigenvalues. The complete exact rate-dependent positivity horizon for an infinite family of reversible but nonuniform stars, together with a minimal stable/nonpositive witness, provides a natural reusable numerical-analysis boundary. Its univariate cubic certificates are not merely a textbook scalar stability computation.",
+      "residual_risks": [
+        "Independent finite computations are checks only; global cutoff follows monotonicity and spectral reasoning."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every bidirected-star CTMC row generator Q with m>=1 and arbitrary a_j,b_j>0, completed classical RK4 P(h)=sum_{k=0}^4 h^k Q^k/k! is entrywise nonnegative exactly for 0<=h<=min_j h_j, where each h_j is the unique positive root of the explicit strictly decreasing cubic g_j(h). The only possible sign loss is hub–leaf; all leaf–leaf off-diagonal and all diagonal entries stay positive for all h>0. A 3-state reversible nonuniform chain has RK4 spectral stability despite negative transitions and is minimal in state count.",
+  "limitations": [
+    "All edge rates strictly positive; the result is not claimed for general trees, nonlinear SSP, or intermediate stages.",
+    "Independent finite computations are checks only; global cutoff follows monotonicity and spectral reasoning.",
+    "Original mathematical work remains unpublished by this independent auditor; not a formal or external expert attestation.",
+    "Publication transport blocked on privacy-neutral complete JSON metadata replacements."
+  ],
+  "schema_version": 1
+}
