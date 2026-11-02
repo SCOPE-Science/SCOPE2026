@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Deterministic block decomposition in orthogonal U and V complements makes three mutually orthogonal terms; conditional Gaussian normal and Wishart inverse yield the Student density with exact ell-r+1 degrees. Radial integration proves necessary/sufficient moments including divergence; Wishart inverse expectation yields alpha+beta+alpha beta. Direct projector and block versions agreed across 210 matrix draws; 460 assertion checks passed in the packaged verifier. Finite checks are not substituted for the infinite proof. The rank/independence/normal residual hypotheses and fixed-state scope are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kressner–Lam (2024), Theorem 9, gives the exact leading expected-error factor for generalized Nyström reconstruction, an operator whose range is a data-sketched subspace.",
+        "Lam–Ceruti–Kressner (2025), Theorem 2, bounds high moments of generalized-Nyström error under oversampling.",
+        "Carrel–Grigori (2026), Proposition 4.4, gives deterministic equivalence conditions, without the exact Gaussian moment boundary."
+      ],
+      "reasoning": "The older inverse-Wishart factors are quantitatively related and are used in this proof, but the published source results apply to Nyström reconstruction or deterministic equivalence, not to the fixed rank-r two-sided oblique tangent projector applied to a nonzero normal vector. They do not state, and no directly applicable stronger claim was found proving, the exact all-order integrability threshold and tangent leakage coefficient for this map.",
+      "searches": [
+        "web: two sided Gaussian sketch orthogonal projector error E squared r/(ell-r-1) product nystrom",
+        "web: randomized low rank oblique projection heavy tailed sketch pseudoinverse moments oversampling p 1 gaussian exact",
+        "published-finding corpus: Randomized low rank matrix differential equations two independent Gaussian sketch projectors false normal residual universal mean square amplification and Student t tail degrees of freedom"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.03402v1; full-text Sections 2.1–2.2 and 4.1–4.2 read",
+      "Kressner–Lam (2024), DOI 10.1002/nla.2576, open full text Sections 2 and 3.1 read",
+      "Lam–Ceruti–Kressner (2025), DOI 10.1137/24M1692691, author full-text Sections 1–2.4 read",
+      "Halko–Martinsson–Tropp (2011), standard Gaussian pseudoinverse lemma cross-referenced via later primary literature",
+      "Published mathematical research record searches for oblique tangent projections, Gaussian regression and inverse-Wishart moments",
+      "Previously reported mathematical statements compared at claim-and-implication level"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carrel–Grigori Lemma 4.2 supplies P_obl(B)=H_L B+B H_R^T-H_L B H_R^T; Proposition 4.4 gives a qualitative residual orthogonality condition.",
+        "Kressner–Lam Theorem 9 has a product of expected-error multipliers for a distinct generalized Nyström operator, and Lemma 2 provides general pseudo-inverse moment bounds.",
+        "The new proof uses E blocks -ACB^T, AC, CB^T and an exact multivariate Student tail classification."
+      ],
+      "reasoning": "Carrel–Grigori determines the deterministic operator, not its finite-sample Gaussian distribution. Kressner–Lam covers a different reconstruction operator and gives a first-moment identity rather than all moments of tangent leakage. Lam–Ceruti–Kressner gives general bounds for low-rank Runge–Kutta/Nyström reconstruction, not the stated identity. The new theorem requires transferring these classical Gaussian ingredients to the canonical two-sided projector and showing both necessity and sufficiency of every moment boundary.",
+      "searches": [
+        "Carrel–Grigori 2026 Sections 2.1, 4.1–4.2",
+        "Kressner–Lam 2024 Section 3.1 Theorems 8–9",
+        "Lam–Ceruti–Kressner 2025 Section 2.3 Theorem 2",
+        "published-finding corpus: Sharp Gaussian oversampling threshold for finite second moment of two-sided oblique tangent space projection from a normal residual in dynamical low-rank approximation, exact (1+r/(pL-1))(1+r/(pR-1))-1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carrel–Grigori arXiv:2607.03402v1, Lemma 4.2, defines the canonical two-sided oblique tangent projector.",
+        "The exact Gaussian regression moment is an inverse-Wishart consequence, with degrees ell-r+1; the new claim joins it to three mutually orthogonal tangent blocks."
+      ],
+      "reasoning": "The same theorem can be phrased as an exact stochastic leakage norm, a tensor-product oblique-projection moment, or a Gaussian least-squares regression product. Searched these aliases; identified no equivalent published projector theorem in the inspected texts or retrieved records. A purely distributional regression identity is acknowledged as pre-existing but is not alone the two-sided geometric statement.",
+      "searches": [
+        "published-finding corpus: Sketch low rank matrix differential equations oblique tangent projection perpendicular residual exact Gaussian sketch variance instability",
+        "published-finding corpus: exact Gaussian two-sided sketched tangent projector perpendicular residual mean squared error inverse Wishart oversampling r/(l-r-1) projector oblique dynamical low rank",
+        "web: \"oblique tangent\" \"Student\" Gaussian low rank",
+        "web: \"tangent projector\" \"inverse Wishart\" \"Gaussian\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned published-finding corpus ID 2026/10/4/SCOPE-exact-perturbation-angle-law-and-finite-dimensional-positive-sig--466bc404f228 treats Gaussian regression mirrors, not matrix differential-equation tangent projection.",
+        "Existing accessible mathematical statements inspected for same-object implications contained no oblique-tangent leakage claim."
+      ],
+      "reasoning": "The record searches and local ledger scan found no exact tabulation of the candidate map. These searches reduce duplication risk but do not themselves establish novelty or exhaustive coverage.",
+      "searches": [
+        "published-finding corpus: Gaussian sketch oblique projection heavy-tailed tensor product tangent normal residual Student moments oversampling one",
+        "published-finding corpus: Gaussian inverse Wishart finite moment oblique projector sketch: exact Frobenius norm normal-space leakage rank r",
+        "Known-claim mathematical-statement scan for oblique, tangent-sketch, inverse Wishart, low-rank dynamics"
+      ]
+    },
+    "rationale": "The checked 2026 source gives the deterministic canonical oblique projector and qualitative normal residual mismatch, while the closest 2024 and 2025 full texts treat different generalized Nyström reconstruction operators and their moment bounds. Classical Wishart/Student facts are acknowledged, but the exact all-order moment boundary and universal two-sided tangent leakage mean-square factor were not found as an existing theorem. Priority risk remains for an equivalent older specialization.",
+    "residual_risks": [
+      "An older exact Gaussian regression/projection result may imply this two-sided tangent formula after a straightforward block reduction; no independent historical-priority certification exists.",
+      "published-finding corpus semantic retrieval and a finite primary-literature comparison are not exhaustive.",
+      "The source-defined operator is applied at a fixed state independent of sketches; no inference to sketch-dependent trajectories is justified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact Gaussian all-moment and mean-square leakage law, although it defines the operator and qualitative effect.",
+        "evidence": [
+          "Lemma 4.2 gives the H_L B+B H_R^T-H_L B H_R^T formula.",
+          "Proposition 4.4 and equation (15) identify a sketch-orthogonality condition and large perpendicular residual mechanism, without exact Gaussian moments."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/408520512_Sketch_low-rank_dynamics_orthogonal_vs_oblique_projections",
+        "material_read": "Author full-text transcribed in accessible page, Sections 2.1–2.2 and 4.1–4.2 including Lemma 4.2 and Proposition 4.4, plus results overview",
+        "method": "Read full-text page and inspected the defining formulas, proofs, and comparison discussion",
+        "title": "Sketch low-rank dynamics: orthogonal vs. oblique projections",
+        "trigger": "Identical sketch-Galerkin tangent projector and normal-residual geometric mechanism"
+      },
+      {
+        "assessment": "RELATED_BUT_NOT_COVERING this exact canonical two-sided tangent projector claim; supplies classical inverse-Wishart ingredient.",
+        "evidence": [
+          "Theorem 8 decomposes generalized-Nyström residual into orthogonal and oblique terms.",
+          "Theorem 9 gives a product expected-error factor for data-dependent generalized Nyström reconstruction."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/nla.2576",
+        "material_read": "Open full text, Section 2 higher moments and Section 3.1 Theorems 8–9",
+        "method": "Read formulas and hypotheses of theorems and the Wishart-based moment argument",
+        "title": "Randomized low-rank approximation of parameter-dependent matrices",
+        "trigger": "Potentially dominating Gaussian generalized Nyström expected-error and inverse-Wishart moment theorems"
+      },
+      {
+        "assessment": "RELATED_BUT_NOT_COVERING fixed-state normal-component two-sided oblique tangent leakage.",
+        "evidence": [
+          "Theorem 2 establishes an L^q bound for generalized-Nyström approximation with oversampling at least four; it is not an exact all-q moment frontier for the projector considered here."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/392730895_Randomized_Low-Rank_Runge-Kutta_Methods",
+        "material_read": "Accessible full-text sections 1–2.4, Section 2.3 Theorem 2 and its proof",
+        "method": "Compared target operators, oversampling hypotheses and moment bounds",
+        "title": "Randomized Low-Rank Runge–Kutta Methods",
+        "trigger": "2025 randomized low-rank integrators with Gaussian moment and tail guarantees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93176179-06f4-486d-a8c1-aec70c744ec0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact leakage size and moment frontier quantify whether normal vector-field components create controlled spurious tangent velocities in randomized low-rank evolution. In particular, one-row oversampling has finite mean but infinite variance, while nominal sketch size twice the rank does not make the relative squared leakage vanish with rank. These provide motivated finite-sample error-budget and sketch-size criteria, not merely an algebraic renaming; trajectory-level behavior remains unproved.",
+    "status": "PASS"
+  }
+}
