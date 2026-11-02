@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The modal semantics give the exact ternary equality update. Its unique fixed valuation is proved by neighbor propagation. The local five-bit equation for the second iterate is encoded by a sixteen-state transfer matrix; the rational determinant is reconstructed in exact integer arithmetic from Newton identities. The formal logarithmic trace identity proves the generating function, the recurrence and the strict-existence classification for all ring lengths. Direct enumeration through fourteen worlds independently checks the transfer count but is not substituted for the general proof.
+## correctness
 
-**Originality — PASS under inspected evidence.** The operator and its three-neighbor cellular-automaton identification are known; these are not novelty claims. The closest 2026 finite Koopman-spectra study computes finite sizes, including representative rule 126, without providing the all-size primitive-two-cycle rational generating function. The older maximum-period work measures different cycle invariants. MathWorld reports the rule-126/129 relationship, not a uniform two-cycle count. The prior work permits some special-case agreement and a general transfer-matrix *method*, neither of which states the exact closed result. Residual possibility of an older equivalent enumerative formula is acknowledged.
+PASS
 
-**Value — PASS.** The question measures the first genuinely oscillatory behavior of knowing-whether iteration on an elementary symmetric reflexive graph family. The all-length formula identifies the exceptional gap at seven worlds, a complete existence threshold, an exact recurrence and a sharp exponential rate with constant one half. These are natural modal-model-counting and finite-dynamics invariants, not arbitrary bounded enumerations.
+On each reflexive three-neighbor ring n≥3, Δp = □p∨□¬p gives the local update F(x)i=1 iff the three neighbor bits agree. The only fixed valuation is all one (a fixed one propagates; all zero maps to all one). The five-bit Boolean condition for F²(x)=x is exactly a closed walk in an explicitly defined 16-state de Bruijn transfer graph; the independently computed integer characteristic polynomial is λ^9(λ−1)(λ³−λ−1)(λ³+λ+1). The log-determinant/trace identity yields the exact rational two-cycle GF after subtracting the unique fixed state and dividing by two; the denominator recurrence proves n≥4 except n7 and the simple dominant plastic-root asymptotic ρ^n/2. Separate direct 2^n valuation enumeration for every n=3..12 agreed. No statement about periods>2 is made.
 
-The present argument is restricted to temporal two-cycles, single-atom valuations and the specified cyclic frames. Priority against uninspected older rule-126/129 periodic-point catalogs is not established beyond the reported evidence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The automaton update is the classical rule 129, conjugate via complement to rule 126, and its dynamics is not novel. The inspected 2026 Koopman spectral classification exhibits finite n spectra for rule126, while older automaton cycle-length classifications discuss largest periods rather than exact number of primitive 2-cycles at every ring size. The evaluated 16-state transfer determinant, generating function and exceptional n=7 are the claimed new statements; an older equivalent dynamical-zeta formula remains a real priority risk.
+
+## value
+
+PASS
+
+The exact period-two orbit census is a natural first nontrivial temporal invariant of iterated non-contingency on finite reflexive frames, with an exact exceptional gap n=7, recurrence and sharp plastic-constant asymptotics. It links modal semantics to a complete labeled finite CA census, rather than listing a few numerical configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
