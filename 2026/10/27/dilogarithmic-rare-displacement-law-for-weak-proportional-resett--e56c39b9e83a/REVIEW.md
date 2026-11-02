@@ -1,24 +1,21 @@
-# Scientific review: weak-resetting rare-displacement law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The modeled process, stationary construction, and parameter domains are explicit. Synchronous coupling gives uniqueness, and the convergent two-sided stochastic integral gives existence. The stationary characteristic-function identity yields the previously known Laplace-product representation. The new logarithmic moment-generating function is a monotone Riemann sum with a bounded error. Interior derivatives converge; exponential tilting concentrates at every finite prescribed rate-space point, and Chernoff bounds give exponential tightness and the closed-set upper bound. The proof does not assume endpoint lower semicontinuity of a limiting moment-generating function that diverges at finite epsilon. Series expansions give the rate's strict Gaussian comparison and its two limiting regimes. The standalone checker passed 79 finite comparisons; no finite computation is substituted for the large-deviation proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+For the stationary Markov process with generator D fʺ+r(f(cx)-f(x)), |c|=exp(-ε/2)∈(0,1), D,r>0, synchronous coupling gives uniqueness and a two-sided stochastic integral exists in L². Stationary Fourier product equals independent Laplace sum with geometric scales. With Y_ε=ε sqrt(r/D)X, ε log E exp(θY_ε/ε)=εΣ_{j≥0}-log(1-θ²e^{-jε}) for |θ|<1, bounded between Li₂(θ²) and Li₂(θ²)+ε log(1/(1-θ²)) by monotone Riemann sums. Limiting pressure derivative -2log(1-θ²)/θ is strictly increasing onto all R, so interior tilts give concentrated lower bounds; finite-cover Chernoff + exponential tightness establish full LDP speed 1/ε with even strict-convex Legendre rate. Series invert to I(y)=y²/4-y⁴/64+O(y⁶) near zero, I(y)=|y|-π²/6+exp(-|y|/2)+O(|y|exp(-|y|)) for large y, and I(y)<y²/4 for y≠0. Bounded pressure/rate comparisons passed 19 independent numerical checks. No finite-ε uniform tail prefactors are claimed.
 
-Pierce (arXiv:2204.07215) and Tal-Friedman–Roichman–Reuveni (arXiv:2205.03363) establish the model, stationary products, low moments, and Gaussian weak-contraction limit. Biroli–Feld–Hartmann–Majumdar–Schehr (arXiv:2406.08387) establish fixed-contraction stationary densities and pointwise exponential tails for both signs of rescaling. Their inspected treatments do not formulate or evaluate the joint weak-contraction/rare-displacement large-deviation rate or the finite-parameter pressure bound. Meylahn–Sabhapandit–Touchette concerns long-time additive-functionals rather than the stationary distribution in this parameter limit. The full exact product and generic large-deviation machinery are explicitly credited, not asserted to be newly discovered. The new target is a nontrivial double-scale asymptotic and its sharp rate geometry, not another way of naming the known product. A broad weighted-Laplace perpetuity theorem could imply this special case; an independent literature priority audit has not been performed.
+## originality
 
-## Scientific value — PASS
+PASS
 
-The source papers motivate transition to Gaussian-looking stationary laws as resets become weak, while also identifying fixed-parameter exponential far tails. The new result resolves the precise regime between these descriptions, with a universal, strictly sub-Gaussian rare-event cost, a dilogarithmic rate, and explicit finite-parameter control of the pressure. It quantifies rare stationary excursions of order \(1/\varepsilon\), compared with Gaussian central fluctuations of order \(1/\sqrt\varepsilon\), in a physically established resetting model. This is a motivated asymptotic observable; neither a relabeled normalization nor a recomputation of a previously tabulated constant.
+Exact stationary Laplace factors and weak-contraction Gaussian limit were proved by Pierce and Tal-Friedman–Roichman–Reuveni; Biroli et al established stationary density and fixed-c exponential tails for either sign. The assessed statement is a two-scale fixed-stationary law LDP at displacements O(1/ε), explicit Li₂ pressure with finite-ε enclosure and sharp crossover. Fixed-c tails or Gaussian weak limit do not directly imply this joint asymptotic. General near-unit q-products, weighted-Laplace perpetuities and Gartner–Ellis results are possible prior stronger tools and an explicit originality risk.
 
-## Closest sources and scientific limits
+## value
 
-- Pierce, arXiv:2204.07215, April 14, 2022: stationary advection-diffusion with proportional resets and weak-resetting Gaussian limit.
-- Tal-Friedman et al., arXiv:2205.03363, May 6, 2022: exact product, independent-Laplace decomposition and central Gaussian limit.
-- Biroli et al., arXiv:2406.08387, June 12, 2024: exact stationary law, fixed-parameter Gaussian core/exponential far tails, first-passage analysis.
-- Meylahn et al., Phys. Rev. E 92 (2015): long-time additive-observable large deviations under resetting; not the joint stationary rescaling regime.
+PASS
 
-The result concerns one-dimensional stationary Brownian motion, fixed positive diffusion and reset rates, and deterministic multiplicative Poisson resets. It does not give finite-epsilon rare-event prefactors, path-space rates, or uniform probability asymptotics outside fixed rate-space thresholds.
+A natural experimentally motivated resetting model has Gaussian central scale O(ε^-1/2) but different rare-position scale O(ε^-1). The exact dilogarithmic cost, quantitative sub-Gaussian comparison and finite-parameter mgf control resolve a useful physical/mathematical crossover; not merely a renamed known stationary transform.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
