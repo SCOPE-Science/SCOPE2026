@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(n\ge2\), the mixed moment is reconstructed by marking a directed two-cycle and separately counting targets not hit by any remaining arrow. Subtracting marginal means yields the exact covariance identity. The discrete anti-monotone covariance inequality applied to \(P\) and \(h(P)=(1-P)^{n-2}\) yields the sharp bound, including strictness and equality conditions. Fixed-point orthogonality follows from conditional renormalization after forbidding a target. A standalone exact-rational checker passed 318 assertions; the unrestricted conclusions depend on the analytic argument, not the finite checks.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The principal motivating 2022 paper concerns uniform mapping component and cycle length statistics. Hansen–Jaworski (2008) handles exchangeable random indegrees, whereas nonuniform common-target mappings induce nonexchangeable target indegrees; its main conditional result does not directly give the heterogeneous bound. Prior research records for uniform mapping terminal/cyclic dependence and fixed-point-degree orthogonality were treated as covering their respective special cases. The contribution tested here is precisely the sharp all-target-vector two-cycle covariance inequality and its equality classification. A historical argument based on weighted occupancy or a general p-mapping calculus may still imply the statement, and priority requires independent investigation.
+PASS
 
-## Value — PASS
-A two-cycle is the simplest nontrivial recurrent component of a functional graph. The inequality proves a robust opposition between the number of unchosen targets and two-cycle formation, despite arbitrary target heterogeneity and possible zero weights, with a sharp numerical covariance guarantee. The zero one-cycle covariance supplies a contrasting structural boundary. This is a finite, natural all-parameter dependence law, not a computation for a selected parameter list.
+For independent common-target random mappings f(i)~p, write Z as sum of empty indegree indicators and T as pairwise 2-cycle indicators. On event f(i)=j,f(j)=i, the other n−2 arrows avoid each v outside {i,j} with probability (1−p_v)^(n−2). Summing p_i p_j yields exact Cov(Z,T)=((1+s2)V−2s2W)/2. If P assumes value p_i with probability p_i and h(t)=(1−t)^(n−2), monotonicity gives V=E[Ph(P)]≤E[P]E[h(P)]=s2 W. Thus Cov(Z,T)≤−s2(1−s2)W/2<0 when at least two positive p_i. Equality for n=2 (h constant) or equal positive probabilities for n>2 (h strictly decreasing). For fixed-point count F, conditional on any vertex absent, outgoing choices renormalize other p_j and E[F|I_v=1]=1, yielding Cov(Z,F)=0 even with zero weights. Independent exact Fraction enumeration checked n=3 uniform p=(1/3,1/3,1/3): −2/27, heterogeneous p=(1/2,1/3,1/6): −1/12, and p=(1/2,1/2,0): −1/16, plus zero Cov(Z,F). Source exact-rational checker was inspected, not treated as infinite proof.
 
-## Scope and limitations
-The law requires independent outputs sharing a common target distribution. It does not imply negative association, extend to arbitrary origin-dependent arrays, or classify longer directed cycles. The exact-covariance calculus is elementary but the global inequality and its equality case are separately proved; historical priority remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier uniform random mapping cycle work (Finch) and Hansen–Jaworski exchangeable-indegree models provide relevant formulas/frameworks, but do not in examined material establish this sharp all-p common-target negative covariance. Nonuniform p-mapping indegrees are generally nonexchangeable, so an exchangeability-only theorem does not directly cover the target; a broader generating-function identity may still imply it and is a priority risk.
+
+## value
+
+PASS
+
+Sources (zero-indegree vertices) and short directed cycles are basic functional-digraph observables. An exact all-n all-common-target-p sign bound, sharp equality cases, and contrasting fixed-point zero covariance reveal a universal dependence phenomenon absent from uniform-only mapping laws. The bound is quantitative and structured, not a routine numerical covariance sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

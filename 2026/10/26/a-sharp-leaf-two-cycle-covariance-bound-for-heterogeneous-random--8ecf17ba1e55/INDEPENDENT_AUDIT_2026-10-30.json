@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T00:01:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent common-target random mappings f(i)~p, write Z as sum of empty indegree indicators and T as pairwise 2-cycle indicators. On event f(i)=j,f(j)=i, the other n−2 arrows avoid each v outside {i,j} with probability (1−p_v)^(n−2). Summing p_i p_j yields exact Cov(Z,T)=((1+s2)V−2s2W)/2. If P assumes value p_i with probability p_i and h(t)=(1−t)^(n−2), monotonicity gives V=E[Ph(P)]≤E[P]E[h(P)]=s2 W. Thus Cov(Z,T)≤−s2(1−s2)W/2<0 when at least two positive p_i. Equality for n=2 (h constant) or equal positive probabilities for n>2 (h strictly decreasing). For fixed-point count F, conditional on any vertex absent, outgoing choices renormalize other p_j and E[F|I_v=1]=1, yielding Cov(Z,F)=0 even with zero weights. Independent exact Fraction enumeration checked n=3 uniform p=(1/3,1/3,1/3): −2/27, heterogeneous p=(1/2,1/3,1/6): −1/12, and p=(1/2,1/2,0): −1/16, plus zero Cov(Z,F). Source exact-rational checker was inspected, not treated as infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hansen–Jaworski treat random mappings with exchangeable indegree sequences; generic nonuniform p yields a nonexchangeable multinomial indegree vector.",
+          "Finch analyses uniform random mapping components and cycles."
+        ],
+        "reasoning": "Uniform laws are strict special cases of the present heterogeneous family; exchangeable-indegree theorems do not immediately imply every nonuniform p-mapping sharp bound, although generalized counting identities might.",
+        "searches": [
+          "nonuniform random p-mappings number of leaves and 2-cycles covariance negative",
+          "DOI:10.1002/rsa.20187",
+          "DOI:10.1239/aap/1208358892"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 22bb8eb1a40d1e509a73494eb30fc79b4cea2737",
+        "Frozen check_mapping_dependence.py blob 352b7486aa4a646afe3f2f91acab05df03ae1c32",
+        "Finch arXiv:2205.05579 (scope/abstract)",
+        "Hansen–Jaworski DOI:10.1002/rsa.20187 (abstract/scope)",
+        "Independent exact rational enumeration for three n=3 probability vectors",
+        "Resultary semantic p-mapping covariance search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform specialization yields Cov(Z,T)=−2/27 for n=3, which does not determine any heterogeneous vector.",
+          "The exact formula depends on V,W,s2 and inequality V≤s2W; this parameterized structure is absent from known uniform summary results."
+        ],
+        "reasoning": "Even if existing uniform covariance is known, it cannot imply all nonuniform distributions or the sharp equality condition. A general p-mapping joint generating function might logically entail it after nontrivial differentiation; possibility kept as residual risk.",
+        "searches": [
+          "nonuniform random p-mappings number of leaves and 2-cycles covariance negative",
+          "arXiv:2205.05579",
+          "DOI:10.1002/rsa.20187"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Empty indegree nodes correspond to sources or leaves in a functional digraph; 2-cycles are length-two cyclic components.",
+          "The assessed covariance is for independent identical target vector p, not origin-dependent transition arrays."
+        ],
+        "reasoning": "Comparisons use identical random variables/conditioning. Terminology differences in leaf/source and 2-cycle statistics must not be confused with negative association of the full graph.",
+        "searches": [
+          "nonuniform random p-mappings number of leaves and 2-cycles covariance negative",
+          "arXiv:2205.05579",
+          "DOI:10.1002/rsa.20187"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned random tree covariance and mapping-related results, not a table of all-p exact Cov(Z,T) or equality class.",
+          "Finite mapping enumerations validate examples only, not provide an all-n exact table."
+        ],
+        "reasoning": "No checked finite table or published invariant is known to determine the general real-p inequality; failed searches do not certify absolute priority.",
+        "searches": [
+          "nonuniform random p-mappings number of leaves and 2-cycles covariance negative",
+          "Resultary mapping leaf cycles covariance"
+        ]
+      },
+      "rationale": "Earlier uniform random mapping cycle work (Finch) and Hansen–Jaworski exchangeable-indegree models provide relevant formulas/frameworks, but do not in examined material establish this sharp all-p common-target negative covariance. Nonuniform p-mapping indegrees are generally nonexchangeable, so an exchangeability-only theorem does not directly cover the target; a broader generating-function identity may still imply it and is a priority risk.",
+      "residual_risks": [
+        "General p-mapping multivariate generating-function formulas could contain an equivalent derivative/covariance bound in an unfamiliar parametrization.",
+        "The primary 2008 exchangeable-indegree paper was not examined in full; cannot make whole-document noncoverage claim.",
+        "No negative association or origin-dependent transition result is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uniform model scope alone cannot settle nonuniform-p theorem; do not assert noncoverage of full preprint.",
+          "evidence": [
+            "Uniform random mapping components and cycle-length focus."
+          ],
+          "identifier_or_url": "arXiv:2205.05579 | https://arxiv.org/abs/2205.05579",
+          "material_read": "Bibliographic source information and summary/abstract on uniform mapping cycles; full primary text not read in this run.",
+          "method": "Primary preprint abstract/scope comparison",
+          "title": "Components and Cycles of Random Mappings",
+          "trigger": "Prior random mapping cycle statistics"
+        },
+        {
+          "assessment": "Exchangeable indegree assumption differs from generic p-mapping. Detailed implied covariance could exist, so no full-text noncoverage claimed.",
+          "evidence": [
+            "2008 work treats cyclic points conditional on exchangeable in-degree sequences."
+          ],
+          "identifier_or_url": "DOI:10.1002/rsa.20187",
+          "material_read": "Accessible abstract and bibliographic/definition material; complete 2008 primary paper not available/read.",
+          "method": "Lawful publisher abstract and theorem-scope comparison",
+          "title": "Random Mappings With Exchangeable In-Degrees",
+          "trigger": "Closest general counting theory, potential stronger coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sources (zero-indegree vertices) and short directed cycles are basic functional-digraph observables. An exact all-n all-common-target-p sign bound, sharp equality cases, and contrasting fixed-point zero covariance reveal a universal dependence phenomenon absent from uniform-only mapping laws. The bound is quantitative and structured, not a routine numerical covariance sample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 22bb8eb1a40d1e509a73494eb30fc79b4cea2737",
+    "Frozen check_mapping_dependence.py blob 352b7486aa4a646afe3f2f91acab05df03ae1c32",
+    "Finch arXiv:2205.05579 (scope/abstract)",
+    "Hansen–Jaworski DOI:10.1002/rsa.20187 (abstract/scope)",
+    "Independent exact rational enumeration for three n=3 probability vectors",
+    "Resultary semantic p-mapping covariance search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All n≥2 independent outgoing edges with one common probability vector p; not an arbitrary origin-dependent random mapping.",
+    "Strict negativity requires at least two positive targets, and no longer cycle bound is claimed."
+  ],
+  "residual_risks": [
+    "General p-mapping multivariate generating-function formulas could contain an equivalent derivative/covariance bound in an unfamiliar parametrization.",
+    "The primary 2008 exchangeable-indegree paper was not examined in full; cannot make whole-document noncoverage claim.",
+    "No negative association or origin-dependent transition result is proved."
+  ],
+  "schema_version": 1
+}
