@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T18:59:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Target frozen RESULT.md sections Finding, Proof, Verification, Assumptions",
+        "Target verify.py actual source and verify_output.txt (reported logs independently cross-checked)",
+        "Independent local enumeration and Hasse acyclicity n=1..7",
+        "Separate free-face collapse n=1..3"
+      ],
+      "rationale": "For each n>=1 faces are arc sets with in/out degree at most one and no antiparallel pair; underlying undirected tree excludes longer directed cycles. The subcomplex of outer arcs C_i,D_i is exactly (S^0)^{*n}. The first selected center arc A_i or B_i has respectively C_i or D_i as a valid toggle and gives a unique relative matching of all faces outside B_n. In the oriented Hasse graph no center arc can ever be inserted, so a directed cycle fixes its center-arc set; with the pivot fixed, every other outer arc only deletes and the pivot only inserts, ruling out cycles. Since B_n is a subcomplex, the relative acyclic-matching collapse lemma gives actual elementary simplicial collapse X(D_n) searrow B_n for all n. The join orientation z=*(C_i-D_i) yields a single integral homology line in degree n-1, S_n sign under factor permutations and (-1)^n under simultaneous arc reversal. The 0/1/2-center-arc partition exhaustively gives the claimed enumerator. Independent face construction (separate from repository verify.py) enumerated every compatible face and oriented Hasse cover for n=1..7, reproduced face counts 7,41,207,945,4023,16281,63423, B counts 3^n, pair counts 2,16,90,432,1890,7776,30618 and n=7 381024 covers; all graphs acyclic. A separate free-pair deletion simulated actual simplicial collapses for n=1,2,3. Finite computations are corroborative, not the all-n proof.",
+      "residual_risks": [
+        "Numerical enumeration stops at n=7; the all-n conclusion depends on the written center/pivot monotonicity proof.",
+        "The displayed simplicial collapse need not be equivariant, and only the induced inclusion homology isomorphism is used for the character."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caputi–Collari–Smith Proposition 2.2 computes multipath homotopy of bidirected paths and includes the nonbranching n=1,2 instances.",
+          "The suspension T-operation in Caputi–Collari–Smith has restricted directed attachment hypotheses, not an explicit full bidirection to every newly attached spider arm.",
+          "Caputi–Collari–Ramos quiver-minor and multipath–matching statements about directed acyclic graphs exclude graphs with antiparallel two-cycles such as D_n.",
+          "The published double-star theorem assumes two adjacent centers each with pendant neighbors; n>=3 two-edge spiders have one hub and intermediate degree-two nodes."
+        ],
+        "reasoning": "Compared the hypotheses, not article titles: path special cases are covered and not credited as original, while directed-acyclic or two-hub classifications do not directly imply the one-hub n>=3 bidirected subdivision collapse. General collapse tools could assist its proof but no dominating completed theorem was established in inspected sources.",
+        "searches": [
+          "homotopy multipath complexes of bidirectional trees bidirected subdivided star spider double star",
+          "multipath complex bidirected double-star homotopy classification",
+          "arXiv:2208.04656v1",
+          "arXiv:2401.01248v1",
+          "arXiv:2601.05670v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.05670v1, primary full 11-page text and screenshots",
+        "arXiv:2208.04656v1, primary full 18-page text and screenshots",
+        "arXiv:2401.01248v1, primary full 18-page text and screenshots",
+        "Resultary/2026 2026/10/11/SCOPE-homotopy-classification-of-bidirected-double-star-multipath-comp--9525e342e100, complete published RESULT.md",
+        "Resultary semantic results for three actual graph/invariant queries",
+        "Resultary/2026 2026/10/11/SCOPE-integral-branch-permutation-homology-of-extended-star-morse-comp--348812728b63, indexed summary compared by distinct complex type",
+        "Target frozen Git RESULT.md and all seven companion source blobs at inventory commit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known bidirected-path sphere results imply only the n=1 and n=2 nonbranching special cases.",
+          "The 2024 acyclic digraph matching/multipath comparison has hypotheses violated by the two-cycle on each undirected edge of D_n.",
+          "Resultary double-star formula involves distinct graph families (two adjacent high-degree vertices) and no branch-replacing equivalence is proved.",
+          "The extended-star Morse-complex top homology is a sign-twisted augmentation lattice, not the one-dimensional sign character of the directed-arc multipath complex."
+        ],
+        "reasoning": "The genuinely branching theorem plus integral group action and exact enumerator are not logical corollaries of the cited path/double-star/acyclic-orientation statements as written. A future stronger tree theorem could cover it, and broad categorical tools might be combined into a proof; no such specific implication appears in inspected sources.",
+        "searches": [
+          "arXiv:2601.05670v1 Proposition 2.2 and Section 3",
+          "arXiv:2208.04656v1",
+          "arXiv:2401.01248v1 Theorem 4.20",
+          "2026/10/11/SCOPE-homotopy-classification-of-bidirected-double-star-multipath-comp--9525e342e100",
+          "2026/10/11/SCOPE-integral-branch-permutation-homology-of-extended-star-morse-comp--348812728b63"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is a once-subdivided star S(K_{1,n}), also a spider with n legs each of length two; D_n contains both orientations of every edge.",
+          "Resultary extended-star Morse homology uses the same undirected graph but its vertices represent discrete Morse matchings, not individual directed arcs defining X(D_n).",
+          "Caputi–Collari–Smith Proposition 2.2 handles bidirected linear graphs; for n>=3 the center has degree n>=3 so D_n is not one of these paths."
+        ],
+        "reasoning": "Checked the graph aliases, its arc-complex definition, and the exactly identical underlying tree in a different complex. Equal source graphs or matching parameters do not equate discrete Morse and multipath complexes. No searched equivalent all-n branching-spider multipath theorem emerged; not a novelty certificate.",
+        "searches": [
+          "multipath complex of bidirected once subdivided star tree spider equal two edge arms cross polytope sphere equivariant homology",
+          "homotopy multipath complexes of bidirectional trees bidirected subdivided star spider double star",
+          "multipath complex bidirected subdivided star spider all arms length 2 homotopy collapse",
+          "arXiv:2601.05670v1",
+          "2026/10/11/SCOPE-integral-branch-permutation-homology-of-extended-star-morse-comp--348812728b63"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the nearest bidirected double-star classification and the extended-star Morse-complex representation, both inspected by mathematical object and invariant.",
+          "The double-star source RESULT.md gives wedges of spheres for D_{a,b} with hubs joined directly, not the cross-polytope complex for once-subdivided K_{1,n}.",
+          "No indexed exact face polynomial or homology character of the full branching bidirected two-edge-spider multipath family was found in searched published results."
+        ],
+        "reasoning": "An indexed finite table or same-parameter match would cover the theorem only if it calculated this same multipath complex, and an all-parameter stronger classification would cover it even with different wording. Checked the returned hits; no such table/dominating family was identified. Unindexed tables remain a priority risk.",
+        "searches": [
+          "multipath complex of bidirected once subdivided star tree spider equal two edge arms cross polytope sphere equivariant homology",
+          "multipath complex bidirected double-star homotopy classification",
+          "multipath complexes bidirectional trees subdivided stars cross polytope sphere Caputi Collari Smith 2026",
+          "Resultary semantic results including 2026/10/11/SCOPE-homotopy-classification-of-bidirected-double-star-multipath-comp--9525e342e100 and 2026/10/11/SCOPE-integral-branch-permutation-homology-of-extended-star-morse-comp--348812728b63"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality for the genuinely branching n>=3 bidirected once-subdivided star, not for n=1,2 already treated as bidirected paths. Actual primary theorem hypotheses, graph topology, arc-face definitions and homology representations were compared. Caputi–Collari–Smith gives bidirected path and polygon results plus a suspension operation, but no direct implication of this all-n fully bidirected branching-spider simple collapse and integral S_n×C_2 sign character was identified. The older multipath homotopy paper and directed-acyclic graph comparison results concern orientations not containing the same antiparallel-arc 2-cycles. The published bidirected double-star record studies two adjacent hubs and does not subsume the one-hub two-edge-arm family. The Resultary record for the same underlying extended star concerns its discrete-Morse matching complex, a different simplicial complex. No claimed global novelty proof or assertion that failed searches establish priority.",
+      "residual_risks": [
+        "No search proves universal novelty; an unindexed or unpublished general bidirected-tree collapse or equivalent spider classification could predate this result.",
+        "Generic matching/folding theory may supply a short proof; its mere availability is not an identified prior all-parameter statement or symmetry character.",
+        "The n=1,2 path cases are explicitly known and carry no priority claim.",
+        "The same underlying extended star also appears in studies of a different, ordinary discrete-Morse complex; conflating the two would create an invalid priority comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers n=1,2 bidirected path cases; does not state the n>=3 single-hub fully bidirected two-edge-spider collapse or its integral symmetry character.",
+          "evidence": "Proposition 2.2 bidirected-path homotopy results; Proposition 2.3 T-operation requires prescribed sources/sinks, whereas every edge of D_n has both orientations.",
+          "identifier_or_url": "arXiv:2601.05670v1; https://arxiv.org/pdf/2601.05670",
+          "material_read": "Complete 11-page primary paper: definitions, bidirected path Proposition 2.2, Proposition 2.3 T-operation, proof patterns, polygon theorems and hypotheses; page screenshots 4 and 5 inspected",
+          "method": "Full-text arXiv PDF, cross-checking theorem statements with paper figures and screenshot pages",
+          "title": "Multipath complexes of bidirectional polygonal digraphs",
+          "trigger": "Closest full-primary study of fully bidirected arc multipath complexes, specifically path special cases and potential T-operation reduction"
+        },
+        {
+          "assessment": "Provides tools and other orientations, but no previously established fully bidirected subdivided-star all-n homotopy and module classification.",
+          "evidence": "Its directed acyclic/oriented tree hypotheses differ from a D_n containing antiparallel two-cycles along all edges.",
+          "identifier_or_url": "arXiv:2208.04656v1; https://arxiv.org/pdf/2208.04656",
+          "material_read": "Complete 18-page primary preprint: initial definitions, decomposition methods, Theorem 4.11, directed caterpillars and special directed graph families; relevant pages visually inspected",
+          "method": "arXiv full-text PDF and selected screenshots",
+          "title": "On the homotopy type of multipath complexes",
+          "trigger": "Broad earlier multipath homotopy classification might dominate tree special case"
+        },
+        {
+          "assessment": "Its acyclic directed-tree/minor/matching comparison theorems cannot directly apply to each antiparallel-arc pair of D_n.",
+          "evidence": "Theorem 4.20 excludes directed cycles; D_n has length-two directed cycles by construction.",
+          "identifier_or_url": "arXiv:2401.01248v1; https://arxiv.org/pdf/2401.01248",
+          "material_read": "Complete 18-page arXiv preprint, especially Proposition 4.11, Corollary 4.12, Theorems 4.20 and 4.25 and their no-directed-cycle conditions; supporting pages visually inspected",
+          "method": "arXiv full-text PDF and selected screenshots",
+          "title": "The weak categorical quiver minor theorem and its applications: matchings, multipaths, and magnitude cohomology",
+          "trigger": "Potential general multipath/matching or tree reduction theorem implying the assessed claim"
+        },
+        {
+          "assessment": "Its two directly adjacent hubs with pendant leaves are not the single hub with n subdivided arms of the present theorem, n>=3; no subsumption.",
+          "evidence": "Defines D_{a,b} by neighboring centers u,v with a and b leaves and classifies X(D_{a,b}); its mixed-dimensional wedges differ from target S^{n-1} family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-homotopy-classification-of-bidirected-double-star-multipath-comp--9525e342e100",
+          "material_read": "Entire published RESULT.md including graph definitions, theorem, cases for a,b, cofibration proof and limitations",
+          "method": "Resultary semantic search followed by read-only full GitHub RESULT.md, Git blob d51b390d6fc45462122f5446c49807476021585b",
+          "title": "Homotopy classification of bidirected double-star multipath complexes",
+          "trigger": "Highest-ranking published exact homotopy classification for bidirected branching trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Caputi–Collari–Smith bidirected paths/polygons full paper",
+        "Published Resultary bidirected double-star full proof",
+        "Actual target RESULT.md and SLOGAN.txt"
+      ],
+      "rationale": "A fully bidirected once-subdivided star is a canonical single-branch-hub infinite family beyond the path cases and distinct from the two-hub double stars. Determining an actual elementary simplicial collapse for every n, rather than merely rational Betti numbers or a finite census, explains the topological cancellation of center-arc faces. The natural integral S_n-by-global-reversal character and exact full face enumerator add structural invariants relevant to study of multipath complexes of bidirected trees. The result is limited to precisely two-edge arms, but this is a motivated natural family, not an arbitrary computational slice. Proof is short and uses standard matching tools, yet the closed all-parameter classification and module action are mathematically useful as reference examples/boundaries.",
+      "residual_risks": [
+        "No claim of general fully bidirected tree classification or equivariant elementary matching.",
+        "Standard discrete-Morse machinery itself is not novel; value derives from its exact application to the motivated tree family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Target frozen RESULT.md sections Finding, Proof, Verification, Assumptions",
+    "Target verify.py actual source and verify_output.txt (reported logs independently cross-checked)",
+    "Independent local enumeration and Hasse acyclicity n=1..7",
+    "Separate free-face collapse n=1..3",
+    "arXiv:2601.05670v1, primary full 11-page text and screenshots",
+    "arXiv:2208.04656v1, primary full 18-page text and screenshots",
+    "arXiv:2401.01248v1, primary full 18-page text and screenshots",
+    "Resultary/2026 2026/10/11/SCOPE-homotopy-classification-of-bidirected-double-star-multipath-comp--9525e342e100, complete published RESULT.md",
+    "Resultary semantic results for three actual graph/invariant queries",
+    "Resultary/2026 2026/10/11/SCOPE-integral-branch-permutation-homology-of-extended-star-morse-comp--348812728b63, indexed summary compared by distinct complex type",
+    "Target frozen Git RESULT.md and all seven companion source blobs at inventory commit",
+    "Caputi–Collari–Smith bidirected paths/polygons full paper",
+    "Published Resultary bidirected double-star full proof",
+    "Actual target RESULT.md and SLOGAN.txt"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only length-two arms and full bidirection; n=1,2 are prior path cases.",
+    "The explicit matching is not claimed equivariant, only the induced integral homology action.",
+    "Finite enumerations stop at n=7; all-n proof is the combinatorial monotone Hasse matching.",
+    "Best-of-knowledge originality with residual unindexed literature risk.",
+    "Confidentiality-safe publication operations are not ready; scientific acceptance is not a GitHub publication or external certificate."
+  ],
+  "residual_risks": [
+    "Numerical enumeration stops at n=7; the all-n conclusion depends on the written center/pivot monotonicity proof.",
+    "The displayed simplicial collapse need not be equivariant, and only the induced inclusion homology isomorphism is used for the character.",
+    "No search proves universal novelty; an unindexed or unpublished general bidirected-tree collapse or equivalent spider classification could predate this result.",
+    "Generic matching/folding theory may supply a short proof; its mere availability is not an identified prior all-parameter statement or symmetry character.",
+    "The n=1,2 path cases are explicitly known and carry no priority claim.",
+    "The same underlying extended star also appears in studies of a different, ordinary discrete-Morse complex; conflating the two would create an invalid priority comparison.",
+    "No claim of general fully bidirected tree classification or equivariant elementary matching.",
+    "Standard discrete-Morse machinery itself is not novel; value derives from its exact application to the motivated tree family."
+  ],
+  "schema_version": 1
+}
