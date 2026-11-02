@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite graph, automorphism group, rational modules, signs and quantifiers are specified explicitly. The graph has exactly 392 nonempty independent faces. Reconstructed sequential toggles give 191 distinct face-pairings, and the full directed 1200-incidence Hasse graph topologically sorts, leaving precisely one critical point and nine critical three-cells. Forman's theorem therefore establishes homology concentration and the nine-dimensional rational vector space. Signed simplicial Lefschetz traces are then evaluated exactly for each of the 1920 distinct automorphisms; a separate Walsh transform verifies the translation character multiplicities. The proposed \(\operatorname{sgn}\)-twisted sum has the same character, so ordinary rational character uniqueness proves the full module isomorphism.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The same graph's ordinary sphere-wedge homotopy type is **already known**: the two closest published computations independently establish it. Neither of their inspected complete RESULT texts states the 1920-element rational automorphism action. Gromada describes the automorphism group and its quantum-symmetry setting, not the independence homology representation; Goyal–Shukla–Singh give Morse methodology; Cioabă–Mim establish lower-degree homology vanishing. Related translation characters for the Lovász neighborhood complex concern a different functor. The exact new group character and its full module decomposition are neither equivalent to nor implied by the published face vector or wedge type. Searches under Clebsch, Greenwood–Gleason, folded five-cube, projective hypercube, symmetry action, Lefschetz, and 1920-element group were not proof of global uniqueness; unknown/unindexed equivalent work remains a residual risk.
+PASS
 
-## Value — PASS
-The Clebsch graph is a canonical highly symmetric triangle-free strongly regular graph. The earlier nine-sphere result forgets how automorphisms act on homology. Determining the full rational representation, rather than only its dimension or one subgroup's trace, distinguishes its four translation-invariant generators from five nontrivial Fourier-character generators and proves that no generator survives all 1920 symmetries. This is a complete natural equivariant invariant for a previously studied canonical finite complex. The calculation is specific to the Clebsch graph and does not establish an infinite family, integral module or universal symmetry formula.
+The sixteen vertices are F_2^4 with adjacency differences {1,2,4,8,15}; enumerating all independent sets gives f=(16,80,160,120,16). Independently regenerated 191 Morse pairs, one critical vertex and nine critical 3-cells, and topologically sorted all 392 faces across 1200 Hasse incidences. Independently calculated signed fixed-simplex Lefschetz trace of all 1920 elements of N⋊S_5 and matched sgn(p)(#Fix(p)-1+sum_{p(i)=i} lambda_i(t)). Because rational representations of finite groups are semisimple and the proposed rational summands have exactly these characters, the graded module is sgn⊗(P0⊕M), with H3 dimension 9 and all other reduced homology zero. The bound 16·5!=1920 follows from vertex image and five-neighbor permutations; N⋊S5 attains it. The character restriction yields 4 trivial translation copies and five weight-four characters.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The known nine-three-spheres nonequivariant homotopy type supplies Betti numbers but not the complete 1920-element rational automorphism character. The standard folded-cube automorphism group and general Morse theory do not compute this module. An exhaustive character of this particular graph is a non-automatic symmetry refinement; historical priority qualified.
+
+## value
+
+PASS
+
+The Clebsch/folded-five-cube graph is a canonical 16-vertex strongly regular object. Its full rational homology representation is a natural invariant separating ordinary topology from symmetry, with concrete fixed-subspace consequences (translation invariant dimension 4, full automorphism invariants zero). This is not a graph-name substitution or a raw face count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
