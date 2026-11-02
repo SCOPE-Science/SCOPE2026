@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The statement quantifies over every \(p\equiv1\pmod{11}\), every \(k\ge3\), and every \(q\) with exact order eleven. The upper bound eleven follows from the geometric sum and invertibility of \(q-1\). A nonzero integer resultant of magnitude at most \(10^{10}\) excludes short sums whenever \(p^k>10^{10}\). The finite remainder contains exactly 29 primes and 31 modular scans, each testing all \(\binom{21}{11}-1\) coefficient vectors of total weight 1 through 10. The standalone checker verifies the prime list, primitive-order property, every modular condition, the four/five exceptional levels and explicit nine-term witnesses. Reduction modulo lower powers of \(p\) supplies the step from finite checks to every higher exponent. No finite experiment is used as an unproved infinite extrapolation. Residual risk: the computer-assisted finite enumeration has not undergone independent implementation review, although its small deterministic source and independent short-vector cross-check are provided.
+
+## Originality — PASS within inspected evidence
+Jacob–Külshammer (arXiv:2204.09403, Sections 1 and 3) study the same invariant and include the exceptional prime-23 numerical sequence. Those data are acknowledged as prior. An accessible earlier mathematical record proves a generic cyclotomic norm cutoff; the present result does not claim that step as new. Another earlier record treats the three-/four-summand finite-field order-eleven spectrum. Neither prior result entails that **every** prime other than 23 has minimum eleven already modulo its cube, or that the exact uniform cutoff is five. The accessible full-text comparison with Breuer et al. (arXiv:1912.03065) and targeted mathematical-record and bibliographic searches gave no all-prime order-eleven prime-cube theorem. Residual risk: unindexed equivalent results or inaccessible records; absence from a search is not proof of priority.
+
+## Mathematical value — PASS
+The stabilization index of the minimum power-sum length is a natural invariant in the published prime-power question, and Jacob–Külshammer explicitly motivate bounding that index. Replacing the generic bound with a **sharp** global cutoff resolves a coherent infinite family, not an arbitrary finite table. The exceptional prime 23 demonstrates sharpness, while the resultant proof makes finite verification logically exhaustive. The result is specific to order eleven and does not settle general subgroup orders.
+
+Self-review: passed. Independent audit: not yet performed.
