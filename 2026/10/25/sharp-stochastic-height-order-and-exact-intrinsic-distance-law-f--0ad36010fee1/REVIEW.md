@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proposed surface distance equals a continuous seam-consistent, facewise 1-Lipschitz potential; explicit unfolded paths attain that potential on every face. This proves the global metric reduction without relying on tests. The octant radial domain follows, and elementary integration establishes the three exact CDF branches, continuity, moment, differentiability transitions, and quadratic far-end deficit. The stochastic-order proof compares angular densities by a decreasing likelihood ratio and then couples a common uniform radial fraction. The standalone numerical script passed 5,245 checks but is not used as a proof.
+## correctness
 
-**Originality — PASS with bibliographic risk.** Miller–Pak (arXiv:math/0312253v1, full text inspected) already depict the cube’s special-case source unfolding (Figure 1) and prove the general theory; that case is acknowledged, not claimed new. The new statement treats every positive square-prism height with an explicit height-dependent radial domain, exact three-regime law, and a strict stochastic comparison between different heights. The full-text comparisons did not locate that stronger height-parametric theorem. The accessible Mathai–Moschopoulos–Pederzoli abstract concerns Euclidean distances, not intrinsic geodesics. Previously catalogued cube-vertex and bipyramid-apex distance laws use different source geometries and do not imply this comparison. Inaccessible specialist chapters and imperfect indexing leave residual novelty risk.
+PASS
 
-**Mathematical value — PASS.** A continuously varying canonical polyhedral family has an exact intrinsic distance CDF with three sharp differentiability transitions. Strict stochastic monotonicity under height change is a nontrivial comparison of area-normalized wavefront laws, not supplied by the isolated cube unfolding picture; a monotone angular likelihood ratio supplies an explicit structural mechanism. Exact moment and farthest-distance tail provide benchmark quantities for polyhedral geodesic computations.
+The piecewise Euclidean source image potential on the bottom, four sides, and top is globally intrinsic 1-Lipschitz across seams, and each nearest-image unfolded straight segment gives an attaining surface path. The resulting area-preserving source development has radial boundary rho_h(φ)=min{1/(2sinφ),(h+1)/(cosφ+sinφ)} on 0≤φ≤π/4. Thus A_h(r)=4 ∫ min(r²,rho_h²)dφ, giving three displayed exact branches with thresholds 1/√2, sqrt(h²+h+1/2), h+1, C¹ but not C² and 4 ε² upper-end deficit. Differentiation and piecewise evaluation check normalizations and E[D²]=(4h³+9h²+8h+2)/(6(2h+1)). The ratios rho_h2/rho_h1 are nonincreasing in φ, so angular densities ordered by monotone likelihood ratio admit ordered angle quantile coupling; multiplying the ordered radial boundaries by common sqrt(U) proves strict CDF order on 0<r<h2+1. Separately computed polar quadratures and strict comparisons for positive sample heights reproduce all branches (finite checks only).
 
-**Limits.** The claim concerns surface-area-uniform target points from a specified face center and unit base; it does not address other source positions, oblique/non-square prisms, or arbitrary source pairs. Originality remains contingent on further specialist bibliography. Numerical evidence is corroborative; no external audit or certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Miller and Pak already establish general source unfoldings for convex polyhedra and depict a cube face-center example. The submitted all-height square-prism source domains, exact three-transition CDF and strict distributional height ordering are genuinely stronger than that single h=1 picture and do not follow as stated from the generic unfolding existence theorem. Euclidean chord/cube random distance papers use a different metric. Best-of-knowledge PASS; an old specialized geometric-probability square-prism CDF remains possible.
+
+## value
+
+PASS
+
+An all-h exact intrinsic (not Euclidean) random geodesic-distance law from a natural marked source is a reproducible geometric-probability benchmark; the moving top transition, exact far-tail coefficient, moment and strict stochastic monotonicity under changing surface-area weights reveal geometric phenomena unavailable from a cube drawing alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
