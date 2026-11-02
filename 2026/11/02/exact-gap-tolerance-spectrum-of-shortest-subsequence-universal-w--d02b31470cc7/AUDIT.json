@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "A universal qk-length host decomposes into k unique q-letter permutations by the arch theorem; all repeated letter targets force each interblock jump, providing an exact lower bound. Greedy embedding of arbitrary targets stays by letter j within block j, and each next jump is bounded by the corresponding symbol displacement, proving the matching upper bound. An explicit rowwise count of permutations satisfying pi(j)<=j+d gives (d+1)^(q-d)d!, independent of current block; multiplying q! initial choices and k-1 transition choices yields the all-parameter formula. Finite literal exhaustive checks cover 4638 balanced words, including 888 universal hosts and 40901 target tests, and 27 independent bounded-permutation counts; these computations support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Day et al., arXiv:2206.13896v1, Theorems 4.1–4.4, address computational complexity for arbitrary hosts and constraints, not a closed enumeration under the qk minimal host requirement.",
+        "The 2022 survey, Theorem 13, is a known implication of universality but has no jump-optimality conclusion."
+      ],
+      "reasoning": "Broader decision-problem coverage does not imply the counted exact spectrum or characterization: it answers whether a given host is universal, not a distribution over all shortest hosts. General bounded-gap algorithms could in principle enumerate by brute force but do not constitute a prior exact formula.",
+      "searches": [
+        "shortest gap universal strings and permutation arches q-ary gap bounded",
+        "exact count shortest universal strings bounded gap subsequence  q factorial permutation blocks spacing maximum gap tolerance",
+        "permutation arches consecutive occurrences max distance bounded drop universal words",
+        "https://arxiv.org/html/2206.13896v1",
+        "arXiv:2208.14722 sections 4.1 and 4.2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2206.13896v1",
+      "https://arxiv.org/abs/2208.14722",
+      "https://arxiv.org/html/1306.5428v1",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "https://arxiv.org/abs/2206.13896"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arch theorem implies the permutation-block shape but not an exact formula for the minimax jump of arbitrary patterns.",
+        "Chen–Chen bounded-drop results apply to the restricted permutation transition factor, which is treated as an inherited ingredient, not novelty.",
+        "The insertion-radius theorem is about adding symbols to reach universality and cannot be specialized to the bounded-jump minimax statistic without additional nonstandard argument."
+      ],
+      "reasoning": "The new contribution is Step 2 coupling symbol repetition lower bounds with a universal greedy upper bound, yielding an exact invariant; Step 3 then transports a known restricted-permutation factor to an exact host spectrum. Neither inspected source gives this implication directly.",
+      "searches": [
+        "gap constrained subsequence universality minimum length all patterns length k consecutive position gap at most alphabet size permutation blocks rigidity",
+        "permutation arches consecutive occurrences max distance bounded drop universal words",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+        "arXiv:1306.5428",
+        "arXiv:2208.14722"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Day et al., arXiv:2206.13896v1, §4, concerns universality under gap constraints by decision procedures and complexity, not cumulative spectrum at minimal host length.",
+        "Kosche et al., arXiv:2208.14722, Theorem 13, characterizes classical k-universal hosts as products of k full-alphabet factors.",
+        "Public record Closed-form law for binary subsequence universality gives ungapped index distribution, not a jump bound."
+      ],
+      "reasoning": "The natural equivalent wording is uniform bounded-skipped-position subsequence universality at shortest possible host length. The proposed max over targets of min embedding jump and its cumulative distribution are stronger than ungapped universality and different from matching-hardness statements; no equivalent full statement appeared in these inspected results.",
+      "searches": [
+        "gap constrained subsequence universality minimum length all patterns length k consecutive position gap at most alphabet size permutation blocks rigidity",
+        "bounded gap universal words minimal length fixed gap two binary alternating word",
+        "bounded inter-occurrence distances words containing all length k subsequences",
+        "arXiv:2206.13896 (full text, Section 4 and appendices)",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "Exact gap-tolerance spectrum of shortest subsequence-universal words q k adjacent permutation-block displacement",
+        "max over subsequence patterns minimum maximal gap equals largest consecutive occurrence gap shortest universal words",
+        "count shortest length qk gap constrained universal hosts restricted permutations q factorial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published closest record Exact full-support insertion radius of subsequence universality proves max insertion distance max{qk-n,(q-1)(k-1)}, a different operation than limiting gaps inside embeddings.",
+        "Published Closed-form law for binary subsequence universality counts words by ordinary universality index; no gap-radius parameter.",
+        "Direct permutations and host exhaustive checks supply small values but are not historical novelty evidence."
+      ],
+      "reasoning": "No exact table with the ordered statistics (q,k,d) and cumulative q![(d+1)!(d+1)^(q-d-1)]^(k-1) was found in the queried records; a missing hit is not a uniqueness proof.",
+      "searches": [
+        "exact count shortest universal strings bounded gap subsequence  q factorial permutation blocks spacing maximum gap tolerance",
+        "gap universality on shortest qk-letters hosts: q!*((d+1)!*(d+1)^(q-d-1))^(k-1)",
+        "bounded inter-occurrence distances words containing all length k subsequences",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "Exact gap-tolerance spectrum of shortest subsequence-universal words q k adjacent permutation-block displacement",
+        "max over subsequence patterns minimum maximal gap equals largest consecutive occurrence gap shortest universal words",
+        "count shortest length qk gap constrained universal hosts restricted permutations q factorial"
+      ]
+    },
+    "rationale": "Exact comparison: Day et al. (arXiv:2206.13896, full 2022 preprint) address gapped matching/universality decision complexity; Kosche et al. (arXiv:2208.14722) provide arch factorization but no gap spectrum; Chen–Chen (arXiv:1306.5428) study bounded-drop permutations without universal-host jump equivalence; the available published insertion-radius finding measures minimum insertions, not constrained embedding jumps. The evaluated claim is the worst-pattern bottleneck equality plus complete all-q,all-k shortest-host radius distribution, not the classical arch or drop-count sublemma. Search cannot rule out an unindexed equivalent theorem.",
+    "residual_risks": [
+      "Equivalent exact characterization may exist under another name (subsequence locality/universal jump radius) in unindexed or inaccessible literature.",
+      "The bounded-drop permutation factor and standard arch property are inherited classical mathematics; the scientific claim depends on the nontrivial new coupling lemma and its implications."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest conceptual source; no enumerative formula for all minimum-length universal hosts or exact bottleneck jump in the inspected text.",
+        "evidence": [
+          "Theorems 4.1–4.4 give algorithms and hardness for constrained universality.",
+          "Section 4 explicitly defines decision universality for arbitrary hosts and constraints."
+        ],
+        "identifier_or_url": "arXiv:2206.13896v1, https://arxiv.org/html/2206.13896v1",
+        "material_read": "Full accessible arXiv HTML, introduction, preliminaries, Section 4 analysis theorems, and relevant appendices",
+        "method": "Read full public preprint, followed definitions of uniform gap constraints and universality and inspected complexity results",
+        "title": "Subsequences With Gap Constraints: Complexity Bounds for Matching and Analysis Problems",
+        "trigger": "Same bounded-gap subsequence universality objects and conditions"
+      },
+      {
+        "assessment": "Contains needed classical theorem to characterize universal hosts but not the jump invariant or its all-parameter enumeration.",
+        "evidence": [
+          "Theorem 13 asserts equivalence to k consecutive full-support factors."
+        ],
+        "identifier_or_url": "arXiv:2208.14722, https://arxiv.org/abs/2208.14722",
+        "material_read": "Accessible full text, especially §4.1 and Theorem 13, adjacent discussions on gapped matching",
+        "method": "Read relevant full-text sections and checked the exact arch-factorization statement",
+        "title": "Combinatorial Algorithms for Subsequence Matching: A Survey",
+        "trigger": "Arch theorem for shortest hosts and literature review of universality"
+      },
+      {
+        "assessment": "The restricted-permutation factor is classical and not claimed as new. Does not discuss shortest subsequence-universal host bottleneck jump.",
+        "evidence": [
+          "The paper introduces maximum permutation drop i-pi(i) and studies associated enumerations/refinements."
+        ],
+        "identifier_or_url": "arXiv:1306.5428v1, https://arxiv.org/html/1306.5428v1",
+        "material_read": "Public arXiv full HTML, definitions, introduction and stated results on bounded drops",
+        "method": "Read and compared maximal drop statistic and permutation count scope",
+        "title": "On Permutations with Bounded Drop Size",
+        "trigger": "Restricted-permutation transition count may be classical under drop statistic"
+      },
+      {
+        "assessment": "Not covering: optimizes number of symbol insertions over full-support inputs, not worst-pattern maximal embedded jump or spectrum at host length qk.",
+        "evidence": [
+          "Full statement gives max{qk-n,(q-1)(k-1)} insertion distance and one extremal family, with no constrained subsequence gaps."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+        "material_read": "Complete public RESULT.md, including theorem, assumptions, proof and relation to prior work",
+        "method": "Fetched and compared full claim with gap-constrained minimax invariant",
+        "title": "Exact full-support insertion radius of subsequence universality",
+        "trigger": "Highest-overlap published mathematical finding from record search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d02b3147-0cc7-44c0-aba3-9388a562474e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives a complete structurally motivated spectrum of uniform locality budgets for shortest k-universal hosts, rather than a narrow arbitrary computed slice: exact minimax gap per object, sharp lower bound and unique minimum-tolerance family, closed cumulative and exact counts for every tolerance, and exponential concentration of the worst radius. This answers a natural locality-aware construction and enumeration question central to gap-constrained pattern matching, with explicit scope and reproducibility.",
+    "status": "PASS"
+  }
+}

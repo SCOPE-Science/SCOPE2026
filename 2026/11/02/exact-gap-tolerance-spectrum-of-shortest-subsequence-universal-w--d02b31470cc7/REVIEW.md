@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The statement is for all labeled alphabets of size \(q\ge2\) and all integers \(k\ge2\), with a precise choice of index jump rather than skipped-position gap. Universality at the minimum possible length gives exactly \(k\) permutation blocks by the arch characterization. The repeated-letter targets force every inter-block occurrence jump, yielding the lower bound on the worst-target optimized embedding jump. A greedy embedding of each arbitrary target yields a matching upper bound. The count of permitted adjacent blocks follows an explicit step-by-step restricted-permutation construction, and multiplication over block boundaries gives the complete cumulative and exact spectra. The max-radius probability is an exact ratio. The standalone exhaustive checks of 888 universal hosts in seven parameter families and 27 permutation cases corroborate—not prove—the infinite assertions.
+
+## Originality — PASS, residual risk acknowledged
+The closest inspected primary preprint, Day–Kosche–Manea–Schmid, analyzes general matching and complexity of gap-constrained universality, not this shortest-host exact distribution. The survey's arch theorem provides a needed known ingredient. Chen–Chen treats bounded-drop permutations, so the isolated combinatorial factor is specifically excluded from claims of novelty. A published insertion-radius theorem optimizes edit operations, not embedding jump. A published binary universality-index formula likewise has no gap statistic. Targeted published-record and literature searches found no statement implying the all-parameter formula, but absence from available indices does not establish uniqueness; an equivalent specialized result may be inaccessible or unindexed.
+
+## Mathematical value — PASS
+Unlike an arbitrary parameter sample or an isolated count, the theorem identifies a natural resource for shortest universal test strings: the maximum positional separation required to witness every pattern. It gives a structural formula for that bottleneck, exact counts at **every** admissible tolerance and alphabet size, all minimum-tolerance optimizers, and a sharp concentration law identifying how the poorest possible tolerance dominates for growing pattern length. These results distinguish the gap-resource design problem from ordinary universality and are potentially useful when universal sequence hosts must meet locality limits. The repeated-symbol bottleneck makes the answer exact rather than heuristic.
+
+## Closest literature and limitations
+The proof builds on the arch characterization in Kosche et al.'s survey and a known bounded-permutation counting method; it is not a claim to either result. Day et al.'s general hardness results are for substantially broader hosts and constraints and do not conflict with this exact special family. The result concerns only hosts of length \(qk\), uniform consecutive jumps, and patterns of length \(k\ge2\). Independent scientific validation is not part of this review. An equivalent unindexed specialization remains a concrete originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
