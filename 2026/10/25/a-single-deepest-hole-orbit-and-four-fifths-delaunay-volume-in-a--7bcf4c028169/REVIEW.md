@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is an exact finite reduction plus periodic symmetry, not sampling. The twelve chamber inequalities are valid bisectors and symmetry boundaries. An independent standalone exact rational enumeration reconstructs all \(41\) outer-polytope vertices and identifies exactly four maximal-radius candidate types. Bounding-box arguments prove the nearest-site search is exhaustive; every candidate has exactly six equidistant closest sites with determinant of absolute value one. Two site cosets, three order-\(192\) site-stabilizer hole orbits and six sites per hole imply \(192\) holes per period. A Delaunay tessellation has interior-disjoint maximal-hole simplices, each with the stated determinant; their exact volume fraction is \(4/5\). The entire package's embedded checker was independently replayed. No numerical approximation supplies any infinite claim.
+## correctness
 
-## Originality — PASS (residual historical risk)
-The original arXiv paper establishes the record two-periodic set, its covering radius and an upper-bounding chamber with a list of vertices, but checks one witness rather than classifying all true deepest-hole centers. The closest research record optimizes the configuration across a diagonal metric parameter but does not give a 192-hole one-orbit classification or a 4/5 Delaunay occupancy theorem. Both full primary mathematical texts were inspected, together with actual semantic searches for aliases, orbit counts, Delaunay volumes and implication-equivalent claims. No identified source establishes the whole claimed result or a stronger result implying it. A cited companion note that could contain an overlapping census was not publicly readable in full; independent historical priority is therefore not certified.
+PASS
 
-## Mathematical value — PASS
-The source's sharp packing–covering ratio is a single extremal scalar; the geometry of where its maximal empty spheres occur and what fraction of a periodic Delaunay tessellation their cells fill is a natural additional structural invariant of the record configuration. The exact 4/5 spatial occupancy and the distinction between three point-stabilizer orbits and one full orbit require substantive face-vertex, nearest-site, and incidence analysis. This is a complete natural geometric classification and not a mere change of coordinates or re-evaluation of the covering radius. The theorem is limited to one configuration and does not settle global periodic packing–covering optimality.
+PASS: The eight specified halfspaces are genuine Voronoi bisectors and the other four bound a signed-permutation chamber. Independent rational reconstruction found 455 invertible intersections among 792 five-hyperplane choices, precisely 41 feasible vertices and four candidates maximizing q=27/50. A provably sufficient bounding box for site displacements (first four <1, fifth <3/2) yields precisely six equidistant nearest sites for each, all with absolute coordinate determinant 1. The 384-element site stabilizer produces three disjoint 192-hole orbits, linked by site-changing symmetries into one global orbit. Double-count 2 sites per D5 period times 576 holes per site divided by six sites per hole =192. Delaunay cells are interior-disjoint; 192 simplices of determinant 1 occupy fraction 192/(120*2)=4/5. The bounded certificate is mathematically exhaustive because of chamber containment and site-distance cutoff, not because of floating-point optimization.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: the initiating Ahrend–Dutour Sikirić paper establishes the same configuration and covering radius 27/50 and a containing chamber, but accessible primary abstract does not claim the full true-hole orbit/incidence/Delaunay-occupancy classification. The published Resultary exact diagonal-ray optimizer was materially read in full and determines scalar packing-covering optimality across metrics, not the geometry of maximal Delaunay cells. A specifically cited but inaccessible companion note may contain related orbit census; no whole-document NOT_COVERING claim is made.
+
+## value
+
+PASS
+
+PASS: deepest-hole orbits, nearest-site incidence and maximal Delaunay volume occupancy are natural geometrical structural invariants of the record nonlattice periodic configuration. The complete 192-hole/one-orbit/4/5 answer requires exact chamber, nearest-site and periodic counting; a known scalar covering radius alone does not determine these data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
