@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Enumeration of all 710 nonempty simplices (20,130,320,240) and signed boundaries. Exact unit-pivot integer reductions give SNF(d1)=1^19, SNF(d2)=1^111, SNF(d3)=1^208,2, with residual rank-one minors and gcd two checked; chain condition verified. Therefore the claimed integral homology holds. Exhaustive signed Lefschetz traces on all 14 S5 x C2 conjugacy classes, independently reconstructed using rim-hook characters, prove the Specht decomposition; embedded standard-library scripts replay both computations.
+## correctness
 
-## Originality — PASS
-Original arXiv:2208.04656 and later arXiv:2401.01248 use coherently oriented complete bipartite graphs, rather than the bidirected graph. arXiv:2601.05670 concerns bidirected polygons. Nearest accessible earlier data for bidirected K(2,n) stop at n=4 and do not imply the n=5 group or its S5 x C2 character. Targeted semantic searches found no exact coverage. Unindexed or inaccessible equivalent work is residual risk, not excluded.
+PASS
 
-## Value — PASS
-The bidirected biclique is a natural symmetric family in multipath-complex topology; n=5 is the first new case beyond the previously computed torsion onset. It has a qualitatively different integral homological profile (2-torsion in degree two together with rank 31 in degree three). Determining its complete S5 x C2 homology representation distinguishes two 16/15-dimensional symmetry sectors, no leaf-invariant classes, and explicit irreducible constituents invisible to Betti numbers. This is more than an unmotivated next-rank computation.
+Reconstructed allowed path-subgraphs directly from 20 directed arcs. All 710 nonempty faces are exhausted by sizes (20,130,320,240); exact signed chain compositions vanish. Unimodular unit-pivot eliminations give d1 rank19 with only units, d2 rank111 with only units, and d3 208 unit pivots plus rank-one residual gcd2, all its 2×2 minors zero: Smith factors (1^208,2). Thus H~2=Z/2 and H~3=Z^31. Independently enumerated oriented fixed-simplex traces for seven S5 cycle types with/without hub swap, exactly (31,1),(-5,-3),(-1,1),(1,1),(1,-3),(-1,1),(1,1); the ordinary Specht decomposition gives 16-dimensional + and 15-dimensional − sectors, no S5-fixed class. These computations are exhaustive because every eligible simplex has ≤4 arrows, not a finite approximation of an infinite claim.
 
-## Closest literature and limitations
-Caputi et al., arXiv:2208.04656, and arXiv:2601.05670 concern the core theory and bidirected polygonal graphs; neither gives the five-leaf bidirected biclique character. Earlier smaller-case computations are not reclaimed as new. The result neither classifies homotopy type nor integral representation lattices. Unindexed equivalent work remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected stronger statement implies this exact bidirected five-leaf integral torsion and full rational S5×C2 character. Previously investigated smaller bidirected bicliques and the general one-way biclique multipath results do not determine the present group character; this is best-of-knowledge with bibliographic risk.
+
+## value
+
+PASS
+
+The bidirected biclique is a canonical first symmetric multipath family beyond previously reported four-leaf torsion. Its integral order-two class and 31-dimensional rational representation have qualitatively different information; explicit 16/15 hub eigenspaces and lack of S5 fixed vectors are independently meaningful for equivariant topology. Not just an arbitrary small extra rank: the full natural automorphism action is determined.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

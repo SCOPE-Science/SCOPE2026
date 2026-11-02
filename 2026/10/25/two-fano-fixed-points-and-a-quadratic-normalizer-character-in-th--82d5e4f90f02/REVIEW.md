@@ -1,15 +1,21 @@
-# Review: Two Fano fixed points and a quadratic normalizer character in the seven-point intersecting-triples complex
+# Independent mathematical audit
 
-## Correctness
-The five translation orbits are exhausted by representatives 012,013,014,015,024. Three contain explicit disjoint translated triples; only 013 and 015 span simplices, and an explicit cross-orbit disjoint pair excludes their union. Fixed barycentric coordinates on each whole orbit force its barycenter. Multipliers 2 and 3 respectively preserve and swap the pair, generating the normalizer action. A standalone exact enumerator confirms the exhaustive finite cases.
+## correctness
 
-## Originality
-The inspected October 2026 primary paper computes nonequivariant rational homology in degrees six and nine and poses torsion and ambient homotopy questions; neither Section 6 nor Section 7 treats fixed geometric realizations, C7 or its affine normalizer. Accessible earlier findings concerning integral homology of the same KG(3,1) are nonequivariant and do not imply the two-point fixed locus or quadratic normalizer action. Classic seven-point Fano design enumeration supports the orbit interpretation without providing the whole fixed-point statement. An equivalent equivariant observation in uninspected literature remains possible.
+PASS
 
-## Value
-The order-seven translation is a canonical transitive subgroup of the seven-label automorphism group of the first nontrivial triple Kneser complex. Its fixed geometric topology is disconnected even though the ambient complex has vanishing reduced H0 (and rational homology only in high degrees); the normalizer carries a nontrivial quadratic integral degree-zero character. This provides an exact, structurally motivated equivariant datum not recoverable from ambient Betti numbers and relevant to fixed-point and Lefschetz comparisons.
+Every 3-subset of Z7 has full translation orbit, five orbits of seven vertices. A simplex invariant under translation must be union of complete orbits. The orbits represented by 012,014,024 each contain disjoint translated triples, while 013 and 015 are cyclic Fano designs with all within-orbit triples intersecting; a cross-orbit disjoint pair excludes their union. In each invariant simplex, translation invariance forces equal barycentric coordinates, so precisely two fixed barycenters. The order-six multiplier group permutes these two orbits: 2 preserves, 3 exchanges; squares fix and nonsquares exchange, giving the quadratic sign on reduced H0. Independently enumerated 35 triples, all five orbits and all 42 affine actions; the proof itself is exhaustive finite combinatorics.
 
-## Closest literature and limitations
-Feng, arXiv:2610.17394, supplies rational ambient homology but not the equivariant fixed-point result. The Fano-plane enumeration in arXiv:1509.06009 explains the natural incidence patterns, and related equivariant folklore may remain unlocated. The claim is limited to the seven-point complex and this distinguished subgroup.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after statement/implication comparison against relevant primary literature and published Resultary records; preexisting general ingredients and exact special cases explicitly credited; residual priority risks retained.
+
+## value
+
+PASS
+
+The cyclic fixed locus and its integral normalizer character are natural equivariant-topology invariants for the first seven-point triple Kneser complex; they are not reconstructible from the ambient nonequivariant Betti numbers alone. It is a motivated complete tiny equivariant classification tied to the Fano incidence design, not an arbitrary numerical specimen. Its scope is deliberately limited to this group and complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

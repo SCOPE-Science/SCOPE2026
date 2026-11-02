@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:03:55Z",
+  "axes": {
+    "correctness": {
+      "certificates": {
+        "sample_counts": [
+          {
+            "N": 16,
+            "b": 0,
+            "h": 15,
+            "n": 5,
+            "squares": 40,
+            "two_step_pairs": 80
+          },
+          {
+            "N": 32,
+            "b": 160,
+            "h": 55,
+            "n": 6,
+            "squares": 120,
+            "two_step_pairs": 240
+          }
+        ],
+        "source_files": [
+          "RESULT.md",
+          "verify.py",
+          "VERIFICATION.md"
+        ]
+      },
+      "checked_sources": [
+        "Git blob d7c4c71b050538413a6f9f545d6e359a9f23dde4 (RESULT.md)",
+        "Git blob 782b4a219472a975be1f2502175cf7539aaa3f60 (folded-cube checker)",
+        "independent_checks.json record3",
+        "standard CW structure of RP^(n-1) and integral UCT"
+      ],
+      "rationale": "Checked precise Alexander-dual face predicate: 0/1-simplices complete; triangles correspond exactly to connected graph triples (induced 2-paths); tetrahedra to induced squares; no 5-vertex dual faces by triangle-free Mantel bound. For n≥5 the antipodal quotient of Q_n has unique common-neighbor square completions, so each square tetrahedron collapses along a unique triangle and then a free diagonal edge, leaving the square-filled graph plus b far-distance edges. Its square-filled subcomplex is the 2-skeleton of the cubical CW quotient of the n-cube boundary by the free antipodal map, homeomorphic to RP^(n-1). Consequently H1=Z/2, H2=Z^h where h=2^(n-4)(n^2−5n+8)−1, and adding b far edges gives H1=Z^b⊕Z/2. Integral UCT places the Z/2 Ext class in H², while duality shifts it to H~_{N−5}(Δ3), alongside free H~_{N−4}=Z^b. Independently checked n=5 N16 q40,b0,h15, and n=6 N32 q120,b160,h55. Infinite n follows from the covering-space and collapse argument, not these finite samples.",
+      "residual_risks": [
+        "Finite n=5,6 cases cannot prove every dimension; quotient geometry and free-face uniqueness provide the universal argument.",
+        "The n=4 exception precludes unqualified extension below n=5."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 2026-10-11 8ca830284420 assumes pairwise edge-disjoint 4-cycles; each edge of FQ_n belongs to n−1≥4 such cycles.",
+          "Resultary 98a5c720a71e and 438357602cff concern closed Čech nerve and open neighborhood of folded cubes, not ordinary Δ3."
+        ],
+        "reasoning": "The edge-disjoint theorem does not specialize; projective skeleton results for other nerves do not imply the complete ordinary Δ3 integer rank formula without two-path dual identification and exact square collapses.",
+        "searches": [
+          "ordinary three-cut complex antipodal folded hypercubes projective space torsion",
+          "exact Alexander dual topology of ordinary 3-cut complexes triangle-free graphs uniquely completed 2-paths squares projective plane folded cube"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.13675 abstract and classifications",
+        "arXiv:2407.08158 abstract and classifications",
+        "Resultary 8ca830284420 full RESULT",
+        "Resultary 98a5c720a71e closed Čech",
+        "Resultary 4f10424a46be Clebsch example",
+        "Resultary 438357602cff folded cube neighborhood",
+        "SCOPE source RESULT.md, verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The edge-disjoint-square theorem concludes torsion-free wedge top homology on its restricted graph class; the present folded-cube Δ3 has Z/2 next-to-top for all n≥5.",
+          "General UCT and Alexander duality are known tools but do not determine the FQ_n dual homotopy before unique square completion and projective 2-skeleton identification."
+        ],
+        "reasoning": "The overlap in proof methods is acknowledged, but the hypotheses and homology conclusions differ sharply; neither stronger stated result implies the submitted family theorem.",
+        "searches": [
+          "ordinary three-cut complex antipodal folded hypercubes projective space torsion",
+          "exact Alexander dual topology of ordinary 3-cut complexes triangle-free graphs uniquely completed 2-paths squares projective plane folded cube"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bayer et al., arXiv:2304.13675 and arXiv:2407.08158 discuss ordinary cut complexes and graph families.",
+          "Published Resultary ordinary Δ3 edge-disjoint-square theorem 8ca830284420; folded cube violates its square edge-disjointness assumption."
+        ],
+        "reasoning": "Ordinary versus total cut and folded hypercube versus Q_n are essential; square-completion Čech/open-neighborhood aliases concern different simplicial face tests despite common underlying projective geometry.",
+        "searches": [
+          "ordinary three-cut complex antipodal folded hypercubes projective space torsion",
+          "exact Alexander dual topology of ordinary 3-cut complexes triangle-free graphs uniquely completed 2-paths squares projective plane folded cube"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Clebsch case 4f10424a46be reports projective two-torsion for a scale-two Čech nerve; published ordinary cube Δ3 cases concern Q3, not folded FQ_n."
+        ],
+        "reasoning": "Known finite/projective examples do not form an all-n table of ordinary Δ3 homology; same order-two group alone is insufficient to equate simplicial complexes.",
+        "searches": [
+          "ordinary three-cut complex antipodal folded hypercubes projective space torsion"
+        ]
+      },
+      "rationale": "The genuine ordinary three-cut edge-disjoint-square theorem is close but its hypotheses fail for folded cubes because each cube edge belongs to n−1 squares. General cut-complex papers study different graph families; published folded-cube square Čech and neighborhood results share projective 2-skeleton geometry but not the same Alexander-dual predicate. The full integral ordinary Δ3 theorem survives best-of-knowledge with a risk of stronger square-complex or Stanley–Reisner formulations.",
+      "residual_risks": [
+        "Primary Bayer et al. cut-complex full texts not read; generic stronger theorem or differently named folded-cube result may exist.",
+        "Need n≥5: FQ4 has exceptional 4-step antipodal identifications; no original cut-complex homotopy classification asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_APPLICABLE: strong edge-disjointness violated",
+          "evidence": "Each FQ_n edge is in n−1≥4 distinct 4-cycles, contrary to pairwise edge-disjoint requirement; that theorem predicts no torsion under its assumptions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-triangle-free-graphs-with-edge-disjoint-s--8ca830284420",
+          "material_read": "Full RESULT.md, hypotheses n≥8, face characterization, collapse proof and exclusions",
+          "method": "Full public GitHub result-file reading",
+          "title": "Three-cut complexes of triangle-free graphs with edge-disjoint squares",
+          "trigger": "Same ordinary Δ3 and square collapse technique, potential dominating theorem"
+        },
+        {
+          "assessment": "NO identified folded-hypercube result in inspected material; full-text NOT_COVERING not asserted",
+          "evidence": "General ordinary cut complexes are prior, but stronger uninspected content is a residual risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675",
+          "material_read": "Abstract and indexed descriptions of classified forests/cycles/complete multipartite examples; full HTML unavailable",
+          "method": "Public abstract and bibliography reading",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Foundational ordinary cut-complex prior work"
+        },
+        {
+          "assessment": "NO shown antipodal-quotient theorem; full-text priority unresolved",
+          "evidence": "Plain rectangular grids differ from folded hypercube graphs, but stronger methods might apply.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.08158",
+          "material_read": "Abstract and indexed classification list including squared paths and rectangular grids; full HTML unavailable",
+          "method": "Public abstract/index reading",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Potential general coverage of grids or cubical graphs"
+        },
+        {
+          "assessment": "DIFFERENT complex; not a covering source on current evidence",
+          "evidence": "Čech nerve of closed neighborhoods is not ordinary Δ3; sharing projective H1 is not theorem implication.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-projective-plane-summand-in-the-scale-two-ech-nerve-of-the-cle--4f10424a46be",
+          "material_read": "Resultary scientific title and summary; full research package not reread",
+          "method": "Public index/abstract comparison",
+          "title": "A projective-plane summand in the scale-two Čech nerve of the Clebsch graph",
+          "trigger": "Nearby same finite Clebsch graph with projective torsion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/integral-two-torsion-in-three-cut-complexes-of-all-folded-hyperc--d6152c8879ed (RESULT.md)",
+        "arXiv:2304.13675 abstract and classifications"
+      ],
+      "rationale": "A uniform infinite family of highly symmetric folded cubical graphs has integral next-to-top torsion and complete explicit free ranks, yielding nonshellability at every n≥5. The proof explains the exact Z/2 obstruction through a projective-space 2-skeleton and integral UCT rather than ad hoc finite computations. This structurally motivated classification is not a routine special case of the edge-disjoint-squares theorem.",
+      "residual_risks": [
+        "All-n group structure strongly motivates the theorem; new geometric consequences beyond torsion nonshellability not asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No homotopy type or equivariant module for the original ordinary 3-cut complex.",
+    "The finite n=5,6 checks cannot substitute for n≥5 projective-cell argument."
+  ],
+  "schema_version": 1
+}

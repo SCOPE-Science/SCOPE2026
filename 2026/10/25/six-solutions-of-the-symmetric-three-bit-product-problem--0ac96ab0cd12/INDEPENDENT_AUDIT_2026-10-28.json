@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:03:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The explicitly cited Kaneko–Stoll Theorem 2.2 gives ab<2^(-13+4*3*3)=2^23 for positive odd factor weights (3,3) and product weight 3. Therefore each factor and product is one of exactly 231 odd three-bit integers 1+2^i+2^j, 1<=i<j<=22. The package implements both complete factor-pair search under the strict product bound and independent product-divisor search. Fresh independent integer enumeration reproduced all six pairs, the 231 product candidates, and eleven ordered solutions, with direct bitcount checks. The external infinite bound, not the finite enumeration alone, proves exhaustion over all positive odd integers; it was verified against the cited theorem statement. No inference is made for negative/even factors or other weights.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaneko–Stoll: bound ab<2^(-13+4ℓm) when s2(ab)=3 and max(ℓ,m)>=3; this theorem is the indispensable finite reduction.",
+          "Resultary asymmetric case exhaustively gives (3,7),(5,7) for (2,3,3), not any (3,3,3) pair."
+        ],
+        "reasoning": "A general upper bound implies a finite search is possible but does not state which of the bounded products have weight three; the special-case census is not a corollary without additional arithmetic checking.",
+        "searches": [
+          "Kaneko–Stoll 2022 Products of integers with few nonzero digits, Theorem 2.2 and Section 4",
+          "Resultary 2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9"
+        ]
+      },
+      "checked_sources": [
+        "Kaneko–Stoll 2022 Theorem 2.2 arXiv:2112.03077v1 full accessible HTML",
+        "Resultary 2026/10/4 exact (3,2,3) RESULT.md full",
+        "SCOPE2026 assigned RESULT.md and verify.py immutable tree SHA 71922f33db6533023f0a6cde7ce4554afad172f6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kaneko–Stoll implies any solution lies below 2^23, but neither states the six solutions nor the count.",
+          "The asymmetric cases have a weight-two factor and so cannot be instances of the target condition."
+        ],
+        "reasoning": "The claimed classification follows from the general bound PLUS a novel finite arithmetic census; it is not mechanically implied by the bound without examining possible products. The previously published (3,2,3) table does not cover these pairs.",
+        "searches": [
+          "Kaneko–Stoll Theorem 2.2 and proof",
+          "Resultary full RESULT.md asymmetric (3,2,3) exact classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulation: three nonzero binary digits in both odd factors and their product, or three one-bit positions including the units bit.",
+          "The exact factor/product triple is distinct from asymmetric (3,2,3), which requires one factor of weight two."
+        ],
+        "reasoning": "Permuting factors only changes ordered versus unordered counts; the source gives exactly six unordered and eleven ordered cases. An asymmetric weight pair cannot imply the symmetric triple.",
+        "searches": [
+          "Resultary semantic query: binary digit Hamming weight s2(a)=s2(b)=s2(ab)=3 odd integers six pairs Kaneko Stoll enumeration",
+          "Kaneko–Stoll arXiv:2112.03077v1, Theorem 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full published (3,2,3) classification consulted and found to list two distinct cases.",
+          "The inspected Kaneko–Stoll text provides no six-pair table for (3,3,3)."
+        ],
+        "reasoning": "The absence of an indexed identical table is not a proof no earlier table exists; the relevant short arithmetic list is particularly susceptible to prior informal enumeration.",
+        "searches": [
+          "Resultary semantic binary three-bit weight product census query",
+          "Targeted literature: exact triple weight (3,3,3); factors (7,19) (7,37) (11,35) (13,21) (21,49)"
+        ]
+      },
+      "rationale": "The broad finiteness bound and binary-weight product problem are already Kaneko–Stoll; the 2026 published Resultary asymmetric (3,2,3) census is a different parameter slice. Kaneko–Stoll primary theorem/proof do not exhibit the six (3,3,3) solutions in inspected statements. The new content is complete finite classification of the natural first symmetric weight-three case under the established bound, with qualified priority against unindexed small-weight tables.",
+      "residual_risks": [
+        "Historical/unindexed binary sparse-product lists may contain these six cases.",
+        "The only global exclusion is conditional on published Kaneko–Stoll bound; source proof was inspected, not independently reproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bound covers finiteness; the (3,3,3) complete list was not identified in the inspected material",
+          "evidence": "Theorem 2.2: k=3 and max(ℓ,m)>=3 implies ab<2^(-13+4ℓm); substitute ℓ=m=3.",
+          "identifier_or_url": "https://arxiv.org/html/2112.03077v1",
+          "material_read": "Accessible primary HTML including Theorem 2.2, its hypotheses, bound, and proof discussion in Section 4",
+          "method": "primary arXiv HTML read",
+          "title": "Products of integers with few nonzero digits",
+          "trigger": "Identical digit-weight multiplicative problem and crucial product bound"
+        },
+        {
+          "assessment": "Different condition, weight (2,3) factors; does not cover (3,3)",
+          "evidence": "Published output (3,7) and (5,7) with product weight three.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9/RESULT.md",
+          "material_read": "Entire published RESULT.md: claim, proof, assumptions, reference, and limitations",
+          "method": "GitHub connector fetch_file",
+          "title": "Exact (3,2,3) binary-weight product classification",
+          "trigger": "Closest published exact special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The symmetric first nontrivial binary digit-weight product slice has a natural finite answer not supplied by the global exponent bound; six exact sporadic solutions and the proof of exhaustiveness answer a concrete arithmetic classification problem. It is a self-contained exact classification despite reliance on a published reduction, not a claim to improve general digit bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical/unindexed binary sparse-product lists may contain these six cases.",
+    "The only global exclusion is conditional on published Kaneko–Stoll bound; source proof was inspected, not independently reproved.",
+    "The published metadata package contains operational provenance. Publication is withheld until privacy-safe complete replacement files and guards are staged; mathematical review and publication authorization are separate."
+  ],
+  "schema_version": 1
+}

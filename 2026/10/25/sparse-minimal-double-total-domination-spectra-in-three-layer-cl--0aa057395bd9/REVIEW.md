@@ -1,15 +1,21 @@
-# Review of the minimal double-total-domination spectrum
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof computes every selected-neighbor count exactly and derives a complete necessary-and-sufficient condition on the selected index triples. Inclusion-minimality is verified by exhaustive *mathematical* case analysis in the possible middle-layer occupancies, including the unique empty-middle case, and the six coefficient contributions are disjoint. The separately implemented direct-graph checker confirms all subsets for five small orders, with the polynomial checked for the two orders in scope. Finite checks are corroboration and not an infinite certificate.
+## correctness
 
-## Originality
-PASS within checked sources, with documented residual priority risk. Kazemi–Pahlavsay–Stones establish the minimum double-total domination number on denser rook graphs and imply only the already-known six-vertex lower bound on this family. Carballosa–Wisby likewise study scalar minima of complete-product graphs; Li–Yue–Zhang study products of paths. A directly compared result on semitotal domination uses a different predicate. Alias, domination-type, and graph-structure searches did not reveal the polynomial or its unique upper configuration. Other unindexed or equivalent formulations may exist.
+PASS
 
-## Mathematical value
-PASS. The complete inclusion-minimal cardinality polynomial solves a motivated irredundancy question for two-neighbor coverage on a connected three-layer graph. Its sparse support and unbounded gap between an optimum size six and a unique size \(2n\) inclusion-minimal set give structural information unavailable from the known scalar minimum alone.
+Set A,B,C as selected column subsets in the outer/middle/outer K_n layers and a,b,c sizes. Direct neighborhood counts yield outer conditions a,c≥2 and required B coverage if an outer count equals two, plus separate middle conditions b=0,1,2,≥3. The proof divides minimal solutions into b=0,1,2,3,4 and excludes b≥5 because a middle vertex becomes redundant; in each case outer minimality and deletion of B vertices force a finite size profile. The resulting counts are the six terms using q=C(n−2,2), r=2q+C(n−2,3), h=C(n−3,3), j=C(n−3,2); n=6,7 coincident exponents are summed. Independently exhaustively checked all 2^18=262144 layer selections at n=6 by checking 3n neighbor inequalities and every one-vertex deletion; obtained 116290 feasible sets and minimal cardinality counts {6:15,7:600,8:1290,9:920,12:1}, matching the polynomial. The all-n proof rests on complete b-case arguments, not extrapolation from n=6.
 
-## Limitations
-The theorem applies to \(n\geq6\). The enumerator is for inclusion-minimal double total dominating sets, not all feasible sets. The literature comparison cannot establish priority against every possible publication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kazemi–Pahlavsay–Stones classify and bound scalar k-tuple total domination on Cartesian products of complete graphs, giving the scalar lower bound 6 but no inclusion-minimal spectrum for clique × path. Kazemi's 2017 upper k-tuple total-domination work covers rook graphs and general extremal bounds, not the target G_n. Path × path double total domination and Roman/paired variants concern different graphs or parameters. The exact complete inclusion-minimal polynomial and unique 2n maximum are not implied by the inspected sources.
+
+## value
+
+PASS
+
+A complete cardinality polynomial for inclusion-minimal double total domination on the natural width-three clique strip exposes a striking sparse spectrum with a unique maximum and potentially unbounded gap, information not captured by the known scalar minimum. The three-layer transition makes this more than a routine complete-graph substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

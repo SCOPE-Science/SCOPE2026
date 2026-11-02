@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result states a single theorem for all rectangular grids of at least two vertices per side. A degree-four chain is a simplex exactly when its vertices admit two disjoint graph edges, by König's bipartite matching theorem. Therefore each exterior join of two oriented square boundaries is an actual integral simplicial three-cycle, not merely a formal chain. The square-attachment induction isolates the new vertex or two new vertices and proves independence of the new products over every coefficient field. In the corner case, the crucial nonstandard lemma reduces a hypothetical element killed by wedging to a cycle supported on two adjacent edges through a unique common neighbor; such a chain cannot be a cycle. The published rank formula makes the now field-uniform independent set both spanning and saturated over the integers. Planar isometries multiply each square boundary by one common orientation sign; a pair cancels that sign.
+PASS
 
-Ten finite grids were checked in characteristics two, three, and five, with five independent full top-kernel computations. The finite tests are supplemental; no finite extrapolation is used to prove the universal statement.
+A tetrahedral simplex in a bipartite robust clique complex is a 4-set containing two vertex-disjoint edges (König); higher simplices are impossible, so H3=ker ∂3 is saturated in free C3. Exterior graded boundary gives ∂(z_Q∧z_R)=0 and all terms are valid disjoint edge pairs. Row-by-row square attachment yields a graph cycle basis of square boundaries. Edge attachment isolates two-new-vertex coefficients equal to old cycle basis; corner attachment isolates (e_u−e_v)∧z_i, injective over every field by the Koszul argument since u,v have at most one old common neighbor and are nonadjacent. Therefore pair products are independent mod every prime and rational. Filakovský’s prior wedge theorem gives rank binom(F,2) and freeness; field-uniform independence forces index one, hence primitive integral spanning. A planar symmetry multiplies every individual oriented square boundary by the same orientation sign; its square disappears in the wedge, so the integral action is unsigned on unordered pairs. Independently checked four finite grids, all boundaries and modular ranks; general proof is symbolic.
 
-## Originality — PASS with explicit residual risk
+## originality
 
-Filakovský, arXiv:2602.11365 (2026-02-11), Theorem 1.1 states the sphere-wedge homotopy rank, not specified chain cycles or a primitive integral basis. The closest accessible indexed work describes rational characters (even grids or arbitrary bipartite graphs), while the finding supplies explicitly embedded, integral generators for every rectangular grid; rational module information cannot alone determine the integer lattice or its generators. The original grid theorem was inspected in full where the methods and attachment structure are relevant. Indexed secondary records were accessible as summaries rather than full texts. An equivalent integral construction hidden in those or other unindexed literature remains a residual originality risk, not a claim that absence was proved.
+PASS
 
-## Value — PASS
+Filakovský already supplies full nonequivariant homotopy ranks. A highly relevant published Resultary full theorem supplies the rational full-grid permutation representation and traces by equivariant Euler characters, so the submitted rational character is a covered corollary and NOT separately novel. What remains is strictly stronger: a specified primitive chain-level *integral* basis by face-boundary wedges with an integral (not just rational) symmetry intertwiner, proved by field-uniform injection. This is the accepted precise incremental claim; no claim that rank or rational character itself was undiscovered.
 
-The object is already a natural active topological family. The theorem gives geometrically recognizable homology carriers and the full integral geometric-symmetry lattice, including odd-by-even, odd-by-odd, and square grids in one formula. Primitive integrality is stronger than a Betti-number determination or a rational-character calculation: it enables integral and finite-characteristic computations, representative cycles, and symmetry actions without recomputing simplicial boundary matrices. The identification is an exact structural classification, not a small numerical gain.
+## value
 
-## Boundaries
+PASS
 
-Uses a preexisting nonequivariant homotopy-rank theorem, finite checks over three primes only, and incomplete full-text access to the closest indexed character records. No claim is made for other graph families or robust levels.
+Provides canonical, writable integer cycle representatives and an integral permutation-lattice identification usable for attaching maps, integer pairings, equivariant maps and torsion-sensitive computations. The integral lattice and explicit generators are not determined from rational character or abstract wedge type; the all-fields proof makes the strengthening mathematically substantial.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

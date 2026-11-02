@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** A simplicial multipath has at most \(n-1\) edges, so the return-edge star is a contractible subcomplex and top relative chains correspond exactly to source-to-sink Hamiltonian paths; their relative boundaries vanish. The integral boundary of each corresponding directed Hamiltonian cycle maps to its own unit relative basis vector, proving the complete top integral homology group without an unproved vanishing hypothesis. Collapsing the \((n-3)\)-skeleton and projecting to those unique top facets gives the claimed homotopy retract. This works for arbitrary directed cycles in the interior and for \(n=3\). Reproducible enumeration, mod-two ranks, and oriented boundary checks support the all-parameter argument in small cases.
+## correctness
 
-**Originality: PASS, with residual risk.** The closest inspected paper is Caputi–Collari–Di Trani–Smith, arXiv:2208.04656: its Theorem 3.5 studies the Euler characteristic of a reversed transitive tournament, while Theorem 5.1 handles the unreversed transitive tournament. Neither implies an exact top integral homology formula nor a sphere homotopy retract for arbitrary source–sink feedback digraphs. The earlier path-poset paper arXiv:2110.11206 supplies foundational definitions but does not address this feedback-edge construction. The 2024 quiver-minor work applies an acyclic-digraph comparison, whereas the return-edge examples possess directed cycles. Closely related published digraph path homology concerns a different theory. Equivalent unindexed work could still exist.
+PASS
 
-**Value: PASS.** The theorem supplies an exact structural bridge between Hamiltonian path counting and top integral multipath homology, provides explicit top cycles, and splits off a corresponding sphere wedge up to homotopy. The uniform factorial-growth family and the reversed-tournament example show substantive information beyond known Euler characteristics and beyond a finite graph calculation. The result neither purports to solve Hamiltonian counting computationally nor to determine the entire homotopy type.
+A multipath has ≤n−1 arcs, so K=X(G) is at most d=n−2 dimensional. The closed star of added arc b is a contractible cone A. The top relative simplices C_d(K,A) are exactly Hamiltonian s→t paths avoiding b; each such facet has all codimension-one faces in A since deleting any path arc destroys its s-to-t route, so the relative differential vanishes. For each P the missing Hamiltonian directed cycle P+b has all proper subsets in K, and its formal simplex boundary is a genuine embedded d-sphere with relative class ±[P], proving the full integral isomorphism. Collapsing the (d−1)-skeleton and projecting onto these selected P facets produces r; the wedge inclusion i of cycle boundaries has r∘i degree one on each sphere and no cross-terms, also for d=1. Independently enumerated all 136 source/sink allowed digraphs for n=3,4 and checked mod-two top chain nullity equals h; this finite check supports but does not prove the general integral theorem. No claim to calculate all lower-dimensional homology.
 
-**Limitations.** The lower-dimensional homology remains undetermined; only a homotopy retract, not a full sphere-wedge decomposition, is proved. Finite mod-two tests do not independently prove integral assertions. The claimed novelty is subject to unindexed or inaccessible equivalent research.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Caputi–Collari–Di Trani–Smith analyze multipath complexes of transitive tournaments, including reversed long arc Euler characteristic and wedge-type results for the unreversed transitive tournament, but their stated theorems do not provide the arbitrary source/sink feedback arc top integral homology and explicit sphere retract. This theorem is a natural generalization from one particular construction to every finite such digraph, with distinct top-homology and homotopy-summand conclusions.
+
+## value
+
+PASS
+
+Connects the NP-hard Hamiltonian s–t path count to a canonical top reduced integral homology rank and exhibits explicit homotopy sphere retracts; gives a robust structural bridge between graph cycles and simplicial multipath topology, not merely computation of one graph. The theorem leaves lower homology open and does not overstate a full wedge decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

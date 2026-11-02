@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Exact computational verification
+# Independent mathematical audit
 
-Execute `python3 verify_franklin_perfect_matching.py` with Python 3. No external packages, network access, or external data files are required. The verifier reconstructs the graph from its LCF chords and cyclic edges, checks 17 perfect matchings, builds the exact simplicial complex from all their subsets, and verifies all combinatorial counts.
+## correctness
 
-The supplied Morse matching order is replayed, resulting in 377 disjoint pairs and seven critical simplices. Each of the 2,610 nonempty face incidences is explicitly oriented; a topological sort visits every one of the 761 vertices of this incidence graph. This certifies the matching's acyclicity. Standard discrete Morse theory then supplies the claimed homotopy equivalence, without relying solely on Betti numbers or finite-field calculations.
+PASS
 
-All \(2^{18}\) graph-edge subsets are independently examined to enumerate ordinary matchings. The face-vector comparison shows that all one- and two-edge matchings extend, while 72 three-edge matchings do not. The terminal `VERIFY_OK` is recorded in `verification_output.txt`.
+The graph is explicitly fixed by the twelve cycle edges and six chords. The least-unmatched-vertex recursion exhausts all 17 perfect matchings, and the downward closure has 761 nonempty faces. The label-toggle matching yields 377 incidence pairs and seven critical cells: one zero-cell and six two-cells. Reconstructed the complete oriented face-poset Hasse graph and verified a topological ordering of all 761 vertices, proving acyclicity rather than trusting a success log. Forman discrete Morse theory therefore gives a CW complex with one point and six attached two-cells, i.e. wedge^6 S² integrally. Independent edge-subset enumeration reproduced the ordinary f-vector and exactly 72 missing three-edge matchings. This is a finite proof certificate; no field-homology-only inference is used.
 
-## Scope and limits
+## originality
 
-The finite computation is exhaustive only for the fixed labeled twelve-vertex graph. No claim is made for a parameter family, an equivariant refinement, or a formal proof-assistant certificate. Scientific originality assessment cannot rule out every unpublished or unindexed equivalent result. Independent audit has not been performed.
+PASS
+
+Published work determines the ORDINARY Franklin matching complex as wedge^12 S³ and both deletion/link orbit profiles; that is a different complex on all matchings. The Heawood PERFECT-matching complex is a different incidence graph with wedge^16 S². Honeycomb/ladder perfect-matching families do not directly match the 17-perfect-matching nonplanar Franklin instance. The precise six-sphere computation adds a canonical finite example and sharp first obstruction layer, subject to residual historical priority.
+
+## value
+
+PASS
+
+Perfect-matching complexes have different topology from ordinary matching complexes even with identical one-skeleta; the Franklin graph is a standard named cubic nonplanar graph, and the complete integral homotopy type together with 72 first minimal nonextension obstructions gives a meaningful benchmark for matching-extension topology. A natural finite exact invariant need not extend to all Knödel graphs to have value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The accompanying `verify.py` uses the exact seven-vector coordinates, generates all twelve triangular-edge/apex-sign facets, checks the facet determinant magnitudes and initial volume, computes the full \(21\times21\) constrained Hessian in \(\mathbb Q(\sqrt3)\), and verifies its exact factored characteristic polynomial. It also checks that six explicitly constructed skew-generator rotation vectors span the nullspace. A separate floating-point convex-hull comparison tests the predicted second-order coefficient along randomized tangent perturbations, across several step sizes.
+## correctness
 
-To replay, install the dependencies specified in `requirements.txt` and run `python verify.py`. A successful exit indicates the finite identities and numerical checks passed on that installation. The extension from negative transverse Hessian to sharp local stability uses the normal tubular-neighborhood and Taylor argument in `RESULT.md` and is not an assertion of computer-certified infinite mathematics.
+PASS
 
-No independent scientific audit has been performed.
+The optimizer is the perpendicular free sum of a regular triangle and two antipodal pairs; all 12 tetrahedral facet determinants have magnitude sqrt(3)/2 and signs stable locally. Multilinearity of 1/24 times oriented determinants and the normalized tangent chart gives the exact diagonal and cross-coordinate Hessian formulas; first derivative vanishes. An independently rebuilt symbolic 21x21 Hessian has characteristic polynomial lambda^6(lambda+sqrt(3)/8)^6(lambda+sqrt(3)/6)^2(lambda+sqrt(3)/4)^3(lambda+7sqrt(3)/24)^4, with zero gradient and volume sqrt(3)/4. Six independent rotational infinitesimal fields span the entire nullspace. On the normal bundle to the compact SO4 orbit the least absolute negative eigenvalue is sqrt(3)/8; tubular Taylor and chord-versus-geodesic comparison give 1/2 of that =sqrt(3)/16, attained by geodesic along its eigenvector. No explicit uniform neighborhood radius or global modulus follows.
+
+## originality
+
+PASS
+
+Medgyes (2026) and Horváth–Lángi (2016) establish the optimizer geometry and maximal volume, fully credited. The submitted full transverse Hessian spectrum and exact local deficit constant are additional invariants not stated in the inspected Medgyes full HTML. A published Resultary result on local Hessian stability for a nine-vertex spherical 3-polytope concerns different ambient dimension/optimizer and cannot imply this exact seven-vertex 4-polytope spectrum. An unindexed Hessian in related earlier extremal-polytope work is possible.
+
+## value
+
+PASS
+
+The global sharp maximum alone does not quantify transverse rigidity. The explicit nonrotational spectral gap and optimal quadratic modulus are natural local geometric invariants important for near-maximal spherical four-polytope stability and perturbation analysis. The result is precise yet limited to the labelled SO4-local geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

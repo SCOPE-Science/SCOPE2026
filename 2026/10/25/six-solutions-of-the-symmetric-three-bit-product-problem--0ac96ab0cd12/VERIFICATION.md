@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproducibility and actual checks
+# Independent mathematical audit
 
-Invoke `python3 verify.py` in a directory containing the supplied file. Python 3.8+ is sufficient, with no dependencies beyond the standard library. The actual exact-integer execution printed:
+## correctness
 
-```
-PASS first-route factors: 231
-PASS pairs with product below bound: 3672
-PASS second-route products: 231
-PASS both independent routes agree on 6 unordered pairs
-   7    7 ->    49 : 110001
-   7   19 ->   133 : 10000101
-   7   37 ->   259 : 100000011
-  11   35 ->   385 : 110000001
-  13   21 ->   273 : 100010001
-  21   49 ->  1029 : 10000000101
-```
+PASS
 
-The first route uniquely enumerates all \(1+2^i+2^j\) with \(1\le i<j\le22\), checks the strict product bound, then the product popcount. The second route uniquely enumerates candidate products, checks each odd possible smaller divisor through the exact integer square root, and retains factor pairs of weight three. Thus the two searches are exhaustive *conditionally on* the published bound \(ab<2^{23}\), which follows from Kaneko--Stoll Theorem 2.2 at the stated factor weights.
+The explicitly cited Kaneko–Stoll Theorem 2.2 gives ab<2^(-13+4*3*3)=2^23 for positive odd factor weights (3,3) and product weight 3. Therefore each factor and product is one of exactly 231 odd three-bit integers 1+2^i+2^j, 1<=i<j<=22. The package implements both complete factor-pair search under the strict product bound and independent product-divisor search. Fresh independent integer enumeration reproduced all six pairs, the 231 product candidates, and eleven ordered solutions, with direct bitcount checks. The external infinite bound, not the finite enumeration alone, proves exhaustion over all positive odd integers; it was verified against the cited theorem statement. No inference is made for negative/even factors or other weights.
 
-The verifier tests two related finite implementations, not a formal proof of the published bound and not an external or independent mathematical audit. The correctness of the mathematical reduction and the exhaustive loop ranges must be checked from the manuscript and code as well as the printed output. No unrelated range, higher digit weights or infinite experimental extrapolation is asserted.
+## originality
+
+PASS
+
+The broad finiteness bound and binary-weight product problem are already Kaneko–Stoll; the 2026 published Resultary asymmetric (3,2,3) census is a different parameter slice. Kaneko–Stoll primary theorem/proof do not exhibit the six (3,3,3) solutions in inspected statements. The new content is complete finite classification of the natural first symmetric weight-three case under the established bound, with qualified priority against unindexed small-weight tables.
+
+## value
+
+PASS
+
+The symmetric first nontrivial binary digit-weight product slice has a natural finite answer not supplied by the global exponent bound; six exact sporadic solutions and the proof of exhaustiveness answer a concrete arithmetic classification problem. It is a self-contained exact classification despite reliance on a published reduction, not a claim to improve general digit bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

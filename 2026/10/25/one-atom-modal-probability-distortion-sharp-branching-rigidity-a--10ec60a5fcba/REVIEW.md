@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For an \(n\)-world frame, the bound on singleton modal images limits every predecessor set to at most two worlds, giving at most \(2n\) accessibility pairs. Equality forces two-element predecessor sets. The bound on every two-target proposition makes those sets pairwise intersecting, and the elementary star-or-triangle classification leaves only a common predecessor from five worlds onward because the output of the full proposition must have at least \(n-1\) worlds. The converse, exact labelled count and four-world exceptional count follow from explicit union-cardinality arguments and Stirling-number identities. The checker exhausts all relations through four worlds and all degree-two candidates through five worlds. No extrapolation from a finite table is required.
+PASS
 
-## Originality — PASS within inspected evidence
+From singleton propositions, each predecessor column has <=2 points; an extremal 2n-pair relation has two-element columns. Two-target propositions force any two columns to meet; a 2-uniform pairwise-intersecting family is a star or the three edges of a triangle. The full-set image must have size >=n−1, excluding triangle as soon as n>=5; the star hub is then unique and f has image size>=n−2. Conversely the image deficit |A|−|f(A)|<=n−|f(W)|<=2 proves the all-subset bound. Stirling surjections give n![C(n,2)+C(n,3)+3C(n,4)] labelled stars; the n4 triangle case contributes 4*3!S(4,3)=144 beyond 312 stars, total456. Zero distortion forces permutations. Independently enumerated all two-vertex predecessor assignments at n4 (1296) and n5 (100000), recovering 312/144 and 4200; all-subset verification was performed explicitly. No finite enumeration is used to prove n>=5 general rigidity.
 
-Bezhanishvili, de Groot and Moss introduce measurable modal semantics and a representation theorem; the inspected primary material does not state an all-proposition one-atom distortion theorem. Cosyns's inspected primary sections discuss qualitative zero/one probability/modal bridges, not extremal finite Kripke accessibility. A published finite-modal-measurable quotient result forces partial functionality under a stronger meet-preservation hypothesis: its hypotheses exclude the maximally branching frames here. Classical two-subset intersection and Stirling counts are prior tools, not novel claims. Searches for union-cardinality discrepancy, edge-maximal almost-measure-preserving relations and modal probability distortion found no statement implying this exact sharp threshold and census. Relevant published mathematical claims were compared for substantive overlap. Priority is best-knowledge only: synonymous extremal set-system results remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The uniform error \(1/n\) is the natural smallest nonzero probability scale on an \(n\)-point uniform space, tested against **all** propositions rather than a hand-picked event. The theorem completely identifies densest accessibility structures under this condition, reveals a sharp four-to-five-world rigidity transition, and counts all labelled extremizers. It quantitatively separates exact measure-preserving deterministic behaviour from near-preserving relational branching. These structural and boundary facts, rather than the elementary component lemmas by themselves, motivate the result.
+Normal additive modal algebras and finite relational neighborhoods are established topics. The new quantitative one-atom discrepancy extremizer classification, n5 hub rigidity cutoff, labelled count and n4 triangle exception are not given by the inspected qualitative modal probability papers. EKR-style 2-uniform intersecting-family lemma and Stirling values are credited, and hidden equivalent hypergraph union-discrepancy results remain a risk.
 
-## Closest literature and limits
+## value
 
-The core references are arXiv:2606.31862 and arXiv:2610.17049; an indexed neighbourhood-hypergraph paper (Boros–Gurvich–Zverovich, 2008) is relevant by topic but its abstract alone does not rule out all related theorems. The present statement is finite, uses uniform atomic probabilities and normal relational possibility, and does not claim a theorem about infinite marked measurable quotients or stochastic transitions. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharply specified modal-probability robustness threshold links all-proposition probability distortion to a rigid branching topology: maximal density doubles while a universal predecessor becomes unavoidable at five worlds, with a genuinely exceptional complete four-world layer. This is a natural extremal class rather than an arbitrary small-instance enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

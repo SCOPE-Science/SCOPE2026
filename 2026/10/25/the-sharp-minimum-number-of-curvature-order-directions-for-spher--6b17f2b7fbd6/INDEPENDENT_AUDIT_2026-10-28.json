@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T14:08:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the exact curvature convention, domain and orientation against Ghomi Theorem 1.1 in the author-hosted 14-page original full text: the inequality is for p-q=λe, λ>=0, open chord in int K, 1<=m<=d-1. It indeed yields an affine hyperplane reflection. All reflection planes contain the centroid; translate to linear reflections. Since <v,S_e1 v>=1/3, the product S_v S_(S_e1 v) rotates by 2 arccos(1/3), an irrational multiple of 2π (otherwise 2/3 is rational algebraic integer). Continuous rotations in span(v,e1) are in the closure. Conjugating by S_ej and subtracting generators obtains e_j wedge e1 for j=2..d-1; v_d nonzero gives e_d wedge e1; Lie brackets generate so(d), so full O(d) invariance and a ball. Independently checked full generator rank d(d-1)/2 for d=3,4,5,7. For any <=d-1 directions choose orthogonal w; the nonround ellipsoid |x|²+η<x,w>²<=1 has all those reflection planes and thus equal chord endpoint curvatures. The finite rank checks only corroborate the analytic Lie proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghomi yields a hyperplane, not a sphere from d order tests. Related convex-body symmetry results concern collections or sequences of axes and different hypotheses; no inspected all-d sharp fixed-count result."
+        ],
+        "reasoning": "The input-to-symmetry lemma and dense-group sufficiency are combined; general group-generation principles do not themselves give this exact d-direction choice and universal lower bound.",
+        "searches": [
+          "Ghomi Theorem 1.1 and Hadwiger Theorem 1.2, author PDF Sections 1 and 4",
+          "Alfonseca-Cubero et al. 2026 Characterizations of generalized convex bodies of revolution"
+        ]
+      },
+      "checked_sources": [
+        "Ghomi original author-hosted 14-page PDF",
+        "Resultary R³ published full RESULT.md",
+        "Related Alfonseca-Cubero et al. 2026 abstract",
+        "Resultary semantic finite-direction query",
+        "Assigned Git package RESULT.md, REVIEW.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 supplies d separate reflection planes. The R³ result uses two axis-rotations plus a third tilt; it does not provide a higher-dimensional Lie-generator basis. The assigned explicit v has all nonzero coordinate components and irrational reflection angle."
+        ],
+        "reasoning": "The claimed all-d implication requires the new dimension-uniform reflection construction and arbitrary-k ellipsoid counterexample; it does not follow by parameter substitution from the special d=3 result.",
+        "searches": [
+          "Ghomi 2026 Theorem 1.1",
+          "Resultary R³ three directions full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A directional curvature order is equivalent, via Ghomi, to a single reflection guarantee. The existing R³ finite-rigidity result explicitly gives three directions but no higher-dimensional construction."
+        ],
+        "reasoning": "The correct comparison is generation of O(d) from the forced reflection normals. d=3 special case is covered; all-dimensional explicit d-vector family is not.",
+        "searches": [
+          "Ghomi 2026 arxiv:2608.28410 author PDF Theorem 1.1",
+          "Resultary 2026/10/11 SCOPE-three-curvature-order-directions-are-sharp-for-spherical-rigidit--b0c3ae10b268"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known indexed exact dimension-3 minimum is 3; no matching d>=4 values or a different dominating parameter table returned."
+        ],
+        "reasoning": "A 3D exact value cannot be assumed to determine the higher-dimensional minimum; the dimension-uniform count is proven separately.",
+        "searches": [
+          "Resultary search: finite direction reflections curvature order convex hypersurface sphere minimal number directions Ghomi dense reflection group",
+          "Resultary October11 three curvature-order directions full result"
+        ]
+      },
+      "rationale": "Ghomi proves each one-direction curvature-order-to-reflection implication; it does not state a finite-dimensional sharp d-direction generating set. A published three-dimensional Resultary theorem proves a different concrete 3-direction special case and already establishes d=3 minimality, which is explicitly credited. The surviving contribution is a single explicit d-vector family and the sharp count for every d>=4, together with the universal lower bound; no claim of new 3D threshold.",
+      "residual_risks": [
+        "Dimension-3 theorem is prior and must not be portrayed as novel; the surviving all-d claim concerns d>=4.",
+        "A more general published classification of finite reflection generating sets could imply the construction, though the specific earlier comparison found none."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ONE_DIRECTION_PREMISE_ONLY",
+          "evidence": [
+            "Theorem 1.1 has the identical oriented open-chord hypothesis and concludes one reflection; Section 4 passes from σ_m equality to quermassintegral rigidity."
+          ],
+          "identifier_or_url": "https://ghomi.math.gatech.edu/Papers/symmetry.pdf",
+          "material_read": "Author-hosted primary 14-page PDF: exact Theorem 1.1 on page 1, normalizations on page 4, Section 4 proof and Hadwiger equality machinery, appendices",
+          "method": "author-hosted lawful full-text PDF text and screenshots",
+          "title": "Mean Curvatures and Symmetry of Convex Hypersurfaces",
+          "trigger": "direct premise of curvature-order implication"
+        },
+        {
+          "assessment": "COVERS_D_3_ONLY",
+          "evidence": [
+            "Sharp minimum 3 is already proven in R³ using (1,0,0),(3/5,4/5,0),(0,1,1)/sqrt(2); explicitly excludes higher dimensions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-three-curvature-order-directions-are-sharp-for-spherical-rigidit--b0c3ae10b268/RESULT.md",
+          "material_read": "Complete primary RESULT.md: theorem, normal vectors, proof via two rotation axes, lower-bound spheroid and limitations",
+          "method": "direct GitHub full scientific result reading",
+          "title": "Three curvature-order directions are sharp for spherical rigidity",
+          "trigger": "published precisely matching d=3 subcase"
+        },
+        {
+          "assessment": "BACKGROUND_PRIORITY_RISK",
+          "evidence": [
+            "Study of symmetry collections, but inaccessible theorem-level comparison remains a residual risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/S0008439526102215",
+          "material_read": "Public bibliographic abstract and summary only, not claimed as entire paper",
+          "method": "publisher abstract reading",
+          "title": "Characterizations of generalized convex bodies of revolution",
+          "trigger": "related constraints from many hyperplanes of symmetry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite spherical rigidity under pointwise curvature order is a natural observation problem. The construction reduces infinitely many directional comparisons to the minimum possible d tests for all dimensions and exhibits a universal ellipsoid obstruction below d; this is a motivated sharp structural theorem beyond a special symmetry example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Dimension-3 theorem is prior and must not be portrayed as novel; the surviving all-d claim concerns d>=4.",
+    "A more general published classification of finite reflection generating sets could imply the construction, though the specific earlier comparison found none."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library. The implementation builds all elementary oriented face cycles, their exact integer exterior joins, and the simplicial boundary map; checks every join is a cycle supported on allowable four-vertex simplices; checks linear independence modulo \(2,3,5\) for ten grids \(2\le m\le n\le 5\); and checks the signed action of up to six explicit grid isometries against the face-pair permutation formula. Separately, for five small grids it constructs all valid four-vertex simplices and computes the complete third-boundary rank over \(\mathbb F_3\) directly.
+## correctness
 
-These experiments check only specified finite instances. The infinite-family proof and integer primitivity are mathematical consequences of field-uniform induction, the unique-common-neighbor exterior-algebra lemma, and the known top homology rank. No independent scientific audit has been performed.
+PASS
+
+A tetrahedral simplex in a bipartite robust clique complex is a 4-set containing two vertex-disjoint edges (König); higher simplices are impossible, so H3=ker ∂3 is saturated in free C3. Exterior graded boundary gives ∂(z_Q∧z_R)=0 and all terms are valid disjoint edge pairs. Row-by-row square attachment yields a graph cycle basis of square boundaries. Edge attachment isolates two-new-vertex coefficients equal to old cycle basis; corner attachment isolates (e_u−e_v)∧z_i, injective over every field by the Koszul argument since u,v have at most one old common neighbor and are nonadjacent. Therefore pair products are independent mod every prime and rational. Filakovský’s prior wedge theorem gives rank binom(F,2) and freeness; field-uniform independence forces index one, hence primitive integral spanning. A planar symmetry multiplies every individual oriented square boundary by the same orientation sign; its square disappears in the wedge, so the integral action is unsigned on unordered pairs. Independently checked four finite grids, all boundaries and modular ranks; general proof is symbolic.
+
+## originality
+
+PASS
+
+Filakovský already supplies full nonequivariant homotopy ranks. A highly relevant published Resultary full theorem supplies the rational full-grid permutation representation and traces by equivariant Euler characters, so the submitted rational character is a covered corollary and NOT separately novel. What remains is strictly stronger: a specified primitive chain-level *integral* basis by face-boundary wedges with an integral (not just rational) symmetry intertwiner, proved by field-uniform injection. This is the accepted precise incremental claim; no claim that rank or rational character itself was undiscovered.
+
+## value
+
+PASS
+
+Provides canonical, writable integer cycle representatives and an integral permutation-lattice identification usable for attaching maps, integer pairings, equivariant maps and torsion-sensitive computations. The integral lattice and explicit generators are not determined from rational character or abstract wedge type; the all-fields proof makes the strengthening mathematically substantial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-size proof identifies the exact neighborhood signature \(I_i\) along successive Chebyshev square fronts, resolves the exceptional first two steps by degree, and uses reflection symmetry outside the marked root's influence to prove the lower bound. The executable checks passed for all sizes \(3\le n\le15\). Computational coverage is finite and is not the proof of the unbounded assertion.
+## correctness
 
-## Originality — PASS (qualified)
-The complete primary text of Arvind et al., *Graph Isomorphism, Color Refinement, and Compactness* (arxiv:1502.01255), treats general refinability and orbit partitions; the primary text of Kiefer and McKay, *The Iteration Number of Colour Refinement* (arxiv:2005.10182), treats global extremal stabilization. Neither inspected text supplies this marked king-grid exact theorem. Kersting et al. (2014) provide a general WL background and MathWorld defines the strong-product king graph. Relevant published-result searches for strong products, king grids and Moore-neighbor graphs did not show an equivalent result. A known Cartesian-square-grid corner refinement result concerns a different graph and does not imply this one. Specialized earlier coverage remains possible; no publication-priority certificate is claimed.
+PASS
 
-## Mathematical value — PASS
-An infinite symmetric yet nonregular family has an exact orbit classification and sharp synchronized local-refinement depth; the diagonal adjacency changes the natural boundary propagation. The result is structural and motivated by refinement versus stabilizer symmetry, rather than an isolated finite enumerative gain.
+For each radius r the induction identifies all coordinate-swap orbits inside the Chebyshev square Q_r and separates their old colors globally. Every new front orbit (i,r+1) has an old-orbit neighbor cut I_i={a in [0,r]: |a-i|<=1}, distinct for r>=2; base r=0,1 separate by vertex degree. Swap invariance prevents splitting any orbit. For the lower bound, (0,n-1) and (n-1,n-1) have isomorphic unmarked neighborhoods to radius n-2 and are at distance n-1 from the unique marked root, but become different at round n-1. The underlying proof, not finite cases, gives every n>=3. Independent implementation checks n=3..10 round counts and final classes; source verification script independently inspected.
 
-## Limits
-Only square boards with one individually colored corner, size at least three, are covered. Independent validation and exhaustive historical priority review are absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact submitted statement was compared against equivalent terminology, general bounds, named exact prior tables and their logical implications. Inspected relevant sources support a distinct increment; missing full texts and hidden equivalent special cases remain documented best-of-knowledge risks.
+
+## value
+
+PASS
+
+The king graph is a natural diagonal-adjacency lattice used for symmetric-neighborhood refinement; a single individualized corner leaves one nontrivial stabilizer. Exact coincidence of 1-WL and that orbit partition, and the sharp number of synchronous fronts needed, are motivated structural facts for this infinite grid family; this is not an assertion about arbitrary strong products or a generic extremal n^2-vertex stabilization result. The result is modest in scope but not a mere parameter substitution from Cartesian grids.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

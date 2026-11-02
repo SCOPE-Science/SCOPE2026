@@ -1,15 +1,21 @@
-# Review of the power-of-two Kneser orientation finding
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof explicitly constructs all local \(p_n\)-spheres, establishes a maximal simplex with entire \(2n\)-element support, builds integral cocycles dual to the embedded sphere classes, and verifies the full rank and primitive integral splitting of their span. The determinant comparison of the permutation and complementary-pair actions gives the local orientation character. The valuation identity \(v_2(\binom{2r}{r})=s_2(r)\) proves the power-of-two criterion. Rational transfer gives the quotient consequence, and Feng's Theorem 18 supplies *only* the triple-case full rational rank. Independent finite checks in the supplied program pass for the documented instances. The main claims do not rely on extrapolating finite checks.
+## correctness
 
-## Originality — PASS, qualified
-Feng–Wang (2024, Lemma 9 and Theorem 10) already prove that the sphere classes are independent; Feng (2026, Theorem 18) already computes the rank in the triple case. Those are not new findings. The inspected texts do not give the all-parameter sign-versus-trivial stabilizer action, its binary-power criterion, the integral induced representation, the full triple-case rational character, or the forced quotient classes in non-power cases. The latter statements are deductions from the published geometric construction plus new orientation analysis. Search could miss an unindexed equivalent formulation; this remains a genuine risk.
+PASS
 
-## Mathematical value — PASS
-The theorem determines the natural group action on an infinite family of primitive high-dimensional integral homology sublattices and identifies a sharp arithmetic dichotomy among otherwise identical dimension-lower-bound constructions. It produces concrete nonvanishing rational classes on highly symmetric quotient spaces, information not available from the previously published Betti lower bound. For triples the formula determines an entire rational homology representation, not only a dimension.
+For any 2n-support, complementary n-subset pairs produce a cross-polytope boundary ∂C_d, d=binom(2n,n)/2, p=d−1. The witness facet replaces two special n-subsets of [2n−1] by their complements, with full union S and no additional n-subset meeting all face vertices, so its integral cochain is a cocycle taking value ±1 on exactly its own sphere; dual evaluations produce a split, primitive lattice in global H_p. Under a transposition, permutation determinant on all n-subsets is +1, while determinant on complementary-pair sums is (-1)^{binom(2n−2,n−1)/2}; v2 of central binomial equals binary digit sum of n−1, so the sign exponent is 1 iff n−1 a power of two. Induction from support stabilizer gives the integral induced module. A finite-group rational averaging argument gives nonzero quotient homology when eps=0, while published beta9=binom(m,6) yields complete rational triple module. Direct determinant and facet checks corroborated but do not replace all-n proof.
 
-## Closest literature and limits
-Feng–Wang (2024) is the direct geometric antecedent, and Feng (2026) supplies the complete rational rank for triples. Ramos–White (2017) gives broader representation-stability context without an exact statement here. Integral torsion outside the displayed free summand is not ruled out, nor is the other rational degree-\(p_n\) homology for \(n\ge4\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Feng–Wang 2024 already supply cross-polytopal spheres and rank lower bound; Feng 2026 determines rational triple Betti numbers, not characters. The new narrow conclusion is the all-n orientation parity, the primitive integral induced-module structure with correct stabilizer sign, and resulting invariant/character statements. The claimed orbit lattice is not all homology for n>=4, and the integral splitting is explicitly not equivariant.
+
+## value
+
+PASS
+
+The sign-vs-trivial orientation law detects an arithmetic power-of-two transition invisible in homology ranks, gives a concrete primitive integral symmetry module, and yields nontrivial rational homology of quotients in the trivial-sign regime. This is a motivated representation refinement of a canonical Kneser complex construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

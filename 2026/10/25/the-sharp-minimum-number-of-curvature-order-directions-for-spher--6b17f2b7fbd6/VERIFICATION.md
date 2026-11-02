@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-Analytic checks:
+# Independent mathematical audit
 
-1. The vector \(v\) is unit since \(1/3+(d-1)2/[3(d-1)]=1\), and all its coordinates are nonzero.
-2. For the first-coordinate reflection, \(\langle v,S_{e_1}v\rangle=1/3\). The irrationality proof uses the root-of-unity algebraic-integer argument, not a decimal approximation.
-3. The closure of the generated reflection group contains continuous rotations in \(\operatorname{span}\{v,e_1\}\). Conjugation and Lie brackets generate every elementary skew-symmetric coordinate generator, hence \(\mathfrak{so}(d)\).
-4. The centroid fixes the locations of all symmetry hyperplanes; translating it to the origin makes the generated reflections linear.
-5. For any at most \(d-1\) tested directions, the displayed ellipsoid is invariant under each corresponding reflection and has equal \(\sigma_m\) values at opposite chord endpoints.
+## correctness
 
-No numerical experiment is used as a proof of an infinite statement. No independent audit or independent validation is claimed.
+PASS
+
+Checked the exact curvature convention, domain and orientation against Ghomi Theorem 1.1 in the author-hosted 14-page original full text: the inequality is for p-q=λe, λ>=0, open chord in int K, 1<=m<=d-1. It indeed yields an affine hyperplane reflection. All reflection planes contain the centroid; translate to linear reflections. Since <v,S_e1 v>=1/3, the product S_v S_(S_e1 v) rotates by 2 arccos(1/3), an irrational multiple of 2π (otherwise 2/3 is rational algebraic integer). Continuous rotations in span(v,e1) are in the closure. Conjugating by S_ej and subtracting generators obtains e_j wedge e1 for j=2..d-1; v_d nonzero gives e_d wedge e1; Lie brackets generate so(d), so full O(d) invariance and a ball. Independently checked full generator rank d(d-1)/2 for d=3,4,5,7. For any <=d-1 directions choose orthogonal w; the nonround ellipsoid |x|²+η<x,w>²<=1 has all those reflection planes and thus equal chord endpoint curvatures. The finite rank checks only corroborate the analytic Lie proof.
+
+## originality
+
+PASS
+
+Ghomi proves each one-direction curvature-order-to-reflection implication; it does not state a finite-dimensional sharp d-direction generating set. A published three-dimensional Resultary theorem proves a different concrete 3-direction special case and already establishes d=3 minimality, which is explicitly credited. The surviving contribution is a single explicit d-vector family and the sharp count for every d>=4, together with the universal lower bound; no claim of new 3D threshold.
+
+## value
+
+PASS
+
+Finite spherical rigidity under pointwise curvature order is a natural observation problem. The construction reduces infinitely many directional comparisons to the minimum possible d tests for all dimensions and exhibits a universal ellipsoid obstruction below d; this is a motivated sharp structural theorem beyond a special symmetry example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

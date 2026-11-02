@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. A local six-vertex common-neighbor calculation classifies every mixed-coordinate clique, while short-cycle fibers contribute one or two missing disk attachments. The five-phase \(9mn\)-pair simplicial collapse of the diamond/square subcomplex is checked by complete coface enumeration at representative parameters, and its unique-midpoint proof works for every circumference at least five. Each fiber intersection collapses to a primitive coordinate circle; CW cancellation of disk/one-cell pairs then determines the full integral homotopy type. The independent finite clique and mod-two boundary checks agree on all tested parameters; they are supplemental rather than the proof of the universal quantifier.
+## correctness
 
-## Originality
-PASS with residual priority risk. Adams et al. treat square tori; their \((5,5)\), \((6,6)\), and large-square values are attributed, not claimed as novel. Inspected published results about the \(C_4\)-by-cycle narrow torus, \(K_m\)-by-cycle cylinders, and twisted grids with both widths at least seven do not imply the \(C_5\)- or \(C_6\)-by-long-cycle formulas or the mixed \((5,6)\) formula. Actual semantic searches for equivalent rectangular formulations and algebraic parameters returned no covering result. A missed or unindexed result remains possible.
+PASS
 
-## Mathematical value
-PASS. The classification settles every rectangular toroidal grid of circumferences at least five at the first nontrivial higher scale. It identifies a sharp, topologically meaningful transition: two long directions retain the torus, one short direction kills precisely one essential loop and creates linearly many two-spheres, and two short directions kill both loops. The integral homotopy classification yields the initial degree-one persistence kernel without extra coefficient assumptions; it is not merely a restatement of known square values.
+All mixed-coordinate scale-two cliques lie in five-point diamond or four-point square facets, as shown by exact common-neighbor classification; C5 fiber is a simplex on five vertices (4-simplex), C6 fiber adds exactly two alternating triangles, and longer cycle fibers have only consecutive triples. Nine mn explicit elementary free-face pairs collapse the diamond/square baseline complex onto the standard grid torus triangulation, preserving primitive row/column circles. C5 extra contractible fiber attaches along its primitive coordinate circle and C6 adds two disks of winding ±1. With A=n*s(m), B=m*s(n), s(5)=1,s(6)=2,s(t≥7)=0, elementary CW cancellation yields T² when A=B=0, S¹∨∨^{A+B}S² when exactly one count is positive, and ∨^{A+B−1}S² when both are positive. Each scale-two shortcut reduces homologously to a two-edge original path, making H1(scale1)→H1(scale2) surjective with kernel free rank mn+1−β1. Independently reconstructed exact maximal cliques against the predicted facets for (5,5),(5,6),(5,7),(6,6),(6,7),(7,7),(7,8); the source verifier additionally encodes exact free-coface replay. Uniform proof is combinatorial, not extrapolated.
 
-## Limits
-Only the inclusive scale-two vertex Rips complex is classified; full higher-scale persistence and circumferences three/four are excluded. Relevant literature may be incomplete. No independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge, with square cases explicitly credited: the Adams et al. paper proves square C_m□C_m cases, including 5×5, 6×6 and sufficiently large square tori; the submitted theorem adds an all-rectangular uniform proof, especially C5×C_n, C6×C_n and 5×6 mixed regime. The existing width-four theorem is mathematically different (S³ instead of S²).
+
+## value
+
+PASS
+
+The exact homotopy and H1 threshold transition for all natural rectangular torus grids resolve short-circumference boundary phenomena not inferable from the known square results. The 5/6 transitions are structurally meaningful due to simplex and octahedral C_t fibers, and the explicit 9mn elementary collapse supplies an integral, reproducible general method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

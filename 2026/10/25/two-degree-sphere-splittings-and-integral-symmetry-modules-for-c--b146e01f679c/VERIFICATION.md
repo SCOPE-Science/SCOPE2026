@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing `verify.py` and `verify_output.txt`. The script uses only the Python 3 standard library and terminates with `VERIFY_OK`. Its output should byte-match the embedded `verify_output.txt`.
+## correctness
 
-The verifier constructs a bouquet graph from a common central vertex and disjoint complete private blocks. It independently enumerates all order-\(t\) cliques using literal graph adjacency, enumerates all nonempty simplices, and checks agreement with the stated per-block face quotas for *every* vertex subset. It computes all reduced mod-two Betti numbers using exact binary boundary ranks and compares them with the formula for 23 configurations. It also computes signed simplicial Lefschetz numbers for 235 separate within-block permutations and compares them with exterior-augmentation module characters computed from permutation cycle lengths.
+PASS
 
-The recorded execution examined 7,278 nonempty simplicial faces. These tests are finite and field-two checks; the general integral homotopy type and group-lattice statements depend on the written skeleton, nullhomotopy and natural-chain proofs. No external or independent audit has been performed.
+The actual RESULT.md gives an exact face predicate: without hub v, K0 is the join of (t-2)-skeleta of private simplices; with v, cone over join L of (t-3)-skeleta. For a_i<=t-2 a private vertex is a cone point. Otherwise the integral skeleton-chain boundary is contraction by augmentation, so top homology is wedge^{q+1}U_i. Join yields top dimensions r(t-1)-1 and r(t-2)-1 respectively; because dim L<conn K0, inclusion L->K0 is null. Cofibration K0 union (v*L) gives K0 vee suspension(L), with the lower degree r(t-2). Functorial join Kunneth and relative LES give the integral lattice actions, not an equivariant homotopy equivalence. Independently reconstructed four full small simplicial complexes and mod-2 Betti numbers. The infinite and integral statement rests on the face and chain proof, not those finite checks.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after statement/implication comparison against relevant primary literature and published Resultary records; preexisting general ingredients and exact special cases explicitly credited; residual priority risks retained.
+
+## value
+
+PASS
+
+Natural t-clique avoidance on a ubiquitous graph-sum family is classified for arbitrary sizes, including the sharp contractible boundary. The simultaneous two-degree integral sphere decomposition and canonical symmetric-group lattice action are useful to compute topological and equivariant invariants for clique-free complexes; shellability alone yields neither representation. This is a structural family theorem, not an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Review: Haar octagon rigidity and asymmetric section-type breakdown at the cuboctahedron
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for \(K_c=[-1,1]^3\cap\{\|x\|_1\le c\}\), \(1<c<3\), with Haar-uniform central planes. The complete face-incidence formulas (1) and (2) follow from the actual 24-vertex facet patterns on each side of \(c=2\). They agree, for nine selected parameters including \(c=2\), with a separate finite edge-sign count in the attached checker. The assertion at \(c=2\) uses the twelve distinct cuboctahedron vertices rather than a limiting argument. The four spherical strip integrals are explicitly evaluated, and the overlap regions are quadratic in the parameter perturbation. The exact quadrilateral event reduces to six disjoint coordinate-axis cones, whose solid angles yield the stated arctangent. The classical cube endpoint is recovered. The proof is analytic over the continuous parameter range; finite checks only corroborate it. Residual correctness risk: detailed scrutiny of the chamber-boundary remainder estimates is still appropriate in independent review.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The nearest inspected full sources concern (i) cube-only random central-section means, (ii) the general combinatorial-chamber method for intersection bodies, (iii) scissor congruence of the identical cube–octahedron family, (iv) illumination number or largest inscribed tetrahedra of the same family, and (v) exact polygon probabilities at one *different* family parameter. None of their examined statements includes or implies cuboctahedral all-orientation octagon rigidity combined with **both** asymmetric first-order rates or the all-parameter quadrilateral arctangent. The cube endpoint is previously known and is not presented as new. The genuinely specific risk is a differently indexed stereological treatment of cuboctahedral cross-sections; historical priority remains provisional.
+PASS
 
-## Mathematical value — PASS
-At the cuboctahedron, the Haar random section polygon count is deterministic, a striking contrast to nearby Archimedean truncations. The sharp unequal one-sided slopes distinguish which kinds of faces begin to enter a random section when the cube and octahedron truncation parameter crosses the rectified solid, while the exact quadrilateral solid-angle formula supplies a complete natural event probability across the entire cube-side deformation. Both the structural rigidity and its quantified failure are geometrically motivated rather than arbitrary parameter substitutions. The result does not claim a complete finite-parameter distribution of every polygon type.
+For a>b>d>0 sorted absolute plane-normal components, enumerating actual face vertices yields complete step functions: if c=1+s<2, N=4+2[d>sb]+2[b<sa]+2[d<sa]; if c=2+delta>2, N=4+2[a<b+delta*d]+2[b>d+delta*a]+2[b+d>delta*a][a>d+delta*b]. At c=2 the 12 cuboctahedral vertices give exactly eight crossed faces generically. Non-8 angular cones exist for every other c. On the cube side N=4 iff b+d<delta*a, six signed-axis cones; their solid angle is the stated arctangent and gives p4=(3/pi)delta²+O(delta⁴). Linearized boundaries a=b and b=d in the 48 Haar chambers have exact strip integrals 1/(2sqrt3), (1-1/sqrt3)/2, 1/sqrt3 and 1/sqrt2-1/sqrt3; multiplying by 12/pi yields all stated one-sided coefficients and the ratio sqrt2, with crossing corners O(epsilon²). Independently enumerated vertices/facets/edges of K_c for seven c values and checked 3,850 random generic section normals; all exact side counts agreed, and 100,000 directions at delta=0.4 gave p4 0.14137 vs exact 0.14160076. Numerical normals cannot prove the coarea remainder or all-c property.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Statement-level implication and object/parameter comparisons checked in cited primary literature and Resultary; novelty is best-of-knowledge, with named inaccessible full texts and generic-theorem risks. The previously known subclaims are explicitly excluded from the novelty claim.
+
+## value
+
+PASS
+
+The cuboctahedron is an exact rigidity point for a classical one-parameter regular-solid interpolation: almost every central section has the same polygon type only at c=2. Sharp asymmetric slopes resolve how two distinct kinds of section topology appear on either side, and an elementary complete quadrilateral probability holds for the entire cube-side range. These are natural geometric observables beyond an isolated artificial numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

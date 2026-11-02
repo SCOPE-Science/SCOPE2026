@@ -1,11 +1,21 @@
-# Review: Six solutions of the symmetric three-bit product problem
+# Independent mathematical audit
 
-**Correctness (PASS).** The verified Kaneko--Stoll bound specializes to \(ab<2^{23}\). The proof enumerates *all* \(231\) admissible three-bit odd factors in that range and exactly \(3672\) product-admissible unordered pairs, recovering the six solutions. A second enumeration begins with possible products and tests all smaller odd divisors, independently giving the same six solutions. No unproved extrapolation is used; reliance on the published global bound is explicit.
+## correctness
 
-**Originality (PASS, qualified).** The 2021 Kaneko--Stoll preprint and its 2022 journal record establish the global cutoff rather than an explicit symmetric \((3,3,3)\) fibre. Published work on sparse squares covers \((7,7)\), and a related asymmetric \((3,2,3)\) classification has different hypotheses. The complete six-pair set was not found under digit-sum, Hamming-weight, factor-side, and product-side searches. The absence of indexed matches does not prove priority; an implicit or unindexed antecedent remains a risk.
+PASS
 
-**Value (PASS).** This resolves a natural lowest symmetric three-bit multiplicative case of an explicitly posed general Diophantine classification problem. A bounded, exactly reproducible *complete* classification has mathematical content beyond the known computability bound and identifies all non-square cases. The contribution is finite and specific, not a claimed improvement of Kaneko--Stoll's general theorem.
+The explicitly cited Kaneko–Stoll Theorem 2.2 gives ab<2^(-13+4*3*3)=2^23 for positive odd factor weights (3,3) and product weight 3. Therefore each factor and product is one of exactly 231 odd three-bit integers 1+2^i+2^j, 1<=i<j<=22. The package implements both complete factor-pair search under the strict product bound and independent product-divisor search. Fresh independent integer enumeration reproduced all six pairs, the 231 product candidates, and eleven ordered solutions, with direct bitcount checks. The external infinite bound, not the finite enumeration alone, proves exhaustion over all positive odd integers; it was verified against the cited theorem statement. No inference is made for negative/even factors or other weights.
 
-**Limitations.** Only positive odd factors, each with exactly three binary one-bits, and product of the same weight; uses a published theorem, not a new proof of its global bound. Independent assessment of priority or correctness has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The broad finiteness bound and binary-weight product problem are already Kaneko–Stoll; the 2026 published Resultary asymmetric (3,2,3) census is a different parameter slice. Kaneko–Stoll primary theorem/proof do not exhibit the six (3,3,3) solutions in inspected statements. The new content is complete finite classification of the natural first symmetric weight-three case under the established bound, with qualified priority against unindexed small-weight tables.
+
+## value
+
+PASS
+
+The symmetric first nontrivial binary digit-weight product slice has a natural finite answer not supplied by the global exponent bound; six exact sporadic solutions and the proof of exhaustiveness answer a concrete arithmetic classification problem. It is a self-contained exact classification despite reliance on a published reduction, not a claim to improve general digit bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

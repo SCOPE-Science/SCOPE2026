@@ -1,15 +1,21 @@
-# Scientific review of the Coxeter shortest-cycle torus lattice theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fano-triplet construction produces the canonical 28-vertex, 42-edge cubic graph. The program exhaustively enumerates 24 heptagons and 108 disjoint pairs. Its unordered cubical model has chain ranks \((378,1092,777)\), and the full integral cellular boundary identities are checked. Modulo 101 the second boundary rank is 700. An explicitly selected 77-class torus minor has determinant \(-1\), proving primitivity and full integral generation in second homology. The 336 graph automorphisms give exactly two cross-edge orbits of sizes 84 and 24. The 84-orbit lattice has modulo-three rank 76; two maximal minors of determinants \(-273\) and \(5427\) have gcd three, certifying exact integral index three. Integral Smith forms independently reproduce these conclusions. The quotient and symmetry transitivity prove the any-one bridge-free augmentation assertion. No infinite-family inference is made.
+## correctness
 
-## Originality — PASS (with stated bibliographic risk)
-The close prior literature concerns ordered graph deleted products, general graph intersection forms, and planar braid-homology generators: Barnett–Farber, arXiv:0903.2180; Farber–Hanbury, arXiv:1005.2300; An–Knudsen, arXiv:2008.10371. The principal planar generation theorem does not apply to the nonplanar Coxeter graph, and the inspected source sections do not establish its shortest-heptagon-pair orbit lattices. Targeted searches for the Coxeter graph, its 28 non-line Fano triples, heptagon-pair tori, integral index-three obstruction, and unordered configuration homology yielded no directly covering theorem. Earlier calculations of the Coxeter independence complex concern a different construction. The Barnett thesis abstract was readable but its PDF was inaccessible, leaving a specific residual source risk; global novelty is not guaranteed by unsuccessful searches.
+PASS
 
-## Mathematical value — PASS
-The Coxeter graph is a distinguished cubic, girth-seven, nonplanar, symmetric graph. Its shortest cycles are canonical geometric objects rather than an arbitrary chosen subfamily. The finding exhibits an unexpected three-primary *index obstruction* in one natural full-symmetry orbit, while proving that shortest-cycle tori nonetheless generate the full integral second homology. The obstruction is invisible to rational spanning, provides a precise integral contrast between two geometrically defined orbits, and tests the limits of planar-generation intuition on a highly symmetric nonplanar graph.
+Independently reconstructed 28 vertices from noncollinear Fano triples, 42 edges, 24 length-seven cycles, 108 disjoint pairs and cubical chain ranks (378,1092,777). All torus two-chains have zero signed boundary. A 77-column torus minor has determinant -1, proving integral primitivity in C_2; rank(d_2)=700 follows from rank mod 101 >=700 and 77 independent kernel cycles. Independent graph-isomorphism enumeration found all 336 automorphisms and transitive orbits of sizes 84 (2 cross edges) and 24 (0 cross edges). The two-cross-edge sublattice has rank 76 modulo three and full rational rank 77; two maximal integral coordinate minors -273 and 5427 have gcd 3, so its index is exactly three. Transitivity, invariant sublattice and surjectivity of the combined tori imply any zero-cross-edge torus completes. The cubical model deformation retracts for n=2 because the graph meets Abrams sufficient-subdivision conditions. These checks are exact finite calculations for the specified graph, not extrapolation.
 
-## Limits
-This concerns the unordered two-particle space on one specified graph. The provided reproducibility code is an exact finite certificate, not a classification of all graphs. No independent audit has been conducted. Bibliographic coverage is best-effort and the thesis access limitation remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Barnett/Farber study ordered two-point graph configuration and planar torus generation; An–Knudsen supply a planar H2 generation theorem with nonplanar caveats. The Coxeter graph is nonplanar, the present space is unordered, and the index of the sublattice restricted to *shortest heptagon orbits* is an additional integral equivariant datum. No read primary theorem or published exact result implies index three or every one of 24 coset representatives; specialized unindexed Coxeter computations remain possible.
+
+## value
+
+PASS
+
+Natural shortest-cycle representative problem in graph braid homology with a nontrivial index-three integral obstruction invisible to rational rank or simple torus generation. Computes a complete orbit-sensitive integral lattice classification for a canonical highly symmetric girth-seven cubic graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

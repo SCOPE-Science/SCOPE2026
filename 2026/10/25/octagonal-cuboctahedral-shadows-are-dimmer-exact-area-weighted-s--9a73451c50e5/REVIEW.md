@@ -1,11 +1,21 @@
-# Scientific review: exact cuboctahedral silhouette-conditioned area
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise model uses twelve coordinate vertices and Haar directions, excluding only zero-measure normal boundaries. The projection-face formula yields the complete two-chamber description; the spherical Green formula evaluates the first area moment on each of twenty-four chambers. Directly projected hull computations (2,400 tests), independent fifty-digit spherical quadrature, and isotropic quasi-Monte Carlo support the critical identities without being substituted for proof. Normalization uses surface area \(12+4\sqrt3\), not unit-edge scaling.
+## correctness
 
-**Originality — PASS within inspected evidence, with residual priority risk.** The exact unweighted chamber probability is related to known cubic section and Platonic shadow laws and is not separately claimed as new. Cauchy's formula determines only the unconditional mean; the closest conditional area-moment research covers tetrahedra rather than the cuboctahedron. Full text was inspected for Slepian's 2011 Cauchy exposition, Finch's 2012 shadow moments, and public results for cube central sections and tetrahedral conditioned shadow areas. No source among those checked implies the \(3\) versus \(\sqrt3\) weighted split or its strict sign. Old stereological tables remain a priority risk.
+PASS
 
-**Value — PASS.** The explicitly motivated observable asks whether a more combinatorially complex planar silhouette of a highly symmetric solid typically has more visible area. The answer is unexpectedly negative, and the exact integer/radical decomposition distinguishes the two natural viewing chambers. This is an interpretable geometric-probability identity, not merely a formula for a randomly chosen parameter slice.
+Verified the 12 vertices, six square faces and eight triangles, the dichotomy N=8 iff largest absolute directional coordinate exceeds the other two, and the Cauchy face-area formula A=4a+2b+2c (octagon) or 3(a+b+c) (hexagon). The 24 spherical cones have area arcsin(1/3); the sphere Laplacian/divergence identity gives chamber first moments Ix=pi/(6sqrt3), Iy=Iz=pi/8−pi/(6sqrt3), hence the weighted octagonal integral pi/2. Thus E[A;N8]=3 and E[A;N6]=sqrt3 by total surface area (12+4sqrt3)/4. Exact inequalities imply Cov(A,N)<0. Independently rebuilt projected planar convex hulls of 480 generic views with max area error 2.7e−15; separate angular quadrature reproduces cone area and first moments. These finite checks corroborate, but only the analytic proof covers all Haar directions.
 
-**Scope and risk.** The theorem is confined to one normalized cuboctahedron and Haar orthographic projections; it neither asserts a universal sign for all polytopes nor determines full conditional distributions. Simulations establish only numerical consistency. Definitive historical uniqueness is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known unconditional mean-projection theorem and Platonic-solid shadow moments do not determine type-conditioned first moments for this Archimedean solid. The cuboctahedral 24-cone weighted split (3,sqrt3) and negative covariance are the distinct claim; novelty remains best-of-knowledge.
+
+## value
+
+PASS
+
+The cuboctahedron is a canonical Archimedean solid; projected area and silhouette complexity are independently natural observable statistics. An exact negative association, reversing the naive complexity/area heuristic, and clean weighted decompositions (3,sqrt3) are precise benchmark facts for random visual geometry, not routine restatements of the total Cauchy mean.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

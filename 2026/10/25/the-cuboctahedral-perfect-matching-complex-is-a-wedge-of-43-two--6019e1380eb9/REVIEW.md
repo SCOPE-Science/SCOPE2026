@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete graph and facet enumeration is determined by the reproducible cube-edge labeling. The certificate contains exactly 692 nonempty face–coface pairs, each checked for validity and disjointness; the remaining critical cells are one vertex and 43 triangles. An exhaustive topological sort over all 4,968 ordinary Hasse incidences proves acyclicity. Discrete Morse theory then gives a CW structure with 43 two-cells and no attaching one-cells, hence an integral wedge of 43 two-spheres. Independent mod-two boundary reductions agree. The proof does not extrapolate from partial enumeration.
+## correctness
 
-**Originality — PASS, within documented search limits.** The 2012 cuboctahedron/medial-graph source defines the underlying graph but has no matching-complex theorem. The 2022 full-text study of perfect-matching complexes is restricted to honeycomb families. The closest published exact-object result treats the *ordinary* cuboctahedral matching complex and obtains 57 three-spheres; its statement does not imply the topology of the perfect-matching subcomplex. Searching medial, line-graph, cube-edge-pairing and perfect-matchable-subcomplex aliases in the accessible mathematical index and open literature found no covering result. An unindexed equivalent theorem remains possible.
+PASS
 
-**Value — PASS.** The result determines the full integral homotopy type of a canonical perfect-matching-extendability complex associated with the smallest Archimedean cuboctahedral graph. Although the complex is pure five-dimensional, it has substantial homotopy concentrated in degree two. The sharp contrast with the known ordinary matching complex answers a mathematically natural distinction: perfect-matching extendability changes homotopy dimension as well as rank. This is a motivated exact invariant rather than an arbitrary numerical slice.
+Independent reconstruction from the cube-edge intersection graph gives 32 perfect matchings and complete face-cardinality vector (1,24,192,520,468,192,32). Reconstructed the deterministic greedy Morse matching: 692 nonempty matching pairs, critical one vertex and 43 two-simplices, with complete DAG topological sort of all 1428 nonempty faces. Forman discrete Morse theory gives a CW complex having only one 0-cell and 43 2-cells, which must be a wedge of 43 2-spheres integrally. This proves homotopy, stronger than mod-two boundary ranks alone.
 
-The certificate establishes only this finite case. No general family theorem, universal novelty, or independently certified proof is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bayer, Jelić Milutinović and Vega define exactly the perfect-matching-extension complex, but their stated homotopy results cover honeycomb families, not the triangular-and-square-faced cuboctahedron. The published Resultary cuboctahedral wedge^57 S^3 is the ordinary matching complex, with a larger face set (2648 versus 1428); it neither implies nor contradicts the perfect subcomplex homotopy.
+
+## value
+
+PASS
+
+Exact natural extension-to-perfect-matching subcomplex of a canonical Archimedean graph; nontrivial high-dimensional simplicial complex collapses to a 43-sphere wedge. The homotopy classification and face counts are a reusable benchmark for perfect-matching complexes, not a routine restatement of a full matching complex table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

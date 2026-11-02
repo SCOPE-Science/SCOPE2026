@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:03:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A multipath has ≤n−1 arcs, so K=X(G) is at most d=n−2 dimensional. The closed star of added arc b is a contractible cone A. The top relative simplices C_d(K,A) are exactly Hamiltonian s→t paths avoiding b; each such facet has all codimension-one faces in A since deleting any path arc destroys its s-to-t route, so the relative differential vanishes. For each P the missing Hamiltonian directed cycle P+b has all proper subsets in K, and its formal simplex boundary is a genuine embedded d-sphere with relative class ±[P], proving the full integral isomorphism. Collapsing the (d−1)-skeleton and projecting onto these selected P facets produces r; the wedge inclusion i of cycle boundaries has r∘i degree one on each sphere and no cross-terms, also for d=1. Independently enumerated all 136 source/sink allowed digraphs for n=3,4 and checked mod-two top chain nullity equals h; this finite check supports but does not prove the general integral theorem. No claim to calculate all lower-dimensional homology.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.5 of Caputi et al computes an Euler characteristic for a reversed-extremal-arc transitive tournament, not its top integral group in arbitrary D.",
+          "Theorem 5.1 concerns transitive tournament multipath complexes, not all source/sink digraphs with feedback cycles."
+        ],
+        "reasoning": "Euler characteristic is an alternating sum across degrees and cannot alone imply top homology or a wedge homotopy retract. The broader graph hypothesis here includes internal cycles and bidirected internal arcs.",
+        "searches": [
+          "Caputi–Collari–Di Trani–Smith arXiv:2208.04656 Theorem 3.5 and Theorem 5.1",
+          "Caputi–Collari–Ramos arXiv:2401.01248 acyclic quiver comparison"
+        ]
+      },
+      "checked_sources": [
+        "Caputi et al 2022 arXiv:2208.04656v1 full relevant theorem sections",
+        "Caputi Collari Di Trani 2021 arXiv:2110.11206v2 multipath definitions",
+        "Caputi et al 2024 arXiv:2401.01248 abstract/scope",
+        "Resultary semantic search",
+        "SCOPE2026 RESULT.md and verify_feedback.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An Euler characteristic does not imply a top homology rank because lower homology can contribute; the submitted cone-relative argument establishes rank and a homotopy retract directly.",
+          "General definitions are prerequisites, not the return-arc splitting."
+        ],
+        "reasoning": "For transitive tournaments the new claim refines one earlier direction, while for arbitrary D it is a distinct stronger theorem not logically implied by the stated prior results.",
+        "searches": [
+          "Caputi et al arXiv:2208.04656 primary full accessible HTML, Theorems 3.5 and 5.1",
+          "Caputi et al 2021 arXiv:2110.11206 foundational multipath definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Return edge creates a directed Hamiltonian cycle from each s→t Hamiltonian path; each boundary is an (n−2) sphere in X(G).",
+          "Equivalently top rank equals the number of spanning directed paths avoiding the return edge."
+        ],
+        "reasoning": "Statements about multipath cohomology, directed path homology, and multipath *complexes* are not automatically equivalent; this audit uses explicitly defined simplicial arc-subset complex.",
+        "searches": [
+          "Resultary semantic multipath complex source sink return edge Hamiltonian paths homotopy retract top homology spheres",
+          "Caputi et al 2022 multipath complex reversed long arc theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic hits concerned unrelated double-star multipath and graph Morse complexes; no indexed exact rank for this general construction was identified.",
+          "Known transitive tournament Euler tables do not determine the claimed general top rank or explicit integral basis."
+        ],
+        "reasoning": "This is an infinite structural theorem, not merely a lookup of a finite table; existing special-graph tables could overlap examples without covering the all-digraph statement.",
+        "searches": [
+          "Resultary search: source-sink feedback arcs multipath Hamiltonian retract",
+          "Caputi 2022 examples of reversed tournament multipath complex"
+        ]
+      },
+      "rationale": "Caputi–Collari–Di Trani–Smith analyze multipath complexes of transitive tournaments, including reversed long arc Euler characteristic and wedge-type results for the unreversed transitive tournament, but their stated theorems do not provide the arbitrary source/sink feedback arc top integral homology and explicit sphere retract. This theorem is a natural generalization from one particular construction to every finite such digraph, with distinct top-homology and homotopy-summand conclusions.",
+      "residual_risks": [
+        "A more general relative-cone theorem in the multipath literature might imply this as an immediate application under another name.",
+        "The derived result is only top homology plus retract; lower homology and full homotopy type are explicitly not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reversed-tournament Euler calculation and unreversed tournament wedge do not give the new general statement as stated",
+          "evidence": "Theorem 3.5 gives reduced Euler characteristic for a reversed long arc; Theorem 5.1 is a transitive tournament case.",
+          "identifier_or_url": "https://arxiv.org/html/2208.04656v1",
+          "material_read": "Accessible primary HTML definitions, examples, Theorem 3.5 reversed transitive tournament, Theorem 5.1 transitive tournaments, proof discussion",
+          "method": "primary arXiv HTML read",
+          "title": "On the homotopy type of multipath complexes",
+          "trigger": "Same complex and reversed-extremal arc, strongest plausible antecedent"
+        },
+        {
+          "assessment": "Identical multipath construction supplies foundation; no verified general source/sink return-arc retract theorem located in inspected sections",
+          "evidence": "A multipath is a disjoint union of directed paths and isolated vertices; distinct from other directed path homologies.",
+          "identifier_or_url": "https://arxiv.org/html/2110.11206v2",
+          "material_read": "Accessible introduction/definitions via primary arXiv HTML; complete mathematical material not all inspected",
+          "method": "arXiv HTML",
+          "title": "Combinatorial and Topological Aspects of Path Posets, and Multipath Cohomology",
+          "trigger": "Primary definition of arc-set multipath complex and alternative homology context"
+        },
+        {
+          "assessment": "Relevant general methods; insufficient full text for a whole-document exclusion",
+          "evidence": "Source concerns categorical quiver minors and graph homology rather than explicit Hamiltonian return-arc top rank in abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.01248",
+          "material_read": "Accessible abstract and scope, full text not inspected",
+          "method": "arXiv abstract",
+          "title": "The weak categorical quiver minor theorem and its applications: matchings, multipaths, and magnitude cohomology",
+          "trigger": "Potential general structural multipath complex reductions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Connects the NP-hard Hamiltonian s–t path count to a canonical top reduced integral homology rank and exhibits explicit homotopy sphere retracts; gives a robust structural bridge between graph cycles and simplicial multipath topology, not merely computation of one graph. The theorem leaves lower homology open and does not overstate a full wedge decomposition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A more general relative-cone theorem in the multipath literature might imply this as an immediate application under another name.",
+    "The derived result is only top homology plus retract; lower homology and full homotopy type are explicitly not determined.",
+    "The published metadata package contains operational provenance. Publication is withheld until privacy-safe complete replacement files and guards are staged; mathematical review and publication authorization are separate."
+  ],
+  "schema_version": 1
+}

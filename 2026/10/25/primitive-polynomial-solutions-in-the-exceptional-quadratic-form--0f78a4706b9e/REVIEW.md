@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The identity \(C^2=2nA^2+B^2\) is exact for \(A=2(u+1)v\), \(B=(u+1)^2-2nv^2\), and \(C=(u+1)^2+2nv^2\). Substitution proves the square identity in the two exhaustive cases \(c=0\) and \(c\ne0\). Since \(n\ne0\), the factors \(u+1\) and \(v\) do not divide \(B\), so \(A,B\) are coprime over \(\mathbb Q[u,v]\). The polynomial \(C^2\) has content one, which excludes a common integer divisor. Together these facts establish gcd one in \(\mathbb Z[u,v]\).
+PASS
 
-## Originality
+Set U=u+1, A=2Uv, B=U²−2nv² and C=U²+2nv²; expand C²−B²=8nU²v²=2nA². For c!=0, x=−cnA²,y=−cB²,z=C² gives F_c(x,y,z)=c²n²A⁴ and t=c²n²A³BC squares nxyzF. For c=0, x=nA²,y=B²,z=C²,t=nABC(nA²+B²) likewise solves. In Q[u,v], A and B are coprime because B has nonzero U² coefficient and nonzero v² term for n≠0, so x and y share no nonconstant factor. Since z=C² has u⁴ coefficient 1, no common integer prime content exists. Symbolic independent polynomial checks validate both branches for arbitrary formal n,c, beyond finite parameter substitution.
 
-**PASS, with bounded-search limits.** The directly relevant primary source is Gawron–Ulas, arXiv:1502.07307v1. Its Theorem 2.1 treats the nonexceptional coefficient cases; Remark 2.3 explicitly says the authors could not establish integer-polynomial gcd one, and Conjecture 2.4(a) asks for it. The new formulas handle the exceptional family \(a=d=0, b=2\) for every \(c\) and every nonzero \(n\). Targeted mathematical-database and web searches returned no matching later result; semantic search is not a proof of uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** This closes the entire exceptional coefficient branch of a specifically stated polynomial-coprimality conjecture with a short, explicit parametrization, rather than adding isolated examples or a finite computation. The formulas are directly reusable for every integer coefficient pair \((n,c)\) in that branch.
+Gawron–Ulas 2015 already prove polynomial-coprimality at n=1 (Corollary 2.2) and nonexceptional forms for general n, and primitive integer solutions for exceptional forms. Their Remark 2.3 and Conjecture 2.4 explicitly separate the unsettled integer-polynomial-coprimality case when n is arbitrary in the exceptional family. Thus the n=1 subcase and integer solutions are prior; the new uniform explicit exceptional polynomial family for every n!=0 is the assessed remainder. Searches found no stronger covered solution; unindexed preexisting parametrizations remain a risk.
 
-## Closest literature and limitations
+## value
 
-M. Gawron and M. Ulas, arXiv:1502.07307v1, Theorem 2.1, Remark 2.3, and Conjecture 2.4. The result does not resolve Conjecture 2.4(a) for nonexceptional coefficient triples where the integer content remains an issue, and it makes no new claim about the integer-solution part already addressed in the source.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Supplies a compact explicit parametric construction resolving a named and algebraically natural exceptional coefficient locus left outside the prior theorem. Primitive content over Z[u,v] is essential: identity-only or Q[u,v]-coprimality alone would not address the stated question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
