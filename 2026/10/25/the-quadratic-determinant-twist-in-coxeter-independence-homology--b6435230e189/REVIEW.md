@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The graph is checked against a standard Coxeter construction. A complete 196,009-face directed-Hasse acyclicity test certifies a perfect augmented matching with exactly seven six-dimensional critical cells; all 336 projective automorphisms are checked and their exact signed Lefschetz traces calculated by two independent methods. Only the rational representation is identified.
+## correctness
 
-**Originality: PASS.** The closest explicit previous result determines only the nonequivariant wedge of seven spheres. Classical graph references establish the order-336 symmetry without computing homology actions. Barmak's general independence-complex results and published related Heawood representations do not imply this quadratic-twisted Coxeter character. A detailed unindexed equivalent remains a bibliographic risk.
+PASS
 
-**Value: PASS.** The Coxeter graph is a canonical highly symmetric cubic graph. Its seven-dimensional homology admits multiple rational actions with the same Betti number, and the determinant twist makes the precise natural module irreducible and distinguishable by order-eight symmetry; the full-group quotient has no positive rational homology. This is a structural classification, not a one-entry numerical increment.
+The standard 28-vertex cubic Coxeter graph was independently generated from harmonic disjoint duads of P1(F7). The 196009 independent subsets (including the empty face) were enumerated independently with the exact face-size histogram and alternating sum -7. Using the source-specified Fano model pivot order but independently implementing the face-poset matching, verified 98001 augmented pairs, seven critical six-faces and a full 196009-node acyclic Hasse DAG (1319752 cover relations). This certifies the integral nonequivariant wedge of seven S6 used as an input, not only an Euler count. Independently enumerated all 336 distinct projective matrices; for each graph action computed the fixed-face signed Lefschetz sum through quotient-orbit conflict graphs and checked it equals epsilon(det)*(fixed points on P1-1). All eight class rows and multiplicities were matched, including trace +1 on 8-cycles. Character determines the rational module epsilon tensor augmentation, irreducible by 2-transitivity and with zero PGL invariants. Integral equivariant structure is not asserted.
 
-**Limitations.** No integral equivariant lattice or coinvariant torsion classification is claimed. The certificate is an exhaustive finite computation, and the nearest published numerical homotopy calculation was accessible as an indexed summary rather than complete article text. Independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the determinant-twisted full 336-element symmetry character, explicitly excluding the already indexed nonequivariant Coxeter seven-sphere wedge. General independence-complex methods and classical Coxeter graph automorphism descriptions do not compute the homology character; nearby Heawood modules are different complexes. The sign on order-eight projective transformations distinguishes the representation from the untwisted augmentation module.
+
+## value
+
+PASS
+
+The Coxeter graph is a canonical highly symmetric cubic graph, and its homology rank seven admits inequivalent actions. The complete, irreducible, quadratically twisted natural PGL2(7) module and absence of invariant classes are concrete structural information not obtainable from a seven-sphere wedge or automorphism-group order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
