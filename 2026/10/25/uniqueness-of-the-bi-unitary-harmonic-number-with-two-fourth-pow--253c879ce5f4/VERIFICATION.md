@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The accompanying `verify_biharmonic.py` is Python 3 standard-library-only, deterministic, exact and self-contained. It implements (1) the strict first-prime bound, (2) the 72 complete second-prime integer-free intervals, (3) the congruence \(c\mid hB\), and (4) complete factorization of every finite denominator and candidate integer level. It refuses to return success if a large unfactored residual remains or any unaccounted solution appears. The program enumerates all three permutations of the prime exponents \((4,4,1)\), so the singleton prime may be smallest, middle, or largest.
+## correctness
 
-Actual successful execution from the embedded file yielded:
+PASS
 
-```
-VERIFY_OK
-cutoff_checks 72 first_primes 24 max_first 89 max_second 389
-ordered_prime_pattern_pairs_tested 4644 interval_feasible_pairs 1540 integer_levels 44193 last_prime_candidates 36313
-largest_reduced_denominator 2761790798745225 largest_denominator_prime_factor 143263
-solutions [(9072, 12, 2, 3, 7, (4, 4, 1))]
-```
+The prime-power formulas give H**(p^4 q^4 r)=32g4(p)g4(q)g1(r), with g4(x)=x^4/(x^4+x^3+x+1), g1(x)=x/(x+1). Sorting a<b<c and assigning the 3 possible exponent patterns covers every prime placement. Strict monotonicity bounds a<=89 via 32g1(97)g4(97)^2>31 and H<32; 72 exact rational interval comparisons exclude b>=397. For each remaining first-two-prime and integer harmonic level h, reduce 32g_{e1}(a)g_{e2}(b)=A/B. The identity hB*sigma**(c^{e3})=Ac^{e3} modulo c yields c|hB, as sigma**(c^1) and sigma**(c^4) are 1 mod c. This makes the third-prime set finite and exhaustive. Independently implemented exact rational enumeration exhausts 4644 sorted-pair/pattern branches, 44193 integer h levels, 36313 candidate last primes, and returns only (a,b,c,e1,e2,e3,h)=(2,3,7,4,4,1,12). Direct H**(9072)=12 verifies existence. Certificate factorization cutoffs and interval precision were inspected; finite search is exhaustive because the prior bounds are analytic, not because of an arbitrary cutoff.
 
-The output is a certificate of **finite** branch exhaustion only in conjunction with the proved monotonic bounds and the modular last-prime reduction in `RESULT.md`. Merely counting examples up to a numerical cutoff would not prove the universal statement. The basic primality sieve and complete-factoring assertions are included for reproducibility. The source-overlap assessment is the literature-based self-review recorded in `AUDIT.json`, not independent validation.
+## originality
+
+PASS
+
+The witness 9072 and its harmonic value 12 are explicitly in Sándor (2011) and OEIS A286325; they are not new. Manea–Minculete (2016) prove results for p q t^2 and p^2 q^2 t and certain 2^k times squarefree forms, which do not contain p^4 q^4 r for all prime orders. Resultary search found distinct two-prime bi-unitary exponent-family rigidity but not this three-prime exponent multiset. The all-prime uniqueness classification is a qualified best-of-knowledge novelty claim, not a claim of discovering 9072.
+
+## value
+
+PASS
+
+An exhaustive classification for a natural minimal three-prime exponent pattern extends a known example into an all-prime uniqueness theorem, combining global rational bounds and a modular factor restriction. This closes a concrete arithmetic family beyond finite OEIS enumeration, not an arbitrary numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition gives \(H^{**}(n)=32g_{e_1}(a)g_{e_2}(b)g_{e_3}(c)\) and the exact local divisor sums. The functions increase with their prime arguments, forcing the least prime below \(97\). For each least prime and exponent placement, the exact half-open interval \([L,U)\) is integer-free once the middle prime reaches \(397\). After these proven bounds, the congruence \(c\mid hB\), where \(h\) is the integral mean and \(A/B=32g_{e_1}(a)g_{e_2}(b)\) in lowest terms, reduces *all* remaining final primes to factors of known finite integers. The embedded verifier exhausts every parameter branch, checks complete factorizations and obtains only \(9072\); direct substitution gives mean \(12\). The finite computation is used only after the infinite family is rigorously bounded.
+## correctness
 
-## Originality — PASS, with search limitations
-Sándor's original paper and OEIS list the particular witness \(9072\), but a tabulated example is not a theorem of global uniqueness in an infinite prime-exponent family. Manea--Minculete's complete low-pattern results concern squarefree odd tails, \(pqt^2\), and \(p^2q^2t\), and none implies the \(p^4q^4r\) statement. Earlier local results on two-prime bi-unitary harmonic numbers concern different prime-support cardinalities. The identified published-finding corpus records and published literature did not cover the stated claim; a genuinely unindexed equivalent is still possible.
+PASS
 
-## Value — PASS
-The exponent pattern arises directly in the early, explicitly recorded example \(9072\), a natural three-prime witness for bi-unitary harmonicity beyond the simpler perfect/unitary settings. Establishing that it is the *only* example of its precise prime-exponent structure distinguishes an isolated table hit from a complete infinite-family classification and demonstrates a finite-reduction method for the divisor-mean condition. This is a narrow but motivated, exact classification; it does not purport to resolve general bi-unitary harmonicity.
+The prime-power formulas give H**(p^4 q^4 r)=32g4(p)g4(q)g1(r), with g4(x)=x^4/(x^4+x^3+x+1), g1(x)=x/(x+1). Sorting a<b<c and assigning the 3 possible exponent patterns covers every prime placement. Strict monotonicity bounds a<=89 via 32g1(97)g4(97)^2>31 and H<32; 72 exact rational interval comparisons exclude b>=397. For each remaining first-two-prime and integer harmonic level h, reduce 32g_{e1}(a)g_{e2}(b)=A/B. The identity hB*sigma**(c^{e3})=Ac^{e3} modulo c yields c|hB, as sigma**(c^1) and sigma**(c^4) are 1 mod c. This makes the third-prime set finite and exhaustive. Independently implemented exact rational enumeration exhausts 4644 sorted-pair/pattern branches, 44193 integer h levels, 36313 candidate last primes, and returns only (a,b,c,e1,e2,e3,h)=(2,3,7,4,4,1,12). Direct H**(9072)=12 verifies existence. Certificate factorization cutoffs and interval precision were inspected; finite search is exhaustive because the prior bounds are analytic, not because of an arbitrary cutoff.
 
-## Closest sources and remaining risks
-Sándor (arXiv:1105.0294v1, 2011), Manea--Minculete (2016), and OEIS A286325 were inspected with attention to exponent patterns, direct implications and existing tables. Some unindexed statements or inaccessible older theses may be equivalent. The exact computer-assisted reduction needs ordinary independent reproduction for external validation; that has not been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The witness 9072 and its harmonic value 12 are explicitly in Sándor (2011) and OEIS A286325; they are not new. Manea–Minculete (2016) prove results for p q t^2 and p^2 q^2 t and certain 2^k times squarefree forms, which do not contain p^4 q^4 r for all prime orders. Resultary search found distinct two-prime bi-unitary exponent-family rigidity but not this three-prime exponent multiset. The all-prime uniqueness classification is a qualified best-of-knowledge novelty claim, not a claim of discovering 9072.
+
+## value
+
+PASS
+
+An exhaustive classification for a natural minimal three-prime exponent pattern extends a known example into an all-prime uniqueness theorem, combining global rational bounds and a modular factor restriction. This closes a concrete arithmetic family beyond finite OEIS enumeration, not an arbitrary numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

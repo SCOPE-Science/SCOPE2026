@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T09:52:55.491021Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The prime-power formulas give H**(p^4 q^4 r)=32g4(p)g4(q)g1(r), with g4(x)=x^4/(x^4+x^3+x+1), g1(x)=x/(x+1). Sorting a<b<c and assigning the 3 possible exponent patterns covers every prime placement. Strict monotonicity bounds a<=89 via 32g1(97)g4(97)^2>31 and H<32; 72 exact rational interval comparisons exclude b>=397. For each remaining first-two-prime and integer harmonic level h, reduce 32g_{e1}(a)g_{e2}(b)=A/B. The identity hB*sigma**(c^{e3})=Ac^{e3} modulo c yields c|hB, as sigma**(c^1) and sigma**(c^4) are 1 mod c. This makes the third-prime set finite and exhaustive. Independently implemented exact rational enumeration exhausts 4644 sorted-pair/pattern branches, 44193 integer h levels, 36313 candidate last primes, and returns only (a,b,c,e1,e2,e3,h)=(2,3,7,4,4,1,12). Direct H**(9072)=12 verifies existence. Certificate factorization cutoffs and interval precision were inspected; finite search is exhaustive because the prior bounds are analytic, not because of an arbitrary cutoff.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manea–Minculete Proposition 8 treats p q t^2 (60,90) and later p^2 q^2 t (5^2*7^2*13); neither has exponents (4,4,1).",
+          "Resultary two-prime theorem concerns p^(2a) q, not three distinct prime factors."
+        ],
+        "reasoning": "The accessible broader bi-unitary-harmonic study does not imply the specific exponent-pattern uniqueness because it treats different exponents and/or support size.",
+        "searches": [
+          "Sándor arxiv:1105.0294 bi-unitary harmonic classification",
+          "Manea Minculete 2016 Types of integer harmonic numbers II",
+          "Resultary: rigidity in a two-prime bi-unitary harmonic family"
+        ]
+      },
+      "checked_sources": [
+        "Sándor arXiv:1105.0294 (full primary PDF)",
+        "Manea & Minculete 2016 full PDF DOI/URL above",
+        "OEIS A286325",
+        "Resultary related two-prime biunitary-harmonic studies"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sándor 2011 table reports the witness; Manea–Minculete 2016 prove separate 2-exponent and singleton patterns.",
+          "Independent c|hB finite reduction covers all cases, including r being the smallest or middle prime."
+        ],
+        "reasoning": "The earlier listed examples do not imply uniqueness in the infinite (4,4,1) family. The later classification has exponent 2, not 4, so neither is logically stronger under a simple parameter substitution.",
+        "searches": [
+          "Sándor arxiv 1105.0294 Section 1 and tables",
+          "Manea Minculete Types of integer harmonic numbers II Proposition 8 / final p^2 q^2 t theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sándor (2011) explicitly records 2^4*3^4*7 and harmonic mean 12.",
+          "The equivalent divisibility condition is sigma**(n) | 32n with exact prime-exponent multiset (4,4,1)."
+        ],
+        "reasoning": "The example is covered, but the universal quantified uniqueness is strictly stronger than an OEIS membership or bounded census; no general equivalence to an already classified family was identified.",
+        "searches": [
+          "Resultary: bi-unitary harmonic numbers prime pattern p^4 q^4 r uniqueness 9072 Sandor",
+          "OEIS A286325 bi-unitary harmonic numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A286325 explicitly lists 9072 and a table below 10^10; it is not a proof of absence of arbitrarily large p^4q^4r.",
+          "Sándor original census contains 9072* as a sample."
+        ],
+        "reasoning": "A finite table is weaker than the all-prime exclusion. The exact exhaustive certificate is meaningful only after the proved a<=89,b<=389,c|hB reduction.",
+        "searches": [
+          "OEIS A286325 9072 2^4 3^4 7",
+          "Sándor 2011 first biunitary harmonic number table"
+        ]
+      },
+      "rationale": "The witness 9072 and its harmonic value 12 are explicitly in Sándor (2011) and OEIS A286325; they are not new. Manea–Minculete (2016) prove results for p q t^2 and p^2 q^2 t and certain 2^k times squarefree forms, which do not contain p^4 q^4 r for all prime orders. Resultary search found distinct two-prime bi-unitary exponent-family rigidity but not this three-prime exponent multiset. The all-prime uniqueness classification is a qualified best-of-knowledge novelty claim, not a claim of discovering 9072.",
+      "residual_risks": [
+        "An unpublished or unindexed exact classification of (4,4,1) could predate the assigned proof.",
+        "Computational proof depends on complete exact factorization and tested enumerator; logs without code/reproducible reduction would be insufficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: witness known, no observed proof of all-prime uniqueness for exponents 4,4,1",
+          "evidence": [
+            "Sándor 2011, table of bi-unitary harmonic numbers labels 9072=2^4*3^4*7 with harmonic mean 12."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1105.0294",
+          "material_read": "Accessible complete preprint PDF including prime-power formulas, classifications and enumerated table with 9072",
+          "method": "arXiv primary PDF with mathematical sections and table inspected",
+          "title": "On bi-unitary harmonic numbers",
+          "trigger": "Origin of exact notion and known witness 9072"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING: exponent patterns (1,1,2) and (2,2,1), not (4,4,1)",
+          "evidence": [
+            "Manea–Minculete (2016), p. 77 Proposition 8, p. 81 terminal theorem."
+          ],
+          "identifier_or_url": "https://webbut.unitbv.ro/index.php/Series_III/article/download/1820/1566/3270",
+          "material_read": "Full 16-page PDF parsed, introduction, Proposition 8 (p q t^2) and terminal p^2 q^2 t classification, with page screenshots",
+          "method": "Open-access journal primary PDF",
+          "title": "Types of integer harmonic numbers (II)",
+          "trigger": "Potential stronger classification of three-prime bi-unitary harmonic numbers"
+        },
+        {
+          "assessment": "KNOWN_EXAMPLE_ONLY: 9072 present without infinite family theorem",
+          "evidence": [
+            "A286325 includes 9072 and refers to Sándor; finite enumerated terms alone cannot exclude larger p^4q^4r."
+          ],
+          "identifier_or_url": "https://oeis.org/A286325",
+          "material_read": "Sequence definition, initial terms and reference table up to 10^10",
+          "method": "OEIS sequence page",
+          "title": "OEIS A286325: Bi-unitary harmonic numbers",
+          "trigger": "Exact database/table priority check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exhaustive classification for a natural minimal three-prime exponent pattern extends a known example into an all-prime uniqueness theorem, combining global rational bounds and a modular factor restriction. This closes a concrete arithmetic family beyond finite OEIS enumeration, not an arbitrary numerical recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Sándor arXiv:1105.0294 (full primary PDF)",
+    "Manea & Minculete 2016 full PDF DOI/URL above",
+    "OEIS A286325",
+    "Resultary related two-prime biunitary-harmonic studies"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly three distinct primes with exponent multiset (4,4,1); makes no classification of all three-prime bi-unitary harmonic numbers.",
+    "The finite certificate relies on analytic bounds and modular restriction; an unchecked larger denominator prime factor would invalidate exhaustiveness, but the inspected code has completeness assertions."
+  ],
+  "residual_risks": [
+    "An unpublished or unindexed exact classification of (4,4,1) could predate the assigned proof.",
+    "Computational proof depends on complete exact factorization and tested enumerator; logs without code/reproducible reduction would be insufficient."
+  ],
+  "schema_version": 1
+}
