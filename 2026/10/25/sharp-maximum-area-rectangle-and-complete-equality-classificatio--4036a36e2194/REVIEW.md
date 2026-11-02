@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof quantifies over all rectangles in a regular pentagon, including all centers and orientations. Two positive normal dependencies eliminate center coordinates, and AM–GM bounds the area uniformly; the cosine product attains its limiting minimum only at the two equivalent endpoint orientations. A directly checked rectangle attains the value, while equality in the positive weighted sums determines the unique centered position relative to its selected pentagon side. Exact identities and an explicit construction were checked using `checks/pentagon_rectangle_check.py`. The nineteen numerical optimizations are supplemental rather than a proof of the continuum statement.
+## correctness
 
-## Originality — PASS
-The exact convex-polygon algorithm of Cabello–Cheong–Knauer–Schlipf (arXiv:1405.1223, Section 3) provides a generic computation but not the closed pentagon constant or complete equality classification. The 2017 Mathematics Stack Exchange discussion already gives the same natural side-aligned candidate, but both answers explicitly assume rather than prove that the unrestricted optimum shares this alignment. The unconditional support-normal certificate and five-case equality rigidity are the new contribution. The indexed regular-even-polygon theorem and symmetric-polygon perimeter theorems exclude this object or optimize a different functional. Full bibliographic novelty is not guaranteed; unindexed equivalents, inaccessible text, and the 2012 predecessor's uninspected full article are residual risks.
+PASS
 
-## Value — PASS
-This is the exact sharp solution to a natural contained-rectangle optimization problem, rather than a manually chosen parameter slice. It closes the explicit orientation gap in the prior pentagon discussion, and gives all optimizers with a short geometric dual certificate, useful both as a rigorous benchmark and as a transparent example of extremum rigidity in non-centrally symmetric convex bodies.
+PASS. Any rectangle is parametrized by center c, orthonormal axes u,v and positive half-lengths a,b; containment is five support inequalities n_j·c+a|n_j·u|+b|n_j·v|≤r. Dihedral/axis-swap symmetry reduces orientation to θ∈[0,π/10]. The exact positive normal dependencies n0+n1+φn3=0 and φn1+n3+n4=0, together with trigonometric signs, give a cos(t+3π/20)+b cos(t−3π/20)≤sqrt(5)/2 with t=θ−π/20. AM–GM implies area 4ab≤5/[4cos(t+3π/20)cos(t−3π/20)]≤5/[4cos(π/5)cos(π/10)]. Equality forces θ a symmetry boundary, unique half-lengths and support-equality center; five rotations give precisely five optimizers. Independently checked both normal identities to ≈2×10⁻¹⁶, five candidate support slacks near machine zero and numerical constrained optimization over nine orientations peaking at the predicted endpoints. The analytic support inequalities establish all orientation cases, not sampling.
 
-## Scientific limits
-No claim is made about arbitrary convex pentagons, other regular odd polygons, maximum perimeter, or parallelograms. The candidate shape and decimal evaluation were previously proposed conditionally, and are fully credited. The result remains subject to independent mathematical and bibliographic checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified best-of-knowledge, not certified historical priority. Cabello et al., arXiv:1405.1223 Theorem 4, provides a general exact algorithm, not this closed-form evaluated pentagon result and complete equality classes. A 2017 Math StackExchange answer treats the same side-aligned candidate but explicitly assumes optimal orientation, so the numerical candidate is known. Resultary published exact rectangle area for even regular polygons does not include odd n=5. No inspected predecessor provides the positive-circuit orientation-free proof and all five maximizing rectangles. Residual risk: Unindexed elementary geometry proof of the regular-pentagon optimum may already exist.
+
+## value
+
+PASS
+
+PASS. Completes the unrestricted maximum-area rectangle geometry of the regular pentagon, giving an elegant sharp support-functional certificate and rigid classification of all five maximizers. Its construction and approximate area were previously anticipated conditionally; mathematical value is the missing unconditional optimization and uniqueness theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
