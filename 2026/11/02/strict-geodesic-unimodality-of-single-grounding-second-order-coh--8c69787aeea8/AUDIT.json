@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The rooted-tree inverse Green kernel sums common path resistances. A rank-one comparison across a cut yields \\(J(v)-J(u)=r\\mathcal B(u,v)\\); decomposition at consecutive path edges gives \\(\\mathcal B(v,w)-\\mathcal B(u,v)=4S(C,v)+r[a^2+(c+d)^2]+s[(a+c)^2+d^2]>0\\) for all positive resistances. This strict increase proves every local minimum is global and at most two adjacent ties. Explicit two-pass recurrences recover every objective value in linear arithmetic time. Fresh exact verification checked 3,798 separately calculated rational grounded inverses and every simple path in 635 test trees. Finite tests are corroboration; the theorem follows from exact algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mackin–Patterson general submodular guarantees, Section IV, apply to more graphs and more leader budgets but do not supply exact tree-geodesic minimizer classification",
+        "Patterson–McGlohon–Dyagilev general k-leader path/ring algorithms have a different inverse-trace objective"
+      ],
+      "reasoning": "Greater generality in graph type or number of leaders does not establish an exact linear-time structural theorem for a different objective. Sufficient optimality statements or generic exhaustive algorithms are not equivalent to the strict two-adjacent-minimizer classification.",
+      "searches": [
+        "Tree single leader second order consensus grounded Laplacian inverse square trace exactly one optimal vertex or adjacent tie root move",
+        "\"second-order coherence\" \"tree\" \"leader selection\" \"optimal\"",
+        "https://arxiv.org/pdf/1905.09156",
+        "https://arxiv.org/pdf/1412.6595"
+      ]
+    },
+    "checked_sources": [
+      "Fitch–Leonard, arXiv:1407.1569",
+      "Patterson–McGlohon–Dyagilev, arXiv:1412.6595",
+      "Mackin–Patterson, arXiv:1905.09156",
+      "E. Mackin, Network Design for Optimal Performance under Consensus Dynamics (2019 thesis), institutional abstract only; complete text inaccessible"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1407.1569 establishes first-order information centrality; first-order tree median is not the squared-inverse optimum",
+        "arXiv:1412.6595 equation (3) uses tr(L_ff^-1) rather than tr(L_ff^-2)",
+        "arXiv:1905.09156 Theorem 5 gives the inverse-square objective, and Section IV offers general greedy approximation, not this strict tree-specific global localization theorem"
+      ],
+      "reasoning": "The prior single-leader centrality is for a different objective. The higher-order formula supplies the optimization target but not the solution. General greedy submodularity does not imply no spurious local optima or one/two adjacent global minimizers, and a path-only algorithm for another objective does not imply all-tree exact O(n) optimization.",
+      "searches": [
+        "https://arxiv.org/pdf/1407.1569",
+        "https://arxiv.org/pdf/1412.6595",
+        "https://arxiv.org/pdf/1905.09156",
+        "\"optimal leader\" \"tree\" \"second order\" \"coherence\" \"linear\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1905.09156 Theorem 5 supplies the exact inverse-square physical metric but not the tree path-sign theorem",
+        "arXiv:1407.1569 single-leader information centrality corresponds instead to an inverse trace"
+      ],
+      "reasoning": "Equivalent descriptions are single noise-free leader second-order grounded coherence, squared Dirichlet Green Frobenius norm, and single pinned vertex inverse-square grounded trace. Replacing this with first-order information centrality changes the objective and can change the optimizer.",
+      "searches": [
+        "On every positively weighted tree, minimizing trace of squared inverse grounded Laplacian over a single grounded vertex has no spurious local minima, unique or two adjacent optimal vertices, re-rooting identity linear-time algorithm",
+        "\"trace\" \"grounded Laplacian\" \"-2\" \"tree\" \"single leader\" optimal",
+        "\"grounded Laplacian\" \"squared inverse\" \"tree\" leader placement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact table or published statement matching strict bracket increase for arbitrary positively weighted trees was identified in the searches",
+        "Closest indexed material included weighted-tree Laplacian simplices, a different geometric invariant, and general rooted tree coherence formulations"
+      ],
+      "reasoning": "The theorem is infinite-parametric and not reducible to an explicit finite database table. No exact online record was located; search absence alone is not proof of priority.",
+      "searches": [
+        "Second-order network coherence rooted weighted trees linear-time best grounding location",
+        "Unimodal strict quasiconvex centrality along geodesics weighted tree trace inverse squared Dirichlet Green kernel",
+        "\"single leader\" \"second-order\" \"tree\" \"trace\""
+      ]
+    },
+    "rationale": "The new mathematical implication is strict increasing signed comparison brackets on every path of every positive weighted tree, yielding at most two adjacent optimal vertices and an O(n) exact algorithm. Inspected primary 2014–2019 literature covers first-order centrality/paths or the general second-order formula and approximation; none of those inspected statements imply this strong all-tree exact property. Accessible historical results include narrower paths, not the universal strict-edge-gradient theorem. Special-source and incomplete-index coverage remain explicit risks.",
+    "residual_risks": [
+      "The full 2019 Mackin dissertation could not be fetched (HTTP 403); its accessible institutional abstract describes higher-order coherence and submodularity but does not settle exact prior coverage.",
+      "A specialized source deriving the same tree gradient law under different terminology could remain undiscovered; novelty is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "First-order information centrality; no inverse-square grounded-tree geodesic unimodality stated in inspected sections",
+        "evidence": "arXiv:1407.1569 abstract and Sec. V; first public version 2014-07-07",
+        "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+        "material_read": "ArXiv abstract and original first-posted date; PDF pp. 1, 10, including interpretation section and single-leader characterization",
+        "method": "Full-text PDF and displayed page inspection",
+        "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "trigger": "General optimal single leader formula and possible stronger tree implication"
+      },
+      {
+        "assessment": "Restricts to paths/rings with trace inverse rather than trace inverse squared; its algorithm does not yield the claimed structural theorem",
+        "evidence": "arXiv:1412.6595 Eq. (3) = 1/2 tr(L_ff^-1), and stated graph scope",
+        "identifier_or_url": "https://arxiv.org/pdf/1412.6595",
+        "material_read": "Abstract, Sections I–III overview and detailed performance Eq. (3) on p. 2",
+        "method": "Full-text PDF and displayed page inspection",
+        "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+        "trigger": "Optimal leader algorithms might imply the new exact tree rule"
+      },
+      {
+        "assessment": "Establishes the inverse-square target objective and a general greedy guarantee; inspected theory does not assert a universal exact all-weighted-tree one-leader optimizer or pathwise strict bracket law",
+        "evidence": "arXiv:1905.09156 Theorem 5: second-order coherence is a positive scalar multiple of the squared inverse trace; Section IV presents greedy submodular optimization.",
+        "identifier_or_url": "https://arxiv.org/pdf/1905.09156",
+        "material_read": "Abstract, introduction, Section III.B Theorem 5 on p. 4 and Section IV general greedy-submodularity framework on p. 5",
+        "method": "Full-text PDF and displayed page inspection",
+        "title": "Submodularity in Systems with Higher Order Consensus with Absolute Information",
+        "trigger": "Exact same inverse-square performance criterion"
+      },
+      {
+        "assessment": "Full thesis not inspected; repository abstract does not resolve the exact theorem comparison, so residual risk remains.",
+        "evidence": "The institutional abstract covers several network design problems and describes higher-order coherence/submodularity, without an exact weighted-tree single-root geodesic theorem. This abstract alone cannot establish full-text noncoverage.",
+        "identifier_or_url": "https://dspace.rpi.edu/bitstreams/04aa2bd0-d65b-4307-9871-167f2f3e2ded/download",
+        "material_read": "Institutional item-page abstract and indexed PDF snippet; full PDF requests returned HTTP 403",
+        "method": "Repository access attempts at download and alternative content endpoint",
+        "title": "Network Design for Optimal Performance under Consensus Dynamics (2019 dissertation)",
+        "trigger": "Search index mentions tree examples and second-order coherence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c69787a-eea8-42da-9931-fc85bb385091",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A structural universal minimizer classification and exact O(n) optimization for every positively weighted tree resolves a natural one-leader second-order coherence problem. It excludes spurious local minima, classifies all ties, and differs substantively from the standard weighted-tree median: resistances (100,1,1,1) on a five-vertex path move the inverse-square optimal root from first-order median vertex 2 to vertex 1. The theorem is not a small numerical improvement or arbitrary finite case.",
+    "status": "PASS"
+  }
+}
