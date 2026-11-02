@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Full finite enumeration independently constructs both complexes, each with \(144\) nonempty simplices, complete face vector \((16,64,64)\), and the indicated acyclic discrete-Morse vector \((1,1,16)\). Every face-pair incidence and the complete directed Hasse diagram are checked. The integral signed boundary presentation has exactly \(48\) unit Smith factors, leaving \(H_1\cong\mathbb Z\) and forcing every Morse 2-cell attaching degree to vanish. Thus both complexes have the homotopy type stated in the theorem.
+PASS
 
-## Originality — PASS
+For each undirected 16-vertex circulant step set (1,2,3,8) and (1,4,7,8), exact face enumeration yields (f0,f1,f2)=(16,64,64). The inspected independent reproducer constructs 63 disjoint acyclic Hasse pairs (144 cells, 320 arrows), leaving critical cells (1,1,16). Its actual signed 49-by-64 triangle presentation has Smith invariant factors 1 repeated 48, so H1 is Z, and the sixteen Morse 2-cell attaching degrees into the one-cell circle all vanish. Thus the claimed integral homotopy wedge follows. Distinct edge-common-neighbor distributions prove graph nonisomorphism. No extrapolation beyond the two named graphs.
 
-The exact primary graph classification by Earl, Vander Meulen and Van Tuyl (arXiv:1505.02837v1, Table 1) records the Buchsbaum and one-well-covered statuses but does not classify either homotopy type. Standard cycle-power classifications do not directly apply to these odd-regular antipodal-match graphs; indexed semantic results for different graph complexes do not imply this theorem.
+## originality
 
-## Value — PASS
+PASS
 
-This supplies complete integral homotopy data for a motivated pair in an established classification table, and exhibits two nonisomorphic complexes sharing a mixed-dimensional wedge of one circle and sixteen two-spheres. This is stronger than Buchsbaum status, a face vector, or field-only homology.
+The exact S^1 wedge sixteen S^2 type and shared type of two nonisomorphic named Buchsbaum circulants is a concrete refinement of the established combinatorial/Buchsbaum classification. The two named graph objects and the chain-level homotopy computation were compared with the primary 2015 graph classification and semantic findings on other circulants and graph independence complexes. No inspected theorem implies these particular homotopy decompositions; the judgment is best of knowledge.
 
-## Limitations and closest sources
+## value
 
-The theorem is restricted to the two displayed circulants. It neither claims an infinite-family formula nor an equivariant classification. The full text of the closely related 2015 Serre-condition paper and Adamaszek's earlier cycle-power paper was not inspected in this run; an unindexed equivalent result remains possible. An independent scientific audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two graphs are canonical entries in an existing well-covered Buchsbaum-circulant classification. Their complete mixed-dimensional integral homotopy types, including elimination of possible attaching degrees/torsion and a shared type despite graph nonisomorphism, are genuine topological invariants not mechanically entailed by the known Buchsbaum labels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
