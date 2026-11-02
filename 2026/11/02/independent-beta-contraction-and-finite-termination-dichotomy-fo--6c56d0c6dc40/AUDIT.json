@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Projection reduction from Algorithm 1 and the prior-direction H-orthogonality is proved directly. An absolutely continuous Gaussian direction in a hyperplane of dimension d−1 hits a fixed nonzero error vector with probability zero when d≥3, and necessarily aligns when d=2. Orthogonal projections onto random isotropic lines leave beta-distributed norm factors; their past-independent conditional laws prove independence. Beta means and integrable log factors prove the exact mean and almost-sure exponent. Exact Fraction recurrence checks, 450 two-dimensional runs, and 40,000 isotropic random paths corroborate finite cases without being substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Using all previous projection directions can yield finite termination when history length reaches rank, unlike one-previous-direction memory.",
+        "The older 2025 method proves a finite-termination guarantee when memory exceeds rank, which directly covers d=2 and is expressly credited."
+      ],
+      "reasoning": "Broad convergence and full-memory finite-termination theorems do not yield an exact law for fixed memory two or rule out finite termination in dimension three and higher. The claimed isotropic beta-factor theorem is not simply a restatement of convergence bounds.",
+      "searches": [
+        "arxiv:2505.20602v1 Remark 3.6",
+        "arxiv:2207.07615",
+        "Randomized conjugate-gradient methods with one-step A-conjugacy random directions loss of finite termination exact arithmetic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.25034v1",
+      "arxiv:2505.20602v1",
+      "arxiv:2207.07615",
+      "arxiv:2607.06917 (abstract only)",
+      "Semantic mathematics research-record queries on RCGLS, Gaussian beta products, finite termination and one-previous-direction conjugacy"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.4 gives a conditional expected contraction inequality, not beta-distributed independent factors or a sharp almost-sure rate.",
+        "The 2025 framework establishes expected-rate bounds and full-memory finite termination; it does not determine the distribution of factors at fixed memory two.",
+        "The new higher-dimensional zero-probability conclusion is stronger than simply lacking a known finite-termination guarantee."
+      ],
+      "reasoning": "An expected contraction bound or finite termination when memory ≥ rank does not logically entail the full path distribution when memory is 2. The two-dimensional endpoint is deliberately classified as covered, while the proposed new part is the exact beta law and higher-dimensional obstruction.",
+      "searches": [
+        "arxiv:2605.25034v1 Theorem 2.4",
+        "arxiv:2505.20602v1 Theorem 3.3, Remarks 3.5–3.6",
+        "arxiv:2207.07615",
+        "randomized conjugate gradient least squares Gaussian beta independent error distribution 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The RCGLS step is an exact H-orthogonal projection of the current error along the Gaussian sketch orthogonalized against the previous direction.",
+        "The Sun–Han–Xie projected sketch method with memory two is an equivalent affine-span update after whitening least squares; its rank-two finite termination is prior work."
+      ],
+      "reasoning": "The stochastic beta product and higher-dimensional almost-sure nontermination refer to this equivalent projector; different titles or coordinates do not establish novelty. No inspected stronger distributional result follows from the older method's stated expected-rate inequalities.",
+      "searches": [
+        "arxiv:2605.25034v1 Algorithm 1",
+        "arxiv:2505.20602v1 Algorithm 1 and Remarks 3.5–3.6",
+        "independent beta contraction factors randomized conjugate gradient least squares one-step orthogonalization Gaussian sketches"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record searches returned closest projected-gradient and CG findings without this algorithm-specific independent beta factor law.",
+        "Spherical projection beta distributions are classical and assumed known, not claimed as new mathematical constants."
+      ],
+      "reasoning": "The candidate is a distributional identity for an adaptive iterated solver, not an exact database sequence or finite table entry. Searches cannot establish uniqueness and are combined with direct full-text inspection.",
+      "searches": [
+        "Randomized conjugate gradient least squares RCGLS Gaussian sketches finite termination two dimensions dimension three no finite termination almost surely",
+        "independent beta contraction factors randomized conjugate gradient least squares one-step orthogonalization Gaussian sketches",
+        "Gaussian randomized line search previous direction conjugacy beta product energy error stochastic contraction distribution",
+        "randomized conjugate gradient least squares non finite termination d≥3 memory two beta distribution",
+        "arxiv 2605.25034 independent beta Gaussian contraction RCGLS"
+      ]
+    },
+    "rationale": "The proposal explicitly excludes any novelty claim for the two-dimensional finite-termination principle already subsumed by Sun–Han–Xie 2025; it claims instead the precise absence of higher-dimensional finite termination for the one-previous-direction method plus a full independent-beta error-factorization and log-rate absent from the directly inspected results. A closely analogous earlier projected-sketch framework is acknowledged as mathematically related, not ignored. Literature and research-record searches did not find dominating distributional coverage; historical priority remains uncertain.",
+    "residual_risks": [
+      "Specialized Gaussian random-projection literature may independently imply or state an identical product-beta law.",
+      "The related 2026 randomized projection solver could not be compared from full text.",
+      "Independent mathematical and historical-priority review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Method verified; parent convergence statement does not give proposed joint factor law",
+        "evidence": "arXiv:2605.25034v1; published public date 2026-05-24; Section 2, Algorithm 1 and Theorem 2.4",
+        "identifier_or_url": "https://arxiv.org/html/2605.25034",
+        "material_read": "Full publicly accessible HTML, Section 2.1–2.3 including Algorithm 1, Eq. 9–10 and Theorem 2.4, introduction, numerical setup and reference headings",
+        "method": "Read algorithmic recurrence and derive projected direction; compare conditional expected contraction with exact beta law",
+        "title": "Randomized conjugate gradient least squares",
+        "trigger": "Exact algorithm and parent convergence theorem"
+      },
+      {
+        "assessment": "Covers rank-two finite termination and highly related algorithm construction, but inspected claims do not provide exact memory-two Gaussian beta factorization or almost-sure no-finite-termination boundary",
+        "evidence": "arXiv:2505.20602v1; Section 3, especially Remarks 3.5–3.6",
+        "identifier_or_url": "https://arxiv.org/html/2505.20602v1",
+        "material_read": "Full open HTML, methods and convergence analysis including Sections 2–3 and Remarks 3.5–3.6; PDF relevant passage also examined",
+        "method": "Compare affine-subspace definition, memory length, expected contraction and finite termination when memory reaches rank",
+        "title": "Connecting randomized iterative methods with Krylov subspaces",
+        "trigger": "Closest older full-memory projected-sketch algorithm"
+      },
+      {
+        "assessment": "Not equivalent to the fixed one-previous-direction Gaussian algorithm's distributional claim",
+        "evidence": "arXiv:2207.07615, projection-based least-squares directions",
+        "identifier_or_url": "https://arxiv.org/abs/2207.07615",
+        "material_read": "Open preprint PDF, projection and convergence discussion, including finite-step methods",
+        "method": "Compare recurrence memory dependence and orthogonalization requirements",
+        "title": "A Projected Linear Systems Solver for Large-Scale Linear Systems",
+        "trigger": "Earlier growing-memory projection method and termination claims"
+      },
+      {
+        "assessment": "Unresolved historical-priority risk, not decisive evidence of covering the exact beta law",
+        "evidence": "arXiv:2607.06917, publicly visible abstract",
+        "identifier_or_url": "https://arxiv.org/abs/2607.06917",
+        "material_read": "Open abstract/metadata only; full text retrieval unsuccessful",
+        "method": "Compare method scope from accessible abstract; avoid any whole-document negative-coverage assertion",
+        "title": "Randomized projection linear systems solver",
+        "trigger": "Recent possible predecessor discussing random projection solvers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6c56d0c6-dc40-483e-8a78-550bdb26d642",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A recent randomized linear solver has only general expected-rate guarantees; exact independent beta factors give complete finite-step reliability and an almost-sure decay exponent, and reveal a natural dimension-three break from classical finite-step CG. The full-column-rank case includes any SPD normal-equation matrix for the nontermination boundary; the isotropic distributional law uses a motivated condition-number-one benchmark, not an arbitrary subcase. Explicit limits avoid claiming a general-condition-number distributional solution.",
+    "status": "PASS"
+  }
+}
