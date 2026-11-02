@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized zeta equation has a unique small positive root. Its derivative is bounded away from zero, the additive exponent semigroup is locally finite, and the recursive cancellation leaves a rigorously bounded tail at every fixed cutoff. The six explicit coefficients follow from direct expansion, including the mixed contribution at the sixth-integer resonance. The included verifier checks finite numerical instances; the proof is not contingent on those checks.
+## correctness
 
-## Originality — PASS (conditional priority)
-Huxley–Lettington–Schmidt (arXiv:2610.13864v1, Theorem 5.3 and Remark 5.4) define the exact threshold and bound it only to logarithmic order; the present result supplies an all-orders generalized-power expansion and resolves the first collision coefficient. Lettington–Schmidt (arXiv:1910.02455) supply earlier sum-system counting constructions. Searches for inverse-zeta threshold expansions and generalized Dirichlet powers did not uncover an equivalent indexed result. An unindexed inversion calculation or a theorem about general Dirichlet-series inverses could still subsume the result. The implicit equation itself is prior knowledge and is not being claimed as new.
+PASS
 
-## Mathematical value — PASS
-The threshold governs the convergence of an arithmetic counting Dirichlet series as the number of sum-system parts grows. Prior logarithmic-order bounds do not resolve its subpower structure. A complete discrete exponent semigroup, an effective coefficient recursion at every prescribed order, and the first genuine resonance distinguish the result from merely restating the defining zeta equation. A separate asymptotic for counts in their size variable is not obtained.
+Normalized implicit equation e^{-a delta}+sum_{n>=3} M^{-lambda_n}e^{-log n delta}-1=0, M=m-1, a=log2, has derivative <=-a/2 near the unique root. The exponent semigroup is locally finite because generators lambda_n increase and have a positive minimum. Recursive formal extraction cancels coefficients in strictly increasing exponent order. For any B the n-tail is O_B(M^-B) by integral comparison and the finite truncated exponentials contribute O_B(M^-B); mean-value inversion gives an actual all-orders asymptotic with fixed-cutoff error. Reconstructed the six exponents below theta=log_2(7/2) and the nontrivial n=6 versus n=3/4 mixed resonance coefficient -log3/(log2)^2. Independent high-precision actual zeta root checks at M=10^4,10^6,10^8,10^10 confirm truncation scaled by M^theta remains bounded, which does not prove uniform B claims.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS relative to accessible sources: Huxley–Lettington–Schmidt (2026) establishes the implicit threshold and logarithmic growth, not an identified all-orders semigroup or resonance coefficient. The full preprint could not be inspected because lawful full-text routes were inaccessible and authorized institutional retrieval reported disconnected VPN; this is a serious recorded priority risk, not proof of noncoverage.
+
+## value
+
+PASS
+
+The convergence threshold of labeled sum-system arithmetic Dirichlet series is a natural exact quantity. The additive exponent semigroup, constructive coefficients at every fixed precision, and an explicit collision coefficient answer the quantitative refinement problem beyond the known leading logarithmic order; no unrelated downstream theorem is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
