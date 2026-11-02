@@ -1,0 +1,13 @@
+# Scientific review
+
+**Correctness — PASS.** The definition is normalized at every cyclic cut, including the two unbordered endpoints and the rank-zero boundary. The proof identifies a four-block 0101/1010 square across every transition and excludes smaller borders because the common block-pair is itself unbordered. Counts use exactly two transitions per higher-level one. Standalone prefix-function checking matched every cut at ranks 0..6 and separately tested the global-period bound; finite tests do not replace the all-rank proof.
+
+**Originality — PASS, qualified.** The full text of Holub–Müller (arXiv:1504.02222) was compared for local-period equivalence and stronger qualitative coverage; Goč–Mousavi–Shallit (arXiv:1211.1301) was compared for period-doubling enumeration; and Henshall–Shallit (arXiv:1203.3758) for automatic decision methods. None of the inspected claims determines the pointwise Cantor triadic array or spectrum. Qualitative two-unbordered-conjugate claims are not presented as standalone priority. Accessible historical claims and targeted indexed searches gave no implication of the new quantitative statement.
+
+**Value — PASS.** Shortest-border local periods are an established invariant of critical factorizations and fully bordered cyclic words. The exact closed-position distribution across an exponentially expanding canonical automatic-word family is structurally motivated: it distinguishes a unique geometric tower of local periodic roots, complete cut multiplicities, and critical unbordered boundaries. This is not a mere count of a manually selected factor or a routine renaming of a known theorem; its four-block substitution mechanism is a reusable combinatorial idea.
+
+**Closest literature and direct implications.** Holub–Müller (2015) already develops the qualitative fully bordered framework and defines cyclic local period. Goč–Mousavi–Shallit (2012) gives exactly two unbordered factors at every length in a different automatic family. The full numeric three-adic shortest-border array and its exact multiplicities have not been found in these inspected sources. The Cantor-specific proof is supplied in `RESULT.md`; no absence-from-search is used as a novelty proof.
+
+**Scope and residual risks.** Complete morphic iterates and all rotations of one equal-zero-padded block are covered, but arbitrary finite words and all factors are not. The checker has finite scope and independent human mathematical validation has not occurred. Older specialized literature could affect historical priority. The general fully bordered characterization is a relevant antecedent, not a claimed new theorem.
+
+Self-review: passed. Independent audit: not yet performed.
