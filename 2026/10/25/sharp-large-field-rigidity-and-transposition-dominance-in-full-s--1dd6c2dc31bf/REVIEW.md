@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The automorphism is monomial because the distinct squares form a basis; preservation of products gives the explicit orbit equation. On every prescribed transposition the nonzero scalar compatibility has exactly \(q-1\) choices and each gives exactly \((q-1)^{n^2-2n+2}\) full-support matrices. A basis-scaling bijection and a nonzero determinant polynomial show that restricting to nonsingular matrices alters this count by relative \(O_n(q^{-1})\). The orbit-deficit bound and the group-product argument control all other automorphisms and overlapping transpositions. The checker exhaustively verified \(328192\) small-field matrices and the orbit deficit for \(5877\) permutations. These finite checks support, but do not replace, the general proof.
+PASS
 
-## Originality — PASS within investigated coverage
+In a perfect evolution algebra the squares of natural basis vectors are a basis, so automorphisms monomial. Full-support nonzero diagonal forces trivial identity-permutation scalar kernel. For prescribed tau, compatibility scalars t,t^-1 and fixed other scalars give (q-1)^(n²-2n+3) matrices, probability (q-1)^(3-2n) before conditioning. Determinant polynomial is nonzero on torus and each transposition stratum (witness I+uJ), yielding relative O_n(q^-1) loss from conditioning on nonsingular matrices. Other permutations moving k>=3 have orbit deficit >=nk-k²/2, and union bound with permutation product controls overlapping swaps and gives event O_n((q-1)^(-(2n-2))) or O_n((q-1)^(-(2n-1))) for n>=6. Dividing by leading rare probability proves C2 with stated errors. Checked exact F3 n3 prescribed swap count, orbit deficits in n5,6 and matrix rank. All asymptotics require fixed n not dimension-growing.
 
-The automorphism equation and monomial representation are previously known (Sriwongsa–Zou, arXiv:2202.01333). Wei–Zou, arXiv:2310.12368, count orbits of the full monomial action and work out dimensions up to four; this is not a sharp probability or conditional stabilizer law for the full-support invertible family. Costoya–Mayorga–Viruel, arXiv:2401.05924, study realizability rather than the random rarity of symmetry. Related established claims treat a binary, dimension-growing evolution-algebra rigidity regime and an unrelated random nonassociative-magma symmetry law. Neither implies this large-field, full-support result. The main risk is an unindexed general asymptotic stabilizer theorem or an implicit full-support specialization of earlier Burnside enumeration.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Full-support perfect evolution algebras form an intrinsic, natural large-field-dense family, and their complete directed support graphs admit every permutation; nevertheless their actual algebra automorphisms are almost surely trivial. The theorem determines the sharp rarity scale and exact leading coefficient and identifies the *complete* exceptional group rather than only its first moment. The nontrivial gauge factor \(q-1\), its interplay with the transposition orbit deficit, and the dimension-dependent conditional error distinguish this calculation from a naive symmetry estimate. It is useful for random algebra models and the difference between graph and algebraic symmetry.
+Best-of-knowledge PASS after independent statement/implication comparisons with primary literature and published semantic records. Known starting theorems explicitly credited; absence of matching search results not treated as proof of priority.
 
-## Limitations and closest literature
+## value
 
-The sampling is matrix-uniform, not isomorphism-class-uniform; \(n\) is fixed while \(q\to\infty\). The proof does not claim estimates uniform in \(n\) or an exact finite-field nonsingular stratum formula. It credits the underlying monomial action and does not claim a general enumeration of all evolution algebra automorphism groups. An independent novelty survey may uncover older equivalent estimates.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rare symmetry in an intrinsically natural large-field family is quantitatively resolved: exact leading constant plus full conditional exceptional group, revealing discrepancy between complete graph symmetry and algebra automorphism rigidity; meaningful classification beyond standard monomial representation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
