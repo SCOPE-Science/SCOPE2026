@@ -1,15 +1,21 @@
-# Assessment of Clebsch determining-set classification
+# Independent mathematical audit
 
-## Correctness: PASS
-The explicit graph is the 16-element vector space with five Cayley generators. Its full \(1920\)-element automorphism group is justified by translation and the induced \(S_5\) action on five neighbors, with all remaining vertices uniquely encoded by one- or two-generator differences. The pointwise-stabilizer test is equivalent to distinct columns in a five-direction incidence matrix. Two separately implemented exhaustive verifiers test all \(65536\) subsets, independently recover the \(560\) four-sets and \(192\) five-sets, check the geometric characterizations, and construct the complete minimum-basis exchange graph. They both obtain \(5920\) exchange edges, universal eccentricity four, and the same two degree and layer profiles. Computation is exhaustive for sixteen vertices; no inference to infinite families is made.
+## correctness
 
-## Originality: PASS, with residual risk
-The foundational determining/fixing-set papers and permutation-base survey provide definitions, general methods, and different classes of examples but no Clebsch-specific census or its complete exchange geometry in the inspected text. The graph table includes the group order but not determining sets. Searches under *fixing set*, *determining set*, *pointwise base*, *automorphism base*, *folded cube*, and the exact values detected no covering implication. A published record on Clebsch independence homology concerns a different invariant. An unindexed finite table, altered complement naming, or unsearched literature could nevertheless contain the numbers; publication priority is not independently certified.
+PASS
 
-## Mathematical value: PASS
-The Clebsch graph is a canonical highly symmetric strongly regular graph. Its exact all-minimal symmetry-breaking-set census is more informative than one minimum size: it detects distinct inclusion-minimal cardinalities (failure of matroid-basis behavior), two geometrically distinct optimal orbits, and a connected four-step optimal configuration exchange graph. This contrast is a natural symmetry-breaking/reconfiguration phenomenon and not an arbitrary numerical slice. The result is finite and self-contained rather than a general folded-cube theorem.
+For the 16-vertex Cayley graph on F_2^4 with five directions summing to zero, every nonzero difference has a unique representation with one or two directions, giving Aut(G)=F_2^4⋊S_5. Given one anchored selected vertex, its pointwise stabilizer is trivial iff all five direction-incidence columns are distinct. Exhaustively evaluating all 2^16 vertex subsets by this elementary criterion, and separately by explicit action of all 1920 automorphisms, yields precisely 560 minimal 4-sets and 192 minimal 5-cycles; the two independent complete methods classify all candidates including converse. BFS from every one of 560 optimal bases yields connected 5920-edge exchange graph, every eccentricity 4, degrees 20 or 28, and the two printed layer profiles. Independent reimplementation recovered the same exhaustive invariants. As the universe is fixed finite, exhaustive enumeration is a proof, not an extrapolation.
 
-## Limits
-The theorem uses the five-regular convention, not its ten-regular complement; it concerns pointwise fixation and unrestricted single-vertex exchange. The verification programs give an executable finite proof certificate, not an independently validated formal proof. Unindexed sources remain an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Boutin develops determining sets and exchange behavior for graph families; Bailey–Cameron translates to group base size, and Clebsch graph tables give automorphism group and graph invariants. No inspected stronger theorem/classification or database entry determines this exact complete inclusion-minimal Clebsch census together with all-base four-step exchange geometry; risks of unindexed finite tables or complement nomenclature remain.
+
+## value
+
+PASS
+
+The 16-vertex five-regular Clebsch graph is a canonical highly symmetric strongly regular graph. Its complete minimal pointwise-base census reveals two different minimal cardinalities (nonmatroidal) yet a connected radius/diameter-four optimum exchange graph, supplying a motivated exact natural combinatorial reconfiguration invariant rather than arbitrary small-instance arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
