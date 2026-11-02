@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For a rectangular storm, differentiate the exact convolution; the derivative is strictly positive up to pulse end, and afterward has the two signed Erlang-2 terms in Eq.(1) of RESULT.md. All roots lie between K_r(D) and K_1(D). Its sign is determined by the ratio R_D(s) minus routing odds, and (log R_D) prime is (r-1)-1/(K_1-s)-1/(s-K_r). The reciprocal-sum minimum is 4/L, giving either monotonic single crossing or exactly two ratio turning points and a three-crossing window. Convexity of g(z)=z/(e^z-1), proved by a positive second derivative, makes (r-1)L strictly decreasing with exact endpoints. This proves all quantifiers and the unique cutoff. Four exact rational crossing signs for r=8,p=1/12,D=log2 prove two crests; D=2log2 excludes them. Reproduced checker passed 1797 arithmetic assertions; numerical checks are not treated as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1061/JYCEAJ.0004936",
+        "https://doi.org/10.1029/2004WR003751",
+        "https://doi.org/10.1080/02626667.2013.870664"
+      ],
+      "reasoning": "The 1978 work covers general parallel cascade architecture and the 2006 article covers Nash convolution, so neither primitive is novel. The 2006 full relevant methodological text treats parameter uncertainty and fuzzy peak discharge, not a uniform positive-storm single/double crest classification. The indexed 2014 review describes parallel cascades, not the exact cutoff. The 1978 technical full text was not accessible, so that comparison is explicitly limited to its scientific abstract.",
+      "searches": [
+        "hydrology dual parallel Nash cascades two Erlang shape 2 single storm bimodality threshold rainfall runoff mixture gamma density",
+        "rectangular constant rainfall excess duration smoothing two parallel Erlang 2 gamma hydrographs exact criterion unique storm width cutoff to eliminate double crests",
+        "constant duration rainfall Nash cascade two equal reservoirs parallel rate ratio cutoff D exp D derivative peak bifurcation",
+        "https://doi.org/10.1061/JYCEAJ.0004936",
+        "https://doi.org/10.1080/02626667.2013.870664"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1029/2004WR003751",
+      "https://dml.cz/dmlcz/140075",
+      "https://doi.org/10.1080/03610920701713286",
+      "https://doi.org/10.1061/JYCEAJ.0004936",
+      "https://doi.org/10.1080/02626667.2013.870664"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://dml.cz/dmlcz/140075",
+        "https://doi.org/10.1029/2004WR003751",
+        "https://doi.org/10.1061/JYCEAJ.0004936"
+      ],
+      "reasoning": "The broad Theorem 2 covers the general mechanism of two-unimodal-density mixing, but it does not itself compute the moving finite-duration component-mode separation or uniqueness of a cutoff over storm widths. The prior gamma-mixture criterion answers whether the kernel f has one or two modes at zero storm width; it does not determine if or exactly when the derivative f(t)-f(t-d) loses two roots at positive d. The 2006 convolution formula permits the present starting equation but does not state the unique exact solution to (r-1)(D/(e^D-1)-D/(e^{rD}-1))=4. The exact mixing-window condition and rigorous finite-width reversal are not corollaries of the cited statements without an additional analytical argument; their priority remains subject to uninspected materials.",
+      "searches": [
+        "two component gamma mixture same shape 2 bimodality parameter condition critical ratio 3 plus 2 square root 2",
+        "rectangular constant rainfall excess duration smoothing two parallel Erlang 2 gamma hydrographs exact criterion unique storm width cutoff to eliminate double crests",
+        "constant duration rainfall Nash cascade two equal reservoirs parallel rate ratio cutoff D exp D derivative peak bifurcation",
+        "https://dml.cz/dmlcz/140075",
+        "https://doi.org/10.1029/2004WR003751"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://doi.org/10.1029/2004WR003751",
+        "https://dml.cz/dmlcz/140075"
+      ],
+      "reasoning": "An instantaneous unit hydrograph is a two-component gamma mixture; a positive-duration rectangular storm is a *uniform convolution* of that mixture, not another two-component gamma mixture. Translating the finite convolution to a scalar crossing curve is a new statement beyond the previously known instantaneous modality condition. A published gamma-sum result treats sums of independent gamma variables and does not imply mode counts under uniform convolution of a mixture.",
+      "searches": [
+        "hydrology dual parallel Nash cascades two Erlang shape 2 single storm bimodality threshold rainfall runoff mixture gamma density",
+        "rectangular constant rainfall excess duration smoothing two parallel Erlang 2 gamma hydrographs exact criterion unique storm width cutoff to eliminate double crests",
+        "uniform convolution bimodality mixture two Erlang shape 2 density smoothing width threshold double modes",
+        "https://dml.cz/dmlcz/140075"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://dml.cz/dmlcz/140075",
+        "https://doi.org/10.1080/03610920701713286"
+      ],
+      "reasoning": "Došlá Theorem 2 gives general modality criteria for any two unimodal component densities, and Proposition 6 gives the exact common-shape gamma-mixture criterion and impulse rate threshold; all of these are prior work and explicitly excluded from novelty. The other gamma-mixture modal work also treats impulse distributions. No inspected exact source/table gives a positive-rectangular-storm duration cutoff or its mixing-weight window. Lack of a match is not proof of novelty.",
+      "searches": [
+        "two component gamma mixture same shape 2 bimodality parameter condition critical ratio 3 plus 2 square root 2",
+        "rectangular constant rainfall excess duration smoothing two parallel Erlang 2 gamma hydrographs exact criterion unique storm width cutoff to eliminate double crests",
+        "uniform convolution bimodality mixture two Erlang shape 2 density smoothing width threshold double modes",
+        "https://dml.cz/dmlcz/140075",
+        "https://doi.org/10.1080/03610920701713286"
+      ]
+    },
+    "rationale": "Inspected source-specific statements distinguish the new finite-duration convolution theorem from the known Nash cascade architecture and instantaneous gamma-mixture modal criterion. The rate-ratio constant appears in prior impulse-mixture work; the exact unique positive storm-duration cutoff, the moving mixing interval, and the same-storm duration reversal are not supplied by that impulse theorem without a new derivation. The oldest parallel-cascade paper remains an explicit residual access risk, so historical priority is provisional.",
+    "residual_risks": [
+      "Original 1978 parallel-cascades paper and the complete 2014 hydrology review were inaccessible; a precise earlier crest-multimodality classification might exist in their text or other uninspected literature.",
+      "Even where no exact published mathematical-record match was found, semantic searches cannot establish exhaustive literature priority.",
+      "Both the general two-unimodal-density mixture modality theorem and the instantaneous common-shape gamma-mixture modal threshold predate this finding and are not claimed as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes model ingredients and uncertainty estimates, not an exact rectangular-storm double-crest cutoff",
+        "evidence": [
+          "First published 2006-02-01; Section 1 explains rain-excess convolution; Section 3 uses Nash gamma kernel; peak discussion in Section 5"
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/2004WR003751",
+        "material_read": "Full accessible HTML, the introduction and convolution formula, Nash parametric sections, peak/discussion sections and references",
+        "method": "Section-by-section text reading and statement comparison",
+        "title": "Fuzzy unit hydrograph",
+        "trigger": "Primary dated source establishing convolution of rain-excess with Nash kernel"
+      },
+      {
+        "assessment": "Covers general two-density modality methodology and the instantaneous gamma-mixture rate threshold, not a computed strictly positive rectangular-storm duration cutoff",
+        "evidence": [
+          "Kybernetika 45 (2009), 279-292; Theorem 2 general criterion; Proposition 6 common-shape gamma mixtures"
+        ],
+        "identifier_or_url": "https://dml.cz/dmlcz/140075",
+        "material_read": "Full freely available PDF, with particular examination of definitions and Theorem 2 general modal characterization and Proposition 6 gamma-mixture pages",
+        "method": "Full text and page image inspection, proposition comparison",
+        "title": "Conditions for bimodality and multimodality of a mixture of two unimodal densities",
+        "trigger": "Plausible stronger coverage of identical-shape two-gamma modality"
+      },
+      {
+        "assessment": "Analyzes gamma-mixture modality, not a rainfall pulse and its moving-interval derivative",
+        "evidence": [
+          "2008 original publication; gamma-mixture mode/inflection criteria"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03610920701713286",
+        "material_read": "Accessible original text in the relevant gamma-mixture bimodality and inflection sections",
+        "method": "Scientific section reading and mathematical comparison",
+        "title": "Gamma Mixture: Bimodality, Inflexions and L-Moments",
+        "trigger": "Plausible coverage of two-gamma mixture mode-count phase diagram"
+      },
+      {
+        "assessment": "Established dual linear routing channels. Cannot exclude exact positive-storm crest cutoff without technical text, although no such result appears in accessible abstract",
+        "evidence": [
+          "Journal of the Hydraulics Division 104 (February 1978), pp.261-276; abstract explicitly describes two parallel linear-reservoir cascades"
+        ],
+        "identifier_or_url": "https://doi.org/10.1061/JYCEAJ.0004936",
+        "material_read": "Publisher abstract, article metadata and date; full technical text not obtained after open access and institutional route attempts",
+        "method": "Title, abstract and bibliographic evidence; technical details not inspected",
+        "title": "Parallel Cascades Model for Urban Watersheds",
+        "trigger": "Earliest direct two-parallel-cascade hydrology architecture"
+      },
+      {
+        "assessment": "Confirms standard parallel-cascade architecture but complete theoretical coverage remains uninspected",
+        "evidence": [
+          "Review discussion of parallel urban watershed cascade and finite rain-excess representation"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/02626667.2013.870664",
+        "material_read": "Indexed parallel cascade and hydrologic modeling sections only; full article access restricted",
+        "method": "Scientific search-index text inspection",
+        "title": "A review of the synthetic unit hydrograph",
+        "trigger": "Broad overview might summarize stronger parallel-cascade crest theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2497991f-d0f8-4135-ad57-08f436f8ffc9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two strict runoff crests resulting from one uniform rainfall pulse can be mistaken for multiple storm events or other mechanisms. The theorem provides the natural complete classification and sharp maximum pulse duration beyond which route mixing cannot generate two crests, and a closed-form mixing-weight window for shorter storms. The exact same-system two-duration witness highlights the structural physical motivation, while model assumptions and empirical limits are explicit.",
+    "status": "PASS"
+  }
+}
