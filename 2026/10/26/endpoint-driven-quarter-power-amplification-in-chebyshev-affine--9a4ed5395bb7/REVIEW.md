@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact arcsine pushforward formula converts the coefficient norm into a measure-comparison problem. The global Chebyshev Christoffel bound and a size-\(N^{-1}\) split at all new internal endpoints give the \(N^{1/2}\) bound for the *squared* norm. A normalized reproducing kernel concentrated at one internal endpoint yields the matching lower bound. Leading coefficients supply the triangular eigenvalues. The affine fixed-point limit and exact evaluation-functional norm establish the power-limit identity. The attached independent-of-experiment analytical proof covers all fixed nondegenerate proper subintervals; finite checks are diagnostic only.
+## correctness
 
-**Originality — PASS, subject to historical risk.** The motivating paper's Section 2 gives entry formulas and a recurrence, not this growth theorem or the exact powers limit. The claim was compared against previously published mathematical claims and mathematical-record search results using the source name, affine restriction aliases, arcsine-weight ratios, Chebyshev spectral norms, and quarter-power growth. No matching or stronger covering claim was found in the checked sources. General Jacobi-weight Nikolskii inequalities may eventually subsume the exponent; this priority uncertainty is not erased by unsuccessful search.
+PASS
 
-**Mathematical value — PASS.** The restriction block is a named foundational operation in a current fast spectral Volterra method. Its dimension-growing Chebyshev \(\ell^2\)-gain and much larger repeated gain quantify a structural, norm-dependent stability limitation invisible from the triangular eigenvalues and conventional full-interval spectral analysis. The result motivates choosing or tracking norm-compatible representations; it does not claim the entire solver fails.
+Changing variables identifies the operator norm squared with the largest ratio of arcsine L2 measures, original Chebyshev measure versus rescaled subinterval arcsine. At least one endpoint is strictly interior. The Christoffel bound |p(x)|² <= (2N+1)/pi ||p||² and a 1/N endpoint split bound the ratio O(sqrt(N)); a normalized reproducing kernel at an interior endpoint has height squared of order N on a one-sided c/N interval, forcing ratio Omega(sqrt(N)). Thus ||R_N||=Theta(N^(1/4)). Triangular leading coefficients give diagonal 1,alpha,...,alpha^N, and iterates converge at fixed N to evaluation at beta/(1-alpha), yielding exact sqrt(1+2 sum_{j=1}^N T_j(t*)²) power-limit norm. Independently reconstructed finite Chebyshev matrices, computed SVD norms and checked the spectral diagonal; those finite tests do not prove the N-uniform estimates.
 
-The checked earlier numerical spectral-conditioning literature uses different assembled operators; relevant details and specific comparisons appear in the structured audit. Norm estimates are limited to fixed intervals, degree spaces, and exact arithmetic. No leading one-step constant, uniform moving-endpoint estimate, or finite-precision growth theorem is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: the exact stated constrained theorem is not mathematically implied by the inspected antecedents, with identified stronger-framework and inaccessible-source risks; negative searches alone are not novelty proof.
+
+## value
+
+PASS
+
+A sharp, motivated growth exponent for a concrete spectral restriction block identifies severe nonnormal norm growth despite radius one. The exact iterated power norm also distinguishes short-time from long-time operator behavior, without claiming instability of the full Volterra solver.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
