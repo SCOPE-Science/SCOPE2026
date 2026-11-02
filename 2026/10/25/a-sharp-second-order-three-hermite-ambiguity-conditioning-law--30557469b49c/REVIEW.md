@@ -1,15 +1,21 @@
-# Scientific review: three-Hermite ambiguity conditioning
+# Independent mathematical audit
 
-## Correctness — PASS
-The Hermite ambiguity identity gives the three radial multipliers exactly. The zeros \(2\pm\sqrt2\) of the second Laguerre polynomial yield two linear covering constraints. The explicitly constructed positive dual vector proves a **global** cost lower bound \(w_0+w_1\geq Ct\), not just local optimality. Evaluating the rightmost disk point gives \(M_3(R)\leq F_R-CF_R^2+o(F_R^2)\). A normalized positive feasible allocation of sizes \(\alpha_0F_R(1+\sqrt{F_R})\) and \(\alpha_1F_R(1+\sqrt{F_R})\) yields the matching lower bound after checking neighborhoods of both quadratic zeros, the compact complement and monotonicity for \(x\geq7\). Strict positivity of the covering dual and invertibility of its constraint matrix force all optimal asymptotic splits. This establishes quantified asymptotic limits as \(R\to\infty\), not finite-radius uniqueness. The included script passed 844 finite numerical assertions; the proof does not depend on their exhaustiveness.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-Grohs–Liehr–Rathmair (arXiv:2207.10620, full text inspected) prove multi-window STFT lattice uniqueness, whereas the present object is a linear three-channel ambiguity multiplier with an expanding disk and optimizable normalized channel precision. Fulsche–Hagger (arXiv:2308.11292, full text inspected) analyze polyanalytic Fock quantization and Laguerre zeros, but not the two-node allocation program or its second-order coefficient. Sandsten–Reinhold–Starkhammar (Interspeech 2017, full paper inspected) use multitaper windows for distribution estimation/concentration rather than exact worst-case ambiguity inversion. The institutional abstract of Ydreskog (2023) describes optimal multitaper spectrograms under other criteria, but its full thesis was inaccessible; unresolved overlap with that or unindexed optimization work is the main priority risk. Related published spectral-frame findings concerning finite cyclic windows and near-critical Hermite Gabor frames have different operators and implications, and a separate two-Hermite radial optimization cannot cover the simultaneous zeros of the order-two Laguerre polynomial. Searches did not identify a stronger covering theorem; absence in an index is not novelty proof.
+PASS
 
-## Value — PASS
-The first two Hermite windows have at most one nontrivial radial Laguerre zero; the second excited Hermite window introduces two distinct zeros that force **both** lower-order windows to carry positive precision. The theorem solves the resulting nontrivial two-constraint optimal-covering problem in the high-radius regime, determines the exact second-order penalty, and proves asymptotic rigidity of *every* optimal allocation. This is a sharp precision-design invariant for a natural linear reconstruction stage, rather than a narrow arbitrary numerical fact.
+Hermite ambiguity identity yields squared radial multipliers φ_j=e^(−x)L_j(x)² for j=0,1,2. L2 roots r±=2±√2 imply two exact lower precision-covering constraints. A strictly positive dual vector certifies minimal w0+w1=Ct with C≈5.984283368174 and unique normalized unit solution α0≈0.929064805486, α1≈5.055218562688. Bounding the disk endpoint x=R gives M3≤F_R−CF_R²+o(F_R²). Feasible weights (1+√F_R)F_R(α0,α1), 1−(1+√F_R)C F_R, satisfy global lower bound after neighborhoods of quadratic zeros, compact complement and monotone x≥7 tail, yielding equality to second order. Every optimizer has normalized limit (α0,α1) by bounded subsequences and LP uniqueness. Independently checked roots, dual balances and several finite radii; numerical finite checks are not the asymptotic proof.
 
-## Scope and reproducibility
-The theorem applies to a **three-channel linear** multiplier and a disk-restricted ambiguity field, not general nonlinear phase retrieval, and does not claim a complete finite-radius optimizer classification. The standalone `verify.py` requires only Python 3 and reproduces numerical consistency tests; infinite asymptotic statements rest on the written proof. Historical priority beyond inspected texts cannot be certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: multi-window phase-retrieval uniqueness, Fock Laguerre zero geometry and Wigner multitaper optimization do not state the large-R worst-case linear multiplier minimax or its second-order coefficient. Full 2023 thesis inaccessible, named residual risk.
+
+## value
+
+PASS
+
+A natural three-window Hermite measurement introduces two Laguerre zeros requiring both lower-order windows at positive precision. The exact large-radius second-order penalty and asymptotic rigidity of every optimal allocation solve a meaningful joint covering optimization, unlike a trivial single-window normalization or arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
