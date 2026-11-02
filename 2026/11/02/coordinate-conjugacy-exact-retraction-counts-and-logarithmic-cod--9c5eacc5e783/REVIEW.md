@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The nilpotent-coordinate universal property, invertibility criterion via the cotangent space, constructive conjugacy of every idempotent, and automorphism centralizer count are proved with full quantifiers in RESULT.md. The exact formula follows from orbit-stabilizer; the logarithmic concentration follows from a uniform three-point window bound with an exponential gap of order \(p^d\) overwhelming Gaussian coefficients of log-size \(O(d^2)\). Independent direct finite enumeration of all maps for \((p,q,d)=(2,2,2),(2,4,2)\) confirms the rank strata. Risk: finite checks do not replace the symbolic proof; only unital coefficient-preserving endomorphisms are covered.
+
+**Originality — PASS on the inspected evidence, with priority risk.** The primary truncated-polynomial/group-algebra source Chebolu–Corry–Grimm–Hatfield (2021), Sections 2–5, studies units and ideals, not the retraction orbit stratification. Balogh (2022), Sections 1–2, counts unitary subgroups rather than algebra-map idempotents. An earlier exact computation for the \(p=2,d=2\) exterior algebra is an included special case, and explicitly not new. Scientific searches and relevant existing algebra records do not imply the all-dimensional formula or the logarithmic rank law. Risk: older finite-local-algebra or modular group-algebra literature may contain an equivalent enumerator; this is not a claim of exhaustive publication priority.
+
+**Value — PASS.** Retracts are canonical split quotient subalgebras of a standard modular group algebra. The theorem gives a complete exact infinite-family invariant and a non-obvious phase of typical retractions: their logarithmic generator-codimension produces image sizes on the scale of ambient dimension divided by the number of generators. The asymptotic claim is not a special case of the known four-dimensional count.
+
+Self-review: passed. Independent audit: not yet performed.
