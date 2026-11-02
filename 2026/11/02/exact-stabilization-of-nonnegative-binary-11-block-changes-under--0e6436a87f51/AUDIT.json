@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The state transitions exactly implement each binary carry and local 11-adjacency change; the zero-shift tail is solved by a convergent geometric carry recursion. The resulting rational generating functions have exact polynomial parts Q1,...,Q7. Direct rational-matrix multiplication establishes the characteristic polynomial and the proper F8−F7 difference. Cayley–Hamilton proves every later increment is divisible by an additional 1/z and hence cannot change a nonnegative probability. The sharpness at a=7 follows from Q6≠Q7. An explicit cylinder approximation proves natural-density existence. The bundled checker verified these exact identities using rational symbolic arithmetic and finite integer tests, not extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "B. Sobolewski and L. Spiegelhofer, arXiv:2309.00142: conditional distribution recurrences and a Gaussian theorem for shifts with many one-blocks.",
+        "B. Sobolewski, arXiv:2412.15851, Theorem 1.2: Gaussian approximation as number of one-blocks tends to infinity."
+      ],
+      "reasoning": "The exact recurrences provide an algorithm for each fixed shift but do not state a uniform exact stabilization threshold for all shifts 2^a+1. Both Gaussian theorems address increasing numbers of one-blocks, whereas the family here has one block for a=1 and exactly two for every a>=2. Their asymptotic hypothesis does not deliver the exact fixed-shift law.",
+      "searches": [
+        "Block occurrences in the binary expansion Sobolewski Spiegelhofer arithmetic distribution exact two sparse one positions stable density",
+        "\"block-counting\" \"Cusick\" \"2^k+1\" probability",
+        "\"Sobolewski\" \"Spiegelhofer\" \"2^k+1\" \"11\" 2024"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.00142",
+      "arXiv:2412.15851",
+      "arXiv:1509.08623",
+      "OEIS:A014081"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2309.00142 Proposition 3.2 computes conditional frequencies recursively for general shifts.",
+        "arXiv:2412.15851 gives a large-one-block central-limit theorem, not fixed-two-bit stationarity.",
+        "The verified eight-state matrix has characteristic polynomial λ^6(λ−1)(λ−1/(2z)); combined with an exactly proper rational F8−F7, this proves the sharp uniform plateau."
+      ],
+      "reasoning": "A general finite recursion formally determines each individual distribution, but obtaining a constant nonnegative mass function for every a>=7 additionally requires proving that every future difference has only negative Laurent powers. The resulting exact infinite-parameter collapse is not stated or implied directly by a printed stronger closed theorem in the inspected literature. An unindexed specialization remains a risk.",
+      "searches": [
+        "arXiv:2309.00142 full text Proposition 3.2 distributions a_t(k) b_t(k)",
+        "arXiv:2412.15851 full text Theorem 1.2 block changes",
+        "\"Rudin-Shapiro\" \"Cusick\" density \"two blocks\" 2024 2025 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2309.00142 §2 (definition of d and c_t) and Proposition 3.2 (conditional distributions).",
+        "The searches yielded no stated two-bit-shift nonnegative-law stabilization."
+      ],
+      "reasoning": "The occurrence statistic is the integer-valued overlapping-adjacent-ones count, not its Rudin–Shapiro parity. The stated masses are natural densities for the integer difference, not Thue–Morse correlations or monochromatic progression lengths. None of the closest identified findings has equivalent hypotheses and conclusion.",
+      "searches": [
+        "Binary count of overlapping 11 patterns r(n+2^a+1)-r(n) nonnegative asymptotic density constant 175/256 for a>=7",
+        "Cusick Hamming weight conjecture analogue 11 block counting r(n+t) >= r(n) shifts 2^k+1 two set bits probability",
+        "Exact eventual stabilization at distance 7 of 11-block-count increase distribution for binary shifts 2^a+1: 54/256 65/256 44/256 12/256",
+        "\"r(n+t) >= r(n)\" \"11\" binary density"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A014081 lists the underlying sequence r(n), its recursions and finite values, not the four masses under shifts 2^a+1.",
+        "No matching exact 54,65,44,12 over 256 nonnegative-law table appeared in the targeted searches."
+      ],
+      "reasoning": "Tabulating r(n) is different from an exact asymptotic joint change distribution. The claimed all-a stabilization and sharp threshold require a universal statement not supplied by the inspected sequence table.",
+      "searches": [
+        "\"175/256\" \"Rudin Shapiro\" density",
+        "\"175/256\" \"11\" \"binary\" \"add\" digits",
+        "\"175/256\" \"block-counting\"",
+        "OEIS A014081 r(n) count occurrences 11 binary expansion"
+      ]
+    },
+    "rationale": "Published exact recurrences exist for each fixed binary-pattern change distribution, but inspected primary sources do not state the infinite sharp a=7 stabilization or the explicit four nonnegative masses for shifts with only two active bits. Closest mathematical records concern different summatory run counts or binary correlation statistics. The novelty judgment is limited by the possibility of an unindexed earlier specialization.",
+    "residual_risks": [
+      "A general recursive distribution formula in arXiv:2309.00142 may have been specialized to these shifts in overlooked or unindexed earlier material.",
+      "The later published version and still later bibliographic work could contain a non-obvious related formulation, although the inspected relevant passages do not show this identity.",
+      "No independent priority or correctness review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same objects and general conditional recurrence; no exact 2^a+1 fixed nonnegative law or sharp a=7 stabilization stated in material inspected.",
+        "evidence": [
+          "arXiv:2309.00142, 2023-08-31, lines around §2, Proposition 3.2, and equations for a_t(k), b_t(k)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2309.00142",
+        "material_read": "Accessible full HTML: abstract, introduction and notation, §2 main theorem, §3 Proposition 3.2 and its recurrences, matrix-method passages and references.",
+        "method": "Primary open-access article HTML inspected at the displayed equations and sections.",
+        "title": "Block occurrences in the binary expansion",
+        "trigger": "Original source defining the same integer-valued overlapping-11 change distribution."
+      },
+      {
+        "assessment": "Generalizes Gaussian estimates to arbitrary fixed patterns in the many-one-block regime, without the exact two-bit-shift mass plateau.",
+        "evidence": [
+          "arXiv:2412.15851, posted 2024-12-20, Theorem 1.2 and introduction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.15851",
+        "material_read": "Accessible full-text page introduction, definitions, main Theorem 1.2 and descriptions of conditional recurrence and proof sections.",
+        "method": "Public author-preprint full-text page, reading relevant sections.",
+        "title": "On the behavior of binary block-counting functions under addition",
+        "trigger": "Subsequent broader block-counting extension by one original author."
+      },
+      {
+        "assessment": "Different binary sum-of-digits statistic, not an exact overlapping-11 sparse-shift change law.",
+        "evidence": [
+          "M. Drmota, M. Kauers and L. Spiegelhofer, 2016, arXiv:1509.08623."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1509.08623",
+        "material_read": "Accessible published and preprint abstracts and mathematical subject classification.",
+        "method": "Abstract and publisher metadata inspection, not a complete full-text reading.",
+        "title": "On a Conjecture of Cusick Concerning the Sum of Digits of n and n+t",
+        "trigger": "Classical motivating density problem and potential equivalence."
+      },
+      {
+        "assessment": "Lists the base sequence r(n), not the all-a probability law of r(n+2^a+1)-r(n).",
+        "evidence": [
+          "OEIS:A014081, first terms and formula section."
+        ],
+        "identifier_or_url": "https://oeis.org/A014081",
+        "material_read": "Sequence table, description, recursion and literature links.",
+        "method": "Published sequence database page content inspected.",
+        "title": "OEIS A014081: number of occurrences of 11 in binary expansion",
+        "trigger": "Exact-sequence database coverage check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0e6436a8-7f51-4e37-b199-0cc56294c3d2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two isolated 1 bits are the minimal sparse shift family outside a single run, and fixed two-block shifts lie outside the many-block Gaussian regime of the motivating theory. The result gives a complete exact nonnegative fluctuation law (not a single finite evaluation or bound) for infinitely many shifts and identifies the sharp separation threshold. In particular, the stable nondecrease density 175/256 is an exact Cusick-type statistic, and stabilization of only the nonnegative side despite continuing changes in negative tails is a useful finite-memory structural property.",
+    "status": "PASS"
+  }
+}
