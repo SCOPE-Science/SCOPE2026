@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For identical additive valuations, bilateral envy constraints force \\(w_i+p_i=W/n\\); balanced transfers force \\(p_i=W/n-w_i\\). Payment budgets are equivalent to load capacities \\(C_i=\\lfloor W/n+B_i\\rfloor\\). Necessity follows by summing all loads and the maximum large-item counts \\(\\lfloor C_i/r\\rfloor\\). For sufficiency, assign the k r-valued goods within those count capacities, then all m unit goods using residual integer capacities; both tests guarantee success. The uniform-budget frontier follows from the common capacity threshold. The independent rational exhaustive comparison covered 40,800 parameter profiles and 5,069,616 load vectors; finite tests supplement the universally quantified proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary workshop manuscript (publicly indexed sections on the type-based algorithm and Theorem 17) already provides algorithmic solvability for a fixed number of item types, and a one-good-type tractable special case.",
+        "High-multiplicity bin-packing algorithms cover general item-type sets but their existence does not directly state this two-inequality closed-form liquidity region."
+      ],
+      "reasoning": "General algorithms can imply decidability after reduction, and their special cases could conceivably derive this result, but none of the actually inspected theorem statements asserts arbitrary heterogeneous budgets with two values and a closed-form uniform budget frontier. General NP-hardness claims are not contradictory because the domain here is narrow. The primary PDF could not be inspected in full, so the coverage risk is explicitly retained.",
+      "searches": [
+        "Envy-free allocation with individual payments identical valuations two good types two denominations closed form budget threshold",
+        "Two-size bin packing size one and r variable bin capacities packing feasibility criteria",
+        "\"Envy-free Allocations with Individual Payments\" Bredereck Deltl Inamdar Jain Pandey two types goods budget",
+        "\"Envy-free Allocations with Individual Payments\" \"good types\" \"identical budgets\""
+      ]
+    },
+    "checked_sources": [
+      "https://events.mpref.org/MPref2025/download/0014.pdf",
+      "https://arxiv.org/abs/2610.09610",
+      "https://dmatheorynet.blogspot.com/2025/08/dmanet-m-pref-2025-call-for.html",
+      "https://doi.org/10.1137/S0895480197325936",
+      "https://arxiv.org/abs/2609.16923"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original source publicly indexed statement: its fixed-type algorithm and one-good-type equal-budget case are related but do not contain an explicit pair of scalar inequalities in the available text.",
+        "Earlier published records on allotment/packing and identical-valued games address other fairness objectives or packing gaps, not forced balanced payments with agent-specific liabilities."
+      ],
+      "reasoning": "The reduction from forced balanced payments to bin capacities and the large-first packing lemma imply the full classification; the uniform budget threshold is a corollary. Prior type-based algorithms could solve some instances without stating the exact feasibility region. Unretrieved sections of the motivating manuscript might nonetheless contain a stronger special-case theorem; this is a residual novelty risk, not evidence of independence.",
+      "searches": [
+        "Exact necessary sufficient capacity sum and large-item floor capacity sum for envy-free allocations with budget-balanced individual payments and identical unit r-value goods",
+        "Closed form minimum common agent payment budget for identical additive values with two types of indivisible goods of values 1 and r",
+        "site:events.mpref.org/MPref2025/download/0014.pdf \"one type\" \"two types\"",
+        "\"two item sizes\" \"one\" \"bin capacities\" necessary sufficient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating research introduces EFA-IP for individual budgets and balanced internal money; publicly indexed workshop text states a single-good-type/identical-budget tractable case, not the two-capacity characterization.",
+        "Searches for the exact capacity-sum statement and budget formula returned no equivalent research result in the consulted indexed mathematical research records."
+      ],
+      "reasoning": "Equal adjusted utilities plus budget balance turns envy-freeability into heterogeneous bin packing with two sizes, 1 and r. The two sharp conditions address different integer obstructions. Search comparisons used this reduced packing formulation, not a title match. No inspected source proves either inequality pair as an if-and-only-if test in this payment model.",
+      "searches": [
+        "Exact necessary sufficient capacity sum and large-item floor capacity sum for envy-free allocations with budget-balanced individual payments and identical unit r-value goods",
+        "Closed form minimum common agent payment budget for identical additive values with two types of indivisible goods of values 1 and r",
+        "bin packing distinct bin capacities item sizes 1 and r two inequalities total capacities and floor large capacities",
+        "\"individual payments\" \"identical valuations\" \"floor\" envy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A nearby published record catalogs minimum bin-packing gaps at fixed capacity 24; its objects are packing-gap instances, not individual-transfer budgets.",
+        "No accessible exact allocation table was found that computes the entire heterogeneous budget-feasibility set."
+      ],
+      "reasoning": "This theorem holds for all finite parameters and real budget vectors, not a finite lookup or entry in the inspected packing database.",
+      "searches": [
+        "bin packing distinct bin capacities item sizes 1 and r two inequalities total capacities and floor large capacities",
+        "Two-size bin packing size one and r variable bin capacities packing feasibility criteria",
+        "bin packing item sizes 1 and r variable bin capacity greedy equivalence count floor"
+      ]
+    },
+    "rationale": "The complete two-condition liquidity region, its two-pass construction and exact common-budget threshold are not stated in the inspected primary passages or returned published research summaries. The comparison accounts for more general fixed-type algorithms (which supply solvability, not this explicit closed form) and for the isomorphic divisible-size bin-packing formulation. Full primary PDF remained inaccessible and an equivalent theorem there or in packing literature remains possible.",
+    "residual_risks": [
+      "The complete relevant original workshop PDF and arXiv PDF could not be retrieved, leaving possible stronger coverage in sections or appendices that indexed excerpts missed.",
+      "The unit-plus-r heterogeneous-capacity packing lemma may be established elsewhere under different terminology.",
+      "The earliest dated source is a 2025-08-31 public title announcement, not a certified first posting date of the complete article."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct model and general algorithmic coverage; inspected material discusses one type with equal budgets, not the claimed two-denomination arbitrary-budget closed form; full-text equivalence unresolved",
+        "evidence": [
+          "Public PDF-index excerpts display Section 4.3 Single-Good Case and Theorem 17, and discuss the multi-type MILP parameter lambda."
+        ],
+        "identifier_or_url": "https://events.mpref.org/MPref2025/download/0014.pdf",
+        "material_read": "Search-indexed passages containing the abstract, type-based mixed-integer algorithm with O(n+lambda) variables, one-good-type section, Observation 16, Theorem 17 and nearby paragraph statements; no continuous full-text read",
+        "method": "Public search-indexed extracts; direct PDF fetch rejected with 403",
+        "title": "Envy-free Allocations with Individual Payments",
+        "trigger": "Exactly the same individual-budget internal-transfer model and type-algorithm special cases"
+      },
+      {
+        "assessment": "Covers general problem and algorithms; no exact two-inequality formula in abstract; unpublished-in-abstract equivalent remains possible",
+        "evidence": [
+          "Abstract states NP-hard general allocation and fixed-parameter algorithms by number of goods and by agent count and good types."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.09610",
+        "material_read": "Full abstract and initial submission date 2026-10-07; no accessible full text",
+        "method": "Public arXiv metadata mirror; full HTML/PDF retrieval unavailable; institutional route returned disconnected access",
+        "title": "Envy-free Allocations with Individual Payments",
+        "trigger": "Updated original full manuscript"
+      },
+      {
+        "assessment": "Earliest verified public notice naming source as 2025-08-31, not a dated complete manuscript",
+        "evidence": [
+          "2025-08-31 heading and the accepted-paper entry are visible in the original announcement."
+        ],
+        "identifier_or_url": "https://dmatheorynet.blogspot.com/2025/08/dmanet-m-pref-2025-call-for.html",
+        "material_read": "Announcement dated Sunday August 31 2025, accepted papers listing with motivating title",
+        "method": "Read publicly dated announcement",
+        "title": "M-PREF 2025 - Call for Participation",
+        "trigger": "Check earliest public source date"
+      },
+      {
+        "assessment": "Concerns stochastic asymptotic waste/perfect packing for discrete item distributions rather than arbitrary bin capacities with agent-specific payment budgets",
+        "evidence": [
+          "Abstract frames iid discrete item sizes and expected-waste classes O(1), sqrt(n), or n."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0895480197325936",
+        "material_read": "Publisher abstract and keywords; full theorem text not inspected",
+        "method": "Publisher publicly indexed abstract",
+        "title": "Bin Packing with Discrete Item Sizes, Part I",
+        "trigger": "Check more general packing results that could dominate two-size lemma"
+      },
+      {
+        "assessment": "General fixed-type packing algorithm does not give this exact heterogeneous individual-liquidity region in the available abstract",
+        "evidence": [
+          "Abstract states FPT in distinct sizes using integer programming with configuration classes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.16923",
+        "material_read": "Author abstract describing high-multiplicity FPT via integer-program configurations",
+        "method": "Public scholarly record abstract",
+        "title": "High-Multiplicity Bin Packing is FPT",
+        "trigger": "Algorithmic coverage for binary-encoded multiplicities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ad04116-3bfa-4b92-ada8-ce342280395e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two exact scalar inequalities solve a mathematically natural complete liquidity-feasibility problem for arbitrary heterogeneous household budgets, in a framework where unrestricted indivisible-goods budgeted transfers are computationally difficult. They identify the separate total-funding and large-good fragmentation obstructions, yield a count-only \\(O(n)\\)-arithmetic construction even with binary multiplicities, and give an exact minimal equal-payment budget. A three-valued boundary example demonstrates why the denominator structure matters. The value is in the precise feasibility region and resource threshold, not a claim of general fair-division decidability.",
+    "status": "PASS"
+  }
+}
