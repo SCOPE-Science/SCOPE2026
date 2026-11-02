@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The key combinatorial fact is the classification of pairwise-intersecting edge sets as stars or triangles. Invariant simplex orbit-barycenters give an exact simplicial model of geometric fixed points. Fixed stars form a good cover with the complete graph as nerve; triangles on three fixed labels fill its two-skeleton; two-point vertex orbits attach free circles and three-point vertex orbits contribute isolated points. The argument proves the integral homotopy type for all finite subgroups and all \(n\ge4\). The independent finite checker reconstructs 190 examples directly from edge-orbits and verifies mod-two ranks; it is not substituted for the proof.
+## correctness
 
-## Originality
-PASS, subject to unindexed-priority risk. The 2020 primary study proves nonequivariant equivalences, not a classification of geometric fixed-point spaces for arbitrary subgroups. Same object aliases include the nonmatching complex \(NM_2(K_n)\), the \(2K_2\)-free graph complex, and the flag complex of the triangular/Johnson graph \(J(n,2)\). The source's equivalence to a two-skeleton does not alone imply the displayed result for subgroup fixed points: an ordinary homotopy equivalence need not preserve fixed spaces. Searched records did not yield a statement covering this fixed-space profile. An unpublished or unindexed equivariant refinement remains possible.
+PASS
 
-## Value
-PASS. The result gives a complete uniform geometric isotropy invariant, rather than a renaming of the known sphere count: two subgroups with different numbers of two-point or three-point orbits have distinct fixed-point connectivity or first homology even when the global complex's homotopy type is fixed. The exact empty-space criterion and mixed circle/two-sphere formula are natural data for symmetry-sensitive topology and cannot be recovered solely from nonequivariant Betti numbers.
+For any finite H≤S_n, n≥4, fixed barycentric coordinates of an H-invariant point are constant on each edge orbit; only orbit-faces consisting of mutually meeting K_n edges survive. A pairwise-intersecting edge set is contained in a star or the three edges of a triangle; orbit transitivity forces unique fixed star centers or internal size-2 and size-3 vertex orbits. The star-simplex cover on a fixed vertices has pairwise singleton intersections; filled triangles on fixed triples recover sk₂(Δ^{a−1}), yielding binom(a−1,3) integral 2-spheres. Every size-2 orbit adds a vertex linked to each of a stars, yielding b(a−1) independent circles; size-3 orbits remain c isolated points. If a=0 only b+c isolated points remain. This establishes the geometric (not vertexwise) fixed locus for all subgroups, including noncyclic. Independently rebuilt the orbit-barycenter complexes and mod-2 chain ranks for 97 subgroup examples (n=4,5,6), all agreeing; finite mod-2 tests do not supply the integral all-H proof.
 
-## Limits
-No equivariant classification for arbitrary underlying graphs is claimed, and no claim of independent validation is made. The closest paper proves a major nonequivariant result and is fully credited. The residual originality risk is an equivalent subgroup-fixed result outside indexed and inspected literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+QUALIFIED PASS. Goyal–Shukla–Singh Lemma 3.2 establishes the ordinary, nonequivariant homotopy equivalence Cl(L(G))≃sk₂ Cl(G). This does not commute with taking arbitrary subgroup geometric fixed points without an equivariant argument, and does not give the explicit (a,b,c)-dependent fixed-point decomposition, empty/disconnected loci, or first-homology circles. The new edge-orbit classification supplies the missing equivariant information. Equivalent equivariant nerves or historical nonmatching-complex results remain conceivable; no search failure is treated as priority certification.
+
+## value
+
+PASS
+
+A complete closed formula for the actual geometric H-fixed homotopy types simultaneously for every n≥4 and all subgroups H≤S_n is a natural equivariant-topological invariant. The appearance of 1-spheres and isolated components from orbit sizes 2 and 3 is not read off from the known nonequivariant wedge-of-spheres homotopy type. It can serve in equivariant obstruction, Euler-character and subgroup-comparison calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
