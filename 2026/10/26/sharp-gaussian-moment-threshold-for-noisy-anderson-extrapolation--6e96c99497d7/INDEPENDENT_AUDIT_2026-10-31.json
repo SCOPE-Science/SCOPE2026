@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:11:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual frozen RESULT.md blob 0a763408d38b86a2a7c20323d17989ec38feb76b",
+        "actual verify.py blob a543c18a670dd6c66e8e6be5ae0fd61500e8285d (source inspected, not treated as proof)",
+        "independent_checks.py GAUSSIAN group, independent symbolic and matrix verification"
+      ],
+      "rationale": "Independence is exact: xi=mean(epsilon_i) is jointly Gaussian and orthogonal to each column noise difference, so r0=a-R1/(m+1)+xi. Conditioning on R_{-j}, Gaussian regression gives the residual orthogonal column u_j in t=d-m+1 dimensions with nonsingular isotropic Gaussian density, whose inverse radius has finite p moment exactly when p<t by polar integration. The independent xi makes conditional alpha_j normal with variance sigma^2/((m+1)||u_j||^2), giving the matching divergence lower bound even when its mean shifts. For sufficiency, finite Gaussian moments and the u_j inverse bound control alpha. Since Z=H alpha+B, H has full column rank and B=y0-Proj_col(R)r0 has moments of all orders, no tail cancellation is possible. Tikhonov pseudoinverse operator norm <=1/(2sqrt(lambda)), giving all polynomial moments. New independent checks reconstructed Gaussian inverse covariance matrices and least-squares/output decompositions; these tests cannot prove the rare-event integrability.",
+      "residual_risks": [
+        "Requires fixed affinely independent input points, strictly positive iid isotropic Gaussian variance, exact arithmetic. Not an adaptive iterated Anderson convergence theorem.",
+        "Infinite-moment boundary follows from Gaussian small-ball integral, not finite sampling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rudelson-Vershynin Theorem 1.1 treats independent-entry subgaussian rectangular matrices, not an Anderson oracle output; correlated column differences can be whitened but output cancellation still needs proof.",
+          "Pollock-Rebholz arxiv:2211.12953 abstract describes condition-number filtering of least-squares matrices; complete PDF unavailable due source size restriction."
+        ],
+        "reasoning": "Known general inverse-matrix and filtered least-squares tools explain the mechanism but do not in inspected material state a stronger all-p moment classification of this particular Gaussian-noisy Anderson output. A general inverse-Wishart regression result is a material implicit-coverage risk.",
+        "searches": [
+          "Resultary semantic search: noisy Anderson acceleration iid Gaussian residual least squares extrapolation pth moments codimension d-m+1 heavy tails, Tikhonov regularization",
+          "https://arxiv.org/pdf/0802.3956",
+          "https://arxiv.org/abs/2211.12953"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2110.14813 PDF relevant sections",
+        "arxiv:0802.3956 PDF Theorem 1.1",
+        "arxiv:2211.12953 abstract only",
+        "Resultary query noisy Anderson acceleration iid Gaussian residual least squares extrapolation pth moments codimension d-m+1 heavy tails, Tikhonov regularization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pasini et al 2021 p2 equations (9)-(16) assume stochastic evaluation error and propose moving-average stabilization, but do not quantify output moments at any m.",
+          "Rudelson-Vershynin 2008 theorem controls smallest singular values in a different matrix model and does not establish absence of cancellation in H alpha+B."
+        ],
+        "reasoning": "The known Gaussian small-ball exponent strongly predicts the threshold, and the algorithm is old; the assessed contribution is the exact correlated-oracle output theorem and nonzero-relaxation versus ridge distinction. Do not misattribute the small-ball theorem itself.",
+        "searches": [
+          "Resultary semantic search: noisy Anderson acceleration iid Gaussian residual least squares extrapolation pth moments codimension d-m+1 heavy tails, Tikhonov regularization",
+          "https://arxiv.org/pdf/2110.14813",
+          "https://arxiv.org/pdf/0802.3956"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pasini et al arxiv:2110.14813 equations 2-16 use noisy Anderson least-squares mixing; Gaussian column remainder is the inverse-Wishart/Schur-complement representation.",
+          "Rudelson-Vershynin arxiv:0802.3956 Theorem 1.1 has rectangular codimension N-n+1 in smallest singular-value estimates."
+        ],
+        "reasoning": "Anderson affine weights, a Gaussian regression pseudoinverse and a small singular-value inverse moment are equivalent mechanisms, not separate discoveries. The result also requires the independent average and injective displacement H to transfer coefficient divergence to the output; those precise assumptions and full threshold are not supplied by inspected algorithms.",
+        "searches": [
+          "Resultary semantic search: noisy Anderson acceleration iid Gaussian residual least squares extrapolation pth moments codimension d-m+1 heavy tails, Tikhonov regularization",
+          "https://arxiv.org/pdf/2110.14813",
+          "https://arxiv.org/pdf/0802.3956"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hit 2026/10/4/SCOPE-exact-perturbation-angle-law-and-finite-dimensional-positive-sig--466bc404f228 concerns Gaussian mirror sign perturbations, not Anderson memory-depth moment integrability.",
+          "No displayed inverse-moment table for correlated noisy Anderson extrapolation in inspected Pasini et al equations."
+        ],
+        "reasoning": "A numerical or indexed table is not the core claim: infinite-parameter, exact iff integrability is. The semantic search did not locate an equivalent mathematical record, which is only bounded negative search evidence.",
+        "searches": [
+          "Resultary semantic search: noisy Anderson acceleration iid Gaussian residual least squares extrapolation pth moments codimension d-m+1 heavy tails, Tikhonov regularization",
+          "Resultary id 2026/10/4/SCOPE-exact-perturbation-angle-law-and-finite-dimensional-positive-sig--466bc404f228"
+        ]
+      },
+      "rationale": "Random rectangular pseudoinverse codimension moments, Anderson least-squares formulas, instability motivation, and ridge conditioning are established prior art. The specific statement for the evaluated extrapolated point with a correlated difference matrix, an independent common Gaussian residual average, and no output cancellation is a sharp new application not located in inspected primary definitions/analyses. Best-of-knowledge PASS; a broad Gaussian regression pseudoinverse theorem might imply parts under alternative wording.",
+      "residual_risks": [
+        "An exact Gaussian pseudoinverse/regression theorem may imply this codimension threshold with different terminology.",
+        "Full Pollock-Rebholz filtering paper not read (retrieval size limit); do not assert NOT_COVERING.",
+        "Statements apply only to fresh fixed inputs; extending to adaptive Anderson iterations is open here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related algorithm and noise remedy, no sharp p-th output moment theorem in material inspected.",
+          "evidence": [
+            "Eq (8) and noise model (10) at paper page 2; smoothing construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.14813",
+          "material_read": "Original eight-page arXiv PDF abstract, introductory definitions, equations (2)-(8), moving-average/noise section pp2-3 including equations (9)-(16).",
+          "method": "Read full source text in PDF browser with rendered page 0 and inspected relevant equations and hypothesis sections.",
+          "title": "Stable Anderson Acceleration for Deep Learning",
+          "trigger": "Same stochastic residual least-squares algorithm and noise"
+        },
+        {
+          "assessment": "Strong prior mechanism; no same correlated-oracle output statement in inspected theorem.",
+          "evidence": [
+            "Theorem 1.1 inequality (1.10) gives exponent N-n+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0802.3956",
+          "material_read": "Original 33-page PDF, introduction, page 3 Theorem 1.1, probability exponent N-n+1, hypotheses of independent entries.",
+          "method": "Read theorem text and rendered page 3, compared conditions to correlated residual difference and output.",
+          "title": "The Smallest Singular Value of a Random Rectangular Matrix",
+          "trigger": "Stronger general Gaussian matrix small-ball exponent might imply claimed threshold"
+        },
+        {
+          "assessment": "Only abstract-level comparison possible; remaining full text is priority risk.",
+          "evidence": [
+            "Abstract establishes two filtering steps to control least-squares condition number, does not alone determine Gaussian oracle moment threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.12953",
+          "material_read": "Abstract and publication metadata only; attempted direct original arXiv PDF, rejected as over 11 MB by retrieval service; alternative ResearchGate page has no full file.",
+          "method": "Read abstract and recorded failed full-text attempt, without claiming full-paper noncoverage.",
+          "title": "Filtering for Anderson acceleration",
+          "trigger": "Potentially covering regularization and least-squares conditioning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md proof and limitations",
+        "Pasini et al 2021 noise-stabilization motivation",
+        "independent finite algebraic corroboration"
+      ],
+      "rationale": "The one-shot extrapolation output is the actual object used by numerical optimization: its exact loss of moments at near-square memory depth predicts heavy-tailed failures that finite testing and ordinary variance analyses can miss. Distinguishing harmless fixed outer relaxation from tail-healing positive Tikhonov is practically and mathematically motivated; not a mere standard inverse-Gaussian restatement.",
+      "residual_risks": [
+        "The theorem is not an adaptive iteration convergence result; significance belongs to one-step extrapolation and near-square memory."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No complete published novelty certificate; Gaussian inverse-moment precursors explicitly credited.",
+    "Conditioned Gaussian density/known Gaussian monotonicity, not finite samples, establish infinite-moment cutoff.",
+    "Five frozen source directory entries and all immediate file blobs were checked at exact commit and current main at inspection; later branch changes are not excluded.",
+    "The record remains not_ready for publication due inherited private operational metadata and unverified initial public dates; this is a transport/confidentiality hold, NOT scientific rejection.",
+    "No GitHub writes or dispatcher closeout writes."
+  ],
+  "schema_version": 1
+}

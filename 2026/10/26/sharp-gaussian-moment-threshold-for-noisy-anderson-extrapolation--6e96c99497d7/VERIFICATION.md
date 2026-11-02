@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, NumPy, and SymPy. The deterministic checker, using a fixed pseudo-random seed, returned:
+## correctness
 
-`PASS: 12310 deterministic exact and matrix identities`
+PASS
 
-It verifies inverse covariance formulas for memory sizes one through eight, exact noisy-residual average and coefficient identities, projected-column least-squares formulas, output decomposition, and Tikhonov operator norm bounds across 2,250 numerical instances, plus finite inverse-radius moment identities in exact symbolic form.
+Independence is exact: xi=mean(epsilon_i) is jointly Gaussian and orthogonal to each column noise difference, so r0=a-R1/(m+1)+xi. Conditioning on R_{-j}, Gaussian regression gives the residual orthogonal column u_j in t=d-m+1 dimensions with nonsingular isotropic Gaussian density, whose inverse radius has finite p moment exactly when p<t by polar integration. The independent xi makes conditional alpha_j normal with variance sigma^2/((m+1)||u_j||^2), giving the matching divergence lower bound even when its mean shifts. For sufficiency, finite Gaussian moments and the u_j inverse bound control alpha. Since Z=H alpha+B, H has full column rank and B=y0-Proj_col(R)r0 has moments of all orders, no tail cancellation is possible. Tikhonov pseudoinverse operator norm <=1/(2sqrt(lambda)), giving all polynomial moments. New independent checks reconstructed Gaussian inverse covariance matrices and least-squares/output decompositions; these tests cannot prove the rare-event integrability.
 
-The checker is **not** an independent audit and cannot certify divergence of any expectation by finite sampling. The proof uses the full Gaussian density on every projected complement and integrability of the radial singularity; finite tests only corroborate algebra. Input displacements must have full column rank; oracle errors must be independent isotropic nondegenerate Gaussian at fixed input locations. The theorem asserts no adaptive iteration trajectory guarantee.
+## originality
+
+PASS
+
+Random rectangular pseudoinverse codimension moments, Anderson least-squares formulas, instability motivation, and ridge conditioning are established prior art. The specific statement for the evaluated extrapolated point with a correlated difference matrix, an independent common Gaussian residual average, and no output cancellation is a sharp new application not located in inspected primary definitions/analyses. Best-of-knowledge PASS; a broad Gaussian regression pseudoinverse theorem might imply parts under alternative wording.
+
+## value
+
+PASS
+
+The one-shot extrapolation output is the actual object used by numerical optimization: its exact loss of moments at near-square memory depth predicts heavy-tailed failures that finite testing and ordinary variance analyses can miss. Distinguishing harmless fixed outer relaxation from tail-healing positive Tikhonov is practically and mathematically motivated; not a mere standard inverse-Gaussian restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
