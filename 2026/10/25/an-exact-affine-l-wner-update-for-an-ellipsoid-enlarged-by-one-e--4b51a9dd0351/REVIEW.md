@@ -1,19 +1,21 @@
-# Scientific review of the exterior-point ellipsoid formula
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The positive root exists uniquely and lies below the contact threshold. The identity in the proof certifies containment of the *entire* original ball; the apex satisfies equality. Contact orbit mean and covariance are computed algebraically, and integrating any competing containing ellipsoid gives an exact trace restriction. The determinant bound proves global optimality and uniqueness among ellipsoids of arbitrary orientation and center. Affine covariance extends the result to every positive-definite original ellipsoid. The two limiting formulas follow from explicitly indicated expansions. The executable diagnostic verifies 18,700 finite checks; its finite character is acknowledged.
+PASS
 
-## Originality — PASS, qualified by residual historical-priority risk
+Affine-normalize original ellipsoid to B2^d and outlier to H e1. Solve dr²+(d−1)Hr=1 with 0<r<1/d; exact factorization of the containment slack is (b^-2−a^-2)(s+r)², verifying the entire ball and unique latitude, while H−c=a. Under candidate normalization, apex plus isotropic latitude orbit with weights 1/(d+1), d/(d+1) has mean zero and covariance I/d. Integrating each competitor gives tr(M^-1)≤d; AM–GM forces det M≥1, equality only at candidate, proving universal optimality and uniqueness. Affine untransform gives Q*. Fixed-H and fixed-d limits follow from root expansion. Independently verified factorization and latitude identities with symbolic algebra.
 
-Searches for the exterior-point ball/cap-body formulation, equivalent affine rank-one ellipsoid updates, convex hulls of balls and points, and single-spike contact design did not retrieve a statement of the formula. Primary full-text comparisons distinguish the cut ellipsoid in Todd (1982), truncated-cone/cylinder special cases in Güler–Gürtuna (2007), full-dimensional-ellipsoid approximation in Yıldırım (2006), and illumination of cap bodies in Bezdek–Ivanov–Strachan (2022). A closer unpublished or historical experimental-design formulation remains possible. The theorem is not labeled independently priority-certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The body is a canonical spherical cap body, equivalently the convex hull of an ellipsoid and a single outlier. The exact minimum-volume enclosing ellipsoid, its full boundary contact orbits and isotropic optimality weights, a dimension-independent normalized contact latitude, and sharp large-dimensional/long-spike volume behavior solve a natural complete geometric extremal problem. The result is substantially more informative than a routine containment check or numerical optimization output.
+Best-of-knowledge qualified PASS: original special-ellipsoid literature provides a characterization of extremal ellipsoids but inspected studies of cuts, slabs and multi-ellipsoid hulls did not identify the explicit one-outlier rank-one affine update, entire apex-plus-ring contact structure and two sharp limits. A prior geometric optimal-design or polar-dual formulation may remain undiscovered; Todd full text uninspected.
 
-## Scope and risks
+## value
 
-No multiple-point update or joint asymptotics is asserted. Complete historical priority, notably equivalent optimal-design formulations, is unresolved; this does not alter the proved formula or its applicability. The supplied script is finite numerical evidence, not independent scientific validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: adding one outlier to a full ellipsoid is a canonical exact extremal-geometry update problem. Explicit global minimum-volume solution, entire contact-orbit classification and sharp volume limits give useful closed forms not supplied by routine numerical MVEE algorithms. It does not address multiple points or simultaneous limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
