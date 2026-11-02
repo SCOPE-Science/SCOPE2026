@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T22:44:03Z",
+  "axes": {
+    "correctness": {
+      "independent_check": "audit_20261031_2234_independent.py: 15716 bounded independent assertions across five subjects; exact arithmetic or exhaustive finite census corroborates, not replaces, the full scientific proofs.",
+      "rationale": "The known Eğecioğlu–Remmel multipartite multivariate degree enumerator identifies degree−1 counts with n−2 independent uniform assignments, with r−2 over all n sites and k−1 for each part over n−k permitted outside vertices. Absence of any occupation gives p=(1−1/n)^{r−2}(1−1/(n−k))^{(r−1)(k−1)}, same-part two-site s and different-part two-site t exactly as RESULT.md, hence E[L]=np and Var(L)=np(1−p)+n(k−1)(s−p²)+n(n−k)(t−p²). All allowed draw pools have ≥n/2 sites, giving a uniform log Taylor error and σ²=e^(−1)−2e^(−2)>0 for Var(L)/n; E[L]=n/e+O(1) uniformly. For any fixed j distinct vertices, mixed Möbius differences of log joint empty events have size O_j(n^{1−|B|}); connected-hypergraph cancellation bounds joint cumulants O_j(n^{1−j}). Repeated labels contribute O_j(n^{1−d}) for d distinct underlying sites. Summing j-tuples yields κ_j(L)=O_j(n), hence normalized higher cumulants vanish and method of moments gives Gaussian convergence for arbitrary equal-part factorizations. Independently enumerated all labeled spanning trees of seven small (n,k) cases and matched exact rational moments; these finite tests do not establish the CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Modern vertex-degree moment work concerns designated node degrees; general empty-bin occupancy CLTs could apply but a verified theorem covering the complete changing restricted-choice model was not identified."
+        ],
+        "reasoning": "The 1994 full enumerator is stronger as an exact distribution encoding but does not explicitly establish the asymptotic limit; a stronger published occupancy CLT may supply all asymptotics and is a residual risk.",
+        "searches": [
+          "complete multipartite uniform spanning tree leaves central limit theorem variance Gaussian all equal part sizes",
+          "occupancy number empty boxes unequal choice sets CLT uniform multipartite",
+          "arXiv:2409.13472 degree variance spanning trees"
+        ]
+      },
+      "checked_sources": [
+        "https://sites.cs.ucsb.edu/~omer/DOWNLOADABLE/multipartite94.pdf",
+        "arXiv:2409.13472",
+        "Resultary query complete multipartite uniform spanning tree leaves central limit theorem variance Gaussian all equal part sizes",
+        "frozen Git RESULT.md, check.py, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-vertex leaf probability does not imply a total-leaf CLT or global second-order variance; joint dependence and high cumulants require further argument."
+        ],
+        "reasoning": "Independently reconstructed connected-hypergraph cumulant estimate bridges the gap; no covering published theorem was found in the read source, although generic occupancy theory may still imply it.",
+        "searches": [
+          "complete multipartite uniform spanning tree leaves central limit theorem variance Gaussian all equal part sizes",
+          "Egecioglu Remmel 1994 Section 6 Theorem 2 Corollary 2",
+          "arXiv:2409.13472 individual node degree moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 1994 exact multivariate degree generating function determines finite leaf statistics; Theorem 2/Corollary 2 in its Section 6 study a marginal probability that a designated vertex is a leaf."
+        ],
+        "reasoning": "Equivalent occupancy empty-bin and Poissonized leaf-count formulations were considered. A known marginal e^(−1) probability is not itself an all-factorizations Gaussian limit.",
+        "searches": [
+          "complete multipartite uniform spanning tree leaves central limit theorem variance Gaussian all equal part sizes",
+          "Egecioglu Remmel complete multipartite leaf asymptotic normal cumulants",
+          "1994 complete multipartite trees degree enumerator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned unrelated tree/polytope and random recursive tree leaf covariance results, no exact total-leaf variance table or uniform normal limit for K_{k,...,k}."
+        ],
+        "reasoning": "Finite leaf moments are recoverable from the already known enumerator and are not assigned independent novelty; target is an infinite uniform CLT.",
+        "searches": [
+          "complete multipartite uniform spanning tree leaves central limit theorem variance Gaussian all equal part sizes",
+          "Resultary query complete multipartite uniform spanning tree leaves central limit theorem variance Gaussian all equal part sizes"
+        ]
+      },
+      "rationale": "The 1994 Eğecioğlu–Remmel work already provides the full degree generating polynomial and marginal one-vertex leaf probability; finite exact moment identities are immediate consequences and are not credited as independently original. The assessed result is the uniform changing-part-count CLT and a positive universal total-leaf variance constant. The original full primary Section 6, including leaf probability, was examined; it did not state the claimed global uniform CLT. A broader modern occupancy CLT might imply this special consequence, which remains a priority risk.",
+      "residual_risks": [
+        "A standard central limit theorem for independent nonidentical occupancy schemes could imply the uniform case without stating spanning trees.",
+        "The degree generating function from 1994 contains all finite marginal information, so novelty must be restricted to the uniform asymptotic analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The original multinomial degree formula and single-vertex leaf asymptotic are prior; no uniform global Gaussian leaf count theorem stated in inspected Section 6.",
+          "evidence": [
+            "Theorem 2 and Corollary 2 on printed pages 17–18",
+            "multivariate degree enumerator"
+          ],
+          "identifier_or_url": "https://sites.cs.ucsb.edu/~omer/DOWNLOADABLE/multipartite94.pdf",
+          "material_read": "Full relevant original mathematical text: enumeration theorem and Section 6 on pages 17–18, plus independently inspected rendered PDF page.",
+          "method": "Public lawful PDF, text extraction and actual page screenshot inspection.",
+          "title": "A Bijection for Spanning Trees of Complete Multipartite Graphs",
+          "trigger": "Identical graph family, known degree enumerator and leaf-asymptotic section"
+        },
+        {
+          "assessment": "Node degree moments do not directly imply total count of degree-one vertices is Gaussian.",
+          "evidence": [
+            "2024 arXiv abstract and problem statement"
+          ],
+          "identifier_or_url": "arXiv:2409.13472",
+          "material_read": "Public abstract/introduction and theorem-scope description; complete original not independently scanned here.",
+          "method": "Public arXiv metadata and mathematical scope comparison",
+          "title": "Expectation and Variance of the Degree of a Node in Random Spanning Trees",
+          "trigger": "Related modern tree-degree distribution work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A universal Gaussian law for the natural number of leaves in random spanning trees across complete graphs, balanced complete bipartite graphs and intermediate regular multipartite hosts gives nontrivial distributional information beyond a known one-vertex mean. Uniform control across changing host geometry is a meaningful probabilistic refinement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equal-sized parts and uniform unweighted spanning tree; no unequal-part or weighted-tree extension.",
+    "Only scalar total-leaf CLT, not a joint degree profile theorem or Berry–Esseen rate."
+  ],
+  "schema_version": 1
+}
