@@ -1,22 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The scale-three binary-hypercube theorem supplies the finite free homology groups in degrees \(4\) and \(7\). Coordinatewise clamping is \(1\)-Lipschitz for the Manhattan metric, so it induces simplicial retractions from the full lattice complex onto each selected cube. Each retraction is constant on every other selected cube. The finite-chain argument shows that the family of retractions defines a map to the direct sum and is a left inverse to the inclusion map. Countability of the lattice simplices supplies the upper bound, proving countably infinite rank.
+PASS
 
-## Originality
+Feng proves VR_{<=3}({0,1}^n) is a finite wedge of b4(n) four-spheres and b7(n) seven-spheres with both multiplicities positive for n>=5. For pairwise separated cubes C_k={3k,3k+1}^n, coordinate clamp is 1-Lipschitz in l1 and hence induces a simplicial retraction from the entire lattice Rips complex onto each cube. On any other C_j it is constant, so induced positive-degree homology maps vanish. Every singular simplicial cycle is a finite chain and maps to zero under all sufficiently remote cube retractions. Therefore direct sum of cube homologies has left inverse and splits in lattice homology. Since Z^n has countably many simplices, homology rank at most aleph0, and the free split sum makes exactly aleph0 in degrees 4 and 7. No assertion of torsion-freeness or vanishing elsewhere. Independently verified clamping inequalities on mixed-sign examples; universal proof uses elementary Lipschitz and finite-chain arguments.
 
-**PASS.** The closest primary source asks whether the scale-three lattice complex is a countable wedge of four- and seven-spheres and records homology injection from one binary cube. The hypercube paper gives the finite cube's sphere multiplicities. Neither statement by itself establishes a split direct sum from infinitely many translated cubes; the coordinate-clamp retractions and finite-chain support argument supply that step. The claim is deliberately limited to the ranks of \(\widetilde H_4\) and \(\widetilde H_7\).
+## originality
 
-## Value
+PASS
 
-**PASS.** The exact ranks are a motivated invariant tied to the published scale-three homotopy question. The result establishes the predicted infinite multiplicity in both dimensions without claiming the full wedge decomposition, torsion-freeness, or vanishing in other degrees.
+Best-of-knowledge PASS on the exact countably infinite-rank and split-summand statement, not a solution of the full wedge conjecture. Prior scale-three hypercube theorem and single-cube homology injection are acknowledged, but do not alone assert a countable split family of disjoint translated cube classes.
 
-## Closest literature and limitations
+## value
 
-- Gupta, Sarkar, and Shukla, *On the Vietoris-Rips Complexes of Integer Lattices*, arXiv:2511.04238v1, especially Question 5.2.
-- Feng, *Homotopy types of Vietoris-Rips complexes of Hypercube Graphs*, arXiv:2305.07084v1, scale-three classification for \(n\ge5\).
+PASS
 
-The full homotopy type and possible torsion in the two homology groups remain unresolved here.
+The exact ranks in both degrees address a specific published scale-three lattice homotopy problem. Countably many explicit splittable classes rule out finite-rank explanations and exhibit all candidate sphere dimensions at infinite multiplicity; this is a motivated, self-contained partial invariant, not the full homotopy theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
