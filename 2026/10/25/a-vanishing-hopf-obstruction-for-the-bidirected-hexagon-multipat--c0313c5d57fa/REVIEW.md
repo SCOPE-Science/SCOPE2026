@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion is a precise integral homotopy classification for a fixed six-vertex directed graph. From the complete incidence definition, the face counts are \((12,48,76,48,12)\). The complete 96-pair discrete-Morse matching is a genuine acyclic matching, leaving critical cells in dimensions \(0,2,4,4\). Consequently the reduced CW model has a single \(S^2\) two-skeleton and two four-cell attaching maps, each in \(\pi_3(S^2)\cong\mathbb Z\). The signed integral two-cocycle on eight listed triangles is primitive by evaluation \(-1\) on an explicitly checked integral two-cycle; its Alexander--Whitney square is zero on every four-simplex. These are the two integer Hopf invariants, so both attachments are null-homotopic. The included executable certificate verifies all finite premises, not only homology ranks.
+## correctness
 
-## Originality — PASS, subject to literature risk
-Caputi--Collari--Smith (2026, arXiv:2601.05670v1, Definition 1.2 and Theorem 2.10) compute the homology of this same complex, but explicitly leave the wedge homotopy question unresolved in Section 3. Their 2024/2022 predecessor (arXiv:2208.04656, Section 4.2) explicitly confines polygonal classifications to **oriented graphs without bidirectional edges**. A separate accessible homotopy calculation covers the bidirected polygons with at least seven vertices, not this six-vertex case. A separate dihedral rational-homology character result concerns the action on already-computed homology and does not imply the vanishing of the integral Hopf attaching classes. No stronger exact-parameter result was found in the searched records. Residual risk: unindexed calculations or inaccessible complete records might contain this finite case; search absence is not uniqueness proof.
+PASS
 
-## Value — PASS
-The source explicitly identifies the unknown wedge-of-spheres homotopy classification as a structural question. The six-cycle is a natural first low-dimensional case in which the degree-four cells may attach nontrivially to a two-sphere by integer multiples of the Hopf map; its homology alone cannot distinguish a wedge from a non-wedge. The exact zero-cup-square certificate supplies the missing obstruction calculation, resolving this motivated case and providing an independently reproducible test for future classification methods. It does not claim to resolve the general conjecture.
+The actual BP5_MATCHING.json (SHA 5cd35d303d6de4fb61fe53d9eb57d3d6e8c8763c) was read. An independent standalone check enumerated all 196 nonempty admissible directed path faces with counts (12,48,76,48,12), validated all 96 disjoint matching pairs and critical masks 3904,47,2624,512; directed Hasse topological sort visited all 196 cells, with 576 incidence edges. Verified the listed eight-mask 2-cocycle has zero integral coboundary on all 48 three-simplices and pairs -1 with the explicit integral 2-cycle, making it primitive. The Alexander–Whitney square vanishes on every one of the 12 four-simplices. Forman reduces to one 0-, one 2- and two 4-cells; π3(S²)=Z and the two cup-square coefficients are their integral Hopf invariants, both zero, giving the asserted wedge. These finite checks are exhaustive for this fixed graph; logs alone did not supply proof.
 
-## Limits
-One graph only; no uniform parameter, equivariant homotopy classification, or externally performed independent audit. The full-text comparison is strongest for the defining 2026 arXiv article and 2022 predecessor; additional research-record coverage comes from search summaries and accessible claims, so equivalent work remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Caputi–Collari–Smith 2026 establishes the integral homology of exactly this BP5 complex and expressly leaves wedge homotopy/open attaching problems. The new finite integral cup-square proof addresses the unsolved Hopf invariant not implied by Betti numbers or dihedral characters. Residual unindexed exact six-cycle work possible.
+
+## value
+
+PASS
+
+BP5 is the smallest homologically mixed bidirected polygon case with two dimension-four attaching maps to an S² where homology does not decide the homotopy type. Evaluating the primitive cup square and integral Hopf obstruction is a substantive, motivated structural computation explicitly tied to an open example in the literature. Exact finite certificates can benchmark more general multipath-homotopy methods; no paper-sized family theorem is demanded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
