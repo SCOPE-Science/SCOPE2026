@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T23:50:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each n=1..9 and binary linear k-plane C, received y in F2^(n+1) has distinct parents D(y) exactly the set of length-n words produced by one-coordinate deletions. The list-at-most-2 criterion is all_y |D(y) intersect C|<=2. Each k-subspace has unique RREF with pivot columns and freely chosen entries strictly to the right in nonpivot columns; exhaustive independent RREF generation (checked count against Gaussian binomial [n choose k]_2) enumerated every candidate, not just sampled codes. It confirmed optimum K(1..9)=(1,1,2,2,3,4,4,5,6), optimal labeled-subspace counts (1,3,4,29,49,17,3238,5534,1786), and zero valid (K(n)+1)-subspaces for each n where upper exists. In particular exactly 1786 of all 788035 [9,6] planes valid and none of the 43435 [9,7] planes valid. Containment of subspaces implies absence of larger valid dimensions. RREF canonicality and exhaustive code+received-bitmask check prove finite theorem; independent enumeration finished, not a timed-out partial census. The stated length-nine [9,6] generator and 432/480/112 parent histogram in RESULT.md are consistent with the proof and provide a witness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiah-Wei-Zeng study fixed-list insertion/deletion rate and bounds; accessible abstract does not list n<=9 linear exact-subspace census.",
+          "Con-Doron-Ribeiro derive asymptotic insertion-list-decoding capacity for polynomial-size lists.",
+          "Xie et al. study dimension-independent linear insdel distance bounds, a different pairwise invariant."
+        ],
+        "reasoning": "Asymptotic/nonlinear capacity or pairwise distance upper bounds might constrain K(n), but do not determine all n<=9 exact optimal-plane counts. Highly relevant full articles not all available; no whole-document exclusion asserted.",
+        "searches": [
+          "arxiv:2609.21395 abstract and accessible author page",
+          "arxiv:2607.03989 abstract",
+          "doi:10.3934/amc.2023008 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md, verify_insertion_linear.py and verification_output.txt",
+        "Independent complete RREF subspace enumeration n=1..9, Gaussian counts, all deletion parent masks",
+        "arxiv:2609.21395 abstract and author lawful OA attempt",
+        "arxiv:2607.03989",
+        "DOI:10.3934/amc.2023008 publisher abstract",
+        "Resultary binary linear codes single insertion at most two distinct parents finite length dimensions census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General rate asymptotics say nothing exact about the number 1786 of rank-six planes at length nine.",
+          "The claim counts distinct received-word parents, so repeated deletion positions must be deduplicated; some standard insertion-ball bounds count operations instead."
+        ],
+        "reasoning": "Even a stronger asymptotic rate theorem would not usually imply exact finite labeled-subspace census, and no inspected bound proves all numeric entries. Explicit enumeration supplies finite proof.",
+        "searches": [
+          "arxiv:2609.21395 bounded-list insertion/deletion",
+          "arxiv:2607.03989 capacity",
+          "doi:10.3934/amc.2023008 insdel bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The parent condition is equivalent to a hypergraph incidence cap of 2 on each one-deletion preimage D(y).",
+          "RREF enumeration is equivalent to enumerating the Grassmannian Gr(k,n)(F2), with no quotient by coordinate symmetry."
+        ],
+        "reasoning": "Pairwise unique-decoding distance constraints are not the same as forbidding three distinct parents for any common received y. Earlier rate results do not enumerate this finite incidence property.",
+        "searches": [
+          "binary linear codes single insertion at most two distinct parents finite length dimensions census",
+          "arxiv:2609.21395 fixed list insertion deletion codes",
+          "DOI:10.3934/amc.2023008 linear insdel distance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned separate single-grain length-six codebook censuses, IPP deletion MDS codes, and symbol-pair codes, not this linear insertion list-two table.",
+          "Independent complete 788035 plus 43435 length-nine enumeration reproduces submitted counts and impossibility."
+        ],
+        "reasoning": "No matching indexed exact table located. Unindexed computer tabulations or tables in unaccessed literature could overlap.",
+        "searches": [
+          "Resultary binary linear codes single insertion at most two distinct parents finite length dimensions census",
+          "arxiv:2609.21395 table linear binary blocklength"
+        ]
+      },
+      "rationale": "Finite exact census for a natural linear code/list-two/single-insertion setting, not equivalent to asymptotic list-decoding capacity or pairwise insdel-distance bounds. The relevant recent Kiah-Wei-Zeng paper is an important possible priority comparison but inaccessible in full through authorized routes; strongest inspected accessible claims concern general rate bounds. Best-of-knowledge PASS explicitly qualified, not categorical full-paper noncoverage.",
+      "residual_risks": [
+        "Kiah-Wei-Zeng 2026 full text was not retrieved; the VPN returned disconnected on authorized institutional attempt.",
+        "2024 linear-insdel full text may contain unindexed small-length tables; abstract cannot exclude coverage.",
+        "The proof says nothing for n>=10 or nonlinear codes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE PRIOR OVERLAP RISK, NOT CLAIMED WHOLE-DOCUMENT NONCOVERAGE",
+          "evidence": [
+            "Accessible results describe general fixed-list coding bounds; complete text inaccessible for exact-table comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.21395",
+          "material_read": "Accessible arXiv bibliographic abstract and author OA abstract; arXiv full PDF unavailable through attempted lawful route; institutional retrieval blocked",
+          "method": "arXiv/OA attempts and authorized Oxford call (VPN disconnected); no bypass",
+          "title": "Constant-List Insertion--Deletion Codes: New Bounds and an Improvement of Levenshtein’s Lower Bound",
+          "trigger": "Closest fresh fixed-list insertion/deletion paper"
+        },
+        {
+          "assessment": "ASYMPTOTIC CAPACITY WITH POLYNOMIAL LISTS, NOT EXACT SMALL-N LINEAR CENSUS",
+          "evidence": [
+            "Rate result concerns growing blocklengths and polynomial list sizes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.03989",
+          "material_read": "Accessible arXiv abstract and stated scope, not full-paper exclusion",
+          "method": "Primary abstract theorem-level comparison",
+          "title": "The Insertion List-Decoding Capacity and an Improved Bound on the Deletion List-Decoding Capacity",
+          "trigger": "Potential broader list-decoding capacity theorem"
+        },
+        {
+          "assessment": "PAIRWISE LINEAR INDEL DISTANCE, FINITE TRIPLE-LIST INCIDENCE NOT ESTABLISHED",
+          "evidence": [
+            "The accessible bounds study minimum insdel distance and do not list 1786 rank-six planes."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/amc.2023008",
+          "material_read": "Accessible article abstract and result summary, not full-paper exclusion",
+          "method": "Primary publisher abstract comparison",
+          "title": "New dimension-independent upper bounds on linear insdel codes",
+          "trigger": "Possible relevant binary linear insdel restrictions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Small-block linear insertion list-decoding is a canonical constrained coding question where exact attainable dimensions and numbers of optimal labeled codes are useful benchmarks. The length-nine transition to six information bits, complete rank-seven impossibility and counts of all optimal rank-six planes are meaningful finite cutoffs, not an arbitrarily chosen single small code example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md, verify_insertion_linear.py and verification_output.txt",
+    "Independent complete RREF subspace enumeration n=1..9, Gaussian counts, all deletion parent masks",
+    "arxiv:2609.21395 abstract and author lawful OA attempt",
+    "arxiv:2607.03989",
+    "DOI:10.3934/amc.2023008 publisher abstract",
+    "Resultary binary linear codes single insertion at most two distinct parents finite length dimensions census"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact finite n=1..9 and one insertion only; not asymptotic capacity, deletion channel, or nonlinear codes.",
+    "Code subspaces have fixed coordinate order; no permutation quotient."
+  ],
+  "residual_risks": [
+    "Kiah-Wei-Zeng 2026 full text was not retrieved; the VPN returned disconnected on authorized institutional attempt.",
+    "2024 linear-insdel full text may contain unindexed small-length tables; abstract cannot exclude coverage.",
+    "The proof says nothing for n>=10 or nonlinear codes."
+  ],
+  "schema_version": 1
+}

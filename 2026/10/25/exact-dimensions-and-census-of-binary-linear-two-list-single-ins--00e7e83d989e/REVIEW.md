@@ -1,19 +1,21 @@
-# Scientific review: finite linear two-list insertion census
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-Canonical reduced-row-echelon enumeration yields each binary linear \(k\)-subspace once: the pivots are fixed and the only freely chosen entries lie in nonpivot columns after the row pivot. The search checks each received word's *distinct* one-deletion parents against the subspace and exhausts all \({n\brack K(n)+1}_2\) candidates in each next dimension. The Gaussian-binomial totals independently match the enumeration. The largest exclusion comprises all \(43435\) length-nine seven-dimensional subspaces. A second, forward insertion implementation confirms every displayed optimal witness, including the length-nine histogram \((432,480,112)\). The optimal-dimensional census examines all \(788035\) length-nine six-subspaces and finds precisely \(1786\) valid examples. The proof is finite and does not infer any untested infinite extension.
+PASS
 
-## Originality: PASS with residual risk
+For each n=1..9 and binary linear k-plane C, received y in F2^(n+1) has distinct parents D(y) exactly the set of length-n words produced by one-coordinate deletions. The list-at-most-2 criterion is all_y |D(y) intersect C|<=2. Each k-subspace has unique RREF with pivot columns and freely chosen entries strictly to the right in nonpivot columns; exhaustive independent RREF generation (checked count against Gaussian binomial [n choose k]_2) enumerated every candidate, not just sampled codes. It confirmed optimum K(1..9)=(1,1,2,2,3,4,4,5,6), optimal labeled-subspace counts (1,3,4,29,49,17,3238,5534,1786), and zero valid (K(n)+1)-subspaces for each n where upper exists. In particular exactly 1786 of all 788035 [9,6] planes valid and none of the 43435 [9,7] planes valid. Containment of subspaces implies absence of larger valid dimensions. RREF canonicality and exhaustive code+received-bitmask check prove finite theorem; independent enumeration finished, not a timed-out partial census. The stated length-nine [9,6] generator and 432/480/112 parent histogram in RESULT.md are consistent with the proof and provide a witness.
 
-The September 2026 Kiah--Wei--Zeng work studies general constant-list insertion/deletion code rates and reduction bounds, rather than exact *binary linear* one-insertion dimension and census profiles for fixed short lengths. The July 2026 Con--Doron--Ribeiro work gives asymptotic list-decoding capacity for unrestricted codes and polynomial-size lists; it does not imply the displayed exact counts. Xie--Chen--Qu--Liu study pairwise insdel distance bounds for linear codes, not exact three-parent incidence counts. Published mathematical-record searches, related deletion-only research, and literature searches for aliases and the exact parameters revealed no result implying the new profile. A relevant 2024 journal article's full text was inaccessible, leaving a genuine residual comparison risk. Failed searches do not prove uniqueness.
+## originality
 
-## Value: PASS
+PASS
 
-The difference between deletion and insertion list decoding is an active coding-theory issue. Fixing the stringent list size exactly two and enforcing linear encoding makes finite parameter thresholds and counts operationally meaningful: the result establishes the first length supporting six information bits, identifies an explicit six-row binary generator, and counts every optimal-dimensional code for nine consecutive lengths. Its nine-bit census is a natural complete invariant, not an arbitrarily selected single code or a routine restatement of a pairwise distance bound. No unproved downstream theorem is claimed.
+Finite exact census for a natural linear code/list-two/single-insertion setting, not equivalent to asymptotic list-decoding capacity or pairwise insdel-distance bounds. The relevant recent Kiah-Wei-Zeng paper is an important possible priority comparison but inaccessible in full through authorized routes; strongest inspected accessible claims concern general rate bounds. Best-of-knowledge PASS explicitly qualified, not categorical full-paper noncoverage.
 
-## Closest literature and limits
+## value
 
-Kiah--Wei--Zeng (arXiv:2609.21395), Con--Doron--Ribeiro (arXiv:2607.03989), and Xie--Chen--Qu--Liu (DOI:10.3934/amc.2023008). The exact insertion list-two linear subspace census is separate from asymptotic bounds, unique-decoding distances, and two-list deletion problems. An inaccessible plausible primary source remains a residual originality risk. The results have undergone self-review; independent validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Small-block linear insertion list-decoding is a canonical constrained coding question where exact attainable dimensions and numbers of optimal labeled codes are useful benchmarks. The length-nine transition to six information bits, complete rank-seven impossibility and counts of all optimal rank-six planes are meaningful finite cutoffs, not an arbitrarily chosen single small code example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
