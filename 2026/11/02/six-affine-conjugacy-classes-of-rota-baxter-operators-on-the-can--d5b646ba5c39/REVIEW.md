@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The full operator identity is reduced exactly to linear projection and normalizer identities; Lie subalgebra planes in the three-dimensional Heisenberg algebra are characterized by containing its center. The fixed-bracket affine automorphism group and its action lead to six orbits; finite-field counts follow by incidence counting. The exact finite-field checker directly evaluates the operator identity over \(\mathbb F_2\) and \(\mathbb F_3\) and enumerates all conjugacy orbits. The proof is symbolic and applies to every field, rather than extrapolating from those checks.
+
+**Originality — PASS, qualified.** Han--Khudoyberdiyev--Xie--Zhang, arXiv:2610.14838 (2026), Theorem 4.4 and Proposition 4.5 already provide the structural reduction and conjugacy criterion for canonical Lie affgebras. Their explicit classifications cover abelian Lie algebras and nonabelian dimension two, **not** this three-dimensional Heisenberg case. Brzeziński, arXiv:2610.33573 (2026), permits gauge elimination of a translation by changing the underlying bracket; this does not identify the two rank-two cases under automorphisms of the *fixed* canonical bracket. Older ordinary linear Lie Rota–Baxter classifications are not exact coverage. The six-orbit and finite-field count conclusion was not found in targeted indexed-result and primary-text comparisons. Residual risk: an earlier implicit or unlocated derivation of the same orbit table may exist. No claim of guaranteed historical priority is made.
+
+**Mathematical value — PASS.** A complete orbit classification across arbitrary characteristics is a motivated next nonabelian nilpotent case of the recent theory. The two inequivalent rank-two translation regimes distinguish genuinely affine operators beyond ordinary linear Rota–Baxter classifications; exact orbit sizes provide a finite-field classification invariant, not just examples.
+
+**Scientific limits.** This does not re-prove as new the prior general projection theorem, nor treat all three-dimensional Lie algebras or higher-dimensional Heisenberg algebras. Source searches cannot establish absolute historical priority. Small-field verification is supplementary. Independent audit is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
