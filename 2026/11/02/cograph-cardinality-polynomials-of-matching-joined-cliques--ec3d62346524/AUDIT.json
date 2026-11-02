@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "A direct induced-P4 characterization for two cliques connected by a matching yields an iff cograph criterion: no selected bridge, at most one vertex on one shore, or two complete matching pairs. These cases are counted with an explicit overlap subtraction for the full polynomial. Maximality forces each bridge-free pattern to orient every matched pair and include all unmatched vertices; only t+1 boundary orientations are excluded per saturated clique, and these exclusions are disjoint for t>=3. The bridge-containing maximal cases are full-clique plus matched singleton, or two complete matched pairs. The proof covers every integer 3<=t<=min(a,b). Independent graph-level enumeration within the present package checked 57 instances and 320832 subsets, agreement for every coefficient; it is corroboration, not an infinite certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brosse et al., Section 4, Theorem 4: general polynomial-delay listing algorithm for maximal induced cographs; treatment uses twin orderings.",
+        "Cao, introduction Theorem 1.1: complexity classification for enumerating maximal induced subgraphs of hereditary classes.",
+        "Conte et al.: general proximity search framework and maximal induced chordal/bipartite examples.",
+        "Dąbrowski–Lozin–Stacho, Theorems 1 and 9: classification of co-bipartite matching family and polynomial-time graph-partition recognition, not an induced-cograph enumerator."
+      ],
+      "reasoning": "An algorithm that lists solutions for each finite input supplies a way to calculate individual counts, but neither a closed all-parameter cardinality distribution nor the structural classification and unbounded-gap theorem is stated or implied as a mathematical corollary of the inspected algorithm theorems.",
+      "searches": [
+        "arxiv:2007.01031 Section 4 maximal induced cographs",
+        "arxiv:2004.09885 introduction Theorem 1.1 hereditary enumeration",
+        "doi:10.1137/20M1375048 maximal subgraph enumeration",
+        "Graph Partitions Below 3-colourability, Theorem 1 and Theorem 9, co-bipartite matching graphs"
+      ]
+    },
+    "checked_sources": [
+      "Brosse et al., arXiv:2007.01031, Section 4 and Figure 5.",
+      "Cao, arXiv:2004.09885, introduction and Theorem 1.1.",
+      "Conte et al., arXiv:1912.13446, SIAM journal abstract and references.",
+      "Wolfram MathWorld, Rook Graph (family equivalence).",
+      "OEIS A145070 (numerically coincident but unrelated sequence interpretation).",
+      "Indexed scientific claim on non-CIS pairs for matching-deleted bicliques (different invariant).",
+      "Dąbrowski, Lozin, Stacho, Graph Partitions Below 3-colourability, family definitions and algorithmic theorems (not an enumerator)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brosse et al. Theorem 4 asserts polynomial-delay enumeration; it neither enumerates this family symbolically nor gives a fixed-size multiplicity.",
+        "Cluster graphs are P3-free and hence cographs, but maximal induced cluster vertex subsets need not be maximal induced cographs; one census cannot recover the other.",
+        "An indexed result on non-CIS maximal clique/stable-set intersections in matching-deleted bicliques concerns a different incidence statistic."
+      ],
+      "reasoning": "The current claim is a pair of complete coefficient identities for all integers a,b,t in a stated range plus an exact maximal-cardinality gap. Algorithmic enumeration, cluster-subgraph distributions, and non-CIS intersection counts do not logically entail these identities without additional, nontrivial structural arguments.",
+      "searches": [
+        "\"efficient enumeration of maximal split subgraphs and induced sub-cographs\" full Section 4",
+        "\"Enumerating Maximal Induced Subgraphs\" arxiv 2004.09885",
+        "\"maximal induced cluster\" rook graphs",
+        "\"maximal cograph\" \"clique\" \"matching\" deletion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "G_{a,b,t} is the complement of K_{a,b} with t independent edges removed; G_{n,n,n}=K_2 Cartesian K_n.",
+        "Cographs are exactly induced-P4-free graphs (Brosse et al., arXiv:2007.01031, Section 4).",
+        "Dąbrowski–Lozin–Stacho, Graph Partitions Below 3-colourability, Theorem 1: the two-clique matching construction is the co-bipartite matching graph class M2, with a matched perfect subfamily."
+      ],
+      "reasoning": "The statements are invariant under graph complementation as a change of family description, and inclusion-maximal induced P4-free sets are complements of inclusion-minimal P4 vertex-deletion sets. The searches found no exact cardinality polynomial in these equivalent descriptions; a change of terminology would not establish originality without an implication comparison. This explicitly verified alternative nomenclature increases the precision of the comparison; the family-identification theorem does not enumerate its induced cographs.",
+      "searches": [
+        "\"maximal induced cographs\" \"complete prism\"",
+        "\"P4-free\" \"two cliques\" matching maximal induced",
+        "\"cograph\" \"rook graph\" \"polynomial\" maximal",
+        "complement of matching-deleted complete bipartite graphs; minimal P4 vertex-hitting sets",
+        "\"co-bipartite matching graphs\" P4-free maximal subsets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A145070 has an equal numerical initial segment but interprets it as partial sums of a different sequence; no cograph interpretation was found there.",
+        "MathWorld Rook Graph records the two-row rook graph as the complement of a crown graph and line graph of a biclique, but gives no maximal induced-cograph polynomial."
+      ],
+      "reasoning": "A coincident integer sequence is not an equivalent combinatorial theorem or complete size distribution. Published graph tables and searched sequence descriptions do not cover the classified labelled subsets or general three-parameter formulas.",
+      "searches": [
+        "\"9, 20, 40, 77, 147, 282\" graphs",
+        "\"2^n - 2 + binomial(n,2)\" cograph",
+        "OEIS A145070",
+        "Rook Graph Wolfram MathWorld maximal induced cograph"
+      ]
+    },
+    "rationale": "The closest complete primary treatment (Brosse et al., arXiv:2007.01031, Section 4) proves polynomial-delay enumeration of maximal induced cographs in arbitrary graphs, but not the closed coefficient polynomials for two cliques joined by a matching or the complete-prism size gaps. Cao (arXiv:2004.09885) gives broader algorithmic enumeration results for hereditary graph classes, without the present family-specific counts. Matching-deleted complete bipartite and rook-graph literature identifies the graph families or different invariants; no inspected source states an equivalent enumeration theorem. Research-database searches did not reveal a covering claim, but an unindexed equivalent remains possible, so priority is provisional.",
+    "residual_risks": [
+      "An equivalent graph-family census might appear in an unindexed article or under a different name; absence from searches is not proof of novelty.",
+      "The comparison with the general enumeration literature supports non-implication of the explicit formulas, but publication priority has not undergone independent verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves a general polynomial-delay enumeration algorithm; the exponential example is a disjoint matching with an apex, not the two-clique matched family. No exact family-specific size polynomial was supplied.",
+        "evidence": [
+          "arXiv:2007.01031 Section 4, Figure 5, Theorem 4 (polynomial delay).",
+          "Initial preprint date 2020-07-02 shown in arXiv record; subsequent PDF revision dated 2023 is not treated as the first public date."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.01031",
+        "material_read": "Introduction and result table, complete cograph section (Section 4, pages 9–12 in the displayed PDF), including Figure 5, definitions, lemmas and Theorem 4.",
+        "method": "Primary preprint full-text inspection of relevant sections and Figure 5.",
+        "title": "Efficient enumeration of maximal split subgraphs and induced sub-cographs and related classes",
+        "trigger": "Closest paper addressing the identical hereditary property of maximal induced cographs."
+      },
+      {
+        "assessment": "Algorithms and complexity classes, not symbolic cograph census on the two-clique matching family.",
+        "evidence": [
+          "arXiv:2004.09885, Theorem 1.1 and introductory exposition."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2004.09885",
+        "material_read": "Abstract, introduction, motivation and Theorem 1.1 inventory (first pages of full PDF), with a full-document term search for cographs and rook graphs.",
+        "method": "Open-access preprint inspection.",
+        "title": "Enumerating Maximal Induced Subgraphs",
+        "trigger": "Broader possibility of a general maximal-hereditary-subgraph result covering the claim."
+      },
+      {
+        "assessment": "Its general algorithms provide context, not the explicit matching-clique family polynomials.",
+        "evidence": [
+          "SIAM Journal on Computing 51 (2022), abstract and cited cograph preprint.",
+          "The publisher lists MSC 05C30 as its first code."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/20M1375048",
+        "material_read": "Published abstract, MSC metadata and reference list; original arXiv record.",
+        "method": "Bibliographic and abstract inspection, not a claim of complete PDF inspection.",
+        "title": "Proximity Search for Maximal Subgraph Enumeration",
+        "trigger": "Foundational framework cited in cograph enumeration."
+      },
+      {
+        "assessment": "Provides family equivalence, no covered maximal-cograph polynomial.",
+        "evidence": [
+          "The two-row rook graph is K_2 Cartesian K_n and the complement of a crown graph."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/RookGraph.html",
+        "material_read": "Graph-family descriptions and identification with the complement of a crown graph.",
+        "method": "Reference-page inspection.",
+        "title": "Rook Graph",
+        "trigger": "Graph-name equivalence and exact-parameter table check."
+      },
+      {
+        "assessment": "Defines the two-clique-with-matching graph class but studies stable graph partition decision problems, not induced-P4-free subsets or their cardinality polynomials.",
+        "evidence": [
+          "Theorem 1 (M2 co-bipartite matching graphs; matched subfamily).",
+          "Theorems 6 and 9 (partition-recognition algorithms)."
+        ],
+        "identifier_or_url": "https://www.cs.toronto.edu/~stacho/public/partitions7.pdf",
+        "material_read": "Abstract, introduction, graph family definitions and Theorem 1 in Section 2, and associated algorithmic Theorems 6 and 9 in Section 4; full-document term search for cograph.",
+        "method": "Primary open-access manuscript inspected as text plus PDF page screenshot.",
+        "title": "Graph Partitions Below 3-colourability",
+        "trigger": "Exact established name for the graph family, co-bipartite matching graphs, might conceal prior coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ec3d6234-6524-4a77-94e8-cecbe5301540",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cograph vertex deletion is a canonical hereditary-property enumeration problem. The theorem gives complete cardinality multiplicities, not just scalar extremal sizes, for an infinite three-parameter co-bipartite matching family. A boundary correction changes the maximal-set count when a clique is entirely matched. In its connected vertex-transitive complete-prism specialization, maximal cographs have only sizes 4,n,n+1 for n>=6, with n-5 consecutive missing intermediate sizes and asymptotic concentration at n. This structural and distributional information is not an automatic consequence of general listing algorithms.",
+    "status": "PASS"
+  }
+}
