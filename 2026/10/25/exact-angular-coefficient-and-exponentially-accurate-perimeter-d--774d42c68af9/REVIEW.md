@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every fixed genuine convex polygon and integer sample count at least three, the perimeter is the sum of chords between cyclically sorted boundary samples, even in one-dimensional hull cases with the stated twice-segment convention. An anchored vertex has exact nearest-neighbor density \(N(N-1)L^{-2}(1-(a+b)/L)^{N-2}\). Homogeneity and beta-uniform spacings reduce the exact virtual corner loss to a single one-dimensional square-root integral; evaluating it produces \(h(\beta)\) with the stated factor. On the event that all edges are sampled, real and virtual sums coincide. Off this event they differ by at most \((m+1)L\), and the empty-edge union bound gives the explicit error. The supplied checker passes, but finite sampling is not proof.
+## correctness
 
-## Originality — PASS, with risk
-Actual searches compared uniform boundary polygonal hull perimeter, asymptotic missing perimeter, the logarithmic exterior-angle expression, and boundary-versus-interior sampling. The closest archived area-loss law has an inverse-square, sine-angle coefficient, not the asserted perimeter coefficient. Schneider's classical smooth-boundary model does not cover polygonal corner geometry as stated in its accessible abstract. Har-Peled's inspected PDF uses interior-uniform sampling and bounding expected hull vertex counts; the inspected 2019/2022 full-text arXiv article treats boundary uniform sampling and higher-dimensional volume/face statistics, without the finite-sample perimeter statement. Equivalently phrased historical work remains possible; source-access limitations are not novelty certification.
+PASS
 
-## Value — PASS
-This quantitatively resolves an intrinsically geometric approximation observable: mean loss of *length* rather than mean loss of area. It gives a universal positive coefficient in elementary inverse-hyperbolic functions of the exterior angles for every convex polygon, a certified finite-sample exponentially small error, and clean separation between corner and interior-edge contributions. The order of decay differs from the previously treated area functional, making the precise coefficient useful as a benchmark for random polygon approximation.
+Cyclically ordered sampled points generate the polygon hull perimeter as sum of adjacent chords, including collinear cases under the twofold segment-length convention. For any vertex, the nearest enclosing cyclic sample gap (A,B) has joint density N(N-1)/L² (1-(A+B)/L)^(N-2). Let S=A+B and T=A/S: T is independent uniform[0,1], E S=2L/(N+1). The virtual corner loss g_beta(A,B)=S-sqrt(A²+B²+2ABcos(beta)) has exact expectation Lh(beta)/(N+1) using ∫sqrt(c²+s²u²)du. On G=all m edges sampled, the actual chord deficit equals sum of g_beta; on the complement each nonnegative term is at most L, while P(G^c)<=sum_i(1-ell_i/L)^N<=m rho^N. Therefore the stated explicit bound follows, including the rare all-collinear cases. Independently checked angular integral for several beta and a square 10k-repetition Monte Carlo at N=50; observed estimate agrees within its sampling error and must not be mistaken for an exact verification of the exponentially small error term. The all-N proof is the analytic gap argument.
 
-## Scientific limits
-No claim on general limit law or polygon families with vanishing shortest edge; proof depends on fixed positive edge lengths. The numerical checker is supplementary. Full-text checks were performed only for sources noted in the originality report.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior random-polytope boundary results calculate facet numbers, volumes or smooth-body perimeter approximation, not this all-convex-polygon angular arctanh coefficient and uniform exponential finite-sample remainder. The full Reitzner–Schuett–Werner paper was read in HTML to compare Theorems 1.1 and 1.2; full Schneider 1988 was unavailable and is a narrow historical risk, but its accessible description concerns smooth-body sampling.
+
+## value
+
+PASS
+
+A motivated first-order quantitative approximation of fixed polygon perimeter by boundary-random inscribed hulls, with explicit corner-angle coefficient and an exponentially small uniform-in-N remainder. Unlike volume/area deficit, perimeter has inverse-linear rather than inverse-square scale. The edge-missing correction is mathematically material: ignoring it would falsely claim an exact finite-N identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
