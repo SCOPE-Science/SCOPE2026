@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The interval-mixing lemma gives the precise Cartesian-box hypothesis family. The private-coordinate criterion proves both shattering directions, including empty and singleton supports. The VC upper bound handles separately supports no larger than a factor and supports larger than every factor; the online bound uses the exact \(2^k\) positive version-space size, while the depth-\(k+1\) construction is an induction with a two-query negative branch. Degenerate factor profiles and the complete two-factor maximum-support count are explicitly handled. Standalone finite verification independently checks graph shortest-path convexity, traces, and the online recurrence.
+
+**Originality — PASS under accessible-source comparison.** The established geometric product theorem is credited rather than presented as new. Inspected source sections in Thiessen–Gärtner (2022) provide generic online bounds and graph convexity definitions, not exact Hamming-product online ranks or the private-coordinate characterization. Dourado et al. (2022) study convex geometries, and Chepoi–Labourel–Ratel (2017) study a differently defined VC invariant of product subgraphs. Published-research-record searches for exact formulas, Hamming graphs, rectangular classes and private coordinates revealed no claim implying the combined result. Older Boolean-conjunction or finite combinatorial-rectangle formulations remain a priority risk; an inaccessible older product-geometry manuscript was compared only through its abstract.
+
+**Value — PASS.** The result covers the whole family of finite Cartesian products of complete graphs without parameter cutoffs, classifies every shattered support, and gives the sharp adversarial online dimension with an explicit constructive mechanism. The relationship with private coordinate symbols and, for two factors, star forests supplies a reusable structural description beyond a scalar invariant. The gap holds for arbitrary alphabet sizes and dimension, and the degenerate boundary is exact.
+
+No extension to general graphs or noisy learning is claimed. Computational checks supplement but do not replace the proof; complete historical priority and independent validation remain open.
+
+Self-review: passed. Independent audit: not yet performed.
