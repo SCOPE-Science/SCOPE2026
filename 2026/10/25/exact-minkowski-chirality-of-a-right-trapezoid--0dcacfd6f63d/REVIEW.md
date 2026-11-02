@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The body is explicitly defined by four vertices. Its support function is the maximum of the four vertex dot products. The translation-feasibility problem is reduced exactly by the two extreme rays of the nonnegative dependence cone of the four reflected edge normals. The resulting two scalar obstructions are \(W(t)\) and \(Q(t)\). The piecewise width analysis proves the lower bound \(3/\sqrt5\) for every orientation, and the orientation \(t=2\pi-\arctan(1/2)\) attains it. The unique-axis assertion follows from the strict inequalities on the other orientation intervals and their endpoints.
+PASS
 
-## Originality (O): PASS
+The support H(phi)=max(0,2cos(phi),cos(phi)+sin(phi),sin(phi)) and target reflected edge normals allow exact containment by four halfspaces. Their nonnegative dependence cone has precisely two extremal generators, producing two necessary-and-sufficient dilation thresholds W(t) (width) and Q(t) (three-side balance), where t=2theta. The piecewise exact width profile shows W<3/sqrt5 only on three explicitly identified angular intervals, where direct support branches prove Q>=3/sqrt5. At t=-atan(1/2), both equal 3/sqrt5, with other angular cases strictly larger, proving global value and uniqueness. Fresh independent support-function grid over 100001 orientations finds minimum 1.3416484 and exact analytic witness 1.3416407865; the proof of continuum bound comes from piecewise inequalities, not sampling.
 
-The closest primary source is Caragea et al., arXiv:2504.13013, which treats triangles and parallelograms in detail and leaves general planar optimal axes as an open direction. The specified right trapezoid is not in either classified family. Semantic searches for exact trapezoid chirality, right-trapezoid reflection axes, and the explicit vertex set returned no result implying this value or optimizer. Nearby trapezoid results concern other invariants, and the three-dimensional point-symmetric chirality result does not cover this planar asymmetric body. Search failure is not treated as proof of global novelty.
+## originality
 
-## Value (V): PASS
+PASS
 
-This is an exact, self-contained benchmark for a canonical non-parallelogram quadrilateral in the open problem of understanding optimal reflection axes for convex bodies. It supplies both a closed-form invariant and a unique optimizer, rather than a numerical estimate. Its scope is deliberately limited to the stated trapezoid.
+PASS best of knowledge: Caragea et al 2025 define Minkowski chirality and prove general bounds and exact optimizer classifications for triangles and parallelograms, not non-centrally-symmetric right trapezoids; their general inequality supplies neither equality nor unique axis for this K. Relevant Resultary published-record hits concern ordinary Minkowski asymmetry or different trapezoid invariants, not the reflected-copy translative circumradius. No inspected exact covering theorem was found, but unindexed polygon optimization remains a risk.
 
-## Closest literature and limitations
+## value
 
-The primary paper's Theorems 1.1–1.4 and its open-problems section were consulted. The current claim does not extend to a classification of trapezoids or to the universal planar chirality bound. Semantic literature/database searches cannot prove uniqueness against every unindexed or future source.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The trapezoid is the simplest integer-coordinate non-parallelogram right quadrilateral, a natural first nonsymmetric test case for the newly introduced reflectional containment invariant. The exact nontrivial value and unique optimal direction supply a reproducible benchmark for extending the literature from triangles/parallelograms to general quadrilaterals. This is a narrow complete exact invariant, not a general sharp bound or an arbitrary unmotivated parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
