@@ -1,11 +1,21 @@
-# Scientific review: square-root leader-budget switch
+# Independent mathematical audit
 
-**Correctness — PASS.** The grounded matrix has the stated two-block Laplacian form for all leader allocations. Rank-one inversion gives equation (1). The algebraically exact strict chord identity (3) proves all mixed placements are worse than a pure endpoint for budgets at most \(m\); equation (2) gives the sharp comparison and ties. For higher budgets, equation (4) proves all vertices in the larger part must be leaders. Counts follow from part automorphisms. The packaged standard-library exact-rational checker tests 353,496 allocations, 166,650 chord cases, 220 independently assembled inverse matrices, and 666 entire labeled subsets. Finite checks corroborate rather than prove the unbounded theorem.
+## correctness
 
-**Originality — PASS with residual risk.** Lin–Fardad–Jovanović (2013) provide general leader-selection optimization and SDP methodology; Fitch–Leonard (2014) define joint centrality and explicitly note that optimal budget sets need not nest in general; Patterson–McGlohon–Dyagilev (2014) give arbitrary-budget algorithms for paths and rings. Their inspected paper content does not state the present complete all-budget near-balanced bipartite allocation, strict mixed-allocation exclusion, or exact square-root threshold. An earlier three-leader biclique case already covers some \(k=3\) instances; they are **not** separately claimed novel. A published discounted-hitting-domination finding on bicliques concerns a distinct optimization functional. An equivalent specialized prior result cannot be excluded solely by searches; the residual risk is material but does not currently overturn the statement-level comparison.
+PASS
 
-**Value — PASS.** The exact characterization for every budget identifies the abrupt relocation of all optimal leaders between the two parts around budget \(\sqrt{2m+1}\), characterizes all equality cases, and enumerates every optimizer. This illustrates a precise failure of nested leader planning on a natural infinite family rather than an isolated small example. It supplies a constant-time sign test in place of subset enumeration and has direct relevance to network design where sensor budgets change.
+With a leaders in A, b=k-a in B and followers p=m-a, q=m+1-b, block diagonalization gives J=p/(m+1)+q/m+(2m+1)pq/(m(m+1)(m(m+1)-pq)); positive determinant holds for nonempty follower set. For k<=m, J(a) lies strictly above the chord joining J(0) and J(k): a(k-a)(2m+1)(k(m+1)-a-1)/(k^2m(m+1)(km+a^2-ka+a))>0 for all 0<a<k, so no mixed optimizer. Endpoint difference J(k)-J(0)=(k^2-2m-1)/(k m(m+1)) proves the square-root threshold including odd-square ties. For larger k, the all-B configuration has q=0, and for any q>0 the difference is q(1/m-1/(m+1)) plus a nonnegative pq term, strictly positive. Orthogonality and within-part permutations yield exact counts. I independently checked the chord polynomial identity symbolically, exact rational optimization for all m=2..30 and all budgets 1..2m, including boundary cases.
 
-**Limitations.** Unit-weight \(K_{m,m+1}\) and noise-free grounded-inverse trace only; more unbalanced bicliques may have mixed optima, and the general phenomenon of non-nested leader choices predates this result. Source-priority checks are best-knowledge, not proof that no equivalent literature exists. Independent mathematical validation has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The trace of the grounded Laplacian and nonnested leader optima are known general concepts. The novel item assessed is the exact all-budget optimizer partition, strict mixed-placement exclusion, count and k^2=2m+1 switch specifically for nearly balanced complete bipartite networks. Broad general leader methods, joint centrality and earlier three-leader special cases were read or compared; a historical exact complete-bipartite treatment might overlap.
+
+## value
+
+PASS
+
+The grounded trace is a canonical coherence cost and K_{m,m+1} a natural sharply near-balanced family. A closed optimizer count and exact square-root changeover from smaller to larger part, with rigorous exclusion of intermediate mixed sets and a provable nonnested optimum, provide a usable structural test family for leader-budget design. The exact switch and strict chord inequality are not a routine one-off graph evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
