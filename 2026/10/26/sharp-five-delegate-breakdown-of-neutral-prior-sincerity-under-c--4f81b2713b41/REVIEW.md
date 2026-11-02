@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For three representatives, the exact payoff difference is reduced to three exhaustive comparisons of the opposing efforts: strict inequality, equality, or reverse inequality between the larger opponent's effort and the sum of the other two. In every case the derived expression for the state-conditioned transfer difference is strictly positive for all positive efforts; fair weight ties are included. At five representatives, a binomial partition of the three low-effort votes gives an exact negative rational value, independently reproduced by direct enumeration of all sixteen opponent-vote patterns. The witness has no weighted-majority ties and remains valid under small perturbations. A standalone exact-rational checker verifies the intermediate identities. The finite comparison grid supports but does not prove the universal three-person theorem; the algebra does.
+PASS
 
-## Originality — PASS (historical-priority risk noted)
+From the actual CPSR payment rule, for the target among three delegates with efforts a,b>=c>0 the state-G action advantage divided by Ba is (b+c)/(a+b+c)+(b-c)(J_b-J_c), where J_c=0, 1/[2(a+c)], or 1/(a+c) according to a+c<b, =b, or >b, and J_b=1/(a+b). Each region, including the tie boundary, is strictly positive. State symmetry and Bayes with neutral prior give conditional good-signal advantage 2Bx_iK_i. Independent exact-Fraction enumeration of all 16 opponent ballots for efforts (2/5,2/5,1/100,1/100,1/100) gives K=-616489/33459375 and 2x_iK=-2465956/167296875, no possible weighted tie because total effort 83/100. The all-parameter three-delegate statement is proved analytically, not by 5184 finite examples; no effort Nash equilibrium is asserted.
 
-The nearest source, Beccuti and Schneider (2026), establishes strict sincere-voting incentives at *symmetric* efforts and provides an *asymmetric, nonneutral-prior* failure where other sincere voters ignore their signals. Its Lemma 1 also proves incentives when precisely one effort differs from the homogeneous efforts of the other representatives, which does not cover the five-person witness with heterogeneous opposing efforts. These statements do not determine the neutral-prior, fully signal-contingent three-versus-five boundary. Birmpas et al. (2024) use delegation-dependent rewards without this conditional winning-coalition headcount rule; Caragiannis and Schwartzbach (2023) use payment based on fractions of agreeing jurors, not the same effort-weighted reward shares. Relevant targeted mathematical-record searches returned other voting-power and social-choice results, not the stated implication-equivalent incentive boundary. The possibility of a differently worded result in broader peer-prediction or weighted-jury literature remains a nonzero priority risk; no independent originality certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-CPSR's separate weight-majority and headcount-majority requirements create a concrete incentive-design question: can adding representatives cause even an informed, sincere vote to become unprofitable under a completely unbiased prior? The theorem locates the first committee size where this can happen and proves the smaller regime fully immune, including heterogeneous efforts and weight ties. The negative witness is not an equality-edge artifact: all signals are informative, all efforts are interior, there are no weighted ties, and the failure holds on an open set. This is a structural boundary for a specific recently introduced reward rule, not a routine alternate normalization or a small numerical improvement.
+The source already proves symmetric-profile sincerity and supplies a nonneutral-prior asymmetric failure. The novel combined threshold requires universal heterogeneous three-delegate truthfulness at neutral prior and a fully signal-responsive five-delegate reversal. The reference incentive conditions have different quantifiers and no result inspected implies both statements.
 
-## Limitations
+## value
 
-This is a voting-stage, conditional best-response theorem, not an effort-equilibrium or full mechanism-implementation theorem. No classification of all five-person adverse profiles or guarantee for larger populations is claimed. Historical priority beyond the inspected literature remains uncertain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This sharp 3-versus-5 threshold determines when a published conditional coalition reward loses signal-following incentives even at a neutral prior. It adds both a robust exact violation and a universal small-committee protection, a substantive design boundary rather than a merely negative calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
