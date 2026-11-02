@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational and analytic verification
+# Independent mathematical audit
 
-The analytical proof uses a high-intensity time change, a monotone low-to-high speed ratio, an exact flow derivative, and adjacent-interchange plus \(L^1\) continuity. Its quantifiers cover all bounded nonnegative measurable rates over a finite horizon. The strictness criterion is only for two strictly positive distinct rates of strictly positive durations; its equality surfaces are included.
+## correctness
 
-Run `python3 infiltration_order_checker.py` to reproduce deterministic checks. This script solves each constant-rate segment using the Green–Ampt primitive \(H(F)=F-B\log(1+F/B)\), whose derivative is \(F/(F+B)>0\) for positive \(F\), and interval bisection. The capacity threshold is handled analytically, with no explicit time-step approximation. A deterministic seed of 1978 drives 3000 random tests. All 3000 satisfied the weak order, and all tests flagged as exact equalities passed numerical tolerance. Three constructed equalities were also checked.
+PASS
 
-For \(K=B=1\), \(F_0=0.25\), rate pair \((\ell,h)=(1.5,3)\), and both durations \(0.2\), the script printed final states \(F_{HL}=1.097721698953\), \(F_{LH}=1.009760758368\), with difference \(0.087960940585\). The exact strictness cutoffs are \(F_h=0.5\), \(F_\ell=2\), and the available rainfall reaches beyond the high-rate cutoff.
+The capacity K(1+B/F) decreases in F, with finite bounded flux min(r,capacity) continuous at F=0. A high-flow clock z=int ds/g_h(s) turns high rate into translation; the low-rate clock has nondecreasing w(z)=g_ell/g_h, so low-flow derivative with respect to start is w(Psi_v(z))/w(z)>=1. This proves high-before-low interchange and its strict interval exactly F_h<F<F_ell. Before F_h both blocks infiltrate their stated rates; the strict iff boundaries reduce to F0<F_ell and F0+hu+ell v>F_h. Monotone scalar flows preserve prefix comparisons under any suffix, adjacent block interchanges sort arbitrary finite step functions; the flux is 1-Lipschitz in r in L1 and rearrangements are L1-contractive, extending to essentially bounded measurable rates. Independent implicit Green-Ampt primitive root solving checked 1000 two-block random sets and 250 random multiblock sorts, without substituting sampling for proof.
 
-These finite checks are not a proof for arbitrary measurable hyetographs. The independent audit has not been performed; neither its status nor its evidence is inferred from the above calculations.
+## originality
+
+PASS
+
+The full-text variable-rainfall Green-Ampt papers inspected primarily address numerical uneven-storm infiltration with wetting-front redistribution and spatial states. They do not state a sharp equimeasurable-intensity rearrangement extremum with this scalar no-storage strictness classification. A general monotone controlled-scalar-flow interchange theorem might imply the weak inequality and uninspected older Chu and Philip analyses may contain equivalent scalar cases; neither is treated as absent. Best-of-knowledge PASS for the combined exact and strict-boundary claim with priority risks.
+
+## value
+
+PASS
+
+For uncertain intrastorm timing but a fixed rainfall intensity histogram, the theorem determines exact worst and best modeled infiltration and runoff. Its two-bin sharp equality region identifies when temporal ordering is physically immaterial in this model. The nonlinear transition through the capacity thresholds is a motivated structural comparison rather than trivial monotonicity in total volume.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
