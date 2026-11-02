@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Spectral Jacobi block decomposition covers all dimensions, leaf transitivity guarantees a nonzero leaf projection in every eigenvalue, and restrictions on b>=3 child branches prove exact per-eigenvalue rank one or two. Invariant semigroup decay proves rate-independent eventual capture. Explicit modular checker independently confirms representative ranks and disproves extension to b=2; the proof, not finite tests, covers all b>=3 and L>=1.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Novo et al., arXiv:1412.7209, derive a single-sink Krylov/invariant-subspace capture principle, and their tree example places one trap at the binary root; it does not state a two-peripheral-site rank formula.",
+        "Mülken et al., arXiv:0705.3700, focus on trapping survival dynamics for linear chains, rather than complete b-ary trees with two leaf traps.",
+        "Mülken–Bierbaum–Blumen, arXiv:cond-mat/0602040, treat coherent dendrimer walks without the pair of absorbers."
+      ],
+      "reasoning": "A general subspace method could evaluate any graph, but provides no closed two-leaf rank/placement formula for this family. Prior complete-tree eigenvalue decompositions cover the prerequisite spectrum but do not immediately imply the cross-site projector independence; the new proof supplies that missing comparison. Classical trapping mean times and Laplacian walks are separate physical models.",
+      "searches": [
+        "Systematic Dimensionality Reduction for Quantum Walks tree trap root two absorbers",
+        "quantum trapping efficiency regular finite tree two peripheral absorbers Euler totient exact capture",
+        "arxiv:cond-mat/0602040v1",
+        "arxiv:0705.3700v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/cond-mat/0602040",
+      "https://arxiv.org/abs/0705.3700",
+      "https://arxiv.org/abs/1412.7209",
+      "https://arxiv.org/abs/1302.5227",
+      "https://doi.org/10.1137/S0895480104445344",
+      "https://doi.org/10.17918/00001629"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Novo et al., arXiv:1412.7209, derive a single-sink Krylov/invariant-subspace capture principle, and their tree example places one trap at the binary root; it does not state a two-peripheral-site rank formula.",
+        "Scarabotti, DOI:10.1137/S0895480104445344, states computation of the finite q-ary adjacency spectrum; the two-site trapping result is not established in the accessible abstract.",
+        "Lin–Zhang, arXiv:1302.5227, derive classical mean first-passage trapping times on Cayley trees."
+      ],
+      "reasoning": "Scarabotti implies the underlying spectral values and Novo implies capture is a projector weight, but neither accessible result alone supplies the independent-versus-coincident leaf spectral vectors. Their combination without the branchwise eigenvector argument does not directly yield the formula. Classical first-passage times and quantum dark-space fractions do not imply one another. The full Scarabotti paper was not available and remains a flagged comparison limitation.",
+      "searches": [
+        "arxiv:1412.7209v1 tree root site trap",
+        "doi:10.1137/S0895480104445344 finite q-ary spectrum",
+        "spectral projectors two leaf sites homogeneous rooted q-ary tree eigenspace independent iff descendant subtree eigenvalue",
+        "arxiv:1302.5227v1 trapping location Cayley"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Novo et al., arXiv:1412.7209, derive a single-sink Krylov/invariant-subspace capture principle, and their tree example places one trap at the binary root; it does not state a two-peripheral-site rank formula.",
+        "Scarabotti supplies spectral representation on a q-ary tree, whereas a two-marked-leaf projected eigenspace rank requires evaluating linear independence per eigenvalue."
+      ],
+      "reasoning": "Equivalent forms include marked-vertex controllability/Krylov rank, rank of two-vertex local spectral measures, cyclic subspaces, and absence of dark modes. The generic reduction in Novo et al. is known; the precise extra eigenspace dimension D(h-1) from a third child branch is the compared new statement, not a restatement of spectral eigenvalue counts.",
+      "searches": [
+        "two traps leaves on complete regular Cayley tree adjacency Krylov rank totient function lowest common ancestor",
+        "spectral projectors two leaf sites homogeneous rooted q-ary tree eigenspace independent iff descendant subtree eigenvalue",
+        "arxiv:1412.7209v1",
+        "doi:10.1137/S0895480104445344"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Zhang (2023) abstract reports distinct eigenvalue results for level-symmetric trees, not a two-sink rank table.",
+        "For the 121-site ternary tree, the new checker gives exact expected modular ranks 12,14,16,20 at leaf distances 2,4,6,8; these are illustrative tests, not database priority proof."
+      ],
+      "reasoning": "The exact eigenvalue count D(L) is acknowledged as prior spectral knowledge. The exact two-leaf accessible ranks for all h, especially their strict monotonicity and rate-independent capture fraction, were not found in examined accessible tables. Absence of a database match alone does not certify originality.",
+      "searches": [
+        "two traps leaves on complete regular Cayley tree adjacency Krylov rank totient function lowest common ancestor",
+        "quantum trapping efficiency regular finite tree two peripheral absorbers Euler totient exact capture",
+        "\"two leaf\" \"tree\" \"quantum\" \"trapping\" eigenvalues",
+        "doi:10.17918/00001629"
+      ]
+    },
+    "rationale": "The precise two-leaf bright rank D(L)+D(h-1), its branch-threshold mechanism, and the strict separation placement law are not established by the inspected relevant full texts. Generic Krylov transport, untrapped dendrimer dynamics, single-root binary capture, and underlying finite-tree spectrum are explicitly credited as prior; unavailable spectral full text and unindexed literature leave a real priority risk.",
+    "residual_risks": [
+      "Scarabotti full spectral paper was not accessible; a hidden stronger leaf-projection result cannot be excluded.",
+      "Zhang thesis was not examined in full; some distinct-spectrum observations there are clearly prior.",
+      "Index and manuscript coverage cannot prove global priority or exclude synonymous controllability/trap-sink formulations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different connectivity Hamiltonian and no two-leaf absorbers; does not cover the exact placement claim.",
+        "evidence": "Preprint dated 2006-02-02; studies 3-functional dendrimers and unitary quantum-walk localization and recurrence.",
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0602040",
+        "material_read": "Full eight-page publicly available preprint; transport setup, recurrences, long-time averages, results and conclusions",
+        "method": "Full-text HTML and original PDF page inspection",
+        "title": "Coherent exciton transport in dendrimers and continuous-time quantum walks",
+        "trigger": "Same dendrimer setting and coherent walk"
+      },
+      {
+        "assessment": "Relevant non-Hermitian trapping method, but no b>=3 branching-tree two-leaf rank theorem.",
+        "evidence": "Preprint dated 2007-05-25; trapping discussed for linear systems and intermediate-time power-law survival.",
+        "identifier_or_url": "https://arxiv.org/abs/0705.3700",
+        "material_read": "Full four-page public preprint, including model and linear-system survival results",
+        "method": "Full-text HTML and PDF page inspection",
+        "title": "Survival Probabilities in Coherent Exciton Transfer with Trapping",
+        "trigger": "Direct quantum trapping mechanism and two-trap configurations"
+      },
+      {
+        "assessment": "Generic invariant subspaces and binary-tree root trap preexist, but not the two peripheral absorber comparison.",
+        "evidence": "Section “Binary tree” specifies trap at root, graph with 2^l−1 nodes, equation (41), and single-localized-state efficiencies in equation (43).",
+        "identifier_or_url": "https://arxiv.org/abs/1412.7209",
+        "material_read": "Public preprint methods, transport section, binary-tree example and discussion (full article searched; relevant portions read)",
+        "method": "Full-text HTML, named-section and PDF page inspection",
+        "title": "Systematic Dimensionality Reduction for Quantum Walks: Optimal Spatial Search and Transport on Non-Regular Graphs",
+        "trigger": "Potentially dominating general transport projector and tree theorem"
+      },
+      {
+        "assessment": "Classical stochastic random-walk mean first passage times, not coherent absorbing-Hamiltonian dark modes.",
+        "evidence": "Abstract defines average trapping time across starting sites and identifies Cayley tree and Vicsek fractal random walks.",
+        "identifier_or_url": "https://arxiv.org/abs/1302.5227",
+        "material_read": "Accessible full HTML preprint text including introduction, model distinction and results; standalone PDF not retrieved",
+        "method": "Public HTML arXiv full text",
+        "title": "Influence of trap location on the efficiency of trapping in dendrimers and regular hyperbranched polymers",
+        "trigger": "Exact trap-location optimization on dendrimers"
+      },
+      {
+        "assessment": "Directly covers spectral starting point; unable to rule out a stronger spectral-projector calculation inside the inaccessible paper, so priority caveat required.",
+        "evidence": "Abstract explicitly says the author computes the spectrum of the finite q-ary tree using the discrete sine transform.",
+        "identifier_or_url": "https://doi.org/10.1137/S0895480104445344",
+        "material_read": "Only publisher abstract and bibliographic details; full article inaccessible",
+        "method": "Publisher and institutional-index abstract pages; no accessible arXiv/OA full article",
+        "title": "The Discrete Sine Transform and the Spectrum of the Finite q-ary Tree",
+        "trigger": "Same branching-tree adjacency spectrum and potentially stronger explicit eigenvectors"
+      },
+      {
+        "assessment": "Distinct-eigenvalue result treated as known; no basis to assert that the complete dissertation excludes other projector identities.",
+        "evidence": "Abstract states that the final chapter connects the number of distinct eigenvalues of level-symmetric trees to paths.",
+        "identifier_or_url": "https://doi.org/10.17918/00001629",
+        "material_read": "Dissertation abstract, catalog entry and visible extracted chapter excerpt; not entire dissertation",
+        "method": "University catalog and search-extracted text",
+        "title": "Upper bounds for PSD propagation time and zero forcing in shadow graphs",
+        "trigger": "Reported Euler-totient distinct-eigenvalue formula for symmetric trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d10e1c8-2c34-4217-bff6-db905e033598",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives an exact optimal two-absorber placement law and a sharp branching threshold for an extensible physical model; it quantifies maximal quadratic bright-mode growth versus exponential tree size. That is structural and predictive for coherent transport, not a mere single-size computation or known spectrum recount.",
+    "status": "PASS"
+  }
+}
