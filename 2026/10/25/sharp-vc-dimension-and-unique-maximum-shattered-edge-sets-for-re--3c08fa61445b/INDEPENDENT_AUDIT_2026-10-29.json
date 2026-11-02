@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T22:06:42.416292Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every regular orientation is an Eulerian orientation of K_(2m+1). The prescribed-outdegree max-flow/Hall criterion applied to H=G-S gives extension of every chosen orientation on S iff 2|S∩δ(U)|≤|δ(U)| for every cut. The two-clique construction has cut slack (a-b)(a-b+1), nonnegative for integral a-b. Singleton cuts yield deg_S(v)≤m; two-vertex cuts force degree-m vertices to form a clique of size ≤m+1; degree sum bounds 2|S|≤2m², and equality forces K_(m+1)∪K_m on separate parts. Independent enumerator recomputed regular tournament projections and all supports for n=3,5 (maximum 1 and 4, with 3 and 10 maximizers) and corroborated the all-m proof. The general criterion and rigidity rely on the written argument, not finite cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borbényi–Csikvári, arXiv:1905.06215, Theorem 1.1 and Section 5, counts degree-constrained subgraphs/Eulerian orientations.",
+          "Cai–Fu–Shao, arXiv:1904.02362, complexity dichotomy for counting weighted Eulerian orientations.",
+          "Raßmann–Schweitzer, arXiv:2608.14486, a single tournament’s vertex out-neighborhood VC notion."
+        ],
+        "reasoning": "These stronger-sounding orientation and tournament-VC theories address counting or a fixed tournament neighborhood set system, not projection onto arbitrary edge-coordinate sets of the class of *all* regular tournaments.",
+        "searches": [
+          "VC dimension regular tournaments edge directions shattering Eulerian orientations cut criterion largest shattered edge sets"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.06215 §1,§5",
+        "arXiv:1904.02362 main theorems",
+        "arXiv:2608.14486 §1",
+        "Hakimi 1965 DOI 10.1016/0016-0032(65)90340-6",
+        "Resultary targeted query VC dimension regular tournaments edge directions shattering Eulerian orientations cut criterion largest shattered edge sets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hakimi orientation feasibility implies only the half-cut test.",
+          "The upper-bound proof uses singleton cuts, pair cuts, and a degree-sum equality argument absent from the cited counting work."
+        ],
+        "reasoning": "Known orientation feasibility is a necessary tool but not the claimed extremal theorem as stated; a new combinatorial argument is needed to obtain m² and uniqueness.",
+        "searches": [
+          "VC dimension regular tournaments edge directions shattering Eulerian orientations cut criterion largest shattered edge sets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S. L. Hakimi (1965), On the degrees of the vertices of a directed graph, doi:10.1016/0016-0032(65)90340-6; prescribed-outdegree feasibility can be written as a cut-capacity inequality.",
+          "Targeted published mathematical-record search returned tournaments/edge polytopes and tournament flag complexes rather than orientation-projection VC dimension."
+        ],
+        "reasoning": "The cut-extension lemma is a classical max-flow corollary and is expressly not new; neither that equivalence nor the inspected alternative terminology provides the exact m² extremal support and unique maximizer classification.",
+        "searches": [
+          "VC dimension regular tournaments edge directions shattering Eulerian orientations cut criterion largest shattered edge sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary targeted query for regular tournament edge-direction VC returned no direct exact classification; near hits concern directed-edge polytopes and regular-tournament flag complexes.",
+          "The 3- and 5-vertex finite maximum-support tables were independently enumerated and match the claimed general expression."
+        ],
+        "reasoning": "No identified published table supplies the all-m formula or labeled extremizer class; the negative search is a limitation, not a novelty proof.",
+        "searches": [
+          "VC dimension regular tournaments edge directions shattering Eulerian orientations cut criterion largest shattered edge sets"
+        ]
+      },
+      "rationale": "Independent best-of-knowledge comparison of exact final mathematical claim and implications against named primary literature and targeted Resultary results. Specific prior components are credited; no negative search alone establishes priority. A more general theorem may imply individual tools, but not the full proposed classification as explicitly identified.",
+      "residual_risks": [
+        "Original Hakimi 1965 full text and all older extension/VC terminology not exhaustively inspected; exact support classification could occur under another name.",
+        "General cut criterion is an immediate known feasibility consequence and not independently novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the stated edge-query VC extremum.",
+          "evidence": "Theorem families concern number of Eulerian orientations and degree-constrained subgraphs; no statement of shattering all orientations of S or m² rigidity.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.06215",
+          "material_read": "Accessible full primary text, introduction, Theorem 1.1, theorem context and Section 5.",
+          "method": "Primary arXiv full-text reading and theorem comparison.",
+          "title": "Counting degree-constrained subgraphs and orientations",
+          "trigger": "Same Eulerian orientation family and half-graph counting"
+        },
+        {
+          "assessment": "NOT_COVERING exact extremal projection dimension.",
+          "evidence": "Weighted orientation count complexity is not the edge-query concept class VC dimension.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.02362",
+          "material_read": "Primary accessible introduction, main statements and relevant framework, not its entire technical reduction proof.",
+          "method": "Examined main statements and their objects.",
+          "title": "Beyond #CSP: A Dichotomy for Counting Weighted Eulerian Orientations with ARS",
+          "trigger": "General counting complexity might imply a stronger orientation theorem"
+        },
+        {
+          "assessment": "NOT_COVERING because fixed-tournament out-neighborhood queries differ.",
+          "evidence": "The hypotheses of that VC dimension are out-neighborhoods of vertices in one tournament rather than all regular tournaments on fixed vertex pairs.",
+          "identifier_or_url": "https://arxiv.org/html/2608.14486v1",
+          "material_read": "Accessible primary introduction and definition of vertex-neighborhood VC.",
+          "method": "Compared exact quantified set system.",
+          "title": "Isomorphism of tournaments with bounded VC dimension",
+          "trigger": "Similar VC/tournament title"
+        },
+        {
+          "assessment": "COVERS the general feasibility ingredient; possible historical priority risk for exact VC theorem.",
+          "evidence": "Integral orientation with assigned outdegrees obeys Hall/cut inequalities.",
+          "identifier_or_url": "https://doi.org/10.1016/0016-0032(65)90340-6",
+          "material_read": "Abstract and accessible equivalent prescribed-outdegree condition at https://lemon.cs.elte.hu/egres/open/Orientation_with_degree_bounds; original 1965 full text not read.",
+          "method": "Read abstract/available mathematical theorem formulation, and reconstructed flow proof independently.",
+          "title": "On the degrees of the vertices of a directed graph",
+          "trigger": "Foundational orientation feasibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact VC dimension, all equality supports, and exact multiplicities of an intrinsically natural orientation concept class: simultaneously realizable edge directions subject to balance. Its cut/b-matching bridge is reusable across Eulerian orientations, while the rigid balanced-clique maximizers are not an arbitrary small slice or mere restatement of Hakimi feasibility.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only regular tournaments on odd order; no Littlestone dimension, even semiregular case or smaller-shattered-support classification.",
+    "Original Hakimi 1965 full text and all older extension/VC terminology not exhaustively inspected; exact support classification could occur under another name.",
+    "General cut criterion is an immediate known feasibility consequence and not independently novel."
+  ],
+  "schema_version": 1
+}

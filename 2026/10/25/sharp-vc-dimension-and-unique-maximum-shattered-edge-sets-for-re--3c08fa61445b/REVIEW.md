@@ -1,18 +1,21 @@
-# Scientific review of sharp shattering supports for regular tournaments
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim uses a single edge-coordinate set on \(K_{2m+1}\) with \(m\ge1\) and explicitly quantifies over **every** regular orientation. The proof establishes the prescribed-outdegree orientation lemma using an integral matching-flow construction, then derives the exact cut-shattering criterion. The lower extremizer has \(m^2\) edges and satisfies every cut inequality because \((a-b)(a-b+1)\ge0\) for integer \(a-b\). For the upper bound, singleton cuts bound selected degree by \(m\); two-vertex cuts force maximum-selected-degree vertices to form a clique; degree summation gives \(|S|\le m^2\). Equality forces exactly two isolated clique blocks of sizes \(m\) and \(m+1\). The finite verifier independently exhausts all supports at orders three and five, checks direct orientation projection, and tests extremal cut constraints through order eleven. Infinite validity rests on the proof, not the finite observations.
+## correctness
 
-## Originality
-PASS with historical-priority limitations. The precise comparison is the **edge-query concept class varying over all regular tournaments**, not the vertex-out-neighborhood set system of one tournament. Hakimi's degree-feasibility theorem yields the general cut-extension mechanism, but does not state the \(m^2\) extremal VC dimension or rigidity of maximum shattered supports. Inspected first-posted-2019 Eulerian-orientation papers focus on counting, complexity, and degree enumerators. The recent 2026 tournament-VC paper measures out-neighborhood shattering of individual tournaments, not full coordinate projections of the class of regular tournaments. Targeted research-record searches found no matching exact classification, but are not a proof of global novelty. The full Hakimi 1965 paper could not be lawfully inspected; its available theorem abstract and an accessible formulation support the feasibility lemma. That is a residual historical-priority risk, not a missing mathematical premise because the needed lemma has a self-contained proof.
+PASS
 
-## Mathematical value
-PASS. The result supplies an exact parameter for every odd-order tournament class and *uniquely classifies all maximum shattered atomic-query supports*, separating maximal independent controllability of games from merely having many regular tournaments. The rigidity is mathematically substantive: cut constraints impose simultaneous local degree and pair-degree obstructions, leading to the unique two-clique template. The all-even-degree cut-shattering criterion connects finite relational shattering to flow feasibility and offers a reusable method for other host graphs. The theorem does not determine Littlestone dimension, characterize all smaller shattered supports, or claim historical uniqueness beyond inspected sources.
+Every regular orientation is an Eulerian orientation of K_(2m+1). The prescribed-outdegree max-flow/Hall criterion applied to H=G-S gives extension of every chosen orientation on S iff 2|S∩δ(U)|≤|δ(U)| for every cut. The two-clique construction has cut slack (a-b)(a-b+1), nonnegative for integral a-b. Singleton cuts yield deg_S(v)≤m; two-vertex cuts force degree-m vertices to form a clique of size ≤m+1; degree sum bounds 2|S|≤2m², and equality forces K_(m+1)∪K_m on separate parts. Independent enumerator recomputed regular tournament projections and all supports for n=3,5 (maximum 1 and 4, with 3 and 10 maximizers) and corroborated the all-m proof. The general criterion and rigidity rely on the written argument, not finite cases.
 
-## Closest literature and limitations
-- S. L. Hakimi, 1965, prescribed outdegrees of oriented graphs: used as a known feasibility framework; no exact regular-tournament VC extremal statement identified from accessible descriptions.
-- M. Borbényi and P. Csikvári, arXiv:1905.06215, first public May 15, 2019: enumeration and lower bounds for Eulerian orientations; inspected text addresses orientation counts, not shattered edge projections.
-- J.-Y. Cai, Z. Fu and S. Shao, arXiv:1904.02362, first public April 4, 2019: weighted Eulerian-orientation counting dichotomy, not edge-set shattering.
-- S. Raßmann and P. Schweitzer, arXiv:2608.14486, first public August 14, 2026: VC of a single tournament's out-neighborhood system and graph isomorphism; different hypotheses and queries.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independent best-of-knowledge comparison of exact final mathematical claim and implications against named primary literature and targeted Resultary results. Specific prior components are credited; no negative search alone establishes priority. A more general theorem may imply individual tools, but not the full proposed classification as explicitly identified.
+
+## value
+
+PASS
+
+Exact VC dimension, all equality supports, and exact multiplicities of an intrinsically natural orientation concept class: simultaneously realizable edge directions subject to balance. Its cut/b-matching bridge is reusable across Eulerian orientations, while the rigid balanced-clique maximizers are not an arbitrary small slice or mere restatement of Hakimi feasibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
