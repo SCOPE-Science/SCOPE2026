@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The required de Bruijn edge set has a single unit-flow imbalance; a feasible circular covering exists exactly when the deleted-edge prefix reaches its suffix along allowed edges. The unique minimum repair path has length (n+1)/2 only at the centered odd motif and otherwise n, by complete analysis of all overlapping strings of bridge length below n and a unique bridging bit at length n. Endpoint reachability fails. An Euler tour realizes the matched lower bound, and every shortest repair path is edge-simple, forcing exact doubled-factor multiplicities. Explicit finite checks independently verify all 55 interior parameters through order 12 and literal word enumeration at orders 3 and 4; no finite inference substitutes for the all-order proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bernardini et al. 2022 treats arbitrary de Bruijn multigraph Eulerization and allows both duplicate old edges and novel edges; PDF Section 1 explicitly distinguishes restricted duplication.",
+        "Moreno–Matamala 2007 studies de Bruijn sequences in forbidden languages where exact Eulerian tours exist."
+      ],
+      "reasoning": "The broad extension machinery yields a computational approach for arbitrary graphs and is acknowledged as prior; the present theorem gives the explicit symbolic shortest path for each one-hot deletion, including endpoints and unique repeats, with the novel-edge option prohibited. The older restricted-language construction does not optimize repeated permitted windows.",
+      "searches": [
+        "restricted de Bruijn graph delete one edge shortest Eulerian supercycle forbidden pattern exact length, overlap automaton",
+        "universal cycles for all binary words except one edge, shortest covering word forbidden factor and run cost",
+        "one missing edge directed binary de Bruijn graph optimal Eulerian augmentation shortest repair path, one hot forbidden word, two boundary infeasible",
+        "doi:10.4230/LIPIcs.CPM.2022.12",
+        "arxiv:0711.1695"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1908.01116 (2019-08-03)",
+      "doi:10.4230/LIPIcs.CPM.2022.12 (2022)",
+      "doi:10.1007/s10623-022-01077-5 (2022)",
+      "arxiv:0711.1695 (2007)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Kitaev–Sun 2019, introduction, one deleted nonloop word destroys exact-once u-cycle.",
+        "Alhakim 2022, full PDF introduction and Section 4 describes preference-function construction with no repetition of length-n factors.",
+        "Bernardini et al. 2022, PDF introductory algorithmic formulation, duplicates and potentially novel edges to rebalance."
+      ],
+      "reasoning": "The exact-once obstruction is only a lower-level premise; it does not imply the extra length n versus (n+1)/2 nor mandatory repeated factors. The preference-function constructions do not solve minimum-repeat extension. The general Eulerian extension theory supplies the path-flow reduction but leaves the explicit overlap lower bound and unique path classification to be proved.",
+      "searches": [
+        "shortest binary cyclic superstring containing all length n words except one forbidden word, exact length based on minimal period of forbidden word, directed Chinese postman de Bruijn graph",
+        "de Bruijn graph directed Chinese postman after deleting one vertex word sparse 0^i10^j",
+        "shortest forbidden-free circular superstring covering all binary length n factors except one 0^i 1 0^(n-1-i), unique path, parity-centered n odd, length 2^n+n-1",
+        "arxiv:1908.01116",
+        "doi:10.1007/s10623-022-01077-5",
+        "doi:10.4230/LIPIcs.CPM.2022.12"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen–Kitaev–Sun 2019 Definition of universal cycle requires each required factor exactly once (arxiv:1908.01116, introduction and Section 1).",
+        "Bernardini et al. 2022 Section 1 explicitly describes edge duplication as Eulerian extension (DOI 10.4230/LIPIcs.CPM.2022.12)."
+      ],
+      "reasoning": "Allowing repeats changes existence and the optimization criterion. Directed postman and de Bruijn Eulerian augmentation are equivalent formulations of the present optimization, but no checked source supplies the closed one-hot cases and unique mandatory doubled-edge list. A generic algorithm that calculates an instance does not itself state the all-parameter formula.",
+      "searches": [
+        "shortest binary cyclic superstring containing all length n words except one forbidden word, exact length based on minimal period of forbidden word, directed Chinese postman de Bruijn graph",
+        "restricted de Bruijn graph delete one edge shortest Eulerian supercycle forbidden pattern exact length, overlap automaton",
+        "shortest circular universal word avoiding one forbidden word with exactly one 1 0^i1 0^j",
+        "arxiv:1908.01116",
+        "doi:10.4230/LIPIcs.CPM.2022.12"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chen–Kitaev–Sun 2019 gives binary exact-once u-cycle existence tables for n=2,3,4; those tables concern whether all factors appear exactly once rather than minimum length with repetitions.",
+        "Independent direct enumeration for n=3,4 matches the explicit formulas; no matching published sequence or table found by the recorded queries."
+      ],
+      "reasoning": "The exact small-order tables in the inspected primary article do not tabulate the forbidden-factor short covering length or doubled factor profile. An unindexed table may exist, retained as residual risk.",
+      "searches": [
+        "single forbidden binary k-mer of Hamming weight one, shortest circular superstring of all other k-mers avoiding the forbidden k-mer, parity special center",
+        "shortest forbidden-free circular superstring covering all binary length n factors except one 0^i 1 0^(n-1-i), unique path, parity-centered n odd, length 2^n+n-1",
+        "shortest universal cyclic factor cover except one Hamming weight one factor, duplicated bridging factors all-order formula",
+        "Chen–Kitaev–Sun 2019 Tables 1.1–1.3"
+      ]
+    },
+    "rationale": "The full 2019 one-deletion u-cycle paper proves exact-once obstruction but not shortest repeat-allowed hosts. The full 2022 restricted preference paper restricts output to nonrepeated factors; the 2022 Eulerian-extension paper supplies a general optimization framework but does not state or establish the explicit all-order one-hot exclusion, the odd centered saving, the two impossible endpoints, or uniqueness of all optimal factor multiplicities. Accessible prior claims and 12 targeted semantic searches showed no direct covering theorem. Generic graph-flow methods remain an explicit novelty risk; absence of search hits does not prove originality.",
+    "residual_risks": [
+      "Generic duplicate-only Eulerian extension or directed Chinese postman theory may contain this exact one-hot case under a different name; priority requires independent literature review.",
+      "Semantic-search coverage is not exhaustive; an unindexed table or a specialized restricted supercycle classification could dominate the formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exact-once cycles and deleted-one-word existence; not shortest forbidden-avoiding cyclic superstrings with repeated permitted factors",
+        "evidence": [
+          "Introduction observes one-word deletion admits exact-once universal cycle only for loop words; source dated 2019-08-03."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.01116",
+        "material_read": "Full HTML-rendered manuscript including introduction, one-deleted-word obstruction, Eulerian reduction, theorems and references",
+        "method": "Read full arXiv text with directed searches for one deletion, exact once and Eulerian cycles",
+        "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+        "trigger": "Removing one length-n word from a full binary factor family"
+      },
+      {
+        "assessment": "General optimization formulation is broader as algorithm, but does not report symbolic one-hot pattern formula or unique mandatory duplicates",
+        "evidence": [
+          "The introduction states existing-edge duplication, the possibility of novel edges, weak-connectivity requirements, and minimum-cost extensions."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.12",
+        "material_read": "Full PDF: abstract, introduction, problems, balancing algorithm and comparison to duplicate-only extension",
+        "method": "Opened and inspected publisher PDF pages and text including explicit graph extension conditions and shortest-path balancing",
+        "title": "Making de Bruijn Graphs Eulerian",
+        "trigger": "Potential domination by arbitrary de Bruijn graph Eulerian extension"
+      },
+      {
+        "assessment": "Builds forbidden-word constructions without repeated n-windows; no shortest cyclic repeated-factor objective or one-hot parity exception",
+        "evidence": [
+          "The introduction describes trying symbols only if a new length-n word is formed; construction sections concern separative and bounded-density factors."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-022-01077-5",
+        "material_read": "Publisher-authorized institutional repository 17-page PDF, introduction, preliminaries, statements, restricted-word constructions and conclusions",
+        "method": "Read PDF text and visually inspected its introduction page through screenshot",
+        "title": "Designing preference functions for de Bruijn sequences with forbidden words",
+        "trigger": "Highly plausible title with forbidden words and de Bruijn sequences"
+      },
+      {
+        "assessment": "Studies generating de Bruijn sequences of a restricted language when graph Eulericity permits them, not shortest repeated-factor Eulerization after a single deleted one-hot edge",
+        "evidence": [
+          "Formulates de Bruijn sequences for allowed languages and lexicographically minimal generation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0711.1695",
+        "material_read": "Full freely available arXiv HTML article and problem statements",
+        "method": "Read body, definitions, forbidden-language Eulerian and minimal lexicographic construction objectives",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Canonical forbidden-language source with exact overlap graph formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9ac1362f-5304-4fab-be81-630086c61b3b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Removing a single sparse word from the complete de Bruijn factor library is a natural constrained circular coverage problem. The theorem distinguishes impossibility, generic linear-overhead repair and a sharp parity-centered half-overhead, and determines precisely which permitted factors must be duplicated in any optimum. This is a complete infinite-family structural classification, not an arbitrary finite slice or restatement of the Euler theorem; general algorithms do not explicitly provide these closed-form consequences.",
+    "status": "PASS"
+  }
+}
