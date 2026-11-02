@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "A fully finite proof reconstructs 2^n binary strings and quotients by rotations. At lengths 1..8, explicit nonoverlapping necklace codebooks and rational dual output covers have matching values. At length 9 an exact fractional primal and dual each have total 41/4; nine input necklaces have disjoint shadows; 19 explicitly verified pairwise-conflicting cliques with rational weights covering all 60 inputs have cost 59/6<10, forcing the integral maximum to equal 9. The standalone exact-arithmetic verifier checks each inequality directly from certificates.json; it returned VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abdel-Ghaffar, Ferreira, Cheng (2010), Sections IV and V, consider linear cyclic codes, their extensions and expurgations under indexed deletion decoding.",
+        "Adamson et al. (2020), Introduction and Section 2, define necklace overlap distance and k-centre approximation rather than disjoint deletion-shadow packing."
+      ],
+      "reasoning": "The rotation-closure obstruction for ordinary cyclic codes does not preclude picking distinct necklaces as messages when rotations are identified; expurgation bounds do not calculate the nine-length quotient maximum. Overlap-distance k-centre approximation optimizes a different covering objective.",
+      "searches": [
+        "Correcting Deletions Using Linear and Cyclic Codes",
+        "cyclic strings single deletion code rotations",
+        "arXiv:2005.10095 necklace overlap k-centre"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/math/0207197v1",
+      "https://doi.org/10.1109/TIT.2010.2059790",
+      "https://arxiv.org/abs/2005.10095",
+      "Published record: Complete census of maximum binary length-six single-deletion codes (ordinary rooted channel)",
+      "Published record: Complete classification of maximum ternary length-four single-deletion codes (ordinary rooted channel)",
+      "Published record: Exact initial profile for binary one-zero-deletion-or-adjacent-transposition codes (different channel)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sloane (2002) gives ordinary code sizes and a necklace enumeration for shift registers but no quotient-channel fractional relaxation.",
+        "Abdel-Ghaffar et al. (2010) give upper/lower structural bounds for different ordinary decoding constraints; no nine-length quotient packing certificate.",
+        "Adamson et al. (2020) optimize covering radius for an overlap distance, not a maximum pairwise deletion-distinguishable code."
+      ],
+      "reasoning": "None of these statements implies the finite equality/non-equality profile. The new proof gives explicit rational witnesses and a clique cover that are not deducible from the listed general statements without independent computation.",
+      "searches": [
+        "On Single-Deletion-Correcting Codes Sloane arXiv math/0207197",
+        "Correcting Deletions Using Linear and Cyclic Codes Abdel-Ghaffar Ferreira Cheng 2010",
+        "The K-Centre Problem for Necklaces Adamson Deligkas Gusev Potapov 2020"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sloane 2002 Section 1 defines deletion descendants of indexed vectors; Section 3 counts necklaces as shift-register orbits, not as deletion-channel codewords.",
+        "Sloane 2002 Section 2 uses indexed VT congruences that are not invariant under arbitrary rotation."
+      ],
+      "reasoning": "Quotienting both source and received words by rotation changes the decoding equivalence classes. Ordinary indexed-deletion code optimality and a numerical necklace count do not imply the stated quotient-hypergraph integral or fractional optimum.",
+      "searches": [
+        "rotation invariant deletion correcting codes necklaces cyclic deletion channel codebook",
+        "single deletion cyclic orbit codes unrooted binary strings necklace output disjoint descendant sets",
+        "arXiv:math/0207197v1 Sections 1 and 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed finite-coding comparisons include the published complete census of ordinary binary length-six single-deletion codes and ternary length-four single-deletion codes; they use rooted words and different parameters.",
+        "No checked table with the pair A_9=9 and F_9=41/4 on binary necklace deletion-shadow packing was identified."
+      ],
+      "reasoning": "Comparison used the exact output rotation quotient and both integral and fractional capacities, not title matching. An ordinary deletion code table cannot be relabeled to give the necklace packing numbers because one source class and one output class each represent multiple linear words. Search absence is treated only as limited evidence.",
+      "searches": [
+        "Binary necklaces cyclic words modulo rotation deleting one position correcting single deletion exact max codes sizes n=9 fractionally packing 41/4",
+        "Necklace deletion channel fractional hypergraph packing earliest integrality gap length nine 9 codewords 10.25",
+        "binary necklace deletion correction 9 41/4"
+      ]
+    },
+    "rationale": "Inspected primary definitions and statements address ordinary deletion codes on rooted words, algebraic cyclic-code expurgation or overlap-distance necklace k-centre. None yields the exact unrooted one-deletion packing maximum 9 and fractional optimum 41/4 at nine, or their first-gap comparison for all smaller positive lengths. Similar published finite tables concern different channels. Unindexed literature remains an explicit risk; a failed search is not proof of priority.",
+    "residual_risks": [
+      "Older or unindexed literature on single-deletion correction of circular words might contain an equivalent quotient-channel result. Historical priority has not been independently verified.",
+      "No conclusions are drawn for blocklengths greater than nine or for the quotient by reversal.",
+      "Scientific distinction depends on both input and output being considered only up to rotation; results for ordinary cyclic linear codes cannot substitute for this definition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: codewords and deletion outputs remain indexed vectors, while necklace counts occur in a different combinatorial correspondence.",
+        "evidence": [
+          "Section 1 Definition 1.1 uses subsets of F_q^n, graph G_n on linear words.",
+          "Section 3 Z(n) counts necklace orbits from cyclic shift register outputs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0207197v1",
+        "material_read": "Abstract, Sections 1 and 2 (definitions, VT code bounds), Section 3 (shift-register cycles and necklaces), Section 5 (descendant counts)",
+        "method": "Read available full-text arXiv HTML, including exact statements and mathematical objects",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Classical deletion-descendant graph and possible necklace-counting equivalence"
+      },
+      {
+        "assessment": "Not covering: their cyclic code is a subset of rooted linear words closed under shifts, and a cyclic orbit is expurgated to produce a linear-word deletion code; no quotient-output hypergraph optimization.",
+        "evidence": [
+          "Section IV Theorem 2 forbids nontrivial ordinary cyclic deletion-correcting codes because a codeword and a shift share a linear deletion.",
+          "Section V computes expurgations of chosen cyclic algebraic codes, not global codebooks of necklaces."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2010.2059790",
+        "material_read": "Author-uploaded accessible indexed full-text Abstract, Sections II, IV, V and VI, including Theorem 2 and its proof and the expurgation discussion",
+        "method": "Examined full-text article transcription hosted by an author-associated page and compared the code/decoder definitions",
+        "title": "Correcting Deletions Using Linear and Cyclic Codes",
+        "trigger": "Directly relevant title about cyclic codes under deletion errors"
+      },
+      {
+        "assessment": "Not covering: the studied overlap-distance k-centre problem is neither deletion-shadow disjointness nor its fractional packing LP.",
+        "evidence": [
+          "Section 2 defines necklaces as rotation classes and chooses overlap coefficient of subword multisets.",
+          "Results concern approximation for a covering-radius objective, not finite deletion-code packing counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.10095",
+        "material_read": "Available full-text introductory and preliminaries sections on necklaces, overlap coefficient, and the k-centre objective, plus described algorithmic contributions",
+        "method": "Read arXiv full-text HTML rendition and compared mathematical optimization objectives",
+        "title": "The K-Centre Problem for Necklaces",
+        "trigger": "Paper works on the exact same rotation equivalence classes and might subsume quotient packing"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b2d604e3-29da-4f4a-b2e6-15631374b7cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural finite synchronization-channel benchmark in which strings have no distinguished origin, and the received object is also a circle. Identifying the first length at which the basic fractional deletion-shadow bound fails is mathematically motivated by the integrality of coding capacities. The explicit clique bound supplies a structural, strictly stronger finite obstruction; the exact 41/4 versus 9 gap is not merely an arbitrary isolated computation. No unnecessary infinite downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
