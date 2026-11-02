@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Bézout forces any cover of \(6m\) points by \(2m\) lines to be a disjoint decomposition into zero-sum triples; the nonzero sum of all group elements rules this out. The Skolem sequence partition, signed zero-sum triples, and three repairing triples cover every residue and are rigorously realized by lines through rational points on the cubic. Existence for the stipulated congruences is an established theorem; finite checker cases independently confirm the construction. The prime-family cyclicity argument checks group structure and rational two-torsion.
+
+**Originality — PASS (best available evidence, with residual risks).** The full arXiv paper *Covering plane curves over finite fields with lines* states asymptotic line-cover bounds and mentions the odd-order group-partition regime. It does not provide this even-order exact formula or the involution-plus-Skolem covering. The classical Skolem theorem and finite-field elliptic group law are underlying inputs, not the same geometric statement. Claim-level searches of research records for the exact formula, cyclic parity, Skolem triple construction, and source identifier returned no covering equivalent; an earlier published finding concerns automorphism groups of *odd*-order zero-sum triple matroids, which does not imply this covering number. Cyclic-design literature and potentially unindexed exact covering results remain priority risks.
+
+**Value — PASS.** Exact finite-field line-covering numbers refine the motivating asymptotic theory and exhibit a sharp one-line parity obstruction. The result is an explicit infinite class of elliptic cubics over prime fields, not a routine recomputation of a single instance. The Skolem construction supplies reproducible optimal covers uniformly.
+
+**Closest literature and boundaries.** Asgarli et al. (arXiv:2610.13042v1) discuss odd-order partitions and asymptotic covers; Skolem (1957) proves the underlying pair-sequence existence. The present argument does not resolve noncyclic groups or orders outside the admissible congruences. A complete independent literature and proof audit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
