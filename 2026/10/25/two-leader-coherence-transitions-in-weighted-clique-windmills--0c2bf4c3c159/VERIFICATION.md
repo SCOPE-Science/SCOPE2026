@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The packaged `verify_windmill.py` is the exact checker actually executed with SymPy. Run it after installing `requirements.txt` in an isolated environment. Its recorded outcome is in `verification_output.txt`. It simplifies three symbolic identities in indeterminates and compares exact grounded-matrix inverses with all orbit costs. Exhaustive leader pairs are checked for representative finite networks. These finite computations and the symbolic software run supplement, but do not replace, the complete analytical proof in `RESULT.md`. The 2020 windmill-specific full text could not be inspected; no claim of independent validation is made.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For any two grounded leaders, the resistance-energy projection identity expresses diagonal L_FF^{-1} via Phi(R_xu,R_xv,R_uv). Spectrum of a petal plus hub gives alpha=(1+b)/(1+sb) spoke resistance and beta=2/(1+sb) intra-petal; inter-petal is 2alpha by hub articulation. Full S_s wr S_r symmetry partitions all unordered two-leader sets into exactly A (hub-outer), B (same clique), C (distinct cliques). Summing Phi produces the stated A, C-A=Delta, B-C=b[brs+2bs+b+rs+3]/(2(1+b)(1+sb))>0, so only A/C compete; factorization yields all thresholds and ties. Independent exact rational Laplacian inverses over six parameter triples include below, at and above transitions. The algebraic formulas, not sampled graphs, prove universality.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after statement/implication comparison against relevant primary literature and published Resultary records; preexisting general ingredients and exact special cases explicitly credited; residual priority risks retained.
+
+## value
+
+PASS
+
+Exact network-optimal pinned leader location is a natural weighted graph/control invariant. The strict three-orbit comparison reveals two sharp conductance-triggered changes and an r>=4 rigidity regime, with exact optimal multiplicities, extending generic resistance-method formulas into a useful complete phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
