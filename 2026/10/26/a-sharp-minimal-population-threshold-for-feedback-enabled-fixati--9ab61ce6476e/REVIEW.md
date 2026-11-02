@@ -1,19 +1,21 @@
-# Review: A sharp minimal-population threshold for feedback-enabled fixation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-environment probabilities follow from the birth–death recurrence. The two-state transient calculation proves the \(N=2\) impossibility statement. For \(N=3\), the backward-equation matrix is a nonsingular M-matrix; elimination yields the exact sign criterion and positive-root threshold. The included script reproduces the representative rational example with exact arithmetic. The proof does not infer a universal result from finite computation.
+PASS
 
-## Originality — PASS
+Reconstructed the continuous-time generator with transient states (1,+),(2,+),(1,-),(2,-), absorbing 0 and 3. Its backward matrix is A=[[1+x+e,-1,-e,0],[-y,1+y+M,0,-M],[-M,0,1+y+M,-1],[0,-e,-x,1+x+e]], with right-hand side (0,1,0,1). Since every row is strictly diagonally dominant with positive diagonal and nonpositive off-diagonal entries, A is a nonsingular M-matrix; det(A)>0 for x,y,e,M>0. Independent symbolic adjugate computation verified as an identically zero rational function the difference u-1/(1+x+xy) -(y-x)[xM^2+(xy-e)M-e(e+1)(y+1)]/[(1+x+xy)det(A)]. The better fixed + environment has probability 1/(1+x+xy), the - environment 1/(1+y+xy). Because 0<x<y and det(A)>0, the sign equivalence follows; the threshold polynomial has positive leading coefficient and strictly negative constant, hence exactly one positive root, equal to the displayed M_*. For N=2 with arbitrary nonnegative switching rates alpha (+->-) and beta (- -> +), the differences from 1/(1+x) are alpha(x-y)/[(1+x)D2] and (x-y)(alpha+x+1)/[(1+x)D2], where D2=alpha*y+alpha+beta*x+beta+xy+x+y+1>0; so neither initial environment improves on the better frozen state. Independent exact rational elimination confirms u=181/1373, fixed values 1/9 and 1/10, and F=6464/25 for x=2,y=3,e=1/10,M=10; 60 independent rational-grid generator solves confirmed the sign criterion. The M->infinity limit u->1/(1+x+x^2) additionally explains the feedback advantage for x<y. These computations corroborate the algebraic proof and do not establish generality by finite testing. Boundaries x=y, zero/negative rates, arbitrary starting environments, N>3 and different rate families are not covered.
 
-The closest inspected primary literature studies environmental switching independent of mutant count. The 2014 fixation theory and the 2017 fluctuating-carrying-capacity model do not contain the state-conditioned switching generator or the exact threshold proved here. Targeted searches did not identify an equivalent result, but this is not proof that all related literature has been found.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a sharp minimal population-size boundary and an exact switching-rate criterion for a biologically interpretable feedback mechanism: the environment switches more rapidly toward the state with the lower death-to-birth ratio at each transient mutant count. The example shows that this can outweigh unfavorable selection in both frozen environments. The conclusion is a mathematical benchmark, not a calibrated biological prediction.
+Best-of-knowledge PASS, qualified. The closest published exact fixation models assume environmental switching independent of mutant count; this claim treats a generator in which the switch rate depends on the count i and derives a sharp all-parameter inequality and minimum population-size cutoff in a specifically normalized family. Ashcroft–Altrock–Galla 2014 already establish generic fluctuating-environment advantages and backward recurrences, so those phenomena or methods are not claimed new. Baron–Galla 2018 explicitly name composition-dependent switching rates as a possible extension. Wienand–Frey–Mobilia 2017 use an externally switching carrying capacity and a different variable-size population model. No same threshold or universal implication was established in the inspected primary text or targeted Resultary results. The exact generator calculation and cutoff appear new at this bounded level, but generic CTMC linear algebra, uncatalogued feedback models and unindexed literature are residual priority risks.
 
-## Closest literature and limitations
+## value
 
-P. Ashcroft, P. M. Altrock, and T. Galla, “Fixation in finite populations evolving in fluctuating environments” (2014), https://arxiv.org/abs/1406.5619. Their environment is independent of population state. K. Wienand, E. Frey, and M. Mobilia, “Evolution of a Fluctuating Population in a Randomly Switching Environment” (2017), https://arxiv.org/abs/1708.08841, couples population size and demographic noise but retains exogenous environmental switching. Broader literature on endogenous switching remains a residual risk; the theorem applies only to the stated rate family and initial condition.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finding addresses a motivated mathematical question in finite-population stochastic evolution: what is the smallest number of individuals at which an environment that reacts to mutant composition can strictly outperform either constituent frozen environment, and at what switching-rate threshold? For N=2 there is only one transient mutant count and no separate stage for feedback to exploit; N=3 is the first nontrivial state-space with two distinct count-conditioned decisions. The theorem proves this sharp cutoff and a necessary-and-sufficient four-parameter threshold, not just an example, and exhibits selection-disfavored mutants in both environments still benefiting from feedback. Baron & Galla 2018 explicitly suggest composition-dependent environment rates as a future modeling extension. Although the proof is finite-state algebra and the model is stylized, the exact benchmark is a natural structural boundary a later researcher comparing feedback rules could use; it is not merely a known table entry, restated theorem, or arbitrary normalization test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T16:03:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the continuous-time generator with transient states (1,+),(2,+),(1,-),(2,-), absorbing 0 and 3. Its backward matrix is A=[[1+x+e,-1,-e,0],[-y,1+y+M,0,-M],[-M,0,1+y+M,-1],[0,-e,-x,1+x+e]], with right-hand side (0,1,0,1). Since every row is strictly diagonally dominant with positive diagonal and nonpositive off-diagonal entries, A is a nonsingular M-matrix; det(A)>0 for x,y,e,M>0. Independent symbolic adjugate computation verified as an identically zero rational function the difference u-1/(1+x+xy) -(y-x)[xM^2+(xy-e)M-e(e+1)(y+1)]/[(1+x+xy)det(A)]. The better fixed + environment has probability 1/(1+x+xy), the - environment 1/(1+y+xy). Because 0<x<y and det(A)>0, the sign equivalence follows; the threshold polynomial has positive leading coefficient and strictly negative constant, hence exactly one positive root, equal to the displayed M_*. For N=2 with arbitrary nonnegative switching rates alpha (+->-) and beta (- -> +), the differences from 1/(1+x) are alpha(x-y)/[(1+x)D2] and (x-y)(alpha+x+1)/[(1+x)D2], where D2=alpha*y+alpha+beta*x+beta+xy+x+y+1>0; so neither initial environment improves on the better frozen state. Independent exact rational elimination confirms u=181/1373, fixed values 1/9 and 1/10, and F=6464/25 for x=2,y=3,e=1/10,M=10; 60 independent rational-grid generator solves confirmed the sign criterion. The M->infinity limit u->1/(1+x+x^2) additionally explains the feedback advantage for x<y. These computations corroborate the algebraic proof and do not establish generality by finite testing. Boundaries x=y, zero/negative rates, arbitrary starting environments, N>3 and different rate families are not covered.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ashcroft–Altrock–Galla 2014 derive general fixation formulas only under m_sigma->sigma_prime independent of count i; see arXiv:1406.5619 §3.4 and §7.",
+          "Baron–Galla 2018 include multiplayer frequency dependence of birth/death rates while explicitly preserving i-independent environment switching in §2.1; their §5 suggests i-dependent switching as future work.",
+          "Wienand–Frey–Mobilia 2017 PRL 119 158301 uses an external dichotomous switching carrying capacity at fixed rate nu, with fluctuating total N(t), not the displayed fixed-N feedback generator."
+        ],
+        "reasoning": "The prior generality in birth-death rates or number of environments does not dominate a theorem whose crucial parameter variation lies in the environmental transition generator as a function of i. The two models do not reduce to one another while preserving their stated hypotheses. Nonetheless a general arbitrary-generator absorbing-CTMC theorem would recover the linear system, and a specialist treatment could have already factored this four-state case. This remains a priority risk, not proof of coverage.",
+        "searches": [
+          "web: feedback environmental switching fixation probability composition-dependent birth-death Markov",
+          "web: evolutionary dynamics fixation switching rate population state dependent",
+          "web: state-dependent switching environment Moran process eco-evolutionary feedback",
+          "Ashcroft et al. full arXiv PDF §§2-4,7; Baron & Galla 2018 PMC full HTML §§2,3,5; Wienand et al. 2017 arXiv PDF §§1-3 and supplemental models"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1406.5619",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5882734/",
+        "https://arxiv.org/pdf/1708.08841",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4191092/ (accessible search index; direct PMC open challenged; relied on full arXiv counterpart)",
+        "Resultary published-finding semantic search: three targeted queries, 19/20/20 ranked hits; no precise related result",
+        "GitHub Resultary/2026 code search: three targeted phrases; no indexed matching files",
+        "https://arxiv.org/abs/2511.23209 (abstract screened: continuous eco-evolutionary game fluctuation expansion, not the small-population fixation generator)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ashcroft et al. Eq. (3.14) is a Markov backward equation, but in §3.4 they explicitly make environmental transition events independent of population state.",
+          "Baron & Galla 2018 §5: environmental switching rates depending on the composition of the population are mentioned as an extension, not a theorem established in that paper.",
+          "Wienand et al. Eq. (3), with xi(t) flipping at fixed nu, describes exogenous carrying-capacity noise and does not give the four-state rational threshold."
+        ],
+        "reasoning": "The basic backward-equation principle is common prior mathematical knowledge. Applying it to the given count-dependent generator and factoring the signed difference is new work relative to the stated primary theorems; their actual hypotheses do not yield F>0 or the N=2 minimality directly. The general phenomenon of switching outperforming static environments IS established by Ashcroft et al., so the assessment does not attribute novelty to that broader phenomenon.",
+        "searches": [
+          "Ashcroft et al. 2014 arXiv:1406.5619 §3.4 formula (3.14) and concluding section",
+          "Baron & Galla 2018 full PMC: model §2.1 and concluding suggestion of feedback-environment rates",
+          "Wienand et al. 2017 arXiv:1708.08841 definition of dichotomous noise rate nu",
+          "web: Markov-modulated fixation state-dependent switching CTMC exact closed form"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ashcroft, Altrock & Galla, arXiv:1406.5619, §2.2 and §3.4: the environment transition matrix/rates are independent of mutant count; continuous-time equation (3.14) gives the backward-equation template.",
+          "Baron & Galla, R. Soc. Open Sci. 5 (2018) 172176, §2.1: switching probabilities are independent of population composition; §5 proposes making environmental switching rates depend on composition as a future extension.",
+          "Resultary top-ranked searches concerned unrelated biological dynamics and Markov positivity; no same two-state feedback generator or polynomial threshold identified among returned hits."
+        ],
+        "reasoning": "A coupled Markov chain with a count-dependent environmental generator is a natural alias of feedback switching. It is not the exogenous two-environment Markov chain used in the closest published stochastic-fixation results. Their generic method can inspire a new calculation, but the exact F>0 criterion and N=2/N=3 boundary are not quoted or mathematically implied by their fixed-generator conclusions alone. The absence of a semantic match is not taken as novelty proof.",
+        "searches": [
+          "Resultary semantic: Fixation in finite birth death populations with two environments switching at mutant-count dependent rates feedback, sharp minimum population size 3, fixation exceeds both frozen environments",
+          "Resultary semantic: Finite-state Markov-modulated birth-death process state-dependent switching environment generator optimal fixation probability",
+          "web: state dependent switching fixation probability population environment feedback birth death",
+          "web: fixation probability switching rates depend on population size composition environments stochastic Moran process"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact F(x,y,e,M) polynomial, N=3 threshold table or relevant four-state generator was identified in the returned Resultary hits or targeted web/code searches.",
+          "The claim is a continuous four-parameter algebraic inequality and sharp size boundary rather than a finite tabular lookup."
+        ],
+        "reasoning": "A finite database is not the primary comparison for a parameter-wide CTMC theorem. Prior data or symbolic tables could still encode its rational solution, but none was located. The result is checked directly from the generator, not inferred from a table, and unsuccessful lookup is not asserted to prove novelty.",
+        "searches": [
+          "Resultary semantic: Environmental stochasticity feedback composition dependent switching advantage fixation probability N=3",
+          "web: three-individual birth-death process population-dependent environmental switching fixation probability exact threshold",
+          "web: N=3 state-dependent switching rates fixation probability exceed both static environments",
+          "GitHub code search Resultary/2026: fixation probability; environmental switching; composition-dependent switching"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS, qualified. The closest published exact fixation models assume environmental switching independent of mutant count; this claim treats a generator in which the switch rate depends on the count i and derives a sharp all-parameter inequality and minimum population-size cutoff in a specifically normalized family. Ashcroft–Altrock–Galla 2014 already establish generic fluctuating-environment advantages and backward recurrences, so those phenomena or methods are not claimed new. Baron–Galla 2018 explicitly name composition-dependent switching rates as a possible extension. Wienand–Frey–Mobilia 2017 use an externally switching carrying capacity and a different variable-size population model. No same threshold or universal implication was established in the inspected primary text or targeted Resultary results. The exact generator calculation and cutoff appear new at this bounded level, but generic CTMC linear algebra, uncatalogued feedback models and unindexed literature are residual priority risks.",
+      "residual_risks": [
+        "Unindexed, differently termed or not openly findable papers on population-conditioned Markov environmental switching may contain an equivalent finite-state result.",
+        "The model-specific factorization is a relatively small four-state linear-algebra problem, and generic absorbing-CTMC theory is prior; only the exact threshold and sharp comparison in this natural feedback family are assessed as the new fact.",
+        "Ashcroft et al. established the larger phenomenon that switching may exceed both static environments even without feedback; that phenomenon is not novel here.",
+        "Resultary and web search nonmatches are not independence or novelty certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior generic fixation machinery and switching advantage; the environmental generator is explicitly count-independent, so the displayed feedback threshold is not in its proved model.",
+          "evidence": "§2.2 pp.4-5; §3.4 pp.8-9 Eq. (3.14); §7 p.24; https://arxiv.org/pdf/1406.5619",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.5619 (2014, Ashcroft, Altrock, Galla); open primary PDF",
+          "material_read": "Full primary PDF available. Read abstract, Introduction, §2.2, §3.4 including (3.12)-(3.15), relevant §4 applications, and §7 conclusions (pp.1-10, 24-25 selected passages); also inspected page-4 screenshot.",
+          "method": "Compared independent switching matrix m_sigma->sigma_prime and exact backward equation against i-dependent rates e,M in the assigned result.",
+          "title": "Fixation in finite populations evolving in fluctuating environments",
+          "trigger": "Closest general exact fixation theory for fluctuating two-state environments and advantage over frozen states."
+        },
+        {
+          "assessment": "Explicitly assumes environment switching independent of population count; identifies count-dependent switching as possible future work, not a covered theorem.",
+          "evidence": "§2.1, lines 95-100; §5, lines 237-249; https://pmc.ncbi.nlm.nih.gov/articles/PMC5882734/",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5882734/ (Baron and Galla, 2018)",
+          "material_read": "Accessible complete HTML. Read abstract, model §2.1, fixation §3.1, applications and §5 discussion/conclusion, including final proposed extension.",
+          "method": "Compared which process component is frequency-dependent and whether the environment transition intensities themselves depend on mutant count.",
+          "title": "How successful are mutants in multiplayer games with fluctuating environments? Sojourn times, fixation and optimal switching",
+          "trigger": "Highly relevant generalization to nonlinear frequency-dependent fitness and finite-population switching."
+        },
+        {
+          "assessment": "Different model: switching is exogenous with constant rate nu; its coupling comes through population size and demographic fluctuations.",
+          "evidence": "Main text p.1-2 Eq. (3) and supplemental §§2.1-2.2; https://arxiv.org/pdf/1708.08841",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.08841 (Wienand, Frey, Mobilia, 2017)",
+          "material_read": "Accessible full 15-page PDF. Read abstract and model pp.1-3, rate definition Eq. (3), and supplemental effective-population discussion pp.8-9; inspected screenshot of PDF p.2.",
+          "method": "Compared fixed external switching rate nu, changing carrying capacity, and variable total population size with count-dependent environmental generator at fixed total size.",
+          "title": "Evolution of a Fluctuating Population in a Randomly Switching Environment",
+          "trigger": "Another close published fixation enhancement caused by environment-demography coupling."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finding addresses a motivated mathematical question in finite-population stochastic evolution: what is the smallest number of individuals at which an environment that reacts to mutant composition can strictly outperform either constituent frozen environment, and at what switching-rate threshold? For N=2 there is only one transient mutant count and no separate stage for feedback to exploit; N=3 is the first nontrivial state-space with two distinct count-conditioned decisions. The theorem proves this sharp cutoff and a necessary-and-sufficient four-parameter threshold, not just an example, and exhibits selection-disfavored mutants in both environments still benefiting from feedback. Baron & Galla 2018 explicitly suggest composition-dependent environment rates as a future modeling extension. Although the proof is finite-state algebra and the model is stylized, the exact benchmark is a natural structural boundary a later researcher comparing feedback rules could use; it is not merely a known table entry, restated theorem, or arbitrary normalization test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact theorem only for the fixed two-environment rate family, 0<x<y and e,M>0, and initial state (1,+); not a theorem for arbitrary feedback rules or N>3.",
+    "N=2 result applies to arbitrary environment-switching rates with unit mutant birth and environmental death ratios x<y, including any initial environmental mixture.",
+    "Finite rational-grid checks validate examples only; the general claim rests on the symbolically checked algebraic identity and positive M-matrix.",
+    "Best-of-knowledge originality has unindexed-literature and generic CTMC specialization risks; no complete novelty certification or expert attestation.",
+    "Public source METADATA.json and AUDIT.json retain internal operational provenance identifiers and metadata first_public_date inherited from prior literature, requiring sanitization before safe staging."
+  ],
+  "schema_version": 1
+}
