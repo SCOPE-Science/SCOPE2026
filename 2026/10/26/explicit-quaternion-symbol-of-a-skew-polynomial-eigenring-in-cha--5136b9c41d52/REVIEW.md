@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The coefficient comparison in \(fg=(u+vx)f\) shows that the eigenring representatives are exactly \(a+bx\) with \(a,b\in\mathbb F_2(t)\). The relations for \(i=t/s+1/s\) and \(j=x\) give \(i^2+i=1/s\), \(j^2=s/(s+1)\), and \(ji=(i+1)j\). At the prime \((s+1)\), the quadratic extension is inert and unramified, so norms have even valuation, whereas \(s/(s+1)\) has valuation \(-1\); this proves the symbol is division. The source's irreducibility proof for \(f\) and its eigenring theorem were checked in full text.
+## correctness
 
-## Originality — PASS within inspected coverage
-The closest primary source, arXiv:2502.13531v1, gives this explicit \(f\), proves it irreducible, and states that its eigenring is a central division algebra of degree two. It uses that eigenring in an isotopy comparison but does not give the quaternion symbol \([1/s,s/(s+1))\). published-finding corpus searches found nearby characteristic-two quaternion and skew-polynomial records, but their fields, algebras, or invariants differ. The exact symbol follows from the present coefficient comparison and generator relations. Older eigenring literature may contain an equivalent calculation; priority is not asserted as settled.
+PASS
 
-## Mathematical value — PASS
-An explicit Brauer-class presentation is stronger than knowing only the degree of a central division algebra. It provides a concrete norm obstruction and a reusable invariant for comparing right nuclei in the semifield/isotopy setting, where the source uses nucleus invariants to distinguish isotopy types and separately notes an equal-parameter isotopy problem for a different finite-field family.
+The source proves f irreducible in Proposition 3.2. Compute sigma(c)=c and sigma^2-fixed field F_2(t) for odd r. Coefficient comparison in f(a+bx)=(u+vx)f forces a,b in F_2(t), giving the four-dimensional quadratic crossed product. With i=(t+1)/s and j=x, the relation t^2+st+1=0 in characteristic two yields i^2+i=1/s, j^2=s/(s+1), ji=(i+1)j. At s+1, T^2+T+1 is irreducible mod 2: the quadratic extension is unramified inert and norms have even valuation; v(s/(s+1))=-1, so the algebra is division. These identities apply to all odd r>=3 without finite extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The primary source already constructs this f and establishes a central division eigenring of degree two, hence degree and existence are NOT novel. Its inspected theorems and construction do not provide the explicit quaternion symbol. The new algebraic statement identifies a precise Brauer class and an inert-prime certificate; a prior computation of this very symbol would defeat originality.
+
+## value
+
+PASS
+
+An explicitly evaluated cyclic-algebra symbol is a natural reusable invariant of the right nucleus in semifield and MRD-code isotopy comparisons, and determines a concrete norm obstruction beyond the abstract degree. It is restricted to a naturally singled-out irreducible skew-polynomial family, not an arbitrary relabeling of a classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

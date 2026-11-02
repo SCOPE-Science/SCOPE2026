@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The proof was checked symbolically from the defining Ore relation. The coefficient comparison reduces the eigenring condition to \(\sigma^2(a)=a\) and \(\sigma^2(b)=b\); for odd \(r\), this fixed field is \(\mathbb F_2(t)\). The explicit generators satisfy the defining quaternion relations. The prime \((s+1)\) is inert and unramified in \(\mathbb F_2(t)/\mathbb F_2(s)\), and the odd valuation of \(s/(s+1)\) proves it is not a norm. The cited full text establishes irreducibility of \(f\); finite computations are not used to justify the universal statement. The source comparison is literature-bounded, and an earlier explicit symbol calculation remains a residual risk. Independent audit and external validation have not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The source proves f irreducible in Proposition 3.2. Compute sigma(c)=c and sigma^2-fixed field F_2(t) for odd r. Coefficient comparison in f(a+bx)=(u+vx)f forces a,b in F_2(t), giving the four-dimensional quadratic crossed product. With i=(t+1)/s and j=x, the relation t^2+st+1=0 in characteristic two yields i^2+i=1/s, j^2=s/(s+1), ji=(i+1)j. At s+1, T^2+T+1 is irreducible mod 2: the quadratic extension is unramified inert and norms have even valuation; v(s/(s+1))=-1, so the algebra is division. These identities apply to all odd r>=3 without finite extrapolation.
+
+## originality
+
+PASS
+
+The primary source already constructs this f and establishes a central division eigenring of degree two, hence degree and existence are NOT novel. Its inspected theorems and construction do not provide the explicit quaternion symbol. The new algebraic statement identifies a precise Brauer class and an inert-prime certificate; a prior computation of this very symbol would defeat originality.
+
+## value
+
+PASS
+
+An explicitly evaluated cyclic-algebra symbol is a natural reusable invariant of the right nucleus in semifield and MRD-code isotopy comparisons, and determines a concrete norm obstruction beyond the abstract degree. It is restricted to a naturally singled-out irreducible skew-polynomial family, not an arbitrary relabeling of a classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
