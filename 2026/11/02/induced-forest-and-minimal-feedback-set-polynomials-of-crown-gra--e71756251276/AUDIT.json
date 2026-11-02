@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The proof exhausts shore-size possibilities by the exact edge count \\(ab-c\\). Exceptional feasible profiles are checked directly as stars, paths or matchings. It derives the complete polynomial without double count, proves maximality in both directions, verifies the \\(n=3\\) and \\(n=4\\) boundaries, and uses complementation for minimal feedback vertex sets. Direct independent graph construction and exhaustive one-vertex augmentation through \\(n=9\\) confirms every coefficient; finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghalavand and Li, arXiv:2501.05145, Theorem 2.1 proves the forest-number scalar bound for dense balanced bipartite graphs; for the crown it gives maximum induced-forest order \\(n+1\\) at \\(n\\ge4\\).",
+        "Melo and Ribeiro, arXiv:2102.09194, Sections 1–5 describe integer-programming formulations and experiments, not all-forest or maximal-set counting.",
+        "Hertz, Decycling Bipartite Graphs, 2021, addresses cycle deletion bounds and examples, rather than labeled crown-size spectra."
+      ],
+      "reasoning": "The strong balanced-bipartite theorem subsumes the scalar maximum, which is explicitly treated as known. It cannot imply the complete polynomial or lower inclusion-maximal size and multiplicities without further structural arguments. Other broad frameworks address optimization, not explicit all-cardinality distributions.",
+      "searches": [
+        "arxiv:2501.05145",
+        "arxiv:2102.09194",
+        "doi:10.7155/jgaa.00567"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2102.09194, full HTML",
+      "doi:10.7155/jgaa.00567, PDF",
+      "arxiv:2302.09604, full HTML",
+      "arxiv:2501.05145, full HTML"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 minimum-degree theorem fixes only the largest possible induced forest size \\(n+1\\) for \\(n\\ge4\\); it does not count all \\((1,n)\\) and \\((2,3)\\) maximal configurations or all acyclic subsets.",
+        "The parameterized Max Min Feedback Vertex Set paper does not characterize minimal FVS in crowns, nor give the forbidden intermediate cardinalities."
+      ],
+      "reasoning": "The present two-point spectrum and exact number \\(n(n-1)(n-2)\\) of smaller maximal forests are not corollaries of a bound on the largest forest or algorithms solving Max Min FVS. The full all-forest polynomial is more detailed still. No stronger inspected statement was found that logically entails it.",
+      "searches": [
+        "arxiv:2501.05145",
+        "arxiv:2302.09604",
+        "arxiv:2102.09194",
+        "\"crown graph\" \"induced forest\" maximal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Complementation of maximal induced forests gives inclusion-minimal feedback vertex sets; arXiv:2302.09604 treats the maximal size of such minimal sets and parameterized complexity.",
+        "The subset-size polynomial is equivalently a minimal-feedback-set size distribution under exponent reversal."
+      ],
+      "reasoning": "An equivalent theorem would specify all inclusion-minimal FVS cardinality multiplicities for the crown graph, or an induced-acyclic-subset polynomial of the deleted-perfect-matching biclique. The inspected source studies algorithms and complexity for the broader problem, not the target coefficient distribution. The query did not locate such a theorem; this is limited negative evidence.",
+      "searches": [
+        "\"crown graph\" \"induced forest\" maximal",
+        "\"crown graph\" \"feedback vertex set\" minimal enumeration",
+        "\"K_{n,n}\" \"perfect matching\" \"decycling\"",
+        "\"minimal feedback vertex sets\" \"crown\"",
+        "arxiv:2302.09604"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available inspected full papers and indexed search results did not show a crown-specific table for all forest-inducing subsets or all inclusion-maximal ones.",
+        "The full coefficients are asserted for every \\(n\\ge3\\), not merely the sample finite values checked computationally."
+      ],
+      "reasoning": "A tabulation of crown-graph induced-forest cardinalities for all parameters, or a universal all-forest polynomial specializing to the exact formula, would cover this claim. The actual source queries returned no such table; absence is not a uniqueness certificate.",
+      "searches": [
+        "\"induced forest polynomial\" \"crown\"",
+        "\"maximal induced forests\" \"crown\"",
+        "\"decycling polynomial\" \"crown graphs\"",
+        "\"vertex-induced forest polynomial\" complete bipartite matching"
+      ]
+    },
+    "rationale": "An extensive comparison with published induced-forest, bipartite decycling and Max Min Feedback Vertex Set literature found no statement implying either complete crown polynomial. The known 2025 dense-balanced-bipartite result does imply only the scalar maximum size \\(n+1\\); that is not separately claimed. Publication priority remains provisional; empty search results are not proof of novelty.",
+    "residual_risks": [
+      "An unindexed crown-graph forest polynomial, a differently named crown equivalent, or an unpublished exact minimal-FVS enumeration could cover the result.",
+      "The 2025 broad source covers the scalar maximum order, so only the full cardinality distributions and classification are assessed as novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact optimization objects but does not supply a labeled all-forests polynomial, maximal-set spectrum or crown specialization.",
+        "evidence": [
+          "arxiv:2102.09194, Sections 1, 2, 4, 5 and 6; first public 2021-02-18."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.09194",
+        "material_read": "Full publicly available HTML text, including introduction, formulations, computational experiments and conclusions.",
+        "method": "Read accessible arXiv HTML and searched for target family and complete counting statements.",
+        "title": "Maximum weighted induced forests and trees: New formulations and a computational comparative review",
+        "trigger": "An early source establishing induced-forest optimization and its feedback-set duality."
+      },
+      {
+        "assessment": "No complete crown-family induced-forest coefficient polynomial or minimal-feedback-set multiplicity formula found.",
+        "evidence": [
+          "Hertz, JGAA 25 (2021), 461–480."
+        ],
+        "identifier_or_url": "https://doi.org/10.7155/jgaa.00567",
+        "material_read": "Accessible 20-page paper, sections on bounds, extensions and examples including star families, Fibonacci cubes and hypercubes.",
+        "method": "Read the PDF text with its first-page image inspected, and searched for crown and deleted-matching bipartite families.",
+        "title": "Decycling Bipartite Graphs",
+        "trigger": "A central paper on induced forests and feedback vertex sets in bipartite graphs."
+      },
+      {
+        "assessment": "Studies exact/parameterized algorithms and hardness; no crown-specific exact enumeration.",
+        "evidence": [
+          "arxiv:2302.09604, introduction and main theorems; first public 2023-02-19."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.09604",
+        "material_read": "Accessible full scholarly text including main results, algorithms, reductions and conclusions.",
+        "method": "Inspected arXiv full text and checked references to graph family versus general complexity statements.",
+        "title": "Parameterized Max Min Feedback Vertex Set",
+        "trigger": "Its title directly matches the complement of inclusion-maximal induced forests."
+      },
+      {
+        "assessment": "Theorem 2.1 covers the crown maximum forest order for \\(n\\ge4\\), and this scalar claim is excluded from novelty. Neither a crown exact all-forest polynomial nor minimal-FVS spectrum appears.",
+        "evidence": [
+          "arxiv:2501.05145, Theorems 2.1, 2.3, 2.4 and Corollary 2.5; first public 2025-01-09."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2501.05145",
+        "material_read": "Full openly accessible HTML text, the statements and proofs of Theorems 2.1–2.8 and conclusions.",
+        "method": "Read arXiv full text, compared theorems on order \\(n+1\\) forests, searched for crown, matching and enumeration.",
+        "title": "On Maximum Induced Forests of the Balanced Bipartite Graphs",
+        "trigger": "Most directly relevant stronger family, balanced bipartite graphs, potentially dominating the scalar forest number."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e7175625-1276-4481-88fa-01841747f774",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-forests and inclusion-maximal induced-forest polynomials on a canonical connected vertex-transitive regular bipartite graph family provide full multiplicities, a complete structural census, and an unbounded \\(n-5\\)-integer missing-cardinality interval. Duality converts these into complete minimal feedback vertex set statistics, beyond the prior known scalar extremum.",
+    "status": "PASS"
+  }
+}
