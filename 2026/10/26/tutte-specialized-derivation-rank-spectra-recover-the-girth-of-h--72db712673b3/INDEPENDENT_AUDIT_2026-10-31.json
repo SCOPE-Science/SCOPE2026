@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T13:14:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I checked the entire algebraic derivation parametrization, including characteristic two and disconnected/isolated vertices. Since a height-two incidence algebra has J^2=0, idempotent Leibniz identities force D(h)=sum_e x_e(h_v-h_u)f_e and D(f_e)=lambda_e f_e, with two freely independent field parameters per edge. Relative to diagonal L plus radical J the operator row matrix is [B_x | Lambda]. If S denotes nonzero lambda edges and B denotes zero-lambda edges with nonzero x, then rank D=|S|+rank(incidence(B))=|S|+|V|-c(B) over every field. Counting (x,lambda) choices yields the stated Tutte specialization. Subtracting the forest baseline termwise shows only cyclic B contribute, and the smallest possible rank g-1 arises exactly for full shortest g-cycles; coefficient c_g(q-1)^g is positive. Formula for unicyclic G follows by adjoining arbitrary forest-edge subsets. Independently computed q=2 four-cycle spectrum (1,12,54,109,80), q=3 (1,32,384,2064,4080) and several graph identities; source verify_derivation_rank.py genuinely solves all Leibniz equations in its finite prime-field checks. Neither source logs nor bounded instances were substituted for the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 paper treats much more general incidence algebras and Theorem 4 decomposes derivation spaces.",
+          "Its inspected theorem statements do not provide the counts by rank of each operator over finite fields."
+        ],
+        "reasoning": "Greater generality of objects or derivation spaces does not imply all-rank frequency results. A stronger rank enumerator would dominate this specialization, but no such published formula was identified in the primary texts inspected.",
+        "searches": [
+          "Krylov–Tuganbaev Derivations of Incidence Algebras 2024 DOI 10.3390/math12070999",
+          "arXiv:2305.02984 general incidence rings",
+          "arXiv:2307.08439 skew derivations",
+          "Tutte graphic rank polynomial and cycle nullity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify_derivation_rank.py at tree 52950eb2c796b93ae0de85618d18259811df88c8",
+        "Independent exact state-sum checks independent_checks.py",
+        "Krylov–Tuganbaev 2024 DOI 10.3390/math12070999 full text Theorem 4",
+        "arXiv:2305.02984",
+        "arXiv:2307.08439",
+        "Classical graphic Tutte polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The decomposition and Tutte definitions are explicitly credited as prior.",
+          "For forests inner derivations cover all derivations; that binomial boundary is not treated as separately novel.",
+          "For the cyclic four-cycle F2 the prior inner map count is 128 versus 256 full maps, with different rank histogram."
+        ],
+        "reasoning": "Existing decomposition gives the space and its dimension but does not alone imply the distribution of individual operator ranks, while the inner subspace omits outer maps. The new edgewise [B_x|Lambda] rank identity and girth coefficient comparison are necessary.",
+        "searches": [
+          "Krylov–Tuganbaev 2024 Theorem 4",
+          "Fornaroli–Khrypchenko 2023 Theorems 2.8 and 3.7",
+          "classical Tutte rank generating identity",
+          "inner derivation four-cycle histogram"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krylov–Tuganbaev discuss inner plus additive/transitive derivations.",
+          "The exact graphic matroid polynomial is an algebraic restatement of a Tutte state sum, but identifying it as the all-derivation rank histogram requires a separate rank parametrization."
+        ],
+        "reasoning": "Equivalent expressions may involve incidence matrices, cohomology, and matroid rank generating functions. Prior general algebra decomposition is a premise; it is not itself the histogram or the extraction of shortest-cycle coefficients.",
+        "searches": [
+          "Resultary: height two incidence algebra derivation rank enumerator Tutte polynomial girth matroid",
+          "arXiv:2305.02984 Sections 14–19 derivation decomposition",
+          "arXiv:2307.08439 skew derivations incidence algebra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared inner-derivation histogram for C4 over F2 is (1,4,30,53,40), whereas all-derivations has (1,12,54,109,80).",
+          "Target counts q^{2m} maps and is distinct from the centralizer/inner-derivation table when cycles occur."
+        ],
+        "reasoning": "An existing exact table of inner commutators cannot determine the full distribution including outer derivations. Indexed graph Lie/character polynomial results concern different linear maps, though alternate matroid tables remain possible.",
+        "searches": [
+          "Resultary: height two incidence algebra derivation rank enumerator Tutte polynomial girth matroid",
+          "Resultary: complete element centralizer rank enumerator for height two incidence algebras inner derivation rank",
+          "finite incidence algebra all derivations rank histogram four-cycle"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the distribution of ranks of ALL linear derivations, including outer derivations, and the girth recovery from its first cyclic coefficient. Krylov–Tuganbaev and Fornaroli–Khrypchenko provide prior derivation decomposition, and Tutte/graphic-matroid identities are classical. The neighboring published inner-derivation/element-centralizer enumerator differs on cyclic graphs and only covers the forest limit. A general weighted matroid-state-sum theorem could still imply this formula, hence residual historical priority is explicit.",
+      "residual_risks": [
+        "A general matroid rank-enumerator theorem or incidence-algebra cohomological enumeration might render the polynomial a corollary.",
+        "Only linear derivations are counted; the first-cycle coefficient formula is not a full graph isomorphism invariant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRUCTURAL_DECOMPOSITION_ONLY_IN_INSPECTED_TEXT",
+          "evidence": "Theorem 4 decomposes derivations but no all-operator rank generating polynomial or shortest-cycle recovery appears in inspected relevant sections.",
+          "identifier_or_url": "https://doi.org/10.3390/math12070999",
+          "material_read": "Accessible complete scholarly article in publisher-distributed open CC BY version, focusing decomposition Theorem 4, definitions and theorem statements; searchable full text",
+          "method": "Opened primary full text and read relevant statement and surrounding proof, searched rank/cycle terminology",
+          "title": "Derivations of Incidence Algebras",
+          "trigger": "Exact incidence algebra and derivations"
+        },
+        {
+          "assessment": "GENERAL_DERIVATION_STRUCTURE_PRIOR",
+          "evidence": "Outer/inner derivation structure is credited; a q^{2m} by-rank histogram was not present in the cited structural theorems.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.02984",
+          "material_read": "Primary Sections 14–19, cited theorem and transitive-function decomposition as available in inspected material",
+          "method": "Read relevant primary arXiv sections and compare domain/invariant",
+          "title": "Incidence Rings: Automorphisms and Derivations",
+          "trigger": "Broader original structural derivations theorem"
+        },
+        {
+          "assessment": "COHOMOLOGY_NOT_OPERATOR_RANK",
+          "evidence": "Skew derivations/cohomology and ordinary derivation decomposition do not by themselves provide an all-rank distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.08439",
+          "material_read": "Relevant introductory and structural theorem statements in Sections 2–3",
+          "method": "Primary text/theorem comparison",
+          "title": "Skew derivations of incidence algebras",
+          "trigger": "Potential generalized derivation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem assigns a natural operator-rank distribution to every height-two incidence algebra and relates it to graphic-matroid invariants. Recovering girth and number of shortest cycles from the histogram gives interpretable structural information; the full spectrum is not equivalent to a routine parameter dimension computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Height at most two; J^2=0 is essential and fails for longer chains.",
+    "The census is for k-linear derivations, not semilinear maps or exclusively inner derivations.",
+    "Prime-field finite checks are supportive; proof handles every finite field."
+  ],
+  "schema_version": 1
+}

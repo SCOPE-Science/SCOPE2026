@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the derivation rank law
 
-Run `python3 verify_derivation_rank.py` with a standard Python 3 interpreter. The program constructs a multiplication table for each finite height-two poset directly from vertex idempotents and edge elements. It then sets up the matrix of linear Leibniz constraints for a completely unspecified endomorphism, row-reduces the full system, enumerates its kernel, and computes the ranks of all resulting endomorphisms. The comparison side uses the graphic rank of every subset from union-find, independent of the unknown-operator calculation. No assumption that all derivations have a specific normal form is made in the computation.
+# Independent mathematical audit
 
-The exhaustive configurations include one edge over \(\mathbb F_3\), two disconnected edges over \(\mathbb F_3\), a star and a path each with three edges over \(\mathbb F_3\), the four-cycle over \(\mathbb F_2\) and \(\mathbb F_3\), a four-cycle with a leaf over \(\mathbb F_2\), and the six-cycle over \(\mathbb F_2\). All derivation-rank coefficients agree with formula (1), and the number of derivations in each case equals \(q^{2m}\). An additional arithmetic expansion normalizes the formula for several prime powers, including 4 and 9. These do not constitute a direct Leibniz-matrix census over proper extension fields; the proof uses general field properties and supplies the all-prime-power conclusion.
+## correctness
 
-The code does not implement a comprehensive literature priority check or any external verification. The proof establishes the infinite family; finite enumerations only provide reproducibility and regression checks.
+PASS
+
+I checked the entire algebraic derivation parametrization, including characteristic two and disconnected/isolated vertices. Since a height-two incidence algebra has J^2=0, idempotent Leibniz identities force D(h)=sum_e x_e(h_v-h_u)f_e and D(f_e)=lambda_e f_e, with two freely independent field parameters per edge. Relative to diagonal L plus radical J the operator row matrix is [B_x | Lambda]. If S denotes nonzero lambda edges and B denotes zero-lambda edges with nonzero x, then rank D=|S|+rank(incidence(B))=|S|+|V|-c(B) over every field. Counting (x,lambda) choices yields the stated Tutte specialization. Subtracting the forest baseline termwise shows only cyclic B contribute, and the smallest possible rank g-1 arises exactly for full shortest g-cycles; coefficient c_g(q-1)^g is positive. Formula for unicyclic G follows by adjoining arbitrary forest-edge subsets. Independently computed q=2 four-cycle spectrum (1,12,54,109,80), q=3 (1,32,384,2064,4080) and several graph identities; source verify_derivation_rank.py genuinely solves all Leibniz equations in its finite prime-field checks. Neither source logs nor bounded instances were substituted for the universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the distribution of ranks of ALL linear derivations, including outer derivations, and the girth recovery from its first cyclic coefficient. Krylov–Tuganbaev and Fornaroli–Khrypchenko provide prior derivation decomposition, and Tutte/graphic-matroid identities are classical. The neighboring published inner-derivation/element-centralizer enumerator differs on cyclic graphs and only covers the forest limit. A general weighted matroid-state-sum theorem could still imply this formula, hence residual historical priority is explicit.
+
+## value
+
+PASS
+
+The theorem assigns a natural operator-rank distribution to every height-two incidence algebra and relates it to graphic-matroid invariants. Recovering girth and number of shortest cycles from the histogram gives interpretable structural information; the full spectrum is not equivalent to a routine parameter dimension computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
