@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify_rectangular_tori.py` using Python 3 and the standard library. The script constructs graph-metric adjacency independently of the predicted facet formula, enumerates every maximal clique, checks short-fiber intersections, computes exact simplicial boundary ranks over the two-element field, and separately verifies each claimed elementary free-face collapse of the baseline complex against every remaining coface.
+## correctness
 
-The executed checks include \((m,n)=(5,5),(5,6),(6,6),(5,7),(6,7),(7,7),(5,8),(6,8),(7,8),(8,8),(5,9),(6,9),(7,9),(5,10),(6,10)\). For \((5,6)\), the verified face vector is \((30,180,340,210,36)\) and the reduced mod-two Betti vector is concentrated in degree two with rank fifteen. For \((5,7)\), the corresponding vector is \((35,210,385,245,42)\), with reduced Betti ranks one in degree one and seven in degree two. For \((6,7)\), they are \((42,252,434,252,42)\), with reduced ranks one and fourteen in those degrees. The script also verifies \(9mn\) individual collapses for eight separate parameter pairs including \((5,5)\) and \((6,6)\).
+PASS
 
-Outputs `VERIFY_OK` and `COLLAPSE_VERIFY_OK` were observed. Tests do not establish the infinite family; the proof uses the exact mixed-edge link and its parameter-independent classification, followed by uniform free-face and CW attachment arguments. The assertions concern ordinary integral homotopy type; finite-field calculations alone would be insufficient to establish it. No external or independent audit has been performed.
+All mixed-coordinate scale-two cliques lie in five-point diamond or four-point square facets, as shown by exact common-neighbor classification; C5 fiber is a simplex on five vertices (4-simplex), C6 fiber adds exactly two alternating triangles, and longer cycle fibers have only consecutive triples. Nine mn explicit elementary free-face pairs collapse the diamond/square baseline complex onto the standard grid torus triangulation, preserving primitive row/column circles. C5 extra contractible fiber attaches along its primitive coordinate circle and C6 adds two disks of winding ±1. With A=n*s(m), B=m*s(n), s(5)=1,s(6)=2,s(t≥7)=0, elementary CW cancellation yields T² when A=B=0, S¹∨∨^{A+B}S² when exactly one count is positive, and ∨^{A+B−1}S² when both are positive. Each scale-two shortcut reduces homologously to a two-edge original path, making H1(scale1)→H1(scale2) surjective with kernel free rank mn+1−β1. Independently reconstructed exact maximal cliques against the predicted facets for (5,5),(5,6),(5,7),(6,6),(6,7),(7,7),(7,8); the source verifier additionally encodes exact free-coface replay. Uniform proof is combinatorial, not extrapolated.
+
+## originality
+
+PASS
+
+PASS best of knowledge, with square cases explicitly credited: the Adams et al. paper proves square C_m□C_m cases, including 5×5, 6×6 and sufficiently large square tori; the submitted theorem adds an all-rectangular uniform proof, especially C5×C_n, C6×C_n and 5×6 mixed regime. The existing width-four theorem is mathematically different (S³ instead of S²).
+
+## value
+
+PASS
+
+The exact homotopy and H1 threshold transition for all natural rectangular torus grids resolve short-circumference boundary phenomena not inferable from the known square results. The 5/6 transitions are structurally meaningful due to simplex and octahedral C_t fibers, and the explicit 9mn elementary collapse supplies an integral, reproducible general method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
