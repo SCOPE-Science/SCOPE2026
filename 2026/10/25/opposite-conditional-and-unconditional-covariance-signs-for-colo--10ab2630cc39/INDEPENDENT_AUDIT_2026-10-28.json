@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:38:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed-composition sampling, any prescribed p ones and q zeros at disjoint positions has hypergeometric probability (a)_p(b)_q/(a+b)_{p+q}. Partition the simultaneous singleton indicators by endpoint/interior and separation; prescribed local bit patterns give E X, E Y and E XY, with factoring Cov=2ab(a-1)(b-1)[ab(2n-3)-2n]/[n²(n-1)²(n-2)(n-3)]>0 using ab>=2(n-2). Given run counts and starting bit, one- and zero-run lengths are independent uniform compositions; expected singleton count in r parts summing to a is r(r-1)/(a-1). Even R fixes both run numbers and yields conditional independence. Odd R mixes two opposing endpoint orientations with weights C(a-1,t)C(b-1,t-1) and C(a-1,t-1)C(b-1,t), producing the negative covariance; t=1 simplifies to -4/(n-2)^2. The n=4,5 boundary cases are separately checked. Independent exact rational enumeration for all 2<=a,b<=7 agrees with both marginal and conditioned formulas.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Older works may derive multivariate generating functions for run lengths; full Barton–David paper unavailable, access via Oxford blocked by disconnected VPN."
+        ],
+        "reasoning": "Cannot rule out implication from historical general run-count methods, but an inaccessible plausible source alone does not establish coverage or automatic correctness failure. The 2015 full abstract/sections emphasize tests for distributions of lengths 1–3, not the given conditional covariance sign law.",
+        "searches": [
+          "Barton and David 1957 Multiple Runs DOI 10.1093/biomet/44.1-2.168",
+          "Barton 1967 Completed Runs of Length k above and below Median",
+          "Doğanaksoy et al 2015 DOI 10.1155/2015/626408"
+        ]
+      },
+      "checked_sources": [
+        "Actual assigned RESULT.md, verify.py and REVIEW.md; exact sampling and composition proof",
+        "Published Resultary full transition covariance RESULT.md",
+        "Smeeton–Cox 2003 DOI:10.1177/1536867X0300300304",
+        "Doğanaksoy et al 2015 DOI:10.1155/2015/626408",
+        "Barton & David 1957 DOI:10.1093/biomet/44.1-2.168 (full inaccessible)",
+        "Resultary query fixed composition binary word singleton one-run zero-run covariance conditional on total runs Simpson reversal positive negative runs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Transition-indicator joint probabilities determine Var(R), but the singleton counts require specific 010/101 patterns and conditional uniform compositions. Smeeton–Cox derives total run distribution rather than the conditional X,Y joint law."
+        ],
+        "reasoning": "No directly demonstrated prior-to-claim implication from materially inspected work. A general older joint run-length generating function could contain the result implicitly, but it was not available to inspect in full.",
+        "searches": [
+          "Full published Resultary fixed-composition transition RESULT.md ...--c6b28ad6d93d",
+          "Smeeton–Cox 2003 DOI 10.1177/1536867X0300300304",
+          "Barton–David 1957 DOI 10.1093/biomet/44.1-2.168"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary full published RESULT.md gives adjacent/disjoint covariance signs of indicators 1[X_i != X_{i+1}], not the joint distribution of singleton one- and zero-run counts X,Y."
+        ],
+        "reasoning": "Opposite-color singleton-run counts are nonlinear functions of overlapping adjacent transitions, and conditioning on R introduces a nontrivial mixture; the local transition-covariance phase diagram does not directly give the asserted exact reversal.",
+        "searches": [
+          "fixed composition binary word singleton one-run zero-run covariance conditional on total runs Simpson reversal positive negative runs",
+          "Resultary: exact dependence phases of fixed-composition run transitions",
+          "Barton–David 1957 Multiple Runs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary reported a related different statistic (local transition indicators); the exact all-a,b sign formulas were not among matched published records."
+        ],
+        "reasoning": "The statement is all-compositions, not a short finite table; searching cannot certify novelty. A general symbolic run-enumeration table might imply the moments, residual risk retained.",
+        "searches": [
+          "Resultary semantic query: fixed composition binary word singleton one-run zero-run covariance conditional on total runs Simpson reversal positive negative runs",
+          "Smeeton Cox 2003 fixed composition shuffling count distribution"
+        ]
+      },
+      "rationale": "The classical Wald–Wolfowitz/Smeeton–Cox run-count distribution and Doğanaksoy et al. length-one run tests establish ingredients, and the previously published Resultary dependence-phases paper is on **transition indicators** rather than opposite-color singleton *run counts*. Neither inspected same-sample claim implies the universal conditional-vs-unconditional sign reversal, but Barton & David (1957) Multiple Runs and Barton (1967) completed runs may contain broader multivariate generating-function machinery. That historical risk is explicit; best-of-knowledge PASS is not a universal priority certificate.",
+      "residual_risks": [
+        "Full Barton–David (1957) Multiple Runs and Barton (1967) Completed Runs may contain a general multivariate generating function from which the exact theorem is a specialization; full source unavailable.",
+        "No conclusion about independent Bernoulli, Markov, cyclic runs, or stochastic ordering.",
+        "One technical inequality in source is over-strong as written: claimed ab(2n-3)-2n >= 4(n-1)(n-3) for all a,b≥2 appears invalid for n=4? Check: at a=b=2,n=4, LHS=4*5-8=12, RHS 4*3*1=12 equality; for b=2,n>=? yes source says ab>=2(n-2) gives 2(n-2)(2n-3)-2n=4n²-16n+12=4(n-1)(n-3). Valid."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct local transition indicator statistic; does not state conditional covariances of singleton counts",
+          "evidence": "Theorem (2),(3) covers Cov(T_i,T_j); target concerns Cov(X,Y|R).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+          "material_read": "Complete RESULT.md: definitions, indicator covariance formulas, phase diagram, proof and limitations",
+          "method": "Read-only published GitHub source fetch",
+          "title": "Exact dependence phases of fixed-composition run transitions",
+          "trigger": "Closely matching fixed-composition binary run covariance"
+        },
+        {
+          "assessment": "Run-length statistics and test design, not an inspected exact fixed-composition conditional cross-color covariance theorem",
+          "evidence": "The work focuses separate run-length tests, while target specifies fixed a,b and conditions on R.",
+          "identifier_or_url": "https://doi.org/10.1155/2015/626408",
+          "material_read": "Open-access article overview and relevant test-statistics sections on runs of lengths 1–3; no complete text assertion of absence",
+          "method": "Web-accessible scholarly source",
+          "title": "New Statistical Randomness Tests Based on Length of Runs",
+          "trigger": "Run-length-one counts might contain target sign law"
+        },
+        {
+          "assessment": "UNKNOWN: possible broader joint formulas; cannot declare noncoverage",
+          "evidence": "Barton & David, Biometrika 44 (1957) 168–178; Oxford retrieval blocked vpn_disconnected.",
+          "identifier_or_url": "https://doi.org/10.1093/biomet/44.1-2.168",
+          "material_read": "Bibliographic record only; entire full text inaccessible (institutional VPN disconnected)",
+          "method": "Scholarly source listing, authorized institutional attempt",
+          "title": "Multiple Runs",
+          "trigger": "Plausible historical parent multivariate moments"
+        },
+        {
+          "assessment": "States total R distribution and reshuffling context, not direct proof of target conditional X,Y reversal",
+          "evidence": "2003 Stata Journal fixed-composition shuffling reference.",
+          "identifier_or_url": "https://doi.org/10.1177/1536867X0300300304",
+          "material_read": "Abstract, model description and source comparison; full PDF not independently inspected in this run",
+          "method": "Web bibliographic and scholarly listing",
+          "title": "Do-it-yourself shuffling and the number of runs under randomness",
+          "trigger": "Classical fixed-composition count distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In fixed-composition testing the per-color singleton-run counts are natural measures of isolated local symbols, and the total run count is the standard statistic used for conditioning. A uniform positive-to-nonpositive covariance reversal at every fixed run count, with strict sign at R=3, is an interpretable nontrivial dependence phenomenon. The exact algebra matters to run-stratified interpretation, without claiming a new downstream test.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual assigned RESULT.md, verify.py and REVIEW.md; exact sampling and composition proof",
+    "Published Resultary full transition covariance RESULT.md",
+    "Smeeton–Cox 2003 DOI:10.1177/1536867X0300300304",
+    "Doğanaksoy et al 2015 DOI:10.1155/2015/626408",
+    "Barton & David 1957 DOI:10.1093/biomet/44.1-2.168 (full inaccessible)",
+    "Resultary query fixed composition binary word singleton one-run zero-run covariance conditional on total runs Simpson reversal positive negative runs"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a uniformly shuffled linear binary word with exactly a>=2 ones and b>=2 zeros, counts X,Y of singleton one- and zero-runs have strictly positive unconditional covariance but conditional covariance given any attainable number R of runs is <=0. It equals 0 when R is even, is the explicit negative two-orientation mixture when R=2t+1, and at R=3 equals -4/(a+b-2)^2.",
+  "limitations": [
+    "Uniform fixed-composition linear binary words, a,b>=2; no cyclic, independent-unconditioned Bernoulli, or nonuniform analog."
+  ],
+  "residual_risks": [
+    "Full Barton–David (1957) Multiple Runs and Barton (1967) Completed Runs may contain a general multivariate generating function from which the exact theorem is a specialization; full source unavailable.",
+    "No conclusion about independent Bernoulli, Markov, cyclic runs, or stochastic ordering.",
+    "One technical inequality in source is over-strong as written: claimed ab(2n-3)-2n >= 4(n-1)(n-3) for all a,b≥2 appears invalid for n=4? Check: at a=b=2,n=4, LHS=4*5-8=12, RHS 4*3*1=12 equality; for b=2,n>=? yes source says ab>=2(n-2) gives 2(n-2)(2n-3)-2n=4n²-16n+12=4(n-1)(n-3). Valid."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Distinct local transition indicator statistic; does not state conditional covariances of singleton counts",
+      "evidence": "Theorem (2),(3) covers Cov(T_i,T_j); target concerns Cov(X,Y|R).",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+      "material_read": "Complete RESULT.md: definitions, indicator covariance formulas, phase diagram, proof and limitations",
+      "method": "Read-only published GitHub source fetch",
+      "title": "Exact dependence phases of fixed-composition run transitions",
+      "trigger": "Closely matching fixed-composition binary run covariance"
+    },
+    {
+      "assessment": "Run-length statistics and test design, not an inspected exact fixed-composition conditional cross-color covariance theorem",
+      "evidence": "The work focuses separate run-length tests, while target specifies fixed a,b and conditions on R.",
+      "identifier_or_url": "https://doi.org/10.1155/2015/626408",
+      "material_read": "Open-access article overview and relevant test-statistics sections on runs of lengths 1–3; no complete text assertion of absence",
+      "method": "Web-accessible scholarly source",
+      "title": "New Statistical Randomness Tests Based on Length of Runs",
+      "trigger": "Run-length-one counts might contain target sign law"
+    },
+    {
+      "assessment": "UNKNOWN: possible broader joint formulas; cannot declare noncoverage",
+      "evidence": "Barton & David, Biometrika 44 (1957) 168–178; Oxford retrieval blocked vpn_disconnected.",
+      "identifier_or_url": "https://doi.org/10.1093/biomet/44.1-2.168",
+      "material_read": "Bibliographic record only; entire full text inaccessible (institutional VPN disconnected)",
+      "method": "Scholarly source listing, authorized institutional attempt",
+      "title": "Multiple Runs",
+      "trigger": "Plausible historical parent multivariate moments"
+    },
+    {
+      "assessment": "States total R distribution and reshuffling context, not direct proof of target conditional X,Y reversal",
+      "evidence": "2003 Stata Journal fixed-composition shuffling reference.",
+      "identifier_or_url": "https://doi.org/10.1177/1536867X0300300304",
+      "material_read": "Abstract, model description and source comparison; full PDF not independently inspected in this run",
+      "method": "Web bibliographic and scholarly listing",
+      "title": "Do-it-yourself shuffling and the number of runs under randomness",
+      "trigger": "Classical fixed-composition count distribution"
+    }
+  ]
+}

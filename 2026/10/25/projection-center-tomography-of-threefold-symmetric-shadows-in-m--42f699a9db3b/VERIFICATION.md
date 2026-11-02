@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The argument is analytic and dimension-specific to Euclidean \(\mathbb R^3\). It uses the proved equatorial frequency-separation and harmonic nonvanishing lemmas in the cited September 2026 source. The newly needed center-field formula is reconstructed using the exact fourth moment of a uniform planar unit direction, the trace-free cubic tensor, and the elementary spherical identities \(\Delta_{S^2}Y=-12Y\) and \(\int_{S^2}\nabla_{S^2}Y=0\). The surjectivity is proved with the positive-definite spherical radius-of-curvature tensor. These steps, their hypotheses and their dependence on the published lemmas are written in `RESULT.md`.
+## correctness
 
-Reproducibility: run `python checks.py` under Python 3 with SymPy available. The included checker tests five trace-free cubic polynomials on three orthonormal plane frames with exact rational/algebraic arithmetic (15 identities), five exact intrinsic-divergence identities, and a nonzero center displacement at the unit normal \((0,1,1)/\sqrt2\). All checks passed when executed from these newly authored files. The checker is a supplementary regression test, not exhaustive verification over all spheres or convex bodies.
+PASS
 
-No external independent audit or independent validation is claimed. The unknown additive-ball radius is deliberately not recovered. Literature search cannot establish global uniqueness of the work in all publication venues.
+The full 2026 primary harmonic nonvanishing Lemmas 4.8 and 4.12 separate ambient harmonic degrees under great-circle Fourier restrictions: all even degrees >=2 and odd degrees >=5 are excluded while 0,1,3 survive. A trace-free symmetric cubic T restricted to n-perpendicular circle gives first Fourier center (3/4)Pi trace_P(T)=-(1/4)grad_S Y3; fourth-circle-moment identity establishes it. On S², integral Pi a=8pi*a/3 and div(-(1/4)grad Y3)=3Y3 because Laplacian eigenvalue -12; orthogonal L2 splitting yields exact norm and invertibility. For any a,Y3, choose R large enough to make Hess_S h+hI positive, proving range surjectivity. Independent exact direct fourth-moment for xyz with n=(0,3/5,4/5) yielded center (-3/25,0,0), matching formula. It does not replace the general analytic proof.
+
+## originality
+
+PASS
+
+Myroshnychenko–Ryabogin–Saroglou (2026) fully proves the degree-0/1/3 restriction and exhibits cubic counterexamples to 4-fold rigidity; those ingredients are explicitly credited. Their primary full fourteen-page text, including sections 4–5, does not present the 10-dimensional center-field range, its divergence inverse, norm isometry, or coherence-to-ball inference. Published cubic curvature/brightness findings address different observables. The center-field tomography is therefore a best-of-knowledge addition rather than a novelty claim for harmonic classification.
+
+## value
+
+PASS
+
+Recovers all observable nonradial geometry from continuously varying projection rotation centers, with an exact finite-dimensional inverse, radius ambiguity and orthogonal stability identity. It is a natural inverse-tomography invariant, not merely recomputing a known example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

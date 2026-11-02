@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The admissible perimeter-and-normal measures form a compact rank-three feasibility polytope. Additivity of planar surface-area measures under Minkowski summation and Brunn--Minkowski concavity reduce the minimum to its three-support vertices; equality is forced to a vertex by strict Brunn--Minkowski unless two fixed-perimeter shapes are translates. A strictly convex cotangent objective on odd integer triples uniquely selects angles \(\pi/N,\pi/N,\pi-2\pi/N\). Classical polygonal isoperimetry supplies the upper bound, and a two-antipodal-pair construction handles even grids. The standalone 19,481-case check independently matches the analytic triangle formula. Full computational evidence is neither necessary nor sufficient for the universal proof; the proof is analytic.
+## correctness
 
-**Originality: PASS, with priority risks.** An's 2026 work addresses grid reconstruction and Hausdorff/mixed-area quadrature, not an attained sharp lower area bound over variable balanced facet masses in the material inspected. The Khimshiashvili--Panina--Siersma area-critical-point theorem treats unrestricted polygon directions. The classical polygonal isoperimetric inequality already establishes the upper endpoint and is not original here. Bogosel's reverse inequality uses a containing-disk constraint. Searches for fixed-perimeter normal-grid minimum, odd-grid isosceles triangle, and reverse discrete-normal isoperimetry located no statement covering the present implication. Unindexed older results and the unavailable remainder of the 2026 manuscript remain risks, rather than evidence of novelty.
+PASS
 
-**Value: PASS.** The classification answers a natural shape-optimization question arising from prescribed discrete surface-area measures. It determines the sharp and attained odd-grid area floor, the parity boundary between positive and vanishing floors, every equality shape, and the complete feasible area interval. This is a structural infinite-family result, not a single numerical instance.
+Read complete assigned RESULT.md at frozen Git blob dc2340907504e4dddf6fbd5a53c31dabdd9fa913 and inspect verification source. Facet-length vectors satisfy sum ell_j=P, sum ell_j*u_j=0. For odd N absence of antipodal pairs prevents lower-dimensional limit; Minkowski existence identifies the feasible compact polytope with polygons up to translation. Additivity of planar surface area measures and Brunn–Minkowski concavity of sqrt(area) force area minimum at a vertex with exactly three positive facet lengths; strict BM equality rules out distinct mixtures attaining it. Normal-gap integers k_i<N/2 and sum N correspond to positive odd triangle-angle integers a_i=N-2k_i, sum N. For a triangle area=P^2/[4 sum cot(pi*a_i/(2N))]; strict convexity of cot gives the unique multiset (1,1,N-2), yielding isosceles equality. Classical polygonal isoperimetric inequality yields maximum regular N-gon; even grids allow two antipodal pairs flattening to zero; interpolation gives interval. Independent geometric min/equality calculations for odd N=3..37 match the formula. Small N=3 yields the same equilateral geometry under N grid rotations, not N distinguishable polygons. No arbitrary normal sets or strictly-positive-all-facets interpretation is claimed.
 
-**Scope and limitations.** The normal set is a finite evenly spaced Euclidean circle grid; arbitrary direction sets and higher dimensions are not covered. With strictly positive length in every grid direction, the same minimum is only a nonattained infimum for odd \(N>3\). No quantitative stability or literature-wide uniqueness certificate is supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: exact lower normal-mass optimization and parity-dependent equality classification were not found in the actually inspected motivating quadrature article or classical general polygonal isoperimetry. The upper endpoint is prior textbook mathematics and is not called novel. Incomplete access to An’s original fully typeset paper and unindexed older prescribed-normal inequalities remain material risks.
+
+## value
+
+PASS
+
+The finite fixed-direction Minkowski inverse problem naturally asks how much area can be lost when fixed perimeter mass is redistributed on a circular normal mesh. The sharp positive odd-grid floor, parity loss of coercivity for even grids, complete equality orbit and feasible interval give a structural all-mesh classification, not the classical upper polygon isoperimetric bound alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

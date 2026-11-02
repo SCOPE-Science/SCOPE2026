@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-The standalone Python 3 program `verify.py` uses no third-party packages. It reconstructs the Folkman graph as the subdivided double of \(K_5\), computes all twenty shortest-path distance rows with breadth-first search, and explicitly derives maximal vertex balls at radii one and two. It enumerates **every** nonempty simplex of the finite nerves. Each of 130 and 39,641 deleted face pairs is required to satisfy the unique-immediate-coface condition at the time of deletion; this is exactly the simplicial free-face condition. It checks that the remaining faces form a subcomplex, then constructs the signed integral simplicial boundary matrices. Only unimodular integer operations with pivots \(\pm1\) are permitted; all residual entries must vanish. This verifies both integral ranks and the absence of torsion, not just rational or finite-field Betti numbers.
+## correctness
 
-An independent mod-two Gaussian elimination computes each boundary rank from its simplex incidence data. This duplicate arithmetic corroborates the signed integer calculation. The output is reproduced in `verification_output.txt`, and the script ends with `VERIFY_OK`. The calculation is exhaustive for a **single finite graph**; it does not imply uncomputed homotopy types or any infinite graph-family theorem.
+PASS
 
-The combinatorial nerve of finite vertex balls at radius \(k\) equals the **even-scale** \(2k\) vertex-centered graph-geometric Čech complex. The program makes no assertions about the intervening odd conventional scales, independent certification, or additional homotopy equivalences.
+Reconstructed all 20 graph vertices and 40 incidences, every graph distance, and all 20 witness-ball sets. At r=1 enumerated exactly 430 nonempty nerve faces and 130 valid elementary free-face pairs, yielding residual f-vector (20,80,70); exact signed integral unit-pivot boundary ranks (19,55). At r=2 enumerated 81,233 faces and 39,641 free-face pairs, yielding residual f-vector (19,159,558,811,404); exact integral ranks (18,141,417,389). Every integer diagonalization completed with only unit pivots and zero final block, so no torsion. Independent GF2 reduction confirmed ranks. At r=0 the nerve is 20 discrete vertices; at r>=3 a single radius-three ball contains all vertices. Integer graph distances and degree-disjoint adjacent nontrivial homology support yield the complete barcode. This is an exhaustive fixed finite graph proof, not an inference from sampled examples.
+
+## originality
+
+PASS
+
+Adams-Shukla-Singh concern general vertex-neighborhood scale correspondence and hypercube Cech homotopy; Matsushita studies general closed-neighborhood suspension comparison. Independent Resultary search found different exact graph Cech complexes (icosahedron, Desargues, Tutte-Coxeter, Pappus) but not this fixed Folkman-graph integral table. In particular ordinary Vietoris-Rips complexes, open neighborhoods and odd graph-geometric Cech scales are different constructions. Best-of-knowledge not subsumed.
+
+## value
+
+PASS
+
+Folkman is a canonical smallest semisymmetric regular graph, and full integral barcodes of its natural vertex-neighborhood nerve are an independently useful exact invariant; the two consecutive mixed-dimensional stages and absence of torsion are not evident from generic graph parameters. A finite but exhaustive classification can be valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

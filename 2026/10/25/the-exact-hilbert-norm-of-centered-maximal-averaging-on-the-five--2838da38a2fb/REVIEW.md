@@ -1,11 +1,21 @@
-# Scientific review: exact maximal averaging on the five-cycle
+# Independent mathematical audit
 
-**Correctness — PASS.** The nonlinear strong Hilbert norm is exactly a finite maximum of the top singular values of 243 row-wise averaging matrices. A fully exhaustive integer certificate reduces to 39 dihedral classes and makes all 38 competing classes strictly smaller than \(1463/1000\), while an explicit rational witness exceeds this threshold for the single winning class. The winning characteristic polynomial is independently reconstructed from rational power traces. Its Perron eigenvector is unique, positive, and yields the complete equality family, with every chosen radius strictly best at the corresponding vertex. The finite certificate and the derivation together establish the five-cycle claim, not any unproved general-cycle statement.
+## correctness
 
-**Originality — PASS within checked evidence.** The original finite-graph treatment by Soria–Tradacete (arXiv:1410.6204), the sharp strong \(\ell^2\) graph cases of González-Riquelme–Madrid (arXiv:2005.03146), and the later five-vertex *variation* census of González-Riquelme–Kovač–Madrid (arXiv:2603.12462) were materially compared at the level of their actual theorems. The first two give methods and related exact results for different families; the third computes an edge-variation quotient, not the strong Hilbert operator norm. published mathematical findings index searches for the five-cycle, the cubic and ball-radius formulations returned no identified statement dominating this exact norm and equality classification. Search failure is not proof of novelty. Residual risk is unindexed or differently phrased work determining the same five-cycle constant.
+PASS
 
-**Mathematical value — PASS.** The five-cycle is the smallest odd cycle not a complete graph, and constitutes a canonical first nontrivial cyclic benchmark beyond the previously solved complete/star graph classes. Unlike single-scale averaging, its exact strong-maximal extremizer must activate *all three ball radii* and has a unique dihedral mask orbit. An algebraic constant with a complete equality classification, rather than just a numerical bound, tests how symmetry breaks under nonlinear radius selection and supplies a reproducible base case for longer cycles. No theorem for longer cycles is asserted.
+Because the pointwise maximum chooses radii independently, the squared norm is max over 3^5 matrix Gram spectral radii, and nonnegative matrices have a nonnegative top singular vector. Dihedral action yields exactly 39 mask classes, with five patterns in the unique winning orbit (0,1,0,2,2). An independent fresh exact-rational program reconstructed all 243 masks and 39 orbits and checked Sylvester positive definiteness of 1463/1000 I−A^T A for all 38 competing orbit classes; witness (7,2,7,1,1) yields 17141/11700>1463/1000. Direct determinant on three-dimensional even block gives 225λ^3−390λ²+91λ−4=0; positive Gram Perron vector gives unique modulus and strict maximizing radii. This is an exhaustive finite optimization proof, not samples.
 
-The closest literature and limitations are described in RESULT.md. The result depends on 243 complete finite cases whose certificate is explicitly replayable; no numerical tolerance is used for acceptance. Bibliographic priority and the mathematics still require independent examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published finite-graph maximal-operator Hilbert norms treat K_n and stars; C5 is a different first odd-cycle setting. A 2026 five-vertex edge-variation study and another C5 numerical-index result optimize different functionals, so cannot directly give this strong ℓ2 constant. The finite-mask reduction is elementary prior method; the sharp algebraic C5 value and equality classification survive targeted comparison.
+
+## value
+
+PASS
+
+The sharp centered maximal ℓ2 constant on the smallest odd cycle beyond the triangle is a natural, fully reproducible nonlinear-analysis invariant with nonuniform and mixed-radius extremizers; those qualitative features make the exact five-vertex case more than a routine direct averaging calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

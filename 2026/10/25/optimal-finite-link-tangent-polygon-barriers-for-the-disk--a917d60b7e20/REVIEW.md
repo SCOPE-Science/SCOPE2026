@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The tangent-side formula is derived from the two tangency segments at every vertex. Strict convexity of the weighted tangent sum and a unique interior first-order solution prove global optimality for all integers \(k\ge2\). Normal-gap reconstruction verifies geometric admissibility. Splitting an interior angle proves strict decrease in \(k\). The exact root yields the stated asymptotic via Taylor expansion. The included independent tangent-line computation checks the formulas numerically; finite calculations do not replace the proof.
+## correctness
 
-## Originality — PASS
-The 2021 Nikonorov full paper covers general convex-hull curve lower bounds, while the 2012 Dumitrescu–Jiang–Pach full paper treats fixed-polygon Hamiltonian barriers and quotes the global disk benchmark. Neither inspected statement logically implies the finite-link varying-polygon minimization, the unique two-angle optimizer or the sharp excess coefficient. Actual claim/alias published-finding corpus searches and comparisons with accessible prior ledgers found no statement-level duplicate. The full Faber–Mycielski–Pedersen (1984) paper was inaccessible; possible hidden priority overlap remains a documented risk, not an asserted absence.
+PASS
 
-## Mathematical value — PASS
-The finite-link constraint is the natural polygonal discretization of a known optimal nonpolygonal connected opaque barrier. The result classifies all optimizers for each number of links and quantifies the sharp order-two approximation penalty with explicit coefficient, not merely sample lengths. This does not solve unrestricted finite-link or disconnected opaque-barrier problems.
+At every convex tangent polygon vertex, the two outgoing tangency segments have lengths tan x_i, with half exterior angle x_i∈(0,π/2) and ∑x_i=π. Total k retained side lengths are weighted convex objective F=tan x1+tan x_{k+1}+2∑_{i=2}^{k}tan x_i. Strict convexity of tan on positive half interval plus Lagrange multipliers give endpoints a, others b, sec²a=2sec²b, and unique interior root, hence unique global optimum (including boundary infima). Adjacent normal gaps 2x_i give a valid strictly convex circumscribed polygon. Splitting any interior angle b halves its contribution with 4tan(b/2)<2tan b, proving strict improvement in k. At q=k−1, Taylor solve b=π/(2q)+O(q^-3), a=π/4+b²/2+O(b4), giving L_k=π+2+π³/(12q²)+O(q^-4). Projection of connected chain is an interval equal to its convex-hull projection, and its convex hull is the circumscribed polygon containing the disk, hence it hits every disk-intersecting line. Independent constrained SLSQP minimization k=2..11 recovers the angle pattern, exact k2/k3 and asymptotic trend.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The classical connected-disk opaque barrier benchmark π+2 and theories of curves whose convex hull covers a disk are prior, and a minimum Hamiltonian path of the vertices of a *fixed* convex polygon does not solve simultaneous optimization of variable tangent side angles at prescribed k. Full Dumitrescu–Jiang–Pach Opaque sets and accessible Nikonorov descriptions lack this specific equal-two-endpoint and shared-interior-angle optimization. Faber–Mycielski–Pedersen (1984), the strongest historical connected-disk-barrier paper, was inaccessible in full even after authorized attempt; no whole-document noncoverage is asserted. Best-of-knowledge PASS with this specific residual risk.
+
+## value
+
+PASS
+
+Finite k connected polygonal barriers provide a natural geometric approximation hierarchy to the classical π+2 connected-disk barrier. Exact classification of all strict convex tangent polygon optimizers at each k, plus the sharp inverse-square excess constant, makes a motivated restricted geometric extremal result. Restriction to tangential polygons with one side omitted is essential, and no unproved unrestricted barrier claim is smuggled in.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

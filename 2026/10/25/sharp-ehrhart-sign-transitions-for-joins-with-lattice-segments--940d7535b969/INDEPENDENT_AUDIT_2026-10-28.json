@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T10:39:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Disjoint integer-height slices contain (b j+1)L_P(t-j) lattice points, giving an exact convolution. Setting L_[0,a](k)=a k+1 yields n^3 coefficient ab/6, n^2 coefficient (a+b)/2, n coefficient (6+3a+3b-ab)/6; first negative iff (a-3)(b-3)>15. Put u=a-3,v=b-3, uv>=16 and AM–GM gives ab>=uv+3(u+v)+9>=49 with equality only at 7,7. For a polygon L_P=Ak²+B k/2+1, summation yields n^4=Ab/12, n^3=(4A+Bb)/12, n^2=((6-b)A+3B+6b)/12, n=(2A+(3-b)B+6b+12)/12. Pick 2A=2I+B-2 ensures positive n for b<=4, while n² positive through b<=6. For b=5 a negative n means B>2I+40 => 2A>=39, so normalized volume 2Ab>=195; triangle with B=41,I=0 attains. At b=7 the simultaneous quadratic and linear negativity conditions are contradictory; rectangle 37x4 with A=148,B=82 gives both negative at b=8 and for all larger integers. Independent symbolic summation/interpolation reproduced both formulas and witnesses; finite tests do not establish the unbounded proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The existing join paper exhibits failures involving dimensions at least four for its construction.",
+          "Smooth-polytope negativity results are general dimension examples, not constrained to joins of positive Ehrhart factors."
+        ],
+        "reasoning": "Broader existence results show negative coefficients can occur, but do not determine the sharp 3d join volume 49, 4d polygon–segment sign region, or existential b=8 two-negative boundary.",
+        "searches": [
+          "arXiv:2606.18794 Theorem 2.3, Example 2.4",
+          "arXiv:1704.05532 Theorem 1.2",
+          "arXiv:2610.06338 §3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.18794v1",
+        "arXiv:2610.06338v1",
+        "arXiv:1704.05532 Theorem 1.2",
+        "Pick's theorem",
+        "Resultary: Resultary semantic search: lattice join of two segments Ehrhart negative coefficient 49 polygon segment threshold 195"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known polynomial arithmetic yields formula but not sharp optimization under integer lengths and Pick parameters.",
+          "Prior smooth-polytopes can be Ehrhart negative without being joins of two individually positive factors."
+        ],
+        "reasoning": "The fully general join formula implies a calculational route to the displayed coefficients, which is credited. The precise thresholds (49, 195, 4 and 8) and equality cases are not already direct corollaries of a stated stronger quantitative theorem in inspected literature.",
+        "searches": [
+          "arXiv:2606.18794 Proposition 1.2",
+          "arXiv:1704.05532 and arXiv:2610.06338"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Join-series multiplicativity is equivalent to the height-layer convolution; Cartesian product with a segment is a distinct lattice operation.",
+          "The exact two-polynomial degree-three/four monomial coefficient formulas express ordinary Ehrhart positivity, not h*-positivity."
+        ],
+        "reasoning": "Checked equivalent join conventions, normalized volumes and coefficient signs. Known generating-function identities imply routine expansion, but sharp integer extremizers and global thresholds require comparisons over all possible factor data.",
+        "searches": [
+          "Resultary semantic search: lattice join of two segments Ehrhart negative coefficient 49 polygon segment threshold 195",
+          "arXiv:2606.18794 Proposition 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching comprehensive low-dimensional join extremizer table appeared among actual search results.",
+          "The supplied exact coefficients permit a finite threshold proof without relying on a black-box table."
+        ],
+        "reasoning": "A historical small-join table might already contain individual a=b=7 or b=5 examples, but no inspected source presents their complete sharp universality classification.",
+        "searches": [
+          "Resultary semantic search: lattice join of two segments Ehrhart negative coefficient 49 polygon segment threshold 195",
+          "arXiv:2606.18794 examples and join table",
+          "Resultary published-results keyword search for join segment Ehrenhart 49,195"
+        ]
+      },
+      "rationale": "Liu–Tao–Xin 2026 gives the generic join enumeration and an existence example, while Castillo–Liu–Nill–Paffenholz demonstrates negative Ehrhart coefficients in unrelated smooth classes. The sharp segment/segment and polygon/segment thresholds are separate from these prior works; exact formulas follow elementary specialization, so novelty rests on the complete sharp classification, not on generic convolution.",
+      "residual_risks": [
+        "Unindexed low-dimensional join examples or classical exact Ehrhart-volume enumerations could anticipate the sharp thresholds.",
+        "The statement minimum volume 195 is restricted to b=5, and b>=8 two-negative possibility is existential over polygons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms prior generic generating series, different higher-dimensional example; does not present the 49/195 sharp join subclass.",
+          "evidence": [
+            "Prop. 1.2; §2 Example 2.4."
+          ],
+          "identifier_or_url": "arXiv:2606.18794v1",
+          "material_read": "Full 25-page primary PDF accessed; Proposition 1.2 and Section 2 Theorem 2.3 and Example 2.4 read.",
+          "method": "arXiv original PDF and rendered PDF pages",
+          "title": "Ehrhart Theory of the Join of Two Lattice Polytopes",
+          "trigger": "Source of general join operation and positivity failure"
+        },
+        {
+          "assessment": "Operations survey does not identify the exact segment-length or minimal-volume thresholds.",
+          "evidence": [
+            "§3 join discussion."
+          ],
+          "identifier_or_url": "arXiv:2610.06338v1",
+          "material_read": "Full accessible primary HTML, relevant join/positivity section read.",
+          "method": "arXiv HTML full-text section",
+          "title": "Ehrhart Properties under Operations on Lattice Polytopes",
+          "trigger": "Potential general-dimensional domination"
+        },
+        {
+          "assessment": "The theorem concerns smooth arbitrary polytopes, not standard positive-factor joins; therefore does not directly cover these extremal constraints.",
+          "evidence": [
+            "Theorem 1.2 and abstract."
+          ],
+          "identifier_or_url": "arXiv:1704.05532",
+          "material_read": "Published mathematical result and theorem statement checked; full proof not required to compare operation type.",
+          "method": "Indexed arXiv theorem-level comparison",
+          "title": "Smooth Polytopes with Negative Ehrhart Coefficients",
+          "trigger": "Negative coefficients and minimum dimensions independent of joins"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The very smallest possible dimensions of standard joins of individually Ehrhart-positive factors give a naturally motivated sharp phase diagram: earliest dimension, minimum volume, universal safe segment-length cutoff and first two-sign-failure threshold. The exact inequalities classify an unbounded family without claiming all joins or all polytopes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2606.18794v1",
+    "arXiv:2610.06338v1",
+    "arXiv:1704.05532 Theorem 1.2",
+    "Pick's theorem",
+    "Resultary: Resultary semantic search: lattice join of two segments Ehrhart negative coefficient 49 polygon segment threshold 195"
+  ],
+  "disposition": "passed",
+  "final_claim": "Height-one joins of integer lattice segments of lengths a,b first produce negative Ehrhart coefficients in dimension 3 at minimal normalized volume 49 (a=b=7). For polygon P of area A, boundary B joined to a length-b segment, the exact quartic has only two potentially negative coefficients and is positive iff two stated linear inequalities hold; all polygons safe through b=4; at b=5 minimum failing normalized volume 195; two negative coefficients simultaneously first possible for some polygon at b=8.",
+  "limitations": [
+    "Unindexed low-dimensional join examples or classical exact Ehrhart-volume enumerations could anticipate the sharp thresholds.",
+    "The statement minimum volume 195 is restricted to b=5, and b>=8 two-negative possibility is existential over polygons."
+  ],
+  "residual_risks": [
+    "Unindexed low-dimensional join examples or classical exact Ehrhart-volume enumerations could anticipate the sharp thresholds.",
+    "The statement minimum volume 195 is restricted to b=5, and b>=8 two-negative possibility is existential over polygons."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Confirms prior generic generating series, different higher-dimensional example; does not present the 49/195 sharp join subclass.",
+      "evidence": [
+        "Prop. 1.2; §2 Example 2.4."
+      ],
+      "identifier_or_url": "arXiv:2606.18794v1",
+      "material_read": "Full 25-page primary PDF accessed; Proposition 1.2 and Section 2 Theorem 2.3 and Example 2.4 read.",
+      "method": "arXiv original PDF and rendered PDF pages",
+      "title": "Ehrhart Theory of the Join of Two Lattice Polytopes",
+      "trigger": "Source of general join operation and positivity failure"
+    },
+    {
+      "assessment": "Operations survey does not identify the exact segment-length or minimal-volume thresholds.",
+      "evidence": [
+        "§3 join discussion."
+      ],
+      "identifier_or_url": "arXiv:2610.06338v1",
+      "material_read": "Full accessible primary HTML, relevant join/positivity section read.",
+      "method": "arXiv HTML full-text section",
+      "title": "Ehrhart Properties under Operations on Lattice Polytopes",
+      "trigger": "Potential general-dimensional domination"
+    },
+    {
+      "assessment": "The theorem concerns smooth arbitrary polytopes, not standard positive-factor joins; therefore does not directly cover these extremal constraints.",
+      "evidence": [
+        "Theorem 1.2 and abstract."
+      ],
+      "identifier_or_url": "arXiv:1704.05532",
+      "material_read": "Published mathematical result and theorem statement checked; full proof not required to compare operation type.",
+      "method": "Indexed arXiv theorem-level comparison",
+      "title": "Smooth Polytopes with Negative Ehrhart Coefficients",
+      "trigger": "Negative coefficients and minimum dimensions independent of joins"
+    }
+  ]
+}

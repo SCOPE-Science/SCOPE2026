@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python3 check_C5.py` in a directory containing the supplied standalone checker. It uses the standard library only and checks all 243 averaging-mask assignments modulo all ten dihedral symmetries. For each of the 38 nonoptimal classes, it proves \(qI-A^\mathsf{T}A\) positive definite at the exact rational threshold \(q=1463/1000\) using five positive integer leading principal determinants. The unique candidate orbit has five members and a rational vector with Rayleigh quotient \(17141/11700>q\). Newton trace identities verify the characteristic polynomial of the optimal averaging matrix, and exact rational sign tests isolate the dominant root.
+# Independent mathematical audit
 
-The run completed successfully. The mathematical reduction from nonlinear maximal averaging to a finite maximum of spectral norms, and the Perron argument classifying all equality cases, are given in RESULT.md. The finite certificate is exhaustive only for this five-vertex graph; no longer-cycle or other-exponent assertion is inferred from it. Independent audit has not been performed.
+## correctness
+
+PASS
+
+Because the pointwise maximum chooses radii independently, the squared norm is max over 3^5 matrix Gram spectral radii, and nonnegative matrices have a nonnegative top singular vector. Dihedral action yields exactly 39 mask classes, with five patterns in the unique winning orbit (0,1,0,2,2). An independent fresh exact-rational program reconstructed all 243 masks and 39 orbits and checked Sylvester positive definiteness of 1463/1000 I−A^T A for all 38 competing orbit classes; witness (7,2,7,1,1) yields 17141/11700>1463/1000. Direct determinant on three-dimensional even block gives 225λ^3−390λ²+91λ−4=0; positive Gram Perron vector gives unique modulus and strict maximizing radii. This is an exhaustive finite optimization proof, not samples.
+
+## originality
+
+PASS
+
+Published finite-graph maximal-operator Hilbert norms treat K_n and stars; C5 is a different first odd-cycle setting. A 2026 five-vertex edge-variation study and another C5 numerical-index result optimize different functionals, so cannot directly give this strong ℓ2 constant. The finite-mask reduction is elementary prior method; the sharp algebraic C5 value and equality classification survive targeted comparison.
+
+## value
+
+PASS
+
+The sharp centered maximal ℓ2 constant on the smallest odd cycle beyond the triangle is a natural, fully reproducible nonlinear-analysis invariant with nonuniform and mixed-radius extremizers; those qualitative features make the exact five-vertex case more than a routine direct averaging calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

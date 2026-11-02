@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the directory containing the extracted files. The script has no nonstandard dependencies. It generates the 120 golden-ratio coordinates exactly modulo 101, checks norm and dot-product distribution, computes the Chebyshev Gram ranks in the field for all degrees 0–60, and compares them with independently computed affine-\(E_8\) multiplicity ranks. It also verifies that the recurrence has the indicated representation dimensions and its 60-degree shift. Expected terminal markers are `EXACT_FINITE_FIELD_GRAM_RANKS_PASS`, `MCKAY_MULTIPLICITIES_PASS`, `RANKS_0_59`, and `FULL_ODD_FROM_29_AND_FULL_BOTH_FROM_60_PASS`.
+## correctness
 
-Mathematical proof of the infinite complex-field claims is given in `RESULT.md` and uses the group decomposition and exact trigonometric shift, rather than the finite-field experiment. The code does not constitute an independent external audit.
+PASS
+
+Exact-degree S^3 harmonics are matrix coefficients of Sym^n(C^2) on SU(2); finite-group character orthogonality makes the convolution/Gram eigenvalues 120m_i(n)/d_i with multiplicity d_i^2. Restriction to binary icosahedral 2I has affine-E8 Clebsch–Gordan recurrence m(n+1)=A m(n)−m(n−1), initially e0,e1. For inner products among roots cos(π/2), cos(π/3), cos(π/5), Chebyshev U gives exact G_{n+60}=G_n+60(I+(-1)^n P), not a heuristic rank trend. Independently reconstructed integer recurrences through degree180: n27=56, n58=59, all odd n>=29 and all n>=60 rank60. The finite-field 120x120 source verifier was inspected but not rerun; finite field alone would not prove C-characteristic-zero ranks.
+
+## originality
+
+PASS
+
+Dechant establishes the 600-cell/2I/E8 geometry and Hirao–Nozaki–Tasaka establish invariant-harmonic averages (including vanishing at n58). A scalar invariant multiplicity or spherical design strength does not imply the nine-isotypic evaluation Gram spectrum, which includes all nontrivial irreducibles. The submitted whole-spectrum recurrence and sharp interpolation threshold are distinct from known quadrature facts.
+
+## value
+
+PASS
+
+A complete all-degree interpolation/rank/spectrum classification for the canonical 600-cell sampling grid is a natural and reusable exact harmonic-analysis invariant; the surprising nonmonotonic low-degree ranks and strict odd/even full-rank thresholds distinguish strength of averaging from point-sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

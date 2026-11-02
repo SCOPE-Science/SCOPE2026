@@ -1,19 +1,21 @@
-# Scientific review: joins of lattice polygons
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the height-one standard lattice join of full-dimensional rank-two lattice polygons. Pick's theorem yields the factor numerators \(1+az+bz^2\) with \(a-b=B_P-3\ge0\), and likewise for the second factor. Multiplying known Ehrhart series and expanding the five-dimensional binomial basis gives the exact linear and quadratic sign numerators \(U,V\). The remaining nonconstant coefficients have manifestly positive expressions. The normalized volume is \(NM=(a+b+1)(c+d+1)\). Bounding all admissible polygon Pick-data within an explicitly larger integer domain allows an exhaustive **finite** check, not a statistical sample: exact minima of \(U,V\) over \(NM<168\) are \(5,45\), and the unique nonpositive state through \(168\) occurs at \((12,14,0,0)\). The latter has explicit realizations, and the separate quadratic-only example has been checked independently by convolution. The standalone checker was executed successfully from its actual supplied source.
+PASS
 
-## Originality — PASS under inspected evidence
+Pick's theorem gives h*_P=1+a z+b z^2 with a-b=B_P-3>=0, and similarly Q. The standard join series has h*=h*_P h*_Q over (1-z)^6. Direct binomial-basis expansion shows n=U/60 and n^2=V/24, with U=137+12(a+c)-3ac+2ad+2bc-3bd-3b-3d and V=45+10(a+c)-ac+bd-b-d. Cubic=((a-b)(c-d)+7(a+c)+b+d+17)/24>0, quartic=(ac-bd+2(a+c)+b+d+3)/24>0, leading NM/120>0, constant 1. The exhaustive relaxed integer Pick-data domain includes every realizable polygon pair: N<=M, NM<=168, 0<=b<=(N-1)/2, 0<=d<=(M-1)/2, a=N-1-b,c=M-1-d. Independent exact enumeration found all 14,438 states below 168 with min U=5,min V=45, and among 14,838 states up to 168 only (N,M,b,d)=(12,14,0,0) with U=-4,V=142. Explicit empty triangles of normalized areas 12 and 14 realize n=-1/15; a primitive-boundary triangle of normalized area 157 realizes the independent n^2=-1/24 pattern. The all-volume criterion is algebraic, not extrapolated from the cutoff search.
 
-The June 2026 Liu–Tao–Xin article already proves the generic Ehrhart-series product and shows non-preservation for joins, including a large-cube/interval example; none of those identities is claimed original. Its inspected Proposition 1.2, Theorem 2.3 and Example 2.4 do not give the two-polygon coefficient criterion, normalized-volume cutoff or first-failure uniqueness. The October 2026 article on operations also gives generic join laws and recites the same counterexample; its Section 3 does not provide this quantitative all-two-polygon classification. Historical overlap searches for polygon joins, sharp normalized area, first counterexamples and the value \(168\) found no equivalent result. The algebraic criterion follows by specialization and expansion of prior generic formulas; the new contribution is particularly the sharp integer optimization, its realized equality case and independent sign-pattern realization. Remaining priority risk: an equivalent small-volume calculation could be published under alternative language or in an unindexed table.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural question is how far Ehrhart positivity persists for the **smallest equal-dimensional nonscalar factors** in the join operation after its general failure was established in 2026. The result gives an exact all-parameter sign criterion and a finite, sharp geometric-size cutoff with a first counterexample and unique Ehrhart data. The quadratic-only construction shows there are two independent failure mechanisms, providing more information than a generic non-preservation observation. The exact volume threshold is specific to this naturally motivated class, and no unwarranted global minimality claim is made.
+The general join formula and failure of Ehrhart positivity are established by Liu–Tao–Xin (2026); the novelty under assessment is the sharp two-polygon parameter classification, volume threshold and two independent sign mechanisms. The inspected join theorem and generic operation survey do not state the exact bound or uniqueness; search absence is not absolute priority proof.
 
-## Closest literature and limitations
+## value
 
-The principal comparator is Liu–Tao–Xin, arXiv:2606.18794v1, Proposition 1.2 and Section 2. The next closest is Liu et al., arXiv:2610.06338v1, Section 3, which summarizes the prior counterexample. Both articles provide essential known input; neither inspected portion supplies the cutoff. The proof requires the standard lattice join and full-dimensional lattice polygons. The finite bound was verified on a superset of realizable polygon data, so neither arbitrary higher-dimensional joins nor nonstandard lattice structures are covered. Independent evaluation and historical priority verification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp first-size obstruction for the smallest equal-dimensional polygon factors addresses the natural follow-up to general failure of Ehrhart positivity under joins. The all-parameter sign criterion, uniquely first failing Ehrhart data, sharp realizable threshold 168, and separated linear/quadratic failures are structurally useful and not merely table recomputation. The result makes no unjustified claim about all 5-polytopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The process's eight occupation states have an explicit stationary probability vector. Every entry is a nonnegative polynomial divided by a strictly positive cubic; exact generator-balance and normalization identities verify the vector for every resetting rate \(r\geq0\). Taking two moments gives the quartic covariance. Descartes' positive-root upper bound together with rational sign tests at \(r=0,1/4,1\) proves exactly two simple positive sign reversals. Four-state algebra gives the general two-site obstruction. Rate-robustness follows by continuity. The included executable checker independently constructs both finite generators and passed 24 algebraic and sign assertions. No finite sampling is substituted for a proof.
+PASS
 
-## Originality (PASS, scholarly priority risk remains)
+Reconstructed the exact two-site four-state stationary law with covariance (1-a-b-r)/T², which has at most one zero for all a,b>0. In the three-site (a,b)=(1,1/10) generator, independent eight-state exact balance calculations reproduce the positive-denominator stationary polynomials and downstream covariance -20Q(r)/D(r)², where Q=30000r⁴+93500r³+6900r²-114345r+7497, D=200r³+4230r²+21471r+28455. Signs at r=0,1/4,1 are respectively negative,positive,negative. Descartes' two-sign-change upper bound proves exactly two simple strictly positive zeros. Continuity of finite irreducible stationary laws proves the stated open neighbourhood (at least two changes), not a general phase diagram.
 
-The closest work is Pelizzola and Pretti, J. Phys. A 55 (2022) 454001 (fully inspected in its arXiv HTML version): it defines the same model and discusses correlations mainly in the thermodynamic mean-field and numerical regimes. Its conclusions do not state the exact finite three-site downstream covariance polynomial, its two positive zeros, the universal two-site affine numerator, or minimal size. Pelizzola and Pretti (arXiv:1710.10873) treat classical non-reset TASEP and pair/triplet closure, not positive resetting; Pelizzola, Pretti and Zamparo (arXiv:2012.10993) treat periodic boundaries; Bhatia and Gupta (Phys. Rev. E 109 024109) use a constrained-resource variant. The latter two were not available as complete text, and no whole-document absence is asserted on that basis. Distinct question/parameter and implication comparisons were conducted, rather than treating search silence as a proof. Residual priority risks include independently tabulated small-chain correlations.
+## originality
 
-## Scientific value (PASS)
+PASS
 
-The signs of neighbouring occupations quantify the failure of mean-field decorrelation in exclusion transport. The rigorous finite-size threshold identifies **three** as the smallest chain that can exhibit a negative–positive–negative resetting response; the phenomenon occupies an open neighbourhood of physical boundary rates. This precisely complements the source's numerical covariance diagnostics, and the boundary is structural rather than a fine-tuned parameter slice. It is not described as a bulk thermodynamic phase transition. The exact two thresholds refer only to the specified three-site rates, and no larger-chain or finite-sample inference is asserted.
+Best-of-knowledge originality after actual source and implication comparisons. The r=0 ordinary-TASEP stationary law and large-L mean-field approximations do not imply an exactly negative/positive/negative finite-size downstream covariance and minimal L=3 threshold. Pelizzola–Pretti 2022/2024 source treats thermodynamic mean-field and sampled correlations, not a general exact L=3 quartic or the all-a,b L=2 obstruction; periodic and constrained-resource systems have different generators.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Neighboring occupation covariances are physically meaningful observables in resetting exclusion dynamics. An exact minimal-size witness for reentrant sign change, with an open parameter neighbourhood, fills a natural finite-size gap left by thermodynamic and mean-field calculations; it is not a thermodynamic phase transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

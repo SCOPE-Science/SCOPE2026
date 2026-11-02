@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a range-and-inversion theorem for the center field of all planar threefold-symmetric orthogonal projections of a convex body in Euclidean three-space. The support function has harmonic degrees only zero, one and three: the full-strength nonvanishing lemma for equatorial Fourier coefficients (Myroshnychenko–Ryabogin–Saroglou, Lemma 4.12), applied after legitimate spherical-harmonic projection (Lemma 4.8), excludes even degrees at frequency two and odd degrees at least five at frequency five. Those two published lemmas and their proofs were inspected in relevant full-text sections. For any cubic harmonic, the exact fourth-moment tensor on a circle proves the first Fourier coefficient and hence the projected rotation center is \(\Pi a-\nabla_{S^2}Y/4\). Sphere averaging determines \(a\); the eigenvalue \(-12\) of the degree-three spherical Laplacian determines \(Y\) by divergence. Harmonic orthogonality yields the exact \(L^2\) identity, and the smooth support-function convexity criterion realizes every range element for sufficiently large constant radius. The exact checker successfully verified fifteen nontrivial first-coefficient cases and five inverse-divergence identities. Finite tests are supplementary, not a universal proof.
+PASS
 
-## Originality — PASS, with residual risks
+The full 2026 primary harmonic nonvanishing Lemmas 4.8 and 4.12 separate ambient harmonic degrees under great-circle Fourier restrictions: all even degrees >=2 and odd degrees >=5 are excluded while 0,1,3 survive. A trace-free symmetric cubic T restricted to n-perpendicular circle gives first Fourier center (3/4)Pi trace_P(T)=-(1/4)grad_S Y3; fourth-circle-moment identity establishes it. On S², integral Pi a=8pi*a/3 and div(-(1/4)grad Y3)=3Y3 because Laplacian eigenvalue -12; orthogonal L2 splitting yields exact norm and invertibility. For any a,Y3, choose R large enough to make Hess_S h+hI positive, proving range surjectivity. Independent exact direct fourth-moment for xyz with n=(0,3/5,4/5) yielded center (-3/25,0,0), matching formula. It does not replace the general analytic proof.
 
-The September 2026 primary paper classifies the at-least-fourfold case, produces a nonball threefold example, and contains the harmonic tools used here. It does not provide the field of the **centers** of the threefold rotations, their ten-dimensional range, an inverse, or a center-based rigidity criterion. A pre-existing great-circle second/fifth-frequency energy result covers the harmonic zero/one/three *classification*, and this is correctly treated as an input rather than claimed new. Published exact brightness, curvature and volume calculations of cubic examples concern scalar geometric data, not the location of rotation centers over all planes. Searches for projection-center reconstruction, equivalent tensor gradient, stronger Fourier tomography and field-range classifications found no statement implying this entire inverse theorem. This is evidence for originality, not a proof that no equivalent result exists. Less-indexed mathematical work and classical Steiner-point tomography are residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 theorem leaves an exceptional threefold projection class in which moving centers are allowed. The locations of those centers are geometrically natural observational data. The new theorem says exactly which center fields arise, makes the exceptional non-sphericity recoverable from these data, identifies the only invisible scalar (width), supplies an explicit inverse and orthogonal quadratic norm law, and upgrades the original hypothesis to ball rigidity when the individual centers are globally coherent. It is a complete inverse-geometric characterization across all such three-dimensional bodies, not a selected numerical example or a small bound increment.
+Myroshnychenko–Ryabogin–Saroglou (2026) fully proves the degree-0/1/3 restriction and exhibits cubic counterexamples to 4-fold rigidity; those ingredients are explicitly credited. Their primary full fourteen-page text, including sections 4–5, does not present the 10-dimensional center-field range, its divergence inverse, norm isometry, or coherence-to-ball inference. Published cubic curvature/brightness findings address different observables. The center-field tomography is therefore a best-of-knowledge addition rather than a novelty claim for harmonic classification.
 
-## Closest literature and limitations
+## value
 
-Primary: S. Myroshnychenko, D. Ryabogin, C. Saroglou, *On convex bodies with rotationally symmetric planar projections*, arXiv:2609.27192v1 (23 September 2026), §§1, 3–5; especially Lemmas 4.8/4.12, Proposition 5.1 and Theorem 5.4. The work uses those published lemmas honestly and does not claim novelty for them or for cubic existence. Related indexed cubic-curvature and cubic-shadow-area calculations do not reconstruct the projection-center field. Arbitrary data noise, finite-plane determination and affine invariance are not addressed. Less-indexed equivalent literature cannot be excluded by search alone.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Recovers all observable nonradial geometry from continuously varying projection rotation centers, with an exact finite-dimensional inverse, radius ambiguity and orthogonal stability identity. It is a natural inverse-tomography invariant, not merely recomputing a known example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

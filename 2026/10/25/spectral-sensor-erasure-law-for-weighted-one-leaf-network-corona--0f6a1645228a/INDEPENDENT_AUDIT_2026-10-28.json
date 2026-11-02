@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:44:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "C: Orthogonal spectral decomposition reduces the 2n Laplacian to the 2x2 symmetric block [[alpha+s,-s],[-s,s]] over each core E_alpha. Its lambda_-<s and lambda_+>=2s are strictly ordered, with disjoint lower/upper spectral ranges, so the PBH test can sum nullity across lifted eigenspaces with multiplicities unchanged. Lower output factor 1+beta rho_- is strictly positive; upper factor vanishes exactly at b_s(alpha), giving the exact rank formula and full-state criterion. For nonnegative gains β=1 kills the upper constant mode at alpha=0. At most one erasure among all pairwise distinct β_i, and connectedness with positive existing edge weight rules out an eigenvector supported on one vertex, proving universal all-modules recovery. Independent exact SymPy rank tests on three-path core s=2 gave ranks 5 for gains (1,1,1) and (2,2,2), rank 6 for (1/2,1/2,1/2) and (1,2,3). The statement excludes heterogeneous s and noisy conditioning.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hsu Theorem 3.5 transfers single-input controllability under composite-graph assumptions.",
+          "Parlangeli–Notarstefano study direct vertex observability for path and cycle networks."
+        ],
+        "reasoning": "These are broader or alternate graph classes with restricted point actuator/observer types; no checked theorem dominates the heterogeneous aggregate gain rank criterion.",
+        "searches": [
+          "arxiv:1808.03022",
+          "arxiv:1109.3556v1",
+          "weighted graph corona private leaf spectral sensor observability erasure Laplacian eigenvalues reconstruction"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1109.3556v1",
+        "https://arxiv.org/abs/1808.03022",
+        "https://imi.pmf.kg.ac.rs/kjm/pub/14040480672304_11_the_laplacian_spectrum_of_corona_of_two_graphs.pdf",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/spectral-sensor-erasure-law-for-weighted-one-leaf-network-corona--0f6a1645228a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corona spectral eigenvalue lifts λ_± and PBH criterion are known.",
+          "Resonance β=b_s(α) and exact restricted eigenspace ranks require analyzing the specified aggregate C on both lifted modes."
+        ],
+        "reasoning": "General PBH is a method, not an earlier evaluated sensor-erasure law. A prior strong theorem for arbitrary C could subsume the identity; specialized aggregate sensor work remains an acknowledged possibility.",
+        "searches": [
+          "arxiv:1808.03022",
+          "arxiv:1109.3556v1",
+          "Qun-Liu-KJM-38-2014-163-170"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A corona with each core connected to one leaf is a homogeneous two-cell composite graph.",
+          "Equivalent PBH row-rank test after lifted eigenvector restriction gives the exact rank formula."
+        ],
+        "reasoning": "Direct sensor observability and leader controllability are dual for symmetric matrices but require matching input/output operator. Prior direct-core sensors are not equivalent to gains u_i+beta_i v_i.",
+        "searches": [
+          "weighted graph corona private leaf spectral sensor observability erasure Laplacian eigenvalues reconstruction",
+          "arxiv:1109.3556v1",
+          "arxiv:1808.03022"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact 6-state ranks 5,5,6,6 test gain resonance and nonresonance.",
+          "The indexed scientific catalogue returned related spectral sensing but not an identical all-eigenvalue erasure table."
+        ],
+        "reasoning": "No known database values imply the formula for arbitrary weighted core with repeated α. These finite witnesses are independent consistency checks, not publication-priority evidence.",
+        "searches": [
+          "weighted graph corona private leaf spectral sensor observability erasure Laplacian eigenvalues reconstruction",
+          "arxiv:1109.3556v1"
+        ]
+      },
+      "rationale": "O: Classical PBH and corona spectral lifting are prerequisites; prior path/cycle point-state observability and composite-graph single-input controllability involve different measurement matrices. The core-dependent exact gain erasure rank identity (not merely a sufficient generic leader rule) is not stated in the inspected close literature. Other literature on local aggregate sensors and graph-corona spectral decompositions remains an identifiable specialty risk.",
+      "residual_risks": [
+        "Unindexed specialist results on local aggregate sensing of Laplacian coronas might imply the same rank identity.",
+        "The 2014 corona-spectrum primary PDF was not inspected in full; it is not claimed to be wholly noncovering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING local core-plus-leaf aggregate sensor operator in read results",
+          "evidence": "Vertex-state observation of uncoronated paths/cycles, not beta-dependent lifted eigenspace erasure.",
+          "identifier_or_url": "https://arxiv.org/html/1109.3556v1",
+          "material_read": "Accessible arXiv HTML primary mathematical text, including PBH formulation and specific path/cycle observability criteria.",
+          "method": "Open lawful arXiv full HTML",
+          "title": "On the Reachability and Observability of Path and Cycle Graphs",
+          "trigger": "closest direct-state spectral sensing theorem"
+        },
+        {
+          "assessment": "CLOSEST spectral lift but single-core-vertex input controllability, not measured core+leaf aggregate",
+          "evidence": "Theorem 3.5 asserts preservation of specific single-input Laplacian controllability, no variable beta gains or unobservable-dimensional sum.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.03022",
+          "material_read": "Complete accessible arXiv HTML mathematical paper; in particular Section 3.1 Theorems 3.4–3.5 and proof on eigenvectors.",
+          "method": "Open arXiv rendered HTML",
+          "title": "Laplacian Controllability of Interconnected Graphs",
+          "trigger": "more general composite graph might subsume a corona"
+        },
+        {
+          "assessment": "PREVIOUSLY_KNOWN spectral lifting; possible deeper results remain a residual risk",
+          "evidence": "Basic two-branch spectral formula alone does not quantify aggregate sensor row erasures.",
+          "identifier_or_url": "https://imi.pmf.kg.ac.rs/kjm/pub/14040480672304_11_the_laplacian_spectrum_of_corona_of_two_graphs.pdf",
+          "material_read": "Citation/bibliographic description and corona spectrum context; original PDF full text not read.",
+          "method": "Cited original bibliographic material from source and external search context",
+          "title": "The Laplacian spectrum of corona of two graphs",
+          "trigger": "spectral prerequisite for identical pendant graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "V: In network observability design the issue of resonance-induced loss despite measuring all modules is physically meaningful; the gain formula gives exact necessary and sufficient test and an all-graph sufficient heterogeneity rule. The correct count of unobservable *dimension* with repeated eigenspaces, not merely binary observable/unobservable, is a reusable structural result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/1109.3556v1",
+    "https://arxiv.org/abs/1808.03022",
+    "https://imi.pmf.kg.ac.rs/kjm/pub/14040480672304_11_the_laplacian_spectrum_of_corona_of_two_graphs.pdf",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/spectral-sensor-erasure-law-for-weighted-one-leaf-network-corona--0f6a1645228a"
+  ],
+  "disposition": "passed",
+  "final_claim": "For connected weighted undirected core Laplacian L and identical leaf conductance s>0, scalar module measurements u_i+beta_i v_i (beta_i>=0) have unobservable dimension sum_alpha (2m_alpha-r_alpha(S)-r_alpha(S_alpha)), where S_alpha deletes sensors with gain beta_i=(alpha+sqrt(alpha²+4s²))/(2s). Every module measured with pairwise distinct nonnegative gains guarantees observability for all such bases.",
+  "limitations": [
+    "Connected positive-weight undirected finite graph n>=2, homogeneous s>0 and beta_i>=0; no heterogeneous leaves or noisy observability guarantee."
+  ],
+  "residual_risks": [
+    "Unindexed specialist results on local aggregate sensing of Laplacian coronas might imply the same rank identity.",
+    "The 2014 corona-spectrum primary PDF was not inspected in full; it is not claimed to be wholly noncovering."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING local core-plus-leaf aggregate sensor operator in read results",
+      "evidence": "Vertex-state observation of uncoronated paths/cycles, not beta-dependent lifted eigenspace erasure.",
+      "identifier_or_url": "https://arxiv.org/html/1109.3556v1",
+      "material_read": "Accessible arXiv HTML primary mathematical text, including PBH formulation and specific path/cycle observability criteria.",
+      "method": "Open lawful arXiv full HTML",
+      "title": "On the Reachability and Observability of Path and Cycle Graphs",
+      "trigger": "closest direct-state spectral sensing theorem"
+    },
+    {
+      "assessment": "CLOSEST spectral lift but single-core-vertex input controllability, not measured core+leaf aggregate",
+      "evidence": "Theorem 3.5 asserts preservation of specific single-input Laplacian controllability, no variable beta gains or unobservable-dimensional sum.",
+      "identifier_or_url": "https://arxiv.org/abs/1808.03022",
+      "material_read": "Complete accessible arXiv HTML mathematical paper; in particular Section 3.1 Theorems 3.4–3.5 and proof on eigenvectors.",
+      "method": "Open arXiv rendered HTML",
+      "title": "Laplacian Controllability of Interconnected Graphs",
+      "trigger": "more general composite graph might subsume a corona"
+    },
+    {
+      "assessment": "PREVIOUSLY_KNOWN spectral lifting; possible deeper results remain a residual risk",
+      "evidence": "Basic two-branch spectral formula alone does not quantify aggregate sensor row erasures.",
+      "identifier_or_url": "https://imi.pmf.kg.ac.rs/kjm/pub/14040480672304_11_the_laplacian_spectrum_of_corona_of_two_graphs.pdf",
+      "material_read": "Citation/bibliographic description and corona spectrum context; original PDF full text not read.",
+      "method": "Cited original bibliographic material from source and external search context",
+      "title": "The Laplacian spectrum of corona of two graphs",
+      "trigger": "spectral prerequisite for identical pendant graph"
+    }
+  ]
+}

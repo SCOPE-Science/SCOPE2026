@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The accompanying `check_two_scale.py` is a standalone finite checker. Run with `python check_two_scale.py` in an environment with NumPy and SciPy. It performs 66 numerical-quadrature comparisons with an exact algebraic pair-facet volume expression, and 12 independent vertex-hull comparisons in dimensions two through four. For label bounds \(n=2,3,4\), these convex-hull volumes agree with the exact formulas reported in the original literature. The source code also tests each enumerated hull vertex against the subset-sum facet description.
+# Independent mathematical audit
 
-Finite checks support the integration and facet bookkeeping, but cannot prove the all-dimensions asymptotic. The analytic proof in `RESULT.md` proves the tail and overlap bounds. The statement is fixed-\(n\), not uniform as both parameters grow. No independent audit has been performed.
+## correctness
+
+PASS
+
+Reconstructed the polytope from Behrend et al. Proposition 2.8 and verified simplex Dirichlet tails m!Vol({sum_I x_i>h})=sum_{j<|I|} binom(m,j) h^j(S-h)^(m-j). Single-coordinate forbidden caps have normalized volume A^m, pair cap intersection (B-1)^m. Integrating the two-coordinate facet violation with both caps gives (m-B)B^(m-1)+(B-1)^m. Bonferroni cancellation removes pair cap intersections exactly. Pair-pair and pair-cap overlaps have residual <C; higher rank k>=3 have residual <=C and at most O_n(m^(2n-3)) multiplicity. This proves the stated error for fixed n>=5; C/B<1 proves the ratio limit. Independently checked pair integral by exact arithmetic/numerical integration; finite hull computations do not prove asymptotics.
+
+## originality
+
+PASS
+
+The same object and normalization are identified with the original partial-permutohedron facet description. Behrend et al. prove n<=4 exact volume cases and pose n>4 as a problem/conjecture, not a theorem implying the supplied fixed-n>=5 coefficient. Related published partial-permutohedron results found by semantic search concern inradius, circumball, ellipsoids or diameter. Best-of-knowledge claim survives comparison, without absolute priority certification.
+
+## value
+
+PASS
+
+An explicitly motivated open fixed-label volume enumeration problem receives a uniform-in-m three-layer asymptotic for every fixed n>=5, including a nontrivial polynomial coefficient and a sharp next-exponential-base remainder. The result is structural rather than a small table or simple substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

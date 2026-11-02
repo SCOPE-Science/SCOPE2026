@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T11:39:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read original RESULT.md blob 6930dad8ae8ef2628e0914bb7ede9576eedeb765 and verify.py. Rotation increments F_{k+1}−F_k=n x_k−b and direct position sum give mean ab/2. The covariance calculation gives V=b²(n²−1)/12 −sum_{i<j ones} (j−i)(n−j+i). Gap-domain strict concavity of pair penalty makes its minimizers gap-simplex vertices, exactly one block of ones, giving upper expression. For the lower side, F_k modulo n advances by a, so each block of N=n/d successive values consists of distinct residues and has variance at least d²(N²−1)/12; total-variance equality forces each d-spaced consecutive range repeated d times. Rotation increments convert this range condition into all cyclic substring-one counts within floor/ceil b*ell/n, equivalently circular balance; the mechanical Christoffel construction attains it. Independent fresh enumeration checked every nonconstant binary word of n=2..10 and both equality criteria without relying on saved VERIFY_OK. This is an all-n proof; code bounds are only tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vesti proves majorization bounds for base-2 numerical rotation orbit values, a distinct nonlinear weight vector.",
+          "The circular Parikh source gives mean ab/2, which leaves variance unrestricted."
+        ],
+        "reasoning": "Numeric orbit majorization is not known to dominate the scattered-01 second moment. A hidden implication in the uninspected Jenkinson paper remains possible, recorded as a risk.",
+        "searches": [
+          "arXiv:1501.00871 numerical orbit majorization",
+          "Jenkinson 2009 Balanced Words and Majorization",
+          "arXiv:2110.14858"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2110.14858 Theorem 4.11",
+        "arXiv:1501.00871",
+        "arXiv:2211.09417",
+        "Jenkinson 2009 DOI:10.1142/S179383090900035X bibliographic statement only",
+        "Resultary query: binary circular word scattered subword 01 Parikh matrix rotation variance balanced Christoffel block sharp bounds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The constant circular mean is a first-moment identity and does not imply the sharp second moment bounds.",
+          "Numeric orbit extremizers involve different weights and are not automatically extremizers of the variance of pair counts."
+        ],
+        "reasoning": "The actual second-moment pair-separation identity plus distinct-residue variance argument are extra steps absent from the compared known conclusions; known balance equivalence is credited.",
+        "searches": [
+          "arXiv:2110.14858 Thm 4.11",
+          "arXiv:1501.00871 §§1–2",
+          "arXiv:2211.09417 balanced structure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Counting scattered 01 over every positional rotation is a fixed binary circular Parikh matrix off-diagonal entry.",
+          "Christoffel-power circular balance characterizes equality, but this known characterization is not itself a variance theorem."
+        ],
+        "reasoning": "Compared precise second moment of scattered subsequence counts with circular Parikh entries and Christoffel extremizers; a matching equality-word title alone is not coverage.",
+        "searches": [
+          "binary circular word scattered subword 01 Parikh matrix rotation variance balanced Christoffel block sharp bounds",
+          "arXiv:2110.14858 Theorem 4.11",
+          "arXiv:2211.09417 Christoffel words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned nearby binary cyclic variance findings for deletion spheres and permutation statistics, not a table of scattered-01 rotation variance across fixed compositions.",
+          "Independent short-word exhaustive check recovers exact extreme bounds and equality but is not itself an originality source."
+        ],
+        "reasoning": "No covering exact invariant database was found; the absence is not decisive novelty evidence.",
+        "searches": [
+          "binary circular word scattered subword 01 Parikh matrix rotation variance balanced Christoffel block sharp bounds",
+          "Resultary semantic query binary circular scattered Parikh rotation variance exact minimum Christoffel"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Poovanandran–Simpson–Teh prove the first moment; Vesti/Jenkinson majorization concerns numeric rotation orbits; De Luca–Fici characterize balanced word structure. The exact scattered-pair variance identity and both equality sharpness results were not in those inspected statements. A general majorization theorem may have a latent transfer to this specific variance, and Jenkinson full text was not read.",
+      "residual_risks": [
+        "Jenkinson 2009 majorization full primary text not inspected; an abstract majorization result specialized to pair counts might subsume the extrema.",
+        "Unindexed circular Parikh variance or cyclic inversion-count literature could contain equivalent formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 4.11 supplies common mean ab/2, not the rotation variance extremes",
+          "evidence": [
+            "Theorem 4.11 and sections on circular Parikh matrix averages"
+          ],
+          "identifier_or_url": "arXiv:2110.14858",
+          "material_read": "Full accessible approximately 20-page primary PDF, including theorem 4.11 and surrounding derivation",
+          "method": "ArXiv PDF parsed and selected page rendered visually",
+          "title": "Counting Subwords in Circular Words and Their Parikh Matrices",
+          "trigger": "Same circular scattered 01 statistic and potential exact prior results"
+        },
+        {
+          "assessment": "Bounds numeric base-2 orbit majorization, not directly the scattered subword second moment",
+          "evidence": [
+            "Word numeric rotation majorization hypotheses and conclusions"
+          ],
+          "identifier_or_url": "arXiv:1501.00871",
+          "material_read": "Accessible theorem statements, introduction and numerical orbit observable",
+          "method": "ArXiv mathematical statement comparison",
+          "title": "The most unbalanced words 0^(q-p)1^p and majorization",
+          "trigger": "Same balanced and block extremizers under cyclic rotations"
+        },
+        {
+          "assessment": "Supplies equality vocabulary, not dispersion theorem",
+          "evidence": [
+            "Section 2 balanced/Christoffel definitions"
+          ],
+          "identifier_or_url": "arXiv:2211.09417",
+          "material_read": "Accessible balance and Christoffel-definition section",
+          "method": "ArXiv mathematical scope and definitions",
+          "title": "Some Results on Digital Segments and Balanced Words",
+          "trigger": "Christoffel equality classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The established circular Parikh mean loses all order information. A sharp second moment quantifies exactly how much circular order can change the observable, detects the canonical homogeneous and clustered necklaces, and exposes a gcd-sensitive finite-length lower obstruction. It is a natural informative invariant, not a mere relabeling of numerical rotation weights.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2110.14858 Theorem 4.11",
+    "arXiv:1501.00871",
+    "arXiv:2211.09417",
+    "Jenkinson 2009 DOI:10.1142/S179383090900035X bibliographic statement only",
+    "Resultary query: binary circular word scattered subword 01 Parikh matrix rotation variance balanced Christoffel block sharp bounds"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every binary word containing a>=1 zeros and b>=1 ones, all n=a+b positional rotations have scattered-01 count mean ab/2; population variance is between d²((n/d)²−1)/12 and ab(ab+2)/12, d=gcd(a,b), with equality exactly for circularly balanced/Christoffel-power necklaces and single-block necklaces respectively.",
+  "limitations": [
+    "The assessment is a best-of-knowledge review, not proof of absolute priority or external certification.",
+    "Original Git file blobs were identified by fetched source SHA and actual Git tree entries; not every complete raw blob stream was rehashed in a local byte-preserving download."
+  ],
+  "residual_risks": [
+    "Jenkinson 2009 majorization full primary text not inspected; an abstract majorization result specialized to pair counts might subsume the extrema.",
+    "Unindexed circular Parikh variance or cyclic inversion-count literature could contain equivalent formulas."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Theorem 4.11 supplies common mean ab/2, not the rotation variance extremes",
+      "evidence": [
+        "Theorem 4.11 and sections on circular Parikh matrix averages"
+      ],
+      "identifier_or_url": "arXiv:2110.14858",
+      "material_read": "Full accessible approximately 20-page primary PDF, including theorem 4.11 and surrounding derivation",
+      "method": "ArXiv PDF parsed and selected page rendered visually",
+      "title": "Counting Subwords in Circular Words and Their Parikh Matrices",
+      "trigger": "Same circular scattered 01 statistic and potential exact prior results"
+    },
+    {
+      "assessment": "Bounds numeric base-2 orbit majorization, not directly the scattered subword second moment",
+      "evidence": [
+        "Word numeric rotation majorization hypotheses and conclusions"
+      ],
+      "identifier_or_url": "arXiv:1501.00871",
+      "material_read": "Accessible theorem statements, introduction and numerical orbit observable",
+      "method": "ArXiv mathematical statement comparison",
+      "title": "The most unbalanced words 0^(q-p)1^p and majorization",
+      "trigger": "Same balanced and block extremizers under cyclic rotations"
+    },
+    {
+      "assessment": "Supplies equality vocabulary, not dispersion theorem",
+      "evidence": [
+        "Section 2 balanced/Christoffel definitions"
+      ],
+      "identifier_or_url": "arXiv:2211.09417",
+      "material_read": "Accessible balance and Christoffel-definition section",
+      "method": "ArXiv mathematical scope and definitions",
+      "title": "Some Results on Digital Segments and Balanced Words",
+      "trigger": "Christoffel equality classification"
+    }
+  ]
+}

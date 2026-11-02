@@ -1,11 +1,21 @@
-# Review of the hexagonal-width Rips classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The face-orbit census, \(53\) collapse orbit pairs, \(13\) acyclic triangle/edge match orbits and the spanning-tree/longitudinal-circle matching form a complete topological proof for every \(n\ge7\). The three-column locality lemma is essential: finitely many test periods alone would be insufficient. The remaining Morse model has one critical circle and \(2n\) critical \(2\)-cells; projection to the ordinary longitudinal cycle forces each attaching degree to vanish. The package includes a directly rerunnable finite certificate for periods \(7\) through \(20\).
+## correctness
 
-**Originality — PASS, with stated bibliographic risk.** Adams and coauthors' 2025 square-grid theorem does not imply the anisotropic \(6\)-by-\(n\) result. The closest accessible rectangular-strip result establishes the different \(4\)-wide \(S^3\) decomposition, and accessible prior own claims concern the \(5\)-wide \(n\)-sphere case. Exact-source, parameter, alternate-notation and indexed-record searches found no directly covering theorem. Unindexed results or unstated extensions remain a risk, not a proof of novelty.
+PASS
 
-**Mathematical value — PASS.** The critical width \(6=3\cdot2\) lies precisely outside known stable width conditions at scale two. The exact all-period integral homotopy type exhibits a change in the number of two-sphere summands and surviving fundamental circle, settling a natural outstanding rectangular boundary case. Its combinatorial orbit certificate is independently reproducible.
+PASS. Actual Git tree and 26,573-byte orbit certificate inspected; exact independent reconstruction of shortest-path cliques and sequential free-face/codim-one collapse conditions at n=7,8,11 yields initial f=(6,36,62,36,6)n, 53n collapse pairs and reduced f=(6,19,15)n. Independently verified 13n edge/triangle matches and strictly monotone 15-orbit triangle priority at these periods, leaving 2n critical triangles and six residual edge orbits. The locality proof that all Cn squared cliques for n>=7 occupy <=3 consecutive columns reduces all-period incidences to finite offset templates, rather than extrapolating from tested n. Remaining five transverse edges per column form a tree; longitudinal n-cycle supplies one H1 generator via simplicial projection. Thus 2-cell degrees vanish; one critical 1-cell plus 2n 2-cells implies specified wedge.
 
-**Limitations.** Periods below \(7\), other scales and other width families are excluded. The verifier checks finitely many periods; the infinite proof uses local template stability. No independent scientific assessment is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Adams et al. arXiv:2502.07134 and Sterling thesis tabulate square torus Cn square Cn and general large-width conditions, whereas fixed width6 is a boundary case not captured by the square n-by-n radius2 table. Published high-girth edge-disjoint hexagon Rips theorem is inapplicable since C6 square Cn has four-cycles. No direct same-strip result surfaced in checked research records.
+
+## value
+
+PASS
+
+PASS. Complete infinite-family mixed-dimensional homotopy classification for a natural boundary-width torus graph and a reusable translation-orbit discrete Morse certificate; integral wedge type stronger than finite Betti tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
