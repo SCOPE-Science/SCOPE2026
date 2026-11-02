@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a matroid, a shattered coordinate set is independent in both the matroid and its dual; the two extremal labels give necessity, and extending a chosen independent subpattern within a complementary full-rank basis gives sufficiency. Edmonds’ published matroid-intersection formula provides a rank minimum. Splitting its minimizers according to whether a queried element belongs to the minimizer yields the identity that the lower of the two minor dimensions is exactly one less. An induction on the matroid ground set proves the adaptive upper bound, and ordinary fixed-set shattering supplies the lower bound. The argument includes loops, coloops, and rank-zero/empty cases. The attached verifier checked all 498 labeled matroids through five elements and 336 additional seeded binary-representable matroids, with four independent calculations and the exact minor splits. Computation corroborates rather than proves the unrestricted theorem.
+## correctness
 
-## Originality — PASS with residual priority risk
-The nearest available primary sources are Chakrabarty et al. (2019), which proves matroid-intersection algorithms and states Edmonds' min–max theorem; Merino et al. (2022), which enumerates bases via exchanges; Guingona et al. (2021), which proves an equality of VC and Littlestone dimensions for linear zero-set classes; and Chase et al. (2023), which establishes general Littlestone-dimension properties for query learning and compression. None of the inspected mathematical statements identifies all matroid-basis indicator classes, reduces their online dimension to a primal/dual common-independent-set optimization, or proves the every-coordinate minor split. Rank-minimum and online-shattering search variations did not identify an equivalent result in the accessible research records. The classical matroid-intersection theorem is prior work, not part of the originality claim. Full historical priority, including unindexed results using different terminology, cannot be guaranteed.
+PASS
 
-## Mathematical value — PASS
-The result shows that adaptivity never increases shattering depth for the natural and extensive family of all matroid basis-incidence classes, although generic concept classes can have strictly larger Littlestone dimension than VC dimension. The quantitative answer applies without representability, connectivity or simplicity assumptions, has an exact rank formula, and makes the optimal realizable online mistake bound computable by standard polynomial-time matroid intersection rather than by listing potentially exponentially many bases. Its graphic specialization gives a concrete forest-removal invariant for learning unknown spanning trees. These consequences require a structural interaction between matroid duality, minors and online shattering, not merely a finite enumeration.
+Static coordinate shattering iff F is independent in M and its dual: all-ones and all-zeros give necessity; given basis B0 disjoint F and independent subpattern I, augmentation extends I inside B0∪I to a full basis, realizing exactly I. Edmonds matroid intersection theorem gives ν(M)=m-R+min_A φ(A), φ=2r(A)-|A|. For e neither loop nor coloop, applying dual rank to M\e and M/e separately gives ν_del=m-R-1+min_{A:e∉A}φ(A) and ν_contr=m-R-1+min_{A:e∈A}φ(A). Their minimum is exactly ν(M)-1, since domains partition 2^E. Induction on the first query bounds Littlestone depth by ν; fixed VC-shattered F gives lower bound, hence equality including all edge cases. Graphic dual independence equivalent to G\F connected. Independent direct version-space recursion matched VC and Ldim for uniform and partition matroids of size up to seven; no extrapolation from finite tests is used.
 
-## Limits and closest evidence
-The proof uses an existing matroid-intersection theorem and makes no claim that theorem itself is new. The finite verifier is supplementary. The theorem is restricted to deterministic realizable single-element membership queries on finite matroid bases. Comparisons were made by mathematical implications rather than title matches; no independent external audit has yet been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Matroid intersection min-max and general Ldim branching are classical; the proposed connection is that all basis-incidence concept classes, even nonrepresentable, have equality of static and adaptive shattering, and a stronger exactly-one-decrement minor dichotomy. Compared general learning and matroid-basis enumeration works do not state this in inspected passages. Priority risk remains for unindexed general theorem about greedoids or matroid concept classes.
+
+## value
+
+PASS
+
+A natural rich class of concepts where adaptivity unexpectedly cannot increase shattering complexity, with an exact primal/dual rank minimization and polynomial oracle algorithm for optimum online mistake bound. Graphic specialization yields a meaningful forest-with-connected-complement invariant rather than a one-off example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
