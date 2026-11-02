@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` with the standard Python 3 library. No network, external data, or packages are used.
+## correctness
 
-The script reconstructs the 24 elementary triangles in the side-two regular triangular-lattice hexagon and its 30-edge dual, enumerates exactly 20 perfect matchings by recursively pairing the least unmatched triangle with every available neighbor, then builds the full simplicial complex as their downward closure (66,370 faces, counting the empty face).
+PASS
 
-An explicit 30-stage toggle matching pairs 66,368 faces into 33,184 covering pairs and leaves two dimension-three faces. The script constructs all directed Hasse cover relations with matching edges reversed and completes a topological sort over all 66,370 faces. This is a finite acyclicity certificate. The discrete-Morse theorem then supplies the homotopy argument stated in RESULT.md.
+The side-two hexagonal triangular-lattice region has exactly 24 triangular cells and a dual honeycomb graph with 30 edges. Recursive selection of the least unmatched cell enumerates all 20 perfect matchings; their full downward closure has 66,370 faces including the empty face. Independently reconstructed the exact graph, matchings and every face, built a 33,184-pair acyclic discrete-Morse matching, and topologically sorted all 66,370 directed Hasse cells after reversing matched edges; precisely two critical 3-cells remain, so H~3=Z² only (indeed S3 wedge S3). For all 12 geometric D6 elements, independently counted invariant oriented faces and orbit-parity reduced Lefschetz sums, yielding rotation traces (2,0,2,0,2,0), reflection traces (0,−2,0,−2,0,−2). Hopf trace and the 2-dim rational character table give lambda(r)=1,lambda(s)=−1 and mu(r)=−1,mu(s)=1; invariant ranks follow from averaging rational characters after barycentric subdivision. This exhaustive finite computation proves the exact stated finite complex, not a larger-family assertion.
 
-For each of the 12 dihedral elements, the script verifies the edge permutation induced by the triangular lattice transformation. It computes the reduced Lefschetz character by parity of selected vertex orbits and independently computes the full signed augmented chain trace using inversions of the induced orientations on every invariant simplex, including the empty face. Both exact integer calculations agree in every case. The resulting traces are \((2,0,2,0,2,0)\) for rotations and \((0,-2,0,-2,0,-2)\) for reflected rotations.
+## originality
 
-The checks enumerate every face of this precisely specified finite complex, so they are exhaustive for this object. They do not certify publication priority, prove anything for larger honeycombs, supply integral \(\mathbb Z[D_6]\)-module structure, or constitute independent validation.
+PASS
+
+Best-of-knowledge: the 2023 Bayer–Jelić Milutinović–Vega paper already proves the nonequivariant S3∨S3 homotopy type for this exact H2×2×2 perfect-matching complex. The surviving result determines its natural complete D6 homology character and reflection-axis asymmetry; nonequivariant wedge type does not determine this representation. Kuperberg enumerates symmetry classes of plane partitions/lozenge tilings, which correspond to facets, not alternating signed counts over the entire simplicial face poset.
+
+## value
+
+PASS
+
+The side-two honeycomb is a canonical first nontrivial hexagonal perfect-matching complex with rank-two homology, and its full dihedral action is a natural finite representation invariant. The exact reflection-conjugacy distinction and rational quotient homology classify symmetry information not contained in the known S3∨S3 result, with a complete reproducible acyclic Hasse certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

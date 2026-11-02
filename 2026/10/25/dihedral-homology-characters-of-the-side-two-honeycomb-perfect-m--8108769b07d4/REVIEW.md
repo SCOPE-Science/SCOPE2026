@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is fully specified by exact triangular-lattice inequalities. A complete 20-perfect-matching recursion constructs every one of 66,370 faces. An explicit 33,184-pair Morse matching has exactly two unmatched three-simplices, and the entire signed directed Hasse graph was checked acyclic by topological sort, verifying the known integral wedge type independently. Each of twelve group actions was checked as an exact permutation; its augmented chain trace was calculated both by simplex-orientation signs and by selected orbit parity. The Hopf trace formula applies because the only reduced homology is integral rank two in degree three. The rational character decomposition follows from two explicit one-dimensional characters; no numerical interpolation is used.
+## correctness
 
-## Originality — PASS, qualified
-The accessible full 2022 preprint of Bayer, Jelić Milutinović and Vega establishes exactly the nonequivariant wedge-of-two-three-spheres result, not the twelve-value dihedral homology character. Kuperberg enumerates symmetric complete tilings and therefore does not directly provide alternating traces over every submatching face. Relevant comparisons and alias searches were conducted, including a mathematical-research index and primary web sources; no identified result implies this complete character. This does not certify universal priority: an unindexed or differently phrased equivariant calculation may exist, and Kuperberg's complete paper was not fully inspected.
+PASS
 
-## Value — PASS
-The exceptional regular side-two honeycomb is a singled-out noncontractible case in the published honeycomb perfect-matching-complex classification. The symmetry representation of its two-dimensional top homology is a natural missing invariant. The complete dihedral character distinguishes the geometric classes of reflections, shows rotation acts through a quotient of order two on homology, and calculates rational quotient homology that the ordinary wedge homotopy classification cannot determine. This is an exact structural finite classification rather than a parameter-renaming or a slight numerical refinement.
+The side-two hexagonal triangular-lattice region has exactly 24 triangular cells and a dual honeycomb graph with 30 edges. Recursive selection of the least unmatched cell enumerates all 20 perfect matchings; their full downward closure has 66,370 faces including the empty face. Independently reconstructed the exact graph, matchings and every face, built a 33,184-pair acyclic discrete-Morse matching, and topologically sorted all 66,370 directed Hasse cells after reversing matched edges; precisely two critical 3-cells remain, so H~3=Z² only (indeed S3 wedge S3). For all 12 geometric D6 elements, independently counted invariant oriented faces and orbit-parity reduced Lefschetz sums, yielding rotation traces (2,0,2,0,2,0), reflection traces (0,−2,0,−2,0,−2). Hopf trace and the 2-dim rational character table give lambda(r)=1,lambda(s)=−1 and mu(r)=−1,mu(s)=1; invariant ranks follow from averaging rational characters after barycentric subdivision. This exhaustive finite computation proves the exact stated finite complex, not a larger-family assertion.
 
-## Scope and residual risks
-No integral group-ring module classification, quotient homotopy identification, or formula for larger side lengths is asserted. The homotopy type itself is prior work. Priority may be affected by unindexed equivariant methods, even though targeted searches did not reveal such a result. The supporting checker is exact and exhaustive for the stated finite graph, not a proof of any infinite-family statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the 2023 Bayer–Jelić Milutinović–Vega paper already proves the nonequivariant S3∨S3 homotopy type for this exact H2×2×2 perfect-matching complex. The surviving result determines its natural complete D6 homology character and reflection-axis asymmetry; nonequivariant wedge type does not determine this representation. Kuperberg enumerates symmetry classes of plane partitions/lozenge tilings, which correspond to facets, not alternating signed counts over the entire simplicial face poset.
+
+## value
+
+PASS
+
+The side-two honeycomb is a canonical first nontrivial hexagonal perfect-matching complex with rank-two homology, and its full dihedral action is a natural finite representation invariant. The exact reflection-conjugacy distinction and rational quotient homology classify symmetry information not contained in the known S3∨S3 result, with a complete reproducible acyclic Hasse certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
