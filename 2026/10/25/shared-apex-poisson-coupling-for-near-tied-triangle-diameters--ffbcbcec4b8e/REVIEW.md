@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The geometry has exactly two potentially diametral sides, meeting at the common apex; the base is uniformly shorter because \(0<\gamma<\pi/3\). First-order projections of Poisson-scaled points give the pair-deficit minimum. The apex intensity in edge-ray coordinates is exactly 2, the two near-endpoint intensities give \(\lambda=(1-\cos\gamma)^{-1}\), and the two-ray intersection-area formula gives the stated \(Q_c\). The derivation handles all fixed \(\delta\ge0\), edge and interval boundaries, and uses compactness/tightness for localization. Finite exact rational geometry and numerical simulation agree; simulation is not substituted for the infinite proof.
+PASS
 
-## Originality — PASS, with priority limitations
+For uniform n-point samples in triangles with AB=1, AC=1-δ/√n, apex angle γ in (0,π/3), the base is strictly shorter in the limit; all pairs with O(n^-1/2) diameter deficit localize at AB or AC. Rescaled corner point clouds are independent Poisson processes at disjoint vertices; at A one Poisson process of intensity 2 in ray coordinates (r,q) simultaneously minimizes r+cq and cr+q, c=cos γ. The two independent endpoint noises have survival exp(-λu²), λ=1/(1-c), while apex joint survival is exp[-Q_c(s,t)] with three quadratic branches s²/c if t≤cs, t²/c if s≤ct, and [(s²+t²)/c-2st]/(1-c²) otherwise. Linearization O(1/n), tightness and continuous mapping yield the min{A_B+U_B,δ+A_C+U_C} limit. Conditioning and integrating yields the displayed four-term exact limiting survival, strict positive dependence at δ=0, and exact one-side crossover for δ≥z. Independently clipped the two rational Poisson threshold triangles for 675 distinct (c,s,t) combinations; union areas equal Q_c/2 exactly, confirming branch normalization but not substituting for the Poisson weak-convergence proof.
 
-Lao (2010) explicitly separates independent diameter-pair neighborhoods of even regular polygons and edge-sampled odd polygons. Schrempp (2015) and the earlier Appel (2002) conditions documented there require a single maximal axis; the present isosceles limit has two axes meeting at an apex. published-record comparisons for shared-endpoint/near-tie polygon diameter laws produced no equivalent claim; closest entries concern different observables. Direct full text of Appel (2002) remained inaccessible, so historical-priority uncertainty persists. The result is not claimed to be independently certified as unpublished.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Shared endpoints invalidate the independent-Weibull decomposition for multiple diameter pairs. The theorem computes the exact dependent joint law and describes a naturally critical perturbation where the competing diametral lengths differ at exactly the same order as the sample extreme deficit, \(n^{-1/2}\). Strict dependence and the one-side threshold make the phenomenon measurable and structurally distinct from a formula substitution.
+Wei Lao (2010) Theorem 6.8 covers interior-uniform points of even regular polygons with disjoint antipodal diameter endpoint neighborhoods and independent Weibull contributions. Its odd-polygon overlapping endpoint analysis addresses boundary/edge samples, not area-uniform points of triangles. Schrempp (2015) restricts to a unique major axis and locally curved boundary, while the submitted family has two tied or near-tied major axes meeting at an apex and corners. Appel–Najim–Russo (2002) plausible primary remained inaccessible: arXiv and lawful OA did not yield its complete text, and authorized Oxford retrieval reported disconnected VPN; only abstract/later descriptions were read. This access risk alone does not contradict the distinct two-axis geometry. Best-of-knowledge PASS, not priority guarantee.
 
-## Limitations
+## value
 
-Fixed angle and splitting parameter only; no arbitrary-polygon classification or convergence-rate bound. The 2002 original paper could not be fully inspected, creating a historical-priority risk. The original proof is analytical and the numerical checker is supplemental.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A shared apex couples two apparently competing Weibull extreme distances; the joint void exponent and strict dependent limit identify a natural geometrically forced failure of independence. The critical side-length split δ/√n is the unique scale comparable to extreme deficits and yields a complete crossover distribution. This addresses a real stochastic-geometric boundary between single- and multiple-diameter endpoint laws rather than a routine one-axis substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

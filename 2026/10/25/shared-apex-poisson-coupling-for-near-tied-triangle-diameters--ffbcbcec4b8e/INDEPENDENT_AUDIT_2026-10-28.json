@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T11:01:03.846445Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform n-point samples in triangles with AB=1, AC=1-δ/√n, apex angle γ in (0,π/3), the base is strictly shorter in the limit; all pairs with O(n^-1/2) diameter deficit localize at AB or AC. Rescaled corner point clouds are independent Poisson processes at disjoint vertices; at A one Poisson process of intensity 2 in ray coordinates (r,q) simultaneously minimizes r+cq and cr+q, c=cos γ. The two independent endpoint noises have survival exp(-λu²), λ=1/(1-c), while apex joint survival is exp[-Q_c(s,t)] with three quadratic branches s²/c if t≤cs, t²/c if s≤ct, and [(s²+t²)/c-2st]/(1-c²) otherwise. Linearization O(1/n), tightness and continuous mapping yield the min{A_B+U_B,δ+A_C+U_C} limit. Conditioning and integrating yields the displayed four-term exact limiting survival, strict positive dependence at δ=0, and exact one-side crossover for δ≥z. Independently clipped the two rational Poisson threshold triangles for 675 distinct (c,s,t) combinations; union areas equal Q_c/2 exactly, confirming branch normalization but not substituting for the Poisson weak-convergence proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lao Theorem 6.8 applies to even regular polygons with disjoint diametral endpoints; Schrempp model has unique major axis and smooth curved local boundary. Appel–Najim–Russo full text unavailable, so not asserted NOT_COVERING from its abstract."
+        ],
+        "reasoning": "Neither accessible stronger statement matches two longest sides with a common endpoint and an O(n^-1/2) triangular-array near tie. The uninspected 2002 primary is retained as residual risk rather than a fabricated exclusion.",
+        "searches": [
+          "doi:10.5445/KSP/1000019800, Chapter 6.4 Theorem 6.8",
+          "arXiv:1505.01597",
+          "doi:10.1239/aap/1019160946"
+        ]
+      },
+      "checked_sources": [
+        "https://publikationen.bibliothek.kit.edu/1000019800/105664897",
+        "https://arxiv.org/abs/1505.01597",
+        "https://doi.org/10.1239/aap/1019160946",
+        "Resultary: random triangle points maximum distance tied longest sides common apex Poisson scaling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For δ=0, Q_c(s,t)<s²/c+t²/c for any s,t>0, making P(Z0>z)>H_c(z)^2; this directly contradicts independently factored endpoint models."
+        ],
+        "reasoning": "The prior limits rely on a unique major axis or disjoint diametral pairs; those geometric hypotheses fail in the two-side tied triangle and do not imply the dependent two-axis joint law.",
+        "searches": [
+          "doi:10.5445/KSP/1000019800, Chapters 5,6",
+          "arXiv:1505.01597",
+          "doi:10.1239/aap/1019160946"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two projections from the same apex Poisson point process have joint survivor exp(-Q_c), strictly not a product; independent-apex even-gon laws cannot imply this at δ=0."
+        ],
+        "reasoning": "The limiting geometry could be formulated as a shared-corner Poisson minimum or a two-axis diameter extreme-value law. Checked literature does not establish this evaluated joint and near-tie parameter law.",
+        "searches": [
+          "Resultary: random triangle points maximum distance tied longest sides common apex Poisson scaling",
+          "doi:10.5445/KSP/1000019800",
+          "arXiv:1505.01597",
+          "doi:10.1239/aap/1019160946"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact piecewise Q_c and four-term integral survival contain the two-projection overlap term, absent in the checked independent endpoint formulas."
+        ],
+        "reasoning": "Index searches returned related triangle circumradius/short-distance laws but no exact same diameter shared-apex crossover table; that search absence is not taken as novelty proof.",
+        "searches": [
+          "Resultary: random triangle points maximum distance tied longest sides common apex Poisson scaling",
+          "doi:10.5445/KSP/1000019800",
+          "arXiv:1505.01597"
+        ]
+      },
+      "rationale": "Wei Lao (2010) Theorem 6.8 covers interior-uniform points of even regular polygons with disjoint antipodal diameter endpoint neighborhoods and independent Weibull contributions. Its odd-polygon overlapping endpoint analysis addresses boundary/edge samples, not area-uniform points of triangles. Schrempp (2015) restricts to a unique major axis and locally curved boundary, while the submitted family has two tied or near-tied major axes meeting at an apex and corners. Appel–Najim–Russo (2002) plausible primary remained inaccessible: arXiv and lawful OA did not yield its complete text, and authorized Oxford retrieval reported disconnected VPN; only abstract/later descriptions were read. This access risk alone does not contradict the distinct two-axis geometry. Best-of-knowledge PASS, not priority guarantee.",
+      "residual_risks": [
+        "Appel–Najim–Russo (2002) complete primary manuscript inaccessible: Oxford authorization endpoint returned vpn_disconnected; no authentication bypass or second submission. Relevant source remains a priority risk.",
+        "The weak limit is only at fixed γ∈(0,π/3), δ≥0, not uniform over angles or near the degenerate limits; no convergence rate is asserted.",
+        "Independent rational clipping checks the exact union exponent in finitely many cases, not infinite-dimensional weak convergence; that follows from mathematical localization and Poisson process limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Interior even-regular-polygon diameter law uses disjoint endpoint pairs; odd-polygon overlap discussion studies points on edges",
+          "evidence": "Theorem 6.8 uses interior uniform points in regular even-gons; Chapter 5 explicitly changes sampling to polygon boundary.",
+          "identifier_or_url": "https://publikationen.bibliothek.kit.edu/1000019800/105664897",
+          "material_read": "Complete PDF accessible; inspected Chapters 5 and 6.4 including Theorem 6.8 and surrounding assumptions; page images checked",
+          "method": "Primary thesis PDF text and page screenshots",
+          "title": "Some weak limit laws for the diameter of random point sets in bounded regions",
+          "trigger": "Closest full-length thesis on random polygon diameter laws"
+        },
+        {
+          "assessment": "Unique major axis and locally curved endpoints are inapplicable to two equal dominant sides and polygon corners",
+          "evidence": "The triangle has two maximal segments sharing apex when δ=0 and boundary near corners has straight edges.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.01597",
+          "material_read": "Full accessible preprint; inspected main theorem hypotheses and introduction, page image checked",
+          "method": "Primary arXiv PDF text/screenshots",
+          "title": "The limit distribution of the largest interpoint distance for distributions supported by an ellipse and generalizations",
+          "trigger": "Potential general maximal-distance extreme-value theorem"
+        },
+        {
+          "assessment": "INACCESSIBLE, NOT EXCLUDED: strong source-specific priority risk, no whole-document NOT_COVERING inference",
+          "evidence": "Accessible later accounts describe a unique-axis setting, but no claim about the full 2002 paper can be certified without its complete text.",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1019160946",
+          "material_read": "Abstract and detailed later-source descriptions only; full text unavailable despite lawful preprint/OA lookup and authorized Oxford attempt",
+          "method": "Abstract and secondary primary literature; Oxford institutional request status vpn_disconnected",
+          "title": "Limit laws for the diameter of a random point set",
+          "trigger": "Older primary paper potentially covering geometric diameter distributions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A shared apex couples two apparently competing Weibull extreme distances; the joint void exponent and strict dependent limit identify a natural geometrically forced failure of independence. The critical side-length split δ/√n is the unique scale comparable to extreme deficits and yields a complete crossover distribution. This addresses a real stochastic-geometric boundary between single- and multiple-diameter endpoint laws rather than a routine one-axis substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://publikationen.bibliothek.kit.edu/1000019800/105664897",
+    "https://arxiv.org/abs/1505.01597",
+    "https://doi.org/10.1239/aap/1019160946",
+    "Resultary: random triangle points maximum distance tied longest sides common apex Poisson scaling"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Appel–Najim–Russo (2002) complete primary manuscript inaccessible: Oxford authorization endpoint returned vpn_disconnected; no authentication bypass or second submission. Relevant source remains a priority risk.",
+    "The weak limit is only at fixed γ∈(0,π/3), δ≥0, not uniform over angles or near the degenerate limits; no convergence rate is asserted.",
+    "Independent rational clipping checks the exact union exponent in finitely many cases, not infinite-dimensional weak convergence; that follows from mathematical localization and Poisson process limits."
+  ],
+  "schema_version": 1
+}
