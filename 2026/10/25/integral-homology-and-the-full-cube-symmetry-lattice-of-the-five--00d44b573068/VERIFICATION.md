@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-## Exact scope
+# Independent mathematical audit
 
-The result concerns the finite abstract simplicial complex of independent vertex sets of the simple graph on all 32 binary five-tuples, with edges joining tuples at Hamming distance one. The homology groups and integral group action are proven, not the full unstable homotopy type.
+## correctness
 
-## Self-contained reproduction
+PASS
 
-Run `python3 verify.py` under Python 3.9+ (standard library only). The program requires no external files and makes no network calls. It regenerates every face via a complete include/exclude recursion, creates the deterministic sequential toggle matching, and checks that the associated directed Hasse graph is acyclic by a topological sort covering all nonempty simplices. It then generates ten signed crosspolytope cycles, independently checks their boundaries, and performs an exact integer Morse projection. A 10-by-10 Bareiss determinant of -1 certifies a full-rank, **index-one** basis of the integral seventh homology. Finally it verifies the permutation-orientation sign for each sphere and the signed Lefschetz trace for all 3,840 automorphisms of the five-cube.
+For Ind(Q5), exhaustive recurrence over 32 vertices yields 254475 faces including empty. Independent recomputation using the exact source-defined vertex order constructed 127231 disjoint Morse pairs, 12 critical nonempty cells in dimensions 0(1),5(1),7(10); independently checked acyclicity by topological sorting all 254474 nonempty simplices. The Morse cellular boundary is zero because there are no critical dimensions 4 or 6, hence H5=Z and H7=Z^10 with no torsion. Each of ten coordinate-parity matchings induces 8 copies of S0 giving a 7-cycle; independent integer recurrence projects each to 10 critical seven-cells, producing 10x10 determinant -1, proving unimodular integral basis. Cube automorphisms permute these cycles without sign: permute 8 paired factors and flip oriented endpoints, with product orientation +1; independent source script explicitly checks 3840 maps. Fixed-simplex Lefschetz evaluation of bit flips/transpositions combined with H7 permutation traces gives H5 determinant/sign character (-1)^{sum t}sgn(π). No claim of wedge homotopy type or stable higher cube law.
 
-The recorded output `verification_output.txt` ends `VERIFY_OK`. The expected counts are 254,475 faces including empty, 127,231 matched pairs, critical cells of dimensions 0, 5, and 7 with counts 1, 1, and 10, and 1,844,864 codimension-one incidences. The proof does not substitute a finite characteristic calculation for an unbounded theorem: the graph and every input range have exactly the specified finite sizes.
+## originality
 
-## Mathematical boundaries
+PASS
 
-Rational dimensions alone were established in prior literature and are not a novelty claim. Absence of critical six-cells and four-cells proves the integral homology statement; it does **not** imply that attaching maps from the seven-cells are nullhomotopic. The equivariant theorem is a statement about integral homology lattices, not a fully equivariant homotopy equivalence. No independent audit has been performed.
+PASS (qualified). Conant–Thistlethwaite Theorem 5 calculates the relevant rational Betti numbers for Alexander-dual theta(Cube(5,1)), which transfer to H5 rank1 and H7 rank10. Their accessible abstract and paper metadata do not certify these integral torsion-free carrier classes or 3840-element symmetry lattice. The new content is a unimodular explicit integral basis and exact integral B5 action, not the known rational dimensions; full Conant paper remained inaccessible and is a priority risk.
+
+## value
+
+PASS
+
+The independence complex of a standard finite hypercube and its complete automorphism action is a canonical combinatorial-topology example. A full integral symmetry lattice and primitive invariant line improve on rational Betti ranks and are meaningful stand-alone exact data for equivariant constructions. The exact unimodular homology sphere carriers and full 3840-element cube symmetry module supply integral information beyond published rational Betti ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

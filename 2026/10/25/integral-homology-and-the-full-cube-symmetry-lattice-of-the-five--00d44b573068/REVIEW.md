@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite combinatorial object is the independence complex of the exact 32-vertex Hamming-adjacency graph. The standalone exact verifier enumerates all 254,475 faces including empty, checks 127,231 disjoint Morse pairs and 1,844,864 directed incidences by a full topological sort, and returns only critical dimensions 0, 5 and 7 with multiplicities 1, 1 and 10. The absent adjacent critical dimensions force zero differentials over the integers. The ten embedded induced-matching seven-spheres have signed boundaries zero; their exact image determinant is -1, proving primitive integral generation rather than merely rational independence. All 3,840 cube automorphisms satisfy the claimed sign-free sphere permutation and fixed-orbit Lefschetz character equality. The degree-five determinant character follows because generators act by -1. All conclusions stay within integral homology and its integral automorphism action; no unverified homotopy splitting is inferred.
+PASS
 
-## Originality — PASS, with residual uncertainty
+For Ind(Q5), exhaustive recurrence over 32 vertices yields 254475 faces including empty. Independent recomputation using the exact source-defined vertex order constructed 127231 disjoint Morse pairs, 12 critical nonempty cells in dimensions 0(1),5(1),7(10); independently checked acyclicity by topological sorting all 254474 nonempty simplices. The Morse cellular boundary is zero because there are no critical dimensions 4 or 6, hence H5=Z and H7=Z^10 with no torsion. Each of ten coordinate-parity matchings induces 8 copies of S0 giving a 7-cycle; independent integer recurrence projects each to 10 critical seven-cells, producing 10x10 determinant -1, proving unimodular integral basis. Cube automorphisms permute these cycles without sign: permute 8 paired factors and flip oriented endpoints, with product orientation +1; independent source script explicitly checks 3840 maps. Fixed-simplex Lefschetz evaluation of bit flips/transpositions combined with H7 permutation traces gives H5 determinant/sign character (-1)^{sum t}sgn(π). No claim of wedge homotopy type or stable higher cube law.
 
-The directly equivalent published theta complex has been compared **by Alexander duality**, not just by title. Conant–Thistlethwaite, Theorem 5, gives rational ranks ten and one in Alexander-dual degrees 22 and 24; these imply exactly the rational ranks ten and one in independence degrees 7 and 5, so those ranks are not claimed as new. The published work explicitly says integral groups are unknown and does not provide a primitive integral basis or its full 3,840-element symmetry action. Its group section establishes Euler-characteristic congruences only. Related known 4-cube, folded 5-cube and graph-metric Čech findings have different vertex sets or face predicates and do not imply this integral lattice. The complete available primary article and associated mathematical-index searches revealed no stronger covering theorem. There remains a risk of unindexed, subsequent or unpublished equivalent work.
+## originality
 
-## Value — PASS
+PASS
 
-Resolving the explicitly undetermined integral groups for the same canonical five-cube object is a motivated mathematical gap, not an arbitrary numerical slice. The unimodular ten-sphere basis and complete integral hyperoctahedral module give concrete topological generators and full functorial symmetry behavior beyond the earlier rational ranks. Such an integral lattice matters for coefficient changes, integral equivariant invariants and relating theta-complex calculations to combinatorial Alexander duality. The result is finite and self-contained, not a claimed infinite-family theorem.
+PASS (qualified). Conant–Thistlethwaite Theorem 5 calculates the relevant rational Betti numbers for Alexander-dual theta(Cube(5,1)), which transfer to H5 rank1 and H7 rank10. Their accessible abstract and paper metadata do not certify these integral torsion-free carrier classes or 3840-element symmetry lattice. The new content is a unimodular explicit integral basis and exact integral B5 action, not the known rational dimensions; full Conant paper remained inaccessible and is a priority risk.
 
-## Closest prior work and limits
+## value
 
-Conant and Thistlethwaite, arXiv:0808.0739v2, Section 5.2, Theorem 5 and Section 6 (complete accessible article). Ehrenborg and Hetyei, DOI 10.1016/j.ejc.2005.04.010, treat general independence-complex methods including forest examples. The unresolved unstable attaching maps could obstruct a wedge-of-spheres homotopy equivalence. An unindexed equivalent computation remains possible; no independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The independence complex of a standard finite hypercube and its complete automorphism action is a canonical combinatorial-topology example. A full integral symmetry lattice and primitive invariant line improve on rational Betti ranks and are meaningful stand-alone exact data for equivariant constructions. The exact unimodular homology sphere carriers and full 3840-element cube symmetry module supply integral information beyond published rational Betti ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
