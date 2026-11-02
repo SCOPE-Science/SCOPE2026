@@ -1,15 +1,21 @@
-# Review of sharp ambient dimensions for radial sinc powers
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof checks all \(m=1,\ldots,5\), gives the normalized central B-spline density, and tracks distributional terms through Euclidean radial dimension walks. Positive density/atoms prove admissibility at dimensions \(3,5,5,7,7\); explicit negative atoms or negative intervals rule out the next odd dimensions. Intervening even dimensions are separately excluded by radial-measure projection: positive-radius atoms cannot arise, inner spectral holes cannot arise from a nontrivial projected measure, and the fourth-power jump contradicts the Abel tail monotonicity identity. `check_sinc.py` passes exact symbolic identities, not numerical extrapolations.
+## correctness
 
-## Originality
-PASS under bounded literature comparison. Gneiting's 2011 Euclidean Schoenberg summary supplies the general characterization, while Abel--Kushnirevych (2023) give the underlying one-variable sinc-power spline transforms. Inspected material does not state the five-power sharp multidimensional cutoffs, the two spectral holes, or the Abel jump nonlift. General formulas alone do not discharge those sign and projection checks. A possible equivalent treatment in unindexed spline or radial Fourier literature is a residual risk; one relevant Euclid-hat source was available at abstract level only.
+PASS
 
-## Mathematical value
-PASS. The normalized sinc family arises canonically from Fourier transforms of intervals and sphere measures. Its exact ambient dimension admissibility determines when these radial functions can be used as stationary Euclidean covariance kernels. The alternating dimension staircase, surface singularity, spectral annular holes and finite upward jump provide distinct, mathematically motivated boundaries.
+The one-dimensional Fourier transform of sinc^m is the central uniform B-spline b_m. The distributional radial dimension walk p_{d+2}=−p_d′/(2πr) produces explicit nonnegative radial spectral measures at odd dimensions 3,5,5,7,7, including positive delta terms for m=1,2; independently differentiated exact piecewise rational b_m formulas for m=2–5 and reproduced every interior spectral density and the negative m=5 next-walk interval. The next larger odd dimensions are excluded by δ′ nonpositive distributions, negative atoms at jump thresholds, or a negative smooth interval. Intervening even dimensions require additional reasoning: a radial probability measure projected from one extra Euclidean dimension is a positive mixture of absolutely continuous ball-supported radial densities away from 0, so cannot create shell atoms or central holes; for m=4 its Abel square transform must have a nonincreasing positive tail, contradicted by the upward jump at radius 2. Nestedness excludes all higher d. Fourier support with positive-density regions and analytic separation yields strict positive definiteness in admissible dimensions. The symbolic formulas do not independently prove the Abel positivity obstruction; the analytic Tonelli argument supplies it.
 
-## Limitations
-Only the first five integer powers are classified; no general formula for all positive integers or fractional powers is asserted. Independent validation has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact all-parameter claim was compared by statement and implication against all identified strongly related primary works; known constructions, setup theorems and restricted subclasses are acknowledged as prior. The four structured comparisons and source inspections distinguish unproven priority from a concrete known coverage implication. Under a best-of-knowledge standard the unlocated stronger result is a stated risk, not an invented negative full-text finding.
+
+## value
+
+PASS
+
+The sinc powers are canonical stationary covariance candidates and one-variable B-spline transforms. Sharp maximal Euclidean dimension is a natural application-relevant invariant; the odd/even boundary distinctions, spectral annular holes and density jump require substantive analysis beyond routine inverse Fourier transforms. Limited m≤5 classification is precise and independent of any unfinished higher-power theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

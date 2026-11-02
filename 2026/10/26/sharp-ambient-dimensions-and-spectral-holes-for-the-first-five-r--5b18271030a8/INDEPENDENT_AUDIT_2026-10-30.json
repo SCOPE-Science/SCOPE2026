@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T12:51:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/sharp-ambient-dimensions-and-spectral-holes-for-the-first-five-r--5b18271030a8/RESULT.md",
+        "2026/10/26/sharp-ambient-dimensions-and-spectral-holes-for-the-first-five-r--5b18271030a8/check_sinc.py",
+        "/mnt/data/scope_worker-06_20261030T123400Z/independent_checks.py"
+      ],
+      "rationale": "The one-dimensional Fourier transform of sinc^m is the central uniform B-spline b_m. The distributional radial dimension walk p_{d+2}=−p_d′/(2πr) produces explicit nonnegative radial spectral measures at odd dimensions 3,5,5,7,7, including positive delta terms for m=1,2; independently differentiated exact piecewise rational b_m formulas for m=2–5 and reproduced every interior spectral density and the negative m=5 next-walk interval. The next larger odd dimensions are excluded by δ′ nonpositive distributions, negative atoms at jump thresholds, or a negative smooth interval. Intervening even dimensions require additional reasoning: a radial probability measure projected from one extra Euclidean dimension is a positive mixture of absolutely continuous ball-supported radial densities away from 0, so cannot create shell atoms or central holes; for m=4 its Abel square transform must have a nonincreasing positive tail, contradicted by the upward jump at radius 2. Nestedness excludes all higher d. Fourier support with positive-density regions and analytic separation yields strict positive definiteness in admissible dimensions. The symbolic formulas do not independently prove the Abel positivity obstruction; the analytic Tonelli argument supplies it.",
+      "residual_risks": [
+        "The distributional radial walk and m=4 Abel-tail monotonicity require retaining shell delta/jump terms correctly; checker only verifies the polynomial portions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schoenberg gives general necessary/sufficient positivity by radial measures, and Gneiting reviews monotonicity between dimensions; related Euclid-hat papers treat other radial classes."
+        ],
+        "reasoning": "General criteria are broader tools but no inspected theorem mechanically provides this concrete sequence of maximal dimensions plus exact holes/atoms/jump. The Euclid-hat comparison was abstract-only, not ruled noncovering in full.",
+        "searches": [
+          "Gneiting arXiv:1111.7077 Section 2 Schoenberg Euclidean classes",
+          "Schoenberg (1938) metric spaces and positive definite functions",
+          "DOI:10.1006/jmva.1998.1800 Gneiting Euclid hats"
+        ]
+      },
+      "checked_sources": [
+        "\"sinc power radial positive definite functions maximal dimension sphere spectral hole Fourier B spline\"",
+        "Abel–Kushnirevych DOI:10.1007/s00591-023-00342-5",
+        "Gneiting arXiv:1111.7077",
+        "Gneiting arXiv:1111.7077 Section 2 Schoenberg Euclidean classes",
+        "Schoenberg (1938) metric spaces and positive definite functions",
+        "DOI:10.1006/jmva.1998.1800 Gneiting Euclid hats",
+        "Resultary: sinc power radial positive definite functions maximal dimension sphere spectral hole Fourier B spline",
+        "\"sinc\" \"dimension 7\" \"positive definite\"",
+        "\"sin r/r\" \"positive definite\" dimension 5 power",
+        "Abel–Kushnirevych DOI:10.1007/s00591-023-00342-5 Sections 2–4",
+        "Gneiting arXiv:1111.7077 Euclidean Schoenberg review",
+        "DOI:10.1007/s00591-023-00342-5",
+        "arXiv:1111.7077",
+        "Schoenberg, Trans. AMS 44 (1938), 522–536"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published B-spline identities imply initial b_m and hence formal derivative expressions. They do not alone establish that their signed distributional derivatives are positive in exact odd dimensions or exclude the intervening even dimensions."
+        ],
+        "reasoning": "The proof makes the needed sign and Abel lift analysis, including the m=4 jump obstruction. A stronger evaluated radial-kernel dimension theorem would dominate, but was not identified in examined full text.",
+        "searches": [
+          "Abel–Kushnirevych DOI:10.1007/s00591-023-00342-5 Sections 2–4",
+          "Gneiting arXiv:1111.7077 Euclidean Schoenberg review"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-dimensional B-spline transforms equal powers of sinc; Schoenberg functions are characterized by positive Euclidean radial Fourier measures. Neither equivalence alone identifies dimension-specific positivity for m=1..5."
+        ],
+        "reasoning": "Searched spherical Bessel, Euclidean dimension-walk, radial characteristic functions and B-spline aliases rather than only “sinc powers.”",
+        "searches": [
+          "\"sinc power radial positive definite functions maximal dimension sphere spectral hole Fourier B spline\"",
+          "Abel–Kushnirevych DOI:10.1007/s00591-023-00342-5",
+          "Gneiting arXiv:1111.7077"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest Fourier/Bessel item is unrelated bipyramid zero-free strip; available spline articles supply one-variable Fourier data but no identified Euclidean cutoff table."
+        ],
+        "reasoning": "An old equivalent radial-positive-definiteness table under Schoenberg/generalized Bessel language remains a priority risk; absence from search results is not proof.",
+        "searches": [
+          "Resultary: sinc power radial positive definite functions maximal dimension sphere spectral hole Fourier B spline",
+          "\"sinc\" \"dimension 7\" \"positive definite\"",
+          "\"sin r/r\" \"positive definite\" dimension 5 power"
+        ]
+      },
+      "rationale": "The exact all-parameter claim was compared by statement and implication against all identified strongly related primary works; known constructions, setup theorems and restricted subclasses are acknowledged as prior. The four structured comparisons and source inspections distinguish unproven priority from a concrete known coverage implication. Under a best-of-knowledge standard the unlocated stronger result is a stated risk, not an invented negative full-text finding.",
+      "residual_risks": [
+        "Classical radial Fourier and spline literature may include an older equivalent five-power table not revealed by bounded searches.",
+        "The distributional radial walk and m=4 Abel-tail monotonicity require retaining shell delta/jump terms correctly; checker only verifies the polynomial portions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS one-dimensional transform identity; the inspected results do not enumerate these Euclidean radial positive-definiteness cutoffs",
+          "evidence": "B-spline coefficients provide the starting density but not the odd/even positivity sign test",
+          "identifier_or_url": "DOI:10.1007/s00591-023-00342-5",
+          "material_read": "Full lawful OA HTML sections 2–4 on sinc integrals, cardinal B-splines and finite Fourier identities",
+          "method": "published full-text HTML",
+          "title": "Sinc integrals revisited",
+          "trigger": "Exactly same sinc powers and Fourier B-spline representation"
+        },
+        {
+          "assessment": "GENERAL METHOD, not identified as this specific power-cutoff theorem",
+          "evidence": "Nested radial classes imply exclusion above first forbidden dimension",
+          "identifier_or_url": "arXiv:1111.7077",
+          "material_read": "Accessible arXiv source sections reviewing Schoenberg Euclidean and spherical positive definiteness",
+          "method": "arXiv accessible primary text",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "Schoenberg radial positive-definite criteria and dimension nestedness"
+        },
+        {
+          "assessment": "FOUNDATIONAL RESULT; cannot claim original text has been inspected for exact sinc formulas",
+          "evidence": "Characterization by positive spectral measures",
+          "identifier_or_url": "Schoenberg, Trans. AMS 44 (1938), 522–536",
+          "material_read": "Classical theorem as reproduced in Gneiting review, not original 1938 full-text reading",
+          "method": "secondary theorem inspection, no assertion of direct full 1938 reading",
+          "title": "Metric spaces and positive definite functions",
+          "trigger": "Foundational radial positive-definiteness representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/sharp-ambient-dimensions-and-spectral-holes-for-the-first-five-r--5b18271030a8/RESULT.md",
+        "DOI:10.1007/s00591-023-00342-5",
+        "arXiv:1111.7077",
+        "Schoenberg, Trans. AMS 44 (1938), 522–536"
+      ],
+      "rationale": "The sinc powers are canonical stationary covariance candidates and one-variable B-spline transforms. Sharp maximal Euclidean dimension is a natural application-relevant invariant; the odd/even boundary distinctions, spectral annular holes and density jump require substantive analysis beyond routine inverse Fourier transforms. Limited m≤5 classification is precise and independent of any unfinished higher-power theory.",
+      "residual_risks": [
+        "Classical radial Fourier and spline literature may include an older equivalent five-power table not revealed by bounded searches.",
+        "The distributional radial walk and m=4 Abel-tail monotonicity require retaining shell delta/jump terms correctly; checker only verifies the polynomial portions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the first five powers (sin r/r)^m, m=1,…,5, Euclidean radial positive definiteness holds exactly in integer dimensions d≤(3,5,5,7,7) and is strict there; at maximal odd dimensions, spectra exhibit a sphere atom for m=1, a boundary atom for m=2, central frequency holes for m=3,5 and a finite upward radial-density jump for m=4.",
+  "limitations": [
+    "Classical radial Fourier and spline literature may include an older equivalent five-power table not revealed by bounded searches.",
+    "The distributional radial walk and m=4 Abel-tail monotonicity require retaining shell delta/jump terms correctly; checker only verifies the polynomial portions."
+  ],
+  "schema_version": 1
+}
