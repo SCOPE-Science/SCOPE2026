@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T17:12:42.838555Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the frozen RESULT.md the concatenation identity R(2^en+b)=R(n) xor R(b) xor ((n mod2)*topbit(b)) gives all Myhill–Nerode residuals F_{q,s,t}. Nonultimate periodicity plus its implications for any nonzero translation establish all distinct q and s,t triples are inequivalent. At e>=B+3 the q=0 or1 classes stabilize: the RS values differ at 4j+2 and 4j+3, so every five-consecutive-integers window realizes both. Counting dyadic levels yields 4m+2; c=0 and short shifts checked. Independently wrote BFS of arithmetic residual transitions and direct short-interval formulas for c=0..1023, matching complete state sets, and verified 13 dyadic shifts; inspected source checker.py and checker_output.txt (2048 claimed earlier checks). Finite tests support the symbolic all-offset proof, not extrapolated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moradi et al construct automatic subsequence/translation automata and give bounds and Thue–Morse cases, not exact Rudin–Shapiro LSD-first minimization.",
+          "Rampersad–Shallit study summatory RS automata and recurrences, which do not produce N(c)."
+        ],
+        "reasoning": "General closure and upper bounds lack the distinguishing lower bound, so they do not imply exact N(c) or the 4m+2 coefficient.",
+        "searches": [
+          "arxiv:2512.10017v5, §§3,4.2–4.3",
+          "arxiv:2302.00405v3, §§1,3,9"
+        ]
+      },
+      "checked_sources": [
+        "minimal DFAO state complexity least significant digit first shifted translated Rudin Shapiro sequence R(n+c), binary kernel exact counts dyadic offsets 4m+2",
+        "https://arxiv.org/html/2512.10017v5",
+        "https://arxiv.org/html/2302.00405v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known bound on shifted automata and N(0)=4 do not determine minimal N(c); Thue–Morse has no adjacent-11 parity statistic."
+        ],
+        "reasoning": "The claimed distinguishing residual theorem supplies substantive information not entailed by prior automaticity, recursive definition or bounds.",
+        "searches": [
+          "arxiv:2512.10017v5 Theorem19 and §§4.2–4.3",
+          "arxiv:2302.00405v3",
+          "Rowland–Yassawi Example4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unshifted RS binary kernel is four states (Rowland–Yassawi Example 4.2); translated q,s,t residuals introduce carry and boundary parity variables.",
+          "Published Resultary RS dyadic-prefix attractor count is a distinct substring-cover invariant."
+        ],
+        "reasoning": "Binary kernels, LSD-first DFAO minimization, translated RS and 2-automatic residuals are equivalent descriptions; inspected near hits do not give explicit all-translation residual classification.",
+        "searches": [
+          "minimal DFAO state complexity least significant digit first shifted translated Rudin Shapiro sequence R(n+c), binary kernel exact counts dyadic offsets 4m+2",
+          "arxiv:2302.00405v3",
+          "Resultary:2026/9/8/SCOPE079"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the unshifted four-state kernel and a different RS string-attractor table were located; no corresponding translated automaton-state table found."
+        ],
+        "reasoning": "No matching exact table identified; a negative search is not proof of novelty.",
+        "searches": [
+          "minimal DFAO state complexity least significant digit first shifted translated Rudin Shapiro sequence R(n+c), binary kernel exact counts dyadic offsets 4m+2",
+          "Resultary RS substring attractor finding 2026/9/8/SCOPE079",
+          "web: shifted Rudin Shapiro LSD-first minimal automata exact counts"
+        ]
+      },
+      "rationale": "Best of knowledge after current primary-source reading and searches: The known bound on shifted automata and N(0)=4 do not determine minimal N(c); Thue–Morse has no adjacent-11 parity statistic.",
+      "residual_risks": [
+        "An unindexed exact translated RS binary-kernel computation or different convention (input direction and leading/trailing zeros) may already contain the state-count formula.",
+        "Primary material of Rowland–Yassawi beyond Example 4.2 not completely inspected in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bounds/MSD and other sequence examples; not covering",
+          "evidence": "Theorem 19 shifted Thue–Morse; shifted power-of-two indicators in §4.3.",
+          "identifier_or_url": "https://arxiv.org/html/2512.10017v5",
+          "material_read": "Primary HTML §§3,4.2–4.3, relevant theorems and constructions",
+          "method": "Read theorem statements and orientation, compared sequence and exact invariant",
+          "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+          "trigger": "Same shifted automatic-sequence state-complexity problem"
+        },
+        {
+          "assessment": "Different summatory object; recurrence used but count absent",
+          "evidence": "R(2n)=R(n), R(2n+1)=R(n) xor parity(n).",
+          "identifier_or_url": "https://arxiv.org/html/2302.00405v3",
+          "material_read": "Primary HTML recurrence and automaton sections §§1,3,9",
+          "method": "Compared studied sums with translated DFAO minimality",
+          "title": "Rudin-Shapiro Sums Via Automata Theory and Logic",
+          "trigger": "Exact same sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimal DFAO state complexity of a well-studied automatic sequence under translations is a natural exact invariant. A uniform explicit O(log c) arithmetic count plus precise dyadic growth measures the cost of shifting a nontrivial neighbor-interaction sequence, beyond standard automaticity or unminimized carry constructions. Natural parameter all offsets; neither ad hoc slice nor known four-state unshifted table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "minimal DFAO state complexity least significant digit first shifted translated Rudin Shapiro sequence R(n+c), binary kernel exact counts dyadic offsets 4m+2",
+    "https://arxiv.org/html/2512.10017v5",
+    "https://arxiv.org/html/2302.00405v3"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Counts complete LSD-first binary-output automata on all finite words, not MSD-first automata or affine subsequences R(an+b).",
+    "No general closed polynomial expression in c is claimed."
+  ],
+  "residual_risks": [
+    "An unindexed exact translated RS binary-kernel computation or different convention (input direction and leading/trailing zeros) may already contain the state-count formula.",
+    "Primary material of Rowland–Yassawi beyond Example 4.2 not completely inspected in this run."
+  ],
+  "schema_version": 1
+}

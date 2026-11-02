@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact binary concatenation identity covers every prefix and continuation. Non-ultimate-periodicity of Rudin–Shapiro, together with the elementary consequence that distinct shifts cannot differ by a 2-periodic function, distinguishes the proposed residual states for all suffixes. The cutoff at bitlength plus three is proved using the structure of quotient/remainder intervals; it does not rely on finite searches. Direct counting of quotient levels gives the stated dyadic formula. The companion checker builds and minimizes an independent addition-and-carry DFAO over 2,048 offsets, and also tests 15,000 sample outputs and 17 dyadic instances. These tests are corroborative, not proofs of universality.
+PASS
 
-## Originality — PASS within examined evidence
+From the frozen RESULT.md the concatenation identity R(2^en+b)=R(n) xor R(b) xor ((n mod2)*topbit(b)) gives all Myhill–Nerode residuals F_{q,s,t}. Nonultimate periodicity plus its implications for any nonzero translation establish all distinct q and s,t triples are inequivalent. At e>=B+3 the q=0 or1 classes stabilize: the RS values differ at 4j+2 and 4j+3, so every five-consecutive-integers window realizes both. Counting dyadic levels yields 4m+2; c=0 and short shifts checked. Independently wrote BFS of arithmetic residual transitions and direct short-interval formulas for c=0..1023, matching complete state sets, and verified 13 dyadic shifts; inspected source checker.py and checker_output.txt (2048 claimed earlier checks). Finite tests support the symbolic all-offset proof, not extrapolated.
 
-The most relevant recent paper, Moradi–Rampersad–Shallit (arXiv:2512.10017, HTML v5 inspected), addresses shifted state complexity, primarily for MSD-first Thue–Morse and powers-of-two characteristic sequences, but does not provide this exact LSD-first Rudin–Shapiro classification. The same-sequence Rampersad–Shallit 2023 work addresses summatory automata. Rowland–Yassawi 2015 lists the four unshifted Rudin–Shapiro kernel states; this is precisely the isolated special case at zero shift, not the translated formula. Semantic research-record and web searches considered shifts, binary kernels, reverse-digit automata, equivalent state minimization, and stronger general coverage. No claim implying the result was identified. Unindexed or differently phrased priority remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An exact arbitrary-translation minimal-state formula for a classical pattern-counting automatic sequence is a structural invariant of natural interest. The bounded short-interval method avoids construction and minimization of a new DFAO for each offset and proves a precise linear logarithmic law on dyadic offsets. The theorem is a complete classification in its scope, not an unmotivated finite slice or an elementary restatement of the generic automaticity closure theorem.
+Best of knowledge after current primary-source reading and searches: The known bound on shifted automata and N(0)=4 do not determine minimal N(c); Thue–Morse has no adjacent-11 parity statistic.
 
-## Scope and limitations
+## value
 
-The theorem concerns fixed nonnegative additive offsets of the classical Rudin–Shapiro binary coefficient sequence with least-significant-digit-first inputs and arbitrary terminal zeros. It does not cover most-significant-digit-first state complexity or general affine subsequences. Historical priority and mathematical correctness have not received independent expert validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Minimal DFAO state complexity of a well-studied automatic sequence under translations is a natural exact invariant. A uniform explicit O(log c) arithmetic count plus precise dyadic growth measures the cost of shifting a nontrivial neighbor-interaction sequence, beyond standard automaticity or unminimized carry constructions. Natural parameter all offsets; neither ad hoc slice nor known four-state unshifted table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
