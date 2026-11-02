@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The exact residual-rectangle criterion follows from the graph adjacency definition; inclusion-exclusion counts all sets by unique occupied row and column supports. A lower-bound argument and exhaustive five-case analysis prove both the threshold and optimum counts for all 2 <= m <= n. A standalone original-adjacency four-cycle checker independently verifies all coefficients through boards of size 4 by 5 and further algebraic cases; finite tests are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bartolo–Borg–Scicluna, arXiv:2310.09128, Theorem 1.3: order-based upper bound",
+        "Wei–Zhang–Zhao, arXiv:2310.17337, Theorem 1.4: edge-based upper bound"
+      ],
+      "reasoning": "Both bounds are inequalities in arbitrary connected graphs, whereas this result identifies all feasible subsets of each size and counts all minimizers; neither universal bound implies the resulting equalities or polynomials. Even a family of forbidden-star isolation thresholds on rook graphs cannot separate 1-by-3 and 2-by-2 residual graphs by maximum degree; it cannot directly imply the square-isolation spectrum.",
+      "searches": [
+        "arxiv:2310.09128",
+        "arxiv:2310.17337",
+        "C4 isolation number K_m box K_n exact m n"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2310.09128",
+      "https://arxiv.org/html/2310.17337v1",
+      "https://en.wikipedia.org/wiki/Rook%27s_graph"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2310.09128 main theorem concerns extremal universal bounds",
+        "arXiv:2310.17337 main theorem concerns universal edge bound",
+        "Rook-product definitions and adjacency from standard graph terminology"
+      ],
+      "reasoning": "The cited bounds do not determine exact C4-isolation on these products, let alone coefficientwise enumeration. The proof requires classifying the surviving induced product, then a support-occupancy argument and five aspect-ratio cases.",
+      "searches": [
+        "arxiv:2310.09128",
+        "arxiv:2310.17337",
+        "line graph complete bipartite four-cycle isolation number edge neighborhoods"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2310.09128 (definitions and main theorem)",
+        "https://arxiv.org/html/2310.17337v1 (Section 1 and theorem 1.4)"
+      ],
+      "reasoning": "Rook graph equals the line graph of a complete bipartite graph. Isolating a four-cycle in the line graph differs from deleting four-cycles of the bipartite root graph; the latter has no clique-based non-induced four-cycles within a row. Searches for these equivalent names returned no enumerator. A residual 1-by-3 rook graph and a residual 2-by-2 rook graph have the same maximum degree two but opposite four-cycle status; no uniform star-isolation threshold can encode the predicate.",
+      "searches": [
+        "C4 square cycle isolation of rook graph line graph complete bipartite graph exact",
+        "line graph complete bipartite four-cycle isolation number edge neighborhoods",
+        "square isolation of lattice graphs minimizing isolating sets line graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching full-family coefficient table in the relevant searches; finite examples are independently reconstructed directly from the graph.",
+        "https://arxiv.org/abs/2310.09128 (no rook/Cartesian or enumerator discussion in searched full text)"
+      ],
+      "reasoning": "The numerical checks are original computations and are not extrapolated into the proof. No known full-family table was located; failure to find a table is not a proof of nonexistence.",
+      "searches": [
+        "isolation polynomial of C4 graphs Cartesian product K_m square K_n",
+        "C4 isolation number rook graphs lattice graph",
+        "four cycle isolating sets rook graph grid exact enumeration"
+      ]
+    },
+    "rationale": "The closest 2023 primary papers give universal order/edge bounds and equality structures, not exact all-size enumerators on rook graphs. Searches include line-graph and lattice equivalents and comparisons to related published graph results; no statement that implies the polynomial or five optimum counts was identified, subject to unindexed-publication risk.",
+    "residual_risks": [
+      "An unindexed or differently named complete square-isolation enumerator may precede this result.",
+      "Equivalent line-graph formulations could appear in inaccessible papers without the term C4-isolation.",
+      "Related rook-graph star-isolation enumerators share occupancy technology, but their residual maximum-degree predicates do not subsume four-cycle avoidance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces C4-isolation and universal vertex-order bound; does not state rook-graph polynomial or optimizer counts",
+        "evidence": "arXiv:2310.09128, Definitions and Theorem 1.3; no full-text rook/Cartesian occurrence",
+        "identifier_or_url": "https://arxiv.org/pdf/2310.09128",
+        "material_read": "PDF pp. 1–4, Theorem 1.3 and proof framework, pp. 12–13 conclusion, searchable full text for Cartesian/rook/enumeration",
+        "method": "Read mathematical text and visually inspected PDF pages 2 and 4",
+        "title": "Isolation of squares in graphs",
+        "trigger": "Same invariant and sharp universal C4-isolation theorem"
+      },
+      {
+        "assessment": "Characterizes equality in a universal edge-order bound; no exact rook-graph set polynomial",
+        "evidence": "arXiv:2310.17337, Sections 1–2 and Theorem 1.4",
+        "identifier_or_url": "https://arxiv.org/html/2310.17337v1",
+        "material_read": "Full HTML introduction, Theorem 1.4, proof setup and complete searchable page; checked for rook, Cartesian, complete bipartite and enumeration",
+        "method": "Primary-source HTML reading and relevant-term search",
+        "title": "On the C4-isolation number of a graph",
+        "trigger": "Same invariant and potentially dominating edge bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f772c284-473f-4e23-99d5-c29aded86177",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides a complete all-cardinality polynomial and a five-regime exact optimum profile for a canonical family rich in four-cycles, motivated by the established isolation invariant. The sharp aspect-ratio transition and exceptional optimum family are structural rather than isolated numerical coincidences.",
+    "status": "PASS"
+  }
+}
