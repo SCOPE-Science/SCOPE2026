@@ -1,15 +1,21 @@
-# Scientific review: finite-gap optimal vaccination on cycles
+# Independent mathematical audit
 
-## Correctness — PASS
-The model fixes a simple cycle, two perfectly immunized vertices, independent Bernoulli infection seeds at every surviving vertex, and independently open undirected bonds. For a path of length \(s\), the escape probability at vertex \(i\) follows from independent left and right geometrically stopped open runs. Summation gives \(H_s=cs-K+f(s)\) including the empty-path convention \(f(0)=K\). A strict coupling argument excludes adjacent vaccinees. The exact first difference \(f(s+1)-f(s)=(1-q)B^2(1-r)r^{s-1}(s-\theta)\) gives the unique eventual finite gap, including tie-breaking when \(\theta\) is an integer. The rational special case is separately proved for every network size. An independently structured finite component-enumeration program checks 385 cycle-placement cases and the identities and extremizers at additional lengths. No finite enumeration is substituted for an unbounded proof.
+## correctness
 
-## Originality — PASS, subject to stated bibliographic limits
-General vaccination under percolation, optimal spatial vaccine placement, and concentration rather than equidistribution are already studied and are not claimed as new. Li–Zhao–Zhang (DOI 10.1007/s00285-022-01816-1) treat vaccination within site-bond percolation on complex/random networks; only a publisher preview was accessible. Delmas–Dronnier–Zitt (arXiv:2112.08756, inspected original text) analyze vaccination on circles under a metapopulation **spectral reproduction-number** objective rather than the multiseed expected final count, so their circle statements do not imply this claim. Sartori et al. (DOI 10.1038/s41598-022-24652-1) study structural heuristics on empirical contact networks. Holme (arXiv:1708.06456) reports exact small-graph SIR influence calculations, not all cycles. The exact analytical formula and eventual finite optimal unvaccinated arc were not identified in these statements or in searches of neighboring terminology and published results. The restricted full text of Li–Zhao–Zhang and possible unindexed equivalent statements are residual originality risks, not falsely certified absences.
+PASS
 
-## Mathematical value — PASS
-The problem asks how to spend two perfectly targeted prophylactic interventions to minimize an expected epidemic burden in a natural homogeneous finite cycle. The result gives an exact all-size, all-parameter objective and a qualitative nonuniformity theorem: at fixed \(p,q\), the smaller surviving arc remains bounded even as the network grows, with explicit limit length; as seeding grows rare, the optimal short arc scales like \(2/q\). The explicit equal-half example shows that equidistant vaccines can be strictly inferior, without presenting the known idea of vaccine concentration as novel. This is a motivated complete optimization, not an arbitrary enumeration.
+The frozen RESULT.md treats C_n, n>=4, two fully protected vertices, iid Bernoulli(q) initial infections and independent Bernoulli(p) bonds on the surviving graph, with 0<p,q<1 fixed. Reconstructed open-cluster escape probability at vertex i on a surviving path of s vertices as (1-q)(A+B r^(i-1))(A+B r^(s-i)), where r=p(1-q), A=(1-p)/(1-r), B=pq/(1-r). Summation proves H_s=cs-K+f(s), including s=0 with f(0)=K, and E_n(a,b)=c(n-2)-2K+f(a)+f(b). Strict addition of an inter-path edge rules out adjacent vaccinees. Exact subtraction gives f(s+1)-f(s)=(1-q)B^2(1-r)r^(s-1)(s-theta), theta=(1-q)(pq+2(1-p))/(q(1-p+pq)). The one-turn shape and exponentially small long-arc tail prove eventual unique short arc floor(theta)+1, including an exact-integer theta tie broken by the tail. At p=q=1/2 the discrete objective gives optimal short length two for n>=6 with only (3,3) tied at n=8, and short length one for n=4,5. Independent newly written exact rational connected-component enumeration for several p,q and small cycles corroborated, rather than substituted for, the all-n argument.
 
-## Closest literature and limitations
-The primary 2022 site-bond-percolation vaccination source has a related epidemic mechanism but its restricted full text could not be examined, so a whole-paper coverage exclusion is not asserted. The original 2021 circle-vaccination paper concerns a different objective. Strict boundary assumptions, exclusions and reproducibility checks are in RESULT.md and VERIFICATION.md. No independent audit or validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The final claim is an exact finite two-vaccinee, independent multi-seed bond-percolation expectation and its large-cycle finite-gap optimization, not priority for vaccination, epidemic percolation, or asymmetric spacing generically. Inspected the most relevant primary cycle work in different spectral objective; the limited publisher preview of a site-bond source leaves a stated priority risk.
+
+## value
+
+PASS
+
+This precise fixed-gap versus balanced-allocation transition is a nontrivial structural fact: the short optimal unvaccinated arc stabilizes despite the growing cycle, with a uniform finite-size formula and clear epidemiological random-cluster objective. It offers a checkable baseline for exact two-site intervention and distinguishes objective-sensitive vaccination rules. It does not extend to general SIR dynamics, multiple vaccines, or heterogeneous seeds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
