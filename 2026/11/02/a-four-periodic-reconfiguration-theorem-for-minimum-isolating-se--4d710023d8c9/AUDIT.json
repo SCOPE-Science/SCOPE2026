@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For every \\(n\\ge5\\), isolation is equivalent to the absence of four consecutive unselected vertices, hence to selected gaps of length at most four. With \\(k=\\lceil n/4\\rceil\\), all minimum sets have deficits \\(a_i=4-d_i\\) summing to \\(r=4k-n\\in\\{0,1,2,3\\}\\). Rooting a selected vertex proves the exact count. Removing a selected vertex merges its two gaps to \\(L=8-a_--a_+\\ge5\\); a valid replacement lies at exactly \\(9-L\\) locations, one the original, giving \\(a_-+a_+\\) genuine exchanges and uniform total degree \\(2r\\). For \\(r>0\\), single-step moves transfer deficit units between neighboring gaps, connect the composition space and circulate one unit to translate the entire configuration by one. Thus all minima are connected; \\(r=0\\) gives four isolates and \\(r=1\\) is connected two-regular on \\(n\\) vertices, hence \\(C_n\\). The \\(n=4\\) exception is explicit. Two distinct finite checks passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mynhardt--Nasserasr, arXiv:2003.05956, Sections 1 and 4: jump and slide gamma-graphs are based on ordinary dominating sets.",
+        "Boyer--Goddard, arXiv:2401.03933, Sections 2--3: disjoint isolating sets and extremal upper-bound graphs."
+      ],
+      "reasoning": "Domination demands that no vertex remain uncovered, whereas isolation only demands that uncovered vertices induce no edge; minimum feasible sets and their transitions therefore need not agree. General three-partitions of a graph into isolating sets likewise do not determine the minimum-set reconfiguration graph.",
+      "searches": [
+        "vertex-edge domination minimum configurations cycle one-vertex exchange 4-regular 6-regular",
+        "vertex-edge domination reconfiguration cycle",
+        "isolating sets cycle swap exchange graphs"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1504.08055 (first-public primary, 2015-04-30)",
+      "https://arxiv.org/abs/2003.05956 (2020 reconfiguration survey)",
+      "https://arxiv.org/abs/2401.03933 (2024 isolation follow-up)",
+      "Web searches: isolation number cycle minimum configurations, vertex-edge domination exchange, reconfiguration isolating sets cycles"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Caro--Hansberg, arXiv:1504.08055, Section 2 gives the exact minimum cardinality but not number, degree or connectedness.",
+        "The related cycle maximal-independent-set one-vertex exchange statement has gap lengths two or three and requires chosen vertices to be pairwise nonadjacent, unlike these minimum isolating configurations with gap lengths one through four.",
+        "The binary-word adjacent-swap statement has linear boundary conditions and exchanges adjacent unequal symbols; the new graph uses cyclic words and unrestricted one-selected-vertex replacement."
+      ],
+      "reasoning": "None of these prior statements implies the exact uniform-degree and connectivity theorem: the feasibility classes differ (isolation versus maximal independence or ordinary domination), and the moves differ (unrestricted one-token replacement versus slides or bit swaps). The new cyclic slack transfer and global phase reachability proof is required. Potential unindexed general hard-core-particle models remain a risk.",
+      "searches": [
+        "minimum isolating sets cycle C_n reconfiguration token-jumping degree 2(4ceil(n/4)-n) connected except 4 divides n",
+        "minimum isolating sets cycle graph swapping vertices exchange graph",
+        "vertex-edge domination reconfiguration cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Caro--Hansberg, arXiv:1504.08055, Example 2.1: \\(\\iota(C_n)=\\lceil n/4\\rceil\\) but no exchange-graph theorem.",
+        "The vertex-edge domination terminology is equivalent to isolation for the same vertex sets; the precise replacement adjacency is an additional structure."
+      ],
+      "reasoning": "Equivalent formulations include vertex-edge domination and partial domination with an independent uncovered remainder. None of the inspected material gives the regular degree \\(2(4\\lceil n/4\\rceil-n)\\) or the connectivity classification. The known isolation-number formula alone has no implication for the count or adjacency of all minimizers.",
+      "searches": [
+        "minimum isolating sets cycle C_n reconfiguration token-jumping degree 2(4ceil(n/4)-n) connected except 4 divides n",
+        "isolating set cycles enumerate minimum count n/k binomial compositions gap ≤4",
+        "reconfiguration isolating sets cycles graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches for cycle isolating-set counts, isolation polynomials and one-vertex exchange graphs did not locate a table that states the all-n formula or component dichotomy.",
+        "Directly enumerated values for \\(5\\le n\\le22\\) agree with the rooted-composition formula, and the independent gap encoding agrees for \\(5\\le n\\le54\\)."
+      ],
+      "reasoning": "A failed table search is not evidence of uniqueness. The result is supported by a constructive proof of the all-parameter bijection; listed finite counts serve as independent checks only, and no claimed novelty rests on a missing table.",
+      "searches": [
+        "isolation polynomial of cycles number of minimum isolating sets",
+        "number minimum isolating sets cycle graphs isolation generating polynomial",
+        "minimum isolating sets cycle enumeration"
+      ]
+    },
+    "rationale": "The 2015 primary source states only the minimum isolation number for cycles, whereas the theorem supplies the exact census, regular degree and component structure for all labelled cycle orders. The 2020 survey covers ordinary domination reconfiguration, which is not the isolating-set feasibility condition. The 2024 isolation paper concerns disjoint isolating sets and sharp general upper bounds. Direct source comparisons, targeted equivalence/alias searches, and accessible earlier scientific claims did not identify a stronger statement implying these results; the possibility of an unindexed equivalent remains noted.",
+    "residual_risks": [
+      "Unindexed or inaccessible past research could give an equivalent result using vertex-edge domination, circular binary words, or hard-core-particle terminology.",
+      "The finite verification programs do not independently certify the all-parameter proof; the statement remains self-reviewed only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The cycle isolation number is known and excluded; no exact minimum-solution replacement graph in inspected sections.",
+        "evidence": [
+          "Example 2.1(ii): iota(C_n)=ceil(n/4).",
+          "Sections 3 and 5: order, degree and family bounds rather than exchange geometry."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.08055",
+        "material_read": "Accessible arXiv full-text HTML, introduction and notation, Example 2.1 in Section 2, later examples/bounds, Sections 5 and 7 headings and relevant passages.",
+        "method": "Read actual HTML mathematical statements and compare exact assertions for cycles.",
+        "title": "Partial domination - the isolation number of a graph",
+        "trigger": "Defines the target invariant and states the known cycle minimum."
+      },
+      {
+        "assessment": "Ordinary domination reconfiguration does not subsume minimum isolating configurations; no matching theorem found in read sections.",
+        "evidence": [
+          "Introduction defines jump gamma-graph using minimum dominating sets.",
+          "Section 4.4 reports slide gamma-graphs for cycles, not isolating minima."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.05956",
+        "material_read": "Accessible arXiv full-text HTML, introduction, Sections 4.1--4.4 and referenced theorem statements on gamma-graphs.",
+        "method": "Compare vertex-set feasibility, allowed replacements, and scope of cycle examples.",
+        "title": "Reconfiguration of Colourings and Dominating Sets in Graphs: a Survey",
+        "trigger": "Directly relevant replacement/slide graph models and possible dominating-set implication."
+      },
+      {
+        "assessment": "Different quantifiers and invariant: partitions and size upper-bound equality do not imply the present exchange graph.",
+        "evidence": [
+          "Theorem 2 and Claim 3 give three-partitions and cycle colorings.",
+          "Theorem 11 classifies equality at one-third order, not all cycle minimizers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.03933",
+        "material_read": "Accessible arXiv full-text HTML, introduction, Section 2 cycle coloring claim, Section 3 extremal-family theorem.",
+        "method": "Compare universal partition/existence results with full minimum-solution enumeration and mobility.",
+        "title": "Disjoint Isolating Sets and Graphs with Maximum Isolation Number",
+        "trigger": "Later isolation literature, possibly classifying cycle minimizers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d710023-d8c9-4a49-9832-71f360614f6f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An isolating set permits undominated individual vertices while ensuring every edge is met by a selected closed neighborhood, a natural sparse monitoring model from Caro--Hansberg. The exact count of optimal placements, the uniform number of legal one-location replacements at every optimum, and the sharp four-periodic transition from total immobility to global reachability are structural invariants not supplied by the known minimum cardinality. One residue family is precisely \\(C_n\\), supplying an all-parameter metric. This is a complete natural optimal-configuration classification for an infinite family, with a cyclic deficit-transfer structure for further distance or sampling questions; no unproved application is asserted.",
+    "status": "PASS"
+  }
+}
