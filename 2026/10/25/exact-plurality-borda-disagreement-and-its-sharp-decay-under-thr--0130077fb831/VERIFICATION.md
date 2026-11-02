@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python3 check_disagreement.py` using Python 3 and no external dependencies. The program enumerates all ordered Walsh profiles for electorates \(1\le n\le8\), compares the two strict singleton election winners with the closed multinomial event formula, and independently checks the first disagreement at \(n=4\). It also enumerates further compressed counts, checks the exponential tilt numerically, and reports finite-size deviations from the asymptotic expression. Successful execution ends with the exact line `ALL EXACT COMBINATORIAL CHECKS PASSED`.
+# Independent mathematical audit
 
-The unbounded claim is supported analytically by score inequalities, the Radon–Nikodym exponential tilt, an exponentially small conditional constraint-error bound, and the aperiodic lattice local-limit theorem proved via Fourier inversion. The code is a reproducibility aid for finite instances, not independent validation, a proof of a local-limit theorem, or a substitute for the analysis. The result intentionally ignores profiles where either election rule ties; no tie-breaking prescription has been assumed.
+## correctness
+
+PASS
+
+The four ranking types have plurality (a,b+c,d) and Borda (2a+b,n+b+c,c+2d). A unique Borda extreme winner forces the same plurality winner. A unique Borda middle winner opposite A-plurality is equivalent to a>max(b+c,d) and a<d+b+2c; reflection doubles the weighted multinomial cone. At t*=log(2)/2, tilting the a-b-c walk produces centered span-one increments with variance 2sqrt(2)/(1+2sqrt(2)); remaining inequalities have strict tilted slack. Their errors decay exponentially, and a lattice local limit plus bounded weighted summation supplies the explicit 1/sqrt(n) constant. Independent enumeration over all 4^n ballots for n=1..7 agrees, including 24/256 at n=4. Finite checks are not the asymptotic proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge specific comparison finds no demonstrated prior theorem covering this exact final claim; sourced close comparisons and residual priority risks are explicit, and unsuccessful search is not treated as proof of priority.
+
+## value
+
+PASS
+
+Strict single-winner disagreement probability is a natural social-choice performance statistic, and an exact finite probability together with the sharp exponential rate and lattice prefactor refines qualitative convergence results. Excluding ties is explicit and mathematical, not an unnoticed normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

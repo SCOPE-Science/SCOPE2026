@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:04:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Independent finite checks: Independent direct plurality/Borda scorer and four-count formula agree on every ordered ballot word n=1 through n=7; 24 mismatches among 256 words at n=4."
+      ],
+      "rationale": "The four ranking types have plurality (a,b+c,d) and Borda (2a+b,n+b+c,c+2d). A unique Borda extreme winner forces the same plurality winner. A unique Borda middle winner opposite A-plurality is equivalent to a>max(b+c,d) and a<d+b+2c; reflection doubles the weighted multinomial cone. At t*=log(2)/2, tilting the a-b-c walk produces centered span-one increments with variance 2sqrt(2)/(1+2sqrt(2)); remaining inequalities have strict tilted slack. Their errors decay exponentially, and a lattice local limit plus bounded weighted summation supplies the explicit 1/sqrt(n) constant. Independent enumeration over all 4^n ballots for n=1..7 agrees, including 24/256 at n=4. Finite checks are not the asymptotic proof.",
+      "residual_risks": [
+        "A large-n asymptotic requires the stated lattice local limit and strict tilted slack, not the finite enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mousseau–Surugue–Wilczynski, DOI 10.3233/FAIA251226, Corollary 10 establishes asymptotic agreement and Proposition 11 concentration lower bounds, not the exact strict-disagreement lattice prefactor."
+        ],
+        "reasoning": "The broad agreement results imply decay but not the sharp exponential base and coefficient for this strict singleton event. Their Pólya–Eggenberger model is different.",
+        "searches": [
+          "\"three candidates Walsh uniform single peaked plurality Borda strict different unique winner probability exact asymptotic agreement\"",
+          "Mousseau Surugue Wilczynski agreement voting rules Walsh single peaked plurality Borda 2025 exact agreement Corollary 10"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, exact scoring and local-limit proof",
+        "check_disagreement.py, independently reconstructed direct ballot counts",
+        "Mousseau–Surugue–Wilczynski DOI:10.3233/FAIA251226",
+        "Walsh arxiv:1503.02766"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known limit of agreement is consistent with rho<1, but does not determine its rate or prefactor.",
+          "Classical span-one lattice local limit under a specific saddle-point tilt gives the extra result."
+        ],
+        "reasoning": "The final claim specializes a known model but goes strictly beyond qualitative agreement through an exact all-n probability and sharp local-limit constant.",
+        "searches": [
+          "DOI:10.3233/FAIA251226 Corollary 10 Proposition 11",
+          "\"three candidates Walsh uniform single peaked plurality Borda strict different unique winner probability exact asymptotic agreement\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Walsh 2015 specifies the uniform single-peaked ranking culture; the submitted event conditions on *different unique* winners of plurality and Borda."
+        ],
+        "reasoning": "Alternative wording such as strict single-winner disagreement or scoring-rule concordance under Walsh culture describes the same statistic. Distinct from arbitrary tie-breaking or set-valued winner agreement; no equivalent closed formula found in the inspected primary work.",
+        "searches": [
+          "\"three candidates Walsh uniform single peaked plurality Borda strict different unique winner probability exact asymptotic agreement\"",
+          "Walsh generating single peaked votes arxiv:1503.02766"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual semantic search returned Dodgson–Young, Kemeny–Slater, Schulze–Ranked Pairs small-case divergence results, with different rules/cultures; first n=4 strict Walsh plurality–Borda count 24 was separately enumerated."
+        ],
+        "reasoning": "No inspected table gives the whole-n exact cone sum; other voting-pair enumerations do not dominate this statistic. Search nonmatch is not a priority proof.",
+        "searches": [
+          "\"three candidates Walsh uniform single peaked plurality Borda strict different unique winner probability exact asymptotic agreement\"",
+          "Resultary search nearest election divergence and small-electorate voting enumerations"
+        ]
+      },
+      "rationale": "Best-of-knowledge specific comparison finds no demonstrated prior theorem covering this exact final claim; sourced close comparisons and residual priority risks are explicit, and unsuccessful search is not treated as proof of priority.",
+      "residual_risks": [
+        "Older proceedings, theses or a different strict-winner convention could already give this coefficient; limited source survey does not prove historical priority.",
+        "A large-n asymptotic requires the stated lattice local limit and strict tilted slack, not the finite enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative asymptotic coverage, no matching sharp exact strict singleton formula in inspected passages.",
+          "evidence": "Corollary 10, Proposition 11; distinct urn Proposition 24.",
+          "identifier_or_url": "DOI:10.3233/FAIA251226",
+          "material_read": "Accessible HTML: statements of Corollary 10 and Proposition 11, their surrounding definitions and comparison with urn model.",
+          "method": "Read primary HTML sections and theorem passages.",
+          "title": "Agreement among Voting Rules under Single-Peaked Preference Distributions",
+          "trigger": "Same pairwise rule agreement in Walsh culture"
+        },
+        {
+          "assessment": "Foundational distribution definition, not the submitted disagreement asymptotic.",
+          "evidence": "Walsh single-peaked culture, 2015.",
+          "identifier_or_url": "arxiv:1503.02766",
+          "material_read": "Abstract and bibliographic description of sampling culture, not full technical article.",
+          "method": "Online abstract/metadata.",
+          "title": "Generating Single Peaked Votes",
+          "trigger": "Defines sampled four-ranking culture"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, exact scoring and local-limit proof",
+        "check_disagreement.py, independently reconstructed direct ballot counts",
+        "Mousseau–Surugue–Wilczynski DOI:10.3233/FAIA251226",
+        "Walsh arxiv:1503.02766"
+      ],
+      "rationale": "Strict single-winner disagreement probability is a natural social-choice performance statistic, and an exact finite probability together with the sharp exponential rate and lattice prefactor refines qualitative convergence results. Excluding ties is explicit and mathematical, not an unnoticed normalization.",
+      "residual_risks": [
+        "Older proceedings, theses or a different strict-winner convention could already give this coefficient; limited source survey does not prove historical priority.",
+        "A large-n asymptotic requires the stated lattice local limit and strict tilted slack, not the finite enumeration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older proceedings, theses or a different strict-winner convention could already give this coefficient; limited source survey does not prove historical priority.",
+    "A large-n asymptotic requires the stated lattice local limit and strict tilted slack, not the finite enumeration."
+  ],
+  "schema_version": 1
+}
