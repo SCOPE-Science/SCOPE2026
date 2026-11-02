@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T06:06:47Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md blob d0df9600c48ebe46d2d5175c39fbc508a895e38e",
+        "Git artifacts/verify.py blob 5b84eaa7b091f801176a5962622624b9f0bd9e53",
+        "Git artifacts/verify_output.txt blob 29022dba7000dea6e2892e98d4fd7b53e43a7813",
+        "Git VERIFICATION.md blob 4a7788a103c60baf2649a95bf727175d6d58bf6a",
+        "Independent SymPy wedge and polynomial tests plus exhaustive GF4 audit on 262144 matrices",
+        "https://arxiv.org/pdf/2107.13950 Definition 4.5"
+      ],
+      "rationale": "For the alternating determinant bracket [x,y,z]=det(x,y,z)e1, the Reynolds defect is a map on Λ^3(K^3) and hence completely determined by (e1,e2,e3), including in characteristics 2 and 3. Its first three mixed determinants sum to sigma2(R), and the all-R determinant is D, giving D e1=(sigma2-D) R(e1). Writing s=sigma2-D produces D=sa, sd=sg=0 and yields precisely the three disjoint cases: first column zero; nonpreserving first column with D=sigma2=0; nonzero scalar first column and det B=tr B. The first case has q^6 points; the third (q-1)q^2|SL2(Fq)|=q^3(q-1)(q^2-1). In the middle case Z={D=sigma2=0}, trace-zero nilpotent classes total q^6, nonzero trace t classes total q^4(q^2+q+1) each, so |Z|=q^7+q^6-q^4. Its first-line-preserving subset has 2q^5-q^3 points, yielding q^7+q^6-2q^5-q^4+q^3 for the genuine middle case. Rank<=1 matrices all satisfy D=sigma2=0; the exact rank-one number is (q^3-1)^2/(q-1). Invertible cases require B-I∈SL2 with tr(B-I)≠-2; exactly q^2 matrices in SL2 have trace -2 for every characteristic, giving q^3(q-1)(q^2-q-1). Rank two is subtraction. Independent SymPy reconstruction verifies the mixed-determinant sigma2 identity and polynomial sum. Exhaustive independent GF(4)=F2[u]/(u²+u+1) count (1,1323,21780,2112) matches the polynomial profile; package directly exhausts F2/F3 and matches (1,49,150,8), (1,338,2928,270). A count polynomial over every F_{q^m} gives the stated Hasse--Weil zeta factors by the exponential definition. Finite tests corroborate and do not establish the general proof.",
+      "residual_risks": [
+        "No automorphism orbit quotient is computed; the formula counts labeled linear endomorphisms of a fixed basis-defined algebra.",
+        "The finite-field arithmetic requires the standard finite-field GL3 Jordan/similarity class sizes; independently reconstructed and algebraically matched, not inferred from a log.",
+        "The Hasse--Weil zeta statement is for the fixed Reynolds affine matrix scheme over F_q via its F_{q^m} point counts, not an asserted decomposition into smooth geometric components."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hou--Sheng 2107 Definition 4.5 and Propositions 4.10--4.11 give general Reynolds theory plus invertible-to-derivation equivalence; no rank 0--2 classification is supplied by those propositions.",
+          "Hou--Sheng 2108 Sections 2 and 4 treat Reynolds n-Lie cohomology and constructions from commutative Reynolds algebras, with additional assumptions not shown to exhaust the fixed 3D algebra.",
+          "The 2024 Hom-Lie triple paper generalizes the operator identity but gives a graph characterization/deformation obstruction, not an enumeration of the fixed 3-Lie algebra.",
+          "The 2025/2026 Hou--Sheng--Zhou controlling-algebra publication could contain a stronger result; indexed abstract only and no complete text obtained due VPN disconnected."
+        ],
+        "reasoning": "A universal classification of Reynolds endomorphisms on this exact 3-Lie object would dominate; checked general theory gives identities and constructions, not this complete algebraic rank stratification. The inaccessible recent broader source is explicitly retained as residual risk, not declared noncovering in full.",
+        "searches": [
+          "https://arxiv.org/pdf/2107.13950 Section 4.2 and Example 4.4",
+          "https://arxiv.org/pdf/2108.04407 Sections 2.1, 4.2",
+          "https://www.mdpi.com/2073-8994/16/3/262 Section 3 Example 7 and Section 7",
+          "https://doi.org/10.1142/S0219887825400250",
+          "\"A unified approach to controlling algebras and cohomologies of various operators on 3-Lie algebras\" arxiv full pdf",
+          "site:github.com/Resultary/2026 \"adjoint embedding tensors\" \"3-Lie\""
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2107.13950 Definition 4.5, Example 4.4, Propositions 4.10--4.11",
+        "https://arxiv.org/pdf/2108.04407 Section 2.1, Section 4.2",
+        "https://www.mdpi.com/2073-8994/16/3/262 Example 7, Section 7",
+        "https://doi.org/10.1142/S0219887825400250 indexed abstract only",
+        "Resultary semantic records searches (6 exact queries recorded above)",
+        "Web keyword and exact-polynomial searches (8 actual queries above)",
+        "GitHub SCOPE 2026/10/12 assigned record and published Resultary related-title screening"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2021 invertible Reynolds operator -- derivation implication uses R^{-1}-1/2 I and is characteristic-zero in its printed form; it neither counts singular rank strata nor establishes characteristic-2 point counts.",
+          "For the same object, Example 4.4 of 2107 classifies Nijenhuis-induced structures; every endomorphism being Nijenhuis does NOT imply every map is Reynolds, as the present q=2 census 208<2^9 confirms.",
+          "Published adjacent same mathematical model adjoint embedding-tensor claims impose a distinct equation [Tx,Ty,Tz]=T([Tx,Ty,z]), not the submitted four-term Reynolds defect.",
+          "The 2024 graph characterization of generalized Reynolds operators restates an abstract if-and-only-if but does not provide this exact matrix solution set."
+        ],
+        "reasoning": "General derivation/graph correspondences do not automatically yield the singular all-rank census or uniform characteristic-free formulas; the new theorem specializes the identity to a natural object and solves the finite-field arithmetic explicitly. It does not claim the abstract Reynolds definition or classical nilpotent/similarity counts as new.",
+        "searches": [
+          "https://arxiv.org/pdf/2107.13950 Definition 4.5, Example 4.4, Propositions 4.10--4.11",
+          "https://arxiv.org/pdf/2108.04407 Proposition 4.6 and Section 2.1",
+          "https://www.mdpi.com/2073-8994/16/3/262 Example 7 and Proposition 1",
+          "https://doi.org/10.1142/S0219887825400250",
+          "Complete classification of adjoint embedding tensors on canonical three-dimensional 3-Lie algebra with [e1,e2,e3]=e1",
+          "Reynolds operator algebra all finite fields three dimensional 3-Lie Reynolds moduli"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hou--Sheng arXiv:2107.13950, Definition 4.5 (Eq. 36) identifies the precise four-term operator identity.",
+          "The current claim is also a rank-stratified solution of det(R)e1=(sigma2(R)-det R) R(e1), a matrix-variety finite-field point count, and an invertible Reynolds classification.",
+          "Resultary semantic searches screened same-object/three-dimensional operator titles and showed no exact Reynolds-operator matrix locus; published unrelated rank results cannot imply this property."
+        ],
+        "reasoning": "Compared the precise defining identity and its determinant-vector normalization rather than relying on the phrase Reynolds operator. Classical averaging, Nijenhuis, adjoint embedding tensors, and relative O-operators have different equations and do not automatically identify this locus.",
+        "searches": [
+          "Reynolds operator three dimensional 3-Lie algebra [e1,e2,e3]=e1 finite fields rank classification",
+          "Reynolds 3-Lie algebra operator determinant sigma2 trace classification invertible",
+          "count Reynolds operators finite 3-Lie algebra q^7+3q^6-3q^5-2q^4+2q^3",
+          "Reynolds operators 3-Lie algebra embedding tensors O operators 3 dimensional",
+          "\"Reynolds operators\" \"3-Lie\" \"three-dimensional\" classification",
+          "\"Reynolds\" \"3-Lie\" \"e1,e2,e3\" classification",
+          "\"Reynolds\" \"3-Lie\" finite field enumeration",
+          "\"Reynolds operator\" \"3-Lie\" matrix 3x3 classification",
+          "\"Reynolds\" \"3-Lie\" determinant sigma2 rank distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact q-polynomial, rank tuple, invertible q^3(q-1)(q^2-q-1), or Hasse--Weil point-count table was returned by the specified real searches.",
+          "The finite-field counts in the submitted theorem are for 3x3 matrices satisfying the four-term Reynolds equation, not standard unrestricted similarity-class counts."
+        ],
+        "reasoning": "Separate fingerprint searches screened possibility of prior numeric tables without the same wording. Negative searches are not evidence of absolute novelty; a specialist table under alternate terminology remains possible.",
+        "searches": [
+          "count Reynolds operators finite 3-Lie algebra q^7+3q^6-3q^5-2q^4+2q^3",
+          "\"q^7+3q^6-3q^5-2q^4+2q^3\" Reynolds",
+          "Resultary: rank tables for Reynolds 3-Lie algebra finite field q rank 1 2 3",
+          "web: invertible Reynolds operators 3-Lie finite field"
+        ]
+      },
+      "rationale": "The strongest inspected predecessor (Hou--Sheng 2021, Definition 4.5) defines the identical four-term Reynolds equation and uses the identical 3-Lie algebra in Example 4.4, but that example concerns Nijenhuis, while Section 4.2 proves general Reynolds/derivation results and supplies infinite-dimensional Reynolds examples rather than the rank-complete finite-field classification. Their later 2021/2023 n-Lie paper proves construction/cohomology results rather than the matrix locus/counting polynomials. The 2024 Hom-Lie-triple-system extension repeats this Reynolds identity as Example 7 but its inspected classification content addresses cohomology/deformation, not this 3D field-uniform census. Fresh published Resultary record searches for Reynolds, same mathematical model embedding tensors and exact polynomials returned no covering same-operator theorem; nearby embedding-tensor and O-operator identities are structurally distinct (one-/three-term rather than the four-term Reynolds equation). A more recent, highly plausible unified controlling-algebras article remained inaccessible in full through lawful access; its abstract concerns deformation maps/cohomology and supplies no observed exact counts, but no whole-text NOT_COVERING claim is made. Originality is accepted best-of-knowledge with specific priority risks; the determinant algebra and matrix-similarity ingredients are standard and not independently novel.",
+      "residual_risks": [
+        "The 2025/2026 Hou--Sheng--Zhou unified controlling-algebra paper could not be read in full because authorized institutional access reported vpn_disconnected; no whole-document noncoverage is claimed. Its known abstract does not decisively cover the finite-field census.",
+        "The source authors work chiefly in characteristic zero; an unindexed specialist finite-field/operator-variety treatment or translated classification may contain an equivalent formula.",
+        "The determinant reduction and GL3 similarity class sizes individually follow standard multilinear/matrix algebra, so novelty is the combined complete 3-Lie Reynolds locus and arithmetic rather than those component tools.",
+        "Failure to locate an exact polynomial in semantic/web searches is not proof of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_IDENTITY_AND_OBJECT_IN_NIJENHUIS_EXAMPLE; GENERAL_REYNOLDS_RESULTS_DO_NOT_SUPPLY_SINGULAR_MATRIX_CENSUS",
+          "evidence": [
+            "Eq.(36) exactly matches assigned Reynolds definition.",
+            "Example 4.4 uses bracket [e1,e2,e3]=e1 to discuss Nijenhuis maps, not classify Reynolds ones.",
+            "Proposition 4.10 maps invertible R to R^{-1}-1/2 Id derivation and Proposition 4.11 supplies a converse; Example 4.12 is infinite-dimensional."
+          ],
+          "identifier_or_url": "arXiv:2107.13950v1; https://arxiv.org/pdf/2107.13950",
+          "material_read": "Accessible public 22-page PDF, contents/Introduction, Example 4.4 on p.16, Section 4.2 on pp.17--20 including Definition 4.5 Eq.(36), Theorem 4.7, Propositions 4.10--4.11, transition to infinite-dimensional Example 4.12; relevant pages rendered and visually inspected.",
+          "method": "Direct arXiv PDF text and page screenshots, exact statement and implication comparison.",
+          "title": "Twisted Rota-Baxter operators on 3-Lie algebras and NS-3-Lie algebras",
+          "trigger": "Primary introduction of exact Reynolds 3-Lie identity and the same [e1,e2,e3]=e1 object."
+        },
+        {
+          "assessment": "ABSTRACT_GENERAL_THEORY_AND_CONSTRUCTIONS; NO_OBSERVED_EXACT_FIXED_MODEL_RANK_CENSUS",
+          "evidence": [
+            "Section 2 develops cohomology/deformation and general Reynolds-derivation relations.",
+            "Section 4.2 Proposition 4.6 constructs some 3-Lie Reynolds operators from commutative associative Reynolds data; no exhaustion of every endomorphism of the present fixed algebra follows."
+          ],
+          "identifier_or_url": "arXiv:2108.04407v2; https://arxiv.org/pdf/2108.04407; DOI:10.1080/00927872.2022.2113403",
+          "material_read": "Public 21-page PDF, contents/Introduction, Section 2.1 definitions, Section 4.2 (pp.18--19) algebraic constructions, especially Proposition 4.6 determinant condition; relevant PDF pages rendered and inspected.",
+          "method": "Direct public arXiv full-text PDF and screenshot-based mathematical section comparison.",
+          "title": "Reynolds n-Lie algebras and NS-n-Lie algebras / Cohomologies of Reynolds operators on n-Lie algebras",
+          "trigger": "Broad Reynolds n-Lie theory could dominate a three-dimensional example."
+        },
+        {
+          "assessment": "MORE_GENERAL_HOM_LIE_TRIPLE_FRAMEWORK_BUT_NO_OBSERVED_SAME_OBJECT_EXACT_COUNTS",
+          "evidence": [
+            "Example 7 explicitly gives [Ta,Tb,Tc]=T([Ta,Tb,c]+[a,Tb,Tc]+[Ta,b,Tc]-[Ta,Tb,Tc]).",
+            "The stated results address general graph/deformation/cohomology constructions and not a 3x3 finite-field rank histogram."
+          ],
+          "identifier_or_url": "https://www.mdpi.com/2073-8994/16/3/262; Symmetry 2024, 16(3), 262",
+          "material_read": "Complete publicly available HTML was navigated through its introduction, Section 3 Example 7 and Proposition 1, Section 4 cohomology introduction, and Section 7 conclusions.",
+          "method": "Statement-level inspection of HTML equations and results.",
+          "title": "Generalized Reynolds Operators on Hom-Lie Triple Systems",
+          "trigger": "Identical Reynolds four-term identity occurs as a special generalized Reynolds operator."
+        },
+        {
+          "assessment": "PLAUSIBLE_FULL_TEXT_INACCESSIBLE; NOT_ASSESSED_AS_WHOLE_DOCUMENT_NONCOVERING",
+          "evidence": [
+            "The abstract unifies Reynolds operators by left deformation maps and gives controlling algebras/cohomologies.",
+            "No explicit self-review finite-field rank table is visible from the inspected abstract; the full text remains unexamined."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0219887825400250; Hou, Sheng, Zhou; International Journal of Geometric Methods in Modern Physics 23(6) (2026)",
+          "material_read": "Publisher/bibliographic and indexed abstract giving deformation-map and cohomology scope only; no body or appendices read.",
+          "method": "arXiv/preprint and OA full-text attempts before authorized Oxford request; Oxford returned vpn_disconnected. No bypass or fabricated review.",
+          "title": "A unified approach to controlling algebras and cohomologies of various operators on 3-Lie algebras",
+          "trigger": "Same operator class in a more recent general controlling-algebra paper makes its full text plausibly relevant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md final theorem/proof",
+        "Hou--Sheng 2107 Example 4.4 and Reynolds Section 4.2",
+        "Hou--Sheng 2108 general Reynolds program",
+        "Independent finite-field GF4 and symbolic checks"
+      ],
+      "rationale": "The bracket [e1,e2,e3]=e1 is the natural nontrivial three-dimensional 3-Lie model used in the primary Reynolds/Nijenhuis literature. The full singular plus invertible Reynolds locus, not just the derivation-correspondence open subset, is a meaningful structural classification. Its characteristic-free three-case description and exact q-dependent rank profile for every finite field are natural intrinsic benchmark invariants; the same formula determines all extension-field counts and a nontrivial zeta rational function. These facts are not in the inspected general abstract Reynolds theory and are not merely a tiny numerical sample. The calculation does use elementary determinants and standard matrix similarity classes, but it solves a complete finite-dimensional operator variety with mathematically motivated domain. No quotient by 3-Lie automorphisms or classification of arbitrary 3-Lie algebras is claimed.",
+      "residual_risks": [
+        "Scope is one fixed three-dimensional algebra, not a classification of all small n-Lie algebras.",
+        "Some matrix-class counting ingredients are routine; mathematical value lies in their complete combined Reynolds classification and field-uniform arithmetic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed algebra [e1,e2,e3]=e1 in dimension 3, over all fields; finite-field polynomial is for all prime-power q.",
+    "No classification of other 3-Lie algebras and no automorphism-conjugacy orbit quotient.",
+    "The primary literature primarily works in characteristic zero, while this direct determinant proof does not divide by characteristic.",
+    "Independent F4 exhaustive check tests 4^9 matrices via criterion; general proof uses analytic/algebraic class counting.",
+    "Best-of-knowledge originality only, with explicit inaccessible plausible 2026 full-text risk."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Review of equilibrium coupling response
+# Independent mathematical audit
 
-**Correctness — PASS.** The positive-equilibrium existence and uniqueness argument establishes a well-defined parameterized object. The key nonstandard premise, positive definiteness of the equilibrium Hessian, is verified by strict diagonal dominance after congruence with the positive equilibrium vector. The exact sensitivity identity proves the strict inequality globally, and the Laplacian inverse identity supplies the strong-coupling limit without an unjustified formal expansion. The initial-slope and exact two-agent benchmark were separately checked. The 4,949 software assertions are corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS (self-review; residual priority risk).** Reynolds–Tudisco already prove uniqueness, smoothness and the gradient structure for this precise nonlinear model (arXiv:2304.07556, equations (15), (57) and Theorem 1.2). This work does not rebrand those premises as new: the assessed finding is the global coupling derivative and strict edge-disagreement monotonicity, the weak-coupling slope and the sharp pseudoinverse-controlled strong-coupling constant. Full text of the motivating article was read in relevant sections, with no directly encompassing statement found. Sun–Zhang (arXiv:2306.16847) studies linear directed optimization, not these nonlinear formulas. Only the abstract of the related linear edge-dynamics article arXiv:2111.14020 was materially accessible; this gap and possible generic comparative-static/effective-resistance implications remain priority risks. Actual record searches and implication comparisons are given in AUDIT.json. Lack of a returned record alone is not proof of novelty.
+PASS
 
-**Value — PASS.** A structurally interpretable global monotonicity law is useful when deciding whether stronger social coupling unambiguously reduces an equilibrium network-level disagreement statistic. The exact inverse-square law translates heterogeneous convictions into a graph-resistance coefficient; its dependence on the Laplacian is meaningful for comparing network structures and calibrating strong-coupling simulations. The result is not an arbitrary numerical constant or a routine restatement of the pre-existing uniqueness theorem.
+For all finite connected undirected positive-weight graphs, p>0, positive convictions and stubbornness, the coercive potential has a positive minimizer (nonzero constant perturbation; connectedness excludes boundary zeros). At a positive equilibrium the max-coordinate ratio rules out two solutions. Writing H=κL+diag[σ_i((p+1)x_i^p-u_i)], the exact equilibrium identity gives Hx=pσ_i x_i^(p+1)>0. diag(x)Hdiag(x) has nonpositive off-diagonals and positive row sums pσ_i x_i^(p+2), proving H positive definite. Implicit differentiation yields D′=−(Lx)^T H^{-1}(Lx), strictly negative unless all u_i equal; at κ=0 H_0=diag(pσ_i u_i) gives the claimed right slope. Boundedness of x between min and max convictions and κLx=f(x) imply x→c1 with c=(Σσu/Σσ)^(1/p), and the EXACT identity D=(2κ²)^−1 f(x)^T L†f(x) yields the stated strictly positive resistance coefficient and exact inverse-square decay for nonconstant u. The one-sided κ=0 and constant-u cases were checked; no inference from finite tests substitutes for this derivation.
 
-The conclusions concern only the specified strictly positive stationary branch, finite undirected connected networks and uniform coupling changes. No claim is made about arbitrary pair differences, directed networks or simultaneous tuning of stubbornness. Potentially stronger unpublished or differently formulated general results could alter priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality is limited to uniform-coupling comparative statics and the sharp graph-pseudoinverse coefficient. Reynolds–Tudisco (2023 preprint, 2025 journal publication) already provide precisely this nonlinear equilibrium model, positive equilibrium uniqueness, smoothness and potential (equation (15), Theorem 1.2, equation (57)), so those inputs are not novel. Their inspected full text does not state the negative quadratic-form derivative or κ² asymptotic coefficient. Linear directed-network optimization and edge-changing linear opinion results concern different models. The monotone derivative is relatively direct from the known potential and IFT, and generic singular perturbation theory could entail the strong expansion: best-of-knowledge PASS retains this limitation, not priority certification.
+
+## value
+
+PASS
+
+The unscaled graph Dirichlet disagreement is a natural measurable observable in nonlinear equilibrium opinion dynamics. Strict all-κ monotonicity supplies a global design comparison; the sharp large-coupling coefficient expresses heterogeneous conviction forcing through effective resistance and is meaningful even when individual pairwise differences are not individually monotone. This is an all-parameter structural asymptotic, not a renaming of equilibrium existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
