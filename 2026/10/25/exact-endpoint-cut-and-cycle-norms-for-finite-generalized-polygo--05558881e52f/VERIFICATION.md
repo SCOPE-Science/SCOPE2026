@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The exact-rational check is reproducible using only standard Python 3:
+# Independent mathematical audit
 
-`python3 gp_exact_verifier.py`
+## correctness
 
-The checker constructs a biclique, two prime-field projective planes, two grid quadrangles, the six-point perfect-matching generalized quadrangle, and subdivisions of the last two relevant base geometries. It grounds and inverts the actual graph Laplacian, recomputes every electrical-current column, and compares exact cut and cycle norms against the stated formulas. Run result: `GENERALIZED_POLYGON_EXACT_OK configurations=8 independent_full_columns=312 equal_order_formula_cases=70`.
+PASS
 
-The infinite-family claims are proved by the equitable-partition and circuit argument, not by the 312 finite columns. Some tested configurations are thin generalized polygons and serve only as checks of the more general algebraic lemma. The code does not check all thick generalized hexagons or octagons, nor any weighted or nonorthogonal projection model. An independent mathematical audit has not been performed.
+For any existing finite thick generalized m-gon (m=3,4,6,8), the endpoint-rooted two-sided distance cells form an equitable weighted cycle because all pre-middle shortest paths are unique (girth 2m) and diameter m excludes other layers. A vertex dipole is constant on cells; its Laplacian solution has direct-edge current R/(1+R) and 2m-1 alternative bundle currents 1/(1+R). Thus every Q column sums to 1+(2m-2)/(1+R), and subtracting the diagonal yields every P column 2m/(1+R); symmetry yields infinity norms. Independent exact grounded-Laplacian computation of all 21 Fano-plane incidence edge columns reproduced Q=53/21,P=16/7. The asserted q=2 versus q>=3 reversal follows from R_m(q,q)=2*sum_{j<m}q^-j+q^-m. Checked the condition that nominal orders need actually exist.
+
+## originality
+
+PASS
+
+The general cycle/cut projection and invariant projection machinery is acknowledged. The exact all-edge electrical current absolute sums for generalized-polygon incidence graphs and a parameter-uniform crossover were not found in materially inspected sources; this is best-of-knowledge, not historical-priority certification.
+
+## value
+
+PASS
+
+Complete structural norms for two canonical Banach-space projections across a natural incidence-geometry family, independent of flag transitivity, together with a universal order 2/3 crossover. These precise invariants are not generic projection norm tautologies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
