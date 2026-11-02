@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The exact defining formula and parameter domain were independently compared against the 2022 introduction. The derivative yields precisely three interior turning points and a critical valley value \(v(p)=(4p-1)/(4p^2)\). Forward invariance of the natural partition reduces to three explicit polynomial equations, each with one admissible root. The matrices follow from the interval images and generate exact nonmerging monotonicity cylinders. Their evaluated characteristic polynomials and rational generating functions yield the complete lap sequences and, using the established lap-growth theorem, the stated entropy values. The two endpoint maps are full-branched. The standalone checker ran successfully and compared 69 reconstructed cell/iterate values, but finite tests alone are not the proof.
+
+## Originality — PASS (inspected-evidence scope)
+Lawnik–Berezowski (2022), Sections 3–4, introduces this M-map and studies fixed points, numerical bifurcation and Lyapunov plots, and invariant-density behavior, including the special parameter \(1-1/\sqrt2\). That paper does not provide the five-point natural-critical-partition closure criterion, exact all-iterate lap sequences, or evaluated topological entropy at the other algebraic parameters. The classical Misiurewicz–Szlenk lap formula is strictly broader in method but does not evaluate the special M-map's critical-value equations or the three matrices. Research-index semantic comparisons found closest, differently defined countable Markov maps and other interval-map zeta calculations, not an implication of the present complete five-point result. No search establishes absolute priority, and an unindexed M-map kneading computation remains a risk.
+
+## Mathematical value — PASS
+This is a complete exact classification of a **canonical dynamical boundary property**, namely immediate invariance of the full turning-point partition, across the source's entire parameter domain. It evaluates a natural global complexity invariant and exact finite-n complexity for five distinguished parameter values in a published four-arm chaotic family previously studied by numerical Lyapunov plots. The three interior values give algebraic growth factors different from the two full-branched endpoints, and are not unmotivated parameter samples. The work does not purport to classify all postcritically finite parameters or settle encryption quality.
+
+## Prior work and limitations
+Sources: Lawnik–Berezowski, *Symmetry* 14 (2022), 895, DOI `10.3390/sym14050895`, Sections 3–4 and Eq. (6); Misiurewicz–Szlenk (1980), DOI `10.4064/sm-67-1-45-63`; Misiurewicz–Raith (2005), DOI `10.3934/dcds.2005.13.451`. Residual scientific risks include a not-found equivalent computation in prior kneading literature, and a methodological sensitivity to counting only maximal monotonicity laps rather than all symbolic cells; this count is justified by genuine turning points and checked by independent inverse-image enumeration. Independent validation is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
