@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T10:08:34.632090Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Automorphisms are independent row and column permutations. A finite base fixes precisely its r used rows and c used columns, so counting ordered potentially repeated cells involves two distinguished-block partition polynomials a_h(r),a_h(c). Inclusion–exclusion removes the m individually named cells, and signed Stirling inversion excludes repetitions among k new cells. Therefore t_k=sum_{j<=k} s(k,j) sum_{i<=j}(-1)^i C(j,i)m^i a_{j-i}(r)a_{j-i}(c). In particular t1=(r+1)(c+1)-m and t2=t1(t1-1)+(r+1)^2+(c+1)^2+1. With known m these recover product and sum of squares of r+1,c+1, hence unordered supports. Distinct shapes with (m,r,c)=(4,2,3), row-degree patterns (3,1) versus (2,2), are not isomorphic under named E,F but share all t_k. Bipartite 1,2,3-edge shapes have no distinct full-support patterns with the same ordered (r,c), proving sharpness. For two rows and n named points, a family of degree partitions produces floor((n-1)/2)+1 inequivalent bases with identical spectra. Independent Stirling–Bell computations reproduce t0..t4=(1,8,82,1067,17108). Only numerical counts are identified, not equality of complete types over named bases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cameron 2000 §§3–4 gives modified cycle-index and Stirling transforms of oligomorphic groups, including S∞ wr S∞ and stabilizers.",
+          "Applegate–Cameron Theorem 1 gives exponential lower bounds on orbit sequences for transitive non-2-transitive groups, not classification of pointwise-stabilizer spectra at finite bases."
+        ],
+        "reasoning": "The general orbit theory supplies tools but not the arity-two inversion and the exact smallest/family incidence-pattern collisions. Those are additional calculations and structural classification.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL3/groups.html",
+          "https://webspace.maths.qmul.ac.uk/p.j.cameron/preprints/orbitpaper.pdf",
+          "finite base type spectrum infinite grid two equivalence relations Stirling Bell orbit counts"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL3/groups.html",
+        "https://webspace.maths.qmul.ac.uk/p.j.cameron/preprints/orbitpaper.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cameron’s type/tuple orbit transformations are explicit antecedents.",
+          "The submitted formulas specialize a group action to pointwise stabilizers of finite bipartite support graphs, then prove a converse from t1,t2 and exhibit smallest collisions."
+        ],
+        "reasoning": "Although the generic generating-function formalism can produce the type counts, it does not on its own state or automatically select the sharp minimum m=4 and unbounded false reconstruction family. Those precise consequences were not identified in the prior material inspected.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL3/groups.html",
+          "https://webspace.maths.qmul.ac.uk/p.j.cameron/preprints/orbitpaper.pdf",
+          "finite base type spectrum infinite grid two equivalence relations Stirling Bell orbit counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The automorphism group is S_infinity × S_infinity acting in product action; finite parameter sets correspond to finite bipartite incidence graphs with pointwise-fixed support coordinates.",
+          "Cameron provides oligomorphic orbit sequence and Bell transforms for broad groups, not the exact four-edge finite-base collision statement."
+        ],
+        "reasoning": "Translated from model-theory type counts to orbits of a pointwise stabilizer and from base isomorphism to bipartite graph incidence; equality of counts does not imply equivalence of bases.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL3/groups.html",
+          "finite grid two named equivalence relations finite parameters orbit counts types arity two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Concrete two base graphs on four named points have degree multisets (3,1) and (2,2) but identical t0..t4=(1,8,82,1067,17108).",
+          "Bell and Stirling sequences alone do not record which named cells are occupied."
+        ],
+        "reasoning": "A parameterized table of pointwise-stabilizer orbit counts for finite A in a two-equivalence grid would potentially cover the classification, but such a table was not present in the inspected primary texts.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL3/groups.html",
+          "finite grid two named equivalence relations finite parameters orbit counts types arity two"
+        ]
+      },
+      "rationale": "Cameron 2000 already describes oligomorphic orbit sequences, Bell-number orbit transforms, and product actions; Applegate–Cameron establishes growth bounds for orbit sequences. These are credited as the general machinery. The complete fixed-finite-base arity-two determination and sharp nonisomorphic incidence-graph collisions with an unbounded family are not given by the inspected general results. The collision is not a conclusion from equality of titles: the same stabilizer type counts are computed from the exact ordered row/column support. Risk remains that a standard orbit-profile characterization of the two-equivalence grid appears in an older model-theory thesis.",
+      "residual_risks": [
+        "Older finite-model-theory notes on products of equivalence relations may already state that the stabilizer orbit spectrum remembers only row/column support sizes.",
+        "The general Stirling/Bell construction is standard; originality rests on the sharp reconstruction/collision assertions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established tools for unrestricted orbit sequences, not the numerical finite-base reconstruction and collision classification.",
+          "evidence": [
+            "JIS vol. 3 (2000), §§3–4; Bell/Stirling and point-stabilizer operations."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL3/groups.html",
+          "material_read": "Primary Journal of Integer Sequences full HTML; Sections 2, 3 cycle indices, 4.1 direct product, 4.2 wreath product and 4.3 stabilizers, including Bell and Stirling transforms.",
+          "method": "Public journal full text; line-by-line reading of relevant sections",
+          "title": "Groups and sequences (Sequences Realized by Oligomorphic Permutation Groups)",
+          "trigger": "Same infinite symmetric-group orbit sequence objects"
+        },
+        {
+          "assessment": "The paper proves lower bounds on orbits of a transitive group, not equal type spectra at inequivalent finite bases of the grid.",
+          "evidence": [
+            "Applegate–Cameron, Theorem 1, §2 and §3."
+          ],
+          "identifier_or_url": "https://webspace.maths.qmul.ac.uk/p.j.cameron/preprints/orbitpaper.pdf",
+          "material_read": "Full primary preprint PDF: abstract, Sections 1–3, Theorem 1 and Lemmas 2.1/3.1; page screenshot.",
+          "method": "Lawful author-hosted full PDF with parsed text and screenshot",
+          "title": "Orbits on n-tuples",
+          "trigger": "Potentially stronger oligomorphic orbit bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem precisely distinguishes what numerical type spectra can and cannot recover in a canonical omega-categorical structure: unordered support sizes are identified by arity two, but the graph of incidences inside that support is invisible even to the entire sequence, with arbitrarily many witnesses. This is a motivated model-theoretic reconstruction/collision invariant and a sharp first finite obstruction, not a one-off Bell computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://cs.uwaterloo.ca/journals/JIS/VOL3/groups.html",
+    "https://webspace.maths.qmul.ac.uk/p.j.cameron/preprints/orbitpaper.pdf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The two equivalence relations are named and not freely swapped; arity two recovers unordered support numbers only when m is independently fixed.",
+    "The t_k count new distinct entries and excludes all previously named base cells."
+  ],
+  "schema_version": 1
+}
