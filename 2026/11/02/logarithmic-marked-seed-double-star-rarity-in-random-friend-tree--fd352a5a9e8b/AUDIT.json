@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The exact seed-split killed transition follows by summing provisional target probabilities; star boundary masses are each 1/(m-1), so first interior entry mass is 2/[m(m-1)^2]. Interior continuation is bounded below by (m-2)/m. The convergent positive product g provides an explicit one-step harmonic supersolution, giving the matching O(log n/n^2) upper bound. The reproducible checker passes 720 assertions including independent full labeled-history enumeration and exact rational inequalities. Infinity is proved algebraically, not by enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1706.01514 derives recurrences for sizes of two hubs with arbitrary locations.",
+        "arXiv:2403.20185 proves broad structural properties of friend trees, including typical macrohubs, with no marked-seed logarithmic rarity statement in the inspected text."
+      ],
+      "reasoning": "The primary unmarked two-hub result has probability scale 1/n, and contains many histories where the second hub arises at a late-added leaf. Restricting the central bridge to the original seed edge changes its entrance flux to 2/[m(m-1)^2], and cannot be obtained from the unlabeled degree profile without chronological mark information. Broad structural limit theorems do not assert this rare-event scale.",
+      "searches": [
+        "https://arxiv.org/html/1706.01514v2 Section 4 Macrohubs",
+        "https://arxiv.org/abs/2403.20185 random friend trees vertex/edge neighborhoods",
+        "published-finding corpus: complete redirection growing tree star double star rare event"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2403.20185",
+      "https://arxiv.org/html/1706.01514v2",
+      "https://arxiv.org/abs/1303.1052"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The already-known star probability 2/(n-1) is reused, not claimed as new.",
+        "The first-entrance marked flux 2/[m(m-1)^2] is obtained separately; old unmarked recurrence aggregates all possible interior hub identities.",
+        "The positive supersolution h(a,b)=g(a)g(b) gives two-sided order matching, beyond a finite recurrence or numerical fit."
+      ],
+      "reasoning": "An implication would require tracking chronological labels in the broad two-hub theory. The closest text does not contain such a marked-event bound. The novelty claim is confined to the explicitly marked rarity theorem, not existence of a double-star recurrence or star exact formula.",
+      "searches": [
+        "https://arxiv.org/html/1706.01514v2 Sections 2, 4.1-4.4",
+        "https://arxiv.org/abs/2403.20185 full text",
+        "https://arxiv.org/abs/1303.1052 full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The event is equivalent to the original seed edge remaining central in a proper double-star, with all later vertices adjacent to a seed vertex.",
+        "arXiv:1706.01514, Sections 2 and 4, studies star and unmarked double-star classes, not the fixed seed-edge marked event."
+      ],
+      "reasoning": "Equivalent descriptors were tested: original-edge center, fixed first edge as double-star bridge, both seed endpoints nonleaves, original pair only branching hubs. A general double-star statement does not assign which edge is central and therefore cannot directly fix this label- and history-sensitive event.",
+      "searches": [
+        "published-finding corpus: random friend tree probability double star diameter three logarithm over n squared",
+        "published-finding corpus: random friend tree original seed edge survives as central bridge two degree at least two logarithmic divided n squared",
+        "Web: \"random friend tree\" \"initial edge\" \"double star\" probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results include general graph-theoretic double-star invariants and tree structural estimates, but no equivalent tabulated seed-marked rare-event asymptotic.",
+        "The finite seed-split distribution is calculated independently from the exact attachment rule, not transcribed from a known table."
+      ],
+      "reasoning": "No exact probabilistic table for the labeled original-edge event was identified. This is a limited literature-search statement rather than proof of global uniqueness.",
+      "searches": [
+        "published-finding corpus: \"Random Friend Trees\" 2403.20185 diameter 3 initial edge 1-2 center two internal vertices exact probability",
+        "published-finding corpus: random friend tree two hubs probability diameter at most three",
+        "Web: \"isotropic redirection\" \"two hub\" \"original edge\" survival"
+      ]
+    },
+    "rationale": "The 2017 primary paper gives unmarked double-star recurrences; the 2024 primary paper treats friend-tree structure and diameters. Neither inspected full text identifies the event that the original labeled seed edge is itself the unique two-hub bridge, nor the logarithmic-over-square sharp rarity scale or the positive product supersolution. The seed-marked restriction is not implied by the 1/n unmarked double-star law. Historical-priority and possible consequence of more general labeled-history formulas remain residual risks.",
+    "residual_risks": [
+      "Historical-priority search is not exhaustive; unlocated labeled-root enumeration could imply this event.",
+      "The sharp logarithmic leading constant is not determined, only upper/lower coefficients 2 and 2K.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_MARKED_SCALE",
+        "evidence": "First publicly posted March 29, 2024; primary MSC includes 60C05. The paper studies global structure and fixed neighborhoods, but the displayed marked-edge log/n^2 theorem is not present in inspected material.",
+        "identifier_or_url": "https://arxiv.org/abs/2403.20185",
+        "material_read": "Full arXiv HTML article, including model, principal theorems, fixed-edge discussion and references",
+        "method": "Read indexed HTML sections and inspected key terms seed, star, diameter, two hubs and attachment",
+        "title": "Random friend trees",
+        "trigger": "Same random-neighbor attachment model, original seed and vertex/edge neighborhood results"
+      },
+      {
+        "assessment": "CLOSEST_UNMARKED_RECURRENCE_NOT_COVERING_SEED_MARK",
+        "evidence": "Section 2 exact star mass and Section 4 all possible two-hub families; unmarked state counts omit fixed first-edge identity. The entrant flux depends on history/marks.",
+        "identifier_or_url": "https://arxiv.org/html/1706.01514v2",
+        "material_read": "Full arXiv HTML paper, especially Sections 2, 4.1 through 4.4 and appendices",
+        "method": "Read original recurrence and double-hub construction, compared unlabeled hub states to seed-labeled two-center dynamics",
+        "title": "Emergent Network Modularity",
+        "trigger": "Most plausible coverage of star/double-star rarity, Section 4 large hubs"
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING_MARKED_SCALE",
+        "evidence": "Theorem for proportion of degree-one vertices tends to one; no marked-seed double-star rare-event asymptotic.",
+        "identifier_or_url": "https://arxiv.org/abs/1303.1052",
+        "material_read": "Full arXiv rendered HTML article, introduction, model, proofs and conclusions",
+        "method": "Read model and one-step random-walk results and compared claimed limit laws",
+        "title": "Random walk attachment graphs",
+        "trigger": "Original one-step neighbor attachment model and leaf-dominance proofs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fd352a5a-9e8b-4e37-b2f5-03da2a5c2a5e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The invariant is not an arbitrary statistic: it measures chronological persistence of the seed edge as the central bridge in the simplest local-attachment model. The established 1/n asymptotic for an unrestricted two-hub configuration does not determine this seed-memory probability. The new upper/lower estimates identify a different sharp log(n)/n^2 rare-event scale and an explicit all-size influence of chronology, useful for distinguishing model seed-memory from global hub counts.",
+    "status": "PASS"
+  }
+}
