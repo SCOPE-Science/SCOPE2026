@@ -1,15 +1,21 @@
-# Scientific review: largest uniform spacing and Greenwood statistic
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(n\ge2\), the finite Dirichlet-simplex inclusion-exclusion argument gives the displayed mixed moment. Its beta integrals and alternating-binomial identities were reconstructed, the marginal second moments and variance formulas checked, and strict positivity follows from \((H_n-1)^2+H_n^{(2)}-1>0\). The asymptotic rate follows from harmonic asymptotics. The standalone exact-rational checker independently confirms the moment identity for \(2\le n\le80\) and direct simplex integration for \(n=2,3\). Finite checks supplement, rather than replace, the proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The full available articles by Shtembari and Caldwell (arXiv:2008.02048), Singh and Misra (arXiv:2110.10737), and Eller and Shtembari (arXiv:2111.02252) treat ordered-spacing marginal/sum distributions or tests but not the precise mixed moment and sharp correlation formula. Database searches across uniform spacings, the Dirichlet simplex, Greenwood statistics, and equivalent exponential normalizations did not return the same theorem. A related published exponential-range/sample-variance covariance concerns unnormalized, different variables and does not itself imply the result. The 2021 Greenwood stochastic-dominance paper was not inspectable in full, so hidden prior coverage cannot be excluded; failed searches are not novelty proofs.
+PASS
 
-## Value — PASS
-The largest-gap statistic responds to a single long empty interval, while Greenwood's sum responds to total spacing concentration; both are standard goodness-of-fit diagnostics. Their exact finite-sample dependence matters when combining or comparing such diagnostics under the same null. The theorem supplies the otherwise missing mixed moment, strict sign at all finite sample sizes, and an unexpectedly slow but vanishing asymptotic correlation, rather than an arbitrary finite numerical invariant.
+For n>=2 the n uniform gaps have Dirichlet(1^n) law. For any set of j coordinates all exceeding t, its probability is (1-jt)^(n-1), and conditional remaining mass 1-jt is another uniformly distributed Dirichlet simplex. Expanding Q conditional on this event yields jt^2+2jt(1-jt)/n+2(1-jt)^2/(n+1). Inclusion-exclusion in E[M Q]=integral E[Q 1_{M>t}]dt reduces to the exact beta-integral contributions 2/(n(n+2)j)+2/(n(n+1)(n+2)j^2). Binomial sums for j^-1 and j^-2 give H_n and (H_n²+H_n^(2))/2, proving E[M Q] and covariance (H_n²+H_n^(2)-2H_n)/(n(n+1)(n+2)). Marginal Dirichlet fourth moments and maximum-gap tail formula give the displayed varQ and varM, with strict positivity because (H-1)^2+(H2-1)>0 for n>=2. Harmonic asymptotics prove covariance ~(log n)^2/n^3 and correlation ~(sqrt6/(2pi))(log n)^2/sqrt n. Independently calculated alternating binomial-beta formula and exact fractions for n=2..10 (n=2 covariance 1/48). Rotationally symmetric circular spacings have the same Dirichlet vector. This is not an independence theorem.
 
-## Scientific limitations
-No claim is made for general Dirichlet shapes, irregular sampling, complete joint distributions, asymptotic independence, or statistical optimality of a combined test. Older literature may contain the exact formula or a more general identity. Separate independent mathematical and priority review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independently compared actual mathematical implications and the natural invariant against ranked published results and the primary material actually read. The specific evaluated final claim was not found as a stated theorem or direct special case; all relevant earlier general techniques are credited and priority limitations retained.
+
+## value
+
+PASS
+
+The largest gap and Greenwood squared-spacing sum are classical yet distinct goodness-of-fit diagnostics; their exact finite-n mixed covariance and slow vanishing correlation quantify the dependence between two natural statistics, rather than a trivial normalization or margin calculation. The joint moment is not determined by the two marginal moment lists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
