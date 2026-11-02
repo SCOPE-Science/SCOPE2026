@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A complete proof enumerates dual simplices, performs exactly two genuine free-face simplicial collapses for each square, identifies the remaining square-filled graph as the cubical two-skeleton of projective space, computes its integral homology, and uses the universal-coefficient theorem followed by combinatorial Alexander duality. The included finite checker exhausts the dual face conditions, exact free-face moves, and signed boundary ranks modulo two and three at dimensions five, six, and seven. The theorem for every dimension rests on the structural argument, not finite extrapolation.
+## correctness
 
-**Originality — PASS against the inspected literature.** The primary ordinary cut-complex papers [1,2] do not classify folded hypercubes. The closest same-complex square theorem [3] requires pairwise edge-disjoint squares, whereas every folded-cube edge lies in at least four squares. The square-completion Čech theorem [4] and the Clebsch Čech case [5] share a projective construction, and the folded-cube open-neighborhood theorem [6] uses a related quotient argument; their simplicial complexes and outputs differ, and none states the integral three-cut formula. The residual risk is an unindexed stronger theorem or an equivalent dual formulation.
+PASS
 
-**Value — PASS.** This is a natural all-dimensions topological classification, including a uniform two-torsion class and two explicit free homology ranks. Its proof makes a nontrivial geometric bridge from folded cubical graphs to projective two-skeleta and supplies an infinite source of torsion-based nonshellability, rather than merely a single computed rank.
+Checked precise Alexander-dual face predicate: 0/1-simplices complete; triangles correspond exactly to connected graph triples (induced 2-paths); tetrahedra to induced squares; no 5-vertex dual faces by triangle-free Mantel bound. For n≥5 the antipodal quotient of Q_n has unique common-neighbor square completions, so each square tetrahedron collapses along a unique triangle and then a free diagonal edge, leaving the square-filled graph plus b far-distance edges. Its square-filled subcomplex is the 2-skeleton of the cubical CW quotient of the n-cube boundary by the free antipodal map, homeomorphic to RP^(n-1). Consequently H1=Z/2, H2=Z^h where h=2^(n-4)(n^2−5n+8)−1, and adding b far edges gives H1=Z^b⊕Z/2. Integral UCT places the Z/2 Ext class in H², while duality shifts it to H~_{N−5}(Δ3), alongside free H~_{N−4}=Z^b. Independently checked n=5 N16 q40,b0,h15, and n=6 N32 q120,b160,h55. Infinite n follows from the covering-space and collapse argument, not these finite samples.
 
-**Scientific limitations.** No homotopy type of the original cut complex, symmetry module, or persistence map is claimed. The finite checks do not certify integral homology in arbitrary dimensions. Novelty remains conditional on accessible literature, and independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## Key references
+The genuine ordinary three-cut edge-disjoint-square theorem is close but its hypotheses fail for folded cubes because each cube edge belongs to n−1 squares. General cut-complex papers study different graph families; published folded-cube square Čech and neighborhood results share projective 2-skeleton geometry but not the same Alexander-dual predicate. The full integral ordinary Δ3 theorem survives best-of-knowledge with a risk of stronger square-complex or Stanley–Reisner formulations.
 
-[1] M. Bayer, M. Denker, M. Jelić Milutinović, R. Rowlands, S. Sundaram, and L. Xue, *Topology of Cut Complexes of Graphs*, arXiv:2304.13675, first public 2023-04-26; especially Sections 5–7. https://arxiv.org/abs/2304.13675
+## value
 
-[2] M. Bayer, M. Denker, M. Jelić Milutinović, S. Sundaram, and L. Xue, *Topology of Cut Complexes II*, arXiv:2407.08158, first public 2024-07-11; especially the classification for rectangular grids and squared paths. https://arxiv.org/abs/2407.08158
+PASS
 
-[3] *Three-cut complexes of triangle-free graphs with edge-disjoint squares*, publicly available research result, identifier `8ca830284420`, 2026. https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-triangle-free-graphs-with-edge-disjoint-s--8ca830284420
+A uniform infinite family of highly symmetric folded cubical graphs has integral next-to-top torsion and complete explicit free ranks, yielding nonshellability at every n≥5. The proof explains the exact Z/2 obstruction through a projective-space 2-skeleton and integral UCT rather than ad hoc finite computations. This structurally motivated classification is not a routine special case of the edge-disjoint-squares theorem.
 
-[4] *Square-completion decomposition of scale-two graph Čech nerves*, publicly available research result, identifier `98a5c720a71e`, 2026. https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-square-completion-decomposition-of-scale-two-graph-ech-nerves--98a5c720a71e
-
-[5] *A projective-plane summand in the scale-two Čech nerve of the Clebsch graph*, publicly available research result, identifier `4f10424a46be`, 2026. https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-projective-plane-summand-in-the-scale-two-ech-nerve-of-the-cle--4f10424a46be
-
-[6] *The neighborhood complexes of odd folded hypercubes are wedges of two-spheres*, publicly available research result, identifier `438357602cff`, 2026. https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-the-neighborhood-complexes-of-odd-folded-hypercubes-are-wedges-o--438357602cff
+The dated certificate retains the supplied scientific assessment, sources and limitations.
