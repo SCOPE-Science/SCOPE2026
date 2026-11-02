@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The ten Kneser vertices, 45 two-token states, and 120 legal transitions are fully specified. The verifier reconstructs the integer 45-by-45 Laplacian, checks connectedness, and computes an exact 44-by-44 reduced determinant by fraction-free elimination. The independently computed Laplacian characteristic polynomial has the requisite linear coefficient equal to 45 times that determinant. A modular Smith reduction at every prime dividing the determinant supplies all 44 local invariant valuations, and the resulting factors form a divisor chain with the prescribed product. The proof states the pivot divisibility argument needed to interpret this as the exact integral cokernel. Risks: a software error shared by calculations could affect the finite result, but the determinant, trace and modular operations are separate exact checks. There is no claim of an infinite family classification.
+## correctness
 
-## Originality — PASS
-The closest known results concern the adjacency-spectral symmetric square of a strongly regular graph (Audenaert et al.), general token-graph geometry (Fabila-Monroy et al.), rook graph critical groups (Ducey et al. 2015), the critical group of the ten-vertex base Kneser graph (Ducey et al. 2017), and general token-graph Laplacian spectral inclusion (Dalfó et al. 2020). The input graphs or invariants differ. None of the relevant inspected results gives the integral cokernel of the 45-vertex symmetric square, and its prime-power Smith data do not follow merely from the base graph's critical group or the token graph's characteristic polynomial. Exact-name, numerical and alias searches found no covering statement. Remaining risk: older computational files not indexed by the searched sources could contain the group.
+PASS
 
-## Value — PASS
-The Petersen graph is a canonical small strongly regular graph; its symmetric square is the first natural interacting two-particle configuration graph at this complexity and is nonregular. The complete invariant-factor decomposition gives the structure, not merely the order, of its recurrent sandpile states, exhibiting torsion at five primes and a highly nontrivial divisibility chain. This finite arithmetic benchmark is useful for testing how symmetric-square operations transform critical groups and for evaluating candidate integral representation-theoretic descriptions. It is not asserted to solve a general problem.
+The graph is exactly F_2(KG(5,2)): unordered pairs of distinct Kneser vertices joined by one legal token move. It has 45 configurations, 15 degree-4 and 30 degree-6 vertices, hence 120 edges. Deleting the last Laplacian row/column gives a concrete 44-by-44 integral matrix. Independently constructed the graph, computed its exact determinant 49253533675382566432014336000, and independently reduced that entire matrix over each prime-power ring for p=2,3,5,7,19. Local valuations were p2: 0^28,1^8,2^4,5^4; p3: 0^39,1^1,2^4; p5: 0^41,1^3; p7: 0^38,1^6; p19: 0^39,1^5. These align into the claimed invariant factors, their product equals the determinant, and the supplied full characteristic-polynomial computation is supported by the exact verifier source. The Smith reductions are exhaustive finite exact matrix calculations, not extrapolations. A separate conceptual derivation of each p-primary summand is not claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected token-graph literature supplies graph/spectral constructions and the inspected Kneser critical-group results describe the 10-vertex base KG(5,2), not the 45-vertex F_2(P). No actual matching Smith table or stronger theorem yielding these factors was identified. Published related Resultary records concern two-particle configuration homology or other Petersen complexes, not the critical group. This is a qualified best-of-knowledge conclusion, not priority certification.
+
+## value
+
+PASS
+
+The two-token symmetric square of the Petersen graph is a canonical configuration graph with nontrivial irregularity; its sandpile group governs recurrent chip-firing classes. The exact noncyclic abelian group is a natural integral invariant not fixed by a Laplacian spectrum or spanning-tree number. A 44-dimensional fully reproducible integer Smith computation adds meaningful arithmetic information, although it proves no all-graph family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

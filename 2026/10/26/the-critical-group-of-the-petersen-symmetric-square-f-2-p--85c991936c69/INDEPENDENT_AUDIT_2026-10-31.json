@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T08:42:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph is exactly F_2(KG(5,2)): unordered pairs of distinct Kneser vertices joined by one legal token move. It has 45 configurations, 15 degree-4 and 30 degree-6 vertices, hence 120 edges. Deleting the last Laplacian row/column gives a concrete 44-by-44 integral matrix. Independently constructed the graph, computed its exact determinant 49253533675382566432014336000, and independently reduced that entire matrix over each prime-power ring for p=2,3,5,7,19. Local valuations were p2: 0^28,1^8,2^4,5^4; p3: 0^39,1^1,2^4; p5: 0^41,1^3; p7: 0^38,1^6; p19: 0^39,1^5. These align into the claimed invariant factors, their product equals the determinant, and the supplied full characteristic-polynomial computation is supported by the exact verifier source. The Smith reductions are exhaustive finite exact matrix calculations, not extrapolations. A separate conceptual derivation of each p-primary summand is not claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dalfó et al., On the Laplacian Spectra of Token Graphs, arXiv:2012.00808: spectral relationships",
+          "Audenaert et al., Symmetric Squares of Graphs, arXiv:math/0507251: symmetric-square graph theory"
+        ],
+        "reasoning": "General token-graph spectral relations do not determine integral Smith invariant factors; cospectral integer Laplacians need not have isomorphic critical groups. No explicit stronger general integer Smith theorem for this graph was located.",
+        "searches": [
+          "web: On the Laplacian Spectra of Token Graphs 2012.00808",
+          "web: symmetric squares graphs Audenaert Godsil Royle Rudolph",
+          "Resultary: Petersen graph 2-token symmetric square F2(P) critical group Laplacian Smith normal form spanning tree number"
+        ]
+      },
+      "checked_sources": [
+        "Audenaert–Godsil–Royle–Rudolph, Symmetric Squares of Graphs, arXiv:math/0507251",
+        "Dalfó et al., On the Laplacian Spectra of Token Graphs, arXiv:2012.00808",
+        "Ducey–Hill–Sin, The Critical Group of the Kneser Graph on 2-Subsets of an n-Element Set, arXiv:1707.09115",
+        "Ducey–Gerhard–Watson, The Smith and Critical Groups of the Square Rook’s Graph and its Complement, arXiv:1507.06583",
+        "Resultary mathematical record searches for Petersen token graph and critical group"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The base graph has 10 vertices, versus 45 token positions; the token graph is nonregular with 15 degree-4 and 30 degree-6 vertices",
+          "Spectrum controls determinant/spanning-tree number but not the full integer Smith invariants"
+        ],
+        "reasoning": "Prior base-Kneser results and token spectral bounds do not logically imply the displayed 16 nonunit invariant factors without a new integral reduction.",
+        "searches": [
+          "arXiv:1707.09115 critical group Kneser graph",
+          "arXiv:2012.00808 Laplacian spectra token graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary: Two-particle Petersen configuration homology as an S_5-module (H1 of a configuration space, not finite graph Laplacian cokernel)",
+          "Ducey–Hill–Sin, The Critical Group of the Kneser Graph on 2-Subsets, arXiv:1707.09115: base KG(n,2)"
+        ],
+        "reasoning": "The token graph F_2(P) has 45 vertices and a different Laplacian from P=KG(5,2); critical groups are not preserved by passing to token graphs. Graph configuration homology likewise does not compute its Laplacian cokernel.",
+        "searches": [
+          "Resultary: Petersen graph 2-token symmetric square F2(P) critical group Laplacian Smith normal form spanning tree number",
+          "Resultary: Petersen two token graph critical group Smith normal form",
+          "web: Petersen graph symmetric square token graph critical group Smith normal form F_2(P)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching table in retrieved Resultary results; nearby Petersen 2-matching and configuration-homology records concern other complexes",
+          "Actual assigned package gives explicit full 44-by-44 calculation rather than merely spectral multiplicities"
+        ],
+        "reasoning": "An exact Smith-table lookup would cover the contribution, but none was identified; absence from indices is not proof that no such table exists.",
+        "searches": [
+          "web: Petersen 2-token graph Smith normal form critical group",
+          "Resultary: Petersen two token graph critical group Smith normal form"
+        ]
+      },
+      "rationale": "The inspected token-graph literature supplies graph/spectral constructions and the inspected Kneser critical-group results describe the 10-vertex base KG(5,2), not the 45-vertex F_2(P). No actual matching Smith table or stronger theorem yielding these factors was identified. Published related Resultary records concern two-particle configuration homology or other Petersen complexes, not the critical group. This is a qualified best-of-knowledge conclusion, not priority certification.",
+      "residual_risks": [
+        "A previously computed but unindexed Smith normal form for this exact finite token graph may exist.",
+        "The result is a fully exact isolated finite computation; it does not establish a parameterized Kneser-token-family formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Laplacian spectral structure, not an explicit Smith classification of F_2(P).",
+          "evidence": [
+            "Main spectral framework concerns Laplacian eigenvalues; no identified theorem computing integer Smith factors of this 45-state token graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.00808",
+          "material_read": "Accessible paper discussion of token-graph Laplacian spectral identities and scope of its results.",
+          "method": "author-uploaded mathematical preprint (open HTML/extracted text)",
+          "title": "On the Laplacian Spectra of Token Graphs",
+          "trigger": "same two-token graph construction and spectral consequences"
+        },
+        {
+          "assessment": "Applies to KG(n,2) itself, not the 2-token graph F_2(KG(5,2)).",
+          "evidence": [
+            "The graph's vertex set in that theorem is 2-subsets of an n-set, not unordered pairs of Petersen vertices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1707.09115",
+          "material_read": "Accessible theorem statement describing Smith/critical group of Kneser graphs on 2-subsets.",
+          "method": "arXiv manuscript/abstract and theorem context",
+          "title": "The Critical Group of the Kneser Graph on 2-Subsets of an n-Element Set",
+          "trigger": "Petersen equals KG(5,2), apparent collision through graph name"
+        },
+        {
+          "assessment": "Defines symmetric squares and studies spectra; not evidence of a matching integral Smith computation.",
+          "evidence": [
+            "The token graph construction is prior, explicitly credited."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0507251",
+          "material_read": "Paper description and construction/spectral scope in accessible source material.",
+          "method": "arXiv author-source abstract/context",
+          "title": "Symmetric Squares of Graphs",
+          "trigger": "origin of graph construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-token symmetric square of the Petersen graph is a canonical configuration graph with nontrivial irregularity; its sandpile group governs recurrent chip-firing classes. The exact noncyclic abelian group is a natural integral invariant not fixed by a Laplacian spectrum or spanning-tree number. A 44-dimensional fully reproducible integer Smith computation adds meaningful arithmetic information, although it proves no all-graph family theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The exact Smith invariant factors of the 44-by-44 reduced combinatorial Laplacian of the 45-vertex two-token Petersen graph are 1^28, 2^8, 4^2, 28, 1596, 38304, 191520^3, and the spanning-tree count is 49253533675382566432014336000; the stated 45-degree characteristic polynomial holds.",
+  "limitations": [
+    "Single finite graph, not a family classification.",
+    "No claim of complete historical priority; unindexed tables possible."
+  ],
+  "schema_version": 1
+}
