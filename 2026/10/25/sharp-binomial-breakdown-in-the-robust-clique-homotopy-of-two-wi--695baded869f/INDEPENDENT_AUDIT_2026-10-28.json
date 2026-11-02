@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:46:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/sharp-binomial-breakdown-in-the-robust-clique-homotopy-of-two-wi--695baded869f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/sharp-binomial-breakdown-in-the-robust-clique-homotopy-of-two-wi--695baded869f/VERIFICATION.md"
+      ],
+      "rationale": "Independence-number recursion alpha(s)=max(alpha(s without lowest bit),1+alpha(s without closed neighborhood of lowest bit)) is exact on *all* 2^(3n) subsets for both specified finite graphs. Each k-face is exactly one with alpha(s)<k; the deterministic greedy element-toggle matching pairs codimension-one incident faces, leaving one critical 0-cell and b critical cells only in dimension 2k−3 (or only critical vertex). Crucially, an independent C++17 reconstruction (different memory and graph implementation from the supplied Python verifier) enumerated the full face posets for k=4,5,6,7,8 on n=5 and k=4..9 on n=6, reversed each matched incidence, and fully topologically sorted every oriented Hasse digraph, with visited count exactly total face count in each case. Example: n5 k5 12826 faces, 67 critical 7-cells; n6 k5 38417 faces, 206 critical 7-cells; n6 k8 249408 faces, 33 critical 13-cells. All 11 nontrivial/high boundary cases matched the submitted multiplicities; the audited original code separately handles known k2,3 and high trivial k. A finite discrete Morse matching is exhaustive for the *two finite grids* and Forman’s homotopy theorem upgrades the critically homogeneous CW complexes to integral sphere wedges. It is not extrapolated to arbitrary strip length.",
+      "residual_risks": [
+        "Finite numerical corroboration is explicitly distinguished from the quantified analytic proof or exhaustive finite certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Filakovský Theorem 1: all rectangular grids k=2,3; Corollary 3: all-k edge-only gluing; Conjecture 5 notes corner-gluing k>3 not proved.",
+          "Chandrakar et al: total k-cut for 2×n and total 3-cut for 3×n, not total k>3 for these two grids."
+        ],
+        "reasoning": "Neither general theorem covers n=5,6 with corner gluings at k≥4. Known maximal-independent-set boundary classification is explicitly excluded from original core.",
+        "searches": [
+          "Filakovský 2026 Theorems 1–3 and Conjecture 5",
+          "Chandrakar et al arxiv:2408.07646 Theorem 1.1",
+          "k-robust clique complex grid P3 x P5 P3 x P6 exact homotopy wedge spheres higher k binomial rank"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2602.11365",
+        "https://arxiv.org/abs/2408.07646",
+        "https://arxiv.org/abs/2602.21427"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the same G3,5 and G3,6 at k4..interior k, Filakovský’s published edge-only hypothesis fails because the grid requires corner gluing.",
+          "Simple Alexander duality alone does not upgrade an unrelated Betti-rank computation to the wedge homotopy of the robust clique complex."
+        ],
+        "reasoning": "The exact finite Morse matching supplies genuinely extra homotopy information in parameters where inspected previous theorems do not apply, even though k2,3 and maximum k endpoints were known.",
+        "searches": [
+          "Filakovský arxiv:2602.11365 lines 57–98 and Example 10",
+          "Chandrakar et al 2408.07646 total-cut grid theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R_k(G) matches the published k-robust clique complex Cliq_k(G) defined by no independent subset of size k.",
+          "Alexander duality relates to the total k-cut complex but gives homology, not generally the claimed integral wedge homotopy."
+        ],
+        "reasoning": "Equivalent notation is known; the novelty must be higher-k homotopy classifications of the two exact width-three grids, not renaming the complex or dualizing a known low-k result.",
+        "searches": [
+          "Filakovský arxiv:2602.11365 Definition 9; Alexander dual total k-cut Definition 12",
+          "k-robust clique complex grid P3 x P5 P3 x P6 exact homotopy wedge spheres higher k binomial rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Filakovský Example 10 computes G4,3 at k6 as S9 and explicitly observes failure of naive binomial count in a different parameter set.",
+          "No inspected table supplies the complete 3×5 and 3×6 k>=4 integral *homotopy* types or full Hasse-poset Morse certificates."
+        ],
+        "reasoning": "Preexisting lower-k and top-k tables cannot replace an independent finite exhaustive higher-k certificate. A hidden table in an inaccessible source remains priority risk.",
+        "searches": [
+          "Filakovský 2026 Example 10 and tables",
+          "Resultary k-robust clique complex grid P3 x P5 P3 x P6 exact homotopy wedge spheres higher k binomial rank",
+          "arxiv:2209.13503 Total Cut Complexes of Graphs"
+        ]
+      },
+      "rationale": "Filakovský (arXiv:2602.11365v4) studies exactly these grid robust-clique complexes: Theorem 1 gives k=2,3 and Corollary 3 covers all k only for edge-glued square sequences; both width-three grids have corner attachments. Example 10 already shows a binomial failure at a different grid and the top-k maximal-independent-set result is old, so the audited novelty is not first failure anywhere. Theorem 1 and the general k≥4 corner-gluing challenge remain a conjectural direction in that paper, and the inspected statements do not determine the specific 3×5/3×6 full k≥4 homotopy spectra. Chandrakar et al grid total-cut work gives total 3-cut for width three, not higher k. Published Resultary search produced a general k3 bipartite graph theorem and unrelated finite grids, not the new parameters.",
+      "residual_risks": [
+        "An unindexed high-k grid table or inaccessible complete total-cut duality paper could already include some Betti multiplicities; no claim of exhaustive priority.",
+        "Original self-review finite verifier was inspected; its output alone was not accepted. The independent full Hasse-DAG C++ replay is limited exactly to the two finite graphs, not a global conjecture."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers k2,3 and edge-only gluing; Example 10 already includes a different binomial failure. Does not settle the submitted higher-k corner-glued grids.",
+          "evidence": [
+            "Theorem 1 k∈{2,3}; Corollary 3 all k edge gluing; Example 10; Conjecture 5."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.11365",
+          "material_read": "Full primary arXiv HTML (v4, Aug 10 2026), introduction, Theorems 1–3, Definition 9, Example 10, Conjecture 5 and relevant Section 3 proof discussion.",
+          "method": "Direct full-text mathematics, quantifier and gluing-hypothesis comparison.",
+          "title": "The Topology of k-Robust Clique Complexes in Grid-like Graphs",
+          "trigger": "Exact definitions, all rectangular grids, and potential all-k domination."
+        },
+        {
+          "assessment": "Higher k≥4 for width-three grids is outside stated theorem; not a covering homotopy census.",
+          "evidence": [
+            "Chandrakar, Hazra, Rout, Singh, Theorem 1.1 and width-three case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.07646",
+          "material_read": "Author-accessible primary statement including 2×n higher-k and 3×n total 3-cut cases and accompanying theorem scope.",
+          "method": "Theorem and parameter comparison, plus equivalence under Alexander duality.",
+          "title": "Topology of Total Cut and Cut Complexes of Grid Graphs",
+          "trigger": "Natural Alexander dual and same width-three grid family."
+        },
+        {
+          "assessment": "Uninspected full article is a residual priority risk; its abstract does not present this precise finite grid classification.",
+          "evidence": [
+            "Carnero Bravo (2026) abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.21427",
+          "material_read": "ArXiv abstract and bibliographic scope only; complete text not read.",
+          "method": "Limited abstract-level source-inspection, not a whole-document exclusion.",
+          "title": "Total Cut Complexes and Their Duals",
+          "trigger": "Recent possible broad all-parameter grid duality theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/sharp-binomial-breakdown-in-the-robust-clique-homotopy-of-two-wi--695baded869f/RESULT.md"
+      ],
+      "rationale": "The two adjacent width-three rectangular grids are the first small substantial corner-gluing test cases beyond established low-k theory, showing exact homotopy types (not just ranks) through the full parameter range and pinpointing initial low-parameter binomial-count breakdown. This finite census answers sharply motivated cases of an explicit open structural wedge-conjecture without pretending to prove an infinite grid family; the complete integral certificate is independently useful for future generalizations.",
+      "residual_risks": [
+        "Value assessment is mathematical usefulness of the precise new claim, not an assertion of broad downstream impact or publication prestige."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For G_n=P_3□P_n with n=5 and 6, the complexes R_k(G_n)={W:alpha(G_n[W])<k} have complete *integral homotopy* types wedge^{b_nk} S^{2k-3} or contractible. For n=5, b at k=2..7 is (8,28,56,67,42,7) and k≥8 contractible; n=6, b at k=2..9 is (10,45,120,206,225,139,33,1) and k≥10 contractible. The binomial multiplicity holds through k=4 but fails already at k=5: 67 instead of 70 and 206 instead of 210. New higher k cases and exact finite Morse certificates are the substance; k=2,3 and top maximal-independent-set cases are prior/boundary facts.",
+  "limitations": "Only two finite grids P3×P5 and P3×P6; no general width-three strip theorem. k=2,3 old; the last independent-set thresholds are known in Filakovský. Integral homotopy conclusion follows from complete acyclic matching and Morse CW theorem, not just Euler characteristics.",
+  "schema_version": 1
+}
