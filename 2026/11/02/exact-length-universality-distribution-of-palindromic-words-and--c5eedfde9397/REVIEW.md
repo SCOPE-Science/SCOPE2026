@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The generating function follows from a unique greedy-arch factorization, elementary onto-word enumerators and a clearly attributed existing palindrome universality-index result (Barker et al., 2020, Proposition 3). The coefficients are counts of unique palindrome decompositions. Sharp optimum and count follow from equality in arch-length and omitted-symbol bounds. Literal finite word enumeration and an independent integer convolution check agree in 52 alphabet/length instances; the structural proof covers all parameters.
+
+**Originality: PASS (best-knowledge, with stated risk).** The palindrome index formula itself is not new; it appears explicitly in Barker et al. (2020, Proposition 3). The new claim is the full bivariate exact enumeration for every alphabet size and all lengths and indices, together with a complete cardinality/classification of shortest palindromic universal hosts. Inspected related work includes Adamson's (2023) unrestricted enumeration and Fleischmann et al.'s (2023) alpha-beta factorization; neither states the palindrome-restricted rational series. Published record and prior research records searches did not find a logically dominating enumeration. An implicit specialization in unsearched sources remains possible.
+
+**Value: PASS.** The all-length palindrome-restricted universality profile determines exact frequencies and supports exact threshold counting for symmetric subsequence channels. Its rational form gives effective coefficient extraction for every alphabet, not merely finite cases; the extremal coefficients reveal the precise parity cost, optimal forms and count. The result is a motivated natural classification rather than an arbitrary finite slice. Its reliance on a known structural lemma is disclosed.
+
+**Boundaries and risks.** The generating function counts labeled literal palindromes. It does not count rotation classes, generalized anti-palindromes, or repeated occurrence multiplicities. An independent audit is outstanding. Close prior results and potential unpublished/unindexed equivalent formulas prevent a claim of definitive worldwide novelty.
+
+Self-review: passed. Independent audit: not yet performed.
