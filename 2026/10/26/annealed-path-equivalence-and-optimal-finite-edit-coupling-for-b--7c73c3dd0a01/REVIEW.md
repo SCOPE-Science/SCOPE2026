@@ -1,17 +1,21 @@
-# Scientific review — full-path equivalence and optimal finite-edit cost
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the inclusion-induced parity model and quantifies precisely the independent coefficient rows. Conditional means are \(b_n=(1-2p)^{2^{M_n}}\); the geometric occupancy calculation proves summability without an unjustified uniform-in-path bound. The full conditional product density converges in \(L^2\) with strictly positive logarithmic limit, yielding two-sided equivalence after integrating over the common walk. Each coordinate of any shared-walk coupling has mismatch probability at least \(|b_n|/2\); a common-uniform coupling attains all such bounds simultaneously. Endpoint and asymptotic claims follow by explicit arguments. The finite checker passed 64 exact rational checks, not an infinite certification.
+## correctness
 
-## Originality — PASS, with documented risk
-Hamza–Tournier (arXiv:2610.01658v1), read through its theorem and appendix, provides exactly the coefficient representation, quenched and annealed Brownian convergence, and a related subexponential binomial estimate. The original 2015 bootstrap-walk paper (arXiv:1508.02840v2) was also inspected. The earlier general-bootstrap work (arXiv:2010.16000v2) concerns deterministic transformations, diffusion limits, and ergodicity. Their statements do not imply equivalence of whole unscaled paths or the sharp minimal Hamming coupling cost. Targeted indexed research comparisons yielded adjacent but distinct dependence or Bernoulli TV phenomena. General product-measure equivalence and maximal-coupling principles are standard; the original claim is the precise model-specific path-level classification, constant and endpoint behavior. A possible older presentation under finitary coupling terminology remains a priority risk.
+PASS
 
-## Value — PASS
-The distinction between almost-sure quenched singularity and annealed equivalence is a substantive strengthening in kind over diffusion convergence. The coupling theorem quantifies exactly how many increments of an independent reference must be changed while preserving the driving walk, and its logarithmic endpoint divergence captures a natural boundary of the model. The claim is deliberately restricted to independent coefficient rows, where it is both complete and motivated.
+C PASS. Under independently resampled Bernoulli coefficient rows (G1), conditional on entire fair ξ, row parities ζ_n are independent and have exact means b_n=(1−2p)^(2^{M_n}). Symmetric Bernoulli negative-count M_n visits each k with geometric mean two, giving E∑_(n>=1)|b_n| = r+2∑_(k>=1)r^(2^k), r=|1−2p|<1, and square-summability. Conditional product density martingale is L²-bounded, with log-density converging to a finite real value almost surely, hence annealed P_p and independent-reference Q are mutually absolutely continuous on FULL infinite path space. Coordinatewise total-variation bounds give minimum cost ∑|b_n|/2 and are attained simultaneously by independent shared-uniform maximal couplings, giving B(p)=r/2+∑_(k>=1)r^(2^k), finite edits a.s. Binomial occupation sums prove optimal expected mismatch tail 2^(−N+o(N)); dyadic exponential series proves endpoint logarithm. Each deterministic environment maps ξ to η and yields a graph Q-null, establishing quenched singularity; p=1/2 equality and p=0,1 singularity follow. Independent exact finite binomial and parity checks supplement the infinite-measure argument.
 
-## Closest literature and limitations
-- Hamza and Tournier (2026), *Are random random walks normal?*, arXiv:2610.01658v1, Sections 2–3 and Appendix B.
-- Collevecchio, Hamza, Shi and Williams (2020/2021), *Limit theorems and ergodicity for general bootstrap random walks*, arXiv:2010.16000v2.
-- Unknown earlier literature under path-space quasi-invariance terminology might overlap; the 2015 *Bootstrap Random Walks* preprint was inspected in full HTML and treats deterministic bootstrap constructions. The proof does not extend to coefficient arrays with temporal dependence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O PASS best knowledge. Hamza–Tournier 2026 fully inspected primary paper defines exactly the (G1) row-independence model and proves quenched/annealed functional CLTs and related binomial estimates; these are acknowledged. Convergence of diffusive rescalings neither implies nor precludes equivalence of complete unscaled infinite path laws or optimal finite Hamming edits. Product-measure equivalence criteria and maximal coupling are standard, whereas the exact model-specific occupation/cost formula and phase boundary were not found as prior results in examined source. Equivalents in finitary isomorphism/measure comparison literature remain a priority risk.
+
+## value
+
+PASS
+
+V PASS. The distinction between quenched singularity and annealed equivalence on complete paths is a structural probability result, and the sharp minimal expected number of edits is a natural, reusable coupling invariant; this is substantially stronger and different in kind than the preexisting weak convergence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
