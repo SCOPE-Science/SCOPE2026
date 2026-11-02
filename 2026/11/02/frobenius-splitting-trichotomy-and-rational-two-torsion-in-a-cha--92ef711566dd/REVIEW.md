@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The degree-six hyperelliptic polynomial is separable for every nonzero parameter because its derivative has zeros only at the three points where the polynomial takes nonzero values. The reciprocal-coordinate model splits the six branch points into two disjoint Artin–Schreier fibers. For a square \(-1/r\), absolute trace distinguishes three rational roots from one irreducible cubic in each fiber; for a nonsquare, Frobenius exchanges the fibers and its square fixes all six. The resulting cycle types are therefore exhaustive. In genus two, nonidentity geometric two-torsion classes correspond bijectively to the fifteen unordered pairs of Weierstrass points; fixed-pair counts give \(16,4,1\). The parameter counts are direct disjoint counts of nonzero trace-zero elements modulo sign and of nonsquares. The self-contained checker reproduced extension-field root degrees and the exact counts for all nonzero parameters over four finite fields, not as a substitute for the infinite proof.
+
+## Originality — PASS with narrowly scoped priority risk
+Booher–Howe–Sutherland–Voloch, arXiv:2402.08853, Section 5.3 **already states** the characteristic-three equation, that these curves are ordinary, and the criterion for all six roots to be rational; none is claimed new. Its Sections 2–3 treat characteristic other than two and three, and its characteristic-three subsection does not give the non-split Frobenius cycle trichotomy, minimum splitting extensions, rational two-torsion ranks, or exact three-way parameter frequencies. Cardona–Quer's dihedral genus-two classification (arXiv:math/0203165) explicitly excludes characteristic three. Targeted searches for the complete arithmetic distribution and comparisons with overlapping published claims found no direct covering result. Since the argument uses standard trace theory applied to a known model, an unindexed treatment or unrecognized corollary remains a meaningful priority risk.
+
+## Mathematical value — PASS
+The natural branch-point Galois representation controls which unramified double covers and Jacobian two-torsion classes exist over the ground field, a principal arithmetic object in the motivating paper. A criterion for all six branch points to split does not itself distinguish the two non-split alternatives, whereas this theorem completes their classification, exact splitting fields, rational two-torsion structure, and frequencies for every finite field of characteristic three. The outcome is a naturally complete arithmetic classification, not a random special-case computation.
+
+## Closest literature and boundaries
+The motivating source's Section 5.3 is the closest prior treatment, and its known complete-splitting criterion is fully acknowledged. The novelty boundary is the classification of the **two non-split types together with the complete frequencies and two-torsion invariants**. No claims are made about isomorphism-class counts, Jacobian isogenies, or independent mathematical validation.
+
+Self-review: passed. Independent audit: not yet performed.
