@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For every complete multipartite graph with at least two parts, all of sizes at least two, the proof derives an exact locating–dominating-set criterion: no part contains more than one unselected vertex. It translates partitions to vertex covers of an auxiliary loop-allowing multigraph built from within-part vertex pairs. The two-cover argument bounds all coalition partitions by four classes. The analysis of loops and triangles proves that four classes force every part to have size two. Explicit three- and four-class constructions attain the applicable bound. The exact classification of four-class auxiliary graphs as two disjoint edges, a four-vertex path, or a four-cycle gives the stated Stirling-number enumeration with the correct removal of block labels. Direct graph-level enumeration, abstract multigraph enumeration, and independently oriented edge-assignment counts corroborate the nonstandard arguments. These finite computations are not substituted for an infinite proof.
+
+## Originality — PASS (qualified)
+Chellali, Dobrynin, Foucaud, Golmohammadi, and Valenzuela-Tripodoro, *Locating-dominating coalitions in graphs* (arXiv:2602.18760v2, initially posted 2026-02-21), defines the same notion and provides Proposition 2.8's general bound, exact path/cycle values, and Proposition 4.1's small-graph classification. Its accessible complete HTML manuscript was read through the relevant theorem sections, proofs, and open questions. It does not contain the complete multipartite dichotomy, equality classification, or four-block count. The four-cycle boundary is expressly previously known. Standard locating-domination of multipartite graphs and two-block dominating/locating partitions do not imply the optimal coalition partitions. Searches for aliases including cocktail-party graphs, complete multipartite graphs and locating-dominating coalitions did not identify coverage; this is evidence, not proof of historical uniqueness. Unindexed or differently formulated work remains a residual risk.
+
+## Mathematical value — PASS
+This extends a recently introduced parameter from selected paths and cycles to a natural infinite family of dense graphs with false twins. The constant bound independent of part number sharply improves the general bound that grows linearly with the number of parts, and four-class equality admits a complete structural characterization and an exact exponentially growing number of labelled-vertex, unlabelled-class optimal partitions. The distinct regimes arise from a substantive two-vertex-cover obstruction, not from renaming an established invariant.
+
+## Limits and closest sources
+The result excludes singleton parts, counts only four-class maxima in the all-size-two case, and has not been independently audited. The main comparison is the 2026 manuscript at https://arxiv.org/html/2602.18760v2; its Proposition 4.1 already handles the four-cycle case.
+
+Self-review: passed. Independent audit: not yet performed.

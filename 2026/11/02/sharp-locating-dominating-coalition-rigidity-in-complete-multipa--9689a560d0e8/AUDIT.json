@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For all r>=2 with ni>=2, the proof exactly characterizes LD-sets, reduces each potential coalition to a two-vertex cover of a well-defined auxiliary multigraph, proves at most four cover-participating vertices, excludes four classes when a graph part has size at least three, constructs extremizers in both regimes, classifies equality as 2K2/P4/C4, and counts them via labelled surjections and 4! symmetry. Every relevant boundary r=2 and small part size is covered. Verifier independently checks direct labelled-graph partitions, five-vertex auxiliary patterns and independent edge assignments, all PASS.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chellali et al. Proposition 2.8: C_L(G) <= |V(G)|-gamma_L(G)+2.",
+        "For the specified family, gamma_L(G) = |V(G)|-r, so that published bound reduces to r+2, not the new fixed bound 4."
+      ],
+      "reasoning": "The general inequality does not imply constant three/four, the equality criterion, or the multiplicities. A two-part partition with one locating-dominating side is logically different from ensuring every block has an LD-coalition partner.",
+      "searches": [
+        "arxiv:2602.18760 Proposition 2.8 upper bound locating domination",
+        "partition into locating-dominating set and dominating set complete multipartite",
+        "locating domination coalition graph upper bound twin classes"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.18760v2 accessible complete HTML text, Sections 1-6",
+      "arXiv:2602.18760v1 first public submission date 2026-02-21",
+      "Arxiv/2026 bibliographic abstract for the distinct dominating-plus-locating-dominating partition paper",
+      "Published mathematical record semantic comparisons for coalition, twin-class and multipartite phrasing"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 4.1 of arXiv:2602.18760v2 establishes the K2,2=C4 boundary; this is excluded from the claim of historical novelty.",
+        "Theorem proved here handles all r>=2 and ni>=2 and counts four-block optima for each r; the inspected paper gives neither the all-r claim nor the counting formula."
+      ],
+      "reasoning": "The previously known four-cycle case and the prior general upper bound are strictly weaker than an infinite rigidity and exact enumeration theorem. The graph-vertex-cover bridge and its covering-pair obstruction are additional arguments.",
+      "searches": [
+        "arxiv:2602.18760v2 full text Sections 2 3 4 5 6",
+        "arxiv:2602.18760 Proposition 4.1 C4",
+        "locating dominating coalitions complete multipartite exact four classes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.18760v2 sections 2--6 study LDC partitions but do not give the four-block multipartite classification.",
+        "For all-size-two multipartite graphs, the equivalent labelled-pair graph on partition blocks must be 2K2, P4, or C4; the relevant source does not state this equivalence."
+      ],
+      "reasoning": "The full equivalence is not a mere reformulation of the ordinary locating-dominating number; it requires a partition into non-LD classes and a partner for every class. Tested alternate terms included cocktail-party graphs and graph-coalition variants.",
+      "searches": [
+        "\"locating-dominating coalition\" \"complete multipartite\"",
+        "\"locating-dominating coalition\" \"cocktail party\"",
+        "\"locating-domination coalition number\" \"K_{2,2,2}\"",
+        "locating domination coalition complete bipartite complete multipartite graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating article Proposition 4.1 includes C4=K2,2 but does not tabulate r>=3 cocktail-party partitions.",
+        "Original-graph exhaustive enumeration for H2, H3, H4, H5 yields 1,30,364,3480, respectively; a separate ordered-edge assignment count verifies also H6=30256."
+      ],
+      "reasoning": "These counts are new computations corroborating the formula, not evidence by themselves of uniqueness; the closest inspected existing table concerns the small graph K2,2 only.",
+      "searches": [
+        "\"locating-dominating\" \"K_2,2,2\" coalition",
+        "\"cocktail party\" \"coalition\" locating dominating",
+        "\"locating dominating coalition\" 30 364 3480"
+      ]
+    },
+    "rationale": "The accessible full manuscript arXiv:2602.18760v2 introduces LDC partitions, proves the general order-minus-LD-number bound and handles paths, cycles and n-class extremal graphs; it does not state the all-size-two versus mixed-size complete multipartite dichotomy, four-class structural classification, or exact unlabelled-block count. The smallest C4 example is acknowledged as known. Comparisons distinguish other locating-dominating, coalition and partition variants; no current checked result subsumes the new joint theorem. Priority risk from unindexed literature remains.",
+    "residual_risks": [
+      "An earlier or simultaneous theorem under alternate coalition-partition terminology could remain unindexed.",
+      "Full text of the secondary dominating-plus-locating partition paper was not inspected; its abstract specifies a different condition.",
+      "No independent mathematical audit has taken place."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the general part-size dichotomy or all four-class maximal-partition enumerator; covers the r=2 C4 special case and a weaker general inequality.",
+        "evidence": [
+          "The paper Section 3 treats paths and cycles; Section 4 treats graphs whose coalition number is n or n-1.",
+          "Proposition 2.8 gives C_L(G)<=n-gamma_L(G)+2, and Proposition 4.1 includes C4 in its list."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.18760v2",
+        "material_read": "Full accessible HTML: abstract, definition and introduction; Sections 2, 3, 4, 5, 6, including Proposition 2.8, Proposition 4.1 and the concluding problems.",
+        "method": "Read accessible complete HTML manuscript and compared its statements and proof implications with the newly proved all-complete-multipartite theorem.",
+        "title": "Locating-dominating coalitions in graphs",
+        "trigger": "First public manuscript defining the exact target invariant, with plausible covering general bounds and a C4 boundary."
+      },
+      {
+        "assessment": "A single dominating/LD two-part partition does not certify coalitions of up to four non-LD classes; full text not inspected.",
+        "evidence": [
+          "The abstract specifies partition into one dominating set and one locating-dominating set, without the all-classes non-LD condition."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03131",
+        "material_read": "Accessible bibliographic entry and abstract, not the complete article.",
+        "method": "Compared the article’s abstract-level two-part covering statement with the precise multi-block LDC-partition requirement.",
+        "title": "A note on partitioning the vertex set of a graph into a dominating set and a locating dominating set",
+        "trigger": "Nearby 2026 partition problem using locating-dominating sets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9689a560-d0e8-4dbf-b434-819ef3acc2b9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact answer for a recently introduced locating-dominating coalition invariant on all complete multipartite graphs with no singleton parts, strengthening the known bound r+2 to constant 3/4. Four-block equality is rigid and has an exact all-r enumeration, giving a concrete combinatorial model and counting question not implied by ordinary locating domination or small-graph tables.",
+    "status": "PASS"
+  }
+}
