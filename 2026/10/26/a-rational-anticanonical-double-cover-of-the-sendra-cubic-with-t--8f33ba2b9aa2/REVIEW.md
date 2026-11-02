@@ -1,11 +1,21 @@
-# Scientific review of the double-cover model
+# Independent mathematical audit
 
-**Correctness — PASS.** The base cubic is smooth by its explicit Jacobian; the normal double cover is an integral Cohen--Macaulay complete intersection with only a singular line, so Serre \(R_1+S_2\) applies. A displayed birational inverse proves rationality independently. The reduced branch sections are smooth elliptic cones and intersect with length-three normal contact. Generic analytic branch contact yields \(A_5\). Explicit transverse slices at both endpoints give squarefree binary quartic \(u(u^3+v^3)\), a standard simple elliptic \(\widetilde E_7\) of \(j=0\). The attached symbolic checker reproduces critical equations; it is not substituted for the local analytic proof.
+## correctness
 
-**Originality — PASS, subject to historical priority risk.** The full public text of arXiv:2610.20404v1, especially Example 53, was compared to the precise claim: it states the quadratic degree and rational tower, but does not identify these branch divisors, their nonreduced intersection, the normal anticanonical closure, or the singularity jumps. General work on genus-four Fano \((2,3)\) threefolds and on weighted elliptic surface singularities supplies techniques and adjacent classification but not the specific package. Equivalent geometric constructions might occur under different terminology; this is an unresolved priority risk, not a proof of uniqueness.
+PASS
 
-**Value — PASS.** This exhibits in one explicit rational Gorenstein Fano threefold a meaningful transition from generic rational-double-point transverse geometry to non-rational simple elliptic transverse geometry, and identifies the mechanism as a triple intersection of two elliptic-cone branch divisors. It enriches the concrete degree-two tower example with geometry not determined merely by its map degree. The statement is a complete natural invariant package of that explicit cover, not a claim to classify all (2,3) Fano threefolds.
+Read the exact cubic F=w²b+a²c+b³+c³+d³ and cover z²+bc=0 in the actual RESULT.md. Gradient of F has no nonzero projective common zero; branch b=0 and c=0 are cones over smooth plane elliptic cubics, with scheme intersection b=c=d³=0 on a supported line. The double cover is nonsquare in C(X), complete intersection S2 with singular set the line (codimension two), hence integral normal by R1+S2. Adjunction on a (2,3) CI in P5 gives −K=O(1), degree6. Independently substituted the displayed rational inverse (t=z/c,v=d/c,s=c/(a−t), B=1−t⁶+v³, D=1+Bs², a=t(Bs²−1)/D,c=−2ts/D,b=−t²c,d=vc,z=tc) into both defining equations and recovered inverse parameters exactly. On generic transverse slices wa≠0 two smooth branch curves meet to order3 and the cover has UV=v^6 (A5); at the two endpoints slices yield z²=u(u³+v³), four distinct binary quartic roots, I=0 and j=0 simple elliptic E7. These are transverse surface germs, not threefold canonical singularities. Inspected supplied symbolic verifier, independently tested substitutions; no global classification of all threefold germs claimed.
 
-**Closest literature and limits.** Sendra-Arranz–Sendra–Sendra (arXiv:2610.20404v1) supplies the cubic and parameterization; Ciliberto (doi:10.1007/s00229-023-01514-2) discusses genus-four anticanonical complete intersections with a plane, structurally different from this explicit example; the weighted \(\widetilde E_7\) classification is classical. The original source's parametrization rationality is not new. All assertions are over \(\mathbf C\); the full analytic threefold germs and possible prior descriptions elsewhere remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is confined to the normal anticanonical double-cover model and exact branch/singular stratification. Sendra–Arranz–Sendra–Sendra Example 53 is the same cubic and original quadratic parametrization, inspected directly; it already covers degree two and rational tower. No inspected passage includes the explicit two cone components/triple line/analytic A5,E7 stratification. Earlier special genus-four Fano classifications could implicitly contain isomorphic models and are a residual priority risk.
+
+## value
+
+PASS
+
+Supplies explicit integral normal rational anticanonical threefold with nonisolated singular line, two elliptic branch cones and precisely located transverse jumps from Du Val A5 to equianharmonic simple elliptic E7. The complete scheme-theoretic contact and singularity stratification are useful geometric data not conveyed by a degree-two parametrization alone; rationality by itself is credited as known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
