@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The line-graph identity and induced-P3 characterization prove the exact star-forest bijection. Adding a missing edge proves the complete three-case maximality test, including one-row and nonfull-support cases. The two-sort labeled exponential formula correctly subtracts one-edge stars counted twice. The two correction terms use restricted set partitions with strict incomplete-support bounds. The component count proves the complete size support, and exact graph enumeration agrees in twelve cases and 221 larger support pairs; finite tests are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cao 2020, Theorem 1.1, covers general polynomial-delay enumeration for maximal induced cluster subgraphs; this algorithmic result does not state symbolic coefficients for the complete rook family.",
+        "Le and Le 2022, Theorem 1, supplies an H-free complexity dichotomy; it does not classify sizes or counts of minimal deletion sets on rook graphs."
+      ],
+      "reasoning": "Generic maximal-subgraph enumeration can list solutions for a fixed finite input but does not subsume the proved parametric structural classification, coefficient expression, and exact support. A previously known induced-forest polynomial on rook graphs concerns linear forests, which allow paths longer than stars and do not impose the present maximality condition.",
+      "searches": [
+        "\"cluster vertex deletion\" \"rook graphs\" enumeration",
+        "\"cluster vertex deletion\" \"line graphs\" \"complete bipartite\"",
+        "\"maximal induced cluster\" \"Cartesian product\"",
+        "arXiv:2004.09885v1 maximal induced cluster polynomial delay"
+      ]
+    },
+    "checked_sources": [
+      "Y. Cao, arXiv:2004.09885v1, PDF text and relevant sections, 2020-04-21.",
+      "H.-O. Le and V. B. Le, DOI:10.4230/LIPIcs.MFCS.2022.68, OA PDF relevant sections, 2022.",
+      "OEIS:A352211, maximal induced-cluster global extremal table and examples."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 source proves algorithmic enumeration in graph classes; the 2022 source proves complexity classification. Neither inspected theorem contains the present formula or gap spectrum.",
+        "The earliest accessible own rook-graph induced-forest enumeration concerns all acyclic induced subsets; a distinct own rook-graph super-domination star-forest polynomial imposes its own local witness constraints. Neither asserts inclusion-maximal P3-free subgraphs."
+      ],
+      "reasoning": "The final claim strengthens a family-specific enumeration question, not either prior generic algorithm or another invariant. No statement equivalent to the three-way maximal-star-forest classification, the full EGF plus correction terms, or the exact two-point family was found; residual publication uncertainty remains.",
+      "searches": [
+        "\"maximal induced cluster\" \"rook graph\" \"count\"",
+        "\"complete bipartite graph\" \"maximal star forest\" enumeration number",
+        "arXiv:2004.09885v1 cluster graph maximal induced subgraphs",
+        "DOI:10.4230/LIPIcs.MFCS.2022.68 cluster vertex deletion P3-free"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rook graphs are line graphs of complete bipartite graphs; cluster graphs are induced-P3-free (Le and Le, MFCS 2022, p.2).",
+        "Cao 2020 describes maximal induced cluster graphs and their generic enumeration, but its inspected relevant theorems and cluster-graph subsections do not state a rook-specific cardinality formula."
+      ],
+      "reasoning": "Deleting a minimal P3-transversal of the rook graph is the complement of selecting a maximal star forest of the complete bipartite base. The line-graph reduction proves equivalence, so aliases were included rather than treated as distinct problems. No located equivalent all-parameter counting identity.",
+      "searches": [
+        "\"maximal induced cluster\" \"rook\" graph",
+        "\"minimal cluster vertex deletion\" \"Cartesian\" \"complete graphs\"",
+        "\"edge-maximal star forest\" \"K\" bipartite",
+        "\"maximal induced cluster\" \"line graph\" bipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A352211 reports global extremal counts 6 on four vertices (C4) and 11 on six vertices including the prism, agreeing with the two smallest direct tests of the rook-graph specialization. It tabulates maxima over all graphs of a given order, not this two-parameter coefficient distribution."
+      ],
+      "reasoning": "The table does not provide the exact all-parameter rook-graph polynomial or support. Agreement of small cases is corroboration, not proof of novelty.",
+      "searches": [
+        "OEIS maximal induced cluster subgraphs rook graph 2xn 2^n+n",
+        "\"2^n+n\" \"cluster\" \"rook\" vertex deletion",
+        "OEIS A352211 largest number of maximal node-induced cluster subgraphs"
+      ]
+    },
+    "rationale": "No inspected general maximal-cluster enumeration source, H-free cluster deletion complexity result, OEIS table or accessible prior rook-graph result states the three-way maximal-star-forest classification or complete two-parameter coefficient formula. In particular, generic polynomial-delay generation of individual finite solutions does not contain the closed all-parameter formula. The residual risk is unindexed or inaccessible older literature.",
+    "residual_risks": [
+      "The absence of an exact indexed rook-graph enumeration does not establish absolute publication priority.",
+      "Some tangential star-forest counting results and inaccessible older publications may deserve independent literature review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General algorithmic maximal-subgraph enumeration; no explicit two-parameter rook-graph cardinality enumerator in inspected relevant material.",
+        "evidence": [
+          "arXiv:2004.09885v1, 2020-04-21, introductory theorem and cluster material on pages 2 and 35."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2004.09885",
+        "material_read": "PDF pp.1–3 for Theorem 1.1; p.35 for the cluster CKS argument; appendix graph-class table and relevant theorem excerpts; full-document searches for rook and Cartesian (none).",
+        "method": "Opened complete 43-page arXiv PDF, read material sections and searched its text.",
+        "title": "Enumerating Maximal Induced Subgraphs",
+        "trigger": "It explicitly treats maximal induced cluster graphs in general."
+      },
+      {
+        "assessment": "Complexity dichotomy on forbidden-subgraph classes, not a labeled subset enumerator for rook graphs.",
+        "evidence": [
+          "DOI:10.4230/LIPIcs.MFCS.2022.68, theorem 1 and p.2."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol241-mfcs2022/LIPIcs.MFCS.2022.68/LIPIcs.MFCS.2022.68.pdf",
+        "material_read": "PDF pp.1–2 including theorem statement, P3-free definition and discussed complexity classes; full-text searches for rook and line graph (none).",
+        "method": "Opened complete 10-page OA PDF and read relevant proof framework, theorem and problem definitions.",
+        "title": "Complexity of the Cluster Vertex Deletion Problem on H-Free Graphs",
+        "trigger": "It studies the same cluster vertex-deletion predicate and its P3-free characterization."
+      },
+      {
+        "assessment": "Small global-extremal counts match rook special cases but do not cover general coefficients.",
+        "evidence": [
+          "OEIS A352211, values 6 at order 4, 11 at order 6; examples C4 and prism."
+        ],
+        "identifier_or_url": "https://oeis.org/A352211",
+        "material_read": "Complete web entry including definition, values, comments, examples, references, and dates.",
+        "method": "Inspected primary OEIS entry and distinguished global extremal counts from the present parametric formula.",
+        "title": "Largest number of maximal node-induced cluster subgraphs of an n-node graph",
+        "trigger": "Potential existing exact count table for maximal induced cluster subgraphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "45629ca1-d9f3-4cd5-832a-d00a6686ff87",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimal cluster vertex deletion is a standard graph problem, and rook graphs are canonical complete-graph Cartesian products. This result gives the full cardinality distribution of every minimal deletion set, a closed labeled coefficient formula, exact supports and explicit unbounded gaps in connected prisms. For shores at least three it also counts all minimum deletion sets exactly, which is not an arbitrary slice or merely a small numerical instance.",
+    "status": "PASS"
+  }
+}
