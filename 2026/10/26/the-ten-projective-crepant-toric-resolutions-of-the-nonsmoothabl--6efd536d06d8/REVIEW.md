@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cone-over-polygon toric correspondence reduces the claim to exhaustive coherent unimodular triangulations and quadrilateral flips. There are seven lattice points, seventeen possible unit triangles, and exactly ten pairwise interior-disjoint seven-triangle covers of normalized area seven. Each carries an integral strict-convexity height certificate (all eighty interior-edge inequalities strictly positive). All thirteen edges and forty-five pairwise graph distances follow from exact enumerated data. `verify.py` reconstructs the complete finite search using integer determinants, without external tables or floating-point tolerances.
+PASS
 
-## Originality — PASS, with residual literature risk
+For a height-one Gorenstein cone a crepant smooth toric projective resolution over the affine base corresponds precisely to a coherent unimodular triangulation, with marked morphism and no identification under symmetries. Verify the seven lattice points, primitive boundary and normalized polygon area seven, hence every resolution uses seven area-one triangles. Enumerate all 17 determinant-one triangles on those points and all compatible seven-triangle selections, exactly ten; exact area and incidence confirm no gaps or overlaps. Reconstructed all ten integer height assignments independently by exact affine interpolation: each of eight internal edge inequalities is strictly positive, proving every triangulation coherent. Full flips of empty unimodular quadrilaterals produce an independently enumerated connected 10-vertex/13-edge graph with stated degrees, BFS distances and unique distance-five pair. The finite enumeration is exhaustive over possible marked toric resolutions only, not non-toric/global resolutions.
 
-The identified new object is the *full flop graph* of the coordinate pentagon specified by Wuebben, not the already known pentagon, non-smoothability, or general secondary-fan correspondence. Wuebben's primary paper gives deformation-theoretic and global constructions, not this graph. Saxena's earlier study treats isolated rank-two toric phases, notably seven gauge-theoretic geometries, but the inspected parts do not supply the same exact ten-phase adjacency and distance classification for these coordinates. Bao–Beaney Colverd–He provide a broader quiver/toric-diagram survey rather than the asserted exact marked-resolution graph. Search comparisons included equivalent terminology such as coherent triangulations, phase graphs, secondary fans, flops, and crepant resolutions, as well as the explicit vertex coordinates. A hidden older tabulation remains a risk; unsuccessful discovery alone is not claimed to prove novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This is the complete small birational chamber structure of the non-smoothable local model of a newly constructed compact Calabi–Yau threefold, not a chosen arbitrary numerical subcase. All ten phases are verified projective, their thirteen flop walls give the entire local network, and the unique diameter-five pair reveals nontrivial birational separation. The isolated rank-two geometry has two compact exceptional divisor rays and is a natural test object for crepant birational transitions.
+Best-of-knowledge PASS as the full exact marked toric phase-and-flop graph of Wuebben’s explicit pentagon. Wuebben introduced this cone in a nonsmoothability construction but does not count coherent triangulations or graph distances. Saxena and rank-two toric SCFT literature enumerate related isolated two-interior-point diagrams and some resolution chambers, including potentially lattice-equivalent geometry, but the inspected tables and §3 did not state this ten-node, thirteen-edge graph or unique diameter pair; risk of secondary-fan/table coverage is genuine.
 
-## Scientific scope and risks
+## value
 
-These are *marked toric* projective crepant resolutions over the same affine base, not abstract-isomorphism classes nor resolutions of the global compactification. The graph is reproducibly enumerated with exact integers. Earlier physics or secondary-fan datasets might encode an equivalent graph without the same naming, so independent prior-literature review remains desirable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete secondary-fan phase adjacency for a recently significant local non-smoothable Calabi–Yau singularity provides exact birational geography of the permitted marked toric category. Diameters, degrees and unique maximal-flop path are natural nontrivial invariants beyond the already-known polygon and deformation obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

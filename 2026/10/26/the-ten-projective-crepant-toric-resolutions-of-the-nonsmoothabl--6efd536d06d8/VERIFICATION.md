@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and finite certificate
+# Independent mathematical audit
 
-The local cone and its seven lattice points are defined in `RESULT.md`. Run `python3 verify.py`. The checker uses only exact integer arithmetic and the standard library. It first obtains all seventeen unimodular triangles from the seven lattice points. It recursively lists every seven-triangle compatible subset and verifies that there are exactly ten. Since the pentagon has normalized area seven and all candidate faces have area one, compatibility certifies a cover of the entire polygon. Then ten embedded height vectors are checked strictly on each of the eight interior edges; the minimum integer strict-convexity margins are `1,1,1,1,2,1,1,1,3,3`. Finally, exact quadrilateral swaps produce thirteen flop walls, and exhaustive graph breadth-first search yields the degree and shortest-path distributions in `RESULT.md`.
+## correctness
 
-The actual checker execution terminated with `QB_EXACT_VERIFICATION_OK`. A successful run verifies the complete finite toric enumeration but is **not** an independently performed scientific audit and makes no claim about non-toric resolutions or the compact ambient threefold.
+PASS
+
+For a height-one Gorenstein cone a crepant smooth toric projective resolution over the affine base corresponds precisely to a coherent unimodular triangulation, with marked morphism and no identification under symmetries. Verify the seven lattice points, primitive boundary and normalized polygon area seven, hence every resolution uses seven area-one triangles. Enumerate all 17 determinant-one triangles on those points and all compatible seven-triangle selections, exactly ten; exact area and incidence confirm no gaps or overlaps. Reconstructed all ten integer height assignments independently by exact affine interpolation: each of eight internal edge inequalities is strictly positive, proving every triangulation coherent. Full flips of empty unimodular quadrilaterals produce an independently enumerated connected 10-vertex/13-edge graph with stated degrees, BFS distances and unique distance-five pair. The finite enumeration is exhaustive over possible marked toric resolutions only, not non-toric/global resolutions.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS as the full exact marked toric phase-and-flop graph of Wuebben’s explicit pentagon. Wuebben introduced this cone in a nonsmoothability construction but does not count coherent triangulations or graph distances. Saxena and rank-two toric SCFT literature enumerate related isolated two-interior-point diagrams and some resolution chambers, including potentially lattice-equivalent geometry, but the inspected tables and §3 did not state this ten-node, thirteen-edge graph or unique diameter pair; risk of secondary-fan/table coverage is genuine.
+
+## value
+
+PASS
+
+Complete secondary-fan phase adjacency for a recently significant local non-smoothable Calabi–Yau singularity provides exact birational geography of the permitted marked toric category. Diameters, degrees and unique maximal-flop path are natural nontrivial invariants beyond the already-known polygon and deformation obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
