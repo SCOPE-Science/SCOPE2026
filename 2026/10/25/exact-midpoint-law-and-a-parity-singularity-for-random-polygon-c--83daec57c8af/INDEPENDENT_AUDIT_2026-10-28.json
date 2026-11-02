@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T00:50:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/exact-midpoint-law-and-a-parity-singularity-for-random-polygon-c--83daec57c8af/RESULT.md Git blob 681030ebefd1d0b2e3d1b4b2b20088eb40e91ea0",
+        "2026/10/25/exact-midpoint-law-and-a-parity-singularity-for-random-polygon-c--83daec57c8af/VERIFICATION.md",
+        "/mnt/data/scope_worker03_delivery_20261028T003857Z/independent_check_results.json"
+      ],
+      "rationale": "Condition on the unordered pair of sampled polygon edges, with weights ell_i^2/P^2 for same edge and 2 ell_i ell_j/P^2 for distinct edges. For nonparallel edges the midpoint affine map has determinant ell_i ell_j |sin alpha|/4, giving planar density 8/(P^2 |sin alpha|) on each midpoint parallelogram. For a single edge, the average of independent uniforms has density 4min(z,1-z) and total mass ell_i^2/P^2. Distinct parallel edges push to a segment with 1D density 4/P^2 times the overlap of projected intervals, total mass 2ell_i ell_j/P^2; convexity puts positive-mass portions inside the polygon. The three cases exhaust pairs, including arbitrary nonadjacent parallelism. An odd regular n-gon has no such pair, even n has n/2, hence singular mass 1/n versus 2/n. For centrally symmetric 2m-gons opposite sides have lengths L_k and s=Sum L_k^2/(Sum L_k)^2>=1/m, equality precisely equal lengths. Independent exact rectangle mass=5/18 boundary+5/18 interior+4/9 bulk, 21 regular parity orders, and three separate trapezoid quadratures corroborate normalization. These computations are finite; the Jacobian/convolution proof is general.",
+      "residual_risks": [
+        "Finite independent tests do not certify any unrestricted theorem; analytical argument and published structural lemmas carry generality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bäsel: motion-invariant chord lengths and area-point distances in regular polygons.",
+          "Pure-Durrani et al. 2022: distances between area-uniform points in arbitrary polygon regions."
+        ],
+        "reasoning": "Neither model determines the spatial midpoint of perimeter-arclength samples; the 2007 geometric covering degrees do not supply their weights.",
+        "searches": [
+          "boundary arclength midpoint distribution random points on convex polygon singular density parallel edges",
+          "arXiv:1204.2707",
+          "doi:10.1002/mma.7951"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1204.2707 complete primary regular-polygon study",
+        "doi:10.1016/j.cam.2006.11.006 (full-text relevant sections)",
+        "doi:10.1002/mma.7951 (abstract only)",
+        "Resultary query boundary arclength midpoint distribution random points on convex polygon singular density parallel edges"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Motion-invariant random lines are a different probability measure from two uniform perimeter endpoints.",
+          "Covering degree at x counts preimages, whereas probability density additionally weights Jacobian and edge lengths, with singular rank-one contributions omitted in smooth-curve setting."
+        ],
+        "reasoning": "The source statements do not directly imply normalized singular mass and even/odd regular polygon theorem. Elementary Jacobian methods are credited as prior mathematics.",
+        "searches": [
+          "arXiv:1204.2707 Sections 1-5",
+          "doi:10.1016/j.cam.2006.11.006 Sections 1,2,6-9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The law is equivalently (1/2)_*(perimeter_measure * perimeter_measure).",
+          "The 2007 work counts multiplicities of sums of boundary curves without probabilistic weighting or singular boundary-mass classification."
+        ],
+        "reasoning": "A general measure convolution formula is the method, but no inspected source states the exact weighted piecewise 2D/1D distribution and shape consequences.",
+        "searches": [
+          "boundary arclength midpoint distribution random points on convex polygon singular density parallel edges",
+          "2007 Minkowski sum covering degree DOI:10.1016/j.cam.2006.11.006"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching published midpoint parity distribution returned.",
+          "Independent exact rectangle mass=5/18,5/18,4/9 and 21 integer-order parity identities."
+        ],
+        "reasoning": "These checks test formulas but do not certify universal novelty; a specialized polygon-midpoint table might exist outside examined indices.",
+        "searches": [
+          "boundary arclength midpoint distribution random points on convex polygon singular density parallel edges",
+          "Resultary published-record semantic search; 15 nearest matches"
+        ]
+      },
+      "rationale": "The spatial law of the arithmetic midpoint of two independent uniform perimeter samples is different from motion-invariant random line chords and area-uniform pair distances in Bäsel's work. A broad 2007 geometric Minkowski-sum covering-degree paper counts preimages but does not include probability pushforward weights or 1D singular arclength laws. Exact side-pair decomposition uses standard change of variables, which is not itself new, while the fully stated mixed-dimensional law, parallel-edge detector and all-n parity/rigidity formula were not found as existing results; priority remains qualified given general convolution literature.",
+      "residual_risks": [
+        "General arclength convolution/polytope boundary-measure literature may contain the same formula; current index search cannot exclude it.",
+        "Geometric limiting total-variation behavior at near-parallel edges is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_SAMPLING: not the spatial midpoint of two independently chosen boundary-arclength points.",
+          "evidence": [
+            "Opening definitions use motion-invariant random lines; secondary random points are uniformly distributed in polygon area."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1204.2707",
+          "material_read": "Primary rendered full text: introduction, invariant-line chord-length definitions, distance-from-area-points development, distribution statements",
+          "method": "Direct primary arXiv reading",
+          "title": "Random chords and point distances in regular polygons",
+          "trigger": "Named closely related regular polygon geometric probability"
+        },
+        {
+          "assessment": "METHOD_RELATED: topological preimage counts under curve sums, not perimeter-probability midpoint pushforward law or parallel rank-one mass.",
+          "evidence": [
+            "Source Lemma 6: covering degree constant away from envelope; focus smooth curves and envelope algorithm."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.cam.2006.11.006",
+          "material_read": "Publisher accessible full-text Introduction, Section 2, covering-degree lemmas and sections 6-9; examined algorithms and their focus",
+          "method": "Direct primary publisher full-text reading",
+          "title": "Evaluating the boundary and covering degree of planar Minkowski sums and other geometrical convolutions",
+          "trigger": "Closest general curve-sum mapping, possible stronger coverage"
+        },
+        {
+          "assessment": "Different random variable (distance) and area-uniform samples, not covering target midpoint law.",
+          "evidence": [
+            "Abstract explicitly describes two points uniformly in polygon regions and distance PDF."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/mma.7951",
+          "material_read": "Publisher abstract/introduction information only; full body not inspected",
+          "method": "Abstract-level reading",
+          "title": "Distance distribution between two random points in arbitrary polygons",
+          "trigger": "Broader arbitrary polygon probability candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1204.2707 complete primary regular-polygon study",
+        "doi:10.1016/j.cam.2006.11.006 (full-text relevant sections)",
+        "doi:10.1002/mma.7951 (abstract only)",
+        "Resultary query boundary arclength midpoint distribution random points on convex polygon singular density parallel edges"
+      ],
+      "rationale": "This is a natural geometric-probability distribution, not a single arbitrary polygon computation: it provides the complete Lebesgue decomposition for every convex polygon and detects exact parallel-edge geometry through positive interior singular mass. The all-orders regular-polygon parity discontinuity and sharp equilateral-side rigidity among centrally symmetric polygons are mathematically meaningful geometric consequences. Standard convolution tools do not themselves tabulate or interpret these invariants.",
+      "residual_risks": [
+        "Value is for the specifically motivated claim as stated; no larger research program or all-case theorem is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1204.2707 complete primary regular-polygon study",
+    "doi:10.1016/j.cam.2006.11.006 (full-text relevant sections)",
+    "doi:10.1002/mma.7951 (abstract only)",
+    "Resultary query boundary arclength midpoint distribution random points on convex polygon singular density parallel edges"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independently sampled normalized arclength boundary endpoints; polygons convex with no redundant consecutive collinear edges.",
+    "No claim for motion-invariant chords, area-uniform endpoints or smooth/nonconvex bodies."
+  ],
+  "residual_risks": [
+    "General arclength convolution/polytope boundary-measure literature may contain the same formula; current index search cannot exclude it.",
+    "Geometric limiting total-variation behavior at near-parallel edges is not established."
+  ],
+  "schema_version": 1
+}

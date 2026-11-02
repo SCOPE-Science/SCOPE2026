@@ -1,11 +1,21 @@
-# Scientific review of the polygon-chord midpoint law
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof partitions sampling by unordered boundary-edge pairs. For distinct nonparallel edges, its affine map has a nonzero constant Jacobian, producing the stated piecewise-constant density. For coincident or distinct parallel edges, the map has rank one, and the one-dimensional triangular/trapezoidal densities follow from an exact uniform-interval convolution. We checked normalizations separately, established that only parallel distinct edge pairs contribute interior singular mass, and derived the two parity cases and centrally symmetric equality cases by exact counting and Cauchy--Schwarz. The standalone code corroborates but is not the proof.
+## correctness
 
-**Originality (PASS, provisional).** The 2012 Bäsel preprint is a closely motivated geometric-probability comparator but studies isotropic random lines and distances of area-uniform interior points, not the two-boundary-point midpoint pushforward. The 2007 planar Minkowski-sum article develops geometric preimage multiplicity under addition of curves, a related framework, but does not state this probability measure, its singular mass formula, or the parity/equality classification. Multiple semantic searches for exact midpoint laws, auto-convolutions, parallel-edge singularities, and aliases yielded no directly covering result; this is not a uniqueness proof. Residual risk remains from general convex-curve convolution literature and publications not indexed by the available searches.
+PASS
 
-**Value (PASS).** A natural sampling model for polygonal random chords has a complete two-dimensional/one-dimensional Lebesgue decomposition rather than merely one moment or one arbitrary finite example. Interior singular probability detects the existence of parallel edges with a closed formula, and a sharp \(1/n\) versus \(2/n\) parity contrast persists through all regular polygon orders even as both families approach a circle. The exact centrally symmetric rigidity bound supplies a nontrivial shape constraint. These features support its value as an exact benchmark for geometric probability and polygonal measure convolution.
+Condition on the unordered pair of sampled polygon edges, with weights ell_i^2/P^2 for same edge and 2 ell_i ell_j/P^2 for distinct edges. For nonparallel edges the midpoint affine map has determinant ell_i ell_j |sin alpha|/4, giving planar density 8/(P^2 |sin alpha|) on each midpoint parallelogram. For a single edge, the average of independent uniforms has density 4min(z,1-z) and total mass ell_i^2/P^2. Distinct parallel edges push to a segment with 1D density 4/P^2 times the overlap of projected intervals, total mass 2ell_i ell_j/P^2; convexity puts positive-mass portions inside the polygon. The three cases exhaust pairs, including arbitrary nonadjacent parallelism. An odd regular n-gon has no such pair, even n has n/2, hence singular mass 1/n versus 2/n. For centrally symmetric 2m-gons opposite sides have lengths L_k and s=Sum L_k^2/(Sum L_k)^2>=1/m, equality precisely equal lengths. Independent exact rectangle mass=5/18 boundary+5/18 interior+4/9 bulk, 21 regular parity orders, and three separate trapezoid quadratures corroborate normalization. These computations are finite; the Jacobian/convolution proof is general.
 
-**Limitations.** No assertion is made about isotropically sampled lines, smooth curves, area-uniform endpoints, or total-variation convergence under polygon refinement. Broad pre-existing convolution results could imply the statement; independent bibliographic checking remains needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The spatial law of the arithmetic midpoint of two independent uniform perimeter samples is different from motion-invariant random line chords and area-uniform pair distances in Bäsel's work. A broad 2007 geometric Minkowski-sum covering-degree paper counts preimages but does not include probability pushforward weights or 1D singular arclength laws. Exact side-pair decomposition uses standard change of variables, which is not itself new, while the fully stated mixed-dimensional law, parallel-edge detector and all-n parity/rigidity formula were not found as existing results; priority remains qualified given general convolution literature.
+
+## value
+
+PASS
+
+This is a natural geometric-probability distribution, not a single arbitrary polygon computation: it provides the complete Lebesgue decomposition for every convex polygon and detects exact parallel-edge geometry through positive interior singular mass. The all-orders regular-polygon parity discontinuity and sharp equilateral-side rigidity among centrally symmetric polygons are mathematically meaningful geometric consequences. Standard convolution tools do not themselves tabulate or interpret these invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
