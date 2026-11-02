@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The update of a matching is Boolean OR across each active edge and commutes with unions of seed sets. Direct induction yields the exact single-pair infection interval \\([2j+2-T,2j+1+T]\\) intersected with the path. Ordered intervals cover if and only if their first/last endpoints reach the two boundaries and consecutive pair indices differ by at most T. Exact offset and gap compositions prove both rational generating functions. Their minimal seed count and number of optimizers follow by sharp integer gap bounds and a one-seed-per-active-pair equality case. The package's actual verify.py independently reconstructs all snapshots for \\(2\\le n\\le14\\) and \\(1\\le T\\le10\\), 327640 initial subsets, comparing full polynomial coefficients and minimum-count formulas. This finite replay corroborates but does not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baste et al. state a polynomial algorithm for bounded-degree temporal trees in their abstract/introduction, encompassing optimization on this path family in principle.",
+        "The indexed Harish archive summary advertises exact scalar values for alternating paths and even cycles.",
+        "A related recent all-size enumerator covers arbitrary schedules between two perfect matchings and their cyclic components; its stated hypotheses explicitly exclude partial matchings and path boundary vertices lacking active incident edges."
+      ],
+      "reasoning": "The general algorithmic result can compute optimum size for each input but does not, as stated in inspected material, give a rational generating function enumerating all labelled successful source sets. The Harish summary may cover the scalar consequence; it does not announce the polynomial or all minimum-set counts. Full texts unavailable for comparison are explicitly treated as material priority risks, not declared noncovering. The new path has unmatched endpoints at alternate snapshots, so it is outside the perfect-matching domain. Its rational path-length bivariate series requires tracking both open endpoints and their asymmetric parity offsets. This is a new natural boundary-domain statement, rather than a restatement of the cyclic formula.",
+      "searches": [
+        "arXiv:2609.29054v1 bounded-degree temporal trees algorithm",
+        "\"Zero forcing on temporal graphs\" \"alternating paths\" exact values",
+        "\"temporal zero forcing\" \"path\" \"matching\" exact"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.29054",
+      "https://arxiv.org/html/2609.29054",
+      "https://github.com/krishnatheaverage/temporal-zero-forcing",
+      "https://doi.org/10.5281/zenodo.21347118",
+      "Related mathematical claim on complete two-perfect-matching temporal cycles (read for implication comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baste et al. (2026-09-24) give the temporal definition and bounded-degree-tree tractability.",
+        "The Harish archive describes alternating-path scalar exact values, but its indexed synopsis does not state a size-generating polynomial.",
+        "The new proof independently establishes the labelled-set bijection with weighted bounded-gap compositions, from which both rational functions and exact minimizer multiplicities follow.",
+        "A prior complete two-perfect-matching enumerator yields cyclic-gap generating functions for even alternating cycles and arbitrary matching switch counts, not the open-path boundary setting."
+      ],
+      "reasoning": "The scalar optimum and parity effect may follow from the earlier alternating-path exact-value result and are not asserted as independently new. The full polynomial and minimizer enumeration are strictly more informative than scalar minima: equal minima do not determine any other coefficients, and no specific covering enumerator was recovered. This is a qualified priority assessment, not a novelty certificate. The inaccessible main manuscript is a significant residual risk. The previous perfect-matching theorem does not include path snapshots, because one matching leaves one or both endpoints unmatched. In particular its cyclic wraparound condition is not equivalent to two-sided path truncation, and its generating polynomial does not contain the stated rational length series as an explicit specialization. The common contact-closure and bounded-gap machinery is credited as prior structural mechanism.",
+      "searches": [
+        "\"Zero Forcing Sets in Temporal Graphs\" Baste Dreyer Marcille Rabie Toullec-Streicher",
+        "\"Krishna Harish\" \"Zero forcing on temporal graphs\" \"alternating paths\"",
+        "\"temporal zero forcing\" periodic odd even path minimum sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The arXiv source defines a synchronous layer-local rule on temporal graph snapshots; the constructed snapshots are matchings, so forcing is equivalent to edgewise OR propagation.",
+        "The indexed Harish archive explicitly distinguishes layer-local and footprint-constrained rules."
+      ],
+      "reasoning": "Layer-local temporal zero forcing, matching-contact flooding, and time-respecting reachability under this deterministic alternating schedule describe the same process. Ordinary static zero forcing and footprint-constrained temporal forcing are not equivalent. The result asserts the complete size-enumerator for the specific layer-local schedule, not priority for defining this process. A related pair-of-perfect-matchings cyclic enumeration is a closely analogous but non-equivalent endpoint-free domain.",
+      "searches": [
+        "\"temporal zero forcing\" \"alternating matchings\" path",
+        "\"zero forcing\" \"alternating matchings\" temporal graphs",
+        "\"temporal zero forcing\" \"alternating paths\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact enumerating table or size polynomial appeared in the accessible indexed descriptions; the source archive reports 127 exact formula checks and 4096 two-layer schedules, not a full two-parameter size distribution."
+      ],
+      "reasoning": "The new result supplies universal rational bivariate series for every path length and horizon, rather than recomputing a published small-instance table. The current search coverage cannot exclude unpublished tables or full-manuscript results. A complete cyclic table/generating formula on perfect-matching components exists, but is not a table for path snapshots with two unmatched endpoint phases.",
+      "searches": [
+        "\"temporal zero forcing\" \"alternating paths\" counting polynomial",
+        "\"alternating matchings\" \"forcing-set polynomial\"",
+        "\"temporal-zero-forcing\" \"alternating paths\" minimizers"
+      ]
+    },
+    "rationale": "A qualified best-knowledge assessment restricted to the complete labelled-source generating polynomials and optimum-set enumeration, not priority for the temporal rule or its scalar alternating-path optimum. The motivating paper provides general bounded-degree-tree algorithms; a nearby indexed archive advertises scalar alternating-path exact values. No complete two-parameter enumerator was identified in accessible primary material, literature searches, or recoverable claim comparisons. The plausible Harish manuscript and the motivating paper's later sections were not accessible, and priority is provisional, with an explicitly material residual risk. A separate recent claim supplies a complete size-enumerating polynomial for two perfect matchings via cyclic components, but excludes partial matchings and cannot be applied directly to the alternating path endpoint phases. The present distinct two-terminal-offset length series is not implied verbatim by that cyclic theorem; no novelty is asserted for its matching-closure mechanism or cyclic gap enumeration.",
+    "residual_risks": [
+      "The indexed Harish manuscript specifically advertises exact scalar alternating-path values; its unavailable full proof could additionally contain or imply all-set enumeration. This possibility could not be resolved by title/README alone.",
+      "Only the abstract, opening definitions, and overview of the motivating arXiv paper were retrievable; later sections, including the tree algorithm details, were not fully inspected.",
+      "Search-index coverage does not establish global novelty. The public result is not independently mathematically audited.",
+      "Related prior full all-size cyclic enumeration for two perfect matchings suggests a close method-level analogy: open-boundary adaptation may be judged a natural extension. Its original formula does not cover partial-matching paths, while the present rational two-parameter length series is a distinct exact classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Confirmed exact temporal update convention, underlying-graph terminology, and general complexity/algorithm claims; no claim of full-text NOT_COVERING.",
+        "evidence": [
+          "https://arxiv.org/abs/2609.29054",
+          "https://arxiv.org/html/2609.29054"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.29054",
+        "material_read": "ArXiv abstract, submission history dated 2026-09-24, HTML introductory and preliminary sections including Definitions 2.1 and 2.2, and section overview identifying bounded-degree-tree algorithms.",
+        "method": "Primary arXiv abstract and accessible HTML rendered text; later HTML section retrieval failed.",
+        "title": "Zero Forcing Sets in Temporal Graphs",
+        "trigger": "Motivating September 2026 temporal zero-forcing paper introducing the matching-snapshot rule."
+      },
+      {
+        "assessment": "The scalar alternating-path minimum may be covered. The accessible synopsis does not announce size-enumerating rational functions or all minimizer multiplicities. Historical priority of those results remains uncertain.",
+        "evidence": [
+          "https://github.com/krishnatheaverage/temporal-zero-forcing",
+          "https://doi.org/10.5281/zenodo.21347118"
+        ],
+        "identifier_or_url": "https://github.com/krishnatheaverage/temporal-zero-forcing",
+        "material_read": "Indexed public repository README excerpt and archived title/feature list; exact scalar alternating paths and even cycles asserted. Main manuscript could not be retrieved from the live URL.",
+        "method": "Search-index cached README; direct public repository access and public archive DOI were unavailable.",
+        "title": "Zero forcing on temporal graphs: Layer-local and footprint-constrained dynamics",
+        "trigger": "Indexed archived manuscript specifically advertising exact alternating-path values, directly plausible prior coverage."
+      },
+      {
+        "assessment": "An all-size cyclic result for perfect-matching components, not an open-boundary result on alternating partial matchings. Common basic counting method is credited; direct subsumption does not follow from its hypotheses.",
+        "evidence": [
+          "Cyclic formula is expressed as a coefficient of bounded-gap compositions for complete perfect matching pairs, with no unmatched endpoint class."
+        ],
+        "identifier_or_url": "Recoverable prior mathematical claim, no externally verified publication identifier",
+        "material_read": "Full recoverable claim statement including the exact cyclic-gap generating polynomial, strict perfect-matching hypothesis, and scalar extrema.",
+        "method": "Read the prior claim for statement-level implication comparison, without revisiting its proofs or verification.",
+        "title": "Complete forcing-set enumeration on two fixed perfect matchings (related mathematical result)",
+        "trigger": "Direct overlap test for periodic matching forcing-set polynomials."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b2e60e56-4787-42a3-9903-0e06a3fff357",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete two-parameter family of rational bivariate generating functions counts all successful labelled initial seed sets under a natural synchronous contact schedule, refining previously accessible scalar minima. Coefficients give the full size distribution and the probability of successful contagion for independently seeded vertices at any density. Explicit coefficient formulas enumerate all minimum sets, while an exact parity-dependent boundary obstruction explains the optimization phase. These structural results concern an infinite natural family, not isolated small examples or a routine numerical increment.",
+    "status": "PASS"
+  }
+}
