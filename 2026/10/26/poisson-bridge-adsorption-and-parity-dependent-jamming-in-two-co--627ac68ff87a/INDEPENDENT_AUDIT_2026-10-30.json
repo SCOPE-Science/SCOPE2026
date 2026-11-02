@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:57:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three-state vacant-pair Markov process (a,b,c) has internal event rates binom(a,2), binom(b,2) and cross intensity λc; every successful bridge removes one vacancy in each clique. At absorption each complete clique has at most one vacancy, so U=2*1_{M≠n mod 2} exactly. Under time u=nt, scaled drifts converge uniformly on bounded intervals to x=y=(1+u)^(−1), z=(1+u)^(−2) and cross intensity λz. The process time-change gives Poisson(λT/(1+T)) up to u=T. The nonnegative potential Φ=c/a+c/b with Φ=0 when c=0 satisfies L[max(1,λ) Φ]≤−λc, including a=b=1 and λ=0 boundaries. Uniform tail expectation ≤2max(1,λ)/(1+T) closes the full-time limit; taking parity yields P(U=2)=(1−(−1)^n e^(−2λ))/2+o(1). Independently recomputed exactly with rational arithmetic 3,135 potential-generator cases for a,b≤11 and λ∈{0,1/3,1,3,8}, all inequalities held. A bounded check cannot prove the fluid limit or all-state inequality; their algebraic arguments were reconstructed separately.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dyer–Frieze abstract establishes general greedy matching performance bounds and forest results; its full text unavailable.",
+          "Gerin studies adjacent pairs on a path and limiting coverage 1−e^(−2); Dhara et al. discuss greedy vertex-occupancy on random graphs."
+        ],
+        "reasoning": "A general random greedy theorem could subsume this specific Poisson bridge law; no inspected theorem does. The inaccessible broad predecessor is recorded rather than claimed NOT_COVERING.",
+        "searches": [
+          "Dyer Frieze Randomized greedy matching 1991 doi:10.1002/rsa.3240020104",
+          "arXiv:1411.8002 Gerin full PDF",
+          "Dhara van Leeuwaarden Mukherjee generalized RSA Erdos Renyi 2016"
+        ]
+      },
+      "checked_sources": [
+        "GitHub source RESULT.md/verify.py at frozen commit",
+        "arXiv:1411.8002 full 13-page PDF available; relevant model read",
+        "Dyer–Frieze 1991 DOI:10.1002/rsa.3240020104 abstract only; institutional full text unavailable",
+        "Dhara et al 2016 DOI:10.1007/s10955-016-1583-z OA text",
+        "Resultary semantic greedy matching and dimer adsorption query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Page parking coverage converges to a density for path edges, not Poisson accepted cross-community edges.",
+          "Forest/performance matching estimates do not specify limiting bridge parity on increasingly dense fixed two-part communities."
+        ],
+        "reasoning": "Neither inspected statement fixes this observable or enough structural information to derive both the Poisson bridge law and parity defect. Originality remains qualified by unread general predecessor.",
+        "searches": [
+          "Gerin 2015 Page–Rényi model and theorem",
+          "Dyer Frieze 1991 algorithm model and abstract",
+          "Dhara et al 2016 vertex RSA"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent Poisson edge priorities produce a random greedy maximal matching equivalent to irreversible attempted dimers.",
+          "Resultary nearest hits concern independent sets and matching complexes, not bridge count."
+        ],
+        "reasoning": "The equivalent edge-priority language was searched. Page–Rényi dimers occupy a path, whose local degree stays bounded; neither counts matchings across a single paired bridge layer.",
+        "searches": [
+          "Resultary: random greedy matching two cliques bridge Poisson lambda parity jamming",
+          "random edge-order sequential matching on K_n square K_2",
+          "arXiv:1411.8002 Page–Rényi"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Corpus results were nearby matching-complex and greedy independent-set records.",
+          "Package verify.py computes finite-size probabilities from independently defined Markov chains; these are not earlier external tables."
+        ],
+        "reasoning": "No direct published two-clique bridge-frequency table was identified in bounded searches; negative results do not certify originality.",
+        "searches": [
+          "Resultary: Poisson bridge adsorption cliques random greedy matching",
+          "K_n Cartesian K_2 dimer jamming exact probabilities",
+          "random greedy matching bridge edge count distribution"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the specific fixed-λ rare-bridge Poisson law and order-one alternating defect in edge-priority adsorption on K_n Cartesian K_2. Known random sequential adsorption/matching theory motivates the model but the inspected path-coverage, vertex-greedy, or sparse-graph results do not state or imply this count. Full Dyer–Frieze paper inaccessible remains significant priority uncertainty.",
+      "residual_risks": [
+        "Dyer–Frieze (1991) entire primary text could not be read. OA/preprint attempts did not yield it and authorized Oxford institutional connection was disconnected. Do not infer full-paper noncoverage.",
+        "Unindexed random matching literature may express same Poisson limit using alternative terminology or weighted graph priorities.",
+        "Fixed λ only; no convergence rate or growing-λ regime claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies adjacent pairs in a one-dimensional interval; does not directly imply bridge-dimer statistics on dense two-clique graphs.",
+          "evidence": [
+            "PDF p1 describes sequential occupancy of neighboring pairs on a path and density limit 1−e^(−2)."
+          ],
+          "identifier_or_url": "arXiv:1411.8002; https://arxiv.org/pdf/1411.8002",
+          "material_read": "Read 13-page PDF abstract, first-page model, theorem/coverage description and relevant text; matched geometry and observable against claim.",
+          "method": "Primary PDF text with rendered first page",
+          "title": "The Page–Rényi parking process",
+          "trigger": "primary random sequential dimer process with Poissonization"
+        },
+        {
+          "assessment": "Cannot exclude a stronger hidden coverage theorem. Its abstract emphasizes performance ratios and forests, not the present bridge-count distribution.",
+          "evidence": [
+            "1991 publisher abstract explicitly identifies fixed-graph random greedy matching and its main theorem on forests."
+          ],
+          "identifier_or_url": "DOI:10.1002/rsa.3240020104; https://onlinelibrary.wiley.com/doi/abs/10.1002/rsa.3240020104",
+          "material_read": "Full publisher abstract and bibliographic metadata only. OA and preprint routes yielded no full text; authorized institutional request returned disconnected authorization.",
+          "method": "Publisher abstract plus authorized institution request",
+          "title": "Randomized greedy matching",
+          "trigger": "broadest identified greedy-edge-matching predecessor"
+        },
+        {
+          "assessment": "Greedy vertex activation on a random Erdős–Rényi graph differs from irreversible edge-dimer matching on fixed two cliques.",
+          "evidence": [
+            "Primary model is random-graph vertex selection."
+          ],
+          "identifier_or_url": "DOI:10.1007/s10955-016-1583-z",
+          "material_read": "Open-access abstract, introduction/model as recorded in accessible paper description; not a comprehensive read of appendices.",
+          "method": "Primary OA publication page",
+          "title": "Generalized Random Sequential Adsorption on Erdős–Rényi Random Graphs",
+          "trigger": "potentially general graph adsorption predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact asymptotic rare-event law plus a finite-n parity identity explain how n paired bridge edges among Θ(n²) edges produce a persistent alternating jamming effect. These are natural random-greedy matching observables, with a substantive late-time tail lemma rather than a cosmetic variant of coverage density.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub source RESULT.md/verify.py at frozen commit",
+    "arXiv:1411.8002 full 13-page PDF available; relevant model read",
+    "Dyer–Frieze 1991 DOI:10.1002/rsa.3240020104 abstract only; institutional full text unavailable",
+    "Dhara et al 2016 DOI:10.1007/s10955-016-1583-z OA text",
+    "Resultary semantic greedy matching and dimer adsorption query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Reviewed frozen assigned tree, source proof, critical verification artifacts and relevant literature; best-of-knowledge originality, not a priority guarantee.",
+    "The finite independent checks corroborate but never replace proofs for infinite parameter ranges.",
+    "Publication is withheld pending complete confidentiality-neutral replacements of public administrative metadata."
+  ],
+  "residual_risks": [
+    "Dyer–Frieze (1991) entire primary text could not be read. OA/preprint attempts did not yield it and authorized Oxford institutional connection was disconnected. Do not infer full-paper noncoverage.",
+    "Unindexed random matching literature may express same Poisson limit using alternative terminology or weighted graph priorities.",
+    "Fixed λ only; no convergence rate or growing-λ regime claimed."
+  ],
+  "schema_version": 1
+}
