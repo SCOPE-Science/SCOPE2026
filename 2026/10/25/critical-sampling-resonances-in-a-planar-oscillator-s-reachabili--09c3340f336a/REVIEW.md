@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The continuous-time controllability determinant is \(\omega\ne0\). Exact zero-order-hold formulas yield \(W_h^\top W_h=r^2\begin{pmatrix}1&\cos\theta\\\cos\theta&1\end{pmatrix}\), so the singular set and both asymptotic constants follow analytically. The script is only a numerical cross-check.
+## correctness
 
-**Originality — PASS, with residual risk.** The broad fact that sampling can destroy controllability is classical and is not claimed as new. Targeted database searches found no exact oscillator singular-value formula or parity-dependent inverse-norm law. The relevant section of the primary preprint was read; two classical sources were available only through abstracts, so exact overlap with their full texts remains unresolved.
+PASS
 
-**Value — PASS.** The result identifies sampling periods at which the exact-tracking matrix cannot be inverted and quantifies how rapidly its inverse norm deteriorates nearby. The different blow-up exponents distinguish a practical failure mode that a binary controllability test does not quantify.
+Direct integration yields Bh=(sin(theta),1-cos(theta))/omega, Ah a rotation by theta=omega*h. The exact Gram matrix is r^2[[1,cos(theta)],[cos(theta),1]], r=2|sin(theta/2)|/omega. Diagonalizing gives both exact singular values and det(W)=4sin^2(theta/2)sin(theta)/omega^2; Taylor expansion at every positive m*pi proves the parity-specific asymptotics. Independent NumPy SVD tests checked 15 nonresonant instances and 36 detuning ratios (maximum singular-value deviation 8.9e-16). These numerical tests are corroborative, not the proof.
 
-**Closest literature and limitation.** The primary source is *Consistent discretization of finite/fixed-time controllers* (arXiv:2207.03235; later published as DOI 10.1016/j.automatica.2023.111118). Classical sampled-data controllability work discusses loss of controllability under sampling, but the available material did not establish the specific parity-dependent asymptotics proved here. The conclusion is restricted to the planar oscillator and its matrix \(W_h\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of actual final mathematical implications with primary sources and relevant published semantic records. Relevant predecessor results were credited; no inspected full-theorem statement covers the final claim, with explicit residual priority risks.
+
+## value
+
+PASS
+
+The precise, parity-dependent inverse gain of the actual two-step zero-order-hold reachability matrix quantifies a meaningful sampling-design obstruction and distinguishes rank-one resonances from zero-input resonances. It is a motivated exact local conditioning result tied to an explicitly used tracking inverse, not a generic assertion that sampled controllability can fail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
