@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The exact border-length reduction and circular centered-height identity are proved. Exhaustive loops enumerate all 2^n binary strings for each n=1..16, reject exactly the nonprimitive powers, test all cyclic roots and k up to floor(n/2). Direct prefix/suffix and height predicates agree at every primitive word. Independent C++17 enumeration matches the zero counts at n<16, 96 labeled words and precisely the six displayed necklaces at n=16. Both embedded checkers executed successfully; no infinite-domain conclusion is drawn from finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Charlier--Harju--Puzynina--Zamboni 2015, Proposition 2 gives a block-concatenation construction with every sufficiently long factor Abelian bordered and the explicit sixteen-bit block 0101001100110011.",
+        "Christodoulakis et al. 2014 abstract describes distribution of shortest Abelian borders of single binary words."
+      ],
+      "reasoning": "The infinite-word construction implies existence of one 16-letter rotationwise example, but no lower bound on the shortest such primitive word or complete list of all length-16 primitive necklaces. Single-word marginal border counts do not imply a joint all-rotations census. Only the sharp cutoff and complete classification are asserted as new.",
+      "searches": [
+        "\"Abelian bordered factors and periodicity\" sixteen 0101001100110011 rotations 2015",
+        "\"Abelian borders in binary words\" \"conjugates\" \"circular\"",
+        "arxiv:1501.07464 §5 Proposition 2",
+        "doi:10.1016/j.dam.2014.02.012"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1501.07464",
+      "https://arxiv.org/abs/1504.02222",
+      "https://doi.org/10.1142/S0129054114400267",
+      "https://doi.org/10.1016/j.dam.2014.02.012"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Charlier et al. 2015 §5 Proposition 2 uses blocks 010100110011 and 0101001100110011, and shows all factors of length at least 15 in the relevant aperiodic concatenations have Abelian borders.",
+        "Holub and Müller 2015 concern ordinary borders and establish at least two ordinary unbordered conjugates for every primitive binary word."
+      ],
+      "reasoning": "The construction covers existence at n=16: by placing two copies of its sixteen-letter block consecutively in an allowed aperiodic concatenation, every cyclic rotation appears among those length-16 factors. The classification here is stricter in the needed sense: no primitive word works at n<16; precisely 6 necklaces (96 words) work at n=16. These statements are not implications of the inspected propositions. Ordinary unbordered roots do not contradict the Abelian condition.",
+      "searches": [
+        "\"Abelian bordered factors and periodicity\" sixteen 0101001100110011 rotations 2015",
+        "arxiv:1501.07464",
+        "arxiv:1504.02222"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Holub--Müller arXiv:1504.02222, introduction and §1, define fully bordered using the ordinary (not Abelian) border; Charlier et al. arXiv:1501.07464 §2 define Abelian borders."
+      ],
+      "reasoning": "Ordinary unbordered conjugates may still have Abelian borders; ordinary full-borderedness (exactly two ordinary unbordered roots) is not equivalent to having zero Abelian-unbordered roots. No semantic equivalence or reduction covering the six classes was found.",
+      "searches": [
+        "\"every conjugate\" \"abelian bordered\" binary minimal length",
+        "\"fully Abelian-bordered primitive conjugates sharp shortest counterexample 16 Harju Charlier Puzynina Zamboni\"",
+        "arxiv:1504.02222"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Goč--Rampersad--Rigo--Salimov (2014) enumerate Abelian-bordered binary words by individual word length, not counts of circular conjugacy classes.",
+        "The 2014 Christodoulakis et al. abstract describes counts by shortest border length, not all conjugates jointly."
+      ],
+      "reasoning": "The known tabulations do not supply the six canonical rotation representatives. The absence of a matching retrieved table cannot certify novelty; unindexed tables or the inaccessible 2014 full text remain a risk.",
+      "searches": [
+        "\"primitive binary word with every circular conjugate Abelian bordered first possible length 16 exact six necklaces\"",
+        "\"abelian\" \"unbordered\" \"conjugates\" \"16\"",
+        "\"Abelian borders in binary words\" Christodoulakis \"2014\"",
+        "doi:10.1142/S0129054114400267"
+      ]
+    },
+    "rationale": "The 2015 source covers existence of a 16-letter example, which is not claimed new. It does not give the sharp nonexistence below 16 or exhaustive six-necklace classification. The 2014 single-word census papers and the 2015 ordinary-border classification do not entail the rotationwise count. Targeted searches found no covering earlier formula; an inaccessible full 2014 paper remains a priority risk.",
+    "residual_risks": [
+      "The complete 2014 Christodoulakis--Christou--Crochemore--Iliopoulos paper could not be read; its abstract is noncovering but does not rule out a previously published six-class table.",
+      "A direct or disguised classification might be present in unindexed combinatorics literature; search failures cannot establish global novelty.",
+      "The length-16 existence construction is explicitly prior work and should not be advertised as newly discovered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers existence of a length-16 example; does not present minimality below 16 or all six primitive cyclic classes. Existence not claimed novel.",
+        "evidence": [
+          "Proposition 2, blocks 010100110011 and 0101001100110011, threshold at length 15; author first-version date 2015-01-29."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1501.07464",
+        "material_read": "Introduction, definitions in §2, Proposition 2 and its proof in §5, conclusion and related examples",
+        "method": "Accessible full-text rendering, statements and proof compared for exactly the same binary blocks and rotationwise consequence",
+        "title": "Abelian bordered factors and periodicity",
+        "trigger": "Explicit sixteen-letter construction could dominate proposed existence claim"
+      },
+      {
+        "assessment": "Its word fully bordered means exactly two ordinary unbordered conjugates; does not classify zero Abelian-unbordered conjugates.",
+        "evidence": [
+          "Ordinary-border definition and theorem motivation; arXiv initial date 2015-04-09."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.02222",
+        "material_read": "Abstract, introduction, §1 definitions and stated scope of ordinary unbordered conjugates",
+        "method": "Read accessible full-text presentation and compared definitions",
+        "title": "Fully bordered words",
+        "trigger": "Title and unbordered conjugate characterization might be semantically stronger"
+      },
+      {
+        "assessment": "Counts individual words by Abelian border property, not whole primitive rotation-orbits with all conjugates bordered. Marginal counts are insufficient.",
+        "evidence": [
+          "Goč et al. 2014 paper, definitions and single-word enumeration."
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S0129054114400267",
+        "material_read": "Introduction and definitions, enumerative arguments and tables across sampled pages of lawful full-text PDF",
+        "method": "Read parsed PDF text and sampled page images; compared counting unit and parameters",
+        "title": "On the Number of Abelian Bordered Words (with an Example of Automatic Theorem-Proving)",
+        "trigger": "Possibility that known exact count of Abelian-bordered words implies our census"
+      },
+      {
+        "assessment": "Abstract reports shortest-border counts and Dyck-word bounds, not an all-conjugate classification; unresolved residual priority risk because full original text unavailable.",
+        "evidence": [
+          "Christodoulakis et al. 2014, Discrete Applied Mathematics 171:141–146, abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.02.012",
+        "material_read": "Abstract and bibliographic description only; full PDF inaccessible",
+        "method": "Read university research record; arXiv and open full-text searches unsuccessful; institutional retrieval unavailable",
+        "title": "Abelian borders in binary words",
+        "trigger": "Highly relevant 2014 word-border enumeration may hide a circular classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "907d1f08-12cc-4bb4-acaf-b313a6e30d2b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first length at which a primitive word can lose all Abelian-unbordered conjugates is a natural sharp boundary contrasting the classical ordinary-border theorem. The complete list of six necklaces and balanced-only content is a meaningful finite structural classification, beyond the previously published example at n=16. It gives exact benchmarks for circular border detection, without requiring an unproved general larger-length statement.",
+    "status": "PASS"
+  }
+}
