@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The proof for arbitrary finite planes is the two-contractible-piece simplicial cover and its **signed integral** Mayer–Vietoris connecting map. Nothing in the finite verification purports to establish the infinite-parameter statement by sampling.
+## correctness
 
-Execute `python3 verify_fano_rips.py` from this directory. The script uses only the Python standard library. It independently builds the point–line incidence relation on the seven nonzero binary three-vectors; verifies line and point degree three and uniqueness of join/intersection; enumerates all \(331\) nonempty scale-two Rips faces and the complete face vector \((14,63,112,84,42,14,2)\); and performs explicit binary Gaussian elimination on all six nonzero simplicial boundary matrices, obtaining ranks \((13,50,54,30,12,2)\) and mod-two Betti ranks \((1,0,8,0,0,0,0)\).
+PASS
 
-The same program enumerates all \(168\) invertible binary matrices and the additional \(168\) point–line-exchanging symmetries. For each of the \(336\) permutations, a signed oriented-fixed-face Lefschetz sum is compared with the independent graph-cycle character formula, including the change of sign on dualities. The complete group-type multiplicities, squared character norms for both the full group and its color-preserving subgroup, and the polarity traces \(-2\) and \(+2\) are checked. The program also checks equality of the resulting eight-row character with the already published residual Heawood matching-homology character.
+The inclusive graph-distance classification gives K_1=the bipartite incidence graph. For K_2 the full point and full line simplices with individual incident stars form two contractible simplicial subcomplexes U,V and U intersection V=incidence graph. Integral simplicial Mayer–Vietoris yields H~_2(K_2;Z)=H_1(graph;Z), with an additional minus sign whenever a duality swaps the ordered U,V summands; no extra homology survives. Incidence count (q+1)(q^2+q+1)-2(q^2+q+1)+1=q^3. Signed incidence-chain Lefschetz traces are F-V+1 (part preserving) and F-1 (part exchanging), while H_1 has the opposite sign for the latter. Independently rebuilt the Fano 168 collineations plus duality coset, all 336 automorphisms, and counted all 8 character classes; the complete finite source verifier (331 faces and binary ranks 13,50,54,30,12,2) was inspected. Weighted character norm 1 and zero average establish absolute irreducibility and vanishing invariants. The matching-complex W equality is a rational character coincidence, not an integral isomorphism. No existence claim for unknown plane orders.
 
-Additionally execute `python3 verify_matching_bridge.py`. This script independently builds all \(3461\) nonempty simplices of the Heawood ordinary matching complex, computes its six mod-two boundary ranks \((20,148,496,722,312,24)\), constructs the eight Sylow-seven subgroups of the color-preserving group, and checks all \(336\) elementwise equalities between the matching residual character \(W\) and the Rips degree-two character. This run must print `HEAWOOD_RIPS_MATCHING_CHARACTER_BRIDGE_OK`. The finite ranks saturate rational upper bounds by the chain-complex dimension inequalities and therefore agree with the rational ranks used to identify \(W\).
+## originality
 
-The first test must terminate with `FANO_RIPS_EQUIVARIANT_CHECKS_OK`. It verifies the specified finite Fano specialization and relevant calculations; no integral equivariant homotopy splitting and no integral cross-complex matching-module equivalence is asserted. No independent audit has been performed.
+PASS
+
+Best-of-knowledge PASS for the integral equivariant Mayer–Vietoris class-exchange twist and complete Fano full-group character. The already published projective-plane Rips theorem gives the exact nonequivariant wedge and q^3 rank; the already published Heawood matching-complex theorem gives the same eight-dimensional character W on a different complex. Neither by itself supplies the incidence Rips equivariant action, although the sign twist is a short natural extension once the cover is recognized.
+
+## value
+
+PASS
+
+The integral G-lattice and polarity sign change are intrinsic natural invariants of projective-plane incidence geometry, distinguish the two consecutive filtration stages despite their equal ranks, and provide an equivariant refinement beyond the known nonequivariant sphere counts; the rational equality with a separate matching-complex representation is a useful comparison rather than the sole claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

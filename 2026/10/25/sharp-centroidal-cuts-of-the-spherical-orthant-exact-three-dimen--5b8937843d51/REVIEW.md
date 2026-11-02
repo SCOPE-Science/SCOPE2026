@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof treats the complete normal sphere orthogonal to the normalized spherical centroid, not merely a sampled angular slice. After permutations and sign reversal, every three-dimensional normal is \((a,1-a,-1)\), including endpoints. The complementary spherical triangle has explicit ray generators; the solid-angle denominator factors exactly and yields the formula. A second independent area integral has strictly negative second derivative and reflection symmetry, establishing the sharp unique optimizer and all equality cases. In every dimension the half-normal Gaussian model, leave-one-out Jensen strictness, strong law, and bounded convergence establish the claimed monotone sequence and limit. The package's numerical quadrature and simulation checks passed; no finite computation is used as a proof of the universal quantifiers.
+PASS
 
-## Originality — PASS, with residual risks
+By half-normal Gaussian direction representation the spherical centroid is proportional to (1,...,1). In d=3 all normals perpendicular to centroid reduce by permutations and sign reversal to (a,1-a,-1), a in [0,1], with boundary zero normal giving 1/2. The complementary spherical triangle has rays (0,0,1),(1,0,a),(0,1,1-a), and solid-angle formula yields P=1-(4/pi)atan[(sqrt(1+a²)-a)(sqrt(1+(1-a)²)-(1-a))]. Independently the spherical-coordinate integral is (2/pi)∫q/sqrt(1+q²), whose second derivative is strictly negative; symmetry gives unique maximum at a=1/2 and exact minimum by normal reversal. For all d, H_d≤mean(H1..H_{d-1}) gives E erf(mean/√2), strictly rising by leave-one-out sample means and strict Jensen concavity, converging by SLLN. Independent quadrature agreed at six parameters; exact minimum 0.46455905439754 and canonical limit erf(1/√pi). The d>=4 assertion is confined to specified normals.
 
-The relevant 2026 spherical Grünbaum theorem provides only a body-uniform lower ratio, not the optimized profile of the all-right spherical triangle. Basit–Hoehner–Lángi–Ledford's spherical Winternitz result is an existential reduction to a triangle, not the exact fixed-triangle value. Actual targeted mathematical-record searches found a distinct shrinking-regular-spherical-simplex curvature result, not an equivalent octant calculation; relevant indexed mathematical-claim summaries were checked for overlap. The solid-angle identity and elementary Jensen/convex-order lemma are acknowledged prior tools. Unindexed classical octant calculations remain a possibility, and the full text of tangential indexed comparisons was not available; the comparison is best knowledge, not priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete sharp classification of a natural fixed-body centroidal halfspace-depth invariant for the canonical three-dimensional spherical orthant, including all equality normals and the exact parameter profile. It quantitatively separates the nondegenerate octant from the new universal spherical Grünbaum benchmark. The same normal geometry yields a strict dimensional monotonicity theorem and a limiting error-function constant. The global optimization conclusion is not extrapolated beyond dimension three.
+Materially inspected spherical Grünbaum and spherical Winternitz results give body-uniform inequalities and reductions, not the exact all-right spherical triangle normal profile or strict dimension-family cut asymptotic. Best-knowledge sharp model-case contribution; the solid-angle and Jensen methods themselves are prior art.
 
-## Limits and closest literature
+## value
 
-The higher-dimensional statement concerns one distinguished normal, not the optimizer over every normal. The 2026 general inequality, the 2024 spherical Winternitz theorem, and the publicly indexed shrinking-simplex record are the closest checked comparisons. Originality is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete sharp directional classification for the canonical spherical orthant strengthens the broad Grünbaum benchmark in a natural fixed-body case and identifies all normal orbits. The independent strict dimension-monotonic cut law and limiting constant supply a meaningful geometric comparison without overstating higher-dimensional global optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

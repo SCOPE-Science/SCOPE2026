@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact ordered-pair density is obtained by separating same-interval, same-circle, and different-edge pairs. Every different-edge geodesic passes through the common junction; radial arclength densities are respectively \(1\) and \(2\). The resulting density has jump \(-4b/T^2\) per circle of half-length \(b\), and its derivative at the origin is the stated strictly increasing integer polynomial in the pendant count for every fixed positive loop count. After removing the circle-only terms, the distributional second derivative gives a signed atomic identity with negative individual-edge coefficients and strictly later positive pair-sum terms. Induction reconstructs all lengths, even with cancellation. A standalone exact rational checker passed 4,361 configurations and five normalization cases. Critical hypotheses are positive lengths and a unique common branch vertex. Finite checks support, but do not replace, the analytic proof.
+## correctness
 
-## Originality — PASS, with residual risks
-The full text of Mémoli–Needham, arXiv:1810.09646, Section 4 (especially Figure 11 and Remark 4.6) was inspected. Its jump-discontinuity observation is prior work, as are inverse-problem foundations and local recognition results for metric trees. The global structural theorem here recovers all edge lengths, not only Betti number, for arbitrary positive-length circle bouquets with pendant leaves. The 2013 Chazal–Sun metric reconstruction paper works with sampled metric data and graph approximations, not solely a scalar global pairwise distance law (abstract inspected, full text unavailable). Published published-finding corpus records were searched for rose graphs, loop bouquets, pendant branches, inverse distance distributions, and related metric-star reconstructions, without an equivalent or logically stronger match. The established loop-free metric-star result is acknowledged as an excluded boundary case. Specialist or inaccessible literature could still contain an equivalent formula; this is an originality risk, not a claim of exhaustive absence.
+PASS
 
-## Value — PASS
-Metric-graph reconstruction from a single scalar distance law is a natural inverse geometry problem. General metric graphs can share global distance laws, so explicit identifiable families with cycles are mathematically informative. The theorem gives a global, nongeneric reconstruction of both topology and lengths for the canonical rose-with-leaves family, including difficult exact collisions between jump locations, edge lengths, and length sums. It provides a benchmark for studying the boundary between identifiability and nonidentifiability; no experimental-noise stability is claimed.
+PASS. Retrieved the actual RESULT.md and source checker. For a circle of circumference 2b its radial distance from the junction has arclength density 2 on (0,b), and within-circle pair distance has density 4b on (0,b); a pendant edge length a contributes same-edge density 2(a−t)_+. For distinct edges, paths through the junction give ordered radial convolutions. Thus T² f=2Σ(a−t)_+ +4Σb1_(0,b)+Σ_{e≠e'} q_e q_e' (1_(0,s_e)*1_(0,s_e')); normalization follows by integrating ordered edge-pair volumes T². Only circle self-terms jump, at t=b by −4b/T² per loop, and f(0+)=2/T, recovering T and the complete loop multiset incl multiplicities. Direct expansion at zero yields T² f'(0+)=k²+4km+4m²−3k−4m, strictly increasing in integer k≥0 for m≥1, recovering k. After known circle-only terms are subtracted, the positive-half-line distributional second derivative plus 4kΣδ_b yields H=(4−2k−4m)Σδ_a +2Σ_{i<j}δ_(a_i+a_j) +4Σ_{i,j}δ_(a_i+b_j). For k≥1 its coefficient C is strictly negative (the k=0 case is already reconstructed from loops); all positive mixed sums involving an unrecovered positive-length pendant occur strictly later than its least length, so inductive subtraction recovers all arms even at exact cancellations. Independently verified 220 exact rational star/rose atom-peeling configurations including m=1,2,3, ties and coincident sums, and analytically rechecked all density coefficients. The all-positive-real-length theorem follows from symbolic identities and induction, not finite cases.
 
-## Limitations
-No assertion beyond one-vertex loop-plus-leaf graphs or under finite noisy sampling. Chazal–Sun's source was not inspected in full. Further bibliographic review and independent proof checking would be warranted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified best of knowledge). Mémoli–Needham 2018/2022 address global/local distance distributions on metric graphs, explicitly recognizing loop-created jumps and proving a local injectivity mechanism; such ingredients are credited. Their abstract does not claim arbitrary all-length one-junction roses with pendants are globally recoverable. Their full manuscript could not be independently inspected here: arXiv PDF/HTML attempts failed and the institutional full-text retrieval was unavailable; whole-text noncoverage is NOT asserted. Chazal–Sun uses richer sampled metric data rather than the sole scalar pairwise law. The all-length inverse including exact collisions goes beyond checked published implications but retains serious same-paper priority risk.
+
+## value
+
+PASS
+
+PASS. The global inverse problem for the single unconditioned distance histogram is mathematically motivated by known non-identifiability of general metric spaces; obtaining exact isometry reconstruction on a rich natural graph family with loops, leaves, repeated lengths and collisions is substantive. Loop jumps, slope-based combinatorial detection and signed-atom peeling form a nontrivial structural mechanism, not a merely routine use of the known forward density formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

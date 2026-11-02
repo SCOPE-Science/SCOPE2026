@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives each vertex's covariance diagonal from the effective-resistance identity, reduces the objective to \((\sum_i r_i+(m^2-1)\max_i r_i)/(m+1)^2\), and supplies a global Cauchy--Schwarz lower bound indexed by a simplex weight vector. A strictly concave dual objective has a unique price-threshold maximizer. The displayed primal resistances simultaneously attain equality in the dual bound and the budget, proving global optimality. Equality in Cauchy--Schwarz plus budget saturation proves uniqueness for arbitrary positive prices, including threshold ties. The exact uniformity criterion and sharp dimension-dependent ratio have separate all-price arguments. The five-node rational matrix inverse and numerical tests in the package independently check central identities but are not substitutes for the proof.
+PASS
 
-## Originality — PASS with residual risk
+For a weighted m-leaf star, effective resistances yield (L^dagger)_00=S/n², (L^dagger)_ii=(S+(m²−1)r_i)/n² with r_i=1/w_i, S=Σr_i, n=m+1. The primal budget is Σc_i/r_i≤B. For any simplex p, max r_i≥Σp_i r_i and Cauchy–Schwarz give global lower bound [Σsqrt((1+αp_i)c_i)]²/(n²B), α=m²−1. Strictly concave dual maximization gives p_i=(c_i/τ−1)_+/α with Σ(...)=α, unique τ>0. Taking y_i=min(1,sqrt(c_i/τ)), r_i=Z y_i/B, Z=Σc_i/y_i attains all inequalities and is uniquely optimal by CS equality and budget saturation. Active set formula, iff equal allocation criterion min c_i≥C/(m²+m−1), and sharp price-uniformity factor (m²+m−1)/m² follow. Independent Laplacian pseudoinverse calculation for m=4, c=(240,32,1,4), B=284 gave w=(1,1,4,2) and max diagonal .71, matching analytic formula 71/100; ratio limit argument is analytic, not sample inference.
 
-The closest primary full texts were examined at the material relevant to their comparisons. Ghosh--Boyd--Saberi (2006, Sections I, II and VII) optimize total resistance and formulate maximum **pairwise** resistance, rather than maximum diagonal pseudoinverse. Patterson--Bamieh (2013, first-order coherence and related concepts) study average variance and topological scaling. Summers--Shames--Lygeros--Dörfler (2014, coherence definition and topology optimization) optimize trace variance by selecting additional edges. Van Mieghem--Devriendt--Cetinay (2017, Section IV and Appendix C) analyze diagonal pseudoinverse entries and the unweighted star, not the price-dependent minimax allocation. Previously established star-resistance-diameter and star-spectral-gap formulas concern distinct objectives and do not imply this unique optimizer or its sharp uniformity bound. Directed searches of related mathematical claims and several equivalent terminology choices produced no known dominating statement. This is best-knowledge originality only; an equivalent specialized prior closed form may exist outside the examined corpus.
+## originality
 
-## Value — PASS
+PASS
 
-Worst-vertex rather than average disturbance rejection is a natural fairness/robustness objective in noisy networks. The complete classification covers arbitrary positive prices and all star orders, has an exact price-threshold criterion for when equal conductances remain optimal, gives a closed profile and unique optimizer with possible multiple equal-resistance price tiers, and proves the sharp maximal benefit obtainable from price-sensitive redesign. The bound quantifies why optimizing this fairness objective is less sensitive to price heterogeneity than minimizing worst-pair resistance. The exact two-active-edge example demonstrates that the classification is not restricted to a single exceptional price. This is a natural all-parameter design result, not a renaming of a known table entry or an isolated numerical test.
+Ghosh–Boyd–Saberi (2008) optimize total effective resistance and mention maximum pairwise resistance; those two objectives are different from max vertex diagonal of L†. Patterson–Bamieh trace coherence and Summers et al adding edges do not give arbitrary positive price star edge allocation. Van Mieghem et al calculate unweighted star pseudoinverse diagonals but not the global priced minimax water-filling law, equal-price threshold and sharp universal ratio. The optimization combines known resistance and convex-duality techniques into a natural exact classification.
 
-## Risks and limitations
+## value
 
-The optimization is confined to fixed connected stars, homogeneous node-noise intensities, positive linear prices, and the stationary vertex-variance objective. The research comparison does not establish absolute priority; a source with equivalent KKT active-set analysis may remain unindexed. Independent audit has not been performed. No claim is made for other graphs, finite-time covariance, directed systems, or nonlinear prices.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a standard noisy-consensus network observable, the result computes an exact unique optimal resource allocation on every weighted star with arbitrary linear prices. The active-set phase transition, sharp condition for uniform conductances and universal price-of-uniformity limit are useful structural design facts, not mere reproduction of generic convexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

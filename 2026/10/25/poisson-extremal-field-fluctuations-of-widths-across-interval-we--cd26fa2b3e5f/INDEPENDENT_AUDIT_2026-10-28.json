@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:45:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob aba94499af4e555f4cd2f5b8356d430f82ca78d2",
+        "Assigned verify.py blob 03d2a45cb2d7bd5375733a9f9b8b622044996f7a (source checked, not blindly executed)",
+        "Independent private exact Gaussian expected-range quadrature k1..6 and f=1 mean integral",
+        "Gaussian Mills-ratio and chi radial-direction decomposition"
+      ],
+      "rationale": "The exact support formula sums weighted coordinate maxima minus minima over all intervals. Centered Gaussian projection onto H_n has independent chi_(n-1) radius R_n and direction U_n, with E R_n=eta_n. Standard normal upper/lower extreme point processes converge jointly to independent PPPs with intensity du e^(-z)dz, since same index cannot be high positive and high negative. For intervals length >=epsilon, finite-mark truncations and Riemann sums give the integrated extremal field. The supplied uniform first-absolute-moment bound for interval maxima <=C(1+log(n/k)) controls the diagonal near s=t, which is integrable, yielding the whole-area limit and convergence of means. Radial substitution causes o_P(1) normalization error O_P(log n/sqrt n). A rare high positive atom yields an exponential lower bound on the limiting right tail, excluding Gaussianity for min f>0. Independent Gaussian range quadrature for k=1..6 checks the exact mean identity, and direct evaluation gives f=1 correction gamma_E-3/2; these diagnostics are not substitutes for the infinite Poisson convergence proof.",
+      "residual_risks": [
+        "The short-window uniform absolute-moment inequality is a critical nonstandard bound; assessed from the given proof and standard Gaussian-tail estimates, not replaced by simulation.",
+        "The theorem covers a fixed strictly positive continuous profile and the specified Euclidean realization, not arbitrary realization/weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deformation-cone/nested-fan theory identifies the polytope family, not random directional-width fluctuations.",
+          "Prior Gaussian extreme limit for one regular simplex concerns its maximum, not a continuum integral of all overlapping intervals."
+        ],
+        "reasoning": "Broader combinatorial normal-fan and single-polytope extreme-value theorems supply premises but do not imply the distributional integrated field without substantial new functional convergence.",
+        "searches": [
+          "Padrol–Pilaud–Poullot arxiv:2109.09200 Theorem 2.2",
+          "Postnikov arxiv:math/0507163 Minkowski simplex sums",
+          "Kabluchko–Litvak–Zaporozhets arxiv:1511.08479"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2109.09200 text",
+        "arxiv:math/0507163 Minkowski-sum construction",
+        "arxiv:1511.08479 Gaussian extremes",
+        "Resultary search: Path associahedron interval Minkowski simplex weighted mean width Gaussian sliding window extreme Poisson extremal fields"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known results establish interval-simplex realization and one-block extremes but do not control all O(n^2) heavily overlapping intervals at second order."
+        ],
+        "reasoning": "The new claim requires joint Poisson convergence, uniform control near the diagonal, radial normalization and non-Gaussianity for every continuous positive f; these do not follow from prior pointwise Gaussian maxima statements alone.",
+        "searches": [
+          "arxiv:2109.09200",
+          "arxiv:math/0507163",
+          "arxiv:1511.08479"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The width is a weighted sum over Gaussian subarray ranges, so the theorem can be rewritten as integrated sliding-window upper/lower extreme fields."
+        ],
+        "reasoning": "Compared scan-statistics and Gaussian extreme-field formulations to avoid title-only novelty; no dominating integrated interval-profile theorem identified in inspected primary results.",
+        "searches": [
+          "Resultary search: Path associahedron interval Minkowski simplex weighted mean width Gaussian sliding window extreme Poisson extremal fields",
+          "Google/web searches: Gaussian sliding-window maxima integrated Poisson point process path associahedron mean width",
+          "Kabluchko–Litvak–Zaporozhets arxiv:1511.08479"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact mean identity 2 sum w_ij E max_k G is an immediate support-function calculation and is not independently claimed as novel.",
+          "The integrated random field Xi_f is not a finite table or standard graph-associahedron invariant database entry."
+        ],
+        "reasoning": "A known mean-width formula alone is strictly weaker than the centered distributional limit and universal non-Gaussian tail.",
+        "searches": [
+          "Resultary search: Path associahedron interval Minkowski simplex weighted mean width Gaussian sliding window extreme Poisson extremal fields",
+          "Known Gaussian normal maximum mean formulas and classical Gumbel constants",
+          "Postnikov polytope realization"
+        ]
+      },
+      "rationale": "The interval-simplex Minkowski representation and Gaussian-width identification are standard. Prior single-regular-simplex Gaussian extreme laws and deformation-cone theory do not determine a strongly dependent double integral over all subintervals and its non-Gaussian fluctuation law for every positive continuous profile. Searches included sliding-window scan statistics/Poisson extremes; an unrecognized integrated maxima theorem remains a named best-of-knowledge risk.",
+      "residual_risks": [
+        "A theorem in integrated scan statistics, moving-window Gaussian extrema, or Poisson functionals could prove an equivalent field limit under different notation.",
+        "No exhaustive historical-priority certification; mean support identity itself is classical."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides known normal-fan and deformation-cone setup, not second-order random-width fields",
+          "evidence": [
+            "Theorem 2.2 and positive interval-simplex Minkowski sums."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.09200",
+          "material_read": "Accessible text around Theorem 2.2 and path/nested-set deformation construction",
+          "method": "Read relevant full mathematical sections",
+          "title": "Deformation cones of graph associahedra and nestohedra",
+          "trigger": "Same path associahedron Minkowski interval realization"
+        },
+        {
+          "assessment": "Covers support summation/combinatorics, not the claimed joint extremal process",
+          "evidence": [
+            "Minkowski-sum of simplices and underlying realization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0507163",
+          "material_read": "Relevant coordinate-simplex support construction and generalized permutohedron sections",
+          "method": "Primary textual inspection of relevant material",
+          "title": "Permutohedra, associahedra, and beyond",
+          "trigger": "Origin of the Minkowski coordinate-simplex realization"
+        },
+        {
+          "assessment": "Single regular simplex/crosspolytope extremes do not calculate integrated sliding-window limit",
+          "evidence": [
+            "Gaussian width and Gumbel normalization for regular polytopes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.08479",
+          "material_read": "Accessible full text Sections 1 and 3–4 on widths and Gumbel limits, including Theorem 3.7",
+          "method": "Read relevant mathematical theorem sections",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Same Gaussian width/extreme normalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned joint extremal-process proof and positivity of f",
+        "Prior Postnikov and Padrol–Pilaud–Poullot deformations",
+        "Kabluchko–Litvak–Zaporozhets single-simplex extremes"
+      ],
+      "rationale": "Determines a genuinely new natural probabilistic invariant of a full infinite-dimensional family of path associahedra: distributional second-order Euclidean width, explicit profile-dependent centered mean, and universal non-Gaussian behavior. The continuum Poisson integral describes correlated extremes across all intervals, a nontrivial step beyond ordinary width expectation or single-window Gumbel limits.",
+      "residual_risks": [
+        "Precise field law depends on chosen Minkowski realization and fixed f; no arbitrary realization extension asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n->infinity, f strictly positive continuous fixed on closed triangle.",
+    "No exact variance/density formula of Xi_f or arbitrary deformed realization is claimed.",
+    "Finite quadrature and simulations cannot certify the distributional limit."
+  ],
+  "schema_version": 1
+}

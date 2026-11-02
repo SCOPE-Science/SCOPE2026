@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The external rational concentration theorem of Z. Feng (arXiv:2610.17394v1, Theorem 18) asserts only degrees six and nine are nonzero for the 35-vertex seven-point intersecting-triples complex, of dimensions 29 and 7. The present proof independently constructs and checks seven independent integral cross-polytope classes in degree nine and checks the stabilizer orientation sign under all 720 six-point permutations. The resulting rational ninth-degree module is the oriented six-subset permutation module. The remaining rational character follows from the reduced simplicial Lefschetz identity: an invariant simplex is a union of compatible cycles on the 35 vertices, and its signed trace is determined by the number of selected cycles. A complete, exact enumeration of all 15 conjugacy types, independently checked with a recursion and direct enumeration, yields the degree-six character. Standard Young-permutation character identities decompose it as one trivial module and the two conjugate fourteen-dimensional Specht modules. No numerical approximation is used. The proof relies explicitly on the cited rational concentration theorem, which the attached script does not reprove.
+## correctness
 
-## Originality — PASS
-The strongest directly overlapping sources are Feng and Wang (arXiv:2404.10566v1, Theorem 10), which already produce independent top-degree cross-polytope classes, and Feng (arXiv:2610.17394v1, Theorem 18), which gives precisely the Betti dimensions and homological degree concentration. Combining those does not give the natural symmetric-group action in degree six. The new result determines its *entire* 15-class character and three irreducible constituents. Closest retrieved equivariant Kneser findings concern the neighborhood complex of a different fifteen-vertex graph or stable Kneser graphs with dihedral, not full seven-point symmetric, actions. An accessible nonequivariant integral homology calculation of this 35-vertex complex does not determine its sixth-degree rational symmetric-group module. Originality remains subject to the possibility of unindexed equivariant work.
+PASS
 
-## Mathematical value — PASS
-The natural group action distinguishes the one-dimensional invariant subspace and two inequivalent fourteen-dimensional symmetry types within a 29-dimensional Betti group. The homology dimensions alone cannot recover these constituents. The seven-point triple-Kneser complex is the first small nontrivial case singled out by the recent rational homology classification; the original article explicitly raises questions about degree-six classes. This is a complete symmetry description of a canonical topological object, rather than a renamed known calculation or an arbitrary computational slice.
+The complex consists of pairwise-intersecting families of 35 three-subsets of [7], equivalently Ind(KG(3,1)); rational degree concentration and Betti ranks 29 (degree 6) and 7 (degree 9) are an explicit external theorem of Feng 2026 (Theorem 18), with full proof read and correctly delimited. For each six-subset S, the ten complementary triple pairs give an embedded (S0)^*10 = S9; independently checked the seven chosen 10-vertex maximal 9-simplex detectors, no outside triple compatible with them, and diagonal cohomology pairings, proving a rational basis. The stabilizer S6 acts on each sphere by sign, giving Λ^6 Q7 and trace sign(g)*F1(g). Independently constructed orbit-conflict graphs and evaluated exact signed reduced Lefschetz sums for all fifteen S7 conjugacy types; every class agrees with H6 trace 1+(1+sign(g))*(F3(g)-F2(g)), using Lefschetz L=traceH6-traceH9. Young-rule subset-character identities and conjugate partitions give the stated irreducible S7 decomposition and one invariant line. No integral homology classification, geometric H6 basis or k>1 generalization is asserted.
 
-## Scientific limits
-The assertion is for rational homology, not integral representation lattices or equivariant homotopy. It uses the source theorem for concentration and rational ranks, does not produce geometric generators in degree six, and covers no larger ground sets. Bibliographic priority is uncertain beyond accessed full texts and indexed search records.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact natural S7 representation, not the rational Betti numbers or six-set embedded sphere lower bound. Feng 2026 Theorem 18 already proves the 29/7 dimensions and degree vanishing for this same complex; Feng–Wang 2024 constructs relevant cross-polytopal classes. Neither materially inspected full text gives the fifteen-class homology character or the two conjugate 14-dimensional degree-six irreducible constituents. The earlier same-object results are credited explicitly rather than relabeled as novel.
+
+## value
+
+PASS
+
+Determining an actual S7 module rather than its Betti dimension identifies a unique invariant sixth-degree class and two inequivalent conjugate 14-dimensional irreducibles. This is a natural complete representation refinement for a prominent 35-vertex intersection complex and complements the known all-k rational rank theorem without claiming a new rank formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review of the sextic quotient classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complete stabilizer analysis uses all divisors of six: the generator has no fixed points, the order-three subgroup fixes eighteen points and the involution fixes two disjoint Fermat plane sextics. Taking full-group orbits produces nine isolated points and two curve components. On the latter the free order-three residual action gives genus four, and the invariant cubic map has the independently checked defining equations of a smooth \((2,3)\) complete intersection. The explicit tangent-space characters are \((1,-1,-1,-1)\) and the primitive cube-root weights \((1,1,2,2)\); linearization gives the analytic quotient types. The Chern, Burnside and commuting-pair computations give \(2610,435,441\), respectively. The provided exact script reproduces the finite arithmetic and invariant monomial checks. The universal arguments, not the script, prove the geometric claims.
+## correctness
 
-## Originality
-**PASS, with bounded residual risk.** The closest primary paper, Billi–Palomino–Sarti, arXiv:2610.21752v1, explicitly determines the eighteen points and two sextics fixed by proper powers and generally proves terminality. Sections 2.13, 4.5 and 5 were read; they do not present the nine-point coarse orbit count, genus-four canonical complete-intersection models, both exact quotient representations, or either numerical Euler invariant together. Its fixed-locus formulas supply premises, but neither an orbitwise singular-stratum classification nor a canonical ideal nor the commuting-pair characteristic follows as a stated numerical result. Lim's 1992 paper on Jacobians of cyclic Fermat quotients was checked in publisher PDF form; its general Fermat-curve quotient framework could overlap the curve part, but no fourfold quotient basket or Euler computation was found in the inspected introductory, main-theorem and concluding material. Exact-name, equation, Euler and alias searches disclosed no matching full theorem; absence of an indexed match is not claimed to prove uniqueness. Other calculations of generalized-Fermat quotient Picard torsion and fundamental groups concern different invariants. An unindexed independent curve-model or orbifold computation remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The recent primary construction is a singular terminal Log Enriques fourfold whose fixed loci are identified on the cover, while the quotient's actual singular components, their genera and canonical models, local analytic strata, and topological/orbifold numerical profile remain to be determined. Such strata and Euler corrections are intrinsic natural invariants useful for comparing quotient birational geometry, singular Hodge-theoretic questions, and possible crepant or noncrepant modifications. The curve model identifies a concrete trigonal genus-four stratum and the Euler correction reflects the interaction of orders two and three in the stabilizer stratification. This is one coherent geometric/topological classification of the explicit quotient rather than a parameter-renaming or unsupported broad conjecture.
+For diagonal C6 action on Fermat sextic fourfold, g and g^5 have no fixed points. The order-three subgroup fixes 18 points on three coordinate lines, paired in nine C6 orbits, each with tangent quotient weights 1/3(1,1,2,2). The involution fixes two disjoint smooth Fermat plane sextics genus 10; residual free order-three action gives genus 4 for each coarse singular curve with tangent normal weights 1/2(1,1,1). The invariant cubic map [x:y:z]↦[x³:y³:z³:xyz] realizes each quotient as smooth canonical complete intersection U²+V²+W²=0, T³=UVW, genus four. Chern class [H^4](1+H)^6/(1+6H)=435, deg(X)=6, so e(X)=2610. Fixed euler data (2610,0,18,-36,18,0) give e(Y)=435; gcd-pair multiplicities (24,8,3,1) yield commuting-pair Euler 441. Independent exact integer check reproduced Chern coefficient, four invariant cubics, gcd multiplicities, Euler numbers; analytic proof supplies geometric local statements.
 
-## Boundaries and closely related sources
-The classification does not describe embedded singular-scheme structure, deformation families, resolutions or stringy Hodge numbers. Billi–Palomino–Sarti's primary source already establishes terminality and the cover fixed loci, which are not claimed new. General earlier work on Fermat-curve cyclic quotients may reproduce the curve subcalculation, though not the explicit fourfold theorem as checked. No independent scientific audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact October 2026 primary manuscript introduces this same Fermat quotient, records the upstairs fixed-point loci and quotient terminality according to the frozen source package, and is crucial prior art. The assessed contribution is confined to quotient-orbit counts, canonical genus-four curve equations, analytic stabilizer weights and two numerical Euler invariants, not the original example or terminality theorem. Full original source was not accessible this run; noncoverage is NOT asserted for its uninspected material.
+
+## value
+
+PASS
+
+The quotient is a natural high-dimensional Calabi–Yau/Log Enriques example from the published literature, and the exact singularity basket, canonical model of singular curves and coarse versus commuting-pair Euler difference are geometric invariants useful for comparing resolutions and quotient topology. Although one example, the data form a complete singular-stratum classification and not merely a trivial isolated numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

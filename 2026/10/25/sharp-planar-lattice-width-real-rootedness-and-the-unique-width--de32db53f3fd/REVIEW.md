@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Pick's theorem gives the exact numerator \(1+(I+B-3)t+It^2\) and its discriminant. The published planar hollow flatness theorem makes the polynomial genuinely quadratic when lattice width is at least three. The five nonpositive-discriminant boundary/interior pairs are exhaustive by elementary integer inequalities. The published Fejes-Tóth–Makai bound excludes three cases; the remaining normalized areas seven and nine reduce to eight explicit primitive-edge Hermite forms. The proof supplies directions certifying width two and, for the unique width-three class, exhausts all smaller directions analytically. The packaged checker independently verifies these finite cases, lattice-point counts, and the unimodular identification. The published flatness/isominwidth theorems are explicitly acknowledged as external premises.
+PASS
 
-## Originality — PASS with residual priority uncertainty
+For any full-dimensional integral lattice polygon Pick/Ehrhart gives h*=1+(I+B−3)t+It². Width≥3 and published hollow planar flatness force I≥1. Direct discriminant Δ=(I+B−3)²−4I has Δ≤0 only at (I,B)=(1,3),(2,3),(3,3),(4,3),(1,4). The published isominwidth w²≤8A/3 excludes (1,3),(2,3),(1,4). Remaining primitive-edge triangles have normalized area 7 or 9 and Hermite forms T_(D,a). Reconstructed gcd constraints give exactly D=7 a=2,3,4,5,6 and D=9 a=2,5,8. Independent bounded primitive direction enumeration gives widths 2,3,2,3,2 and 2,2,2 respectively; a=3,5 at D7 are affinely unimodularly equivalent via determinant −1 matrix. Thus only width-three nonreal-rooted class is conv((0,0),(1,0),(3,7)), with h*=1+3t+3t²; at width≥4 all roots distinct negative. A finite HNF check certifies only these eight residual cases; universal part follows from established flatness/isominwidth inequalities.
 
-Nill's source proves existence of a dimension-dependent large-width threshold, not the value four or the width-three optimizer classification. The planar exact-flatness paper supplies ingredients but does not formulate the root-rigidity conclusion. The older primary study of lattice triangles describes \((B,I)\) values and lattice widths but does not state the classification of negative/simple versus nonreal \(h^*\)-roots above width two. The surveyed material on Ehrhart real-rootedness likewise lacks this geometric sharp threshold. Recorded semantic database searches gave no equivalent statement or stronger result covering it. An old unpublished or unindexed observation remains plausible because the proof is short and relies on classical inequalities.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A newly established fixed-dimension existence theorem explicitly leaves its width constants far from optimal. This supplies the natural **sharp** dimension-two integer cutoff and, more strongly, the full affine classification of the only failure at the boundary, while ruling out multiple roots. This is a complete natural extremal classification rather than an arbitrary parameter sample, and clarifies the boundary of width-forced real-rootedness. It does not solve higher-dimensional thresholds.
+Nill arXiv:2608.03635 proves real-rootedness at sufficiently large lattice width in fixed dimension but does not determine the optimal planar threshold, width-three exception, or double-root exclusion. Averkov et al arXiv:2604.27260 supply flatness and isominwidth premises, not the conclusion. Hofscheier–Nill–Öberg and Hamm study lattice triangles and (I,B)/width data, which do not directly assert the universal root sign classification. The exact threshold four with a unique finite obstruction is a distinct original classification on inspected evidence.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A recent natural fixed-dimensional existence theorem leaves constants far from sharp. Determining the smallest exact integer width (four), unique width-three forbidden orbit, and exclusion of multiple roots is a complete nonarbitrary planar extremal classification requiring genuine geometry and arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

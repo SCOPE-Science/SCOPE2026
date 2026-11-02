@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:49:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 709ef9f9e8530ad4bf78e0304815ce5dd7d5152f",
+        "Frozen checker.py blob 3b05acfcdcf4d97e94fd085fd16f72fe9e11ec64",
+        "Independent exact-rational dynamic-programming check of 75 small poset relation systems and five stars (2026-10-28)",
+        "Stanley, Two poset polytopes, Discrete Comput. Geom. 1 (1986)"
+      ],
+      "rationale": "From actual RESULT.md, the order polytope indicator is log-supermodular under coordinate min/max, so continuous FKG association applied first conditionally in X and then to F_i(Y_i) yields q(P)>=2^-n, strictly when a pair of coordinates is poset-comparable. Conditional on two linear extensions, the common order-statistic interleavings satisfying X<=Y form a subset of Catalan ballot words; different extensions exclude the alternating ballot word. Hence q<=1/(n+1), strict unless unique extension (chain). Comparing volumes of O(P×C2) and O(P)² yields e(P×C2)/(binom(2n,n)e(P)²); conditioning on star tops yields (p+1)2^(p-1)(p!)²/(2p+1)! and stated Stirling asymptotic. Independently recomputed all 75 forward-oriented relation subsets up to 4 points and five stars by exact integer extension DP; these finite checks do not prove all-poset assertions.",
+      "residual_risks": [
+        "Proof invokes continuous FKG theorem for associated uniform order-polytope law; this is a standard published tool, not independently reproved.",
+        "n=1 is both extremizers; no random weights or other measure covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stanley triangulation computes volume via e(P) but does not directly compare e(P×C2) with e(P)^2 at the claimed global sharp endpoints.",
+          "Marked-poset transfer map results address different geometric invariants."
+        ],
+        "reasoning": "General classical tools and transfer-map theorems are inputs, not a stronger previously stated sharp probability classification.",
+        "searches": [
+          "Uniform random points in order polytopes coordinatewise comparability probability sharp upper Catalan lower cube inequality poset linear extensions",
+          "Stanley Two poset polytopes 1986",
+          "Fang Fourier Litza Pegel marked poset polytopes"
+        ]
+      },
+      "checked_sources": [
+        "Fried, arXiv:1910.01752, Theorem 3.9 (full relevant HTML inspected)",
+        "Stanley 1986, order-polytope linear-extension triangulation",
+        "Fang–Fourier–Litza–Pegel, arXiv:1712.01037 (abstract and relevant transfer-map discussion)",
+        "Resultary query: Uniform random points in order polytopes coordinatewise comparability probability sharp upper Catalan lower cube inequality poset linear extensions",
+        "Targeted order-polytope comparability / linear-extension ratio literature searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fried’s 2/(n+1) for uniform simplex comparability is the two-direction chain endpoint.",
+          "The current theorem also bounds every nonchain and classifies equality; order-statistic proof excludes a ballot word when extensions differ."
+        ],
+        "reasoning": "The prior chain theorem is strictly weaker as a statement on all finite posets; mathematical overlap is acknowledged without claiming the chain case as new.",
+        "searches": [
+          "Fried arXiv:1910.01752 Theorem 3.9",
+          "Uniform random points in order polytopes coordinatewise comparability probability sharp upper Catalan lower cube inequality poset linear extensions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "q(P)=e(P×C2)/(binom(2n,n)e(P)^2) is equivalent to counting compatible pairs of extensions and interleavings.",
+          "Fried arXiv:1910.01752 deals with simplex stochastic dominance, equivalent to chain order polytope."
+        ],
+        "reasoning": "Equivalent formulations include extension-count ratio and stochastic-dominance chain case. Searches did not establish an earlier all-poset inequality, but lack of a hit cannot exclude one.",
+        "searches": [
+          "Uniform random points in order polytopes coordinatewise comparability probability sharp upper Catalan lower cube inequality poset linear extensions",
+          "order polytope two independent uniform points coordinatewise comparable probability",
+          "product poset linear extension e(P×C2) / e(P)^2 inequality Catalan"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula includes generic e(P×C2), not a small finite lookup.",
+          "The star factorial expression follows a parameter-uniform beta integral."
+        ],
+        "reasoning": "A published catalogue of small e(P×C2) would not establish the general extremal theorem or rigidity; a uniform table identity for arbitrary P would be relevant and remains an unindexed risk.",
+        "searches": [
+          "Uniform random points in order polytopes coordinatewise comparability probability sharp upper Catalan lower cube inequality poset linear extensions",
+          "linear extension sequence P times C2 Catalan bound antichain chain"
+        ]
+      },
+      "rationale": "Classical association, order-polytope triangulation, ballot/Catalan combinatorics, and Fried’s chain/simplex equality case are acknowledged. The asserted joint all-poset sharp sandwich with both rigidity cases, exact extension-count interpretation, and star interpolation was not mathematically implied by the materially inspected primary results. Best-of-knowledge rather than definitive priority.",
+      "residual_risks": [
+        "Earlier literature could state the identical product-poset linear-extension inequality under an enumerative alias.",
+        "Fried proves exactly the chain value for two-way comparability; that numerical special case is not original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS chain endpoint only; DOES NOT establish arbitrary poset comparison",
+          "evidence": "Theorem 3.9 gives 2/(n+1) for simplex two-way stochastic dominance; coordinate partial-sum representation corresponds to a chain.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.01752",
+          "material_read": "Relevant full arXiv HTML exposition including Theorem 3.9 and stochastic-dominance representation",
+          "method": "Full-text HTML reading",
+          "title": "The probability that two random points on the n-probability simplex are comparable with respect to first order stochastic dominance and the monotone likelihood ratio partial orders",
+          "trigger": "Same probability and Catalan upper-bound value"
+        },
+        {
+          "assessment": "PRIOR TOOL, not all-poset probability envelope",
+          "evidence": "Order-polytope volume triangulated by linear extensions; no asserted all-P q(P) envelope in inspected material.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02187680",
+          "material_read": "Relevant triangulation and e(P)/n! identity, via cited standard theorem and accessible scholarly material",
+          "method": "Primary theorem comparison",
+          "title": "Two poset polytopes",
+          "trigger": "Foundational exact volume identity"
+        },
+        {
+          "assessment": "DIFFERENT INVARIANT",
+          "evidence": "Geometric/Ehrhart transfer maps do not compare two independent uniform points by coordinatewise order.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.01037",
+          "material_read": "Abstract and pertinent description of marked-polytope transfer maps",
+          "method": "Accessible preprint material comparison",
+          "title": "A continuous family of marked poset polytopes",
+          "trigger": "Plausible broader polytope equivalences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–4",
+        "Fried simplex comparison as a natural prior benchmark"
+      ],
+      "rationale": "The simultaneous sharp inequalities and rigidity at two natural endpoints classify the comparability probability of every finite order polytope. The doubled-poset count connects geometric probability to standard linear-extension data, while the exact natural star family is a nontrivial interpolation/asymptotic. This is a motivated structural global theorem, not a rearranged textbook calculation.",
+      "residual_risks": [
+        "The degree of usefulness for specific poset families may depend on efficiently computing e(P×C2)."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only full-dimensional standard order polytope uniform volume and coordinatewise order.",
+    "General n proof is analytic; finite counts are corroboration.",
+    "Historically known chain endpoint and FKG/ballot prerequisites credited."
+  ],
+  "schema_version": 1
+}

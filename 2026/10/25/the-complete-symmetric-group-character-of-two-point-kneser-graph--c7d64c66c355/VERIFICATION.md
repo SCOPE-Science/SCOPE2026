@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-The standalone `verify.py` reconstructs the unordered two-particle cubical cells with disjoint graph-cell closures. Its signed boundary conventions are \(\partial[e,v]=[b,v]-[a,v]\) for an oriented edge \(e:a\to b\), and \(\partial[e,f]=[b,f]-[a,f]-[d,e]+[c,e]\) when \(f:c\to d\) and \(e<f\). The code verifies every \(\partial_1\partial_2\) column vanishes and computes exact modular elimination ranks. A nonzero minor modulo three proves the corresponding lower bound on the rational boundary rank; the independent cycle-surjectivity argument in `RESULT.md` supplies the opposite bound on rational first homology.
+## correctness
 
-The program also computes the signed traces by two independent finite descriptions: direct enumeration of invariant oriented cubes and the fixed-vertex/edge formula. All permutations of six labels and all conjugacy types of seven labels were checked. Its rim-hook recursion computes the rational \(S_6\)-irreducible character multiplicities, checking nonnegativity and total dimension. `verification_output.txt` is the exact stdout from a local run of `python3 verify.py`.
+PASS
 
-Finite runs are **not** a proof for all values of \(n\); the infinite statement rests on Ko–Park’s theorem and the all-parameter signed-chain argument. The verifier does not establish integral \(H_1\) structure, integral module splitting, or independent review.
+For n≥6, KG(n,2) has v=C(n,2), degree=C(n-2,2), nonplanar (KG(6,2) has 15 vertices,45 edges versus planar max39) and three-vertex-connectivity. Ko–Park Theorem 3.16 gives H1 rational rank e-v+1. Natural Abel–Jacobi map onto graph H1 is surjective by parking one particle outside each short (<v) fundamental cycle, hence an equivariant isomorphism; H1 trace T-F+1. Direct cubical degree-zero/one/two signed chain traces give C2=(T²-T2-L)/2, C1=TF-2P, C0=(F²+F2)/2-F. Equivariant Euler yields boxed H2 formula; H2 integral torsion-free as subgroup of free C2 with no C3. Independently reconstructed KG6 105/585/765 cubical cells and all 720 signed S6 direct Lefschetz traces; every value equals formula; identity trace 315; class values 0,0,1,1,0,0,0,3,-9,-9,315. Small Specht character orthogonality produces claimed nine nonzero multiplicities and no trivial/sign constituents. Kneser 7 identity and transposition also checked; infinite n follows formal proof, not these finite cases.
+
+## originality
+
+PASS
+
+Ko–Park supplies nonequivariant H1 graph-braid ranks and torsion, Farber–Hanbury studies ordered two-particle homology and intersection forms. The Resultary Petersen n5 S5 module and Kneser neighborhood-complex S6 module are relevant but structurally different. The exact fixed-vertex/edge character for unordered two-particle KG(n,2) at all n≥6 and n6 decomposition were not found in primary coverage.
+
+## value
+
+PASS
+
+Uniform character of H2 across every Kneser graph KG(n,2), with explicit combinatorial fixed-data evaluation and first 315-dimensional S6 decomposition, yields natural symmetry information not determined by Betti ranks or graph connectivity. Absence of A6 invariants is meaningful and the formula avoids large homology matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

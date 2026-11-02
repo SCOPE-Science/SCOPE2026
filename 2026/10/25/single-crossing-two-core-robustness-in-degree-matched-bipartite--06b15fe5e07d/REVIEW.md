@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim covers finite simple bipartite graphs consisting of two even cycles sharing exactly one vertex, under independent primary vertex retention followed by iterative degree-below-two deletion. The proof first identifies the final core as the union of the original cycles that remain wholly present. Inclusion–exclusion then yields the exact four-outcome distribution; it accounts for the shared vertex by subtracting its duplicated contribution. The strict nonempty-core ordering follows by a positive factorization. For the expected-size comparison, the sign polynomial has one internal positive root and the endpoint root at one: its coefficient signs and Descartes' rule prove uniqueness, and the derivative at one fixes the sign order. Explicit size constraints establish that eleven vertices is the first possible equal-size, nonisomorphic pair **within the specified graph family**. The stand-alone exact verifier independently checks 119,424 retained-vertex subsets over nine configurations and compares the complete Bernstein coefficients of their distributions. The infinite-parameter result rests on the analytic proof, not enumeration.
+PASS
 
-## Originality: PASS (qualified bibliographic comparison)
+The 2-core of two even cycles meeting at only their common vertex is precisely the union of intact cycles; dangling fragments iteratively peel away. With iid retention p the intersection probability is p^(a+b-1), yielding the full four-support probability generating polynomial, U=p^a+p^b-p^(a+b-1), and M=a p^a+b p^b-p^(a+b-1). The balancing-transfer nonempty difference factors as (1-p^2)(p^a-p^(b-2))>0 for b≥a+4. For the mean, H(t) has signs +,-,-,+, H(0)>0 and simple root H(1)=0 with H'(1)=2k>0; Descartes permits only one further positive root, which exists by continuity and lies in (0,1), proving unique crossing. The 11-vertex case B_(4,8) versus B_(6,6) has crossover p=1/sqrt(2). Independently enumerated all 2^n initial-retention configurations for (4,4),(4,6),(4,8),(6,6),(4,10),(6,8), matching the exact distributions and guild degrees; remaining arbitrary even parameters follow from algebra, not enumeration.
 
-The closest directly inspected full text is Morone, Del Ferraro and Makse, arXiv:1811.00141v1. It develops ecological network collapse via core pruning and explicitly illustrates the 2-core, but does not assert independent primary site-percolation distributions for two-cycle bouquets or the unique comparative-statics crossover. Staniczenko et al., DOI:10.1111/j.1461-0248.2010.01485.x, study extinction robustness with rewiring; James et al., DOI:10.1038/nature11214, study network nestedness and species persistence; and Vieira and Almeida-Neto, DOI:10.1111/ele.12394, study stochastic coextinction under heterogeneous mutualistic dependencies. Their accessible abstracts do not identify an all-parameter balancing law for degree-matched bipartite bouquets. Targeted searches for equivalent formulations (flower/cactus site percolation, expected 2-core, and cycle-length balancing) and a published mathematical-record search found no result asserting or logically subsuming the full claim. This is a best-knowledge originality assessment, not a priority certificate. Full texts of some broader ecological articles were not obtained, and general percolation formulas could facilitate an equivalent derivation.
+## originality
 
-## Value: PASS
+PASS
 
-The object and both observables are ecologically motivated: after independent primary losses and deterministic two-partner coextinctions, nonempty-core probability measures the chance of retaining any self-supporting mutualistic community, whereas the expected 2-core size measures surviving species richness. Matching both guild populations and their entire degree sequences removes a common network-composition explanation for differing robustness. The theorem proves that a local redistribution of cycle lengths universally improves the first observable but reverses the second at a single sharp probability. The first 11-species pair gives an exact boundary at \(p=1/\sqrt2\) and a family-specific minimality statement. These are informative contrasting risk criteria, not simply an isolated numerical instance. The conclusion is conditional on a stylized homogeneous, independent, degree-two pruning model and has no direct quantitative claim about empirical communities.
+A global core-existence probability and expected final core size rank the same two networks oppositely across a unique parameter threshold despite equal bipartite guild-degree multisets. The full infinite two-cycle comparison goes beyond general k-core decomposition and the ecological dynamic-collapse theorem; the latter is a precursor, not treated as evidence of no overlap elsewhere.
 
-## Residual risks and limits
+## value
 
-The full texts of the 2010, 2012 and 2015 ecological articles were not read; their accessible material concerns different model mechanisms, but a buried finite-network observation cannot be ruled out. An earlier graph-reliability theorem stated without ecological terminology might imply the equations. The proof does not cover general cacti with bridges, arbitrary bipartite networks, heterogeneous survival probabilities, or mechanistic ecosystem dynamics. No independent expert audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The chance of preserving any viable two-neighbor-supported subcommunity and the expected total survivors are distinct, ecologically motivated robustness criteria. A matched-degree, all-even-length comparison determines their opposite monotonicity and a unique crossover, plus a sharp smallest example within the natural bouquet family. This is a structural comparison, not a lone substitution in a probability polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

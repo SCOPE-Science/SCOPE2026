@@ -1,19 +1,21 @@
-# Review of the final claim
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns finite connected simple graphs with edge-disjoint simple four-cycles, and any group of graph automorphisms. The unique-center lemma supplies a canonical barycentric-subdivision retraction from a common bridge complex onto the graph-plus-filled-squares model; a second affine retraction onto the open-neighborhood complex is immediate from simplices on neighborhood sets. Both maps and homotopies are graph-automorphism equivariant. Square boundaries have disjoint original double-cover edge supports, so the two-boundary injection is integral and primitive. The cellular trace identity yields the exact character formula, including the distinction between color-preserving and color-exchanging automorphisms of bipartite graphs. The attached verifier independently checks 126 Graph Atlas isomorphism types (386 actions) and 12 additional actions. Those cases test the construction but are not substitutes for the all-graph proof.
+PASS
 
-## Originality — PASS, with residual risk
+Read RESULT.md full proof, unique-center lemma, two equivariant deformation retractions, exact 2-cell cellular presentation, and independent signed Lefschetz checker code. Pairwise edge-disjoint four-cycles imply at most two common neighbors per vertex pair and unique centers for every nonretained face; this makes barycentric replacements canonical and Γ-equivariant. Each lifted square uses distinct original double-cover edges, so ∂2 injects primitively. In the cellular Euler trace, vertices contribute 2v_gamma, oriented double-cover edges contribute 2e_gamma (both endpoints fixed), oriented filled squares contribute the signed fixed-square sum, and H0 contributes c_gamma. Hence tr H1 =c_gamma+2e_gamma−2v_gamma−sum ε, with H_{>=2}=0 and H1 torsion-free. Independent exact Euler checks on C4, C5, P5, square-plus-pentagon corroborated; source checker covers 126 qualifying Atlas isomorphism types/386 automorphism actions plus 12 extended actions. The proof supplies the universal quantifier.
 
-The closest 2026 primary study explicitly supplies the *nonequivariant* graph-and-square model and circle multiplicities but not an automorphism-equivariant deformation retraction, an integral homology-module sequence, or signed fixed-square traces. Kamibeppu's Theorem 3 requires the absence of any four-cycle; Arana–Stehlík study surface quadrangulations. The present novelty is the natural full symmetry refinement, not the known nonequivariant result. A broad literature and indexed-record search did not locate an equivalent full formula. The main residual risk is that the canonical nature of the published nonequivariant model, paired with general equivariant homotopy methods, may make the extension accessible or independently known; this is not evidence of an existing covering statement.
+## originality
 
-## Value — PASS
+PASS
 
-The result converts a potentially high-dimensional simplicial symmetry calculation into a graph-theoretic character formula valid for every automorphism of an infinite class that includes irregular graphs, triangles, and multiple edge-disjoint squares. The signed two-cell module is a structural integral presentation, rather than merely a restatement of the Betti number. Fixed-square reflections contribute with signs and cannot be recovered from the earlier nonequivariant circle counts; the formula also provides all fixed-subspace dimensions over \(\mathbb Q\) by character averaging.
+Materially read the directly closest published Oct 11 2026 Resultary proof. It constructs exactly the nonequivariant W(G), two good-cover nerve comparisons, and square collapses giving graph wedges. That result explicitly does not state Γ-equivariant equivalences or full automorphism action. The submitted canonical equivariant barycentric retractions and signed fixed-square trace refine the known graph-like model: the ordinary homotopy ranks cannot reconstruct reflection traces. Other cited no-four-cycle equivariant and surface-quadrangulation results have different hypotheses. A possible implication via an equivariant nerve lemma and new signed-chain work is a priority/value risk, not an already stated covering theorem.
 
-## Closest literature and limitations
+## value
 
-The 2026 edge-disjoint-square work is the closest and strongest prior source; its full available scientific text was compared directly. Kamibeppu 2008 is stronger in the square-free case but explicitly excludes any graph containing a square. The Arana–Stehlík 2025 theory has a distinct global quadrangulation hypothesis. Overlap is possible with unindexed equivariant results, and the integral sequence is not asserted to split equivariantly. Independent mathematical review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the full first rational automorphism character of a large infinite class from fixed vertices, pointwise fixed edges, lifted square orientation and bipartition action. This genuinely refines the known nonequivariant wedge rank, including reflection signs, and supplies a natural integral short exact sequence without falsely claiming irreducible integral splitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

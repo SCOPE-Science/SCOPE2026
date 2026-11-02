@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-point unordered deleted-product deformation-retraction is established in Barnett–Farber (2009, Lemma 1.1), and the graph satisfies the model assumptions. Every one of the 558 top-cell boundaries is built from the specified signs and checked to be a cycle under the next boundary. Exhaustive simple-cycle enumeration and 417 product-torus boundary checks are performed by the complete embedded program. A rank-504 minor over the field with 101 elements gives an integer/rational boundary-rank lower bound, while 54 actual integer cycles provide the matching upper bound. The explicit 54-by-54 coordinate minor is \(-1\), so the selected octagon tori are a primitive full-rank direct summand of all top chains and therefore equal the entire integral top-cycle kernel. Exact integer inverses and Smith forms give quotients \(\mathbb Z^{24}\), \((\mathbb Z/2)^2\), and zero. All 144 graph automorphisms and orbit partitions are checked. No inference of integral saturation from field-only ranks occurs.
+## correctness
 
-**Originality — PASS (best-knowledge literature comparison).** The Nauru graph was published as a well-known symmetric toroidal graph; its standard graph and 12-hexagon map are not claimed as new. Barnett–Farber supplies the two-particle cellular model, and Farber–Hanbury supplies general nonplanar intersection theory, but neither inspected paper states the octagon-pair unimodular basis or the three Nauru integral torus-lattice quotients. An–Knudsen's main geometric-generator theorem assumes planarity, which this graph fails, and §6.8 exhibits rather than eliminates nonplanar obstructions. Published mathematical records concerning the Nauru independence and Rips complexes study different topological constructions; adjacent configurations for other named cubic graphs cannot imply a Nauru-specific integral index without an explicit reduction. Searches under both Nauru and generalized-Petersen/arrangement-graph aliases produced no covering source. Unindexed computations or specialized tables remain a residual risk, not a proof of novelty.
+PASS
 
-**Mathematical value — PASS.** The Nauru graph is a canonical maximally symmetric cubic toroidal graph, and short disjoint cycle tori form the first natural geometric candidates for generating two-point second homology. The result answers a precise integral generation problem: the shortest hexagon pairs furnish only rank 30, mixed hexagon–octagon pairs reach full rational rank but retain an index-four parity obstruction, and octagon–octagon pairs contain a unimodular basis. The orbit partitions show how graph symmetry organizes the carriers. This supplies a natural geometric test case for integral generator questions beyond the planar setting, not an arbitrary numerical slice.
+Read the exact finite cubical chain and full certificate algorithm from RESULT.md and verify.py. In the unordered disjoint-support model there are 276 zero-, 792 one-, and 558 two-cells, no 3-cells. An independently rebuilt DFS found precisely 12 six-cycles and 54 eight-cycles; disjoint pairs count 30/216/171. Reconstructed 417 torus columns and the 54x54 minor from the literal published row/column indexes; its exact determinant is -1. Exact Smith forms of each torus family in this unimodular basis have ranks 30,54,54 and non-unit factors [],[2,2],[]. A separate full-boundary modular computation in the inspected source gives rank >=504, while 54 independent genuine top cycles force rank <=504; hence H2=Z^54 and the unit-minor lattice exhausts it integrally. The complete 144-automorphism orbit enumerator is explicit and deterministic. Finite computation is exhaustive for this single graph, not a theorem about a family.
 
-**Closest literature and limits.** Eppstein (2007) identifies the graph and its toroidal geometry, Barnett–Farber (2009) supplies the general model, Farber–Hanbury (2010) treats nonplanar graph configurations broadly, and An–Knudsen (2020/2022) proves a planar-generator theorem. The present work is finite and graph-specific, omits first-homology torsion and fundamental-group claims, and requires independent external verification before any assertion of independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared Nauru under generalized Petersen GP(12,5), graph braid/UConf2, deleted product, short-cycle and product-torus lattice aliases. Established two-particle graph configuration papers provide the model and nonplanar framework, not the exact 30/216/171 torus counts, unit-minor octagon basis or index-four mixed lattice. The planar geometric-generator theorem does not imply these nonplanar integral Smith invariants. Resultary same-graph independence/Rips computations and two-particle homology of other named graphs are different objects. Best-of-knowledge original, with specialized Nauru tables as residual risk.
+
+## value
+
+PASS
+
+Disjoint short cycles provide canonical geometric 2-tori on the named symmetric nonplanar cubic graph. The strict hierarchy from rank-30 hexagon pairs to index-four mixed pairs to an integral octagon-torus basis is a natural integrality/generation obstruction invisible to rational H2 or ordinary graph cycle counts; graph-automorphism orbits organize those generators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

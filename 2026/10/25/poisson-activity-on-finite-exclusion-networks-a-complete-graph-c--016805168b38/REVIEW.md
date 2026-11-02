@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A finite symmetric exclusion generator has uniform equilibrium, and perturbing the counted-jump generator gives the exact asymptotic variance rate \(\mu+2\langle q-\mu,(-L)^+(q-\mu)\rangle_\pi\). The positivity of the pseudoinverse is strict away from constant escape intensity. The complete fixed-occupancy edge-cut classification follows from swapping one vertex of a cut, which forces constant adjacency-row differences; connectedness leaves the complete graph or the half-filled star. This proves every quantified case without relying on a finite census. Exact-rational checks reproduce the generator identity for nine examples and exhaust the entire connected graph census up to six vertices.
+PASS
 
-## Originality — PASS within the inspected literature
+For unit-rate symmetric k-exclusion, tilted generator L_z=e^z B-diag(q) with B1=q; reversible finite-state eigenvalue perturbation gives asymptotic variance/T = mu+2<q-mu,(-L)^+(q-mu)>_pi, with positive form equality iff q(S) constant. A constant total exit intensity gives exponential IID holding times, hence a homogeneous Poisson counting process from any initial state. For 2<=k<=N-2, swapping two vertices in equal-size cuts forces A_uw-A_vw=c_uv for all other w and (N-2k)c_uv=0. If N!=2k, connectedness forces K_N; for N=2k the nonzero row-difference case yields a balanced star, the only connected alternative. For k=1 or N-1 any regular graph works. Independent exact enumeration of every connected labelled simple graph on 4,5,6 vertices recovers only the asserted interior equality cases (4: four labelled stars plus K4; 5: only K5 for k2 and k3; 6: six labelled stars plus K6 at k3).
 
-Appert-Rolland et al. (2008, arXiv:0804.2590) already derive exclusion activity cumulants on periodic rings. Caputo, Liggett and Richthammer (2009, arXiv:0906.1238) prove arbitrary-graph interchange spectral-gap equality but do not characterize jump counting. Lee, Loh and Sudakov (2011, arXiv:1109.3180) explicitly note equal-size star bisections, an example credited here; their results concern extremal cuts, not all-graph cut-size rigidity. Earlier two-particle complete-bipartite calculations cover a subcase of the asserted theorem. The actual primary-text comparisons and indexed searches support the distinct all-graph Poisson classification, subject to residual risk of an unindexed general edge-cut theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A complete graph/filling classification of genuinely Poissonian total activity is a natural finite-network lattice-gas question, because exclusion generically makes the total jump intensity configuration-dependent. The result detects a unique many-particle, non-complete exception at exactly balanced star occupancy and proves strict super-Poisson fluctuations elsewhere. This is structural rather than a routine numerical example or a small parameter correction.
+Previous counting-statistics and graph-bisection results provide machinery and balanced-star examples, but the inspected source material does not establish the exact equivalence of stationary Poisson total activity and network cut constancy or classify all connected simple graphs at every k. The equal-cut rigidity and unique balanced-star anomaly are the substantive exact classifications. Best-of-knowledge PASS with graph cut literature as residual risk.
 
-## Scope and limitations
+## value
 
-Only connected finite simple graphs with symmetric unit-rate exchanges, stationary long-time total successful-hop counting, and nontrivial occupancy are covered. No rate-weighted, disconnected or reservoir-driven extensions are asserted. The literature comparisons establish best-knowledge originality, not independent audit or historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Characterizes an observable stochastic phenomenon by a complete natural graph classification over all particle numbers, with a surprising non-complete balanced-star exception and a strict super-Poissonian inequality elsewhere. Exact equality cases matter for network activity, counting statistics, and exclusion dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

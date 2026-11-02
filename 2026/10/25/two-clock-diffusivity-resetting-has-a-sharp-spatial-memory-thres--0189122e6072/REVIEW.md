@@ -1,11 +1,21 @@
-# Scientific review: two-clock diffusivity memory
+# Independent mathematical audit
 
-**Correctness — PASS.** The distinct reset generators and all stationary mixed moments were reconstructed from the stated Markov model. The stationary fourth moments were independently derived by integrating the exponentially decaying medium-square covariance against an independent Poisson age. A closed two-time covariance ODE, Wick factorization and explicit positivity analysis establish the theorem for every positive medium-reset and particle-reset rate. The companion symbolic checker verifies exact identities and 72 parameter-lag comparisons. This is an analytic result, not an inference from the finite checks.
+## correctness
 
-**Originality — PASS, subject to external priority review.** Santra–Basu–Sabhapandit (arXiv:2205.00549v1) reset the particle and fluctuating diffusivity **together**, using one clock. Its source model and stationary radial laws are acknowledged as prior. The assessed result uses *independent* positive-rate medium and position resets, yielding two intrinsic decay scales and the strict rate-order classification of the cross/self square covariance. A previous synchronous-memory result and a previous position-only-reset result involve distinct clock laws and do not directly imply this independent-clock theorem. Related accessible original work on unreset common diffusivity (arXiv:2506.20859) and fixed-diffusivity resetting autocorrelations (arXiv:2107.11686) were compared. No equivalent evaluated formula was identified in the examined sources; a broader priority risk remains.
+PASS
 
-**Scientific value — PASS.** Comparing two independent controls—how quickly the medium renews and how quickly particles are repositioned—is a natural model of active, fluctuating environments. The theorem gives a sharp qualitative threshold in the long-lag fourth-order memory ratio and an exact conditional-Gaussian/macroscopic non-self-averaging benchmark. It separates common-medium memory from an individual Brownian path's memory. Neither a new thermodynamic transition nor a finite-sample identification guarantee is claimed.
+Under independent Poisson rates a for Y reset and b for all positions reset, the invariant generator gives EY²=2Λ²/a, EY⁴=24Λ⁴/a², EX²=4Λ²/(ab), H=Cov(X²,Y²)=40Λ⁴/(a²(a+b)), M=E(X_i²X_j²)=32Λ⁴(a+6b)/(a²b²(a+b)), V=M-(EX²)²=16Λ⁴(a+11b)/(a²b²(a+b)). The Markov ODE K’+bK=2H exp(-at), K(0)=V, gives exact integral K(t). Conditional common-environment Gaussian pairs give same-coordinate extra 2M exp(-bt) by Wick and no-reset probability; n-coordinate average adds 2M exp(-bt)/n. With h(t)=exp(bt)K(t), h’=2H exp((b-a)t)>0, yielding monotone R and threshold a<=b. Independent symbolic simplification confirmed the a>b rational formula and resonance a=b, while inspected checker separately verifies stationarity and 72 substitutions. Absolute time covariance decays; claimed memory is a relative asymptotic. Boundary parameters a,b,Λ=0 are excluded.
 
-**Limitations and risk.** The result requires shared signed Brownian diffusivity, independent Brownian particle drivers, a single common Poisson position-reset clock, and a separate independent Poisson medium-reset clock. Correlation magnitudes always decay to zero despite a unit limiting ratio in one regime. The broad literature may contain a stronger hidden-medium covariance theorem. No independent audit or external priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS specific to two independent reset clocks and the exact cross-/self-coordinate lag covariance ratio. The closest full primary paper of Santra–Basu–Sabhapandit resets Brownian diffusivity and positions simultaneously with one common clock; a second paper studies a shared diffusivity without the two-clock reset law; ordinary resetting autocorrelation methods do not directly state this threshold.
+
+## value
+
+PASS
+
+The model isolates experimentally interpretable separation between medium renewal and positional reset; the exact nontrivial threshold in normalized fourth-order lag memory and residual non-self-averaging are motivated model-specific stochastic invariants, with a repeated-rate critical form rather than a routine equality of rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

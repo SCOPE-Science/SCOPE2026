@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-The stand-alone `verify.py` constructs the 24-vertex graph from the generalized Petersen edge formula, lists every graph simple cycle once, reconstructs the unordered two-point cubical chains, checks all cellular boundary compositions, and checks rank lower bounds over prime fields. Every length-six and length-eight disjoint cycle pair is converted to a signed integral product-torus cycle and explicitly checked closed.
+# Independent mathematical audit
 
-The program deterministically selects 54 octagon-pair cycles and 54 two-cell coordinates, verifies the integer determinant is `-1`, and reconstructs all 417 short-cycle torus chains by exact integral basis coordinates. Smith normal forms give the three lattice quotients without relying on modular rank as an index certificate. It also enumerates 144 graph automorphisms and their three orbit partitions.
+## correctness
 
-To replay, install the dependencies in `requirements.txt`, then run `python verify.py`. On success the final line is `VERIFY_OK_NAURU_SHORT_CYCLE_TORUS_LATTICES`. The graph, matrices, bases and determinant witnesses are generated from explicit definitions within that file; no downloaded data, private evidence, or other records are needed.
+PASS
 
-Limitations: the verifier does not compute the fundamental group, lower-degree integral torsion, cup products, arbitrary longer-cycle lattices, or results for any other graph. This is exact finite computation for one explicitly given graph, with standard deleted-product topology supplying the bridge to the continuous configuration space. No independent audit has been performed.
+Read the exact finite cubical chain and full certificate algorithm from RESULT.md and verify.py. In the unordered disjoint-support model there are 276 zero-, 792 one-, and 558 two-cells, no 3-cells. An independently rebuilt DFS found precisely 12 six-cycles and 54 eight-cycles; disjoint pairs count 30/216/171. Reconstructed 417 torus columns and the 54x54 minor from the literal published row/column indexes; its exact determinant is -1. Exact Smith forms of each torus family in this unimodular basis have ranks 30,54,54 and non-unit factors [],[2,2],[]. A separate full-boundary modular computation in the inspected source gives rank >=504, while 54 independent genuine top cycles force rank <=504; hence H2=Z^54 and the unit-minor lattice exhausts it integrally. The complete 144-automorphism orbit enumerator is explicit and deterministic. Finite computation is exhaustive for this single graph, not a theorem about a family.
+
+## originality
+
+PASS
+
+Compared Nauru under generalized Petersen GP(12,5), graph braid/UConf2, deleted product, short-cycle and product-torus lattice aliases. Established two-particle graph configuration papers provide the model and nonplanar framework, not the exact 30/216/171 torus counts, unit-minor octagon basis or index-four mixed lattice. The planar geometric-generator theorem does not imply these nonplanar integral Smith invariants. Resultary same-graph independence/Rips computations and two-particle homology of other named graphs are different objects. Best-of-knowledge original, with specialized Nauru tables as residual risk.
+
+## value
+
+PASS
+
+Disjoint short cycles provide canonical geometric 2-tori on the named symmetric nonplanar cubic graph. The strict hierarchy from rank-30 hexagon pairs to index-four mixed pairs to an integral octagon-torus basis is a natural integrality/generation obstruction invisible to rational H2 or ordinary graph cycle counts; graph-automorphism orbits organize those generators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

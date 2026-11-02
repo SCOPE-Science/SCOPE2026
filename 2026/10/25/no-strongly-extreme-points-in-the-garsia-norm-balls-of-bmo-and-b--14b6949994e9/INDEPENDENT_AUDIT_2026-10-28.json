@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:46:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md; Garsia variance formula 1−|b_a(z)|² and exact Möbius inversion",
+        "Classical Poisson nontangential Lebesgue boundary theorem and centered Hilbert-space norm inequality",
+        "checks/check_geometry.py read; computer checks supplementary only"
+      ],
+      "rationale": "For a Garsia-unit function f in L², choose a common Lebesgue point ζ for f and |f|². Nontangential Poisson convergence yields Vf(z)=P|f|²−|Pf|²→0 in each Stolz cone at ζ. For a=rζ the disk-algebra function g_a=b_a+a has Poisson variance 1−|b_a|², norm exactly one, and its ε-superlevel sets are images of bounded pseudohyperbolic disks lying uniformly inside a Stolz cone tending to ζ. Hence Δ_r=sup_z min(Vf,Vg_a)→0. Centered Poisson L² triangle inequality gives ||f±g_a||_G<=1+sqrt(Δ_r), while both ||f|| and ||g_a|| equal one. Thus unit perturbations make both signed norms tend to one, contradicting strong extremity for every boundary point in all four spaces. No unsupported norm equivalence is used; analytic g_a belong to all four. Source checks/check_geometry.py inspected and the localization/Möbius algebra was independently reconstructed; finite sample checks are not proof for arbitrary f.",
+      "residual_risks": [
+        "Relies on standard a.e. nontangential convergence for Poisson integrals of f and |f|²; does not establish uniform convergence rates over unit sphere.",
+        "Ordinary extreme points may exist and do not contradict non-strong extremity; result is norm-specific."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dyakonov 2025 ordinary VMO-unit extreme point result concerns extremity, strictly weaker than strong extremity.",
+          "H-infinity sup norm and arc-average BMO norms are different normed geometries."
+        ],
+        "reasoning": "The closest broader statements do not imply the all-four-spaces strong-extreme absence under the Garsia norm.",
+        "searches": [
+          "Dyakonov arXiv:2404.05565v2 Theorem 2.7 Corollary 2.8",
+          "Axler–Shields Extreme Points in VMO and BMO 1982",
+          "Dyakonov arXiv:2301.11162 H-infinity strongly extreme"
+        ]
+      },
+      "checked_sources": [
+        "Dyakonov 2026 arXiv:2609.33242 Section 2",
+        "Dyakonov 2025 arXiv:2404.05565 theorem and corollary",
+        "Resultary Garsia strong extreme semantic search",
+        "Assigned analytic proof and geometry checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior explicitly asks the strongly extreme question but solves neither it nor every general ordinary extreme case.",
+          "Prior proves VMO Garsia-unit functions ordinary extreme; an extreme point need not be strongly extreme."
+        ],
+        "reasoning": "The new norm-one concentrating Blaschke perturbation genuinely supplies a negative strong-extremity theorem without contradicting published ordinary-extremity results.",
+        "searches": [
+          "Dyakonov 2026 arXiv:2609.33242 Section 2 and Addendum",
+          "Dyakonov 2025 arXiv:2404.05565v2 Theorem 2.7 / Cor 2.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Garsia seminorm is supremum of standard deviations sqrt(P|f|²−|Pf|²), constants factored out.",
+          "Strong extremity means both ||f±g_n||→1 imply ||g_n||→0; the constructed g_n has norm one."
+        ],
+        "reasoning": "The statement directly negates strong extremity in the same norm and all four canonical subspaces; equivalent BMO norms do not preserve the conclusion.",
+        "searches": [
+          "Dyakonov 2026 arXiv:2609.33242 Section 2 strongly extreme variant",
+          "Garsia norm unit ball BMO BMOA VMO strongly extreme points Poisson variance Dyakonov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top ranked records concern unrelated variance problems; no exact ball-classification output was returned.",
+          "The theorem is a qualitative complete classification of an empty set, not a finite database."
+        ],
+        "reasoning": "No exact tabular comparison is applicable beyond theorem databases: the relevant invariant is the entire set of strong-extreme points; actual theorem searches found no matching already published set classification.",
+        "searches": [
+          "Resultary Garsia norm unit ball BMO BMOA VMO strongly extreme points Poisson variance Dyakonov",
+          "2026 Garsia strongly extreme primary literature searches"
+        ]
+      },
+      "rationale": "Dyakonov 2026 explicitly raises the strongly extreme Garsia ball question in Section 2 without resolving it; his 2025 Theorem 2.7 / Corollary 2.8 classify ordinary extreme points and make the VMO phenomenon particularly notable. For BMO-type arc-average norms and H-infinity sup norms, strong extremity differs from the Poisson-variance Garsia norm. The submitted construction answers the exact stated strongly extreme variant and is not a corollary of the earlier ordinary extreme statements.",
+      "residual_risks": [
+        "Strong extreme Garsia norm might have been settled in differently indexed functional analysis literature.",
+        "The theorem is specific to Garsia Poisson variance norm and cannot automatically transfer to other equivalent BMO norms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_OPEN_QUESTION",
+          "evidence": "It poses the strongly-extreme Garsia ball problem and does not give an answer in examined sections",
+          "identifier_or_url": "arXiv:2609.33242v3 (Dyakonov 2026)",
+          "material_read": "Available primary text Section 2 problem and addendum, including strong-extremity question",
+          "method": "Open arXiv HTML/text rendering",
+          "title": "The Strong Reproducing Kernel Thesis for Hankel Operators and the Garsia Norm",
+          "trigger": "Original explicit strongly extreme variant"
+        },
+        {
+          "assessment": "ORDINARY_EXTREME_NOT_STRONG",
+          "evidence": "Proves ordinary extreme points (all Garsia-unit VMO), not strong-extremity classification",
+          "identifier_or_url": "arXiv:2404.05565v2 (Dyakonov 2025)",
+          "material_read": "Primary PDF Theorem 2.7 and Corollary 2.8, pages 8–9 read including rendered screenshots",
+          "method": "Open arXiv PDF text and page screenshots",
+          "title": "Extremal Problems in BMO and VMO Involving the Garsia Norm",
+          "trigger": "Potential stronger prior extreme-point theorem"
+        },
+        {
+          "assessment": "DIFFERENT_NORM",
+          "evidence": "H-infinity supremum norm rather than Poisson-variance BMOA Garsia norm",
+          "identifier_or_url": "arXiv:2301.11162 (Dyakonov 2023)",
+          "material_read": "Bibliographic abstract/setting only",
+          "method": "Public abstract",
+          "title": "Inner Functions as Strongly Extreme Points: Stability Properties",
+          "trigger": "Potential strong extreme of analytic functions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dyakonov 2026 posed problem; Dyakonov 2025 prior ordinary-extreme theorem",
+        "Full analytic construction using moving Blaschke kernels and Poisson variance"
+      ],
+      "rationale": "Answers an expressly formulated strongly extreme variant of a named Garsia-norm ball problem for four standard analytic/harmonic spaces with a simple but nontrivial boundary-concentration construction. It separates strong extremity from the known ordinary extreme VMO unit sphere, an informative geometric rigidity distinction, rather than restating a textbook implication.",
+      "residual_risks": [
+        "Does not characterize ordinary extreme points for general BMO/BMOA or other BMO norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Relies on standard a.e. nontangential convergence for Poisson integrals of f and |f|²; does not establish uniform convergence rates over unit sphere.",
+    "Ordinary extreme points may exist and do not contradict non-strong extremity; result is norm-specific.",
+    "Strong extreme Garsia norm might have been settled in differently indexed functional analysis literature.",
+    "The theorem is specific to Garsia Poisson variance norm and cannot automatically transfer to other equivalent BMO norms.",
+    "Does not characterize ordinary extreme points for general BMO/BMOA or other BMO norms.",
+    "The original public administrative JSON files have a per-record operational run identifier; a complete confidentiality-neutral replacement and semantic inspection of all public files was not staged. Publication is withheld separately from scientific verdict.",
+    "No repository write or dispatcher closeout is authorized by this read-only audit."
+  ],
+  "schema_version": 1
+}

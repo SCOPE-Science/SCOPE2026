@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T06:53:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual RESULT.md, verify.py, exact effective-resistance identities, dual Cauchy–Schwarz",
+        "Actual frozen RESULT.md, verification file and Git blobs; independent local /mnt/data/scope07_check_20261028.py"
+      ],
+      "rationale": "For a weighted m-leaf star, effective resistances yield (L^dagger)_00=S/n², (L^dagger)_ii=(S+(m²−1)r_i)/n² with r_i=1/w_i, S=Σr_i, n=m+1. The primal budget is Σc_i/r_i≤B. For any simplex p, max r_i≥Σp_i r_i and Cauchy–Schwarz give global lower bound [Σsqrt((1+αp_i)c_i)]²/(n²B), α=m²−1. Strictly concave dual maximization gives p_i=(c_i/τ−1)_+/α with Σ(...)=α, unique τ>0. Taking y_i=min(1,sqrt(c_i/τ)), r_i=Z y_i/B, Z=Σc_i/y_i attains all inequalities and is uniquely optimal by CS equality and budget saturation. Active set formula, iff equal allocation criterion min c_i≥C/(m²+m−1), and sharp price-uniformity factor (m²+m−1)/m² follow. Independent Laplacian pseudoinverse calculation for m=4, c=(240,32,1,4), B=284 gave w=(1,1,4,2) and max diagonal .71, matching analytic formula 71/100; ratio limit argument is analytic, not sample inference.",
+      "residual_risks": [
+        "Only star topology, full positive prices, unit independent node noise, and max diagonal pseudoinverse; no implication for maximum pairwise resistance or arbitrary graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic convexity of graph resistance allocation and edge-addition trace optimization are broader method classes but not exact all-price minimax star diagonal allocations."
+        ],
+        "reasoning": "No inspected stronger statement logically covers threshold τ or the sharp ratio with independent prices.",
+        "searches": [
+          "arXiv:1411.4884",
+          "arXiv:1310.2592",
+          "Ghosh–Boyd–Saberi 2008"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "https://arxiv.org/abs/1411.4884",
+        "https://doi.org/10.1103/PhysRevE.96.032311",
+        "Resultary semantic research records: Minimax diagonal Laplacian pseudoinverse weighted star priced edges water filling optimal conductance stationary noisy consensus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2008 paper explicitly studies total resistance and separately mentions max pair resistance; even its analytical uniform-star optimizer under equal prices is not a uniform solution for min-max diagonal with arbitrary price costs."
+        ],
+        "reasoning": "Deriving current exact threshold requires additional dual KKT and equality analysis, not just importing previous objective optimality.",
+        "searches": [
+          "Ghosh–Boyd–Saberi 2008 §8",
+          "Summers et al 2014",
+          "Van Mieghem et al PRE 2017"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent noisy-consensus objective: max_v Var(x_v−mean)=.5 max_v(L†)_vv, whereas trace coherence optimizes Σ_v(L†)_vv and max pair resistance optimizes max_{u,v}R_uv."
+        ],
+        "reasoning": "The target worst-vertex diagonal is not the same as trace nor the largest pairwise resistance even on stars; derived formula depends on Σr_i+αmax r_i.",
+        "searches": [
+          "Minimax diagonal Laplacian pseudoinverse weighted star priced edges water filling optimal conductance stationary noisy consensus",
+          "Ghosh–Boyd–Saberi SIAM Review 2008 Sections 1,2,8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A continuum price-vector optimization with unique active-set partition is not a finite numeric table; m=4 rational certificate only tests a case."
+        ],
+        "reasoning": "Checked exact optimization formulas rather than treating a numerical example as novelty; no matching published table retrieved.",
+        "searches": [
+          "Minimax diagonal Laplacian pseudoinverse weighted star priced edges water filling optimal conductance stationary noisy consensus",
+          "Resultary semantic research search 2026-10-28"
+        ]
+      },
+      "rationale": "Ghosh–Boyd–Saberi (2008) optimize total effective resistance and mention maximum pairwise resistance; those two objectives are different from max vertex diagonal of L†. Patterson–Bamieh trace coherence and Summers et al adding edges do not give arbitrary positive price star edge allocation. Van Mieghem et al calculate unweighted star pseudoinverse diagonals but not the global priced minimax water-filling law, equal-price threshold and sharp universal ratio. The optimization combines known resistance and convex-duality techniques into a natural exact classification.",
+      "residual_risks": [
+        "Equivalent water-filling KKT formula may occur in specialized power-network or A-optimal design literature not captured by searches.",
+        "No claim of a general-graph solution or of sharpness for max pairwise resistance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Optimizes total pairwise resistance and discusses max pairwise, not worst diagonal; explicit uniform star only under unpriced total budget",
+          "evidence": "§1 problem (2), §2 Rtot=n trace L†, §5 star, §8 max R_uv extension.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Complete primary PDF consulted; introduction, §§2.3–2.5, tree/star example §5, extension §8 on maximum pairwise resistance",
+          "method": "lawful author-hosted full-text PDF, page visual inspected",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Same conductance allocation and star topology potentially dominating"
+        },
+        {
+          "assessment": "Edge-addition topology design not same independent-price fixed-star worst vertex variance",
+          "evidence": "Design chooses edges and trace coherence, not edge resistance max diagonal.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.4884",
+          "material_read": "Accessible introduction/abstract and statement of selecting added edges and coherence criterion",
+          "method": "primary arXiv text",
+          "title": "Topology Design for Optimal Network Coherence",
+          "trigger": "Related noisy-consensus optimization"
+        },
+        {
+          "assessment": "Unweighted star diagonal identities prior ingredient; no all-price minimax allocation in inspected material",
+          "evidence": "Different design variable and quantifier.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.96.032311",
+          "material_read": "Available abstract and author-referenced unweighted formula from primary paper",
+          "method": "abstract and cited formula comparison",
+          "title": "Pseudoinverse of the Laplacian and best spreader node in a network",
+          "trigger": "Exact star vertex diagonals prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sharp price threshold and water-filling for minimax vertex coherence on weighted stars",
+        "Exact statement and evidence compared with relevant primary theorems and Resultary indexed findings"
+      ],
+      "rationale": "For a standard noisy-consensus network observable, the result computes an exact unique optimal resource allocation on every weighted star with arbitrary linear prices. The active-set phase transition, sharp condition for uniform conductances and universal price-of-uniformity limit are useful structural design facts, not mere reproduction of generic convexity.",
+      "residual_risks": [
+        "Equivalent water-filling KKT formula may occur in specialized power-network or A-optimal design literature not captured by searches.",
+        "No claim of a general-graph solution or of sharpness for max pairwise resistance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent water-filling KKT formula may occur in specialized power-network or A-optimal design literature not captured by searches.",
+    "No claim of a general-graph solution or of sharpness for max pairwise resistance.",
+    "Only star topology, full positive prices, unit independent node noise, and max diagonal pseudoinverse; no implication for maximum pairwise resistance or arbitrary graphs."
+  ],
+  "schema_version": 1
+}

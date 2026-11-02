@@ -1,11 +1,21 @@
-# Scientific review of the cubic alternating divisor range
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof supplies the infinite-prime tail lemma (finite verified base cases plus Nagura's next-prime theorem), a complete partition of small-prime exponents, and an exact rational 32-class certificate for the 19 interval components. The standalone verifier was executed with its expected final status. A finite certificate alone would not prove the infinite-prime tail; that mathematical lemma is proved separately.
+## correctness
 
-**Originality — PASS within inspected evidence.** Defant (arXiv:1507.01128v1) settles the connected-range threshold and explicitly poses the finite-component-count question, but does not state an exponent-three exact decomposition. The related published exponent-two component classification is neither a stronger theorem at parameter three nor a general formula in the parameter. Searches for aliases, precise count 19, and alternating cubic reciprocal-divisor ranges did not reveal prior exact coverage. Unindexed results remain a concrete priority risk.
+PASS
 
-**Value — PASS.** The number of connected components is the natural invariant explicitly requested by the originating paper. The explicit 19-interval decomposition, including sharp endpoints and strict gaps, resolves an infinite arithmetic range problem at a low integral exponent outside the connectedness regime. This is not a finite-sample extrapolation.
+For p>=11, logarithmic weights -log(1-p^-3) form a complete finite-subsum interval because p-weight <= sum of higher-prime weights: six small-prime rational inequalities and Nagura q<6p/5 yield the full tail product [C,1]. The small primes 2,3,5,7 split into 4*2^3=32 exponent classes; C*U<L makes all [C*h,h] within each class mutually intersect, so the whole class is [C*L,U]. The actual verify.py is an exact rational certificate for zeta bounds, six prime-tail comparisons and 31 gap/overlap checks. A separate Python rational head enumeration plus 80-digit evaluation of C reproduced all 19 displayed ordered endpoints exactly: 13 overlaps and 18 strict gaps; this numerical calculation corroborates but does not substitute for the rigorous floor-sum rational comparison. All components nondegenerate; no bounded-n sampling is used for the infinite claim.
 
-**Limitations.** Exponents other than three are not classified. Independent checking of the mathematical reasoning and exhaustive literature-priority assessment are not claimed. The comparison with the exponent-two record is based on its searchable mathematical summary; the originating 2015 full text has been inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The base arithmetic family, dense-range criterion, and question of counting finitely many connected components are due to Defant. A published exact r=2 result has two components and its own proof explicitly restricts itself to r=2. The r=3 table of nineteen components does not follow by parameter substitution because the prime-tail threshold and 32 head classes change discontinuously. No equivalent r=3 theorem was found in the actual searches; priority is necessarily best-of-knowledge.
+
+## value
+
+PASS
+
+A concrete exact answer to Defant’s explicit finite-component problem at the next integer exponent after r=2, using a nontrivial infinite-prime tail lemma and a complete rational merge table; the 19 components are an exact range-topology invariant not implied by the basic dense/not-dense transition. A one-parameter exact solution is independently useful and not an arbitrary number search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

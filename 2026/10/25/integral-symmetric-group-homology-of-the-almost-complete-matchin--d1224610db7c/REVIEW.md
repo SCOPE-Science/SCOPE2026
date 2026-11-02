@@ -1,15 +1,21 @@
-# Scientific review: integral symmetric-group homology
+# Independent mathematical audit
 
-## Correctness — PASS
-The Alexander-dual cover consists of simplices indexed by forbidden full stars; all nonempty intersections are simplices, and its equivariant nerve is the codimension-two simplex skeleton. The full-simplex boundary sequence computes the integral top nerve lattice as sign times permutation/diagonal; integral UCT identifies its dual with the augmentation kernel. The signed equivariant Alexander duality calculation contributes the edge permutation sign, which equals sign^(n-2); the final tensor is sign^(n-1) times the augmentation lattice. All degrees, n=3, orientation actions, and torsion-free assertions are controlled. An independent exact finite signed trace and mod-two rank verifier passed.
+## correctness
 
-## Originality — PASS (subject to residual source risk)
-Anurag Singh (arXiv:2006.13632, v1 2020-06-24), particularly Theorem 1.1 and section 3, determines wedge dimensions but not S_n lattice actions. Wachs (2003) pp.24–29 reproduces Reiner–Roberts rational module decompositions for bounded-degree graph complexes that explicitly allow loops, not the loopless edge universe of this result, and does not identify the integral S_n lattice here. Targeted web and published mathematical-results searches for the complex, sign/augmentation duality, equivalences and broader representation coverage found no statement implying this precise integral identification. The absence of hits is not a uniqueness proof; a differently formulated loopless antecedent remains possible.
+PASS
 
-## Value — PASS
-The subject is the natural action of all vertex relabelings on the precise family of higher-matching complexes whose n−1 sphere homotopy type was established by Singh. The integral lattice distinguishes augmentation from its non-isomorphic integral dual, tracks the parity-dependent sign, and yields subgroup-fixed dimensions for all H≤S_n. Neither an abstract wedge count nor a rational character alone supplies the integral representation. The Alexander-dual nerve supplies structural rather than census-only information.
+Read RESULT.md proof and verify.py. Dualizing the forbidden full stars yields a cover whose intersections are simplices when at least two ground vertices remain; nerve is the (n-3)-skeleton of the (n-1)-simplex. Integral augmented Cech chains preserve the S_n action. Its top homology is sign_n tensor (Z^n/Zdiag); integral dual is sign_n tensor the coordinate-sum kernel, not the quotient. Complementation on m=binom(n,2) edges contributes sign_E=sign_n^(n-2), so reduced H_{binom(n-1,2)-1}=sign_n^(n-1) tensor U_n and other reduced groups vanish for every n>=3. Independent exact signed Lefschetz calculations on all 15 partitions of n=3,4,5 matched the character; source verifier checks 26 classes n<=6 and mod-2 homology n<=5. The proof, not finite tests, proves the integral lattice, including n=3.
 
-## Closest literature and limitations
-Singh [arXiv:2006.13632] proves the nonequivariant wedge formula. Wachs's survey (2003, §7.1) documents strong rational representation results for loop-allowing bounded-degree complexes, which are distinct from this loopless graph complex. The invariant here is an integral lattice, not merely a rational character. A hidden loopless specialization or unindexed equivalent result remains a possibility. No equivariant homotopy classification or extension to other degree bounds is claimed. The finite verifier corroborates, but does not establish, the infinite theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Singh Theorem 1.1 proves n-1 sphere homotopy type for exactly M_{n-2}(K_n), but does not specify its S_n action or integral lattice. Wachs §7.1/Reiner–Roberts gives extensive rational representations for a bounded-degree complex that permits loops and thus has a different edge universe. No inspected source furnishes the sign-twisted integral augmentation kernel for this loopless family, despite the same Betti rank.
+
+## value
+
+PASS
+
+The family is the canonical complete-graph near-maximal matching complex with known n-1 spheres. Identifying its integral sign-twisted augmentation lattice—rather than just the rational character—determines torsion-free group action and fixed dimensions for every subgroup; quotient-versus-root lattice distinction matters under integer symmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

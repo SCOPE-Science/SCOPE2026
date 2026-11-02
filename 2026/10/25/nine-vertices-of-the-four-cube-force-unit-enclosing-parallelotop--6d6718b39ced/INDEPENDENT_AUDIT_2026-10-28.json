@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:46:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, cube9_width_polars.json and verify_cube9.py at frozen Git blob SHA; independent reconstructed JS orbit/facet/determinant count 56/11440/1066/11812/290663, failures=0",
+        "Git tree SHA a4fb55b236aadf7963e38e3fdc3226257ba8b0c0 independently rebuilt"
+      ],
+      "rationale": "For every nine-subset S of {0,1}^4, the rows B of the inverse affine map of any containing parallelotope lie in the compact width polar W_S, since each coordinate direction has a complete pair among nine corners. Multilinearity reduces |det B| to four vertices of W_S. Fresh independent JavaScript computation read actual cube9_width_polars.json and exhaustively verified all 384 signed-coordinate permutations, 11,440 nine-subsets in 56 orbits, exact feasibility of 1,066 candidate width-polar vertices, all 11,812 supporting facet quadruples against original width inequalities, full dimension, and all 290,663 4-row integer determinant tests |det|<=D^4; each orbit attained equality. Thus volume 1/|det B|>=1 for arbitrary invertible real A. Unit cube attains 1 and [0,1]^3 x [0,epsilon] has eight corners and volume tending to zero. Finite verification is exhaustive only because proof covers all 56 orbits and all polar facets, not as extrapolation.",
+      "residual_risks": [
+        "The checker relies on the exact supplied rational vertex table; its completeness was independently checked by all supporting facets, not by trusting how candidate vertices were generated.",
+        "The theorem is a volume lower bound, not a lattice-tiling or lattice-covering statement; no equality classification or dimension>=5 claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Their facet-plus-one-opposite-vertex sufficient condition does not cover an arbitrary nine-vertex S; the set of eight even-weight corners plus (1,0,0,0) contains no complete facet.",
+          "Their full lower-dimensional three-cube result has dimension three, not four."
+        ],
+        "reasoning": "The closest stronger covering theorem has a stronger geometric hypothesis, so it does not dominate this all-subsets volume lower bound.",
+        "searches": [
+          "Grozev and Nikolov 2026 Lattice coverings by parallelotopes containing cube vertices, theorem and discussion; arXiv:2610.21572",
+          "Resultary: nine vertices 4 dimensional cube parallelotope volume"
+        ]
+      },
+      "checked_sources": [
+        "Grozev–Nikolov 2026 arXiv:2610.21572v1 full text",
+        "Resultary query nine vertices 4 dimensional cube parallelotope volume",
+        "Assigned RESULT.md, verifier and exact table"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: P covers space by Z^4 if containing whole cube facet plus opposite corner, implying volume>=1 for that subfamily. New: volume>=1 for every 9-corner configuration, including facet-free configurations.",
+          "The 8-corner slab example makes the threshold sharp without solving the 9-corner covering question."
+        ],
+        "reasoning": "The implication prior=>new fails for facet-free S; new=>prior fails because a volume bound cannot ensure lattice covering. These are distinct statements with a meaningful overlap.",
+        "searches": [
+          "arXiv:2610.21572v1 full preprint",
+          "Resultary semantic nine-corner query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An enclosing parallelotope P=c+A[0,1]^4 has volume=1/|det A^{-1}|; its inverse rows have width at most one on S, giving the exact width-polar determinant equivalent.",
+          "Grozev–Nikolov speak of lattice covering P+Z^d=R^d rather than only volume."
+        ],
+        "reasoning": "Reduction to four-row width-polar determinant=1 is genuinely equivalent. A covering result would imply the volume bound, but not conversely. No exact equivalent complete nine-subset theorem was encountered.",
+        "searches": [
+          "Resultary: nine vertices 4 dimensional cube parallelotope volume at least one width polar determinant majority lattice covering by parallelotopes",
+          "arXiv:2610.21572v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related 24-cell and parallelotope results but no all-56-orbit nine-subset table; the package supplies and independently verifies a 56-orbit certificate."
+        ],
+        "reasoning": "The table is a complete rational certificate but is not shown to be a previously published external database. Lack of a hit is not proof of historical novelty.",
+        "searches": [
+          "Resultary semantic search nine vertices 4 dimensional cube parallelotope volume at least one width polar determinant",
+          "Git source cube9_width_polars.json"
+        ]
+      },
+      "rationale": "The open majority-corners lattice-covering problem is a stronger conclusion than the present necessary volume inequality. Grozev–Nikolov prove a three-dimensional covering threshold and a higher-dimensional sufficient condition requiring a whole facet plus one opposite vertex. Nine arbitrary corners of the four-cube need not contain a whole facet, so those theorems do not imply the all-nine-subset determinant bound. The independent 56-orbit exact theorem was not found among the actually searched Resultary/published comparable outputs; this is a best-of-knowledge priority judgment.",
+      "residual_risks": [
+        "Unindexed exact minimum-enclosing-parallelotope computations might imply the nine-subset bound.",
+        "Published covering work could contain implicit volume corollaries not expressed under nine-subset terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_COVER_ALL_NINE_SUBSETS",
+          "evidence": "Geometric conditions include full 3-face; does not apply to parity+one set",
+          "identifier_or_url": "arXiv:2610.21572v1",
+          "material_read": "Accessible full four-page primary preprint including dimension-three theorem, facet-plus-corner theorem and majority question",
+          "method": "arXiv/public text rendering",
+          "title": "Lattice coverings by parallelotopes containing cube vertices",
+          "trigger": "Same objects: cube vertices, parallelotopes, majority and covering"
+        },
+        {
+          "assessment": "NO_EXACT_HIT_NOT_PROOF",
+          "evidence": "Top results addressed 24-cells, illumination and other parallelotope functionals; not the width-polar nine-subset spectrum",
+          "identifier_or_url": "Resultary query nine vertices 4 dimensional cube parallelotope volume at least one width polar determinant",
+          "material_read": "Top 15 ranked published summaries, not full documents",
+          "method": "Resultary semantic database",
+          "title": "SCOPE published geometric entries via Resultary semantic database",
+          "trigger": "Potential precomputed table or stronger volume statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full RESULT.md proof and cube geometry example",
+        "Grozev–Nikolov 2026 open majority-corners covering discussion"
+      ],
+      "rationale": "The threshold nine is the first integer beyond an eight-vertex cube facet, where any positive lower volume bound is impossible. The universal volume-one obstruction for all nine-corner subsets addresses a necessary geometric inequality toward a stated majority lattice-covering problem, while strictly distinguishing volume from the stronger covering property. Exact finite four-dimensional classification and sharp eight-versus-nine threshold are naturally motivated, not arbitrary slices.",
+      "residual_risks": [
+        "No claim that a necessary volume bound resolves the covering conjecture or predicts dimensions beyond four."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The checker relies on the exact supplied rational vertex table; its completeness was independently checked by all supporting facets, not by trusting how candidate vertices were generated.",
+    "The theorem is a volume lower bound, not a lattice-tiling or lattice-covering statement; no equality classification or dimension>=5 claim.",
+    "Unindexed exact minimum-enclosing-parallelotope computations might imply the nine-subset bound.",
+    "Published covering work could contain implicit volume corollaries not expressed under nine-subset terminology.",
+    "No claim that a necessary volume bound resolves the covering conjecture or predicts dimensions beyond four.",
+    "The original public administrative JSON files have a per-record operational run identifier; a complete confidentiality-neutral replacement and semantic inspection of all public files was not staged. Publication is withheld separately from scientific verdict.",
+    "No repository write or dispatcher closeout is authorized by this read-only audit."
+  ],
+  "schema_version": 1
+}

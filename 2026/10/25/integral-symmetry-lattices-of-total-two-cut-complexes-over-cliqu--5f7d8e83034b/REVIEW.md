@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed integral module is derived from a concrete cellular cochain calculation for the clique complex of \(K_m\square T\). The column simplices contribute contractible fibers and the only cross-column simplices are colored edges. The integral edge-incidence map of a tree is surjective, giving exactly one copy of the symmetric-group quotient lattice per tree edge. The tree's bipartition supplies the global edge-orientation sign, and integral equivariant Alexander duality supplies the ambient vertex-permutation sign. The Hom–Ext long exact sequence establishes that the naturally arising weight-lattice extension has exact order \(m\); an explicit multiplication-by-\(m\) equivariant lift and the single-edge restriction check its upper and lower bounds. Every quantifier includes the boundary case \(m=t=2\). A standalone verifier agrees with all \(192\) symmetry traces and computes small mod-two Betti groups. None of those finite checks is substituted for the general integral proof.
+PASS
 
-## Originality — PASS, subject to residual indexed-literature uncertainty
+Read RESULT.md, proof and full tree_cut_verify.py. The clique complex of K_m □ T consists of t contractible column simplices plus m parallel edges over each tree edge; tree incidence has an integral right inverse, yielding H^1= (Z^m/Zdiag)⊗Z[E(T)]. A tree automorphism changes all bipartition-oriented edges by the common sign χ_T; ambient Alexander duality contributes ε=sign(σ)^t sign(a)^m. This proves integral H_{mt-4}=εχ_T⊗U_m⊗P_T with all other reduced groups zero, including mt=4 degree zero. The non-split exact sequence has order m: invariant Hom restriction Z→Z multiplies by m, the explicit equivariant lift s([z])=mz−sum(z)diag proves the upper bound, and restriction to S_m and projection to one tree edge proves lower bound. Independent small-face Euler enumerations matched three boundary cases; source verifies 192 signed traces on 10 trees.
 
-The strongest immediately applicable result is Chauhan–Shukla–Vinayak, arXiv:2512.04486, Theorem 1.4: for a path factor it gives a nonequivariant sphere-wedge with \((m-1)(t-1)\) summands. That theorem does not state the integral equivariant lattice or the extension order. Carnero Bravo, arXiv:2602.21427, studies other Cartesian products in a broad total-cut framework; the relevant discussion does not determine the clique–tree integral action. Bayer et al., arXiv:2407.08158, develop homology representations of other cut complexes, not this tree-indexed weight-lattice extension. Related indexed findings about total three-cut ladders, Hamming-graph total two-cut modules, and toroidal two-cut extension classes concern different complexes or geometries; none of their available statements implies this precise integral theorem. Equivariant Alexander duality itself is not claimed as new. A mathematically equivalent unindexed characterization could exist and is a documented residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural infinite graph family extending the path product calculation to all finite connected trees, including branching symmetry groups. It computes the full integral group action rather than just ranks or a rational character, and establishes an exact, unbounded, order-\(m\) nonsplitting obstruction invisible after tensoring with \(\mathbb Q\). Distinguishing the quotient weight lattice from the root lattice is essential to that obstruction. The extension order is an intrinsic categorical invariant of the displayed natural sequence, not a contrived numerical slice or a claim about torsion in ordinary homology.
+Chauhan–Shukla–Vinayak prove the path-factor nonequivariant wedge of (m−1)(t−1) spheres, not arbitrary branching trees or integer actions. Carnero Bravo v3 §5.4 treats Cartesian products of paths and products of complete graphs, not products of one complete graph and arbitrary tree or the precise order-m integral extension. Total-cut symmetry papers examine different complexes or graph families.
 
-## Scope and limitations
+## value
 
-The result makes no general sphere-wedge or integral homotopy classification claim for branching trees. The group is the natural product action; additional graph automorphisms are outside the statement. The bibliographic checks cannot exclude unknown unindexed equivalents. No third-party validation is asserted; the standalone computational examples are finite sanity checks, not substitutes for the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete infinite-family integral homology Γ-module for arbitrary branching trees substantially refines path-only wedge ranks. The canonical weight-lattice extension has exact unbounded order m but no torsion in ordinary homology, a sharp symmetry obstruction that disappears rationally and distinguishes natural group lattices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

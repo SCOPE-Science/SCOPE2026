@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The local normal-distribution characterization is proven using the finite-family least-member lemma and a two-letter countervaluation when no least member exists. The exact count is an inclusion–exclusion formula for singleton coverage by quotient partitions; the coverage hypothesis independently implies their meet is discrete, preventing overcounting. Under the growing-agent hypothesis the exact factorial moments of uncovered singleton points converge to those of a Poisson law. A union bound shows that a nondiscrete common refinement has negligible probability, giving the normality threshold. The classical consecutive Bell-number asymptotic is an explicit external input, not an unchecked numerical extrapolation. Direct exhaustive computation agrees with all displayed exact finite values through five labelled worlds for three agents.
+## correctness
 
-## Originality — PASS within inspected evidence
-Ding and Yang (2026, §5.1) provide general semantics and axiomatizations for someone-knows, not a complete labelled finite-frame census or its growing-agent normality probability. Ågotnes and Wáng (2021) exhibit failure of ordinary normality in general. Pittel (2000, Theorems 1–3) enumerates and analyzes independent partitions with discrete common refinement; this is strictly weaker than every refinement singleton being an agent information cell, so the random meet theorem does not imply the reported sharp singleton-covering transition. The two-agent case has a substantially simpler inclusion-comparability classification and does not yield the three-agent counts or growing-agent law. Exact-sequence searches and mathematical-record searches yielded no equivalent formula. The complete 2023 Ding–Liu–Wáng article was not accessible and remains a priority risk; similarity search cannot prove novelty.
+PASS
 
-## Value — PASS
-A basic epistemic group operator is generally non-normal. The result identifies precisely when it becomes an ordinary S5 operator, classifies and enumerates all such finite multi-agent models for every dimension and finite group size, and discovers a sharp probabilistic phase transition as the number of independent agents grows. The rare-event mechanism is an exact singleton covering of all worlds, contrasting with the much earlier collapse of the meet to the discrete partition. These facts are natural semantic and enumerative questions, not arbitrary small-instance measurements.
+At each world w, the predicate S(P)=some E_i[w] subset of P is a monotone truth-preserving disjunction of principal filters. It preserves binary intersections (hence normal distribution over all valuations) iff the finite cell family has a least member, necessarily the intersection R[w], so S equals the S5 box for R and nested formulas agree. Fixing R as a t-block partition, each E_i is a partition of the t labelled blocks. Normality means every quotient point is singleton in at least one agent partition, whose exact inclusion-exclusion count is H_r(t)=sum_j(-1)^j C(t,j) (sum_k(-1)^k C(j,k)B_{t-k})^r. The coverage condition forces common refinement exactly R; Stirling transform gives L_{n,r}. Fresh independent Python enumeration of all ordered r=2,3 partition tuples n<=5, including 140,608 cases at n=5,r=3, exactly reproduced 1,8,89,1449,31468; the formula gives 864347 at n=6. For r_n B_{n-1}/B_n−log n→c, factorial moments of uncovered singleton-cell count converge to e^(−kc), since a_{n,k}=1−ks_n+O_k(s_n²) and r_ns_n²→0. The chance R is not discrete is bounded by C(n,2)s_n^{r_n}→0, so the global normality probability converges to exp(−exp(−c)). The Poisson limit is analytic, not certified by finite checks.
 
-## Closest literature and limits
-The key references are Ding–Yang (arXiv:2603.26268v1), Ågotnes–Wáng (KR 2021), Pittel (Electronic Journal of Combinatorics 7, R5, 2000), and Ding–Liu–Wáng (Synthese 2023; accessible abstract only). The count applies to ordered tuples of uniform finite equivalence relations; the limit assumes independent uniformly sampled partitions and the stated critical-window scaling. The proof does not supply a uniform finite-size error bound. Older coverage processes and the inaccessible full 2023 paper may contain related formulations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ågotnes–Wáng 2021 and Ding–Yang 2026 characterize/axiomatize someone-knows and its nonnormal semantics, not the exact finite-frame distribution schema count or random agent threshold. Pittel’s common-refinement discreteness for fixed agents does not ensure each point singleton in an individual agent relation, the necessary stronger event. The closely related Ding–Liu–Wáng 2023 hypergraph work was available only as its publisher preview despite arXiv/open-search attempts and an authorized full-text request returning vpn_disconnected; the risk is recorded, not turned into automatic failure. The independent exact formula plus Poisson law survive on best-of-knowledge evidence.
+
+## value
+
+PASS
+
+Combines an exact modal-algebraic characterization with a nontrivial complete enumeration of labelled multi-agent S5 frames and a sharp growing-agent random partition coverage transition. Distinguishes normality from the much more common discrete common refinement: a natural logically motivated invariant and an unexpected Poisson critical window, not a mere combinatorial parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
