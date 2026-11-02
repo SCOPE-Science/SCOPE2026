@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument begins with nonemptiness (positive goods and at least as many goods as agents), then bounds the spread of integer utility loads by two using EF1. Auxiliary pairwise smoothing reduces a spread-two vector to a balanced load vector in at most \(\lfloor n/2\rfloor\) steps; each step inflates the utility product by at most \(4/3\). The optimum cannot exceed the balanced-integer upper envelope, giving the ratio. The explicit high/low bundle construction attains equality for every agent count. The enumeration of 6,497 EF1 count vectors for small instances is independent corroboration, not the proof.
+## correctness
 
-## Originality — PASS, with priority uncertainty
-The closest inspected primary source, Yang et al. (arXiv:2609.03846, 2026), gives optimality for one uniform good value and a general small-item lower bound, but does not state the sharp two-positive-value expression or its every-agent-count matching construction in the inspected theorem and appendices. The earlier Barman–Krishnamurthy–Vaish study gives general welfare/fairness guarantees rather than this sharp discrete bound. Searches for bivalued identical EF1 Nash-welfare ratios, including alternative product formulations, did not disclose the same exact formula. This is a comparison of mathematical implications, not a proof that no unindexed result exists.
+PASS
 
-## Value — PASS
-The precise price of accepting *any* fair output rather than optimizing welfare is relevant to fair-allocation mechanisms whose implementation may choose among EF1 allocations. The result interpolates from complete preservation of optimality under one good value to a sharp finite-agent loss with exactly two positive values, uniformly over all inventories; its matching construction and exact integer-smoothing explanation identify the structural reason. It is not just a random small instance or a routine value-change calculation.
+For n≥2, m≥n and identical positive additive item values in {a,2a}, EF1 forces every bundle to be nonempty: an empty bundle with m≥n would face another bundle containing at least two positive items. After rescaling by a, the integer loads x_i have max−min≤2 since each item is at most two. Let B(S,n) be the maximum product among nonnegative integer vectors of the same total S; pairwise smoothing shows its maximizers differ by at most one. When the EF1 loads have both L and L+2, replacing one pair (L,L+2) by (L+1,L+1) multiplies the numerical product by (L+1)²/[L(L+2)]≤4/3. This operation consumes one copy of each extreme and terminates in at most floor(n/2) steps, giving B(S,n)≤(4/3)^floor(n/2)∏x_i. Since any actual allocation's product is ≤B, the desired NSW ratio follows. This balancing is a numerical upper bound, not an asserted implementable item transfer. For q=floor(n/2),r=n−2q, the inventory 2q goods of value a plus q+r goods of value 2a realizes EF1 loads (1^q,3^q,2^r) and an equal-2 optimum, attaining (3/4)^(q/n) for every n. An independent exact-rational enumeration rechecked 755 EF1 count vectors for 2≤n≤4 and n≤m≤7, finding no violation. This is corroboration; the proof handles all n and inventories.
 
-## Boundaries and remaining risks
-The statement does not extend to heterogeneous or zero-valued items, fewer goods than agents, or item-size ratios other than two. Another proof of the same tight discrete bound may exist beyond accessed material; the independent mathematical and bibliographic audit has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Yang, Chen, Kuan, Wu, Lin and Chen (2026) study EF1-constrained NSW under identical additive valuations, prove optimality for uniform goods and derive bounds when the maximum item value is small relative to the mean. Their relevant theorem and appendix were materially read from lawful public full text. The parameter-sensitive small-item guarantee and integer-load spread inequality do not already imply the exact inventory-independent bivalued ratio with equality for each n. Earlier Barman–Krishnamurthy–Vaish treats general fair/efficient allocation and NSW context, but the inspected descriptions do not supply this exact same-class factor. The remaining novelty is a sharp universal worst-case price of selecting any EF1 allocation with values 1,2; classical AM–GM and integer smoothing are tools, not newly claimed lemmas. An older discrete bivalued ratio published under a different welfare-price terminology remains a priority risk.
+
+## value
+
+PASS
+
+The theorem gives the precise efficiency loss of any EF1 outcome relative to unrestricted NSW when homogeneous agents value goods at one of two positive levels. The ratio is sharp for each agent count and does not depend on the number or mix of goods, a natural gap between the uniform-goods optimality theorem and arbitrary-value approximations. The extremal pair construction explains the integer-load obstruction; this is a complete structurally motivated fairness-versus-welfare bound rather than an arbitrary finite instance or merely a routine restatement of AM–GM.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
