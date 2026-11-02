@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python checker.py` using Python 3 and its standard library only. It reconstructs the exact rational four-cell Markov transition matrix by affine cell intersections; separately calculates the preimage-interval probability of an all-rise word for lengths 1–9; verifies all-rise probabilities from the hidden two-state Jordan restriction for lengths 1–20; and checks the conditional probabilities and the surrogate eigenvalue. Expected output is preserved in `checker_output.txt`. The infinite run-length identity, exclusion of every finite Markov order, and asymptotic overprediction require the analytical proof in `RESULT.md`; finite verification is not an infinite proof.
+## correctness
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The four Markov partition cells have lengths 1/3,1/6,1/6,1/3, and restricted rise-state transition Q=[[1/3,1/6],[0,1/3]], whose nontrivial Jordan block gives R_n=(n+2)/(2*3^n). The next-rise conditional ratio (n+3)/(3(n+2)) strictly changes with n, impossible for any finite Markov order. The calibrated binary surrogate has plus-stay 4/9, stationary plus probability 1/2, so its run likelihood (1/2)(4/9)^(n-1) divided by actual R_n tends exponentially to infinity. This is only a statement about the observable binary factor, not the four-state hidden chain.
+
+## originality
+
+PASS
+
+The explicit Jordan-block algebraic run law and resulting infinite binary memory quantitatively distinguish the deterministic observation from the finite constructed transition-network Markov walk studied in source literature; no matching earlier run formula was located in the inspected texts.
+
+## value
+
+PASS
+
+A canonical expanding map provides exact infinite-length run laws, rigorous infinite memory of a binary observable, and exponential failure of a widely motivated one-step Markov approximation despite a positive spectral gap. This is a mathematically sharp information-loss example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

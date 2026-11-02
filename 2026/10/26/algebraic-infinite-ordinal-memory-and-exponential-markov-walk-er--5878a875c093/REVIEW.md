@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ordered partition at \(0,1/3,1/2,2/3,1\) is exactly Markov for the slope-three map. Conditional Lebesgue distributions are uniform on each terminal atom, giving the displayed four-by-four transition matrix and the upper-triangular rise restriction. Raising its Jordan block to arbitrary integer powers rigorously yields \(R_n=(n+2)/(2\cdot3^n)\). The successive conditional probabilities vary strictly with run length, contradicting every finite Markov-order condition on positive-probability cylinders. A first-order surrogate's two eigenvalues and its all-rise probabilities are calculated exactly. The rational checker independently confirms finite examples, but the universal claim uses the analytic derivation.
+PASS
 
-## Originality — PASS under inspected evidence
+The four Markov partition cells have lengths 1/3,1/6,1/6,1/3, and restricted rise-state transition Q=[[1/3,1/6],[0,1/3]], whose nontrivial Jordan block gives R_n=(n+2)/(2*3^n). The next-rise conditional ratio (n+3)/(3(n+2)) strictly changes with n, impossible for any finite Markov order. The calibrated binary surrogate has plus-stay 4/9, stationary plus probability 1/2, so its run likelihood (1/2)(4/9)^(n-1) divided by actual R_n tends exponentially to infinity. This is only a statement about the observable binary factor, not the four-state hidden chain.
 
-The motivating 2026 arXiv paper builds and analyzes a **Markov walk** on ordinal transition networks, and leaves open how such models preserve longer-horizon statistics of the original time series. The author's own 2019 Markov-modeling article likewise constructs a finite Markov approximation; neither inspected relevant statement calculates the native tripling map's \((n+2)/(2\cdot3^n)\) word law, proves its infinite binary Markov order, or the exact exponential overprediction ratio. Semantic mathematical-record searches covering ordinal pattern sequences, equivalent symbolic factors, tripling maps, and first-order surrogates disclosed no implication covering this claim. Risks: an earlier specialized exact ordinal-run calculation or a broader hidden-Markov lumping result may subsume individual arguments; searches alone cannot certify priority.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem quantifies a mathematically natural and application-relevant information-loss mechanism: collapsing an actual deterministic dynamical process into observed ordinal transition frequencies produces an apparently rapidly mixing Markov surrogate whose probabilities of long monotone trajectories are exponentially wrong. The precise Jordan-block explanation and full infinite-order obstruction are stronger than a finite counterexample or a generic observation that coarse factors need not be Markov. The result identifies a rigorous boundary of a modeling practice directly motivated by the source literature.
+The explicit Jordan-block algebraic run law and resulting infinite binary memory quantitatively distinguish the deterministic observation from the finite constructed transition-network Markov walk studied in source literature; no matching earlier run formula was located in the inspected texts.
 
-## Limits
+## value
 
-Only one expanding interval map and two-symbol consecutive ordinal observation are classified. A four-cell refinement remains an exact finite-state Markov model, so no claim is made against hidden-state representations. No conclusion about statistical learning or reservoir benchmark scores is established. Literature coverage cannot exclude all historical analogues.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical expanding map provides exact infinite-length run laws, rigorous infinite memory of a binary observable, and exponential failure of a widely motivated one-step Markov approximation despite a positive spectral gap. This is a mathematically sharp information-loss example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
