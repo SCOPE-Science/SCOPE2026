@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and only its standard library. It independently constructs the fields \(\mathbb F_2,\mathbb F_3,\mathbb F_4,\mathbb F_5,\mathbb F_7,\mathbb F_8,\mathbb F_{11}\), directly computes multiplication and all idempotents for each tested weight vector, enumerates liftable cyclic rotations and their scalar choices, and compares predicted orbit classes against explicit finite-field isomorphism tests.
+## correctness
 
-Covered configurations: all seven listed fields with \(1\le n\le3\), plus \(n=4\) in characteristics and field sizes \(q\in\{2,3,4,5,7\}\), for 26 configurations. This examines 3557 nonzero weighted coefficient vectors. The checker reports `ALL_CYCLIC_EVOLUTION_ARITHMETIC_CHECKS_PASSED 26 3557 32` when all assertions pass.
+PASS
 
-The calculation is exhaustive only for these cases; the universal isomorphism criterion, counting formula and joint distribution are established by the argument in RESULT.md. No independent audit has been carried out.
+Invertibility of the weighted permutation square matrix forces disjoint support columns for any algebra isomorphism and hence a monomial matrix; any compatible permutation is a directed-cycle rotation. Diagonal scaling changes P=prod a_i^(2^(n-1-i)) by an (2^n-1)-st power and one rotation squares its class. Thus isomorphism classes are squaring orbits in G=F_q^*/(F_q^*)^(2^n-1), class count sum_{d|g} phi(d)/ord_d(2), automorphism size g*n/ord_d(2), and idempotents 1+g iff class trivial, else 1. Uniform final weight makes the class uniform. Reconstructed independent finite-field brute-force orbit, rational automorphism, and idempotent tests, including n=1, q=3,5,7. Proof covers arbitrary finite prime powers without extrapolating experiments.
+
+## originality
+
+PASS
+
+Graph/monomial rigidity, weighted-cycle idempotent recurrences and general group-orbit classifications are prior work. The assessed contribution is the fully evaluated all-n all-q divisor census and joint automorphism-order/idempotent weighted law, not bare orbit theory. Wei–Zou 2023 has a broad orbit/class-counting theory and small n examples; a potentially equivalent specialization is serious priority risk. Narkuziyev 2020 full text could not be read; best-of-knowledge PASS qualified by both.
+
+## value
+
+PASS
+
+Weighted directed-cycle algebras are natural finite perfect evolution algebras; explicit finite-field isomorphism-class counts and rational automorphism strata across every characteristic and dimension, plus a weighted joint idempotent profile, distinguish structural and arithmetic symmetry not captured by simple dimension lists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

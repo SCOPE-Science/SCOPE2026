@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every algebra isomorphism is monomial because the square-basis matrix is invertible, and only rotations preserve the directed cycle. Diagonal rescalings and rotations act on the cycle class by an \(N\)-th power and squaring, respectively. Orbit–stabilizer and elementary finite-field power equations give the complete formulas. Exhaustive direct finite calculations corroborate the proof but do not replace it.
+## correctness
 
-**Originality — PASS within inspected coverage.** The cycle-idempotent recurrence and underlying monomial automorphism structure are existing results and are not claimed as new. The mathematical contribution assessed here is the explicit finite-field arithmetic isomorphism-class count with the exact rational automorphism-order and idempotent-count joint distribution for all dimensions. The inspected full text of Elduque–Labra and Narkuziyev 2014 does not explicitly furnish this combined census; general isomorphism-orbit theory is credited. Accessible abstracts alone cannot settle the contents of the 2020 Narkuziyev and 2023 Wei–Zou papers, which remain substantial priority risks.
+PASS
 
-**Value — PASS.** The weighted one-cycle family is a natural building block among perfect evolution algebras. The result explains exactly which rotations lift over a given finite field and quantifies the difference between all possible coefficient choices and true algebra isomorphism classes. It joins three natural invariants without restricting to particular field characteristics or small dimensions.
+Invertibility of the weighted permutation square matrix forces disjoint support columns for any algebra isomorphism and hence a monomial matrix; any compatible permutation is a directed-cycle rotation. Diagonal scaling changes P=prod a_i^(2^(n-1-i)) by an (2^n-1)-st power and one rotation squares its class. Thus isomorphism classes are squaring orbits in G=F_q^*/(F_q^*)^(2^n-1), class count sum_{d|g} phi(d)/ord_d(2), automorphism size g*n/ord_d(2), and idempotents 1+g iff class trivial, else 1. Uniform final weight makes the class uniform. Reconstructed independent finite-field brute-force orbit, rational automorphism, and idempotent tests, including n=1, q=3,5,7. Proof covers arbitrary finite prime powers without extrapolating experiments.
 
-**Limits and sources.** Only nonzero one-cycle coefficient matrices and weight-uniform probabilities are covered. Rational automorphism **orders**, not group structures, are classified. Supporting sources: Narkuziyev 2014 (known idempotents), Elduque–Labra arXiv:1902.02191 (monomial and graph automorphisms), Narkuziyev arXiv:2005.05793 (same family, abstract only), Wei–Zou arXiv:2310.12368 (general orbits, abstract only). No historical uniqueness is certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Graph/monomial rigidity, weighted-cycle idempotent recurrences and general group-orbit classifications are prior work. The assessed contribution is the fully evaluated all-n all-q divisor census and joint automorphism-order/idempotent weighted law, not bare orbit theory. Wei–Zou 2023 has a broad orbit/class-counting theory and small n examples; a potentially equivalent specialization is serious priority risk. Narkuziyev 2020 full text could not be read; best-of-knowledge PASS qualified by both.
+
+## value
+
+PASS
+
+Weighted directed-cycle algebras are natural finite perfect evolution algebras; explicit finite-field isomorphism-class counts and rational automorphism strata across every characteristic and dimension, plus a weighted joint idempotent profile, distinguish structural and arithmetic symmetry not captured by simple dimension lists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
