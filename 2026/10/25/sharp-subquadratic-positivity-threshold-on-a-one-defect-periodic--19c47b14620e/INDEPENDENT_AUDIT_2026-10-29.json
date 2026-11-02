@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T08:05:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/sharp-subquadratic-positivity-threshold-on-a-one-defect-periodic--19c47b14620e",
+        "RESULT.md, REVIEW.md, VERIFICATION.md and actual source verifier (read at assigned immutable Git tree)",
+        "Independent local exact computation /mnt/data/scope08_20261029T0754_work/independent_checks.txt"
+      ],
+      "rationale": "Assembling element matrices for lengths (h,1,1,1,1) gives P=(M+tK)^(-1)M; the pinned exact symbolic verifier computes det(6h(M+tK)) with positive factors for h>=1,t>=0, all 20 directed off-diagonal numerators and five positive diagonal numerators. In the 10 reflection orbits every entry for t>=1/6 except positions (0,2),(1,4) has a positive sign; those two have factor t F_h(t), while (0,3) forces negativity for 0<t<1/6. The cubic F has one positive zero by Descartes sign changes, with F(1/6)=-36(h-1)(h+1) and F(h²/6)=h(h-1)²(h+1)³(h+2). Thus t=0 or t>=rho(h), rho(1)=1/6, strict bound for h>1; expansion F(h/6+c)=6(c-3)h³+O_c(h²) proves rho=h/6+3+o(1). Separate exact-rational assembled-matrix checks verified five ratios (1,1.5,2,5,20), eight timesteps per ratio. The independent finite checks alone do not prove polynomial identities for all h,t.",
+      "residual_risks": [
+        "Finite experiments corroborate only their tested cases; unlimited parameter conclusions use the reconstructed proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Huang Theorems 3.1–3.3 give sufficient time-step/mesh criteria for conventional FEM, not an if-and-only-if cubic root for this periodic geometry. Chatzipantelidis–Horváth–Thomée treat Dirichlet FEM positivity; complete paper inaccessible this run, risk retained."
+        ],
+        "reasoning": "General sufficient M-matrix condition t>=h²/6 cannot imply a smaller exact threshold. Plausible stronger specialized FEM paper could overlap and has not been decisively excluded.",
+        "searches": [
+          "positivity backward Euler consistent-mass finite element periodic one stretched mesh element exact timestep threshold five-cycle",
+          "arXiv:1209.5657",
+          "doi:10.1515/cmam-2015-0018"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1209.5657",
+        "https://doi.org/10.1515/cmam-2015-0018",
+        "https://doi.org/10.1090/S0025-5718-07-02021-2",
+        "Resultary semantic research records: positivity backward Euler consistent-mass finite element periodic one stretched mesh element exact timestep threshold five-cycle",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/sharp-subquadratic-positivity-threshold-on-a-one-defect-periodic--19c47b14620e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact rho(h)<h²/6 for every h>1, while prior general sufficient condition is only t>=h²/6; the h=1 endpoint is covered."
+        ],
+        "reasoning": "The 5-cycle sign decomposition supplies a strict improvement not implied by sufficient criteria; full text unavailability prevents absolute prior noncoverage claim.",
+        "searches": [
+          "Li–Huang arXiv:1209.5657 Theorem 3.1,3.3",
+          "Chatzipantelidis–Horváth–Thomée doi:10.1515/cmam-2015-0018 abstract",
+          "standard M-matrix off-diagonal threshold t>=h²/6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Since K1=0, P1=1; entrywise P>=0 is equivalent to preservation of nonnegative nodal data and row-stochastic discrete maximum principle. The uniform h=1 boundary rho=1/6 is known."
+        ],
+        "reasoning": "No known exact one-defect periodic 5x5 root found under P nonnegativity, discrete maximum principle or heat resolvent positivity aliases; failure to find is not proof of novelty.",
+        "searches": [
+          "positivity backward Euler consistent-mass finite element periodic one stretched mesh element exact timestep threshold five-cycle",
+          "finite element discrete maximum principle periodic mesh one defective cell",
+          "arXiv:1209.5657"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related indexed mathematical findings concern uniform lattice or different schemes and no verified identical cubic F_h(t) or five-cell periodic one-defect parameter table was retrieved."
+        ],
+        "reasoning": "Other method or domain results are not a table of the exact five-by-five threshold; a known computation under different parameter normalization remains possible.",
+        "searches": [
+          "Resultary: backward Euler filtered Crank-Nicolson lattice positivity",
+          "Resultary: resolvent-return law for Crank-Nicolson",
+          "five-node periodic P1 heat one long edge cubic positivity table"
+        ]
+      },
+      "rationale": "Statement- and implication-level primary-source and mathematical-index comparisons found no directly covering result in the material actually inspected; related ingredients and covered special cases are credited. Best-of-knowledge originality is qualified by the explicit residual risks; a negative search result is not novelty proof.",
+      "residual_risks": [
+        "2015 full manuscript inaccessible: its specialized necessary-and-sufficient results might have related examples; cannot assert whole-document noncoverage.",
+        "Symbolic cofactor identities are independently supported by finite exact matrices and source verifier structure, but independent all-parameter symbolic rerun was not executed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not imply the sharp smaller five-cell root from its sufficient condition.",
+          "evidence": [
+            "Theorems 3.1–3.3, first posted 2012-09-25."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.5657",
+          "material_read": "Full arXiv HTML including method, sufficient mesh and time-step conditions, Theorems 3.1–3.4 and concluding comparisons.",
+          "method": "Compared actual sufficient bound and hypotheses with exact periodic one-defect threshold.",
+          "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+          "trigger": "Primary conventional FEM positivity conditions."
+        },
+        {
+          "assessment": "INACCESSIBLE FULL TEXT: cannot exclude a specialized theorem or example, but published description treats Dirichlet boundary conditions rather than the exact periodic ring.",
+          "evidence": [
+            "Author URL https://users.math.uoc.gr/~p.chatzipa/index_files/papers/CHV15.pdf ; 2015 published abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/cmam-2015-0018",
+          "material_read": "Accessible journal/university abstract and paper listing only. Author manuscript OA PDF timed out; institutional authenticated access reported vpn_disconnected; no complete paper read.",
+          "method": "First tried open author PDF and OA record; attempted authorized institution after failure.",
+          "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+          "trigger": "Very relevant potential stronger FEM theorem."
+        },
+        {
+          "assessment": "Potential related general limitations but no complete theorem comparison possible.",
+          "evidence": [
+            "Thomée and Wahlbin, Math Comp 77 (2008), 11–19."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-07-02021-2",
+          "material_read": "Published abstract and bibliographic description only, not complete article.",
+          "method": "Scope comparison at abstract level without whole-document exclusion.",
+          "title": "On the existence of maximum principles in parabolic finite element equations",
+          "trigger": "Foundational FEM semidiscrete positivity context."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/sharp-subquadratic-positivity-threshold-on-a-one-defect-periodic--19c47b14620e",
+        "https://arxiv.org/abs/1209.5657",
+        "https://doi.org/10.1515/cmam-2015-0018",
+        "https://doi.org/10.1090/S0025-5718-07-02021-2"
+      ],
+      "rationale": "Sharp positivity threshold for a consistent-mass numerical heat propagator is a natural time-step invariant. One anomalously long periodic element allows a cyclic bypass that changes threshold growth from the conventional sufficient h²/6 to actual h/6+3+o(1), an asymptotically unbounded improvement, so exact five-cycle root is structurally motivated rather than arbitrary symbolic arithmetic.",
+      "residual_risks": [
+        "2015 full manuscript inaccessible: its specialized necessary-and-sufficient results might have related examples; cannot assert whole-document noncoverage."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/sharp-subquadratic-positivity-threshold-on-a-one-defect-periodic--19c47b14620e",
+    "https://arxiv.org/abs/1209.5657",
+    "https://doi.org/10.1515/cmam-2015-0018",
+    "https://doi.org/10.1090/S0025-5718-07-02021-2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "2015 full manuscript inaccessible: its specialized necessary-and-sufficient results might have related examples; cannot assert whole-document noncoverage.",
+    "Symbolic cofactor identities are independently supported by finite exact matrices and source verifier structure, but independent all-parameter symbolic rerun was not executed.",
+    "Immutable research package examined; no repository write or dispatcher closeout was performed.",
+    "No independent expert or Lean certification is implied; existing external verification channels remain unchanged.",
+    "Publication not_ready is an operational confidentiality safeguard, distinct from the completed PASS/PASS/PASS science."
+  ],
+  "schema_version": 1
+}
