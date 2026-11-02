@@ -1,9 +1,21 @@
-# Review of the dodecahedral bisection landscape
+# Independent mathematical audit
 
-**Correctness (PASS).** Precisely \(\binom{19}{9}=92378\) unlabeled balanced partitions are enumerated; an independent \(\binom{20}{10}\)-subset enumeration verifies the complete cut histogram by a different cut formula. Every radius-two ball is checked against the ten minima. Two independently defined swap adjacencies agree on all pairs of the 340 low-cost states. Complete shortest-path calculations, every two-swap bridge count, and the explicit \(\operatorname{KG}(5,2)\) labeling are checked by the included standard-library verifier. This is finite exhaustive certification of the stated finite claim, not an argument for larger graphs.
+## correctness
 
-**Originality (PASS, with residual risks).** The known \(i(D)=0.6\) from Abiad et al. covers the *scalar* six-edge minimum, and the known antipodal double cover from Waller covers the abstract ten-vertex Petersen quotient. These are explicitly removed from the new contribution. Bollobás–Scott and Cygan et al. discuss general partition theory and algorithms rather than the complete dodecahedral optimum-exchange landscape. The separate claims of exactly ten radius-two-ball optima, 340-state connected first-excitation graph with diameter six, fifteen fourfold optimum bridges, and exact two/four-swap distances are not entailed by those prior statements. Searches also included alternate terminology of edge-isoperimetric minimizers, minimum balanced cuts, equal bisections and Petersen antipodal quotients. An unindexed exact bisection landscape or an inaccessible earlier enumeration remains possible.
+PASS
 
-**Value (PASS).** The smallest additional edge-cut budget permitting complete optimum-to-optimum motion is a natural sensitivity invariant for balanced partition optimization. The first permitted level is forced by even cut parity, not chosen arbitrarily. The emergence of the Petersen graph as the exact two-swap bridge structure and the connected 340-state low-energy landscape are useful small-instance benchmarks for constrained bisection reconfiguration. No general-family claim is made.
+Bisections up to complement are in bijection with C(19,9)=92378 masks containing vertex zero, so complete 30-edge cut enumeration is exhaustive; cubicity makes boundary cost even. Independent Python enumerated all 92,378 and obtained histogram {6:10,8:330,10:2232,12:10560,14:22680,16:27330,18:18760,20:8166,22:2190,24:120}. Independent graph-distance BFS verified exactly ten complement-distinct radius-two ball masks and equality with all minima. Enumerating every selected/unselected pair swap generates cost<=8 adjacency: 340 vertices, 2520 edges, full 340-root BFS confirms connected, eccentricity histogram {5:280,6:60}, radius five and diameter six. Every minimum pair has either four common cost-eight neighbors (15 pairs) or none (30 pairs); graph of fourfold pairs is 3-regular on ten, strongly regular parameters (10,3,0,1) and diameter two, identifying Petersen. Minimum pairs have 2 or 4 swap distances, and evenness plus no min-min edge proves budget slack two is minimal. All checks are COMPLETE finite enumeration, not a random experiment or larger graph inference.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The scalar minimum six and ten-vertex abstract antipodal Petersen quotient are prior art and not novel. The constrained state-space geometry, all ten radius-two-ball optimal bisections, 340-state first excitation and fourfold minimum-bridge Petersen graph are assessed as the additional exact finite classification; inspected fuller prior geometry and general bisection theory do not state it. Unindexed prior computation is possible.
+
+## value
+
+PASS
+
+The first cost slack needed to move between all global balanced-cut optima is a natural optimization sensitivity invariant. Its smallest possible value two is forced by parity and the complete graph at that level is 340-state connected with a nontrivial Petersen bridge structure and fourfold transition multiplicity, reusable in reconfiguration and bisection benchmark studies. The finite graph is canonical rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
