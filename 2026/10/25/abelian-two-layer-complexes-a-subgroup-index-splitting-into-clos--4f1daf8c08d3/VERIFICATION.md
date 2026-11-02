@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `verify.py` reconstructs two-level Latin complexes for cyclic groups and products of cyclic groups. It checks complete colorful edge/face counts, that every full edge has two triangles, separation into exactly the quotient-coset surface pieces, piecewise link cycles, incidence-graph connectivity and cycle rank, and modular boundary ranks over \(\mathbb F_2\) and \(\mathbb F_{1009}\) for groups of order at most ten. The run passed 42 nongenerating-gap instances and all associated generating-gap control instances.
+# Independent mathematical audit
 
-The all-parameter mathematical argument is in RESULT.md: the subgroup-coset decomposition, closed-surface recognition, orientability, and graph-of-spaces homotopy splitting. The finite tests provide independent consistency checks but are not a proof of arbitrary finite group cases. The review is internal self-review only; independent audit is not performed.
+## correctness
+
+PASS
+
+Reconstructed full face count (3q,3q²,2q²) and two triangles per edge. The coset of each of the first two coordinates in A/<d> partitions triangles into precisely g² connected edge-disjoint components; each has three h-element color classes, vertex links a single 2h-cycle, coherent orientations of alternating levels and χ=3h−h². Hence each is an orientable closed surface of genus (h−1)(h−2)/2. Different pieces intersect only at vertices; their bipartite vertex-surface incidence graph has 3gq edges, g²+3q nodes and is connected, so its free cycle rank is (g−1)(3q−g−1). Replacing vertex identifications by contractible stars and collapsing a spanning tree yields the stated wedge and torsion-free integral homology. Independent reconstruction directly enumerated triangle edge-adjacency and local links for cyclic (q,d)=(6,2),(6,3),(8,2),(12,4) and confirmed all predicted piece/link counts. Infinite statement follows from coset and surface argument, not finite tests.
+
+## originality
+
+PASS
+
+Known adjacent-difference affine construction has one top integral homology class and only computes homology, not the nongenerating gap decomposition into multiple surfaces. Flabby inflation theorem requires a hypothesis violated by these restricted full transversals. The exact complete nongenerating-gap surface/circle homotopy type was not found in the actual Resultary or primary searches; priority remains qualified by Latin-bitrade literature.
+
+## value
+
+PASS
+
+A natural, all-group classification of a concrete complete-tripartite ternary-relation complex: the subgroup index changes the number of surface factors and singular vertex links while keeping the f-vector fixed, a useful counterexample to face-vector rigidity. The genera and integral homology are motivated structural invariants, not an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
