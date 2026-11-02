@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For independent Poisson-thinned edges, each unmarked indicator is a product of \\(d\\) Bernoulli\\(q\\) indicators. Two vertices share one indicator exactly when adjacent, proving both moments. Conditioning a uniformly chosen vertex to be unmarked gives a monotone size-biased coupling; its exact excess expectation \\(p[1+d(q^{-1}-1)]\\) and the Poisson Stein factor prove the explicit uniform TV bound. Monotonicity of \\(d(e^{u/d}-1)\\) yields \\(O_x(n^{-1/2})\\) for every \\(d\\ge2\\). The no-unmarked event yields Gumbel; independent Poisson interarrival times de-Poissonize. Two-sided integrable tails give the Euler-constant correction. Degree one exactly reduces to an \\(n/2\\)-type coupon collector. Replayed standard-library verifier passed 593 checks; no finite enumeration substitutes for proofs. Assumptions and ranges are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Falgas-Ravry–Larsson–Markström Section 3 establishes structural first-order cover-time concentration criteria.",
+        "The quantitative Stein bound in Betken–Thäle concerns fully uniform groups rather than an arbitrary sequence of sparse regular supports."
+      ],
+      "reasoning": "General concentration to leading logarithmic order does not imply a limiting centered Gumbel distribution, the Euler correction, or an explicit \\(O(n^{-1/2})\\) Poisson TV approximation. Possible stronger uncatalogued theorems remain a risk.",
+      "searches": [
+        "random edge sampling vertex cover time regular graph exact Poisson approximation bounded degree",
+        "structured coupon collecting arbitrary regular graph vertices marked by random selected edge",
+        "arxiv:1601.04455",
+        "https://doi.org/10.1017/jpr.2023.6"
+      ]
+    },
+    "checked_sources": [
+      "Betken & Thäle, arxiv:2202.07485 (2022); full 2023 OA article, doi:10.1017/jpr.2023.6",
+      "Schilling & Henze, J. Appl. Prob. 58 (2021), 966–977, primary PDF, especially Section 3",
+      "Falgas-Ravry, Larsson & Markström, arxiv:1601.04455 (2016), primary full text, Section 3",
+      "Related edge-coupon mixed-limit and edge-distribution optimization results; implication and parameter comparisons",
+      "Targeted literature searches on regular-graph edge-sampling, Poisson approximation, and group coupon collection"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A related edge-coupon result requires a growing degree-two set or related low-degree structure; a \\(d\\)-regular graph with \\(d\\ge3\\) has no such vertices.",
+        "A separate edge-sampling optimization result optimizes fixed edge-sampling distributions for deadline probabilities, not the uniform-sampling limit.",
+        "The fully uniform two-subset source lacks graph-sparse support, and first-order concentration cannot imply the centered limit."
+      ],
+      "reasoning": "The new d>=3 regular case is not a corollary of the matching/degree-two-driven previously established low-degree regime or of stated published uniform-support theorems. It does include d=2 regular graphs, but the general d>=3 uniformity and sharp degree threshold are not covered by the accessible historical statements.",
+      "searches": [
+        "edge coupon collector random edge on any d regular simple graph d>=2 uncovered vertices Poisson Gumbel",
+        "structured coupon collecting arbitrary regular graph vertices marked by random selected edge",
+        "Schilling Henze Poisson group drawings sparse support graph edge sampling",
+        "arxiv:1601.04455",
+        "doi:10.1017/jpr.2023.6",
+        "random edge coupons connected graphs many degree 2 vertices mixed cover time"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Random uniformly selected edges form a two-point coupon family with probability 1/m on graph edges and probability zero on nonedges.",
+        "Betken–Thäle Theorem 2 assumes all unordered s-subsets are drawn uniformly.",
+        "Schilling–Henze Section 3 assumes near-uniform perturbations for every group."
+      ],
+      "reasoning": "The edge process is equivalent to a nonuniform two-point group collector with graph-sparse support. The uniform and pointwise-near-uniform results cannot be directly instantiated when nonedges have zero sampling probability. Thus the edge-uniform graph theorem is not merely the same claim under a different name.",
+      "searches": [
+        "edge coupon collector random edge on any d regular simple graph d>=2 uncovered vertices Poisson Gumbel",
+        "coupon collector uniform edges regular graphs matching degree one discontinuity",
+        "arxiv:2202.07485",
+        "Schilling Henze two Poisson limit theorems group drawings 2021"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact finite-n expectation and variance of uncovered vertices were derived directly from adjacency overlap and checked against rational small-graph enumeration.",
+        "The relevant published papers present approximation/concentration tools rather than a table of finite regular-graph edge-coverage moments."
+      ],
+      "reasoning": "The statement is uniform in graph order and degree and includes an asymptotic limit, so it cannot be exhausted by finitely tabulated cases; no exact finite table giving the entire result was located.",
+      "searches": [
+        "edge coupon collector random edge on any d regular simple graph d>=2 uncovered vertices Poisson Gumbel",
+        "random edge sampling vertex cover time regular graph exact Poisson approximation bounded degree",
+        "exact finite variance graph coupon collector regular graph vertex coverage",
+        "arxiv:2202.07485"
+      ]
+    },
+    "rationale": "The theorem concerns a graph-uniform Gumbel law, graph-uniform \\(O(n^{-1/2})\\) Poisson error, exact second moments, and an optimal degree-one boundary for uniformly sampled graph edges. Betken–Thäle 2022/2023 treats all equally probable fixed-size groups, not sparse edge supports; Schilling–Henze 2021 permits near-uniform probabilities per group, not absent pairs; Falgas-Ravry–Larsson–Markström 2016/2020 supplies general first-order concentration rather than the stated limit and rate. A comparison with a related mathematical result found an edge-coupon limit driven by divergent degree-one/degree-two sets; that implication excludes the d>=3 regular regime. Search is not uniqueness proof; general or unindexed group-coupon approximation remains the material risk.",
+    "residual_risks": [
+      "A general unindexed Poisson approximation for sparse dependent fixed-size coupon supports might subsume the result.",
+      "The standard size-bias inequality is classical; only the graph-specialized uniform conclusion and boundaries are asserted as the new contribution.",
+      "No independent exhaustive historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2 requires all groups of a fixed size equiprobable; arbitrary sparse regular graph edges violate its hypothesis",
+        "evidence": [
+          "The source sets the coupon law uniformly on all subsets of given cardinality."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/jpr.2023.6",
+        "material_read": "full open-access article HTML, including definitions, Theorems 1–2 and group-sampling assumptions",
+        "method": "Read theorem hypotheses and compared sampling support/parameters",
+        "title": "Approaching the coupon collector’s problem with group drawings via Stein’s method",
+        "trigger": "Same Stein group-drawing method; possible dominating distribution theorem"
+      },
+      {
+        "assessment": "The perturbation model assumes every group probability close to uniform with order 1/log n relative error; sparse regular graph coupon supports do not satisfy it",
+        "evidence": [
+          "Section 3 near-uniform group distribution hypothesis."
+        ],
+        "identifier_or_url": "https://www.math.kit.edu/stoch/~henze/seite/aiwz/media/ap-17926-final.pdf",
+        "material_read": "primary PDF, especially Section 3 on approximate uniformity",
+        "method": "Inspected theorem conditions and quantitative perturbation restrictions",
+        "title": "Two Poisson limit theorems for the coupon collector’s problem with group drawings",
+        "trigger": "Potential near-uniform group-drawing coverage"
+      },
+      {
+        "assessment": "Gives broad first-order concentration under balanced structured coupons, but not the claimed graph-uniform Gumbel law, TV rate and exact moments",
+        "evidence": [
+          "Section 3 concentration and expectation criteria for structured coupon collectors."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1601.04455v1",
+        "material_read": "full preprint HTML introduction, setup, and Section 3 main covering-time concentration criteria",
+        "method": "Compared quantifiers and strength: first-order concentration versus centered distributional convergence",
+        "title": "Speed and concentration of the covering time for structured coupon collectors",
+        "trigger": "Broad structural covering theorems might imply centered limit"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ad83bf4d-3ac5-4b23-b5cc-644115b04318",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Uniformly selected graph edges are a natural sparse-support group coupon process. A topology-independent centered Gumbel profile, explicit finite-graph variance and a universal quantitative Poisson rate uniformly over all degrees at least two materially strengthen known first-order coverage concentration and distinguish degree one as a sharp structural boundary. This is a theorem over arbitrary disconnected regular graph sequences, not a fixed example or generic restatement of fully uniform group collection.",
+    "status": "PASS"
+  }
+}
