@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional factorial moments use an ordered list of prospective empty vertices outside a prescribed cycle and distinguish source choices within versus outside that list. The cycle event has probability (n-1)^-k; linearity yields exact (1) with no independence assumption between different cycles. Strict signs follow from g_n(2)>0, g_n(3)<0 and g_n(k+1)-g_n(k)<0 for all admissible k; exact k=3 cancellation establishes the anomalous n^-2 coefficient. Independent exhaustive small-size checks and rational sign checks all passed (40,314 assertions), with a separate analytic proof for every n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet–Odlyzko 1990 supplies a general decomposition into cycles of rooted trees, broad enough to support marked generating-function calculations, but Section 5.1 does not present the specific mixed claim.",
+        "Hansen–Jaworski 2006 discusses cyclic-point counts and components and explicitly cites independent diagonal-bias mappings, but no covariance expression was found in its searchable full text.",
+        "Berg–Jaworski 1992 is expressly about local structure; full-text implication comparison was not possible."
+      ],
+      "reasoning": "A general enumerative framework does not by itself assert every mixed-marked consequence. The cycle-length-resolved sign and singular k=3 rate require explicit computation, not mere parameter inclusion. Historical sources on local structure remain a priority limitation, not falsely claimed noncoverage.",
+      "searches": [
+        "\"random mapping statistics\" Flajolet Odlyzko cycle indegree terminal nodes joint",
+        "\"local properties of random mappings with exchangeable in-degrees\" cycle covariance",
+        "\"Probability distributions related to local structure of a random mapping\" Berg Jaworski 1992",
+        "\"Probability Distributions Related to Random Mappings\" Harris 1960"
+      ]
+    },
+    "checked_sources": [
+      "Flajolet–Odlyzko, Random Mapping Statistics (1990), PDF Section 5.1",
+      "Hansen–Jaworski, arXiv:math/0603529v1 (2006), intro and final remarks",
+      "Jaworski–Mutafchiev, 1994 abstract",
+      "Harris 1960 bibliographic record and source citation",
+      "Berg–Jaworski 1992 bibliographic record"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flajolet–Odlyzko unmarked class equation does not itself yield a mixed covariance without added marks and differentiation.",
+        "Hansen–Jaworski investigates indegree choices and macroscopic component sizes, not cycle-type-specific source correlations in the inspected material.",
+        "Jaworski–Mutafchiev 1994 abstract studies largest component under the same diagonal-bias model; full text not obtained.",
+        "Harris 1960 was specifically identified as an earlier treatment of no-fixed-point mappings by Flajolet–Odlyzko, but its complete text was inaccessible."
+      ],
+      "reasoning": "The new claim concerns exact Palm factorial moments for Z with a prescribed k-cycle and a strict positive two-cycle versus negative longer-cycle covariance, including the unique n^-2 rate at length three. The documented older statements about components, fixed points, or cyclic-vertex totals do not logically imply these separate length-resolution signs without a new marked-cycle calculation. Inaccessible local mapping papers leave nonzero residual historical risk.",
+      "searches": [
+        "Flajolet Odlyzko 1990 random mapping Section 5.1 alternative models no 1-cycles",
+        "Hansen Jaworski 2006 q diagonal random mapping cycle structure Introduction Section 5",
+        "Jaworski Mutafchiev 1994 The largest connected component in a random mapping abstract",
+        "Harris 1960 probability distributions random mappings DOI:10.1214/aoms/1177705677"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The uniform loopless map is equivalently a uniformly sampled functional digraph with independent outgoing neighbors restricted to other vertices.",
+        "Flajolet–Odlyzko 1990, Section 5.1 explicitly represents loopless functional digraphs by forbidding 1-cycles, but gives an unmarked class generating function.",
+        "Hansen–Jaworski 2006, introduction defines the general independently chosen image model with diagonal probability q; q=0 produces the underlying loopless model."
+      ],
+      "reasoning": "The property that a prescribed directed k-cycle is planted is not the same as conditioning on at least one k-cycle; factorial moments depend on this distinction. The preexisting models include the objects, but the inspected results do not identify the mixed marked-cycle/zero-indegree quantity. Explicit conditional product factors are needed to deduce it.",
+      "searches": [
+        "\"random mappings without fixed points\" zero indegree cycle counts",
+        "\"fixed-point-free random functional digraph\" 2-cycle indegree-zero covariance",
+        "\"loopless random mapping\" Palm factorial moments leaf directed cycle",
+        "doi:10.1007/3-540-46885-4_34 Section 5.1",
+        "arxiv:math/0603529v1 Introduction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact published table with the matching pair of statistics or covariance formula was located through these searches.",
+        "The closest accessible previously recorded results concerned total cyclic-vertex count with zero indegree and, separately, diagonal fixed-point count with zero indegree; neither fixes k-cycle counts.",
+        "Exact values n=3 through n=7 were separately obtained from exhaustive enumeration; they are new calculations in the package, not copied from a database."
+      ],
+      "reasoning": "Neither no-hit search results nor archive partitioning establish uniqueness. The concrete prior claims do not give a length-k cycle statistic, and a sum over all cyclic vertices cannot in general be inverted to recover every length component.",
+      "searches": [
+        "\"loopless mapping\" \"two-cycles\" \"zero indegree\" exact covariance",
+        "\"fixed point free random mapping\" terminal nodes 3 cycles covariance table",
+        "uniform loopless mapping prescribed directed cycle Palm empty indegree vertices factorial moments",
+        "fixed-point-free random functional digraph 2-cycle count covariance indegree-zero"
+      ]
+    },
+    "rationale": "Inspected Flajolet–Odlyzko Section 5.1 gives the loopless functional-digraph class and generating function, but does not state the cycle-length-resolved Palm factorial moments, opposite signs at k=2 versus k>=3, or critical n^-2 three-cycle asymptotic. Hansen–Jaworski full-text introduction and concluding summary describe independent-choice diagonal-bias mappings and component/indegree models rather than this two-statistic relation. Published-index queries and recoverable prior claims were compared by implication. General generating-function marking could produce the result with additional computation, but such a specific theorem was not identified. Harris 1960 and Berg–Jaworski 1992 remain genuine historical-priority risks because their full texts were not accessible.",
+    "residual_risks": [
+      "Harris 1960 complete text inaccessible; it concerns the loopless model and may contain a stronger mixed-moment result.",
+      "Berg–Jaworski 1992 full text inaccessible; it studies local mapping structure.",
+      "A general unmarked generating-function formalism can be adapted to derive the theorem; an uncatalogued published derived identity could have priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicit model coverage, no specific mixed formula in inspected passages; general generating-function framework can motivate calculation but is not the asserted marked result",
+        "evidence": [
+          "PDF section 5.1 specifies cycle(Tree,card>1) and f*(z)=exp(-t(z))/(1-t(z)).",
+          "The cited section says Harris 1960 already discusses mappings without fixed points."
+        ],
+        "identifier_or_url": "https://www-users.cse.umn.edu/~odlyzko/doc/arch/random.mappings.pdf",
+        "material_read": "Title and introduction, combinatorial mapping framework, Section 5.1 Alternative Models including its explicit exclusion of 1-cycles, and adjacent discussion of local statistics, read on PDF page images",
+        "method": "Lawful freely accessible author PDF, text searches and targeted page-image reading (not a claim of reading every page)",
+        "title": "Random Mapping Statistics",
+        "trigger": "Same fixed-point-free functional digraph model; potential general dominating generating function"
+      },
+      {
+        "assessment": "Introduces relevant encompassing stochastic model and component statistics; no statement of required conditional moments or covariance found in inspected searchable text",
+        "evidence": [
+          "ArXiv public version dated 2006-03-22.",
+          "Introduction page 3 defines the diagonal-bias model and lists earlier Berg/Jaworski/Mutafchiev work.",
+          "Final remarks emphasize distributions of cyclic vertices and components."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0603529",
+        "material_read": "ArXiv v1 title/date; introduction pages 1–3 with p_ii=q and p_ij=(1-q)/(n-1); abstract, concluding Section 5 and references; document-wide text search for covariance",
+        "method": "Open-access arXiv full PDF, selected relevant sections read both text and page images",
+        "title": "A New Random Mapping Model",
+        "trigger": "Strongest accessible general probability mapping model with independent image-choice matrix and diagonal bias"
+      },
+      {
+        "assessment": "Abstract focuses on size of largest connected component, not mixed cycle/terminal counts, but insufficient material to exclude unmentioned lemmas",
+        "evidence": [
+          "The abstract defines p_ii=q and other image probabilities; states its purpose is largest component asymptotics."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240050109",
+        "material_read": "Publisher abstract and bibliographic metadata only; complete paper inaccessible",
+        "method": "Publisher abstract via web",
+        "title": "The Largest Connected Component in a Random Mapping",
+        "trigger": "An older primary study of the same diagonal q-mapping including q=0"
+      },
+      {
+        "assessment": "Unresolved strong historical-priority risk; not characterized as NOT_COVERING",
+        "evidence": [
+          "Flajolet–Odlyzko 1990 Section 5.1 credits Harris for random mappings without fixed points."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aoms/1177705677",
+        "material_read": "Bibliographic records and later primary source citation only; no Harris body pages accessed",
+        "method": "ArXiv/OA search, Project Euclid metadata, institutional retrieval attempt returned storage limit",
+        "title": "Probability Distributions Related to Random Mappings",
+        "trigger": "Flajolet–Odlyzko specifically credits Harris with fixed-point-free mapping model; plausible earlier coverage"
+      },
+      {
+        "assessment": "Priority comparison remains incomplete, despite lack of specifically matching searchable statement",
+        "evidence": [
+          "Hansen–Jaworski 2006 cites Berg and Jaworski as early work on local random mappings."
+        ],
+        "identifier_or_url": "Berg and Jaworski, in Random Graphs (1992), pp. 1–21",
+        "material_read": "Reference citations only; full text not obtained",
+        "method": "Bibliographic and citation search",
+        "title": "Probability Distributions Related to the Local Structure of a Random Mapping",
+        "trigger": "Subject matter includes local indegrees and possible mixed statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "159fa676-b0e3-4cc7-a967-7defd309c87c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Loopless mappings are a standard and motivated functional-digraph model; their cycle lengths represent basic distinct feedback circuit types and indegree-zero vertices represent sources. The theorem gives a complete sign phase diagram and new conditional factorial law, with an unexpected positive two-cycle covariance opposite to all other lengths and a singled-out three-cycle with n^-2 rather than n^-1 dependence. A comparison proves the positive regime disappears if self-images are allowed. This is a structural dependence boundary, not a single arbitrary sampled parameter or mere numeric calculation.",
+    "status": "PASS"
+  }
+}
