@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T10:13:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given a fixed latent N∼Pois(λ) across independent visits and per-individual detection q, p_N=1−(1−q)^N. The total covariance equals Var(p_N)=e^(−λ(2q−q²))−e^(−2λq), not zero (which would arise from independently redrawing N at each visit). Independently symbolically differentiated it: C′=2λe^(−λ(2q−q²))[e^(−λq²)−(1−q)]. For q∈(0,1) its sign is that of R(q)−λ, R(q)=−log(1−q)/q². Its derivative numerator H=q/(1−q)+2log(1−q) has H′=(2q−1)/(1−q)², so R has a unique minimum q0≈0.715331863, proving exactly two critical points for λ>λloc and monotonicity below. For the interior local maximum q−, the ratio G=C(q−)/C(1) has log derivative 1−q−−1/(e^λ−1)>1/4−1/(e²−1)>0 since λloc>2, proving exactly one λglob. Independent high-accuracy bisection found λloc≈2.455407482284 and λglob≈2.610227149204, and checked the λ=3,q=.5 witness. As λ→∞, λq−→1 and C(q−)∼e^(−2)/λ. Endpoint λ=λloc has one horizontal tangent, and λglob has precisely two tied global maxima.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Royle–Nichols addresses abundance inference from repeat binary surveys; Donovan–Hines explains Poisson mixing and repeated visits, including p_N formula and likelihood.",
+          "Resultary two-visit N-mixture result is an identification theorem, not an optimization of Cov(Y1,Y2). Moore et al optimizes survey design rather than raw covariance."
+        ],
+        "reasoning": "Existing general model formulas make covariance calculable but do not provide the reported local/global optimizer bifurcation or exact critical λ values in inspected material. Original full article access gap persists.",
+        "searches": [
+          "Royle Nichols 2003 original ecology article (USGS and publisher)",
+          "Donovan–Hines 2007 full 50pp pedagogical model",
+          "Resultary two visit N-mixture nonparametric identification 1c1f6450764b",
+          "Moore et al 2014 optimal number of surveys"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git survey covariance tree ed1cfb71a5afbfc1462ceb1e125b26e69fc355e1, RESULT.md and verify.py",
+        "Independent exact derivative identity, bisection of q0, λloc, λglob and asymptotic checks",
+        "Donovan–Hines 2007 full PDF Chapter 7 p15 screenshot",
+        "Royle–Nichols 2003 USGS/publisher abstract; authorized Oxford VPN disconnected",
+        "Resultary two-visit N-mixture identification 2026/9/21 and targeted web searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mixture model implies the covariance formula directly, but the two critical λ thresholds require global root/ratio monotonicity arguments not present in the chapter.",
+          "The distinct λglob is characterized by Cλ(q−)=Cλ(1), and G′>0 proves uniqueness."
+        ],
+        "reasoning": "No accessed stronger result implies both the local onset and separate global optimum crossover as stated; if the inaccessible original 2003 full paper analyzes exactly this covariance maximizer, it would defeat the originality judgment.",
+        "searches": [
+          "Donovan–Hines 2007 conditional detection likelihood and Poisson prior",
+          "Royle Nichols 2003 abstract USGS/publisher",
+          "Resultary nonparametric N-mixture identification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Donovan–Hines p15 explicitly gives site probability p=1−(1−r)^N with Poisson latent N; exactly the assumptions behind the covariance model.",
+          "The mean covariance equals Var(p_N); standardized correlation instead equals 1 at perfect individual detection."
+        ],
+        "reasoning": "The conditional observation law is preexisting; the equivalent final problem is optimizing unstandardized two-visit covariance, not detection likelihood or Pearson correlation. The exact two threshold theorem is distinct.",
+        "searches": [
+          "Resultary: Poisson abundance repeated detection two visits covariance maximizing individual detection probability Royle Nichols",
+          "Royle Nichols 2003 Ecology 84 777–790",
+          "Donovan–Hines 2007 Royle–Nichols tutorial Chapter 7 p15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior two-threshold table λ=2.455407/2.610227 found in the accessible Royle–Nichols model tutorial or Resultary records.",
+          "A published 2026 Resultary N-mixture identification result treats a different parameter question."
+        ],
+        "reasoning": "No exact model-specific covariance-optimization chart was located. The missing 2003 full text could contain unindexed analysis and must not be deemed NOT_COVERING from its abstract.",
+        "searches": [
+          "Resultary repeated Poisson detection covariance two threshold",
+          "Web Royle Nichols original PDF/USGS 6027_Royle",
+          "Donovan–Hines Chapter 7 full accessible"
+        ]
+      },
+      "rationale": "Qualified PASS: Royle–Nichols 2003 and Donovan–Hines 2007 already set out the exact Poisson mixture and binary detection formula p_N=1−(1−q)^N, so the observation model and elementary covariance identity are not claimed new. Their inspected abstract and full training chapter optimize inference likelihood, not the unstandardized cross-visit covariance as a function of q. The two mathematically distinct local/global λ thresholds and unique optimizer switching theorem were not found; full original 2003 article could not be read and remains a priority risk.",
+      "residual_risks": [
+        "Full original Royle–Nichols 2003 Ecology paper not accessible during this execution (institutional VPN disconnected); a preexisting derivative/threshold result remains possible.",
+        "Objective is unstandardized binary covariance, not correlation, information, sensitivity or practical survey quality; high-abundance optima should not be interpreted as field recommendations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT DETECTION MODEL PREEXISTS, NO COVARIANCE-OPTIMUM PHASE THEOREM IN READ SECTIONS",
+          "evidence": "Printed p15 explicitly conditions visit detection probability on N and discusses Poisson-governed site abundance, but focuses on likelihood not maximization of raw repeated-visit covariance.",
+          "identifier_or_url": "https://www.uvm.edu/~tdonovan/Occupancy%20Exercises/Exercise7/Exercise%207.%20%20Royle-Nichols%20Abundance%20Induced%20Heterogeneity.pdf",
+          "material_read": "50-page full lawful PDF opened; read Chapter 7 pp.3–16, table of contents for rest of model and likelihood; screenshot PDF p14 (printed p15) shows p=1−(1−r)^N with Poisson latent N",
+          "method": "primary technical tutorial PDF with text and screenshot inspection",
+          "title": "Exercises in Occupancy Estimation and Modeling: Royle–Nichols Abundance Induced Heterogeneity (Donovan and Hines, 2007)",
+          "trigger": "Fully accessible technical exposition of exact same Poisson latent abundance/detection process"
+        },
+        {
+          "assessment": "INACCESSIBLE FULL ORIGINAL PRIMARY; POSSIBLE PRIOR COVERAGE",
+          "evidence": "Abstract establishes abundance-induced heterogeneity detection modeling, not covariance maximization or its absence; no claim of whole-document noncoverage is made.",
+          "identifier_or_url": "https://doi.org/10.1890/0012-9658(2003)084[0777:EAFRPA]2.0.CO;2",
+          "material_read": "Publisher and USGS abstract, methods scope, DOI, model/goal description only; original full article not obtained or inspected",
+          "method": "arXiv/OA/public USGS attempts returned no inspectable full text; authorized Oxford request reported vpn_disconnected, no retry/bypass",
+          "title": "Estimating abundance from repeated presence–absence data or point counts (Royle and Nichols, 2003)",
+          "trigger": "Original most important same exact observation model"
+        },
+        {
+          "assessment": "DIFFERENT OBJECTIVE",
+          "evidence": "Optimal survey count/length or estimation efficiency cannot supply optimal per-individual q for raw cross-visit covariance by a direct parameter match.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4272285/",
+          "material_read": "Publisher/PMC abstract and objective inspected: optimal number and duration of surveys under variable detectability; no full mathematical comparison of covariance",
+          "method": "open research full HTML available, abstract and scope examined",
+          "title": "The Optimal Number of Surveys when Detectability Varies (Moore et al., 2014)",
+          "trigger": "Potential broad survey-effort optimization antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: this is a complete sharp phase diagram for an immediately motivated dependence statistic in the classical repeated-presence/absence abundance model. It demonstrates that more sensitive binary detection can reduce observed between-visit dependence because saturation hides abundance heterogeneity. It is not presented as a recommendation to reduce detection or as optimal survey design, and covariance is not interchangeable with correlation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git survey covariance tree ed1cfb71a5afbfc1462ceb1e125b26e69fc355e1, RESULT.md and verify.py",
+    "Independent exact derivative identity, bisection of q0, λloc, λglob and asymptotic checks",
+    "Donovan–Hines 2007 full PDF Chapter 7 p15 screenshot",
+    "Royle–Nichols 2003 USGS/publisher abstract; authorized Oxford VPN disconnected",
+    "Resultary two-visit N-mixture identification 2026/9/21 and targeted web searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full original Royle–Nichols 2003 Ecology paper not accessible during this execution (institutional VPN disconnected); a preexisting derivative/threshold result remains possible.",
+    "Objective is unstandardized binary covariance, not correlation, information, sensitivity or practical survey quality; high-abundance optima should not be interpreted as field recommendations.",
+    "Best-of-knowledge originality does not certify priority, independence or journal publication.",
+    "Publication not_ready is a confidentiality-safe metadata/transport blocker rather than mathematical rejection."
+  ],
+  "schema_version": 1
+}
