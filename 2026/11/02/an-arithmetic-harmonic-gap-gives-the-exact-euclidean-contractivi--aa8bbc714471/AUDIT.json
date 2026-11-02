@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "All-dimensional proof uses S=I+hA SPD and T=I-hB symmetric, eigenvalue containment via S±T, 2-norm contraction iff T^2<=S^2 by congruence, and a positive-definite block Schur complement. The inverse-block identity gives lambda=alpha-1/(u^T B^-1u), leading exactly to 1+2t-kappa(1+t)^2>=0. A unique positive root yields the sharp norm trichotomy; eigenvalue closeness to a nondegenerate eigendirection gives the sharp angle^-2 asymptotic. The exact h=5 witness has determinant -256; a standalone pure-Python checker passed 1364 randomized norm-cutoff comparisons and three angular tests. Numerical tests do not certify universality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ma–Huang–Yong, arXiv:2310.05342v1 Theorem 3.1: Fourier-discretized hyperbolic relaxation IMEX-BDF stability under a CFL bound, not an all-step SPD-rank-one ODE split.",
+        "Barrenechea–Castillo–Pacheco, arXiv:2310.04182v1 Theorems 3.2–3.3 and Section 5: PDE energy/stability estimates for particular viscous formulations.",
+        "Bellen–Torelli (1997) abstract: diagonally split RK unconditional contractivity in the maximum norm; full article not inspected."
+      ],
+      "reasoning": "Broad stability estimates can imply special cases only when the scheme, operator class and norm agree. Here the main comparator results impose other PDE/IMEX structures and do not establish the precise Euclidean singular-value cutoff. The older max-norm study is conceptually related but its published abstract cannot be used to rule out undiscovered related propositions in full text.",
+      "searches": [
+        "noncommuting self adjoint positive semidefinite implicit explicit Euler scheme l2 contractivity spectral stability norm transient rank one",
+        "2023 implicit explicit schemes incompressible flow variable viscosity unconditional stability energy estimate discretization",
+        "arxiv:2310.05342v1 Theorem 3.1",
+        "doi:10.1137/S0036142994267576"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2310.04182v1",
+      "https://arxiv.org/html/2310.05342v1",
+      "https://doi.org/10.1137/S0036142994267576"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2310.04182v1 concerns variable-viscosity incompressible flow and derives norm-specific discrete Gronwall bounds, without the rank-one SPD matrix setting or its exact Euclidean norm profile.",
+        "arXiv:2310.05342v1 analyzes hyperbolic transport plus relaxation and uses structural symmetrizers and a spatial CFL condition; it does not assert an all-h one-step 2-norm bound for the present constant ODE split.",
+        "A dominant implicit SPD matrix only gives the spectral fact -S<T<S here; the norm condition instead requires S^2>=T^2, which can fail if B and the rank-one increment do not commute."
+      ],
+      "reasoning": "Neither source theorem logically dominates the present simultaneous claims of real spectrum in (-1,1), finite Euclidean contractivity horizon exactly when u is non-eigenvector, and inverse-square angular blowup. Classical positive-matrix inequalities establish algebraic steps, but not an identified published full classification in this IMEX model.",
+      "searches": [
+        "arxiv:2310.04182v1 Sections 3, 5, 6 and 8",
+        "arxiv:2310.05342v1 Sections 1–3",
+        "unconditional contractivity in the maximum norm of diagonally split Runge Kutta methods Bellen Torelli",
+        "IMEX Euler spectral radius versus norm noncommuting matrices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2310.04182v1 Table 1 distinguishes unconditional/conditional PDE formulation-dependent estimates, not a singular-value calculation of the present constant rank-one matrix pencil.",
+        "The present Euclidean norm inequality is equivalent to 2(A+B)+h(A^2-B^2) being PSD; the exact scalar Schur-complement reduction uses lambda=u^T B u - (u^T B^-1 u)^-1."
+      ],
+      "reasoning": "An equivalent formulation would have to characterize Euclidean contractivity of (I+h(B+rho uu^T))^-1(I-hB) for all SPD B, directions u and h, or imply its Schur-complement cutoff. The inspected primary theorem statements concern different matrix splitting assumptions or energy norms; no such implication was identified. Names alone were not treated as evidence.",
+      "searches": [
+        "IMEX Euler self adjoint stiff nonstiff matrices rank one dominance unconditional spectral stability vs transient amplification",
+        "implicit explicit Euler noncommutativity destroys unconditional energy norm contractivity nonnormal transient growth exact threshold rank one",
+        "arithmetic harmonic mean gap u^T B u - 1/(u^T B^-1 u) exact Euclidean contractivity threshold implicit explicit Euler rank-one reinforcement",
+        "arxiv:2310.04182v1 Section 3.2 and Table 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Table 1 comparison in arXiv:2310.04182v1 classifies six PDE viscous treatments as unconditional/conditional/not proved, and contains no scalar parameter delta or arithmetic-harmonic Rayleigh gap.",
+        "The exact rational witness A=[[2,1],[1,10]], B=diag(1,9), h=5 has contractivity-pencil determinant -256; the source table does not tabulate this operator-norm family."
+      ],
+      "reasoning": "Checked explicit stability tables and targeted mathematical-record searches for the same inverse-product matrix and angular cutoff. These are actual inspected materials and searches, not exhaustive proof of uniqueness; no exact table of these parameterized claims was identified.",
+      "searches": [
+        "matrix IMEX Euler amplification I+h(B+rho uuT) inverse I-hB finite step Euclidean norm threshold",
+        "nonnormal implicit explicit Euler Loewner dominating implicit part operator norm exceeds one angle squared",
+        "rank-one positive perturbation B+uuT vs B squared Loewner order fails angular singularity threshold",
+        "arxiv:2310.04182v1 Table 1"
+      ]
+    },
+    "rationale": "The inspected 2023 IMEX flow paper proves formulation-dependent PDE energy estimates, not the exact algebraic Euclidean step cutoff for positive rank-one implicit dominance. The 2023 hyperbolic-relaxation IMEX-BDF paper treats a different split and CFL/multiplier bounds. The older diagonally split RK article concerns maximum-norm contractivity. Targeted published-record and bibliographic searches did not reveal a claim that implies the all-dimensional arithmetic–harmonic Rayleigh-gap frontier or its inverse-square eigendirection singularity. Standard matrix congruence and Schur complements themselves are not new; residual specialized-literature risk remains.",
+    "residual_risks": [
+      "The specialized IMEX/contractivity literature may include an equivalent Schur-complement or rank-one cutoff under alternate notation that was not indexed by the executed searches.",
+      "The full Bellen–Torelli 1997 article and other older split-RK treatises were not inspected; only its abstract is available in the comparison.",
+      "Independent priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates split- and norm-dependent stability, but no directly covering rank-one SPD exact 2-norm cutoff or angular gap theorem was present in inspected material.",
+        "evidence": [
+          "Section 3.2 states naive split may fail stability; Section 3.3 gives Gronwall-type PDE bound; Section 5 compares stability of viscous formulations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2310.04182v1",
+        "material_read": "Introduction; Sections 3.2, 3.3, 5, 6.1 and 8 including formulations (21), (26), stability Theorems 3.2–3.3 and Table 1",
+        "method": "Accessible arXiv full-text HTML, paragraphs and displayed equations inspected",
+        "title": "Implicit-explicit schemes for incompressible flow problems with variable viscosity",
+        "trigger": "Motivating 2023 first-order viscous IMEX schemes, stability distinctions and weak energy estimates"
+      },
+      {
+        "assessment": "Different spatial hyperbolic-relaxation operators and uniform-in-relaxation-time stability; not a logical covering theorem for all h in the present symmetric dissipative rank-one split.",
+        "evidence": [
+          "Theorem 3.1 assumes a spatial CFL and controls Fourier-spectral solutions with a constant, rather than exact one-step Euclidean contractivity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2310.05342v1",
+        "material_read": "Sections 1, 2.1–2.2, and 3.1.1–3.1.2 including Theorem 3.1 and the multiplier proof setting",
+        "method": "Accessible arXiv full-text HTML, formulas and statements inspected",
+        "title": "Uniform accuracy of implicit-explicit backward differentiation formulas for linear hyperbolic relaxation systems",
+        "trigger": "Potentially broader stability theorem for matrix-valued first-order IMEX updates"
+      },
+      {
+        "assessment": "Maximum-norm contractivity for diagonally split Runge–Kutta methods. No claim of full-document noncoverage; full text may contain potentially related matrix observations.",
+        "evidence": [
+          "Publisher abstract explicitly defines its norm as maximum norm and names diagonally split RK methods."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0036142994267576",
+        "material_read": "Publisher abstract and bibliographic/MSC metadata only",
+        "method": "Publisher abstract consulted; no full text inspected",
+        "title": "Unconditional Contractivity in the Maximum Norm of Diagonally Split Runge–Kutta Methods",
+        "trigger": "Older conceptually close method-level unconditional contractivity literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aa8bbc71-4471-4e08-aeb1-e07ba3420dd3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the natural rank-one implicit strengthening of a dissipative IMEX split, positive operator dominance guarantees unconditional spectral stability but does not guarantee non-increasing Euclidean energy in a single step. The exact all-dimensional arithmetic-harmonic Rayleigh gap determines when and how this safety fails, with a singular inverse-square cutoff as the direction approaches an eigenspace. It distinguishes transient norm growth from asymptotic numerical divergence and provides a sharp diagnostic without imposing a paper-sized downstream theorem.",
+    "status": "PASS"
+  }
+}
