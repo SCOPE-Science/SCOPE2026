@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(j\\ge3\\) and cut \\(m,b\\ge 2^j-1\\), Lucas congruence makes the computational-basis coefficient sign depend only on the sum of Hamming-weight residues modulo \\(q=2^j\\). Orthonormal residue compression gives the exact matrix \\(T\\) and all positive eigenvalues of \\(TT^{\\mathsf T}\\). Its factor \\(F=J-2R\\) satisfies \\(FF^{\\mathsf T}=4I+(q-4)J\\), with positive eigenvalues \\((q-2)^2\\) and \\(4\\), proving rank \\(q\\). A roots-of-unity filter proves fixed-\\(q\\) convergence of both residue distributions to uniform, giving one eigenvalue \\((1-2/q)^2\\) and \\(q-1\\) eigenvalues \\(4/q^2\\); entropy is \\(O((\\log q)/q)\\), while Schmidt rank \\(q\\) diverges. Actual standalone checker passed 21 separate normalization, direct small-state spectrum, rank and limiting-spectrum comparisons. Exact proof, not finite testing, supports the infinite family. No assertion for uniform joint limits or other arities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fajardo and Paraschiv, arXiv:2602.21016, sections III-IV, derive general real equally weighted sign matrix and lower-bound certificates from restricted bilinear cores; the complete Mersenne spectrum is not their output.",
+        "Nöller, Gühne and Gachechiladze, arXiv:2302.01695v2, sections 2-4 and the discussion of Schmidt coefficients on page 10, focus on geometric entanglement and Bell nonlocality.",
+        "Rossi et al., arXiv:1211.5554, section 3, establish the broad state family without the claimed full spectral calculation."
+      ],
+      "reasoning": "A completely general sign-matrix rank representation applies but does not give the nontrivial exact singular values of the specific residue matrix or the infinite-arity entropy asymptotics. The inspected broader statements therefore do not imply the theorem without carrying out these additional calculations.",
+      "searches": [
+        "symmetric complete hypergraph states Schmidt decomposition eigenvalues across bipartition all k uniform",
+        "complete uniform hypergraph states hyperedge cardinality 2^k-1 Schmidt spectrum entanglement",
+        "Restriction-Based Certificate of Bipartite Schmidt Rank in Hypergraph States full text section III IV"
+      ]
+    },
+    "checked_sources": [
+      "Rossi et al., Quantum Hypergraph States, arXiv:1211.5554, https://arxiv.org/html/1211.5554v3",
+      "Nöller et al., Symmetric hypergraph states: Entanglement quantification and robust Bell nonlocality, arXiv:2302.01695, https://arxiv.org/pdf/2302.01695",
+      "Fajardo and Paraschiv, Restriction-Based Certificate of Bipartite Schmidt Rank in Hypergraph States, arXiv:2602.21016, https://arxiv.org/html/2602.21016v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rossi et al. arXiv:1211.5554 provide definition and general state representation, not a cut spectrum.",
+        "Nöller et al., arXiv:2302.01695v2, treat the same complete-symmetric state class and geometric measure, but the inspected results do not give all Schmidt eigenvalues for the arities \\(2^j-1\\) or the iterated limit.",
+        "The power-of-two-arity case \\(2^j\\) is not a general theorem over adjacent integer arities \\(2^j-1\\).",
+        "The power-of-two-arity case \\(2^j\\) is not a general theorem over adjacent integer arities \\(\\(2^j\\)-1\\)."
+      ],
+      "reasoning": "The new conclusion is not implied by the checked statements without extra Lucas-residue analysis, proof of full-rank cyclic sign structure, diagonalization and limit control. General REW-state formalism has broad applicability but is a starting definition rather than a stronger exact theorem.",
+      "searches": [
+        "complete 7 uniform hypergraph state Schmidt spectrum entanglement",
+        "Mersenne uniformity hypergraph states entanglement entropy Schmidt rank",
+        "hypergraph state binomial 7 modulo 8 entanglement rank spectrum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rossi et al., arXiv:1211.5554, sections 3 and 5, define complete uniform controlled-phase state and real equally weighted Boolean phase form.",
+        "The present object is equivalently a symmetric Boolean phase \\(f(w)=(-1)^{\\mathbf1_{\\{w\\equiv q-1\\pmod q\\}}\\) with compressed cyclic sign matrix \\(J-2R\\). This exact matrix yields the claimed eigenvalues after residue weights become uniform.",
+        "Nöller et al., arXiv:2302.01695, pages 2-11 address symmetric hypergraph states through geometric entanglement, not all bipartite reduced eigenvalues."
+      ],
+      "reasoning": "The sign-matrix reformulation is a mathematical equivalence, not a separate original result. Prior generic constructions do not themselves evaluate this matrix as a normalized reduced-state spectrum or establish the rank-diverging/entropy-vanishing sequential limit.",
+      "searches": [
+        "complete hypergraph state all subsets size 2^j minus one exact Schmidt rank q uniform bipartition singular spectrum",
+        "hypergraph state binomial parity transfer cyclic sign matrix Schmidt eigenvalues",
+        "Mersenne uniformity hypergraph states entanglement entropy Schmidt rank"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest mathematical-record search hits concern Johnson-slice concentration spectra and Walsh Fourier sampling on Hamming spheres, not qubit complete-hypergraph reduced states.",
+        "The accessible prior complete-hypergraph spectral formula is for power-of-two arities, with a distinct phase kernel; it does not cover Mersenne arities and is not repeated here.",
+        "No exact Schmidt-eigenvalue table for the Mersenne family was located in the inspected sources."
+      ],
+      "reasoning": "Neither matched words like spectrum nor similar powers-of-two parameters establish implication. The checked datasets and claims do not provide this exact finite cut spectrum or its sequential entropy limit, although the universe of possible mathematical tables is not exhaustively searchable.",
+      "searches": [
+        "Lucas theorem symmetric hypergraph states all subsets arity 3 7 15 residue mod powers of two one large eigenvalue",
+        "complete hypergraph state all subsets size 2^j minus one exact Schmidt rank q uniform bipartition singular spectrum",
+        "symmetric hypergraph state reduced density matrix eigenvalues all k uniform"
+      ]
+    },
+    "rationale": "The examined prior methods supply hypergraph-state construction, general real phase matrices, spectral numerical approaches and geometric entanglement, but not the complete Mersenne-arity finite reduced spectrum plus the sequential rank-versus-entropy separation. A previously known power-of-two arity result treats distinct interaction arities and has different phase structure. Direct exact-matrix, alias and stronger-coverage searches did not identify a statement that implies the theorem. Novelty is judged on material inspected rather than the absence of search hits; specialized equivalent symmetric-state literature remains an explicit residual risk.",
+    "residual_risks": [
+      "Historical specialty papers on reduced spectra of symmetric real equally weighted states or cyclic sign matrices could independently imply or reproduce the calculation.",
+      "Nöller et al. analyze a closely related complete symmetric state class; possible implications of uninspected specialized algebraic identities beyond the checked sections require independent priority review.",
+      "Literature and semantic database searches are bounded; negative hits do not certify uniqueness or priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the family and general phase representation; does not give the Mersenne-arity cut eigenvalues or sequential entropy collapse.",
+        "evidence": [
+          "arXiv:1211.5554, sections 3 and 5: controlled-phase hypergraph states and REW Boolean coefficients."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1211.5554v3",
+        "material_read": "Full HTML, especially sections 1-5 and equations (4), (7), (10) on hyperedge gates and equally weighted phase representations.",
+        "method": "read accessible lawful full HTML, compare exact object and claimed outputs",
+        "title": "Quantum Hypergraph States",
+        "trigger": "earliest focal definition of the complete uniform hypergraph quantum state"
+      },
+      {
+        "assessment": "Geometric multipartite entanglement, Bell nonlocality, and local symmetries are examined, not all reduced-state eigenvalues for Mersenne interaction arities.",
+        "evidence": [
+          "arXiv:2302.01695v2, pp. 2-3 introduction; pp. 9-11 geometric-entanglement results and only incidental largest Schmidt coefficient discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.01695",
+        "material_read": "PDF title, pages 1-3 on complete symmetric states, sections 2-3 on local symmetries and geometric entanglement, targeted text search for Schmidt, entropy, bipartitions, and the discussed entanglement applications.",
+        "method": "read searchable full PDF text and visually inspect a relevant page",
+        "title": "Symmetric hypergraph states: Entanglement quantification and robust Bell nonlocality",
+        "trigger": "directly studies complete symmetric uniform hypergraph states and could dominate a new spectrum calculation"
+      },
+      {
+        "assessment": "Provides generic sign-matrix representation and bilinear-submatrix lower bounds, not exact complete Schmidt eigenvalues for complete Mersenne-uniform hypergraphs.",
+        "evidence": [
+          "arXiv:2602.21016v1, Sec. III.2 and IV; Theorem 1 graph-state bilinear case; higher-degree core lower-bound method."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.21016v1",
+        "material_read": "Accessible full HTML, Sections II-IV including real equally weighted coefficient matrix, bilinear rule, higher-degree residual limitations, and lower-bound certificate construction.",
+        "method": "read lawful open HTML and assess scope and implication of Theorems 1 and 2",
+        "title": "Restriction-Based Certificate of Bipartite Schmidt Rank in Hypergraph States",
+        "trigger": "general bipartite Schmidt-rank method might imply exact results for high-degree phase states"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90759714-2c3f-4582-8227-0dbbebdbfcdf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural complete hypergraph-state family exhibits exact Schmidt rank \\(q\\) for every qualifying finite cut but sequential limiting von Neumann entropy tending to zero as \\(q\\) grows. The complete finite Schmidt spectrum, limiting rank-one-dominant law and purity are structurally useful quantum many-body benchmarks. This is an infinite all-parameter statement, not an isolated computation or an unsupported numerical improvement. The qualitative separation of Schmidt rank from entropic entanglement survives all \\(q=2^j\\), \\(j\\ge3\\).",
+    "status": "PASS"
+  }
+}
