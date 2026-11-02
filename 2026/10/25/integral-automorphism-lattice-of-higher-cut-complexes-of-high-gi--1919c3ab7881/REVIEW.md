@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Alexander dual is exactly the complete \((k-2)\)-skeleton together with connected \(k\)-sets: any larger face would force a cycle of length at most \(k+1\). Connected \(k\)-sets are induced trees; deleting an internal vertex supplies a private face, giving unit-minor saturation and torsion-free cokernel. The cycle-lattice identification \(\operatorname{im}\iota_\epsilon=\bigwedge^{k-1}U\), integral universal coefficients and sign-equivariant Alexander duality produce the stated \(\mathbb Z\operatorname{Aut}(G)\)-module. Independent enumerations check 81 signed traces, 7 mod-two Betti vectors and 446 private-face witnesses. The latter finite checks support, but do not establish, the arbitrary-graph theorem.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-The 2023 *Topology of Cut Complexes of Graphs* treats skeleton conditions and ranks; *Topology of Cut Complexes II* (2024), equation (15), gives a general **rational virtual character** which already implies the displayed rational trace. The previously recorded all-parameter high-girth theorem proves the **nonequivariant** wedge type and private-face mechanism. These are substantial antecedents explicitly excluded from the originality claim. The new object is the **specific canonical integral equivariant quotient lattice and its saturation**, which cannot be recovered solely from a rational virtual character or Betti numbers. The closest published statements inspected did not specify that lattice. The complete published high-girth RESULT text was inspected; its stated theorem and proof establish the nonequivariant homotopy type, the private-face lemma and integral rank, but do not identify the integral automorphism lattice. An unindexed equivalent integral formulation remains possible.
+PASS
 
-## Mathematical value — PASS
-Integral group representations are not classified by their rational characters: nonsplit integral extensions and modular behavior are lost after rationalization. A uniform presentation as a torsion-free quotient of the natural augmentation exterior power supplies the complete action over \(\mathbb Z\) and, by base change, over every field for arbitrary high-girth graphs and all \(k\ge4\) in scope. It also identifies where the graph enters the representation—the oriented connected \(k\)-vertex trees—without requiring graph-by-graph simplicial homology computations. This is a structural representation theorem, not an additional restatement of the known wedge count or rational character.
+The Alexander dual contains the entire (k-2)-skeleton and exactly one (k-1)-simplex for each connected k-vertex subset: if all k-deletions of k+1 vertices were connected, a short cycle would contradict girth. A connected k-subset is a tree; deleting an internal vertex supplies a private (k-2)-face, otherwise a second connector yields a cycle of length <=k+1. Private faces form a signed identity minor of boundary Φ: W_k→wedge^{k-1}U; hence Φ injective and primitively embedded, with free cokernel Q. Canonical augmentation contraction identifies skeleton cycles with wedge^{k-1}U, and signed integral equivariant Alexander duality plus UCT gives H_{N-k-1}=sgn_V ⊗ Q^vee, no other reduced homology. Independent exact mod-two simplicial boundary calculation for P8,k4 gave H3 dimension30=C(7,3)-5. The finite script is a check, not a proof.
 
-## Prior-work boundaries and limitations
-The arbitrary-graph virtual character in Bayer et al. (2024) decisively covers the rational-character corollary. The earlier high-girth result decisively covers nonequivariant homotopy and the private-face existence claim. Neither is accepted here as new; the scope is the integral automorphism lattice. The earlier high-girth result was inspected in full for its main claim and proof. Its private-face argument is incorporated with attribution; a differently formulated unindexed integral-equivariant result remains a residual literature risk. There is no claim of an integral semisimple decomposition or of an external independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for canonical integral equivariant quotient lattice. The nonequivariant wedge, private-face lemma and rank are fully covered by an earlier published result, and the rational character follows from Bayer et al. 2024 general virtual-character formula. Those are explicitly excluded from novelty; a full natural integral lattice and all-characteristic action are more specific information than a rational virtual character.
+
+## value
+
+PASS
+
+A natural family of high-girth graphs admits a uniform integral Γ-module presentation valid through modular reduction even when rational characters forget extension data. This identifies exactly how oriented connected k-vertex subsets constrain the augmentation exterior-power lattice; structurally stronger than known Betti numbers and rational traces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify_cut.py` with Python 3. The verifier constructs cut-complex faces from disconnected induced \(k\)-subsets, computes simplicial Lefschetz traces with exact orientation signs, computes exact mod-two boundary ranks, and detects a private face in every connected \(k\)-set in selected finite graphs. No external libraries or precomputed tables are needed.
+## correctness
 
-Observed completion markers in the package environment:
+PASS
 
-```
-SIGNED_LEFSCHETZ_COMPARISONS_OK 81
-MOD2_HOMOLOGY_CHECKS_OK 7
-CUT_COMPLEX_CHARACTER_CERTIFICATE_VERIFIED
-PRIVATE_FACET_UNIMODULAR_SATURATION_OK 15 446
-```
+The Alexander dual contains the entire (k-2)-skeleton and exactly one (k-1)-simplex for each connected k-vertex subset: if all k-deletions of k+1 vertices were connected, a short cycle would contradict girth. A connected k-subset is a tree; deleting an internal vertex supplies a private (k-2)-face, otherwise a second connector yields a cycle of length <=k+1. Private faces form a signed identity minor of boundary Φ: W_k→wedge^{k-1}U; hence Φ injective and primitively embedded, with free cokernel Q. Canonical augmentation contraction identifies skeleton cycles with wedge^{k-1}U, and signed integral equivariant Alexander duality plus UCT gives H_{N-k-1}=sgn_V ⊗ Q^vee, no other reduced homology. Independent exact mod-two simplicial boundary calculation for P8,k4 gave H3 dimension30=C(7,3)-5. The finite script is a check, not a proof.
 
-These tests are finite and do not prove the theorem for arbitrary graphs. The proof in `RESULT.md` supplies the universal topological argument. In particular, the **integral** claim rests on the private-face minor and the integral Alexander duality construction, not on mod-two computations or character traces. The current mathematical review is not an independent audit.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for canonical integral equivariant quotient lattice. The nonequivariant wedge, private-face lemma and rank are fully covered by an earlier published result, and the rational character follows from Bayer et al. 2024 general virtual-character formula. Those are explicitly excluded from novelty; a full natural integral lattice and all-characteristic action are more specific information than a rational virtual character.
+
+## value
+
+PASS
+
+A natural family of high-girth graphs admits a uniform integral Γ-module presentation valid through modular reduction even when rational characters forget extension data. This identifies exactly how oriented connected k-vertex subsets constrain the augmentation exterior-power lattice; structurally stronger than known Betti numbers and rational traces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
