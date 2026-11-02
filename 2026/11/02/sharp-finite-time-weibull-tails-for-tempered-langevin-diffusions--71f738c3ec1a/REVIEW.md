@@ -1,0 +1,15 @@
+# Scientific review: sharp finite-time radial tails
+
+## Correctness — PASS
+The sole claim is the exact fixed-time logarithmic tail constant and its strict exponential-moment corollary for the stated Itô diffusion. The radial clock has asymptotic quadratic-variation rate \(c_\pi^{-2\ell}\) and a globally bounded drift. The upper estimate uses a truncated radial clock that is identically constant on a sufficiently large interior ball; its quadratic variation is bounded everywhere by the exterior near-limit rate, preventing the interior from worsening the leading exponential constant. The lower estimate constructs a Brownian excursion that stays above a protective negative barrier and reaches the large target level by nearly the full available time, with Gaussian exponent \(-1/(2v_-t)\). Uniform compact-set reachability and the Markov property extend the lower estimate to all deterministic initial states. The matching limits prove the theorem. The standard exponential-tail integral yields the strict moment cutoff. The boundary equality is deliberately unproved.
+
+## Originality — PASS, qualified
+The closest article is Mijatović–Xie, arXiv:2610.30024v1, especially Theorem 2.2(1) and Section 4.1. That paper establishes the critical power \(2[1-\ell(d+r)]\) and supplies only nonmatching sufficient time bounds for its unit-coefficient exponential moment. It does not claim an exact \(R^{2a}\)-normalized logarithmic tail or the exact strict time division. The new work supplies that coefficient for every target satisfying the paper's asymptotic assumptions. Fort–Roberts (2005) and Brešar–Mijatović (arXiv:2403.14826) concern ergodic convergence rather than this fixed-time marginal asymptotic. Search comparisons found no equivalent claim. Generic Gaussian large-deviation and heat-kernel methods might independently imply a result of this type; no absolute priority claim is made. Relevant searches and inspected sources are detailed in AUDIT.json.
+
+## Mathematical value — PASS
+The critical-power endpoint in the motivating theorem previously carried two separated time constants. The present exact coefficient removes the open interval between them and gives a sharp time threshold, with all dimensions, all subcritical temperatures, and generally direction-dependent targets admitted by the existing assumptions. This is an intrinsic fixed-time distributional invariant, not a routine restatement of polynomial versus exponential convergence or a numerical instance. The equality case, prefactors and uniform error bounds remain outside the result.
+
+## Limits of verification
+The radial algebra is reproducibly checked by an exact-rational standalone script (603 assertions). Finite arithmetic is not a proof of the Gaussian bridge estimate or of the diffusion tail limit; these follow from the explicit analytical argument in RESULT.md. There is no outside proof validation and historical priority remains subject to fuller review of general heat-kernel comparison theorems.
+
+Self-review: passed. Independent audit: not yet performed.
