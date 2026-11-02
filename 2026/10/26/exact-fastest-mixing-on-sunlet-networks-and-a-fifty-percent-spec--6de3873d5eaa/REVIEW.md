@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result specifies the full feasible class of symmetric, nonnegative stochastic transition matrices, and the proof establishes a global lower bound by convex automorphism averaging. The two-by-two Fourier block eigenvalues reduce the spectral optimization to a strictly convex one-variable function. The claimed weights uniquely minimize that function. An explicit positive difference of squares controls every negative Fourier mode, including boundary cases and both parities of the cycle length. The exact heuristic formula and limiting gap ratio follow by a separate mode comparison. The embedded script rechecks all symbolic identities and complete dense-matrix spectra for finitely many graph sizes, without treating those checks as an infinite proof.
+PASS
 
-## Originality — PASS, subject to residual literature uncertainty
+Reconstructed the dihedral automorphism averaging argument using the convex centered operator norm, valid for all noninvariant feasible matrices. For invariant weights a,b, 2a+b<=1, diagonalization along the ring yields eigenvalues 1-b-a delta ±sqrt(b²+a²delta²), delta=1-cos(2pi j/n). For r=u²=1-cos(2pi/n), the positive-mode lower envelope strictly decreases in a and has a strictly convex unique b optimizer: a=(u+2)/(2H), b=u(u+1)/H, H=u²+2u+2. Check negative modes using mu²-[b²+(1-b)²]=u(u+2)(2-u²)/H²>0 for n>=3; mu=2(u+1)/H is actually attained as SLEM. At a=b=1/3 heuristic mu=(2-u²+sqrt(1+u^4))/3, optimal/heuristic gap tends to 3/2. Independent matrix eigenvalue experiments at all n=3..50 reproduce both; proof is all-mode analytical and not extrapolated.
 
-Closest primary sources are Boyd–Diaconis–Xiao (2004), the Boyd–Diaconis–Parrilo–Xiao symmetry analysis (initial arXiv 2007), and Olesker-Taylor–Zanetti (2024). The first two give the general convex method and exact results for cycles, wheels, and other symmetric graphs, but their inspected material does not state the present exact optimum for a corona of a cycle. The third concerns geometric mixing-time bounds and not this exact minimax problem. A known exact complete-core corona formula does not establish the distinct cyclic spectrum; the present proof must bound all Fourier modes. Directed, nonsymmetric or nonuniform-stationary results were excluded from equivalence comparisons because their feasible sets differ. A specialized uncatalogued publication with exactly this claim remains possible; the search does not constitute an originality certificate.
+## originality
 
-## Value — PASS
+PASS
 
-Pendant states create a genuine design conflict between maintaining high transition rates along the backbone and leaving enough probability to enter and exit leaves. The theorem solves that tradeoff globally in closed form for an entire sparse graph family, not just finitely many instances. It also identifies the zero optimal cycle self-loop, proves uniqueness within the natural invariant class, and quantifies a sharp \(50\%\) asymptotic spectral-gap improvement over two widely used uniform-target weight assignments. The exact result is a useful benchmark for stochastic network optimization and for studying effects of pendant states on mixing.
+Boyd–Diaconis–Xiao provide convex fastest-mixing Markov-chain framework; Boyd–Diaconis–Parrilo–Xiao give automorphism averaging and examples pure cycles/wheels/bump rings, not the present ring with one degree-one pendant per cycle node. The general SDP solves finite instances but does not state this exact all-n closed form or asymptotic ratio in inspected text. Specialized sunlet chain literature remains possible.
 
-## Scientific limitations
+## value
 
-The claim does not assert uniqueness among all asymmetric edge-weight patterns, nor does it treat nonsymmetric Markov chains, nonuniform stationary laws or non-SLEM mixing objectives. Its mathematical originality is based on inspected primary literature and tested semantic overlap, with residual risk explicitly acknowledged.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sunlets form a natural infinite bounded-degree graph family with slow ring mixing. Exact optimum edge weights, all-eigenmode attainment, and a 50% limiting gap advantage over standard heuristics are useful analytic mixing benchmarks; the result is not merely a numerical SDP instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

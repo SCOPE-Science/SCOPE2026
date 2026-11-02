@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-In a Python environment with the packages listed in `requirements.txt`, execute `python verify.py`. The program first checks exact symbolic identities in the parameter \(u\): stochasticity of the proposed weights, the critical square-root identity, the closed-form SLEM, the negative-eigenvalue domination inequality and the asymptotic gap ratio. It then forms the full stochastic matrix for every \(n\in\{3,\ldots,50\}\), compares all eigenvalues with the Fourier-block spectrum, and checks the optimum and standard weighting SLEMs. It also tests 1,080 feasible competitors, including invariant and noninvariant ones.
+## correctness
 
-Actual successful replay output:
+PASS
 
-```text
-VERIFY_OK symbolic identities, spectral blocks and exact closed forms; 48 graph sizes; 48 optimum checks; 48 heuristic checks; 1080 feasible comparisons; asymptotic gap ratio 3/2
-```
+Reconstructed the dihedral automorphism averaging argument using the convex centered operator norm, valid for all noninvariant feasible matrices. For invariant weights a,b, 2a+b<=1, diagonalization along the ring yields eigenvalues 1-b-a delta ±sqrt(b²+a²delta²), delta=1-cos(2pi j/n). For r=u²=1-cos(2pi/n), the positive-mode lower envelope strictly decreases in a and has a strictly convex unique b optimizer: a=(u+2)/(2H), b=u(u+1)/H, H=u²+2u+2. Check negative modes using mu²-[b²+(1-b)²]=u(u+2)(2-u²)/H²>0 for n>=3; mu=2(u+1)/H is actually attained as SLEM. At a=b=1/3 heuristic mu=(2-u²+sqrt(1+u^4))/3, optimal/heuristic gap tends to 3/2. Independent matrix eigenvalue experiments at all n=3..50 reproduce both; proof is all-mode analytical and not extrapolated.
 
-The universal global optimum is proved analytically in `RESULT.md`: convex symmetrization, Fourier eigenvalue formula, strict convex minimization, and a positive algebraic gap protecting every negative spectral mode. Finite checks cannot establish a theorem for all sizes, uniqueness outside the invariant class, or novelty. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Boyd–Diaconis–Xiao provide convex fastest-mixing Markov-chain framework; Boyd–Diaconis–Parrilo–Xiao give automorphism averaging and examples pure cycles/wheels/bump rings, not the present ring with one degree-one pendant per cycle node. The general SDP solves finite instances but does not state this exact all-n closed form or asymptotic ratio in inspected text. Specialized sunlet chain literature remains possible.
+
+## value
+
+PASS
+
+Sunlets form a natural infinite bounded-degree graph family with slow ring mixing. Exact optimum edge weights, all-eigenmode attainment, and a 50% limiting gap advantage over standard heuristics are useful analytic mixing benchmarks; the result is not merely a numerical SDP instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
