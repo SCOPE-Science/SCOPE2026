@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The file `verify_crown.py` is a standalone Python 3 checker requiring only the standard library. Running `python3 verify_crown.py` produces `PASS 180 orbit-independence/equivariant-Euler checks` and `PASS 6 mod-two homology vectors` after displaying the six computed face and homology vectors.
+## correctness
 
-The first test independently enumerates orbits of each graph automorphism associated with all conjugacy-class representatives in \(S_n\), for \(3\leq n\leq5\) and \(0\leq\ell\leq5\), with and without part exchange. It rejects vertex orbits that contain an edge and computes the signed independence polynomial of the remaining orbit graph using the deletion recurrence. Each answer is checked against the reduced Lefschetz character predicted by the theorem, including the exceptional two-degree case when \(3\mid\ell\). This gives exactly 180 comparisons.
+PASS
 
-The second test generates all independent sets, builds mod-two simplicial boundary matrices, and computes reduced homology ranks for \((n,\ell)=(3,0),(3,1),(3,2),(3,3),(4,0),(4,1)\). The nonzero reduced mod-two ranks are respectively \((\beta_0,\beta_1)=(1,2)\), \(\beta_2=2\), \(\beta_3=4\), \((\beta_4,\beta_5)=(4,8)\), \((\beta_0,\beta_1)=(1,3)\), and \(\beta_2=3\).
+The actual frozen RESULT.md defines the ordinary generalized Mycielski graph layer by layer, including ell=0 and the apex, and the integral augmentation lattice U_n. Cr_n independence complex is two part simplices joined by n matching bridges: H1 is U_n, and part interchange reverses bridge orientations. The Kronecker double cover of a bipartite graph is two disjoint copies, so its independence complex is the join I*I, with homology U_n tensor U_n in degree three and unsigned tensor flip on swapping the two join factors (two local negative bridge signs cancel). The proof performs full-layer equivariant foldings of the apex deletion and apex closed-neighborhood deletion, establishes the three-period A_ell/B_ell patterns and applies the equivariant Mayer-Vietoris long exact sequence; each term occupies isolated degrees, with no integral extension. For ell=0 the isolated apex gives H~0=Z, H~1=U_n, explicitly handling the boundary. The tensor-flip trace tr((M⊗M)flip)=tr(M^2) produces v(sigma)=fix(sigma^2)-1; the outer unpaired U_n contributes -u(sigma). Independent direct automorphism-invariant independence-set Lefschetz calculations checked 180 small parameter/group cases. Finite verification supports, but cannot prove, the unrestricted integral fold argument.
 
-**Scope.** Finite calculations are checks only. Integral torsion-freeness, the general module description, the all-parameter character formula and the absence of other reduced homology groups are established by the fold and equivariant long-exact-sequence proof in `RESULT.md`, not by extrapolating from experiments. The script does not calculate the full integral chain representation or independently prove the fold lemma for unbounded parameters. No independent audit has been performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge ORIGINALITY PASS for the specific final claim, NOT a declaration that known nonequivariant calculations or general frameworks are new. Carnero Bravo, Independence complexes of generalized Mycielskian graphs, arXiv:2601.13432; Theorem 5, Proposition 10 and Corollary 8 explicitly cover nonequivariant crown family K_2 x K_n, including ranks/dimensions, but do not give natural integral S_n x C2 modules or part-exchanging trace. That known broader nonequivariant result is fully credited. Goyal–Shukla–Singh, Homotopy Type of Independence Complexes of Certain Families of Graphs, arXiv:1905.06926; abstract/introduction and generalized complete-graph constructions give nonequivariant homotopy information for other base graphs, without the crown module and its part exchange. Residual priority risks are stated; no stronger indexed result was identified which logically implies the assessed claim.
+
+## value
+
+PASS
+
+A full integral S_n×C2 representation of a natural graph-family independence complex is stronger than its known sphere multiplicities; it captures part-exchanging characters sensitive to 2-cycles of permutations and affords genuine symmetry constraints unavailable from ranks. It is not simply a re-expression of the nonequivariant Carnero Bravo result or a substitution from complete graphs, because the distinguished automorphism and integral tensor-flip actions must be established.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
