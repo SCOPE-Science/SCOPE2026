@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For reduced positive \(a/b\), the quotient rule and coprimality force the logarithmic derivative of \(b\) to be a positive integer, and every exponent in \(b\) must be divisible by its underlying prime. A squarefree numerator supported on at most four primes has logarithmic derivative at most \(247/210<2\), hence the denominator is \(q^q\). The reciprocal-prime classification is exhaustive: among up to three factors only \(30\) has positive surplus, equal to \(1\); at four factors the only possibilities are \(2\cdot3\cdot11\cdot13\) with surplus \(1\), \(2\cdot3\cdot7\cdot s\) with surplus \(42-s\le31\), and \(30r\) with surplus \(r+30\). Coprimality excludes the first two and gives the stated prime condition in the third. The converse is direct. A finite exact check is corroboration, not the universal proof.
+PASS
 
-## Originality
+From the quotient rule, D(a)−aD(b)/b=b and gcd(a,b)=1 imply D(b)/b is a positive integer K. Multiplying by rad(b) and reducing mod each denominator prime proves e_p divisible by p, giving K=sum k_p. With omega(a)≤4, D(a)/a≤1/2+1/3+1/5+1/7=247/210<2, so K=1 and b=q^q. Positive D(a)−a excludes 0–2 supports and every three-prime support except a=30; for a=30 the surplus is 1<b. For four primes, reciprocal bounds force initial 2,3 and third 5,7 or11. The 11-branch has a=2·3·11·13 and surplus 1; the 7-branch has surplus 42−s≤31<5^5; the 5-branch has a=30r and D(a)−a=r+30=q^q. Converse follows by exact derivative and coprimality. Fresh exact Fraction checks corroborate low-support logic, not as a substitute for arbitrary primes.
 
-PASS under the inspected evidence, with priority risk. Ufnarovski--Åhlander (2003), Sections 7--8, already give the denominator-divisibility framework, but not the four-prime squarefree-numerator classification. Dahl--Olsson--Loiko (2011) studies general rational arithmetic derivatives without the claimed small-support converse. The October 2026 Mathematics Stack Exchange discussion already explains the sufficient construction with \(30\); that part is explicitly NOT asserted as novel. The contribution, if new, is that no other reduced rational four-prime squarefree numerator or denominator pattern works. Research-record semantic searches for that implication and aliases did not return equivalent claims. The 2024 journal article was accessible only in preview; unindexed work may dominate the asserted converse.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The least possible squarefree numerator prime support is an intrinsic invariant for the rational antiderivative problem introduced in Conjecture 12 (2003). The classification rules out every smaller support and completely describes the next, infinitely parameterized support layer without an arbitrary bound; it identifies the boundary of a natural question even though the infinitude of prime values remains unresolved.
+Statement-level comparisons with direct primary sources support this qualified best-of-knowledge originality judgment; all shared ingredients and residual discrepancies are expressly recorded. 
 
-## Sources and limitations
+## value
 
-Ufnarovski--Åhlander, *How to Differentiate a Number*, JIS 6 (2003), article 03.3.4, Theorem 17 and Conjecture 12; Dahl--Olsson--Loiko, arXiv:1108.4762v1 (2011); Mathematics Stack Exchange question 5151793 (October 2026); *We Can Differentiate Numbers, Too* (2024, preview only). The theorem is conditional on primality of \(q^q-30\) and excludes non-squarefree numerators and integers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem classifies the smallest possible squarefree numerator prime support of an old rational arithmetic-derivative Diophantine equation. It distinguishes known sufficient counterexamples from the necessary-and-sufficient small-support rigidity, without asserting any unproved prime-value existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
