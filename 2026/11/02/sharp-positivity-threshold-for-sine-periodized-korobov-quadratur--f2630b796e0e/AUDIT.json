@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The RKHS norm yields the cellwise Euler–Lagrange equation and unique explicit spline interpolant. Integrating produces a common positive gamma-dependent correction to nonnegative hat moments. A circle-convolution rearrangement proves the minimum hat moment is P_N at a sine-density zero. Orthogonal Fourier series give exact even/odd H_N. Their strict inequalities and monotone correction yield a unique sharp crossing and all equality cases. The Taylor/cotangent expansion yields the stated two-term law. Standalone tests independently rebuild Gram systems and compare exact formulas for 2<=N<=14; finite tests are corroboration, not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bartel et al. Section 7.2 explicitly notes that asymptotic positivity of their general multivariate method is not known.",
+        "Classical polynomial product integration has asymptotic-positivity results at Jacobi or Clenshaw–Curtis points, a different function space and point family."
+      ],
+      "reasoning": "Any theorem proving positivity for all kernel parameters in this setting would conflict with the explicit negative-weight examples above the threshold. The prior multivariate error/convergence bounds are not positivity claims; earlier polynomial product-integration conclusions do not imply the exact univariate Korobov threshold.",
+      "searches": [
+        "arXiv 2610.01113 Bartel Gilbert Griebel Kuo Sloan periodization kernel weights nonnegative",
+        "exact minimum positive optimal weights univariate periodic Sobolev kernel quadrature using absolute sine density",
+        "periodic H1 minimal norm spline interpolant equispaced samples triangular hats quadratic cell correction weighted integration quadrature weights sign",
+        "Bartel et al. 2026 Section 7.2",
+        "Sloan–Smith 1982 DOI 10.1137/0719027"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.01113v1",
+      "https://ins.uni-bonn.de/media/public/publication-media/diss_oettershagen.pdf?pk=460",
+      "https://doi.org/10.1137/0719027",
+      "https://arxiv.org/abs/1709.00147",
+      "published-finding corpus search hits: 2026/10/4/SCOPE-the-first-monotone-range-failure-of-closed-newton-cotes-occurs-a--c37fd2660f48",
+      "published-finding corpus search hits: 2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648",
+      "published-finding corpus search hits: 2026/10/4/SCOPE-all-order-sharp-three-point-smoothest-averages--97ecaa4cd5e9",
+      "published-finding corpus search hits: 2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source supplies kernel K, density mu, and weight formula K^{-1} kappa, but not the exact smallest cardinal-integral weight or threshold.",
+        "General RKHS cubature theory supplies the minimizer, not its sign for the concrete univariate parameters."
+      ],
+      "reasoning": "The new claim specializes the published method to s=1 and alpha=1 but proves additional necessary-and-sufficient parameter inequalities; it is not a corollary of published convergence bounds. Conversely, a fully general sign classification would dominate it; no such statement was found in the accessed sources.",
+      "searches": [
+        "arXiv 2610.01113 Bartel Gilbert Griebel Kuo Sloan periodization kernel weights nonnegative",
+        "sine periodization Korobov kernel alpha 1 equispaced quadratic periodic spline positivity threshold n gamma",
+        "univariate first-order periodic Korobov kernel quadrature weights for sine-absolute density gamma shape critical nonnegativity and asymptotic gamma ~ N",
+        "Bartel et al. 2026 equations (1.6), (2.5), (3.2), Section 7.2",
+        "Oettershagen thesis Sections 3.3 and 3.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines the same quadrature as w=K^{-1} kappa but gives a circulant FFT procedure, not the explicit sign crossing.",
+        "Oettershagen develops the general identity between kernel-interpolated integration and optimal cubature; its Sections 3.3-3.4 do not state this sine-density cotangent threshold."
+      ],
+      "reasoning": "The new statement is equivalent to the sign and minimum of the kernel cardinal integrals for the specific sine density. It follows neither from the abstract RKHS representer identity nor from cardinal-interpolation existence without a nontrivial cell-bubble calculation and global minimum-hat argument.",
+      "searches": [
+        "sine periodization Korobov kernel alpha 1 equispaced quadratic periodic spline positivity threshold n gamma",
+        "univariate first-order periodic Korobov kernel quadrature weights for sine-absolute density gamma shape critical nonnegativity and asymptotic gamma ~ N",
+        "periodic H1 minimal norm spline interpolant equispaced samples triangular hats quadratic cell correction weighted integration quadrature weights sign",
+        "weighted Korobov spline quadrature positive weights circle trigonometric absolute sine Fourier univariate exact threshold",
+        "Oettershagen 2017 Sections 3.3-3.4",
+        "arXiv:2610.01113v1 Sections 3.1-3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The most similar research-record hits address Newton–Cotes, Romberg, Fourier sine sums and natural-cubic interpolation, none with these same kernel, density and parameters.",
+        "No exact tabulation of gamma_N was located in the inspected source or search results."
+      ],
+      "reasoning": "A database record for a different quadrature sign property is not equivalent to an exact all-N parameter transition. Search absence does not prove historical uniqueness; this is a best-knowledge comparison.",
+      "searches": [
+        "arxiv:2610.01113 univariate quadrature positivity kernel weights",
+        "periodized lattice kernel cubature sine Jacobian density Korobov alpha 1 univariate quadrature weights positive threshold gamma parameter",
+        "Bernoulli kernel B2 product integration sine Jacobian density Chebyshev transformed lattice optimal cubature negative weights",
+        "published-finding corpus semantic search of positive kernel quadrature and sine periodization"
+      ]
+    },
+    "rationale": "Compared the mathematical implication of exact finite-N positive-weight if-and-only-if thresholds and two-term large-N law with the source paper's formulas and general RKHS cubature, polynomial product integration and accessible research records. The 2026 source provides the method but not this exact sign classification. General representer theorems and convergence guarantees do not imply the sharp threshold without the new extremal analysis. Historical-priority uncertainty remains, especially older periodic Sobolev spline work.",
+    "residual_risks": [
+      "The 1982 Sloan–Smith paper's full text could not be inspected; comparison uses its abstract and its precise context as reported by Bartel et al.",
+      "Older spline and optimal product-integration literature could contain an equivalent sine-density threshold under another normalization; no exhaustive historical guarantee is claimed.",
+      "Novelty concerns only the stated first-order full univariate rule; other kernels or multivariate settings may behave differently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the weighting rule and related general theory, but not an exact finite-N gamma positivity classification; observes multivariate asymptotic positivity is unknown.",
+        "evidence": [
+          "Equations (1.4),(1.6),(2.5),(3.2) and Section 7.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01113v1",
+        "material_read": "Full HTML: abstract, introduction and transformation, RKHS kernel Sec. 2.1, full lattice and weighted quadrature Secs. 3.1-3.3, related methods Sec. 7.1-7.4, references",
+        "method": "Opened and read primary arXiv v1 HTML and searched for positivity",
+        "title": "A higher order lattice-based method for high-dimensional numerical integration using periodization",
+        "trigger": "Same specific numerical method, kernel, density and lattice"
+      },
+      {
+        "assessment": "General optimal cubature/spline framework and a periodic Sobolev benchmark for Lebesgue integration, not the concrete sine-Jacobian density and gamma-threshold condition.",
+        "evidence": [
+          "Sections 3.3 Definition 3.9 and Equation (3.15); Section 6.1 pp. 99–100 uses L(f)=int_0^1 f dx"
+        ],
+        "identifier_or_url": "https://ins.uni-bonn.de/media/public/publication-media/diss_oettershagen.pdf?pk=460",
+        "material_read": "Contents; Chapter 3 Section 3.3 spline algorithms and Section 3.4 context; Chapter 6 Section 6.1 discussion of periodic Sobolev quadrature with uniform Lebesgue integration and error/stability experiments",
+        "method": "Read text-extracted original PDF and inspected page images of Sections 3.3 and 6.1",
+        "title": "Construction of Optimal Cubature Algorithms with Applications to Econometrics and Uncertainty Quantification",
+        "trigger": "Cited primary source for general optimal RKHS cubature and spline representation"
+      },
+      {
+        "assessment": "Polynomial product-integration asymptotic positivity at classical nodes; not demonstrated to contain this parameter-specific kernel threshold. Cannot exclude unobserved broader coverage.",
+        "evidence": [
+          "DOI record and Bartel et al. Section 7.2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0719027",
+        "material_read": "Bibliographic record and abstract; full text not accessible through tried routes",
+        "method": "Searched DOI and accessible abstract; compared theorem setting reported by source paper",
+        "title": "Properties of Interpolatory Product Integration Rules",
+        "trigger": "Published paper cited by source Section 7.2 for asymptotic positivity of product-integration weights"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f2630b79-6e0e-46d4-8635-fdebb8a69606",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A direct mathematical/stability gap exists: the new sine-periodized kernel quadrature determines optimized signed weights without a criterion for nonnegative integration of positive data. The exact gamma_N classifies all finite grid sizes and all kernel parameters, identifies a genuine sign transition, and quantifies a nontrivial linear-in-grid threshold with explicit second term. It supplies an interpretable parameter-design benchmark not supplied by asymptotic error bounds; no general multidimensional positivity claim is inferred.",
+    "status": "PASS"
+  }
+}
