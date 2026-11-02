@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact IEEE half-format rational code enumeration, integer-only ties-even transition construction for every code, two independent exhaustive functional-graph decompositions, independent NumPy staged and Fraction one-round output checks at all 15361 codes, explicit endpoint overshoot bound, and analytical Cesàro overlap identity prove the exact period, basin, and TV statements on the fixed finite state set. No unverified infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Galias 2021 gives complete cycle enumeration techniques at 32 and 64 bits, not the binary16 comparative graph",
+        "Klöwer et al. studies statistical degradation under representation and rounding but does not state the exact pairwise circuit invariants."
+      ],
+      "reasoning": "General finite-state eventual periodicity and general basin-weighted invariant measures imply the form of the computation but neither determine the two transition graphs nor their exact quantitative separation. A hypothetical all-format table explicitly containing these two circuits would cover the result, but none was identified.",
+      "searches": [
+        "Binary16 logistic map 4*x*(1-x) with each operation rounded compared to single final rounding to IEEE half precision invariant distributions total variation",
+        "float16 finite-state dynamical systems logarithmic logistic map exact Cesaro measures 10267 out of 15361",
+        "\"Periodic orbits of the logistic map in single and double precision implementations\" Galias 2021"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.21203/rs.3.rs-2223046/v1",
+      "https://doi.org/10.1038/s41598-023-37004-4",
+      "https://rcorless.github.io/FloatsForPhilosophers.pdf",
+      "https://doi.org/10.1109/TCSII.2021.3081604"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published paper provides the finite-state methodology and numerical concerns, not a theorem fixing the joint exact circuit measures",
+        "Galias studies different representation widths; Corless provides the staged-only cycle."
+      ],
+      "reasoning": "The joint result would follow from a prior work only if that work implied both evaluated transition maps, the 5/40 cycle decompositions, or directly the Cesàro TV distance. General eventual periodicity and 2024 staged cycle information cannot imply which once-rounded graph occurs. No stronger covering parameter assertion was located.",
+      "searches": [
+        "Complete finite precision logistic map state graph census at 16-bit floats operation ordering different cycles",
+        "Binary16 logistic map 4*x*(1-x) with each operation rounded compared to single final rounding to IEEE half precision invariant distributions total variation",
+        "\"Periodic orbits in chaotic systems simulated at low precision\" Klöwer 2022 preprint 2023 Scientific Reports logistic section",
+        "\"Periodic orbits of the logistic map in single and double precision implementations\" Galias 2021"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Corless 2024 slide 59 presents 40-cycle and basin 10267 for ordinary half precision, no single-rounding contrast",
+        "Klöwer et al. 2023 logistic section distinguishes formats and stochastic rounding, not exact polynomial final-rounding."
+      ],
+      "reasoning": "Any equivalent claim must specify the same half-format state set, RNE operations, and the idealized once-rounded polynomial, and imply the exact 5-cycle/117 basin and 10267/15361 distribution difference. The staged part alone is covered by Corless; it is not presented as a novel finding. The different binary16 graph and exact TV comparison are not found in inspected sources.",
+      "searches": [
+        "Exact exhaustive float16 IEEE binary16 logistic map r=4 full finite state graph cycle periods basin sizes transients round-to-nearest ties-to-even",
+        "Complete finite precision logistic map state graph census at 16-bit floats operation ordering different cycles",
+        "Binary16 logistic map 4*x*(1-x) with each operation rounded compared to single final rounding to IEEE half precision invariant distributions total variation",
+        "\"Floats for Philosophers\" Corless 2024 slides 59-61 binary16 logistic 40 cycle 10267"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2024 Corless talk contains an explicit staged forty-cycle and 10,267 count",
+        "Searches for single-rounded binary16 five-cycle and 117-point basin returned no matching table or record."
+      ],
+      "reasoning": "The known 40-cycle table overlaps one stage exactly; the new final-rounding 5-cycle census and cross-circuit TV are different numerical invariants. Explicitly separate pre-existing table entries from the claimed comparison.",
+      "searches": [
+        "Exact exhaustive float16 IEEE binary16 logistic map r=4 full finite state graph cycle periods basin sizes transients round-to-nearest ties-to-even",
+        "Half precision logistic map 5-cycle 117 basin 15236 zero basin full exact rational polynomial rounding only once",
+        "\"Floats for Philosophers\" Corless 2024 slides 59-61 binary16 logistic 40 cycle 10267"
+      ]
+    },
+    "rationale": "Relative to the inspected 2022/2023 Klöwer et al. article, Corless 2024 slides and Galias 2021, the generic finite-graph argument and staged binary16 40-cycle are known. The specific exhaustively computed single-rounded five-cycle graph, the two graphs on the same 15,361 codes, and their exact Cesàro total-variation separation 10267/15361 were not stated or implied in examined material. Search results were distant other systems, but absence of a hit does not guarantee priority.",
+    "residual_risks": [
+      "The full Galias 2021 article was not accessible in this pass; the reviewed title/abstract explicitly concern 32-/64-bit arithmetic but methods might be more general.",
+      "Unindexed numerical appendices or unpublished binary16-circuit comparison tables could cover this exact invariant.",
+      "The original Klöwer preprint (2022) and journal version (2023) differ in scope: the preprint motivates the topic, while the final version explicitly treats the logistic map.",
+      "A mathematically equivalent circuit can be described under a different evaluation-order or fused-arithmetic terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "This version motivates recurrent low-precision dynamics and principally studies generalized Bernoulli and Lorenz systems; it is not evidence for the quantitative binary16 two-circuit theorem.",
+        "evidence": [
+          "Preprint title-page first-public date 2022-11-08",
+          "Abstract discusses generalized Bernoulli rather than presenting exact binary16 two-circuit logistic basin table"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/365212711_Periodic_orbits_in_chaotic_systems_simulated_at_low_precision",
+        "material_read": "Publicly displayed preprint title page with Posted Date November 8th 2022, abstract, displayed contents/methodological excerpts",
+        "method": "Read indexed full-text HTML excerpts, including version scope; direct Research Square page blocked.",
+        "title": "Periodic orbits in chaotic systems simulated at low precision (preprint version)",
+        "trigger": "First public version of the motivating low-precision study, preprint DOI 10.21203/rs.3.rs-2223046/v1"
+      },
+      {
+        "assessment": "Studies float16 bifurcations, periodicity and stochastic rounding, but the inspected text does not give a once-rounded exact polynomial graph and its total-variation comparison with staged evaluation.",
+        "evidence": [
+          "Logistic-map section discusses spurious stabilization and collapse to short cycles",
+          "Article defines finite-precision periodic orbit and discusses invariant measures weighted by basins"
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/s41598-023-37004-4",
+        "material_read": "Full-text web article: initial definitions, section The logistic map with various number formats, methods and conclusions",
+        "method": "Open-access HTML inspection of relevant sections and figure descriptions",
+        "title": "Periodic orbits in chaotic systems simulated at low precision (2023 published version)",
+        "trigger": "Specific motivating discussion of the binary16 logistic map and precision-induced periodicity"
+      },
+      {
+        "assessment": "The staged 40-cycle and its basin are prior results and explicitly credited. No single-rounded exact-polynomial graph or cross-circuit total-variation formula is stated in the examined logistic slides.",
+        "evidence": [
+          "Slide 59: 10,267 starting states flow to a 40-cycle in float16 logistic map",
+          "Slide 60 plots the same 40-cycle; slide 61 compares it to the continuum density"
+        ],
+        "identifier_or_url": "https://rcorless.github.io/FloatsForPhilosophers.pdf",
+        "material_read": "PDF textual content of slides 38-44 and 59-61, including explicit 40-cycle and 10,267 basin; screenshot rendering failed",
+        "method": "Indexed PDF page-text extraction and contextual comparison; screenshot attempt failed",
+        "title": "Floats for Philosophers: A Talk in Three Parts",
+        "trigger": "Directly overlapping exact binary16 staged logistic cycle and basin"
+      },
+      {
+        "assessment": "Methods and invariant-counting are known; explicitly studies 32- and 64-bit implementations. A claim that the generic census method is new would be false; the exact binary16 circuit comparison is different.",
+        "evidence": [
+          "Source title explicitly limits its implementations to single and double precision",
+          "Abstract specifies complete cycle, basin and convergence-time enumeration"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TCSII.2021.3081604",
+        "material_read": "University repository abstract and publicly indexed first-page PDF text; complete article retrieval timed out",
+        "method": "Read bibliographic abstract and accessible introductory paragraph",
+        "title": "Periodic orbits of the logistic map in single and double precision implementations",
+        "trigger": "Earlier exhaustive finite-precision logistic cycle and basin analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90e75d35-8e6f-4ec0-8477-72ab425e4d7b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantifies a substantial structural change caused solely by arithmetic evaluation order at fixed format and parameter, measured by a natural exact invariant (Cesàro stationary total variation 10267/15361). Relevant to published evidence that deterministic low precision alters chaotic invariant statistics; is not a minor restatement of the known staged 40-cycle or an unmotivated subslice.",
+    "status": "PASS"
+  }
+}
