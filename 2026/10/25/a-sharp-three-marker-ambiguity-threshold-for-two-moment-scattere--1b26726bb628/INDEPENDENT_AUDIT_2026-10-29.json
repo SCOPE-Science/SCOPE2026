@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T00:47:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–5 and verification/right_bounded_block_check.py inspected at Git tree 33770c2f09f0f58897a786a66ea9142e084f1c39",
+        "Independent Python finite word enumeration length 0..7 and exact norm sector r=1..6 (private checker); mathematical all-r UFD/sextant argument separately reconstructed"
+      ],
+      "rationale": "Encoding the b occurrences by sorted preceding-a counts t_i gives S=sum t_i, Q=2H+S=sum t_i^2. For <=2 b the elementary symmetric polynomial roots are forced; for <=2 a the Vandermonde multiplicities are forced. At total length seven only (k,m)=(4,3) or (3,4) can collide: enumeration of the 35 three-element multisets and the one-dimensional nullspace of the 4-column moment matrix yields exactly the claimed pairs. For three b and gaps x=t2-t1, y=t3-t2, 3Q-S^2=2(x^2+xy+y^2). For norm 7^r, the factorization 7=(3+omega)(3+omega^2) in the Euclidean Eisenstein integers gives 6(r+1) signed norm representatives. The closed nonnegative sextant has r+1 points for r odd and r+2 for r even; reflection exchanges nonzero congruence classes 2x+y mod 3, so exactly floor(r/2)+1 admissible points have residue one. The chosen S and k satisfy t1>=0 and t3<=k by 2x+y,x+2y<=2 sqrt(R); each point yields a distinct valid word. A fresh independent direct-subsequence enumeration confirmed precisely two length-seven doubletons and no shorter collision; exact norm-shell enumeration verified the explicit formula for r=1..6.",
+      "residual_risks": [
+        "No formal Lean proof; bounded independent calculations corroborate but are not an infinite proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "STACS 2023 Theorem 1 provides an adaptive O(sqrt(n)log n) query strategy",
+          "Theorem 19 uses a sufficient larger query family"
+        ],
+        "reasoning": "An adaptive or increasing family of queries can uniquely reconstruct even where a fixed two-query observation has ambiguous fibers; its stronger reconstruction ability does not cover the exact claimed *fiber cardinalities* for this fixed observation.",
+        "searches": [
+          "Resultary: scattered subword reconstruction binomial word coefficients ab aab fixed three b Eisenstein norm same first second power sums ambiguity",
+          "Richomme–Rosenfeld STACS 2023 Theorem 1",
+          "Fleischmann et al. arXiv:2001.11218 Theorem 19"
+        ]
+      },
+      "checked_sources": [
+        "Fleischmann et al. arXiv:2001.11218 full source",
+        "Richomme–Rosenfeld STACS 2023 full source",
+        "Resultary semantic published SCOPE records including Parikh-matrix and deletion channels"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Right-bounded-block methods include the moment viewpoint but treat distinct sufficient observation sets",
+          "Adaptive reconstruction results cannot determine a fixed weak observation fiber"
+        ],
+        "reasoning": "The submitted theorem is not implied merely by determining words with a larger query family; the precise collision threshold and increasing fibers require separate norm arithmetic. A hidden specialized computation remains a risk.",
+        "searches": [
+          "arXiv:2001.11218 Proposition 18, Theorem 19",
+          "STACS 2023 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 18 treats letter counts and a single ab query; Section 3 encodes t_i power sums but does not state the fixed ab,aab first-collision and three-b Eisenstein fiber formula",
+          "Resultary found other different word observations, including 2026/10/4/SCOPE-unconditional-polynomial-sparsity-of-m-unambiguous-words--68116579b62c"
+        ],
+        "reasoning": "Power sums are an equivalent encoding of the current observation, but the published more general family of reconstruction queries neither proves its exact two-moment fiber sizes nor contradicts unbounded ambiguity. Parikh-matrix uniqueness is a different observation.",
+        "searches": [
+          "Resultary: scattered subword reconstruction binomial word coefficients ab aab fixed three b Eisenstein norm same first second power sums ambiguity",
+          "Fleischmann et al. arXiv:2001.11218 §3 Proposition 18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d is a deletion-read ambiguity count, not binomial ab/aab moments",
+          "No exact fiber table for this observation found in inspected records"
+        ],
+        "reasoning": "The length-7 exact census was checked anew; no observed database/table value proves or dominates the all-r family. Search absence is not novelty proof.",
+        "searches": [
+          "Resultary semantic search for two-moment scattered subword Eisenstein 7^r",
+          "Github linked published SCOPE word/deletion records"
+        ]
+      },
+      "rationale": "The first-collision and fixed-three-marker unbounded fiber theorem are not merely general reconstruction sufficient bounds or a classical norm count: they select a particular nonadaptive four-component observation and determine sharp ambiguity. The moment encoding and Eisenstein arithmetic are established, not claimed novel. A full technical treatment of the leading right-bounded-block paper and Richomme–Rosenfeld adaptive reconstruction was inspected, with residual risk of another source addressing this exact query pair.",
+      "residual_risks": [
+        "A differently worded older restricted Parikh-matrix / scattered-subword equivalence may imply the exact fixed-query fibers; exact historical novelty cannot be certified",
+        "Eisenstein factorization and norm counts are classical and are not the original contribution"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT FOUNDATION, NOT FULL COVERAGE",
+          "evidence": "Proposition 18 concerns a different two-query setup and Theorem 19 reconstructs from a larger family; no exact 7 threshold/fixed-three-b power-7 fibers in inspected statements.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.11218",
+          "material_read": "Full accessible PDF with Section 3, Proposition 18, Theorem 19 and adjoining derivations; page images inspected",
+          "method": "arXiv PDF text and page image",
+          "title": "Reconstructing Words from Right-Bounded-Block Words",
+          "trigger": "Same binary scattered-subword count model and t_i moment encoding"
+        },
+        {
+          "assessment": "DIFFERENT QUERY-COMPLEXITY GOAL",
+          "evidence": "Theorem 1 is an adaptive O(sqrt(n)log n) query bound and Theorem 2 average-case strategy, not exact fixed-two-moment fiber analysis.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol254-stacs2023/LIPIcs.STACS.2023.52/LIPIcs.STACS.2023.52.pdf",
+          "material_read": "Accessible full paper introduction and §2 including Theorems 1–2 and Lemma 3; page 3 examined as image",
+          "method": "Open-access PDF text and page screenshot",
+          "title": "Reconstructing Words Using Queries on Subwords or Factors",
+          "trigger": "More powerful word reconstruction using subword multiplicity queries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–5 and verification/right_bounded_block_check.py inspected at Git tree 33770c2f09f0f58897a786a66ea9142e084f1c39",
+        "Independent Python finite word enumeration length 0..7 and exact norm sector r=1..6 (private checker); mathematical all-r UFD/sextant argument separately reconstructed",
+        "Fleischmann et al. arXiv:2001.11218 full source"
+      ],
+      "rationale": "The four measurements are a natural fixed low-cost nonadaptive observation in word reconstruction, and the sharp shortest collision as well as unbounded ambiguity with only three markers determine precise information-theoretic limits. An exact all-r fiber formula is mathematically more substantial than a small-census experiment, and a future reader can use it when choosing distinguishing query sets. Neither the general integer moment encoding nor Eisenstein unique factorization alone establishes this observation-specific boundary.",
+      "residual_risks": [
+        "Historical equivalence risk persists."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For binary words, counts of a,b,ab and aab scattered occurrences uniquely determine every word through length 6, have exactly two doubleton fibers at length 7, and are injective for at most two b symbols at every length. With exactly three b symbols, for R=7^r, L=ceil(sqrt(R)), k=2L+1, S=3L+1, H=(S^2+2R-3S)/6, the fiber (k,3,S,H) has exactly floor(r/2)+1 words for all r>=1.",
+  "limitations": [
+    "Finite enumerations cover n<=7 and r<=6 only; the all-r theorem depends on UFD and sector counting.",
+    "No formula for arbitrary observation fibers or the global maximum fiber at every length.",
+    "Historical equivalence risk persists.",
+    "Original mathematical work remains unpublished by this independent auditor; not a formal or external expert attestation.",
+    "Publication transport blocked on privacy-neutral complete JSON metadata replacements."
+  ],
+  "schema_version": 1
+}
