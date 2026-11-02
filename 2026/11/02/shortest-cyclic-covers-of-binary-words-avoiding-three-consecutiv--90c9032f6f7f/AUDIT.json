@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every order 3..16, the complete full binary de Bruijn graph dual potential has edge increments at most 1. The integral augmentation is nonnegative, balances prescribed in/out degrees, and matches the dual objective exactly. The explicit circular witness has exactly the required-plus-added cyclic window multiset, with no 000 anywhere cyclically. The extracted standalone checker returned VERIFY_OK and exhaustively ruled out all shorter circular covers in the smallest two cases. The proof covers exactly the finite claimed range; no extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee et al., arXiv:2403.01454v2, full text introduction §§1–2, defines maximum length of a cyclic walk with DISTINCT run-limited windows, whereas the new problem minimizes length with repeats and requires all linearly allowable words (https://arxiv.org/pdf/2403.01454).",
+        "Moreno–Matamala, arXiv:0711.1695v1, defines its admissible language by periodic extension and optimizes lexical order on exact-once cycles."
+      ],
+      "reasoning": "Neither maximizing a distinct-window run-limited walk nor enumerating a lexicographically least cycle over cyclically admissible necklaces bounds both sides of the new shortest-cover problem. Those results do not imply the listed minima or the existence of an optimum using no forbidden extra windows.",
+      "searches": [
+        "Maximal Length Constrained de Bruijn Sequences 2023",
+        "Maximum Length RLL Sequences in de Bruijn Graph arxiv 2403.01454",
+        "Universal cycles for words avoiding a forbidden factor 000 de Bruijn graph directed Eulerization optimal circular word"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/math/0311399",
+      "https://arxiv.org/abs/0711.1695",
+      "https://www.dim.uchile.cl/~emoreno/publicaciones/PREPRINTS/preprint-LNCS04-Minimal_de_Bruijn_sequence_in_a_language_with_forbidden_substrings.pdf",
+      "https://arxiv.org/pdf/2403.01454",
+      "https://debruijnsequence.org/db/random"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Burstein–Kitaev, arXiv:math/0311399v1, Theorem 3.8 and Corollary 3.11 establish universal cycles of ordered word PATTERNS, not shortest covers of literal binary factor-avoidance languages.",
+        "The accessible claim on circular covering ALL fixed-weight-two words concerns a different target set; likewise previously studied no-00 covers use a strictly smaller forbidden-run threshold and do not entail the 000-free profile."
+      ],
+      "reasoning": "The new target requires all ordinary 000-free binary n-words, including ones that fail cyclic avoidance around their own boundary. Earlier exact-once cyclic families omit those words, while fixed-weight, even-parity, no-00 and Hamming-radius covering objectives impose different arc sets. The integer full-graph dual cannot be recovered from the cited statements merely by substituting the n parameter.",
+      "searches": [
+        "Exact minimum additional windows for universal covering binary words avoiding 000 at lengths 3 through 13",
+        "Minimum cyclic binary superstring covering all length-n strings avoiding 000 7 14 28 53 102 194 367 692 1300 2435",
+        "On unavoidable sets of word patterns 2003",
+        "Minimal de Bruijn Sequence in a Language with Forbidden Substrings 2004",
+        "Maximal Length Constrained de Bruijn Sequences 2023"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moreno–Matamala WG 2004 full author preprint pp. 1–3: “minimal” means lexicographically least among exact-once restricted-language cycles, not the shortest circular superstring allowing repetitions (https://www.dim.uchile.cl/~emoreno/publicaciones/PREPRINTS/preprint-LNCS04-Minimal_de_Bruijn_sequence_in_a_language_with_forbidden_substrings.pdf).",
+        "The directed Eulerian augmentation formulation of the new problem is proved in RESULT.md and replayed by CERT.json, not inferred from title similarity."
+      ],
+      "reasoning": "A shortest cyclic superstring, an all-required-edge route, a minimum-cost balanced augmentation, and a cyclic covering word are equivalent for this particular target set. The closest published “minimum de Bruijn” work instead asks for lexicographic minimality on a periodic admissible language, so its theorem does not give the fourteen numeric optima.",
+      "searches": [
+        "Shortest cyclic superstring containing all binary words length n avoiding 000, triplet zero forbidden substring exact minimal length covering sequence",
+        "Universal cycles for words avoiding a forbidden factor 000 de Bruijn graph directed Eulerization optimal circular word",
+        "shortest cyclic universal word all binary words avoiding substring 000 de Bruijn minimum superstring",
+        "universal cycle avoiding patterns forbidden substring cyclic superstring Fibonacci de Bruijn sequence 2007",
+        "\"de Bruijn\" \"no 000\" \"universal cycle\" \"shortest\"",
+        "\"Minimal de Bruijn Sequence in a Language with Forbidden Substrings\" lexicographically minimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-value search did not return an indexed table containing the sequence (7,14,28,53,102,194,367,692,1300,2435,4550,8484,15791,29346).",
+        "The nearest searchable mathematical-result records concerned other restrictions (short string attractors, error-correcting codes, and related circular covers), rather than this linear 000-avoiding target family."
+      ],
+      "reasoning": "The checked search results did not disclose a dominating exact database or table. This is a scoped negative search, not proof of absence from every index or unpublished source.",
+      "searches": [
+        "Shortest cyclic superstring containing all binary words length n avoiding 000, triplet zero forbidden substring exact minimal length covering sequence",
+        "Minimum cyclic binary superstring covering all length-n strings avoiding 000 7 14 28 53 102 194 367 692 1300 2435",
+        "Tribonacci 000-free binary language exact shortest circular covering word profile n<=16",
+        "\"14, 28, 53, 102, 194\" \"de Bruijn\"",
+        "\"7,14,28,53,102,194\" avoiding"
+      ]
+    },
+    "rationale": "Primary full-text comparisons distinguish the literal 000-free minimum-length covering profile from earlier lexicographically minimal exact-once restricted de Bruijn cycles, universal pattern cycles, and maximum-length distinct-window RLL sequences. Searches for numerical values, aliases and equivalent Eulerian augmentation results found no stronger known covering profile, while residual unindexed-priority risk is explicitly retained.",
+    "residual_risks": [
+      "An unindexed exact table or general minimum cyclic-superstring classification for this precise target may exist; web and mathematical-result search cannot certify global priority.",
+      "The numeric profile does not extend beyond order sixteen.",
+      "A generally known shortest-Eulerian-supergraph algorithm may yield these numbers when run, but no checked primary work states or implies these exact values."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: studies pattern-equivalence universal cycles, not constrained literal-word shortest covers with repeated windows",
+        "evidence": [
+          "Theorem 3.8 proves Hamiltonicity of the pattern overlap graph; Corollary 3.11 asserts existence of a U-cycle for ordered word patterns.",
+          "Publicly timestamped arXiv v1 2003-11-23."
+        ],
+        "identifier_or_url": "arxiv:math/0311399v1",
+        "material_read": "Full text sections 1–3, including the de Bruijn discussion and Theorem 3.8/Corollary 3.11 on pp. 9–12",
+        "method": "Read primary arXiv full-text and rendered first-page image",
+        "title": "On Unavoidable Sets of Word Patterns",
+        "trigger": "Universal-cycle and forbidden-pattern formulation; earliest dated archival anchor"
+      },
+      {
+        "assessment": "NOT_COVERING: minimal refers to lexicographic order; admissible set is periodic-language words and the cycles traverse every allowed factor once",
+        "evidence": [
+          "Preprint introduction expressly identifies minimal de Bruijn sequence with minimal lexicographical label.",
+          "Author preprint defines permitted words via their periodic extension and describes Eulerian circuits with each permissible arc once."
+        ],
+        "identifier_or_url": "arxiv:0711.1695v1; WG 2004 author preprint https://www.dim.uchile.cl/~emoreno/publicaciones/PREPRINTS/preprint-LNCS04-Minimal_de_Bruijn_sequence_in_a_language_with_forbidden_substrings.pdf",
+        "material_read": "Complete primary author preprint sections 1–3, definitions of periodic admissibility, central lexicographic Eulerian walk problem",
+        "method": "Read publicly accessible parsed full preprint and thesis abstract; attempted visual PDF screenshot, remote image fetch unavailable",
+        "title": "Minimal de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Highly plausible “minimal” and “forbidden substring” title"
+      },
+      {
+        "assessment": "NOT_COVERING: maximizes distinct run-limited windows and distinguishes cyclically allowable necklace factors, not shortest covers of every linearly allowable factor",
+        "evidence": [
+          "Paper defines (n,s)-word, (n,s)-sequence with distinct windows and maximizes its period.",
+          "It explicitly distinguishes necklace-closed cyclic-allowed words from all linear run-limited n-words."
+        ],
+        "identifier_or_url": "arxiv:2403.01454v2",
+        "material_read": "Full-text introduction and section 2 definitions, pp. 1–4, and inspected exact-window-maximization sections and references",
+        "method": "Read primary full-text arXiv PDF; screenshot request encountered fetch failure",
+        "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+        "trigger": "Same binary RLL 000-free language; possibility of stronger extremal graph theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90c9032f-6f7f-41c4-a5a1-6922a40aa81c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete fourteen-order exact profile for the shortest cyclic superstring of the natural tribonacci-growth language of words without three zeroes in a row. Unlike ordinary de Bruijn sets the required directed graph is unbalanced from order four, so repetitions are mathematically unavoidable. The primal-dual certificates quantify their sharp cost and the matching witnesses establish an additional nontrivial constrained-optimum property: forbidden windows are not needed in any of the fourteen optimal constructions. It is a reusable finite benchmark rather than an arbitrary numerical slice or routine recomputation of a published table.",
+    "status": "PASS"
+  }
+}
