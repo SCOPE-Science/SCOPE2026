@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact Schur–Weyl multiplicity and spin-sector energy give the finite Gibbs measure. Uniform Stirling/entropy estimates give a quartic dominated Riemann sum across both parity lattices and all polynomial moments. Conditional magnetic quantum numbers are exactly uniform within each spin representation. The density, partition normalization, and variance then follow without an unverified infinite extrapolation. The included finite checks exercise the source formula and constants; the analytic dominated-limit argument, not the checks, proves the universal statements.
+## correctness
 
-**Originality — PASS (best knowledge, not certified priority).** The primary Raikovich et al. source (arXiv:2610.06818v1, Sections 2.1 and 6.2) and Basso et al. (arXiv:2607.21798v1, Appendix D) establish the critical quartic structure and size-order estimates, and use the Gibbs measure to study Lindbladian spectral gaps. Neither inspected primary treatment states the full \(\beta_n=2+t/\sqrt n\) spin-magnitude and magnetization distribution, normalized partition crossover, and exact susceptibility coefficient. General classical critical-window universality is not itself claimed as a novelty. Remaining risk: an uninspected general \(O(3)\) or quantum mean-field fluctuation theorem may subsume this explicit specialization.
+PASS
 
-**Value — PASS.** The moving-temperature window unifies the disordered and ordered sides and quantifies an equilibrium distributional transition left unresolved by fixed-parameter spectral-gap results. It provides measurement-ready magnetization densities and exact finite-size partition/susceptibility coefficients, rather than merely repeating an order-of-magnitude bound. The error-function density and two asymptotic susceptibility regimes are specific interpretable outcomes.
+The exact SU(2) multiplicity (2s+1) [binom(n,n/2-s)-binom(n,n/2-s-1)] and Hamiltonian eigenvalue -s(s+1)/n give sector weights. Uniform Stirling at s=n^(3/4)y cancels the quadratic term at beta=2+t/sqrt(n), leaves t y^2-4y^4/3 and prefactor 8 sqrt(2/pi)y^2. Entropy tail inequalities ensure integrable domination for bounded t and all fixed polynomial moments; conditional spin-m uniformity on [-s,s] proves magnetization Y_t U and erfc critical density. Variance identity E[s(s+1)]/3 proves susceptibility I_t_prime/(3 I_t). Checked dimension sums n=2..40 and independent n=2000 sector quadrature for t=-1,0,1. Endpoint expansions are after n infinity, not uniform for moving t_n.
 
-**Boundaries.** The result concerns equilibrium at fixed scaling parameter; no Lindbladian mixing-time assertion is included. Numerical evidence does not establish infinite limits. The cited previous works supply the spin-sector formalism and quartic saddle point.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
+The exact one-parameter fixed-t critical-window magnetization measurement density and normalized partition/susceptibility crossover are not explicitly stated in the inspected same mathematical model spectral-gap work. The critical scale, quartic potential, and fixed-beta moment estimates are prior knowledge and excluded from novelty; general O(3) finite-size scaling may imply part or all of this explicit result and remains a priority risk.
+
+## value
+
+PASS
+
+Gives a normalized equilibrium finite-size scaling distribution for total quantum spin and a separately observable magnetic component, with joint measurement implications and explicit susceptibility crossover through criticality; constants and parity-uniform normalization are potentially reusable for finite-size thermodynamics. Not a claim on Lindbladian mixing or a new universality class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

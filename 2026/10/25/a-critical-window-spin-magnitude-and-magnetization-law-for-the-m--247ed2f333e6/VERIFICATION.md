@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-`verify.py` is a standalone reproducibility aid (Python 3 and SciPy). It computes all finite spin-sector weights from the exact representation multiplicities, without forming the \(2^n\)-dimensional Hamiltonian. It verifies spin-space dimension counts for integer and half-integer spins, checks the gamma-function integrals independently, and compares \(n=2000\) spin second moments, magnetization variances, and partition coefficients with the explicit limiting integrals for three scaling parameters.
+## correctness
 
-Observed test execution: `PASS: nine critical-window asymptotic diagnostics and two gamma identities`; the dimension-count assertions also passed for \(2\le n\le18\). For \(t=0\), finite \(n=2000\) gave spin second moment \(0.6349567165\) against limiting \(0.6405719537\), variance coefficient \(0.2124959191\) against \(0.2135239846\), and partition coefficient \(1.6215502572\) against \(1.5759767283\). Finite-size agreement is indicative, not an infinite-limit proof.
+PASS
 
-The proof's required infinite checks are symbolic: the SU(2) energy and multiplicity identity, the uniform quartic Stirling expansion, a nonnegative entropy-series tail bound and exponential suppression off the central region, dominated Riemann convergence (including polynomial moments), conditional magnetic uniformity, and dominated differentiation of the limiting integral. No independent audit has been performed.
+The exact SU(2) multiplicity (2s+1) [binom(n,n/2-s)-binom(n,n/2-s-1)] and Hamiltonian eigenvalue -s(s+1)/n give sector weights. Uniform Stirling at s=n^(3/4)y cancels the quadratic term at beta=2+t/sqrt(n), leaves t y^2-4y^4/3 and prefactor 8 sqrt(2/pi)y^2. Entropy tail inequalities ensure integrable domination for bounded t and all fixed polynomial moments; conditional spin-m uniformity on [-s,s] proves magnetization Y_t U and erfc critical density. Variance identity E[s(s+1)]/3 proves susceptibility I_t_prime/(3 I_t). Checked dimension sums n=2..40 and independent n=2000 sector quadrature for t=-1,0,1. Endpoint expansions are after n infinity, not uniform for moving t_n.
 
+## originality
+
+PASS
+
+The exact one-parameter fixed-t critical-window magnetization measurement density and normalized partition/susceptibility crossover are not explicitly stated in the inspected same mathematical model spectral-gap work. The critical scale, quartic potential, and fixed-beta moment estimates are prior knowledge and excluded from novelty; general O(3) finite-size scaling may imply part or all of this explicit result and remains a priority risk.
+
+## value
+
+PASS
+
+Gives a normalized equilibrium finite-size scaling distribution for total quantum spin and a separately observable magnetic component, with joint measurement implications and explicit susceptibility crossover through criticality; constants and parity-uniform normalization are potentially reusable for finite-size thermodynamics. Not a claim on Lindbladian mixing or a new universality class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
