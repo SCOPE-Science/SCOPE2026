@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python check.py` using Python 3 and SymPy. The included `check_output.txt` is the actual console output of this command, with the exact counts, algebraic covariance identities, rational signs and numerical root approximations.
+## correctness
 
-## Analytic scope
+PASS
 
-The finite generator balance identities hold as rational polynomial identities for every nonnegative resetting rate; rational checks are **not** a finite sampling claim. The two roots are exhaustive because the quartic has at most two positive roots by Descartes' rule, while strict signs at three rational rates force two distinct positive roots. The general two-site impossibility follows from the all-positive-boundary-rate closed formula. Parameter robustness follows from continuity of finite irreducible Markov-chain stationary probabilities. No infinite-volume or unequal-hop-rate claim is tested or made.
+Reconstructed the exact two-site four-state stationary law with covariance (1-a-b-r)/T², which has at most one zero for all a,b>0. In the three-site (a,b)=(1,1/10) generator, independent eight-state exact balance calculations reproduce the positive-denominator stationary polynomials and downstream covariance -20Q(r)/D(r)², where Q=30000r⁴+93500r³+6900r²-114345r+7497, D=200r³+4230r²+21471r+28455. Signs at r=0,1/4,1 are respectively negative,positive,negative. Descartes' two-sign-change upper bound proves exactly two simple strictly positive zeros. Continuity of finite irreducible stationary laws proves the stated open neighbourhood (at least two changes), not a general phase diagram.
 
-Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality after actual source and implication comparisons. The r=0 ordinary-TASEP stationary law and large-L mean-field approximations do not imply an exactly negative/positive/negative finite-size downstream covariance and minimal L=3 threshold. Pelizzola–Pretti 2022/2024 source treats thermodynamic mean-field and sampled correlations, not a general exact L=3 quartic or the all-a,b L=2 obstruction; periodic and constrained-resource systems have different generators.
+
+## value
+
+PASS
+
+Neighboring occupation covariances are physically meaningful observables in resetting exclusion dynamics. An exact minimal-size witness for reentrant sign change, with an open parameter neighbourhood, fills a natural finite-size gap left by thermodynamic and mean-field calculations; it is not a thermodynamic phase transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
