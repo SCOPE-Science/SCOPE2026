@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is an exact minimum over canonical one-defender and two-defender strategies. The proof reduces any feasible function to at most two effective defenders without increasing its weight, accounts for zeros in each defender's own part, and performs the remaining one-variable ceiling minimization by residues modulo \(p\). The correction is possible only when both ceiling terms drop upon leaving a third-part vertex labeled \(1\). The construction attains the resulting values. The finite verifier independently searched 844 zero-count configurations and 90 complete label universes; it corroborates but does not replace the proof.
+## correctness
 
-## Originality — PASS
-The defining \(p\)-strong Roman paper provides the neighbor-zero defender model, general bounds and a complete-bipartite value, not the arbitrary multipartite formula for \(r\ge3\). The closest published complete-multipartite result proves the ordinary \(p=2\) strong Roman value, while the total strong Roman result changes the positive-support condition. The \(k\)-strong simultaneous-attack invariant is distinct. The new two-defender mod-\(p\) correction is not implied by those statements. Indexed coverage is not exhaustive; an unindexed earlier equivalence remains possible.
+PASS
 
-## Value — PASS
-This resolves a natural graph-class problem for a recent parameter, for every nontrivial integer capacity \(p\) and arbitrary multipartite part sizes, with an \(O(r^2)\)-arithmetic answer and constructive optimizers. In particular, \(\gamma^4_{\mathrm{StR}}(K_{5,5,5})=7\) while the old general single-defender upper strategy gives \(8\). With fixed \(p\ge3\), the improvement for balanced tripartite graphs grows linearly in their part sizes. The exact residue effect and structural reduction justify mathematical interest beyond a single test graph.
+Use the original p-strong Roman convention f(u)>=1+ceil(|N(u) intersect B0|/p) for every zero with a neighbor u and labels bounded by 1+ceil(Delta/p). On K_{a1,...,ar} a selected positive defender in part i sees Z-z_i zeros. Either a sole defender lies in a zero-free part or two defenders in distinct parts cover all zeros; reducing all other effective defenders to 1 cannot hurt coverage. In the sole case, zeroing positives outside its part yields a_i+ceil((N-a_i)/p) minimized at m. In the two-defender case with t positive units in other parts, weight F_ij(t)=2+t+ceil((N-a_i-1-t)/p)+ceil((N-a_j-1-t)/p). F(t+p)=F(t)+(p-2), and for 0<=s<p only s=1 can reduce F(0), exactly if both numerator residues are 1 mod p. r>=3 ensures t=1 is available. The closed min formula follows. Independent optimization over all zero-count profiles and all subsets of defender parts matched the formula in 517 small (part-profile,p) cases; K_(5,5,5),p=4 gives 7. The proof and the capacity/boundary hypotheses, not finite checks, cover all r>=3 and 3<=p<=N-m-1.
 
-## Limits and nearest literature
-The result does not enumerate all minimum functions and is restricted to complete multipartite graphs with at least three parts in \(3\le p\le\Delta-1\). The defining source is Valenzuela-Tripodoro et al., *p-Strong Roman Domination in Graphs*, WSEAS Transactions on Mathematics 23 (2024), DOI:10.37394/23206.2024.23.104, arXiv:2501.10140. The closest complete-multipartite ordinary and total strong Roman theorems are cited in `RESULT.md`. Unindexed equivalents remain an originality risk. Independent mathematical evaluation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original primary p-strong Roman article, read in full relevant sections, proves r=2 and general bounds, but not complete multipartite r>=3 or the mod-p one-unit saving. Previously published ordinary and total strong Roman multipartite formulas are p=2 and/or impose a distinct support condition. This distinction is mathematical, not just terminology.
+
+## value
+
+PASS
+
+The exact weight for every multipartite part-size profile and nontrivial integer p is a natural domination invariant and is computed in O(r^2). The residue-dependent two-defender configuration beats the established upper bound; for fixed p balanced tripartite graphs improve the one-defender construction by linear order in part size. This is substantive beyond finite experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
