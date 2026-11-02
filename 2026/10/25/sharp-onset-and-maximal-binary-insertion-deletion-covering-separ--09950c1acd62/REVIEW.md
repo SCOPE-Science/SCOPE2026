@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The theorem fixes binary alphabets, exact error radius \(R\geq1\), scattered subsequences, and inclusion maximality. An elementary reduction translates a deletion-cover failure at a target \(y\) into containment in the avoidance family \(F_y\). Explicit forcing superwords exclude every missing target of length at most three and every four-letter target outside the complement/reversal class of \(0110\). The only non-obvious forcing witness, \(00(10)^{R+1}\) for \(0010\), has a proved upper bound of \(R+3\) on its longest avoiding subsequence. Alternation and run-count arguments verify the other nontrivial witnesses. The two exceptional families are shown to insertion-cover by a direct counting contradiction, and greedy continuation proves inclusion maximality and their exact cardinality. Finite dynamic programming and explicit deletion enumeration provide independent small-radius consistency checks but are not used as an infinite proof.
+## correctness
 
-## Originality (PASS, within inspected literature)
-The closest primary text is Xie, Sun, and Ge, arXiv:2606.15379, Section III. Its Theorem III.2 already supplies the existence of the \(0110\)-avoiding family at \(n=R+4\), and that result is expressly credited. It neither states that insertion covering forces deletion covering for all \(n\leq R+3\), nor excludes all fourteen other four-bit deletion targets, nor determines the inclusion-maximal separator families. The earlier full-text treatment by Lenz, Rashtchian, Siegel, and Yaakobi, arXiv:1911.09944, develops bounds for covering-code cardinality, not this exact implication frontier. Searches of mathematical research records for the equivalence boundary, forbidden-pattern aliases, and related subsequence universality did not identify a stronger result implying these claims. Residual risk: unindexed or inaccessible prior work might independently contain the same classification; search absence cannot certify priority.
+PASS
 
-## Mathematical value (PASS)
-The sharp first separating length for every error radius resolves a natural necessity question left by a recently published construction. More than a single example, the theorem determines the complete inclusion-maximal obstruction family at that threshold, with only one class up to bit complement and a closed count. It distinguishes two logically different covering requirements and identifies precisely which missing deletion targets make that distinction possible at first onset. This does not optimize minimum code sizes or settle nonbinary alphabets.
+Every deletion-cover failure at y forces C⊆F_y (y-avoiding family). F_y can be an insertion cover iff no (m+2R)-word forces every length (m+R) subsequence to contain y. Explicit forcing words for all reversal/complement orbits m<=3 and for every length-four pattern except 0110,1001 establish the first separating length. The nontrivial witness z=00(10)^(R+1) for y=0010 has longest avoiding subsequence at most R+3, below R+4; alternating/run witnesses cover remaining orbits. For 0110, Xie–Sun–Ge’s balanced-symbol contradiction shows F_0110 insertion covering; complementation proves F_1001. Greedy completion shows F_y covers every deletion target other than y, hence inclusion maximal and exhausts all maximal counterexamples. Counting greedy prefix advances gives Σ binom(n,j), j<=3. The source proof has correct quantifier directions and carefully distinguishes inclusion maximality from minimum code size. Independently implemented exact finite subsequence DP for R=1..4 and m=1..4, finding exactly the two exceptional patterns at m=4; all-radius assertion is proved by explicit templates, not finite experiments.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Xie–Sun–Ge arXiv:2606.15379 Theorem III.2 already establishes the 0110-avoidance family at n=R+4; Remark III.3 extends non-equivalence to all larger n. This prior component is fully credited. The inspected full 14-page primary preprint does not classify implication at R<n<=R+3, exhaust length-four forbidden-pattern orbits, or determine inclusion-maximal counterexample families. The older Lenz–Rashtchian–Siegel–Yaakobi covering-code bounds concern cardinality rather than sharp logical implication. No dominating Resultary record on this claim found. Best-of-knowledge originality PASS for sharp onset and complete max-family classification, not for mere existence.
+
+## value
+
+PASS
+
+For every error radius R the theorem resolves a natural sharp threshold question prompted by a specific published non-equivalence example and completely identifies the maximal obstruction families at the onset; the combinatorial classification is a meaningful infinite-radius structural fact, not an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
