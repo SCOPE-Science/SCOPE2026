@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The fixed-vertex and winding theorem proves exactly the sector connectivity/frozen extremes, and the explicit 2x2 Laurent transfer proves all n sector sizes and marked transition counts. Separately implemented complete explicit-colouring BFS for n=3..10 and exact polynomial transfer n=3..30 passed; integer formulas, domains, and every small boundary were independently cross-checked. The infinite assertion rests on mathematical proof, not finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cereceda et al., DOI:10.1002/jgt.20514: a general reachability characterization and polynomial path algorithm",
+        "Cereceda et al., DOI:10.1016/j.ejc.2009.03.011: bipartite colour-mixing",
+        "Brewster–Noel, DOI:10.1002/jgt.21846: homomorphism mixing and circular precolouring"
+      ],
+      "reasoning": "The general connectivity theorem is strictly broader for decision/reachability and subsumes the qualitative prism connectivity classification. Its statements do not count edges or configurations of each connected component; these are a quantitative, structurally motivated refinement. No novelty is assigned to merely applying the reachability theorem.",
+      "searches": [
+        "Finding Paths Between 3-Colourings Theorem 7 fixed vertices path weights",
+        "Mixing 3-Colourings in Bipartite Graphs prism connectedness",
+        "Mixing Homomorphisms Recolorings Extending Circular Precolorings"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1016/j.endm.2007.07.073",
+      "LSE-CDAM-2007-31",
+      "DOI:10.1002/jgt.20514",
+      "DOI:10.1016/j.ejc.2009.03.011",
+      "DOI:10.1002/jgt.21846",
+      "DOI:10.4236/ajcm.2026.161002"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 7, Cereceda et al.: path exists iff relevant fixed-vertex data and cycle/path weights agree",
+        "New two-state Laurent transfer identity: sector order 6[z^{3w}](z^{-1}+1+z)^n",
+        "New marked Laurent transfer identity: sector edges 6n(t_{n-1}(3w)+t_{n-2}(3w))"
+      ],
+      "reasoning": "Prior general theorem supplies sectorwise connectivity and freezing criteria, hence the component labels. The principal new numerical statements are not logical corollaries of those criteria alone: enumerating the states and legal move edges requires explicit independent algebraic counting. The result credits the prior theorem and identifies only its quantitative refinement as new.",
+      "searches": [
+        "DOI:10.1002/jgt.20514 Proposition 3 Theorem 7 cycle weights fixed vertices",
+        "DOI:10.1016/j.endm.2007.07.073 colour graph reachability",
+        "proper 3-colorings C_n square K_2 winding sector edge enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cereceda–van den Heuvel–Johnson, Finding Paths Between 3-Colourings, Proposition 3 and Theorem 7, author-posted full text",
+        "DOI:10.1016/j.endm.2007.07.073, early reachability problem",
+        "DOI:10.1002/jgt.20514, 2010 first-online journal version"
+      ],
+      "reasoning": "Graph homomorphism/recolouring, height-function winding and 3-colour Glauber moves are equivalent descriptions of the same single-site transformation. The older theorem decides which configurations connect. It does not enumerate the number of named colourings and actual exchange edges within each prism winding class; the two exact transfer identities are additional statements. Historical equivalent computations cannot be excluded.",
+      "searches": [
+        "\"circular ladder\" \"recolouring\" three colouring winding connected components",
+        "prism graph proper 3-coloring single-vertex reconfiguration winding sectors",
+        "3 coloring graph circular ladder connected components winding degree enumeration",
+        "DOI:10.1002/jgt.20514 fixed vertices path recoloring"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Standard prism chromatic polynomial at three colours gives the total 3^n+1+2(-2)^n",
+        "Author-posted paper: Cereceda et al., Finding Paths Between 3-Colourings, no exact prism enumeration in the relevant original statements",
+        "Allagan et al., DOI:10.4236/ajcm.2026.161002 treats prism chromatic-polynomial roots, not recolouring graph edge counts"
+      ],
+      "reasoning": "The known scalar chromatic polynomial aggregates all winding sectors and contains no information about the number of legal recolourings; neither the coefficient-resolved sector sizes nor sector edge enumerations follow from it. No exact database listing this complete family was located; this is not proof of unique priority.",
+      "searches": [
+        "prism graph 3-color recoloring components 3^n+1+2(-2)^n winding polynomial",
+        "prism graph chromatic polynomial three colors winding coefficients edge counts",
+        "circular ladder chromatic polynomial count 3-colorings"
+      ]
+    },
+    "rationale": "Cereceda–van den Heuvel–Johnson already prove general reachability and cycle invariance, and a known chromatic polynomial counts total colourings; the proposed novel part is the exact simultaneous winding-sector enumeration of component orders and exchange edges for all circular ladders, neither derived by reachability nor total chromatic counting alone. Direct source comparisons and searches identified no covering calculation; unindexed historical height-function/Potts work is a real risk.",
+    "residual_risks": [
+      "An equivalent exact sector-size or edge-density computation may have appeared earlier under height-function, Potts-model or circular-ladder Glauber-chain terminology.",
+      "The full text of the closest ancillary historical mixing papers was not accessible, so noncoverage is not asserted for them.",
+      "The connectivity portion alone follows from the known general theorem and is not new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General decision characterization and obstruction known; no componentwise exact vertex/edge enumeration for circular ladders identified in inspected text",
+        "evidence": "Report LSE-CDAM-2007-31, December 2007; DOI:10.1002/jgt.20514; Theorem 7 / Proposition 3",
+        "identifier_or_url": "https://www.researchgate.net/publication/220266583_Finding_Paths_Between_3-Colourings",
+        "material_read": "Author-posted complete text, including Proposition 3, Theorem 7 and proof passages on fixed vertices and cycle weights",
+        "method": "Read the available complete HTML full-text transcription at the author-posted research listing; compared the theorem and key fixed-vertex conditions to the specific quantitative claim",
+        "title": "Finding Paths Between 3-Colourings",
+        "trigger": "Direct general theorem with same proper-three-colouring single-vertex moves"
+      },
+      {
+        "assessment": "General reachability computational complexity and distances only; metadata insufficient for a full-text noncoverage assertion",
+        "evidence": "DOI:10.1016/j.endm.2007.07.073, publisher date in Durham metadata",
+        "identifier_or_url": "https://durham-repository.worktribe.com/output/1467955/finding-paths-between-graph-colourings-computational-complexity-and-possible-distances",
+        "material_read": "Complete public university-repository metadata and abstract, not primary full article",
+        "method": "Compared scope and abstract and verified listed first-publication date 2007-08-15",
+        "title": "Finding Paths between Graph Colourings: Computational Complexity and Possible Distances",
+        "trigger": "Earliest verified day-specific public source underlying three-colour reconfiguration"
+      },
+      {
+        "assessment": "Potential relevance to general structure; no numerical winding-sector vertex/edge formula verified, full-text incompleteness retained as priority risk",
+        "evidence": "European Journal of Combinatorics 30 (2009) 1593–1606",
+        "identifier_or_url": "https://doi.org/10.1016/j.ejc.2009.03.011",
+        "material_read": "Public bibliographic record/abstract and relevant summaries; complete primary text not accessed",
+        "method": "Scope and claimed mixing statements compared to prism quantitative formula",
+        "title": "Mixing 3-Colourings in Bipartite Graphs",
+        "trigger": "Related mixing-connectivity graph family potentially subsuming prisms"
+      },
+      {
+        "assessment": "Cannot exclude specialized enumeration from inaccessible sections; not marked as entirely noncovering",
+        "evidence": "Brewster and Noel, 2015, DOI:10.1002/jgt.21846",
+        "identifier_or_url": "https://doi.org/10.1002/jgt.21846",
+        "material_read": "Publisher abstract and public metadata; complete article not accessed",
+        "method": "Compared high-level claims to exact prism state/edge enumeration",
+        "title": "Mixing Homomorphisms, Recolorings, and Extending Circular Precolorings",
+        "trigger": "Graph homomorphism and circular-colour mixing equivalents"
+      },
+      {
+        "assessment": "Scalar chromatic-polynomial study; does not imply local recolouring edge counts; later work used only for background",
+        "evidence": "DOI:10.4236/ajcm.2026.161002",
+        "identifier_or_url": "https://doi.org/10.4236/ajcm.2026.161002",
+        "material_read": "Accessible HTML article and chromatic polynomial description",
+        "method": "Compared total colouring counts with component-resolved reconfiguration formulas",
+        "title": "Explicit Equimodular Curves for Prism-Graph Chromatic Polynomials and the Beraha–Kahane–Weiss Limit Set",
+        "trigger": "Possible same-prism chromatic polynomial coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d41f740a-6f49-4d7e-8235-fbe3f8e0fa39",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the natural infinite family of circular-ladder 3-colouring reconfiguration graphs, the result measures both the sizes and numbers of allowable moves of every topological sector, beyond known yes/no reachability. It gives the full quantitative connected-component structure, an infinite-period frozen-state exception, and exact integer formulas useful for local-state-space analyses. This is neither a routine unmotivated single finite case nor a cosmetic reformulation of the chromatic polynomial.",
+    "status": "PASS"
+  }
+}
