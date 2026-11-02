@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The cover by the three row-centered simplex unions is exact. Each member has a simplex-boundary nerve and is an integral sphere of dimension \(n-2\). Each pair intersection is a crown graph plus the \(n\) isolated vertices of the remaining row, and the triple intersection is the discrete set of all \(3n\) vertices. The integral Mayer–Vietoris spectral sequence has a degree-zero incidence differential whose projection onto isolated components is a signed permutation matrix; this proves the crucial split injection without replacing an integral proof by binary rank data. The other contributions are the three crown-cycle lattices and the three row-sphere classes. No higher differential or torsion extension is possible. Enumerations for \(n=5,6,7,8\) verify the combinatorics and mod-two ranks, with precise finite limits.
+## correctness
 
-## Originality — PASS against inspected sources
-Shukla's 2018 primary work is about degree-at-most-three graphs and four-regular circulants; the present degree is at least six. The closest public rook-complex classification, *Row–column boundary spheres control higher neighborhood homology of rook graphs*, establishes the quotient and degree-at-least-three homology, **not** the two missing low-degree groups. Its higher result is credited and not claimed as new. The separate two-row theorem has only two cover members, while this three-row result has nontrivial triple intersections. The Kummer-biplane exact result is about the \(4\)-by-\(4\) case, not the present infinite family. Search comparisons also considered closed versus open neighborhoods, the Cartesian versus categorical graph product, and different row counts. A relevant unindexed prior computation remains a residual risk; absence from search is not uniqueness proof.
+PASS
 
-## Value — PASS
-The low-degree integral homology was the substantive gap in the directly relevant general rook-graph statement. Closing it for every three-row board gives a natural complete infinite-family invariant, exhibits an exact quadratic two-cycle rank, and identifies a one-dimensional class with no integral torsion. Three rows are the first cover size where a nonempty triple intersection must be accounted for, producing a structural spectral-sequence explanation not obtained by mere parameter substitution. This fills a meaningful boundary between the two-row sphere-wedge family and the distinct torsion-bearing four-by-four example.
+For all integers n≥5, open Lovász neighborhood complex of R_{3,n}=K3 square Kn is the union of Yi, three row-centered simplex unions. Each Yi has the nerve boundary of an (n−1)-simplex and is S^{n−2}; pairwise intersections are a connected crown graph K_{n,n} minus its matching, H1 rank n²−3n+1, plus n isolated vertices in the third row; triple intersection is 3n isolated vertices. The integral homological Čech double complex has E1_{2,0}=Z^{3n}, E1_{1,0}=Z^{3(n+1)}, E1_{0,0}=Z³. The triple-to-pairs differential projects to an explicit signed 3n×3n permutation matrix on the isolated-coordinate summand, hence split injective over Z; ∂1 rank two, so the residual degree-one term is Z without torsion. The crown H1 terms contribute 3(n²−3n+1) two-classes; the Yi yield three degree-(n−2) classes. No d2 source survives and free graded quotients split, giving H1=Z, H2=Z^{3n²−9n+3}, H_{n−2}=Z³, none other. Independent full-face mod2 calculations at n=5,6,7 confirm ranks and combinatorial intersections; the all-n and integral conclusions are from the exact symbolic split-injection proof.
 
-## Limitations
-Homology does not determine homotopy type or fundamental group. The proof makes no claim below \(n=5\). The independent scientific audit has not been performed. Residual originality uncertainty includes inaccessible or unindexed equivalent formulations; the inspected source comparison and actual queries are recorded in the structured audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shukla’s classification restricts to graphs of max degree at most 3 or selected 4-regular circulants, whereas the rook graph has degree n+1. The closest published all-m,n rook open-neighborhood result computes relative quotient and H_k for k>=3 but explicitly leaves low H1/H2 unresolved; it supplies high H_{n-2} when n>=5 but not the two low groups. The present complete integral low-degree determination is therefore an original substantive refinement, with risk of unindexed rook tables.
+
+## value
+
+PASS
+
+Open Lovász neighborhood complexes of rook graphs are a canonical graph-topological family with chromatic/topological motivation. Determining all integral groups, including low-dimensional attaching effects and torsion-freeness for the infinite three-row range, fills a precise gap left by known high-dimensional computations. The signed isolated-component minor is a structural lemma, not a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
