@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T04:15:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The endpoint data yield h(u_hat′−λu_hat)=−u_n z^4 v(v−1)(vz+v−2)/6. For Re z<0, writing B=−vz and A=2−v gives 0<Re(B/(A+B))<1; differentiation under the strictly positive integral yields 4<ν_p<5 for every finite p. At z=−1+i√w, exact R polynomial arithmetic gives |R|²−1=[w(w−3)^2−32]/36; the unique w>3 root lies between 53/10 and 11/2. Exact μ=Re(zR′/R)=(w−1)^2(w−2)/12 > 5+339/4000. The determinant of the 2×2 feedback Jacobian equals 1+(βκ′(1)/4)(μ−ν_p)>1 for every positive gain and limiter slope; continuity gives a nonempty open boundary arc. Independent sympy rational arithmetic checked the root enclosure, μ lower bound and polynomial identities. Representative script tests at p=1,2,4 are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited paper analyzes error-based controllers and PI/PID stability over a broader collection of RK methods, but that breadth does not imply the exact all-p all-gain I-controller obstruction on this arc. PI/PID controllers may behave differently.",
+          "Ranocha and Giesselmann, Stability of step size control based on a posteriori error estimates, 2024, DOI:10.1007/s44207-024-00001-0",
+          "Ranocha et al., Optimized Runge-Kutta Methods with Automatic Step Size Control for Compressible CFD, arXiv:2104.06836"
+        ],
+        "reasoning": "The cited paper analyzes error-based controllers and PI/PID stability over a broader collection of RK methods, but that breadth does not imply the exact all-p all-gain I-controller obstruction on this arc. PI/PID controllers may behave differently.",
+        "searches": [
+          "search: third order Runge Kutta Hermite residual based I step size controller gain independent unstable stability boundary norm",
+          "doi:10.1007/s44207-024-00001-0"
+        ]
+      },
+      "checked_sources": [
+        "Ranocha and Giesselmann, Stability of step size control based on a posteriori error estimates, 2024, DOI:10.1007/s44207-024-00001-0",
+        "Ranocha et al., Optimized Runge-Kutta Methods with Automatic Step Size Control for Compressible CFD, arXiv:2104.06836"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original paper supplies the premises R and the Jacobian family but not the quantitative μ>5>ν_p proof; the latter establishes strictly stronger simultaneous gain/norm nonstabilizability under exact stated assumptions.",
+          "Ranocha and Giesselmann, Stability of step size control based on a posteriori error estimates, 2024, DOI:10.1007/s44207-024-00001-0",
+          "Ranocha et al., Optimized Runge-Kutta Methods with Automatic Step Size Control for Compressible CFD, arXiv:2104.06836"
+        ],
+        "reasoning": "The original paper supplies the premises R and the Jacobian family but not the quantitative μ>5>ν_p proof; the latter establishes strictly stronger simultaneous gain/norm nonstabilizability under exact stated assumptions.",
+        "searches": [
+          "search: third order Runge Kutta Hermite residual based I step size controller gain independent unstable stability boundary norm",
+          "doi:10.1007/s44207-024-00001-0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform failure of Schur stability of the 2×2 amplitude/stepsize Jacobian can be expressed as determinant>1 for any c=βκ′(1)>0. This differs from a single numerically observed unstable eigenvalue at one gain.",
+          "Ranocha and Giesselmann, Stability of step size control based on a posteriori error estimates, 2024, DOI:10.1007/s44207-024-00001-0"
+        ],
+        "reasoning": "Uniform failure of Schur stability of the 2×2 amplitude/stepsize Jacobian can be expressed as determinant>1 for any c=βκ′(1)>0. This differs from a single numerically observed unstable eigenvalue at one gain.",
+        "searches": [
+          "Resultary semantic query: third order Runge Kutta Hermite residual based I step size controller gain independent unstable stability boundary norm",
+          "doi:10.1007/s44207-024-00001-0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper gives a fixed-gain I-controller Jacobian and L2 explicit formula, and Resultary returned an unrelated Fehlberg RK4(5) estimator resonance, not a central Hermite all-gain open arc.",
+          "Ranocha and Giesselmann, Stability of step size control based on a posteriori error estimates, 2024, DOI:10.1007/s44207-024-00001-0"
+        ],
+        "reasoning": "The paper gives a fixed-gain I-controller Jacobian and L2 explicit formula, and Resultary returned an unrelated Fehlberg RK4(5) estimator resonance, not a central Hermite all-gain open arc.",
+        "searches": [
+          "Resultary semantic query: third order Runge Kutta Hermite residual based I step size controller gain independent unstable stability boundary norm",
+          "search: third order Runge Kutta Hermite residual based I step size controller gain independent unstable stability boundary norm",
+          "doi:10.1007/s44207-024-00001-0"
+        ]
+      },
+      "rationale": "Best-of-knowledge, after comparing the actual theorem and its implications to retrieved Resultary records and the named published primary material. The original paper supplies the premises R and the Jacobian family but not the quantitative μ>5>ν_p proof; the latter establishes strictly stronger simultaneous gain/norm nonstabilizability under exact stated assumptions. Residual priority/access risks are explicitly retained.",
+      "residual_risks": [
+        "The earlier paper might implicitly imply the determinant argument from its equations for a motivated specialist; theorem-level priority is limited.",
+        "Only unrejected I-type updates, scalar complex test equation and positive limiter derivative; no PI/PID, zero-slope or nonlinear ODE statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The exact estimator and Jacobian are established here, so not novel; the inspected analysis is numerical for L1 and explicit for L2, without a theorem proving one common open arc unstable for all finite p and all positive gain/limiter slopes.",
+          "evidence": [
+            "https://link.springer.com/article/10.1007/s44207-024-00001-0, §3.3.2, equations (44)–(49), Figures 3–4"
+          ],
+          "identifier_or_url": "doi:10.1007/s44207-024-00001-0",
+          "material_read": "Full open-access HTML Section 3.3, especially 3.3.2 with equations 44–49, nonlinear residual quadrature and Figure 3/4 I-controller instability comparisons; introduction and controller setup.",
+          "method": "Compared their fixed numerical gains and L1/L2 formulas with the universal finite-Lp sensitivity <5 and a mathematically located RK boundary witness.",
+          "title": "Stability of step size control based on a posteriori error estimates",
+          "trigger": "Exact same central cubic-Hermite residual and third-order RK I-controller Jacobian."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cited I-controller instability plots alone permit trying other positive controller gains or norms. An exact common obstruction independent of all finite Lp choices and operating-point positive limiter slopes gives a usable sharp design-exclusion region within a motivated RK control model.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ranocha and Giesselmann, Stability of step size control based on a posteriori error estimates, 2024, DOI:10.1007/s44207-024-00001-0",
+    "Ranocha et al., Optimized Runge-Kutta Methods with Automatic Step Size Control for Compressible CFD, arXiv:2104.06836"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The claim is local linear amplitude/stepsize instability, not global failure for every initial state.",
+    "Absolute stability boundary, Re z<0, central cubic-Hermite residual and 1≤p<∞."
+  ],
+  "residual_risks": [
+    "The earlier paper might implicitly imply the determinant argument from its equations for a motivated specialist; theorem-level priority is limited.",
+    "Only unrejected I-type updates, scalar complex test equation and positive limiter derivative; no PI/PID, zero-slope or nonlinear ODE statement."
+  ],
+  "schema_version": 1
+}

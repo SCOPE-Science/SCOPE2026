@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A four-endpoint Hermite reconstruction yields the stated residual polynomial exactly. For every finite residual exponent, differentiating its positive normalized integral proves the strict uniform sensitivity bound \(4<\nu_p<5\). Independently, elementary polynomial arithmetic locates a unit-modulus Runge–Kutta point with \(\mu>5\); the exact feedback Jacobian then has determinant larger than one at every positive controller gain and limiter operating-point slope. The argument holds analytically across the claimed quantifiers. The standalone exact-polynomial checker and representative numerical derivative tests passed; they are not substituted for the proof.
+PASS
 
-## Originality — PASS (best knowledge)
+The endpoint data yield h(u_hat′−λu_hat)=−u_n z^4 v(v−1)(vz+v−2)/6. For Re z<0, writing B=−vz and A=2−v gives 0<Re(B/(A+B))<1; differentiation under the strictly positive integral yields 4<ν_p<5 for every finite p. At z=−1+i√w, exact R polynomial arithmetic gives |R|²−1=[w(w−3)^2−32]/36; the unique w>3 root lies between 53/10 and 11/2. Exact μ=Re(zR′/R)=(w−1)^2(w−2)/12 > 5+339/4000. The determinant of the 2×2 feedback Jacobian equals 1+(βκ′(1)/4)(μ−ν_p)>1 for every positive gain and limiter slope; continuity gives a nonempty open boundary arc. Independent sympy rational arithmetic checked the root enclosure, μ lower bound and polynomial identities. Representative script tests at p=1,2,4 are corroboration only.
 
-Ranocha and Giesselmann, arXiv:2307.12677, already derive the Hermite estimator and illustrate I-controller instability for selected parameters; these established observations are credited. The new assertion is a *common, exact, all-gain and all-finite-\(p\) instability arc*, with a strictly quantitative separation \(\mu>5>\nu_p\). The inspected primary paper's central cubic-Hermite section and stability discussion do not assert or imply that uniform bound as a stated theorem. The earlier adaptive RK/PI/PID treatment in arXiv:2104.06836 concerns different controller families/estimators. Published mathematical finding searches returned an embedded Fehlberg RK4(5) estimator resonance, which neither contains the central Hermite residual nor the I-controller Jacobian theorem. An uninspected earlier equivalent argument or a general stability theorem with the same implication remains a residual risk; no claim of exhaustive literature coverage is made.
+## originality
 
-## Value — PASS
+PASS
 
-A numerical instability plot at one gain need not rule out stabilizing the controller by changing its gain or the residual norm. This exact result proves that neither modification—and neither any ordinary smooth positive-slope limiter—can remove this particular local instability, within the specified I-type family. It supplies a concrete design exclusion boundary rather than a trivial local Taylor identity.
+Best-of-knowledge, after comparing the actual theorem and its implications to retrieved Resultary records and the named published primary material. The original paper supplies the premises R and the Jacobian family but not the quantitative μ>5>ν_p proof; the latter establishes strictly stronger simultaneous gain/norm nonstabilizability under exact stated assumptions. Residual priority/access risks are explicitly retained.
 
-## Limits
+## value
 
-Only the scalar complex equation, a fixed third-order stability polynomial, central cubic-Hermite residual, positive-gain I feedback, and local unrejected-step dynamics are covered. No PI/PID or step-rejection conclusion is made, and no independent audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cited I-controller instability plots alone permit trying other positive controller gains or norms. An exact common obstruction independent of all finite Lp choices and operating-point positive limiter slopes gives a usable sharp design-exclusion region within a motivated RK control model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
