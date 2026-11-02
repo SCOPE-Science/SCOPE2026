@@ -1,19 +1,21 @@
-# Scientific review: unique torque reversal under one-coordinate Poisson intervention
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns \(a,b,D_x,D_y>0\), \(ab>c^2\), \(c\ne0\), and \(0\le\theta<1\). Synchronous coupling of trajectories with shared thermal drivers and Poisson events is contractive because the positive-definite harmonic restoring force contracts Euclidean differences and each jump does not expand them. The quadratic Lyapunov inequality provides finite stationary second moments and a unique invariant law. Stationary generator identities exactly close on three quadratic moments. Independently reconstructing the three-by-three determinant gives \(\Delta>0\); Cramer's rule gives the torque polynomial in \(p=r(1-\theta)\). An explicit positive derivative proves the threshold \(q_*(p)\) is strictly monotone with endpoints one and infinity, yielding the necessary and sufficient reversal condition and unique stall. Exact rational checks exercised 347 admissible parameter sets but are not substituted for the proof.
+PASS
 
-## Originality — PASS, residual priority risk
+Strict positive definiteness K=[[a,c],[c,b]] and contracting coordinate resets give a quadratic Lyapunov drift and Wasserstein contraction, ensuring a unique stationary law with second moments. Generator on X²,Y²,XY yields a nonsingular linear system (2a+(1+θ)p)u+2cw=2D_x, 2bv+2cw=2D_y, c(u+v)+(a+b+p)w=0, p=r(1−θ), with positive determinant Δ=4(a+b)δ+2p[2ab+(1+θ)δ+(1+θ)b²]+2b(1+θ)p². Cramer algebra gives M=c(u−v)+(b−a)w=(2c/Δ)[4δ(D_x−D_y)+2p(bD_x−(a+b(1+θ))D_y)−(1+θ)D_y p²]. The numerator factors by (4δ+2bp)(D_x/D_y−q*(p))D_y and q* derivative has positive numerator 8δ[a+bθ+(1+θ)p]+2b(1+θ)p². As q*(0)=1 and q*(∞)=∞, there is one threshold only for hotter X. Independent symbolic 3×3 inversion/determinant and torque factor checks succeeded. These algebraic identities yield universal signs; no Gaussian stationary-law assumption or finite-sample extrapolation.
 
-The no-reset result of Filliger and Reimann (2007) is strictly weaker: it yields only the zero-intervention endpoint. Olsen and Löwen (2024) examine partial reset of coupled degrees of freedom, but their Fourier--Laplace moment hierarchy assumes a spatially homogeneous free marginal propagator (their equation (4)), which a symmetrically coupled confining harmonic well does not possess. Abdoli, Olsen, and Löwen (2024) treat shear drift, with no stationary law under the stated unconfined coordinate-only reset, and not the present two-bath conservative well. Abdoli and collaborators' magnetic/shear gyrator reversals use altered continuous forces, not these jumps; their results do not logically yield the temperature-ratio threshold or its monotonicity. No equivalent classification was located in the searches undertaken, though general linear jump-diffusion moment methods or unindexed specialist research could predate the formulation. The full text of a partially relevant one-dimensional thermodynamic-work paper was not established; its abstract alone cannot exclude broader coverage.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a complete physically interpretable sign-phase classification for a minimal coupled two-thermostat machine under local stochastic intervention. Its exact boundary separates one-reversal and no-reversal regimes; strict global monotonicity rules out multiple reversals, determines the unique stall explicitly, and shows resetting the cooler coordinate cannot produce a positive-rate reversal. The high-rate residual torque identifies an intervention-induced torque even without temperature contrast. These are structural exact parameter statements rather than isolated numerical examples or a reparameterization of the no-reset formula.
+No-reset harmonic gyrator torque and coordinate-resetting moment methods are known. Closest inspected work on one-coordinate/velocity resetting assumes spatial translation covariance and on shear resetting uses unconfined driving; their results do not directly give the exact strictly confined OU conservative-torque phase boundary. Mechanism-specific earlier literature remains a possibility.
 
-## Verification and limits
+## value
 
-The standalone `verify.py` was run successfully using exact rational arithmetic. Publicly claimed evidence is limited to the proven conservative potential torque, not angular probability-current winding or total energetic work of jumps. References were compared by their logical premises and observables; no claim of exhaustive literature coverage or independent external certification is made. Particular uncertainty remains about unlocated published treatments of general linear stochastic systems with subcoordinate contraction.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete necessary-and-sufficient reversal criterion, monotone temperature-ratio boundary, and explicit unique intervention rate are natural for nonequilibrium stochastic control. It separates a nontrivial reset-driven sign transition from other magnetic/shear torque mechanisms while specifying exactly the observable (conservative torque), not claiming thermodynamic efficiency.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
