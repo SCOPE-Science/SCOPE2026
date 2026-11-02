@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact verification and scope
 
-The standalone `CHECK.py` is the complete finite checker. With standard Python 3, run `python3 CHECK.py`. It builds the adjacency predicate directly from Hamming words, generates all independent simplices including the empty simplex exactly once by ordered recursion, and checks the complete face histogram. At each ordered vertex it pairs all then-available faces by toggling that vertex; the verifier checks all remaining critical faces are three-dimensional and that the match is disjoint.
+# Independent mathematical audit
 
-Every cover relation is oriented according to the matching; a topological sort of the entire resulting directed Hasse graph, not a sample, visits all 243270 vertices. Critical-face dimensions then yield the integral wedge decomposition by discrete Morse theory. The scale-one homotopy argument is given in `RESULT.md` and its line/vertex incidence counts are checked in the same program. The other scales follow from the exactly three possible positive Hamming distances.
+## correctness
 
-Observed exact outputs: 243270 augmented faces, 1843680 Hasse covers, 121536 matched pairs, 198 unmatched dimension-three faces, 243270 sorted directed vertices, and first Betti number 57 at scale one. Terminal marker: `COMPLETE_HAMMING_3_4_4_FILTRATION_VERIFIED`.
+PASS
 
-The proof is finite and algorithmic, with no inference beyond the fixed 48-point space. No independent audit has been performed. A computation log by itself would not establish acyclicity; here the executable performs the complete directed-graph verification.
+For inclusive Hamming metric on 48 words [3]×[4]×[4], distances between distinct points are exactly 1,2,3. Below scale1 there are 48 points. At scale1 each clique lies in one coordinate line; 40 line simplices form a good cover, its nerve is a graph of 88 nodes and 144 incidences after triangle contractions, hence a connected wedge of 57 circles. At scale2, forbidden pairs differ in all coordinates, so the Rips complex is Ind(K3×K4×K4). Independently fully enumerated 243,270 augmented faces with exact 0..16 histogram, 432 categorical graph edges, and reconstructed 121,536 disjoint matching pairs plus exactly 198 unpaired four-vertex faces. Independently topologically sorted all 1,843,680 oriented Hasse covers, visiting every face, so acyclicity is complete, not a partial numerical sample. Empty face is matched with vertex; ordinary discrete Morse gives one point and 198 3-cells, an integral wedge of 198 S3. At scale3 the simplex is complete. Distinct homology support degrees force 47 [0,1) bars degree0, 57 [1,2) degree1, and 198 [2,3) degree3; endpoint conventions are inclusive.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge: searched Resultary by semantic same-object aliases, inspected relevant primary theorem statements, distinguished direct and partial coverage, and found no proven dominating statement of the final claimed exact invariant. Residual risks and incomplete primary sections are explicitly documented.
+
+## value
+
+PASS
+
+This fixed all-nonbinary triple-product complex with two four-letter coordinates is a natural step beyond the known binary-factor proof and smaller 3×3×3 example. A complete integral sphere-wedge certificate and full Hamming Vietoris–Rips barcode give a reproducible sharp finite case of a broader published conjecture without pretending to settle it. This is a natural exact invariant, not an unmotivated arbitrary tiny graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
