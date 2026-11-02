@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "The 640 balanced words yield 320 size-two RC orbits. All 120 internally compatible orbits are exhaustively regenerated; a checked 12-clique cover of their incompatibility graph gives the upper bound of 12 pairs, and a checked 12-pair witness attains it. The included two standard-library checkers use direct word and numerical mask representations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published unrestricted q=4 length-five maximum is 81; arxiv:2410.18458 characterizes GC-balanced nonoverlap but does not impose reverse-complement closure."
+      ],
+      "reasoning": "A broad theorem would cover this claim only if it determined the optimum after imposing the additional RC and 2-or-3-GC conditions. The general 81 upper bound is not sharp for the restricted feasible set, while the balance-only bounds and table do not yield 24.",
+      "searches": [
+        "q-ary length-five non-overlapping maximum size and enumeration; Blackburn construction 81",
+        "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths"
+      ]
+    },
+    "checked_sources": [
+      "King (2003), arxiv:math/0306197",
+      "Chee et al. (2012), arxiv:1209.0236",
+      "Blackburn (2013), arxiv:1303.1026",
+      "Kari–Mahalingam (2006), DNA Codes and Their Properties",
+      "Yazdi et al. (2015), doi:10.1038/srep14138",
+      "Stanovnik et al. (2024), arxiv:2410.18458",
+      "Published exact unrestricted length-five non-overlapping theorem (2026), full RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "King concerns distance bounds; Chee–Blackburn are unrestricted; Stanovnik–Moškon–Mraz lacks RC closure; Yazdi addresses combined storage constraints without the exact 24 bound."
+      ],
+      "reasoning": "These premises do not determine the upper bound 24 or construct a 24-word code under the three simultaneous constraints. This claim supplies the missing finite exact obstruction and witness rather than repackaging an unrestricted or distance-only corollary.",
+      "searches": [
+        "arxiv:math/0306197 GC reverse-complement distance bounds",
+        "arxiv:1209.0236 non-overlap constructions",
+        "arxiv:2410.18458 near-half balanced non-overlap",
+        "doi:10.1038/srep14138 DNA storage codes",
+        "finite DNA barcode code cardinality 24 reverse complement closed no prefix suffix overlap at length 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2012 Chee et al. and 2013 Blackburn call non-overlapping cross-bifix-free or mutually uncorrelated; 2006 Kari–Mahalingam treats Watson–Crick anti-morphisms."
+      ],
+      "reasoning": "Aliasing non-overlapping/cross-bifix-free, reverse-complement-invariant/strand-closed, and GC almost-balanced produces the identical three-condition optimization. Indexed searches found no equivalent exact 24-size claim; closure differs from RC-distance requirements.",
+      "searches": [
+        "Maximum cardinality of reverse complement closed 5 nucleotide cross bifix free codes with GC content two or three, non-overlapping DNA barcodes length five 24",
+        "Watson Crick invariant self synchronizing nonoverlapping 5mers with GC balance 40-60 percent, maximum 24",
+        "Exact maximum 24 DNA 5-mer 40-60% GC balanced reverse complement invariant closure cross-bifix-free nonoverlapping words; 12 Watson Crick orbit pairs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publicly available unrestricted S(4,5)=81 table; arxiv:2410.18458 Table 1 only reports even n small cases."
+      ],
+      "reasoning": "Existing exact tables inspected do not contain the odd-length RC-invariant GC-balanced case; without the orbit-graph certificate they do not decide its capacity.",
+      "searches": [
+        "length five reverse complement closed GC content 2 or 3 cross bifix free exact optimum",
+        "Equivalence classes of reverse complementary nonoverlapping DNA codes length 5 balanced 2/3 GC and pairwise prefix suffix",
+        "12-orbit bound for Watson Crick reverse-complement-closed quaternary cross-bifix-free length-five constant GC two or three"
+      ]
+    },
+    "rationale": "No checked primary result or indexed research claim gives, or logically implies, the exact three-constraint DNA-five-mer maximum 24. The most relevant near-balanced 2024 source omits RC closure and exact odd-length cases; a published unrestricted five-mer maximum 81 does not imply the constrained value. Risk of an unindexed earlier exact table remains.",
+    "residual_risks": [
+      "Unindexed or unpublished GC-balanced strand-closed five-mer code tables could predate this exact parameter.",
+      "A complete bibliographic priority certification was not performed; absence from queried indexes does not prove global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the joint exact capacity: uses Hamming and reverse-complement distance, not invariance plus cross-bifix-free constraints.",
+        "evidence": [
+          "arxiv:math/0306197, pp. 1–3: GC and reverse-complement distance definitions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0306197",
+        "material_read": "Full open-access paper, abstract, code definitions, bound statements and discussion of GC/RC constraints",
+        "method": "Full PDF text with page-image inspection",
+        "title": "Bounds for DNA codes with constant GC-content",
+        "trigger": "Earliest relevant pre-2016 GC and Watson–Crick code foundations"
+      },
+      {
+        "assessment": "Unrestricted non-overlapping-code construction and asymptotic bounds; no GC-balanced reverse-complement-invariant exact length-five maximum.",
+        "evidence": [
+          "arxiv:1209.0236, introduction and constructions"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1209.0236",
+        "material_read": "Full freely accessible PDF: theorem statements, construction section, relevant bounds",
+        "method": "Full PDF text and inspected page images",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Defines non-overlap and obtains general alphabet-size bounds"
+      },
+      {
+        "assessment": "The ambient q-ary bounds are too weak to imply the exact joint maximum 24, and the extra constraints are not imposed.",
+        "evidence": [
+          "arxiv:1303.1026, pp. 1–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1303.1026",
+        "material_read": "Full PDF: definitions, bounds, and small-length conclusions",
+        "method": "Full PDF text and page-image inspection",
+        "title": "Non-overlapping codes",
+        "trigger": "General upper bounds might dominate a more restricted finite optimum"
+      },
+      {
+        "assessment": "Studies DNA code properties and theta-constraints; does not specify exact GC-balanced reverse-complement-closed non-overlapping five-mer optimum.",
+        "evidence": [
+          "Kari–Mahalingam (2006): DNA anti-morphism and code properties"
+        ],
+        "identifier_or_url": "https://www.csd.uwo.ca/~lkari/pdfs/DNA%20codes%20and%20their%20properties.pdf",
+        "material_read": "Full freely available paper and introductory definitions of DNA operations",
+        "method": "Full-text reading with page images",
+        "title": "DNA Codes and Their Properties",
+        "trigger": "Watson–Crick anti-morphism and prefix/suffix conditions could coincide"
+      },
+      {
+        "assessment": "Motivates combined constraints but no exact five-letter reverse-complement-invariant code bound; also imposes additional biochemical conditions.",
+        "evidence": [
+          "DOI 10.1038/srep14138 (2015), sections on non-overlapping addresses"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4585656/",
+        "material_read": "Full open-access HTML, code constraints, constructions and discussion",
+        "method": "Full-text HTML and bibliographic review",
+        "title": "A Rewritable, Random-Access DNA-Based Storage System",
+        "trigger": "Introduces actual barcode design combining GC conditions and non-overlap"
+      },
+      {
+        "assessment": "This addresses near-half balanced non-overlapping codes, and gives small exact cases for even word lengths; it does not impose reverse-complement closure or report the present odd-length three-constraint optimum.",
+        "evidence": [
+          "arxiv:2410.18458, pp. 1–3 and 6–8, Section 3 and Table 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2410.18458",
+        "material_read": "Full 16-page arXiv text, introduction, Section 2 definitions, Section 3 constraints, Proposition 8–9, size table and scope",
+        "method": "Full-text reading, term search and page image for Section 2",
+        "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+        "trigger": "Direct near-half-GC and non-overlap overlap with claim"
+      },
+      {
+        "assessment": "Gives unrestricted optimum 81 at alphabet size four and classification of unrestricted maximizers, not a sharp optimum for RC-invariant near-GC-balanced subcodes; 81 does not imply 24.",
+        "evidence": [
+          "Published 2026 length-five unrestricted non-overlapping theorem, S(4,5)=81; publicly available RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026",
+        "material_read": "Full public RESULT.md of the length-five theorem, including statement, optimization proof, and scope",
+        "method": "Read publicly available repository file through read-only GitHub file access",
+        "title": "Exact size and enumeration of maximum length-five non-overlapping codes",
+        "trigger": "Potential stronger general theorem and exact database table for quaternary length five"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b39eb37f-2435-4a0c-994a-d836b1ce6396",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The three constraints are mathematically independent and motivated by strand orientation, near-half GC proportions and frame synchronization for length-five DNA words. Their exact intersection capacity 24 is a natural tight design benchmark versus the unrestricted 81, accompanied by a reproducible optimality certificate. It does not claim a wet-lab-ready or substitution-correcting code.",
+    "status": "PASS"
+  }
+}
