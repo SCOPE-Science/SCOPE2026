@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The new theorem is supported by the full mathematical proof in `RESULT.md`. Its critical steps are: forward locality of the deterministic-chain tag formulas; compatibility of interpretation with successor-closed restrictions; exact recovery of all source relations by the graph encoding; and a structural induction translating every allowed \(\exists\)-bounded formula back to the original all-binary signature. The published Theorem 8 (arXiv:2603.12171v1) supplies the four-relation obstruction.
+## correctness
 
-The supplementary standalone checker `check_generated_coding.py` is executable with Python 3 standard library. Run `python check_generated_coding.py`; observed output: `FORWARD_GADGET_FINITE_SANITY_OK 2133`. This checks every source graph up to the code's finite source limits and every successor-closed induced subgraph of every directed graph on up to three vertices. The asserted exact finite identities follow from the code's enumeration and the mathematical construction. These finite checks do not prove equivalence for arbitrary formulas, general model sizes, or historical originality; the proof and documented literature comparisons address those obligations.
+PASS
 
-No external/independent audit has been performed, and the full text of one broad FO-transduction comparison was unavailable. The result is restricted to directed frames with loops permitted.
+For the one-edge graph E, U(x)=E(x,x) selects originals, and deterministic sink-chain tests C_i(t),T_i(z) are forward-local: successor closure preserves their exact truth. An edge-node path a->z->b with T_i(z) interprets R_i(a,b); any E-successor-closed induced graph H produces precisely the induced interpreted source structure on U(H), with all R_i-successors of any retained a also retained. Every finite all-binary source A has an explicit realization F(A) using original looped vertices, one edge node per source tuple and an i-long sink chain, and I(F(A))=A exactly, including loops and empty. The critical reflection induction partitions vertices into finitely many sorts (original, edge, tag), translates E/equality literals by parameter equalities and R_i-literals, universal quantifiers by finite conjunctions of unrestricted universals, and E-guarded quantifiers by the exact finite outgoing-list; original-to-edge successors require only R_i-guarded source quantifiers, while edge/tag successors are deterministic, so no unguarded existential is introduced. Therefore any hypothetical E-language ∃-bounded equivalent would pull back to a multi-relation ∃-bounded equivalent, contradicting the explicitly verified van Benthem–ten Cate–Yang Theorem 8 and Lemmas 9–10. Source check_generated_coding.py was read including finite sample limits; finite tests alone not proof. Source χ is universal and true on empty structures, so the interpretation covers empty cases.
+
+## originality
+
+PASS
+
+Best-of-knowledge original single-relation resolution of explicit open finite generated-subframe preservation issue following van Benthem–ten Cate–Yang Theorem 8. Their four-relation obstruction is the imported premise, not claimed new; the restricted-fragment reflection is the new mechanism.
+
+## value
+
+PASS
+
+The theorem resolves a precisely stated signature-minimization problem for a finite preservation counterexample. The new structural transfer preserves both the semantic generated-subframe closure and the syntactically delicate guarded-existential fragment; this is a substantive finite-model-theoretic obstruction rather than routine renaming of relation symbols.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
