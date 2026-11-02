@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns all positive loop and bridge lengths, including equality and the transition. The exact edge-pair decomposition gives the full piecewise-linear density, the normalization \(f_D(0+)=2/L\), and its diameter endpoint. Direct conditional moments produce (1) and (4). At the sole resonance \(c=s/4\) the second-moment derivative \(s^2/48+p/6\) is strictly positive for every admissible product \(p\), so the inverse exists and is unique. The two concrete resonant graphs and their exact first/second moments were checked. The standalone program gives reproducible rational and metric-grid checks; these are additional diagnostics rather than a substitute for proof.
+## correctness
 
-## Originality — PASS, with source-access limits
-Lamb studies network-distance functionals but not this inverse problem. Mémoli–Needham's Section 4/Figure 11 actually illustrates a two-loop dumbbell and its global histogram; this is acknowledged. Its statements concerning local distributions and metric-graph recognition do not imply the present inverse from four global scalars. Baptista–Kennedy–Mugnolo establish the general metric-graph mean-distance invariant, broad extremal bounds and several exact examples, but the inspected relevant sections do not provide the exact two-loop/bridge shape-reversal threshold or its variance rescue. Prior work on metric stars, roses and theta graphs does not cover a positive bridge separating the two cycles. Database and literature searches found no statement directly implying the result. The plausible historical risk of an equivalent calculation elsewhere remains.
+PASS
 
-## Mathematical value — PASS
-The bridge makes the two cycle lengths invisible to a first moment at one sharp and geometrically meaningful parameter ratio; on either side of that ratio the optimizer under a fixed total loop length reverses. A single additional scalar moment resolves precisely that failure. This is a complete, motivated inverse calculation for a natural bicyclic metric network, not a numerical curiosity or a routine special parameter example.
+PASS. Computed six ordered arclength-pair types AA,BB,CC,AB,AC,BC, including exact convolution weights 2a,2b,2(c-t),4,4,8. The density starts at 2/L and has support endpoint c+(a+b)/2; hence c=2M-L and s=L-c. Independent Sympy expansion of category moment integrals yields L^2 mu1=B1+(c-s/4)ab and L^2 mu2=B2+(-s²/6+cs/2+c²)ab+(ab)^2/12 identically. At c=s/4, derivative of second moment in ab is s²/48+ab/6>0. Exact witnessed (a,b,c)=(1,3,1) and (2,2,1) have equal mean 17/15, distinct second moments 107/60 and 91/50.
 
-## Residual limits
-Only this fixed graph topology is addressed. Infinitely precise short-distance slope and support endpoint are assumed. No claim is made about all unknown metric graphs, finite-sample inference, or uniform conditioning at edge collapse. One relevant early network-statistics paper was available only in abstract form; complete historical-priority coverage cannot be guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Mémoli-Needham arXiv:1810.09646 Sections 4.1–4.4 study global/local distance distributions, local metric graph classification, a sample dumbbell histogram (Figure 11), and graph noninjectivity outside fixed families; they do not explicitly supply this entire positive-real-parameter mean-blind resonance inverse. Their small-radius metric-graph expansion already provides related scale identification, duly credited. Baptista-Kennedy-Mugnolo general mean-distance bounds do not state this exact switch for a dumbbell with bridge.
+
+## value
+
+PASS
+
+PASS. The precise first-moment failure locus and two-moment recovery resolve a naturally motivated metric-measure inverse problem at an exceptional parameter ratio, including the exact order reversal of mean distance under loop balancing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

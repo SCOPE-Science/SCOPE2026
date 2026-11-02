@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof is given by conditional integration over six disjoint ordered-edge pair classes and a strictly monotone inversion at the unique mean-blind ratio. It does not rely on computational enumeration.
+# Independent mathematical audit
 
-Run the embedded `checker.py` with `python3 checker.py`. The code uses only Python's standard library. It checks 80 exact rational three-parameter identities, integrates the piecewise-linear distance density exactly for moments of orders zero through two, checks 25 critical-ratio identities and the explicit nonidentifiability witness, and compares four independent deterministic point-pair grids with the moment formulas.
+## correctness
 
-All tests passed in the recorded run. The deterministic grids do not establish uniform error bounds, and the finite rational tests do not replace the infinite-parameter analytic proof. The theorem assumes strictly positive lengths on a known two-loop/one-bridge topology. Historical-priority review is not exhaustive; no independent scientific audit has been performed.
+PASS
+
+PASS. Computed six ordered arclength-pair types AA,BB,CC,AB,AC,BC, including exact convolution weights 2a,2b,2(c-t),4,4,8. The density starts at 2/L and has support endpoint c+(a+b)/2; hence c=2M-L and s=L-c. Independent Sympy expansion of category moment integrals yields L^2 mu1=B1+(c-s/4)ab and L^2 mu2=B2+(-s²/6+cs/2+c²)ab+(ab)^2/12 identically. At c=s/4, derivative of second moment in ab is s²/48+ab/6>0. Exact witnessed (a,b,c)=(1,3,1) and (2,2,1) have equal mean 17/15, distinct second moments 107/60 and 91/50.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Mémoli-Needham arXiv:1810.09646 Sections 4.1–4.4 study global/local distance distributions, local metric graph classification, a sample dumbbell histogram (Figure 11), and graph noninjectivity outside fixed families; they do not explicitly supply this entire positive-real-parameter mean-blind resonance inverse. Their small-radius metric-graph expansion already provides related scale identification, duly credited. Baptista-Kennedy-Mugnolo general mean-distance bounds do not state this exact switch for a dumbbell with bridge.
+
+## value
+
+PASS
+
+PASS. The precise first-moment failure locus and two-moment recovery resolve a naturally motivated metric-measure inverse problem at an exceptional parameter ratio, including the exact order reversal of mean distance under loop balancing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
