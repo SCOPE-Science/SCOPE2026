@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coverage-event coefficient formula follows by partitioning all subsets of unprotected pollinators by size. Plant-neighborhood masks, complete multiset enumeration, and exact bipartite connectedness testing cover every connected incidence graph with at most nine vertices, up to the harmless permutation of plant labels. The verifier counts 64,820 connected representatives with a coefficientwise dominating pollinator in every case; its exact witness vectors give \(R_B(p)-R_A(p)=p(1-p)^2(1-2p)\). Direct rational survival-state summation corroborates the witness; no sampled grid is used as a proof over real probabilities.
+PASS
 
-## Originality — PASS (qualified)
+For m plants and r pollinators, each plant has a nonempty r-bit neighbor mask, and protecting j gives exact Bernstein-basis survival coefficients c_j(k) counting k-subsets of r−1 remaining pollinators that cover all m plants. Permuting plant rows permits exhaustive enumeration of all nondecreasing masks, with labelled pollinators preserved. An independently written exhaustive connected bipartite graph enumerator checked precisely 64,820 row-multiset representatives for 2≤m,r and m+r≤9, and independently calculated every c_j(k): a coefficientwise global dominator exists in every case; the one-guild-singleton cases follow directly. Positive basis weights imply a common probability maximizer for all p∈(0,1). For ten-species plant masks (3,5,14,22,26), independent enumeration gives A=(0,1,6,4,1), B=(0,2,5,4,1), C=(0,1,5,4,1), D=E=(0,0,4,4,1); B−A=p(1−p)²(1−2p) so B uniquely wins below 1/2, A uniquely above, and only A,B tie at 1/2. This is a finite exhaustive theorem plus an exact polynomial witness, not extrapolation to larger networks.
 
-The known concepts of mutualistic-network robustness and coherent-system component importance are not claimed as new. Bascompte et al. (2003) measured nestedness; Kaiser-Bunbury et al. (2010) modeled sequential losses and rewiring, rather than computing a sharp connected-incidence cutoff for one perfectly protected pollinator and all-plants retention. Earlier expected-richness protection is different from this all-plants event and does not imply it. Romero (2021 online) surveys graph reliability for other connectivity events. published-finding corpus records on fragile sensor placement and related graph reliability do not imply the specific cutoff. Residual risk: a prior result may use monotone CNF, stochastic set cover, Boolean importance, or reliability ranking vocabulary, while Butler's (1977) full article was not available for complete comparison.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact threshold answers when one protection decision remains optimal under uncertainty about common survival probability. The stronger coefficientwise result applies simultaneously to all survival probabilities and yields a simple exact comparison method for small connected networks; the ten-species witness shows why no survival-independent choice can work generally. The joint-retention objective requires every plant to have some surviving partner and therefore captures a qualitatively different risk from expected retained richness. Scope is deliberately restricted to homogeneous independent losses and perfect protection; it has no empirical predictive claim.
+QUALIFIED PASS. Classical coherent-system component-importance ranking by minimal cuts (Butler 1977) and ecological network robustness/nestedness (Bascompte et al 2003; Kaiser-Bunbury et al 2010) address the underlying type of incidence reliability, but do not in inspected material establish the *minimum total bipartite vertex count* for a change of best perfectly protected component under the all-plants retained event. A later reliability survey concerns all-terminal structural reliability, not this choice of perfectly guaranteed pollinator. Equivalence under monotone Boolean CNF/stochastic set cover remains a real priority risk, especially with the 1977 full paper unavailable.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact cutoff separates universal component-choice rankings from probability-dependent reversals in a clearly motivated joint-coverage objective. A complete 64,820-case finite classification plus a sharp analytic ten-species witness is an independently usable fact about minimal coherent reliability systems, distinct from expected retained richness and from ecological forecasting claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
