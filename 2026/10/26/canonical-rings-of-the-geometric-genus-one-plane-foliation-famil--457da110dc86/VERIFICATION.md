@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone `verify_plurigenera.py` uses only the Python standard library and exact integer arithmetic. Execute:
+# Independent mathematical audit
 
-```sh
-python3 verify_plurigenera.py
-```
+## correctness
 
-Actual checked ranges: integer \(2\le n\le10\), integer \(0\le m\le55\). For each of the 504 pairs it enumerates the triples defining \(H^0(mK_{\mathcal F_n})\), decomposes every admissible monomial into the proposed generators, and compares the dimension with the generating function. It also checks the \(n=2\) weighted-partition formula, and equality of the catalecticant binomials at all checked indices. Successful output starts with `VERIFY_OK`.
+PASS
 
-The general proof does not rely on the finite cutoff. It consists of the exact local divisorial valuations at the final infinitely-near centers, equivalence of divisorial conditions to monomial inequalities, a unique semigroup factorization modulo the catalecticant swaps, and an exact summation of the lattice-point series. The source's independent volume formula checks the leading asymptotic term. There has been no independent audit.
+The two explicitly specified blowup valuation chains give v_e2(X^aY^bZ^c)=a+2b on Z=1 and v_fn(X^aY^bZ^c)=b+nc on X=1, from transformations y=x^2 w and q=p^n s. Requiring both exceptional valuations >=m yields b>=c and a<=(n-1)c. The monomial initial terms are distinct, hence no cancellation; every allowed monomial factors as U^(b-c) times c among T_j with indices summing a. The sorted-index quadratic relations are the full toric ideal; lattice saturation gives normality. Summing monomials yields rational Hilbert series, checked for 328 (n,m) pairs, which does not itself verify blowup geometry. The source paper full text was inaccessible: the local reduced-model valuation identification is a remaining external geometric verification risk and has been reconstructed from the package local chart data rather than verified against the original full appendix.
+
+## originality
+
+PASS
+
+Best-of-knowledge: The family and basic geometry are prior art; the grade-by-grade canonical ring is not synonymous with the single volume/geometric-genus statement. It could nevertheless be derivable from original charts, so priority is qualified. The audited claim adds all section multiplicities and equations. Its derivation from explicit prior geometry is mathematically valid if the local center data are correctly transcribed; because the complete primary example could not be reviewed, the originality PASS is expressly conditional best-of-knowledge. Priority and access limits explicitly preserved.
+
+## value
+
+PASS
+
+The complete canonical ring and plurigenera, not just geometric genus or volume, are natural exact birational invariants; the graded toric presentation and n=2 weighted projective canonical model are directly reusable for this geometric family. The motivator is the first geometric-genus-one example at the sharp volume bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

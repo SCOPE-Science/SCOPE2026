@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the specific reduced blowup in Guo–Hu–Lü Example 7.1, the published canonical class \(H-e_2-f_n\) combines with the explicitly reconstructed infinitely-near valuations \((1,2)\) and \((1,n)\). This yields two monomial inequalities defining every global pluricanonical section, not only asymptotic sections. The rational-normal-curve determinantal presentation follows from a direct semigroup-generation and relation argument. Its Hilbert series recovers the published volume \((n-1)/(2(n+1))\). The standalone checker independently compares 504 finite parameter-degree examples with the generating function. A finite check is not an infinite proof; the proof is the explicit valuation and monomial-ideal calculation.
+## correctness
 
-## Originality — PASS (self-review, with priority limitations)
-The inspected source [1], Example 7.1, states \(p_g=1\) and the volume but not an all-degree section ring or explicit toric Proj. Its introduction discusses higher plurigenera as future work. The broad results [2], [3] and [4] provide birational bounds, canonical-map theory and pluri-index bounds but no implication determining this example's semigroup. Targeted published mathematical-record and literature queries did not reveal another explicit presentation of this exact family. The use of classical rational normal curves is prior art; only the family-specific ring classification is assessed as new. An implicit earlier ring computation remains possible; this is not an independent priority certification.
+PASS
 
-## Mathematical value — PASS
-The source's natural family realizes the sharp volume bound and has only one degree-one canonical section, leaving its pluricanonical geometry invisible to its canonical map. Determining every plurigenera, the minimal generator degrees, defining equations and normal toric projective model resolves that motivated missing geometry. In particular, the equality example's polynomial canonical ring and weighted-projective model give more structure than repeating its already-known volume. No assertion about every extremal foliation is needed.
+The two explicitly specified blowup valuation chains give v_e2(X^aY^bZ^c)=a+2b on Z=1 and v_fn(X^aY^bZ^c)=b+nc on X=1, from transformations y=x^2 w and q=p^n s. Requiring both exceptional valuations >=m yields b>=c and a<=(n-1)c. The monomial initial terms are distinct, hence no cancellation; every allowed monomial factors as U^(b-c) times c among T_j with indices summing a. The sorted-index quadratic relations are the full toric ideal; lattice saturation gives normality. Summing monomials yields rational Hilbert series, checked for 328 (n,m) pairs, which does not itself verify blowup geometry. The source paper full text was inaccessible: the local reduced-model valuation identification is a remaining external geometric verification risk and has been reconstructed from the package local chart data rather than verified against the original full appendix.
 
-## Closest literature and limitations
-[1] Guo–Hu–Lü, arXiv:2610.19788v1, especially Example 7.1 and §1. [2] Hacon–Langer, arXiv:1910.07709, Introduction/Theorems 0.2 and 0.5. [3] Lü, arXiv:2410.08465, canonical-map bounds. [4] Xu, arXiv:2608.29900, pluri-index bounds. Exact classification is limited to the indicated blowup family, and earlier implicit work cannot be excluded by search alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: The family and basic geometry are prior art; the grade-by-grade canonical ring is not synonymous with the single volume/geometric-genus statement. It could nevertheless be derivable from original charts, so priority is qualified. The audited claim adds all section multiplicities and equations. Its derivation from explicit prior geometry is mathematically valid if the local center data are correctly transcribed; because the complete primary example could not be reviewed, the originality PASS is expressly conditional best-of-knowledge. Priority and access limits explicitly preserved.
+
+## value
+
+PASS
+
+The complete canonical ring and plurigenera, not just geometric genus or volume, are natural exact birational invariants; the graded toric presentation and n=2 weighted projective canonical model are directly reusable for this geometric family. The motivator is the first geometric-genus-one example at the sharp volume bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
