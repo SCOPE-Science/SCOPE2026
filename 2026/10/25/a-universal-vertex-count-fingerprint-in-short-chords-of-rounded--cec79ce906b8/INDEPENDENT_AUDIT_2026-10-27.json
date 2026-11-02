@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T16:14:29.241108Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "GitHub RESULT.md SHA ee0185e79ffd301e9101802c6f06a928f22f9372",
+        "GitHub verify_rounded_chords.py SHA 23a5219450c4274da384bac47023c081fa07fa9a",
+        "Independent high-precision integral evaluation private independent_checks.py"
+      ],
+      "rationale": "The probability normalization follows from Cauchy perimeter identity int_0^pi width(K_r,theta)dtheta=L+2pi r. For any fixed polygon and small scaled length rs, compactness and positive edge lengths localize each contributing chord to exactly one vertex wedge. The unit-rounded wedge has arc–arc offset depth H=1-sqrt(1-s²/4) except two symmetric arc–tangent normal strips of width a_s=asin(s/2). In those strips the exact depth is h_m=1-cos(arccos(1-s sin a)-a). Integration J_omega=omega H+Psi and total turning sum omega=2pi yield the invariant m. Independent numerical integration of Psi/s³ for s=.8,.4,.1,.04 converges to -1/30, and exact small-s expansion of H gives pi s²/4 and pi s⁴/64. The finite meshed rounded-polygon verifier is approximation, not proof of exact all-polygon statement.",
+      "residual_risks": [
+        "Small r depends on fixed polygon and s; angular restriction avoids overlapping tangent/fillet strips and must not be extended to all chord lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Polygon multi-chord framework applies to straight-edged polygons; no rounded corner-law was found in inspected full text.",
+          "Older Gates full text was not verified; possible general short-chord asymptotic implication remains untested."
+        ],
+        "reasoning": "A general smooth convex-body small-chord expansion might capture curvature, but its uniform singular rounding limit and exact all-s formula for fixed m are not supplied by the inspected polygon results.",
+        "searches": [
+          "García-Pelayo (2015), arXiv:1501.00292",
+          "Gates, Some properties of chord length distributions, Journal of Applied Probability (1987)",
+          "Bäsel, Random chords and point distances in regular polygons (2014)"
+        ]
+      },
+      "checked_sources": [
+        "García-Pelayo arXiv:1501.00292 PDF",
+        "Bäsel regular-polygon chord arXiv",
+        "Dobrohotoff 2012 abstract",
+        "Gates 1987 bibliographic citation",
+        "Resultary polygon/chord index searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The transition from straight corners to tangent circular fillets changes local short-chord contributions and requires singular r-s localization.",
+          "Rounded body modeling per se does not imply invariant-line short-chord probability."
+        ],
+        "reasoning": "Prior formulas in the inspected material cannot directly yield this all-polygon vertex-count invariance without the new rounded-wedge computation; an uninspected general integral-geometric theorem could potentially do so.",
+        "searches": [
+          "García-Pelayo arXiv:1501.00292, polygon chord integral formulas",
+          "Dobrohotoff et al. (2012), DOI:10.1007/s10035-012-0357-9",
+          "Bäsel (2014) regular polygon chord formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "García-Pelayo computes polygon edge-pair chord density without Euclidean disk Minkowski rounding.",
+          "Rounded spheropolygon is a Minkowski sum P+rB but the source geometric model does not specify this Crofton CDF."
+        ],
+        "reasoning": "Investigated invariant-line/crofton vs boundary-point sampling, rounded wedges and fillet boundary layers. Same perimeter alone does not determine entire unrounded chord law.",
+        "searches": [
+          "García-Pelayo arXiv:1501.00292",
+          "Resultary: Crofton invariant line chord length CDF spheropolygons rounded corners Minkowski sum disk small lengths",
+          "Resultary: short chord distribution rounded convex polygons invariant random lines vertex count cubic coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "First finding samples two area-uniform points and studies their mutual distance; the statistic is not Crofton chord length.",
+          "Central chords of regular polygons involve conditioned center-crossing lines, not all hit-lines of disk-offset arbitrary polygons."
+        ],
+        "reasoning": "No queried table provides the normalized cubic coefficient -m/30; actual source families are mathematically different. Negative search is not proof of novelty.",
+        "searches": [
+          "Resultary 2026/10/11 SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+          "Resultary 2026/10/11 SCOPE-parity-resolved-central-chord-laws-for-regular-polygons--de9bb055a653",
+          "Resultary: random chord distribution convex parallel bodies corner count curvature short chord cubic asymptotic"
+        ]
+      },
+      "rationale": "The source is a new precise Crofton random-line law for disk-rounded fixed polygons with vertex-count rather than individual-angle dependence. Literature for unrounded polygon chords, randomized boundary points, and spheropolygon geometry concerns different objects; checked full-text and indexed comparisons showed no implication of this rounded short-chord formula. Historical stochastic geometry may contain an unindexed local curvature/corner expansion.",
+      "residual_risks": [
+        "Earlier stochastic geometry could have an equivalent short-chord germ under curvature/corner language.",
+        "Full Gates (1987) and Dobrohotoff (2012) not inspected throughout; do not infer full-paper noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Works with polygonal chord lengths, not inspected exact short-chord law of disk-rounded fillets.",
+          "evidence": [
+            "Straight polygon edges and corner geometry; distinct from P+rB."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.00292",
+          "material_read": "Accessible full PDF mathematical treatment of edge pair contributions and polygon chord density",
+          "method": "full PDF reading and page screenshot",
+          "title": "Computation of the multi-chord distribution of convex and concave polygons",
+          "trigger": "Highly relevant chord probability of polygons"
+        },
+        {
+          "assessment": "Regular unrounded polygon formulas do not imply corner-count universality for all disk-rounded polygons.",
+          "evidence": [
+            "Regularity and r=0 differ from present r>0 germ."
+          ],
+          "identifier_or_url": "Bäsel (2014), https://arxiv.org/abs/1411.1829",
+          "material_read": "Available mathematical excerpts/full accessible arXiv version for regular unrounded polygons",
+          "method": "mathematical source examination",
+          "title": "Random chords and point distances in regular polygons",
+          "trigger": "Possible exact polygon chord distributions"
+        },
+        {
+          "assessment": "Describes rounded polygons for geometric modeling, not enough evidence to infer Crofton short-chord law.",
+          "evidence": [
+            "Full primary text not inspected conclusively; no blanket noncoverage."
+          ],
+          "identifier_or_url": "DOI:10.1007/s10035-012-0357-9",
+          "material_read": "Available abstract and bibliographic description",
+          "method": "abstract-level inspection",
+          "title": "Optimal description of two-dimensional complex-shaped objects using spheropolygons",
+          "trigger": "Same Minkowski-rounded polygon object"
+        },
+        {
+          "assessment": "Plausible uninspected older source; residual priority risk.",
+          "evidence": [
+            "Complete text not read."
+          ],
+          "identifier_or_url": "Gates (1987), Journal of Applied Probability 24, 863–874",
+          "material_read": "Bibliographic citation/abstract level",
+          "method": "metadata and abstract",
+          "title": "Some properties of chord length distributions",
+          "trigger": "Potential earlier short-chord asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Geometric localization and rounded-wedge formula actual RESULT.md",
+        "Independent evaluation of Psi small-s asymptotic"
+      ],
+      "rationale": "The result supplies an exact local stochastic-geometric invariant for every polygon: after disk rounding, the normalized first shape-dependent short-chord coefficient recovers the integer vertex count independently of corner-angle distribution. Exact cross-shape universality under fixed perimeter and m is a nontrivial fingerprint a future researcher could use for inverse geometry; it is neither an arbitrary numerical sample nor only a coefficient fit.",
+      "residual_risks": [
+        "Cannot recover the individual angles or the full polygon; valid only with restricted threshold and sufficiently small disk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Crofton invariant line conditioned on hitting disk-rounded convex polygon, not boundary endpoint sampling.",
+    "Scaled threshold s below narrowest exterior-angle boundary, r sufficiently small relative to polygon.",
+    "Quadrature and high-resolution mesh cannot establish the exact continuum CDF."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the rounded-polygon short-chord law
+# Independent mathematical audit
 
-The accompanying checker calculates an invariant-line short-chord probability by direct high-resolution polygonal rounding, independent cross-section intersections, bisection of line depths, and angular integration. It compares numerical results with the formula for a square, a rectangle of equal perimeter and side count but different angles/aspect, and an equilateral triangle of matched perimeter and different side count. It also numerically verifies the \(-1/30\) coefficient of \(\Psi(s)/s^3\). The checker requires NumPy, SciPy and Shapely and runs with `python verify_rounded_chords.py`.
+## correctness
 
-The program's spatial discretization and quadrature prevent treating the numerical agreement as an exact proof. The analytical argument is written in `RESULT.md`, including all hypotheses, branch restrictions and small-\(s\) expansion steps. The negative originality finding in a limited search is not a mathematical novelty certificate.
+PASS
+
+The probability normalization follows from Cauchy perimeter identity int_0^pi width(K_r,theta)dtheta=L+2pi r. For any fixed polygon and small scaled length rs, compactness and positive edge lengths localize each contributing chord to exactly one vertex wedge. The unit-rounded wedge has arc–arc offset depth H=1-sqrt(1-s²/4) except two symmetric arc–tangent normal strips of width a_s=asin(s/2). In those strips the exact depth is h_m=1-cos(arccos(1-s sin a)-a). Integration J_omega=omega H+Psi and total turning sum omega=2pi yield the invariant m. Independent numerical integration of Psi/s³ for s=.8,.4,.1,.04 converges to -1/30, and exact small-s expansion of H gives pi s²/4 and pi s⁴/64. The finite meshed rounded-polygon verifier is approximation, not proof of exact all-polygon statement.
+
+## originality
+
+PASS
+
+The source is a new precise Crofton random-line law for disk-rounded fixed polygons with vertex-count rather than individual-angle dependence. Literature for unrounded polygon chords, randomized boundary points, and spheropolygon geometry concerns different objects; checked full-text and indexed comparisons showed no implication of this rounded short-chord formula. Historical stochastic geometry may contain an unindexed local curvature/corner expansion.
+
+## value
+
+PASS
+
+The result supplies an exact local stochastic-geometric invariant for every polygon: after disk rounding, the normalized first shape-dependent short-chord coefficient recovers the integer vertex count independently of corner-angle distribution. Exact cross-shape universality under fixed perimeter and m is a nontrivial fingerprint a future researcher could use for inverse geometry; it is neither an arbitrary numerical sample nor only a coefficient fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

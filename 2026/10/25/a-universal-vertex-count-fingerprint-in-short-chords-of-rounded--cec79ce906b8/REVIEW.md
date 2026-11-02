@@ -1,19 +1,21 @@
-# Review: short Crofton chords of rounded convex polygons
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The invariant-line measure normalization is the Cauchy perimeter of the rounded body. The geometric proof classifies all short chords by a unique vertex neighborhood, integrates the circular/circular and arc/tangent cases within each exterior normal cone, and uses total turning \(2\pi\). The boundary-layer calculation gives the exact cubic coefficient. Direct polygon-clipping checks with independently meshed circular fillets corroborate, but do not prove, the analytic identity.
+PASS
 
-## Originality — PASS relative to examined evidence
+The probability normalization follows from Cauchy perimeter identity int_0^pi width(K_r,theta)dtheta=L+2pi r. For any fixed polygon and small scaled length rs, compactness and positive edge lengths localize each contributing chord to exactly one vertex wedge. The unit-rounded wedge has arc–arc offset depth H=1-sqrt(1-s²/4) except two symmetric arc–tangent normal strips of width a_s=asin(s/2). In those strips the exact depth is h_m=1-cos(arccos(1-s sin a)-a). Integration J_omega=omega H+Psi and total turning sum omega=2pi yield the invariant m. Independent numerical integration of Psi/s³ for s=.8,.4,.1,.04 converges to -1/30, and exact small-s expansion of H gives pi s²/4 and pi s⁴/64. The finite meshed rounded-polygon verifier is approximation, not proof of exact all-polygon statement.
 
-Actual semantic mathematical-record searches on rounded convex polygon chord germs, Minkowski-sum fillets, corner-count coefficients, and Crofton sampling returned no same-statement implication. García-Pelayo's polygonal multi-chord work and Dobrohotoff et al.'s rounded-shape model were inspected; the present scaled probability and angle-independent cubic term were not observed. Gates (1987) and Bäsel (2014) are priority risks because full text could not be conclusively inspected. This is a bounded literature comparison, not a proof of universal novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The natural geometric observable possesses a nonobvious exact cross-polygon invariance despite changed corner angles. Its normalized third-order short-length coefficient recovers the number of vertices, creating a structural statistic for rounded-polygon chord data.
+The source is a new precise Crofton random-line law for disk-rounded fixed polygons with vertex-count rather than individual-angle dependence. Literature for unrounded polygon chords, randomized boundary points, and spheropolygon geometry concerns different objects; checked full-text and indexed comparisons showed no implication of this rounded short-chord formula. Historical stochastic geometry may contain an unindexed local curvature/corner expansion.
 
-## Scope and residual risks
+## value
 
-Only sufficiently small rounding radius, fixed polygon and dimensionless chord threshold below the narrowest exterior-angle transition are covered; there is no universal all-length law. A full independent mathematical audit and comprehensive historical priority review have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result supplies an exact local stochastic-geometric invariant for every polygon: after disk rounding, the normalized first shape-dependent short-chord coefficient recovers the integer vertex count independently of corner-angle distribution. Exact cross-shape universality under fixed perimeter and m is a nontrivial fingerprint a future researcher could use for inverse geometry; it is neither an arbitrary numerical sample nor only a coefficient fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
