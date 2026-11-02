@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For all m>=3, rotational average preserves feasibility and cannot increase operator-norm SLEM; Fourier eigenvalues are explicit. Positive dual weights rho=v/(2v+eta-u), sigma=(eta-u)/(2v+eta-u) certify mu>=sigma uniformly, with equality forcing the displayed unique rotation-invariant pair. Strict feasible holding weight and independent odd/even Fourier bounds prove attainment. Symbolic Taylor expansions give the stated parity-specific leading and fourth-order terms and ratio four; 98 LP, 98 dual, 16 matrix Fourier and 1200 asymmetric finite checks corroborate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al., arxiv:0709.0955v1, especially general symmetry/SDP section and wheel worked example.",
+        "Boyd, Diaconis, Xiao, SIAM Review (2004) general SDP formulation DOI:10.1137/S0036144503423264."
+      ],
+      "reasoning": "The general convex SDP can in principle compute the optimum instance-by-instance but its statement does not give the present explicit all-order optimizer, parity-dependent exact closed form, dual matching certificate, or gap expansion. The wheel has universal hub, not an antipodal perfect matching; a direct corollary mapping is absent.",
+      "searches": [
+        "circulant Cayley graph C_2m with generators 1 and m spectral fastest mixing markov chain",
+        "web: fastest mixing Markov chain on graphs with symmetries wheel example",
+        "arxiv:0709.0955v1 full PDF"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955v1",
+      "doi:10.1137/S0036144503423264",
+      "arxiv:math/9907050v1",
+      "published-finding corpus 2026/10/11/SCOPE-the-antipodal-half-turn-representation-on-m-bius-ladder-perfect--317e26dcb314",
+      "published-finding corpus 2026/10/11/SCOPE-rotation-has-order-two-or-four-on-m-bius-ladder-perfect-matching--3551187dd347",
+      "published-finding corpus 2026/9/8/SCOPE031"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Symmetry paper handles cycles, wheels and edge-transitive graphs: M6=K3,3 already follows from edge-transitivity, so the m=3 instance is not attributed new priority.",
+        "Jakobson–Rivin arxiv:math/9907050v1 discusses Möbius ladders in spanning-tree extremization, not stochastic SLEM."
+      ],
+      "reasoning": "Neither cycle nor wheel formula yields the exact distinct rim/chord weights and parity change for m>=4. Spanning-tree counts do not imply optimal uniform-stationary Markov transition weights. Generic spectral LP solvability is not the same as an existing exact all-m evaluation.",
+      "searches": [
+        "arxiv:0709.0955v1 full text",
+        "doi:10.1137/S0036144503423264 full text",
+        "arxiv:math/9907050v1 full text",
+        "Möbius ladder circulant graph opposite chord antipodal matching fastest mixing Markov chain SLEM Fourier eigenvalue linear program"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus search closest 2026/10/11/SCOPE-the-antipodal-half-turn-representation-on-m-bius-ladder-perfect--317e26dcb314 describes homology, not stochastic transition optimization.",
+        "Boyd et al. 2007 arXiv:0709.0955v1: generic SDP and worked cycle/wheel examples, no ladder-specific optimum."
+      ],
+      "reasoning": "Optimal SLEM on a symmetric cycle with opposite chords is equivalent to a 2-parameter circulant Fourier LP; both wordings checked. The cited named-graph matching-complex result concerns a different invariant and implies no Markov SLEM formula.",
+      "searches": [
+        "Exact optimal second-largest eigenvalue modulus and unique rotation-invariant edge transition weights on Möbius ladder graph: cycle edge probability, antipodal matching probability, parity dependent formulas, asymptotic fourfold spectral gap over even cycle",
+        "Möbius ladder circulant graph opposite chord antipodal matching fastest mixing Markov chain SLEM Fourier eigenvalue linear program",
+        "web: \"Möbius ladder\" \"fastest mixing\"",
+        "web: \"circulant\" \"fastest mixing Markov chain\" \"antipodal\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest 2026/9/8/SCOPE031 enumerates 29-vertex 6-regular circulant expanders, not 2m-vertex cubic ladder with optimized Markov weights.",
+        "published-finding corpus closest 2026/10/11/SCOPE-sharp-quadratic-spectral-stability-for-tetrahedral-orbit-polytop--74134514ccfe optimizes unrelated tetrahedral walks."
+      ],
+      "reasoning": "Neither database entry tabulates optimized stochastic weights or SLEM on the Möbius ladder; related graph-name hits are matching-complex homology rather than an exact optimization table.",
+      "searches": [
+        "Exact optimal second-largest eigenvalue modulus and unique rotation-invariant edge transition weights on Möbius ladder graph: cycle edge probability, antipodal matching probability, parity dependent formulas, asymptotic fourfold spectral gap over even cycle",
+        "Möbius ladder circulant graph opposite chord antipodal matching fastest mixing Markov chain SLEM Fourier eigenvalue linear program",
+        "circulant Cayley graph C_2m with generators 1 and m spectral fastest mixing markov chain"
+      ]
+    },
+    "rationale": "Direct comparison of exact optimum, symmetric-orbit uniqueness, parity thresholds and asymptotic spectral gap against previously published general FMMC frameworks, specialized example families, and matching named-graph literature found no implication; m=3 is acknowledged as known edge-transitive case. Residual priority uncertainty is explicit.",
+    "residual_risks": [
+      "A separately published specialized solution on fastest mixing Markov chains of Möbius ladders may have escaped these searches.",
+      "The general convex SDP itself predates this result; only the explicit closed formulas, uniqueness in invariant subspace and asymptotic ratio are asserted as distinct.",
+      "The edge-transitive m=3 instance is prior-art-covered and excluded from any stand-alone novelty assertion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant underlying optimization framework; no explicit Möbius-ladder optimal weights or asymptotic ratio found.",
+        "evidence": [
+          "arxiv:0709.0955v1, first public 2007-09-06",
+          "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf"
+        ],
+        "identifier_or_url": "arxiv:0709.0955v1; https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Full public PDF introduction, general automorphism/orbit reduction, worked examples including cycle and wheel sections and later examples; document text was searched for Möbius, Mobius, and matching.",
+        "method": "Primary publicly accessible PDF full-text and manual reading of pertinent derivations and worked examples.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Same objective and graph automorphism symmetry, plausible dominating result."
+      },
+      {
+        "assessment": "Generic SDP characterization of optimizer does not supply the new exact all-m parity formulas.",
+        "evidence": [
+          "DOI:10.1137/S0036144503423264",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf"
+        ],
+        "identifier_or_url": "doi:10.1137/S0036144503423264; https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Public article introduction, optimization formulation, and graph examples, with text searches for Möbius/circulant family.",
+        "method": "Public PDF reading and targeted text search.",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Seminal general SLEM optimization, potentially broader dominating theorem."
+      },
+      {
+        "assessment": "Spanning-tree/Laplacian extremization, not SLEM optimization of stochastic matrices.",
+        "evidence": [
+          "arxiv:math/9907050v1",
+          "https://arxiv.org/html/math/9907050v1"
+        ],
+        "identifier_or_url": "arxiv:math/9907050v1; https://arxiv.org/html/math/9907050v1",
+        "material_read": "Full public HTML with sections 2.4 and 5, including eight-vertex Möbius ladder and Laplacian tree-complexity discussion.",
+        "method": "Lawful arXiv full HTML read and targeted text search.",
+        "title": "On Some Extremal Problems in Graph Theory",
+        "trigger": "Specifically mentions Möbius ladder and weighted graph spectra."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8814c6f5-058b-431b-aa48-fe013692f899",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fully closed-form optimum for every cubic Möbius ladder with two distinct edge orbits; global rather than symmetric-only optimum; unique invariant design and equality dual support; a parity-specific finite-size correction and exact factor-four asymptotic spectral-gap improvement over cycle. The natural graph family and design criterion are motivated by rapid random-walk mixing, and the scalar orbit solution is not a mere known-table entry.",
+    "status": "PASS"
+  }
+}
