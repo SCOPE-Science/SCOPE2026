@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T01:58:59.716829Z",
+  "axes": {
+    "correctness": {
+      "limitations": "Claims only real normalized spherical probes, exact endpoints and a single rank-one spectral outlier; a fully specified model makes the exact trace analytically available.",
+      "rationale": "Independently reduced the actual final theorem for real uniform spherical v and A=I-(1-eta)uu^T to W=(u^Tv)^2~Beta(1/2,(n-1)/2), with mean 1/n and variance 2(n-1)/(n^2(n+2)). The endpoint interpolant is unbiased with exact risk delta^2 Var(W)/eta^2; the one-node Lanczos estimator is 1/(1-delta W). Verified the absolutely convergent power-series coefficient formula and d_{j+1}-d_j recurrence by new exact Fraction calculations for n=2,3,4,5,8,20 and j<=12; direct beta quadrature confirms the unique n=3 crossover eta approximately 0.0503804097941. The symbolic recurrence makes d_j<0 for all j>=3,n>=4 (n=4 increment remains negative). At n=3 the increment first negative and then positive, coefficient sequence crosses sign once and the normalized power series is strictly increasing, proving uniqueness beyond numerical work. The n=2 exact ratio is >1. Dominated convergence of eta G to 0 gives the sharp singular-limit ratio (n+2)/(2(n-1)). Finite checks verify finite formulas, not unbounded coefficient signs, for which the printed proof is used.",
+      "status": "PASS",
+      "verification": "/mnt/data/scope_worker04_audit_20261030T0146Z/checks.py"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2204.01941 / https://arxiv.org/pdf/2204.01941",
+          "Ubaru, Chen, Saad (2017), SIAM J. Matrix Anal. Appl. / literature search"
+        ],
+        "reasoning": "Uniform approximation-error theorems for analytic matrix functions cover many matrices/probes but do not yield sharp signed risk differences of these biased and unbiased estimators without new exact distributional analysis.",
+        "searches": [
+          "Resultary semantic search: stochastic Lanczos one node inverse trace mean squared error risk Gaussian quadrature endpoint interpolation two eigenvalues rank one beta dimension cutoff",
+          "GitHub frozen record: 2026/10/26/a-dimension-sharp-mean-square-risk-reversal-for-one-node-inverse--945502efd97e/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.01941 / https://arxiv.org/pdf/2204.01941",
+        "Ubaru, Chen, Saad (2017), SIAM J. Matrix Anal. Appl. / literature search",
+        "Resultary targeted semantic search: stochastic Lanczos one node inverse trace mean squared error risk Gaussian quadrature endpoint interpolation two eigenvalues rank one beta dimension cutoff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2204.01941 / https://arxiv.org/pdf/2204.01941",
+          "Ubaru, Chen, Saad (2017), SIAM J. Matrix Anal. Appl. / literature search"
+        ],
+        "reasoning": "The two-point spectrum reduces to an explicit Beta weight; the published generic SLQ error bounds do not algebraically enforce the coefficient sign variation, so the dimension-sharp ordering is not a direct corollary.",
+        "searches": [
+          "Resultary semantic search: stochastic Lanczos one node inverse trace mean squared error risk Gaussian quadrature endpoint interpolation two eigenvalues rank one beta dimension cutoff",
+          "GitHub frozen record: 2026/10/26/a-dimension-sharp-mean-square-risk-reversal-for-one-node-inverse--945502efd97e/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2204.01941 / https://arxiv.org/pdf/2204.01941",
+          "Ubaru, Chen, Saad (2017), SIAM J. Matrix Anal. Appl. / literature search"
+        ],
+        "reasoning": "The generic stochastic spectral-measure and Gauss-quadrature formulations are equivalent for a one-step Lanczos rule, but earlier papers do not give this specific MSE comparator or its n=3 crossing.",
+        "searches": [
+          "Resultary semantic search: stochastic Lanczos one node inverse trace mean squared error risk Gaussian quadrature endpoint interpolation two eigenvalues rank one beta dimension cutoff",
+          "GitHub frozen record: 2026/10/26/a-dimension-sharp-mean-square-risk-reversal-for-one-node-inverse--945502efd97e/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv:2204.01941 / https://arxiv.org/pdf/2204.01941",
+          "Ubaru, Chen, Saad (2017), SIAM J. Matrix Anal. Appl. / literature search"
+        ],
+        "reasoning": "The quantity is a continuum exact risk threshold (n,eta), not a finite classification/table; checked publication and published-record searches disclosed no exact risk crossover table.",
+        "searches": [
+          "Resultary semantic search: stochastic Lanczos one node inverse trace mean squared error risk Gaussian quadrature endpoint interpolation two eigenvalues rank one beta dimension cutoff",
+          "GitHub frozen record: 2026/10/26/a-dimension-sharp-mean-square-risk-reversal-for-one-node-inverse--945502efd97e/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precise final mathematical claim, not novelty of standard premises or algorithms: The generic stochastic spectral-measure and Gauss-quadrature formulations are equivalent for a one-step Lanczos rule, but earlier papers do not give this specific MSE comparator or its n=3 crossing. Checked relevant primary statements and Resultary semantic results. Failed searches alone are not novelty proof; risks explicitly retained.",
+      "residual_risks": [
+        "A less indexed or more recent exact stochastic-quadrature comparison may contain the same two-level model or risk crossover.",
+        "Claims only real normalized spherical probes, exact endpoints and a single rank-one spectral outlier; a fully specified model makes the exact trace analytically available."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes framework and error bounds but not the exact one-probe real-spherical two-eigenvalue inverse-risk ordering, dimension-three single crossover, or dimension-four threshold.",
+          "evidence": "§3 Theorem 3.15 bounds approximation of analytic functions, rather than direct comparison of the MSE of these two specified estimators on rank-one perturbed identities.",
+          "identifier_or_url": "arXiv:2204.01941 / https://arxiv.org/pdf/2204.01941",
+          "material_read": "Accessible full PDF; definitions of spectral measures and quadrature in Sections 1-2, high-probability analytic-function comparison in Section 3 including Theorem 3.15, and numerical-comparison discussion",
+          "method": "full-PDF section-by-section inspection and theorem-statement comparison",
+          "title": "Randomized matrix-free quadrature: unified and uniform bounds for stochastic Lanczos quadrature and the kernel polynomial method",
+          "trigger": "Same stochastic Lanczos and polynomial quadrature estimators; potentially broader approximation guarantees"
+        },
+        {
+          "assessment": "General SLQ trace estimator and approximation-error guarantees observed; no demonstrated implication of the strict exact one-probe dimension-dependent risk ordering. Incomplete full text remains residual priority risk.",
+          "evidence": "Literature records give general tr(f(A)) approximation and inverse-trace applications, with randomized probe constructions not identical to this fixed real spherical beta model.",
+          "identifier_or_url": "Ubaru, Chen, Saad (2017), SIAM J. Matrix Anal. Appl. / literature search",
+          "material_read": "Indexed article abstract and source description; not a complete paper read in this execution",
+          "method": "bibliographic lookup and statement-level comparison only",
+          "title": "Fast Estimation of tr(f(A)) via Stochastic Lanczos Quadrature",
+          "trigger": "Earlier inverse-trace SLQ bounds could dominate the exact model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact one-probe MSE ordering is nontrivial: a biased nonlinear Gaussian quadrature estimator defeats an unbiased spectral-endpoint interpolant uniformly for n>=4, with a sharp opposite order in dimension two and a one-threshold transition in dimension three. This offers an exact risk benchmark for inverse-trace spectral quadrature beyond generic high-probability approximation bounds. The benchmark is limited to two spectral levels and assumes exact endpoints for the interpolant; it is not a practical advantage for known traces or arbitrary spectra.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2204.01941 / https://arxiv.org/pdf/2204.01941",
+    "Ubaru, Chen, Saad (2017), SIAM J. Matrix Anal. Appl. / literature search",
+    "Resultary targeted semantic search: stochastic Lanczos one node inverse trace mean squared error risk Gaussian quadrature endpoint interpolation two eigenvalues rank one beta dimension cutoff"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A less indexed or more recent exact stochastic-quadrature comparison may contain the same two-level model or risk crossover.",
+    "Claims only real normalized spherical probes, exact endpoints and a single rank-one spectral outlier; a fully specified model makes the exact trace analytically available.",
+    "Finite independent computations supplement full parameter proofs; no external expert attestation, legal publisher access bypass, or publication is asserted."
+  ],
+  "residual_risks": [
+    "A less indexed or more recent exact stochastic-quadrature comparison may contain the same two-level model or risk crossover.",
+    "Claims only real normalized spherical probes, exact endpoints and a single rank-one spectral outlier; a fully specified model makes the exact trace analytically available."
+  ],
+  "schema_version": 1
+}

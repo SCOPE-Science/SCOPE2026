@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem uses precisely specified real-Haar sphere sampling and known spectral endpoints. The beta moments are derived from spherical invariance; the two one-matvec formulas and unbiased interpolant are exact. An absolutely convergent geometric-series expansion gives exact mean-square difference coefficients. Their one-step difference has a strict sign for every dimension at least four. Dimension two is handled by an explicit integral, and in dimension three a one-sign-change coefficient argument proves a unique risk crossing. Bounded convergence establishes the singular limit without extending finite tests to an infinite theorem. The standalone verification script passed 18,835 deterministic checks; the proof, not these checks, certifies universal quantifiers.
+PASS
 
-## Originality — PASS, with residual risks
+Independently reduced the actual final theorem for real uniform spherical v and A=I-(1-eta)uu^T to W=(u^Tv)^2~Beta(1/2,(n-1)/2), with mean 1/n and variance 2(n-1)/(n^2(n+2)). The endpoint interpolant is unbiased with exact risk delta^2 Var(W)/eta^2; the one-node Lanczos estimator is 1/(1-delta W). Verified the absolutely convergent power-series coefficient formula and d_{j+1}-d_j recurrence by new exact Fraction calculations for n=2,3,4,5,8,20 and j<=12; direct beta quadrature confirms the unique n=3 crossover eta approximately 0.0503804097941. The symbolic recurrence makes d_j<0 for all j>=3,n>=4 (n=4 increment remains negative). At n=3 the increment first negative and then positive, coefficient sequence crosses sign once and the normalized power series is strictly increasing, proving uniqueness beyond numerical work. The n=2 exact ratio is >1. Dominated convergence of eta G to 0 gives the sharp singular-limit ratio (n+2)/(2(n-1)). Finite checks verify finite formulas, not unbounded coefficient signs, for which the printed proof is used.
 
-The 2022 primary source constructs general spectral measures, polynomial approximation rules and Gaussian/Lanczos quadrature and proves generic stochastic bounds; the 2017 foundational inverse-trace SLQ paper provides general approximation error bounds. Neither inspected mathematical treatment states the present exact mean-square comparison of a one-node inverse Gaussian rule with an endpoint-interpolatory one-matvec rule on rank-one two-level spectra. The new content is the global dimension-four risk threshold, unique dimension-three crossing, and dimension-two reversal. Direct searches for beta/Rayleigh inverse-trace risk and exact interpolation versus SLQ found no covering result; searches do not establish absolute novelty. The 2017 source was inspected through its accessible author full-text rendering rather than through a successfully downloaded PDF; this and possible unindexed special-case calculations are residual publication-priority risks.
+## originality
 
-## Value — PASS, with scope restriction
+PASS
 
-SLQ and polynomial spectral quadrature are frequently contrasted by approximation order and asymptotic sample bounds. In a one-matvec model the finite-budget statistical risk can reverse despite the interpolatory estimate being unbiased and spectrally exact. The sharp dimension dependence resolves a natural experimental benchmark for the bias–variance tradeoff and gives a non-asymptotic test case for implementations. The endpoint baseline requires exact endpoint information; this special spectrum has analytically known trace if its multiplicities are supplied, so the result is a method-comparison benchmark rather than an assertion of practical algorithmic superiority. It does not claim relevance to every spectrum, probe ensemble or function.
+Best-of-knowledge originality of the precise final mathematical claim, not novelty of standard premises or algorithms: The generic stochastic spectral-measure and Gauss-quadrature formulations are equivalent for a one-step Lanczos rule, but earlier papers do not give this specific MSE comparator or its n=3 crossing. Checked relevant primary statements and Resultary semantic results. Failed searches alone are not novelty proof; risks explicitly retained.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact one-probe MSE ordering is nontrivial: a biased nonlinear Gaussian quadrature estimator defeats an unbiased spectral-endpoint interpolant uniformly for n>=4, with a sharp opposite order in dimension two and a one-threshold transition in dimension three. This offers an exact risk benchmark for inverse-trace spectral quadrature beyond generic high-probability approximation bounds. The benchmark is limited to two spectral levels and assumes exact endpoints for the interpolant; it is not a practical advantage for known traces or arbitrary spectra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
