@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The natural equivariant pair \((X_{a,b},Z)\) and its two graph-link cones give integral homology-module isomorphisms with no splitting assumptions. The join interchange sign is \((-1)^{(1+1)(1+1)}=+1\). A direct signed Lefschetz computation independently checked every group element of the balanced \((3,3)\) case and all leaf permutations of \((3,4)\); exact boundary computations verified the small-case ranks. The proof, not finite testing, justifies the full parameter range.
+## correctness
 
-## Originality — PASS
-The closest published double-star classification determines ordinary homotopy types and identifies relevant cone links. It does not specify full integral permutation modules or calculate balanced hub-swap characters. The result reuses those structural facts, adds naturality at the integer-module level and an explicit coset factor-flip character. Published bidirected path/polygon and ordinary graph discrete-Morse results cover different objects. Some formal consequences of the earlier cone proof are close to the present result; an unindexed equivalent calculation cannot be excluded.
+PASS
 
-## Value — PASS
-The integral modules and balanced full-group characters detect how homology classes transform under graph symmetries, information not determined by sphere counts. They give Lefschetz and quotient-homology data for entire unbounded families with mixed-dimensional homology. These are naturally motivated graph invariants rather than arbitrary parameters.
+Let Z omit the two incompatible central arrows. It is the join C_a*C_b of connected crown graphs; reduced H3(Z)=A_a⊠A_b as an integral G-module, other reduced groups vanish. The two central-arrow stars are cones on opposite-oriented links L_+,L_- each exactly K_{a,b}, and are never simultaneously present, yielding the equivariant relative chain decomposition and H2(X,Z)=H1(K_ab)^2. The H1(K_ab) lattice consists of zero-row/zero-column-sum integer matrices and is exactly V_a⊗V_b, integrally. The LES gives canonical degree-separated H3(X)=H3(Z), H2(X)=H2(X,Z), no hidden extension/splitting problem. For leaf permutations trace on V_t is f−1 and on crown H1 is p(f) from oriented edge/vertex counts. If hubs interchange, the two cone contributions exchange and have zero trace in degree2; swapping the two degree-one homology factors in the join has Koszul sign (−1)^{(1+1)(1+1)}=+1, so χ3=p(f(στ)). Independently enumerated all 201 augmented faces for a=b=3, got reduced mod2 Betti (β2,β3)=(8,1), and directly computed signed Lefschetz traces for five identity/transposition/hub-swap elements; all matched formula. Reviewed the 3,885-byte source verifier, which tests full small group actions. Universal proof is relative integral topology, not a finite experiment.
 
-## Scope and residual literature limits
-Only bidirected double stars with both branch counts at least three are covered, and equivariant homotopy types are not claimed. The comparison with the 2024 general multipath paper was bibliographic/abstract-level; the targeted 2026 primary paper and the closely matching published double-star RESULT.md were inspected substantially. No claim is made of exhaustive novelty or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing implications of inspected foundational primary literature and closely related published results. Prior components are explicitly credited; the complete asserted added representation, character, filtration, or signed trace is not supplied by the checked stronger objects. This is not an absolute priority guarantee.
+
+## value
+
+PASS
+
+The two-degree integral reduced homology was previously known only as abstract free groups/wedges. Identifying natural S_a×S_b lattices and the nontrivial balanced full graph-automorphism character gives a complete symmetry-sensitive invariant applicable to all double stars a,b≥3. It predicts fixed classes and distinguishes leaf permutations beyond ranks; no homotopy-level equivariant splitting is implied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
