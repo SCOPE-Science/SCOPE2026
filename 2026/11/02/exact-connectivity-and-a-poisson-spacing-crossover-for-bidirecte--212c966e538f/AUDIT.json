@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For a directed simple cycle, the only non-backtracking simple directed circuits are the two oriented Hamiltonian cycles. If neither survives, SCCs are precisely the connected components of fully bidirectional edges. Two disjoint orientation sets yield the exact squared two-point probability, and the one-deficient-edge complement event yields the exact full-connectivity polynomial. In the critical regime independent missing-orientation Bernoulli point processes converge to independent Poisson point processes, with double marks vanishing; conditioned on both colours, normalized cyclic gaps give sorted finite Dirichlet spacings and convergence in ℓ¹. In the n(1-p)->infinity, p->1 regime the longest-run event count has convergent factorial moments since starts within k are mutually exclusive and distant starts independent, establishing Gumbel asymptotics. Code exhausts all 5,440 configurations for n=3..6 and checks rational identities; 5,482 assertions passed. Finite tests are not used in place of the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Van der Hofstad–Pandey arXiv:2403.02137v1: general conditional local-to-global results for giant strong components on directed random graph sequences; inspected main theorem and introductory hypotheses do not directly compute finite bidirected-cycle Poisson spacings.",
+        "Van Ieperen–Kryven arXiv:2012.06415v1: configuration/degree-sequence directed graph percolation thresholds, rather than the fixed-cycle independent-arc model.",
+        "Goldschmidt–Stephenson arXiv:1905.05397v1: critical sparse directed Erdős–Rényi digraph, whose graph topology and scaling are different."
+      ],
+      "reasoning": "Broad directed-network percolation results do not automatically determine the finite-cycle distribution where the probability of a whole oriented tour is of order one. Existing one-dimensional undirected Bernoulli-run and uniform-spacing laws imply significant ingredients only after proving the directed reduction.",
+      "searches": [
+        "ranked strongly connected component size on randomly oriented finite cycle Poisson point processes Dirichlet spacing",
+        "Critical near-perfect bidirected bond percolation on cycles p_n=1-lambda/n: mixed Poisson-Dirichlet limiting ranked strongly-connected cluster size partition; survival of directed Hamiltonian cycles",
+        "Finite directed bidirectional ring bond failures strong connected components phase transition near p = 1 - lambda/n, two independent Poisson cut processes",
+        "random directed cycle independent opposite bonds strongly connected probability clusters finite size"
+      ]
+    },
+    "checked_sources": [
+      {
+        "id": "arxiv:2610.28762v1",
+        "scope": "Primary full HTML relevant main results"
+      },
+      {
+        "id": "arxiv:2607.24975v1",
+        "scope": "Related directed-lattice full HTML relevant sections"
+      },
+      {
+        "id": "arxiv:2403.02137v1",
+        "scope": "Giant SCC locality full HTML main theorems"
+      },
+      {
+        "id": "arxiv:2012.06415v1",
+        "scope": "Earlier degree-sequence directed percolation relevant sections"
+      },
+      {
+        "id": "arxiv:1905.05397v1",
+        "scope": "Directed ER critical scaling abstract only"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu–Rolla–Shi Lemma 1.2 provides an inequality involving bidirectional edge percolation; that inclusion is not an equality in a finite cycle due to complete directed Hamiltonian tours.",
+        "The classical Bernoulli-run Gumbel theorem may imply the subcritical extreme after a deterministic reduction, but does not by itself imply that reduction or the Hamiltonian-tour atom and full mixed critical ranked limit.",
+        "The component–triangle covariance and finite digraph circulation outcomes from indexed mathematics treat observables different from the entire strongly connected partition."
+      ],
+      "reasoning": "An undirected bond-percolation partition is exactly the SCC partition only after both oriented Hamiltonian tours fail. This event has non-vanishing probability in the critical finite-size window, so naive stronger results in the undirected model do not subsume the mixed law. The finite exact identities are elementary given directed-path decomposition, but the contribution is the complete finite-volume phase change.",
+      "searches": [
+        "bidirected percolation directed cycle finite-size scaling largest strongly connected component p=1-lambda/n Poisson Dirichlet spacing macroscopic clusters",
+        "Critical near-perfect bidirected bond percolation on cycles p_n=1-lambda/n: mixed Poisson-Dirichlet limiting ranked strongly-connected cluster size partition; survival of directed Hamiltonian cycles",
+        "Independent bidirected arc percolation on the cycle C_n has exact strong connectivity 2 p^n minus p^(2n) plus n (1-p)^2 p^(2n-2), Poisson Dirichlet limiting SCC rank sizes and Gumbel",
+        "longest open run random circle percolation Poisson Gumbel largest component 1 dimensional"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu–Rolla–Shi arXiv:2610.28762v1, introduction, Lemma 1.2 and Theorems 1.3–1.5, concern infinite transitive-graph thresholds, not finite cycle rank partitions.",
+        "Newman–Grassberger arXiv:2607.24975v1 concerns strongly connected percolation on planar lattices, not finite bidirected rings."
+      ],
+      "reasoning": "The exact event of a completely surviving directed orientation is an extra global alternative to standard undirected percolation clusters, so replacing the model directly by bond probability p squared is generally false. Compared sources do not state an equivalent hybrid global-tour/cyclic-gap characterization or full asymptotic law.",
+      "searches": [
+        "bidirected percolation directed cycle finite-size scaling largest strongly connected component p=1-lambda/n Poisson Dirichlet spacing macroscopic clusters",
+        "oriented bond percolation cycle strongly connected components independent arcs two-direction missing edge Poisson cuts asymptotic cycle Dirichlet partition",
+        "On bidirected percolation on a cycle C_n with each orientation independently retained p, exact pairwise strong connection probability (p^j+p^(n-j)-p^n)^2 and complete SCC size distribution",
+        "Independent bidirected arc percolation on the cycle C_n has exact strong connectivity 2 p^n minus p^(2n) plus n (1-p)^2 p^(2n-2), Poisson Dirichlet limiting SCC rank sizes and Gumbel"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted publication and semantic-record searches for the exact full-connectivity polynomial, two-colour Poisson mixture and Gumbel largest SCC did not return an exact corresponding formula/table.",
+        "Most similar indexed results include the published study entitled “Three-point connectivity exactly controls component–triangle covariance” (2026-10-04), concerning undirected graph subgraph counts; it does not imply directed-ring SCC distributions."
+      ],
+      "reasoning": "A failed index search does not prove novelty. No exact table giving the three combined quantities was found; unindexed ring-reliability or renewal references remain plausible residual risks.",
+      "searches": [
+        "Poisson cuts marked by two missing arc orientations in bidirected percolation cycle and largest cluster log(nq)/(2q), exact strong connectivity probability",
+        "Independent bidirected arc percolation on the cycle C_n has exact strong connectivity 2 p^n minus p^(2n) plus n (1-p)^2 p^(2n-2), Poisson Dirichlet limiting SCC rank sizes and Gumbel",
+        "Finite directed bidirectional ring bond failures strong connected components phase transition near p = 1 - lambda/n, two independent Poisson cut processes"
+      ]
+    },
+    "rationale": "A fresh 2026 primary source sets up independent bidirected-arc percolation and its infinite-graph threshold program. Its Lemma 1.2 couples to fully bidirectional bonds, but neither it nor the compared primary works states the finite-ring all-SCC trichotomy: exact two-point and full strong probabilities, two-colour Poisson circular spacings with Hamiltonian-tour atom, and rare-cut Gumbel extreme. Relevant indexed outcomes describe distinct graph topology or observables. This is a best-knowledge originality assessment rather than a historical uniqueness certificate.",
+    "residual_risks": [
+      "An older article on directed ring network reliability, bidirectional communication rings, or cyclic random digraphs could already state one or several exact formulas.",
+      "Classical longest-Bernoulli-run extreme value and uniform circle-spacing theorems imply parts of the result once the deterministic directed reduction is known; priority of the combined model-specific crossover is not established by search alone.",
+      "Some older non-open indexed sources were inspected at abstract level only; none was treated as definitively NOT_COVERING based on snippets.",
+      "No independent proof or historical-priority review has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies transitive infinite-graph thresholds, existence and uniqueness, and critical susceptibility, not finite C_n ordered SCC partitions or rare-cut extremes.",
+        "evidence": "Abstract, Sec. 1, Lemma 1.2, Theorems 1.3–1.5; arXiv submission history v1 2026-10-20.",
+        "identifier_or_url": "arxiv:2610.28762v1 | https://arxiv.org/html/2610.28762v1",
+        "material_read": "Full open-access HTML, introduction including Lemmas 1.1–1.2, Theorems 1.3–1.5, proofs and organization, and manuscript section structure.",
+        "method": "Inspected primary HTML text and relevant theorem/proof sections.",
+        "title": "Percolation on Bidirected Graphs",
+        "trigger": "Identical independent opposite-arc probability model; verified primary MSC 60K35 and first public 2026-10-20."
+      },
+      {
+        "assessment": "Primary claims are for two-dimensional lattice strongly connected thresholds and geometry, not exact SCC sizes of a finite cycle.",
+        "evidence": "Introduction, percolation construction, model results and conclusions.",
+        "identifier_or_url": "arxiv:2607.24975v1 | https://arxiv.org/html/2607.24975v1",
+        "material_read": "Open-access HTML model, introduction, main results and simulation setting.",
+        "method": "Read and compared the model geometry and primary claims in the available full HTML.",
+        "title": "Strongly-connected percolation on directed lattices",
+        "trigger": "Close prior study of strongly connected bond percolation using directed lattice arcs."
+      },
+      {
+        "assessment": "General locality/giant conditions are not an exact Poisson-coloured circular cut partition or full directed cycle connection polynomial.",
+        "evidence": "Intro and principal theorems, finite/random-digraph hypotheses.",
+        "identifier_or_url": "arxiv:2403.02137v1 | https://arxiv.org/html/2403.02137v1",
+        "material_read": "Open-access HTML introduction, principal results and hypotheses, and search through document for cyclic graph coverage.",
+        "method": "Read statements and distinguished local weak convergence from explicit finite cycle partition distribution.",
+        "title": "Are giants in random digraphs 'almost' local?",
+        "trigger": "Potentially broader result about locality of giant SCC sizes that could dominate finite-size law."
+      },
+      {
+        "assessment": "Different random graph ensemble; not an explicit independent bidirected fixed cycle model or finite-volume SCC size mixture.",
+        "evidence": "Abstract and model/theorem statement sections.",
+        "identifier_or_url": "arxiv:2012.06415v1 | https://arxiv.org/abs/2012.06415",
+        "material_read": "Available paper text: abstract, introduction and principal model/results sections.",
+        "method": "Compared degree-sequence random graph construction and stated threshold/giant observables.",
+        "title": "Percolation of a strongly connected component in simple directed random graphs with a given degree distribution",
+        "trigger": "Earlier directed-bond percolation threshold work with possible general dominance."
+      },
+      {
+        "assessment": "Critical Erdős–Rényi digraph has a different edge set and n^(-1/3) scaling, not the near-perfect cycle n^(-1) scaling.",
+        "evidence": "Title and abstract describe D(n,p) and its p=1/n+lambda n^(-4/3) window.",
+        "identifier_or_url": "arxiv:1905.05397v1 | https://arxiv.org/abs/1905.05397",
+        "material_read": "Abstract and description of critical directed Erdős–Rényi topology and scaling; not a full-text inspection.",
+        "method": "Compared topology and scaling directly from the abstract; did not assert whole-document absence.",
+        "title": "The scaling limit of a critical random directed graph",
+        "trigger": "Critical ranked SCC limit might dominate proposed ranked partition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "212c966e-538f-43c4-861b-a87b87b123d6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The newly introduced bidirected percolation model has a natural finite-volume question: the entire strongly connected partition on a cycle when missing arcs are rare. A single surviving oriented Hamiltonian tour produces a macroscopic atom absent from standard undirected 1D percolation; if both tours fail, the remaining cuts form a Poisson/finite-Dirichlet partition. The crossover law gives joint sizes rather than a routine isolated probability, and its Gumbel boundary identifies the contrasting microscopic extreme scale. Such complete phase information is a substantial structural classification within the natural graph geometry, with clear interpretation as robust bidirectional communication under independent one-way failures.",
+    "status": "PASS"
+  }
+}
