@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The grade-wise triangle bound gives the universal upper estimate. The proof then constructs two parity-sensitive alternating pure-tensor chains, one for each possible norming parity. On each corresponding input parity the mixed creation/annihilation operator acts exactly as the nonnegative scalar path matrix. This proves equality for all particle cutoffs, dimensions, relative directions and phases. The zero-vector endpoint and the balanced sine-spectrum specialization are explicitly treated. The standalone program verifies many finite instances, including the proposed norming vectors, but these tests are not infinite-dimensional proofs.
+## correctness
 
-**Originality — PASS, subject to priority risk.** Bandeira et al., arXiv:2610.01982v1, Sections 3.1 and 4, uses finite-particle Fock compressions to obtain norm bounds for selfadjoint operator pencils, not the exact two-direction norm of a possibly nonselfadjoint compressed operator. Kargin's arXiv:1305.2611 provides standard full Fock and one-direction semicircular background. Comparisons with indexed published findings on binomial weighted symmetric-Fock lattice shifts, nilpotent resolvent rearrangements and Gaussian Fock Toeplitz operators did not yield an implication-equivalent theorem. This comparison was by mathematical statement and scope, not title alone. Older unindexed equivalent calculations remain a real risk; no independent priority certification is asserted.
+PASS
 
-**Mathematical value — PASS.** The invariant is a natural finite-cutoff operator norm, relevant because contemporary norm bounds explicitly operate on low-order Fock spaces. The proof reduces an exponentially growing matrix to a linear-size nonsymmetric path matrix; the exact invariance under arbitrary creator-annihilator alignment and the sharp quadratic cutoff deficit in the balanced case are substantive structural information. This is not a claimed general result for bosonic Fock spaces or multiple terms.
+On full tensor Fock space and any nonzero complex Hilbert space H, grade-wise norm triangle inequality yields ||P_{≤N}(ℓ(u)+ℓ(v)^*)P_{≤N}||≤||B_N(a,b)||, where B has downward off-diagonal a=||u||, upward b=||v||. Splitting scalar input coordinates by parity, each block has a nonnegative maximizing vector. For either input parity the explicitly alternating unit pure-tensor words with successive left letters uhat/vhat yield the exact two neighboring output terms a ξ_{j+1}+b ξ_{j−1} aligned grade-wise. Hence both parity-block upper bounds are attained and the norm equals ||B|| independent of angle/dimension. N=0 yields 0, a=0 or b=0 yields max(a,b). B*B consists of two Jacobi blocks with diagonal a²1_{j<N}+b²1_{j>0} and second off-diagonals ab. For a=b=s it is the path adjacency matrix, norm 2s cos(π/(N+2)), loss sπ²/(N+2)²+O(s/(N+2)^4). Independent full finite-tensor matrices for d=2, N=1..4 and three complex direction pairs reproduced all scalar norms and balanced cosine values. Infinite-dimensional statement is from constructive proof, not finite numerics.
 
-**Limitations.** Exact largest singular value only, not full singular spectra; complete tensor Fock norm; arbitrary nonnegative lengths but unequal-length answers use finite Jacobi matrices; no independent scientific validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original versus closest accessible statements, with real Resultary and primary-source comparisons; failed search is not novelty proof and uninspected plausible literature is recorded, not declared noncovering.
+
+## value
+
+PASS
+
+For the natural full-Fock particle truncation of one creation plus one annihilation term, a potentially exponentially large operator norm reduces exactly to an (N+1)-dimensional nonsymmetric scalar path and is invariant under arbitrary angular alignment. The equality construction and exact balanced cutoff deficit provide genuine structural information beyond generic norm inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
