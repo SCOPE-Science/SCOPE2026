@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:51:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Geometric smoothness for F homogeneous cubic in four variables over F_2 is equivalent to the gradient quadrics having no common projective zero. Since four quadrics in four variables with empty projective zero locus form a homogeneous regular sequence, the quotient Hilbert series is (1+t)^4; degree 5 is zero. Conversely, if degree-5 gradient ideal is entire 56-dimensional space, no projective common zero can exist. At each smooth rational point P, restricting F to tangent plane with basis (P,A,B) gives t Q(u,v)+B_3(u,v). Three distinct geometric lines through P occur exactly when Q=0 and binary cubic B_3 is squarefree, in characteristic two equivalent to ad+bc=1 for cubic coefficients (a,b,c,d). The rational roots of B_3 count 0,1,3 and give the Frobenius-splitting classes E_0,E_1,E_3. The supplied package includes orbit and direct full 2^20 coefficient enumerators. Crucially, an entirely NEW independently written C++17 program enumerated all 1,048,575 nonzero binary cubic vectors, built its own monomial/gradient-degree5 rank test, 35-line restrictions, tangent-plane ternary restrictions and root counts, and reproduced 384,840 rationally nonsingular equations, exactly 322,560 geometrically smooth equations, the 24 joint (N,L,E0,E1,E3) rows and marginal 0:189952,1:115920,2:10080,3:2800,4:3360,7:420,15:28, with zero failed squarefreeness tests. This independently verifies the whole finite domain, not a sample. The original orbit program also identifies 36 PGL4(F2) smooth classes; this count is prior literature. Both the direct exhaustive domain and algebraic classification criteria have been checked; independent code and output remain privately preserved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karaoğlu 2021 gives complete 36 F2 smooth class representatives, automorphism sizes, rational point and rational line counts, and rational-line-defined Eckardt counts; this covers much of the original theorem’s background.",
+          "Betten–Karaoğlu 2022 parametrizes equations with prescribed Eckardt configurations over any field, potentially dominating the new refined point spectrum, but only abstract/first publisher-preview page was accessible.",
+          "Das supplies Frobenius rational point/line statistics, not an E0/E1/E3 joint table in the accessed material."
+        ],
+        "reasoning": "The 2021 classification alone gives equations from which the refined census could be recomputed, but does not state or logically determine E0/E1 from its numerical N,L,#E3 columns. The 2022 abstract is too broad to settle a precise F2 weighted count and therefore remains a severe risk, not automatic failure.",
+        "searches": [
+          "Karaoğlu 2021 complete full text, DOI:10.3906/mat-2102-10",
+          "Betten–Karaoğlu 2022 DOI:10.1007/s10623-021-00999-w, abstract and one-page publisher preview",
+          "Das arXiv:2002.11183, arithmetic statistics on cubic surfaces"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, eckardt.py, representative algorithm sections of cubic_enum.cpp and direct_enum.cpp, eckardt_summary.txt, direct_summary.txt",
+        "NEW independent 1,048,575-binary-cubic exhaustive enumeration, /mnt/data/scope_worker07_current_run/cubic_independent.cpp and output, exact 24-profile match",
+        "Karaoğlu 2021 DOI:10.3906/mat-2102-10, primary FULL text Table1/Table3",
+        "Betten–Karaoğlu 2022 DOI:10.1007/s10623-021-00999-w (ONLY abstract/preview; Oxford vpn_disconnected)",
+        "Das 2020 arXiv:2002.11183 (partial evidence)",
+        "Resultary cubic surface F2 Eckardt search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published 2021 F2 table distinguishes #lines and #ordinary Eckardt intersections over F2 but does not include rational Eckardt points formed by 3 non-rational lines or 1 rational plus a conjugate pair.",
+          "The new full table has e=3 from (E1=1,E3=2) with N=11,L=5, versus old #E3=2; for N=1,L=0 the new count E0=1 although old #E=0."
+        ],
+        "reasoning": "Earlier numerical invariants do not imply the complete refined table as a bare statement. It can be computed from published representative equations using further tangent-plane analysis; this lowers originality breadth but is not logical statement coverage. A possible 2022 parametrization-based implication is unresolved due access.",
+        "searches": [
+          "Karaoğlu (2021) DOI:10.3906/mat-2102-10 §3 Table1 and Theorem3.1",
+          "Betten–Karaoğlu (2022) DOI:10.1007/s10623-021-00999-w abstract",
+          "Das arXiv:2002.11183"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Karaoğlu (2021), Theorem 3.1 attributes the 36 smooth F2 classes to Dickson, and Table 1 records for each class number of F2-lines, F2-points, and Eckardt points defined via rational lines.",
+          "The new theorem counts rational points with triples of GEOMETRIC lines and splits according to 0/1/3 rational branches. In the prior table F36 has N=1,L=0,#E=0, whereas new F36-type row is N=1,L=0,E0=1 (weight 840); F3 has N=11,L=5,#E3=2, new row has E1=1,E3=2 (weight 1260)."
+        ],
+        "reasoning": "It would be false to claim the 36-orbit count, rational-line or E3 distribution is new. However the extra Eckardt rational points with zero/one F2-line are not counted by the earlier rational-line incidence table and add a distinct arithmetic Frobenius-splitting invariant.",
+        "searches": [
+          "Web: Karaoğlu 2021 Nonsingular cubic surfaces over F2k Table 1 Dickson surfaces Eckardt points",
+          "Web: Betten Karaoglu The Eckardt point configuration of cubic surfaces revisited 2022",
+          "Resultary: cubic surfaces over F2 rational Eckardt point distribution smooth equations PGL4 orbits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known exact 36-orbit and N,L,ordinary rational-line Eckardt tables exist and must be credited.",
+          "The independently computed complete 24-profile distribution includes E0 and E1 rows not present in 2021 Table 1: e.g., zero-rational-line surface with a rational Eckardt point, impossible to infer from a column counting three rational lines."
+        ],
+        "reasoning": "This is close to recomputing a known classification, but the new specified finite invariant is the geometric/Frobenius splitting distribution, not the known orbit set. Value and originality rest solely on the finer meaningful arithmetic statistic and its full certified enumeration, not the already published orbit count.",
+        "searches": [
+          "Karaoğlu 2021 Theorem 3.1, Table 1 and Table 3",
+          "Betten–Karaoğlu 2022 Table 1 described in preview, unavailable full text",
+          "Resultary: cubic surfaces over F2 rational Eckardt point distribution smooth equations PGL4 orbits"
+        ]
+      },
+      "rationale": "PASS, but NARROW and strongly qualified: the full 36 smooth PGL4(F2) orbit classification, their rational point/line counts, and their Eckardt counts from triples of RATIONAL lines are conclusively prior in Dickson/Karaoğlu (2021), Table 1 and Theorem 3.1. The surviving original claim is the refined incidence distribution of F2-RATIONAL Eckardt points with 0,1,3 Frobenius-fixed geometric lines, including Eckardt points with NO rational line; the prior table is not the requested total geometric incidence census. The 2022 Betten–Karaoğlu full text could not be read, leaving a material exact-priority risk. No old orbit/E3 discovery is claimed.",
+      "residual_risks": [
+        "IMPORTANT: The 36 F2 smooth PGL4 classes, their representatives, rational line and rational point count and rational-line Eckardt counts were known by Dickson/Karaoğlu 2021; no novelty is asserted for those.",
+        "The Betten–Karaoğlu 2022 full article could not be read via OA/arxiv or authorized institutional download (vpn_disconnected). It may already derive a stronger geometric Eckardt / Frobenius count. This remains a material but not decisive unresolved priority risk.",
+        "A reader can derive the refined invariant by further computation on published 36 representatives; novelty/value are restricted to the actual new splitting census, not independent orbit discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS 36 orbits, N,L, rational-line Eckardt E3; NOT the E0/E1 split exhibited by new theorem",
+          "evidence": [
+            "§3 Theorem3.1: 36 smooth cubics over F2. Table1: F36 N=1 L=0 historical #E=0 (three rational lines); new geometric split finds E_0=1. F3 old #E=2 and new E1=1,E3=2."
+          ],
+          "identifier_or_url": "https://doi.org/10.3906/mat-2102-10",
+          "material_read": "Full primary paper text available via author-uploaded ResearchGate transcription; read Overview, §3 Theorems 3.1-3.4 and all relevant Table 1/3 F1..F36 entries including point, line, Eckardt and stabilizer counts",
+          "method": "Author-uploaded complete lawful full text, tables/argument inspected; original publisher PDF download returned HTTP 403",
+          "title": "Non-Singular Cubic Surfaces over F_{2^k}",
+          "trigger": "Exact same field and 36 smooth cubic classes; likely dominating table"
+        },
+        {
+          "assessment": "UNRESOLVED material exact-originality comparison, preserved as risk; no claim of full-document NOT_COVERING",
+          "evidence": [
+            "Abstract promises equations parametrizing prescribed Eckardt point configurations over any field but does not specify the weighted F2 Frobenius splitting count."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-021-00999-w",
+          "material_read": "Only title/abstract, first publisher-preview page; no rest of 22-page primary article available",
+          "method": "Arxiv and lawful OA full-text searches failed, ResearchGate only publisher preview; authorized Oxford retrieval attempted once and returned vpn_disconnected with job_id 78742d0bdcd77173482d4c974d70fcb9",
+          "title": "The Eckardt point configuration of cubic surfaces revisited",
+          "trigger": "Highly plausible wider parametrization of geometric Eckardt configurations over any field"
+        },
+        {
+          "assessment": "KNOWN background for N,L marginal, not an observed E0/E1/E3 table",
+          "evidence": [
+            "Original study supplies Frobenius arithmetic point/line data but does not state the inspected geometric Eckardt split in available material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2002.11183",
+          "material_read": "Published abstract/summary and source claims; complete primary text not re-read in this run",
+          "method": "Targeted original-literature search and comparison to 2021 primary cross-references",
+          "title": "Arithmetic statistics on cubic surfaces",
+          "trigger": "Broader rational point and rational line counts for smooth cubic surfaces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite-field arithmetic distinction between a rational Eckardt point and three rational lines through that point is mathematically substantive: 0 rational branches (a Frobenius 3-cycle), one rational branch (a conjugate pair), and three rational branches are different descent types. Their exact joint distribution over all geometrically smooth F2 cubic equations and the consequence that even N<=3 rational-point surfaces have a rational GEOMETRIC Eckardt point despite no rational lines is a natural complete classification; the 24-profile table is not recoverable from the prior line-count columns. This is a motivated finite arithmetic-geometric invariant, not merely a known orbit-count table or a proof of general finite-field behavior.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md, eckardt.py, representative algorithm sections of cubic_enum.cpp and direct_enum.cpp, eckardt_summary.txt, direct_summary.txt",
+    "NEW independent 1,048,575-binary-cubic exhaustive enumeration, /mnt/data/scope_worker07_current_run/cubic_independent.cpp and output, exact 24-profile match",
+    "Karaoğlu 2021 DOI:10.3906/mat-2102-10, primary FULL text Table1/Table3",
+    "Betten–Karaoğlu 2022 DOI:10.1007/s10623-021-00999-w (ONLY abstract/preview; Oxford vpn_disconnected)",
+    "Das 2020 arXiv:2002.11183 (partial evidence)",
+    "Resultary cubic surface F2 Eckardt search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only exactly F2 and fixed-coordinate coefficient vectors, with 36 PGL4(F2) orbit backgrounds; not arbitrary F_{2^k} or abstract marked classes.",
+    "The old orbit table and #E3 counts are prior and must be explicitly credited in any later scientific presentation.",
+    "Complete 2^20 exact computation is a valid finite proof of the finite census, not evidence for a claim at other q."
+  ],
+  "residual_risks": [
+    "IMPORTANT: The 36 F2 smooth PGL4 classes, their representatives, rational line and rational point count and rational-line Eckardt counts were known by Dickson/Karaoğlu 2021; no novelty is asserted for those.",
+    "The Betten–Karaoğlu 2022 full article could not be read via OA/arxiv or authorized institutional download (vpn_disconnected). It may already derive a stronger geometric Eckardt / Frobenius count. This remains a material but not decisive unresolved priority risk.",
+    "A reader can derive the refined invariant by further computation on published 36 representatives; novelty/value are restricted to the actual new splitting census, not independent orbit discovery."
+  ],
+  "schema_version": 1
+}
