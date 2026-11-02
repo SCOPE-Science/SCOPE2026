@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement uses the standard weighted edge-cut normalization \(w(1-\langle v_i,v_j\rangle)/2\). The cycle adjacency minimum-eigenvalue argument applies to *every* unit-vector realization in every dimension; the explicit three-dimensional Fourier construction simultaneously saturates its Cauchy--Schwarz and spectral bounds. Exact sign counting supplies the unrestricted integer optimum. The resulting polynomial differences prove every exactness boundary. A monotone derivative numerator excludes interior ratio maxima, and exact endpoint comparisons establish the rim-size switch. The strict odd-case comparison uses a rational Taylor bound; no numerical rounding is used in the universal proof. Standalone finite tests checked 144 brute-force Max-Cut cases, 144 PSD Grams, 6,480 independently sampled feasible Gram objectives, five exact-rational symbolic cases, and rim sizes through 80; these tests support but do not replace the proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Published standard SDP theory (Goemans--Williamson) and graph-class/Grothendieck bounds (Laurent--Varvitsiotis) supply more general frameworks, but no inspected theorem implies the complete one-parameter weighted-wheel SDP and cut formula, isolated complete-graph exactness point, or unique maximum-gap switch. A particularly close 2016 paper by Ben-Ameur--Glorieux--Neto reports **numerical** unweighted wheel cases at one parameter value and studies a *stronger* relaxation; it does not deduce the arbitrary spoke-weight classification. Relevant records were also compared semantically for wheel geometry, odd cycles and cut polytopes, without assuming partitioning proves novelty. Delorme--Poljak (1993) is a material residual risk: a public snippet places wheel examples in their study of eigenvalue bounds, but its complete text could not be inspected. Thus neither unweighted numerical values nor the general SDP formulation are treated as novel; prior unknown specialized parameter formulas remain possible.
+PASS
 
-## Value — PASS
-The basic Max-Cut SDP is a canonical integrality-gap benchmark. This result gives a closed-form, all-order family of exactness certificates, the exceptional interior exactness \(t=1\) for the four-vertex wheel, and a sharp odd-rim transition in the **unique worst parameter**, from no spokes to a nonzero spoke weight. This parameter-location transition is a structural, motivated measurement of relaxation looseness, not a routine fixed-size computation. It distinguishes classical SDP sharpness from tightened relaxations and may guide extremal benchmark design. Inhomogeneous spokes and stronger SDP relaxations are excluded; independent verification is not asserted.
+Reconstructed the unrestricted Gram argument: rim vector average m and deviations w_i sum to zero; min adjacency eigenvalue of C_n is -2c_n, hence sum rim pair products >=n[(1+c_n)||m||²-c_n]. With a=<z,m>, ||m||²>=a² and spoke term nt a, optimize the resulting quadratic on [-1,1]. Fourier vectors with θ=π (even) or π-π/n (odd) and hub axis realize equality in dimension three for all real t>=0, proving the SDP formula. Fixed-k integer sign count 2min(k,n-k)+tk gives the piecewise cut. Factored exactness polynomials, discriminant and monotone ratio-derivative numerator reduce the universal gap maximum to t=0 vs 2; endpoint inequality yields n=3,5,7 versus odd>=9. Independent cut enumeration and explicit Fourier-Gram PSD/objective checks confirmed 80 sample pairs over n=3..10 and t=0,1,2,3,5, with exact boundary checks at n=3. The case n=3,t=1 isolated exactness was checked. Finite tests corroborate, analytic eigenvalue/derivative proof covers every n,t.
 
-## Closest literature and limitations
-Goemans--Williamson (1995), full author PDF; Laurent--Varvitsiotis (2011), full arXiv text; Ben-Ameur--Glorieux--Neto (2016), author-posted full text, especially Section 5/Table 1; Rendl--Rinaldi--Wiegele (2007), general SDP methods. Delorme--Poljak (1993), wheel-relevant article inaccessible in full; potential specialized equivalence remains a risk. The finite test program does not exhaust the parameter continuum.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS with material historical risk: Goemans–Williamson 1995 defines the exact basic SDP; Laurent–Varvitsiotis 2011 treats a different graphwise Grothendieck ratio over arbitrary signed quadratic edge weights, not the t-indexed nonnegative Max-Cut ratio. Ben-Ameur–Glorieux–Neto 2016 full text Table 1 numerically computes basic SDP0 for unweighted wheels t=1 and proposes stronger SDP3; those numerical wheel values are prior work and not claimed novel. Delorme–Poljak 1993 specifically studies wheel-relevant eigenvalue max-cut bounds and is a plausible equivalent predecessor; open and OA attempts found no material full text, and the authorized institutional service returned vpn_disconnected. No conclusion of whole-paper noncoverage is made, but available information does not establish a dominating weighted-wheel theorem.
+
+## value
+
+PASS
+
+The basic Max-Cut SDP integrality gap is a natural algorithmic quality measure. A closed all-rim-size one-parameter exactness classification, the exceptional four-vertex wheel exact point and a strictly unique worst spoke weight with a seven-to-nine odd-rim switch quantify relaxation quality in a motivated graph family, beyond a fixed unweighted benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
