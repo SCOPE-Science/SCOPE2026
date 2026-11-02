@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness: PASS
+For the finite-rate full position-and-heading reset model, a two-sided Poisson renewal construction proves existence and uniqueness of a stationary distribution with finite moments. Applying its stationary generator to the angular harmonics, position, position–heading products and quadratic position functions yields a closed linear system whose explicit solution gives the full centered tensor. The anisotropic complex variance factors exactly by \(r-2D_r\), while all denominators remain nonzero in the stated positive-parameter domain. The conclusion therefore concerns precisely the vanishing of covariance anisotropy, not full-density isotropy. Separate renewal-age quadrature tests reproduce the moments across 12 regimes and pass 84 finite checks; these tests are not the infinite-parameter proof.
+
+## Originality: PASS (best-knowledge qualification)
+The closest primary study is Shee, arXiv:2508.12223, whose main text and Appendices A–E were examined. Its scalar MSD, average drift, direction-sensitive position–orientation moments and higher radial moments do not explicitly present the centered Cartesian position covariance nor the universal cancellation \(r=2D_r\) for nonzero chirality. Ghosh et al., arXiv:2501.05149, concern anisotropic active particle mobility and resetting, with no indicated intrinsic chiral torque in the accessible abstract; the full text could not be accessed, leaving a residual literature-comparison risk. General stochastic-generator theory is recognized prior mathematical machinery. Searches for covariance-isotropy equivalents, stronger chiral tensor results and parameter aliases did not identify a dominating theorem, but absence in search results alone does not certify novelty. Independent priority review remains needed.
+
+## Value: PASS
+The exactly factorized chiral covariance anisotropy yields a control threshold independent of angular velocity, motility speed and translational diffusivity, in a model whose previously studied scalar mean-squared displacement cannot detect directional covariance. This is a natural physical diagnostic and a sharp structural boundary, not a generic elementary substitution. The distinction between isotropic centered fluctuations and anisotropic full spatial distributions is essential to its interpretation.
+
+## Limitations and closest literature
+The result assumes complete simultaneous position–heading Poisson resets, independent isotropic translational Brownian noise, free plane motion, positive angular diffusivity and nonzero propulsion. It does not treat anisotropic mobility, imperfect resetting or finite-sample observation, and its full-literature priority is not independently certified. Sources: arXiv:2508.12223 (full primary text including appendices inspected), arXiv:2501.05149 (accessible abstract inspected only), and arXiv:2008.03294 (contextual resetting reference, abstract-level comparison).
+
+Self-review: passed. Independent audit: not yet performed.
