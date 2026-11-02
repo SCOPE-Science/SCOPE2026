@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T22:06:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a strictly positive initial infection and fixed u in [0,1], the physical final-size root s=S0 exp[-R(S0+I0-s)] is unique: the concave residual is positive at A=I0 and negative at A=S0+I0, with derivative negative at its crossing. Thus 0<y=R s<1, A_R=A s/(1-Rs), Q=A/gamma, and Q'/Q=(g_*(u)-y b/(1+bu))/(1-y). At and to the right of the clipped minimizer u_R of R, g_*>=b/(1+bu), giving Q'>0 (strict). At an interior u_R, Q'(u_R)>0, so every global Q minimizer lies strictly to the treatment-heavy left. Peak monotonicity in R requires S0 R(u)>1 throughout. For beta0→∞, uniform s<=S0 exp[-R I0] yields uniform y→0, making Q strictly increasing throughout. The exact beta0=30, S0=.9,I0=.1,b=g=gamma0=1 inequalities establish u_Q=0,u_R=.5; 297 independent finite-difference/implicit-derivative checks corroborate but do not substitute for the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sereno Sec.3 gives integral of I and final size for normalization with controlled reproduction R, but not simultaneous constant beta/gamma budget competition.",
+          "Bolzoni studies time-optimal eradication and individual controls, not a fixed-split derivative for Q."
+        ],
+        "reasoning": "More general time-dependent control literature treats different admissible policies/objectives; the inspected results do not imply universal ordering for this fixed two-response family. A yet broader optimality theorem might.",
+        "searches": [
+          "Resultary: fixed budget SIR prevention treatment recovery resource allocation integrated infectious person time cumulative prevalence optimal peak split final size",
+          "arXiv:2302.00960",
+          "arXiv:2111.05652",
+          "arXiv:1706.04447"
+        ]
+      },
+      "checked_sources": [
+        "Maity et al., Quantifying optimal resource allocation strategies for controlling epidemics, arXiv:2302.00960, Appendix B and Sec. 3.2, https://arxiv.org/pdf/2302.00960",
+        "Sereno et al., Minimizing the Epidemic Final Size while Containing the Infected Peak Prevalence in SIR Systems, arXiv:2111.05652, Sec. 3, https://arxiv.org/pdf/2111.05652",
+        "Bolzoni et al., Time-optimal control strategies in SIR epidemic models, arXiv:1706.04447 (reference/scope compared)",
+        "Resultary search: fixed shared-budget SIR prevention, recovery, integrated infectious-person-time vs peak."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior peak optimum solves R'(u)=0 (g_*=h); claimed Q optimum solves g_*=y h, y∈(0,1), strictly different at interior u_R.",
+          "When beta0 is uniformly large, y→0 while g_*>0; this forces u_Q=0 without affecting u_R."
+        ],
+        "reasoning": "The new inequality is not an immediate corollary of Maity's peak calculation: it needs physical final-size root differentiation and the strict y<1 bound. Its ingredients are standard SIR identities and are explicitly credited.",
+        "searches": [
+          "Resultary: fixed budget SIR prevention treatment recovery resource allocation integrated infectious person time cumulative prevalence optimal peak split final size",
+          "arXiv:2302.00960",
+          "arXiv:2111.05652",
+          "arXiv:1706.04447"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q=A(R)/gamma with A=M-s; R=beta/gamma, so comparing person-time is not equivalent to comparing final size or peak when gamma depends on u.",
+          "Maity Appendix B: peak optimizer 1/2(1-1/b+1/g), not person-time."
+        ],
+        "reasoning": "A bare final-size optimum may have same parameters but loses the 1/gamma factor; the exact derivative contains g_* - y h rather than R's g_*-h, and the claimed optimizer ordering does not follow from a mere title match.",
+        "searches": [
+          "Resultary: fixed budget SIR prevention treatment recovery resource allocation integrated infectious person time cumulative prevalence optimal peak split final size",
+          "arXiv:2302.00960",
+          "arXiv:2111.05652",
+          "arXiv:1706.04447"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned epidemic threshold, vaccination, and other models, not an exact static two-program Q optimization table; no exact database value is claimed as new."
+        ],
+        "reasoning": "The claim is analytical and continuous in parameters, not an integer-sequence/table lookup. The search checks whether an identical specialized optimization result was indexed, but a failed retrieval is not proof of novelty.",
+        "searches": [
+          "Resultary: fixed budget SIR prevention treatment recovery resource allocation integrated infectious person time cumulative prevalence optimal peak split final size",
+          "arXiv:2302.00960",
+          "arXiv:2111.05652",
+          "arXiv:1706.04447"
+        ]
+      },
+      "rationale": "The exact two-intervention parameterization, peak objective and interior u_R are published by Maity et al.; the SIR final-size relationship and infectious area under curve also predate this claim. The surviving assertion is the universal strict ordering of optimum for time-integrated I against the R/peak optimizer and high-beta boundary optimum under a *shared constant budget that changes recovery*. Maity's Appendix B computes dI_peak/du, not d(A/gamma)/du; Sereno's Sec.3 ties cumulative I to final size with a dimensionless fixed recovery scale, but does not compare a pair of budget-coupled beta and gamma. Qualified best-of-knowledge originality, not a claim of a new SIR final-size formula.",
+      "residual_risks": [
+        "Any general fixed-budget SIR comparative-statics theorem not recovered might imply this result.",
+        "The interpretation of integrated I as hospital bed-days depends on medical assumptions absent here.",
+        "General Q minimizer uniqueness is not claimed; peak uniqueness needs all-growing hypothesis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact beta/gamma response and closed-form optimal peak split, NOT established shared-budget optimum of integral I dt in inspected arguments.",
+          "evidence": "Appendix B equation B.2 and derivation of u_peak=1/2(1−1/b+1/g) from dImax/du.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.00960",
+          "material_read": "44-page manuscript obtained in full; relevant model, Section 3.2 and Appendix B pp.34–35 inspected, with page-35 screenshot.",
+          "method": "Open-access arXiv PDF text plus page screenshot",
+          "title": "Quantifying optimal resource allocation strategies for controlling epidemics",
+          "trigger": "Exact matching joint prevention/treatment response and peak allocation"
+        },
+        {
+          "assessment": "Explicitly gives area under I =1−S∞ in its fixed recovery time scale; does not solve a fixed allocation that varies gamma and beta simultaneously.",
+          "evidence": "Section 3 displays integral_0^infty I=1−S∞ and remarks that area and peak are distinct objectives.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.05652",
+          "material_read": "Open-access PDF Section 3, especially p.10 integral I and final size, abstract and study scope.",
+          "method": "arXiv PDF full text selective reading plus screenshot",
+          "title": "Minimizing the Epidemic Final Size while Containing the Infected Peak Prevalence in SIR Systems",
+          "trigger": "Closest paper on integrated I and different peak objectives"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Peak inpatient prevalence and total infected person-time are independently motivated, distinct resource objectives under the same concrete fixed allocation. The global strict ordering across every positive parameter quadruple with interior R optimizer, the uniform high-transmission switch to all-treatment, and an exact rationally bounded counterexample are substantive comparative-statistics conclusions; they clarify when optimizing peak does not optimize cumulative burden. No actual public-health prescription is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Maity et al., Quantifying optimal resource allocation strategies for controlling epidemics, arXiv:2302.00960, Appendix B and Sec. 3.2, https://arxiv.org/pdf/2302.00960",
+    "Sereno et al., Minimizing the Epidemic Final Size while Containing the Infected Peak Prevalence in SIR Systems, arXiv:2111.05652, Sec. 3, https://arxiv.org/pdf/2111.05652",
+    "Bolzoni et al., Time-optimal control strategies in SIR epidemic models, arXiv:1706.04447 (reference/scope compared)",
+    "Resultary search: fixed shared-budget SIR prevention, recovery, integrated infectious-person-time vs peak."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Closed deterministic well-mixed SIR only; fixed allocation; S0,I0,b,g,beta0,gamma0 positive.",
+    "Not an optimization over time-varying controls, incidence, deaths, monetary burden or real-world policy.",
+    "Any general fixed-budget SIR comparative-statics theorem not recovered might imply this result.",
+    "The interpretation of integrated I as hospital bed-days depends on medical assumptions absent here.",
+    "General Q minimizer uniqueness is not claimed; peak uniqueness needs all-growing hypothesis."
+  ],
+  "schema_version": 1
+}

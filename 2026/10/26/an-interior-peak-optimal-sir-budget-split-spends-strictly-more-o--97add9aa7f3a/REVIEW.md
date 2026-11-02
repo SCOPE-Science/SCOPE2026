@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(S_0,I_0>0\), the final-size function has exactly one physical root and strictly positive derivative with the reproduction ratio. The exact identity \(Q'/Q=(g_*-yh)/(1-y)\), with \(0<y<1\), gives a global sign after the reproduction-ratio optimum. The uniform large-transmission bound and the rational-exponential example prove the all-treatment result without numerical minimization. The peak comparison is explicitly limited to initially growing epidemics for every allocation; the flat-peak regime is not misclassified. `check.py` corroborates the formula with 522 checks; analytic arguments, rather than the finite grid, establish global conclusions.
+## correctness
 
-## Originality — PASS (provisional priority)
-The exact two-program response functions and the peak-optimal split are in Maity et al. (arXiv:2302.00960v1), notably Section 3.2 and Appendix B. The present claim changes the objective to total infectious person-time under a budget that changes recovery; Maity's peak formula alone does not impose the optimizer ordering or the high-transmission boundary policy. Sereno et al. (arXiv:2111.05652) give the known area-under-infections/final-size relationship with fixed time normalization, but do not optimize a constant split that changes recovery. Bolzoni et al. (arXiv:1706.04447) treat time-optimal and unconstrained single-control strategies rather than this simultaneous static two-control budget. Related optimization theory and unpublished formulations may subsume part of this observation. Priority is not independently certified.
+PASS
 
-## Value — PASS
-The two measures correspond to distinct epidemic resource questions: maximal simultaneous infections versus integrated infectious exposure or bed-days under a model-specific interpretation. The strict comparative statics hold across all positive initial states and positive intervention coefficients, while the high-transmission theorem and a fully bounded example demonstrate a complete shift from an interior peak-optimal mix to all-treatment for integrated burden. The value rests on the structured objective divergence, not on rederiving the classical SIR final-size formula.
+For a strictly positive initial infection and fixed u in [0,1], the physical final-size root s=S0 exp[-R(S0+I0-s)] is unique: the concave residual is positive at A=I0 and negative at A=S0+I0, with derivative negative at its crossing. Thus 0<y=R s<1, A_R=A s/(1-Rs), Q=A/gamma, and Q'/Q=(g_*(u)-y b/(1+bu))/(1-y). At and to the right of the clipped minimizer u_R of R, g_*>=b/(1+bu), giving Q'>0 (strict). At an interior u_R, Q'(u_R)>0, so every global Q minimizer lies strictly to the treatment-heavy left. Peak monotonicity in R requires S0 R(u)>1 throughout. For beta0→∞, uniform s<=S0 exp[-R I0] yields uniform y→0, making Q strictly increasing throughout. The exact beta0=30, S0=.9,I0=.1,b=g=gamma0=1 inequalities establish u_Q=0,u_R=.5; 297 independent finite-difference/implicit-derivative checks corroborate but do not substitute for the analytic proof.
 
-## Residual limitations
-No time-dependent controls, age structure, susceptible replenishment, stochastic extinction, financial utility, or real-world optimal treatment recommendation are established. The total person-time minimizer need not be unique in the general parameter regime, and prior-art coverage beyond the inspected papers remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact two-intervention parameterization, peak objective and interior u_R are published by Maity et al.; the SIR final-size relationship and infectious area under curve also predate this claim. The surviving assertion is the universal strict ordering of optimum for time-integrated I against the R/peak optimizer and high-beta boundary optimum under a *shared constant budget that changes recovery*. Maity's Appendix B computes dI_peak/du, not d(A/gamma)/du; Sereno's Sec.3 ties cumulative I to final size with a dimensionless fixed recovery scale, but does not compare a pair of budget-coupled beta and gamma. Qualified best-of-knowledge originality, not a claim of a new SIR final-size formula.
+
+## value
+
+PASS
+
+Peak inpatient prevalence and total infected person-time are independently motivated, distinct resource objectives under the same concrete fixed allocation. The global strict ordering across every positive parameter quadruple with interior R optimizer, the uniform high-transmission switch to all-treatment, and an exact rationally bounded counterexample are substantive comparative-statistics conclusions; they clarify when optimizing peak does not optimize cumulative burden. No actual public-health prescription is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
