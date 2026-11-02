@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Finite differencing yields the exact divisor recursion with coefficient 2(n/d)-1. Every such coefficient is odd, giving a(n)≡μ(n) (mod 2) on all n by divisor Möbius inversion. For squarefree n, the finite square-zero algebra has SG=2B-2A+1, B/A=exp(w), and 1/(2 exp(w)-1)=sum_{ell>=1}2^(-ell) exp(-ell*w); extracting full support cancels the full-subset moment and gives the claimed proper-subset sum exactly. Each moment is positive. k=1 gives -1, k>=2 yields absolute value greater than 1, and nonsquarefree values are even; hence no composite is -1. Standalone exact integer checks independently compare floor and divisor recurrences through 900 and full formula/parity/primality through 10000. Finite checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1 of arXiv:2609.25628v1 says star(p)=-1 iff prime, but its proof at the composite step says explicitly: for composite n, star(n) is not identically -1 for all valid f; this is weaker than a pointwise fixed-kernel converse.",
+        "The paper discusses power kernels, and p^2 and pq values, not arbitrary squarefree n with three or more prime factors.",
+        "Prior same-kernel theorem has support restricted to sufficiently large dyadic valuations; it says nothing about the odd squarefree slice h=0 and gives no prime-index classification."
+      ],
+      "reasoning": "A hypothetical correct universal fixed-kernel theorem would cover the prime-indicator corollary, so novelty does not rest on that corollary. The all-squarefree exact value formula with its C_j coefficients is not implied by the stated dichotomy even if it were valid pointwise. The symbolic non-identity proof also does not evaluate this fixed quadratic family. The previously studied dyadic boundary is mathematically different from all-squarefree values and does not imply their exact moment coefficients.",
+      "searches": [
+        "George Andrews Kauffman Sahoo conjecture star_k k=2 prime test all n squarefree formula",
+        "prime characterization by quadratic fixed kernel f(k)=k^2 Spencer Brown recursion no composite -1",
+        "arXiv:2609.25628v1 Theorem 1 and proof of composite direction"
+      ]
+    },
+    "checked_sources": [
+      "Andrews–Kauffman–Sahoo, arXiv:2609.25628v1, complete accessible text.",
+      "Published constant-function-obstruction finding, indexed scientific summary.",
+      "Indexed mathematical records and sequence searches for quadratic kernel, squarefree formula, and exact integer values.",
+      "Prior exact same-kernel dyadic theorem (full recovered mathematical result and claim)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 1 is equivalent to the general recursion; specializing to f(m)=m^2 gives the required coefficient but not an explicit solution at arbitrary squarefree n.",
+        "The published p^2 and pq formulas cover cases with at most two distinct prime factors.",
+        "The constant-kernel observation evaluates f(m)=1 and has no bearing on quadratic values beyond showing that a universal fixed-kernel converse is not automatic.",
+        "An available earlier finding proves the dyadic zero boundary and gives an implicit global Dirichlet-convolution inverse, but not the nontrivial extraction of explicit squarefree values, sign and parity."
+      ],
+      "reasoning": "Neither known small-support evaluations nor the unqualified yes/no phrase imply the exact polynomial in all (p-1), including nonzero higher-support interactions C_2,C_3,... . Those new coefficients and all-input parity distinguish the theorem from its sources. The prime corollary alone is not relied upon to establish originality. The generic inverse identity itself determines the function only implicitly, like the defining recurrence; applying a new finite square-zero algebra and geometric moment extraction is needed to produce the displayed all-squarefree formula.",
+      "searches": [
+        "arXiv:2609.25628v1 Proposition 1 divisor recurrence and Theorem 1 proof",
+        "A constant-function obstruction to a generalized Möbius primality criterion",
+        "recursive generalized Mobius 2026 Andrews Kauffman Sahoo algebraic primality characterization squarefree divisor sum quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full arXiv:2609.25628v1 Sections 1-2 and Proposition 1 provide recurrence and two-prime computations but not a formula for general squarefree support.",
+        "The result here identifies all higher-support coefficients as C_j=sum_{ell>=1}ell^j/2^ell, with C_2=6 and C_3=26.",
+        "A prior exact same-kernel theorem states a dyadic zero tail for 2^h*m (m odd, h>=Omega(m)+3), with a formal Dirichlet inverse identity; its full mathematical result contains no arbitrary-squarefree moment evaluation."
+      ],
+      "reasoning": "No equivalent all-squarefree moment expansion was located in the queried source or indexed mathematical records. Comparing identities, the general divisor recurrence is a starting point but does not itself state the closed prime-subset coefficients. Search failure is not a novelty certificate. The existing general Dirichlet inverse expression is an implicit reformulation of the original recurrence, not an explicit value formula or magnitude law over all squarefree n.",
+      "searches": [
+        "arXiv 2609.25628 polynomial f(k)=k^2 generalized Möbius squarefree closed form ordered Bell numbers moments prime criterion",
+        "quadratic Spencer-Brown generalized Möbius squarefree n product over primes 2p−1 explicit formula",
+        "\"A surprising generalization of the Möbius function\" \"Stirling\" prime product"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact integer table or sequence entry reproducing the full quadratic recurrence and its all-squarefree coefficient formula was identified by the actual indexed searches.",
+        "The motivating paper contains small-index and two-prime evaluations; its known formula at pq matches the k=2 specialization and is treated as covered."
+      ],
+      "reasoning": "An absent table match provides no proof of historical uniqueness; it merely leaves no identified exact-table coverage. The new formula is stated for unrestricted squarefree prime support, not re-presented as a finite experimental census.",
+      "searches": [
+        "OEIS \"1,-1,-1,2,-1,7,-1,0,4,11\" generalized Möbius square",
+        "\"1, -1, -1, 2, -1, 7, -1, 0, 4, 11\" sequence",
+        "\"star\" \"2p+2q-3\" Möbius Kauffman"
+      ]
+    },
+    "rationale": "The primary paper introduces the general recursion and evaluates prime squares and products of two distinct primes, but its full text contains no exact formula for any squarefree integer with arbitrarily many prime factors or identification of geometric ordered-Bell moment coefficients. The stronger pointwise formulation of its prime equivalence overlaps the corollary in wording, yet the proof of the composite direction explicitly establishes non-identity when the kernel varies, not this fixed quadratic kernel. A known constant-kernel obstruction reinforces that distinction. The new finding is the full exact squarefree evaluation and global parity control; the prime test is a consequence rather than an isolated claimed first discovery. A checked existing same-kernel result concerns sharp dyadic vanishing and an implicit convolution inverse; it does not evaluate the unrestricted squarefree slice, so its theorem does not dominate this exact all-squarefree formula.",
+    "residual_risks": [
+      "An unindexed older equivalent arbitrary-squarefree formula could exist; no absolute priority assertion is made.",
+      "The source’s Theorem 1 has broad pointwise wording, although its displayed proof establishes only a symbolic non-identity. The new claim is centered on exact squarefree values, which that wording does not specify.",
+      "The relevant earlier constant-kernel finding was available only as an indexed scientific summary, not full text; its reported theorem is specific to a different kernel.",
+      "The earlier same-kernel result contains a formal global Dirichlet inverse, which might render the squarefree extraction conceptually accessible; the new part is an explicit nontrivial coefficient polynomial and all-input prime consequence, not the inverse identity itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general recurrence and prime/pq/p² evaluations, not the all-squarefree geometric-moment formula. The composite proof varies f rather than establishing each fixed f pointwise.",
+        "evidence": [
+          "First posted 2026-09-22; primary MSC 11A25.",
+          "Introduction eq. (1), Theorem 1, Proposition 1 eq. (5), composite proof paragraphs distinguishing generic dependence on f."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.25628",
+        "material_read": "Complete accessible preprint text, introduction, Theorem 1, Proposition 1, displayed proof through concluding line, and references.",
+        "method": "Direct reading of arXiv full text and comparison of definitions, quantifiers, and sample formulas.",
+        "title": "A surprising generalization of the Möbius function",
+        "trigger": "Exact same recurrence, power-kernel motivation, claimed prime equivalence; required full-text implication comparison."
+      },
+      {
+        "assessment": "Evaluates f(m)=1, obtaining -1 for all n>=2. This does not evaluate f(m)=m², but shows the motivating paper’s pointwise quantifiers require care.",
+        "evidence": [
+          "Indexed finding states exact constant-kernel counterexample n=4 and all n>=2."
+        ],
+        "identifier_or_url": "published mathematical finding, 2026-10-04",
+        "material_read": "Indexed scientific title and substantive abstract only; not full text.",
+        "method": "Semantic mathematical-record search; comparison of the fixed kernel and conclusion.",
+        "title": "A constant-function obstruction to a generalized Möbius primality criterion",
+        "trigger": "A potentially stronger contrary result on the same generalized recurrence."
+      },
+      {
+        "assessment": "The earlier result has arbitrary odd part but restricts exponent of 2 to a large tail and a boundary, and writes the inverse implicitly. It contains no closed general value formula at squarefree n nor the prime-set moment coefficients or all-input parity.",
+        "evidence": [
+          "It states zero for h>=Omega(m)+3 and a positive value at h=Omega(m)+2, not for h=0 in general.",
+          "It gives s=epsilon+(epsilon-ones)*g^{-1}, a general convolution restatement, without evaluating all squarefree coefficients."
+        ],
+        "identifier_or_url": "1ab13cf3-55d7-49d3-a259-2ec48dfc5c89",
+        "material_read": "Complete recovered mathematical RESULT and the associated claim, solely to compare statement implications and scope.",
+        "method": "Read the stated dyadic zero-tail theorem and its generating-function/Dirichlet-inverse derivation, and compared its quantifiers with all-squarefree formulas.",
+        "title": "Sharp dyadic vanishing boundary for the quadratic generalized Möbius recurrence",
+        "trigger": "Exact same quadratic recurrence, hence a plausible dominating earlier result on all values."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d2092c72-1356-4152-8fc3-d47d9671d761",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper poses a natural family of power-kernel recurrences, but its symbolic prime characterization does not determine a fixed nonlinear specialization. A complete formula for every squarefree input reveals ordered-Bell moment coefficients, exact sign and nontrivial magnitude as the support size grows, and yields a concrete all-integer prime criterion when coupled to the Möbius-parity invariant. The arbitrarily many-prime evaluation exceeds the known p²/pq cases and resolves a genuinely motivated structural question; neither correct arithmetic nor novelty by itself is used as a substitute for this mathematical motivation.",
+    "status": "PASS"
+  }
+}
