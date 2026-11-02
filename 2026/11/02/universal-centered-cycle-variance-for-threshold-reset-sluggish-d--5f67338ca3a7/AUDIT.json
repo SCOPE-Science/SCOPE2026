@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The model is specified by an explicit Brownian time change. Exponential Brownian exit tails give all necessary regenerative moments. The source Green kernel yields the known cycle length and occupation mean. The centered Poisson potential is solved with valid Dirichlet and interface conditions and vanishes at the restart state. Itô isometry reduces the exact cycle reward second moment to three finite positive power integrals; symbolic simplification proves its closed form for all real alpha>=0 and 0<rho<1. Renewal-reward CLT yields the displayed variance. The exact rational and noninteger numerical tests corroborate intermediate algebra but are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical renewal-reward central limit theorem for i.i.d. cycles",
+        "Mendez et al. arXiv:2412.05247v1 section VI, Poisson resetting formulas (68),(83),(84)",
+        "Frimpong et al. arXiv:2610.21962v1 section 6.1.2 equations (72)-(75)"
+      ],
+      "reasoning": "The abstract regenerative CLT gives a moment ratio if the cycle reward law is already known, not the evaluated algebraic coefficient. General Green/Poisson equations offer a route to compute it but do not as such state its universal 1-rho^2 factor, Brownian invariance, or strict dependence for alpha>0. The published Gaussian result under Poisson resetting does not dominate this boundary-triggered regime.",
+      "searches": [
+        "renewal reward central limit occupation time absorbed diffusion restart",
+        "\"occupation time\" \"absorption\" \"reinjection\" \"variance\" Brownian",
+        "arXiv:2412.05247v1 section VI resetting moment variance"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.21962v1 §§2.1,6.1.1,6.1.2,8",
+      "arXiv:2412.05247v1 §VI primary PDF",
+      "arXiv:1812.03009 abstract; incomplete full text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Frimpong et al. arXiv:2610.21962v1: threshold occupation mean formula (75) and fluctuation order only",
+        "Mendez et al. arXiv:2412.05247v1: independent Poisson reset mechanism and variance (83)",
+        "Pal & Prasad, arXiv:1812.03009: abstract concerns Brownian interval first passage under Poisson restart"
+      ],
+      "reasoning": "The new claim implies an exact Gaussian fluctuation coefficient and its restart-point monotonicity, neither of which follows numerically from the source mean alone. The source Green occupation kernel, coupled with a *second* Poisson-potential computation, can be used to prove the result. This additional computation is the stated contribution. The other two sources concern independent external Poisson resets, not a symmetric first-exit-triggered regenerative process.",
+      "searches": [
+        "arXiv:2610.21962 threshold reset section 6.1.2 Green function",
+        "arXiv:2412.05247 section VI Poissonian resetting occupation variance",
+        "\"First passage under stochastic resetting in an interval\" Pal Prasad 2018"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Frimpong, Bresque & Roldan, arXiv:2610.21962v1, sections 6.1.1-6.1.2",
+        "Mendez, Flaquer-Galmes & Pal, arXiv:2412.05247v1, section VI"
+      ],
+      "reasoning": "Equivalent formulations include an explicit centered one-cycle Green-energy moment, the CLT variance of a boundary-restarted positive occupation fraction, and a Brownian-restart-point invariance property. The source treats the stationary mean for this boundary-reset protocol; its numerical Gaussian variance formula belongs instead to exogenously Poisson-timed resetting. The inspected 2024 paper likewise uses Poisson resets. No equivalent quantitative statement was located.",
+      "searches": [
+        "\"sluggish random walk\" \"threshold\" \"occupation\" \"variance\"",
+        "\"threshold resetting\" \"occupation fraction\" \"Gaussian\" \"variance\"",
+        "\"Brownian motion\" \"resetting at boundaries\" \"occupation\" variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2610.21962v1 equations (71) and (72)-(75) give different-regime variance and first-order threshold mean",
+        "The retrieved prior-literature items did not provide the claimed finite-excursion moment identity"
+      ],
+      "reasoning": "No exact numerical table or published expression was located for the boundary-reset occupation CLT coefficient. Nonappearance is not a proof of novelty, and an unindexed identity remains possible.",
+      "searches": [
+        "\"sluggish\" \"occupation fraction\" \"fluctuations\" threshold reset",
+        "\"threshold resetting\" \"central limit\" \"occupation time\"",
+        "\"threshold resetting\" \"occupation time\" \"variance\" diffusion"
+      ]
+    },
+    "rationale": "Primary-text comparison identifies the threshold-reset occupation mean and its square-root fluctuation order in arXiv:2610.21962v1, but not the exact variance. The associated Poisson-reset Gaussian formula (71) is not an equivalent first-exit-triggered result. The 2024 full-text reset section and 2018 interval Poisson-reset abstract do not directly give the claimed cycle-energy identity. Targeted mathematical searches found no equivalent stated coefficient; a general theorem might still subsume the calculation.",
+    "residual_risks": [
+      "A broad additive-functional or renewal reward variance theorem might already have explicitly evaluated this special coefficient under different terminology.",
+      "The 2018 bounded-interval resetting paper was not read in full; its published abstract describes an exogenous reset protocol rather than boundary-triggered regeneration.",
+      "No claim of independently verified historical priority or external proof audit is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Threshold mean and qualitative fluctuation order found, no displayed exact threshold CLT coefficient; Poisson variance is a different reset mechanism",
+        "evidence": [
+          "equations (1)-(5), (71)-(75); section 6.1.2 describes fluctuations of order (T/E tau)^(-1/2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.21962",
+        "material_read": "Full text sections 2.1, 6.1.1, 6.1.2, conclusion and relevant definitions/equations",
+        "method": "Accessible arXiv HTML primary text",
+        "title": "Sluggish random walks with resetting: nonequilibrium aspects",
+        "trigger": "Exact motivating model, threshold-triggered resets and sign occupation"
+      },
+      {
+        "assessment": "Independent Poisson resetting and CTRW memory kernel, not first-exit threshold restarting of natural-scale sluggish diffusion",
+        "evidence": [
+          "section VI equations (68), (83), (84); reset events described as a Poisson process"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2412.05247",
+        "material_read": "Primary PDF introduction and section VI (PDF pages 1, 11-12) with moment and variance formulas",
+        "method": "arXiv primary PDF text and page-image inspection",
+        "title": "Occupation time statistics for non-Markovian random walks",
+        "trigger": "Closest prior occupation-time second-moment calculations with resetting"
+      },
+      {
+        "assessment": "Focuses on first-passage statistics with external resetting; incomplete full-text check retained as priority risk",
+        "evidence": [
+          "abstract explicitly describes restart of a Brownian particle between absorbing endpoints"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.03009",
+        "material_read": "Abstract and model description; full text not inspected",
+        "method": "arXiv abstract",
+        "title": "First passage under stochastic resetting in an interval",
+        "trigger": "Bounded interval and stochastic resetting terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5f67338c-a3a7-47c4-a7fd-79424c7fefda",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 motivating paper computes only the threshold-reset stationary occupation fraction and predicts square-root fluctuation order; the exact variance calibrates finite-time uncertainty in this natural observable. The universal centered excursion second-moment factor 1-rho^2, Brownian restart-location invariance, and strict monotonicity for every sluggish alpha>0 provide structural information for the whole natural continuum parameter family, not a routine selected numerical instance. Independent audits remain unperformed.",
+    "status": "PASS"
+  }
+}
