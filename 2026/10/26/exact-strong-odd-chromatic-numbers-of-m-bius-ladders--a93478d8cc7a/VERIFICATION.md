@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundary
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8 or later and no third-party packages. The verification script checks all explicit coloring constructions on every Möbius ladder with \(3\le n\le300\), including graph-square properness when \(n\) is even. It also enumerates all nonempty strong odd independent color classes for \(n\in\{4,6,8,12\}\), obtaining counts \(8,40,128,1496\) and respective maximum sizes \(1,3,3,5\); the recorded execution terminates in `VERIFY_OK`.
+## correctness
 
-No finite enumeration proves the theorem for infinitely many ladder sizes. The general statements follow from the proof of adjacent-rung exclusion, the parity obstruction to a color class filling an alternating maximum independent set when \(4\mid n\), and the explicit period-four-plus-seven-tail construction. Verification does not include an external or independent audit.
+PASS
+
+For the cubic Möbius ladder M_{2n} with n≥3, proper odd-multiplicity neighborhood coloring has at each vertex either three different neighbor colors or one color repeated three times. For even n, a color appearing on adjacent rungs forces an alternating zigzag via odd-parity propagation, which conflicts with twisted seam; hence no triple-repeated neighbor color and strong-odd coloring is exactly graph-square proper coloring. For odd n rim parity is proper across odd antipodal edges, so χ=2. For n≡2 mod4, rim i mod4 is proper square color, and adjacent-rung exclusion gives χ≥4. When 4|n, alternating maximum independent rung positions would require row switches inconsistent with twisted seam; each color class size≤n/2-1, giving χ≥8 (n=4), ≥6 (n=8), ≥5 (n≥12). Explicit n=8 six-rung word and repeated 4-block + 7-tail 5-color word match bounds. Independently verified all explicit constructed colorings and square constraints for every n=3..404, including junctions; infinite proof rests on symbolic seam/periodic block conditions.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison by mathematical implication, using actual Resultary search, relevant primary source material, the assigned final claim, and explicit residual priorities. The contribution is limited to the exact special calculation/structural theorem; general underlying methods are credited.
+
+## value
+
+PASS
+
+A complete five-case chromatic classification and a rigid equivalence of neighborhood-parity coloring with graph-square coloring on a natural twisted ladder family; exceptional n=4,8 cases exhibit a genuine seam obstruction. Sharp all-n constructive witnesses are mathematically useful in local coloring and circulant graph-square theory, rather than isolated small graph recolorings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

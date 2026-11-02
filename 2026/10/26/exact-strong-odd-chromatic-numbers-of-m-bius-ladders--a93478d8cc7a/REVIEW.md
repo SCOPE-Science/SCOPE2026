@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The definition includes both properness and odd multiplicity in each open neighborhood. The adjacent-rung propagation uses all three neighbors of successive degree-three vertices; the twisted identification forces a properness contradiction for even \(n\). That prohibition rules out three monochromatic neighbors and implies equivalence with square coloring. Alternating-rung occupancy yields the sharp color-class obstruction when \(4\mid n\). Explicit words for the exceptional cases and a four-block plus seven-tail construction settle all remaining even values; the rim parity construction settles the odd values. A self-contained finite checker independently tests the displayed colorings and representative class bounds. Infinite validity uses the symbolic block and propagation arguments, not induction from sampled instances.
+## correctness
 
-## Originality
-**PASS with residual priority risk.** Searches for strong odd coloring of Möbius ladders, Wagner graphs and generalized Petersen graphs, and for chromatic numbers of squared circulant Möbius ladders, found no matching statement in the mathematical record examined. The Kwon–Park and Caro–Petruševski–Škrekovski–Tuza papers present general strong odd coloring theory, not this five-case sharp evaluation. The known circulant identity identifies the square graph but gives no five-case coloring result in the inspected source. Results for untwisted ladders and for Möbius-ladder graph complexes do not imply the twisted ladder classification. Unindexed graph-square coloring literature may already contain the numerical values; the complete statement includes an additional strong-odd/square-coloring rigidity theorem.
+PASS
 
-## Value
-**PASS.** The finite exceptional values \(8\) and \(6\) and the stable five-color regime constitute a complete, motivated graph-family classification. The force of the twisted closure yields a structural equality between two notions of coloring—not simply a special-case bound—and contrasts with the untwisted ladder. This gives an exact answer for a canonical nonplanar cubic family rather than an arbitrary parameter slice.
+For the cubic Möbius ladder M_{2n} with n≥3, proper odd-multiplicity neighborhood coloring has at each vertex either three different neighbor colors or one color repeated three times. For even n, a color appearing on adjacent rungs forces an alternating zigzag via odd-parity propagation, which conflicts with twisted seam; hence no triple-repeated neighbor color and strong-odd coloring is exactly graph-square proper coloring. For odd n rim parity is proper across odd antipodal edges, so χ=2. For n≡2 mod4, rim i mod4 is proper square color, and adjacent-rung exclusion gives χ≥4. When 4|n, alternating maximum independent rung positions would require row switches inconsistent with twisted seam; each color class size≤n/2-1, giving χ≥8 (n=4), ≥6 (n=8), ≥5 (n≥12). Explicit n=8 six-rung word and repeated 4-block + 7-tail 5-color word match bounds. Independently verified all explicit constructed colorings and square constraints for every n=3..404, including junctions; infinite proof rests on symbolic seam/periodic block conditions.
 
-## Limitations and closest literature
-Kwon–Park, arXiv:2401.11653; Caro–Petruševski–Škrekovski–Tuza, arXiv:2410.02336; MathWorld's Möbius-ladder square identity. The most important remaining risk is an unindexed theorem for the ordinary square chromatic number of this circulant. No claim is made about all graph squares or all strong odd colorings of cubic graphs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison by mathematical implication, using actual Resultary search, relevant primary source material, the assigned final claim, and explicit residual priorities. The contribution is limited to the exact special calculation/structural theorem; general underlying methods are credited.
+
+## value
+
+PASS
+
+A complete five-case chromatic classification and a rigid equivalence of neighborhood-parity coloring with graph-square coloring on a natural twisted ladder family; exceptional n=4,8 cases exhibit a genuine seam obstruction. Sharp all-n constructive witnesses are mathematically useful in local coloring and circulant graph-square theory, rather than isolated small graph recolorings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
