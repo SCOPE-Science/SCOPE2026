@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The included C++17 checker reconstructs every nonempty face of the two-cover complex, constructs the lexicographic matching, enumerates the full Hasse diagram with reversed matched arrows, and checks all vertices are processed by a topological sort. The independent Python3 signed integer program rebuilds the same face sets and computes all 4-to-3 critical-cell Morse boundary coefficients using recursive cancellations. Exact run commands (from the extracted package directory): `g++ -O3 -std=c++17 verify_acyclic.cpp -o verify_acyclic`; then `./verify_acyclic 8`, `./verify_acyclic 9`, `./verify_acyclic 10`, and `python3 verify_morse_boundary.py 8`, `python3 verify_morse_boundary.py 9`, `python3 verify_morse_boundary.py 10`.
+# Independent mathematical audit
 
-For m=8,9,10, all 202140, 1099623, 5673835 faces and 1372896, 8460504, 48937095 Hasse incidences were verified, respectively. Critical dimension vectors are (0:1,3:35,4:70), (0:1,3:70,4:126), (0:1,3:126,4:210). The integer fourth-to-third Morse boundary has no nonzero entries at any of these three orders. The complete actual command outputs are in verification_output.txt. This does not verify arbitrary m or supply independent validation.
+## correctness
+
+PASS
+
+The displayed simplicial faces are exactly graph edge sets covered by a pair. Independently compiled and executed the actual 2,103-character frozen verify_acyclic.cpp matching algorithm for m=8,9,10: respectively 202140, 1099623, 5673835 faces; 1372896, 8460504, 48937095 covering incidences; all acyclic. Critical cell vectors were (1,35,70), (1,70,126), (1,126,210) in dimensions 0,3,4. Independently ran the exact frozen signed-integral Morse reduction algorithm on all three orders: 70,126,210 critical-four-cell columns, all zero over Z. Since the three-skeleton is a wedge of S3, Hurewicz π3≅H3 makes every zero-degree S3 attaching map of the 4-cells nullhomotopic. This proves the three integral homotopy types, NOT the all-m conjecture. The C++ and Python algorithms were inspected and rerun, not inferred from log files.
+
+## originality
+
+PASS
+
+Best-of-knowledge original surviving claim: The submitted three-order proof does not follow merely from earlier computations or homology ranks; stronger unpublished/proved general homotopy theorem not located. Source-text limitations noted. Prior work and access risks as in structured comparisons.
+
+## value
+
+PASS
+
+Three consecutive, naturally specified first orders beyond a published finite computation have a complete integral homotopy classification, significantly stronger than general rank-only homology. Although finite, the exact attaching-map result is a usable boundary case for the named general Čech conjecture; no all-order extension is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every simplex is enumerated from the two-star generating facets. Every covering relation in the directed Hasse graph is considered; the entire topological sort succeeds at each of the three orders. The signed integral Morse boundary matrices from critical dimension four to critical dimension three are identically zero. The remaining critical cells are in dimensions zero, three and four only. Thus the reduced Morse CW model has the advertised integral sphere-wedge type, not only its rational homology.
+## correctness
 
-**Originality — PASS, with residual bibliographic uncertainty.** Biswas (arXiv:2609.32786v1), Sections 1 and 5, tabulates the weight-two cases only through order seven, and proposes the general sphere formula as a conjectural consequence. Jonsson's prior bounded-covering-number homology theorem and a more recent rational top-homology symmetry calculation do not logically imply the new integral homotopy types at orders eight, nine and ten. Targeted indexed mathematical-record and primary-source searches found no dominating statement. Full text of some adjacent sources remained inaccessible, so complete novelty is not guaranteed.
+PASS
 
-**Mathematical value — PASS.** The three consecutive cases close a motivated finite interval immediately beyond the explicitly tabulated range of a published topological conjecture. Their complete integral Morse attachments resolve information not entailed by rational Betti numbers, with a complete finite check at the largest case of over five million nonempty simplices. There is no all-parameter or equivariant claim.
+The displayed simplicial faces are exactly graph edge sets covered by a pair. Independently compiled and executed the actual 2,103-character frozen verify_acyclic.cpp matching algorithm for m=8,9,10: respectively 202140, 1099623, 5673835 faces; 1372896, 8460504, 48937095 covering incidences; all acyclic. Critical cell vectors were (1,35,70), (1,70,126), (1,126,210) in dimensions 0,3,4. Independently ran the exact frozen signed-integral Morse reduction algorithm on all three orders: 70,126,210 critical-four-cell columns, all zero over Z. Since the three-skeleton is a wedge of S3, Hurewicz π3≅H3 makes every zero-degree S3 attaching map of the 4-cells nullhomotopic. This proves the three integral homotopy types, NOT the all-m conjecture. The C++ and Python algorithms were inspected and rerun, not inferred from log files.
 
-The executable certificates and their exact outputs accompany the result. Independent scientific validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original surviving claim: The submitted three-order proof does not follow merely from earlier computations or homology ranks; stronger unpublished/proved general homotopy theorem not located. Source-text limitations noted. Prior work and access risks as in structured comparisons.
+
+## value
+
+PASS
+
+Three consecutive, naturally specified first orders beyond a published finite computation have a complete integral homotopy classification, significantly stronger than general rank-only homology. Although finite, the exact attaching-map result is a usable boundary case for the named general Čech conjecture; no all-order extension is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
