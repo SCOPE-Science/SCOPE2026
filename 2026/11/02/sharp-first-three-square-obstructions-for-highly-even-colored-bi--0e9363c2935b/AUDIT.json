@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Polynomial coefficient recurrence follows directly from formal logarithmic differentiation. Exact rational coefficients through n=14 establish margins at least 3 at k=6; each higher power of 2 increases the margin, proving uniform normalized odd units for all odd u. The Legendre forbidden-shape criterion and an explicit fourteen-index residue check give the eight cases and sharp bound. The five low-power exceptions and the sharp threshold witness at 96 are exhaustively verified from the independent integer recurrence. The package includes the complete executable rational/integer certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sobolewski--Ulas 2023 Sections 3-5 solve m=2^k-1, Section 7 Problem 7.2 explicitly raises arbitrary colors, and Proposition 7.3 only proves fixed-modulus automaticity",
+        "Gawron--Miska--Ulas 2017 Section 4 provides coefficient congruences, but no three-square least-index classification"
+      ],
+      "reasoning": "A general theorem for all color counts could imply the result, but the closest inspected primary source expressly limits its classification to Mersenne color counts, disjoint from the highly-even regime. Its automaticity claim does not locate the first forbidden coefficient. The 2017 treatment predates the later three-square problem and does not settle it.",
+      "searches": [
+        "Web: Sobolewski Ulas 2023 binary partition function sum of three squares b_m(n) m power of two least non representable",
+        "Web: colored binary partition first term not sum of three squares 2^k 2024 2025",
+        "Sobolewski Ulas 2022 Values of binary partition function represented by a sum of three squares, powers of two m=2^k first forbidden coefficient"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.16622, full open-access paper at doi:10.1007/s00025-023-01966-8",
+      "arXiv:1703.01955, rendered article",
+      "OEIS A363769 and A363770",
+      "Indexed mathematical-record search of m-colored binary partitions, powers-of-two colors, first three-square obstruction",
+      "Targeted published bibliographic search for previously known colored binary-partition first obstructions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 characterization covers color counts 2^k-1, none divisible by 64; Proposition 7.3 gives automaticity only for fixed m and modulus, not a uniform minimum across m",
+        "The 2017 paper establishes several congruences, including Mersenne-color valuation structure, but inspected section 4 does not infer the three-square least obstruction",
+        "The uncolored index tables do not imply any first-index formula for highly-even color counts"
+      ],
+      "reasoning": "Statement-level implication fails: a congruence for a fixed m, or a characterization at 2^k-1, does not determine first nonrepresentability simultaneously for all m=2^ku and unbounded u. The new rational-polynomial margin lemma and residue classification are additional arguments. Bibliographic priority remains limited by indexing.",
+      "searches": [
+        "arXiv:2211.16622 Sections 2, 5, 7; arXiv:1703.01955 Sections 1, 2, 4",
+        "m-colored binary partition b_m(n), smallest index not expressible as sum of three squares; m divisible by 64 valuation parity classification",
+        "OEIS A363769 and A363770 uncolored exceptional-index tables"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Legendre three-square equivalence to 4^a(8b+7); arXiv:2211.16622 Sections 1-2 and Section 7, Problem 7.2",
+        "2017 arXiv:1703.01955 defines b_m via negative powers of the Thue-Morse product; equivalent generating function analyzed"
+      ],
+      "reasoning": "The theorem translates the three-square question to valuations and normalized odd residue classes of b_m(n). The two standard notations for the coefficients are equivalent, and neither identified primary source states the uniform eight-class first-index formula.",
+      "searches": [
+        "m-colored binary partition b_m(n), smallest index not expressible as sum of three squares; m divisible by 64 valuation parity classification",
+        "Web: \"b_2(34)\" \"three squares\" partition",
+        "Web: \"colored binary partitions\" \"least\" \"three squares\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A363769 and A363770 enumerate forbidden indices for uncolored b_1, not for b_{2^k} or every 64-divisible number of colors",
+        "No exact listed OEIS table includes the general color parameter or the sharp first-index classification for that parameter"
+      ],
+      "reasoning": "The uncolored OEIS table and a sparse two-color progression do not reproduce the eight residue-class table or the positive-exponent power-of-two least-index sequence. No exact dominating table was identified in inspected sources; non-discovery is not a priority certificate.",
+      "searches": [
+        "Web: \"b_4(10)\" \"three squares\" binary",
+        "Web: \"binary partitions\" \"first\" \"not a sum of three squares\" colors",
+        "OEIS A363769 and A363770: uncolored binary-partition three-square exceptional indices",
+        "power of two colors first three-square obstruction b_m(n) 2-adic"
+      ]
+    },
+    "rationale": "The closest 2023 primary full text characterizes all forbidden indices only for Mersenne color counts and poses the general problem; the 2017 foundation studies coefficients and congruences without the first-three-square-index table. Indexed mathematical-record searches  find no implication covering all highly even m. Some residual indexing risk remains.",
+    "residual_risks": [
+      "Unindexed equivalent classification, including tables not searchable by textual queries, cannot be ruled out.",
+      "A broad machine-derived modular result might imply the first-index table after nontrivial extraction, although none was found in inspected primary text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Sections 3-5 characterize 2^k-1 colors; Section 7 explicitly asks for general m, and does not give least-index values for highly even m."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-023-01966-8",
+        "material_read": "Full open-access rendered article, in particular Sections 1-5 and 7, including Problem 7.2, Proposition 7.3 and adjacent discussion",
+        "method": "Read HTML original mathematical statements and compare quantified color counts and target classification",
+        "title": "Values of Binary Partition Function Represented by a Sum of Three Squares",
+        "trigger": "Exact same coefficients and three-square representability"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "The coefficient family is identical under t=-m; the article treats arithmetic congruences and valuations, but does not state the three-square first-index table."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1703.01955",
+        "material_read": "Rendered full article introduction, overview of Sections 2 and 4, theorem descriptions including 4.10/4.13, and the relevant Section 4 passage",
+        "method": "Read available arXiv HTML full article and compare the objects and claimed implications",
+        "title": "Arithmetic properties of coefficients of power series expansion of the Thue-Morse product",
+        "trigger": "Foundational prior general 2-adic congruence theory for exactly b_m(n)"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "OEIS entries enumerate indices for one-color binary partitions, not color counts divisible by 64."
+        ],
+        "identifier_or_url": "https://oeis.org/A363770",
+        "material_read": "Sequence definitions, sample terms, author attribution, references, cross-references",
+        "method": "Read OEIS displayed entry and compare its color parameter",
+        "title": "OEIS A363769 and A363770",
+        "trigger": "Potential published exact table for first three-square forbidden indices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0e9363c2-935b-4a27-8330-bd1ab7f32990",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first non-three-square index is a natural sharp cutoff for the general colored binary partition representation problem. This theorem gives a complete infinitely-parameterized eight-class classification for every color count divisible by 64, shows the exact global bound 14 is attained, demonstrates the threshold six is necessary, and covers all positive-exponent powers of two including low-valuation exceptions. The coefficient-polynomial linearization supplies an explanatory mechanism rather than unrelated finite tabulation.",
+    "status": "PASS"
+  }
+}
