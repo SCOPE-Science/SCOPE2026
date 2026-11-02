@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** Exhaustive reconstruction of both complexes and all 16 dihedral permutations verifies fourteen full, disjoint orbits of genuinely free simplicial pairs. The 176 pair removals delete all 352 faces outside the open-neighborhood complex, exactly; the final simplicial face sets coincide. Every orbit is invariant at its stage and every signed fixed-face trace agrees. This is a complete finite proof certificate for the stated single graph.
+## correctness
 
-**Originality: PASS, with residual bibliographic risk.** Braun (2009) covers known nonequivariant independence-complex sphere topology of closely related graphs. Braun and Zeckner (2011) cover collapses *inside* the neighborhood complex and invariant subdivided polytopal spheres. Neither proves the natural inclusion of the neighborhood complex into the independence complex is an equivariant simple-homotopy equivalence. The closest published analogous Chvátal result uses a different graph and eight pairs, not this sixteen-vertex graph and 176 pairs. Same-object exact-index and alias searches disclosed no stronger inclusion theorem; equivalent unindexed calculations are possible.
+PASS
 
-**Mathematical value: PASS.** The natural inclusion is a meaningful mathematical object connecting two classic, differently motivated graph-topology constructions. An equivariant relative collapse and integral homology isomorphism cannot be inferred merely from both constructions having sphere homotopy type. The fourteen symmetry-orbit decomposition supplies a concrete geometric equivalence, not just a numerical invariant. The statement is limited to this graph and does not generalize automatically.
+Constructed the 16 lexicographically ordered stable triples of Z/8 directly, all 36 disjointness edges of SG_{3,2}, and independently enumerated every one of 2^16 masks. Obtained f(Ind)=(16,84,184,186,88,16), f(N)=(16,68,88,42,8), with N⊂Ind and 352 non-neighborhood faces. Independently expanded all 14 quoted free-face/coface mask representatives into their D8 orbits, of sizes (8,8,16,16,8,16,8,16,16,16,8,16,8,16). In each CURRENT complex every lower simplex is a codimension-1 face of its uniquely remaining upper coface, every orbit has pairwise disjoint face pairs and leaves N untouched, and each remaining face set is invariant under all 16 symmetries. Total 176 pair removals delete all 352 faces, terminating mask-for-mask at N. Independently computed signed simplex Lefschetz sums for all 16 D8 elements on both complexes; both agree and yield trace-1=(-1)^(a+b) on H2 when combined with the previously known sphere homotopy type. These are exhaustively finite checks for ONE 16-vertex graph, not extrapolation to arbitrary Schrijver parameters. Independent checker reconstructed from definitions and published representative masks, not only read saved verification output.
 
-**Closest literature:** Braun, *Independence Complexes of Stable Kneser Graphs* (arXiv:0912.0720v1); Braun–Zeckner, *Deformation Retracts of Neighborhood Complexes of Stable Kneser Graphs* (arXiv:1102.1984v1); analogous published Chvátal relative-collapse result. Known homotopy sphere statements are explicitly not claimed as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known Braun and Braun–Zeckner Schrijver homotopy sphere results and N-to-sphere collapse do not prove that the CANONICAL inclusion N(SG_{3,2})→Ind(SG_{3,2}) collapses dihedrally, or provide 176 free pairs. A published Chvátal-graph relative equivariant collapse concerns a different graph and does not imply this finite inclusion. Originality attaches specifically to the inclusion and orbit certificate, not to the previously known S² homotopy types.
+
+## value
+
+PASS
+
+The exact inclusion of two canonical graph complexes is a natural topological question not settled by knowing their individual homotopy types. An exhaustive equivariant relative simplicial collapse is a strong and independently useful finite structural witness: it establishes a specific simple-homotopy equivalence and orientation character for the smallest nontrivial Schrijver example. The result is narrowly graph-specific but mathematically motivated; no broader SG_{n,2} theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
