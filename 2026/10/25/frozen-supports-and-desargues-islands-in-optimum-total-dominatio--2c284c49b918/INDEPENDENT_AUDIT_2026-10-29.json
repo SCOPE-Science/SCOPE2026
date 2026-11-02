@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T17:51:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=m>=3 a chosen set of fewer than m vertices leaves a row and a column empty; at size m there is a full orientation with one chosen vertex per column (or its transposition on square boards). An occupied row must have >=2 chosen squares because selected vertices must have a selected neighbor. One-square exchanges preserve occupied columns and the entire occupied-row support: deleting a square from a two-occupied row is forbidden, while no target row can be previously empty. Within support r, bounded-fiber functions provide the exact graph H_{m,r}, with connected buffer transfers for m>=2r+1, no moves for m=2r, and a singleton for r=1. The correct 2-/3-subset inclusion graph at m=5 is the Desargues graph. Count by labeled surjections L_{m,r}=m![x^m](e^x-1-x)^r and source/destination directed moves E_{m,r}=binom(r,2)*m*L_{m-1,r}. Independent fresh enumerator compared actual open-neighborhood total domination and support function graph on six rectangular boards; 5x5 yielded 410 vertices, 600 edges, 10 isolates and 20 size-20 Desargues components. The finite checks corroborate the all-order combinatorial proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kazemi–Pahlavsay–Stones, arXiv:1509.08208, Section 3 defines kTDS matrices and determines domination parameters, not the move graph.",
+          "Mynhardt–Nasserasr, arXiv:2003.05956, surveys token reconfiguration variants but no identified full decomposition for these rook optima."
+        ],
+        "reasoning": "Broader domination bounds and generalized reconfiguration models do not automatically imply exact connected components of minimum-cardinality one-replacement configurations; all-optimum state description is acknowledged.",
+        "searches": [
+          "arxiv:1509.08208 rook graph k-tuple total domination",
+          "arxiv:2003.05956 domination reconfiguration survey",
+          "doi:10.37236/2535 Cartesian product total domination"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1509.08208",
+        "arxiv:2003.05956",
+        "doi:10.37236/2535 (bibliographic and scope check)",
+        "OEIS:A384117",
+        "Resultary semantic query recorded above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier support characterization is compatible with our step 1, but contains no move connectivity certificate.",
+          "A bounded-fiber graph theorem or explicit single-exchange reachability theorem would subsume the new statement if found."
+        ],
+        "reasoning": "Old optimum-support counts are premises to, not proofs of, the exact one-step exchange structure. The buffer-row reachability argument and directed-move count are additional mathematical steps.",
+        "searches": [
+          "arxiv:1509.08208 Theorem 6 and rook graph Section 3",
+          "OEIS A384117 description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A384117 counts optimum rook total dominating sets, not adjacency or reachability.",
+          "Source theorem equivalently describes the exchange graph of bounded-fiber functions with Hamming distance one."
+        ],
+        "reasoning": "Potential aliases include token-jumping reconfiguration and bipartite incidence support maps. Fixed occupied support and Desargues component results are stronger than mere counting of admissible states; no identified prior statement explicitly or via a demonstrated simple implication yields them.",
+        "searches": [
+          "Resultary semantic finding search: minimum total domination sets rook graph Cartesian product complete graphs token jumping reconfiguration exchange graph Desargues component",
+          "\"minimum total dominating sets\" rook graph exchange reconfiguration Desargues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A384117 tabulates totals and describes row/column support rule.",
+          "Fresh tests yield 5x5 count 410, 10 isolates+20 twenty-vertex components."
+        ],
+        "reasoning": "Counts of vertices alone do not give the edge set, connected components, degree distribution or Desargues isomorphism; tabulated total is not claimed as new.",
+        "searches": [
+          "OEIS A384117 rook graph minimum total dominating sets",
+          "Resultary semantic finding search: minimum total domination sets rook graph Cartesian product complete graphs token jumping reconfiguration exchange graph Desargues component"
+        ]
+      },
+      "rationale": "The rook-graph domination literature establishes optimum size or counts but not the precise single-token replacement graph on all optimum sets. An earlier inclusion-minimal TDS classification has a larger feasible class but does not by itself yield the frozen support connectivity, Desargues components and edge formulas. No equivalent dominating exchange theorem was found in targeted Resultary and primary comparisons; priority remains best-of-knowledge.",
+      "residual_risks": [
+        "An unindexed rook-graph minimum-domination token-jump reconfiguration paper may already contain this decomposition.",
+        "The general inclusion-minimal classification may include a readily extractable exchange variant not demonstrated by inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_ESTABLISH_EXCHANGE_GRAPH",
+          "evidence": [
+            "Section 3 analyzes domination cardinalities via 0/1 matrices; no one-swap component analysis in material inspected."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.08208",
+          "material_read": "Abstract, introduction and Section 3 defining kTDS matrices and extremal rook-graph numerical bounds",
+          "method": "full-text arXiv PDF text and first-page screenshot",
+          "title": "Cartesian product graphs and k-tuple total domination",
+          "trigger": "same rook graph and total-domination matrices"
+        },
+        {
+          "assessment": "DIFFERENT_SCOPE",
+          "evidence": [
+            "Surveys reconfiguration frameworks, not the explicit labeled minimum rook-graph decomposition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.05956",
+          "material_read": "abstract, introduction and relevant models",
+          "method": "arXiv PDF text and screenshot",
+          "title": "Reconfiguration of Colourings and Dominating Sets in Graphs: a Survey",
+          "trigger": "reconfiguration moves and possible general implication"
+        },
+        {
+          "assessment": "COUNTS_ONLY",
+          "evidence": [
+            "The numerical minimum-set census is prior known and conceded."
+          ],
+          "identifier_or_url": "https://oeis.org/A384117",
+          "material_read": "sequence description and available tabulation",
+          "method": "online OEIS record",
+          "title": "OEIS A384117: Number of minimum total dominating sets in rook graphs",
+          "trigger": "exact graph-family counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimum-total-domination reconfiguration is a natural reachability problem. The theorem gives every connected component across an infinite rook-graph family, a sharp spare-vertex threshold, exact edges and a canonical Desargues transition at five columns; this is not a restatement of the known total optimum-state count. Finite check complements an explicit all-order buffer construction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1509.08208",
+    "arxiv:2003.05956",
+    "doi:10.37236/2535 (bibliographic and scope check)",
+    "OEIS:A384117",
+    "Resultary semantic query recorded above",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/c9e3884a81ba7a1c41202104d433b8bf09aa8036/2026/10/25/frozen-supports-and-desargues-islands-in-optimum-total-dominatio--2c284c49b918",
+    "source RESULT.md and actual verification scripts read by Git blob identity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Rook graphs n>=m>=3 only; unrestricted single-square replacement on min total dominating sets, not token slides or all minimal sets. Scientific novelty is best-of-knowledge."
+  ],
+  "residual_risks": [
+    "An unindexed rook-graph minimum-domination token-jump reconfiguration paper may already contain this decomposition.",
+    "The general inclusion-minimal classification may include a readily extractable exchange variant not demonstrated by inspected sources."
+  ],
+  "schema_version": 1
+}
