@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The attached `verify.py` was executed against the claimed model. It exhaustively compares formula against direct orientation enumeration on every nonisomorphic tree of orders 2 through 8 at exact probabilities 1/3, 2/5, 1/2 and checks strict path maximality for every nonpath shape of orders 4 through 8. Output ended with `VERIFY_OK`. The proof for arbitrary real probabilities and tree orders is analytical; no exhaustive finite test constitutes an infinite proof. Independent audit has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Writing source and sink as vertex indicators, only identical or adjacent vertices contribute mixed covariance; yields sum_edges(q p^(d_u+d_v-1)+p q^(d_u+d_v-1))-sum_vertices(pq)^d. An explicit arm transplantation decreases branching excess and strictly improves the vertex term; remaining edge correction B_d is nonnegative by its signed difference. Iterate to unique path. The formula for P_n and n=2,3 boundary cases were checked directly. Independent exact orientation enumeration for every unlabeled tree n<=7 and p=1/3,1/2,2/5 matches both covariance and strict extremum. No lower extremizer is claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge original on the stated restricted theorem after comparison of exact implications; no exhaustive priority claim and specified inspection limits remain.
+
+## value
+
+PASS
+
+A parameter-uniform strict extremal theorem identifies a natural transition: four vertices have positive maximum away from p=1/2, whereas the unbiased four-vertex maximum is zero. An arbitrary-tree covariance identity plus an explicit monotone branch-reduction argument is stronger than isolated small-graph observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
