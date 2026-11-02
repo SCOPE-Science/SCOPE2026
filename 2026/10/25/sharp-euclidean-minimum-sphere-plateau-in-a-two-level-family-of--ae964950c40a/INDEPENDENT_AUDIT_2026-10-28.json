@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:13:49.706574Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual RESULT.md specifies p,q>=2 and t in [0,1] for K={(x,y): x_i>=0,(1-t)x_i<=y_j,y_j+t x_i<=1}. Independently reconstruct the hull A=(0,epsilon) for epsilon in {0,1}^q and B=(delta,(1-t)1_q) for nonzero delta in {0,1}^p by splitting at M=max_i x_i. For c=(a1_p,1/2 1_q), a=(p-qt(1-t))_+/(2p), every A vertex has squared distance pa^2+q/4. Each B vertex of lower Hamming weight k has exact radius gap qt(1-t)-k(1-2a)>=0, with the claimed contact equality conditions including t=0,1 and qt(1-t)=p. Contact barycenter: if a>0 place weight a at the all-ones B vertex and 1-a on A with Bernoulli parameter (1/2-a(1-t))/(1-a); if a=0 average A. The variance identity shows any other center has strictly larger required squared radius, so this is the unique global smallest sphere. The plateau inequality qt(1-t)>=p has an open interval precisely q>4p. Independent rational arithmetic checked 50 parameter profiles. Proof is for all integer sizes and real t, not inferred from experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fang--Fourier--Litza--Pegel, Definition 1.2 and face-constancy corollary, concern transfer inequalities and combinatorics.",
+          "Ahmad--Fourier--Joswig arXiv:2309.01626 Theorem 4.1 is monotonicity of f-vectors under marked order-chain transfer.",
+          "Resultary exact John ellipsoid of two-layer chain/order polytopes concerns an inscribed ellipsoid at the endpoint, not enclosing Euclidean balls."
+        ],
+        "reasoning": "Specializing the broader transfer definition yields K but no implied analytic Euclidean radius. F-vector comparisons and maximum-inscribed-ellipsoid results do not dominate an outer sphere with active contact transitions.",
+        "searches": [
+          "marked poset complete bipartite height two chain order polytope minimum enclosing Euclidean ball Chebyshev radius transfer deformation",
+          "arxiv:1712.01037 face lattice constancy and two-level posets",
+          "arxiv:2309.01626 maximal ranked poset face inequalities"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1712.01037 primary Definition 1.2 and face-lattice constancy",
+        "arXiv:2309.01626 primary Theorem 4.1",
+        "Resultary published exact John ellipsoid of unbalanced two-layer order/chain polytopes (summary)",
+        "Resultary published Euclidean radii of enriched chain polytopes (summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorem: combinatorial type is fixed on relative interior of a parameter-hypercube face.",
+          "Claimed theorem: radius q/4+(p-qt(1-t))_+^2/(4p) and contacts switch when qt(1-t)>p."
+        ],
+        "reasoning": "Constant face lattice does not force constant Euclidean covering radius; the claimed nontrivial plateau provides a counterexample to such an inference. General smallest-ball optimality conditions alone are not a uniform parametric solution.",
+        "searches": [
+          "marked poset complete bipartite height two chain order polytope minimum enclosing Euclidean ball Chebyshev radius transfer deformation",
+          "arxiv:1712.01037",
+          "arxiv:2309.01626"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fang et al. arXiv:1712.01037 Definition 1.2 defines the transfer family; RESULTS (3)-(5) give an additional squared-radius and contact law.",
+          "Resultary published enriched chain in/circumradius concerns different polytope and centered contacts."
+        ],
+        "reasoning": "Considered Chebyshev outer ball, circumradius, covering sphere, and convex hull of cube strata. Standard minimum-sphere variance condition is general but does not produce the particular center or contact threshold. No equivalent closed formula identified from inspected statements.",
+        "searches": [
+          "marked poset complete bipartite height two chain order polytope minimum enclosing Euclidean ball Chebyshev radius transfer deformation",
+          "minimum enclosing ball convex hull of two coordinate-cube strata complete bipartite poset transfer parameter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "General enclosing-ball algorithms solve any fixed finite point set but do not tabulate the p,q,t phase boundary.",
+          "Source RESULT.md verifies finitely many parameters; its finite checker is not a prior literature database."
+        ],
+        "reasoning": "The complete symbolic 2-parameter+continuous phase formula cannot be identified with a known finite lookup. Search may miss unindexed specialized convex geometry tables.",
+        "searches": [
+          "marked poset complete bipartite height two chain order polytope minimum enclosing Euclidean ball Chebyshev radius transfer deformation",
+          "table minimum covering spheres order polytopes two layers p q t"
+        ]
+      },
+      "rationale": "Qualified PASS for the metric covering-ball and contact-screening theorem, not for the marked-poset construction, vertex symmetry, face-lattice constancy or generic smallest-ball characterization. The exact all-parameter Euclidean outer-sphere law with plateau is not implied by the inspected face-vector, inball/John ellipsoid, or enriched-chain metric statements. Possible old convex-hull-of-cubes covering-ball theorem remains a priority risk.",
+      "residual_risks": [
+        "Potential equivalent minimum enclosing sphere of two cube strata expressed outside marked-poset terminology.",
+        "Only primary material specified in source_inspections was checked; published semantic results were not all read in full.",
+        "Finite independent rational profiles corroborate, while the universal proof relies on vertex hull plus variance certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers transfer construction and face constancy, not this outer-ball metric formula in the material read",
+          "evidence": [
+            "Definition 1.2 and same-face parameter type; no metric radius asserted in the inspected theorem statements"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1712.01037",
+          "material_read": "Definition 1.2, stated face-lattice constancy theorem/corollary and surrounding transfer inequalities; document page images inspected",
+          "method": "primary arXiv PDF text and page screenshot",
+          "title": "A Continuous Family of Marked Poset Polytopes",
+          "trigger": "Exact source family and combinatorial invariance"
+        },
+        {
+          "assessment": "Combinatorial f-vector monotonicity, not a unique enclosing sphere",
+          "evidence": [
+            "Theorem 4.1 explicitly studies chains/order polytope face-count injection"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.01626",
+          "material_read": "Introduction and Theorem 4.1 statement (page 2 screenshot), preliminaries concerning faces",
+          "method": "primary arXiv PDF text and screenshot",
+          "title": "Order and chain polytopes of maximal ranked posets",
+          "trigger": "Complete ranked two-layer family and potentially dominating theorem"
+        },
+        {
+          "assessment": "Different inscribed-ellipsoid geometry; full text not read, comparison limited to summary",
+          "evidence": [
+            "Summary describes John ellipsoid and facet tangencies"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-unbalanced-two-layer-chain-and-order-pol--c200d8f4f023",
+          "material_read": "Published finding title and semantic summary only",
+          "method": "Resultary semantic record",
+          "title": "Published exact John ellipsoid of unbalanced two-layer chain and order polytopes",
+          "trigger": "Same poset shape and possible metric domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest Euclidean covering ball is a natural metric invariant of the standard marked-poset interpolation, and its exact plateau separates combinatorially identical interior polytopes into distinct metric/contact regimes. The theorem classifies all p,q,t and exponentially many contact vertices using a constructive certificate, not a tiny gain or naming substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1712.01037 primary Definition 1.2 and face-lattice constancy",
+    "arXiv:2309.01626 primary Theorem 4.1",
+    "Resultary published exact John ellipsoid of unbalanced two-layer order/chain polytopes (summary)",
+    "Resultary published Euclidean radii of enriched chain polytopes (summary)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "p,q>=2, all lower transfer weights zero and one common upper parameter t in [0,1], ordinary coordinate Euclidean metric only.",
+    "No inball/John ellipsoid formula or claim for all marked posets.",
+    "Resultary searches do not certify historical priority.",
+    "Potential equivalent minimum enclosing sphere of two cube strata expressed outside marked-poset terminology.",
+    "Only primary material specified in source_inspections was checked; published semantic results were not all read in full.",
+    "Finite independent rational profiles corroborate, while the universal proof relies on vertex hull plus variance certificate."
+  ],
+  "schema_version": 1
+}
