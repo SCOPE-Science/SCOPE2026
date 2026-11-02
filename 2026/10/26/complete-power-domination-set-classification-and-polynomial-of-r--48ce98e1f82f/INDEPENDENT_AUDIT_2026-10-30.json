@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T06:58:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the finite rook graph K_p square K_q (2<=p<=q), the initially unobserved region is exactly I x J where I,J are unused rows and columns. If both |I|,|J|>=2, each observed neighbor has zero or at least two unobserved neighbors, preventing any force. If either |I|<=1 or |J|<=1, any remaining unobserved vertex has a forcing neighbor, so all are reached. This proves r(S)>=p-1 OR c(S)>=q-1, including p=2 and empty set. Counting failing sets by their exact occupied row/column supports gives the stated bipartite edge-cover inclusion-exclusion polynomial. Minimal size p-1 and coefficients p*q^(p-1) when p<q, or 2*p*p^(p-1)-p^2*(p-1)! when p=q, follow by overlapping row/column transversals. Maximal failing sets are full (p-2)x(q-2) rectangles, giving the sharp degree cutoff. Independent forcing simulation versus support criterion found n subsets 256 (2x4), 512 (3x3), 4096 (3x4), 65536 (4x4), with failing counts 1,10,31,317, matching all coefficients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known general power domination polynomial framework and min-cardinality theorem for Cartesian complete graphs."
+        ],
+        "reasoning": "The min theorem is weaker than all-set classification; generic polynomial framework does not imply a graph-family closed form. An unindexed broader enumerator remains possible.",
+        "searches": [
+          "power domination polynomial Cartesian product complete graphs rook graph exact power dominating sets enumeration",
+          "arXiv:1805.10984",
+          "DOI:10.1080/09728600.2014.12088762"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1805.10984",
+        "DOI:10.1080/09728600.2014.12088762",
+        "arXiv:2401.00716",
+        "Resultary:2026/10/4/SCOPE-power-domination-polynomial-of-book-graphs--646ff77569c3",
+        "Resultary:2026/10/4/SCOPE-power-domination-polynomials-of-spider-trees-and-extremal-arm-ba--453d578dc82f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "p-1 minimum alone does not determine number of minimum sets or other polynomial coefficients. Ordinary domination differs from power propagation."
+        ],
+        "reasoning": "Neither known result mathematically forces the stated all-subsets PDS characterization. The bipartite edge-cover counting subroutine is a known tool and is acknowledged.",
+        "searches": [
+          "power domination polynomial Cartesian product complete graphs rook graph exact power dominating sets enumeration",
+          "DOI:10.1080/09728600.2014.12088762",
+          "arXiv:2401.00716"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook graph K_p square K_q is line graph of K_p,q; PDS condition in terms of occupied rows/columns / selected incidence edges."
+        ],
+        "reasoning": "Line-graph incidence formulation was considered; the ordinary domination polynomial on the same rook graph uses a different feasibility definition.",
+        "searches": [
+          "power domination polynomial Cartesian product complete graphs rook graph exact power dominating sets enumeration",
+          "arXiv:1805.10984",
+          "arXiv:2401.00716"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary records give full polynomials for book and spider graphs, not Cartesian products of cliques."
+        ],
+        "reasoning": "Related exact tables are not equivalent for this graph family. A database of rook graph PDS is not excluded by unsuccessful search.",
+        "searches": [
+          "power domination polynomial Cartesian product complete graphs rook graph exact power dominating sets enumeration",
+          "Resultary:2026/10/4/SCOPE-power-domination-polynomial-of-book-graphs--646ff77569c3",
+          "Resultary:2026/10/4/SCOPE-power-domination-polynomials-of-spider-trees-and-extremal-arm-ba--453d578dc82f"
+        ]
+      },
+      "rationale": "The published numerical minimum p-1 (Soh and Koh) is prior work. General power domination polynomial (Brimkov et al) and ordinary domination rook-graph edge-cover inclusion-exclusion (Mertens) are also prior. Their inspected content did not supply the all-subset forcing criterion, full rook-graph power-domination polynomial, minimal-set multiplicities or maximal failure rectangles. This is a concrete new result subject to possible specialized enumeration elsewhere.",
+      "residual_risks": [
+        "Undiscovered exact rook-graph power-domination enumeration or differently named line-graph edge-cover result is possible.",
+        "Soh and Koh 2014 full article not inspected; priority for full polynomial is not absolutely certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established polynomial concept and enumerations, but no rook Cartesian-product closed formula found in inspected article sections.",
+          "evidence": "Brimkov et al study power-domination set enumerators; searches for rook and Cartesian do not identify a matching formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.10984",
+          "material_read": "accessible arXiv article text, definition/structural and example graph families",
+          "method": "open-access full-text search and section reading",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "same graph invariant (power-domination polynomial)"
+        },
+        {
+          "assessment": "COVERING for gamma_P=p-1; not evidence that full polynomial is present/absent.",
+          "evidence": "Soh and Koh 2014 derive minimum p-1 for products of complete graphs.",
+          "identifier_or_url": "https://doi.org/10.1080/09728600.2014.12088762",
+          "material_read": "Theorem 3.3 description and bibliographic/result material; not full article",
+          "method": "publisher search and research package comparison",
+          "title": "A note on Power Domination Problem in Diameter Two Graphs",
+          "trigger": "same rook graph min-size result"
+        },
+        {
+          "assessment": "INAPPLICABLE as direct coverage: ordinary domination polynomial is not propagation-based power domination.",
+          "evidence": "Mertens uses edge-cover inclusion-exclusion for ordinary domination.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.00716",
+          "material_read": "arXiv abstract/method description",
+          "method": "open access abstract and RESULT comparison",
+          "title": "Domination Polynomial of the Rook Graph",
+          "trigger": "same rook graphs and inclusion-exclusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural graph product K_p square K_q, the result classifies every feasible power dominating set and exact polynomial at all sizes, rather than merely restating minimum cardinality. Full obstruction rectangles and the sharp cutoff give useful structural information for propagation and sensor placement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/complete-power-domination-set-classification-and-polynomial-of-r--48ce98e1f82f/RESULT.md (actual blob 9ed1fceda842a18c69ad59c00393c287e2ecf564)",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/complete-power-domination-set-classification-and-polynomial-of-r--48ce98e1f82f/verify.py (actual blob 9a76c6edfa288c2ee36891b6544921001578e192)",
+    "Git tree 67ad854e97750699779ca2794b873a2d2584c01f (truncated=false; actual frozen entries enumerated)",
+    "Fresh local mathematical checker /mnt/data/scope_independent_checks_worker07.py (private audit evidence)",
+    "arXiv:1805.10984",
+    "DOI:10.1080/09728600.2014.12088762",
+    "arXiv:2401.00716",
+    "Resultary:2026/10/4/SCOPE-power-domination-polynomial-of-book-graphs--646ff77569c3",
+    "Resultary:2026/10/4/SCOPE-power-domination-polynomials-of-spider-trees-and-extremal-arm-ba--453d578dc82f"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only two-factor Cartesian products of complete graphs p,q>=2; not propagation-time polynomial.",
+    "Independent finite checks through 4x4 plus 3x4; infinite family rests on support/forcing proof.",
+    "Scientific sources and self-review prose are evidence only; independent calculation does not constitute external certification.",
+    "Exact tree SHA returned by Git API was checked against assignment; full Git-tree hash was not recomputed offline.",
+    "Publication plan not_ready due confidential operational provenance in extant public JSON files."
+  ],
+  "residual_risks": [
+    "Undiscovered exact rook-graph power-domination enumeration or differently named line-graph edge-cover result is possible.",
+    "Soh and Koh 2014 full article not inspected; priority for full polynomial is not absolutely certified."
+  ],
+  "schema_version": 1
+}

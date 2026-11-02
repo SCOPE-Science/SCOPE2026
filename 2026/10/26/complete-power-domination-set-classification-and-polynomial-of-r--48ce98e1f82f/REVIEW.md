@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The key unobserved-region lemma identifies the exact Cartesian product of empty rows and columns. When each side has size at least two, no observed vertex has a unique neighbor there; if a side has size one, a selected row or column supplies a legal force for every remaining vertex. This is an exhaustive case analysis, independent of any known minimum cardinality. Exact occupied-support inclusion-exclusion then counts each failing set once, with the empty-support boundary handled explicitly. The minimum and multiplicity cases, including square-board overlap, follow by direct cardinality arguments. The bundled `verify.py` independently tests the original iterative rule against all proposed conclusions on 1,152,592 subsets.
+## correctness
 
-**Originality: PASS (best-knowledge comparison; priority not independently certified).** The precise all-subsets row-or-column criterion, polynomial and maximal-obstruction characterization were compared with Soh--Koh's minimum-only product result, Brimkov et al.'s full relevant foundational discussion and enumerated graph families, Mertens's ordinary-domination rook polynomial, and independently indexed mathematical findings on power domination polynomials and line-graph aliases. The known numerical minimum and established edge-cover enumeration are explicitly excluded from novelty. No inspected source establishes the exact power-domination polynomial or its entire set family. Earlier unindexed or differently described work remains a residual risk.
+PASS
 
-**Value: PASS.** This gives a natural complete classification for the PMU-placement solution space of \(K_p\square K_q\) at every cardinality, rather than only a lower or upper bound. It yields all coefficients and exact minimum-placement multiplicities, characterizes the full obstruction antichain as rectangular boards, and identifies a sharp coefficient-saturation cutoff. Those properties are not implied by knowledge of the minimum power-domination number or the ordinary domination polynomial.
+For the finite rook graph K_p square K_q (2<=p<=q), the initially unobserved region is exactly I x J where I,J are unused rows and columns. If both |I|,|J|>=2, each observed neighbor has zero or at least two unobserved neighbors, preventing any force. If either |I|<=1 or |J|<=1, any remaining unobserved vertex has a forcing neighbor, so all are reached. This proves r(S)>=p-1 OR c(S)>=q-1, including p=2 and empty set. Counting failing sets by their exact occupied row/column supports gives the stated bipartite edge-cover inclusion-exclusion polynomial. Minimal size p-1 and coefficients p*q^(p-1) when p<q, or 2*p*p^(p-1)-p^2*(p-1)! when p=q, follow by overlapping row/column transversals. Maximal failing sets are full (p-2)x(q-2) rectangles, giving the sharp degree cutoff. Independent forcing simulation versus support criterion found n subsets 256 (2x4), 512 (3x3), 4096 (3x4), 65536 (4x4), with failing counts 1,10,31,317, matching all coefficients.
 
-**Scope and literature limitation.** Results are restricted to two-factor rook graphs. The complete 2014 publisher PDF could not be fetched, but the indexed primary theorem and its full local statement and proof were read. The primary 2018 power-domination-polynomial paper and 2024 ordinary-domination rook paper were inspected in their relevant substantive sections. Bibliographic uniqueness is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published numerical minimum p-1 (Soh and Koh) is prior work. General power domination polynomial (Brimkov et al) and ordinary domination rook-graph edge-cover inclusion-exclusion (Mertens) are also prior. Their inspected content did not supply the all-subset forcing criterion, full rook-graph power-domination polynomial, minimal-set multiplicities or maximal failure rectangles. This is a concrete new result subject to possible specialized enumeration elsewhere.
+
+## value
+
+PASS
+
+For a natural graph product K_p square K_q, the result classifies every feasible power dominating set and exact polynomial at all sizes, rather than merely restating minimum cardinality. Full obstruction rectangles and the sharp cutoff give useful structural information for propagation and sensor placement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
