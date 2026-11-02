@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every scattered palindrome of a word with five nonempty binary runs has one, three or five alternating runs. The proof enumerates disjoint families by the resulting word, with the critical identity \(\min(\min(a,c+e),\min(e,a+c))=\min(a,e)\). All exponents, inequalities, and equality conditions are explicit. Exact polynomial evaluation gives the cardinality. AM–GM on \((2E,2T,c)\) and an explicit near-balanced family give the cubic extremum, and equality stability plus exhaustion of the length budget prove uniqueness of the limiting proportions. The embedded checker reconstructs all subsequence strings independently for 1024 tuples; this is finite corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+Every palindromic scattered subsequence string with at most five runs has one, three or five constant runs. Separate two monochromatic families, 1-0-1 with i<=min(b,d), middle zero count <=c, the five-run 0-1-0-1-0 family (outer i<=min(a,e), middle one j<=min(b,d), inner zero k<=c), and 0-1-0. For 0-1-0, i<=E permits up to b+d internal ones; larger i uses the first or second one-run exclusively, bounded by A and B. The identity min(A,B)=E makes these regions disjoint, establishing coefficients and the exact sum over distinct strings rather than embeddings. Only E*T*c is cubic; 2E+2T+c<=n yields ETc<=n^3/108 by AM-GM, with other terms O(n^2). The (m,m,2m,m,m) construction reaches the coefficient; stability of AM-GM and vanishing unused lengths establishes iff rigidity. Up to four runs cannot have five-run palindromes, hence O(n^2). Independently enumerated 243 five-tuples by actual distinct subsequence sets and verified entire length spectra. These are finite consistency tests, not the asymptotic proof.
 
-Mahalingam and Pandoh (arXiv:2108.02729, sections 3–5) establish general scattered-palindrome counting bounds and an alphabet-support extremal theorem; neither yields this exact fixed-five-run spectrum or the coefficient \(1/108\). Holub and Saari (DOI:10.1016/j.dam.2008.03.039) investigate palindrome-set reconstruction, longest subsequences, and extension ratios, not five-run cardinalities. Müllner and Ryzhikov (arXiv:1901.07502) investigate longest palindrome/antipalindrome lengths and circular problems rather than distinct palindrome counts. Searches for run-count aliases, exact polynomial and leading coefficient identified no published equivalent or stronger implication. Unindexed or differently formulated run-restricted enumerations remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Five runs are the first binary run budget supporting a five-run scattered palindrome and hence a cubic-scale three-parameter counting family. The theorem classifies the complete length spectrum and determines the sharp extremal leading constant and its unique limiting geometry, while the preceding four-run class has only quadratic richness. This structural threshold is motivated by the studied scattered-palindromic complexity invariant rather than an arbitrary parameter slice.
+The primary finite-word counting literature provides general scattered-palindrome bounds, reconstruction, and longest-length criteria but does not yield the five-run coefficient-by-coefficient spectrum or the first sharp cubic run-threshold with limiting shape. This is a best-of-knowledge assessment, not priority certification.
 
-## Scientific limitations
+## value
 
-Only five-run binary words and a four-run degree boundary are covered; the exact finite-size maxima and lower-order asymptotic coefficients are not claimed. The verifier checks only finite instances. No external independent validation has been performed. Literature coverage is necessarily nonexhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Five runs is the first natural run-complexity threshold permitting three independent positive exponent choices in a palindromic subsequence, while at most four runs remains quadratic. The exact full length spectrum, cubic constant, and rigidity classify a structural extremal phenomenon; no unrelated downstream theorem is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

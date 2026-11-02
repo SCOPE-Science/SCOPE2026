@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:45:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md steps 1–6, sha 20deebbe3af804c134599cfd837d2959b3ed160b",
+        "Assigned verify.py sha d151db55fe8643e4319e3056b312348b9a3954fa",
+        "Independent checker /mnt/data/scope_worker-06_20261030T082955Z/independent_checks.py (243 cases)"
+      ],
+      "rationale": "Every palindromic scattered subsequence string with at most five runs has one, three or five constant runs. Separate two monochromatic families, 1-0-1 with i<=min(b,d), middle zero count <=c, the five-run 0-1-0-1-0 family (outer i<=min(a,e), middle one j<=min(b,d), inner zero k<=c), and 0-1-0. For 0-1-0, i<=E permits up to b+d internal ones; larger i uses the first or second one-run exclusively, bounded by A and B. The identity min(A,B)=E makes these regions disjoint, establishing coefficients and the exact sum over distinct strings rather than embeddings. Only E*T*c is cubic; 2E+2T+c<=n yields ETc<=n^3/108 by AM-GM, with other terms O(n^2). The (m,m,2m,m,m) construction reaches the coefficient; stability of AM-GM and vanishing unused lengths establishes iff rigidity. Up to four runs cannot have five-run palindromes, hence O(n^2). Independently enumerated 243 five-tuples by actual distinct subsequence sets and verified entire length spectra. These are finite consistency tests, not the asymptotic proof.",
+      "residual_risks": [
+        "Exact finite-n maxima and optimal O(n^2) coefficient are not supplied; asymptotic and rigidity are proved only as stated.",
+        "Finite enumeration cannot certify all run lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mahalingam–Pandoh general exponential bounds do not impose sharp run-count-specific asymptotic n^3/108.",
+          "Müllner–Ryzhikov studies lengths of longest subsequences, not counts of distinct palindrome strings."
+        ],
+        "reasoning": "A universal exponential ceiling or longest-length constraint cannot determine this five-run polynomial or rigidity; no stronger relevant coverage identified in inspected theorems.",
+        "searches": [
+          "Mahalingam Pandoh Counting scattered palindromes in a finite word Sections 3–5",
+          "arXiv:1901.07502 palindromic subsequences finite words longest",
+          "Resultary count palindrome subsequence spectrum bounded runs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.02729 (full PDF, relevant sections)",
+        "Holub–Saari doi:10.1016/j.dam.2008.03.039",
+        "arXiv:1901.07502",
+        "Resultary semantic query on five-run distinct scattered-palindrome spectra"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known global bounds leave the exact count by five run lengths undetermined.",
+          "Known reconstruction from the scattered-palindrome set does not supply an enumeration or its extremal geometry."
+        ],
+        "reasoning": "No inspected theorem determines the polynomial, cubic leading coefficient and unique limiting profile as a corollary; possibility of an unindexed special case remains.",
+        "searches": [
+          "arXiv:2108.02729 sections 3–5 maxima and bounds",
+          "arXiv:1901.07502 length extremals",
+          "Holub Saari reconstruction implication"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mahalingam–Pandoh arXiv:2108.02729 studies distinct palindromic subsequences but global Fibonacci-style bounds and support-conditioned minima/maxima.",
+          "Holub–Saari investigates set reconstruction and longest subpalindromes, not five-run weighted length counts."
+        ],
+        "reasoning": "Aliases including scattered palindromic subword, distinct subsequence palindrome and alternating five-block word were compared by mathematical invariant; none of the inspected statements is an equivalent exact five-parameter polynomial.",
+        "searches": [
+          "Resultary: Distinct scattered palindromic subsequences binary five run word exact count cubic growth",
+          "arXiv:2108.02729 five blocks scattered palindrome spectra",
+          "Holub and Saari On highly palindromic words DOI:10.1016/j.dam.2008.03.039"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits include code-size/contiguous-rich-palindrome tasks, not this particular scattered-palindrome spectrum.",
+          "Prior literature tables in arXiv:2108.02729 concern small parameters under a different global maximization."
+        ],
+        "reasoning": "A code table, contiguous palindrome table or generic bound does not tabulate the complete polynomial for all five-tuples. Search coverage is not exhaustive.",
+        "searches": [
+          "Resultary: Distinct scattered palindromic subsequences binary five run word exact count cubic growth",
+          "published exact binary two-PAL_2 code sizes through length eight",
+          "OEIS palindrome subsequence maximal five runs"
+        ]
+      },
+      "rationale": "The primary finite-word counting literature provides general scattered-palindrome bounds, reconstruction, and longest-length criteria but does not yield the five-run coefficient-by-coefficient spectrum or the first sharp cubic run-threshold with limiting shape. This is a best-of-knowledge assessment, not priority certification.",
+      "residual_risks": [
+        "An unindexed bounded-run derivation may already give the same five-run formula or 1/108 coefficient.",
+        "Neither negative search nor a finite experiment certifies historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the five-run length polynomial and sharp coefficient",
+          "evidence": "Main results on universal minima, Fibonacci-type bounds and alphabet-constrained extrema, not a run-parametrized length polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.02729",
+          "material_read": "19-page full primary PDF, especially definitions, Sections 3–5, theorem statements, examples and bounds",
+          "method": "Opened text and inspected page images (title p1, later theorem p15)",
+          "title": "Counting scattered palindromes in a finite word",
+          "trigger": "Same distinct-scattered-palindrome invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned five-run palindrome class partition and four-run boundary",
+        "arXiv:2108.02729 shows general counting problem is motivated"
+      ],
+      "rationale": "Five runs is the first natural run-complexity threshold permitting three independent positive exponent choices in a palindromic subsequence, while at most four runs remains quadratic. The exact full length spectrum, cubic constant, and rigidity classify a structural extremal phenomenon; no unrelated downstream theorem is needed.",
+      "residual_risks": [
+        "Only the first run-count transition is classified, not arbitrary run counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For positive five-run binary words 0^a1^b0^c1^d0^e, the exact distinct scattered palindrome length polynomial is U_{a+c+e}+U_{b+d}+V_E U_{b+d}+(V_A-V_E)U_b+(V_B-V_E)U_d+V_T U_c(1+V_E); total n+Ab+Bd+(E+1)Tc; sharp five-run maximum n^3/108+O(n^2) and unique limiting run ratios (1,1,2,1,1)/6; at most four runs gives O(n^2).",
+  "limitations": [
+    "Exact finite-n maxima and optimal O(n^2) coefficient are not supplied; asymptotic and rigidity are proved only as stated.",
+    "Finite enumeration cannot certify all run lengths.",
+    "An unindexed bounded-run derivation may already give the same five-run formula or 1/108 coefficient.",
+    "Neither negative search nor a finite experiment certifies historical priority.",
+    "Only the first run-count transition is classified, not arbitrary run counts.",
+    "Scientific acceptance is a best-of-knowledge completed assessment, not a publication, certification, or approval to disclose unsanitized public files."
+  ],
+  "schema_version": 1
+}
