@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Graphical coupling at all vertices: no hub-copy event in a window of duration T, a shared hub fair reset in its first half, and every leaf updating in its second half guarantee identical full configurations at time 0. Independent clocks give probability at most T+(n+1)exp(-theta*T/2), for all n and theta. The decoupled hub has fair resets and produces an independent-leaf Bernoulli mixture driven by a 2-state filtered telegraph. Explicit Beta(a,a) joint densities satisfy both PDMP flux and switching balance with a=theta/[2(1+theta)]; positive reset rates yield its unique invariant law. Conditional binomial characteristic functions converge uniformly as theta grows, producing the arcsine–Gaussian convolution for theta/sqrt(n) finite and its boundary regimes. The majority rule is a continuity event; Gaussian conditional integration and a strictly negative derivative prove the success curve. Standalone exact generator and beta-mixture checks: 680 rational finite-state assertions and 100 additional checks; finite tests do not prove infinite claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carro–Toral–San Miguel arXiv:1602.06935 Sections 2.2–3 derive closed pair-moment equations on arbitrary networks but not full stationary distributions or TV-coupling for diverging noise.",
+        "Cox–Peres–Steif arXiv:1408.5122 Theorem 2/Section 4 give mixing-time comparison for a fixed noisy-voter star; no uniform multi-parameter high-noise stationary approximation is given.",
+        "Caligiuri–Galla arXiv:2305.19096 Eq. (17) solves stationary two-state PDMP once velocities/switching rates are known, but no finite-n TV approximation between two different graph dynamics."
+      ],
+      "reasoning": "Exact network moment equations and general stationary PDMP methods do not dominate the new full-configuration coupling inequality or the mixed arcsine–Gaussian critical window. They underlie, and are credited for, parts of the analysis.",
+      "searches": [
+        "noisy voter star graph exact stationary distribution beta",
+        "Cox Peres Steif noisy voter n-star stationary law leaf count distribution",
+        "noisy voter star high noise square root n arcsine gaussian crossover stationary leaf majority inference",
+        "stationary noisy voter model star graph leaf opinion fraction shifted beta distribution central hub state conditioned Beta"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1408.5122 Section 4 full HTML",
+      "arxiv:2305.19096 Sections II, III.3, V full HTML",
+      "arxiv:1602.06935 Sections 2–3 full HTML",
+      "arxiv:2112.01478 abstract",
+      "published-finding corpus semantic search queries enumerated in checks",
+      "accessible historical research records: 111 claim records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cox–Peres–Steif full available arXiv HTML, Section 4 lines 218–250: reduced chain and O(1) mixing bound; this does not imply closeness of full stationary spins to independent-hub process at theta growing with n.",
+        "Caligiuri–Galla full available arXiv HTML, Sections II and III.3 lines 34–39, 93–138: fully connected external-switching model and generic PDMP integration; direct beta law for a decoupled hub is known-form, but the stationary finite-star coupling step is not supplied.",
+        "Carro–Toral–San Miguel full available arXiv HTML, Sections 2.1–2.3 lines 33–85: exact first/second moment generator equations and subsequent annealed approximation; no statement at TV level for the interacting star.",
+        "Pymar–Rivera arXiv:2112.01478 abstract: stationary-degree-weighted density on graphs under a different discrete-time update; specific star TV claim not established from accessible material."
+      ],
+      "reasoning": "For a competing result to cover the final theorem it must imply both the explicit whole-spin TV bound at growing theta and the square-root-noise arcsine–Gaussian mixture for the unweighted star. Neither fixed-noise star mixing nor a generic PDMP integral or pair-moment identity implies this full claim without the new graphical comparison and joint limit proof.",
+      "searches": [
+        "arxiv:1408.5122 Section 4",
+        "arxiv:2305.19096 Section III.3",
+        "arxiv:1602.06935 Section 2.2",
+        "arxiv:2112.01478 abstract",
+        "published-finding corpus high noise square root leaves star voter critical reconstruction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cox–Peres–Steif arXiv:1408.5122 Section 4 reduces the star to (hub, leaf-count) for mixing, not a full-config stationary independent-hub TV approximation.",
+        "Caligiuri–Galla arXiv:2305.19096 Section III.3, equations (16)-(17), treats two-state PDMP invariant laws; our beta mixing law is an application of this known calculus, but the finite-star whole-configuration coupling and square-root joint limit are additional claims.",
+        "published-finding corpus nearest result 2026/9/19/SCOPE-gaussian-mimo-one-flip-poisson-gumbel--c9f0247bbad2 concerns Gaussian MIMO, not voter dynamics; published-finding corpus returned no matching noisy-voter-star theorem."
+      ],
+      "reasoning": "No matching reformulation via arcsine smoothing, filtered telegraph, beta-binomial surrogate, majority reconstruction, or high-noise decoupling was found. A generic PDMP beta identity alone is method coverage, not the full stated TV/crossover claim.",
+      "searches": [
+        "noisy voter star graph high reset noise square-root-of-leaves threshold arcsine Gaussian convolution majority hub recovery",
+        "star noisy voter fast noise coupling full stationary configuration to independent-hub beta-binomial mixture total variation",
+        "stationary star voter model arcsine Gaussian critical crossover root majority prediction",
+        "noisy voter star high noise square root n arcsine gaussian crossover stationary leaf majority inference",
+        "star noisy voter independent hub approximation high noise log n total variation coupling"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "prior research records closest item b53ebbc8-7a5c-4a7f-a0e2-9e9c07271c4e: stationary noisy voter on complete bipartite graphs, with noise scaled by reciprocal class sizes; different graph, scale, limit and observables.",
+        "prior research records closest item a99c20a1-ea6c-4d59-a9af-652e2f40e2fe: synchronous discrete-time noisy voter local time-series variance on arbitrary graphs, not star hub/leaf current-time stationary inference.",
+        "published-finding corpus nearest 2026/10/4/SCOPE-exact-ehrenfest-law-and-linear-noise-floor-for-additive-noise-si--91e3f2750878 concerns stochastic optimization, not noisy voter stars."
+      ],
+      "reasoning": "Accessible prior research records claims and returned database summaries do not enumerate the new stationarity/coupling law. published-finding corpus semantic search is not exhaustive and does not establish novelty by absence alone.",
+      "searches": [
+        "noisy voter star graph high reset noise square-root-of-leaves threshold arcsine Gaussian convolution majority hub recovery",
+        "star noisy voter fast noise coupling full stationary configuration to independent-hub beta-binomial mixture total variation",
+        "stationary star voter model arcsine Gaussian critical crossover root majority prediction",
+        "noisy voter on a star graph stationary density beta distribution exact finite size spin correlations hub leaf",
+        "noisy voter star reduced Markov chain stationary measure fixed positive noise piecewise deterministic limit beta",
+        "accessible historical research records: claim terms noisy voter, star, stationary, Beta, hub, majority"
+      ]
+    },
+    "rationale": "Cox–Peres–Steif (arXiv:1408.5122, Section 4) already gives the star Markov reduction and fixed-noise mixing, Caligiuri–Galla (arXiv:2305.19096, Section III.3) gives general two-state PDMP invariant integration, and Carro–Toral–San Miguel (arXiv:1602.06935, Section 2.2) gives general linear network pair-moment equations. Those components are explicitly not claimed new. The accepted claim is a quantitative full-configuration TV comparison between the original interacting star and an independent-hub beta-binomial mixture across diverging noise, and its simultaneous theta~sqrt(n) arcsine-Gaussian majority crossover. The inspected works provide neither the graphical coalescence bound nor a dominating joint-size/noise limit. Targeted published-research and accessible-prior research records comparisons did not find an implication-equivalent result; general high-noise couplings and uninspected full texts remain real historical risks.",
+    "residual_risks": [
+      "Pymar–Rivera 2021 full text could not be inspected; its abstract is insufficient for decisive exclusion.",
+      "General high-noise graphical coupling or correlated telegraph filtering literature might contain a stronger or equivalent result under different vocabulary.",
+      "published-finding corpus search is semantic rather than exhaustive, and absence of retrieved records is not proof of priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS known model, reduced chain and mixing; NOT_COVERING quantitative high-noise independent-hub TV approximation or square-root joint limit",
+        "evidence": [
+          "Section 4 defines reduced (hub, leaf count) chain and proves O(1) mixing, with stationary law referenced but no explicit high-noise beta-binomial configuration comparison."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1408.5122",
+        "material_read": "full accessible HTML, especially Section 4 lines 218-285",
+        "method": "direct section/full-text review",
+        "title": "Cutoff for the noisy voter model",
+        "trigger": "Exact noisy-voter star reduced process and potential previous stationary result"
+      },
+      {
+        "assessment": "COVERS general PDMP stationary method; NOT_COVERING new finite-star process-coupling bound and simultaneous scaling",
+        "evidence": [
+          "Section II assumes fully connected voters and external influencers; Eqs (16)-(17) provide general two-state PDMP density once velocities/rates are known, but no stationary full-configuration star comparison."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.19096",
+        "material_read": "full accessible HTML Sections II–III.3 and V, lines 34-55, 93-140 and 241-253",
+        "method": "direct inspection of model/rate equations and general PDMP solution",
+        "title": "Noisy voter models in switching environments",
+        "trigger": "Two-state PDMP with Beta invariant formula might subsume part of the claim"
+      },
+      {
+        "assessment": "COVERS general pair-moment evolution; NOT_COVERING whole-configuration distribution or critical stationary surrogate law",
+        "evidence": [
+          "Section 2.2 gives first- and second-moment closed equations, while later network results use an annealed approximation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1602.06935",
+        "material_read": "full accessible HTML Sections 1–3 and network-approximation methods, especially lines 33–92",
+        "method": "direct equations and scope comparison",
+        "title": "The noisy voter model on complex networks",
+        "trigger": "General exact network correlations might subsume finite-star statistics"
+      },
+      {
+        "assessment": "UNRESOLVED_SOURCE_RISK; no claim that full text excludes the theorem",
+        "evidence": [
+          "Abstract focuses on degree-weighted stationary density under discrete-time voting, Gaussian/Bernoulli regimes, and specific complete graph, cycle, torus, hypercube cases."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.01478",
+        "material_read": "arXiv abstract only; arxiv HTML and ar5iv HTML fetch attempts unsuccessful",
+        "method": "abstract/scope comparison, with full-text access limitation recorded",
+        "title": "Asymptotic behaviour of the noisy voter model density process",
+        "trigger": "General density process limits might dominate star inference"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e0c4accf-2d92-41c5-a658-bbfce41f962f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp square-root interplay between independent leaf sampling noise and persistent hub-history randomness is a natural inference-scale question on the most degree-heterogeneous connected network. A full-configuration, explicit TV surrogate provides a reusable probabilistic representation; the limiting arcsine–Gaussian convolution and strictly decreasing majority-success curve quantify when the present hub can be inferred above chance at diverging noise. This is more than a bare moment identity or a routine relabeling, and limitations on the sufficient logarithmic separation and Bayes optimality are stated.",
+    "status": "PASS"
+  }
+}
