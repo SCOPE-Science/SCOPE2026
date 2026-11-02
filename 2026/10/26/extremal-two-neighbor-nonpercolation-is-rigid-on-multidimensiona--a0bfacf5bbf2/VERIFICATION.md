@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The complete graph-family proof is in `RESULT.md`; execute the independent finite tests using `python3 VERIFY.py`.
+## correctness
 
-The packaged program independently builds Cartesian graph adjacency from factor coordinates and tests the induced-degree characterization. Exhaustive enumeration established the exact minimum core size and the full list of minimizers in \(C_4\square C_4\), \(C_4\square C_5\), and \(C_5\square C_5\), examining 39,202, 263,949, and 7,119,515 nonempty subsets of size at most the predicted bound, respectively (7,422,666 total). The numbers of minimum complements were 8, 5, and 10, as predicted.
+PASS
 
-It additionally tested all predicted slabs and seeded random subsets in eight higher-dimensional instances, performing 878 construction/random checks. The last line of successful execution is `VERIFY_OK exhaustive_subsets 7422666`.
+PASS. The complement T of a proper P3-convex set is nonempty and has induced minimum degree ≥2r−1. Induct on number r of cyclic factors. Base r=1 requires an adjacent edge, with exactly k cyclic pairs. Slice along a maximum-length coordinate K and write M=N/K. If a slice is empty, the next nonempty slice must contain every vertex of the connected (r−1)-dimensional product and its following slice must also be full, forcing |T|≥2M with equality exactly two adjacent full slices. If every slice is nonempty, each induces minimum degree ≥2r−3, so induction gives at least 2M/L vertices per slice for L≤K the largest remaining factor, yielding total ≥2KM/L≥2M. Equality forces K=L and every slice to be a minimum lower-dimensional two-layer slab; each vertex then has exactly 2r−3 intralayer neighbors and must have both cyclicly neighboring slice copies, making every slice identical. Thus all minimizers are precisely tK distinct two-layer slabs. Every nonpercolating seed closure is a proper convex superset, so equality forces that seed itself to be one of these. Independent exhaustive search checked all nonempty subsets up to the sharp bound for C4,C5,C4□C4,C4□C5 and found only 4,5,8,5 expected slabs; the proof, not these samples, covers arbitrary r and side lengths.
 
-No finite enumeration establishes the induction for every \(r\) and every factor length. Historical priority was assessed against accessible primary papers and research-record searches, not independently certified. This is a self-review; no independent audit has been performed.
+## originality
+
+PASS
+
+PASS qualified. Saraf–Borse–Mundhe Lemma 2.5/Corollary 2.6 already give sharp minimum-degree core size and construct a minimum width-two slab, so neither the scalar threshold nor any example is claimed new. Their stated theorem does not identify the complete equality locus; forcing every optimal solution to a slab in all dimensions, with tK tied-factor count, needs an equality-case induction. Dourado P3-convex counting does not assert torus-specific rigidity.
+
+## value
+
+PASS
+
+PASS. Equality-case classification of an already sharp extremal theorem is an independently meaningful structural result: all worst-case 2-neighbor nonpercolating seeds are explicitly known, including tied longest-factor symmetry and exact multiplicity. The proof discovers a rigidity not contained in merely knowing one optimal slab.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

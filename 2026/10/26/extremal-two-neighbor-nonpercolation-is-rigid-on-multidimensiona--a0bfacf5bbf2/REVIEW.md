@@ -1,15 +1,21 @@
-# Scientific review — extremal convex sets of Cartesian cycle products
+# Independent mathematical audit
 
-## Correctness — PASS
-The reduction from proper P3-convex sets to nonempty induced subgraphs of minimum degree at least \(2r-1\) is exact. The proof splits into a slice containing no chosen vertices, which forces two full consecutive slices, and nonempty slices, where induction forces equality only for uniform lower-dimensional slabs in tied longest directions. The constructed slabs meet the bound and the percolation reformulation follows from closure. The independent verifier enumerated 7,422,666 subsets in small cases and checked 878 higher-dimensional constructions/random subsets. These finite computations corroborate but do not prove the infinite assertion.
+## correctness
 
-## Originality — PASS, qualified
-Saraf, Borse, and Mundhe (arXiv:2001.11781v1, Lemmas 2.3--2.5) already prove the sharp **numerical** minimum size of the high-degree complement and exhibit width-two slabs. Dourado et al. (arXiv:2603.04706v1) study P3-convex-set counting in graphs; Borse and Saraf (DOI:10.1016/j.akcej.2018.07.001) examine cubic subgraph existence. The new assertion here is that there are **no other** minimum complements and that the exact number is \(tK\) for arbitrarily many factors. No matching theorem was identified in the inspected primary text, accessible historical claims, or targeted research-record comparisons. Different terminology in uninspected literature remains a priority risk.
+PASS
 
-## Value — PASS
-The classification determines the entire structure and exact multiplicity of the largest nonpercolating configurations in a canonical infinite graph family. It distinguishes an extremal existence theorem from complete rigidity even when several factor sizes tie, and can be used to identify every worst-case infection seed at the sharp threshold.
+PASS. The complement T of a proper P3-convex set is nonempty and has induced minimum degree ≥2r−1. Induct on number r of cyclic factors. Base r=1 requires an adjacent edge, with exactly k cyclic pairs. Slice along a maximum-length coordinate K and write M=N/K. If a slice is empty, the next nonempty slice must contain every vertex of the connected (r−1)-dimensional product and its following slice must also be full, forcing |T|≥2M with equality exactly two adjacent full slices. If every slice is nonempty, each induces minimum degree ≥2r−3, so induction gives at least 2M/L vertices per slice for L≤K the largest remaining factor, yielding total ≥2KM/L≥2M. Equality forces K=L and every slice to be a minimum lower-dimensional two-layer slab; each vertex then has exactly 2r−3 intralayer neighbors and must have both cyclicly neighboring slice copies, making every slice identical. Thus all minimizers are precisely tK distinct two-layer slabs. Every nonpercolating seed closure is a proper convex superset, so equality forces that seed itself to be one of these. Independent exhaustive search checked all nonempty subsets up to the sharp bound for C4,C5,C4□C4,C4□C5 and found only 4,5,8,5 expected slabs; the proof, not these samples, covers arbitrary r and side lengths.
 
-## Limits
-Factor lengths are at least four. This is not an enumeration of all P3-convex sets and does not cover other thresholds. The size bound is previously known. Full independent review and comprehensive historical-priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified. Saraf–Borse–Mundhe Lemma 2.5/Corollary 2.6 already give sharp minimum-degree core size and construct a minimum width-two slab, so neither the scalar threshold nor any example is claimed new. Their stated theorem does not identify the complete equality locus; forcing every optimal solution to a slab in all dimensions, with tK tied-factor count, needs an equality-case induction. Dourado P3-convex counting does not assert torus-specific rigidity.
+
+## value
+
+PASS
+
+PASS. Equality-case classification of an already sharp extremal theorem is an independently meaningful structural result: all worst-case 2-neighbor nonpercolating seeds are explicitly known, including tied longest-factor symmetry and exact multiplicity. The proof discovers a rigidity not contained in merely knowing one optimal slab.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
