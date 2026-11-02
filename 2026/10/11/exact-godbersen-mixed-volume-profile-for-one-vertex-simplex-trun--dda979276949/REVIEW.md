@@ -1,15 +1,21 @@
-# Scientific assessment: exact simplex-truncation mixed-volume profile
+# Independent mathematical audit
 
-## Correctness — PASS
-The key membership equivalence is proved by a common nonnegative coordinate slack, not inferred from a sketch of the polytope. Every sign orthant is included; the entirely negative orthant is empty only in the coefficient-extraction range \(0<r<t\), which is sufficient because the global Minkowski volume is a polynomial in \(r\). The integrals use the correct simplex-slice densities. The beta-integral and alternating-binomial calculations reproduce the full coefficient including both endpoint normalizations. Rational tests of 748 coefficients and 36 independent convex-hull volumes agreed with the formula. Finite experiments are corroboration, not the proof.
+## correctness
 
-## Originality — PASS
-The closest primary source, Friedland–Putterman–Szusterman, proves that only simplices attain equality in the universal Godbersen inequality. It does not compute the exact mixed-volume coefficients of a truncated simplex. The earlier Artstein-Avidan–Putterman paper analyzes unbalanced difference-body inequalities and covariograms; its full HTML main results and proofs do not determine this parameterized profile. Sadovsky's source concerns locally anti-blocking bodies and coordinate-aligned simplices, whereas these truncations are not locally anti-blocking. Searches for one-vertex truncations, simplex frusta, Minkowski difference-volume polynomials and coefficient formulas found no equivalent all-dimensional statement. A previously unindexed formula in older frustum or mixed-volume literature remains an explicit risk; search absence alone is not a novelty proof.
+PASS
 
-## Value — PASS
-The theorem gives every mixed-volume coefficient and the full quantitative loss from the sharp inequality along a canonical one-parameter degeneration of a simplex, not merely an individual test value. The central \(t^{n/2}\) order in even dimensions is a natural high-order near-equality feature, providing an exact benchmark for quantitative rigidity. This does not assert or imply a universal optimal stability exponent, and no downstream theorem is claimed.
+The full statement is independently reconstructed. For z=x-r y, coordinate slack w_i>=0 gives P<=1, N<=r and t-r<=sum z_i<=1-rt exactly; choosing total slack u in the intersection proves sufficiency. On 0<r<t, negative orthant has zero volume, positive orthant contributes [(1-rt)^n-(t-r)^n]/n!, and each mixed-sign j-positive orthant has simplex-slice densities and a one-dimensional beta integral. Its degree-m coefficient is, for j>=n-m, (-1)^s*C(n,j)/((j-s)!(m)!)*(t^m-t^(n-m)) with s=j-(n-m), and the s=0 orthant term C(n,n-m)/(m!(n-m)!)*(1-t^(n-m)). The alternating binomial partial sum equals -C(n-1,m-1); c_m=C(n,m)^2/n!*[1-(m/n)t^m-((n-m)/n)t^(n-m)]. Minkowski polynomial uniqueness gives the all-r mixed volume coefficient. c_0=c_n=(1-t^n)/n!, consistent with Vol(K_t). Dividing by C(n,m)Vol(K_t) gives G>0 as t^m,t^(n-m)>t^n; central simplification and small-t order follow directly. Independent ConvexHull computations of 64 full K_t-rK_t volumes in n=2..5 and 4 truncations by 4 scale values agree to max relative error 3.88e-15. These finite tests are corroboration only, not an all-n proof.
 
-## Scope and comparison risks
-The global inequality and its simplex equality characterization are prior results. General multi-vertex truncations and arbitrary convex bodies are outside the claim. Possible unnoticed earlier exact formulas for simplex frusta or a non-obvious reformulation of their Minkowski differences are residual risks; the available primary comparisons do not establish such coverage.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the exact coefficient-by-coefficient truncation profile, not for the universal Godbersen bound or the simplex equality case. The full parameter family K_t, with all n,m and t, is not a formal consequence of a qualitative sharp bound and uniqueness of extremizers: inequalities do not recover a polynomial. Relevant primary statements and their geometrical scope were compared; a potentially unindexed older frustum mixed-volume formula remains a material residual risk.
+
+## value
+
+PASS
+
+A complete exact family of natural mixed-volume coefficients is a mathematically motivated quantitative benchmark at the sharp simplex extremizer of Godbersen. The family is canonical one-vertex parallel truncation, with all n and all interior indices covered; the central even-dimensional t^h/(1+t^h) exhibits arbitrarily high directional flattening, not a chosen unmotivated scalar. A researcher studying quantitative rigidity near simplices could use the precise order and coefficients. The theorem neither claims a universal stability exponent nor large generalization; its value is the full exact profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

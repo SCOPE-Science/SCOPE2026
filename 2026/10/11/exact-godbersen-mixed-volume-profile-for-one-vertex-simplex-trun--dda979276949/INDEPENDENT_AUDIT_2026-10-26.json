@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T13:57:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026/2026/10/11/exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949/RESULT.md at 6c379935c2e469fc18959fc6c387e31328c64bcf, blob b264f8fbd95bed89d182c9d532371d113870bed9",
+        "SCOPE-Science/SCOPE2026/2026/10/11/exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949/verify.py at 6c379935c2e469fc18959fc6c387e31328c64bcf, blob abf12e0499487d94205717b47a16d4c41c89952f",
+        "Independent direct convex hull checks: independent_godbersen_check.py and independent_godbersen_results.json"
+      ],
+      "rationale": "The full statement is independently reconstructed. For z=x-r y, coordinate slack w_i>=0 gives P<=1, N<=r and t-r<=sum z_i<=1-rt exactly; choosing total slack u in the intersection proves sufficiency. On 0<r<t, negative orthant has zero volume, positive orthant contributes [(1-rt)^n-(t-r)^n]/n!, and each mixed-sign j-positive orthant has simplex-slice densities and a one-dimensional beta integral. Its degree-m coefficient is, for j>=n-m, (-1)^s*C(n,j)/((j-s)!(m)!)*(t^m-t^(n-m)) with s=j-(n-m), and the s=0 orthant term C(n,n-m)/(m!(n-m)!)*(1-t^(n-m)). The alternating binomial partial sum equals -C(n-1,m-1); c_m=C(n,m)^2/n!*[1-(m/n)t^m-((n-m)/n)t^(n-m)]. Minkowski polynomial uniqueness gives the all-r mixed volume coefficient. c_0=c_n=(1-t^n)/n!, consistent with Vol(K_t). Dividing by C(n,m)Vol(K_t) gives G>0 as t^m,t^(n-m)>t^n; central simplification and small-t order follow directly. Independent ConvexHull computations of 64 full K_t-rK_t volumes in n=2..5 and 4 truncations by 4 scale values agree to max relative error 3.88e-15. These finite tests are corroboration only, not an all-n proof.",
+      "residual_risks": [
+        "No extension beyond n>=2, 1<=m<=n-1 and 0<t<1 is claimed; t=0 is limiting simplex, t=1 degenerate.",
+        "High-order vanishing is directional along this frustum family, not a global quantitative stability exponent.",
+        "Floating-point convex hull tests cannot certify the unrestricted theorem; analyticity and polynomial identity establish it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Godbersen inequality bounds all convex bodies, and the equality classification implies strictness for nonsimplices, but neither gives exact deficit magnitude.",
+          "Sadovsky Lemma 1.2 computes mixed volumes of two origin-containing coordinate-aligned simplices. K_t excludes 0 and is not locally anti-blocking.",
+          "Fryš–Kotrbatý–Mouamine–Wang 2610.06806 abstract addresses higher-order Godbersen inequality and simplex equality, not an explicitly stated truncation coefficient formula. Full text unavailable in this run."
+        ],
+        "reasoning": "The broader theorems dominate the inequality question but not the exact profile. The anti-blocking formulas require coordinate projection closure violated by K_t; the higher-order source is not conclusively excluded beyond its abstract, retained as risk.",
+        "searches": [
+          "arXiv:2610.04527v2 Theorems 2,3,5 and proof outline",
+          "arXiv:2412.05308v2 Theorems 3,4,7 and proofs",
+          "arXiv:2312.03473v3 Theorem 1.1 Lemmas 1.2,2.1",
+          "arXiv:2610.06806v2 abstract (full text inaccessible)"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.04527v2",
+        "https://arxiv.org/pdf/2412.05308",
+        "https://arxiv.org/pdf/2312.03473",
+        "https://arxiv.org/abs/2610.06806",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-strict-unimodality-of-the-simplex-higher-order-unbalanced-differ--5026d304e448",
+        "Resultary semantic search 2 queries (same-record self-hit excluded)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The t=0 untruncated simplex coefficient C(n,m)^2/n! is recovered as a limit; no t>0 coefficients follow from this endpoint.",
+          "Friedland et al. uniqueness of simplex equality implies G(t)>0 for 0<t<1, but no explicit order t^min(m,n-m) or balanced rational G=t^(n/2)/(1+t^(n/2)).",
+          "The published Resultary higher-order simplex benchmark varies the Minkowski imbalance/order of an untruncated simplex; its body is not the truncated K_t."
+        ],
+        "reasoning": "The reported polynomial strictly refines the qualitative Godbersen bound for this family. A general theorem's coverage would require an actual coefficient identity, not merely a similar parameter or stronger upper bound. The related Resultary source changes a mixing parameter for an untruncated simplex and does not imply the truncation-depth profile.",
+        "searches": [
+          "arXiv:2610.04527v2 Theorems 2,3",
+          "arXiv:2412.05308v2 Theorems 3,4,7",
+          "arXiv:2312.03473v3 Lemma 1.2",
+          "Resultary 2026/10/4 strict unimodality of simplex higher-order unbalanced difference profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coefficient formula is equivalent by Minkowski polarization to a complete polynomial for Vol(K_t-rK_t).",
+          "Artstein-Avidan–Putterman arXiv:2412.05308 Theorems 3,4,7 give inequality bounds for unbalanced bodies, not equalities for K_t.",
+          "Friedland–Putterman–Szusterman arXiv:2610.04527v2 Theorems 2,3,5 characterize upper bounds and equality cases, not a t-dependent exact polynomial."
+        ],
+        "reasoning": "Searched direct frustum, covariogram, truncated simplex and volume polynomial aliases. General weighted-sum bounds and simplex equality uniqueness do not yield the coefficient of each power r for positive truncation t.",
+        "searches": [
+          "mixed volumes truncated simplex Godbersen explicit formula",
+          "simplex frustum mixed volume difference body formula",
+          "Godbersen mixed volumes volume K_t - K_t truncated simplex formula 2026",
+          "Godbersen mixed volume opposite truncated simplex frustum one vertex parallel hyperplane exact coefficients",
+          "simplex frustum Minkowski difference K_t - r K_t mixed volume profile closed formula",
+          "Minkowski polynomial coefficients versus volume(K_t-r K_t)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's highest match was the same published assessed SCOPE record, not earlier independent evidence.",
+          "Other returned Resultary records treated distinct parameterized simplex Minkowski families or volume spline phenomena, and supplied no table of the K_t opposite-body coefficients.",
+          "Web searches did not yield a coefficient database or old frustum table; absence is not priority proof."
+        ],
+        "reasoning": "No exact prior database/table was found with this limited search, and no self-match was treated as independent. Older unindexed polytope or tabulation work remains a possibility.",
+        "searches": [
+          "Godbersen mixed volume opposite truncated simplex frustum one vertex parallel hyperplane exact coefficients",
+          "simplex frustum Minkowski difference K_t - r K_t mixed volume profile closed formula",
+          "mixed volumes truncated simplex Godbersen explicit formula",
+          "simplex frustum mixed volume difference body formula",
+          "Godbersen mixed volumes volume K_t - K_t truncated simplex formula 2026",
+          "exact all-dimensional mixed volumes convex hull e_i t e_i of a simplex frustum",
+          "Godbersen conjecture mixed volumes truncation of simplex frustum exact formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the exact coefficient-by-coefficient truncation profile, not for the universal Godbersen bound or the simplex equality case. The full parameter family K_t, with all n,m and t, is not a formal consequence of a qualitative sharp bound and uniqueness of extremizers: inequalities do not recover a polynomial. Relevant primary statements and their geometrical scope were compared; a potentially unindexed older frustum mixed-volume formula remains a material residual risk.",
+      "residual_risks": [
+        "An older unindexed simplex-frustum/difference-body calculation could be equivalent.",
+        "Recent arXiv:2610.06806 full manuscript was not accessible for complete theorem/proof inspection; the abstract is not enough for whole-document noncoverage.",
+        "The general 2026 global inequality itself is not new and must not be claimed as such."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for exact truncation profile in inspected statements; it covers inequality and equality classification.",
+          "evidence": [
+            "Theorem 2 gives V<=binom(n,k)vol; Theorem 3 says equality forces simplex; Theorem 5 treats higher-order equality, none states dependence on t of K_t."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.04527v2",
+          "material_read": "ArXiv HTML introduction, Theorems 2,3,5, related-work statement, proof outline and mixed-volume preliminaries; corroborating PDF pages 1 and 3.",
+          "method": "Primary HTML reading and PDF page screenshots",
+          "title": "The equality case in Godbersen's inequality and its generalizations",
+          "trigger": "Same reflected mixed volumes and sharp equality in full convex-body class"
+        },
+        {
+          "assessment": "NOT_COVERING for full K_t coefficient formula in inspected material: establishes bounds for all K, including weighted combinations, not an exact profile of this truncation family.",
+          "evidence": [
+            "Theorem 4 weighted sum <= Vol(K); Theorem 7 generalized Rogers-Shephard bound; Section 2 handles n=4,5 inequality by combinations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.05308",
+          "material_read": "Primary PDF abstract, introduction, Theorems 3,4,7 and selected proof passages in Sections 2-5; page screenshots at printed pages 3 and 5.",
+          "method": "PDF extracted text and screenshot inspection",
+          "title": "On unbalanced difference bodies and Godbersen's conjecture",
+          "trigger": "Same two-body Minkowski polynomial and weighted sums"
+        },
+        {
+          "assessment": "NOT_COVERING: Lemma 1.2 concerns origin-containing aligned simplices, while K_t is a shell/frustum excluding the origin, not locally anti-blocking.",
+          "evidence": [
+            "Lemma 1.2 K=conv(0,alpha_i e_i) versus Delta; locally anti-blocking definition requires projected points in same orthant to lie in K."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.03473",
+          "material_read": "Primary PDF abstract, definitions, Theorem 1.1, Lemmas 1.2,2.1,2.2 and excerpts of proof sections; screenshots printed pages 2-3.",
+          "method": "PDF extracted text and screenshots",
+          "title": "Godbersen's conjecture for locally anti-blocking bodies",
+          "trigger": "Possible exact mixed-volume lemma for coordinate simplices"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; described theorem concerns global inequality and simplex equality, but exact frustum formulas cannot be excluded solely from abstract.",
+          "evidence": [
+            "Abstract says proves higher-order Godbersen and equality case. Oxford retrieval returned vpn_disconnected; no full text read."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.06806",
+          "material_read": "Published abstract and metadata only, 5/12 October 2026 versions; full arXiv and OA attempts unavailable, authorized institutional access blocked by disconnected VPN.",
+          "method": "Abstract/metadata search plus unsuccessful full-text fetch and institutional retrieval",
+          "title": "Higher-order Godbersen inequality and a characterization of simplices via the face lattice",
+          "trigger": "Very recent potentially dominating general theorem"
+        },
+        {
+          "assessment": "NOT_COVERING: considers D_p^t applied to an untruncated simplex and unimodality in imbalance parameter, not truncation depth of K_t and all its opposite-body coefficients.",
+          "evidence": [
+            "F_{n,p}(t)=sum binom(np,j)binom(n,j)t^j(1-t)^(np-j) for untruncated S_n, structurally different body/parameter."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-strict-unimodality-of-the-simplex-higher-order-unbalanced-differ--5026d304e448",
+          "material_read": "Full RESULT.md including formula, proof, limitations and references, as supplied by public Resultary repository",
+          "method": "GitHub pinned? public default branch full-file reading",
+          "title": "Strict unimodality of the simplex higher-order unbalanced-difference profile",
+          "trigger": "Relevant published mathematical result with simplex/difference-body parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026/2026/10/11/exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949/RESULT.md at 6c379935c2e469fc18959fc6c387e31328c64bcf",
+        "https://arxiv.org/html/2610.04527v2",
+        "https://arxiv.org/pdf/2412.05308"
+      ],
+      "rationale": "A complete exact family of natural mixed-volume coefficients is a mathematically motivated quantitative benchmark at the sharp simplex extremizer of Godbersen. The family is canonical one-vertex parallel truncation, with all n and all interior indices covered; the central even-dimensional t^h/(1+t^h) exhibits arbitrarily high directional flattening, not a chosen unmotivated scalar. A researcher studying quantitative rigidity near simplices could use the precise order and coefficients. The theorem neither claims a universal stability exponent nor large generalization; its value is the full exact profile.",
+      "residual_risks": [
+        "This is a special exact family, not a general near-equality classification.",
+        "The computation is an elementary orthant-integration identity once the family is chosen; significance should not be inflated into a universal theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specific one-vertex parallel simplex truncation, no general multi-vertex or arbitrary-convex-body result.",
+    "This is an exact directional deficit; no global stability exponent claimed.",
+    "One highly relevant recent general source is abstract-only, retained as access risk."
+  ],
+  "schema_version": 1
+}

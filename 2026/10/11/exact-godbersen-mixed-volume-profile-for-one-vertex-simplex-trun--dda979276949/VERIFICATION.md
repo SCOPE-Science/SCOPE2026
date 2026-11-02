@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the exact simplex-truncation mixed-volume profile
+# Independent mathematical audit
 
-The analytic proof consists of the four-inequality membership criterion for the Minkowski difference, all sign-orthant integrals, two beta-integral evaluations, an alternating-binomial sum, and extraction of the unique Minkowski-polynomial coefficients. These steps establish the identity for **all** integers \(n\ge2\), \(1\le m\le n-1\), and all real \(0<t<1\); the proof does not rely on numerical interpolation.
+## correctness
 
-The bundled `verify.py` uses Python's standard-library `Fraction` and directly sums the orthant contributions. It ran successfully and emitted `VERIFY_OK exact orthant coefficients: 748; n=2..18; 4 rational t samples`. The test covers four depth fractions, all polynomial coefficients (including endpoints), reflection symmetry, coefficient positivity and the even-dimensional central reduction.
+PASS
 
-A separate geometric check constructed the convex hull of the pairwise vertex differences of the truncated simplex and compared its Euclidean volume with the analytic polynomial, for dimensions 2 through 5, three depths, and three scale choices. All 36 tested instances agreed to within \(3\times10^{-7}\). That secondary geometric check used floating-point convex-hull calculations and is not needed to prove an infinite statement; it is not bundled as a dependency.
+The full statement is independently reconstructed. For z=x-r y, coordinate slack w_i>=0 gives P<=1, N<=r and t-r<=sum z_i<=1-rt exactly; choosing total slack u in the intersection proves sufficiency. On 0<r<t, negative orthant has zero volume, positive orthant contributes [(1-rt)^n-(t-r)^n]/n!, and each mixed-sign j-positive orthant has simplex-slice densities and a one-dimensional beta integral. Its degree-m coefficient is, for j>=n-m, (-1)^s*C(n,j)/((j-s)!(m)!)*(t^m-t^(n-m)) with s=j-(n-m), and the s=0 orthant term C(n,n-m)/(m!(n-m)!)*(1-t^(n-m)). The alternating binomial partial sum equals -C(n-1,m-1); c_m=C(n,m)^2/n!*[1-(m/n)t^m-((n-m)/n)t^(n-m)]. Minkowski polynomial uniqueness gives the all-r mixed volume coefficient. c_0=c_n=(1-t^n)/n!, consistent with Vol(K_t). Dividing by C(n,m)Vol(K_t) gives G>0 as t^m,t^(n-m)>t^n; central simplification and small-t order follow directly. Independent ConvexHull computations of 64 full K_t-rK_t volumes in n=2..5 and 4 truncations by 4 scale values agree to max relative error 3.88e-15. These finite tests are corroboration only, not an all-n proof.
 
-Only the seven included source files are needed to reproduce the exact-rational check. No external compiler, internet access, or unpublished datasets are required. Limitation: exhaustive testing over finite dimensions and depths cannot by itself certify the general theorem; the analytic orthant proof supplies the universal quantifiers.
+## originality
+
+PASS
+
+Best-of-knowledge originality for the exact coefficient-by-coefficient truncation profile, not for the universal Godbersen bound or the simplex equality case. The full parameter family K_t, with all n,m and t, is not a formal consequence of a qualitative sharp bound and uniqueness of extremizers: inequalities do not recover a polynomial. Relevant primary statements and their geometrical scope were compared; a potentially unindexed older frustum mixed-volume formula remains a material residual risk.
+
+## value
+
+PASS
+
+A complete exact family of natural mixed-volume coefficients is a mathematically motivated quantitative benchmark at the sharp simplex extremizer of Godbersen. The family is canonical one-vertex parallel truncation, with all n and all interior indices covered; the central even-dimensional t^h/(1+t^h) exhibits arbitrarily high directional flattening, not a chosen unmotivated scalar. A researcher studying quantitative rigidity near simplices could use the precise order and coefficients. The theorem neither claims a universal stability exponent nor large generalization; its value is the full exact profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
