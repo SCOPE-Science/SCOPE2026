@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T06:58:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — For uniform k-subset A and complement B on each unrooted unit-edge binary tree, PD(U)=|U|+sum_{e internal} 1_{U crosses split e}; pendant contribution deterministic, so exact covariance reduces to split-crossing indicator moments. Verified full leaf-insertion completeness under canonical center-root encodings. An independent, separately written exact hypergeometric inclusion-exclusion covariance evaluator (rather than the package subset enumerator) generated exactly [1,1,2,2,4,6,11,18,37,66,135] nonisomorphic shapes for n=4..14, and reproduced the strictly positive minimum values for n=4..13: 2/9, 6/25, 2/9, 88/441, 5/28, 82/567, 13/126, 25/363, 107/3234, 53/11154. At n=14 and k=6 only one shape has negative covariance, exactly -122/7007; independent canonical form equals the caterpillar. The source verifier additionally has two distinct checks of the witness moments N=3003, sums X=47619, Y=55627, XY=882033. Exhaustive finite theorem checked as such, not an assertion beyond n=14.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General hypergeometric edge-snip formulas are available, but the source paper provides general moment tools rather than a classification of signs for coupled complementary fixed-cardinality samples."
+        ],
+        "reasoning": "The exact finite shape-and-size sign classification is NOT a simple numeric corollary without a nontrivial complete tree-shape census; existing formulas can compute individual inputs.",
+        "searches": [
+          "Resultary actual query: phylogenetic diversity complementary subsets covariance negative caterpillar 14 leaves",
+          "DOI:10.1111/2041-210X.12042",
+          "DOI:10.1111/j.1365-2745.2007.01222.x"
+        ]
+      },
+      "checked_sources": [
+        "Nipperess–Matsen 2013 full journal HTML and appendix https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12042",
+        "Hardy–Senterre DOI:10.1111/j.1365-2745.2007.01222.x, abstract only",
+        "Resultary: phylogenetic diversity complementary subsets covariance negative caterpillar 14 leaves",
+        "Independent exact hypergeometric moment and canonical tree-shape census, all n 4..14"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nipperess–Matsen full text Section Rarefaction and Appendix computes E[PD], Var[PD] for one random sample; target computes Cov(PD(A),PD(L\\A)) over ALL tree shapes n<=14."
+        ],
+        "reasoning": "A pair of complementary samples is maximally dependent, not two independent draws. A marginal variance theorem does not imply the target covariance values or sharp first sign-change threshold, though its indicators motivate the method.",
+        "searches": [
+          "Resultary actual query: phylogenetic diversity complementary subsets covariance negative caterpillar 14 leaves",
+          "DOI:10.1111/2041-210X.12042",
+          "DOI:10.1111/j.1365-2745.2007.01222.x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nipperess–Matsen 2013 full main text and appendix edge-snips formulas for single-sample variance; Hardy–Senterre 2007 broader community diversity interpretation."
+        ],
+        "reasoning": "A covariance between two complementary PD values is a distinct joint statistic from single-sample variance. Neither checked primary statement identifies an n14 first negative sign or unique caterpillar shape.",
+        "searches": [
+          "Resultary actual query: phylogenetic diversity complementary subsets covariance negative caterpillar 14 leaves",
+          "DOI:10.1111/2041-210X.12042",
+          "DOI:10.1111/j.1365-2745.2007.01222.x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known A000672-like shape counts [66,135] are already standard; package enumerates shapes plus new joint covariance table and witness. No literature table of the same statistic found."
+        ],
+        "reasoning": "Already-known shape counts do not determine covariance signs. Direct comparisons found no table with 14-leaf threshold; hidden dissertation/tables remain possible.",
+        "searches": [
+          "Resultary actual query: phylogenetic diversity complementary subsets covariance negative caterpillar 14 leaves",
+          "DOI:10.1111/2041-210X.12042",
+          "DOI:10.1111/j.1365-2745.2007.01222.x"
+        ]
+      },
+      "rationale": "PASS, qualified. Nipperess–Matsen 2013 gives mean and variance formulas for ONE phylogenetic diversity under rarefaction using edge snips, and includes edge-indicator covariances; does not claim a joint complementary-A/B sign threshold or the n=14 unique caterpillar witness. Hardy–Senterre 2007 studies community phylogenetic structure and additive partitions, not the exact covariance of complementary random subtree lengths. No indexed published finding or exact n14 table matched. General split-moment methods give a route to computation but not the numerical finite classification without enumeration.",
+      "residual_risks": [
+        "Earlier joint rarefaction covariance tables or dissertation could contain the exact threshold under different terminology; search is not priority proof.",
+        "Only sampled n=14 k=6 for unique negative case, as correctly qualified; negative cases for other n14 k not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS single-subset marginal formulas and split indicators, NOT_COVERING sharp joint complementary covariance sign classification.",
+          "evidence": "Nipperess & Matsen 2013 Definitions and variance formulas; web .",
+          "identifier_or_url": "https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12042",
+          "material_read": "Full readable journal main text and mathematical appendix, definitions of PD/snips and formulas for rarefied sample mean/variance",
+          "method": "Publisher full HTML mathematical article",
+          "title": "The mean and variance of phylogenetic diversity under rarefaction",
+          "trigger": "Closest original tree-edge moment and rarefaction formulation"
+        },
+        {
+          "assessment": "Conceptually related but cannot claim whole-document absence of joint covariance from abstract; retained as risk.",
+          "evidence": "Hardy–Senterre 2007, Journal of Ecology 95:493–506.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2745.2007.01222.x",
+          "material_read": "Accessible title and abstract/bibliographic summary only; full text not independently read",
+          "method": "Journal abstract/search result",
+          "title": "Characterizing the phylogenetic structure of communities by an additive partitioning of phylogenetic diversity",
+          "trigger": "Potential antecedent of complementary community partition statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — A sharp, exhaustive first sign-change threshold in the intrinsic covariance of complementary subsample subtree lengths on natural unrooted binary phylogenies answers a motivated rarefaction/partition question. The certificate is complete across all tree shapes and partitions through n13 and exactly n14 k6, not merely one found negative example. Unit-length finite scope is clear and self-contained.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Nipperess–Matsen 2013 full journal HTML and appendix https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12042",
+    "Hardy–Senterre DOI:10.1111/j.1365-2745.2007.01222.x, abstract only",
+    "Resultary: phylogenetic diversity complementary subsets covariance negative caterpillar 14 leaves",
+    "Independent exact hypergeometric moment and canonical tree-shape census, all n 4..14"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only unit edge lengths, unrooted binary trees, each side at least two leaves; no n>14 sign theorem.",
+    "Independent exact evaluator corroborates finite exhaustive census, not an empirical ecological model."
+  ],
+  "residual_risks": [
+    "Earlier joint rarefaction covariance tables or dissertation could contain the exact threshold under different terminology; search is not priority proof.",
+    "Only sampled n=14 k=6 for unique negative case, as correctly qualified; negative cases for other n14 k not classified."
+  ],
+  "schema_version": 1
+}
