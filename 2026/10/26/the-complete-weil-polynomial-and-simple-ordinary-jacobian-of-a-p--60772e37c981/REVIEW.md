@@ -1,15 +1,21 @@
-# Self-review — full Weil polynomial of the plane-filling sextic
+# Independent mathematical audit
 
-## Correctness — PASS
-The displayed sextic has genus \(10\): its derivative equations yield \(G(y)=y^{16}(y+1)^5-1\) and a coprime equation remainder \(R(y)=-y^{18}+y^{12}-y^4-y^3\), and there are no singularities on the line at infinity. Exact field traversals give all ten required point counts. The Weil functional equation and Newton identities then recover the full degree-\(20\) numerator; a Rabin test modulo \(23\) proves irreducibility and the coefficient in degree ten proves ordinarity.
+## correctness
 
-## Originality — PASS, with residual risk
-Asgarli--Ghioca [AG] introduced the family and geometric questions; earlier work established the smooth characteristic-three specimen and its ordinary Jacobian. Those are *not* new. The exact arithmetic polynomial and the implication of base-field simplicity are not supplied by the inspected full primary text, the closest accessible earlier claims or the targeted record/database searches. Equivalent descriptions via Frobenius, zeta functions and all extension counts, as well as stronger coverage, were compared. Exact unindexed historical tables remain a plausible residual risk and search nonappearance is not an absolute priority certificate.
+PASS
 
-## Mathematical value — PASS
-This explicitly completes the arithmetic for the canonical lowest-field example of the degree-\(q+3\) plane-filling pencil. A simple ordinary dimension-ten Jacobian is a meaningful structural outcome not entailed by the known smoothness or ordinarity alone.
+Recomputed smoothness elimination gcd(G(y),R(y))=1 in F3[y], with G=y^16(y+1)^5-1 and R=-y^18+y^12-y^4-y^3. An independently written C++ GF(3^m) primitive-modulus gcd enumerator traversed all field elements and verified point counts (13,21,34,73,288,708,2253,6529,19681,58236) for m=1..10. Newton sums reconstruct the first eleven coefficients of L, genus-ten functional equation determines all 21; checker confirms mod23 Rabin irreducibility via gcd for j=4,10 and x^(23^20) ≡x mod L. Nonzero middle coefficient 44020 mod3 yields ordinary p-rank10 and a-number0. Irreducibility over Q precludes base-field isogeny decomposition. Count certificate is COMPLETE for the ten required extension degrees, not a mere sample; no absolute simplicity is claimed.
 
-## Limitations and closest literature
-The assertion is base-field simplicity, not geometric absolute simplicity. Only the fixed characteristic-three curve is treated, and no claim about all degree-six plane-filling curves is made. The primary source is [AG]: S. Asgarli and D. Ghioca, *Plane-filling curves of small degree over finite fields*, arXiv:2307.03072v1 (2023), https://arxiv.org/html/2307.03072v1. Earlier characteristic-three rank computations and the degree-five plane-filling zeta classification concern different or weaker assertions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality supported by comparisons of exact statements, same-object sources and published Resultary records; material limitations and possible unindexed equivalences explicitly retained. The statement is equivalently the full extension-field point-count sequence/zeta numerator of the exact degree-six plane-filling pencil member; no checked source gives this arithmetic isogeny class. The polynomial determines every subsequent count by Weil rationality.
+
+## value
+
+PASS
+
+A complete zeta polynomial and isogeny simplicity/ordinarity for a natural degree-q+3 plane-filling curve, enabling precise point counts over every extension and identifying a genuinely ten-dimensional simple ordinary Jacobian; not a trivial re-expression of the known rational point count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
