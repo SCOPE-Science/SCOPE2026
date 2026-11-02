@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The exact fourth-cumulant polynomial follows from a finite path-edge cluster enumeration of factorial moments and conversion to ordinary moments. A separate binomial-composition count gives independent exact checks. The transformed cubic has coefficient signs \((+,+,-,-)\) for every integer length at least \(10\); Descartes' rule proves one and only one sign transition. The finite lower boundary and every endpoint are explicitly checked. An optional symbolic checker reconstructs the polynomial rather than merely substituting sample inputs.
+
+**Originality — PASS (qualified).** The known fixed-content runs law mathematically determines the fourth moment, so its mere computation would not suffice. The new assessed statement is the complete single-transition theorem, the sharp length-ten onset, and the universal limiting critical proportion. An existing published exact analysis of the same transition indicators gives only pairwise covariance phases and the second cumulant. Inspected full accessible texts by Kazemi–Jafari and Smeeton–Cox address distributions, conditional first/second moments, and testing, without the stated global fourth-cumulant phase. The older foundational scans and some runs monographs were not fully accessible; historical implicit coverage is possible.
+
+**Mathematical value — PASS.** The class imbalance affects the direction of the non-Gaussian fourth-cumulant correction under an exact nonparametric testing null. A natural one-parameter transition is completely classified, with explicit finite and asymptotic boundaries. This is a nontrivial structural conclusion requiring a global polynomial-sign argument, not merely a restatement of a probability table. It does not by itself imply a normal-tail error bound.
+
+**Closest literature and limitations.** Wald–Wolfowitz (1940), Mood (1940), Smeeton–Cox (2003), Kazemi–Jafari (arXiv:1410.8167, 2014), Barton–David (1957), and the published transition-covariance study. Full classical scans and all historical monographs were not exhaustively inspected. The underlying exact pmf is classical; no claim of independence or external validation is made.
+
+Self-review: passed. Independent audit: not yet performed.
