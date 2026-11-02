@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The claimed observations recover the two linear run counts from the diagonal coordinates and one remaining free count J; the exhaustive eight-type run decomposition in RESULT.md derives every attainable integer J (including the parity-hole family in type (2,2)). The induction for type (2,3) and quotient/remainder interval-fillings prove infinite-length completeness, the exact cardinalities sum to the two displayed branches, and n=3..7 are finite exhaustively enumerated. The independent standard-library verifier computes literal read multiplicities, checks all 1,663,740 three-one words for n=3..80, and agrees with the symbolic table and formula; bounded checks are not offered as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rigo–Stipulanti–Whiteland, Section II Lemma 2.1 and Sections IV–V (entire six-page full text inspected): general equivalence characterization and complexity for specific infinite words, with no fixed-weight-three count.",
+        "Golm–Nahvi–Gabrys–Milenkovic, Sections III–IV (arXiv full text): constructions bounding the first collision length, rather than spectrum count by Hamming composition.",
+        "Chrisnata et al., DOI 10.3934/amc.2021032: ungapped exact-length k-decks and trellis counts; adjacent coordinate pairs are not excluded."
+      ],
+      "reasoning": "A general test for two-deck equivalence is mathematically broader as a decision criterion, but does not explicitly determine the set of attainable profiles and its parity-dependent exact cardinality. The new theorem derives a nontrivial interval-filling partition for all lengths. The ungapped deck channel is distinct, so its numerical tables do not dominate this exact count.",
+      "searches": [
+        "\"Gapped Binomial Complexities in Sequences\" arxiv first submitted date",
+        "\"On the Number of Distinct k-Decks: Enumeration and Bounds\" fixed weight gapped",
+        "\"gapped binomial\" \"fixed weight\" \"number\" equivalence classes"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.12671",
+      "doi:10.1109/ISIT54713.2023.10206676",
+      "doi:10.3934/amc.2021032",
+      "previous exact weight-two nonadjacent-deck statement (opaque identifier b2899233-d245-479b-b6fa-f5c171f05789)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 paper finds the first two-gap two-deck collision at length six but does not count all profiles at fixed weight three.",
+        "The 2023 paper Lemma 2.1 characterizes equivalence globally and gives infinite-word factor-complexity results; it does not enumerate the full three-marker language.",
+        "Existing exact weight-two result: the number is linear with no leading parity split; its proof is specific to two marker positions."
+      ],
+      "reasoning": "A collision threshold is not a full image capacity; a characterization of equality is not an explicit image enumeration; and a weight-two formula does not imply the weight-three table. New interval and parity arguments are required. The possibility that another unindexed computation has already given the same numbers is a residual risk.",
+      "searches": [
+        "\"gapped k-deck\" \"G(2)\"",
+        "\"Gapped Binomial Complexities in Sequences\" 2023 2022 source",
+        "one-gap two-binomial equivalence four-run binary words exact multiplicity divisors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Golm et al., arXiv:2201.12671, Sections I–II: the 2-gapped two-deck records all nonadjacent ordered pair multiplicities and one-symbol counts.",
+        "Rigo et al., DOI 10.1109/ISIT54713.2023.10206676, Section II and Lemma 2.1: this is the (1,2)-binomial-equivalence relation."
+      ],
+      "reasoning": "The claimed image count has been compared in both natural formulations: nonadjacent ordered-pair decks and 1-gap 2-binomial classes. The equivalent terminology does not itself provide the fixed-three-one enumeration.",
+      "searches": [
+        "'gapped binomial' 'fixed weight' 'number' equivalence classes",
+        "'1-gap' '2-binomial' 'weight three' classes",
+        "gapped two-deck binary sparse word weight two and weight three reconstruction capacity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Literal-formula and descriptor searches returned no matching mathematical tables in the consulted public results; no statement of unique priority is deduced from search absence.",
+        "The published table in Chrisnata et al., DOI 10.3934/amc.2021032, reports ordinary k-deck counts rather than nonadjacent pair decks.",
+        "A prior exact nonadjacent-deck result for Hamming weight two gives \\(5n-15\\) for \\(n\\ge5\\), a separate composition layer, not the three-one image."
+      ],
+      "reasoning": "Neither the exact parity-branch values nor the complete eight-run-type support sets were found in the queried tables. Exact-table absence is weak evidence by itself; novelty also rests on the statement-level comparison to the inspected primary sources.",
+      "searches": [
+        "\"14n-66\" words subsequence",
+        "\"27n-130\" binomial string words",
+        "\"one-gap\" \"three ones\" binomial equivalence enumeration",
+        "\"1-gap\" \"2-binomial\" \"weight three\" classes"
+      ]
+    },
+    "rationale": "The closest source on the same one-gap two-binomial equivalence, Rigo–Stipulanti–Whiteland (2023), gives a general relation between binomial and adjacent-factor equivalence and studies complexity of factors of Thue–Morse/Sturmian words, not the eight run-type image sets for the full three-one weight layer or the odd/even exact formula. Golm et al. (2022) introduce the gapped two-deck and establish shortest-collision bounds, not its weight-resolved image capacity. An existing exact weight-two nonadjacent-deck result concerns another Hamming layer and does not derive the parity-dependent weight-three image. General equivalence criteria could indirectly generate the answer after additional enumeration; this is a priority qualification, not evidence of an existing closed form.",
+    "residual_risks": [
+      "An unindexed finite-alphabet table or a result phrased in terms of Parikh matrices might already enumerate the identical weight-three image.",
+      "The 2023 general equivalence lemma could enable an alternative derivation; its scope reduces claims of methodological novelty, though it does not state the exact enumeration.",
+      "External independent mathematical priority audit is not yet performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering exact weight-three image count; studies first collision lengths and upper bounds for general gapped decks",
+        "evidence": "Section II defines B^(k) and the two-gap deck; Section III reports G(2)=6 and exhibits a collision; Sections III–IV construct general bounds, not composition-conditioned profile tables.",
+        "identifier_or_url": "https://arxiv.org/abs/2201.12671",
+        "material_read": "Full arXiv HTML text, Sections I–IV, including definitions, constructions, collision table, conclusions",
+        "method": "Reviewed the directly accessible full-text HTML and its mathematical comparisons",
+        "title": "The Gapped k-Deck Problem",
+        "trigger": "Original gapped two-deck model and possible dominating sparse reconstruction bound"
+      },
+      {
+        "assessment": "Not covering the explicit weight-three eight-type enumeration or parity formula; general equivalence characterization is the most substantial adjacent prior",
+        "evidence": "Page 2 Lemma 2.1; pages 3–5 concern automata testing, Thue–Morse and Sturmian factor complexity; page 5 lists transformations of equivalent words.",
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/302524/1/isit2023.pdf",
+        "material_read": "All six pages, including Lemma 2.1, Sections III–VI and bibliography",
+        "method": "Full PDF text plus visually inspected all six page images",
+        "title": "Gapped Binomial Complexities in Sequences",
+        "trigger": "Exactly equivalent (1,2)-binomial relation and potentially stronger characterizations"
+      },
+      {
+        "assessment": "Different ungapped subsequence model; not evidence covering nonadjacent fixed-weight-three pair deck",
+        "evidence": "Its k-deck is the ordinary multiset of all subsequences length k, without the nonadjacency restriction.",
+        "identifier_or_url": "https://www.aimsciences.org/article/doi/10.3934/amc.2021032",
+        "material_read": "Published abstract, problem definition, k=3..6 finite table and method summary",
+        "method": "Inspected journal landing page and displayed table",
+        "title": "On the Number of Distinct k-Decks: Enumeration and Bounds",
+        "trigger": "Potential exact table of deck capacities"
+      },
+      {
+        "assessment": "Weight-two capacity, not weight-three classification or parity-dependent counting",
+        "evidence": "For separation two and weight two, the prior count is \\(5n-15\\) for \\(n\\ge5\\); the new claim assumes exactly three ones and gives different run-type states.",
+        "identifier_or_url": "b2899233-d245-479b-b6fa-f5c171f05789",
+        "material_read": "Recoverable theorem claim only, used for overlap comparison",
+        "method": "Statement-level implication test, without inspection or re-certification of historical proof",
+        "title": "Exact sparse weight-two gapped-deck count",
+        "trigger": "Same channel in the neighboring composition layer"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a57834d7-c0e3-4cd7-b586-597286068d78",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a classical nonadjacent pair subsequence read channel motivated by skipped molecular measurements, exact capacity of a fixed sparse composition is a natural code-design invariant. The three-marker layer is the first nontrivial layer with eight possible run signatures and a parity-dependent leading image-growth coefficient, beyond the previously determined weight-two case. The complete realizability table provides a constructive profile classification, while the \\(\\Theta(n)\\) observed outcomes versus \\(\\Theta(n^3)\\) source configurations quantify a two-thirds loss in the leading sparse location-information coefficient. This all-length result supplies exact channel benchmarks, not a random small-instance or a tautological substitution.",
+    "status": "PASS"
+  }
+}
