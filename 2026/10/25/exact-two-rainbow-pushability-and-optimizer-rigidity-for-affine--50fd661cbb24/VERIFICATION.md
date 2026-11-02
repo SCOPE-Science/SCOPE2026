@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the two-rainbow hexagon theorem
+# Independent mathematical audit
 
-The attached `verify.py` uses only Python's standard library and exact integer and rational arithmetic. It has been executed successfully against the same source code embedded here:
+## correctness
 
-```text
-python3 verify.py
-PASS: 36 exact kernel identities, sharp 2/3 example, uniqueness determinants
-```
+PASS
 
-The 36 pairwise checks verify \(6A_{jk}=3+x_jx_k+3y_jy_k-(-1)^{j+k}\). The script then verifies that the two uniform alternating triples are normalized, collectively centered, and attain exact success probability \(2/3\). Finally it verifies that each alternating triple's normalization-and-centroid coefficient matrix has nonzero determinant of absolute value \(6\).
+For affine-regular hexagon, the exact 36-entry identity 6A(j,k)=3+x_j*x_k+3*y_j*y_k-(-1)^(j+k) holds for cyclic edge adjacency. Under two independent centered-in-sum distributions, this gives 2/3-S=(X²+3Y²+1+ab)/6>=0. Equality forces a,b opposite signs with magnitude 1 and X=Y=0; the unique centered distribution on each alternating triple is uniform 1/3. Independently enumerated all 36 integer kernel identities. These establish the continuum optimization analytically, not by sampling laws.
 
-The infinite-domain conclusion for **all** real nonnegative vertex distributions is not an enumeration. It is derived in `RESULT.md` by linearly averaging the universal kernel identity, using the collective balance constraints, and proving \(1+ab\ge0\). The equality case follows from the strict nonnegativity of its terms and the unique centered probability law on each alternating triangle.
+## originality
 
-The review has compared the mathematical claim to the motivating open problem and its cube/facet-depth results, related indexed records, and accessible historical claims. Searches are fallible and cannot prove publication priority. No independent external audit or formal proof certification has been performed.
+PASS
+
+Best-of-knowledge qualified originality after comparing exact mathematical statements, potential stronger theorems and Resultary matches. General pushed KKMS/rainbow pushability bounds from Martínez-Sandoval and Olvera-Sampieri give at best 1 for six edges and two independent laws. An unindexed equivalent result remains possible.
+
+## value
+
+PASS
+
+The exact sharp two-rainbow pushability parameter for affine-regular hexagons and its rigid unique pair of optimizer laws is a natural first planar non-parallelotope test case of the newly defined probability of a common facet. It is a meaningful sharp bound improving the general hexagon bound of one.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
