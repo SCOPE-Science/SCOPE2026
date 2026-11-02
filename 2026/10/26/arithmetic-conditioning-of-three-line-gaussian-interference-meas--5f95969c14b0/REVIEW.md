@@ -1,12 +1,21 @@
-# Scientific review — three-line Gaussian interference conditioning
+# Independent mathematical audit
 
-## Correctness: PASS
-The normalized Gaussian integral yields the exact three-line interference data. Directly diagonalizing the sum of three real unit-row projectors gives the exact squared least singular value. The elementary sine-distance estimates and rational-approximation argument prove the full irrationality-exponent limsup, including badly approximable and Liouville endpoints. The included checker independently reproduces 3624 finite comparisons, including an integral check; infinite assertions are supported by the written argument.
+## correctness
 
-## Originality: PASS (best knowledge)
-Wellershoff (2022, arXiv:2202.03733) and Liehr (2024, DOI:10.1112/blms.13134) already establish the stronger qualitative three-line injectivity and thus subsume that corollary. They do not state the finite-dimensional squared singular value, sharp simultaneous-resonance comparison, or exact irrationality-exponent rate in the relevant inspected material. The sampled-versus-continuous stability results of Alaifari and collaborators and Fock uniqueness-set work of Grohs and collaborators concern distinct objects. Six published-finding corpus searches and comparison with accessible historical claims did not identify an equal or stronger quantitative theorem. No database search proves priority; equivalent classical phase-frame and Diophantine terminology remains a genuine risk.
+PASS
 
-## Mathematical value: PASS
-The optimal extracted-interference conditioning, not mere injectivity, is a natural invariant for design of three Gabor measurements. The precise worst-frequency exponent separates badly approximable, finite-type and Liouville placements and quantifies the arithmetic price of making qualitative uniqueness possible. The bounded result concerns only symmetric two-tone Gaussian signals and line-profile cross-moment extraction, not noise-normalized global Gabor phase recovery.
+PASS: Completed the Gaussian square and recovered the exponential profile coefficient identity, including identification of both carrier magnitude coefficients and nu (one-zero-amplitude cases are treated separately). Cross term at three observation times is a real 3×2 matrix with unit rows and angles 0,−πt,−πrho*t, hence Gram eigenvalues (3±|Σ exp(2i angles)|)/2. Zero requires t and rho*t integers; rho irrational forbids positive resonance. Using 9−|S|²=4[sin²πt+sin²πrho*t+sin²π(rho−1)t], elementary sine bounds yield (4/3)(||t||²+||rho*t||²)≤lambda≤2π²(||t||²+||rho*t||²). Nearest integers q≈t,p≈rho*t show the lower exponent via irrationality definition; convergent denominators t=q achieve the matching limsup, including infinite exponent for Liouville rho. Exact Gabor profile reduction and 3×2 Gram were independently checked; grid tests for four rho values corroborate uniform comparison but do not establish the asymptotic theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS: The previous irrational three-line uniqueness statement fully covers the qualitative injectivity corollary. The surviving new exact claim is the finite-dimensional extracted interference Gram spectrum and Diophantine conditioning exponent; those are not merely alternate wording of line-set uniqueness. A general stability theorem might imply weaker decay, but existing qualitative stronger-domain coverage does not dominate the quantitative two-tone extracted-moment law. No database has an evident role other than published papers; not a finite enumerative invariant. The search does not certify novelty. The numerical exponent and Liouville/badly-approximable dichotomy are additional statements, although their derivation is elementary once the exact Gram formula is found.
+
+## value
+
+PASS
+
+PASS: The exact conditioning of a naturally minimal three-line phase design is governed by the classical Diophantine irrationality exponent, distinguishing injectivity from arbitrarily poor high-frequency robustness. The natural invariant is the smallest singular value of the *extracted interference moment*, and the precise exponent is useful for choosing irrational sensor spacings; it is not misrepresented as raw spectrogram stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

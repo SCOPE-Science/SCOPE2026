@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof derives the normalized Gaussian STFT exactly, identifies the real three-line interference matrix and computes its two eigenvalues by summing rank-one unit-row projectors. The derived sine identity supplies both positive universal constants comparing the least eigenvalue with simultaneous distances to integers. For irrational line-spacing ratio, nearest-integer reduction to rational approximation yields both sides of the sharp limsup exponent. Rational ratios exhibit exact resonances, while badly approximable and Liouville ratios exhibit the stated opposite-rate cases.
+## correctness
 
-The attached `checker.py` independently evaluates matrix Gram eigenvalues against the formula, verifies the two-sided trigonometric inequality and rational resonances on deterministic grids, numerically checks finite continued-fraction cases, tests interference reconstruction, and compares the closed Gaussian STFT against direct numerical integration. The saved `checker-output.txt` records 3624 finite assertions passed.
+PASS
 
-Finite experiments are not an exhaustive proof of an infinite theorem. The numerical diagnostic is not a verification of mathematical novelty, and no independent audit has been performed. This invariant refers to post-extraction interference data rather than a raw spectrogram inverse norm.
+PASS: Completed the Gaussian square and recovered the exponential profile coefficient identity, including identification of both carrier magnitude coefficients and nu (one-zero-amplitude cases are treated separately). Cross term at three observation times is a real 3×2 matrix with unit rows and angles 0,−πt,−πrho*t, hence Gram eigenvalues (3±|Σ exp(2i angles)|)/2. Zero requires t and rho*t integers; rho irrational forbids positive resonance. Using 9−|S|²=4[sin²πt+sin²πrho*t+sin²π(rho−1)t], elementary sine bounds yield (4/3)(||t||²+||rho*t||²)≤lambda≤2π²(||t||²+||rho*t||²). Nearest integers q≈t,p≈rho*t show the lower exponent via irrationality definition; convergent denominators t=q achieve the matching limsup, including infinite exponent for Liouville rho. Exact Gabor profile reduction and 3×2 Gram were independently checked; grid tests for four rho values corroborate uniform comparison but do not establish the asymptotic theorem.
+
+## originality
+
+PASS
+
+PASS: The previous irrational three-line uniqueness statement fully covers the qualitative injectivity corollary. The surviving new exact claim is the finite-dimensional extracted interference Gram spectrum and Diophantine conditioning exponent; those are not merely alternate wording of line-set uniqueness. A general stability theorem might imply weaker decay, but existing qualitative stronger-domain coverage does not dominate the quantitative two-tone extracted-moment law. No database has an evident role other than published papers; not a finite enumerative invariant. The search does not certify novelty. The numerical exponent and Liouville/badly-approximable dichotomy are additional statements, although their derivation is elementary once the exact Gram formula is found.
+
+## value
+
+PASS
+
+PASS: The exact conditioning of a naturally minimal three-line phase design is governed by the classical Diophantine irrationality exponent, distinguishing injectivity from arbitrarily poor high-frequency robustness. The natural invariant is the smallest singular value of the *extracted interference moment*, and the precise exponent is useful for choosing irrational sensor spacings; it is not misrepresented as raw spectrogram stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
