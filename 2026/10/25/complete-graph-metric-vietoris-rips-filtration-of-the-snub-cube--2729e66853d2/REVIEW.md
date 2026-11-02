@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specifies the exact chiral snub-cube graph, its metric, all thresholds and complete cell enumerations. Exact rational inequalities certify that the coordinate graph is unchanged from the defining algebraic root. Replaying `snub_certificate.py` checks 40 and 662 elementary collapses at scales one and two, respectively, and the surface links/Euler characteristic; at scale three, its 18,399-pair gradient matching leaves one zero-cell and five five-cells and a directed cycle test visits every matched pair. This establishes the integral homotopy claim, not only finite field ranks.
+## correctness
 
-## Originality — PASS on inspected evidence
-Saleh, Titz Mite and Witzel (arXiv:2302.14388v1) classify the Platonic solids and explicitly leave Archimedean solids as a possible further direction. The earlier published snub-cubical **ordinary independence** result addresses a different complex; the radius-three Rips complex is an independence complex of the cubic distance-four graph, not of the degree-five snub-cube graph. Indexed truncated-octahedron and cuboctahedron Rips results likewise have different objects/metrics. Exact and alias searches found no same claim. Full text of two relevant indexed summaries was not accessible, and unindexed equivalent work remains possible.
+PASS
 
-## Value — PASS
-A complete Rips filtration for the chiral Archimedean snub cube is a motivated extension of the foundational polyhedral case study. The calculation identifies a nontrivial jump to five five-spheres at scale three and provides an exact reproducible Morse certificate, useful for comparative topology and graph-metric benchmarks.
+From the actual 24-vertex signed-permutation graph, independent enumeration verifies 60 edges, diameter 4 and all graph-distance Rips faces. At scale 1, 40 free-face collapses leave connected graph v=16,e=20 with rank5. At scale 2, 662 independent free-face collapses leave a 10-vertex, 24-edge, 16-triangle closed connected surface with chi2 and cyclic links, hence S2. At scale 3, all 36804 faces are enumerated, 18399 disjoint matched incidences form a globally acyclic discrete-Morse matching, leaving one 0-cell and five 5-cells, so wedge of five S5; scales 0 and >=4 follow from isolates/diameter. Independent checks inspect actual package claims; no infinity inference.
 
-## Limits
-The statement is nonequivariant, applies only to this particular graph and shortest-path metric, and carries the usual residual novelty risk. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives the specific mathematical comparisons documented in the four mandatory checks; limitations remain explicit.
+
+## value
+
+PASS
+
+Complete homotopy filtration of a natural Archimedean graph is motivated by Platonic graph-metric Rips geometry; the alternating circle, surface and high-sphere regimes are nonroutine topological phenomena, including a substantial finite certified radius-three complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

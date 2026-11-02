@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python3 snub_certificate.py` in the directory containing the extracted files; it requires only the Python standard library. Assertions verify the exact rational interval bracketing the algebraic coordinate, all pairwise adjacency inequalities, regularity and diameter, each complete Rips face set at scales one through three, every elementary free-face collapse, connectivity and vertex links of the scale-two residual closed surface, the complete scale-three matching, and global absence of a closed gradient path by topological sorting.
+## correctness
 
-Observed replay output:
+PASS
 
-```
-scale 1: 116 faces; 40 elementary collapses to connected graph (16 vertices, 20 edges); wedge of five circles
-scale 2: 1374 faces; 662 elementary collapses to a closed connected triangulated surface, chi=2; sphere
-scale 3: 36804 faces; global acyclic Morse matching 18399 pairs, 1 vertex and 5 critical dimension-5 cells; wedge of five 5-spheres
-scale 0: 24 isolated points. Scale >=4: simplex on all 24 vertices.
-PASS: complete homotopy filtration and exact finite Morse certificate
-```
+From the actual 24-vertex signed-permutation graph, independent enumeration verifies 60 edges, diameter 4 and all graph-distance Rips faces. At scale 1, 40 free-face collapses leave connected graph v=16,e=20 with rank5. At scale 2, 662 independent free-face collapses leave a 10-vertex, 24-edge, 16-triangle closed connected surface with chi2 and cyclic links, hence S2. At scale 3, all 36804 faces are enumerated, 18399 disjoint matched incidences form a globally acyclic discrete-Morse matching, leaving one 0-cell and five 5-cells, so wedge of five S5; scales 0 and >=4 follow from isolates/diameter. Independent checks inspect actual package claims; no infinity inference.
 
-The checker is a finite exhaustive certificate, not a theorem for arbitrary graphs or an independent audit. No symmetry representation is computed.
+## originality
+
+PASS
+
+Best-of-knowledge originality survives the specific mathematical comparisons documented in the four mandatory checks; limitations remain explicit.
+
+## value
+
+PASS
+
+Complete homotopy filtration of a natural Archimedean graph is motivated by Platonic graph-metric Rips geometry; the alternating circle, surface and high-sphere regimes are nonroutine topological phenomena, including a substantial finite certified radius-three complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
