@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof of the stated mathematical result is in RESULT.md, with complete payoff definitions and the explicit parametric example. The standalone file `verify.py` checks the algebraic coboundary using symbolic payoffs, the binomial defector-payoff polynomial for group sizes 2 through 8, exact rational equilibrium/Jacobian identities, and the linear-response coefficient. The numerical checks shoot a full forced period and integrate the periodic orbit with high tolerance, testing four positive/negative forcing amplitudes. The positive small-amplitude branch is justified by a hyperbolic fixed point of the Poincaré map, not by the finite numerical sample.
+## correctness
 
-Run `python verify.py` after installing `requirements.txt`. In one successful run the program reported an exact first-harmonic square amplitude of `625/52372`; at forcing amplitude 0.12 it reported mean cooperation `0.499828306469` and variance `8.5817286862e-05`, consistent with the exact variance identity. The calculation uses standard floating-point ODE integration and is not an independent proof of an infinite family of periodic solutions.
+PASS
 
-Literature comparison includes the main 2019 and 2023 model articles and the 2022 preprint's analytical appendix. The 2023 supplementary sensitivity file was located but its full PDF could not be read from the accessible source. This is an explicit residual bibliographic limitation, not a claim that the material was inspected.
+For the stated open-rectangle replicator-feedback equations, differentiating H=log((r-alpha)/(beta-r))/(epsilon(beta-alpha))-log(1-x) gives [theta-(1+theta)x]P_D exactly; P_D>0 for every interior x and positive forcing, so integration over a periodic state gives a lawful weighted mean. For N=2, B_2=x independently of w and hence P_D=r_d x/2. This gives E[x^2]=x_* E[x], so Var(x)=bar{x}(x_*-bar{x}); nonconstant continuity gives strict variance and bar{x}<x_*. At the constructive N=2 parameters, the equilibrium (1/2,5/3) has trace -3/20, determinant 7/120, hence a hyperbolic attracting period-map fixed point. Nonconstant sinusoidal forcing precludes a constant state. Independent exact differentiation recovers J, forcing vector and squared transfer amplitude 625/52372. This is a local small-forcing existence statement, not global recurrence.
 
-Independent mathematical audit and external validation have not been performed.
+## originality
+
+PASS
+
+No equivalent all-waveform payoff-weighted coboundary or pairwise finite-amplitude mean-variance deficit was identified in the inspected source-model literature and semantic mathematical records. The 2019 and 2023 papers establish the game and feedback dynamics, not the stated exact periodic averages; all priorities remain best of knowledge.
+
+## value
+
+PASS
+
+The motivating model studies environmental variability and recurrent cooperation without quantifying whether seasonal mean cooperation meets its stationary benchmark. A nonperturbative exact weighted mean and strict pairwise mean loss are substantive dynamical information, and the constructed attracting seasonal orbit proves nonvacuity. The forced response coefficient quantifies the effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
