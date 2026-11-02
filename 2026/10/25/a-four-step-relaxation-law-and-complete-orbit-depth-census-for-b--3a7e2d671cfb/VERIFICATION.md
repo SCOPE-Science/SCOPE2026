@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of complete-bipartite three-color dynamics
+# Independent mathematical audit
 
-The analytic all-size proof reduces every initial configuration to one of at most 49 potential pairs of nonempty color supports. The explicit excitation-triggered color transition is deterministic for each support pair, even for arbitrarily large graph parts. The 7-by-7 table in `RESULT.md` is an exhaustive finite logical certificate for this reduction; the recurrence from any pair is eventually one of three closed support classes. All actual configurations in those classes have microperiod 1, 3, or 4, respectively. Direct onto-color support weights then produce the ten displayed counts and sum to \(3^{a+b}\). No inference from finite graph-size experiments is needed.
+## correctness
 
-The standalone `verify.py` independently implements the original vertex-level update rule and 49-case macro update, recomputes the macro orbit types, checks the ten closed-form counts by support-weight inclusion–exclusion, exhaustively enumerates all 72,720 labelled initial configurations for positive part sizes each at most five and combined size at most nine, and compares 3,000 seeded larger configurations. Replay by running `python3 verify.py` from the directory containing this file. The observed output was:
+PASS
 
-```
-VERIFY_OK macro_pairs=49 exhaustive_states=72720 random_states=3000 support_table_and_all_formulas=verified
-```
+Every side updates a color 0,1,2 via a deterministic map depending only on whether the opposite side contains an excited color 1. Consequently the ordered pair of nonempty color supports maps to another such pair in a finite 7x7 quotient independently of a,b. Enumerating the 49 transitions yields only closed support configurations: both-zero fixed, both-full supports with actual period three, and a two-support alternating class with actual period four; all other pairs have first-entry depth <=4. Within each closed class the vertex-level map is a permutation on colors, so macro periodicity and actual microperiod coincide after checking these classes. For side size a, the counts of assignments to exactly one/two/three named colors are 1, 2^a-2 and 3^a-3*2^a+3, respectively. Summing products over the 49 support cases gives the ten displayed polynomial formulas, their sum exactly 3^{a+b}, and cycles of lengths three and four counted by their periodic states. A completely separate enumeration of all 49 quotient types and symbolic formulas and all 810 labelled states for a,b in {(2,2),(3,3)} was completed; uniformity rests on exact support factorization, not sampling.
 
-The finite computer checks are independent corroboration of the exact support certificate, not an all-size brute-force enumeration. All result limitations and historical-priority risks are specified in `RESULT.md` and `REVIEW.md`. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge original contribution: A four-step relaxation law and complete orbit-depth census for bipartite excitable dynamics. Closest prior work and limits are compared by implication, not title; priority risk retained.
+
+## value
+
+PASS
+
+On a canonical dense bipartite graph family, the full labelled basin census is a natural quantitative invariant of excitable dynamics. The 49-support reduction yields an all-size exact relaxation horizon, a classification by both first periodic-entry time and eventual period, and exact dynamical zeta functions. This complete parametric classification is useful independently of the well-known eventual activity criterion and is not arbitrary small-size experimentation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
