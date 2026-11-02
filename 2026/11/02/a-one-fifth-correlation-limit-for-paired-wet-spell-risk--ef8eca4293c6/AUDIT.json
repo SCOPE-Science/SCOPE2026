@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Exact killed-chain formula and Cayley-Hamilton recurrence are checked against exhaustive rational paths. The characteristic-polynomial square identity proves the unique rate optimum; Perron eigenvector bounds control all finite-horizon global minima uniformly; local analytic eigen-decomposition proves eventual strict convexity, the 4/(15n) optimizer shift and 9/8 survival prefactor. All quantifiers, endpoints and the limitations on finite-horizon uniqueness are explicit. Standalone verify.py passes 288 checks; infinite claims rest on proof, not tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schwager (1982/83) concerns arbitrary specified runs under time-inhomogeneous higher-order dependence; the Cornell source identifies a 22-page report but file retrieval was unsuccessful.",
+        "Oh, Park and Kim (2022) gives a 48-page general two-state run-waiting-time treatment, with explicit eigenvalue formula, not a displayed fixed-marginal optimal autocorrelation result in reviewed sections."
+      ],
+      "reasoning": "Broader stochastic-process families and closed run-probability formulas are not denied. The novelty proposition concerns optimization over a fixed-marginal parameter family, which is not directly asserted in inspected general references. The unread Schwager manuscript is a material risk because it may already contain sensitivity or extremal comparisons.",
+      "searches": [
+        "Run Probabilities in Sequences of Markov-Dependent Trials Schwager 1983",
+        "The probability of occurrences of runs of length k in n Markov Bernoulli trials Wang Liang 1993",
+        "Schwager run probabilities Markov dependent trials constrained parameter optimization stationary marginal",
+        "doi:10.1080/01621459.1983.10477947",
+        "hdl:1813/32867",
+        "arxiv:2210.08797"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2210.08797, Sections 2.2-2.3 and Theorem 2.14 (full PDF available and inspected in relevant portions)",
+      "Cornell BU-765-M repository metadata and 1983 journal abstract",
+      "Wang and Ji 1995 Cambridge abstract and bibliography",
+      "Weiss 1964 journal abstract and date",
+      "Chin 1977 publisher abstract and references",
+      "Published mathematical research records compared using the recorded claim and alias searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Specializing the 2022 general run formula to symmetric self-transition probability q produces the same characteristic polynomial z^2-qz-(1-q)^2.",
+        "The new exact comparison f_q(4/5)=-(q-3/5)^2 uniquely optimizes that positive root, and the prefactor derivative A’(3/5)=-3/5 yields the 4/(15n) correction.",
+        "Schwager (1983), abstract, broadly evaluates probabilities of prescribed runs; no optimizer statement appears in accessible material."
+      ],
+      "reasoning": "The general law determines individual probabilities and spectral roots, so this work cannot claim those as new. Deriving the all-horizon global optimizer limit and the positive 1/n approach entails additional comparison and perturbation arguments. No inspected stronger optimality theorem implies the final extremal claim outright; the inaccessible full texts leave explicit priority uncertainty.",
+      "searches": [
+        "longest run of wet days Markov transition persistence maximize occurrence fixed wet marginal spectral radius four fifths 3/5",
+        "stationary symmetric Markov chain two consecutive ones optimize finite horizon probability eigenvalue 0.8",
+        "weather sequence wet wet run horizon four 3/4 same state transition probability 9/16",
+        "arxiv:2210.08797 Theorem 2.14 eigenvalues R1,R2",
+        "doi:10.1080/01621459.1983.10477947"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Oh, Park and Kim (2022), Theorem 2.14, expresses waiting-time probabilities via eigenvalues R1,R2 of a two-state run recurrence; after equal-transition substitution the positive root equals lambda(q).",
+        "Wang and Ji (1995), published abstract, treats all four notions of Markovian success runs but does not state persistence optimality in the accessible material."
+      ],
+      "reasoning": "Exact waiting-time formulas are equivalent to the underlying avoidance probabilities and are explicitly acknowledged as prior. This claim is not a new formula for those probabilities; it adds the constrained global minimum of their Perron root, global finite-window optimizer behavior, and first asymptotic optimizer correction. A formula capable of yielding these by further analysis creates a nonzero priority risk, not proof that the optimization is already stated.",
+      "searches": [
+        "stationary symmetric two state Markov weather wet-dry runs maximizing probability at least one consecutive wet pair over finite horizon as function of persistence",
+        "optimizing success-run occurrence in binary Markov chains at fixed marginal wet day frequency by transition persistence; Perron root q=3/5",
+        "binary Markov runs avoiding 11 characteristic q squared plus 4(1-q) squared, minimization 3/5",
+        "arxiv:2210.08797 Sections 2.2-2.3, Theorem 2.14",
+        "doi:10.2307/3215125"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Weiss (1964), available journal abstract, mentions a probability/sequence-length nomograph.",
+        "Chin (1977), available complete abstract, emphasizes empirically selecting Markov order from precipitation records and warns that assuming first order universally is unjustified."
+      ],
+      "reasoning": "These sources give weather-run modeling and tables/nomographs, not a confirmed exact tabulation of the fixed-marginal global optimizers q4=3/4 or q-infinity=3/5. Full manuscript access was unavailable for Weiss and Chin, so absence cannot be concluded from abstracts alone.",
+      "searches": [
+        "Weiss 1964 sequences wet dry days Markov nomograph",
+        "Chin 1977 modeling daily precipitation Markov chain probability",
+        "doi:10.1175/1520-0493(1964)092<0169:SOWODD>2.3.CO;2",
+        "doi:10.1029/WR013i006p00949",
+        "rainfall Markov chain nonmonotonic risk of wet spells with fixed frequency and autocorrelation"
+      ]
+    },
+    "rationale": "The distinctive global fixed-marginal maximization, q=3/5 sharp long-window persistence and 4/(15n) correction were not present in the accessible inspected statements. The exact run-probability formula and the quadratic Perron roots themselves are known, and earlier general formulas are compared rather than mislabeled as novel. Priority is provisional given inaccessible plausible older texts.",
+    "residual_risks": [
+      "The inaccessible 1982 Schwager report might include constrained-transition extremal formulas rather than only the general run probabilities.",
+      "Wang--Liang (1993) and Wang--Ji (1995) full text could contain this or a stronger finite-horizon optimization not visible in accessible abstracts.",
+      "General exact run-distribution formulas already imply the analyzed spectral polynomial; historical credit for the added fixed-marginal extremization requires independent literature checking.",
+      "The fair stationary rainfall family is an idealization: higher-order wet/dry memory and rainfall amount heterogeneity may change the maximizing persistence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the probability recurrence and exact eigenvalues; the accessible read portions are about distributions, generating functions and statistical estimation, not transition-persistence extremal choices.",
+        "evidence": [
+          "arxiv:2210.08797, lines 818-985 and page 13",
+          "Theorem 2.14 positive root R1=(beta+sqrt(beta^2+4(1-alpha)(1-beta)))/2, specialized alpha=beta=q."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.08797",
+        "material_read": "48-page primary preprint; introduction, section 2.2 on two-state Markov run waiting times, Theorem 2.14 and section 2.2.3, plus structural overview and reference list; page 13 rendered for figure/formula inspection.",
+        "method": "Open full PDF, read relevant text, search optimization and stationary usage, inspect rendered mathematical page.",
+        "title": "Recurrence algorithms of waiting time for the success run of length k in relation to generalized Fibonacci sequences",
+        "trigger": "Same Markovian two-state run waiting time, recurrence and exact spectral roots"
+      },
+      {
+        "assessment": "Plausible strong prior for the exact distribution, with unresolved risk of the same fixed-marginal optimization. Not assessed as NOT_COVERING.",
+        "evidence": [
+          "Cornell report BU-765-M revised, dated August 1982, 22 pages",
+          "JASA 78 (1983), 168-175, abstract says arbitrary Markov-dependent run occurrences."
+        ],
+        "identifier_or_url": "https://ecommons.cornell.edu/entities/publication/3a0724b8-3636-4d68-acc2-a5c161dca1eb",
+        "material_read": "Cornell repository description, archival 1982 report metadata, and the 1983 journal abstract; the 22-page full document could not be retrieved.",
+        "method": "Followed Cornell report attachment and attempted direct PDF retrieval; inspected abstract and metadata.",
+        "title": "Run Probabilities in Sequences of Markov-Dependent Trials",
+        "trigger": "More general closed formulas for occurrence of arbitrary runs could subsume the proposed result"
+      },
+      {
+        "assessment": "Runs counts, probability limits, Poisson and compound-Poisson limits; no visible fixed-marginal persistence optimization. Full-text risk remains.",
+        "evidence": [
+          "J. Appl. Probab. 32 (1995), 727-735",
+          "Cambridge journal abstract and cited Wang--Liang 1993 predecessor."
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3215125",
+        "material_read": "Cambridge journal bibliographic record, complete abstract and references; full manuscript behind access controls.",
+        "method": "Web journal HTML inspection",
+        "title": "Limit theorems for the number of occurrences of consecutive k successes in n Markovian trials",
+        "trigger": "Markovian run-law predecessor and exact limiting events"
+      },
+      {
+        "assessment": "Establishes prior rainfall-model motivation, with sequence probability nomograph; no whole-document novelty conclusion.",
+        "evidence": [
+          "Monthly Weather Review 92 (1964), 169-176; DOI and print date",
+          "Abstract describes Markov fitting and run-probability nomograph."
+        ],
+        "identifier_or_url": "https://doi.org/10.1175/1520-0493(1964)092%3C0169:SOWODD%3E2.3.CO;2",
+        "material_read": "Journal abstract and issue metadata with 1964-04-01 print date; full article was inaccessible.",
+        "method": "Journal indexing and abstract review",
+        "title": "Sequences of Wet or Dry Days Described by a Markov Chain Probability Model",
+        "trigger": "Historical first-order wet/dry precipitation model underlying the application"
+      },
+      {
+        "assessment": "Warns first-order Markov order depends on season and geography; no evidence of exact persistence optimization from the accessible abstract.",
+        "evidence": [
+          "Water Resour. Res. 13 (1977), 949-956",
+          "Full abstract on model-order selection, winter higher-order behavior."
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/WR013i006p00949",
+        "material_read": "Publisher full abstract, detailed citation and references; full manuscript unavailable.",
+        "method": "Publisher indexing/abstract review",
+        "title": "Modeling Daily Precipitation Occurrence Process with Markov Chain",
+        "trigger": "The meaning and limitations of a first-order daily precipitation Markov assumption"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ef8eca42-93c6-418b-9d82-7516f844e650",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At fixed wet-day frequency, the probability of encountering a paired wet spell is neither monotonically increasing nor decreasing with lag-one persistence over a finite monitoring window. The mathematically natural optimization identifies exact four-day and large-window thresholds and an explicit 1/n finite-window correction, yielding a precise calibration benchmark for rainfall-occurrence models. The restricted natural wet-pair event is the genuine object of interest, not an arbitrary parameter slice or a claimed flood forecast.",
+    "status": "PASS"
+  }
+}
