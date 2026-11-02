@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** On the two admitted parameter curves, the Perron--Frobenius equations give the stated stationary densities, and full-atom affine transition images prove the Markov property for every finite cylinder, rather than for a tested horizon alone. Below the first curve, two positive transitions imply arbitrarily long alternation under the one-step Markov hypothesis, contradicted by an expanding affine two-step map with fixed point strictly beyond the invariant support. Between the two curves, the positive transition \(1\to1\) similarly contradicts the expanding right branch with fixed point beyond the support. Exact covariance follows from the nonunit transition eigenvalue. Rational finite-cylinder tests corroborate, but do not substitute for, those proofs.
+## correctness
 
-**Originality — PASS with literature risk.** The full source manuscript arXiv:2605.08641v1 proves existence, uniqueness (in the absolutely continuous class), support, and general density formulas, and its Example 4.1 already covers endpoint constant density. It does not give the exhaustive first-order Markov digit-process criterion or interior transition matrix. Searches also compared ordinary and intermediate \(\beta\)-shift results and semantically similar research records: these involve equal-slope maps, other measures, or unrelated symbolic models, and do not presently imply the full two-slope classification. Complete exclusion of unlocated earlier equivalences is not claimed; older relevant full texts remain a priority risk.
+PASS
 
-**Value — PASS.** One-step Markovity is a natural structural and statistical question about the digit coding of the new two-base expanding interval family. The theorem classifies the **entire admissible parameter region**, finding precisely two distinct codimension-one loci. It separates a genuinely dependent chain with exact alternating correlations from the Bernoulli endpoint and proves all other parameters are not one-step Markov. The positive-transition/forbidden-long-word obstruction is useful when seeking finite-memory symbolic reductions, not an arbitrary numerical evaluation or a restatement of invariant-density existence.
+For s>1 and 1<q<=s/(s-1), with c=1/s, r=q/s, M=1/(s-1), the source defines G(x)=qx on [0,c), sx-1 on [c,M] and uses the unique acip equivalent to Lebesgue on [0,r). Reconstructed positivity of 00,01,10, the 11 threshold q>1+1/s and the all-length Markov obstruction: below the interior locus, 10 repetition requires iterates of F(x)=q(sx-1) although its repelling fixed point z=q/(sq-1)>r, so long cylinders are empty; between the two loci, 11 repetition requires iterates of R(x)=sx-1 with fixed point M>r. On q=1+1/s the explicitly normalized density h0=s(s+1)/(s+2), h1=s^2/(s+2) obeys transfer equations; full-atom affine inverse cylinders give P=[[s/(s+1),1/(s+1)],[1,0]], pi=((s+1)/(s+2),1/(s+2)). Hence covariance pi1(1-pi1)*(-1/(s+1))^n and long-run variance s(s+1)/(s+2)^3. At q=s/(s-1), both full branches cover [0,M], normalized Lebesgue is invariant and cylinder ratios give iid digit 1 probability 1/s. Independently implemented exact-rational cylinder calculations for six parameter pairs on both loci through length seven; every word probability matched the claimed Markov product. Those finite tests only corroborate the infinite fixed-point/cylinder argument.
 
-**Limitations.** Claims are about this unique absolutely continuous stationary measure and its canonical digit partition. Higher-order memory, lazy maps, and singular invariant measures are outside scope. Relevant older full texts were not all accessible; priority therefore remains subject to independent literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete necessary-and-sufficient first-order Markov parameter classification of the acip digit process, not for existence of the invariant density or the endpoint uniform invariant measure already in Huang–Komornik–Zou. Inspected the actual primary preprint mathematical statements and compared implications; equality/Markov structure is additional. No equivalent theorem found in the Resultary semantic search, but absence of a hit is not evidence of novelty. Earlier double-base/intermediate-beta symbolic results not all read in full remain a priority risk.
+
+## value
+
+PASS
+
+PASS: Markovity of the canonical digit coding of a natural two-slope expanding map is a structurally motivated statistical property, not a renamed invariant density. The theorem classifies all admissible (s,q), isolates one dependent golden-mean chain with exact lag covariance and a Bernoulli endpoint, and proves the remainder genuinely non-Markov by forbidden long words. Exact full-domain dichotomy and correlation law can guide symbolic and statistical reductions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
