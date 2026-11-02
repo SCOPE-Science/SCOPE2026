@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:08:00.568819Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For independent Poisson input and batch gates, finite-array stationary first moments solve mu_i E Xi=lambda; stationary generator on Xi Xj gives a triangular moment recurrence, including the crucial j=i+1 exclusion of the incoming j-1 product term. Its substitution produces exactly H(0,j)=0, H(i,i)=1 and (mu_i+mu_j)H(i,j)=mu_i H(i-1,j)+mu_j H(i,j-1); first-event conditioning of two independent death chains yields the same recursion and strict 0<H<1. For fixed p and all positive rates, grouping exponential holding times into periods gives mean p a_bar and variance p b_bar, so the inverse renewal FCLT for jump counts yields relative-position diffusivity 2 b_bar/a_bar² over physical time a_bar L. The initial separation s sqrt L and lower-chain absorption time ->1 lead by reflection to erfc(s a_bar/(2 sqrt b_bar)). Independently recomputed H recursion at L=100,250,500 for rate patterns (1),(1,3),(1,2,4) and verified approach to stated periodic erfc coefficient. No Pearson/dynamic covariance claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2014 general inhomogeneous finite-load algorithm is broad for fixed sites but Section IX lists disjoint-interval correlations and nonhomogeneous-rate effects as open further work.",
+          "2012 large-system laws concern loads, traversal or busy periods, not this specified two-site periodic erfc profile."
+        ],
+        "reasoning": "The older finite-array algorithms cover a computational route for fixed i,j, but do not by themselves provide the explicit periodic d~sqrt(L) asymptotic formula; avoid treating mere parameter resemblance as coverage.",
+        "searches": [
+          "Reuveni-Hirschberg-Eliazar-Yechiali 2014 Sections V,VII,IX full",
+          "Reuveni-Eliazar-Yechiali 2012 limit laws",
+          "Yeger et al 2024 extended ASIP",
+          "Resultary: asymmetric simple inclusion process periodic inhomogeneous gate rates stationary covariance erfc diffusive anticorrelation"
+        ]
+      },
+      "checked_sources": [
+        "Commit-pinned RESULT.md and verify.py",
+        "Independent numerical full H recursion for three patterns and L=100,250,500",
+        "Reuveni et al arXiv:1309.2894 complete 24-page primary text",
+        "2012/2024 related ASIP citations and available abstracts",
+        "Resultary periodic-rate/ASIP semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section IX explicitly proposes correlations between occupations of disjoint intervals and effects of nonhomogeneous rates as subsequent work.",
+          "Prior homogeneous erfc(s/2) follows from new formula only when all mu equal; variability factor sqrt(b_bar)/a_bar>=1 is not determined by homogeneous case."
+        ],
+        "reasoning": "Existing results give necessary model and finite moment tools but no directly dominating periodic normalized covariance theorem. The new proof needs periodic renewal FCLT and independent-chain first-passage comparison.",
+        "searches": [
+          "arXiv:1309.2894 Section IX full text",
+          "Phys Rev E 89 042109 2014",
+          "Yeger et al 2024 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finite H corresponds to a hitting probability of two independent pure-death chains; the same normalized covariance can be expressed as joint occupation covariance/moment contrast of disjoint sites."
+        ],
+        "reasoning": "Compared incremental-load and empty-interval formulations, noting that generating-function algorithms may imply finite covariance but not automatically the periodic separated-site Brownian reflection limit.",
+        "searches": [
+          "Resultary: asymmetric simple inclusion process periodic inhomogeneous gate rates stationary covariance erfc diffusive anticorrelation",
+          "Reuveni et al arXiv:1309.2894 full text",
+          "Yeger et al ASIP tandem queues with consumption 2024"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For constant mu, a_bar/sqrt(b_bar)=1 and the homogeneous erfc(s/2) is known.",
+          "Heterogeneous patterns (1,3) and (1,2,4) give distinct explicit coefficients not in inspected existing homogeneous table."
+        ],
+        "reasoning": "Homogeneous numerical profile and isolated finite two-site moments are old special cases; the all-fixed-period positive-rate formula is a new asymptotic statement in the available literature.",
+        "searches": [
+          "Resultary: asymmetric simple inclusion process periodic inhomogeneous gate rates stationary covariance erfc diffusive anticorrelation",
+          "2014 homogeneous interval erfc(s/2) statement",
+          "2024 ASIP two-site moments"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge with explicit prior coverage. Reuveni-Hirschberg-Eliazar-Yechiali 2014 develop exact consecutive interval laws and homogeneous error-function scaling, with an inhomogeneous finite-array algorithm; the full primary conclusion explicitly identifies occupation correlations of disjoint intervals and nonhomogeneous rate effects as further work. Finite covariance recurrences may already be indirectly derivable; novelty is restricted to precise two-death-chain interpretation and periodic spatial √L normalized covariance limit with b_bar/a_bar² heterogeneity factor. Yeger et al 2024 studies extended ASIP moments and special cases and might imply part of finite identities; full-text comparison remained bounded.",
+      "residual_risks": [
+        "The full 2024 extended-ASIP paper was not read and could contain stronger finite-site covariance results; novelty chiefly rests on the periodic d~sqrt(L) limit.",
+        "Finite inhomogeneous algorithms already permit indirect computation of fixed-site covariances and this portion is not independently novel.",
+        "No claim holds for arbitrary random/nonperiodic environments, vanishing rates, nonexponential clocks, or Pearson coefficients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides homogeneous erfc profile, finite inhomogeneous incremental loads, but does not assert this periodic two-site normalized covariance limit; mentions disjoint correlations and nonhomogeneity as open directions.",
+          "evidence": "Section IX pp.15-16 explicitly calls out correlations of disjoint intervals and nonhomogeneous hopping rates.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.2894",
+          "material_read": "Read full accessible 24-page primary preprint PDF including model, interval moments, inhomogeneous algorithm Sections VII-VIII and the full future-work Section IX; inspected PDF pages.",
+          "method": "Primary full text, mathematical statements and future-work comparison",
+          "title": "Occupation probabilities and fluctuations in the asymmetric simple inclusion process",
+          "trigger": "Closest same-process primary ASIP spatial statistics publication"
+        },
+        {
+          "assessment": "Models one-time large-system load statistics rather than periodic-separated two-site covariance.",
+          "evidence": "Phys Rev E 86 (2012) 061133; no cited periodic covariance theorem.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.86.061133",
+          "material_read": "Checked primary citation/abstract and statement description; full primary text not inspected this run.",
+          "method": "Bibliographic and bounded result comparison",
+          "title": "Limit Laws for the Asymmetric Inclusion Process",
+          "trigger": "Prior large-system limit laws for same ASIP"
+        },
+        {
+          "assessment": "Studies extended model and special moments/correlations; full text might contain a reduction to periodic normalized covariance and remains explicit priority risk.",
+          "evidence": "Performance Evaluation 163 (2024) 102380.",
+          "identifier_or_url": "https://doi.org/10.1016/j.peva.2023.102380",
+          "material_read": "Checked accessible bibliographic and abstract-level description; complete primary text not inspected.",
+          "method": "Bounded prior-summary comparison",
+          "title": "ASIP tandem queues with consumption",
+          "trigger": "Modern moment/correlation treatment of ASIP variants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The normalized covariance across separated sites is a natural stationary correlation invariant of a standard transport/coalescence process. The exact periodic diffusivity factor quantifies a nontrivial broadening that cannot be read off from the homogeneous formula by merely substituting mean gate rate. This resolves a motivated universality/inhomogeneity question and gives a sharp asymptotic boundary layer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Positive fixed-rate period p, fixed injection, s in (0,infinity), finite stationary array containing both sites. Asymptotic is normalized by product of means, not Pearson correlation; no dynamic correlation formula.",
+    "The full 2024 extended-ASIP paper was not read and could contain stronger finite-site covariance results; novelty chiefly rests on the periodic d~sqrt(L) limit.",
+    "Finite inhomogeneous algorithms already permit indirect computation of fixed-site covariances and this portion is not independently novel.",
+    "No claim holds for arbitrary random/nonperiodic environments, vanishing rates, nonexponential clocks, or Pearson coefficients."
+  ],
+  "schema_version": 1
+}

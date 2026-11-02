@@ -1,15 +1,21 @@
-# Scientific assessment: periodic-rate ASIP anticorrelations
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary generator gives exact first and mixed second moments with a triangular recurrence, and an explicit quadratic Foster bound supplies the required finite moments. The normalized second-moment deficiency is a pure-death collision probability, making its strict sign rigorous. For periodic rates, the time-change functional central limit theorem for independent periodic exponential waits and the Brownian reflection principle give the error-function profile with coefficient \(\bar a/(2\sqrt{\bar b})\). Critical conditions: positive finite rates, fixed period, \(d_L/\sqrt L\to s\in(0,\infty)\), with the observation sites inside a finite array. Reproduced exact rational generator and ballot calculations (224 checks) and periodic numerical comparisons (12 checks), using `verify.py`. Finite checks alone are not proof of convergence.
+## correctness
 
-## Originality — PASS relative to inspected literature
-The 2013 ASIP work of Reuveni et al. provides the **homogeneous** empty-interval error-function asymptotic, finite-array incremental-load algorithms, and explicitly identifies both disjoint-interval correlations and nonhomogeneous rate averaging as areas for further work. The 2012 limit-law paper covers other observables. Yeger et al. (2024) analyze an extended ASIP and calculate local correlations, including original-model two-site specializations. The present claim concerns the exact arbitrary-rate **separated-site** collision kernel together with the fixed-period **large-index normalized covariance** profile and explicit inverse-rate heterogeneity factor; it does not assert the known homogeneous error-function function or fixed-site moment computability as new. Relevant published-finding corpus semantic searches did not yield a covering record. Risks remain from potential general inhomogeneous queueing-theory covariance results and broader coalescing-chain dualities not located; lack of a search hit alone is not evidence of priority.
+PASS
 
-## Mathematical value — PASS
-An open-boundary aggregation system has nontrivial dependent site loads. The result answers the natural question of how site-to-site anticorrelations persist when periodic rates change: the correlation length is of order \(\sqrt L\), with a **quantitative** broadened profile governed by \(\bar b/\bar a^2\), not a generic claim that heterogeneity averages away. The strict all-rate sign supplies a structural explanation and the collision representation links the observable to a classical hitting problem. This identifies macroscopic organization, beyond mere fixed-size algorithmic recomputation.
+PASS. For independent Poisson input and batch gates, finite-array stationary first moments solve mu_i E Xi=lambda; stationary generator on Xi Xj gives a triangular moment recurrence, including the crucial j=i+1 exclusion of the incoming j-1 product term. Its substitution produces exactly H(0,j)=0, H(i,i)=1 and (mu_i+mu_j)H(i,j)=mu_i H(i-1,j)+mu_j H(i,j-1); first-event conditioning of two independent death chains yields the same recursion and strict 0<H<1. For fixed p and all positive rates, grouping exponential holding times into periods gives mean p a_bar and variance p b_bar, so the inverse renewal FCLT for jump counts yields relative-position diffusivity 2 b_bar/a_bar² over physical time a_bar L. The initial separation s sqrt L and lower-chain absorption time ->1 lead by reflection to erfc(s a_bar/(2 sqrt b_bar)). Independently recomputed H recursion at L=100,250,500 for rate patterns (1),(1,3),(1,2,4) and verified approach to stated periodic erfc coefficient. No Pearson/dynamic covariance claim.
 
-## Closest sources and limitations
-Reuveni et al. (arXiv:1309.2894, 2013), Sections V/VII/IX; Reuveni et al. (*Physical Review E* 86, 061133, 2012); Yeger et al. (*Performance Evaluation* 163, 102380, 2024). The theorem does not address random unbounded environments, vanishing gate rates, nonexponential gates, Pearson coefficients, or the joint stationary distribution. Any unlocated theorem already giving the same periodic scaled two-point covariance would supersede the originality assessment. The review is not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge with explicit prior coverage. Reuveni-Hirschberg-Eliazar-Yechiali 2014 develop exact consecutive interval laws and homogeneous error-function scaling, with an inhomogeneous finite-array algorithm; the full primary conclusion explicitly identifies occupation correlations of disjoint intervals and nonhomogeneous rate effects as further work. Finite covariance recurrences may already be indirectly derivable; novelty is restricted to precise two-death-chain interpretation and periodic spatial √L normalized covariance limit with b_bar/a_bar² heterogeneity factor. Yeger et al 2024 studies extended ASIP moments and special cases and might imply part of finite identities; full-text comparison remained bounded.
+
+## value
+
+PASS
+
+PASS. The normalized covariance across separated sites is a natural stationary correlation invariant of a standard transport/coalescence process. The exact periodic diffusivity factor quantifies a nontrivial broadening that cannot be read off from the homogeneous formula by merely substituting mean gate rate. This resolves a motivated universality/inhomogeneity question and gives a sharp asymptotic boundary layer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
