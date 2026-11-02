@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The homogeneous quartic is smooth because its derivative with respect to \(x\) is \(-z^3\), and the unique point at infinity has a nonzero \(z\)-derivative. Splitting all lines by whether they admit the representation \(x=ay+bz\) proves completeness. Exact coefficient comparison yields the two monic, separable polynomial equations and universal factorization. The rank-54 contact-root algebra follows from \(r^2=d\); uniqueness of tangents proves point distinctness across lines. The self-contained exact polynomial verifier has been run from its actual package source and returned `VERIFY_OK`.
+## correctness
 
-**Originality — PASS (best-knowledge, with residual risk).** Full primary-text inspections distinguish the published general count of 28 odd-characteristic bitangents, the already-known exceptional all-hyperflex case, and Artin–Schreier moduli normal forms from the newly explicit four-parameter, finite-étale degree-27 line tower and uniformly branched contact cover. Published-result semantic searches and accessible own historical records did not identify a theorem implying that full relative structure. Exact equivalent statements in older specialist literature remain a documented risk.
+PASS
 
-**Value — PASS.** This resolves the bitangent/contact-incidence problem uniformly on an entire natural genus-three Artin–Schreier moduli stratum. The finite étale tower and its *single* reduced hyperflex boundary give geometric control of degeneration and rationality problems, not merely one additional finite-field census or a specialization of an exceptional member. The theorem also locates precisely the support jump \(55\to28\) and retains the complete scheme-theoretic double-root information.
+Fx=-z^3 eliminates affine singularities, and Fz at the unique infinity point is nonzero. Any line y=t z meets infinity with multiplicity one; only x=a y+b z can be another bitangent. Squaring Q=y^2+u yz+v z^2 in F3 and comparing all coefficients yields A(a)=a^9-d a^3+a+e+dc-c^3 and B(a,b)=b^3-b-f+[(a^3-c)^2-d]^2. Independent sparse-polynomial F3 verification reproduced the unconditional identity, while A_a=1, B_b=-1 give etale covers of degrees 9 and 3. Q=(y-u z)^2-dz^2 supplies contact roots r^2=d; unique tangent line at a smooth point prevents double-counting between bitangents. For d!=0 54 finite points plus infinity; for d=0 each of 28 lines is hyperflex. No assertion on Frobenius orbit counts.
 
-**Closest literature and limitations.** Li (2009) gives exceptional examples; Oyono–Ritzenthaler (2010) provides the general bitangent count and tangent correspondence; Duque-Rosero et al. (2024) classify the underlying Artin–Schreier strata without the line/contact-cover formulas. The result addresses only the one-pole order-four stratum, does not compute Frobenius cycle types in general, and is vulnerable to undiscovered equivalent classical formulae.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical 28-bitangent theorem for odd-characteristic smooth quartics and special all-hyperflex examples are prior. Duque-Rosero et al. cover Artin–Schreier genus-three stratification and normal forms, not the located relative degree-27 etale tower and contact cover. Oyono–Ritzenthaler studies quartic intersection-point rationality and bitangent context without the evaluated all-parameter contact divisor in inspected material. A specialized classical theta-characteristic formula could be equivalent; risk retained.
+
+## value
+
+PASS
+
+The universal finite-etale bitangent parameterization and a simple exact coefficient-space hyperflex wall give a family-wide geometric incidence invariant, including distinct contact-count jump, beyond repeating the classical total 28.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
