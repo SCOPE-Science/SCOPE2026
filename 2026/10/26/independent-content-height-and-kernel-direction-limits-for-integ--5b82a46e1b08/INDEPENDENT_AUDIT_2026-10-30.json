@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:50:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A nonzero square-zero 2x2 matrix has rank one with image=kernel, hence M=t[[-uv,u^2],[-v^2,uv]] for exactly one primitive projective line and nonzero integer t. Coprimality identifies gcd of all entries as |t| and norm as |t|max(u,|v|)^2. The primitive sector count L_I(x)=(12/pi^2)mu(I)x^2+O_I(x log(2x)) follows by polygonal lattice counting and Mobius inversion. Summing 2*L_I(sqrt(qT/t)) over positive t<=T^alpha yields alpha*q*mu(I) times (24/pi^2)Tlog T with the claimed errors; total count is 8*sum phi(m)floor(T/m^2). The alpha=1 probability follows from squeezing alpha upward, not a uniform endpoint bound; infinite direction has O(T) mass. The supplied verifier was read rather than trusted as a proof. Independently enumerated square-zero matrices and content distributions at T=2,5,10,20 (16 comparisons; 248 matrices at T=20).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 work presents uniform upper bounds for characteristic-polynomial counts",
+          "Martin–Wong address specified integer eigenvalues and repeated-root bounds"
+        ],
+        "reasoning": "General upper bounds and related eigenvalue enumeration are not strong enough as stated to imply the explicit normalized joint limiting measure. The possibility of a more general geometric equidistribution theorem has not been ruled out.",
+        "searches": [
+          "Browning Gundlach Sawin Counting matrices with given characteristic polynomial arXiv:2610.18226",
+          "Martin Wong The number of 2x2 integer matrices having a prescribed integer eigenvalue 2008"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.18226",
+        "Martin–Wong 2008 Algebra Number Theory 2",
+        "OEIS A120486",
+        "OEIS A211422",
+        "Resultary semantic search 2026-10-30"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The current proof requires the primitive directional lattice area and truncated content summation, not merely the scalar count"
+        ],
+        "reasoning": "Prior univariate counts do not imply the claimed product law by algebraic specialization. A separately established all-sector equidistribution theorem could cover it, and remains an explicit risk.",
+        "searches": [
+          "arXiv:2610.18226 theorem statements",
+          "OEIS A120486 asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS gives the exact univariate count 8 sum phi(m)floor(T/m^2) but not a joint law",
+          "Resultary closest hits concern finite-field nilpotent factorization multiplicities, not integral asymptotics"
+        ],
+        "reasoning": "A counting identity for #N_T does not recover the conditional content and projective direction measures; no equivalent exact joint limit found in searched materials.",
+        "searches": [
+          "Resultary semantic search: count nilpotent 2x2 integral matrices square zero primitive kernel direction content projective slope equidistribution independent uniform logarithmic height",
+          "OEIS A120486; OEIS A211422"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact T-dependent total counting sequence is prior art"
+        ],
+        "reasoning": "The only exact table coverage found is the marginal total count; neither a finite total sequence nor its leading asymptotic provides three-variable sector-cutoff distributions.",
+        "searches": [
+          "OEIS A120486",
+          "OEIS A211422",
+          "Resultary semantic search cited above"
+        ]
+      },
+      "rationale": "Qualified PASS for the three-way asymptotic product law rather than the known scalar count. The exact totient count and leading T log T already occur in OEIS A120486/A211422; Browning–Gundlach–Sawin give a general uniform upper count for prescribed characteristic polynomial; Martin–Wong count matrices with a given eigenvalue. None of those inspected assertions gives the explicit joint content-height-slope law. Stronger general cone equidistribution may imply it indirectly; this is a substantial residual priority risk.",
+      "residual_risks": [
+        "Possible implicit corollary of general primitive-cone equidistribution; no universal negative-priority claim",
+        "The O(T) error in total count is not a uniform alpha=1 sector error",
+        "Finite enumerations do not prove weak convergence"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its general characteristic-polynomial count bound does not state the mixed normalized content/kernel-sector limit",
+          "evidence": "Main count upper-bound statement, no sector-disintegration variables",
+          "identifier_or_url": "https://arxiv.org/abs/2610.18226",
+          "material_read": "Accessible full-text theorem statements and main counting hypotheses; target f(X)=X^2 comparison",
+          "method": "lawful open-access HTML/text read",
+          "title": "Counting matrices with given characteristic polynomial",
+          "trigger": "same 2x2 nilpotent characteristic polynomial"
+        },
+        {
+          "assessment": "Eigenvalue-count scope does not state this three-factor law",
+          "evidence": "Lemma 7 repeated eigenvalues; earlier counting framing",
+          "identifier_or_url": "https://msp.org/ant/2008/2-8/ant-v2-n8-p05-s.pdf",
+          "material_read": "Related repeated-eigenvalue bound and scope, with finite comparison only",
+          "method": "source-linked paper; targeted result inspection",
+          "title": "The number of 2x2 integer matrices having a prescribed integer eigenvalue",
+          "trigger": "matrix counting with repeated roots"
+        },
+        {
+          "assessment": "Covers total count but not joint distribution",
+          "evidence": "Exact count and leading coefficient",
+          "identifier_or_url": "https://oeis.org/A120486",
+          "material_read": "Exact totient sum and T log T asymptotic",
+          "method": "database entries compared",
+          "title": "OEIS A120486 and A211422",
+          "trigger": "identical exact count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rank-one nilpotent integer cone is a natural arithmetic family. Content, matrix height and kernel direction are genuinely different geometric/arithmetic observables; a total count does not determine their joint dependence. The explicit product limit and heavy-tailed direction law enable mixed restriction counts in a singular integral matrix stratum, beyond cosmetic reformulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniformly sampled nonzero integral 2x2 square-zero matrices of sup-norm <=T, log(content)/log T, normalized sup-norm and projective kernel slope converge jointly to independent Uniform[0,1], Uniform[0,1], and density (1/4)min(1,|z|^-2) respectively, with the specified sector cutoff error for alpha<1.",
+  "limitations": [
+    "Possible implicit corollary of general primitive-cone equidistribution; no universal negative-priority claim",
+    "The O(T) error in total count is not a uniform alpha=1 sector error",
+    "Finite enumerations do not prove weak convergence"
+  ],
+  "schema_version": 1
+}

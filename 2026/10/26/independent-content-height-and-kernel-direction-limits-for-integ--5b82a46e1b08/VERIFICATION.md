@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite checks and analytic limits
 
-Run `python3 verify.py` using the Python standard library. The script lists each finite cutoff and checks the exact integer identities, returning:
+# Independent mathematical audit
 
-`VERIFY_OK direct_and_parameter_sets=19 max_T=50 sector_content_checks=175 alternate_content_counts=299 all_exact=PASS`
+## correctness
 
-The checker reconstructs all nonzero \(2\times2\) square-zero integral matrices by direct enumeration in symmetric entry boxes for nineteen cutoffs up to \(50\), compares this with a distinct primitive-projective parametrization, and checks the totient count. For thirteen cutoffs it tests 175 content, radial-height, and central-slope-window counts by two independent arithmetic routes; for all cutoffs from \(1\) through \(299\), it checks agreement of the sum over primitive-line heights with a separate sum over scalar contents.
+PASS
 
-The limit theorem has infinitely many parameter values and is not established by this finite verifier. Its proof instead requires uniqueness of primitive decomposition, the elementary planar lattice discrepancy estimate, Möbius inversion, the harmonic sum, and an endpoint tightness argument. No external proof assistant, independent review, or infinite computation is claimed.
+A nonzero square-zero 2x2 matrix has rank one with image=kernel, hence M=t[[-uv,u^2],[-v^2,uv]] for exactly one primitive projective line and nonzero integer t. Coprimality identifies gcd of all entries as |t| and norm as |t|max(u,|v|)^2. The primitive sector count L_I(x)=(12/pi^2)mu(I)x^2+O_I(x log(2x)) follows by polygonal lattice counting and Mobius inversion. Summing 2*L_I(sqrt(qT/t)) over positive t<=T^alpha yields alpha*q*mu(I) times (24/pi^2)Tlog T with the claimed errors; total count is 8*sum phi(m)floor(T/m^2). The alpha=1 probability follows from squeezing alpha upward, not a uniform endpoint bound; infinite direction has O(T) mass. The supplied verifier was read rather than trusted as a proof. Independently enumerated square-zero matrices and content distributions at T=2,5,10,20 (16 comparisons; 248 matrices at T=20).
+
+## originality
+
+PASS
+
+Qualified PASS for the three-way asymptotic product law rather than the known scalar count. The exact totient count and leading T log T already occur in OEIS A120486/A211422; Browning–Gundlach–Sawin give a general uniform upper count for prescribed characteristic polynomial; Martin–Wong count matrices with a given eigenvalue. None of those inspected assertions gives the explicit joint content-height-slope law. Stronger general cone equidistribution may imply it indirectly; this is a substantial residual priority risk.
+
+## value
+
+PASS
+
+The rank-one nilpotent integer cone is a natural arithmetic family. Content, matrix height and kernel direction are genuinely different geometric/arithmetic observables; a total count does not determine their joint dependence. The explicit product limit and heavy-tailed direction law enable mixed restriction counts in a singular integral matrix stratum, beyond cosmetic reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
