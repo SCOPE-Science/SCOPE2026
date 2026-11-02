@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:09:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/exact-preperiod-census-for-the-dyadic-quadratic-dickson-map--41a8c822a67b/RESULT.md Git blob 273e12f0f5931798a263c3c06828873f5fe1acc8",
+        "2026/10/25/exact-preperiod-census-for-the-dyadic-quadratic-dickson-map--41a8c822a67b/verify.py Git blob c0308df874fa234fcd37e19b7d5d5339825558a2",
+        "Private independent-check script and actual JSON output in accompanying delivered audit bundle"
+      ],
+      "rationale": "Parity is preserved by x²−2. For odd x the first iterate y satisfies y≡−1 (mod 8), and v2(f(y)+1)=v2(y+1)+1, producing exact pointwise time 1+max(0,k−v2(x²−1)) except x fixed. For x≡2 mod4, v2(f(x)−2)=v2(x²−4), after which each iterate increases distance-to-2 valuation by two; for x≡0 mod4, after two iterations the valuation is 2+2v2(x). These yield the two even pointwise branches. Four odd roots of unity modulo 2^s yield O0=1,O1=3,O_t=2^t for 2≤t≤k−2. The even valuation-window A_k and x≡0 mod4 count B_k exhaust and partition all even residues. Boundary moduli k=1,2 and special k=3,4 are separated explicitly; the infinity convention is harmless under modulus clipping. Fresh direct functional-graph iteration on every residue mod 2^k for k=1..12 (8,190 residues) agreed with the pointwise and even histogram formulas. Universal proof uses valuation identities, not a finite census.",
+      "residual_risks": [
+        "Finite checks k≤12 are not an all-k proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lu–Dai–Li explicitly state that degree odd is necessary for dyadic Chebyshev permutation, and derive cycle periods for invertible maps.",
+          "The 2015 article describes periods for Chebyshev permutation sequences; it does not claim transients of monic degree two."
+        ],
+        "reasoning": "General Chebyshev permutation graph results do not imply the entry depths of x²−2, since the studied map is noninvertible and fixes opposite parities.",
+        "searches": [
+          "Lu–Dai–Li arXiv:2605.21819 full text Introduction and dyadic graph sections",
+          "Yoshioka–Dainobu 2015 DOI:10.1587/nolta.6.443"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.21819",
+        "https://doi.org/10.1587/nolta.6.443",
+        "Resultary published mathematical record search: Resultary: x squared minus 2 modulo powers of 2 functional graph preperiod distribution valuations Chebyshev Dickson"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior periodic structure statements for permutation polynomials count periodic points; the claim counts strictly preperiodic residues and their exact least arrival times.",
+          "The normalization D_2=2T_2(x/2) cannot be reduced by division modulo 2^k."
+        ],
+        "reasoning": "The proposed formula is not a special case of an odd-degree bijective cycle census; differing ring normalization invalidates direct transfer.",
+        "searches": [
+          "Lu–Dai–Li arXiv:2605.21819 full text",
+          "Yoshioka–Dainobu DOI:10.1587/nolta.6.443"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The monic Dickson D_2(x,1)=x²−2 relates formally to Chebyshev T_2 by D_2(x,1)=2T_2(x/2), but the scaling by 2 is noninvertible over Z/2^k.",
+          "Lu–Dai–Li analyze odd-degree Chebyshev permutation polynomials over these rings, whose functional graphs consist of cycles rather than the asserted attracting trees."
+        ],
+        "reasoning": "No invertible affine conjugacy transfers the complete nonpermutation transient census from permutation Chebyshev results.",
+        "searches": [
+          "Resultary semantic query: x squared minus 2 modulo powers of 2 functional graph preperiod distribution valuations Chebyshev Dickson",
+          "arXiv:2605.21819",
+          "arXiv:2508.08621"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary 2026/10/11/SCOPE-parity-sharp-fourth-moments-of-the-dyadic-quadratic-graph--417e488b0292 is a Fourier fourth-moment problem, not iteration of x²−2.",
+          "No identical valuation-and-histogram table was found by targeted query."
+        ],
+        "reasoning": "An unsuccessful database query is only bounded evidence; unindexed equivalent arithmetic-dynamical calculations remain possible.",
+        "searches": [
+          "Resultary: dyadic quadratic Dickson graph preperiod tails histogram",
+          "Resultary: dyadic quadratic fourth moments",
+          "OEIS quadratic Chebyshev x²−2 mod 2^k fixed point depths"
+        ]
+      },
+      "rationale": "A fresh closest-prior comparison finds no accessible theorem or database record implying the final all-parameter conclusion. The exact overlap/special-case antecedents are credited and remaining literature-access or terminology risks are recorded; PASS is a best-of-knowledge judgment, not external historical certification. Exact preperiod census for the dyadic quadratic Dickson map: For every k≥1, f(x)=x²−2 mod 2^k has only the odd fixed point −1 and even fixed point 2 as recurrent states; exact pointwise first-arrival valuations and separate odd/even depth histograms are given for every k, and maximum transient depth is k−2 for k≥4.",
+      "residual_risks": [
+        "An exact equivalent x²−2 preperiod result could exist in arithmetic dynamics under other terminology.",
+        "Full older 2015 text not re-inspected; priority qualified.",
+        "Finite checks k≤12 are not an all-k proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Degree odd/permutation condition excludes the monic degree-two x²−2 case; no direct coverage.",
+          "evidence": "Article states dyadic Chebyshev polynomial is a permutation if and only if degree n odd.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.21819",
+          "material_read": "Accessible complete arXiv text, in particular Introduction, permutation-degree criterion and §§III–IV period and graph sections.",
+          "method": "Read full arXiv HTML and compared degree hypotheses, cycle and preperiod quantifiers.",
+          "title": "Graph Structure of Chebyshev Permutation Polynomials over Binary and Ternary Adic Rings",
+          "trigger": "same dyadic rings and functional-graph terminology"
+        },
+        {
+          "assessment": "Plausible older alias source; residual risk because full original comparison was not completed this run.",
+          "evidence": "The article’s abstract explicitly frames its iteration as permutation polynomials and their period structures.",
+          "identifier_or_url": "https://doi.org/10.1587/nolta.6.443",
+          "material_read": "Abstract and article metadata plus cited permutation-polynomial scope; full 10-page content not re-established here.",
+          "method": "Inspected primary publisher abstract and applicability conditions.",
+          "title": "On some properties of Chebyshev polynomial sequences modulo 2^k",
+          "trigger": "older same-modulus Chebyshev dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/090ff0833df2138b40a9e80fe13d572878fbdc2f/2026/10/25/exact-preperiod-census-for-the-dyadic-quadratic-dickson-map--41a8c822a67b",
+        "https://arxiv.org/abs/2605.21819",
+        "https://doi.org/10.1587/nolta.6.443"
+      ],
+      "rationale": "The pointwise least-arrival law and complete basin-depth distribution constitute an exact, naturally defined arithmetic-dynamical invariant for the smallest nonpermutation Dickson map on nonreduced dyadic rings. Its striking odd versus even growth rates and sharp maximal transient are not given by permutation-cycle results. It does not classify higher Dickson degrees or other prime powers.",
+      "residual_risks": [
+        "Finite checks k≤12 are not an all-k proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/10/25/exact-preperiod-census-for-the-dyadic-quadratic-dickson-map--41a8c822a67b/RESULT.md Git blob 273e12f0f5931798a263c3c06828873f5fe1acc8",
+    "2026/10/25/exact-preperiod-census-for-the-dyadic-quadratic-dickson-map--41a8c822a67b/verify.py Git blob c0308df874fa234fcd37e19b7d5d5339825558a2",
+    "Private independent-check script and actual JSON output in accompanying delivered audit bundle",
+    "https://arxiv.org/abs/2605.21819",
+    "https://doi.org/10.1587/nolta.6.443"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every k≥1, f(x)=x²−2 mod 2^k has only the odd fixed point −1 and even fixed point 2 as recurrent states; exact pointwise first-arrival valuations and separate odd/even depth histograms are given for every k, and maximum transient depth is k−2 for k≥4.",
+  "limitations": [
+    "An exact equivalent x²−2 preperiod result could exist in arithmetic dynamics under other terminology.",
+    "Full older 2015 text not re-inspected; priority qualified.",
+    "Finite checks k≤12 are not an all-k proof.",
+    "Publication withheld due to unsanitized existing public administrative metadata; this is an operational readiness limit, not a scientific rejection.",
+    "All exact Git tree SHAs were independently retrieved as tree identities at the assigned immutable commit; no repository writes were performed."
+  ],
+  "schema_version": 1
+}

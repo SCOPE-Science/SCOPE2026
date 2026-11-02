@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The factorization \(f(x)+1=x^2-1\) sends every odd residue into the \(-1\)-neighborhood where valuation grows by one. The identities \(f(x)-2=(x-2)(x+2)\) and \(f(x)+2=x^2\) give precise two-step valuation growth in the even basin. Counting dyadic square roots of one and disjoint valuation shells yields the exact histograms. Every edge case \(k=1,2,3,4\) is separately handled. The packaged independent direct-enumeration checker passed for all residues and full histograms for \(k\le17\); correctness for arbitrary \(k\) follows from the proof rather than finite sampling.
+PASS
 
-## Originality — PASS under accessible evidence
+Parity is preserved by x²−2. For odd x the first iterate y satisfies y≡−1 (mod 8), and v2(f(y)+1)=v2(y+1)+1, producing exact pointwise time 1+max(0,k−v2(x²−1)) except x fixed. For x≡2 mod4, v2(f(x)−2)=v2(x²−4), after which each iterate increases distance-to-2 valuation by two; for x≡0 mod4, after two iterations the valuation is 2+2v2(x). These yield the two even pointwise branches. Four odd roots of unity modulo 2^s yield O0=1,O1=3,O_t=2^t for 2≤t≤k−2. The even valuation-window A_k and x≡0 mod4 count B_k exhaust and partition all even residues. Boundary moduli k=1,2 and special k=3,4 are separated explicitly; the infinity convention is harmless under modulus clipping. Fresh direct functional-graph iteration on every residue mod 2^k for k=1..12 (8,190 residues) agreed with the pointwise and even histogram formulas. Universal proof uses valuation identities, not a finite census.
 
-The full-text 2015 Chebyshev article and the full-text 2026 adic-ring paper study odd-degree permutation maps, whereas this theorem classifies all transient branches of a nonpermutation monic degree-two Dickson map over dyadic rings. Finite-field Dickson-graph work has a different domain. Actual targeted database, arithmetic polynomial, and published-finding corpus searches did not identify a dominating implication or exact table. Closest published research and searched aliases are detailed in the accompanying structured review. Residual risk: an unindexed exact equivalent graph calculation could exist.
+## originality
 
-## Value — PASS
+PASS
 
-The entire functional graph of a standard arithmetic polynomial is classified for infinitely many nonreduced rings. The result specifies every individual preperiod, two complete and strikingly different depth histograms, and sharp extremal lifetime, not merely a few tested values. This identifies the dyadic mechanism behind distinct attraction rates in the two natural parity branches.
+A fresh closest-prior comparison finds no accessible theorem or database record implying the final all-parameter conclusion. The exact overlap/special-case antecedents are credited and remaining literature-access or terminology risks are recorded; PASS is a best-of-knowledge judgment, not external historical certification. Exact preperiod census for the dyadic quadratic Dickson map: For every k≥1, f(x)=x²−2 mod 2^k has only the odd fixed point −1 and even fixed point 2 as recurrent states; exact pointwise first-arrival valuations and separate odd/even depth histograms are given for every k, and maximum transient depth is k−2 for k≥4.
 
-## Scientific limitations
+## value
 
-No degree-general or odd-prime modulus classification is claimed. The finite checker corroborates but does not prove the infinite theorem. Definitive publication priority is not claimed; independent mathematical audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The pointwise least-arrival law and complete basin-depth distribution constitute an exact, naturally defined arithmetic-dynamical invariant for the smallest nonpermutation Dickson map on nonreduced dyadic rings. Its striking odd versus even growth rates and sharp maximal transient are not given by permutation-cycle results. It does not classify higher Dickson degrees or other prime powers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
