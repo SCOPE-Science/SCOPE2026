@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The claim concerns a precisely defined simultaneous four-color successor-contact map on every complete bipartite graph with two nonempty labelled shores. Support evolution factors exactly through 225 masks, independently of shore sizes. Along recurrent support cycles, support-cardinality preservation makes all local color maps bijective. The complete 225-case mask examination identifies 18 fixed support pairs, three with induced primitive period four, and four with induced primitive period six. The surjective-labelling lemma converts that finite classification to the exact three formulas for all shore sizes. A separately implemented full-configuration enumerator agrees over 115,600 labelled configurations. Risk: the finite certificate must be replayed to scrutinize its implementation; no claim rests on a nonexhaustive size cutoff.
+## correctness
 
-## Originality
-The classical CCA rule and qualitative behavior of four-color spirals and odd-palette period inflation are known; those phenomena are credited rather than claimed as new. The closest accessible three-color graph paper does not imply a four-color census. The inspected classical lattice papers and graphical spiral study do not derive primitive-period populations on complete bipartite graphs. A previously reported three-color biclique classification treats that palette only; its transition alphabet and support graph differ. Searches of relevant mathematical research records did not return an equivalent four-color biclique theorem, but search coverage cannot guarantee uniqueness and an unindexed equivalent remains possible.
+PASS
 
-## Value
-This is an exact recurrent-state classification on an infinite, natural dense graph family for the first palette beyond the common three-color model. It identifies a genuine primitive-six-cycle stratum, a sharp shore-size threshold for its existence, two distinct sources of four-cycles, and explicit finite-size populations. The support-quotient argument also clarifies why an infinite family reduces to a finite color-support table. This is more than a numerical table or a reformulation of a three-color result.
+For fixed four-color successor-contact rule, the support pair (S,T) has 15×15=225 possibilities and evolves autonomously. Support cardinalities never increase; along a support cycle the transition maps are bijective, and surjective labelings prevent shorter periods than the induced return-color permutation. An independent 225-state full enumeration gave exactly 25 recurrent masks and the seven rows (period,|S|,|T|;count): (1,1,1;8),(1,1,2;4),(1,2,1;4),(1,2,2;2),(4,2,2;2),(4,4,4;1),(6,3,3;4). Multiplication by U_j(n)=j! S(n,j) yields P1=8+4U2(a)+4U2(b)+2U2(a)U2(b), P4=2U2(a)U2(b)+U4(a)U4(b), P6=4U3(a)U3(b). This finite support enumeration is exhaustive for any a,b>=1, unlike small-graph enumeration. Orbit counts divide by respective periods.
 
-## Boundaries
-The result does not classify transient-entry times, basins, graphs with other edge patterns, or palettes beyond four. Historical originality remains bounded by inspected sources and recoverable records.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical 3-color excitable-graph and general lattice CCA results do not mathematically specialize to exact 4-color synchronous successor-contact orbit counts on labelled K_{a,b}. The combination of the full 225-mask quotient, return permutations and surjection formulas for every shore size is not supplied by the checked comparison sources. Priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+A complete exact recurrence classification over every labelled complete bipartite graph at four colors is a natural extension beyond the standard 3-color case. The primitive six-cycle family and exact emergence threshold a,b>=3 are mathematically nontrivial, and the 225-state support quotient makes an infinite graph-family classification tractable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
