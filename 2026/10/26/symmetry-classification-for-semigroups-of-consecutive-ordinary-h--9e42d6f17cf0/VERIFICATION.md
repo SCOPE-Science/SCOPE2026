@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Running `python3 verify.py` from the same directory returns `VERIFY_OK`. All operations use exact Python integers or deterministic graph shortest paths; there are no floating-point approximations or external libraries.
+## correctness
 
-The checker performs a full arithmetic re-evaluation of the twenty-four candidate triple-gluing congruences, tests gcd formulas and all interval restrictions for indices \(2\) through \(121\), computes independent Apéry sets for each of those \(120\) semigroups, and compares their Frobenius numbers and genera with the claimed symmetry classification. All \(29\) published A069758 Frobenius numbers from \(n=2\) through \(n=30\) are checked independently. Additional finite checks at \(122\le n\le2000\) corroborate the cutoff inequality and gcd bounds.
+PASS
 
-To reproduce manually, for each candidate pair \((u,v)\) with \(d=\gcd(u,v)>1\), put \(x=u/d\), \(y=v/d\), and take the unique \(s_0\in[0,y-1]\) with \(s_0x\equiv z\pmod y\). The sign of \((z-s_0x)/y\) is a necessary and sufficient exact test. The full set of resulting integer pairs is printed in RESULT.md. The infinite cutoff rests on the symbolic polynomial \(2n^2-241n-180>0\) and its monotonicity for \(n\ge122\), not on scanning a finite range.
+Inspected original source proof. All three generators gcd1; for n≥4 minimal generators. The classical 3-generator symmetry/gluing criterion reduces symmetry to d=gcd(u,v)>1 and remaining z∈<u/d,v/d>. Derived pair gcd bounds (≤30), then if a>d(c−a) the number of generators in a putative gluing must equal d and forces impossible 8n+6|d. The inequality a>30(c−a) is 2n²−241n−180>0 at n≥122, excluding all large n. Independent integer modular-inverse scanning for n=2..121 gave exactly {2,3,6,7,8,18} and explicit gluing certificates. The 24 reduced candidate pairs in source are consistent with this. The n=3 redundant third generator is handled by the two-generator semigroup; quoted Frobenius/genus from gluing formula. The infinite exclusion is analytical, not a finite scan.
 
-The mathematical argument uses Fel's established gluing characterization as an external theorem. All independent-audit channels are unperformed; this record is computational corroboration and self-review only.
+## originality
+
+PASS
+
+Bounded best-of-knowledge prior-work comparison: The theorem is a nontrivial evaluated specialization rather than a direct substitution into a closed generic numerical formula.
+
+## value
+
+PASS
+
+Symmetric (equivalently Gorenstein/2g=F+1 in numerical semigroups) is a standard structural invariant. The ordinary hexagonal three-generator family and its Frobenius sequence pre-exist; a sharp infinite classification with late exception n=18 answers a natural nontrivial question not mechanically given by the Frobenius table. The explicit cutoff and six exceptions form a complete motivated classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
