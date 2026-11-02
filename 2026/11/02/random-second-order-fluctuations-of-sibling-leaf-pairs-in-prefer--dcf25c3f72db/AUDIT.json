@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The statement follows from four exactly derived conditional drifts (S, X, C, cubic U), explicit harmonic summation, an L2-bounded nondegenerate degree-square martingale, and two martingale Cesàro transfers. E U_n=O(n^(3/2)) makes the relevant innovation-weight variance series summable, proving a.s. and L2 convergence. All finite-size constants and state recurrences were independently checked by exact-rational exhaustive enumeration through nine vertices (184,947 assertions). Finite checks are not claimed to prove the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holmgren–Janson–Šileikis 2016 prove multivariate Gaussian laws for fixed finite fringe tree shapes, primary classification 60C05.",
+        "Brightwell–Łuczak 2010 concerns the high-degree vertex profile and does not establish this count in its accessible abstract."
+      ],
+      "reasoning": "A sum over arbitrarily large leaf-child counts, growing at n log n with a nondegenerate random n-scale correction, is not a count of a single fixed finite fringe shape. The quadratic-degree martingale is a proof ingredient, but its convergence does not logically give the cherry transfer without the independently established X and C recurrences. General additive-functional machinery could conceivably provide implicit coverage; see residual risks.",
+      "searches": [
+        "Barabasi Albert preferential attachment tree S_n=sum degree squared martingale S_n/(n-1)-2 harmonic numbers, cherries C_n/n - (log n)/4 converges almost surely to correlated random limit",
+        "multivariate normal limit fringe subtree cherries arbitrary leaf sibling pair motifs unbounded fringe tree size",
+        "https://arxiv.org/abs/1603.08125",
+        "https://arxiv.org/abs/1012.5550"
+      ]
+    },
+    "checked_sources": [
+      "Hartle–Krapivsky, Leaves of preferential attachment trees, arXiv:2602.01021v1, first public 2026-02-01, full HTML read.",
+      "Magner–Janson–Kollias–Szpankowski, On Symmetry of Uniform and Preferential Attachment Graphs (2014), relevant PDF sections/pages examined.",
+      "Holmgren–Janson–Šileikis, Multivariate normal limit laws ... preferential attachment trees, arXiv:1603.08125, relevant full-text main statements read.",
+      "Brightwell–Łuczak, Vertices of high degree in the preferential attachment tree, arXiv:1012.5550, abstract only.",
+      "Six targeted semantic mathematical-record searches and public-literature alias searches for cherry counts, leaf siblings, quadratic leafdegree, and n log n scaling."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source identifies fixed-ell frequencies, whose tail m_ell ~ ell^(-3) motivates but does not imply this theorem due to nonuniform summability.",
+        "The 2014 symmetry source needs sufficient cherries for automorphisms rather than asymptotic total cherry counts.",
+        "The 2016 fixed fringe-shape normal limits have n^(1/2) fluctuations, whereas this nonfixed weighted total has order-n random fluctuations.",
+        "The closest mathematical-record hit concerns covariance of root degree and leaf count in a *uniform random recursive tree*, a different attachment law and different statistic."
+      ],
+      "reasoning": "Neither the exact finite-n harmonic expression nor the random limit C_n/n−(1/4)log n→gamma/4−1/8+M∞/8 is an immediate corollary of the inspected results. The leafdegree tail only predicts logarithmic potential, and a quadratic-degree martingale alone cannot identify the C functional without a new stochastic transfer argument. These are statement-and-implication comparisons, not keyword-only comparisons.",
+      "searches": [
+        "Preferential attachment Barabasi Albert tree expected number of pairs of sibling leaves, cherries, leaf-degree second moment order n log n exact finite-size harmonic formula",
+        "Barabasi Albert preferential attachment tree S_n=sum degree squared martingale S_n/(n-1)-2 harmonic numbers, cherries C_n/n - (log n)/4 converges almost surely to correlated random limit",
+        "multivariate normal limit fringe subtree cherries arbitrary leaf sibling pair motifs unbounded fringe tree size",
+        "https://arxiv.org/html/2602.01021",
+        "https://cs.pwr.edu.pl/cichon/Opus5/aofa2014-final-1.pdf",
+        "https://arxiv.org/abs/1603.08125"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hartle–Krapivsky 2026 gives joint degree/leafdegree distribution and m_ell ~ ell^(-3), not the total sum binom(ell,2) fluctuation law.",
+        "Magner et al. 2014 uses the same pair-of-leaf-children object under the term cherries in graph symmetry arguments."
+      ],
+      "reasoning": "This count is exactly the sum over all vertices of binom(number of leaf neighbors, 2). A pair-of-leaf siblings is a cherry regardless of extra leaf siblings. This definition, not only the paper title, was compared. No examined source states the exact finite-n expected global count or its random centered order-n limit.",
+      "searches": [
+        "Preferential attachment Barabasi Albert tree expected number of pairs of sibling leaves, cherries, leaf-degree second moment order n log n exact finite-size harmonic formula",
+        "Preferential attachment tree cherry count pairs of leaves with common neighbor concentration logarithmic law and non-Gaussian second-order fluctuations",
+        "Preferential attachment tree leafdegree pairs same parent C_n=sum binomial(leafdegree,2) random second order n log n non-Gaussian limit",
+        "preferential attachment tree cherry pairs of sibling leaves common parent count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hartle–Krapivsky 2026 present the limiting joint distribution and leafdegree m_ell ~ ell^(-3), including finite-class variances, not an n-dependent global quadratic census.",
+        "Exact rational enumeration of attachment histories was performed only through n=9 and is not claimed to certify infinitely many n."
+      ],
+      "reasoning": "The limiting leafdegree table has divergent second factorial moment, so summation over fixed-limited ell cannot be exchanged with the n→infinity limit; no exact finite-size global expectation or normalized random correction is supplied by the inspected table. No matching finite database entry or previously recorded exact sequence was found in targeted comparisons.",
+      "searches": [
+        "Leaves of preferential attachment trees Hartle Krapivsky 2026 leafdegree divergence second factorial moment",
+        "Preferential attachment tree leafdegree pairs same parent C_n=sum binomial(leafdegree,2) random second order n log n non-Gaussian limit",
+        "https://arxiv.org/html/2602.01021 (leafdegree tables and equations 9–13, sections III and IV)"
+      ]
+    },
+    "rationale": "The present claim gives an exact finite-n count expectation and an order-n almost-sure/L2 random limit for a globally unbounded sum of common-parent leaf pairs. The recent local leafdegree-distribution theorem, cherry-based symmetry arguments, and fixed finite fringe-shape CLTs examined do not imply this statement. Six real semantic research-record queries and targeted public literature searches found no covering claim. This is best-knowledge original with explicit residual historical-priority risk.",
+    "residual_risks": [
+      "An older general preferential-attachment additive-functional theorem or exact motif-count recurrence may imply the result without mentioning cherries.",
+      "The high-degree vertex article was screened at abstract level, not conclusively excluded from full text.",
+      "The literature search and existing mathematical records are not comprehensive novelty certification; an independent priority assessment is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state a global cherry count exact finite expectation or the order-n martingale transfer theorem; proves the m_ell ~ ell^(-3) input motivating the question",
+        "evidence": "Explicit limiting leafdegree law in eq. (13), m_ell asymptotics, fixed-k second factorial leafdegree moment in eq. (60), and fixed-class asymptotics in section IV.",
+        "identifier_or_url": "https://arxiv.org/html/2602.01021",
+        "material_read": "Abstract, introduction, main theorem/statistical results, sections III and IV including fixed-class variance claims, and relevant appendices",
+        "method": "Accessible arXiv full-text HTML, equations 9–13, 57–61, 67–74 and 75–95 examined",
+        "title": "Leaves of preferential attachment trees",
+        "trigger": "Exact originating attachment model, leafdegree distribution and possible global second moments"
+      },
+      {
+        "assessment": "Uses pairs of leaves with a common neighbor to prove symmetry events but does not derive present exact expected number or random order-n fluctuations",
+        "evidence": "Symmetry argument based on leaf sibling structure, distinct from distributional asymptotics of total cherry-pair count.",
+        "identifier_or_url": "https://cs.pwr.edu.pl/cichon/Opus5/aofa2014-final-1.pdf",
+        "material_read": "Abstract/introduction and PDF pages 6–7 around relevant symmetry/cherry arguments",
+        "method": "Readable full PDF, text and rendered page inspection",
+        "title": "On Symmetry of Uniform and Preferential Attachment Graphs",
+        "trigger": "Use of cherries/pairs of sibling leaves in preferential attachment graph automorphisms"
+      },
+      {
+        "assessment": "Fixed finite fringe-shape counts are covered; unbounded quadratic leaf-neighbor functional with n log n growth is not a fixed fringe count",
+        "evidence": "Intro explicitly states CLTs for numbers of fringe subtrees isomorphic to an arbitrary fixed tree T.",
+        "identifier_or_url": "https://arxiv.org/abs/1603.08125",
+        "material_read": "Introduction, scope/definitions of fringe subtrees and main normal-limit statements, including restriction to fixed finite shapes",
+        "method": "Accessible arXiv HTML full-text inspection, introduction and principal statements",
+        "title": "Multivariate normal limit laws for the numbers of fringe subtrees in m-ary search trees and preferential attachment trees",
+        "trigger": "Possible stronger asymptotic theorem for PA-tree subgraph shape counts"
+      },
+      {
+        "assessment": "High-degree vertices are relevant to the quadratic-degree martingale but the abstract does not assert sibling-leaf-pair asymptotics; residual full-text risk retained",
+        "evidence": "Stated focus on high-degree vertex behavior rather than global common-parent leaf pairs.",
+        "identifier_or_url": "https://arxiv.org/abs/1012.5550",
+        "material_read": "Accessible abstract and bibliographic synopsis only",
+        "method": "Abstract-level screening, not a full-text exclusion",
+        "title": "Vertices of high degree in the preferential attachment tree",
+        "trigger": "Possible coverage by hub-degree growth and martingale extreme fluctuations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dcf25c3f-72db-424f-a74e-b4f5fe243dc8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The global sibling-leaf pair count is a natural motif/symmetry invariant. The known leafdegree tail ell^(-3) makes the unbounded quadratic leafdegree census a critical logarithmic observable not controlled by fixed-ell limit laws. The exact n log n coefficient and nondegenerate order-n random correction identify a mathematically significant transition from fixed finite fringe counts and connect it to the quadratic-degree martingale; exact finite-size expectations support further work.",
+    "status": "PASS"
+  }
+}
