@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The definition uses full binary scattered-subsequence universality. Greedy arch factorization counts completed arches. At each two-symbol block zero or one arch closes; the table distinguishes all nine states with boundary prohibition 10 or 11 at paired-height zero. A first ascent to a new paired maximum cannot begin in state O, because entering O from elsewhere requires an earlier downstep 11 from above that maximum. Each first ascent is therefore a distinct bad block and max paired height <= defect. This justifies finite 3(d+1) transfer, all endpoint conditions and G_d=eR(zQR)^df; rationality is formal. Exact symbolic matrix checks recover G0..G3. Separate direct enumeration of 82500 paths to semilength 11 and dynamic tally to 80 reproduce those coefficients. Finite tests supplement, rather than prove, the unbounded theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson et al. assume an input DFA accepting a regular language",
+        "Full unbounded Dyck language is context-free, not regular",
+        "Fleischmann et al. quantify missing scattered factors at a prescribed order, not Dyck fixed-semilen-defect"
+      ],
+      "reasoning": "Generic finite-automaton counting would apply once bounded height is obtained, but does not imply that the nonregular Dyck language restricted by this numerical defect has a fixed computable height. The proof supplies precisely that missing reduction, plus exact simplifications.",
+      "searches": [
+        "subsequence universality balanced parenthesis words Dyck paths binary exact distribution",
+        "Dyck arch statistic Chebyshev OEIS A001793 pyramid weight n-1",
+        "arXiv:2311.10658v1 Section 4 counting and ranking",
+        "arXiv:2202.07981 Definitions 3-5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2311.10658v1",
+      "https://arxiv.org/abs/2202.07981",
+      "https://oeis.org/A001793",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-logarithmic-finite-core-entropy-deficit-for-primitive-dyck--cc17d7fdec34",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Greedy-arch existence theorem supports one prerequisite but no Dyck-specific first-ascent property",
+        "Finite-state counting theorem requires a given finite automaton and does not furnish a uniform fixed-deficit height cutoff",
+        "Published pyramid-weight count matches only an enumerative consequence, not the wordwise arch statistic"
+      ],
+      "reasoning": "Existing general arch results plus generic automaton enumeration do not by themselves prove that all fixed-deficit Dyck paths stay within height 2d+1; proving this first-ascent phenomenon is the decisive new implication. Once proved, the general transfer formula and its exact first strata follow and are stronger than a single matching integer sequence.",
+      "searches": [
+        "Dyck arches maximum height bounded by missing greedy arch pairs rational finite state",
+        "binary Dyck words shortest absent subsequences number spectrum",
+        "arXiv:2311.10658v1 automaton path counting",
+        "OEIS:A001793 Dyck pyramid-weight words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2202.07981 defines and characterizes greedy arches generally",
+        "OEIS A001793 uses a different Dyck pyramid-weight statistic, with one matching coefficient series but a different pathwise partition"
+      ],
+      "reasoning": "The essential object is a Dyck excursion jointly marked by completed greedy subsequence arches. General Simon congruence, unconstrained binary index distribution and pyramid weight differ in either objects or statistic; the latter is known to be equinumerous for d=2 only, not equivalent as a Dyck statistic. The proposed bounded-height lemma is required for an exact general transfer.",
+      "searches": [
+        "Dyck words subsequence universality index complete arches generating function Catalan",
+        "Dyck paths universal subsequence arch index deficiency n-k fixed defect generating function rational near universal balanced parentheses",
+        "web: Dyck path greedy arch factorization subsequence universality index distribution rational generating functions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001793 formula n(n+3)2^(n-3) equals a_{n+2,2}",
+        "OEIS records an earlier Dyck pyramid-weight reading and the same rational shifted function",
+        "Symbolic d3 series has coefficients 1,7,34,138,500,1672,... in semilength 4 onward"
+      ],
+      "reasoning": "The defect-two sequence is a known table and is credited, so numerical rediscovery is explicitly excluded from the novelty claim. The table does not explicitly quantify the arch deficit at all fixed d, provide the height lemma, or supply the d=3 generating function.",
+      "searches": [
+        "OEIS A001793 coefficients 1,5,18,56,160,432 pyramid weight Dyck",
+        "Dyck word subsequence-universality index n minus d exact counts 2^(n-1)-1 2^(n-5)(n-2)(n+1)"
+      ]
+    },
+    "rationale": "Originality resides in the Dyck first-ascent/bad-block structural bound, fixed-deficit rationality and the complete first four strata. Adamson et al. (arXiv:2311.10658v1) count universality for regular accepted languages, and Fleischmann et al. (arXiv:2202.07981) establish general arches and nearly universal words but do not provide this Dyck-specific reduction. OEIS A001793 already gives the defect-two numerical sequence, which is explicitly credited rather than presented as new. Closest checks do not imply the full theorem; an unlocated stronger formulation remains possible.",
+    "residual_risks": [
+      "An unpublished or difficult-to-find lattice-path or automata classification could imply fixed-deficit Dyck rationality.",
+      "The OEIS d=2 coefficient formula is prior knowledge; no priority or novelty is asserted for that integer sequence.",
+      "Database overlap comparisons are best-knowledge, not an exhaustive uniqueness certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the paper assumes a given finite automaton for a regular language. The language of all Dyck words is not regular; it gives no fixed-deficit height bound or the displayed defect-generating functions. A bounded-height automaton can be used here only after proving the new height lemma.",
+        "evidence": [
+          "arXiv:2311.10658v1, introduction, Section 2, Section 4 (especially path tables for accepted k-universal words and fixed-length k)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.10658v1",
+        "material_read": "Full HTML, especially introduction/preliminaries and Section 4 counting and ranking, including the finite-automaton path tables and quantified scope",
+        "method": "Read primary full HTML text and compare the domain, quantified counting statement and reduction requirements",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Primary 2023 literature for counting subsequence universal words within languages"
+      },
+      {
+        "assessment": "NOT_COVERING: m counts individual absent subsequences at a chosen length; our d is semilength minus maximal universal order, and words are Dyck-constrained. General arch characterization is prior work and is expressly credited.",
+        "evidence": [
+          "arXiv:2202.07981, Definitions 3–5 and Section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.07981",
+        "material_read": "Primary full HTML text, introduction, Definitions 2–6, Section 3 near-universality arguments and examples",
+        "method": "Read original HTML and compare counting parameter and word restrictions",
+        "title": "m-Nearly k-Universal Words — Investigating Simon Congruence",
+        "trigger": "Established arch factorization and nearly universal word theory"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: the numerical d=2 formula is old and is not claimed as new. The Dyck pyramid-weight classification is not objectwise the same as greedy arch deficit: 01001011 has arch deficit one but appears among the cited pyramid-weight-three paths of semilength four. No general all-defect rational theorem or defect-three series is supplied there.",
+        "evidence": [
+          "OEIS A001793 comments of Emeric Deutsch dated 2004-03-10 and generating-function line",
+          "Explicit path 01001011: 3 greedy arches at semilength 4, versus the cited weight-three example"
+        ],
+        "identifier_or_url": "https://oeis.org/A001793",
+        "material_read": "Full entry: formula, Dyck pyramid-weight comment, example words and generating function",
+        "method": "Compared shifted coefficients, definitions, and a concrete discriminating word",
+        "title": "OEIS A001793",
+        "trigger": "Exact coincidence of defect-two sequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d83db6a8-11f2-4e64-9487-ecacb58c5a99",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A fixed loss of subsequence coverage is a natural constrained-sequence invariant. Unlike unconstrained binary words, balanced words require an unbounded stack, so proving that loss d forces ordinary Dyck height <=2d+1 is a substantial structural reduction. The formula yields exact computation at every d and explicit rational profiles through 3; it also proves exponential rarity against Catalan paths. The value is not dependent on claiming a previously known d=2 coefficient sequence as new.",
+    "status": "PASS"
+  }
+}
