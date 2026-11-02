@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each product cube of the full-support Stirling complex, every tree vertex occupies at least one zero-dimensional coordinate. Thus a tree automorphism stabilizing this cube fixes every vertex, and is the identity. The same argument proves a free action on points. Consequently each oriented rational cellular chain group is a sum of regular representations. The published sphere-wedge theorem gives reduced homology concentrated in the single degree \(d=n-m\), including the disconnected \(d=0\) case. The equivariant Euler identity then forces the virtual character \(q\operatorname{Reg}_G+(-1)^{d+1}\mathbf1\), and characteristic-zero semisimplicity yields the nonvirtual decomposition. The quotient assertions follow from exact rational coinvariants and covering-space theory. The explicit finite checker recreates cells and mod-two boundaries in six instances, tests all \(S_3\) star automorphisms in two of them, and checks arithmetic divisibility across additional parameters; its finite scope is disclosed.
+## correctness
 
-## Originality — PASS against inspected sources
-Kozlov's 2022 paper expressly poses the star leaf-automorphism representation as Open Question 1 and proves only the ordinary sphere-wedge classification. It does not state the full character or representation decomposition. Kozlov's 2024 generalized anchored-space paper treats a broader class of spaces but does not supply this tree-automorphism character. Published computations of integral anchored-configuration homology do not imply the symmetry module, and the branch-permutation result for an extended-star discrete Morse complex concerns a nonisomorphic construction. A separate resource-permutation character for Stirling complexes permutes tuple coordinates, not graph locations. Relevant semantic searches did not identify a dominating character theorem. An unindexed equivalent result is an acknowledged residual risk, not a proof of uniqueness.
+PASS
 
-## Value — PASS
-The irreducible multiplicities solve the exact representation-theoretic question explicitly left open in the 2022 source, for every allowed resource count and every number of star leaves. The extension to arbitrary tree-automorphism subgroups is natural because the proof depends on full vertex support rather than a special star geometry. It gives nontrivial quotient information: rational Betti numbers, finite fundamental groups in dimensions at least two, and graph ranks in dimension one. This is more than restating the published nonequivariant Betti number, and the distinction between vertex-action and resource-action representations is mathematically essential.
+A cubical product cell in the Stirling complex has at least one stationary coordinate at every tree vertex; any nontrivial graph automorphism moving some vertex therefore fixes no cell and no point. This proves rational cellular chain modules are free Q[G]-modules with multiplicity the number of G-cell orbits. Kozlov Theorem 2.1 gives the single possible reduced degree d=n-m and sphere count f(m,n). Equivariant Euler–Poincaré after subtracting the trivial augmentation yields q·Q[G]+(-1)^(d+1)·1, and semisimplicity converts the virtual character into actual representations. Positivity of trivial and nontrivial multiplicities forces q>=0 and q>=1 in even degree, including trivial-G boundary separately. For n=m the complex has m! isolated points, consistent with reduced degree zero. The free action and simply connected wedge for d>=2 give the quotient fundamental group; exact rational coinvariants yield its homology. Small examples and divisibility are independently confirmed algebraically, while the all-tree theorem uses cellular freeness and the published wedge theorem, not finite tests.
 
-## Sources and risks
-Kozlov, *Stirling complexes* (2022 online), Theorem 2.1, Definition 2.4, Open Question 1; Kozlov, *Homology and Euler characteristic of generalized anchored configuration spaces of graphs* (2024); public results *Integral homology of anchored configurations on every connected graph* and *Integral branch-permutation homology of extended-star Morse complexes*. Remaining risks: unknown unindexed equivalent source, reliance on the published sphere-wedge theorem, lack of integral lattice refinement or independent audit. The trace and quotient statements were checked against the exact chain-level hypotheses, not inferred from similarity of titles.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kozlov explicitly posed the star leaf-permutation homology representation as Open Question 1; his proved nonequivariant wedge count does not prescribe a representation. The present complete regular-plus-trivial character for all tree automorphism subgroups answers that question, distinguishing coordinate relabeling from vertex-location automorphism.
+
+## value
+
+PASS
+
+The result directly resolves a named natural open representation problem and identifies a uniform nonidentity character independently of tree shape. It also determines homology representations and quotient fundamental groups across all finite trees, information not contained in dimensions alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

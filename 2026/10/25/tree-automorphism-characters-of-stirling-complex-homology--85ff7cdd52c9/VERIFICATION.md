@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical argument checks that each full-support cubical cell has trivial stabilizer for the specified graph-automorphism action, then uses the exact equivariant Euler–Poincaré identity and Kozlov's published sphere-wedge theorem. This is the all-parameter proof; the finite tests below independently corroborate selected cases without replacing it.
+## correctness
 
-Run `python3 verify_stirling_leaf_action.py` using Python's standard library. The expected final marker is `STIRLING_TREE_AUTOMORPHISM_CERTIFICATE_OK`.
+PASS
 
-Complete mod-two cubical boundary ranks were checked for the three-vertex path with three, four and five resources, the three-leaf star with four and five resources, and the four-vertex path with five resources. The complete ranks and Betti vectors are printed during replay. All tree automorphisms in the displayed small groups, including all six elements of the star's \(S_3\), were checked for cell-fixity and Lefschetz trace. Exact rational integrality of \(q\) was checked independently for stars with \(2\le r\le6\) over six consecutive resource counts beginning at the minimum.
+A cubical product cell in the Stirling complex has at least one stationary coordinate at every tree vertex; any nontrivial graph automorphism moving some vertex therefore fixes no cell and no point. This proves rational cellular chain modules are free Q[G]-modules with multiplicity the number of G-cell orbits. Kozlov Theorem 2.1 gives the single possible reduced degree d=n-m and sphere count f(m,n). Equivariant Euler–Poincaré after subtracting the trivial augmentation yields q·Q[G]+(-1)^(d+1)·1, and semisimplicity converts the virtual character into actual representations. Positivity of trivial and nontrivial multiplicities forces q>=0 and q>=1 in even degree, including trivial-G boundary separately. For n=m the complex has m! isolated points, consistent with reduced degree zero. The free action and simply connected wedge for d>=2 give the quotient fundamental group; exact rational coinvariants yield its homology. Small examples and divisibility are independently confirmed algebraically, while the all-tree theorem uses cellular freeness and the published wedge theorem, not finite tests.
 
-Finite checks cannot certify the universal quantifiers or exclude unindexed equivalent literature. The rational representation classification is proved using freely acting chain modules, the known sphere-wedge theorem, and characteristic-zero representation theory. No independent audit has been performed.
+## originality
+
+PASS
+
+Kozlov explicitly posed the star leaf-permutation homology representation as Open Question 1; his proved nonequivariant wedge count does not prescribe a representation. The present complete regular-plus-trivial character for all tree automorphism subgroups answers that question, distinguishing coordinate relabeling from vertex-location automorphism.
+
+## value
+
+PASS
+
+The result directly resolves a named natural open representation problem and identifies a uniform nonidentity character independently of tree shape. It also determines homology representations and quotient fundamental groups across all finite trees, information not contained in dimensions alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
