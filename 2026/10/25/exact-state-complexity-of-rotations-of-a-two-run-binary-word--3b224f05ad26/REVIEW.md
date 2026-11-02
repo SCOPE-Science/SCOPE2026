@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Mixed circular factors identify a unique starting position because the two boundaries have opposite orientations. The proof counts mixed-prefix/mixed-suffix rotations by inclusion–exclusion and handles pure prefixes and suffixes, including the boundary overlap, to obtain exactly \(2\min\{a,b,d,a+b-d\}\) quotients at each internal depth. It sums the profile and explicitly accounts for the dead quotient. Direct residual-language enumeration for 576 parameter pairs supplies independent finite checking of the formulas. Risk: experimental checks do not replace the general proof.
+## correctness
 
-**Originality — PASS (literature-relative).** The most relevant primary work, Jirásková–Okhotin's cyclic-shift study (DOI 10.1051/ita:2007038), establishes general upper/lower bounds and automaton constructions, but the inspected text does not contain or logically entail the exact two-run singleton profile. DiMuro's 2019 paper (DOI 10.37236/7932) studies greedy universal cycles for rotationally closed languages, not Myhill–Nerode quotients. Targeted published-finding corpus and web searches for the exact formula, rotations, block words, and automaton state counts found no equivalent. Risk: unindexed elementary specializations may exist; absence of search hits is not proof of novelty.
+PASS
 
-**Value — PASS.** A two-run necklace is the simplest nonconstant cyclic word family. Its recognition cost is exactly quadratic in the two block sizes despite its singleton precursor having only linear state complexity. The result classifies *all* nonempty residuals by depth and settles precisely which compositions maximize the cost; these are natural parameters for cyclic-pattern recognition and testing descriptions of shift-closed finite languages. It is a complete structural classification, not a single small computation.
+For a,b>=1, every mixed proper circular factor of 0^a1^b identifies its rotation via the oriented run boundary; pure-prefix sets and pure-suffix singleton completions must be separated, with the two run-boundary overlaps subtracted. Reconstructing this disjoint Myhill–Nerode quotient count gives q_0=q_n=1, q_d=2 min(a,b,d,n-d) for 0<d<n, and one dead quotient, so sc=2ab+3. The depth sum equals ab and balancing a+b maximizes ab. Independently recomputed all right-language quotients for each of 81 ordered pairs a,b=1..9, including a=b=1 and other boundary cases, and every profile matched. This finite confirmation is distinct from the all-a,b combinatorial proof. Git tree 9ca006a29e997775aa5bcb975803717467c0ab90 was independently reconstructed from the seven real blob IDs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact two-run singleton profile, excluding the already-known cyclic-shift operation, state-complexity theory and greedy universal-cycle constructions. Inspected primary statements and published Resultary records do not logically imply the exact formula. Historical priority is not certified.
+
+## value
+
+PASS
+
+The binary two-run necklace is a canonical restricted cyclic-closure family; the full quotient profile and exact quadratic recognition blow-up relative to a single n-letter word are natural, useful finite-language state-complexity invariants. The sharp fixed-length composition maximizing recognition cost is structural information, not an arbitrary numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

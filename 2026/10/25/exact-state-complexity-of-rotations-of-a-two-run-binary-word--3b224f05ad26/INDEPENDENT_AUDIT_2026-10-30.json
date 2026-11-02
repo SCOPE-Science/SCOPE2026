@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T00:51:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a,b>=1, every mixed proper circular factor of 0^a1^b identifies its rotation via the oriented run boundary; pure-prefix sets and pure-suffix singleton completions must be separated, with the two run-boundary overlaps subtracted. Reconstructing this disjoint Myhill–Nerode quotient count gives q_0=q_n=1, q_d=2 min(a,b,d,n-d) for 0<d<n, and one dead quotient, so sc=2ab+3. The depth sum equals ab and balancing a+b maximizes ab. Independently recomputed all right-language quotients for each of 81 ordered pairs a,b=1..9, including a=b=1 and other boundary cases, and every profile matched. This finite confirmation is distinct from the all-a,b combinatorial proof. Git tree 9ca006a29e997775aa5bcb975803717467c0ab90 was independently reconstructed from the seven real blob IDs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jirásková and Okhotin study general cyclic-shift state-complexity bounds and witness automata, not the parameterized two-run singleton Myhill–Nerode stratification.",
+          "Their general worst-case state bounds do not determine exact residual collisions for this family."
+        ],
+        "reasoning": "A general cyclic-shift operation encompasses the target language as an input but an upper bound or worst-case example does not imply the exact special-case count. The submitted proof supplies missing factor-uniqueness and pure-boundary overlap analysis.",
+        "searches": [
+          "Jirásková–Okhotin 2008 State Complexity of Cyclic Shift full primary PDF",
+          "Resultary query minimal complete DFA state complexity distinct cyclic rotations conjugates of binary two-block word 0^a 1^b Myhill Nerode quotients exact 2ab+3"
+        ]
+      },
+      "checked_sources": [
+        "Jirásková–Okhotin, State Complexity of Cyclic Shift, RAIRO 42 (2008), 335–360, DOI 10.1051/ita:2007038",
+        "DiMuro, Classifying Rotationally-Closed Languages Having Greedy Universal Cycles, EJC 26(1) (2019), P1.35, DOI 10.37236/7932",
+        "Resultary semantic query: minimal complete DFA state complexity distinct cyclic rotations conjugates of binary two-block word 0^a 1^b Myhill Nerode quotients exact 2ab+3",
+        "Assigned RESULT.md and verify.py at exact Git tree 9ca006a29e997775aa5bcb975803717467c0ab90"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior cyclic-shift constructions show possible large determinization costs; they do not force the equality 2ab+3 for all positive a,b.",
+          "The new proof derives a depth-by-depth quotient decomposition and the sharp balanced-block maximum."
+        ],
+        "reasoning": "No inspected primary theorem implies the exact formula without an additional nontrivial analysis of overlaps and quotients. A stronger unindexed theorem may nevertheless contain this as a corollary.",
+        "searches": [
+          "Jirásková–Okhotin 2008 DOI 10.1051/ita:2007038",
+          "DiMuro 2019 DOI 10.37236/7932",
+          "Resultary query minimal complete DFA state complexity distinct cyclic rotations conjugates of binary two-block word 0^a 1^b Myhill Nerode quotients exact 2ab+3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is recognition of all conjugates of one fixed two-run word; its complete DFA has 2ab+3 states, with 2 min(a,b,d,n-d) quotients at depth d.",
+          "DiMuro (2019), Theorem 1, characterizes when a rotation-closed set admits a greedy universal cycle, a different automaton-independent question."
+        ],
+        "reasoning": "Aliases checked: cyclic closure, cyclic shift, word conjugates, necklace language, Myhill–Nerode right quotients and minimal complete automata. Greedy universal cycles and rotation closure share the objects but do not classify the right-language quotients. No explicit equivalent formula was identified in the inspected primary statements; that is a bounded priority judgment.",
+        "searches": [
+          "minimal complete DFA state complexity distinct cyclic rotations conjugates of binary two-block word 0^a 1^b Myhill Nerode quotients exact 2ab+3",
+          "Jirásková–Okhotin 2008 DOI 10.1051/ita:2007038 sections on cyclic shift",
+          "DiMuro 2019 DOI 10.37236/7932 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The searched published mathematical record returned synchronizing-automata rank/profile problems, not a 2ab+3 cyclic-rotation DFA table.",
+          "The primary computational tables concern state-complexity phenomena for other automata, not a complete two-run factor-residual census."
+        ],
+        "reasoning": "No directly covering exact database/table was found among the inspected results; this is not a proof of absence from unpublished notes or specialized finite-language catalogues.",
+        "searches": [
+          "minimal complete DFA state complexity distinct cyclic rotations conjugates of binary two-block word 0^a 1^b Myhill Nerode quotients exact 2ab+3",
+          "Jirásková–Okhotin 2008 computational sections/tables",
+          "published Resultary automata search 2026-10-30"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact two-run singleton profile, excluding the already-known cyclic-shift operation, state-complexity theory and greedy universal-cycle constructions. Inspected primary statements and published Resultary records do not logically imply the exact formula. Historical priority is not certified.",
+      "residual_risks": [
+        "A special-case formula may appear under necklace/factor-automaton nomenclature in unindexed notes or older automata literature.",
+        "Independent direct enumeration of 81 parameter pairs corroborates, but does not constitute, the unrestricted proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General state-complexity bounds and examples, but no explicit or logically forcing two-run singleton depth quotient count identified.",
+          "evidence": [
+            "Full text https://www.numdam.org/article/ITA_2008__42_2_335_0.pdf; see abstract and cyclic-shift construction/tables."
+          ],
+          "identifier_or_url": "https://doi.org/10.1051/ita:2007038",
+          "material_read": "Primary 26-page PDF: abstract, problem setup, automaton constructions, lower/upper-bound theorem context and computational tables; searched singleton and special two-run cases.",
+          "method": "Primary open-access PDF with page-image inspection and targeted section/text reading",
+          "title": "State Complexity of Cyclic Shift",
+          "trigger": "Same cyclic-shift operation; potential dominating general state-complexity theorem"
+        },
+        {
+          "assessment": "Addresses universal cycles generated by a greedy sequence; does not give minimal-DFA right-quotient counts.",
+          "evidence": [
+            "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v26i1p35/pdf/ Theorem 1."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/7932",
+          "material_read": "Primary 13-page article, introduction, definitions and Theorem 1 (greedy universal cycle iff a rotation/increase reachability condition), with sections on language families.",
+          "method": "Primary open-access PDF and extracted theorem",
+          "title": "Classifying Rotationally-Closed Languages Having Greedy Universal Cycles",
+          "trigger": "Same rotationally closed fixed-length languages"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The binary two-run necklace is a canonical restricted cyclic-closure family; the full quotient profile and exact quadratic recognition blow-up relative to a single n-letter word are natural, useful finite-language state-complexity invariants. The sharp fixed-length composition maximizing recognition cost is structural information, not an arbitrary numerical sample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Jirásková–Okhotin, State Complexity of Cyclic Shift, RAIRO 42 (2008), 335–360, DOI 10.1051/ita:2007038",
+    "DiMuro, Classifying Rotationally-Closed Languages Having Greedy Universal Cycles, EJC 26(1) (2019), P1.35, DOI 10.37236/7932",
+    "Resultary semantic query: minimal complete DFA state complexity distinct cyclic rotations conjugates of binary two-block word 0^a 1^b Myhill Nerode quotients exact 2ab+3",
+    "Assigned RESULT.md and verify.py at exact Git tree 9ca006a29e997775aa5bcb975803717467c0ab90"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the two-run binary singleton family and complete DFAs are covered; no general cyclic-shift or multi-necklace bound follows.",
+    "Checks are finite; all-parameter correctness depends on the mixed-factor uniqueness proof and disjoint pure-boundary case partition.",
+    "Best-of-knowledge originality is subject to unindexed equivalent derivations."
+  ],
+  "residual_risks": [
+    "A special-case formula may appear under necklace/factor-automaton nomenclature in unindexed notes or older automata literature.",
+    "Independent direct enumeration of 81 parameter pairs corroborates, but does not constitute, the unrestricted proof."
+  ],
+  "schema_version": 1
+}
