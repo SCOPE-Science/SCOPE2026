@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T19:01:16.540283Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed m>=2 the L²-normalized product Legendre projection kernel is K=∑_|alpha|<=m∏phi_alpha_i(a_i)phi_alpha_i(Y_i) and evaluation norm exactly E|K| by continuous sign approximation. Split off top squarefree term T=∑_|S|=m∏3a_iY_i; all remaining orthogonal terms have <=m-1 nonzero coordinates, with O_m(d^(m-1)) squared L² norm uniformly in a. After d^-m/2 scaling, Newton generating identities express the squarefree elementary symmetric polynomial through power sums p1=>sqrt(3s)Z by bounded triangular-array CLT, p2=>3s in L², and pj=>0 for j>=3. Thus T/d^(m/2)=> (3s)^(m/2)H_m(Z)/m!. Uniform L² upper bound 3^m/m! gives uniform integrability and convergence of absolute means. Any sequence a^(d) has a subsequence of s=mean a_i²; contradiction/compactness upgrades to uniform pointwise asymptotic, and corner s=1 gives sharp norm. Strict monotonicity in s proves iff mean squared corner deficit->0. For m=2, E|Z²-1|=4phi(1), hence c2=6/sqrt(2*pi*e)=1.451824347115, independently checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2014 primary source gives a generic bound via diagonal Christoffel K(a,a) and works d<=3 explicit cases",
+          "Wang 2014 concerns hyperinterpolation, potentially similar title but different sampled projector",
+          "Other projection-constant studies are discrete/symmetric or optimal projection rather than this specified L² projector"
+        ],
+        "reasoning": "No broader cited theorem currently implies the sharp fixed-degree high-dimension coefficient c_m with uniform profile and corner rigidity. Inaccessible Wang full text remains documented, not automatic failure.",
+        "searches": [
+          "De Marchi–Sommariva–Vianello 2014 Christoffel functions",
+          "Wang–Wang–Wang 2014 DOI:10.1016/j.camwa.2014.07.009",
+          "Defant et al arXiv:2208.06467"
+        ]
+      },
+      "checked_sources": [
+        "De Marchi–Sommariva–Vianello 2014 DOI:10.14658/pupj-drna-2014-Special_Issue-6",
+        "Wang–Wang–Wang 2014 DOI:10.1016/j.camwa.2014.07.009 (abstract only)",
+        "arXiv:1608.02216 approximation rates, scope only",
+        "arXiv:2208.06467 projection constants, scope only",
+        "Resultary 2026/10/11/SCOPE-exact-endpoint-norm-of-the-second-johnson-spherical-projector--f9735429621e",
+        "Resultary 2026/10/11/SCOPE-exact-degree-two-hamming-projection-norms-and-the-gaussian-poiss--cd09d9ad5ea2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kernel diagonal gives upper bound coefficient 3^(m/2)/sqrt(m!), strictly above c_m=3^(m/2)E|H_m|/m! for m>=2",
+          "The older paper has the orthonormal expansion, not the CLT of the signed absolute off-diagonal kernel"
+        ],
+        "reasoning": "Cauchy–Schwarz/Christoffel estimates are insufficient to identify E|H_m(Z)|, the uniform s^(m/2) profile, or corner rigidity; the proof uses a squarefree Hermite chaos limit. The Wang source scope remains materially inaccessible.",
+        "searches": [
+          "De Marchi–Sommariva–Vianello 2014 eq. (1), (20)",
+          "DOI:10.1016/j.camwa.2014.07.009",
+          "high dimension Legendre orthogonal projection total degree fixed cube Lebesgue operator norm Hermite leading constant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Continuous orthogonal projection operator norm equals the supremum of integrated absolute reproducing kernels (Lebesgue function)",
+          "Hyperinterpolation replaces the continuous coefficients by cubature and is a different operator"
+        ],
+        "reasoning": "Checked Lebesgue constant, Christoffel-function estimates, fixed-degree polynomial-chaos limit and high-dimensional cube aliases; general Christoffel bounds are not sharp absolute-kernel asymptotics.",
+        "searches": [
+          "high dimension Legendre orthogonal projection total degree fixed cube Lebesgue operator norm Hermite leading constant",
+          "Hermite chaos limit Lebesgue constant continuous orthogonal projection fixed total polynomial degree high dimension uniform cube",
+          "DOI:10.14658/pupj-drna-2014-Special_Issue-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Johnson and Hamming exact norms produce Gaussian/Hermite-looking coefficients on finite discrete spaces, not continuous Legendre product cubes"
+        ],
+        "reasoning": "No prior exact continuous degree-m Legendre asymptotic table located; matching a Gaussian constant across different measures does not imply equal underlying operator norms.",
+        "searches": [
+          "high dimension Legendre orthogonal projection total degree fixed cube Lebesgue operator norm Hermite leading constant",
+          "Hermite chaos limit Lebesgue constant continuous orthogonal projection fixed total polynomial degree high dimension uniform cube",
+          "Resultary 2026/10/11/SCOPE-exact-endpoint-norm-of-the-second-johnson-spherical-projector--f9735429621e",
+          "Resultary 2026/10/11/SCOPE-exact-degree-two-hamming-projection-norms-and-the-gaussian-poiss--cd09d9ad5ea2"
+        ]
+      },
+      "rationale": "De Marchi–Sommariva–Vianello establish general product Jacobi/Legendre Christoffel and hyperinterpolation upper bounds in fixed low dimension and growing degree; they do not state a fixed-degree, growing-dimension absolute continuous-kernel asymptotic with uniform local mean-square profile. The Wang–Wang–Wang 2014 abstract treats hyperinterpolation in the d-cube and is a plausible source-scope risk, but available summaries are Chebyshev/cubature and not the exact continuous uniform Legendre problem. Discrete Hamming/Johnson Hermite projection results have different measures and cannot directly imply the continuous integral profile.",
+      "residual_risks": [
+        "Wang–Wang–Wang 2014 complete primary article was not obtained; same dimension-variable title requires future full-text comparison, though hyperinterpolation is a different operator.",
+        "Polynomial chaos Hermite limits may have earlier equivalent exact continuous projection-norm formulations under other terminology.",
+        "No claim for growing m, exact finite-d norm, or exactly corner-maximizing finite dimension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: supplies Christoffel diagonal bound and low-dimensional Legendre calculations, not fixed m/d->infty exact L1 kernel asymptotics",
+          "evidence": "At PDF p. 3 explicit dimensions are d=1,2,3; the operator studied is hyperinterpolation via cubature.",
+          "identifier_or_url": "https://ftp.gwdg.de/pub/EMIS/journals/DRNA/pdf/demarchisommarivavianello-2014-mcf.pdf",
+          "material_read": "Full eight-page original PDF with abstract, Section 1 kernel formula, product Legendre case and (20); page-0 image reviewed",
+          "method": "Lawful complete publisher/open journal PDF",
+          "title": "Multivariate Christoffel functions and hyperinterpolation",
+          "trigger": "Closest actual product-cube Legendre kernel and norm bounds"
+        },
+        {
+          "assessment": "INACCESSIBLE_SCOPE_RISK: cannot establish whole-document noncoverage, but hyperinterpolation uses cubature and differs from continuous orthogonal projection",
+          "evidence": "The paper is explicitly titled hyperinterpolation; no verified full theorem statement matching the fixed-degree Legendre continuum claim.",
+          "identifier_or_url": "https://doi.org/10.1016/j.camwa.2014.07.009",
+          "material_read": "Bibliographic abstract and cited context in the original 2014 Christoffel paper; no complete article text was accessed",
+          "method": "Accessible abstract/bibliography only; complete PDF not read",
+          "title": "On the norm of the hyperinterpolation operator on the d-dimensional cube",
+          "trigger": "Plausible similar title/high-dimensional cube comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The continuous L² orthogonal projection onto fixed total-degree polynomials on a high-dimensional cube is a canonical approximation/stability operator. This computes its sharp uniform-norm leading constant, an entire spatially varying Hermite profile, and an if-and-only-if geometric classification of near-maximizing evaluations. It improves the diagonal Christoffel bound constant 3^(m/2)/sqrt(m!) and avoids claiming exact finite-dimension vertex maximizers.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "De Marchi–Sommariva–Vianello 2014 DOI:10.14658/pupj-drna-2014-Special_Issue-6",
+    "Wang–Wang–Wang 2014 DOI:10.1016/j.camwa.2014.07.009 (abstract only)",
+    "arXiv:1608.02216 approximation rates, scope only",
+    "arXiv:2208.06467 projection constants, scope only",
+    "Resultary 2026/10/11/SCOPE-exact-endpoint-norm-of-the-second-johnson-spherical-projector--f9735429621e",
+    "Resultary 2026/10/11/SCOPE-exact-degree-two-hamming-projection-norms-and-the-gaussian-poiss--cd09d9ad5ea2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Degree m fixed and d->infty; no growing-degree uniformity.",
+    "Continuous product Legendre projection distinguished from discrete Chebyshev/hyperinterpolation projectors."
+  ],
+  "residual_risks": [
+    "Wang–Wang–Wang 2014 complete primary article was not obtained; same dimension-variable title requires future full-text comparison, though hyperinterpolation is a different operator.",
+    "Polynomial chaos Hermite limits may have earlier equivalent exact continuous projection-norm formulations under other terminology.",
+    "No claim for growing m, exact finite-d norm, or exactly corner-maximizing finite dimension."
+  ],
+  "schema_version": 1
+}

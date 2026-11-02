@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The standalone file `checker.py` requires Python 3 and NumPy. Execute it with `python checker.py`. It uses a fixed random seed and computes the complete total-degree orthogonal reproducing kernel from an independent truncated generating-product recurrence, rather than only the asymptotic leading term.
+## correctness
 
-Actual execution of this script returned a successful exit code, reported `PASS: 120 exact-formula comparisons and dimension/asymptotic diagnostics`, and checked the closed quadratic kernel expression for 120 random evaluation/input configurations. Monte Carlo diagnostics covered \(m=1,2,3\), dimensions \(d=16,64,256\), and evaluation profiles at corners, half-zero points, and half-scale points (where included). The predicted quadratic coefficient was \(6/\sqrt{2\pi e}\approx1.451824347115\); the normalized corner values reported at dimensions 16, 64, and 256 were approximately 1.491360, 1.462281, and 1.455165. Results for cubic and interior evaluation profiles also agreed to the script's stated sampling tolerances.
+PASS
 
-These finite Monte Carlo values are not rigorous error bounds, and sampled points do not prove a global maximum or an infinite-dimensional limit. The correctness argument instead uses the exact product Legendre kernel, a uniform \(L^2\) estimate for omitted multi-indices, a triangular-array central limit theorem, Newton's identities, a uniform second-moment estimate, and subsequence compactness. The only calculated special-function integral is \(\mathbb E|H_2(Z)|=4e^{-1/2}/\sqrt{2\pi}\).
+For fixed m>=2 the L²-normalized product Legendre projection kernel is K=∑_|alpha|<=m∏phi_alpha_i(a_i)phi_alpha_i(Y_i) and evaluation norm exactly E|K| by continuous sign approximation. Split off top squarefree term T=∑_|S|=m∏3a_iY_i; all remaining orthogonal terms have <=m-1 nonzero coordinates, with O_m(d^(m-1)) squared L² norm uniformly in a. After d^-m/2 scaling, Newton generating identities express the squarefree elementary symmetric polynomial through power sums p1=>sqrt(3s)Z by bounded triangular-array CLT, p2=>3s in L², and pj=>0 for j>=3. Thus T/d^(m/2)=> (3s)^(m/2)H_m(Z)/m!. Uniform L² upper bound 3^m/m! gives uniform integrability and convergence of absolute means. Any sequence a^(d) has a subsequence of s=mean a_i²; contradiction/compactness upgrades to uniform pointwise asymptotic, and corner s=1 gives sharp norm. Strict monotonicity in s proves iff mean squared corner deficit->0. For m=2, E|Z²-1|=4phi(1), hence c2=6/sqrt(2*pi*e)=1.451824347115, independently checked.
 
-This verification does not establish finite-dimensional corner maximality, a quantitative rate for the full uniform little-o term, or any claim for growing polynomial degree. No independent audit has been performed.
+## originality
+
+PASS
+
+De Marchi–Sommariva–Vianello establish general product Jacobi/Legendre Christoffel and hyperinterpolation upper bounds in fixed low dimension and growing degree; they do not state a fixed-degree, growing-dimension absolute continuous-kernel asymptotic with uniform local mean-square profile. The Wang–Wang–Wang 2014 abstract treats hyperinterpolation in the d-cube and is a plausible source-scope risk, but available summaries are Chebyshev/cubature and not the exact continuous uniform Legendre problem. Discrete Hamming/Johnson Hermite projection results have different measures and cannot directly imply the continuous integral profile.
+
+## value
+
+PASS
+
+The continuous L² orthogonal projection onto fixed total-degree polynomials on a high-dimensional cube is a canonical approximation/stability operator. This computes its sharp uniform-norm leading constant, an entire spatially varying Hermite profile, and an if-and-only-if geometric classification of near-maximizing evaluations. It improves the diagonal Christoffel bound constant 3^(m/2)/sqrt(m!) and avoids claiming exact finite-dimension vertex maximizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

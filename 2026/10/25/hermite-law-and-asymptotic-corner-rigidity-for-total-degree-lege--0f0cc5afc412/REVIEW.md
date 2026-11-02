@@ -1,15 +1,21 @@
-# Scientific review: Hermite law for cube Legendre projections
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is restricted to a fixed total degree \(m\ge2\), uniform product measure, and the explicitly defined \(L^2\) orthogonal projector. The product Legendre kernel follows from the normalized one-variable basis. Its squarefree homogeneous-degree-\(m\) component has the exact symmetric-polynomial representation, and orthogonality bounds every remaining component uniformly by \(O_m(d^{(m-1)/2})\) in \(L^2\). For arbitrary moving evaluation points, a bounded triangular-array central limit theorem and Newton identities give the Hermite distributional limit. Orthogonality also gives a uniform second-moment bound, ensuring convergence of absolute expectations; compactness in the single mean-square parameter upgrades sequencewise convergence to uniform convergence. The global sharp constant and the if-and-only-if characterization of asymptotically norm-maximizing evaluations follow without any unproved finite-dimensional maximizer assertion. The quadratic Gaussian integral is computed analytically. Deterministic numerical checks independently reproduce the exact degree-two kernel expression and sample the predicted dimension scaling, but do not substitute for the proof.
+## correctness
 
-## Originality — PASS with residual risks
-The closest fully inspected original publication is De Marchi, Sommariva and Vianello (2014), especially its continuous cube/Legendre Christoffel calculations and norm upper bounds. Its diagonal kernel upper bound determines neither the exact leading absolute-kernel coefficient \(c_m\) nor the uniform dependence on average squared evaluation coordinates; indeed the generic diagonal-kernel coefficient \(3^{m/2}/\sqrt{m!}\) is strictly larger. De Marchi, Vianello and Xu (2008) treat Chebyshev hyperinterpolation and cubature; Trefethen (2016) treats approximation rates under different degree conventions. The accessible summary of Wang, Wang and Wang (2014) concerns Chebyshev-weighted, sampled hyperinterpolation and increasing polynomial degree rather than uniform-weight, fixed-degree continuous \(L^2\) projection as dimension grows. The polynomial projection studies by Defant and collaborators concern different function spaces or symmetry settings. Published results for discrete Hamming or Johnson projections are not direct consequences or antecedents because their underlying measures and kernels differ. Exact literature checks by aliases, formulas, dominating implications, and historical result comparisons did not reveal coverage. Residual risk: unindexed older sources; a closely related paper whose complete text was not accessible; and references to classical polynomial-chaos limits that may contain a differently phrased special case.
+PASS
 
-## Mathematical value — PASS
-The continuous orthogonal projector onto total-degree polynomials on a cube is a canonical approximation map. For every fixed degree at least two, the finding supplies the sharp leading worst-case noise-amplification constant in a regime where dimension increases and the polynomial subspace has \(\binom{d+m}{m}\) dimensions. It improves the leading constant available from a generic Christoffel/Cauchy–Schwarz estimate and derives the full uniform local profile and a geometric near-extremizer classification. These properties address stability and evaluation geometry rather than merely recomputing an existing bound. The result neither claims finite-dimension exactness nor relies on unsupported downstream applications.
+For fixed m>=2 the L²-normalized product Legendre projection kernel is K=∑_|alpha|<=m∏phi_alpha_i(a_i)phi_alpha_i(Y_i) and evaluation norm exactly E|K| by continuous sign approximation. Split off top squarefree term T=∑_|S|=m∏3a_iY_i; all remaining orthogonal terms have <=m-1 nonzero coordinates, with O_m(d^(m-1)) squared L² norm uniformly in a. After d^-m/2 scaling, Newton generating identities express the squarefree elementary symmetric polynomial through power sums p1=>sqrt(3s)Z by bounded triangular-array CLT, p2=>3s in L², and pj=>0 for j>=3. Thus T/d^(m/2)=> (3s)^(m/2)H_m(Z)/m!. Uniform L² upper bound 3^m/m! gives uniform integrability and convergence of absolute means. Any sequence a^(d) has a subsequence of s=mean a_i²; contradiction/compactness upgrades to uniform pointwise asymptotic, and corner s=1 gives sharp norm. Strict monotonicity in s proves iff mean squared corner deficit->0. For m=2, E|Z²-1|=4phi(1), hence c2=6/sqrt(2*pi*e)=1.451824347115, independently checked.
 
-## Scientific boundaries
-No independent validation was performed. The fixed-degree restriction is essential to the present proof. Neither growing-degree behavior, a finite-dimensional exact norm, nor exact corner maximality for finite dimension has been established here. One particularly similar historical abstract has no fully inspected source text. The archived literature search is evidence of comparisons, not a proof of global uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+De Marchi–Sommariva–Vianello establish general product Jacobi/Legendre Christoffel and hyperinterpolation upper bounds in fixed low dimension and growing degree; they do not state a fixed-degree, growing-dimension absolute continuous-kernel asymptotic with uniform local mean-square profile. The Wang–Wang–Wang 2014 abstract treats hyperinterpolation in the d-cube and is a plausible source-scope risk, but available summaries are Chebyshev/cubature and not the exact continuous uniform Legendre problem. Discrete Hamming/Johnson Hermite projection results have different measures and cannot directly imply the continuous integral profile.
+
+## value
+
+PASS
+
+The continuous L² orthogonal projection onto fixed total-degree polynomials on a high-dimensional cube is a canonical approximation/stability operator. This computes its sharp uniform-norm leading constant, an entire spatially varying Hermite profile, and an if-and-only-if geometric classification of near-maximizing evaluations. It improves the diagonal Christoffel bound constant 3^(m/2)/sqrt(m!) and avoids claiming exact finite-dimension vertex maximizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
