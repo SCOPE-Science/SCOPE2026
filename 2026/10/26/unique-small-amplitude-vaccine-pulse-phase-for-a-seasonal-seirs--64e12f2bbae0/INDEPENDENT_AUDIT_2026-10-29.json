@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T05:54:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated homogeneous SEIRS system with one annual instantaneous susceptible-only pulse of fraction eta, no baseline vaccination and sinusoidal beta(1+epsilon*cos(omega*t)), the disease-free susceptibility return map is a contraction of slope (1-eta)e^{-kT}, with exact periodic orbit s_eta(z)=s0[1-eta*e^{-kz}/(1-(1-eta)e^{-kT})]. Its first eta derivative has Fourier coefficient -s0/[T(k+i omega)]. The infected E,I linear system reduces by elimination to u=[(alpha-gamma)^2/4+alpha beta(1+epsilon cos(omega(z+tau)))s_eta(z)]u. The periodic principal Riccati logarithmic derivative R has analytic branch at R0=g/2 because D+g is invertible on periodic functions; the mixed epsilon eta equation gives <R_epsilon_eta>=(alpha beta/g)(1-2B/(g²+omega²))<q cos> = -K cos(omega tau+atan(omega/k)). The coefficient K>0 since g²+omega²-2B=(alpha-gamma)²+2B+omega²>0. Phase-dependent terms vanish if either amplitude is zero, so analyticity yields a uniform C² remainder divisible by epsilon eta. Dividing by the nonzero mixed coefficient, the phase derivatives converge to those of a cosine, proving exactly two critical points and one strict global minimizer/mod-T at -atan(omega/k)/omega+O(epsilon+eta). Independent direct 2x2 fundamental-matrix ODE integration and mixed finite differences at four phases in three parameter sets corroborated the coefficient and predicted phase with finite-amplitude mixed difference errors <=0.00560, including an extreme fast-stage regime. Finite checks do not establish analytic uniqueness by themselves.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Onyango–Müller 2014 explicitly optimizes periodically driven SIR with susceptible-profile controls (abstract), not demonstrated to cover a two-stage impulsive SEIRS mixed sensitivity.",
+          "Moneim–Greenhalgh derive periodic vaccination threshold inequalities for SEIRS, not this exact instantaneous-pulse unique phase.",
+          "Gavish–Katriel addresses seasonal SIRVS with distinct control choices and objectives."
+        ],
+        "reasoning": "A more general optimal-control or Floquet-sensitivity theorem might subsume the statement if all its hypotheses include instantaneous susceptible-only pulses and two-stage infection, but the inspected older results either use scalar SIR dynamics, smooth vaccine profiles, or nonlinear finite-horizon objectives. No such dominating implication was found; inaccessible originals are acknowledged.",
+        "searches": [
+          "Onyango & Müller, Determination of optimal vaccination strategies using an orbital stability threshold from periodically driven systems, doi:10.1007/s00285-013-0648-8",
+          "Moneim & Greenhalgh, Use of a periodic vaccination strategy ... MBE 2005",
+          "Gavish & Katriel, Optimal Vaccination for Contagious Diseases with Seasonal Transmission (2026)"
+        ]
+      },
+      "checked_sources": [
+        "Gabrick et al arXiv:2402.16883 full HTML",
+        "Moneim and Greenhalgh, MBE 2 (2005), primary PDF",
+        "Onyango et al, Applied Mathematics 4 (2013), open PDF",
+        "Onyango and Müller, Journal of Mathematical Biology 68 (2014), abstract only",
+        "Wang et al, Communications in Nonlinear Science and Numerical Simulation 67 (2019), bibliographic text only",
+        "Gavish and Katriel Bulletin of Mathematical Biology (2026), discovery only",
+        "Resultary targeted vaccination timing and Floquet semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A local disease-free exponent does not equal total infected-case count or dose-weighted efficacy.",
+          "Two-stage exposed/infected matrix phase coefficient contains g and B in its amplitude, but its phase cancels to arctan(omega/k), a nontrivial separation not established in the listed SIR/SEIR precedent."
+        ],
+        "reasoning": "The 2024 SEIRS simulations show one favorable phase, not uniqueness or a small-amplitude continuous-angle theorem. The 2005 periodic SEIRS threshold does not identify timing optimum for an instantaneous vaccination map. The 2014 SIR comparator concerns a one-infected-stage model and cannot without a mathematical reduction imply the noncommuting two-compartment Floquet result.",
+        "searches": [
+          "arXiv:2402.16883 full text",
+          "Moneim–Greenhalgh 2005 PDF",
+          "Onyango–Müller–Moindi 2013 SIR full PDF",
+          "Onyango & Müller 2014 primary abstract",
+          "Wang et al 2019 DOI 10.1016/j.cnsns.2018.07.003"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent description: dominant monodromy-matrix multiplier, principal Floquet/Lyapunov invasion exponent, orbital stability threshold of the uninfected state, seasonal vaccination timing.",
+          "Search retrieved related SIRn/SIRVS/SEIR vaccination sensitivity but not the explicit two-amplitude SEIRS phase law."
+        ],
+        "reasoning": "The scalar SIR orbital-stability optimum is the strongest plausible alias. The inspected two-stage SEIRS derivation requires a noncommuting E/I fundamental matrix and its Riccati mixed coefficient; a matching title or scalar sinusoidal optimum does not establish implication.",
+        "searches": [
+          "Resultary: Seasonally forced SEIRS model instantaneous vaccination pulse Floquet exponent optimal phase weak amplitude Riccati perturbation phase shift atan omega over b plus delta",
+          "web: SEIRS pulse vaccination exact optimal timing Floquet eigenvalue phase 2025 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Gabrick study plots/sample-compares selected vaccination phases near rising-transmission inflection but does not provide a complete exact phase-optimizer table for the weak epsilon/eta Floquet problem."
+        ],
+        "reasoning": "The exact leading phase depends on continuous k/omega and is not a fixed finite parameter table. Quantitative simulation plots for particular p, rates and finite vaccination duration cannot supply the asserted all-parameter unique asymptotic optimizer.",
+        "searches": [
+          "Gabrick et al., Impact of periodic vaccination in SEIRS seasonal model arXiv:2402.16883",
+          "Resultary semantic SEIRS phase Floquet search"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: full-text 2024 seasonal SEIRS study compares discrete phases for finite pulses and nonlinear case counts, and full-text earlier SEIRS/SIR vaccination literature analyzes different thresholds/controls; the claimed universal weak two-amplitude principal Floquet phase, strict uniqueness and stage-independent leading angle were not demonstrated to be consequences of those results. Prior scalar SIR timing and orbital-Floquet analysis is credited, not treated as new in itself. Highly relevant 2014 and 2019 full papers were unavailable, retained as genuine residual risks.",
+      "residual_risks": [
+        "Full text of 2014 Onyango–Müller highly relevant Floquet/optimization paper remained inaccessible; hidden SEIRS generalization or phase formula cannot be ruled out.",
+        "Full 2019 Wang SEIR optimal-control paper was not examined; mathematical dominance of exact instantaneous-pulse setting remains a priority check.",
+        "The proven optimum is asymptotic and for local disease invasion, not finite-amplitude case count; no epidemiological policy recommendation follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_REGIME_AND_OBJECTIVE",
+          "evidence": [
+            "Numerical finite-amplitude nonlinear infection counts, sampled phases, and a baseline vaccination regimen; no proven mixed epsilon-eta principal Floquet coefficient or unique weak-pulse optimum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.16883",
+          "material_read": "Full lawful arXiv HTML: SEIRS model, pulse protocol, numerical phase comparisons, figures and conclusions",
+          "method": "primary preprint full text",
+          "title": "Impact of periodic vaccination in SEIRS seasonal model",
+          "trigger": "Same SEIRS equations, seasonal forcing and pulsed-vaccine timing"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING_SPECIFIC_CONTROL",
+          "evidence": [
+            "Periodic vaccination threshold inequalities for smooth/staged vaccination, not one instantaneous annual susceptible-only pulse optimized continuously by phase."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/mbe.2005.2.591",
+          "material_read": "Full 2005 Mathematical Biosciences and Engineering PDF, abstract, assumptions, stability-threshold formulas, rendered pages 1 and 7",
+          "method": "primary publisher PDF with screenshot inspection",
+          "title": "Use of a periodic vaccination strategy to control the spread of epidemics with seasonally varying contact rate",
+          "trigger": "SEIRS periodic vaccination and disease-free threshold"
+        },
+        {
+          "assessment": "SIR_SCALAR_MODEL_NOT_DIRECTLY_IMPLYING_SEIRS",
+          "evidence": [
+            "Optimizes SIR vaccination via orbital stability/periodic susceptible profiles, not the two-stage SEIRS continuous phase coefficient and uniqueness."
+          ],
+          "identifier_or_url": "https://doi.org/10.4236/am.2013.410A2001",
+          "material_read": "Full lawful 2013 SIR PDF, model, objective, results and rendered pages",
+          "method": "primary open-access full PDF with screenshot inspection",
+          "title": "Optimal Vaccination Strategies in an SIR Epidemic Model with Time Scales",
+          "trigger": "Possible dominating exact phase optimization in periodic SIR"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_READ_PRIORITY_RISK",
+          "evidence": [
+            "Abstract states periodically driven SIR, optimizes within susceptible profile sets; stronger hidden theorems cannot be excluded."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-013-0648-8",
+          "material_read": "Primary bibliographic abstract and accessible university repository record only; no full mathematical article",
+          "method": "publisher abstract, university repository metadata; institutional request blocked by disconnected authorization",
+          "title": "Determination of optimal vaccination strategies using an orbital stability threshold from periodically driven systems",
+          "trigger": "Highly relevant Floquet seasonal vaccine timing antecedent"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_READ_PRIORITY_RISK",
+          "evidence": [
+            "Finite-horizon constrained SEIR Pontryagin control is distinct on stated objectives but hidden scope unknown."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.cnsns.2018.07.003",
+          "material_read": "Title, abstract/searchable bibliographic statements only; full article not inspected",
+          "method": "primary publication metadata and secondary discovery",
+          "title": "Optimal vaccination strategy of a constrained time-varying SEIR epidemic model",
+          "trigger": "Potentially broader periodic-vaccination optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit, unique optimal annual phase was motivated by earlier simulations suggesting that vaccination timing relative to sinusoidal transmission matters. The quantified weak-amplitude SEIRS result identifies the universal demographic replenishment lag arctan(omega/(b+delta))/omega while correctly isolating latency/recovery as effects on magnitude, not phase. That is a structural distinction between local invasion and cumulative cases, useful for analytic model sensitivity and phase design; it is not a claim of clinical optimality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gabrick et al arXiv:2402.16883 full HTML",
+    "Moneim and Greenhalgh, MBE 2 (2005), primary PDF",
+    "Onyango et al, Applied Mathematics 4 (2013), open PDF",
+    "Onyango and Müller, Journal of Mathematical Biology 68 (2014), abstract only",
+    "Wang et al, Communications in Nonlinear Science and Numerical Simulation 67 (2019), bibliographic text only",
+    "Gavish and Katriel Bulletin of Mathematical Biology (2026), discovery only",
+    "Resultary targeted vaccination timing and Floquet semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Requires both positive pulse strength eta and positive forcing amplitude epsilon sufficiently small, independently with fixed other parameters.",
+    "Local Floquet invasion objective, not total infections, nonlinear epidemic dynamics or doses/cost optimization.",
+    "Only annual instantaneous susceptible-to-immune pulse with perfect efficacy and no continuous vaccination baseline.",
+    "Institutional retrieval of one highly relevant 2014 paper was unavailable; this is a residual priority risk, not correctness evidence."
+  ],
+  "residual_risks": [
+    "Full text of 2014 Onyango–Müller highly relevant Floquet/optimization paper remained inaccessible; hidden SEIRS generalization or phase formula cannot be ruled out.",
+    "Full 2019 Wang SEIR optimal-control paper was not examined; mathematical dominance of exact instantaneous-pulse setting remains a priority check.",
+    "The proven optimum is asymptotic and for local disease invasion, not finite-amplitude case count; no epidemiological policy recommendation follows."
+  ],
+  "schema_version": 1
+}
