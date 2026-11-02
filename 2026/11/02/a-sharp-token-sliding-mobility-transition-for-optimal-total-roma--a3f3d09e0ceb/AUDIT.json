@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The exact domain k>=2, n>=k(k+1) is fixed. The proof excludes 0<=t<=k and t>=k+2 defender blocks using explicit counts of forbidden zero assignments. In the remaining case the total-Roman condition forces k+1 disjoint k-sets. Count and degree follow from unique block partitions. At s=k the partition into k+2 equal blocks is a complete component invariant. For s>=k+1, occupied/free element transpositions connect TJ states; KG(n-k²,k) connectivity on at least 2k+1 points converts each TJ move to slides. The standalone verifier rebuilt the original predicate and exact component graph on k=2,n=6..10; check code actually ran to VERIFY_OK. Finite tests are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zec–Grbić arxiv:2204.05664 Theorem 2 establishes the optimum weight with a disjoint-block construction.",
+        "Brešar et al. arxiv:2312.15464 pp. 1-2 gives clique structure for minimum multiple domination in a related range.",
+        "Lam–Phan–Hoang arxiv:2506.07821 Sections 1–4 examines clique TS/TJ graph structural properties in general.",
+        "Bousquet et al. arxiv:1812.05419 pp. 1–4 primarily studies unrestricted TJ matchings."
+      ],
+      "reasoning": "The Roman optimum and the clique interpretation are prior-implied and not presented as novel. Their implication supplies the vertex set but no Kneser-adjacent slide component classification: distinct slide-adjacency constraints are essential. The general clique-paper results on clique numbers, planarity, and maximum-clique TJ do not determine this component threshold.",
+      "searches": [
+        "published-finding corpus:minimum Roman dominating functions Kneser graph K(n,2) enumerate optimal assignments weight six",
+        "published-finding corpus:clique reconfiguration token sliding Kneser graph arbitrary k complete component structure",
+        "web:Kneser clique reconfiguration token sliding",
+        "web:matching reconfiguration disjoint edge replacement using unmatched vertices Kneser graph fixed size matching token sliding"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2204.05664 Theorem 2 and proof",
+      "arxiv:2312.15464 pp.1-2",
+      "arxiv:1812.05419 pp.1-4",
+      "arxiv:2506.07821 pp.1-4 + term searches",
+      "Eroh–Schultz 1998 publisher abstract",
+      "published-finding corpus record IDs listed in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2204.05664 Theorem 2 gives minimum weight 2(k+1) and exhibits the disjoint optimal labeling.",
+        "arxiv:2312.15464 gives clique minimum solutions for other domination parameters.",
+        "arxiv:1812.05419 uses TJ rather than the disjoint-old-new TS operation here.",
+        "Eroh–Schultz Matching graphs (1998), abstract, defines a graph on maximum matchings under one-edge exchange."
+      ],
+      "reasoning": "Known optimum weights, disjoint supports, and general TJ reachability do not imply the TS split into isolates, equal-block clique components, and connected states. The proof uses an invariant at one exact boundary and a spare-element construction beyond it. For k=2 the boundary comprises 105 K4 components, whereas mere TJ reachability provides no such statement.",
+      "searches": [
+        "published-finding corpus:minimum Roman dominating functions Kneser graph K(n,2) enumerate optimal assignments weight six",
+        "published-finding corpus:token sliding graph of optimal total Roman dominating functions Kneser graph K(n,2) three disjoint edges",
+        "published-finding corpus:clique reconfiguration token sliding Kneser graph arbitrary k complete component structure",
+        "web:Kneser total Roman domination reconfiguration",
+        "web:Matching graphs Eroh Schultz 1998 reconfiguration definition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2506.07821 pp. 1-4 defines TS/TJ reconfiguration of fixed-size cliques; Kneser cliques are disjoint set families.",
+        "arxiv:1812.05419 pp. 1-4 defines TJ matching reconfiguration and explicitly distinguishes TS, with a different usual matching viewpoint.",
+        "Web text queries returned no explicit Kneser fixed-clique component threshold."
+      ],
+      "reasoning": "The claim can be reformulated as TS reconfiguration of (k+1)-cliques of KG(n,k), or as disjoint-block exchanges in uniform set partitions. Thus absence of the Roman title alone is irrelevant. The inspected general papers define these forms but do not state the isolated/K_(k+2)/connected sharp trichotomy on this family.",
+      "searches": [
+        "published-finding corpus:token sliding graph of optimal total Roman dominating functions Kneser graph K(n,2) three disjoint edges",
+        "published-finding corpus:reconfiguration 3-matchings Kneser graph K(n,2) disjoint-edge token sliding threshold n=9",
+        "published-finding corpus:clique reconfiguration token sliding Kneser graph arbitrary k complete component structure",
+        "published-finding corpus:token sliding k-cliques Kneser KG(n,k) partition threshold n k(k+2)",
+        "published-finding corpus:pairwise disjoint k-subsets replacement using free k-subsets connected threshold",
+        "web:clique reconfiguration Kneser graphs token sliding clique size 3 components disjoint edges"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected arxiv:2204.05664 gives optimization values, not tables of components.",
+        "The arxiv:2506.07821 text was checked for Kneser and matching; neither occurs in its substantive theorems.",
+        "published-finding corpus returned nearest general Roman/matching topics, not an equivalent component census."
+      ],
+      "reasoning": "No located table gives the stated exact component counts for every k,n. A negative database search cannot establish absolute uniqueness; priority risk for differently indexed set-partition move graphs remains.",
+      "searches": [
+        "published-finding corpus:reconfiguration 3-matchings Kneser graph K(n,2) disjoint-edge token sliding threshold n=9",
+        "published-finding corpus:token sliding k-cliques Kneser KG(n,k) partition threshold n k(k+2)",
+        "published-finding corpus:pairwise disjoint k-subsets replacement using free k-subsets connected threshold",
+        "web:Kneser total Roman domination reconfiguration",
+        "web:Kneser graph clique reconfiguration token sliding connectivity"
+      ]
+    },
+    "rationale": "Primary text of arxiv:2204.05664 establishes existing min weight and a disjoint construction, expressly credited. Primary text of arxiv:2506.07821 defines the broad clique TS graph but not this KG(n,k) component trichotomy. The matching TJ reference arxiv:1812.05419 is not stronger because its transitions do not require the removed and inserted Kneser vertices to be disjoint. published-finding corpus and targeted web searches used aliases. No found statement implies the sharp all-k TS mobility transition; residual publication priority risk is named.",
+    "residual_risks": [
+      "Unindexed clique or set-partition reconfiguration result could imply the theorem under different vocabulary.",
+      "Full text of Eroh and Schultz (1998) was not available in this inspection; its abstract defines a different move relation, so not decisive.",
+      "No independent publication-priority verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides known optimum and disjoint-block construction; no fixed-weight TS component result.",
+        "evidence": "Theorem 2 establishes weight 2(k+1) for n>=k(k+1); Step 2 constructs k+1 mutually disjoint k-sets.",
+        "identifier_or_url": "arxiv:2204.05664 / https://dmtcs.episciences.org/en/articles/10506/download",
+        "material_read": "Abstract, definitions, Theorem 2 and its proof (PDF pp. 1–6); theorem and construction on printed pp. 4–5.",
+        "method": "Full-text PDF reading with page image inspection.",
+        "title": "Several Roman domination graph invariants on Kneser graphs",
+        "trigger": "Exactly the same domination parameter and Kneser family."
+      },
+      {
+        "assessment": "Neighboring domination result for Kneser graphs, not TS components of optimal Roman functions.",
+        "evidence": "The authors report minimum k-tuple total domination size k+r and clique structure when n>=r(k+r), for their stated tuple range.",
+        "identifier_or_url": "arxiv:2312.15464 / https://arxiv.org/pdf/2312.15464",
+        "material_read": "Abstract and introduction pp. 1–2, including precise statements of the k-tuple total domination result; sectional outline.",
+        "method": "PDF full-text sections read and first page visually inspected.",
+        "title": "k-Domination invariants on Kneser graphs",
+        "trigger": "Potential stronger statement about clique support of minimum dominating sets."
+      },
+      {
+        "assessment": "Focuses primarily on token jumping for matchings in ordinary graphs, not disjoint-old-new Kneser token sliding component census.",
+        "evidence": "The paper distinguishes TJ from TS and discusses matching-distance computation under TJ.",
+        "identifier_or_url": "arxiv:1812.05419 / https://arxiv.org/pdf/1812.05419",
+        "material_read": "Abstract, introduction, explicit TJ move definition, main theorems pp. 1–4.",
+        "method": "PDF text and image of definition page.",
+        "title": "Shortest Reconfiguration of Matchings",
+        "trigger": "Optimal Roman configurations form matching-like disjoint block families; generic exchange reconfiguration might subsume connectivity."
+      },
+      {
+        "assessment": "Defines the broad model and proves generic structural results; does not give the specific all-k Kneser phase transition.",
+        "evidence": "Sections 1–4 concern clique-number/chromatic bounds, maximum-clique TJ and general reconfiguration; Kneser specialization is absent.",
+        "identifier_or_url": "arxiv:2506.07821 / https://arxiv.org/pdf/2506.07821",
+        "material_read": "Abstract and Sections 1–3 and outline of Section 4, pp. 1–4; searched full document for Kneser and matching.",
+        "method": "PDF text, visual inspection of p. 4, full-document term searches.",
+        "title": "A Note on Reconfiguration Graphs of Cliques",
+        "trigger": "Exactly the general clique TS/TJ reconfiguration framework."
+      },
+      {
+        "assessment": "Closest historical reconfiguration reference, but it uses maximum ordinary matchings with one-edge exchange; not enough full-text evidence for a categorical NOT_COVERING assessment.",
+        "evidence": "Abstract defines graph of maximum matchings adjacent if they differ by one edge, unlike required Kneser-adjacent slides.",
+        "identifier_or_url": "doi:10.1002/(SICI)1097-0118(199810)29:2<73::AID-JGT3>3.0.CO;2-9",
+        "material_read": "Publisher abstract only; full text was not obtained in this pass.",
+        "method": "Publisher abstract and bibliographic details.",
+        "title": "Matching graphs",
+        "trigger": "Potential earlier matching-exchange-graph classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a3f3d09e-0ceb-423e-8037-6dbfc7588744",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise mobility of *minimum* Roman defenses is a natural robustness and configuration-space question. The all-k component phase transition, exact edge degree, and complete split into equal-block partition cliques at a sharp integer boundary are structural facts not obtained from the scalar domination optimum. It is not a routine one-parameter bound or an arbitrary sample case; it distinguishes immobilized, partition-locked, and fully mobile regimes in an infinite two-parameter family.",
+    "status": "PASS"
+  }
+}
