@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone programs `verify.cpp` and `verify_symbolic.py` were executed on the actual packaged source. C++ computes entire ordered-triple atomic profiles for the two extraspecial families at quotient dimensions two, four, and six; the Python implementation independently recomputes dimensions two and four. They agree on three rank-three classes in the tested degrees, common signs at order 32, the seven/eight pair-profile sizes for noncentral involutions/order-four elements, and the order-32 rank-four sign witness. All detailed results appear in `verification.log`.
+# Independent mathematical audit
 
-The infinite proof is the local extension-table lemma in `RESULT.md`: an arbitrary third point is either in the preimage of the two selected quotient vectors' span or is generic of one of two possible square types, which both occur outside that span from quotient dimension four onward. The standard nondegenerate four-dimensional quadratic subspace reduction and the explicit plus/minus table then establish full generality. The tests alone would not establish any claim beyond the enumerated degrees.
+## correctness
 
-Limitations: no independent audit; no validation of different first-order languages, larger ranks, or all related group families.
+PASS
+
+Rebuilt the Ehrenfeucht–Fraisse/Hintikka rank3 signature: atomic diagrams of triples encode multiplication as ternary R and equality to named e. For a fixed ordered pair (x,y), a third quotient vector is either in their <=2-dimensional span or lies outside; for quotient dimension >=4 both square types occur outside span by nondegenerate quadratic-form fiber counts, allowing uniform finite extension profiles. Exhaustive four-dimensional plus/minus local tables give pointed profile counts e=4,c=4,I=7,J=8; the sole missing minus-type independent singular commuting pair duplicates the cx profile. Independently implemented exact group cocycle multiplication and computed full ordered triple signature sets for D8,Q8 and both order32 types, confirming exactly three rank3 theories and rank4 totally singular plane witness in plus32 only. Explicit rank2 and rank3 separating formulas distinguish the small groups. The finite test supports the all-rank local quadratic argument but is not the entire infinite proof.
+
+## originality
+
+PASS
+
+The quadratic-form classification of extraspecial 2-groups and standard rank-k EF games are classical; the claimed joint rank3 theory collapse and exact first Arf visibility at rank4 are not obtained directly from Kaur–Kulshrestha strong-reality representation results or Gomaa finite abelian-group comparisons. Different group languages (multiplication as binary function) are not equivalent at fixed small quantifier rank, so superficial finite-model-theory results cannot be transferred without an interpretation preserving quantifier depth. A specialized older FO classification remains a material risk.
+
+## value
+
+PASS
+
+A complete low-rank logical classification across infinite extraspecial groups is a natural model-theoretic invariant. It identifies sharp representative sizes and the first Arf-sign separation, not just the existing algebraic isomorphism classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

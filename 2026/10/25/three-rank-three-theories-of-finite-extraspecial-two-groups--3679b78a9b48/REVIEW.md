@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The three-round equivalence is reduced exactly to ordered-pair third-point atomic-extension profiles. The group-theoretic reduction uses the regular quadratic quotient, two square classes outside any plane, and a finite table checked for both four-dimensional Arf signs. The accompanying implementations reconstruct the relational-language signatures and the rank-four boundary. The finite tests are corroboration; the general statement follows from the explicit local reduction and four-dimensional-subspace argument.
+## correctness
 
-**Originality — PASS, qualified.** Gomaa (2007, dissertation Chapter 3) proves EF depth results principally for abelian groups and cyclic/dihedral transfers in the same language. Kaur and Kulshrestha (2012 preprint, §§2–3) classify extraspecial groups by quadratic forms and prove strong reality facts, not the asserted first-order three-round collapse. The closest accessible historical records concern other group families; neither searched equivalences nor stronger statements imply this claim. Residual risk: unindexed equivalence or a different-language reduction may exist.
+PASS
 
-**Value — PASS.** The result gives a complete quantifier-rank-three invariant for all finite extraspecial two-groups, shows that unbounded group order and both Arf signs are invisible at that depth, proves a sharp smallest-representative bound, and locates a rank-four boundary where a totally singular plane separates the first equal-depth signs. This is a motivated algebraic-logical phenomenon, not a restatement of extraspecial group classification.
+Rebuilt the Ehrenfeucht–Fraisse/Hintikka rank3 signature: atomic diagrams of triples encode multiplication as ternary R and equality to named e. For a fixed ordered pair (x,y), a third quotient vector is either in their <=2-dimensional span or lies outside; for quotient dimension >=4 both square types occur outside span by nondegenerate quadratic-form fiber counts, allowing uniform finite extension profiles. Exhaustive four-dimensional plus/minus local tables give pointed profile counts e=4,c=4,I=7,J=8; the sole missing minus-type independent singular commuting pair duplicates the cx profile. Independently implemented exact group cocycle multiplication and computed full ordered triple signature sets for D8,Q8 and both order32 types, confirming exactly three rank3 theories and rank4 totally singular plane witness in plus32 only. Explicit rank2 and rank3 separating formulas distinguish the small groups. The finite test supports the all-rank local quadratic argument but is not the entire infinite proof.
 
-The audit is based on mathematical reconstruction and reproducible checks supplied here. It does not assert external or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The quadratic-form classification of extraspecial 2-groups and standard rank-k EF games are classical; the claimed joint rank3 theory collapse and exact first Arf visibility at rank4 are not obtained directly from Kaur–Kulshrestha strong-reality representation results or Gomaa finite abelian-group comparisons. Different group languages (multiplication as binary function) are not equivalent at fixed small quantifier rank, so superficial finite-model-theory results cannot be transferred without an interpretation preserving quantifier depth. A specialized older FO classification remains a material risk.
+
+## value
+
+PASS
+
+A complete low-rank logical classification across infinite extraspecial groups is a natural model-theoretic invariant. It identifies sharp representative sizes and the first Arf-sign separation, not just the existing algebraic isomorphism classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
