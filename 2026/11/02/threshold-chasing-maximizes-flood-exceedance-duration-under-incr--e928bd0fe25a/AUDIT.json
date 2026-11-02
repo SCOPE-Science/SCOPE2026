@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For each positive trajectory define the nonnegative recession clock Phi_h; derivative is -1 exactly above threshold. Summing its jumps telescopes to total exceedance time. Each later impulse of size P yields at most Phi_h(h+P), with equality iff its pre-pulse state equals h, because 1/f is strictly decreasing. First increment equals Phi_h(Pfirst). The bound is simultaneously attained by strictly positive threshold-return gaps. Optimizing over first pulse uses strictly increasing H(P)=-int_P^{P+h} 1/f, forcing any largest increment first; all and only the stated maximizing schedules result. All edge cases P_i>h, n>=2, positive Lipschitz strictly increasing f and final decay handled explicitly. Independent exact-rational checker passed 36006 assertions for f=q and f=q^2; general proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gnecco, Palla and La Barbera (2018), DOI 10.5194/hess-22-943-2018, §§2–4 maximize hydrograph peak for gamma-IUH rainfall responses, not time over threshold for general recession.",
+        "Lawson et al. (2025), DOI 10.1029/2023WR037022 model distributions of observed exceedance durations, not best order and timing of specified deterministic discharge jumps."
+      ],
+      "reasoning": "Searched general impulse control and nonlinear decay phrasing to test whether a stronger theorem subsumes the claim. No decisive earlier wider covering theorem was identified. Generic deterministic impulse-control monographs may still contain a dominating rearrangement argument; this is an explicit residual risk.",
+      "searches": [
+        "nonlinear discharge recession jumps storms time above hazard threshold exact maximum duration integral proof",
+        "pulse ordering unequal rainfall storm optimal duration above flood threshold potential integral",
+        "optimal impulse schedule maximizing total time above threshold scalar monotone decay jumps theorem",
+        "optimal timing impulse inputs length of time above threshold nonlinear reservoir flood hydrograph"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1029/2008WR007392",
+      "https://doi.org/10.5194/hess-22-943-2018",
+      "https://doi.org/10.1029/2023WR037022",
+      "Relevant previously stated hydrological and ecological mathematical comparisons, assessed only for claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Harman et al. 2009 DOI 10.1029/2008WR007392: impulse and recharge-history recession analysis, not extremal exceedance duration.",
+        "Gnecco et al. 2018 DOI 10.5194/hess-22-943-2018: peak hydrograph optimization, which does not imply duration optimization.",
+        "Lawson et al. 2025 DOI 10.1029/2023WR037022: empirical threshold duration/frequency analysis, not an extremal calendar theorem.",
+        "The finite-capacity periodic two-pulse saturation-excess runoff-volume classification is not a theorem about continuous increasing recession and time-above-threshold."
+      ],
+      "reasoning": "Differences concern actual objective functions, state dynamics, event admissibility and universal quantifiers, not title strings or matching notation. No implication from any inspected claim to the new theorem was established; residual coverage by more abstract control theory is listed.",
+      "searches": [
+        "linear reservoir hydrograph exponential recession pulse timing threshold exceedance duration rainfall storms optimal spacing",
+        "maximum time above threshold exponential decay impulse addition optimal impulse schedule",
+        "reservoir flood threshold exceedance duration multiple rainfall pulses optimal timing",
+        "linear reservoir impulse hydrograph time above flood threshold duration optimization multiple storm pulses",
+        "\"maximize\" \"duration above threshold\" \"impulses\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Harman, Sivapalan and Kumar (2009), DOI 10.1029/2008WR007392, §2, formulate recession responses to recharge pulses but do not optimize cumulative time over a fixed discharge level.",
+        "An identified public mathematical result on intervention frequency for a predator–prey impulse cycle concerns a distinct periodic feasibility problem, rather than optimal duration for monotone scalar recession."
+      ],
+      "reasoning": "Equivalent occupation-time and threshold-restart formulations were searched. Potential-function telescoping is a mathematical reformulation of the proof, not evidence of a published earlier general theorem. The closest candidate results have a different process, constraints and quantified conclusion.",
+      "searches": [
+        "maximum time above threshold exponential decay impulse addition optimal impulse schedule",
+        "threshold-chasing impulse spacing monotone recession drainage flow maximize exceedance measure largest storm first",
+        "optimal impulse schedule maximizing total time above threshold scalar monotone decay jumps theorem",
+        "\"time above threshold\" \"impulse\" \"optimal\" decay"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact duration-maxima table or parameter database covering this general monotone recession class was identified in the targeted scientific literature searches.",
+        "A finite-capacity periodic two-storm runoff-volume formula has a different dynamical state, event pattern and objective."
+      ],
+      "reasoning": "The general result parametrizes any finite pulse multiset and any monotone recession function, so a finite table would not by itself cover the theorem; no listed exact tables were found, and absence of search hits is not proof of historical novelty.",
+      "searches": [
+        "linear reservoir hydrograph exponential recession pulse timing threshold exceedance duration rainfall storms optimal spacing",
+        "reservoir flood threshold exceedance duration multiple rainfall pulses optimal timing",
+        "pulse ordering unequal rainfall storm optimal duration above flood threshold potential integral"
+      ]
+    },
+    "rationale": "The checked hydrological papers have different mathematical objectives (recession distribution, peak discharge, empirical duration-frequency); related published mathematical records concern survival thresholds or forced periodic oscillation, not arbitrary finite unequal pulses with maximum total time above level under every increasing scalar recession law. The specific model/objective/equality cases were not found covered by the primary material inspected. Residual generic impulse-control theorem risk is recorded, with no claim of exhaustive historical uniqueness.",
+    "residual_risks": [
+      "Generic deterministic impulse-control or rearrangement literature not exhaustively inspected may contain a theorem subsuming the scalar potential-function argument.",
+      "Sources demonstrate natural model context but do not physically validate instantaneous additive discharge jumps for arbitrary nonlinear storage models.",
+      "Historical-priority status remains provisional and independent audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Treats heterogeneous linear reservoirs and sensitivity of recession to prior recharge and interstorm spacing. Does not give this finite-impulse ordering/global total-above-threshold duration theorem in the inspected sections.",
+        "evidence": [
+          "Full HTML https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008WR007392, §2.1 paragraphs [11]–[14], §2.2 and periodic recharge discussion near [29], §3 and discussion.",
+          "2009-09-09 first-online date reported by journal."
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/2008WR007392",
+        "material_read": "Full-text HTML abstract, theory §2 including §2.1–2.2 on individual impulse hydrographs, periodic-recharge discussion, applications and discussion.",
+        "method": "Direct web HTML reading and targeted in-document inspection of theory, impulses, period spacing and conclusions.",
+        "title": "Power law catchment-scale recessions arising from heterogeneous linear small-scale dynamics",
+        "trigger": "Foundational hydrological recession and impulses; the broadest physically motivated comparison for the scalar recession assumption."
+      },
+      {
+        "assessment": "Optimizes maximum peak of a gamma-unit-hydrograph response to constant hyetographs and DDF structures, not Lebesgue duration-over-threshold of finite pulses under general nonlinear recession. No implied sharp first-largest/threshold-triggering theorem in that model.",
+        "evidence": [
+          "Full HTML https://hess.copernicus.org/articles/22/943/2018/index.html, §2.2 and §3.1–3.3, §4; specifically distinguishes peak objective.",
+          "2018-02-02 formal publication; 2017-06-06 discussion date shown separately, neither is used as first source date."
+        ],
+        "identifier_or_url": "https://doi.org/10.5194/hess-22-943-2018",
+        "material_read": "Full-text HTML abstract, introduction, §2 IUH setup, §3 peak optimization including figures and assumptions, §4 conclusions.",
+        "method": "Direct lawful open-access HTML reading and in-document searches for objective and model.",
+        "title": "A dimensionless approach for the runoff peak assessment: effects of the rainfall event structure",
+        "trigger": "Optimizes hydrograph response over rainfall-event structures and is a plausible stronger source on storm schedule optimization."
+      },
+      {
+        "assessment": "Models empirical distributions and recurrence probabilities of flood-exceedance duration, rather than a deterministic extremal calendar under recession plus prescribed jumps; therefore its conclusions do not imply the new sharp scheduling theorem.",
+        "evidence": [
+          "Full HTML https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023WR037022, model eqs. (2)–(4), §5.",
+          "2025 paper is later supporting literature and does not determine the archived date."
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/2023WR037022",
+        "material_read": "Open-access full-text HTML abstract, event extraction/statistical model paragraphs, applications and §5 conclusions.",
+        "method": "Direct HTML inspection of actual objective, equations and reported outputs.",
+        "title": "A Duration-Over-Threshold Model for Flood Frequency and Flow Regime Characterization",
+        "trigger": "Directly concerns hydrological threshold exceedance duration; plausible coverage by objective."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e928bd0f-e25a-46e5-99c4-ac6b24a88ca6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The duration above a damaging river-flow level is a hydrologically motivated risk objective independent of the event peak. The theorem optimizes a genuinely combinatorial calendar of any number of heterogeneous storm increments, gives complete equality characterization under every strictly increasing recession law without convexity or linearity, and identifies the nonobvious largest-first and threshold-touch optimal timing. It supplies a sharp worst-case hazard-duration upper bound from pulse magnitudes and the recession relation. Limits on instant pulses, fixed threshold and no finite horizon are explicit; the claim is not a field forecast.",
+    "status": "PASS"
+  }
+}
