@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_refinement.py` in a directory containing the source file. The program uses only the Python standard library and exact integers; no external datasets or packages are required.
+## correctness
 
-It enumerates the block-size profiles for every size \(2\le n\le19\), builds the complete refinement graph between every adjacent block-count pair, and tests an integral maximum flow against its exact demand. All 171 pairs pass. It also checks the 20-element two-block versus three-block witness by factorial orbit counts and cross multiplication and confirms that the corresponding exact transportation network cannot be saturated.
+PASS
 
-Observed output: `PASS 171 exact feasible adjacent couplings for n<=19; exact obstruction for n=20,k=2`.
+The fixed-block-count uniform measures reduce exactly by symmetric-group averaging to block-size-profile transportation. A splitting edge represents precisely a possible refinement; a profile transportation flow can be lifted by random relabeling. Integer capacities LCM(S(n,k),S(n,k+1)) and integral max-flow give an if-and-only-if finite certificate. Independent Edmonds–Karp enumeration reconstructed all 171 (n,k) cases 2<=n<=19 and found all feasible. For n=20,k=2, the balanced profile (10,10) has mass 92378/524287, but its complete five-profile refinement neighborhood has mass 94410316/580606446, strictly smaller: cross-product difference 4137160923896. This proves impossibility at n=20 without extrapolating to larger n.
 
-The source reconstructs the finite certificates on demand; they are not taken from machine logs. Mathematical sufficiency of the finite checks requires the profile-flow equivalence proved in `RESULT.md` and the classical integral max-flow theorem. The finite program says nothing about coupling existence at larger sizes. No independent audit has been performed.
+## originality
+
+PASS
+
+The theorem is specifically a normalized mass-transport/refinement stochastic-order statement, not a rank-matching assertion. Canfield (1993) studies injective matchings in the partition lattice; ordinary Hall matching cardinalities need not enforce the fractional normalized Hall inequalities between two uniform layers of different sizes. Pittel (2000) studies statistics of independently sampled unrestricted partitions, not adjacent fixed-block-count couplings. Resultary semantic search did not return a covering theorem. Best-of-knowledge originality holds subject to inaccessible full Canfield text.
+
+## value
+
+PASS
+
+The exact first failure of a natural stochastic monotonicity principle at n=20, with a transparent sharp Hall obstruction and exhaustive positive range, is a motivated finite classification of a canonical family of uniform measures. It is not just a computation: symmetry reduction proves the finite network criterion and identifies the precise obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

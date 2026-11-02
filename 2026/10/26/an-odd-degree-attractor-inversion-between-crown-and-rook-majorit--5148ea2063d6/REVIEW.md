@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The vertex-neighbour vote is derived independently and reduced to exact set operators in equations (1) and (2). The 16 odd-population type pairs, their intersection boundaries, three disjoint two-cycle families, and the preimage counts together prove all formulas for every \(n\ge3\). The displayed binomial formulas were compared with exhaustive simulations for \(n=3\) through \(9\) (349,504 labelled initial states), and aggregate consistency was checked through \(n=400\). Finite checks supplement the explicit symbolic proof.
+## correctness
 
-**Originality: PASS, subject to historical-search limits.** The closest accessible general theorem by Goles–Olivos gives only eventual period at most two, and the fully inspected arXiv:1508.03519v1 derives convergence-time bounds by potential functions and graph modules, not the labelled rook-graph census. The earlier crown-graph census concerns the complementary graph; it gives a matching odd-size recurrent total but a different decomposition and different transient laws, and does not imply the new set-update equations. Semantic record searches under “two-row rook graph,” “complement of crown graph,” “two matched cliques,” and their majority-voting aliases returned no claim establishing the same classification. Residual risk: an unindexed equivalent using a different graph name; full historical Goles–Olivos text unavailable.
+PASS
 
-**Mathematical value: PASS.** This is a natural complete classification of a connected graph family, with closed fixed/cycle/depth formulas and sharp uniform entry bounds. The main structural phenomenon is that an odd-size graph and its complement have equal recurrent-state counts while almost completely reversing the balance between fixed states and oscillations; this is not explained by the general period-two theorem. The three-step exceptional states have a precise overlap-one combinatorial mechanism, not an arbitrary numerical cutoff.
+From open-neighborhood votes on two-row rook R_n=K_2 square K_n, row update g(U,V) equals empty, V, or full according to a=|U|<k,=k,>k for even n=2k; for odd n=2k+1 it is empty, V\U, U^c union V, or full for a<k,=k,=k+1,>k+1. Exhaustive 16 row-population type cases (plus intersection sizes) prove eventual primitive period at most 2, exact recurrent/fixed counts and depths at most 2 (even), at most 3 (odd >=5). With B=binom(n,k), L=sum_{j<k}binom(n,j), even n: fixed 4+B, primitive-two states B^2-B, depth counts D0=4+B^2,D1=4L^2+4B-4,D2=4B(L-1). Odd n: fixed 4, primitive-two states 2(k+2)B, D0=4+2(k+2)B, D1=A-D0,D2=4^n-A-H,D3=H with A=4L^2+2B(2^{k+1}+(k+1)^2), H=4 sum_{a=1}^{k-1} a binom(n,a)binom(n-a,k). Independently computed individual vertex votes, cycles and exact distributions across all 21,824 labelled states for n=3..7.
 
-**Limits.** No statement about three or more rook rows, stochastic or asynchronous updating, independent validation, or exhaustive historical uniqueness is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classic symmetric-threshold theorem provides eventual periods at most 2; Kaaser--Mallmann-Trenn--Natale bounds convergence on general graphs. Neither inspected source supplies the exact two-row rook period-type distribution or parity-dependent transient census. The previously studied complementary crown dynamics is expressly prior: its odd-n total recurrent count equals the new rook count but the fixed/two-cycle splitting is opposite.
+
+## value
+
+PASS
+
+Classifying the complete attractor and transient spectrum of a natural highly symmetric graph family is meaningful in deterministic voting dynamics. The sharp parity-dependent depth and counterintuitive crown-versus-rook inversion are structural phenomena beyond a general period-two bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

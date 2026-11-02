@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and evidence limits
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing that file using Python 3. The program is self-contained and uses only the standard library.
+## correctness
 
-For \(S_n\), \(2\le n\le6\), the verifier constructs all permutations and the alternating-subgroup conjugacy orbits, compares their count to ordinary partitions plus partitions into distinct odd parts, and checks the resulting quandle operation for all representatives and all four-variable medial identities. For \(3\le n\le5\) it enumerates every bijection on the quotient set and compares the true automorphism count against the stated wreath-product factorial formula.
+PASS
 
-For \(D_{2m}\), \(3\le m\le16\), the program uses an explicit multiplication and inverse law on pairs representing rotations/reflections. It constructs derived-subgroup conjugacy orbits, checks representative-independence, checks the entire four-variable medial law, and checks each of the four closed operation formulas and the cardinality.
+In any group G, quandle operation x▷y=y^-1 x y; any G-prime orbit congruence respects both arguments since G/G-prime is abelian, and the quotient is medial because the two four-variable conjugators have equal abelianized products. Conversely the medial law with the identity substituted forces x^(yz)~x^(zy), and invariance under conjugation and congruence closure forces x~x^h for all h in G-prime. This establishes universal medialization as derived-subgroup conjugacy orbit set rather than group abelianization. For finite groups Burnside yields |G-prime|^-1 sum_{h in G-prime}|C_G(h)|. For n>=3, S_n-prime=A_n and precisely symmetric cycle classes of distinct odd lengths split into two A_n-orbits. Odd unsplit classes act by the common involution swapping each split pair; the remaining points act trivially. Hence p(n)+q(n) points, complete operation, Aut=(C2 wr S_{q(n)})×S_{o(n)}×S_{e(n)}; n=1,2 separately. For D_2m, G-prime=<r^2>; rotation singleton orbits and reflection index modulo gcd(m,4) give m+g points and the four explicit operations. An independent small-group direct conjugation-orbit construction checked S3 (4 points), S4 (6 points), S5 (8 points), well-definedness and medial identity. These finite checks supplement the all-group proof.
 
-Expected terminal line: `VERIFY_OK`.
+## originality
 
-These are finite reproducibility checks. They are neither proofs of the claims for unbounded dimensions nor independent certification. The mathematical proof is given in `RESULT.md`. The exact literature-comparison limits are recorded in `REVIEW.md` and `AUDIT.json`. No external audit has been performed.
+PASS
+
+Bardakov and Sangare 2026 Theorem 5.4 proves criterion when a group conjugation quandle is itself medial and gives the S3 four-element example, but not this complete all-Sn automorphism structure or all-dihedral operation tables. Bonatto and Stanovsky general displacement-group congruence theory provides close foundational orbit methodology; the abstract general derived-orbit statement may be known or implied. Therefore the assessed novel element is the explicit complete symmetric and dihedral normal forms, not claim to first discover displacement orbit theory. General quandle references or equivalent class tables remain a real priority risk.
+
+## value
+
+PASS
+
+For canonical families S_n and D_2m, the full medial quotient operation and automorphism group supply useful structural invariants that raw orbit numbers do not determine. The derived-subgroup orbit description makes those explicit finite classifications coherent and identifies a natural universal quotient rather than a casual group abelianization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Rota–Baxter identity is reduced to six necessary and sufficient scalar equations for the natural basis pairs. Those equations force either both off-diagonal coefficients to be zero or both nonzero; the first case gives a cubic-factor constraint on the diagonal ratio, and the second gives the same quadratic constraint plus a cube-root parameter. Direct substitution verifies sufficiency, including characteristic two and the two characteristic-three weight-zero lines. The counting uses only cyclicity of finite-field multiplicative groups. Exact finite-field enumerations additionally agree for six prime fields and the nonprime field \(\mathbb F_4\). The checker is supplemental: finite tests do not establish the general proof.
+PASS
 
-## Originality — PASS, qualified to arithmetic/positive characteristic
+For the cyclic perfect two-dimensional evolution algebra e1^2=e2, e2^2=e1, e1e2=0 over any field, expanding weight-lambda Rota-Baxter identity gives exactly six polynomial equations in a,b,c,d (column convention). These imply (a+d+lambda)b=(a+d+lambda)c=0 and b,c either both zero or both nonzero. Diagonal nonzero solutions give t=a/d with (t-1)(t^2-t+1)=0; t=1 yields -lambda I and the other roots require (t+1)d=-lambda. Off-diagonal solutions satisfy trace a+d+lambda=0 and b=(a-d)u^2,c=-(a-d)u with u^3=1, and the same t relation. For nonzero weight the count is exactly 2 or 10 according to primitive cubic roots, including char2/char3. For zero weight only char3 permits nonzero solutions, on two distinct k-linear lines with intersection {0}; over finite fields char3 count 2q-1. This covers all field characteristics, not just finite enumerations. Independent direct enumeration of four matrix entries over F2,F3,F5,F7 for weights 0,1 gave counts (1,2),(5,2),(1,2),(1,10), matching classification. Symbolic proof supplies unrestricted quantifiers.
 
-Ladra and Murodov (arXiv:1906.09098v1) provide the complete **complex** two-dimensional evolution-algebra classification, including the cyclic case. That part is fully recognized as previously covered. The current claim is the characteristic-sensitive all-field phase diagram, especially the two distinct weight-zero positive-dimensional families in characteristic three and the exact rational-point counts over finite fields. These are not implied by a characteristic-zero classification. The January 2026 maximal-nilindex classification and June 2026 local variant concern nilpotent evolution algebras and do not apply. Bounded searches have not identified the positive-characteristic phenomenon elsewhere. No claim of worldwide priority or independent verification is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two-line jump sharply distinguishes characteristic three from all other characteristics and identifies a natural exceptional fiber of the Rota–Baxter equation for a perfect, nonnilpotent evolution algebra. The companion nonzero-weight count gives a precise cyclotomic arithmetic dichotomy (two versus ten solutions) for every finite field. Such characteristic sensitivity is obscured by the existing complex-only classification and is a mathematically motivated boundary relevant to recent evolution-algebra operator studies, not merely renaming a known matrix table.
+Ladra–Murodov 2019 classify the complex-field two-dimensional cyclic evolution algebra case in Section 3/Theorem 3.3. The complex specialization is covered and explicitly not novel. Their complex calculations cannot imply the two 1-dimensional zero-weight branches in characteristic three; the all-field cyclotomic descent and finite-field counts are the assessed original remainder. Later 2026 nilpotent maximal-nilindex work treats a different non-perfect algebra family. Unindexed positive-characteristic literature remains possible.
 
-## Sources and limits
+## value
 
-Primary full text: M. Ladra and Sh. N. Murodov (2019), Section 3 and Theorem 3.3, https://arxiv.org/html/1906.09098v1. Recent primary full text: I. Qaralleh, F. Mukhamedov and O. Khakimov (2026), Sections 1–3 and stated classification scope, https://arxiv.org/html/2601.08669. Motivation: 2026 survey arXiv:2610.22248v1. The full text of the 2026 local nilpotent analogue was not needed for a negative coverage determination and was not represented as read. Residual risk is a specialized unindexed treatment of the characteristic-three phenomenon. The result does not classify arbitrary evolution algebras or their full Rota–Baxter solution schemes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete all-field classification of operators for a canonical minimal perfect evolution algebra is a natural exact arithmetic-algebra invariant; the characteristic-three appearance of infinitely many weight-zero operators and the finite-field 2-versus-10 jump exhibit genuine field-characteristic changes not visible over C.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

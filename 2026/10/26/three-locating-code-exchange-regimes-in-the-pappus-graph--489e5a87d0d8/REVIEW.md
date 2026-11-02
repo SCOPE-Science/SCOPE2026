@@ -1,11 +1,21 @@
-# Review of the Pappus locating-code classification
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The exact incidence triples and independently generated LCF graph agree edge for edge. The predicates use the standard open/closed neighborhood conventions. The degree-counting LD lower bound excludes all smaller codes; the bipartite incidence lower bound excludes OLD codes below size ten. Two independently written exhaustive tests eliminate ID sizes below nine and enumerate every optimal code and exchange. Both programs agree on the counts \(18\), \(1028\), \(2025\), the three component structures, and the exchange counts. The incidence program additionally proves the exact factor via exhaustive selection, its duality, and the factor's distances. As a finite theorem, the complete candidate loops justify global statements; partial samples are not used as completeness certificates.
+## correctness
 
-**Originality (O): PASS with residual risk.** Seo–Slater (2010) gives a cubic OLD lower bound of nine, not the sharp Pappus value ten or the \(45\)-vertex Cartesian exchange factor; its grid constructions provide the general side-independence idea, which is credited. Balbuena–Foucaud–Hansberg (arXiv:1407.7263) and Foucaud–Henning (arXiv:1412.2865) derive general girth/cubic bounds, without this specific enumeration or reconfiguration result. Kovács–Kutnar–Marušič–Wilson (2012) classifies Pappus as a symmetric tricirculant but has no identifying-code theorem. Searches of public mathematical research records for the Pappus graph and aliases found nearest results on independence and matching complexes, and separate domination results for chain/threshold graph classes; none implies the current statement. The full 2015 Arti Pandey conference article was not accessible; it and unindexed code tables remain risks, not certified exclusions.
+PASS
 
-**Value (V): PASS.** The three increasingly stringent location notions exhibit a genuine structural contrast on one canonical cubic symmetric incidence graph: all minimum LD codes are rigid, minimum ID codes fall into two distinct connected families determined by a bipartition majority, and minimum OLD codes have a connected Cartesian product geometry with an exact sharp eight-exchange diameter. The \(45\)-element factor family has a nontrivial geometric two-type classification, degree profile, and eccentricity profile, giving more than isolated code counts. The object and three notions are established in the literature; the exact classification supplies a natural benchmark for reconfiguration of optimal monitoring sets. This does not claim a broad graph-class theorem.
+The graph is fixed by nine incidence triples on 9 points/9 lines (18 vertices, 27 edges), equivalent to supplied LCF form. Independently enumerated every subset of 18 vertices up through the first valid cardinality, testing LD open outside signatures, ID closed all-vertex signatures and OLD open all-vertex signatures: exactly LD min6/count18/0 exchange edges/18 components, ID min9/count1028/3780 edges/two components of 514, OLD min10/count2025/13770 edges/one component. In the bipartite graph OLD selection splits into two independent size-5 signature systems of 45 choices, so exchange graph is F square F; separately recomputed F has 45 vertices 153 edges, 27 of degree6/eccentricity3 and 18 of degree8/eccentricity4, yielding OLD radius6 diameter8 and stated enumerators. Complete bounded enumeration proves this fixed graph only; scripts and set predicates independently reconstructed.
 
-**Limits.** The computations prove claims only for the stated eighteen-vertex graph, the stated predicates, and exchanges at optimal cardinality. The complete proofs of the enumerative subclaims are disclosed as short executable standard-library programs with their actual outputs. Literature indexing is incomplete; independent audit, priority certification, and external validation have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Seo–Slater established open-neighborhood locating domination and the general cubic bound 2n/(r+1), which gives only OLD>=9 on Pappus; Balbuena–Foucaud–Hansberg establish broad girth-five bounds, and graph-structure work identifies Pappus. None of the checked primary statements enumerates the three minimum-code exchange graphs or Cartesian factor decomposition.
+
+## value
+
+PASS
+
+The natural Pappus graph, a distinguished finite cubic bipartite symmetric incidence graph, exhibits qualitatively different exchange-connectivity behavior for three established separating-code notions. Exact minimum code counts, component regimes and OLD Cartesian factor geometry are useful nontrivial finite reconfiguration invariants; no claim of a universal cubic theorem is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

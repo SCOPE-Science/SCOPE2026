@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:55:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At every 2<=a<=b, the three ball averages are exactly max{x_i,(x_i+b beta)/(b+1),mu} and max{y_j,(y_j+a alpha)/(a+1),mu}. Passing to |f| preserves its maximal function and decreases total edge variation. In the alpha>=beta case, the first half is the one-Lipschitz truncation T(t)=max(t,mu); the second has nonnegative excess <=ab[(alpha-beta)]/((a+1)(a+b)). Thus the summed cross-edge error is bounded by ab times that excess and Var(f)>=ab|alpha-beta| by Jensen. The opposite case swaps sides. A point mass on a vertex of the smaller part gives the exact lower expression 2-3/(a+1)-(a-1)/(a+b); the upper-lower difference is (2(a+b)-1)/((a+1)(a+b)). Squeezing proves C_ab=2-a/(a+b)+O(1/a) uniformly b>=a, sup 2 not attained. Explicit check K4,4 gives 41/40. All boundaries a=2 and unbalanced sequences are included; no claim that finite-size bounds coincide. Independently checked point-mass algebra and analytic inequalities; inspected the exact rational checker check.py (Git blob 53918310c0a9b2177fa57df1a2e6fe45a846dbae), but its finite tests are only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "González-Riquelme–Kovač–Madrid exhibit arbitrarily large norms on other graph classes and exact results for complete graphs; generic finite-graph boundedness in Liu–Xue is not a sharp K_a,b bound."
+        ],
+        "reasoning": "An arbitrarily large maximal variation norm on SOME graphs does not imply it for the highly restricted complete-bipartite class; generic norm boundedness lacks the sharp 2-a/(a+b) coefficient. The Liu–Xue full text remains unavailable, so a hidden special-case theorem is a residual risk.",
+        "searches": [
+          "arXiv:2603.12462",
+          "DOI:10.1007/s13348-020-00290-6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.12462",
+        "arXiv:2005.03146",
+        "DOI:10.1007/s13348-020-00290-6",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-asymptotic-variation-amplification-on-complete-bipartite-g--4ad3e1dd2a0f/RESULT.md (Git blob 33b363d8e4a09e99b664b94bf9473e2a4daf3337)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-asymptotic-variation-amplification-on-complete-bipartite-g--4ad3e1dd2a0f/check.py (Git blob 53918310c0a9b2177fa57df1a2e6fe45a846dbae)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published exact values are for K_n or S_n and related graph families; Theorem 4 in arXiv:2603.12462 concerns general graph unboundedness, not a biclique asymptotic."
+        ],
+        "reasoning": "Neither a sharp clique/star constant nor an existence construction with unbounded norm implies the formula 2-a/(a+b)+O(1/a) for each growing biclique family.",
+        "searches": [
+          "arXiv:2005.03146",
+          "arXiv:2011.02630",
+          "arXiv:2603.12462",
+          "DOI:10.1007/s13348-020-00290-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Graph total-variation amplification, p=1, is the same quantity as the cited finite-graph variation norm, but the primary results select cliques/stars rather than K_a,b."
+        ],
+        "reasoning": "Rephrasing as a BV^1 operator norm does not itself produce an earlier exact large-biclique asymptotic. The same ratio depends on both class sizes, unlike complete/star parameters.",
+        "searches": [
+          "Resultary: centered Hardy Littlewood maximal variation norm complete bipartite graphs K_a,b asymptotic sharp constant variation bound",
+          "arXiv:2005.03146",
+          "arXiv:2011.02630"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Examined Resultary results concerned complete-bipartite height functions, transportation spaces, zonotopes, not maximal-operator variation. The cited complete-graph/stars enumerations are different."
+        ],
+        "reasoning": "No indexed exact table covering all large K_a,b was found; absence is not proof of novelty and the inaccessible Liu–Xue full text is named explicitly.",
+        "searches": [
+          "Resultary semantic biclique variation search",
+          "arXiv:2603.12462",
+          "finite graph BV^p norms K_mn table"
+        ]
+      },
+      "rationale": "The full joint large-biclique variation constant is not stated in the examined graph maximal-operator literature. González-Riquelme–Madrid obtain sharp variation on complete and star graphs; González-Riquelme–Kovač–Madrid construct generic unbounded graph examples, which neither dominate nor imply these bounds for K_a,b. The highly relevant Liu–Xue 2021 article concerns bounded p-variation norms on finite graphs and remains incompletely inspected, so it is an explicit priority risk rather than a false noncoverage conclusion. Best-of-knowledge PASS for the exact finite bracket and uniform joint asymptotic, not a universal graph theorem.",
+      "residual_risks": [
+        "Liu–Xue 2021 primary full text unavailable after open-access and authorized Oxford access; its graph-norm tables might contain equivalent biclique bounds.",
+        "No exact fixed-(a,b) optimal constants are established; only sharp joint limits and displayed brackets.",
+        "Finite exact-rational experiments cannot certify all a,b; the analytic proof is the decisive evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for the special complete-bipartite joint limit in the inspected result sections",
+          "evidence": "Different graph families; no claimed universal upper norm 2 for all graphs.",
+          "identifier_or_url": "arXiv:2603.12462",
+          "material_read": "Accessible full HTML, theorems on complete graphs, small connected graphs and unbounded examples",
+          "method": "Read primary arXiv HTML theorems and proof setting",
+          "title": "Sharp variational inequalities for the Hardy–Littlewood maximal operator on finite undirected graphs",
+          "trigger": "strong prior paper with same norm and graph setting"
+        },
+        {
+          "assessment": "NOT_COVERING for full K_a,b uniform joint asymptotic",
+          "evidence": "Its exact variation constants concern cliques and stars, not the specified bicliques with both sizes>=2.",
+          "identifier_or_url": "arXiv:2005.03146",
+          "material_read": "Full abstract and accessible paper result/theorem descriptions selecting complete graphs and stars",
+          "method": "Read arXiv abstract and relevant theorem descriptions",
+          "title": "Sharp inequalities for maximal operators on finite graphs",
+          "trigger": "same centered graph maximal variation operator"
+        },
+        {
+          "assessment": "UNDETERMINED full-text coverage; plausible historical-priority risk",
+          "evidence": "Abstract establishes BV^p boundedness and norm investigations but does not let us exclude a K_a,b special case. Oxford job 81aba12566206260974e04c01788613c disconnected.",
+          "identifier_or_url": "DOI:10.1007/s13348-020-00290-6",
+          "material_read": "Abstract and publication metadata; no complete text obtained",
+          "method": "Open/preprint and lawful OA attempts; authorized Oxford access returned vpn_disconnected",
+          "title": "On the variation of the Hardy–Littlewood maximal functions on finite graphs",
+          "trigger": "closest plausible alternative finite-graph variation paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Centered graph maximal variation is a natural stability invariant; a complete bipartite graph models a substantial two-community geometry not covered by complete graphs or stars. The limiting constant ranges rigorously from 3/2 to 2 as relative part sizes vary, and K4,4 already amplifies variation; the sharp uniform asymptotic is information a researcher could need. The unresolved finite-size exact optimum does not negate the meaningful joint limit.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2603.12462",
+    "arXiv:2005.03146",
+    "DOI:10.1007/s13348-020-00290-6",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-asymptotic-variation-amplification-on-complete-bipartite-g--4ad3e1dd2a0f/RESULT.md (Git blob 33b363d8e4a09e99b664b94bf9473e2a4daf3337)",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-asymptotic-variation-amplification-on-complete-bipartite-g--4ad3e1dd2a0f/check.py (Git blob 53918310c0a9b2177fa57df1a2e6fe45a846dbae)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Liu–Xue 2021 primary full text unavailable after open-access and authorized Oxford access; its graph-norm tables might contain equivalent biclique bounds.",
+    "No exact fixed-(a,b) optimal constants are established; only sharp joint limits and displayed brackets.",
+    "Finite exact-rational experiments cannot certify all a,b; the analytic proof is the decisive evidence."
+  ],
+  "residual_risks": [
+    "Liu–Xue 2021 primary full text unavailable after open-access and authorized Oxford access; its graph-norm tables might contain equivalent biclique bounds.",
+    "No exact fixed-(a,b) optimal constants are established; only sharp joint limits and displayed brackets.",
+    "Finite exact-rational experiments cannot certify all a,b; the analytic proof is the decisive evidence."
+  ],
+  "schema_version": 1
+}

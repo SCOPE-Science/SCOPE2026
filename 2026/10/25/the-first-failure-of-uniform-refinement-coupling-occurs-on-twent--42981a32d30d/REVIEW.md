@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A permutation-symmetrization argument proves the equivalence between labeled refinement couplings and finite transports on integer-partition block-size profiles. The orbit counts and allowed profile splits are exact. An integral max-flow test verifies every pair of adjacent strata for each size 2 through 19 (171 pairs), and the independent size-20 Hall witness is a strict rational inequality with fully stated numerator and denominator. The dependency-free executable reproduces both. The positive result is a verified finite statement, not an extrapolation.
+## correctness
 
-**Originality — PASS under best-knowledge comparison; historical risk remains.** The closest classical literature addresses *ordinary injective matchings* and maximum antichains (Canfield, 1993; Graham's note), or independent meet/join of unrestricted random set partitions (Pittel, 2000). Normalized transportation between uniform adjacent-block-count laws asks a quantitatively stronger Hall question than injection. Searches for partition-lattice normalized matching, refinement stochastic coupling, and the exact twenty-point obstruction identified no covering theorem. The complete Canfield 1993 primary text was inaccessible, so it could contain an implicit reduction; priority is provisional, not certified.
+PASS
 
-**Value — PASS.** The result locates an exact, mathematically natural boundary for a strong stochastic-monotonicity property of uniform set-partition laws. It is a complete finite cutoff rather than an arbitrarily selected small counterexample, and it separates stochastic refinement of uniform strata from weaker classical matching and antichain questions. The package is independently reproducible as finite integer mathematics without experimental extrapolation or downstream claims.
+The fixed-block-count uniform measures reduce exactly by symmetric-group averaging to block-size-profile transportation. A splitting edge represents precisely a possible refinement; a profile transportation flow can be lifted by random relabeling. Integer capacities LCM(S(n,k),S(n,k+1)) and integral max-flow give an if-and-only-if finite certificate. Independent Edmonds–Karp enumeration reconstructed all 171 (n,k) cases 2<=n<=19 and found all feasible. For n=20,k=2, the balanced profile (10,10) has mass 92378/524287, but its complete five-profile refinement neighborhood has mass 94410316/580606446, strictly smaller: cross-product difference 4137160923896. This proves impossibility at n=20 without extrapolating to larger n.
 
-**Limits.** The result is confined to adjacent numbers of blocks; there is no general classification above twenty elements. A full historical-priority assessment of the 1993 matching literature remains outstanding. Self-review do not constitute an independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The theorem is specifically a normalized mass-transport/refinement stochastic-order statement, not a rank-matching assertion. Canfield (1993) studies injective matchings in the partition lattice; ordinary Hall matching cardinalities need not enforce the fractional normalized Hall inequalities between two uniform layers of different sizes. Pittel (2000) studies statistics of independently sampled unrestricted partitions, not adjacent fixed-block-count couplings. Resultary semantic search did not return a covering theorem. Best-of-knowledge originality holds subject to inaccessible full Canfield text.
+
+## value
+
+PASS
+
+The exact first failure of a natural stochastic monotonicity principle at n=20, with a transparent sharp Hall obstruction and exhaustive positive range, is a motivated finite classification of a canonical family of uniform measures. It is not just a computation: symmetry reduction proves the finite network criterion and identifies the precise obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: derived-conjugacy medialization and finite-group normal forms
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For every group, the derived-conjugacy orbit relation is a quandle congruence: normality of the derived group gives representative-independence of right conjugation and its inverse. Since the medial conjugators agree modulo the derived subgroup, this quotient is medial. Conversely, setting the fourth medial variable to the group identity forces equality under arbitrary commutator conjugations, so no strictly smaller medial congruence exists. Burnside's lemma gives the finite count. For symmetric groups, the classical alternating-class splitting criterion, parity action, and centralizer of a disjoint-pair involution establish the complete operation and full automorphism group. For dihedral groups, direct conjugation establishes every term of the four-rule table. The included checker compares the partition formulas and directly constructed quotient tables; the infinite arguments are in the written proof.
+## correctness
 
-## Originality
-**PASS, with documented limits.** Bardakov and Sangare, arXiv:2610.18676v1, Theorem 5.4 and proof, calculate bounds and one small symmetric-group medialization but not the complete symmetric-group operation, its full automorphism group, or the dihedral four-rule operation. Bonatto and Stanovský, arXiv:1902.08980v3, provide the broader displacement-group theory; the derived-orbit statement is closely related to that theory, so it is primarily the bridge to the **new explicit family-specific normal forms** rather than a claim to fundamentally new quandle theory. The closest indexed finite-quandle records concern quandle automorphisms of different constructions or inner groups, not the medializations here. Search and inspected-source results are not exhaustive proofs of novelty. A residual risk is an equivalent explicit family enumeration in alternate-language or unindexed literature.
+PASS
 
-## Mathematical value
-**PASS.** The motivating 2026 paper treats medialization of group conjugation quandles and makes its cardinality one of the central questions. Here the entire operation and automorphism group of every symmetric-group medialization, as well as the entire dihedral operation table, are determined uniformly, not just bounded. The resulting transparent parity-controlled involution and partition statistics explain the small example in the paper and identify an infinite family of explicit medial quandles. The structural answer may enable classification and symmetry comparisons of these quotients without enumerating large group tables. The computation is a naturally specified complete family invariant, not an arbitrary numerical slice.
+In any group G, quandle operation x▷y=y^-1 x y; any G-prime orbit congruence respects both arguments since G/G-prime is abelian, and the quotient is medial because the two four-variable conjugators have equal abelianized products. Conversely the medial law with the identity substituted forces x^(yz)~x^(zy), and invariance under conjugation and congruence closure forces x~x^h for all h in G-prime. This establishes universal medialization as derived-subgroup conjugacy orbit set rather than group abelianization. For finite groups Burnside yields |G-prime|^-1 sum_{h in G-prime}|C_G(h)|. For n>=3, S_n-prime=A_n and precisely symmetric cycle classes of distinct odd lengths split into two A_n-orbits. Odd unsplit classes act by the common involution swapping each split pair; the remaining points act trivially. Hence p(n)+q(n) points, complete operation, Aut=(C2 wr S_{q(n)})×S_{o(n)}×S_{e(n)}; n=1,2 separately. For D_2m, G-prime=<r^2>; rotation singleton orbits and reflection index modulo gcd(m,4) give m+g points and the four explicit operations. An independent small-group direct conjugation-orbit construction checked S3 (4 points), S4 (6 points), S5 (8 points), well-definedness and medial identity. These finite checks supplement the all-group proof.
 
-## Closest literature and limitations
-The 2026 reference provides the mediality criterion, lower bounds, and \(S_3\) instance; the 2020 reference supplies known displacement-group and orbit-congruence facts. An earlier 2023 thesis on the same symmetric/dihedral conjugation quandles addresses quandle-algebra derivations; only indexed sections and its conclusion were accessible, not its entire PDF. General orbit minimality may follow rapidly from those earlier structural facts, and is not presented as novel in isolation. The particular finite-family operations and automorphism orders are the substantive new objects. The calculations have been independently exercised by a program, but have not undergone independent expert audit. Inaccessible or unindexed papers could contain equivalent tables.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bardakov and Sangare 2026 Theorem 5.4 proves criterion when a group conjugation quandle is itself medial and gives the S3 four-element example, but not this complete all-Sn automorphism structure or all-dihedral operation tables. Bonatto and Stanovsky general displacement-group congruence theory provides close foundational orbit methodology; the abstract general derived-orbit statement may be known or implied. Therefore the assessed novel element is the explicit complete symmetric and dihedral normal forms, not claim to first discover displacement orbit theory. General quandle references or equivalent class tables remain a real priority risk.
+
+## value
+
+PASS
+
+For canonical families S_n and D_2m, the full medial quotient operation and automorphism group supply useful structural invariants that raw orbit numbers do not determine. The derived-subgroup orbit description makes those explicit finite classifications coherent and identifies a natural universal quotient rather than a casual group abelianization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

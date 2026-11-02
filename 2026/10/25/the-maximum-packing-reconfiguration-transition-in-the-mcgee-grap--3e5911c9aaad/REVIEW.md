@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Both exhaustive programs reconstruct the 24-vertex, 36-edge McGee graph and independently enumerate the nine- and ten-vertex independent sets. One uses recursive inclusion/exclusion and directed one-token moves; the other uses all fixed-size combinations and unordered pairwise set comparisons. Both certify all component sizes, edge counts and eccentricities, and the maximum size is proved through exhaustive independent-set enumeration and a nonextendibility check. An eight-vertex, two-component degree-two state graph must be two four-cycles. All source files and actual output records were run and inspected.
+## correctness
 
-## Originality — PASS, with qualification
-The prior McGee independence-complex result computes the independence-set size vector and hence already supplies the numbers 424 and 8. The Bonsma–Kamiński–Wrochna theorem already shows that, for maximum independent sets in any graph, token jumping and sliding have the same adjacency graph; no originality is claimed for that general implication. Neither checked result nor the classical McGee paper determines the two exact state graphs or the jump-vs-slide contrast one token below maximum. Targeted mathematical-record searches were compared by implication, not title, and no covering claim was identified. Unindexed or unretrieved tabulations remain a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The unique cubic girth-seven cage is a natural extremal packing host. The adjacent cardinalities nine and ten exhibit two qualitatively different obstructions: four size-nine sliding-only traps disappear under jumps, but two maximum-size components persist even with jumps. This is a complete, sharp, naturally parameterized boundary example rather than a recomputation of the known independence number or f-vector. Its quantitative component geometry may inform tests of reconfiguration algorithms and hardness constructions, although no general algorithmic consequence is asserted.
+The exact 24-vertex 36-edge (12,7,-7) LCF graph and independent-set recursion were inspected. Fresh exhaustive independent-set generation gave size vector (1,24,240,1304,4212,8328,10024,7072,2668,424,8), proving alpha=10. All legal moves on the 424 nine-sets and eight ten-sets were reconstructed from symmetric differences and checked with all-pairs BFS: TJ_9 has 1428 edges, one 424-component and eccentricity counts 9:32,10:368,11:24; TS_9 has 1068 edges, components 416+2+2+2+2; at ten both move models have two four-cycles and eight edges. The enumeration domain and adjacency definition are exhaustive, not sampled.
 
-## Limits
-Only the specified finite graph and move definitions are proved. The originality comparison cannot exclude all inaccessible sources. The proof is an exact finite exhaustive certificate, not a structural classification for all cages.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bonsma–Kamiński–Wrochna (2014), Proposition 1, proves the general identity TJ_alpha(G)=TS_alpha(G), which is acknowledged. The Resultary 2026 McGee independence-complex result already gives all independent-set counts, including 424 and eight; these counts are also acknowledged. Neither supplies the exact reconfiguration edges, 9-layer connectivity transition, or diameters. Published exact graph-specific reconfiguration tables may exist outside the inspected corpus.
+
+## value
+
+PASS
+
+At the natural maximum independent-set boundary, an exact change in connectedness between sliding and jumping and two nontrivial frozen components of maximum configurations reveal structure absent from independence polynomials or alpha alone. Complete radii/diameters and component classes are independently useful finite graph-reconfiguration invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

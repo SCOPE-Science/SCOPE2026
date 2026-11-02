@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The gradient equations reduce on a torus cover to a Laurent monomial recurrence. The two closure equations coincide and yield the exact coordinate-ring quotient, not merely a list of points. The defining equation either becomes a unit or vanishes identically on that quotient according to whether the coordinate count is divisible by the characteristic. The local Artin lengths and exceptional 2-adic formula follow by polynomial factorization and lifting the exponent. Exact computational examples include the subtle \((p,d,m)=(2,6,4)\) case, where the length is eight rather than four.
+## correctness
 
-**Originality (PASS, residual risk).** The classical work of González-Aguilera–Liendo provides the Klein family and its smooth characteristic-zero context but not this modular singular-scheme classification. The 2026 work of Liendo–Vásquez concerns smooth models, and only its abstract could be checked. Earlier examples of isolated low-dimensional bad reductions cannot imply the all-degree/all-coordinate formula or the additional characteristic-two ramification factor. Searches for equivalent formulations and stronger prior results did not identify coverage; inaccessible or unlocated specialized literature remains a risk.
+PASS
 
-**Value (PASS).** Singular fibres of canonical integral equations are natural geometric degeneration objects, and a complete singular scheme is finer than smoothness or a singular-point census. The precise multiplicity exhibits a genuinely different 2-adic regime and gives infinitely many nonreduced schemes of unbounded thickness, as well as concrete Frobenius arithmetic. This is a structural classification, not a renamed invariant or isolated computation.
+For F=sum_i X_i^(d-1)X_(i+1) in characteristic p|d the gradient equations reduce to X_(i-1)^(d-1)=X_i^(d-2)X_(i+1). Any geometric zero coordinate forces all zero, so the gradient scheme is wholly in the projective torus. On X_0=1, x_i=t^a_i with a_i=[1-(1-d)^i]/d; unit-coordinate elimination leaves exactly t^a_m=1 as a scheme ring equality. Multiplying gradients by coordinates shows all cyclic monomials coincide and F=m*T_0; if p does not divide m the full singular scheme is empty, while for p|m it is Spec k[t]/(t^N-1), N=|a_m|. Writing N=p^nu*N0 gives N0 reduced points with curvilinear length p^nu each. Lifting-the-exponent establishes nu=vp(m), except p=2,d=2(mod4), when nu=v2(d-2)+v2(m)-1. Frobenius fixed-point count gcd(N0,p-1) follows. Independently checked exponent and modular gradient equations and all valuations for seven parameter triples; finite checks confirm algebra but not the universal ring isomorphism.
 
-**Scope.** The statement is only for the displayed coefficientwise models and primes dividing degree. It classifies their singular subschemes, not full analytic local hypersurface types or stable models. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+González-Aguilera–Liendo introduce cyclic Klein families and prove their characteristic-zero smooth behavior. The review claim instead classifies the full nonreduced singular schemes of the specific coefficientwise model in positive characteristic dividing d, including exceptional p=2 multiplicity. The 2026 smooth twisted-form study is plausible but full text was inaccessible; no negative full-paper coverage is claimed for it.
+
+## value
+
+PASS
+
+A complete scheme-theoretic classification of bad reduction, including nilpotent structure and a 2-adic length jump, is a natural arithmetic-geometric invariant not determined by the reduced singular-point set. The theorem gives a uniform formula in d,m, beyond a few computed examples, with clear limitations to this model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

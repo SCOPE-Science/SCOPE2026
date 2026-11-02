@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The channel identity is verified by expanding three bounded jump operators and checking that their adjoint squares sum to a scalar multiple of identity. The fixed point is reconstructed from the classical birth–death diagonal, the separate recurrence on every superdiagonal, and the boundary coherence recursion; positivity follows independently from an explicit Poisson-kernel mixture, including the pure endpoint. The exact purity comes from an absolutely convergent geometric double sum. The continuous-time bound follows from a bounded GKSL generator, channel trace-norm contractivity, and a one-step exponential remainder. The finite-section checker reports five passing parameter tests and one exact-rational purity test. It is a consistency check, not an infinite proof.
+PASS
 
-## Originality — PASS, best knowledge
+Reconstructed the exact channel identity using J1=sqrt(a) S_+ + mu sqrt(b) P0, J2=sqrt(b(1-mu^2))P0, J3=sqrt(b) S_-: sum J†J=(a+b)I and Phi_h=I+hL. Diagonal birth-death recurrence with summability forces d_n=(1-q)q^n, q=a/b<1. For each offset r>=1, roots 1,q and positivity c_n^(r)->0 force c_n^(r)=B_r q^n, while the ground boundary recursively fixes B_r=(1-q)(mu sqrt(q))^r. The Poisson-kernel mixture yields a positive trace-class state for 0<=mu<1, with pure projector at mu=1. Absolute HS summation yields purity ((1-q)/(1+q))((1+q mu^2)/(1-q mu^2)). Bounded GKSL uniformization and telescoped Euler remainder prove the stated uniform 1->1 bound, without claiming mixing. Independent finite-section construction at q=.4, mu=.7, N=26 gave maximum interior generator residual 5.56e-17, positive semidefinite truncation, plus exact rational 21/31 purity at q=2/5,mu=3/4. Finite checks do not establish the infinite proof.
 
-Santos and Angelo, arXiv:2605.15339v1, construct the collision map and derive a geometric stationary population plus perturbative coherence information; they do not state the all-entry stationary operator, its complete purity formula or an explicit bounded Lindblad limit. The same paper describes the continuous-time question as open. Buecher's arXiv:1408.6162 establishes broad existence criteria for quantum birth–death invariant states; Loebens's arXiv:2311.16366 studies continuous-time open walks with separate internal coin states and spectral recurrence. Neither inspected text was found to imply the combined exact statement. Published research-record searches and comparisons with accessible earlier claims found no same-object stationary-matrix theorem. This is a best-knowledge comparison, not a claim of global uniqueness; general semigroup and quantum-chain literature can contain an uninspected implication.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 source poses the continuous-time limit as a research question and leaves the quantum fixed state beyond its diagonal and perturbative estimates. The present formula determines every surviving coherence, exhibits an exact Gibbs-to-pure transition without changing occupation statistics, and computes purity over the entire physical parameter interval. The explicit GKSL scaling realizes the model as a continuous-time open system with a uniform approximation guarantee. Together these address motivated mathematical and physical gaps, rather than a routine parameter substitution.
+Best-knowledge new content is the exact all-parameter stationary density operator, purity, and the specific generator limit, not the already published collision map, Gibbs diagonal, Poisson kernel itself, or abstract GKSL calculus. The most directly relevant original full text states the discrete map and discusses but does not solve an explicit continuous-time limit; broader quantum birth-death sources may conceal a specialized implication.
 
-## Scope and risks
+## value
 
-The result applies to the precise infinite-ladder, constant-rate channel with strict downward bias. It does not address arbitrary graph coins, nonconstant rates, global mixing or Davies-type microscopic bath realization. The principal residual originality risk is that an uninspected general theorem on quantum birth–death fixed states and Poisson-kernel coherences already implies this special case.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The originating channel paper explicitly poses a continuous-time realization as an open direction and gives only geometric populations plus perturbative coherence bounds. The exact all-matrix normal stationary state, purity interpolation from Gibbs mixture to coherent rank one, and explicit bounded Lindblad scaling with a uniform error estimate answer concrete structural and physical questions; these are not consequences of merely naming a standard semigroup theorem without the channel-specific calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

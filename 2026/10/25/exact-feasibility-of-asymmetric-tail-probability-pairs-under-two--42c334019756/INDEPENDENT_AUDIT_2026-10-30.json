@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:54:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed exact convex program of conditional means x<=-u<z<v<=y under ax+cz+by=0 and weighted second moment ax²+cz²+by². KKT active sets yield m=au²+bv²+(au-bv)²/c in central regime, m=(cu-bv)²/a+bv²+cu² when b>u/(u+v), and m=au²+(au-cv)²/b+cv² when a>v/(u+v). These regimes cannot overlap for a+b<1. For a=0, b>0 or vice versa, strict middle-boundary mass conditions and the 1-group variance floor follow from Jensen. For c=0, the unique weighted two-tail minimum is max(au²/b,bv²/a). With a=b=0, (Z+u)(v-Z)>0 almost surely gives uv>1, and a 2-point law achieves variance one iff uv>1. For all abc>0, m<1 allows perturbation to strict means followed by tail variance inflation; m=1 is attainable precisely for a<v/(u+v), b<u/(u+v). Independently minimized 110 randomized strictly positive triples with scipy SLSQP; max absolute discrepancy from piecewise m was 4.69e-8. This is corroboration only, not a proof of universal equality or strict endpoints.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bertsimas-Popescu develop univariate moment SDP and general convex-set tail-probability methods. Ogasawara abstract extends Cantelli to events with multiple variables; its full text is inaccessible here."
+        ],
+        "reasoning": "Generic convex optimization methods are conceptual predecessors; to claim they already imply the exact closed region would need an explicit specialization with endpoint attainability. An inaccessible plausible paper alone does not reject the positive originality assessment.",
+        "searches": [
+          "Bertsimas Popescu 2005 Optimal inequalities in probability theory convex optimization approach",
+          "Ogasawara 2019 The multiple Cantelli inequalities",
+          "exact achievable joint probabilities P(Z <= -u), P(Z >= v) mean zero variance one asymmetric Chebyshev Cantelli"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md at assigned Git commit, METADATA.json 0f40fec65ef12c1265bed970053ffd808d627f3d, VERIFICATION.md ecf3e62f5ac3ab5b25c227383237edad3506366a, REVIEW.md 6c63896747326a598d158bfb13593dbc105336f9",
+        "Ion et al 2023 full primary HTML Theorem 2.2; Bertsimas-Popescu 2005 abstract; Ogasawara 2019 abstract",
+        "Resultary query: exact achievable joint probabilities P(Z <= -u), P(Z >= v) mean zero variance one asymmetric Chebyshev Cantelli",
+        "Independent scipy 110 randomized positive-mass constrained-KKT numerical checks (not exhaustive)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ion et al maximize the sum a+b via a quadratic inequality; the claim distinguishes all internal tradeoffs and separates unattained equality when the middle mass lies at an excluded endpoint."
+        ],
+        "reasoning": "Knowing a sharp upper bound for a+b does not decide membership of an ordered pair. General SDPs could algorithmically decide a candidate but do not state these explicit boundary cases in inspected material.",
+        "searches": [
+          "DOI:10.1007/s11749-022-00844-9 Theorem 2.2 and proof",
+          "DOI:10.1137/S1052623401399903",
+          "DOI:10.1007/s10260-019-00452-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ion et al, Theorem 2.2, maximizes P(Z<=-u or Z>=v)=a+b and provides extremizers, not a condition for a prescribed ordered pair."
+        ],
+        "reasoning": "The ordered pair region is finer than scalar two-sided tail bounds; many (a,b) share a+b yet have different compatibility due to mean balance.",
+        "searches": [
+          "exact achievable joint probabilities P(Z <= -u), P(Z >= v) mean zero variance one asymmetric Chebyshev Cantelli",
+          "joint lower upper tail probability feasibility Chebyshev mean variance",
+          "Ion Klaassen van den Heuvel 2023 Theorem 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is continuous in thresholds u,v and masses a,b; the inspected papers give inequalities and extremizers, not a tabulation of the entire ordered region."
+        ],
+        "reasoning": "Finite numerical tables cannot dominate an all-parameter closed form, and no exact region table was found. Search nonappearance is not a priority proof.",
+        "searches": [
+          "exact achievable joint probabilities P(Z <= -u), P(Z >= v) mean zero variance one asymmetric Chebyshev Cantelli",
+          "moment feasibility region two tails real threshold pair tables"
+        ]
+      },
+      "rationale": "Best-knowledge novelty is the *closed piecewise feasible-set formula with attainment/open-endpoint constraints* for two ordered tail probabilities. The 2023 Ion-Klaassen-van den Heuvel article gives a sharp maximum for their sum, not the joint region. General moment SDP methods can encode this optimization, but the compared statements do not directly yield the explicit five-case formula without eliminating the moment variables. The Ogasawara multiple-Cantelli full text remains inaccessible after open preprint/OA attempts and authorized Oxford returned vpn_disconnected; its abstract concerns multiple variables.",
+      "residual_risks": [
+        "Ogasawara 2019 full text inaccessible; authorized Oxford returned vpn_disconnected, potential unrecognized implication remains.",
+        "The general Bertsimas-Popescu moment-SDP framework may encode an equivalent characterization once specialized.",
+        "The equality boundary must keep strict open middle interval; changing endpoint conventions changes the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING sharp scalar a+b bound, but NOT_COVERING inspected complete feasible ordered-pair region",
+          "evidence": [
+            "Theorem 2.2 states P(Z<=-u or Z>=v) upper bounds with extremal distributions, not all feasible (a,b)."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11749-022-00844-9",
+          "material_read": "Open-access full HTML, Section 2 Theorems 2.1-2.2, proofs, extremizer cases and introductory sections",
+          "method": "primary publisher HTML full mathematical text",
+          "title": "Sharp inequalities of Bienaymé–Chebyshev and Gauß type for possibly asymmetric intervals around the mean",
+          "trigger": "Closest model: the same two asymmetric thresholds and two moments"
+        },
+        {
+          "assessment": "UNDETERMINED any specialization; broad optimization framework acknowledged",
+          "evidence": [
+            "Univariate fixed-moment probability bounds via SDP, including k=2."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S1052623401399903",
+          "material_read": "Publisher full abstract and metadata; full article not directly read",
+          "method": "publisher abstract and source search",
+          "title": "Optimal Inequalities in Probability Theory: A Convex Optimization Approach",
+          "trigger": "Broad general moment optimization might dominate specialization"
+        },
+        {
+          "assessment": "UNDETERMINED full-text comparison; explicitly named residual originality risk",
+          "evidence": [
+            "Abstract refers to events involving multiple variables, not an explicit ordered pair region for one variable."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10260-019-00452-2",
+          "material_read": "Publisher/IDEAS abstract and bibliography; preprint/OA full-text retrieval failed; authorized institutional request returned vpn_disconnected, no full text read",
+          "method": "abstract plus authorized access status",
+          "title": "The multiple Cantelli inequalities",
+          "trigger": "Potential multiple-tail inequalities with identical moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Separate Cantelli bounds do not answer whether a specified lower-tail risk and upper-tail risk can coexist for one mean-zero, variance-one law. The exact ordered-pair feasible region answers that natural inverse moment problem for all thresholds, including the genuinely important open-middle equality exclusions and zero-mass faces. The boundary cases are not a routine renaming of a single scalar bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md at assigned Git commit, METADATA.json 0f40fec65ef12c1265bed970053ffd808d627f3d, VERIFICATION.md ecf3e62f5ac3ab5b25c227383237edad3506366a, REVIEW.md 6c63896747326a598d158bfb13593dbc105336f9",
+    "Ion et al 2023 full primary HTML Theorem 2.2; Bertsimas-Popescu 2005 abstract; Ogasawara 2019 abstract",
+    "Resultary query: exact achievable joint probabilities P(Z <= -u), P(Z >= v) mean zero variance one asymmetric Chebyshev Cantelli",
+    "Independent scipy 110 randomized positive-mass constrained-KKT numerical checks (not exhaustive)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The assigned source tree identity was used as the guard after reading actual named Git blobs at its frozen commit; the complete tree-object listing was not accessible with read-only connector, so the tree SHA was not independently recomputed.",
+    "No Lean/expert verification or external scientific certification is claimed; independent bounded tests are distinct from infinite/general proofs.",
+    "Relevant existing public METADATA.json includes an operational provenance field; publication requires safe complete replacement files and fresh blob guards."
+  ],
+  "residual_risks": [
+    "Ogasawara 2019 full text inaccessible; authorized Oxford returned vpn_disconnected, potential unrecognized implication remains.",
+    "The general Bertsimas-Popescu moment-SDP framework may encode an equivalent characterization once specialized.",
+    "The equality boundary must keep strict open middle interval; changing endpoint conventions changes the theorem."
+  ],
+  "schema_version": 1
+}

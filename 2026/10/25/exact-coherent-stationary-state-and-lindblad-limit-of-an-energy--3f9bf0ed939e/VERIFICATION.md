@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical argument appears in `RESULT.md`, including the explicit generator decomposition, all-offset stationary recurrences, phase-mixture positivity, purity summation, and trace-class convergence bound. To rerun the accompanying finite-section checks, use `python verify.py` after installing NumPy. The verification script checks five parameter sets, exercises the incoherent and pure endpoints, and computes an exact rational purity witness.
+## correctness
 
-Finite cutoffs are not represented as closed physical upper boundaries: the script inspects only the interior matrix entries for which the infinite-ladder shifts are unchanged. Finite eigenvalue and residual checks are not certificates for infinite dimension. No independent audit or external certification has been performed. The proof does not cover trace-norm convergence of arbitrary initial states or fixed-step Lindblad embeddability.
+PASS
+
+Reconstructed the exact channel identity using J1=sqrt(a) S_+ + mu sqrt(b) P0, J2=sqrt(b(1-mu^2))P0, J3=sqrt(b) S_-: sum J†J=(a+b)I and Phi_h=I+hL. Diagonal birth-death recurrence with summability forces d_n=(1-q)q^n, q=a/b<1. For each offset r>=1, roots 1,q and positivity c_n^(r)->0 force c_n^(r)=B_r q^n, while the ground boundary recursively fixes B_r=(1-q)(mu sqrt(q))^r. The Poisson-kernel mixture yields a positive trace-class state for 0<=mu<1, with pure projector at mu=1. Absolute HS summation yields purity ((1-q)/(1+q))((1+q mu^2)/(1-q mu^2)). Bounded GKSL uniformization and telescoped Euler remainder prove the stated uniform 1->1 bound, without claiming mixing. Independent finite-section construction at q=.4, mu=.7, N=26 gave maximum interior generator residual 5.56e-17, positive semidefinite truncation, plus exact rational 21/31 purity at q=2/5,mu=3/4. Finite checks do not establish the infinite proof.
+
+## originality
+
+PASS
+
+Best-knowledge new content is the exact all-parameter stationary density operator, purity, and the specific generator limit, not the already published collision map, Gibbs diagonal, Poisson kernel itself, or abstract GKSL calculus. The most directly relevant original full text states the discrete map and discusses but does not solve an explicit continuous-time limit; broader quantum birth-death sources may conceal a specialized implication.
+
+## value
+
+PASS
+
+The originating channel paper explicitly poses a continuous-time realization as an open direction and gives only geometric populations plus perturbative coherence bounds. The exact all-matrix normal stationary state, purity interpolation from Gibbs mixture to coherent rank one, and explicit bounded Lindblad scaling with a uniform error estimate answer concrete structural and physical questions; these are not consequences of merely naming a standard semigroup theorem without the channel-specific calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

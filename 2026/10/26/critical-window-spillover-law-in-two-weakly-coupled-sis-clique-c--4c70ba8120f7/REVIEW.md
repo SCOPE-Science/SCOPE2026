@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The coordinate update is an explicit union probability with positive self-retention and neighbor factors. Its scalar radial restriction is strictly concave, which gives strict subhomogeneity. The primitive linearization at zero is supercritical owing to the core clique, and monotone iteration establishes existence and global attraction. Strict subhomogeneity proves uniqueness. Symmetry reduces the fixed point to two scalar equations. The isolated threshold calculation and the expansion \(0=B\varepsilon+\delta(\kappa-1)y-qy^2+o(\varepsilon+|\kappa-1|y+y^2)\) prove three distinct scaling regimes and the finite critical-window profile. The package's standalone script passed 53 exact coefficient identities and 15 numerical asymptotic checks. The general result depends on the proof, not the finite tests.
+## correctness
 
-**Originality — PASS subject to historical-priority uncertainty.** The 2026 motivating full text gives spectral community thresholds and simulations, not amplitudes of endemic weak-link leakage. The directly relevant Bonaccorsi–Ottaviano–Mugnolo–De Pellegrini full text studies a different continuous-time NIMFA equation, does not give the stated discrete-product profile, and is explicitly credited for weak cross-community coupling and quotient reductions. Related published mathematical records address SEIR multi-patch threshold bracketing, SIRS extinction relaxation and SIS numerical discretization bias; none of those statements imply the formula for this discrete SIS product map. The square-root mechanism is a familiar forced-transcritical balance and is not claimed as a general new exponent. Earlier equivalent specializations may exist under a different vocabulary; independent historical-priority verification remains open.
+PASS
 
-**Mathematical value — PASS.** Local-versus-global epidemic threshold inequalities alone do not quantify infection in a locally critical or locally subcritical community. The theorem distinguishes \(O(\varepsilon)\), \(O(\sqrt{\varepsilon})\) and \(O(1)\) endogenous infection and resolves the entire \(\kappa-1=O(\sqrt{\varepsilon})\) crossover with an explicit coefficient for every two-clique size and admissible recovery probability. It provides a reproducible benchmark for heterogeneous weak intercommunity transmission, while making no stochastic-stationarity or arbitrary-network claim.
+For r>s>=2, 0<delta<1, beta=delta/(s-1), strictly positive admissible within- and cross-transmission, the deterministic independent-state SIS map F_i=1-(1-(1-delta)p_i) product_j(1-b_ij p_j) is monotone and strictly subhomogeneous on positive vectors. Its irreducible Jacobian at zero has Perron root above 1 via the supercritical core, giving a positive lower iterate and F(1)<1; uniqueness by scaling and attraction from every nonzero input follow from strict subhomogeneity, ordered monotone iteration, and eventual positivity. Permutation symmetry reduces to x,y; core x tends to unique x*>0. Satellite fixed-point expansion near kappa=1 is 0=B*eps+delta*(kappa-1)*y-q*y^2+o(eps+abs(kappa-1)*y+y^2), with q=delta*(1-delta)+delta^2*(s-2)/(2(s-1))>0 and B=r*beta*x*>0. Its unique positive root yields y~sqrt(eps)*Z(c) when kappa=1+c sqrt(eps), including critical and subcritical limits; supercritical satellite tends to its isolated nonzero equilibrium. First core-equation expansion gives x-x*~s*beta*(1-x*)/(1-f_r_prime(x*))*eps*y. Independent decimal bisection on (r,s,delta)=(3,2,1/2) eps=1e-6 compared window c=-2,0,2: observed y/sqrt(eps) 0.929345,2.138643,4.917651 versus limiting 0.929777,2.140933,4.929777. The stochastic finite-state SIS process is not covered.
 
-The closest material reviewed was Dung–Phuc (2026), Sections 2–4 (full accessible article), and Bonaccorsi et al., arXiv:1412.6157v3 (23-page primary PDF, including the NIMFA equation, quotient graph and numerical comparison sections). Other secondary and primary epidemic results were compared by mechanism; unresolved unindexed equivalences are recorded in the originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dung and Phuc 2026 establish homogeneous discrete-time product SIS threshold comparisons. Bonaccorsi et al establish weakly coupled communities for continuous-time polynomial NIMFA, a different update law. Both provide predecessor model and general motivation, but inspected statements do not contain the exact discrete product-map critical window, its parameter constants and core feedback equivalent. General forced-transcritical/saddle-node sqrt scaling is standard, not claimed new. A matching specialization in wider epidemic mean-field literature remains a priority risk.
+
+## value
+
+PASS
+
+Near-critical infection spillover is a naturally significant boundary for community-level deterministic epidemic equations: explicit crossover Z(c), the correct sqrt(eps) scale, and global uniqueness/attraction yield quantitative conclusions beyond qualitative spectral threshold statements. Applies to precise specified nonlinear product update, not public-health forecasts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

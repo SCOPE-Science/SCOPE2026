@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The published PartRosExp2 tableau and the entire-matrix identity \(\varphi_1(Y)Y=e^Y-I\) yield \(LML^{-1}=e^YC\) without commutativity between the split matrices. Symmetric dissipation makes both factors Euclidean contractions; equality characterization yields the exact common-kernel spectral boundary. The fixed-exponential two-state family gives an exact matrix and an endpoint gain proportional to \(t/8\), even though \(A_t+B\prec0\). The published reverse-order tableau separately yields the uniform inequality \(\|N\|_2\le3+h\|B\|_2\). Standalone SymPy symbolic checks and 450 random-matrix trials corroborate, but do not establish, the universal claim.
+PASS
 
-## Originality — PASS, qualified by priority risk
+For real symmetric A,B negative semidefinite, direct multiplication of the published PartRosExp2 formula gives LML^{-1}=exp(Y)(I-X/2)^{-1}(I+X/2). Both factors are Euclidean contractions, and equality occurs only on ker A intersect ker B, proving exact weighted power and rho<1 criterion. The fixed-B two-state family has M_t/t -> [[0,0],[1/8,0]], hence ||M_t||_2/t ->1/8 while rho(M_t)<1 for each t. At t=16 its characteristic polynomial and eigenvalues (1±sqrt57)/12 follow exactly. The reverse PartExpRos2 update is bounded by 3+h||B||_2 for fixed B using ||L^{-1}X||<=2 and ||phi_1(Y)||<=1. I independently reconstructed exact symbolic witness identities and the asymptotic limit, distinct from the assigned 450 random checks. Finite tests are not substituted for matrix proof.
 
-Dallerit et al. (DOI `10.1007/s11075-023-01698-4`) introduce both methods, but §4 treats simultaneous diagonalizability and does not derive the noncommuting weighted similarity or unbounded endpoint counterexample. The preprint (DOI `10.21203/rs.3.rs-3101972/v1`) has a PartRosExp2 tableau expression different from the final published version; the theorem unambiguously uses the latter. Achleitner–Arnold–Mehrmann (DOI `10.13001/ela.2023.7531`) supply broader dissipative matrix context, not this method-specific contrast. Comparable time-integrator transients for other schemes do not imply this exact endpoint claim. Targeted mathematical searches did not uncover a dominating formulation. Specialized splitting/operator-product work could contain an equivalent result, so independent publication-priority verification remains necessary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact stability distinction is germane to selecting second-order partitioned integrators for noncommuting dissipative stiff processes: scalar A-stability coexists with arbitrarily large physical norm amplification for one operator order, but not for the other when the exponential block is held fixed. This supplies both an all-dimensional structural explanation and a sharp two-dimensional obstruction. No nonlinear or finite-precision stability claim is made.
+Qualified best-of-knowledge PASS: Dallerit et al. introduces the methods and scalar A-stability and Achleitner et al. the generic contraction theory, but the inspected published scheme and results do not establish the combined noncommuting weighted contraction, strict common-kernel condition, fixed-B unbounded physical endpoint gain and reversed-order stiffness bound. Generic similarity phenomena are explicitly prior; mathematical implication rather than title resemblance was compared.
 
-## Limitations and closest literature
+## value
 
-Proofs apply only to finite real symmetric negative-semidefinite constant split matrices and exact stage operations. The reverse-order method is only shown uniformly bounded in the stiffness direction, not contractive. Key literature: Dallerit et al. 2023 preprint/published 2023–2024 and Achleitner et al. 2023. Part of the argument uses standard contraction and similarity facts. The new theorem remains a self-review without external expert validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The numerical stability of second-order partitioned integrators with noncommuting dissipative stiff components is a natural algorithm-selection problem. A sharp explicit Euclidean transient obstruction despite dissipative total generator and a norm-safe reversal identify an actionable operator-ordering boundary, beyond scalar A-stability. The exact weighted metric and all-dimensional kernel classification are structural rather than a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

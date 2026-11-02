@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-extension bijection fixes the complete induced poset on the ordered tuple and the statuses of every *named* parameter. Its exact compatibility condition—disjoint unions of parameter-below and parameter-above tuple vertices—follows from the two-step transitivity checks, including the converse. Inclusion-exclusion over global choices of orientation gives the fixed-arity formula for every parameter size. The three labelled two-point posets give explicit inclusion-exclusion coefficient dictionaries, not interpolated guesses; two chain orientations plus one incomparable orientation produce the stated four-term formula. Distinct nonzero exponential bases establish minimal recurrence order. Exact finite enumerations independently check transitivity, state propagation, and inclusion-exclusion; their finite range is disclosed.
+## correctness
 
-## Originality — PASS, qualified
-The historical one-type extension encoding and the published 1-type count are prior art and excluded from the novelty claim. The global orbit-profile result gives only the no-parameter fibre; the all-posets enumeration paper does not impose a fixed induced antichain. The source inspections and actual topical and semantic queries did not find the explicit two-point type spectrum, limiting comparison proportions, or the fixed-arity finite-template exponential representation. The existence of equivalent less-searchable enumerations remains a residual risk; no independent originality certification is implied.
+PASS
 
-## Mathematical value — PASS
-The antichain is the canonical maximally free finite base and yields a natural infinite family of finite-stabilizer orbit invariants. The arity-two formula provides a nontrivial four-scale spectrum and an exact asymptotic orientation law, while the all-fixed-arity result explains structurally why the sequence must satisfy a recurrence even though unrestricted parameter-poset type counting is computationally hard. This supplies a useful closed-form benchmark and an organizing general theorem rather than an arbitrary small finite table.
+For a fixed labelled r-point strict poset Q on the distinct new tuple, each named antichain parameter has a locally valid below/above/incomparable pattern (L,U): L upper in Q, U lower in Q, all U strictly below all L. Joint transitivity with n mutually incomparable parameters holds iff their global L and U unions are disjoint. A bit orientation per tuple vertex realizes any compatible family; inclusion-exclusion over the 2^r templates gives T_r(n) as an integer combination of j^n, 0<=j<=3^r, proving rationality for every FIXED r. For r=2 the two chain orders each contribute 4^n+2*3^n-2*2^n, and incomparability contributes 2*4^n+2*3^n-4*2^n+1; total 4*4^n+6*3^n-8*2^n+1. All four bases have nonzero coefficients, giving minimal recurrence order 4. Fresh independent direct transitivity enumeration yielded n=0..4 totals 3,19,87,355,1383; fixed-arity proof is not finite inference. Reconstructed assigned eight-file Git tree matches SHA c50e64b3cb1f3a5cf8c69fbc2ef349d570ca09f9. A further independent direct full-poset transitivity enumeration covered n=5 and returned 5299, matching the formula.
 
-## Closest literature and boundaries
-Dolinka–Mašulović give local one-point poset insertion data; the published random-poset 1-type count covers arity one, not arity two. Global random-poset orbit profiles enumerate types without fixed named antichain parameters. Brinkmann–McKay enumerate unrestricted labelled posets. No claim is made about variable-arity efficiency, repetitions, equality types, or independent validation. Earlier unindexed formulae could still exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the antichain-parameter ordered two-point spectrum and structural fixed-arity representation. Dolinka–Mašulović local one-point extension encoding and the published SCOPE unary count are prior art and expressly excluded; no inspected broader theorem or table logically supplies the displayed n-dependent pair count.
+
+## value
+
+PASS
+
+The named finite antichain is a canonical freely extendable base in the universal poset, and ordered tuple types are natural pointwise-stabilizer orbit invariants. The exact four-term two-point law, limiting orientation proportions and all-fixed-arity rationality provide nontrivial structural/computational benchmarks rather than a single arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

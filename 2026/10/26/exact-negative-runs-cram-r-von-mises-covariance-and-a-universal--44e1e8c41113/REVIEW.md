@@ -1,11 +1,21 @@
-# Scientific review: runs and two-sample squared-bridge dependence
+# Independent mathematical audit
 
-**Correctness — PASS.** Sampling without replacement gives the unconditional bridge second moment. Conditioning on one local run transition leaves a uniformly shuffled residual multiset and a fair two-position orientation. Its hypergeometric variance produces the explicit, summable influence profile in the result; direct simplification yields the mixed covariance for all positive class sizes, including explicitly treated small cases. The strict sign follows from the extremal product bound \(ab\ge N-1\). The correlation limit combines an exact runs variance, the standard finite-population functional bridge limit, Gaussian bridge integral variance \\(1/45\\), and uniform eighth-moment bounds ensuring convergence of the CvM second moment. Standalone `verify.py` checks the distinct algebraic and exhaustive-enumeration routes; finite tests do not substitute for the proof.
+## correctness
 
-**Originality — PASS, subject to residual historical-priority risk.** Actual published-record searches included the two names of the statistics, joint covariance, rank-bridge quadratics, fixed-composition run transitions, and asymptotic correlation aliases. The complete Xiao–Gordon–Yakovlev article treats only the marginal CvM null law and its normalization; the complete Smeeton–Cox paper treats the marginal runs test. A published pairwise-transition study treats local run dependence and the scalar run variance, not mixed covariance with global squared-bridge energy. Related claims on KS conditional on run counts and on Mann–Whitney rank-sum conditional on runs have different response functionals and do not imply this exact formula. Inaccessible historical originals, especially Anderson 1962 and 1940 runs sources, leave nonzero priority uncertainty; no whole-document NOT_COVERING assertion is made for them. The published-finding corpus search was substantive but its absence of a direct match is not itself proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** These are two standard complementary permutation-null testing statistics. The exact strict negative covariance supplies a joint dependence property that neither statistic's marginal law determines. The leading \(-\sqrt5\) correlation constant is independent of the limiting sample allocation despite dramatically different class imbalances. This makes the result useful for assessing joint calibrations and tells precisely how rapidly linear dependence vanishes for large continuous two-sample tests. The finding is not merely a re-expression of a known marginal or textbook run-variance formula.
+For uniform binary shuffles with positive fixed class sizes a,b and N=a+b, runs R=1+sum_{j=1}^{N-1} 1{X_j != X_(j+1)} and Q=sum_{t=1}^{N-1}(N*A_t-a*t)^2 give the correctly scaled two-sample CvM statistic T=Q/(ab*N^2). Conditioning on a transition at j makes its two letters a fair 01/10 orientation independent of the uniform remaining (a-1,b-1) shuffle. The hypergeometric mean and variance yield the explicit quadratic conditional influence delta_j, summing to N(N-1)(N-2ab)/6 and exact Cov(R,T)=(N-2ab)/(3N^2), negative for N>=3; N=2 has R constant. Classical Var R=2ab(2ab-N)/(N^2(N-1)), empirical finite-population Brownian-bridge convergence, and uniform integrability of T^2 give Var T->1/45 when a/N->p in (0,1), hence sqrt(N)Corr(R,T)->-sqrt(5) independently of p. Independently exhaustively enumerated all binary words for 36 positive-composition pairs with 2<=N<=9, verifying exact finite covariance. These checks do not prove all N or the functional CLT; the supplied conditional moment argument and classical bridge theorem do.
 
-**Scope and remaining risk.** The theorem does not calculate joint tail probabilities or assert statistical independence, and the limiting result excludes vanishing-class-proportion regimes. Priority against inaccessible historical originals remains unverified; self-review does not substitute for independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Wald–Wolfowitz run count, Anderson two-sample CvM and its marginal distribution are classical, and the Resultary fixed-composition local-transition result already determines run-indicator covariances. None of these inspected marginal/local statements yields the exact mixed moment E[R*Q] without a conditional bridge analysis or its sharp -sqrt5 normalized correlation rate. An earlier joint calculation under different test-statistic notation remains a substantial priority risk.
+
+## value
+
+PASS
+
+The exact sign and finite-size covariance quantify a nontrivial interaction between two standard distribution-free goodness-of-fit statistics, and the sample-allocation-independent -sqrt5 correlation coefficient at N^(-1/2) is a natural calibration fact for simultaneous runs/CvM inference. This is not a full joint law, but the exact mixed moment has independent statistical use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

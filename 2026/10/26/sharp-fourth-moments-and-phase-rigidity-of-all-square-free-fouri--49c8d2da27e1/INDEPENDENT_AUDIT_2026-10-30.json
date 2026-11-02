@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:55:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=k>=3 the orthogonality identity ||P||_4^4=||P^2||_2^2 reduces the phase-free maximum to nonnegative coefficient arrays. The pairwise square-root balancing operation on the B,C coefficient layers preserves ||P||_2. For each convolution exponent, vector triangle bounds AB/AC and BD/CD terms and the 2x2 Frobenius estimate gives X^2+Y^2+4Z^2<=6W^2; the BC<=F^2 comparison also controls AD+BC. If b_U!=c_U, the unique decomposition of exponent 2*1_U gives W-Z=(b_U-c_U)^2/2>0, forcing strict improvement. All maximizers have constant magnitudes by Johnson-graph connectivity. Ordered-pair intersection counting gives the exact constant C_nk=binom(n,k)^-1 sum_{r=0}^{min(k,n-k)}binom(k,r)binom(n-k,r)binom(2r,r). Product-phase equality gives rectangle relations, independent coordinate ratios, and a character cocycle for 2<=k<=n-2; k=n and k=n-1 are checked separately. Independent exact Fourier-convolution calculations checked (n,k)=(4,3),(5,3),(6,3),(8,3),(8,4), agreeing with the formula. The explicit verify_fourier.py code was inspected; finite tests are not the all-dimensional proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2015 torus paper studies Lp norms of symmetric polynomial sequences; Ivanisvili–Tkocz compare moments for binary-sign homogeneous chaoses; Bohnenblust–Hille bounds sup norm vs coefficients."
+        ],
+        "reasoning": "These are related general frameworks but do not provide a theorem that dominates both this exact finite n,k constant and all complex equality-phase families.",
+        "searches": [
+          "DOI:10.1007/s00365-015-9319-x",
+          "arXiv:1807.04358",
+          "Bohnenblust–Hille inequality homogeneous polynomials Defant et al 2011"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s00365-015-9319-x",
+        "arXiv:1807.04358",
+        "Annals of Mathematics 174 (2011), 485–497",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-fourth-moments-and-phase-rigidity-of-all-square-free-fouri--49c8d2da27e1/RESULT.md (Git blob 58fe39ed2f0def83d9547281587a3875effa9c68)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-fourth-moments-and-phase-rigidity-of-all-square-free-fouri--49c8d2da27e1/verify_fourier.py (Git blob 07187468874fa214c958881e49db05bbb6df2797)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normalizing the 2015 limit of m!e_{m,n}(z/sqrt n) at p=2,4 yields fourth-to-second moment ratio (2m choose m), matching the limit in the record, but not C_nk at finite n or extremal rigidity."
+        ],
+        "reasoning": "Known asymptotics and generic hypercontractivity do not imply the displayed finite sum and uniqueness of complex coefficient phases; the rigorous balancing and phase cocycle supply those missing implications.",
+        "searches": [
+          "DOI:10.1007/s00365-015-9319-x Lemma 2.1",
+          "arXiv:1807.04358",
+          "Bohnenblust–Hille 2011"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Elementary symmetric polynomials e_{k,n} are the all-equal-coefficient test objects; their L4/L2 asymptotic is equivalent to the leading limit of C_nk. Rademacher chaos has character products z_i^2=1, unlike the Steinhaus torus."
+        ],
+        "reasoning": "The older elementary-symmetric fixed-k limit is COVERING for one corollary, but an Lp asymptotic of one polynomial does not show it maximizes the finite-dimensional L4 norm among arbitrary coefficient arrays or classify equality phases.",
+        "searches": [
+          "Resultary: sharp fourth moment Steinhaus homogeneous squarefree Fourier polynomial elementary symmetric maximal complex phases equality k subsets",
+          "DOI:10.1007/s00365-015-9319-x",
+          "arXiv:1807.04358"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits concern finite Fourier difference sets, Paley supports, ternary circle and four-term frequencies, with different additive convolution relations and supports. The 2015 source gives a known asymptotic table value."
+        ],
+        "reasoning": "No exact table for all coefficient arrays on full Hamming weight-k Steinhaus support was identified; this negative search remains qualified by possible older symmetric-function/extremal-combinatorics formulations.",
+        "searches": [
+          "Resultary squarefree Fourier fourth moment search",
+          "elementary symmetric polynomial fourth norm 2015",
+          "arXiv:1807.04358"
+        ]
+      },
+      "rationale": "The exact finite-dimensional sharp fourth-moment inequality and complete equality-phase classification are not supplied by the examined broad hypercontractive or Rademacher-chaos literature. IMPORTANT prior coverage: an older primary theorem on Lp norms of elementary symmetric torus polynomials already implies the fixed-k asymptotic binom(2k,k); that asymptotic is not asserted independently new. The distinct new claim is sharp finite (n,k) optimization of arbitrary coefficients, with rigidity of all equality phases. The 2015 elementary-symmetric moment paper is a real conceptual antecedent, and its consequences have been considered explicitly rather than missed.",
+      "residual_risks": [
+        "Fixed-degree asymptotic binom(2k,k) was already implied by prior torus elementary-symmetric moment theorem; only finite exact constant and all-extremizer characterization are assessed novel.",
+        "Older convolution/Riesz-product or combinatorial symmetrization literature might contain an equivalent finite sharp theorem.",
+        "Exact equality classification requires squarefree support; Walsh/Rademacher and general Fourier supports differ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING of fixed-k C_nk asymptotic only; not the finite-dimensional all-coefficient theorem",
+          "evidence": "At p=4 versus p=2, gamma-function moments yield binom(2k,k); no equality characterization for arbitrary Fourier coefficient arrays.",
+          "identifier_or_url": "DOI:10.1007/s00365-015-9319-x",
+          "material_read": "Accessible full article and relevant technical sections, including Lemma 2.1 moment limit",
+          "method": "Read primary article sections on Lp limits of m!e_{m,n}(z/sqrt n)",
+          "title": "L^p-Norms and Mahler’s Measure of Polynomials on the n-Dimensional Torus",
+          "trigger": "same elementary-symmetric polynomials and torus fourth moments"
+        },
+        {
+          "assessment": "DISTINCT model: binary-sign variables rather than Steinhaus torus",
+          "evidence": "Signs have torsion square=1; the present Fourier convolution distinguishes exponents 0,1,2.",
+          "identifier_or_url": "arXiv:1807.04358",
+          "material_read": "Full six-page arXiv preprint",
+          "method": "Read primary preprint and hypotheses",
+          "title": "Comparison of moments of Rademacher chaoses",
+          "trigger": "homogeneous chaos fourth moment comparison"
+        },
+        {
+          "assessment": "NOT_DECISIVE for this precise finite L4 extremal/equality classification",
+          "evidence": "Its coefficient-versus-supremum hypercontractivity is not the same L2-normalized torus fourth moment.",
+          "identifier_or_url": "Annals of Mathematics 174 (2011), 485–497",
+          "material_read": "Citation, abstract and relevant inequality formulation; complete proof not reread",
+          "method": "Compared stated norm directions and parameterizations",
+          "title": "The Bohnenblust–Hille inequality for homogeneous polynomials is hypercontractive",
+          "trigger": "potential general sharp coefficient-to-moment theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete square-free Fourier layers are a canonical homogeneous Steinhaus chaos. An exact finite-n,k L2-to-L4 extremal norm and classification of all complex phases have mathematical utility beyond a generic hypercontractive bound; it is a natural extremal problem, not a chosen small slice. The known fixed-degree asymptotic does not mechanically imply finite optimality or equality rigidity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1007/s00365-015-9319-x",
+    "arXiv:1807.04358",
+    "Annals of Mathematics 174 (2011), 485–497",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-fourth-moments-and-phase-rigidity-of-all-square-free-fouri--49c8d2da27e1/RESULT.md (Git blob 58fe39ed2f0def83d9547281587a3875effa9c68)",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-fourth-moments-and-phase-rigidity-of-all-square-free-fouri--49c8d2da27e1/verify_fourier.py (Git blob 07187468874fa214c958881e49db05bbb6df2797)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed-degree asymptotic binom(2k,k) was already implied by prior torus elementary-symmetric moment theorem; only finite exact constant and all-extremizer characterization are assessed novel.",
+    "Older convolution/Riesz-product or combinatorial symmetrization literature might contain an equivalent finite sharp theorem.",
+    "Exact equality classification requires squarefree support; Walsh/Rademacher and general Fourier supports differ."
+  ],
+  "residual_risks": [
+    "Fixed-degree asymptotic binom(2k,k) was already implied by prior torus elementary-symmetric moment theorem; only finite exact constant and all-extremizer characterization are assessed novel.",
+    "Older convolution/Riesz-product or combinatorial symmetrization literature might contain an equivalent finite sharp theorem.",
+    "Exact equality classification requires squarefree support; Walsh/Rademacher and general Fourier supports differ."
+  ],
+  "schema_version": 1
+}

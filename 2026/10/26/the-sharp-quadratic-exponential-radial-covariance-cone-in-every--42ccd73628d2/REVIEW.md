@@ -1,15 +1,21 @@
-# Review of the quadratic-exponential radial covariance classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Fourier transformation of the radial exponential and two derivatives in its decay scale give the exact positive-normalized quadratic spectral factor. An exhaustive vertex/endpoints test proves the coefficient cone for all real \(a,b\) and every integer \(d\ge1\), including both sharp parameter boundaries. The analytic proof—not the optional exact-arithmetic checks—establishes infinitely many dimensions and all continuous parameters.
+## correctness
 
-## Originality
-**PASS within bounded evidence.** The same-scale Matérn basis and its individual positive spectral densities appear in Rasmussen and Williams (2006). However their nonnegative mixture rule does not imply signed-coefficient admissibility, and the inspected Bhatia–Jain (2014) full-text rational-kernel theorems do not state a classification of this family. Semantic searches against published research results found no implication-equivalent claim. The 2015 Schoenberg-dimension source was compared at abstract level only; the 2016 multiple-length-scale covariance article was accessible through summaries and section snippets rather than full text. Equivalent unindexed historic formulas remain a genuine priority risk.
+PASS
 
-## Value
-**PASS.** This is a complete parameter region for a natural three-dimensional Matérn span, with a sharp, structurally informative dimension phase diagram for the quadratic deformation. The admissible negative quadratic coefficients give sign-changing spatial covariance functions; its two boundary parameters have provably different spectral zero geometry. Those facts enable exact validity checks for signed covariance mixtures beyond positivity-by-convex-combination.
+Gaussian subordination gives the radial exponential Fourier transform C_d lambda (lambda^2+||xi||^2)^(-(d+1)/2). Differentiating in lambda at 1 for r and r^2 gives the exact nonnegative-spectral quadratic Q_{d,a,b}(u)=1-a+(d+1)(a-3b)u+(d+1)(d+3)b u^2 on u=1/(1+||xi||^2) in [0,1]. Independent symbolic derivatives rederived this polynomial. Bochner equivalence and elementary vertex/end-point minimization give the exact four semialgebraic regions for b<=0 and b>0, the a=0 interval [-1/(d(d+1)),4(d+3)/(9(d+1))], and dimension-uniform [0,4/9]. Density is positive away from at most two frequency spheres so all finite distinct-site Gram matrices are strictly positive definite; independent rational CHECK.py examples verify boundary algebra but the general theorem is analytic.
 
-## Scope and limits
-Only one exponential length scale and degree at most two are covered. No higher-degree, multiscale or non-Euclidean classification is claimed. The proof is analytic; the supporting checker exercises exact rational instances but does not certify the continuum. No independent review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Matérn half-integer basis and Fourier formula are classical and explicitly credited. The present exact sign-indefinite coefficient positivity cone for a common exponential scale, including its dimension dependence and sharp zero spheres, is not supplied by inspected standard Matérn examples or radial positivity results for other rational/Bessel families.
+
+## value
+
+PASS
+
+Determining exactly when a sign-indefinite linear combination of natural exponential-polynomial radial covariance basis functions stays positive definite is a motivated parameter-classification problem in spatial statistics. Sharp per-dimension and all-dimension bounds are useful kernel-design constraints; this is more than merely checking positivity at a few selected coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

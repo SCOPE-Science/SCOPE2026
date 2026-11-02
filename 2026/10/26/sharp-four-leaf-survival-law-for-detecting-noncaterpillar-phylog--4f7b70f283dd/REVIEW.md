@@ -1,15 +1,21 @@
-# Review of the sharp rarefaction detection theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every noncaterpillar unrooted binary tree and \(n\ge7\), at most four leaves can individually destroy every triply internal node upon deletion. Equality entails two two-leaf branches at a unique triply internal vertex and a rooted comb for the third branch. Sequentially uniform leaf deletion then gives exactly \((k)_4/(n)_4\), attained uniquely by that shape for \(k<n\). The six-leaf branch-product census is independently derived without treating finite checks as the proof. The standalone verifier enumerates every unlabelled shape through eleven leaves and directly rebuilds sampled subtrees for an independent check. Critical boundary cases \(k=6\), \(k=n\), and \(n=6\) are explicitly separated.
+PASS
 
-## Originality — PASS, with residual risk
+A noncaterpillar unrooted binary tree has a vertex with three components containing >=2 leaves. Deleting a leaf can remove such a witness only if the leaf lies in a branch of exactly two leaves; for r>=7 at most two such branches can occur, giving at most four destructive deletions. If exactly four deletions are destructive, there is a unique triply internal vertex, with two cherry branches and one rooted comb branch, the F_r shape. Uniform sequential pruning from n to k has conditional survival at least (r-4)/r, telescoping to (k)_4/(n)_4; only F_n achieves equality at each step if 6<=k<n, with k=n a universal equality. An induced noncaterpillar sextet has one central vertex selecting exactly two leaves from each component, so N6=Σ_v binom(a_v,2)binom(b_v,2)binom(c_v,2). Independent generation of unlabelled binary trees through n=9 confirmed noncaterpillar counts and unique minimum sextet counts 1,3,6,10 for n=6,7,8,9. These experiments corroborate the all-n deletion argument and do not prove it alone.
 
-The closest inspected papers treat unrooted split-size objectives (Fischer–Liebscher 2015), rooted fixed-shape maximal inducibility (Czabarka–Székely–Wagner 2016; Czabarka et al. 2018), and the number of distinct rooted leaf-induced shapes (Dossou-Olory–Boadi 2022). Their stated quantities do not imply the sharp unrooted finite lower bound, the all-sample-size equality characterization, or its pruning mechanism. Targeted literature and published research-record searches found no dominating statement. General leaf-induced-profile literature may contain an equivalent formulation not captured by the searches; independent bibliographic verification remains unperformed.
+## originality
 
-## Value — PASS
+PASS
 
-The result is a sharp non-asymptotic power floor for a natural topology-only phylogenetic rarefaction diagnostic, with a unique worst-case shape and an explicit fourth-power sampling cost for six-taxon tests. It quantifies a genuine limitation of repeated small-taxon studies rather than merely certifying that some noncaterpillar sample exists. The exact finite cutoff at six leaves and simultaneous all-\(k\) extremizer are natural components of the same mathematical claim.
+Related tree inducibility optimizes rooted pattern densities and classical phylogenetic balance treats edge splits. In the inspected statements these do not establish the universal lower probability of surviving noncaterpillar taxon rarefaction, the four-destructive-leaf lemma, or a unique unrooted extremizer F_n. This is the bounded best-of-knowledge contribution.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact survival probability addresses the natural sample-complexity of recognizing noncaterpillar topology from randomly retained taxa. The unique worst-case F_n and sharp n^4 effort requirement make the structural four-leaf deletion fact useful for rarefaction design rather than an arbitrary count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review — adjacent dual symmetric-power characters on \(SU(3)\)
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The normalization is the ordinary irreducible trace character, with probability Haar measure. The six required group moments follow from multiplicity-free Pieri decompositions, central-character selection, and the unique dual Pieri pair in the resonant congruence class. Their exact values were separately obtained by integer Weyl-torus constant-term computation for degrees \(1\) through \(9\). Expanding the mixed quartic yields the same identity. Strict phase monotonicity and one-dimensional concavity/convexity establish both sharp endpoints and all equality cases for every \(n\ge1\); the large-degree expansion and nonmonotonicity corollary follow algebraically. Finite computations are corroborative only.
+## correctness
 
-## Originality
-**PASS (with residual historical-priority risk).** The substantive statement is the two-sided sharp \(L^4/L^2\) theorem for the *unequal adjacent* symmetric powers \(\chi_n\) and \(\overline{\chi_{n+1}}\), including congruence-dependent phase rigidity and strict degree reversal. Closest compared prior claims concern the equal-degree dual pair or other character packets and do not determine the mixed adjacent-degree moments. The inspected Issa–Abbas–Mourad sphere-integral paper, Lee–Oh characteristic-polynomial autocorrelations, Vleeshouwers–Gritsev unitary symmetric-polynomial integrals, and Collins's Haar-moment survey give general methods but do not state this optimized family. General Schur calculus could support an independent derivation; the search does not establish absolute novelty.
+PASS
 
-## Value
-**PASS.** Adjacent symmetric powers form the smallest genuinely unequal dual-character packet, a natural test of whether center congruence and norm extremizers are stable under changing representation degree. The complete classification reveals a persistent \(5/2\) arithmetic correction, opposite phase choices at the two sharp endpoints, and the provable reversal \(U_{3k+1}>U_{3k+2}\) for every \(k\ge0\). This is structural, not a numerical constant from an arbitrary finite example.
+Let chi_r be the unnormalized SU(3) symmetric-power character and F=a chi_n+b overline chi_(n+1), n>=1. Reconstructed Pieri decomposition and Schur orthogonality: self fourth moments n+1,n+2 and mixed |chi_n chi_(n+1)|^2=n+1. SU(3) center suppresses other mixed moments except n≡1 mod3, where unique admissible Pieri summands give all three mixed moments 1, yielding the exact quartic form in |a|,|b| and Re(a conjugate b). Phase optimization reduces to q_±(u)=n+2+2(n+1)u-(2n+3)u²±4sqrt(u(1-u)); derivative/curvature analysis gives the unique resonant roots of the two quartics and all equality cases; otherwise L=n+1, U=n+2+n²/(2n+1). Algebra gives large-n U=3n/2+7/4+(5/2)1_{n≡1mod3}+1/(8n)+O(n^-2) and U_{3k+1}>U_{3k+2}. Independently computed all six exact Weyl-torus fourth moments for n=1..5 using a separate Laurent polynomial constant-term product.
 
-## Scope and remaining limitations
-The result is restricted to the stated two-dimensional central Fourier packet, fourth moments, and compact \(SU(3)\). The exact constant in the resonant case is specified by quartic roots. A checker verifies finitely many degrees, whereas the theorem relies on the Pieri proof. Historical priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Schur/Pieri orthogonality and compact-group Haar integration are fully established and acknowledged. The assessed statement is the complete sharp two-character fourth-norm interval, congruence-dependent phase locking and unique extremizers for adjacent dual symmetric powers on SU(3). The inspected related unitary-integration sources supply general machinery, not this optimization or the degree-reversal theorem. Resultary related SU(2) fourth-moment and Fourier aperture papers differ in group/character structure.
+
+## value
+
+PASS
+
+Exact operator norm and phase-locking for a natural two-dimensional character subspace measure fourth-moment amplification in compact-group harmonic analysis. The modulo-three central-selection resonance and strict nonmonotonicity in degree reveal nontrivial arithmetic dependence with all extremizers classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

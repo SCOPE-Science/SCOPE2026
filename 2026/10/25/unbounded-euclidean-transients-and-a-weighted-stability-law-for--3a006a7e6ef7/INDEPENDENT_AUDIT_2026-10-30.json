@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T01:53:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real symmetric A,B negative semidefinite, direct multiplication of the published PartRosExp2 formula gives LML^{-1}=exp(Y)(I-X/2)^{-1}(I+X/2). Both factors are Euclidean contractions, and equality occurs only on ker A intersect ker B, proving exact weighted power and rho<1 criterion. The fixed-B two-state family has M_t/t -> [[0,0],[1/8,0]], hence ||M_t||_2/t ->1/8 while rho(M_t)<1 for each t. At t=16 its characteristic polynomial and eigenvalues (1±sqrt57)/12 follow exactly. The reverse PartExpRos2 update is bounded by 3+h||B||_2 for fixed B using ||L^{-1}X||<=2 and ||phi_1(Y)||<=1. I independently reconstructed exact symbolic witness identities and the asymptotic limit, distinct from the assigned 450 random checks. Finite tests are not substituted for matrix proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dallerit et al. published §4 restricts the scalar partitioned A-stability argument to simultaneously diagonalizable split Jacobians.",
+          "Achleitner–Arnold–Mehrmann (2023) develops general hypocontractivity concepts for dissipative systems, not the two specific PartRosExp2 operator orderings."
+        ],
+        "reasoning": "General dissipative product-contractivity and similarity theorems cover tools used in the proof, but a covering result would also have to imply the exact method-specific factorization, common-kernel criterion, fixed-exponential unbounded one-step family, and reverse-order boundedness. None of the inspected sources states such coverage.",
+        "searches": [
+          "Resultary semantic search: Second-order Rosenbrock exponential PartRosExp2 noncommuting symmetric negative semidefinite matrices Cayley exponential similarity transient Euclidean norm divergence PartExpRos2",
+          "doi:10.13001/ela.2023.7531",
+          "doi:10.1007/s11075-023-01698-4"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md at verified Git tree 791df749e6f477ae45f1e7fb969a42e998c77062",
+        "Assigned verify_rosexp.py original Git blob 0d2fcf68c7fdad76fedc28ea390f457f98432d28",
+        "doi:10.1007/s11075-023-01698-4",
+        "doi:10.21203/rs.3.rs-3101972/v1",
+        "doi:10.13001/ela.2023.7531",
+        "Resultary search: Second-order Rosenbrock exponential PartRosExp2 noncommuting symmetric negative semidefinite matrices Cayley exponential similarity transient Euclidean norm divergence PartExpRos2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original scalar product stability function controls eigenvalues under simultaneous diagonalizability, but it does not bound Euclidean norm after nonorthogonal similarity.",
+          "The explicit M_t has rho<1 for every finite t and ||M_t||_2/t ->1/8, whereas the reverse order N has ||N||_2<=3+h||B||_2."
+        ],
+        "reasoning": "Scalar A-stability, the general fact that a product of two contractions is contractive, and generic similarity norm distortion do not imply the particular noncommuting integrator contrast without calculating the published orderings. Conversely the generic theory is acknowledged as prior, not original.",
+        "searches": [
+          "Resultary semantic search: Second-order Rosenbrock exponential PartRosExp2 noncommuting symmetric negative semidefinite matrices Cayley exponential similarity transient Euclidean norm divergence PartExpRos2",
+          "doi:10.1007/s11075-023-01698-4",
+          "doi:10.13001/ela.2023.7531"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dallerit et al. final published Table 1 identifies the PartRosExp2 and PartExpRos2 coefficients, while the 2023 preprint Table 1 differs for PartRosExp2.",
+          "The audited matrix identity is L M L^{-1}=exp(Y)C with C=(I-X/2)^{-1}(I+X/2), and physical gain grows like t/8 in a fixed-B 2x2 example."
+        ],
+        "reasoning": "Reformulated the result as contraction of an exponential-Cayley product under a nonorthogonal resolvent similarity, and as a fixed-B Euclidean-norm transient. Scalar stability functions and the published tableaux do not provide either noncommuting norm result or this physical endpoint counterexample.",
+        "searches": [
+          "Resultary semantic search: Second-order Rosenbrock exponential PartRosExp2 noncommuting symmetric negative semidefinite matrices Cayley exponential similarity transient Euclidean norm divergence PartExpRos2",
+          "doi:10.1007/s11075-023-01698-4",
+          "doi:10.21203/rs.3.rs-3101972/v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dallerit published Table 1 contains scheme coefficients, not a tabulation of noncommuting Euclidean norm gains or kernel-criterion classifications.",
+          "The semantic mathematical-record search returned other integrator transient and operator-norm results, not this exact two-state family."
+        ],
+        "reasoning": "This is an all-dimensional identity with an explicit 2x2 parametric witness, not a finite known table recomputation; an unindexed table or special-case counterexample remains possible.",
+        "searches": [
+          "Resultary semantic search: Second-order Rosenbrock exponential PartRosExp2 noncommuting symmetric negative semidefinite matrices Cayley exponential similarity transient Euclidean norm divergence PartExpRos2",
+          "doi:10.1007/s11075-023-01698-4"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS: Dallerit et al. introduces the methods and scalar A-stability and Achleitner et al. the generic contraction theory, but the inspected published scheme and results do not establish the combined noncommuting weighted contraction, strict common-kernel condition, fixed-B unbounded physical endpoint gain and reversed-order stiffness bound. Generic similarity phenomena are explicitly prior; mathematical implication rather than title resemblance was compared.",
+      "residual_risks": [
+        "An operator-splitting or hypocontractivity theorem might yield the same factorization/gain contrast as an unindexed corollary.",
+        "The 2023 preprint and final published PartRosExp2 tableaux differ; only the final published algorithm is assessed.",
+        "No claim for nonlinear dynamics, nonsymmetric or nonnormal blocks, rounding error or approximate matrix exponentials."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies both methods and scalar analysis, not the matrix noncommuting similarity or fixed-B physical endpoint family. The published rather than preprint tableau is essential.",
+          "evidence": [
+            "Published Table 1, §4 scalar partitioned A-stability and scheme definitions."
+          ],
+          "identifier_or_url": "doi:10.1007/s11075-023-01698-4",
+          "material_read": "Published final Table 1 and §3–§6 linear-stability discussion including simultaneous-diagonalizability hypothesis; compared with earlier preprint table",
+          "method": "Read available published HTML full relevant mathematical sections and visually examined original PDF Table 1 page",
+          "title": "Second-order Rosenbrock-exponential (ROSEXP) methods for partitioned differential equations",
+          "trigger": "Origin and strongest potential coverage of both numerical schemes"
+        },
+        {
+          "assessment": "General concepts are compatible with the proof but not proof of the exact named-scheme result; complete noncoverage of every theorem is NOT asserted.",
+          "evidence": [
+            "2023 ELA article DOI 10.13001/ela.2023.7531, abstract and conceptual setup."
+          ],
+          "identifier_or_url": "doi:10.13001/ela.2023.7531",
+          "material_read": "Accessible bibliographic/introductory material on dissipative dynamics and hypocontractivity; full theorem-by-theorem comparison was not established",
+          "method": "Search/open accessible mathematical source context",
+          "title": "Hypocoercivity and hypocontractivity concepts for linear dynamical systems",
+          "trigger": "Most plausible general operator-theoretic dominating terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The numerical stability of second-order partitioned integrators with noncommuting dissipative stiff components is a natural algorithm-selection problem. A sharp explicit Euclidean transient obstruction despite dissipative total generator and a norm-safe reversal identify an actionable operator-ordering boundary, beyond scalar A-stability. The exact weighted metric and all-dimensional kernel classification are structural rather than a routine parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md at verified Git tree 791df749e6f477ae45f1e7fb969a42e998c77062",
+    "Assigned verify_rosexp.py original Git blob 0d2fcf68c7fdad76fedc28ea390f457f98432d28",
+    "doi:10.1007/s11075-023-01698-4",
+    "doi:10.21203/rs.3.rs-3101972/v1",
+    "doi:10.13001/ela.2023.7531",
+    "Resultary search: Second-order Rosenbrock exponential PartRosExp2 noncommuting symmetric negative semidefinite matrices Cayley exponential similarity transient Euclidean norm divergence PartExpRos2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Real finite-dimensional symmetric negative semidefinite A,B, exact h>0 stages; every step in the example has spectral radius below one but gain is not uniformly bounded.",
+    "Reverse-order method has a uniform norm bound for fixed B, not a Euclidean contraction theorem.",
+    "Independent bounded symbolic/witness tests support but cannot prove the all-dimension formula; the displayed algebra supplies the proof."
+  ],
+  "residual_risks": [
+    "An operator-splitting or hypocontractivity theorem might yield the same factorization/gain contrast as an unindexed corollary.",
+    "The 2023 preprint and final published PartRosExp2 tableaux differ; only the final published algorithm is assessed.",
+    "No claim for nonlinear dynamics, nonsymmetric or nonnormal blocks, rounding error or approximate matrix exponentials."
+  ],
+  "schema_version": 1
+}

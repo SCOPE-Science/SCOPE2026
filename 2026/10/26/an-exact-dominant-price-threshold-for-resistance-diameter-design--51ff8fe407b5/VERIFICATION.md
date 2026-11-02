@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The analytical proof is in `RESULT.md`. It checks the domain of positive prices, positive edge weights and at least two leaves, all equality conditions, the normalized resistance-pair constraints, and the price threshold including equality.
+## correctness
 
-`verify.py` is a reproducible supplementary computation. It uses seeded random prices and budgets to compare the formula with direct pairwise resistance diameters and with 8,100 arbitrary asymmetric budget-feasible competitors. It numerically solves the independent normalized convex optimization on 54 instances, verifies 21 effective resistances by exact inverse reduced graph Laplacians on rational test cases, and approaches the sharp factor-two comparison. Execute `python verify.py` in a directory containing this file. The expected check counts and floating-point tolerances are recorded in `verification_output.json`.
+PASS
 
-Finite tests cannot certify the all-real, all-size classification: the complete proof is the two-case normalized reciprocal-price minimization. An accessible full-text publication proves the underlying electrical tree-resistance identity, whereas its exact maximum-resistance design with heterogeneous prices is not addressed. No independent external mathematical audit or validation is claimed.
+For star K_{1,m}, m>=2, conductance budget sum c_i w_i<=B, every pairwise leaf resistance is 1/w_i+1/w_j; the normalized x_i=(Delta w_i)^{-1} satisfy x_i+x_j<=1. Minimizing F=sum c_i/x_i splits into all x_i<=1/2 (unique all-half minimizer) and a single x_j>1/2. In the latter case all other x_i=1-x_j, and strict convexity of c_j/u+(C-c_j)/(1-u) gives its unique square-root optimum iff c_j>C/2. Thus Delta*=2C/B if max price<=sum others, otherwise (sqrt(a)+sqrt(C-a))^2/B; equality and the sharp <2 improvement factor follow. Independently minimized smooth normalized cost on five price families and sampled competitors; an earlier direct nonsmooth SLSQP formulation returned a suboptimal stationary numerical point, a solver limitation not counterevidence to the convex proof.
+
+## originality
+
+PASS
+
+The contribution is an exact and unique heterogeneous-price minimax resistance-diameter design law on a star, with a sharp dominant-price transition, not the known path-resistance formula, convex feasibility, or general SDP solvability. Full relevant sections of Ghosh--Boyd--Saberi distinguish their optimized total pairwise resistance from maximum pairwise resistance, for which they describe an SDP without this explicit threshold. No reviewed Resultary hit covers the formula; less indexed minimax resource-allocation formulations remain possible.
+
+## value
+
+PASS
+
+Choosing edge conductances to limit worst-case electrical resistance is a natural network-design objective. The exact all-price threshold and uniform-weights-versus-price-dominant optimizer classify all m>=2 cases and give a sharp approaching-two performance gap; they distinguish minimax from known total-resistance allocations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

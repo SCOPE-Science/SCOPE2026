@@ -1,21 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized degree-ten hyperelliptic equation is squarefree precisely when the cubic discriminant and constant coefficient are nonzero. Expanding the square of the branch polynomial gives the displayed Cartier–Manin matrix; its direct and stable ranks split into one one-dimensional block and a three-dimensional block with second-iterate scalar governed by \(D\). Algebraic factorization on \(U=0\) proves the single geometric rank-zero parameter, and exact extension-field point enumeration followed by Newton identities and Weil reciprocity proves the particular zeta numerator. Reproducible symbolic and finite-field calculations are included in `verify.py`. Generic statements rely on the mathematical proof, not finite samples.
+PASS
 
-## Originality — PASS, qualified by residual risk
+For char5 hyperelliptic y²=x^10+x^7+ax^4+bx=x h(x³) with h=t³+t²+at+b, bΔ≠0 is exactly squarefree genus4. Independent symbolic expansion of F² reproduces Cartier pre-fifth-root 4x4 coefficient matrix with isolated U=a²+2b scalar and complementary three-block. The latter has rank2 on the smooth locus; its squared Cartier scalar D=b²(2a+1)^5+2[2(a+b)]^5 controls eventual rank2 versus nilpotence. Thus a_J=1+1_{U=0}, p-rank=1_{U!=0}+2 1_{D!=0}. On U=0, b=2a²; exact char5 factorizations Δ=2a²(a-2)² and D=3a⁴(a-2)^5(a+1) leave unique smooth p-rank0 pair (4,2). The given exact point counts 6,36,126,576 over F5^n, n=1..4, plus Weil functional equation give zeta numerator (1+5T²)^2(1-5T²+25T⁴); cyclotomic normalization proves all slopes1/2, so unique supersingular member. Independently reconstructed symbolic Cartier matrix, factorizations and all 17 smooth base-field parameter strata. Did not independently rerun the 5^4 extension-field point counter; checked its algorithm and Newton identity implications.
 
-Kudo–Nakagawa–Takagi [1] already define this family and give a general Cartier–Manin computing method; neither is presented as original. Their inspected main theorems and characteristic-dependent tables address superspecial enumeration, not the full characteristic-five \(p\)-rank/\(a\)-number stratification and exact zeta numerator here. Achter–Pries [2] concerns moduli-level strata, while Li–Mantovan–Pries–Tang [3] studies different special cyclic-cover branch data. A related genus-four characteristic-five rank-zero parameter for another polynomial family is not sufficient to imply this family's formula or exact zeta; possible special-fiber isomorphism is not excluded. Searches against accessible mathematical results and equation-specific literature have not identified the combined statement. Unindexed work and stronger general tables remain residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The cyclic-six automorphism geometry makes this exact two-parameter family natural, and supersingular versus superspecial strata are a motivating arithmetic distinction. The complete characteristic-five Cartier stratification proves all smooth members are nonordinary, isolates a unique supersingular non-superspecial curve, and determines its complete extension-field arithmetic. The isolated zeta numerator is motivated by the structurally determined zero-rank locus, not an arbitrary chosen small invariant.
+Kudo--Nakagawa--Takagi introduce precisely this cyclic-six genus-four hyperelliptic normal form and Cartier--Manin coefficient approach; these are explicitly prior. Their superspecial search and tabulated larger-prime parameter results do not establish the full characteristic-five p-rank/a-number stratification, unique p-rank-zero point or its zeta polynomial. General hyperelliptic p-rank strata and cyclic-cover Newton polygon results are broader in objects but do not visibly determine these marked coefficient identities.
 
-## Limits and closest sources
+## value
 
-The result gives neither complete positive-rank Newton polygons nor isomorphism-class counts. The most relevant original source is [1]; broader contextual comparators are [2] and [3]. A particular related genus-four family in characteristic five remains a possible geometric-isomorphism comparison at isolated parameters, but its known rank statement does not supply the present family-wide classification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete small-characteristic p-rank/a-number stratification of a natural genus-four automorphism family is an arithmetic-geometric classification, not a random finite table. The unique supersingular non-superspecial specialization and exact zeta polynomial refine the Newton behavior beyond merely detecting nonordinarity.
 
-[1] Kudo, Nakagawa, Takagi, arXiv:2210.14822. [2] Achter, Pries, arXiv:0902.4637. [3] Li, Mantovan, Pries, Tang, arXiv:1805.06914.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

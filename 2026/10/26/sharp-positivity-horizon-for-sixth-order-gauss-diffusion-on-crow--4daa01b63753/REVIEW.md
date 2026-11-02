@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph spectrum and four orbit-class projection formulas follow by decomposition into the constant, antisymmetric-constant and the two \((n-1)\)-dimensional sectors. Universal positivity of three off-diagonal types is certified by an exact bivariate integer coefficient computation implemented in the accompanying fully readable checker (40, 32, and 48 strictly positive coefficients); the diagonal is strictly decreasing and changes sign exactly once. Exact matrix replay covers 36 finite matrices. The limit follows from locally uniform convergence after rescaling. Mathematical proof does not infer all sizes from finite tests.
+## correctness
 
-**Originality — PASS, with residual risk.** Spijker's monotonicity research is general theory rather than a crown graph [3/3] phase diagram; Klee–Stamps' original crown eigenvalue analysis contains no numerical-integration positivity theorem; Conde et al. and the high-order SSP survey concern general method design, not this crown-specific all-step entry sign classification. Semantic database searches and the accessible historical ledger did not identify a claim implying this result. Closest indexed mathematical findings concern the two-stage [2/2] Padé map or combinatorial crown invariants, which do not determine this [3/3] horizon. The older Spijker report itself was identified through a dated official listing but full report material could not be fetched; specialized coverage is possible.
+PASS
 
-**Value — PASS.** The crown is the natural complete-bipartite interconnection with a perfect matching of failed links. Its sixth-order Gauss scheme is unconditionally spectrally stable, yet preserves the probability cone only up to a sharp computable horizon. Notably, deleted-pair and existing-edge off-diagonals remain strictly positive for every positive step and the failure occurs *only in diagonal entries*. The universal threshold and \(1/n\) scaling are actionable structural information, not a routine normalization or an arbitrary isolated numerical entry.
+For every n>=3 the crown Laplacian splits into eigenvalue sectors 0,2n-2,n-2,n with multiplicities 1,1,n-1,n-1. Direct spectral projectors produce 2n*d=1+c+(n-1)(a+b), 2n*w=1+c-a-b, 2n*m=1-c+(n-1)(a-b), 2n*e=1-c-a+b with a=R(nh), b=R((n-2)h), c=R((2n-2)h), R=P/Q, P(z)=120-60z+12z^2-z^3, Q(z)=120+60z+12z^2+z^3. Independent exact symbolic polynomial multiplication using u=n-2 and positive common denominator Q(nh)Q((n-2)h)Q((2n-2)h) confirms w,m,e numerators have respectively 40,32,48 strictly positive integer monomials, beginning at powers h^2,h^3,h; this is an all-parameter identity, not sample numerics. Independently rederived R prime=-24[(z^2-15)^2+375]/Q(z)^2<0. Therefore d decreases strictly from 1 to -(n-1)/n, crossing zero exactly once H_n; all non-diagonal entries remain >0 for h>0. |R(z)|<1 for z>0, row sums 1 and Euclidean norm 1 for all h. Local uniform convergence d(x/n)->R(x) shows nH_n->the unique positive root P(rho)=0 (rho about 4.64437070925217). Independently inspected crown_verify.py with exact polynomial and rational matrix formulas; reconstructed the symbolic certificate rather than relying on a saved log.
 
-**Limitations.** Unit-weight edges, \(n\ge3\), completed three-stage Gauss steps; no claim for internal stages, nonuniform edge weights, or every implicit RK method. Remaining risk: unforeseen specialized prior derivation of the same implication. Reproducibility: run `python3 crown_verify.py`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The crown graph spectrum is known from Klee–Stamps and the [3/3] Gauss–Legendre rational stability function is classical. General SSP barriers and positive-systems results do not establish a universal exact diagonal threshold for this reversible crown family, nor do they imply all off-diagonal entries stay positive for ALL positive steps. Published Resultary [2/2] Padé examples involve a different order and different Markov generators, so their unusual positivity windows do not dominate this theorem. Best-of-knowledge PASS for the novel exact [3/3] crown positivity horizon and nH_n scaling.
+
+## value
+
+PASS
+
+Entrywise positivity is essential for nonnegative diffusion states but is independent from spectral contractivity of a high-order A-stable integrator. The crown networks form a natural regular bipartite spectral family. A unique sharp positivity interval, rigorously positive off-diagonal entries outside it, and n-scaling of the horizon are meaningful stability facts rather than textbook formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

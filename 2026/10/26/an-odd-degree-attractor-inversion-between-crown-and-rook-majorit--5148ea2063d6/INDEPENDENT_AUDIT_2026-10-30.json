@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:54:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From open-neighborhood votes on two-row rook R_n=K_2 square K_n, row update g(U,V) equals empty, V, or full according to a=|U|<k,=k,>k for even n=2k; for odd n=2k+1 it is empty, V\\U, U^c union V, or full for a<k,=k,=k+1,>k+1. Exhaustive 16 row-population type cases (plus intersection sizes) prove eventual primitive period at most 2, exact recurrent/fixed counts and depths at most 2 (even), at most 3 (odd >=5). With B=binom(n,k), L=sum_{j<k}binom(n,j), even n: fixed 4+B, primitive-two states B^2-B, depth counts D0=4+B^2,D1=4L^2+4B-4,D2=4B(L-1). Odd n: fixed 4, primitive-two states 2(k+2)B, D0=4+2(k+2)B, D1=A-D0,D2=4^n-A-H,D3=H with A=4L^2+2B(2^{k+1}+(k+1)^2), H=4 sum_{a=1}^{k-1} a binom(n,a)binom(n-a,k). Independently computed individual vertex votes, cycles and exact distributions across all 21,824 labelled states for n=3..7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General majority convergence provides O(E) and module bounds, not exact class-specific counts, nor the uniform 2/3 depth result."
+        ],
+        "reasoning": "A universal eventual-period theorem implies only possible cycle lengths; exact orbit populations and sharp depth distribution require the row-size analysis.",
+        "searches": [
+          "synchronous majority dynamics two row rook graph matched cliques crown graph attractor periods transient",
+          "MFCS 2016 DOI 10.4230/LIPIcs.MFCS.2016.55"
+        ]
+      },
+      "checked_sources": [
+        "D. Kaaser, F. Mallmann-Trenn, E. Natale, arXiv:1508.03519 and DOI 10.4230/LIPIcs.MFCS.2016.55; E. Goles and J. Olivos (1980), DOI 10.1016/0012-365X(80)90121-1",
+        "SCOPE Git RESULT.md and verify_rook.py at frozen tree f92dd35fe5a49c20505aa710ef240df0e8b6e55a",
+        "Resultary semantic search: synchronous majority dynamics two row rook graph matched cliques crown graph attractor periods transient"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Period <=2 is implied by classical theorem, but counts Q_n,C_n and D_n,t for all n and crown comparison are not numerically forced by it."
+        ],
+        "reasoning": "Claimed contribution is the exact recurrence/attractor formulas, not period-two existence.",
+        "searches": [
+          "Kaaser-Mallmann-Trenn-Natale 2015",
+          "Goles-Olivos 1980",
+          "synchronous majority dynamics two row rook graph matched cliques crown graph attractor periods transient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K2 square Kn is the complement of Kn,n minus a perfect matching; the majority rules on complementary graphs involve different neighbor sets and are not conjugate."
+        ],
+        "reasoning": "Checked the two-row rook/matched-clique alias and general symmetric-threshold language, and explicitly contrasted the known crown census; no full formula implied.",
+        "searches": [
+          "synchronous majority dynamics two row rook graph matched cliques crown graph attractor periods transient",
+          "arXiv:1508.03519",
+          "DOI 10.1016/0012-365X(80)90121-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known crown total recurrent count is equal for odd n but the fixed/primitive-two breakdown differs; Resultary returned other network automata not rook census."
+        ],
+        "reasoning": "No matching labelled-state sequence or rook attractor table was located; absence alone is not originality certification.",
+        "searches": [
+          "synchronous majority dynamics two row rook graph matched cliques crown graph attractor periods transient",
+          "Resultary semantic search 2026-10-30",
+          "earlier crown census in SCOPE package reference"
+        ]
+      },
+      "rationale": "The classic symmetric-threshold theorem provides eventual periods at most 2; Kaaser--Mallmann-Trenn--Natale bounds convergence on general graphs. Neither inspected source supplies the exact two-row rook period-type distribution or parity-dependent transient census. The previously studied complementary crown dynamics is expressly prior: its odd-n total recurrent count equals the new rook count but the fixed/two-cycle splitting is opposite.",
+      "residual_risks": [
+        "Undiscovered analysis of two matched cliques or complete multipartite majority automata may contain equivalent counts.",
+        "The Goles-Olivos 1980 primary full text was not directly obtained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General graph bounds and NP-hardness; not the named rook-graph labelled attractor and basin counts.",
+          "evidence": "Kaaser, Mallmann-Trenn, Natale (2015), arXiv:1508.03519 / MFCS 2016 DOI 10.4230/LIPIcs.MFCS.2016.55.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.03519",
+          "material_read": "Inspected accessible full arXiv PDF, introduction, definitions and graph-module convergence theorems, including general convergence bounds.",
+          "method": "Open arXiv PDF text and page images",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "Same synchronous binary majority dynamics"
+        },
+        {
+          "assessment": "Supports general period-two precedent; no claim of whole-document absence of a rook enumeration.",
+          "evidence": "Goles and Olivos, Discrete Mathematics 30 (1980), 187-189.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Read bibliographic record and theorem description, not complete paper.",
+          "method": "DOI bibliographic/secondary abstract inspection",
+          "title": "Periodic Behaviour of Generalized Threshold Functions",
+          "trigger": "Original eventual-two-period theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifying the complete attractor and transient spectrum of a natural highly symmetric graph family is meaningful in deterministic voting dynamics. The sharp parity-dependent depth and counterintuitive crown-versus-rook inversion are structural phenomena beyond a general period-two bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "D. Kaaser, F. Mallmann-Trenn, E. Natale, arXiv:1508.03519 and DOI 10.4230/LIPIcs.MFCS.2016.55; E. Goles and J. Olivos (1980), DOI 10.1016/0012-365X(80)90121-1",
+    "SCOPE Git RESULT.md and verify_rook.py at frozen tree f92dd35fe5a49c20505aa710ef240df0e8b6e55a",
+    "Resultary semantic search: synchronous majority dynamics two row rook graph matched cliques crown graph attractor periods transient"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only synchronous open-neighborhood tie-retaining binary majority on labelled K2 square Kn with n>=3; no probabilistic or asynchronous claims.",
+    "Independent direct-vote enumeration n=3..7 is corroboration, not all-n proof."
+  ],
+  "residual_risks": [
+    "Undiscovered analysis of two matched cliques or complete multipartite majority automata may contain equivalent counts.",
+    "The Goles-Olivos 1980 primary full text was not directly obtained."
+  ],
+  "schema_version": 1
+}

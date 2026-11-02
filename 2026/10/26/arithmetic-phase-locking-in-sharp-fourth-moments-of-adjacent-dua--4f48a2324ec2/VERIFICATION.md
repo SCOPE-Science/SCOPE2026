@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-Run `python3 verify.py` in the same directory, using Python 3 and its standard library. The program returns `ALL_CHECKS_PASSED assertions=3148` on successful execution.
+# Independent mathematical audit
 
-The checker independently represents \(\chi_r\) as the complete homogeneous symmetric Laurent polynomial of degree \(r\) in three torus eigenvalues with product one. The \(SU(3)\) Weyl integration formula reduces all six quartic moments to exact integer constant terms after multiplication by the Weyl denominator and division by six. The checker verifies the expected six moments at every integer degree \(1\le n\le9\). Separate deterministic checks evaluate the analytic upper/lower formulas, root stationarity, phase and amplitude grids through \(n=16\), and the nonmonotone-degree inequality for seventeen resonant degrees.
+## correctness
 
-The finite checks support the proof but cannot establish statements for arbitrary degree. The all-degree content depends on the multiplicity-free Pieri rule, central-character selection, the uniqueness of the invariant pairing, and the elementary global optimization supplied in RESULT.md. No third-party proof assistant, independent reviewer, or independent validation is claimed.
+PASS
+
+Let chi_r be the unnormalized SU(3) symmetric-power character and F=a chi_n+b overline chi_(n+1), n>=1. Reconstructed Pieri decomposition and Schur orthogonality: self fourth moments n+1,n+2 and mixed |chi_n chi_(n+1)|^2=n+1. SU(3) center suppresses other mixed moments except n≡1 mod3, where unique admissible Pieri summands give all three mixed moments 1, yielding the exact quartic form in |a|,|b| and Re(a conjugate b). Phase optimization reduces to q_±(u)=n+2+2(n+1)u-(2n+3)u²±4sqrt(u(1-u)); derivative/curvature analysis gives the unique resonant roots of the two quartics and all equality cases; otherwise L=n+1, U=n+2+n²/(2n+1). Algebra gives large-n U=3n/2+7/4+(5/2)1_{n≡1mod3}+1/(8n)+O(n^-2) and U_{3k+1}>U_{3k+2}. Independently computed all six exact Weyl-torus fourth moments for n=1..5 using a separate Laurent polynomial constant-term product.
+
+## originality
+
+PASS
+
+Schur/Pieri orthogonality and compact-group Haar integration are fully established and acknowledged. The assessed statement is the complete sharp two-character fourth-norm interval, congruence-dependent phase locking and unique extremizers for adjacent dual symmetric powers on SU(3). The inspected related unitary-integration sources supply general machinery, not this optimization or the degree-reversal theorem. Resultary related SU(2) fourth-moment and Fourier aperture papers differ in group/character structure.
+
+## value
+
+PASS
+
+Exact operator norm and phase-locking for a natural two-dimensional character subspace measure fourth-moment amplification in compact-group harmonic analysis. The modulo-three central-selection resonance and strict nonmonotonicity in degree reveal nontrivial arithmetic dependence with all extremizers classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The half-reachability lemma counts all potentially small outgoing-closed reachable sets via rooted out-arborescences; the two size ranges give a vanishing bound. The intersection argument then yields an exact all-pairs reachability formula. Exact mixed factorial moments control the two types of zero-degree vertices, including overlap configurations. The explicit EF game shows eventual truth stabilization for each fixed first-order sentence. The automorphism conclusion follows from the intrinsic three-layer relation. The stand-alone checker tested all digraphs through four worlds and independent finite degree-zero identities. Its finite scope does not replace the symbolic proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Full relevant mathematical content was inspected in Zantedeschi's arXiv HTML on general modal exchangeability and stabilizers, and in Pittel–Poole's arXiv work on the fixed-average-degree giant component. Neither inspected result gives the joint all-pairs three-layer closure, Poisson layer types and complete first-order convergence formula at the logarithmic threshold. Karp's original same-object 1990 paper is a material priority risk: its abstract identifies the fixed-average-degree component limit but the full body could not be read, so its precise theorems were not declared inapplicable. Bal et al.'s existing spanning-arborescence probability result is expressly not claimed original; a single spanning tree threshold alone does not yield the entire isomorphism-type convergence in (1)–(3). Comparisons with published mathematical records found no established implication of the complete claimed statement; negative searches alone do not prove novelty. This is qualified best-knowledge originality, not a certification of worldwide priority.
+PASS
 
-## Value — PASS
-Reachability closure is a canonical way to produce finite transitive modal frames from a sparse random relation. The theorem identifies all exceptional world types at the natural strongly connected connectivity threshold, rather than one Boolean threshold, and determines the limiting probability of every first-order property of accessibility. The automorphism-group classification also supplies an explicit random finite-frame symmetry model motivated by contemporary work on modal exchangeability. The proof gives a reusable half-reachability structural lemma.
+For p_n=(log n+t)/n with fixed real t, union-bound counting of reachable sets of sizes 2..floor(n/2), each with an out-arborescence and no outgoing edge, gives o(1) probability that any positive-outdegree vertex has at most half the graph reachable. The reversed statement holds for predecessor sets. Two sets exceeding n/2 intersect, yielding the exact all-pairs relation uRv iff u=v or outdeg(u)>0 and indeg(v)>0 a.a.s. Mixed factorial moments of zero indegrees/outdegrees tend to lambda^(a+b), lambda=e^-t; overlap patterns are lower order and hence independent Poisson limits follow. The resulting O_P(1) initial/final singleton layers and one large middle equivalence class give automorphism groups and a first-order convergence mixture by a quantifier-rank Ehrenfeucht–Fraïssé game with sufficiently large indistinguishable middle layers. The source finite verifier was inspected; it checks small directed-graph consequences, not asymptotic correctness.
 
-## Literature limitations
-Karp (1990) was accessible only through its abstract. Its unseen full text might include a stronger near-connectivity reachability result. Results on directed random-graph connectivity and spanning arborescences are already classical, and are credited. The original graph's non-transitive edge relation, as opposed to its reachability closure, is not covered by the first-order formula.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Karp (1990) studies transitive closure of random digraphs with giant-component regime but the full paper was inaccessible and might have stronger threshold results. Pittel–Poole (2014) analyze the giant strong component at fixed np>1, rather than the near-connectivity logarithmic window. Bal et al. (2014) cover spanning-arborescence thresholds in a different random colored digraph setting. None of the materially inspected results gave the precise three-layer all-pairs preorder, independent Poisson layer decoration and full FO convergence law. Best-of-knowledge, with explicit historical Karp risk.
+
+## value
+
+PASS
+
+The theorem gives an exact canonical random S4-frame structure with probabilistic exceptional layers and a complete first-order convergence law, bridging random directed-graph connectivity and finite-model theory. Its concrete limit mixture and automorphism description are natural and genuinely more informative than a single connectivity probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

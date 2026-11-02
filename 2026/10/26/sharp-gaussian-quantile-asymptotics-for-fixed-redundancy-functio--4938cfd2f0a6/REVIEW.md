@@ -1,11 +1,21 @@
-# Self-review of the sharp Gaussian-quantile threshold
+# Independent mathematical audit
 
-**Correctness — PASS.** For fixed \(s\geq1\), the lower bound uses a balanced two-valued function and a binomial quantile. The upper bound is uniform over every admissible class size because a simplicial initial segment's neighborhood increment fits within \(2t+1\) consecutive binomial layers. A uniform binomial normal approximation and monotonicity of Gaussian interval mass yield matching leading constants. Exact finite arithmetic and small-cube checks corroborate, but do not establish, the limit.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest source, Rajput--Jagatti--Rajan (arXiv:2610.09011v1, 2026-10-06), supplies the finite Hamming-neighborhood criterion and explicit nonsharp quadratic upper bounds. It identifies the growth order of \(\kappa_1(t)\) and any lower bounds for \(s\geq2\) as open. The new result resolves these leading-order questions by an additional uniform asymptotic argument. Harper/Räty supply the prior isoperimetric theorem. A classical Gaussian Hamming-cube separation law might implicitly reproduce the same constant, so priority is not independently settled.
+PASS
 
-**Value — PASS.** The formula answers the natural fixed-redundancy asymptotic question throughout the unrestricted binary two-valued function-correcting setting; it is structurally stronger than another finite upper bound and specifies the leading obstruction from balanced partitions. It does not give exact finite thresholds, growing-redundancy uniformity, or message-level correction.
+Fix s>=1 while t tends to infinity. The imported exact Rajput–Jagatti–Rajan/Harper two-class criterion is |N_{2t}(I_M)|-M<=2^n-2^k for all class sizes M<=2^{k-1}. The balanced choice M=2^{k-1}=p_s2^n, p_s=2^{-s-1}, has binomial radius quantile j=n/2-z_s sqrt(n)/2+o(sqrt n), z_s=Phi^-1(1-p_s). The ball B_{j-1+2t} lies inside its 2t-neighborhood, violating capacity whenever n/t^2<c_s=4/z_s^2. For all M, the simplicial-initial-segment containment bounds the neighborhood increment by 2t+1 consecutive binomial layers. Uniform Berry–Esseen gives interval mass Phi(x+a)-Phi(x)+O(n^-1/2), x<=-z_s+O(n^-1/2), a=(2t+1)/(sqrt n/2), so for n>=(c_s+epsilon)t^2 one has a<2z_s and the interval mass lies strictly below 1-2^-s with uniform margin. This proves universal eventual success for ALL k above threshold and matching liminf using one balanced counterexample at each c<c_s. Verified script verify_threshold.py logic and short-cube neighborhood and integer-binomial tests; finite t checks do not establish the asymptotic. Restrictions s<=2t hold automatically for all large t with s fixed.
 
-Closest literature: arXiv:2610.09011v1 (relevant full-text theorem, proofs and conclusion inspected), arXiv:1806.11061 (abstract and theorem statement inspected), arXiv:2608.29389 (abstract), and arXiv:2605.03370 (abstract). Remaining coverage risk is an implicit equivalent result in older isoperimetric literature; neither the absent full-text inspections nor search gaps are treated as proof of novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 primary Rajput–Jagatti–Rajan work states the exact finite neighborhood criterion, a quadratic upper bound, and highlights the growth-order gap; those statements are correctly imported as prerequisites rather than claimed new. The assigned theorem gives a matching lower obstruction from balanced classes and an exact sharp Gaussian-quantile constant for every fixed redundancy. Harper isoperimetry and Berry–Esseen are classical ingredients, but neither their isolated statements nor the cited finite-code paper explicitly yields the quantified all-class asymptotic without the interval optimization argument.
+
+## value
+
+PASS
+
+Determining the threshold at which EVERY two-valued function admits a short nonsystematic error-protection encoder is a natural universal coding-theory question. A sharp redundancy-dependent constant closes the prior gap for fixed s and separates balanced worst-case obstructions from unrestricted nonlinear encoders. The result is not merely a numerical recalibration of a table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

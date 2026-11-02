@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-Run `python3 verify_a.py` and `python3 verify_b.py` with Python 3, without third-party dependencies. The first recursively enumerates independent sets and constructs legal directed exchanges, checking undirected symmetry and all-pairs shortest-path eccentricities. The second exhaustively enumerates every cardinality-nine and cardinality-ten subset, checks the edge constraints, and builds the state graphs by pairwise symmetric difference, then independently verifies their distance spectra. The outputs of the executions are recorded as `verify_a.out` and `verify_b.out`.
+# Independent mathematical audit
 
-The original graph has 24 vertices and 36 edges, degree three throughout. The independent-set counts are `(1,24,240,1304,4212,8328,10024,7072,2668,424,8)` at cardinalities zero through ten. The number of independent eleven-sets is zero. The programs construct, without sampling, each of the 424 independent nine-sets and eight independent ten-sets and every legal move between them. All outputs and source hashes are embedded alongside this document.
+## correctness
 
-This certificate proves only the finite exact claims stated. It does not independently verify worldwide originality, journal priority, or a theorem for other graphs.
+PASS
+
+The exact 24-vertex 36-edge (12,7,-7) LCF graph and independent-set recursion were inspected. Fresh exhaustive independent-set generation gave size vector (1,24,240,1304,4212,8328,10024,7072,2668,424,8), proving alpha=10. All legal moves on the 424 nine-sets and eight ten-sets were reconstructed from symmetric differences and checked with all-pairs BFS: TJ_9 has 1428 edges, one 424-component and eccentricity counts 9:32,10:368,11:24; TS_9 has 1068 edges, components 416+2+2+2+2; at ten both move models have two four-cycles and eight edges. The enumeration domain and adjacency definition are exhaustive, not sampled.
+
+## originality
+
+PASS
+
+Bonsma–Kamiński–Wrochna (2014), Proposition 1, proves the general identity TJ_alpha(G)=TS_alpha(G), which is acknowledged. The Resultary 2026 McGee independence-complex result already gives all independent-set counts, including 424 and eight; these counts are also acknowledged. Neither supplies the exact reconfiguration edges, 9-layer connectivity transition, or diameters. Published exact graph-specific reconfiguration tables may exist outside the inspected corpus.
+
+## value
+
+PASS
+
+At the natural maximum independent-set boundary, an exact change in connectedness between sliding and jumping and two nontrivial frozen components of maximum configurations reveal structure absent from independence polynomials or alpha alone. Complete radii/diameters and component classes are independently useful finite graph-reconfiguration invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: sharp square-free Fourier fourth moments
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Fourier orthogonality reduces the fourth moment to the coefficient-square sum of the convolution of the homogeneous layer with itself. Replacing complex coefficients by magnitudes is justified coefficient by coefficient. For arbitrary nonnegative coefficients, the two-coordinate square-root balancing argument preserves coefficient \(\ell^2\) mass and never reduces the fourth moment; an explicit \(2\times2\) Frobenius bound and the strict diagonal coefficient show that any maximizer is transposition-invariant. Johnson-graph connectivity forces a constant magnitude profile. Pair counting then gives the stated constant exactly for all \(n\ge k\ge3\). The rectangle equalities for product phases, their connected swap ratios, and elementary boundary cases give the full complex equality family. Symbolic and rational finite sample assertions corroborate but do not replace these steps.
+PASS
 
-## Originality — PASS, best-knowledge comparison
+For every n>=k>=3 the orthogonality identity ||P||_4^4=||P^2||_2^2 reduces the phase-free maximum to nonnegative coefficient arrays. The pairwise square-root balancing operation on the B,C coefficient layers preserves ||P||_2. For each convolution exponent, vector triangle bounds AB/AC and BD/CD terms and the 2x2 Frobenius estimate gives X^2+Y^2+4Z^2<=6W^2; the BC<=F^2 comparison also controls AD+BC. If b_U!=c_U, the unique decomposition of exponent 2*1_U gives W-Z=(b_U-c_U)^2/2>0, forcing strict improvement. All maximizers have constant magnitudes by Johnson-graph connectivity. Ordered-pair intersection counting gives the exact constant C_nk=binom(n,k)^-1 sum_{r=0}^{min(k,n-k)}binom(k,r)binom(n-k,r)binom(2r,r). Product-phase equality gives rectangle relations, independent coordinate ratios, and a character cocycle for 2<=k<=n-2; k=n and k=n-1 are checked separately. Independent exact Fourier-convolution calculations checked (n,k)=(4,3),(5,3),(6,3),(8,3),(8,4), agreeing with the formula. The explicit verify_fourier.py code was inspected; finite tests are not the all-dimensional proof.
 
-Searches of published mathematical-result records, candidate equivalences and the accessible prior Fourier ledgers did not identify the all-degree continuous complex-torus constant with the complete phase-extremizer classification. An earlier degree-two result is a special case, but does not give the new degree \(k\ge3\) theorem. An earlier published seven-sign cubic Walsh result has a different ambient compact group (binary real signs), distinct collision geometry, and only one finite parameter slice; it does not imply this all-\(n,k\) theorem. Ivanisvili–Tkocz (2018) gives moment comparisons for Rademacher homogeneous chaoses, not the exact present coefficient-to-fourth-moment sharp result. The Bohnenblust–Hille hypercontractive coefficient bounds concern different norms. An unindexed or older equivalent symmetric-function formulation cannot be excluded without further independent literature review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete square-free degree-\(k\) layer is a canonical high-dimensional Fourier subspace. Its optimal fourth moment is sensitive to additive collisions between pairs of \(k\)-subsets, and generic hypercontractivity is not sharp at fixed \(n,k\). The all-degree explicit constant, strict balancing principle, full equality phases, cubic closed form and limit \(\binom{2k}k\) answer the natural exact extremal problem in an infinite two-parameter family. The method also provides an equality mechanism that is not visible from the scalar counting formula alone.
+The exact finite-dimensional sharp fourth-moment inequality and complete equality-phase classification are not supplied by the examined broad hypercontractive or Rademacher-chaos literature. IMPORTANT prior coverage: an older primary theorem on Lp norms of elementary symmetric torus polynomials already implies the fixed-k asymptotic binom(2k,k); that asymptotic is not asserted independently new. The distinct new claim is sharp finite (n,k) optimization of arbitrary coefficients, with rigidity of all equality phases. The 2015 elementary-symmetric moment paper is a real conceptual antecedent, and its consequences have been considered explicitly rather than missed.
 
-## Literature and limits
+## value
 
-The examined 2018 six-page Ivanisvili–Tkocz preprint treats discrete sign chaoses. The nearest Walsh cubic record was compared through its published summary, not by inspection of a complete paper; the exact result concerns binary signs, unlike Haar complex phases. A related degree-two complex-torus theorem was treated solely as prior coverage and its content was not re-audited. Claim scope is limited to the full square-free layer. Independent scientific audit and independent novelty confirmation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete square-free Fourier layers are a canonical homogeneous Steinhaus chaos. An exact finite-n,k L2-to-L4 extremal norm and classification of all complex phases have mathematical utility beyond a generic hypercontractive bound; it is a natural extremal problem, not a chosen small slice. The known fixed-degree asymptotic does not mechanically imply finite optimality or equality rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

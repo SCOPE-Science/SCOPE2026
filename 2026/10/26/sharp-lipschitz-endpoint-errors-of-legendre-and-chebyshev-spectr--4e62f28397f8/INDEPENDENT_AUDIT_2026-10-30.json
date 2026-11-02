@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:55:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both endpoint evaluation operators reproduce constants. Integrating the Legendre Christoffel–Darboux endpoint kernel gives (P_n+P_(n+1))/2 and integrated Chebyshev Dirichlet kernel yields [(pi-u)-2 Σ_(k<=n)sin(ku)/k]/pi. A Lipschitz function has arbitrary a.e. derivative with |f′|<=1, and taking its sign equal to either integrated kernel attains the exact L1 norm for every n including n=0. The Jacobi contiguous identity P_n+P_(n+1)=(1+x)P_n^(0,1) and global Darboux bound plus oscillatory averaging produce sqrt(n) E_L -> sqrt(2/pi); Abel expansion of the sine-series tail, controlled splitting near u=0, yields n E_C -> 8/pi². Independent quadrature computed n=0,1,2,5,10,30,100 and confirmed e.g. E_L(n=2)=24sqrt(6)/125 and scaled values at n=100 0.79392049,0.80188568 near respective constants 0.79788456,0.81056947. Finite numerical results are only corroboration of analytic asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang proves fixed-function convergence under smoothness/bounded derivative variation, excluding degree-dependent sign-derivative extremizers from a uniform fixed variation bound.",
+          "Jacobi strong-asymptotics work supplies a proof ingredient, not the present two projection operator-norm computation."
+        ],
+        "reasoning": "General approximation asymptotics and Peano estimates do not immediately supply both sharp Lipschitz-ball constants; specialization, integration, and signs are necessary.",
+        "searches": [
+          "arxiv:2001.01985 Section 4 endpoint projection",
+          "arxiv:math/0111252 Jacobi strong asymptotics",
+          "arxiv:1502.07191 Jacobi expansion"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2001.01985",
+        "https://arxiv.org/abs/math/0111252",
+        "https://arxiv.org/abs/1502.07191",
+        "Resultary endpoint projector query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang states a general Peano-kernel framework but not an evaluated Lipschitz unit-ball endpoint norm for the two weights.",
+          "The Legendre and Chebyshev extremizers are degree-dependent sign derivatives, which need not meet a fixed derivative-BV hypothesis."
+        ],
+        "reasoning": "The existing theorem assumptions cannot be substituted directly to yield the sharp n^(-1/2) versus n^(-1) endpoint comparison. The classical formula is a premise, not a direct prior result.",
+        "searches": [
+          "arxiv:2001.01985 Lemma 5 and Theorems 4.1–4.2",
+          "arxiv:math/0111252 asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact dual formulation is the L1 integral of integrated evaluation kernels, a standard Peano-kernel or 1-Wasserstein norm.",
+          "Wang applies Peano representations to bounded-variation derivative classes but does not evaluate both exact unit-Lipschitz endpoint norms in examined sections."
+        ],
+        "reasoning": "The duality itself is not new; no inspected source gives the two weighted explicit evaluated asymptotic endpoint norms as one theorem.",
+        "searches": [
+          "Resultary: sharp Lipschitz endpoint norm Legendre Chebyshev orthogonal polynomial projection Peano kernel asymptotic n inverse",
+          "arxiv:2001.01985 Peano kernel",
+          "Web: Wasserstein signed Legendre Christoffel Dirichlet endpoint norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned similar published findings concern finite Johnson/Grassmann projection norms, not these continuous orthogonal polynomial evaluation errors.",
+          "No specific exact table of both every-n sharp constants encountered in checked literature."
+        ],
+        "reasoning": "The claimed invariants are all-degree norm identities with leading coefficients, not simply values in a finite database; unindexed older evaluations remain possible.",
+        "searches": [
+          "Resultary: sharp Lipschitz endpoint norm Legendre Chebyshev orthogonal polynomial projection Peano kernel asymptotic n inverse",
+          "Web: Legendre Chebyshev endpoint Lipschitz projection exact constant Jacobi",
+          "arxiv:2001.01985"
+        ]
+      },
+      "rationale": "General Peano-kernel optimal recovery duality and Jacobi Darboux asymptotics are classical. The candidate combines exact every-degree Lipschitz endpoint projection norms for both weights and evaluates different sharp decay exponents and coefficients; Wang examines different regularity classes and does not compute this particular pair. The evaluated constants and pairwise contrast are the narrow originality claim.",
+      "residual_risks": [
+        "Older unindexed exact integrals of |P_n+P_(n+1)| or integrated Dirichlet kernels may cover special cases.",
+        "Only sharp at endpoints, not a uniform-in-x projection norm; proof invokes classical global Jacobi bounds and oscillatory averaging."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Addresses other regularity classes and generic Peano kernels, not the sharp unit-Lipschitz both-weight endpoint norms.",
+          "evidence": "Lemma 5, Theorems 4.1–4.2, Section 5 discussion.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.01985",
+          "material_read": "Read primary full PDF relevant introduction, Section 4 theorems and Peano-kernel discussion; inspected PDF page screenshot.",
+          "method": "Primary PDF full-text section inspection",
+          "title": "How much faster does the best polynomial approximation converge than Legendre projection?",
+          "trigger": "same Legendre projection rates and Peano kernel"
+        },
+        {
+          "assessment": "Provides strong asymptotic background but not the evaluated endpoint Lipschitz error contrast.",
+          "evidence": "Main asymptotic theorem and weight model.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0111252",
+          "material_read": "Examined accessible paper objective, orthogonal polynomial asymptotic statements and context.",
+          "method": "ArXiv available text",
+          "title": "The Riemann–Hilbert approach to strong asymptotics for orthogonal polynomials on [-1,1]",
+          "trigger": "classical Jacobi asymptotics in proof"
+        },
+        {
+          "assessment": "Asymptotic polynomial expansions are inputs, not the two sharp Lipschitz operator norms.",
+          "evidence": "Abstract and model setting.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.07191",
+          "material_read": "Inspected available introduction and Jacobi-type expansion scope.",
+          "method": "arXiv accessible material",
+          "title": "Construction and implementation of asymptotic expansions for Jacobi-type orthogonal polynomials",
+          "trigger": "Jacobi endpoint asymptotics may dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise worst-case endpoint approximation errors distinguish two ubiquitous orthogonal spectral projections for the same Lipschitz function class. The different optimal rates and explicit extremizers guide projection choice, and the all-degree norms are independently useful sharp constants rather than textbook rates alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2001.01985",
+    "https://arxiv.org/abs/math/0111252",
+    "https://arxiv.org/abs/1502.07191",
+    "Resultary endpoint projector query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Comparison is asymptotic, not pointwise domination for each finite n or interior x.",
+    "Numerical quadrature at seven degrees does not establish the large-n limits."
+  ],
+  "residual_risks": [
+    "Older unindexed exact integrals of |P_n+P_(n+1)| or integrated Dirichlet kernels may cover special cases.",
+    "Only sharp at endpoints, not a uniform-in-x projection norm; proof invokes classical global Jacobi bounds and oscillatory averaging."
+  ],
+  "schema_version": 1
+}

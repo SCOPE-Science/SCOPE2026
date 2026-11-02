@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated algorithm matches the primary source's Bernoulli ProxSkip update. Invariance of the normal control follows because the proximity operator for an affine indicator is its orthogonal projector. Splitting primal error into normal and tangent components gives the explicit two-state normal recursion, and a geometric-length skipped block has the exact multiplier \(1-pS_j(c)\). Strict monotonicity of \(S_j\) establishes the complete zero-factor classification. Independent inter-call gaps yield the almost-sure dichotomy and generating function. The sharp minimum follows from one derivative and a uniform lower bound for all higher orders. The bundled exact-rational checks cover representative instances but are not an infinite proof.
+PASS
 
-## Originality — PASS (qualified assessment)
+Reconstructed the ProxSkip Algorithm 1 normal/tangential decomposition on every finite-dimensional proper affine subspace under an isotropic quadratic and normal-initialized control. At a successful prox step normal displacement becomes zero; between successes the normal trial displacement is gamma*S_j(c)*v, giving successive exact multipliers 1-p*S_j(c). Strict growth of S_j proves that a multiplier vanishes iff p=1/S_m(c) for exactly one integer m>=2. I.i.d. geometric inter-success gaps yield a.s. finite normal absorption precisely on those resonance curves and infinitely many feasibility exits off them for nonzero normal error. First matching gap has probability s=p(1-p)^(m-1), generating function s*w^m/[1-p*w/(1-(1-p)*w)+s*w^m], mean 1/[p^2*(1-p)^(m-1)]. For m=2 the mean (1+c)^3/c uniquely minimizes at c=1/2, p=2/3 to 27/4; m>=3 has mean >=16. Independently recalculated 30 exact-rational finite gap recurrences in three resonance settings, showing the recurrence and zero condition. Those cases do not prove the infinite-a.s. statement; geometric renewal and recurrence do. Finite identification is normal feasibility/control, not finite tangential optimizer convergence.
 
-The source's Algorithm 1 and Theorem 3.6 concern iteration dynamics and asymptotic Lyapunov rates, not exact permanent feasibility. RandProx-Skip includes the same update but provides general contraction theory, not the discrete gap-annihilation law. Deterministic active-manifold identification results are closely motivated but cannot imply the skipped-step dichotomy. A published absorption result for randomized Kaczmarz concerns another iteration, not this normal-control recurrence. No equivalent exact ProxSkip law was found in the searches and inspected text; this is evidence of noncoverage, not proof of global uniqueness. The abstract-only comparison for one ancillary source leaves a limited residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-Whether a randomized constraint solver identifies a feasible active manifold *permanently* is distinct from asymptotic expected convergence. The complete resonance/nonresonance classification shows that persistent feasibility can be a discontinuous arithmetic property of the skipping parameters even for a strongly convex problem. The exact waiting-time distribution and unique cross-order optimum quantify the resulting computational latency on a natural constrained test family. The result is narrow by design and does not claim a generally optimal solver.
+The statement-specific finite-absorption resonance, renewal law and global optimal waiting parameters are not part of the inspected ProxSkip convergence theorem. The elementary geometric first-hit calculation and individual deterministic proximal-identification phenomena are prior tools, so the originality assessment is limited to the exact combination for this randomized method, not those tools.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Exact finite-time feasibility is qualitatively different from expected asymptotic Lyapunov contraction, and the discrete resonance curves plus universal 27/4 optimum diagnose a meaningful finite-precision/tuning boundary for randomized proximal algorithms. The result has a justified optimization motivation despite the deliberately simple affine-quadratic family; no general-purpose runtime optimality claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

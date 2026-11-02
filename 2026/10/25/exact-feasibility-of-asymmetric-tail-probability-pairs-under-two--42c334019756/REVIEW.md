@@ -1,20 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-**PASS.** The proof reduces the prescribed tail masses to a three-group constrained quadratic minimization, derives all three active-constraint regimes, and handles the zero-mass cases separately. It also proves the strict \(uv>1\) boundary when both tail probabilities vanish. Exact-rational witnesses and boundary predicates are reproduced by the accompanying checker; they support reproducibility but are not the universal proof.
+## correctness
 
-## Originality
+PASS
 
-**PASS, with residual risk documented.** The closest fully inspected source is Ion, Klaassen, and van den Heuvel (2023), which gives a sharp bound on the sum of the two tail probabilities but not the complete ordered-pair feasible region. Bertsimas–Popescu provide a general moment-optimization framework that may encode equivalent scalarizations. Ogasawara’s multiple-Cantelli paper is relevant, but only its abstract and metadata were accessible; its full-text comparison remains unresolved.
+Reconstructed exact convex program of conditional means x<=-u<z<v<=y under ax+cz+by=0 and weighted second moment ax²+cz²+by². KKT active sets yield m=au²+bv²+(au-bv)²/c in central regime, m=(cu-bv)²/a+bv²+cu² when b>u/(u+v), and m=au²+(au-cv)²/b+cv² when a>v/(u+v). These regimes cannot overlap for a+b<1. For a=0, b>0 or vice versa, strict middle-boundary mass conditions and the 1-group variance floor follow from Jensen. For c=0, the unique weighted two-tail minimum is max(au²/b,bv²/a). With a=b=0, (Z+u)(v-Z)>0 almost surely gives uv>1, and a 2-point law achieves variance one iff uv>1. For all abc>0, m<1 allows perturbation to strict means followed by tail variance inflation; m=1 is attainable precisely for a<v/(u+v), b<u/(u+v). Independently minimized 110 randomized strictly positive triples with scipy SLSQP; max absolute discrepancy from piecewise m was 4.69e-8. This is corroboration only, not a proof of universal equality or strict endpoints.
 
-## Value
+## originality
 
-**PASS.** The classification answers the natural inverse question of whether two separately specified tail-risk rates can coexist under only a mean and variance constraint. The strict boundary cases are mathematically material: replacing the open middle interval by a closed interval would incorrectly admit some equality cases.
+PASS
 
-## Closest literature and limitations
+Best-knowledge novelty is the *closed piecewise feasible-set formula with attainment/open-endpoint constraints* for two ordered tail probabilities. The 2023 Ion-Klaassen-van den Heuvel article gives a sharp maximum for their sum, not the joint region. General moment SDP methods can encode this optimization, but the compared statements do not directly yield the explicit five-case formula without eliminating the moment variables. The Ogasawara multiple-Cantelli full text remains inaccessible after open preprint/OA attempts and authorized Oxford returned vpn_disconnected; its abstract concerns multiple variables.
 
-- Ion, Klaassen, and van den Heuvel (2023), Theorem 2.2 and Table 1: sharp scalar asymmetric-interval tail bound.
-- Bertsimas and Popescu (2005): general moment-optimization framework; only abstract/metadata were inspected.
-- Ogasawara (2019): multiple Cantelli inequalities; only abstract/metadata were inspected, and the full text remains inaccessible in the inspected sources.
-- Literature searches were non-exhaustive; no exhaustive priority claim is made.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Separate Cantelli bounds do not answer whether a specified lower-tail risk and upper-tail risk can coexist for one mean-zero, variance-one law. The exact ordered-pair feasible region answers that natural inverse moment problem for all thresholds, including the genuinely important open-middle equality exclusions and zero-mass faces. The boundary cases are not a routine renaming of a single scalar bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

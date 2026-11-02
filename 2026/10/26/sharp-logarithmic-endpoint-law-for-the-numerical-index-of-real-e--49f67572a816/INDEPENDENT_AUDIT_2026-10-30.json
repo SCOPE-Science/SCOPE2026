@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:55:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Import explicitly Chiclana’s exact identity n(ell_p^2(R))=M_p=max_{0<t<1}(t-t^{p-1})/(1+t^p) for p>2. With epsilon=2/p, eta=1-epsilon, t=e^{-2z/p}, the scalar objective becomes sinh(eta z)/cosh z; the stationarity equation tanh(eta z)tanh(z)=eta has a unique solution since the left side increases from 0 to 1, and objective vanishes at either endpoint. In y=t^p the equation epsilon(1+y^{2-epsilon})=(2-epsilon)(y+y^{1-epsilon}) gives y=Theta(epsilon), and expanding y^{1-epsilon}=y exp(-epsilon log y) yields y=epsilon/4+epsilon^2[1+log(epsilon/4)]/8+O(epsilon^3 log^2(1/epsilon)). Substitution with careful cancellation of mixed epsilon*y*log y terms gives n=1-[log(2p)+1]/p+[log^2(2p)+1]/(2p^2)+O(log^3(p)/p^3), and y=1/(2p)+[1-log(2p)]/(2p^2)+O(log^2(p)/p^3). Finite-dimensional duality transfers n to conjugate exponent p/(p-1). Independently evaluated the stationary root at p=100,1000,10000,100000,1000000 using high-precision root finding, tracking normalized remainders; source verify.py uses a separate optimization cross-check but finite numerics are not a proof of the big-O theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broad exact planar-index identity is stronger for arbitrary finite p, and supplies the implicit optimizer; prior bounds studied p ranges and special powers."
+        ],
+        "reasoning": "The finding is not independent of the broad theorem. As an explicit quantitative asymptotic refinement its new content consists only of the controlled expansions, with full credit to the exact formula and stationarity.",
+        "searches": [
+          "arXiv:2606.01675 Section 7",
+          "arXiv:2205.08807",
+          "DOI:10.1080/03081080701650739"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.01675v1",
+        "arXiv:2205.08807",
+        "DOI:10.1080/03081080701650739",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-logarithmic-endpoint-law-for-the-numerical-index-of-real-e--49f67572a816/RESULT.md (Git blob fb0ddbd9cc3053cfd555d869469bb35c38bbb331)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-logarithmic-endpoint-law-for-the-numerical-index-of-real-e--49f67572a816/verify.py (Git blob 94c3140603c531bad40357b4d88efaeb82d21c74)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chiclana’s tanh((1-2/p)z)tanh z=1-2/p already determines the unique p-dependent root implicitly."
+        ],
+        "reasoning": "An implicit exact condition logically determines asymptotic coefficients but does not itself STATE them; deriving their correct second order with a uniform remainder is the assessed addition. Any earlier paper performing that calculation would dominate it.",
+        "searches": [
+          "arXiv:2606.01675 hyperbolic stationary equation",
+          "arXiv:2205.08807"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chiclana’s equality n(ell_p²)=rotation numerical radius and its tanh stationarity equation exactly match this theorem’s imported starting point."
+        ],
+        "reasoning": "The exact full-p formula is COVERING for the starting optimization, not automatically a statement of the explicit second-order p-infinity expansion or the unique optimizing y_p boundary-layer series.",
+        "searches": [
+          "Resultary: numerical index real two dimensional ell_p p infinity logarithmic endpoint expansion rotational numerical radius",
+          "arXiv:2606.01675",
+          "arXiv:2205.08807"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches included numerical-radius shifts on ell_p and unrelated endpoint Bohr radii, not an exact real-plane numerical-index coefficient table. In the inspected Chiclana primary full HTML no displayed log-second-order expansion was found."
+        ],
+        "reasoning": "No exact table containing the assigned expansion was located; literature under numerical-radius/rotation operator descriptions remains an acknowledged historical risk.",
+        "searches": [
+          "Resultary numerical index log endpoint real planar ell_p",
+          "arXiv:2606.01675 find asymptotic logarithm",
+          "arXiv:2205.08807"
+        ]
+      },
+      "rationale": "Chiclana’s primary 2026 result already establishes BOTH the exact scalar numerical-index formula and its hyperbolic optimizer equation. The assigned claim properly imports these, with novelty narrowly confined to the quantitatively sharp logarithmic two-term p-infinity expansion and singular optimizer boundary layer. Merí–Quero and Martín–Merí handle finite-exponent bounds/problems, not the stated endpoint coefficients. This is mathematically a deduction from a known exact identity, but extracting the singular scale and second-order cancellations takes controlled asymptotic analysis not already stated or mechanically immediate without calculation. Historical earlier asymptotics remain a priority risk.",
+      "residual_risks": [
+        "The full exact numerical-index identity and optimizer equation already belong to Chiclana; novelty is limited to the controlled asymptotic expansion.",
+        "Possible older logarithmic expansions implicit in numerical-radius literature not fully indexed or accessible.",
+        "No new finite-exponent result, or higher-dimensional numerical index is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING exact scalar formula and stationarity; inspected content does not supply second-order logarithmic boundary asymptotics",
+          "evidence": "The equation tanh(eta z)tanh z=eta is already present, while the displayed asymptotic expansion coefficients are not.",
+          "identifier_or_url": "arXiv:2606.01675v1",
+          "material_read": "Accessible full arXiv HTML, theorem giving equality with rotation radius and section deriving hyperbolic stationary condition",
+          "method": "Read primary theorem, optimization and Section 7",
+          "title": "The Numerical Index of Two-Dimensional Real ℓp Spaces",
+          "trigger": "exact same invariant and recent complete theorem"
+        },
+        {
+          "assessment": "NOT_COVERING the p->infinity two-term equality and y_p scale",
+          "evidence": "Earlier partial finite-p results predate the general exact identity in 2026.",
+          "identifier_or_url": "arXiv:2205.08807",
+          "material_read": "Accessible full arXiv HTML of problem setup, known bounds and range of results",
+          "method": "Read primary full HTML and relevant theorem sections",
+          "title": "On the numerical index of the real two-dimensional Lp space",
+          "trigger": "same Banach-space invariant and preexisting estimates"
+        },
+        {
+          "assessment": "UNDETERMINED for a hidden older endpoint expansion",
+          "evidence": "No whole-document noncoverage is claimed from an abstract.",
+          "identifier_or_url": "DOI:10.1080/03081080701650739",
+          "material_read": "Citation and accessible abstract; full article not independently inspected",
+          "method": "Read bibliographic/abstract summary and checked its asserted scope",
+          "title": "A note on the numerical index of the Lp space of dimension two",
+          "trigger": "historical scalar rotation radius and index estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The numerical index near the non-smooth endpoint of real planar ell_p is a standard operator-theoretic invariant. Explicit logarithmic correction, next-order constant and unique extremizer boundary scale quantify a singular endpoint not described by a generic continuity statement. This is useful precision on a natural parameter limit even without a new finite-p formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2606.01675v1",
+    "arXiv:2205.08807",
+    "DOI:10.1080/03081080701650739",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-logarithmic-endpoint-law-for-the-numerical-index-of-real-e--49f67572a816/RESULT.md (Git blob fb0ddbd9cc3053cfd555d869469bb35c38bbb331)",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-logarithmic-endpoint-law-for-the-numerical-index-of-real-e--49f67572a816/verify.py (Git blob 94c3140603c531bad40357b4d88efaeb82d21c74)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The full exact numerical-index identity and optimizer equation already belong to Chiclana; novelty is limited to the controlled asymptotic expansion.",
+    "Possible older logarithmic expansions implicit in numerical-radius literature not fully indexed or accessible.",
+    "No new finite-exponent result, or higher-dimensional numerical index is established."
+  ],
+  "residual_risks": [
+    "The full exact numerical-index identity and optimizer equation already belong to Chiclana; novelty is limited to the controlled asymptotic expansion.",
+    "Possible older logarithmic expansions implicit in numerical-radius literature not fully indexed or accessible.",
+    "No new finite-exponent result, or higher-dimensional numerical index is established."
+  ],
+  "schema_version": 1
+}
