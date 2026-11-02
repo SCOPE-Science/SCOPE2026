@@ -1,15 +1,21 @@
-# Scientific review: the Möbius-ladder scale-two transition
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain and inclusivity are fixed explicitly. For every integer \(n\ge6\), the graph-square neighborhood consists of the seven residues \(\pm1,\pm2,n-1,n,n+1\), and the 3-dimensional complex has exactly \(3n\) tetrahedral facets of the two displayed forms. The four specified families of free pairs remove \(6n\) pairs; the remaining \(2n\) triangles have the incidence pattern of a compact connected Möbius band with one boundary component. The original ladder embeds in this remnant, so the square-boundary presentation identifies the image and kernel on integral first homology. The spanning-tree computation gives the **integral** factor two, not merely a mod-two observation. The \(n=5\) exception is certified by 36 individually replayable free-pair deletions and a residual connected closed triangulated surface of Euler characteristic two. Small-size simplex cases are direct diameter checks. The standard-library verifier re-enumerates the input complexes independently and checks \(3\le n\le30\). These checks complement the uniform local proof; finite trials alone are not used to infer its all-parameter scope.
+## correctness
 
-## Originality — PASS with stated residual risk
-The complete arXiv text of Adamaszek, *Clique complexes and graph powers* (arXiv:1104.0433), covers general methodology and powers of ordinary cycles, including a squared seven-cycle whose clique complex itself is a Möbius strip. It does not cover squared Möbius **ladders** or the doubling of their Hamiltonian rim. The full Agarwal–Basak text (arXiv:2608.30601) classifies the independence and perfect matching complexes of these graphs, not this graph-power clique complex. The publicly accessible circular-ladder Rips theorem for \(C_n\square K_2\) and the twisted-grid-to-Klein-bottle theorem involve different vertex graphs and different nonorientable/primitive integral information; their theorems do not entail the present result. Exact searches of published mathematical records by these constructions, cyclic aliases, and the boundary-doubling feature returned no stronger covering statement. Absolute priority remains uncertain where literature is not indexed or fully accessible.
+PASS
 
-## Mathematical value — PASS
-A sharp homotopy transition in a canonical infinite family connects combinatorial graph-power topology to the orientation twist of a Möbius strip. The robust geometric collapse and the **factor-two** map for the natural Hamiltonian cycle discriminate a boundary cycle from a primitive homology class. The kernel presentation describes exactly which \(n\) independent graph cycles disappear at scale two. The previously known single-cycle Möbius example does not give this infinite-family integral persistence behavior, and the result is more than an Euler-characteristic computation or a routine substitution.
+Source RESULT.md Git blob 138344a2e76e4e0403f9ec6ace747fd1b8757fab: the graph square uses difference classes +/-1,+/-2,n-1,n,n+1 mod2n. For every n>=6 the complete facets are n square tetrahedra Q_i={i,i+1,i+n,i+n+1}, 2n skew tetrahedra P_i={i,i+1,i+2,i+n+1}, full f=(2n,7n,8n,3n). Four explicit elementary free-face phases have 2n,n,2n,n pairs; the exact remaining 2n triangles form a triangulated one-boundary Möbius strip with f=(2n,4n,2n), Euler zero and path vertex links, so homotopy S¹. The rim is the boundary of a Möbius band and winds twice its core, while the n square-cell boundaries generate free H1 kernel of rank n; the quotient is Z and hence their n independent relations are a free basis. n=3,4 graph diameter two, so complex simplex. n=5 exact f=(10,35,50,25,2) admits a free-face collapse to a closed connected 2-sphere triangulation; independently a different 48-pair greedy collapse reduced it to six-vertex octahedral S² with f=(6,12,8). Independently reconstructed every facet and replayed all 6n free faces for n=6..9. These finite tests support but do not replace local residue and free-face proof for every n>=6.
 
-## Closest literature and limitations
-The closest method source is arXiv:1104.0433. The closest object sources are arXiv:2608.30601 and public circular-ladder and twisted-grid Rips results with identifiers `ccd7a360a668` and `640f98d44d0b`. The claim is limited to the finite vertex metric and inclusive scale two. No assertion is made at higher scales, for weighted ladders, or for metric graphs containing edge interiors. Undetected equivalent published work remains a bibliographic risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge statement-level novelty survives comparison with relevant primary literature and published records, with the exact theorem and aliases checked. This gives a sharp exceptional-to-stable topology transition for a natural graph-metric Rips filtration family, with fully specified uniform elementary collapses and a stronger integral persistence map: the obvious Hamiltonian boundary is index two in H1. Priority residuals are explicitly retained; a failed search is not a novelty certificate.
+
+## value
+
+PASS
+
+This gives a sharp exceptional-to-stable topology transition for a natural graph-metric Rips filtration family, with fully specified uniform elementary collapses and a stronger integral persistence map: the obvious Hamiltonian boundary is index two in H1. It separates genuinely twisted ladder behavior from the known untwisted circular ladder where a rim is primitive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify_mobius_rips.py` from the directory containing this file, using Python 3 with no third-party dependencies. The program independently reconstructs graph distances by breadth-first search, enumerates all simplices as cliques of the graph square, verifies facet classification, checks every proposed codimension-one free-face deletion, and checks equality with the claimed Möbius-band triangulation. It tests every integer \(6\le n\le30\), including the minimal stable case. The assertions check that the residual 1-dimensional boundary is exactly the original Hamiltonian rim.
+## correctness
 
-For \(n=5\), the program deterministically generates a 36-pair collapse and independently checks the resulting 10-vertex triangulated two-sphere using connected vertex links, edge incidences, Euler characteristic and global connectedness. For \(n=3,4\), direct face enumeration checks that the Rips complex is a full simplex.
+PASS
 
-The parameter-independent proof of the stable case is the modular seven-neighbor clique classification, the four all-parameter local free-face phases, and the explicit surface and spanning-tree homology arguments in `RESULT.md`. Finite replay alone is not claimed as a proof for arbitrarily large parameters. No claims are checked about radii greater than two or continuous edge interiors. Independent scientific validation has not been performed.
+Source RESULT.md Git blob 138344a2e76e4e0403f9ec6ace747fd1b8757fab: the graph square uses difference classes +/-1,+/-2,n-1,n,n+1 mod2n. For every n>=6 the complete facets are n square tetrahedra Q_i={i,i+1,i+n,i+n+1}, 2n skew tetrahedra P_i={i,i+1,i+2,i+n+1}, full f=(2n,7n,8n,3n). Four explicit elementary free-face phases have 2n,n,2n,n pairs; the exact remaining 2n triangles form a triangulated one-boundary Möbius strip with f=(2n,4n,2n), Euler zero and path vertex links, so homotopy S¹. The rim is the boundary of a Möbius band and winds twice its core, while the n square-cell boundaries generate free H1 kernel of rank n; the quotient is Z and hence their n independent relations are a free basis. n=3,4 graph diameter two, so complex simplex. n=5 exact f=(10,35,50,25,2) admits a free-face collapse to a closed connected 2-sphere triangulation; independently a different 48-pair greedy collapse reduced it to six-vertex octahedral S² with f=(6,12,8). Independently reconstructed every facet and replayed all 6n free faces for n=6..9. These finite tests support but do not replace local residue and free-face proof for every n>=6.
+
+## originality
+
+PASS
+
+Best-knowledge statement-level novelty survives comparison with relevant primary literature and published records, with the exact theorem and aliases checked. This gives a sharp exceptional-to-stable topology transition for a natural graph-metric Rips filtration family, with fully specified uniform elementary collapses and a stronger integral persistence map: the obvious Hamiltonian boundary is index two in H1. Priority residuals are explicitly retained; a failed search is not a novelty certificate.
+
+## value
+
+PASS
+
+This gives a sharp exceptional-to-stable topology transition for a natural graph-metric Rips filtration family, with fully specified uniform elementary collapses and a stronger integral persistence map: the obvious Hamiltonian boundary is index two in H1. It separates genuinely twisted ladder behavior from the known untwisted circular ladder where a rim is primitive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
