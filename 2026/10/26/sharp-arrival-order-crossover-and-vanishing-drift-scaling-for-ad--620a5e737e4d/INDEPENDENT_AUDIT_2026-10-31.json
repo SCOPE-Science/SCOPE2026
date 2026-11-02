@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:06:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The first-passage inverse-Gaussian density is L/(4πDt³)^(1/2)exp[−(L−vt)²/(4Dt)], and its CDF is the stated two-normal-tail formula, normalized to one for v>0. For two laws, log(f1/f2)=A/t+B t+C with explicit A and B controlled by D order and squared-speed/dispersion order. In comparable regimes log ratio has one crossing, so the normalized densities give strict first-order stochastic dominance. In conflicting regimes A>0,B>0 (after relabeling) forces density signs +−+, from which the CDF difference has exactly one simple zero because its total integral is zero and it is strictly decreasing between density sign changes. With equal positive speed, evaluating at t=L/v and applying the strict Mills inequality puts the crossing after the mean. At t=y/v², direct normal-tail expansions give scaled survival limit; differentiating its h functions gives H'(y)=k_D2(y)−k_D1(y) with one derivative change at y_p. Boundary signs show exactly one y* in (0,y_p). Uniform convergence on compact y intervals plus unique CDF crossing proves v² t_cross→y*. New finite computations independently checked 24 density log-ratios, the t_cross≈2.558169017584 example and y*≈1.415604396416. This is not a proof for variable coefficients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bodin 2015 and Russian–Dentz–Gouze 2016 discuss breakthrough curves; general stochastic order texts not exhaustively read."
+        ],
+        "reasoning": "Broader coverage: heterogeneous transport and generic first-passage laws allow more models but do not in inspected sections give this exact homogeneous two-parameter order/crossing and vanishing-drift scaling; general stochastic orders remain potential antecedents.",
+        "searches": [
+          "Resultary semantic query: inverse Gaussian first passage stochastic order drift diffusion crossing cumulative distribution small drift scaling",
+          "Web scientific search: inverse Gaussian stochastic order drift diffusion variance crossing; inverse Gaussian distributions stochastic order necessary sufficient two parameters",
+          "https://arxiv.org/pdf/1009.0557",
+          "https://rjournal.github.io/articles/RJ-2016-024/"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1009.0557",
+        "https://rjournal.github.io/articles/RJ-2016-024/",
+        "https://doi.org/10.1002/2014WR015910",
+        "https://doi.org/10.1002/2015WR018511"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-crossing CDF follows from the +−+ density pattern and zero total integral; the y* root requires a different small-drift asymptotic and positivity proof."
+        ],
+        "reasoning": "Implication: classical inverse Gaussian formulas alone imply the conclusion only after the explicit A/t+B t+C sign classification, normalized density crossing argument, strict Mills inequality and singular limit derivative analysis.",
+        "searches": [
+          "Resultary semantic query: inverse Gaussian first passage stochastic order drift diffusion crossing cumulative distribution small drift scaling",
+          "Web scientific search: inverse Gaussian stochastic order drift diffusion variance crossing; inverse Gaussian distributions stochastic order necessary sufficient two parameters",
+          "https://arxiv.org/pdf/1009.0557",
+          "https://rjournal.github.io/articles/RJ-2016-024/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Molini et al. arXiv:1009.0557 inverse Gaussian passage density and method of images; R Journal 2016 gives numerical IG CDF for arbitrary parameters."
+        ],
+        "reasoning": "Equivalent formulation: convert the advective first-passage models to inverse Gaussian distributions with mean L/v and shape L²/(2D). Standard distribution parameters give the same density/CDF; a general stochastic-order comparison may recover parts of the two-parameter condition.",
+        "searches": [
+          "Resultary semantic query: inverse Gaussian first passage stochastic order drift diffusion crossing cumulative distribution small drift scaling",
+          "Web scientific search: inverse Gaussian stochastic order drift diffusion variance crossing; inverse Gaussian distributions stochastic order necessary sufficient two parameters",
+          "https://arxiv.org/pdf/1009.0557",
+          "https://rjournal.github.io/articles/RJ-2016-024/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "R Journal statmod inverse Gaussian article (2016) §2 density, Molini §3 first-passage formulas, no complete crossover table found."
+        ],
+        "reasoning": "Exact database/table: existing IG CDF documentation lists density, mean/shape and tail computations, not the unique y*(D1,D2) crossover table or sharp L/v boundary.",
+        "searches": [
+          "Resultary semantic query: inverse Gaussian first passage stochastic order drift diffusion crossing cumulative distribution small drift scaling",
+          "Web scientific search: inverse Gaussian stochastic order drift diffusion variance crossing; inverse Gaussian distributions stochastic order necessary sufficient two parameters",
+          "https://arxiv.org/pdf/1009.0557",
+          "https://rjournal.github.io/articles/RJ-2016-024/"
+        ]
+      },
+      "rationale": "PASS (qualified): Inverse-Gaussian hitting-time density and CDF are classical and available in Molini et al. and standard statistical references, so neither is claimed as novel. The assessed addition is the *complete two-parameter necessary-and-sufficient CDF order*, exact single transversal crossing when parameters conflict, mean-travel lower bound and singular v^-2 crossover scaling with a uniquely characterized y*. The inspected transport and IG computation references do not contain this full classification. General stochastic order literature may imply some comparisons, and deriving ordering from density ratio is comparatively direct; the singular crossover and sharp strict placement support a distinct result, with historical risk preserved.",
+      "residual_risks": [
+        "Classical general inverse-Gaussian stochastic ordering or single-crossing theorems may subsume the two-parameter first-order ordering portion; exact prior priority not fully resolved.",
+        "The singular v^-2 crossover and strict mean bound remain additional claims but the formal order criterion is close to a known density-ratio method.",
+        "Applies to strictly positive constant drift and diffusion, common detection L, absorbed first arrival; not resident concentration, variable coefficients, sorption or finite injection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS inverse-Gaussian law, not the inspected parameter-order and singular-crossing statements",
+          "evidence": [
+            "Method-of-images formula is the foundational first-passage distribution used by the proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1009.0557",
+          "material_read": "30-page open primary PDF, constant-coefficient specialization in §3, pp.8–10 with density/CDF Eq.(27)/(28), page-9 screenshot",
+          "method": "arXiv PDF text and screenshot",
+          "title": "First passage time statistics of Brownian motion with purely time dependent drift and diffusion",
+          "trigger": "Primary antecedent of absorbing drift-diffusion passage density"
+        },
+        {
+          "assessment": "COVERS standard IG density and numerics, not a comparison phase diagram",
+          "evidence": [
+            "IG mean and shape parameterization implies Brownian hitting-time law by setting mean L/v and shape L²/(2D)."
+          ],
+          "identifier_or_url": "https://rjournal.github.io/articles/RJ-2016-024/",
+          "material_read": "Full accessible R Journal HTML introduction and §2 inverse-Gaussian density/parameterization",
+          "method": "primary open journal HTML",
+          "title": "statmod: Probability Calculations for the Inverse Gaussian Distribution",
+          "trigger": "Potential exact IG distribution comparison theorem"
+        },
+        {
+          "assessment": "BACKGROUND only; no whole-document NOT_COVERING assertion",
+          "evidence": [
+            "Time-domain particle transport uses analytical breakthrough solutions; direct mathematical dominance comparison not verified in full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/2014WR015910",
+          "material_read": "Bibliographic record, abstract and scoped source descriptions; entire paid PDF not obtained this run",
+          "method": "publisher abstract / web literature search",
+          "title": "From analytical solutions of solute transport equations to multidimensional time-domain random walk algorithms",
+          "trigger": "Transport breakthrough-curve precedent"
+        },
+        {
+          "assessment": "BACKGROUND transport comparison; no whole-document novelty certificate",
+          "evidence": [
+            "Heterogeneous hydrodynamics differs from homogeneous IG exact order."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/2015WR018511",
+          "material_read": "Abstract and accessible result-section excerpts; full original article not reread this run",
+          "method": "publisher literature source and research excerpt",
+          "title": "Time domain random walks for hydrodynamic transport in heterogeneous media",
+          "trigger": "Closest published physical model of changing drift and dispersion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Cumulative first arrivals at an absorbing downstream threshold are canonical transport observables. A sharp global test for whether a higher-dispersion tracer is ever guaranteed earlier arrival, coupled with the exact one-crossing law, resolves a genuine model-selection ambiguity. The common-drift singular scaling quantitatively explains why a high-dispersion advantage survives every fixed observation time at zero drift yet reverses at t≈y*/v² for arbitrarily small positive drift. This full boundary classification is naturally motivated rather than an arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1009.0557",
+    "https://rjournal.github.io/articles/RJ-2016-024/",
+    "https://doi.org/10.1002/2014WR015910",
+    "https://doi.org/10.1002/2015WR018511"
+  ],
+  "disposition": "passed",
+  "final_claim": "For homogeneous one-dimensional Brownian first-passage times at a common L>0 with v_i>0 and D_i>0, F1(t)>=F2(t) for all t>0 iff D1>=D2 and v1²/D1>=v2²/D2; otherwise the ordered arrival CDFs cross exactly once and transversally. At equal v>0, D1>D2, the crossing lies after L/v and v² t_cross tends to the unique positive root of h(√(y/(2D1)))/D1=h(√(y/(2D2)))/D2, 0<y<2 log(D1/D2)/(1/D2−1/D1), as v↓0.",
+  "limitations": [
+    "Classical general inverse-Gaussian stochastic ordering or single-crossing theorems may subsume the two-parameter first-order ordering portion; exact prior priority not fully resolved.",
+    "Applies to strictly positive constant drift and diffusion, common detection L, absorbed first arrival; not resident concentration, variable coefficients, sorption or finite injection.",
+    "No new repository modifications; source publication requires separate confidentiality-safe metadata review."
+  ],
+  "residual_risks": [
+    "Classical general inverse-Gaussian stochastic ordering or single-crossing theorems may subsume the two-parameter first-order ordering portion; exact prior priority not fully resolved.",
+    "The singular v^-2 crossover and strict mean bound remain additional claims but the formal order criterion is close to a known density-ratio method.",
+    "Applies to strictly positive constant drift and diffusion, common detection L, absorbed first arrival; not resident concentration, variable coefficients, sorption or finite injection."
+  ],
+  "schema_version": 1
+}
