@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Independent uniform parent choices give exact tail p=a^m(a-1)!/(n-1)!; conditioning makes last m parents iid uniform on a older labels, yielding E[L|H>=m]=m+a(1-1/a)^m/2 (a=1 handled). Strict Bernoulli inequality gives positive exact tail-sum covariance. Eulerian leaf recursion, a bounded 1-dependent CLT, independence of early labels and late parent choices, and o_P(sqrt(n)) martingale leaf increments prove the joint Rayleigh/independent Gaussian limit. Gaussian tail domination proves covariance/sqrt(n)->sqrt(pi/2)/4. Actual standard-library verifier exhaustively checked all trees 3<=n<=9 and 3 large-n numerical cases, 178 assertions; these finite checks do not prove the infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1002/rsa.20046 (fixed outdegree distributions and evolution)",
+        "https://arxiv.org/abs/2204.09032 (prescribed-label/high-degree joint properties)",
+        "https://arxiv.org/abs/1406.6883 (fringe-tree count functional laws)",
+        "https://doi.org/10.30757/ALEA.v19-33 (high-degree vertex depth, PDF inspected)"
+      ],
+      "reasoning": "The potentially dominating frameworks handle outdegree counts, or depth/label of high-degree vertices, or subtree-count functionals. A minimum-age zero-degree frontier with a Rayleigh extreme and an n-dependent leaf-count statistic is not a direct stated specialization of the materials read. The abstract of Janson hints at functional evolution, which could contain indirect coverage: this is explicitly retained as risk, not cleared by lack of a full-text match.",
+      "searches": [
+        "Asymptotic degree distribution in random recursive trees",
+        "On joint properties of vertices with a given degree or label in the random recursive tree",
+        "random recursive tree latest parent index n minus maximum parent label joint leaves covariance",
+        "recursive trees maximal label with nonzero outdegree last nonleaf child parent index Rayleigh distribution leaves"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/rsa.20046",
+      "https://doi.org/10.2307/3213526",
+      "https://arxiv.org/abs/1406.6883",
+      "https://doi.org/10.30757/ALEA.v19-33",
+      "https://arxiv.org/abs/2204.09032"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Najock–Heyde (1982) studied the terminal-vertex count, not an age-extreme joint covariance in the inspected bibliographic description.",
+        "Janson (2004 online) proves Gaussian degree-count margins; these do not logically determine a maximum occupied birth label or a covariance coefficient.",
+        "Holmgren–Janson arxiv:1406.6883 counts specified fringe properties, rather than conditioning on the end of birth-label sequence.",
+        "Full-text inspection of Eslava 2022 finds high-degree depth theorems, not the maximum nonleaf birth label."
+      ],
+      "reasoning": "Compared actual claim predicates/quantifiers: all n>=3 exact tail and E[L|H>=m], strictly positive finite covariance, joint Rayleigh×Gaussian limit, and sqrt(n)-order covariance constant. Published marginal leaf CLTs or fixed-degree counts alone cannot entail their joint dependence; relevant high-degree and depth results study different extremes. An unpublished or implicit corollary of a sufficiently general functional theorem remains a risk.",
+      "searches": [
+        "recursive trees maximal label with nonzero outdegree last nonleaf child parent index Rayleigh distribution leaves",
+        "recursive tree youngest vertex with descendants index first nonleaf from the right last internal label and number of leaves",
+        "random recursive tree latest parent index n minus maximum parent label joint leaves covariance",
+        "last internal vertex largest labelled nonleaf youngest non-leaf random recursive tree Rayleigh square root Gaussian leaf count independent",
+        "random recursive tree latest label with children maximum nonleaf vertex index exact distribution",
+        "uniform recursive trees number of leaves joint Gaussian CLT with last internal vertex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.1002/rsa.20046 (outdegree frequencies and evolution, first published 2004-11-16)",
+        "arxiv:1406.6883 (fringe-subtree count limit laws, first posted 2014-06-26)"
+      ],
+      "reasoning": "Compared youngest nonleaf, maximal occupied-parent label, last nonzero-outdegree birth label, trailing birth-order leaves, and latest internal vertex. All are equivalent descriptions of the same H_n. The retrieved degree-frequency and fringe-count theorems concern label-aggregated counts and do not give this maximum-label statistic or its mixed regression directly. Searches cannot prove absence of an implicit historical consequence.",
+      "searches": [
+        "recursive trees maximal label with nonzero outdegree last nonleaf child parent index Rayleigh distribution leaves",
+        "recursive tree youngest vertex with descendants index first nonleaf from the right last internal label and number of leaves",
+        "random recursive tree latest parent index n minus maximum parent label joint leaves covariance",
+        "last internal vertex largest labelled nonleaf youngest non-leaf random recursive tree Rayleigh square root Gaussian leaf count independent",
+        "random recursive tree latest label with children maximum nonleaf vertex index exact distribution",
+        "uniform recursive trees number of leaves joint Gaussian CLT with last internal vertex",
+        "random recursive tree latest parent index n minus maximum parent label joint leaves covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Identified exact factorial tail directly from independent parent choices, rather than treating a small-n table as independent originality evidence.",
+        "Janson 2004 and Holmgren–Janson 2014 state degree/fringe count distributions and not the current exact two-variable table in the publicly inspected material."
+      ],
+      "reasoning": "No exact database or table of the two-dimensional youngest-nonleaf/leaf-count statistic appeared in the actual searches. The finite enumerations are correctness cross-checks, not evidence of novelty or absence of previous tables.",
+      "searches": [
+        "random recursive tree largest non-leaf label distribution",
+        "random recursive tree youngest internal node asymptotic",
+        "recursive tree youngest vertex with descendants index first nonleaf from the right last internal label and number of leaves",
+        "random recursive tree latest parent index n minus maximum parent label joint leaves covariance"
+      ]
+    },
+    "rationale": "The combined natural age-extreme and leaf-count theorem was compared statement-by-statement with accessible literature, published semantic records, and prior claims. Fixed-degree count CLTs, root attachment/leaf covariance, high-degree depth, and fringe count theorems are nonidentical and do not directly imply the exact conditional age regression or residual covariance. Full-text access gaps for older general theorems leave a documented historical-priority risk rather than a false full-text negative.",
+    "residual_risks": [
+      "The 2004 Janson primary full text could not be inspected; a sufficiently strong functional degree-evolution result may imply an unrecognized special case.",
+      "Full text of Najock–Heyde 1982 and Holmgren–Janson 2014 was unavailable; title/abstract checks do not justify whole-document noncoverage.",
+      "The 2022 label/degree paper could not be read in full; age-indexed extrema might be implicit.",
+      "Semantic retrieval and checked publications cannot prove global uniqueness or historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No theorem about maximum birth label with any children, the terminal birth-label run, or its covariance with total leaves was found in the inspected material; published results concern degrees/depths of high-degree vertices.",
+        "evidence": [
+          "ALEA 19 (2022), DOI 10.30757/ALEA.v19-33, original abstract and theorems on high-degree depths"
+        ],
+        "identifier_or_url": "https://doi.org/10.30757/ALEA.v19-33",
+        "material_read": "19-page primary PDF searchable text queried for leaf, terminal, largest label; abstract, introduction, theorem statements and initial pages reviewed, including page-image inspection of first two pages.",
+        "method": "Opened lawful primary full PDF, read available text and inspected initial page images; searched full extracted searchable text for candidate terms.",
+        "title": "Depth of vertices with high degree in random recursive trees",
+        "trigger": "Random recursive-tree extremes and possible joint degree/label limiting laws"
+      },
+      {
+        "assessment": "The accessible statement establishes fixed-outdegree-count normality and evolving-degree results but does not state age-extreme/leaf mixed law; full-text implicit consequence remains unresolved.",
+        "evidence": [
+          "Wiley publisher page: first published 2004-11-16; Gaussian counts and functional limits in abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20046",
+        "material_read": "Wiley original publication record, dated abstract and stated results; primary full PDF not obtained.",
+        "method": "Read original publisher abstract and publication metadata; attempted author open-access PDF; full primary text inaccessible. Authorized institutional retry also unavailable.",
+        "title": "Asymptotic degree distribution in random recursive trees",
+        "trigger": "Closest general degree-count theorem, whose outdegree-zero margin yields a Gaussian leaf law"
+      },
+      {
+        "assessment": "Marginal leaf count is covered historically; no sufficient material to exclude a latent age-extreme identity or theorem.",
+        "evidence": [
+          "Journal of Applied Probability 19 (1982), 675–680; earliest exact calendar day of original publication not verified"
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3213526",
+        "material_read": "Bibliographic entry and title/description only; full primary paper not obtained.",
+        "method": "Looked for lawful open text and attempted authorized institutional retrieval, inaccessible.",
+        "title": "On the number of terminal vertices in certain random trees with an application to stemma construction in philology",
+        "trigger": "Classical terminal-vertex marginal law"
+      },
+      {
+        "assessment": "Counts fringe trees and protected nodes, not visibly maximal occupied birth label; cannot rule out a derived consequence from inaccessible full text.",
+        "evidence": [
+          "arxiv:1406.6883 dated 2014-06-26, abstract specifies fringe tree functional count laws"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.6883",
+        "material_read": "Original arXiv abstract and metadata; full PDF retrieval inaccessible.",
+        "method": "Read abstract of first arXiv version dated 2014-06-26; tested legitimate full text endpoints.",
+        "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Random Recursive Trees",
+        "trigger": "General asymptotic fringe property counts might subsume a leaf CLT"
+      },
+      {
+        "assessment": "Abstract covers labels/degrees of high-degree vertices; does not state zero-degree terminal birth-label frontier or its joint leaf count. Absence from unread full text cannot be certified.",
+        "evidence": [
+          "arxiv:2204.09032 abstract, first public April 2022; subject high-degree labels/depths"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.09032",
+        "material_read": "Author abstract (cross-index) and title; full arXiv/HTML endpoints inaccessible.",
+        "method": "Read 2022 original-paper abstract describing high-degree labels and fixed-label degree/depth/distance; attempted lawful text URLs.",
+        "title": "On joint properties of vertices with a given degree or label in the random recursive tree",
+        "trigger": "Label-sensitive degree results are highly relevant to excluding a stronger prior theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cb3ed951-057f-4ff4-a285-18b416498217",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Youngest nonleaf label is a natural growth-age extreme with distinct Rayleigh behavior from the global Gaussian leaf count. The exact finite conditional regression and strictly positive covariance quantify a second-order dependence despite joint independence at leading scale; the sharp sqrt(n) covariance constant gives a genuine multiscale structural theorem, not merely a textbook leaf expectation.",
+    "status": "PASS"
+  }
+}
