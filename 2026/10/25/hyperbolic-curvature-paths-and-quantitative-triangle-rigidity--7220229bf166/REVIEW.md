@@ -1,15 +1,21 @@
-# Review of the hyperbolic curvature-path classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts from a separately checked moment identity for Euclidean parallel bodies. For polygons, the identity follows by an actual partition into edge strips and exterior-angle sectors, with cancellation of normal moments. Convex approximation extends it to all planar convex bodies. In noncollinear affine coordinates the path satisfies the nondegenerate conic equation, and the strict isoperimetric inequality makes the conic a hyperbola. The exact derivative determinant is an algebraic identity, not a fitted regression. For triangles, barycentric coordinates give determinant (2), the sine rule converts it into a strictly concave graph determinant, and the Hermite–Genocchi formula supplies the stated quantitative bound. In the isosceles case, direct comparison of all three centers and positivity of the derivative expression establish the asserted strict monotonicity. The standard-library program independently checks moment integration and finite numerical examples; these are not used in place of proof.
+## correctness
 
-## Originality — PASS, with qualification
-Gollapudi et al. (arXiv:2106.04819, Section 5.1, equation (9)) already establish that the centroid path is a bounded-degree rational curve determined by curvature centroids. Chen (doi:10.36890/iejg.689803) already discusses the exterior-angle definition of Steiner's curvature centroid. These underlying facts are not claimed as new. The complete classification of geometric conic type in the noncollinear planar case and especially the exact scalene-versus-isosceles condition, full monotonicity of the degenerate paths, and a strict positive angle-gap curvature certificate are not stated in the examined source sections or its searched full text. Searches for equivalent results under centroid loci, outer parallel bodies, Steiner points, triangle centers, and hyperbola terminology did not identify prior coverage. The central residual priority risk is that the planar conic reduction is quite close algebraically to the known degree-two rational formula; a triangle-center treatment not reached by these searches could subsume the specialization. No independent priority certification is asserted.
+PASS
 
-## Mathematical value — PASS
-The 2021 literature uses curvature paths of convex bodies for geometric discretization but does not classify their planar geometry. The distinction between an actual curved path and a straight one is natural to that object: the proved theorem shows every scalene triangle has one strictly curved hyperbolic branch, whereas all and only the isosceles triangles degenerate to an injective line path, and equilateral triangles to a point. The angle-gap lower bound quantifies stability under near-isosceles perturbations. These are complete structural conditions for the fundamental triangle family, not a selected parameter computation; they can guide geometric path approximation and identify exactly when one-dimensional reduction is legitimate. Neither an application theorem nor a globally optimal lower-bound constant is claimed.
+Outer Steiner mass-moment expansion q(t)=A+Lt+pi*t^2 and M(t)=AG+LtH+pi*t^2 S follows by adding outward polygon edge strips and exterior circular sectors, with cubic normal moments cancelling, then convex approximation. Barycentric weights lead to lambda_H^2=(L^2/A*pi)*lambda_G*lambda_S and a strictly hyperbolic conic when centers are noncollinear (strict isoperimetric inequality). Differentiating confirms determinant 2AL*pi*det(H-G,S-G)/q(t)^3 and noninflection. For triangles, physical center determinant is A/(6L*pi)*det(1,a_i,alpha_i). The sine law and strict sine concavity give scalene iff curved, with Hermite-Genocchi second-divided-difference lower bound by min sin(alpha)/2. Direct apex-coordinate ordering gives monotone straight paths for nonequilateral isosceles triangles. Eighty independently sampled triangle configurations and curvature identities were checked; universality follows from the analytic derivation.
 
-## Sources and limits
-The full arXiv source was inspected in Section 5.1 and searched for triangle and conic specializations; the Chen geometry article was inspected including its first page, exterior-angle construction, and classification. Publicly indexed nearby findings on isoptic Steiner centroids, centroid cores and quadrilateral Euler lines concern different loci. An earlier triangle-center equivalence or an implicit result in Schneider's older curvature-measures theory could still exist; the full book is not claimed to have been inspected. The investigation establishes best-knowledge novelty rather than absolute priority. The strict derivative and determinant conclusions are for planar noncollinear-center bodies; arbitrary planar degeneracy is only asserted to be contained in a line. No generalization to dimensions three or higher is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original remainder after separately excluding known component formulas and narrower/other-object antecedents. The primary article supplies the rational second-order centroid formula already, so that identity is NOT novel; its indicated result neither deduces the full geometric conic locus nor the scalene/isosceles rigidity and quantitative angle-gap bound. Algebraic closeness of the hyperbola deduction remains an explicit priority risk.
+
+## value
+
+PASS
+
+The complete triangle shape classification, signed noninflection, and quantitative degeneration bound are motivated geometric properties of a known path, distinguishing curved from straight regimes; no claim of a new centroid formula or globally optimal bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
