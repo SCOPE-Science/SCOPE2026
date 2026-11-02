@@ -1,12 +1,21 @@
-# Review of the Radau hypercube positivity theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof starts from the correctly normalized two-stage Radau IIA stability function and the Walsh spectrum \(\{2j\}_{j=0}^{d}\) of the unit-rate Boolean cube. It derives exact distance-orbit rational formulas for dimensions three and four. For dimension three the only nonobvious numerator sign is settled by a positive quadratic; dimensions one and two inherit strict positivity by coordinate marginalization. At \(h=3/2\), the Walsh spectral contributions at weights zero and one are \(1\) and \(0\); each weight at least two contributes negatively, and binomial monotonicity propagates the exact four-dimensional diagonal witness \(-3/1804\) to every higher dimension. For dimension four all off-diagonal numerators have positive coefficients, and Descartes' two-sign-change bound combined with three test signs proves exactly two positive diagonal roots and the full positivity set. Exact symbolic identities, root isolations, and direct matrix inversions were replayed using `verify.py`. The infinite-dimensional parameter range is proved analytically, not inferred from tested cases.
+## correctness
 
-## Originality
-**PASS, subject to residual bibliographic risk.** The two principal freely accessible archival articles by Zappavigna and collaborators were inspected at the mathematical statements and examples. They address diagonal Padé discretization, generalized Metzler positivity and examples of positivity gaps; the present method is the subdiagonal \([1/2]\) Radau endpoint map, with a specific Boolean-cube spectrum. A standard Radau method specification gives the stability function and absolute-monotonicity radius zero but not a dimension-specific result. Related published findings address Radau on cycles, stars and complete bipartite graphs, and Gauss on Boolean cubes; none implies the new Radau-on-cubes dimension frontier, uniform \(h=3/2\) obstruction, or full fourth-dimensional two-interval formula. No complete bibliography can exclude an unindexed exact equivalent.
+PASS
 
-## Value
-**PASS.** This is a sharp natural structure threshold for positivity of a standard L-stable high-order method on Cartesian products of two-state diffusion systems. Eight-state cubes remain safe at every step, whereas the first sixteen-state cube already has a genuine intermediate forbidden timestep interval. The exact transition polynomial and dimension-independent counterexample provide actionable nonnegativity diagnostics without computational scanning. The theorem does not purport to classify all timestep sets for dimensions five or higher.
+Walsh characters diagonalize L_d with eigenvalues 2j, giving stability factors rho_j=(6-4jh)/(6+8jh+4j²h²) and Hamming-distance Krawtchouk kernels. Reconstructed all 14 rational kernels at d=1..4 exactly from the character sum. At d=3 the only numerator negative coefficient is absorbed by strictly positive 12h²-14h+22; d<=2 follow by coordinate marginalization. At h=3/2 rho_1=0 and rho_j<0 for j>=2, and the d4 diagonal is exactly -3/1804; termwise binomial monotonicity extends negativity to all d>=4. At d4 all four offdiagonal numerators have positive coefficients, while diagonal is octic P(h) divided by positive quadratics. Descartes two sign changes and signs at h=0,3/2,infty imply exactly two positive roots alpha 1.46546725520286 and beta 5.52994947048244, yielding [0,alpha] union [beta,infty). The linear mass eigenvector is preserved, giving row and column sums one. Independent exact SymPy recalculation verifies rational identities and root location; infinite frontier uses the analytic argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Numipedia supplies the Radau IIA2 third-order rational stability function and zero absolute-monotonicity radius; this general method datum does not fix graph-specific positivity in any hypercube dimension. Zappavigna et al. examine Padé transformations of positive systems and conditions for general positive system preservation; their 2010 full PDF is specifically diagonal [p/p] Padé rather than this Radau [1/2] graph family, and 2012 examples concern general matrices/second-order Padé. Related published SCOPE positivity examples concern other integrators or graphs. The sharp d=4 loss/reentry polynomial and all-dimension bad step remain distinct best-of-knowledge findings.
+
+## value
+
+PASS
+
+Positivity is essential for diffusion on product graphs; exact dimension frontier and disconnected Q4 admissible timestep set exhibit a concrete nonmonotone structural phenomenon invisible to scalar absolute-monotonicity radii. A natural infinite graph family and sharp finite-dimension boundary are classified without claiming the unresolved full time-set for d>=5.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
