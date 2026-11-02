@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (C): PASS.** The unique Wardrop link-flow formula follows from equality of the symmetric direct-route costs and the three complementarity regions. A linear revenue segment followed by a strict concave quadratic proves global toll optimality, including equality cases. Direct algebra gives the physical delay and harm; convexity in shortcut flow gives the independent social optimum. The separate exact-rational checker replayed 55,507 assertions; it corroborates rather than replaces the all-real proof.
+
+**Originality (O): PASS within inspected evidence, with residual risk.** The closest relevant comparison is Huang, Ozdaglar and Acemoglu's path-price monopoly theorem, which can set the price of *each* route and consequently has a different feasible instrument set. Verhoef's private-franchising work addresses second-best pricing, network effects and capacity choice, but the inspected relevant sections do not cover the exact joint price/physical-harm four-vertex law. A prior untolled random-demand Braess calculation does not imply the private revenue and social-control phase diagram. Historical exact calculations in the transportation-economics literature may remain undiscovered. The full Penchina minimum-revenue manuscript was not available for detailed examination; its objective differs in the accessible abstract.
+
+**Value (V): PASS.** Only the new shortcut is monetizable in a realistically restricted second-best market. The theorem proves a complete, exact mismatch between profit-maximizing and physical-delay-minimizing use, with a sharp demand interval where private pricing fails to cure a Braess degradation, despite unconstrained route-pricing theory's very different conclusion. This is a canonical policy-design benchmark, not an empirical forecast for any road network.
+
+The proof covers fixed, positive nonatomic demand, constant per-user toll, and symmetric congestion arcs. It does not address heterogeneous users, demand elasticity, or construction costs. Finite tests are not a substitute for analytic quantifiers. The novelty judgment is bounded by source access, and there has been no independent external validation.
+
+Self-review: passed. Independent audit: not yet performed.
