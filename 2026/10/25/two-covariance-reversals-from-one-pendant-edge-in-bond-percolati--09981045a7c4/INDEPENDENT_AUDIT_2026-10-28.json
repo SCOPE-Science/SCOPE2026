@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T10:52:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any connected unicyclic original graph, open bridges B=M-LZ where M counts retained edges and Z indicates all L cycle edges are open. Indicator covariance gives Cov(M,I)=-p sum_v d_v q^(d_v), and Cov(Z,I)=-p^L sum_{cycle}q^(d_v), so Cov(B,I)=-p sum d_v q^d+L p^L sum_{cycle}q^d. In the single-leaf case degrees are one 1, one 3 and L-1 twos, resulting in pq times Phi_L=-1-2(L-1)q-3q² +L p^(L-1)q(L-1+q). Under odds u=p/q, multiplication by (1+u)^(L+1) yields F_L=L u^(L-1)((L-1)u+L) -(1+u)^(L-1)(u²+2Lu+2(L+1)). All coefficients below u^(L-1) negative, with higher signs -,+,- for L>=4: Descartes gives at most two positive roots counted with multiplicity. For L<=6 the bounding quadratic has negative discriminants -44,-83,-96,-23, establishing no roots. Exact L7 witness Phi_7(13/14)=15515949/210827008>0; for all L>=8 q=1/(2L) and the explicit exponential lower bound give positive witnesses, while Phi(0)<0 and Phi(1)<0. Therefore precisely two simple zeros for L>=7, and one on bare C_L. Independently checked odds-polynomial identities L3..9, exact rational positive witnesses L7..100, and inspected complete exhaustive subset verifier for L3..8. All-L result is analytic, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General random-cluster bridge formulas involve bridges and connectivities, while configuration-network work studies endpoint-degree correlations of randomly sampled bridges."
+        ],
+        "reasoning": "No inspected general covariance theorem mathematically implies the specific two-root bound or L=7 crossover. Such results may be derivable from established generating functions, a genuine priority risk rather than automatic coverage.",
+        "searches": [
+          "bond percolation unicyclic cycle pendant leaf covariance bridges isolated vertices two sign changes threshold",
+          "Elçi Weigel Fytas 2015 arXiv:1509.00668",
+          "Bonneau Biham Kühn Katzav arXiv:2009.03682"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bond percolation unicyclic cycle pendant leaf covariance bridges isolated vertices two sign changes threshold",
+        "arXiv:1509.00668 abstract",
+        "arXiv:2009.03682 abstract",
+        "Full Resultary component–triangle covariance published RESULT",
+        "Original assigned RESULT.md c8d78153cebf9c2e2f1323fcd7cf1e31843f2d2a and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharp two-switch proof uses F_L(u) sign coefficients and positive rational witness, not a direct specialization of the previously published triangle covariance."
+        ],
+        "reasoning": "Known indicator algebra would yield the basic identity, but nothing in the inspected specific prior claims establishes the root count and threshold; the complete new inference is the Descartes-plus-witness classification.",
+        "searches": [
+          "bond percolation unicyclic cycle pendant leaf covariance bridges isolated vertices two sign changes threshold",
+          "Full published Resultary component-triangle RESULT.md",
+          "arXiv:1509.00668 bridged random-cluster abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Elçi et al analyze bridge densities/bridge-count fluctuations and graph components; the compared Resultary result uses component count versus open triangles."
+        ],
+        "reasoning": "Bridge count and isolated vertex count are different from component count and triangle count. An indicator identity can compute their covariance but the L=7 exact two-zero theorem needs a distinct sign-polynomial analysis.",
+        "searches": [
+          "bond percolation unicyclic cycle pendant leaf covariance bridges isolated vertices two sign changes threshold",
+          "arXiv:1509.00668",
+          "Resultary 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed unicyclic example studies neighborhood homology not percolation; published component-triangle identity involves C,T, not B,I."
+        ],
+        "reasoning": "No exact published two-switch bridge–isolation table found in checked database; the semantic index cannot certify absence.",
+        "searches": [
+          "bond percolation unicyclic cycle pendant leaf covariance bridges isolated vertices two sign changes threshold",
+          "Resultary published component-triangle covariance 2026/10/4",
+          "Resultary 2026/10/11/SCOPE-a-sharp-connected-unicyclic-obstruction-to-neighborhood-homology--a4c7fe85092a"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact sharp L=7 reentrant bridge–isolation covariance threshold. Prior independent-percolation bridge identities concern bridge number, density or covariance with *component count*, and published component-triangle covariance concerns another pair of statistics. Formula for B=M-LZ is elementary, so the claimed new fact is the two-root phase theorem, not generic covariance algebra.",
+      "residual_risks": [
+        "A general bridge–isolation joint generating-function treatment might contain the two-zero classification in equivalent form, particularly unindexed finite network literature.",
+        "The full preprint of Elçi et al was not materially inspected here; no whole-document noncoverage assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE_PARTIAL",
+          "evidence": "Bridge density and fluctuations, not shown in read material to cover covariance with isolated vertex count; full text remains residual priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.00668",
+          "material_read": "Accessible primary abstract and citation metadata; full preprint could not be read during run",
+          "method": "Abstract-level comparison, no whole-document exclusion",
+          "title": "Bridges in the random-cluster model",
+          "trigger": "Same open-edge bridge count in independent bond percolation"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLES",
+          "evidence": "Its Cov(component count, open triangles) formula cannot be substituted for Cov(open bridges, isolated vertices) without a different identity and graph-specific analysis.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+          "material_read": "Entire public RESULT.md including conditioned finite-graph formula, proof and limitations",
+          "method": "Read all variables, conditioning and implication coverage",
+          "title": "Three-point connectivity exactly controls component–triangle covariance",
+          "trigger": "Closest indexed exact percolation covariance identity"
+        },
+        {
+          "assessment": "DIFFERENT_COVARIANCE",
+          "evidence": "Studies degrees at endpoints of sampled bridges on random configuration-model networks, not graph-wide bridge–isolation covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.03682",
+          "material_read": "Primary abstract and bibliographic metadata only",
+          "method": "Abstract-level scope comparison",
+          "title": "Statistical analysis of edges and bridges in configuration model networks",
+          "trigger": "Bridge statistics and covariance terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A one-edge structural perturbation of a natural unicyclic network changes the bridge–isolation covariance from one sign switch to a sharp two-switch pattern at L=7. The exact global root-count transition is motivated by interacting topological connectivity and local isolation observables, and distinguishes a small natural graph family from its leafless base.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact sharp sign theorem is for simple one-leaf cycles L>=3, not all unicyclic hosts.",
+    "Homogeneous independent bond retention p in (0,1), covariance not correlation or independence.",
+    "Decimal zeros for L=7 are illustrative, not necessary for proof."
+  ],
+  "schema_version": 1
+}
