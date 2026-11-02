@@ -1,15 +1,21 @@
-# Scientific review — gear-graph strong odd colorings
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The vertex-by-vertex neighborhood analysis yields a complete dichotomy: each subdivision color equals the hub color, or every subdivision color differs from it and adjacent subdivision colors are unequal. The hub requires every occupied rim color class to have odd cardinality, while the degree-two vertices force a proper cyclic rim word. The lower bounds follow from class parity, the cycle independence number, and chromaticity, and explicit seed words extended by four positions attain each bound. The named-color enumeration separates the two disjoint modes, derives the odd-order signed trace with characteristic polynomial \(\lambda^3+\lambda+2\), supplies a finite inclusion-exclusion certificate for the five-rim case, and proves the parity-transfer trace bijection for all multiples of four. A standalone second route directly checks each actual graph neighborhood for small orders. Risks: the programmatic checks alone establish only finite cases, not the all-order statements; the written structural proof supplies the latter.
+## correctness
 
-## Originality
-**PASS under the documented literature comparison, with residual priority risk.** Kwon and Park's introduction and bounds, Caro et al.'s more general graph-class statements, and Manattu et al.'s *unsubdivided wheel* theorem were examined. The wheel theorem imposes distance-two rim separation, unlike the gear graph's adjacency plus subdivision-state constraint; neither it nor the previously indexed minimum-wheel-coloring enumeration determines the two-mode gear classification. Publicly indexed gear-graph results inspected by title concern mixed resolving sets, not strong odd coloring. A recent relevant specialized coloring work might remain unindexed or inaccessible, and the priority assessment is not exhaustive.
+PASS
 
-## Mathematical value
-**PASS.** The gear graph is a standard bipartite wheel family, and strong odd coloring is a recently introduced local-parity invariant. The theorem gives an exact all-length classification with a sharp isolated six-color anomaly at rim length five, a two-mode local rigidity theorem, and the complete named-optimal-coloring census. It demonstrates a large, structured change from known wheel behavior under edge subdivision; the fixed-size transfer formula captures the otherwise nontrivial multiple-of-four enumeration. This is an exact natural graph-family invariant, not an arbitrary finite slice or a parameter renaming.
+PASS: Vertex w_i of degree two forces neighboring rim colors different. At v_i, neighborhood {hub,b_{i−1},b_i} has all nonzero color multiplicities odd exactly when both b are hub color or both are distinct nonhub; propagation around cycle gives two modes. Hub forces each used rim color class to appear an odd number of times. Cycle independence bound and parity show lower bounds on palette: 2 rim colors only for n≡2 mod4, 3 rim colors possible odd n except 5, and 4 rim colors for 4|n; case n5 three-color rim class (3,1,1) violates α(C5)=2. Explicit seed words and length+4 extension attain bounds. For odd n≠5, signed 3×3 cycle trace characteristic polynomial λ³+λ+2 gives N=2^n−2−3S_n+24[3|n]; mode B cyclic square colorings require 3|n. At n5 inclusion-exclusion gives exactly 68 nonhub subdivisions per 5! rim word and 6 choices of hub, N5=49680. For 4|n, transition matrices A4 and B4 over squarefree parity group algebra give complete exact counts. Independent integer closed-walk parity DP for n3..12 matched counts 48,360,49680,6,168,37920,552,6,1848,10670760 and minimum palettes; finite evidence supplements all-order proof.
 
-## Limitations and relevant literature
-The result does not cover nonminimal color palettes, other Jahangir graphs, or an automorphism-orbit census. The even-order optimum-count formula is expressed as a finite matrix trace and parity coefficient rather than an expanded scalar recurrence. The relevant sources are Kwon–Park (arXiv:2401.11653), Caro–Petruševski–Škrekovski–Tuza (arXiv:2410.02336), and Manattu–Vinay–Lakshmanan (arXiv:2602.03259); their precise coverage and the residual priority risk are recorded in AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Kwon–Park define strong odd coloring and sparse bounds, Caro–Petruševski–Škrekovski–Tuza address broad graph classes, and Manattu–Vinay–Lakshmanan prove ordinary wheel values with distance-two rim constraints. Subdivided gear graph has a different neighborhood, forced two-mode decomposition and optimum census. Named-colour count and n5 exception are not implied by cited wheel theorem. Unindexed gear/Jahangir parity results remain risk.
+
+## value
+
+PASS
+
+PASS: A canonical bipartite wheel family and a recently defined natural vertex-coloring invariant exhibit sharp mod-four phase transitions, isolated n5 six-color anomaly and complete exact counts of every optimal named coloring. The complete structural mode classification plus fixed-size transfer count is a useful natural classification, not a numerical curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

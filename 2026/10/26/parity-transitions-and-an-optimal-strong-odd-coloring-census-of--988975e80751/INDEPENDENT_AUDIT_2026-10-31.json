@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T13:12:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Vertex w_i of degree two forces neighboring rim colors different. At v_i, neighborhood {hub,b_{i−1},b_i} has all nonzero color multiplicities odd exactly when both b are hub color or both are distinct nonhub; propagation around cycle gives two modes. Hub forces each used rim color class to appear an odd number of times. Cycle independence bound and parity show lower bounds on palette: 2 rim colors only for n≡2 mod4, 3 rim colors possible odd n except 5, and 4 rim colors for 4|n; case n5 three-color rim class (3,1,1) violates α(C5)=2. Explicit seed words and length+4 extension attain bounds. For odd n≠5, signed 3×3 cycle trace characteristic polynomial λ³+λ+2 gives N=2^n−2−3S_n+24[3|n]; mode B cyclic square colorings require 3|n. At n5 inclusion-exclusion gives exactly 68 nonhub subdivisions per 5! rim word and 6 choices of hub, N5=49680. For 4|n, transition matrices A4 and B4 over squarefree parity group algebra give complete exact counts. Independent integer closed-walk parity DP for n3..12 matched counts 48,360,49680,6,168,37920,552,6,1848,10670760 and minimum palettes; finite evidence supplements all-order proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kwon/Park and Caro et al. prove upper bounds and other graph families; Manattu et al. compute wheel χ_so but not gears or named optimal counts."
+        ],
+        "reasoning": "Broad planar/sparse upper bounds cannot imply equality or all-length count; wheel values do not transfer via subdivision because strong odd neighborhood multiplicities change.",
+        "searches": [
+          "strong odd coloring gear graphs exact chromatic number enumeration optimal colorings",
+          "arXiv:2401.11653",
+          "arXiv:2410.02336",
+          "arXiv:2602.03259"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2401.11653",
+        "https://arxiv.org/abs/2410.02336",
+        "https://arxiv.org/pdf/2602.03259",
+        "https://mathworld.wolfram.com/GearGraph.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known wheel rim has distance-two restriction; gear rim requires adjacent distinctness and has independent subdivision colors in one mode."
+        ],
+        "reasoning": "The new two-mode structural lemma and parity transfer are necessary to obtain χ_so and exact named counts, not a substitution of wheel formulas.",
+        "searches": [
+          "arXiv:2602.03259 Theorem 1 and Section 2",
+          "arXiv:2410.02336 Sections 2–4",
+          "arXiv:2401.11653 main results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gear graph also called bipartite wheel/Jahangir J(2,n); Manattu et al. wheel theorem pertains to K1∨C_n without rim subdivisions."
+        ],
+        "reasoning": "Search included all natural equivalent graph names; unlike wheel, degree-three rim neighbors create hub/subdivision two-mode dichotomy.",
+        "searches": [
+          "strong odd coloring gear graphs exact chromatic number enumeration optimal colorings",
+          "strong odd chromatic Jahangir J(2,n) subdivided wheel rim",
+          "arXiv:2602.03259"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns crown graph (different graph family) and standard gear definitions, not gear strong odd census; no exact table covering n5 49680 among checked sources."
+        ],
+        "reasoning": "No finite n table proves all-n matrix trace; search of indexed data found no dominating formula, not proof of historical uniqueness.",
+        "searches": [
+          "strong odd coloring gear graphs exact chromatic number enumeration optimal colorings",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-odd-independence-and-strong-odd-coloring-of-odd-crown-graphs--3bc0465d6248"
+        ]
+      },
+      "rationale": "PASS qualified: Kwon–Park define strong odd coloring and sparse bounds, Caro–Petruševski–Škrekovski–Tuza address broad graph classes, and Manattu–Vinay–Lakshmanan prove ordinary wheel values with distance-two rim constraints. Subdivided gear graph has a different neighborhood, forced two-mode decomposition and optimum census. Named-colour count and n5 exception are not implied by cited wheel theorem. Unindexed gear/Jahangir parity results remain risk.",
+      "residual_risks": [
+        "Potential specialized unindexed gear graph or Jahangir graph strong odd coloring classification could dominate the result.",
+        "The named-color count at n=5 and all-n transfer recurrence are independent of finite checks beyond tested n, as explicitly proven."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the invariant; general sparse bounds do not give exact gear profile or census.",
+          "evidence": [
+            "Thm 1.2–1.3, definition"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.11653",
+          "material_read": "Full source PDF/theorem regions and page image inspected; main sparse-graph bounds",
+          "method": "Read parsed PDF and screenshot",
+          "title": "Strong odd coloring of sparse graphs",
+          "trigger": "Originating definition and possible broad sparse theorem"
+        },
+        {
+          "assessment": "No explicit all-length gear theorem in inspected material; uninspected portions not categorically called noncovering.",
+          "evidence": [
+            "Introduction and family descriptions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.02336",
+          "material_read": "Arxiv abstract and primary theorem summary; full article not re-read this execution",
+          "method": "Compared families trees, unicyclic, products, planar bounds",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Broad graph-class theorem potentially covering gears"
+        },
+        {
+          "assessment": "Computes unsubdivided wheel, not the subdivided gear n5 exception or matrix census.",
+          "evidence": [
+            "§2 Thm 1; Observations 1–2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.03259",
+          "material_read": "Full PDF and section 2 with theorem and page image",
+          "method": "Read theorem statements and wheel neighborhood distinction",
+          "title": "On a conjecture about the strong odd chromatic number of planar graphs",
+          "trigger": "Closest exact wheel analysis"
+        },
+        {
+          "assessment": "Standard graph G_n corresponds to wheel rim subdivisions; no strong odd formula in definition.",
+          "evidence": [
+            "Definition"
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/GearGraph.html",
+          "material_read": "Definition and illustration of standard gear graph",
+          "method": "Compared edge/vertex labeled construction",
+          "title": "Gear Graph",
+          "trigger": "Confirm graph identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A canonical bipartite wheel family and a recently defined natural vertex-coloring invariant exhibit sharp mod-four phase transitions, isolated n5 six-color anomaly and complete exact counts of every optimal named coloring. The complete structural mode classification plus fixed-size transfer count is a useful natural classification, not a numerical curiosity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only wheel graphs with all rim edges subdivided exactly once, n>=3; named optimal colors, not unlabeled or nonoptimal coloring census.",
+    "Even multiples four represented by exact group-algebra matrix trace rather than a scalar closed recurrence.",
+    "Potential specialized unindexed gear graph or Jahangir graph strong odd coloring classification could dominate the result.",
+    "The named-color count at n=5 and all-n transfer recurrence are independent of finite checks beyond tested n, as explicitly proven."
+  ],
+  "schema_version": 1
+}
