@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "For every inclusion-minimal Hall-deficient group \\(Z\\) of size \\(z\\), its neighborhood has exactly \\(z-1\\) houses. Removing it exhausts one highest remaining tier of each participating agent. Each agent belongs to at most \\(k-1\\) groups, since an agent on her final remaining tier sees every active house and cannot be Hall deficient while at least \\(n\\) houses remain. For \\(T\\) rounds, the removal count obeys \\(R\\le\\min\\{(n-1)T,n(k-1)-T\\}\\le(n-1)(k-1)\\). Therefore \\(m\\ge k(n-1)+1\\) leaves at least \\(n\\) houses and forces a saturating top-choice matching. Identical tiers each of size \\(n-1\\) give the sharp obstruction at \\(m=k(n-1)\\). Exhaustive small-domain and standalone randomized checks corroborate but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dai et al. 2026 studies optimization and hardness of subsidies for house assignments, including binary preferences and agent types.",
+        "Teh et al. 2026 studies online assignments with subsidies and recourse.",
+        "Choo et al. 2024 studies minimum-subsidy house allocation.",
+        "Aigner-Horev and Segal-Halevi 2022 characterize envy-free partial matchings in a single unweighted bipartite graph, not resource thresholds for iterative ordinal-tier assignment."
+      ],
+      "reasoning": "A subsidy-existence theorem does not establish an all-profile zero-subsidy sharp capacity bound. Agent type count and online recourse differ from the number of indifference tiers per agent. No inspected broader theorem implies both upper and lower bounds.",
+      "searches": [
+        "\"house allocation weak preferences k levels m > k(n-1) existence envy free matching\"",
+        "\"at least k(n-1)+1 objects n agents at most k different values envy-free allocation one object each\"",
+        "arxiv:2608.22216",
+        "arxiv:2609.29691",
+        "arxiv:2403.01162",
+        "arxiv:1901.09527"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1905.00468 (full text; known matching algorithm)",
+      "AAAI-24:28802 (PDF; weak preferences under uncertainty)",
+      "arxiv:2608.22216 (full-text subsidy complexity)",
+      "arxiv:2609.29691 (full-text online subsidies)",
+      "arxiv:2403.01162 (minimum-subsidy paper)",
+      "Targeted searchable published mathematical research records for house supply, indifference tiers, binary valuations and Hall violators",
+      "arxiv:1901.09527 (full text; envy-free matching in unweighted acceptability graph)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gan et al. 2019 Algorithm 1 supplies the Hall-deficient elimination idea; its existence test alone does not bound the number of deletions as a function of the tiers.",
+        "The new proof establishes \\(R\\le\\min\\{(n-1)T,n(k-1)-T\\}\\), the cross-round quantitative invariant.",
+        "AAAI 2024 treats uncertain strict refinements of weak preferences and polynomial decision procedures, not a bounded-tier universal guarantee."
+      ],
+      "reasoning": "Known elimination rules plus Hall matching are strictly used as methods. The target conclusion quantifies resources needed to force successful termination across all preference profiles and gives tight lower examples; no inspected known statement entails this sharp quantitative assertion without the additional counting lemma.",
+      "searches": [
+        "Gan Suksompong Voudouris envy-free house allocation bounded preference levels Hall violator elimination count sharp supply",
+        "Gan Suksompong Voudouris 2019 minimal Hall violators house allocation k preference indifference classes sharp number of houses",
+        "arxiv:1905.00468",
+        "AAAI 2024 Envy-Free House Allocation under Uncertain Preferences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gan–Suksompong–Voudouris 2019 gives Hall-based envy-free existence algorithm, not a stated universal sharp tier-count threshold.",
+        "Aziz et al. AAAI 2024 uses weak-order input for uncertain preferences, but its existence statements concern positive-probability or guaranteed tie refinements, not deterministic envy-free assignment under ties."
+      ],
+      "reasoning": "Equivalent phrases include rank-class diversity, bounded distinct ordinal values, dichotomous house valuations, sufficient house surplus, and forbidden Hall deficient sets. The inspected text does not show the quantified \\(k(n-1)+1\\) theorem under these formulations. The algorithm by itself is not asserted original.",
+      "searches": [
+        "\"envy-free house allocation\" \"number of tiers\" guarantee",
+        "\"envy-free\" \"k(n-1)\" \"houses\"",
+        "Envy-free house allocation with at most k indifference tiers per agent: any k(n-1)+1 houses suffice, sharp, minimal Hall-violator peeling",
+        "arxiv:1905.00468"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted title/summary queries returned randomized assignment efficiency, SD envy-freeness, and matching rank objectives rather than a house-count spectrum.",
+        "The sharp lower-bound family can be generated directly for each n,k without relying on any preexisting finite table."
+      ],
+      "reasoning": "No exact database/table entry found with the capacity law. A negative search is only evidence of search coverage, not proof of mathematical priority.",
+      "searches": [
+        "Binary dichotomous preferences one house per agent, at least 2n-1 houses guarantee subsidy-free envy-free matching; sharp supply threshold",
+        "House allocation coarse ordinal preferences bounded distinct values tiers matching supply universal envy-free existence",
+        "\"house allocation binary valuations 2n-1 goods houses agents theorem\""
+      ]
+    },
+    "rationale": "The known Hall-violator elimination process is acknowledged as earlier work (Gan–Suksompong–Voudouris 2019). The assessed new implication is the exact worst-case house-capacity guarantee \\(m\\ge k(n-1)+1\\) for each agent having \\(\\le k\\) weak-order tiers, with a sharp homogeneous lower bound, derived via the T-round tier-incidence budget; inspected full primary texts do not state this quantified capacity theorem. Unindexed-priority risk remains.",
+    "residual_risks": [
+      "The sharp tier-count result might be folklore or appear in unindexed discussion of the 2019 Hall-elimination algorithm.",
+      "Searchable mathematical records and open-access texts cannot establish global first discovery.",
+      "The theorem does not solve optimization below its sharp universal guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Framework is known; universal sharp bound parameterized by preference-tier count is not stated in inspected material",
+        "evidence": [
+          "Hall-violator removal used for deterministic envy-free matching; separate random preference guarantee at m on order n log n."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.00468",
+        "material_read": "Algorithm 1, Theorems 2.2 and 2.3, problem setup and proof discussion",
+        "method": "Full open-access paper text, with original elimination steps and results compared",
+        "title": "Envy-Freeness in House Allocation Problems",
+        "trigger": "Known direct house-allocation existence method and possible dominating theorem"
+      },
+      {
+        "assessment": "Concerned with stochastic strict refinements, maximization of probability and complexity, not sharp deterministic tier-bounded guarantee",
+        "evidence": [
+          "AAAI 2024, preliminary definition of compact indifference; Section 4 and related-work discussion identify known Gan algorithm."
+        ],
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/download/28802/29534",
+        "material_read": "Full eight-page conference PDF, introduction, preliminaries, structural algorithmic results, compact-indifference section",
+        "method": "Opened and inspected accessible conference PDF and page image",
+        "title": "Envy-Free House Allocation under Uncertain Preferences",
+        "trigger": "Direct compact-indifference formulation of house allocation"
+      },
+      {
+        "assessment": "No direct bound for guaranteed zero transfers from m>=k(n−1)+1 across arbitrary weak orders",
+        "evidence": [
+          "Studies optimizing subsidies and hardness; number of agent types differs from rank-tier bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.22216",
+        "material_read": "Open-access full HTML, introduction and sections on binary valuations, agent types and subsidies",
+        "method": "Read full-text research version and compared model implications",
+        "title": "The Complexity of Minimizing Subsidies in Envy-Free House Allocation",
+        "trigger": "Current offline subsidy literature involving binary preferences and types"
+      },
+      {
+        "assessment": "Dynamic assignment and payments do not imply the offline zero-payment capacity law",
+        "evidence": [
+          "Provides online subsidy and recourse results under different timing assumptions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.29691",
+        "material_read": "Full open-access HTML, model and guarantees",
+        "method": "Inspected online allocation assumptions and theorem scope",
+        "title": "Online House Allocation with Subsidy",
+        "trigger": "Recent online subsidy and assignment model"
+      },
+      {
+        "assessment": "Subsidy optimization does not state or imply sharp capacity-forced zero subsidy for weak preferences",
+        "evidence": [
+          "Treats envy-freeability and minimizing transfers, not upper bound on number of houses by rank tiers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.01162",
+        "material_read": "Available full-text introduction, formal problem scope and main theorem overview",
+        "method": "Inspected open-access full paper sections",
+        "title": "Envy-Free House Allocation with Minimum Subsidy",
+        "trigger": "Potentially stronger minimum-subsidy covering result"
+      },
+      {
+        "assessment": "Single-graph envy-free matching is a different property; it provides no theorem on how the number of ranked indifference tiers guarantee successful matching after successive house deletions",
+        "evidence": [
+          "Its Corollary 1.4 and Theorem 1.5 concern envy-free partial matchings in a fixed bipartite graph; their conclusions do not quantify house supply from ordinal tier depth."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1901.09527",
+        "material_read": "Full open-access HTML, introduction, Theorem 1.3 and Corollary 1.4, Section 2 proof and the fair-house assignment applications",
+        "method": "Inspected structural decomposition, matching saturation and fairness scope",
+        "title": "Envy-free Matchings in Bipartite Graphs and their Applications to Fair Division",
+        "trigger": "Potentially stronger generic bipartite envy-free matching theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f3e6d224-826f-48ea-95ae-5fce051dcf14",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp uniform resource threshold quantifies exactly how many spare houses guarantee a zero-transfer envy-free allocation in any coarse ordinal market with at most \\(k\\) tiers per agent. Heterogeneous arbitrary weak preferences are allowed; the two-tier \\(2n-1\\) boundary and homogeneous impossibility witnesses are natural economic capacity results. A new cross-round structural invariant upgrades a known decision algorithm to a nontrivial exact universally quantified extremal theorem.",
+    "status": "PASS"
+  }
+}
