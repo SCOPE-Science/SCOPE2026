@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T20:57:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every length n>=4 binary word with exactly four ones, cyclic rotation to the distinguished one gives ordered gap vector g in N^4, sum g=n-4. There are n choices of marked position per ordered gap tuple and 4 choices of marked one per word, proving 4N_r(n)=n h_r(n-4). Sorting all rotations by decreasing zero-prefix gap level and successor-gap lexicographic comparisons yields each BWT bit exactly; ties have identical preceding bits. Every gap vector lies uniquely in a weak rank-pattern cell with gap rank jumps 1 or >=2, plus free minimal gap. The run count is invariant under these latter shifts for nonconstant patterns. The 365 finite pattern/jump cells exhaust all g, and each has a rational geometric enumerator; the exact finite polynomial identity yields H_1=1, H_2=(4z+2z^2+4z^3+z^4)/(1-z^4), the displayed H_4,H_6,H_8 and sum (1-z)^(-4). Independent direct rotation-sorting for every 4-one word n=4..13 matched the coefficients of all five rational generating functions (including n=9 counts 9,63,36,18). This test is finite; the 365-cell classification and polynomial identity prove all lengths. Independent reimplementation of the 365 rank-and-gap cells formed the exact common-denominator polynomial separately for each run class; all five symbolic numerator identities and the total (1-z)^(-4) were verified as polynomial identities over integers, not merely by truncated series.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fici et al. full CPM2023 DOI:10.4230/LIPIcs.CPM.2023.10, Sections 2–7 prove morphism effects and possible changes in BWT run numbers; Kufleitner arXiv:0908.0239 gives transform variants."
+        ],
+        "reasoning": "Neither morphism-preservation nor existence of arbitrary even run increments determines the finite-content distribution for every n. The all-length enumerator requires an additional finite 365-cell gap classification.",
+        "searches": [
+          "Resultary Search: binary circular Burrows Wheeler transform fixed Hamming weight four run count spectrum rational generating functions",
+          "Web search: Burrows Wheeler transform binary four ones number of runs spectrum formula"
+        ]
+      },
+      "checked_sources": [
+        "https://pages.di.unipi.it/rosone/Papers/MRRRS_FI2017.pdf",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol259-cpm2023/LIPIcs.CPM.2023.10/LIPIcs.CPM.2023.10.pdf",
+        "https://arxiv.org/abs/0908.0239",
+        "Resultary semantic query: binary circular Burrows Wheeler transform fixed Hamming weight four run count spectrum rational generating functions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fici et al. Proposition 4 r_BWT=2 iff circular balance, while the current 5-function law gives r=4,6,8 as well. Mantaci et al. §4 only imposes fixed point BWT(w)=w."
+        ],
+        "reasoning": "These results do not imply the full joint frequency law; they cover a proper structural subset or an invariant of morphism action. The standard BWT algorithm permits computation but does not trivialize or prestate symbolic run enumerators.",
+        "searches": [
+          "Resultary Search: binary circular Burrows Wheeler transform fixed Hamming weight four run count spectrum rational generating functions",
+          "Web search: Burrows Wheeler transform binary four ones number of runs spectrum formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mantaci et al. (2017), open PDF abstract and §4 classifies fixed points BWT(w)=w containing <=4 minority letters. Fici et al. CPM2023 p.4 Proposition 4 identifies r_BWT=2 with circularly balanced inputs."
+        ],
+        "reasoning": "Counting every length-n word with four ones by its BWT run count is not a fixed-point census or merely a characterization of two-run inputs; the full run frequency N_r(n) is new information.",
+        "searches": [
+          "Resultary Search: binary circular Burrows Wheeler transform fixed Hamming weight four run count spectrum rational generating functions",
+          "Web search: Burrows Wheeler transform binary four ones number of runs spectrum formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct n=9 histogram (2:9,4:63,6:36,8:18) and n=13 (2:13,4:169,6:325,8:208); Sum H=(1-z)^(-4). Published-Resultary semantic search gave no matching BWT weight-four enumerator."
+        ],
+        "reasoning": "Finite histograms alone could be pre-existing tables; no full all-length rational family matching these quantities was identified. Absence of search result is not definitive priority evidence.",
+        "searches": [
+          "Resultary Search: binary circular Burrows Wheeler transform fixed Hamming weight four run count spectrum rational generating functions",
+          "Web search: Burrows Wheeler transform binary four ones number of runs spectrum formula"
+        ]
+      },
+      "rationale": "The full 2017 small-content paper treats BWT fixed points, not the run distribution on all inputs; the 2023 full morphism paper characterizes changes under morphisms and r=2 balancedness, but does not state the complete fixed-weight-four distribution. No equivalent published indexed run generating function was identified. The result is a constrained, natural complete classification, not an invented general higher-weight law.",
+      "residual_risks": [
+        "Unindexed fixed-Parikh-vector BWT enumerators may predate the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-point BWT(w)=w counts, not all input run counts",
+          "evidence": [
+            "Abstract and section 4 header: fixed points over binary alphabet, up to four b letters"
+          ],
+          "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRRS_FI2017.pdf",
+          "material_read": "PDF abstract, introduction and section 4 incl. Proposition 4.1 and nearby small-weight classification",
+          "method": "Parsed PDF text plus visual screenshot of page 7",
+          "title": "Combinatorial Analysis of the Burrows-Wheeler Transform / On Fixed Points of the BWT",
+          "trigger": "Title and §4 explicitly discuss binary words with four occurrences"
+        },
+        {
+          "assessment": "Determines binary morphism preservation, r=2 balancedness and constructions for changes; not full fixed-weight-four enumerators",
+          "evidence": [
+            "p. 5 Proposition 4: r_BWT=2 iff circularly balanced; pp. 1-2 abstract outlines morphism results"
+          ],
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol259-cpm2023/LIPIcs.CPM.2023.10/LIPIcs.CPM.2023.10.pdf",
+          "material_read": "Complete 18-page OA PDF, introduction, preliminaries, Proposition 4 and main theorem sections",
+          "method": "Parsed full text and rendered page 5 screenshot",
+          "title": "On the Impact of Morphisms on BWT-Runs",
+          "trigger": "Same r_BWT invariant, binary morphisms and Parikh vectors"
+        },
+        {
+          "assessment": "Defines transform variants but cannot claim whole-document noncoverage",
+          "evidence": [
+            "arXiv:0908.0239, 2009; full text not fully inspected in this run"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0908.0239",
+          "material_read": "Abstract and cited algorithmic definitions; HTML endpoint for full text unavailable on this run",
+          "method": "Direct open-access bibliographic page comparison",
+          "title": "On Bijective Variants of the Burrows–Wheeler Transform",
+          "trigger": "Foundational circular transform/variant source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first natural nontrivial sparse binary stratum beyond small fixed content admits an exhaustive all-length run spectrum. Five explicit rational generating functions give exact frequencies and the sharp onset of eight runs at length nine, useful for fine-grained analysis of BWT repetitiveness. The 365-cell proof is a nontrivial self-contained symbolic classification rather than an arbitrary isolated length table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://pages.di.unipi.it/rosone/Papers/MRRRS_FI2017.pdf",
+    "https://drops.dagstuhl.de/storage/00lipics/lipics-vol259-cpm2023/LIPIcs.CPM.2023.10/LIPIcs.CPM.2023.10.pdf",
+    "https://arxiv.org/abs/0908.0239",
+    "Resultary semantic query: binary circular Burrows Wheeler transform fixed Hamming weight four run count spectrum rational generating functions",
+    "Frozen Git RESULT.md blob cbab9791eb4d707eb07a0dbf45fa7eaad5567ffe",
+    "Frozen Git verification source verify_bwt4.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only circular sentinel-free binary BWT of linear inputs with exactly four ones; no larger weights or other alphabets.",
+    "The formula concerns linear runs of BWT output; repeated rotations and periodic words are included.",
+    "Unindexed fixed-Parikh-vector BWT enumerators may predate the result."
+  ],
+  "residual_risks": [
+    "Unindexed fixed-Parikh-vector BWT enumerators may predate the result.",
+    "Only circular sentinel-free binary BWT of linear inputs with exactly four ones; no larger weights or other alphabets.",
+    "The formula concerns linear runs of BWT output; repeated rotations and periodic words are included."
+  ],
+  "schema_version": 1
+}
