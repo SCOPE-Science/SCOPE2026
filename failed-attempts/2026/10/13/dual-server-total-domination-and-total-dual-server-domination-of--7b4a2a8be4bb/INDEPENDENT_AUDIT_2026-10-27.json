@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T09:58:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git snapshot https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/13/dual-server-total-domination-and-total-dual-server-domination-of--7b4a2a8be4bb RESULT.md / verify.py / VERIFICATION.md (all 8 files inspected)",
+        "Independent all-part occupancy enumeration through order 10; independent 3-label test through order 8"
+      ],
+      "rationale": "For all connected complete multipartite graphs, the proof is valid: every white vertex in V_i sees red/blue precisely outside V_i; a selected induced subgraph has no isolated vertex exactly when its support meets >=2 parts. A two-vertex DST solution forces two singleton parts; the remaining nonstar minimum is 3 when any part has size <=2 and 4 otherwise, by the stated constructions and singleton-color lower bound. For TDS, each color needs vertices in >=2 parts, so >=4 is necessary; explicit four-vertex constructions exist precisely for nonstars of order >=4. Stars require all vertices for DST and cannot have both TDS colors with edges; K_2 and K_3 are correctly handled. Exact, independent profile-occupancy enumeration on all 128 unordered profiles through N=10 and independent 177534 red/blue/white assignments across 58 profiles through N=8 matched the classification and the equivalence with prior 2-rainbow feasibility; bounded tests are corroboration only.",
+      "residual_risks": [
+        "No finite enumeration certifies the infinite theorem; the independent neighborhood-based proof supplies that step."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 2026-10-04 all-2-rainbow paper enumerates EVERY possible feasible four-label profile on K_{n_1,...,n_r} and gives a full multinomial generating polynomial.",
+          "Restricting the exact all-profile sum to d_i=0 and the two selected-support rules yields the complete feasible DST/TDS coloring families; the proposed minima follow from that stronger exact classification by occupancy casework.",
+          "The original March 2026 DST/TDS paper also already supplies the star, K_{2,m}, and complete-graph cases, TDS lower bound 4 and nonstar existence."
+        ],
+        "reasoning": "The earlier enumerative theorem strictly covers a larger combinatorial universe of two-color labelings, with same objects and arbitrary part parameters; added support constraints are elementary occupancy tests, not new structural machinery. It therefore dominates the target exact scalar formulas even though the formulas are not explicitly printed.",
+        "searches": [
+          "Resultary semantic: generalized dual-server domination colorful total domination multipartite red blue",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58/RESULT.md",
+          "2026-10-04 Resultary publication metadata",
+          "DOI:10.7151/dmgt.2635 full primary text",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-neighborhood-total-2-domination-polynomial-of-complete-multipart--0527708bbf3a/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "2026-10-04 Resultary/2026 all-2-rainbow all-function theorem, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58/RESULT.md",
+        "2026-03-27 Chellali--Haynes--Hedetniemi, DOI:10.7151/dmgt.2635, full text https://www.researchgate.net/publication/404229034_Dual-server_total_domination_and_total_dual-server_domination",
+        "2026-10-04 Resultary neighborhood total 2-domination, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-neighborhood-total-2-domination-polynomial-of-complete-multipart--0527708bbf3a/RESULT.md",
+        "2026-10-04 Resultary exact (3,2)-domination, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-3-2-domination-of-complete-multipartite-graphs--d5fe6eff1a9f/RESULT.md",
+        "2010 Henning--Kazemi k-tuple total domination, DOI:10.1016/j.dam.2010.01.009",
+        "2012 Kazemi On the Total k-domination Number of Graphs, DOI:10.7151/dmgt.1616 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior color-support theorem: e_i>0 implies (I_1\\{i}) and (I_2\\{i}) both nonempty.",
+          "For DST require |support_parts(R union B)|>=2; for TDS require |support_parts(R)|>=2 and |support_parts(B)|>=2. These are precisely isolate-free conditions for complete multipartite induced subgraphs.",
+          "The lowest-cardinality feasible profile is 2 exactly for nonstars with two singleton parts, 3 for remaining nonstars with a part of size <=2, and 4 when all parts >=3; TDS has four when N>=4 and nonstar."
+        ],
+        "reasoning": "The previous paper does NOT literally announce gamma_dst/gamma_tds, but its exact feasibility criterion implies them via two restrictions and minimization over 2,3,4 selected vertices. The target proof performs exactly this elementary case split. Earlier named special cases and TDS lower bound independently corroborate the reduction; no uncovered standalone theorem is demonstrated.",
+        "searches": [
+          "2026-10-04 Resultary all-2-rainbow RESULT.md full text and METADATA.json",
+          "DOI:10.7151/dmgt.2635 definitions and boundaries",
+          "Resultary semantic: generalized dual-server domination colorful total domination multipartite red blue"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier 2026-10-04 all-2-rainbow result proves exact per-part empty-label iff: both color supports meet another part, for all functions, not merely minima.",
+          "The present dual-server feasible colorings are exactly its labelings with d_i=0, both colors nonempty; DST additionally requires selected vertices in at least two parts and TDS requires each color in at least two parts.",
+          "This is a mathematical equivalence of feasible objects under explicit filters; the difference in parameter title does not remove prior coverage."
+        ],
+        "reasoning": "Set e_i=white count, a_i=red count, b_i=blue count, d_i=0 in the prior four-label enumerator. For e_i>0, exact prior feasibility demands red and blue outside V_i, which is precisely the DS definition. A complete multipartite induced subgraph is isolate-free iff selected support meets at least two parts; applying this to S, R and B yields the two total variants. No nonstandard lemma remains.",
+        "searches": [
+          "Resultary semantic: generalized dual-server domination colorful total domination multipartite red blue",
+          "Resultary semantic: dual-server total domination total dual-server domination complete multipartite graph K_{n1,...,nr} exact parameters gamma_dst gamma_tds",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58/RESULT.md",
+          "DOI:10.7151/dmgt.2635 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier published all-labeling multinomial enumerator is an exact formula/database-like structural table over arbitrary complete-multipartite part profiles, strictly more information than DST/TDS minima.",
+          "The neighborhood-total-2-domination all-subset polynomial covers a related uncolored invariant but is not the claimed red-blue invariant.",
+          "No exact same-named DST/TDS table was needed for rejection: restriction of the earlier exact all-color table determines the complete feasible family."
+        ],
+        "reasoning": "An all-configuration exact enumerator can dominate a later minimum-value claim without containing a row headed by that minimum. Fix d_i=0 and filter support, then minimize the selected cardinality; this reproduces each submitted case.",
+        "searches": [
+          "Resultary semantic: dual-server total domination total dual-server domination complete multipartite graph K_{n1,...,nr} exact parameters gamma_dst gamma_tds",
+          "Resultary semantic: complete multipartite dual server total domination gamma dst gamma tds",
+          "Resultary semantic: generalized dual-server domination colorful total domination multipartite red blue",
+          "Resultary full source https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-neighborhood-total-2-domination-polynomial-of-complete-multipart--0527708bbf3a/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL on mathematical implication, not a failed search: the earlier published 2026-10-04 all-2-rainbow functions theorem exhaustively characterizes exact four-label feasible profiles for arbitrary complete multipartite graphs. Restrict to labels empty/red/blue (no double-color label), require both colors nonempty, and impose elementary support-in-at-least-two-parts conditions; this gives exactly DST and TDS feasibility and the target minima by trivial cardinality casework. The prior 2026 source defining the two total parameters additionally settles star, biclique, complete graph and general TDS bounds. Different title and unprinted corollary do not establish novelty.",
+      "residual_risks": [
+        "Prior Resultary all-rainbow publication precedes target publication (2026-10-04 versus 2026-10-13); no exact same-named scalar theorem is asserted, but the implication by restriction is complete.",
+        "Further primary literature under alternate colorful-domination terminology may also cover the scalar special case; extra coverage does not change decisive rejection.",
+        "2012 Kazemi source inspected only at abstract level; no whole-document negative claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY BROADER COVERAGE by a routine restriction and occupancy filters. The prior paper does not say DST/TDS by name but its exact four-label feasibility theorem implies the target scalar claims.",
+          "evidence": "For e_i>0 the published iff condition is I_1\\{i}!=empty and I_2\\{i}!=empty. Restrict the published labels to d_i=0, require each color nonempty, then demand >=2 occupied selected parts for DST or >=2 occupied parts of each color for TDS. The resulting domain is EXACTLY the proposed dual-server total variants; minimizing |R|+|B| gives the claimed 2/3/4 and 4 cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58/RESULT.md",
+          "material_read": "Entire RESULT.md: definitions, exact iff color-support criterion in each empty-containing part, multinomial all-labeling enumerator, minimum-weight proof, limitations; associated METADATA.json publication_date 2026-10-04.",
+          "method": "Fetched and read actual published source text and metadata; compared all label restrictions to the target DST/TDS constraints and independently enumerated the resulting constraints on finite profiles.",
+          "title": "All 2-rainbow dominating functions of complete multipartite graphs",
+          "trigger": "Earlier published complete classification of two-color/empty labelings on exactly the same complete multipartite graphs; plausible stronger theorem by restriction."
+        },
+        {
+          "assessment": "DIRECT PARTIAL COVERAGE, not by itself a complete arbitrary-part classification. Combined with the earlier all-color labeling classification, no independent unproved mathematical remainder survives in the submitted theorem.",
+          "evidence": "Defines DST by G[S] isolate-free and TDS by G[R] and G[B] isolate-free; gives gamma_dst(K_{2,m})=3, gamma_tds(K_{2,m})=4 (m>=2), complete graphs, and the TDS >=4 lower bound and general nonstar existence.",
+          "identifier_or_url": "DOI:10.7151/dmgt.2635; https://www.researchgate.net/publication/404229034_Dual-server_total_domination_and_total_dual-server_domination",
+          "material_read": "Full accessible 15-page text: definitions, complete-bipartite K_{2,m} example, complete-graph cases, nonstar general TDS existence/lower bound and closing questions.",
+          "method": "Full-text source inspection and theorem/implication comparison.",
+          "title": "Dual-server total domination and total dual-server domination",
+          "trigger": "Original primary paper defines precisely DST and TDS and establishes prior boundary cases and global bounds."
+        },
+        {
+          "assessment": "RELATED BUT NOT EQUIVALENT: its two neighbors need not have opposite colors, so its scalar minimum does not itself imply DST/TDS. It independently confirms that complete multipartite occupancy minimizations were previously available.",
+          "evidence": "Its required outside-neighbor count is |S|-s_i>=2, while DST requires positive red and blue occupancies outside each white-containing part; e.g. K_{3,3,3} permits neighborhood total 2-domination with size 3 but DST needs 4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-neighborhood-total-2-domination-polynomial-of-complete-multipart--0527708bbf3a/RESULT.md",
+          "material_read": "Entire RESULT.md including exact feasibility inequalities, all-set polynomial, biclique boundary and minimum-case formula.",
+          "method": "Direct published-source read with comparison of quantified neighbor/color conditions.",
+          "title": "Neighborhood total 2-domination polynomial of complete multipartite graphs",
+          "trigger": "Earlier complete multipartite all-subset neighborhood domination classifier with superficially similar two-neighbor condition and minimum-value profile."
+        },
+        {
+          "assessment": "INAPPLICABLE as prior covering theorem: bounded-geodesic 3,2-domination differs from two-color total dual-server domination.",
+          "evidence": "A 3,2-dominating set is defined by bounded shortest paths containing at least two selected vertices, without red/blue partitions or induced color-class edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-3-2-domination-of-complete-multipartite-graphs--d5fe6eff1a9f/RESULT.md",
+          "material_read": "Entire RESULT.md including geodesic definition and exact minimum-set classification.",
+          "method": "Direct published-source read and comparison of shortest-path and red-blue neighborhood quantifiers.",
+          "title": "Exact (3,2)-domination of complete multipartite graphs",
+          "trigger": "Another prior exact complete multipartite size 2/3 classification potentially confused with the target invariant."
+        },
+        {
+          "assessment": "NOT THE SAME invariant: uncolored double-total domination does not force one red and one blue neighbor and cannot determine the requested dual-server total minimum.",
+          "evidence": "For K_{3,3,3} the uncolored double-total minimum can be three, whereas the target DST minimum is four.",
+          "identifier_or_url": "DOI:10.1016/j.dam.2010.01.009",
+          "material_read": "Accessible full-text introduction and complete multipartite k-tuple total domination formula for k=2 (Theorem/section on complete multipartite graphs).",
+          "method": "Primary literature full text (public HTML) with comparison of colored versus uncolored requirements.",
+          "title": "k-tuple total domination in graphs",
+          "trigger": "Older parameter requiring multiple neighbors and possibly supplying a dominating complete multipartite formula."
+        },
+        {
+          "assessment": "NO WHOLE-DOCUMENT NONCOVERAGE CONCLUSION; relation remains a residual risk, but the stronger earlier direct all-labeling theorem is decisive.",
+          "evidence": "Accessible abstract concerns complete multipartite total k-domination equalities, not explicitly a red-blue vertex partition.",
+          "identifier_or_url": "DOI:10.7151/dmgt.1616",
+          "material_read": "Abstract and bibliographic statement only; full text not established as read.",
+          "method": "Bibliographic/abstract-level assessment only.",
+          "title": "On the Total k-domination Number of Graphs",
+          "trigger": "General total k-domination and multipartite results might imply a narrower scalar bound."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58/RESULT.md",
+        "https://www.researchgate.net/publication/404229034_Dual-server_total_domination_and_total_dual-server_domination",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-neighborhood-total-2-domination-polynomial-of-complete-multipart--0527708bbf3a/RESULT.md"
+      ],
+      "rationale": "FAIL on intrinsic added mathematics, not due to being a finite result: these are natural network-domination invariants, but the submitted contribution is only a small-cost minimization of a previously published complete all-labeling feasibility theorem after elementary selected-support filters; all nonstandard structural information is already available. No independently unknown exact invariant, nontrivial obstruction, classification not mechanically implied, or novel algorithmic consequence survives. Correctness and reproducibility alone cannot supply new mathematical value.",
+      "residual_risks": [
+        "The formulas are useful illustrations of two new invariants, but routine derivation from a complete earlier labeling classification is below the scientific value bar as an independent result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "2026-10-04 Resultary/2026 all-2-rainbow all-function theorem, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58/RESULT.md",
+    "2026-03-27 Chellali--Haynes--Hedetniemi, DOI:10.7151/dmgt.2635, full text https://www.researchgate.net/publication/404229034_Dual-server_total_domination_and_total_dual-server_domination",
+    "2026-10-04 Resultary neighborhood total 2-domination, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-neighborhood-total-2-domination-polynomial-of-complete-multipart--0527708bbf3a/RESULT.md",
+    "2026-10-04 Resultary exact (3,2)-domination, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-3-2-domination-of-complete-multipartite-graphs--d5fe6eff1a9f/RESULT.md",
+    "2010 Henning--Kazemi k-tuple total domination, DOI:10.1016/j.dam.2010.01.009",
+    "2012 Kazemi On the Total k-domination Number of Graphs, DOI:10.7151/dmgt.1616 (abstract only)"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The prior 2-rainbow all-configuration theorem does not literally state either named DST/TDS parameter; it implies these values as routine restrictions/corollaries.",
+    "The proof is for finite simple connected complete multipartite graphs only, not all graph families.",
+    "The independent bounded computations are not proofs of unbounded statements.",
+    "Other inaccessible or abstract-only literature is not used as a negative novelty proof; the fully read earlier dominating paper suffices.",
+    "Unchanged public-facing AUDIT.json/METADATA.json carry process-specific provenance; public sanitization was not supplied, so do not publish/relocate."
+  ],
+  "residual_risks": [
+    "The prior 2-rainbow all-configuration theorem does not literally state either named DST/TDS parameter; it implies these values as routine restrictions/corollaries.",
+    "The proof is for finite simple connected complete multipartite graphs only, not all graph families.",
+    "The independent bounded computations are not proofs of unbounded statements.",
+    "Other inaccessible or abstract-only literature is not used as a negative novelty proof; the fully read earlier dominating paper suffices.",
+    "Unchanged public-facing AUDIT.json/METADATA.json carry process-specific provenance; public sanitization was not supplied, so do not publish/relocate."
+  ],
+  "schema_version": 1
+}
