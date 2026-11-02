@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T06:12:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed independent root Bernoulli indicators B_j with P(B_j=1)=1/(j-1) and independent alternative parents U_j uniform in {2,...,j-1}. Conditional on R=k+1, root-attachment subset A has fixed-cardinality weights product_{j in A}1/(j-2)/e_k. The weighted-subset inclusion lemma follows by induction using Newton log-concavity of the elementary symmetric functions and monotonic Bernoulli coupling for the final indicator, then chaining adjacent couplings. Shared U_j yields C_v[k+1]=sum_{j>v}1{j not in A_k}1{U_j=v}, so each coordinate decreases and leaf indicators increase. On independent event U_j=j-1 for every j>=3, probability 1/(n-2)!, each new root attachment deletes the previous parent’s only child, making the leaf count strictly larger at every adjacent k. Independently enumerated exact parent sequences for n=3..8 and checked all strict leaf means and all upward principal leaf-set events by root degree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published recursive-tree paper bounds differences under range-conditioned root counts; classical strongly Rayleigh theory gives nested subsets but not itself the nonroot child-count pushforward for recursive trees. Janson studies asymptotic aggregate degree counts."
+        ],
+        "reasoning": "The coupling lemma is standard-looking (and potentially implied by strong Rayleigh stochastic covering); the theorem’s exact conditional recursive-tree consequence and strictness require specializing the parent representation. The work is simple structurally, so originality is qualified rather than certified.",
+        "searches": [
+          "Eslava Lopez Ortiz Cambridge J Applied Prob 2024 Section 3 Proposition 3.1",
+          "Borcea Branden Liggett strongly Rayleigh stochastic covering conditional sizes",
+          "Janson Asymptotic degree distribution in random recursive trees DOI 10.1002/rsa.20046"
+        ]
+      },
+      "checked_sources": [
+        "Eslava–López–Ortiz 2024 full Section 3 Cambridge HTML",
+        "Broman et al 2012 ALEA PDF Props 1.2-1.3",
+        "Resultary root degree/leaf covariance full RESULT.md",
+        "Janson 2005 publisher abstract",
+        "Resultary semantic query root degree conditioned random recursive trees monotone coupling non-root outdegree vector leaf sets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eslava Section 3 at lines ~661-710 couples Bernoulli root choices for an interval-conditioned degree, with the common U_j alternative parents; Broman Proposition 1.2/1.3 compares two conditional Bernoulli vectors with different parameter arrays and equal k, not adjacent k in a single array. The current proof uses a fixed-size nesting coupling across all k."
+        ],
+        "reasoning": "No inspected single published tree theorem implies the full exact-r simultaneous coupling under its own stated hypotheses; however coupling a strongly Rayleigh product Bernoulli conditioned on size to Eslava’s representation seems a nearly immediate corollary, so the originality claim must remain explicitly qualified. Strict mean leaf increase follows from a positive-probability event, not just covariance.",
+        "searches": [
+          "Eslava et al Cambridge 2024 Section 3 root-indicator factorization",
+          "Broman et al ALEA 9 (2012) Prop 1.2,1.3",
+          "Resultary root degree leaf covariance full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eslava et al directly provide independent root Bernoulli/alternative-parent representation but couple to a range-conditioned tree, not exact nested all-r conditional distributions. Broman et al study conditional Bernoulli vector domination between differing Bernoulli success-parameter arrays at fixed/threshold counts."
+        ],
+        "reasoning": "Weighted fixed-size subset nesting is a known stochastic-covering phenomenon and not claimed independently new. The central assessed statement is the simultaneous pushforward to every labeled nonroot offspring coordinate plus strict leaf means; it is a short but not explicitly located tree-specialized theorem. It may be implicit by combining known results, a serious priority risk.",
+        "searches": [
+          "root degree conditioned random recursive trees monotone coupling non-root outdegree vector leaf sets",
+          "Eslava Lopez Ortiz 2024 quenched worst-case root deletion random recursive trees Section 3",
+          "Broman et al 2012 conditioned Bernoulli random vectors stochastic domination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full Resultary covariance RESULT.md gives Cov(root degree, leaf count)=(n-2)/(2(n-1)) and labeled-leaf covariance profiles but no exact-root-degree stochastic order, much less simultaneous coordinatewise ordering."
+        ],
+        "reasoning": "A covariance scalar is implied in sign by the monotonic coupling but cannot imply a conditional multivariate order; thus that prior result is not exact coverage. No matching complete conditional order table identified.",
+        "searches": [
+          "root degree conditioned random recursive trees monotone coupling non-root outdegree vector leaf sets",
+          "Resultary:2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+          "root degree recursive trees conditional leaf distribution exact table"
+        ]
+      },
+      "rationale": "PASS (best of knowledge, not priority certification): Compared claims and logical implications with the located primary texts and published records. The specific claim is not stated as covered in the materials actually read; any implicit-specialization or inaccessible-full-text risk is separately documented. Neither matching mathematical terminology nor unsuccessful search alone was treated as conclusive originality evidence.",
+      "residual_risks": [
+        "The combined theorem may be an immediate corollary of classical strongly Rayleigh stochastic-covering order plus Eslava’s exact Bernoulli/alternative-parent representation; independent historical priority verification is important.",
+        "Simple weighted-subset nesting lemma is not independently novel; novelty is the tree-specific all-exact-root-degree multivariate conclusion.",
+        "Only uniform recursive trees, not Cayley, preferential attachment or general weighted recursive trees."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides representation and interval-conditioned coupling but does not state simultaneous exact-level nonroot coordinatewise monotonicity",
+          "evidence": "Section 3 lines 661-711: B_i root indicators and common Y_i alternatives, root degree D=sum B_i; Prop 3.1 compares high-degree count ratios.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/quenched-worstcase-scenario-for-root-deletion-in-targeted-cutting-of-random-recursive-trees/67AD3B9A74E836628FA23229D25AA358",
+          "material_read": "Full accessible Cambridge HTML introduction and Section 3, especially parent choice variables, root-count conditioning and Propositions 3.1-3.2",
+          "method": "Read detailed construction and compare exact vs interval conditioning, target offspring vs high-degree counts",
+          "title": "Quenched worst-case scenario for root deletion in targeted cutting of random recursive trees",
+          "trigger": "Closest same-tree Bernoulli coupling and conditioned root degree"
+        },
+        {
+          "assessment": "Different arrays compared at equal/threshold sums, not explicit all-k nesting of the same independent Bernoulli vector and not a recursive-tree degree-vector statement",
+          "evidence": "Propositions 1.2-1.3 discuss weighted Bernoulli comparison at fixed total k, with beta_i odds.",
+          "identifier_or_url": "https://alea.impa.br/articles/v9/09-17.pdf",
+          "material_read": "Opening and Section 1.1 including Propositions 1.2-1.3, visual inspection PDF p.3",
+          "method": "Read fixed-sum conditioning and stochastic domination hypotheses",
+          "title": "Stochastic domination and weak convergence of conditioned Bernoulli random vectors",
+          "trigger": "Potential general nested conditional Bernoulli law"
+        },
+        {
+          "assessment": "Proves exact covariance identities, not conditioned vectorwise monotonicity",
+          "evidence": "Cov(D_n,L_n)=(n-2)/(2(n-1)); no conditional coupling.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f/RESULT.md",
+          "material_read": "Entire published RESULT.md, including labeled indicator covariance derivations and limitations",
+          "method": "Read full statement and proof, contrasted scalar mixed moment with stochastic order",
+          "title": "Equal-share covariance of root degree and leaves in a random recursive tree",
+          "trigger": "Exactly same root/leaf joint statistics"
+        },
+        {
+          "assessment": "Aggregate degree counts asymptotically normal; no full-text noncoverage asserted",
+          "evidence": "Janson 2005 abstract on degree-count asymptotic variance/covariance.",
+          "identifier_or_url": "DOI:10.1002/rsa.20046",
+          "material_read": "Publisher abstract and article metadata only; full text not accessed",
+          "method": "Abstract-based scope comparison",
+          "title": "Asymptotic degree distribution in random recursive trees",
+          "trigger": "Classical recursive-tree degree process"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: This gives a simultaneous multivariate stochastic order under every exact root degree, controlling all increasing functionals of the nonroot offspring vector and all monotone leaf-set events, not merely one covariance or mean. Conditional degree ordering is a natural recursive-tree structural invariant, and exact-level joint control is useful for conditional occupancy and leaf events.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem concerns only nonroot offspring vector, not stochastic order of full rooted-tree shapes.",
+    "Best-of-knowledge originality is especially qualified by standard stochastic covering combined with prior recursive-parent representation."
+  ],
+  "schema_version": 1
+}
