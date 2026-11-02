@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A three-round back-and-forth strategy proves the exhaustive reduction to the 63 profiles with class sizes and multiplicities capped at three. The finite classification is computed by the complete back-and-forth/Hintikka type recurrence, and its 21 classes and 9-element maximum minimum size are independently cross-checked by an exact two-sided Spoiler–Duplicator game. Both scripts were run on the supplied paths. Two explicit rank-three sentences force three equivalence classes of size at least three, establishing the lower bound. No finite computation is substituted for the universal reduction proof.
+PASS
 
-## Originality — PASS, qualified
+Three-move EF equivalence preserves profiles of counts of size-1, size-2, and size>=3 E-classes, each capped at 3. This gives 63 nonzero canonical profiles for all finite nonempty E-structures, since a 3-move spoiler can exhaust at most 2 previously used classes of a given size category before each fresh move, and >=3-member classes always supply remaining matched elements. For each canonical profile Q_0 is the complete equality/E atomic diagram, Q_{r+1}=(Q_0,{Q_r(tuple+v):v in A}); induction on FO formulas identifies its Q_3 root signature with quantifier-rank<=3 truth theory. Independent separately written Python enumerated the 63 profiles, computed their exact Q_3 signatures and obtained 21 classes with max minimum representative cardinality 9. Sharpness from rank3 sentences requiring >=3 distinct E-classes and every class >=3 members forces >=9. The 63-profile exhaustive computation is valid because of the proved universal EF reduction, not merely tested size bounds.
 
-Mwesigye–Truss (2018 online) treat coloured linear orders and do not supply equivalence-relation rank-three types; Fagin–Lenchner–Vyas–Williams (2022) provide a general quantifier-resource framework and examples on trees and graphs, not the present classification. General Ehrenfeucht–Fraïssé game theorems determine the method, not these sharp numerical results. Searches for the exact 21-type/9-element pair, equivalence structures, rank-three EF profiles, and related finite databases uncovered no direct covering statement. The relevant published results on finite Boolean algebras or coloured words use different structures, without a demonstrated reduction giving this count. Obscure prior equivalence-structure classifications may exist; absence from retrieved sources is not a proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The result completely enumerates rank-three expressive equivalence classes over the simplest nontrivial binary equivalence signature, and identifies the smallest possible uniform finite witness bound, sharpening a generic finite-type upper bound. The third round is the first one able to simultaneously test class triplets, singleton/two-element classes, and three distinct classes. The 63-to-21 compression yields explicit canonical test structures for bounded-rank model comparison, not just an unmotivated numerical slice. It is an exact natural finite-model classification with reproducible evidence, without asserting a higher-rank general theorem.
+EF games and general quantifier-rank normal forms are classical, and small-model bounds in coloured ordered structures are known. The pure equivalence E-signature with 3-round theory cardinality21 and sharp9 bound is not a direct corollary of cited coloured-linear-order or total-quantifier-count papers. Full PDF and arXiv texts inspected; unindexed historical finite-model tables remain a priority uncertainty.
 
-## Scope and priority limitations
+## value
 
-The universe is finite and nonempty, no predicates other than \(E\) occur, and the rank bound is exactly \(3\). A classical games theorem underlies the method. There is no independent audit or certification, and hidden literature priority risk remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete quantifier-rank-three spectrum and optimal finite-model bound for the natural pure E-signature supply a concrete finite-model-theoretic classification; 21 and sharp size9 are not routine table substitutions from the EF theorem, and exact canonical witnesses are reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
