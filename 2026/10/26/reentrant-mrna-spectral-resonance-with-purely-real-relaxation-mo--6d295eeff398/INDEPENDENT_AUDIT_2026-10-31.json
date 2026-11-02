@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T04:05:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For the explicitly normalized four-channel two-species birth--death circuit, the unique deterministic steady state is (m,p)=(1,1); linearization K=[[-10,−q],[1,−1]], stationary noise D=diag(20,2), and the eigenvalues (−11±√(81−4q))/2 are distinct negative for 0≤q<81/4. Independent exact symbolic matrix inversion gives mRNA PSD [20(1+ω²)+2q²]/[(10+q−ω²)²+121ω²] and protein PSD (220+2ω²)/the same denominator (two-sided Fourier convention). With x=ω², derivative of mRNA PSD has the sign P(q)/10−2(1+q²/10)x−x² where P(q)=2q³−91q²+220q−10. It strictly decreases in x, so P>0 iff a unique positive-frequency GLOBAL peak exists. The first two cubic roots are q1=0.046341956618..., q2=2.512597182950... and only these lie before 81/4; initial spectral derivatives at q=0,1,5 yield low/band/low and are stable under small rate perturbations. Protein derivative q²+240q−11010−220x−x² stays negative over this domain. Finite-system jump-process PSD not asserted: only stationary linear-noise OU approximation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gupta--Khammash Eq(40) gives protein-output PSD and Eq(41) its global nonzero-frequency peak criterion; Aslyamov et al gives generic Gaussian PSD resolvent in biochemical regulation."
+        ],
+        "reasoning": "Protein low-pass behavior is implied prior, not independently novel. General PSD formulae do not by themselves tabulate which feedback values give an mRNA positive-frequency peak, its unique maximum and strict reentrance for this family; evaluating the input/controller PSD is distinct from the measured output.",
+        "searches": [
+          "https://doi.org/10.1038/s41467-022-31263-x",
+          "arXiv:2510.17587",
+          "arXiv:1408.4782",
+          "Resultary semantic search: two species mRNA protein negative feedback stationary power spectral density real eigenvalues reentrant band pass"
+        ]
+      },
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9314361/",
+        "https://arxiv.org/abs/2510.17587",
+        "https://arxiv.org/abs/1408.4782",
+        "Resultary semantic search: two species mRNA protein negative feedback stationary power spectral density real eigenvalues reentrant band pass"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited 2022 criterion specializes to protein low-pass for present real-eigenvalue range, whereas the separate mRNA derivative polynomial changes sign twice before eigenvalue collision."
+        ],
+        "reasoning": "Only the mRNA-specific double threshold and contrasting observable behavior survive as novelty. General existence of noise-induced resonance without Hopf is prior art and expressly excluded from the originality claim.",
+        "searches": [
+          "Gupta--Khammash 2022 Eq(40--41)",
+          "Aslyamov et al. 2026 gene section",
+          "Resultary semantic search: two species mRNA protein negative feedback stationary power spectral density real eigenvalues reentrant band pass"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stationary Gaussian OU spectrum is a rational transfer-function magnitude; the peak condition reduces to a cubic in feedback after differentiating in ω²."
+        ],
+        "reasoning": "Equivalence to a standard 2×2 OU resolvent means the spectral formula itself is old. The added statement is exact sign/phase boundary and its reentrance for an explicit normalized one-parameter biological circuit, with different controller/output spectra.",
+        "searches": [
+          "Resultary semantic search: two species mRNA protein negative feedback stationary power spectral density real eigenvalues reentrant band pass",
+          "two species gene feedback mRNA controller PSD band pass reentrant",
+          "Gupta--Khammash Eq40 Eq41"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gupta--Khammash Table 1 supplies selected output spectra; Eq(40--41) is a general output criterion. No inspected table lists the exact q1,q2 mRNA reentrance."
+        ],
+        "reasoning": "A generic two-species output table is not a record of mRNA controller peak thresholds. A matching parameterized mRNA table would cover the numerical classification if found; none was identified.",
+        "searches": [
+          "Resultary semantic search: two species mRNA protein negative feedback stationary power spectral density real eigenvalues reentrant band pass",
+          "mRNA feedback resonance cubic 2q^3 -91q^2 +220q -10 frequency",
+          "Gupta--Khammash Table 1"
+        ]
+      },
+      "rationale": "PASS (qualified): Gupta--Khammash (2022) already derives the same mathematical model protein/output resolvent and exact output positive-frequency condition; that low-pass corollary is fully credited. Aslyamov--Ptaszyński--Esposito (2025/2026) gives the general OU resolvent for gene regulation, and earlier stochastic-resonance work establishes noise peaks without complex deterministic poles. The inspected primary statements do not give the mRNA/controller reentrant two-cubic-boundary global phase diagram at fixed positive means, which remains the only claimed novelty. Priority risk from general spectral derivative criteria persists.",
+      "residual_risks": [
+        "A general controller PSD threshold in a related biochemical transfer-function paper might algebraically imply this cubic specialization, although inspected output-only criterion does not.",
+        "Results concern stationary linear-noise approximation, not the finite-volume nonlinear jump process; no stochastic-process spectral error bound is claimed.",
+        "The feedback model and selected rate ratios are necessary to give the exact two cubic roots; only a three-point low/band/low witness is shown robust under perturbations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Eq40/41 already implies protein-output peak criterion and present low-pass corollary; does not state controller mRNA two-transition window",
+          "evidence": [
+            "Eq. (40) exact protein/output PSD; Eq. (41) necessary-and-sufficient positive-frequency output peak; Sec. NFB around lines 409--423"
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9314361/",
+          "material_read": "Full open primary HTML: Sec. Results, Eqs.(39)--(41), two-species input/output construction and output PSD/peak criterion, Table 1 and applicable surrounding examples; supplementary Proposition S4.1 is described in main text, not independently downloaded",
+          "method": "Full HTML primary-text inspection",
+          "title": "Frequency spectra and the color of cellular noise",
+          "trigger": "Directly matching two-species negative-feedback circuit"
+        },
+        {
+          "assessment": "Establishes general OU resolvent and gene noise techniques; inspected sections do not explicitly classify the two exact mRNA reentrance boundaries",
+          "evidence": [
+            "arXiv:2510.17587, fluctuation-response and gene-network sections"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.17587",
+          "material_read": "Primary arXiv full PDF: resolvent framework, gene regulatory application, frequency-domain relations and appendix model material",
+          "method": "PDF full text / page inspection",
+          "title": "Macroscopic fluctuation-response theory and its use for gene regulatory networks",
+          "trigger": "Same Gaussian gene-network resolvent and negative feedback"
+        },
+        {
+          "assessment": "General noise-induced peak without complex eigenvalues is prior art; no whole-paper negative coverage claim",
+          "evidence": [
+            "arXiv:1408.4782, abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.4782",
+          "material_read": "Accessible abstract and cited noise-oscillation descriptions, not comprehensive full text",
+          "method": "Search / abstract",
+          "title": "Design principles of noise-induced oscillation in biochemical reaction networks II",
+          "trigger": "Spectral resonance with real deterministic modes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact bounded feedback window with TWO distinct transitions in mRNA but not protein observable, while deterministic relaxation eigenvalues remain real, is a meaningful systems-theoretic phase diagram and distinguishes observable-dependent noise resonance from deterministic oscillations. It is not merely an arbitrary numerical frequency sweep; both thresholds and uniqueness follow from an explicit cubic sign classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC9314361/",
+    "https://arxiv.org/abs/2510.17587",
+    "https://arxiv.org/abs/1408.4782",
+    "Resultary semantic search: two species mRNA protein negative feedback stationary power spectral density real eigenvalues reentrant band pass"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general controller PSD threshold in a related biochemical transfer-function paper might algebraically imply this cubic specialization, although inspected output-only criterion does not.",
+    "Results concern stationary linear-noise approximation, not the finite-volume nonlinear jump process; no stochastic-process spectral error bound is claimed.",
+    "The feedback model and selected rate ratios are necessary to give the exact two cubic roots; only a three-point low/band/low witness is shown robust under perturbations.",
+    "Exact assigned source tree was retained as returned but a complete standalone Git tree-entry SHA recomputation was not performed; actual named files and their Git blob SHAs were read at the frozen commit.",
+    "No GitHub files were modified and no dispatcher closeout or public certification was performed."
+  ],
+  "schema_version": 1
+}
