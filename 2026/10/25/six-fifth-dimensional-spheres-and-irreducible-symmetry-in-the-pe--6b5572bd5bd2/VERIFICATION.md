@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of the mathematical checks
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` in the directory containing this file. The program depends only on the Python 3 standard library, takes no input, and exits with a nonzero status if any asserted check fails. Its actual recorded standard output is embedded as `VERIFY_OUTPUT.txt`.
+## correctness
 
-The two complete enumerations agree on all \(2^{10}\) vertex masks. `VERIFY.py` constructs the ordinary nonempty face poset, performs the stated deterministic pivot matching, enumerates every cover relation, and checks the entire directed graph for acyclicity by topological sorting. Critical cells are a single vertex and six five-cells, proving the integral wedge-of-spheres homotopy type by discrete Morse theory. No finite homology experiment is substituted for an infinite or general-case theorem.
+PASS
 
-The mod-two simplicial chain-boundary ranks are independently recomputed from all faces of the original complex as a consistency check, not as an integral torsion certificate. The complete \(\mathfrak S_5\) group action is checked elementwise by label permutations. The representation proof uses the already established concentration of integral homology, the signed simplicial Lefschetz formula, and an independent exterior-square character formula; all \(120\) traces agree. A character inner product check gives irreducibility. Nothing here asserts a computation for other graphs, an integral representation classification, independent audit, or certification outside the stated checks.
+The vertex-induced forest complex on KG(5,2), not its edge-set graphic-matroid complex, has 786 faces including empty, f-vector (10,45,120,210,240,140,20), and 22 minimal nonfaces (12 five-cycles, 10 six-cycles). Independent complete 1024-mask enumeration reconstructed all faces. Pivot matching on the face poset yields 389 matched nonempty face pairs with a directed Hasse graph acyclic on 785 nonempty faces; its only critical cells are one 0-cell and six 5-cells, so integral homotopy is wedge^6 S^5. Independent exhaustive 120 group elements signed simplicial Lefschetz character equals (6,0,-2,0,0,0,1) by S5 cycle type, identical to wedge² of the standard four-dimensional rational module, irreducible S^(3,1,1). Direct matching and character computations corroborated source; finite proof is exhaustive because exactly 2^10 subsets and 120 permutations were checked.
+
+## originality
+
+PASS
+
+The forest-filtration/devoid-complex literature supplies the face definition and general matching machinery. A prior published Petersen three-cut complex has the identical S5 module but different faces, cut conditions, homology degree and topology; agreement of characters is not an implication. This calculation specifically treats the induced vertex-forest complex and determines both its integral wedge homotopy and full rational equivariant character.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical highly symmetric nontrivial finite graph. Its complete nonpure vertex-forest topology and irreducible natural S5 homology action are a meaningful natural exact invariant, potentially a benchmark for forest-filtration/devoid complexes; no large-family theorem is claimed or needed for this exact classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

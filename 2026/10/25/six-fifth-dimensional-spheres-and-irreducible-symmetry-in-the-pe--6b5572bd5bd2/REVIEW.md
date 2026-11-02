@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion concerns the full vertex-induced forest complex on all ten two-subsets of a five-set, not the graphic-matroid forest complex on graph edges. Two independently implemented forest predicates agree on all \(1024\) candidate vertex sets. An explicit pivot matching yields \(389\) genuine pairs on the nonempty face poset, one critical vertex, and six critical five-cells. Exhaustive topological sorting of the complete directed Hasse graph checks all \(3470\) cover relations and verifies that the matching is acyclic. Discrete Morse theory then proves a wedge of six five-spheres integrally, with no possible attaching degree because the CW model has no positive cells below dimension five. Boundary ranks computed directly from the original simplicial complex over \(\mathbb F_2\) independently corroborate Betti number six in degree five. All \(120\) signed Lefschetz traces agree with the exterior-square character; character norm one proves irreducibility. `VERIFY.py` and `VERIFY_OUTPUT.txt` provide an actual standalone reproduction.
+## correctness
 
-## Originality — PASS with residual risk
-The inspected primary sources address (i) general devoid matching trees and path/cycle cases (Taylan, arXiv:1501.06754), (ii) enumeration and root properties of the same acyclic-subset face polynomial (Barton–Brown–Pike, arXiv:2011.01735), and (iii) forest-filtration calculations for other graph families (Carnero Bravo, arXiv:2307.13271). None states the complete Petersen induced-forest integral homotopy type together with its natural \(\mathfrak S_5\)-module. Previously indexed results concerning the Petersen graphic-matroid forest (edge sets), three-cut complexes, two-independence, and discrete Morse complexes have different face conditions; matching the six-dimensional representation of the three-cut complex does not imply the new complex's identification. The remaining risk is equivalent coverage in unindexed literature, not a claim of exhaustive uniqueness.
+PASS
 
-## Value — PASS
-The induced-forest complex records all complements of decycling vertex sets and is a canonical extension of graph independence complexes. This is a complete homotopy classification for the Petersen graph, the classical smallest cubic girth-five graph, in a nonpure case where face enumeration and known decycling numbers do not determine homotopy type. The full irreducible automorphism character adds information beyond the six-sphere count and exhibits a non-obvious relation in representation type (but not an asserted equivalence) to the separately studied Petersen three-cut complex. The exact finite classification is the mathematical contribution; no broad unproved theorem is claimed.
+The vertex-induced forest complex on KG(5,2), not its edge-set graphic-matroid complex, has 786 faces including empty, f-vector (10,45,120,210,240,140,20), and 22 minimal nonfaces (12 five-cycles, 10 six-cycles). Independent complete 1024-mask enumeration reconstructed all faces. Pivot matching on the face poset yields 389 matched nonempty face pairs with a directed Hasse graph acyclic on 785 nonempty faces; its only critical cells are one 0-cell and six 5-cells, so integral homotopy is wedge^6 S^5. Independent exhaustive 120 group elements signed simplicial Lefschetz character equals (6,0,-2,0,0,0,1) by S5 cycle type, identical to wedge² of the standard four-dimensional rational module, irreducible S^(3,1,1). Direct matching and character computations corroborated source; finite proof is exhaustive because exactly 2^10 subsets and 120 permutations were checked.
 
-## Comparison and limitations
-The nearest related results concern the Petersen three-cut complex and the edge-set forest complex of its graphic matroid. They are not stronger statements about the vertex-induced forest complex, and no reduction from either result has been established. The verification proves no integral symmetry-lattice decomposition or equivariant homotopy classification. An independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The forest-filtration/devoid-complex literature supplies the face definition and general matching machinery. A prior published Petersen three-cut complex has the identical S5 module but different faces, cut conditions, homology degree and topology; agreement of characters is not an implication. This calculation specifically treats the induced vertex-forest complex and determines both its integral wedge homotopy and full rational equivariant character.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical highly symmetric nontrivial finite graph. Its complete nonpure vertex-forest topology and irreducible natural S5 homology action are a meaningful natural exact invariant, potentially a benchmark for forest-filtration/devoid complexes; no large-family theorem is claimed or needed for this exact classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
