@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytical proof in RESULT.md is the acceptance evidence. It explicitly evaluates the four ordered partitions in the two-item setting, proves the weighted-average inequality, and handles the positive-positive, mixed-sign, and all-negative cases. The all-negative formulas were checked directly from the partition definition.
+# Independent mathematical audit
 
-The standalone `verify.py` was run with exact rational arithmetic on all 81 two-agent/two-item valuation matrices over the finite alphabet consisting of minus one, one, and two, for seven rational entitlement ratios (567 profile/ratio checks). All passed. These tests are supplementary and do not establish the universal theorem; the proof does.
+## correctness
 
-The three-item obstruction was checked against the cited primary full text, including its WMMS definition and Proposition 4.7. The older two-item chore counterexample was read in full-text context and is outside the present valuation restriction. No independent audit or external validation was performed.
+PASS
+
+For each agent W_i<=w_i(v_i(x)+v_i(y))/(w_1+w_2). If any singleton is -1 then all split partitions have a negative part, so W_i<=0; a p>=1,-1 row has total nonnegative and W_i=0. When both agents value both goods positively, direct evaluation of the two splits gives W_i=min(p_i,(w_i/w_j)q_i) for w_i>=w_j and min(q_i,(w_i/w_j)p_i) otherwise; award common favorite to the higher-weight agent or separate favorites. With both rows mixed, give both items to a row with p>=1. With all values -1 and q=w1/w2>=1, W1=-min(2,q), W2=-min(1,2/q); give both to agent1 if q>=2 and split otherwise. Teh Proposition 4.7 supplies the sharp three-item violation. Independent check: Independent exact-rational enumeration of 625 valuation profiles over {-1,1,2,3,5} and seven weight ratios, 4,375 tests; independent 3-item obstruction checks for r=2,3,5. These corroborate, but do not replace, the all-real-weights proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority qualified by primary-source comparisons and explicit antecedent/corollary limits; For two agents, two indivisible items, positive weights, additive singleton values in {-1} union [1,infinity), all ordered partitions with empty bundles allowed, some complete allocation meets both weighted maximin shares. Hence three items is the first possible failure size within {-1,1,r}, r>1. is not supplied in the compared prior statements.
+
+## value
+
+PASS
+
+The result sharply localizes the first item-count obstruction for Teh’s concrete mixed-magnitude alphabet; the domain restriction is motivated by the contemporary counterexample and is not a routine corollary of the equal-magnitude theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

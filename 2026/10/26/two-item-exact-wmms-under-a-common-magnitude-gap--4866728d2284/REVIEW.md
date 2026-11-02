@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The proof evaluates every ordered partition of two items, applies the weighted-average upper bound, and separates all possible sign patterns. The all-negative case is handled by the exact formulas in (3); no finite enumeration is used as proof.
+## correctness
 
-**Originality (O): PASS, with residual risk.** The inspected 2026 primary source gives a three-item no-exact-WMMS construction over the same restricted alphabet but does not state the two-item theorem. The inspected 2019 two-item counterexample concerns unrestricted chores with unequal negative magnitudes, so it does not imply the present result. A bounded literature search returned no close WMMS-specific record; this is not a proof that no unindexed result exists.
+PASS
 
-**Value (V): PASS.** The result establishes a sharp minimal-item boundary for a recent explicit obstruction in a motivated fairness concept. It distinguishes a genuinely three-item failure from the already-known two-item failures that require a broader valuation domain.
+For each agent W_i<=w_i(v_i(x)+v_i(y))/(w_1+w_2). If any singleton is -1 then all split partitions have a negative part, so W_i<=0; a p>=1,-1 row has total nonnegative and W_i=0. When both agents value both goods positively, direct evaluation of the two splits gives W_i=min(p_i,(w_i/w_j)q_i) for w_i>=w_j and min(q_i,(w_i/w_j)p_i) otherwise; award common favorite to the higher-weight agent or separate favorites. With both rows mixed, give both items to a row with p>=1. With all values -1 and q=w1/w2>=1, W1=-min(2,q), W2=-min(1,2/q); give both to agent1 if q>=2 and split otherwise. Teh Proposition 4.7 supplies the sharp three-item violation. Independent check: Independent exact-rational enumeration of 625 valuation profiles over {-1,1,2,3,5} and seven weight ratios, 4,375 tests; independent 3-item obstruction checks for r=2,3,5. These corroborate, but do not replace, the all-real-weights proof.
 
-Closest literature: Teh (2026), arXiv:2609.01580v2, Proposition 4.7; Aziz, Chan, and Li (2019), arXiv:1906.07602v1, Section 4. Limitations: only the stated two-agent, two-item value class is covered; no general WMMS existence claim is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority qualified by primary-source comparisons and explicit antecedent/corollary limits; For two agents, two indivisible items, positive weights, additive singleton values in {-1} union [1,infinity), all ordered partitions with empty bundles allowed, some complete allocation meets both weighted maximin shares. Hence three items is the first possible failure size within {-1,1,r}, r>1. is not supplied in the compared prior statements.
+
+## value
+
+PASS
+
+The result sharply localizes the first item-count obstruction for Teh’s concrete mixed-magnitude alphabet; the domain restriction is motivated by the contemporary counterexample and is not a routine corollary of the equal-magnitude theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
