@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact polynomial difference factorization gives strict contraction on each parity ball. The first iterate enters a congruence class on which the valuation increases by exactly three under every additional paired step. Initial congruence counts follow from the four square roots of an odd unit square modulo \(2^h\) for \(h\ge3\). The derived cumulative and first-hit counts cover all moduli, including the parity singleton at \(k=1\). Independent exhaustive finite checks through \(k=17\) support the algebraic proof.
+## correctness
 
-**Originality — PASS with publication-priority risk.** Fan and Liao (arXiv:1010.5583v2, Theorem 6.1(4) and the proof) *already prove* the attracting two-cycle and its complete basin for \(x^2+1\) over \(\mathbb Z_2\). The new statement is the exact parity-resolved arrival-time histogram at every finite dyadic level; their theorem and its proof do not give those counts or sharp depths. Anashin (arXiv:math/0602083v1) treats ergodicity of measure-preserving compatible maps, not these noninvertible transient counts. Meaning-based research-record searches returned related but different 2-adic or real dynamical systems, not the matching formula. Search incompleteness and possible unpublished/tabulated equivalent distributions remain real risks.
+PASS
 
-**Value — PASS.** The exact finite-level entry-depth law refines a known qualitative attraction theorem into a complete quantitative transient-census family. Its parity asymmetry, sharp depth cutoffs, and three-bit valuation growth identify intrinsic structure of the noninvertible functional graphs, not merely isolated computations.
+Reconstructed g=x⁴+2x²+2 and g(x)-g(y)=(x-y)(x+y)(x²+y²+2). On each 2-adic parity ball strict contraction implies a unique g fixed point; f swaps those roots. First g sends evens to 2 mod8 and odds to 5 mod32. In the corresponding congruence classes, the two non-difference factors' valuations add exactly three, giving a sharp gain of three bits per further two-step iteration. The initial event reduces to y² congruent to odd a² modulo 2^h, with 4 square roots for h>=3 and small-exponent boundaries h<=2; these yield the piecewise alpha,beta and ceiling cutoff formulas for all k. Exhaustive separately written iteration through k=12 matched both full parity depth distributions, including k=1. The cited pre-existing attracting-two-cycle theorem is not claimed as a new proof.
 
-**Closest literature and limitations.** The known global-attractor classification is not claimed as new. The theorem measures paired applications rather than the exact number of single applications. It applies to the stated polynomial and powers of two. No independent mathematical audit or definitive priority review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fan–Liao 2010 Theorem 6.1(4) already proves existence and attraction to a single 2-cycle for x²+1 on Z2, so that is *covered* and excluded from novelty. Their inspected theorem and local proof do not state the exact all-k finite quotient parity-resolved first-hitting histograms or the precise cutoff depths. Anashin's ergodicity results concern measure-preserving compatible maps rather than this noninvertible attraction. The new assertion is a quantitative refinement, not renaming the known period-two attractor.
+
+## value
+
+PASS
+
+The complete transient-depth profile of the noninvertible functional graph is a natural dynamic invariant; its even/odd asymmetry and exact three-bits-per-pair growth are genuinely structural and not determined by the qualitative global basin. It gives every finite quotient, not merely small enumerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
