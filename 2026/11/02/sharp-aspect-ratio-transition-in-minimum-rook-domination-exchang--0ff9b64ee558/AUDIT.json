@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For each board, row/column coverage is a necessary and sufficient domination criterion. Two function layers and their permutation overlap exhaust every optimum. Degrees follow from \\(n-1\\)-image cross edges and exact multiplicity. The radius n follows from disjoint same-layer targets and permutation centers. For cross-layer distances, a uniformly random bridge permutation has mean overlap 2; if none attains 3, vanishing 2x2 assignment differences force the two functions to be constant for \\(n\\ge3\\). A direct cross-layer bridge then attains \\(2n-3\\), and coordinate-support counts lower-bound the extremal pair by \\(2n-3\\). Both checkers independently reconstructed the finite graphs; no general claim is inferred solely from finite cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lakshmanan and Vijayakumar 2010, sections 2–4, obtain general forbidden induced subgraphs, product closure, and cograph bounds; https://www.researchgate.net/publication/268019499_The_gamma_graph_of_a_graph.",
+        "Suzuki, Mouawad and Nishimura, 2014, definition in section 2 and theorems on D_k use addition/deletion of rooks (https://arxiv.org/pdf/1401.5714), not fixed-cardinality jumps.",
+        "Mynhardt and Nasserasr, 2020, section 4.3 reports general jump gamma-graph results for paths, cycles, trees, Harary graphs, products and cographs; no rook-board instance is identified."
+      ],
+      "reasoning": "General existence, connectedness or cograph diameter claims do not determine the present square rook exchange metric; the rook graph for \\(n\\ge3\\) has an induced four-vertex path and is not a cograph. Add/delete reconfiguration with a spare vertex is not the same graph.",
+      "searches": [
+        "\"gamma graph\" \"cartesian product\" \"complete graphs\" domination",
+        "\"The gamma graph of a graph\" Lakshmanan Vijayakumar 2010 rook",
+        "reconfiguration of dominating sets 2014 Suzuki Mouawad Nishimura theorem"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1401.5714",
+      "https://arxiv.org/html/2003.05956v1",
+      "https://www.researchgate.net/publication/268019499_The_gamma_graph_of_a_graph",
+      "https://arxiv.org/html/2401.00716v2",
+      "https://doi.org/10.1016/j.aml.2007.12.003"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact 2024 polynomial specialization controls |V| but has no adjacency specification for jumps.",
+        "2010 general jump-graph product closure does not identify jump graph of K_n square K_n, since domination of a Cartesian product is not the product of the factor gamma graphs.",
+        "2014 add/delete connectivity requires a different intermediate-state space, with cardinalities not fixed at domination minimum."
+      ],
+      "reasoning": "The new all-parameter result includes a sharp \\(2n-3\\) exchange cost and three degree classes. These assertions are not logical corollaries of the prior exact state count, of the generic product-closure theorem for realizable gamma-graphs, or of connectivity in a different move model.",
+      "searches": [
+        "\"jump γ graph\" \"rook\" domination",
+        "\"gamma graph of a graph\" 2010 \"rook\"",
+        "\"domination polynomial\" \"rook\" reconfiguration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rook graph is L(K_{n,n}); minimum rook domination sets correspond to minimum edge-dominating subsets of K_{n,n} (Chen and Ho 2008 discusses this underlying equivalence for rook boards; https://doi.org/10.1016/j.aml.2007.12.003).",
+        "Mynhardt and Nasserasr 2020, section 4.3, defines jump gamma-graphs as single-vertex replacements; https://arxiv.org/html/2003.05956v1."
+      ],
+      "reasoning": "The claimed result concerns the same mathematical object under rook placements, jump gamma-graphs, and minimum edge-dominating-set exchanges. Those aliases were searched. Identified sources did not supply the all-size sharp diameter, radius, or stratification; absence of a search hit alone is not proof of novelty.",
+      "searches": [
+        "\"jump gamma graph\" \"rook\" K_n",
+        "\"gamma-graph\" \"rook's graph\" exchange",
+        "\"minimum rook placement\" \"reconfiguration\" \"domination\"",
+        "edge dominating sets K_{n,n}, reconfiguration jump token exchanges of minimum edge dominating sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mertens 2024, equation (3), gives the already-known count \\(2n^n-n!\\) for the minimum square-board placements, and n^m for rectangular boards; https://arxiv.org/html/2401.00716v2.",
+        "Relevant public graph tables concern the underlying rook graph, whose diameter is two, not the much larger jump graph on dominating sets."
+      ],
+      "reasoning": "The counts of minimum states are explicitly not claimed as new. The degree, edge count, radius and diameter of their jump graph cannot be deduced from the domination polynomial or underlying-rook adjacency data alone.",
+      "searches": [
+        "\"Domination Polynomial of the Rook Graph\" exact coefficient minimum",
+        "\"rook graph\" \"Hamming\" jump gamma graph exact diameter 2n-3",
+        "\"minimum rook placements\" \"two Hamming\" permutation"
+      ]
+    },
+    "rationale": "The inspected primary material establishes the reconfiguration models, general gamma-graph facts and known enumeration of rook dominating placements, but does not give the sharp jump exchange radius and diameter or the degree strata for square boards. In particular, the exact count \\(2n^n-n!\\) is explicitly credited to prior literature. Relevant accessible earlier claims are not logically equivalent; priority risk from unindexed chessboard/edge-domination literature remains.",
+    "residual_risks": [
+      "An exact gamma-graph calculation might exist in unindexed chessboard, edge-domination, or earlier unpublished literature.",
+      "Neither an external scholarly audit nor a comprehensive search of every older paper has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper studies add/delete k-dominating graphs; it does not calculate the jump gamma graph for rook boards.",
+        "evidence": "Section 2 defines D_k by a single addition or deletion; section 3 proves a general connectivity theorem in that model.",
+        "identifier_or_url": "https://arxiv.org/pdf/1401.5714",
+        "material_read": "PDF abstract, definitions and Theorem 1, relevant material of sections 3–5, references to prior domination reconfiguration.",
+        "method": "Full-text PDF extraction with page-image inspection and targeted section reading",
+        "title": "Reconfiguration of Dominating Sets",
+        "trigger": "Foundational archived preprint, explicit model distinction"
+      },
+      {
+        "assessment": "Explicitly defines relevant jump convention and surveys known classes; no rook board diameter formula appears in inspected sections.",
+        "evidence": "Section 4.3 records path, cycle, tree, Harary, product/cograph results; no matching rook specialization.",
+        "identifier_or_url": "https://arxiv.org/html/2003.05956v1",
+        "material_read": "Introduction and complete jump-gamma section 4.3 with related slide section 4.4; text searched for rook and Hamming.",
+        "method": "Accessible HTML full-text section reading and text search",
+        "title": "Reconfiguration of Colourings and Dominating Sets in Graphs: a Survey",
+        "trigger": "Survey of all named minimum-domination reconfiguration models"
+      },
+      {
+        "assessment": "Contains general structural results, not the square rook jump graph or sharp metric.",
+        "evidence": "Theorem 3.4 addresses product closure of the class of realizable graphs; theorem 4.6 treats cographs.",
+        "identifier_or_url": "https://www.researchgate.net/publication/268019499_The_gamma_graph_of_a_graph",
+        "material_read": "Accessible full-text transcription: sections 1–4 including definitions, graph-product theorem 3.4, and cograph theorem 4.6.",
+        "method": "Source text inspection and search for rook terminology",
+        "title": "The gamma graph of a graph",
+        "trigger": "Plausible primary source for jump gamma graph results"
+      },
+      {
+        "assessment": "Explicitly covers the static minimum-placement counts; does not compute the jump reconfiguration adjacency or diameter.",
+        "evidence": "Equation (3) gives \\(2n^n-n!\\) for square-board minimum placements; the remainder concerns coefficient enumeration.",
+        "identifier_or_url": "https://arxiv.org/html/2401.00716v2",
+        "material_read": "HTML sections 1–3, in particular formula (3), recursion and polynomial theorem.",
+        "method": "Accessible full-text HTML inspection",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Exact same rook object and known minimum-state count"
+      },
+      {
+        "assessment": "Relates rook domination to edge domination on a bipartite board graph, but not to the optimal placement jump graph.",
+        "evidence": "Theorem 5 identifies rook domination with edge domination; optimization algorithm concerns other boards.",
+        "identifier_or_url": "https://doi.org/10.1016/j.aml.2007.12.003",
+        "material_read": "Accessible publisher HTML introduction, Theorem 5 and concluding remarks.",
+        "method": "Full text available on publisher result page",
+        "title": "The rook problem on saw-toothed chessboards",
+        "trigger": "Primary earlier terminology for rook domination and edge domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ff9b64e-e558-47ef-a0c4-bb7cfeed873f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete minimum-rook-domination exchange geometry on arbitrary rectangles is a motivated all-parameter classification: the balanced board creates a second Hamming layer and new direct shortcuts, causing a sharp diameter shift and three local degree strata. This captures the exact feasible cost of preserving minimum domination under one-for-one replacement, a feature not implied by the classical minimum-rook count or general model definitions. The result is not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
