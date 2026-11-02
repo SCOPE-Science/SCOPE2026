@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification procedure
+# Independent mathematical audit
 
-Run `python checker.py` with Python 3's standard library. It must print `LATTICE_PERIOD_CHECK_OK cases=42` after checking all pairs of integer lattice points in each of 42 test polygons. The bounding rectangle used in the enumeration contains the full dilated parallelogram. Arithmetic uses exact integer inequalities and greatest common divisors, avoiding floating-point rounding.
+## correctness
 
-The proof in `RESULT.md` covers all \(m\ge2\) and \(n\ge1\); the 42 finite checks are non-exhaustive across these infinite ranges. The least-period assertion is analytically verified by the pairwise distinct constituent slopes, not inferred from observed numerical sequences. No independent scientific audit has occurred.
+PASS
+
+Rebuilt determinant Δ=m(m+2)-1 and inverse (u,v) coordinates for a primitive line direction w=(a,b). If b≠0 the integer identity m[(m+2)b-a]+(ma-b)=Δb forces max absolute numerator>=m+1, bounding nonhorizontal primitive length by nΔ/(m+1), strictly >1 below the continuous horizontal bound nΔ/m. In the middle horizontal strip y∈[n,mn], endpoints give ℓ(y)=n(m+2)-p-1_(y mod m<t)-1_(y mod m>0). Outer integral-height strips have shorter chords. Counting exactly the admissible residues gives both branches and pairwise distinct residue slopes; a supposed smaller quasiperiod would identify two different slopes. Independently enumerated all lattice points and all maximal pair gcd-directions for 16 configurations 2<=m<=5,1<=n<=4; all lengths, horizontal uniqueness and counts agree. Enumeration corroborates only bounded cases; proof gives the infinite m,n result.
+
+## originality
+
+PASS
+
+Qualified PASS for an all-m family with unbounded least period and exact slope spectrum. Averkov et al. already proves eventual quasipolynomiality for all lattice polytopes and exactly the m=3 instance (Example4.7), but neither general theorem nor this isolated example implies all m have least quasiperiod m. Soprunov–Soprunova studies maximum Minkowski length rather than the number of maximizing segments.
+
+## value
+
+PASS
+
+Shows a qualitatively unbounded arithmetic phenomenon within the simplest centrally symmetric lattice polygons: four primitive edges suffice for any prescribed least quasiperiod and an m-fold spectrum of growth slopes. This supplies explicit realizability and strong nonuniformity examples beyond a fixed isolated table computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
