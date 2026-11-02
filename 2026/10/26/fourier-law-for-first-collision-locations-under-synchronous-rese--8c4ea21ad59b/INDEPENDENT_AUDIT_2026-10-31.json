@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:41:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/fourier-law-for-first-collision-locations-under-synchronous-rese--8c4ea21ad59b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/fourier-law-for-first-collision-locations-under-synchronous-rese--8c4ea21ad59b/verify_collision.py",
+        "/mnt/data/scope_worker-06_20261031T073315Z/independent_checks.py"
+      ],
+      "rationale": "Because N is odd, 2 has a modular inverse and the center/difference coordinate pair is bijective. Each non-reset update moves one coordinate ±1 (probability 1/4 each) and leaves the other fixed; absorption is first difference hitting zero. Fourier transforming the center gives a tridiagonal Dirichlet recurrence with parameter alpha=acosh(2/(1-r)-cos k) and explicit cosh-ratio solution. Geometric renewal divides the unreset first-hit Fourier transform by its zero mode. The lazy difference-chain Poisson equations give E[S]=2i(N-i) and the displayed second factorial moment, producing the sharp derivative and correct absence of integer equality. Independent absorbing ordered-pair matrices matched all tested Fourier probabilities and means for N=3,5,7; the finite checks do not extend the universal proof.",
+      "residual_risks": [
+        "Only odd cycles and jointly triggered geometric resetting are treated; even-cycle opposite-parity walkers never collide. The derivative only decides local effect of weak resetting, not unique global optimizer."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published 2026 abstract explicitly defines the mean time for all walkers to meet at a given node and a general weak-reset criterion. No inspected statement covers the first-anywhere collision location law."
+        ],
+        "reasoning": "General prescribed-target mean first-passage and Laplace renewal do not themselves compute the full distribution over which collision occurs first.",
+        "searches": [
+          "Suarez-Jimenez Riascos Boyer 2026 Physical Review E 114 044306",
+          "Rubio-Gomez Riascos Mateos arxiv:2508.05313"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1103/qftv-sbqs",
+        "https://arxiv.org/abs/2508.05313",
+        "https://arxiv.org/abs/1812.03009",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/fourier-law-for-first-collision-locations-under-synchronous-rese--8c4ea21ad59b/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuum interval threshold has N² without the discrete -2 correction; a prescribed-target mean formula cannot simply be summed over sites because targets preempt one another."
+        ],
+        "reasoning": "The specific finite-lattice derivative and collision-position transform are not logical corollaries of the inspected prior observables without an additional absorbing-boundary calculation.",
+        "searches": [
+          "arXiv:2604.20770 prescribed node encounter mean",
+          "arXiv:1812.03009 first passage under resetting interval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pairwise location-at-absorption is a harmonic measure of the whole collision diagonal; one fixed-target first-encounter time conditions on reaching that target even if an earlier elsewhere encounter would have occurred."
+        ],
+        "reasoning": "Matching the walker model does not equate the stopping event. The center/difference transform builds a different boundary-value problem with all diagonal sites absorbing.",
+        "searches": [
+          "first collision location two random walkers odd cycle synchronous resetting Fourier",
+          "encounter anywhere vs at a prescribed target under synchronous resetting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant ranked mathematical results largely concerned oscillators and Fourier phase invariants, not this killed-chain law or parity-corrected N²-2 threshold."
+        ],
+        "reasoning": "No exact matching table or theorem was found in the checked searches; unindexed or unpublished prior work is possible.",
+        "searches": [
+          "Resultary: first collision location two random walks odd cycle synchronous resetting Fourier",
+          "synchronous reset random walker collision location odd cycle 5 exact derivative"
+        ]
+      },
+      "rationale": "The physically important distinction is between absorption at the first collision anywhere and hitting a designated diagonal vertex. The Suarez-Jimenez–Riascos–Boyer and Rubio-Gomez–Riascos–Mateos studies present target-specific first-encounter mean formulas, whereas here the entire winning-location distribution over all targets is computed. General renewal and interval limits are acknowledged as prior principles. Full primary recent PDF retrieval remained blocked, so a stronger hidden statement remains a risk, but no decisive covering comparison was found.",
+      "residual_risks": [
+        "Full recent Physical Review E/arXiv paper could not be inspected independently; authorized institutional retrieval reported vpn_disconnected.",
+        "A more general absorbing-chain resolvent with diagonal killing could imply the specialized Fourier expression, even if no exact table was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract describes mean encounter at a GIVEN node, not first collision ANYWHERE; whole-document priority remains uncertain",
+          "evidence": "Phys. Rev. E 114 044306, published 2026-10-02; authorized institutional full-text request returned vpn_disconnected.",
+          "identifier_or_url": "https://doi.org/10.1103/qftv-sbqs",
+          "material_read": "2026-10-02 journal abstract and arXiv abstract/stated target-node scope; full text requested from lawful sources but not obtained",
+          "method": "Physical Review E abstract; arXiv abstract; authorized full-text route",
+          "title": "Encounter times of random walkers with simultaneous resetting on networks",
+          "trigger": "Very close: same jointly resetting walkers and first encounters"
+        },
+        {
+          "assessment": "Target-specific MFET, per-walker reset model, so direct claims are different",
+          "evidence": "Published 2025; discusses prescribed target node first encounters.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.05313",
+          "material_read": "ArXiv abstract and published scope summary (not full text)",
+          "method": "arXiv bibliographic search",
+          "title": "Mean first-encounter times of simultaneous random walkers with resetting on networks",
+          "trigger": "Earlier first-encounter network formula"
+        },
+        {
+          "assessment": "Continuum interval derivative condition is not the discrete odd-cycle collision position law",
+          "evidence": "Two-boundary interval restart is prior background; no odd-cycle first-collision spatial law asserted.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.03009",
+          "material_read": "ArXiv abstract, published theorem descriptions and interval formula referenced by primary package",
+          "method": "arXiv bibliographic/summary",
+          "title": "First passage under stochastic resetting in an interval",
+          "trigger": "Possible broader continuum weak-reset threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.1103/qftv-sbqs",
+        "https://arxiv.org/abs/2508.05313",
+        "https://arxiv.org/abs/1812.03009",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/fourier-law-for-first-collision-locations-under-synchronous-rese--8c4ea21ad59b/RESULT.md"
+      ],
+      "rationale": "Where two particles collide is physically meaningful for reaction placement; a first-collision-anywhere law goes beyond a mean at a prescribed node. The full Fourier law and sharp finite-cycle restart derivative identify an unintuitive parity effect (on C5, reset helps starts two graph steps apart but hinders adjacent ones), so the result is a motivated exact stochastic-transport classification.",
+      "residual_risks": [
+        "Neither joint space-time collision distribution nor classification of all positive-rate minimizers is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For two independent synchronous nearest-neighbor walkers on odd cycle C_N jointly reset to distinct initial sites at probability r, their first collision vertex distribution has an explicit cosine-hyperbolic Fourier transform and their mean first-collision time has derivative (2q/3)(5q-(N²-2)) at r=0, q=i(N-i).",
+  "limitations": [
+    "Only odd cycles and jointly triggered geometric resetting are treated; even-cycle opposite-parity walkers never collide. The derivative only decides local effect of weak resetting, not unique global optimizer.",
+    "Full recent Physical Review E/arXiv paper could not be inspected independently; authorized institutional retrieval reported vpn_disconnected.",
+    "A more general absorbing-chain resolvent with diagonal killing could imply the specialized Fourier expression, even if no exact table was found.",
+    "Neither joint space-time collision distribution nor classification of all positive-rate minimizers is established."
+  ],
+  "schema_version": 1
+}

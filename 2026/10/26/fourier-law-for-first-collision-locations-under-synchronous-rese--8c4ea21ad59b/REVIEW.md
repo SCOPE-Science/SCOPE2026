@@ -1,11 +1,21 @@
-# Scientific assessment: Fourier first-collision law
+# Independent mathematical audit
 
-**Correctness — PASS.** The linear coordinate change is bijective for all odd cycle orders. Independent ±1 increments induce exactly four nearest-neighbor motions of the center–difference pair, with absorbing line at zero difference. Fourier transformation along the line yields a second-order two-boundary difference equation; its unique hyperbolic-cosine solution gives the transform of an unreset collision. The geometric-renewal calculation then produces the full spatial distribution and the mean under joint resets. Two exact moment recurrences establish the weak-rate coefficient \(\frac{2}{3}i(N-i)(5i(N-i)-(N^2-2))\). The argument covers all integer \(N\ge3\) odd, all distinct starting pairs and all \(0\le r<1\). Independent original-configuration Markov linear solves and derivative diagnostics agree in 242 finite checks. The finite checks are not offered as a proof for arbitrary sizes.
+## correctness
 
-**Originality — PASS, best-knowledge.** Suarez-Jimenez–Riascos–Boyer (arXiv:2604.20770v2, introduction, Secs. II–III and appendices) derive prescribed-target-node first-encounter means and spectral reset criteria, not the law of the vertex at the *first collision anywhere*. Rubio-Gomez–Riascos–Mateos (arXiv:2508.05313v1, pp. 2–3, 11, 13–15 and formulas) also compute prescribed-node first-encounter means, and use distinct per-walker reset probabilities. Stopping at one of many possible collision sites is fundamentally different from visiting a fixed diagonal configuration: those single-target means cannot simply be summed. Pal–Prasad (arXiv:1812.03009, Secs. III–IV) establish continuum interval resetting and the limiting threshold, which are explicitly acknowledged. Vega Coso (arXiv:2603.24803, versioned abstract) studies one-walker interval absorption channel probabilities, with its full text not recovered; it is a residual comparison risk but has no apparent claim about two-walker first-collision positions. Searches of relevant public research records by meeting-location Fourier laws, simultaneous resetting on odd cycles, and finite-cycle reset thresholds found no covering statement; absence of hits alone is not a proof of priority.
+PASS
 
-**Value — PASS.** A first encounter *at some location* is the physically natural absorbing/reaction event; its full spatial distribution determines where a localized detector, reaction center, or contact event would appear, rather than merely when an arbitrarily prescribed vertex will eventually be visited. The formulas collapse an absorbing ordered-pair chain to an explicitly solvable Fourier boundary problem and identify an exact size-dependent restart-design threshold. The five-cycle's inversion—reset initially hinders adjacent starters but helps starters two edges apart—exhibits an important discrete synchronous-parity effect missed by Euclidean-distance intuition and the continuum threshold alone. The exact finite-size correction is an additional, not the only, value claim.
+Because N is odd, 2 has a modular inverse and the center/difference coordinate pair is bijective. Each non-reset update moves one coordinate ±1 (probability 1/4 each) and leaves the other fixed; absorption is first difference hitting zero. Fourier transforming the center gives a tridiagonal Dirichlet recurrence with parameter alpha=acosh(2/(1-r)-cos k) and explicit cosh-ratio solution. Geometric renewal divides the unreset first-hit Fourier transform by its zero mode. The lazy difference-chain Poisson equations give E[S]=2i(N-i) and the displayed second factorial moment, producing the sharp derivative and correct absence of integer equality. Independent absorbing ordered-pair matrices matched all tested Fourier probabilities and means for N=3,5,7; the finite checks do not extend the universal proof.
 
-**Limits and risks.** The global existence/uniqueness of an optimal positive rate outside the negative-derivative case is not classified; only the initial derivative is. The spatial law is not a joint space-time law. Independent scientific audit is outstanding. A general killed-chain resolvent or absorbing-walk theorem not inspected could subsume the explicit formulas, although no decisive stronger theorem was found.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The physically important distinction is between absorption at the first collision anywhere and hitting a designated diagonal vertex. The Suarez-Jimenez–Riascos–Boyer and Rubio-Gomez–Riascos–Mateos studies present target-specific first-encounter mean formulas, whereas here the entire winning-location distribution over all targets is computed. General renewal and interval limits are acknowledged as prior principles. Full primary recent PDF retrieval remained blocked, so a stronger hidden statement remains a risk, but no decisive covering comparison was found.
+
+## value
+
+PASS
+
+Where two particles collide is physically meaningful for reaction placement; a first-collision-anywhere law goes beyond a mean at a prescribed node. The full Fourier law and sharp finite-cycle restart derivative identify an unintuitive parity effect (on C5, reset helps starts two graph steps apart but hinders adjacent ones), so the result is a motivated exact stochastic-transport classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
