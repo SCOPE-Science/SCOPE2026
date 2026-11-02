@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The theorem is quantified for every positive gain and step, with exact coefficients of the 2023 two-cell neuron map. The proof verifies the operator norm \(\|M\|_2=\sqrt{389}/10\) and the coercivity estimate \(z\cdot G_\alpha(z)\ge(2/5)\|z\|_1-17/(5e\alpha)\) using elementary hyperbolic-tangent inequalities. For \(0<T<2\), a bounded-forcing contraction gives an absorbing ball. At \(T=2\), the squared-radius defect is at most \(-8\|z\|_2/5+68/(5e\alpha)+H^2\), which gives a finite entry time and a forward-invariant ball. For \(T>2\), the reverse triangle inequality yields a uniform expanding exterior and the stated geometric escape. Compactness of iterated absorbing images yields a global attractor, while even one escaping singleton rules out global attraction. All boundary cases and quantifiers are included; the 1,050 finite diagnostics are not substituted for proof.
+
+## Originality — PASS within checked evidence
+The 2023 defining paper was read in its open full HTML text, including the exact equations and sections on equilibrium stability, numerical bifurcation diagrams, experimental simulations and conclusions. It does not state global absorbing-set existence for all initial conditions or the noncontracting endpoint threshold. Search comparisons against published findings on the Chialvo neuron map, saturating Ikeda map and other dissipative systems concern different state laws and do not imply this map-specific theorem. Marcus–Westervelt and Cessac discuss different neural-network stability questions; accessible abstracts, not full text, were examined. Published general dissipativity techniques could independently yield this theorem, so unindexed coverage remains a priority risk.
+
+## Value — PASS
+The defining work reports bounded local oscillations, even for the step \(T=2.3\), but finite seeded trajectories cannot decide global boundedness. The theorem makes a sharp distinction between existence of bounded attractors and attraction of *every* bounded initial set. It proves an otherwise noncontracting critical Euler step still has an explicit absorbing region, whereas every larger step possesses a whole escaping exterior with a quantitative expansion factor. This gives a precise mathematical admissibility boundary for global state confinement in a natural neuron-map parameter, without asserting that bounded chaotic behavior disappears beyond it. This is an exact global classification, not a stability claim at one fixed point.
+
+## Related literature and limits
+Primary reference: Buscarino–Famoso–Fortuna, *Nonlinear Dynamics* (2023), DOI 10.1007/s11071-023-08897-7. Relevant background: Marcus–Westervelt, *Physical Review A* (1989), DOI 10.1103/PhysRevA.40.501, and Cessac, *Journal of Physics A* (1994), DOI 10.1088/0305-4470/27/24/004; only their abstracts were available in this comparison. The theorem does not classify smaller invariant sets, attraction basins or random forcing. 
+
+Self-review: passed. Independent audit: not yet performed.
