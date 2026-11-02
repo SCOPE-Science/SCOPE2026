@@ -1,0 +1,15 @@
+# Scientific review: Fibonacci-block maxima of mixed Wythoff counts
+
+## Correctness — PASS
+The claim concerns all \(m\ge4\), not only computed instances. The proof first bounds the mixed representation count by the number of admissible upper summands; the exact number is \(\lfloor n/\varphi^2\rfloor\). The critical step is an infinite, parity-uniform exclusion \(F_j-2\notin V+V\), proved using the Fibonacci/Binet approximation, the carry in two floors, and the coprimality of neighboring-index Fibonacci numbers. The only case in which a carry might produce the excluded sum forces an integer strictly between minus one and one to vanish, contradicting \(1\le k<F_{j-2}\). Exact interval-endpoint inequalities and the published complement theorem for \(U+V\) prove the value and uniqueness. The standalone program checks a finite range without participating in the infinite deduction.
+
+## Originality — PASS, qualified by priority risk
+Ashburn (2026, arXiv:2610.04842v1, Theorem 1) studies the same count and classifies arguments of representation multiplicity zero, one, or two, without giving Fibonacci-interval maxima. Shallit (2020, arXiv:2006.04177v1, Theorems 5 and 8 and Section 11.2) provides a complete automaton for \(V+V\), the complement of \(U+V\), and a computable linear representation of mixed counts; the sections read do not state the uniform block maximum, the maximizing location, or the elementary carry-and-coprimality proof. OEIS A259598 and A335229 list terms and automata-related information but do not assert this extremal law. The pre-existing automaton and general count algorithm are strong neighboring coverage and could imply the theorem after further, nontrivial uniform optimization analysis. Priority may also lie in an unindexed derivation. These are genuine residual risks, not claims of uniqueness from search absence.
+
+## Mathematical value — PASS
+The motivating 2026 paper focuses on low multiplicities of an established representation function. Determining the exact growth and unique location of its largest multiplicity on the canonical Fibonacci scales is a distinct, natural extremal question. The answer is uniform for infinitely many blocks, includes uniqueness, and is explained by a structural forbidden-sum lemma rather than a numerical pattern. The theorem does not solve arbitrary pointwise mixed-sum multiplicities.
+
+## Closest literature and limits
+References: Ashburn 2026 arXiv:2610.04842v1 (Section 3); Shallit 2020 arXiv:2006.04177v1 (Sections 7, 10, 11); Kawsumarng et al. (2020), DOI:10.1007/s10998-020-00343-0; OEIS A259598 and A335229. The original Kawsumarng full text was not separately inspected; its needed complement theorem was checked in the full accessible Shallit and Ashburn papers. The conditional novelty assessment is based on inspected statements and implications, not merely on title matching. Independent mathematical and priority assessment remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

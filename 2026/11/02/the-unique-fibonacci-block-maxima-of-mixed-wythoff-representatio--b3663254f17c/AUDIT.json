@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Exact Beatty partition, Fibonacci Binet approximation, and a carry/coprimality integer determinant force F_j-2 outside upper+upper for every j>=5; exact floors yield sharp upper bound and the literature-established lower+upper complement excludes the sole possible co-maximizer. Full quantifiers and boundary m=4 covered. Python exact integer experiments through Fibonacci index 17 corroborate, not substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shallit Theorem 8 recognizes every member of upper+upper via an automaton and Section 11.2 describes a linear representation of the mixed counts.",
+        "Ashburn proves exact zero/one/two fibers and quotes the known Fibonacci-1 gaps."
+      ],
+      "reasoning": "Shallit provides broad algorithmic representation data and a complete sumset recognizer, which could be used in a separate optimization derivation; the displayed sections do not assert the infinite-block maxima, their uniqueness, or the simple proof. Ashburn covers low fibers, not maxima that grow without bound.",
+      "searches": [
+        "arXiv:2006.04177v1 Sections 7,10,11",
+        "arXiv:2610.04842v1 Theorem 1",
+        "Wythoff representation r(n) max Fibonacci interval A259598 upper lower sums"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.04842v1 Section 3",
+      "arXiv:2006.04177v1 Sections 7,10,11",
+      "OEIS A259598",
+      "OEIS A335229",
+      "Kawsumarng et al DOI:10.1007/s10998-020-00343-0, complemented via inspected Ashburn and Shallit accounts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known U+V complement: precisely Fibonacci numbers minus one are omitted; used only to exclude the other candidate at each block boundary.",
+        "Known U+U automaton gives global decidability and a membership recognizer; novel proof establishes the requisite Fibonacci-2 gap through a separate carry/coprimality argument.",
+        "Published rank-19 linear representation of mixed counts is a data-generating formalism rather than a printed uniform interval maximum."
+      ],
+      "reasoning": "The low-fiber theorem alone cannot bound the maximum, which grows like Fibonacci. The U+U automaton logically decides the exclusion but not, without additional analysis, the block count bound and uniqueness. A general rank-19 algorithm determines individual counts, but the derived infinite extremum requires an additional uniform analysis. This is residual priority risk rather than a blanket statement of nonimplication.",
+      "searches": [
+        "Exact maximum r(n) of representations n=floor(h golden ratio)+floor(k golden ratio squared) for Fibonacci intervals [F_m,F_{m+1}), unique maximizer F_{m+1}-2 value F_{m-1}-1",
+        "Fibonacci numbers minus two never sums of two upper Wythoff sequence elements, Beatty U+U complement",
+        "Shallit arXiv:2006.04177v1 Theorem 5, Theorem 8, Section 11.2",
+        "Ashburn arXiv:2610.04842v1 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A259598 defines the exact ordered lower+upper representation function; its sequence entry and Ashburn Theorem 1 classify multiplicities 0, 1 and 2, not maximum multiplicity on Fibonacci intervals.",
+        "Shallit arXiv:2006.04177v1 Section 11.2 gives a rank-19 mixed-sum counting linear representation, but no explicit Fibonacci-block extremal statement."
+      ],
+      "reasoning": "Rephrasing the finding as a Fibonacci-block upper envelope of A259598 or as an exact extremal coefficient of the mixed Beatty generating function reveals no stated equivalent in the inspected results; general computability is distinct from proof of a uniform maximum and uniqueness.",
+      "searches": [
+        "Exact maximum r(n) of representations n=floor(h golden ratio)+floor(k golden ratio squared) for Fibonacci intervals [F_m,F_{m+1}), unique maximizer F_{m+1}-2 value F_{m-1}-1",
+        "Wythoff cross-sum A259598 local maxima, Fibonacci block envelope extremal representation count Shallit Ashburn",
+        "OEIS A259598",
+        "Ashburn 2026 arXiv:2610.04842v1 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A259598 gives initial representation counts and two generating-function expressions, not a block maximum formula.",
+        "A335229 gives terms of upper+upper and cites its automaton, without an explicit Fibonacci-2 exclusion or this extremal law."
+      ],
+      "reasoning": "Finite tables can corroborate a numerical conjecture but cannot supply the quantified proof. Neither checked OEIS entry tabulates or states the Fibonacci-block maximization identity.",
+      "searches": [
+        "OEIS:A259598",
+        "OEIS:A335229",
+        "Fibonacci numbers minus two never sums of two upper Wythoff sequence elements, Beatty U+U complement"
+      ]
+    },
+    "rationale": "Against full inspected Ashburn 2026 and Shallit 2020 texts and exact OEIS entries, the infinite sharp Fibonacci-block maximum and unique maximizing location are not stated. Earlier U+U automata and rank-19 general enumeration are the closest broader covering tools; extracting the theorem needs additional uniform inequalities. Potential implicit prior derivation is recorded as real priority risk.",
+    "residual_risks": [
+      "A prior result implicit in the published general automata or linear-representation machinery could yield the same block maximum, requiring expert priority examination.",
+      "The original Kawsumarng et al full text was not separately accessed, though its required complementary-sum theorem is explicitly stated in inspected full-text later sources.",
+      "Index-based novelty search cannot establish historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same counting object and known zero/one/two fibers, but not the Fibonacci-block maximum or maximizing location",
+        "evidence": [
+          "Introduction defines r(n) as lower+upper ordered representation count.",
+          "Theorem 1 proves multiplicities zero, one and two only.",
+          "Article identifies established zero fiber at Fibonacci minus one."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.04842v1",
+        "material_read": "Full HTML article, including introduction, Section 3 Theorem 1 and references",
+        "method": "Read primary full text directly and compared exact statements of its three fibers",
+        "title": "Proofs of some OEIS conjectures on Wythoff sums, Fibonacci and Lucas words",
+        "trigger": "Exact same mixed Wythoff representation count, 2026 new primary paper"
+      },
+      {
+        "assessment": "Strong broad formalism but the exact block maximum and uniqueness are not stated in the inspected results; potential implicit derivation noted",
+        "evidence": [
+          "Theorem 5 states Fibonacci-minus-one is the complement of lower+upper.",
+          "Theorem 8 gives a 12-state automaton for upper+upper.",
+          "Section 11.2 gives rank-19 linear representations and one example for lower+lower at Fibonacci-minus-one, not the present maximum."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.04177v1",
+        "material_read": "Full HTML paper, especially Sections 7, 10, 11.1 and 11.2, with stated theorems and comparison to original Kawsumarng paper",
+        "method": "Read full primary text and compared exact claims and algorithmic implications",
+        "title": "Sumsets of Wythoff Sequences, Fibonacci Representation, and Beyond",
+        "trigger": "Plausible stronger earlier automaton covering all upper+upper sums and mixed count algorithm"
+      },
+      {
+        "assessment": "Tables and known low-fiber questions, no stated general Fibonacci-block maximum",
+        "evidence": [
+          "Entry defines lower+upper pair count and supplies initial term table."
+        ],
+        "identifier_or_url": "https://oeis.org/A259598",
+        "material_read": "Sequence entry definition, initial terms, comments, generating functions and references",
+        "method": "Read web sequence entry",
+        "title": "OEIS A259598",
+        "trigger": "Exact database of the mixed Wythoff representation function"
+      },
+      {
+        "assessment": "Complete decidable membership information cited, but no printed Fibonacci-minus-two exclusion or upper envelope theorem",
+        "evidence": [
+          "Entry gives upper+upper terms and cites 12-state automaton."
+        ],
+        "identifier_or_url": "https://oeis.org/A335229",
+        "material_read": "Sequence entry definition, terms, automaton comment, references",
+        "method": "Read web sequence entry",
+        "title": "OEIS A335229",
+        "trigger": "Database enumeration of the upper+upper obstruction set"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b3663254-f17c-4364-8732-d0c7e4610072",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 motivation studies multiplicities of the mixed Wythoff sum function; this theorem determines the unique maximum for infinitely many natural Fibonacci scales and supplies a structural exclusion lemma. It is neither a table recomputation nor a mere renamed known low-fiber result.",
+    "status": "PASS"
+  }
+}
