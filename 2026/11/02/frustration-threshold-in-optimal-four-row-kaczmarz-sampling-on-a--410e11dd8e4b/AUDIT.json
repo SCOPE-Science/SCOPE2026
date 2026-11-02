@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Algebraic primal-dual certificates use PSD 2x2 reversal blocks, matching dual trace and explicit complementary slackness. Normalized row feasibility established by implicit-function theorem and an explicit t=1 instance. Formula for one-step Kaczmarz contraction derived by congruence; 1046 exact/numerical grouped verifier assertions passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published finding \"Closed-form optimal coordinate sampling for inverse-positive SPD quadratics\" gives a rule in the inverse-positive regime.",
+        "Laurent–Mascarin–Telen arXiv:2605.02484 Section 1 and 2 discuss the cycle elliptope, cosine/metric-polytope representation, and PSD rank-two completions, not a signed-cycle Kaczmarz probability formula.",
+        "Nagy–Laurent–Varvitsiotis (2014) describe general low-rank optimal elliptope solutions; only bibliographic abstract inspected."
+      ],
+      "reasoning": "General convex/elliptope geometry supplies a reusable method but the inspected stronger claims do not state or force the exact sampling distribution, uniqueness or weight threshold without the additional explicit optimization argument. A complete uninspected signed-cycle SDP analysis remains a residual originality risk.",
+      "searches": [
+        "Optimal randomized Kaczmarz row sampling probabilities for matrices with arrowhead inverse Gram, one hub correlated with independent leaves, exact minmax contraction",
+        "web: exact semidefinite optimization on cycles weighted max cut SDP closed form weighted cycle elliptope",
+        "arxiv:2605.02484 HTML, Sections 1–2, finds for optimize/maximize/weighted"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1310.5715v1",
+      "doi:10.1109/GlobalSIP.2014.7032145 (abstract; full text inaccessible)",
+      "arxiv:2605.02484v1",
+      "doi:10.1016/j.jctb.2014.02.011 (abstract)",
+      "Published finding: Closed-form optimal coordinate sampling for inverse-positive SPD quadratics (public 2026 result)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Kaczmarz weighting results provide general upper bounds and methods but not this complete conditional-inverse-Gram characterization.",
+        "The 2026 cycle elliptope geometry gives a feasible-set representation, not the precise weighted-supporting-hyperplane optimum and its Kaczmarz conversion.",
+        "Agaskar–Wang–Lu abstract explicitly mentions probability optimization; the unavailable full text might contain stronger general formulations or examples."
+      ],
+      "reasoning": "The submitted claim combines a specific frustrated four-cycle elliptope optimum with Kaczmarz probability uniqueness. It is not claimed that the SDP or low-rank cycle geometry is new. The uninspected specialized reference leaves a nontrivial, disclosed risk of implication from earlier work.",
+      "searches": [
+        "web: \"Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities\" pdf",
+        "web: \"semidefinite\" \"weighted cycle\" \"frustration\" MaxCut exact",
+        "arxiv:1310.5715 section 5; arxiv:2605.02484 sections 1–2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The matched published records concern different four-row Fourier and phase questions; no retrieved record states the signed-four-cycle sampling law.",
+        "2013 Needell–Srebro–Ward arXiv:1310.5715 sections 3 and 5 address weighting and convergence guarantees, not the signed-four-cycle closed form.",
+        "The exact Gram-inverse reformulation is derived explicitly from congruence and must not be mistaken for a new general theorem."
+      ],
+      "reasoning": "Equivalent sign-switched formulations have invariant cycle-sign product -1. The four-cycle cannot be switched to an entrywise nonnegative inverse Gram, so inverse-positive exact sampling laws do not cover it. Matching the SDP formulation alone does not give the probability formula or the 1/3 rank transition.",
+      "searches": [
+        "four row randomized Kaczmarz optimal sampling frustrated signed cycle 4x4 inverse Gram corner phase transition 1/3",
+        "web: \"inverse Gram\" \"Kaczmarz\" sampling optimal",
+        "web: \"diagonal majorant\" \"Kaczmarz\" Gram matrix optimum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Signed-cycle majorant searches returned no matching claim among the retrieved mathematical records.",
+        "Agaskar–Wang–Lu (2014), DOI 10.1109/GlobalSIP.2014.7032145, is a plausible exact-MSE and sampling reference but no accessible full text confirmed a table or formula."
+      ],
+      "reasoning": "No exact prior table was verified for the four-cycle claim. This is not an exhaustive uniqueness claim and the inaccessible 2014 source is specifically disclosed.",
+      "searches": [
+        "four row randomized Kaczmarz optimal sampling frustrated signed cycle 4x4 inverse Gram corner phase transition 1/3",
+        "semidefinite diagonal majorant of signed cycle 4 weighted edge one frustrated antiferromagnetic bond transition threshold",
+        "web: \"optimal sampling probabilities\" \"Agaskar\" \"semidefinite\" \"four\""
+      ]
+    },
+    "rationale": "Explicit exact one-step optimal Kaczmarz probabilities on normalized four-row signed inverse-Gram cycles and the universal one-third frustration threshold are not implied by the inspected general sampling-bound, low-rank elliptope-geometry or accessible prior formulations. A directly plausible 2014 optimization source remains inaccessible, and coverage remains a residual risk.",
+    "residual_risks": [
+      "2014 Agaskar–Wang–Lu full text inaccessible; possible specialized treatment of exact sampling.",
+      "General weighted-cycle elliptope optimization literature may contain an equivalent scalar/frustration transition not located by search.",
+      "Search records do not prove absolute novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides weighted and partially biased rules with convergence guarantees, not the exact signed four-cycle one-step probabilities",
+        "evidence": [
+          "arXiv first public v1 2013-10-21",
+          "Section 5 discusses row-norm weighting and partially biased sampling"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1310.5715",
+        "material_read": "HTML text sections 1, 3, and 5 including corollaries 5.1–5.3 and the introduction",
+        "method": "Web HTML section and text inspection",
+        "title": "Stochastic Gradient Descent, Weighted Sampling, and the Randomized Kaczmarz algorithm",
+        "trigger": "Earliest qualifying source and row-sampling prior art"
+      },
+      {
+        "assessment": "Unresolved specialized coverage, neither marked NOT_COVERING nor assumed to imply the exact theorem",
+        "evidence": [
+          "2014 GlobalSIP abstract confirms exact mean squared error analysis and optimized selection probabilities"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+        "material_read": "Abstract and bibliographic material only; complete paper inaccessible via attempted author PDF and repositories",
+        "method": "Publisher/repository search and lawful OA attempt; full text unavailable",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "Title directly matches optimized row probabilities"
+      },
+      {
+        "assessment": "Gives geometry and PSD completions for cycle elliptopes, not weighted one-step Kaczmarz probability optimization in inspected material",
+        "evidence": [
+          "Theorem 2.2 cycle elliptope equals cosine of the metric polytope",
+          "Example 1.1 explicitly treats the C4 elliptope",
+          "No matching maximize, optimize or weighted term in HTML text"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.02484v1",
+        "material_read": "HTML introduction, Example 1.1, Section 2.1 and discussion of rank-two completions; term searches across the document",
+        "method": "Full-text HTML retrieval with targeted reading and searches",
+        "title": "The Algebraic Boundary of Graph Elliptopes",
+        "trigger": "Possible stronger coverage of four-cycle correlation SDP"
+      },
+      {
+        "assessment": "General rank properties, exact signed four-cycle objective not verified in available material",
+        "evidence": [
+          "Abstract states forbidden-minor characterization for exact rank-two Grothendieck constants"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jctb.2014.02.011",
+        "material_read": "Publisher/repository abstract and metadata only",
+        "method": "Web bibliographic and abstract comparison",
+        "title": "Forbidden minor characterizations for low-rank optimal solutions to semidefinite programs over the elliptope",
+        "trigger": "Rank-two optimal elliptope certificates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "410e11dd-8e4b-415c-b82c-56a3f5e5eb70",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Closed-form globally unique probability law for a natural four-row signed conditional-correlation graph, together with a universal nontrivial frustration breakpoint and rank transition, addresses a meaningful exact fixed-sampling design problem, not a mere numerical example or re-labeling.",
+    "status": "PASS"
+  }
+}
