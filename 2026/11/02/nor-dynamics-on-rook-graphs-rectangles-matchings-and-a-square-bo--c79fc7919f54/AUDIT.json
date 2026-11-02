@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every a,b >=2, the proof derives F^3=F via monotonicity, proves the disjoint full-empty-row-by-empty-column rectangle plus isolated-rook matching formula for F(S), derives necessary and sufficient residual feasible pairs (0,0) or positive with sum >=3, establishes unique enumeration of nontrivial rectangles and square near-perfect-matching obstruction, and independently derives the fixed-state maximal-matching count. Exhaustive independent C++ row/column update verification checked 2,811,728 configurations and exact structural membership across 15 parameter pairs (largest 4-by-5 and 2-by-10). Finite checks do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aledo–Martinez–Valverde, J. Appl. Math. 2015, article 594294, published March 24, 2015: sections 2 and 3 discuss self-inclusive minterm/maxterm PDS and broad period restrictions, not an open-neighborhood rook family census.",
+        "Aledo et al., Complexity 2020, article 9708347: indexed sections explain homogeneous maxterm/minterm systems whose local dependence includes the site itself, and give bounds and selected graph-family formulas, not the specified open-neighbor rook-image theorem.",
+        "For the open-neighbor rule, F^3=F and the fixed-point/MIS correspondence are general and explicitly acknowledged as previously available background."
+      ],
+      "reasoning": "General period-two restrictions and fixed-point counting do not imply the explicit combinatorial classification and labelled primitive orbit formula. The frequently studied homogeneous minterm/NOR operator includes the vertex itself and can have a different coexistence pattern, whereas this theorem excludes the vertex from its own local input. This is an essential assumption, not a cosmetic rewording.",
+      "searches": [
+        "\"NOR\" \"maximal independent sets\" synchronous Boolean dynamics 2 cycles",
+        "\"NOR-PDS\" \"rook\" \"matching\"",
+        "Counting Periodic Points in Parallel Graph Dynamical Systems Aledo 2020 exact periodic points minterm",
+        "Parallel Dynamical Systems over Graphs and Related Topics A Survey 2015 NOR neighborhood definition"
+      ]
+    },
+    "checked_sources": [
+      "Aledo–Martinez–Valverde, Journal of Applied Mathematics 2015, DOI:10.1155/2015/594294",
+      "Aracena–Richard–Salinas, arXiv:1507.06141, first public 2015-07-22",
+      "Aledo et al., Complexity 2020, DOI:10.1155/2020/9708347",
+      "Gadouleau–Kutner, arXiv:2403.17658, journal version 2025, DOI:10.1016/j.ic.2025.105266",
+      "Rook graph identification K_a square K_b = L(K_{a,b}) in standard graph references",
+      "Relevant semantically retrieved published mathematical research records; no equivalent NOR rook-census claim returned",
+      "Previously accessible graph-join NOR result and other local graph dynamics claims checked for implication overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A known open-neighborhood NOR identity for graph joins gives E(G join H) and Q(G join H), but a rook graph is the Cartesian product K_a square K_b and is not a graph join in the requisite family; that identity cannot specialize to the present theorem.",
+        "Aracena–Richard–Salinas establishes the fixed-point maximal-independent-set connection; this establishes E_{a,b} after rook matching enumeration but says nothing by itself about T_{a,b}, the missing near-perfect matching layer, or Q_{a,b}.",
+        "The 2015 parallel-systems survey covers possible periods under its model, not exact labelled orbit populations here."
+      ],
+      "reasoning": "The novel content is not the at-most-two period restriction, nor the fixed-point formula alone. It is the complete image decomposition with an exact residual-feasibility test, unique rectangle component, sharp exclusion of a full matching layer for square boards, and exact all-parameter Q_{a,b}. All are reconstructed directly in the proof; they do not follow as special-case numerical substitutions of the identified prior results.",
+      "searches": [
+        "Exact primitive period-two orbit counts for synchronous strict-neighbor majority with tie retention on rectangular rook graphs Cartesian products K_a square K_b, contingent row-column sums.",
+        "Antitone graph neighborhood polarity F(S)=vertices with no neighboring support, complete bipartite line graph rectangular and matching decompositions, exact 2-cycle count",
+        "Fixed points in conjunctive networks and maximal independent sets in graph contractions arXiv 1507.06141",
+        "Generalising the maximum independent set algorithm via Boolean networks full text sequential update fixing word",
+        "Graph majority threshold dynamics recurrent two cycles on joins and Cartesian products of complete graphs and rook graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gadouleau–Kutner, arXiv:2403.17658, defines precisely the open-neighborhood NOR/MIS network but studies the sequential update and fixing-word problems; its abstract and indexed introduction do not state the parallel rectangle-and-matching orbit classification.",
+        "Aracena–Richard–Salinas, arXiv:1507.06141, pp. 1–4 and its main theorems, focus on fixed points and maximal independent sets in signed conjunctive networks rather than an exact simultaneous two-cycle census."
+      ],
+      "reasoning": "Equivalent terminology includes all-negative conjunctive networks, the MIS network, graph anti-neighborhood polarity, the line graph of a complete bipartite graph, and the rectangular rook graph. The fixed-point equivalence is expressly inherited, but the periodic-state image formula, the square-board missing matching layer and labelled orbit sum are not supplied by the inspected material. No negative search establishes uniqueness.",
+      "searches": [
+        "\"rook graph\" \"NOR\" \"periodic\"",
+        "\"line graph\" \"NOR\" \"two-cycle\" Boolean",
+        "\"maximal independent set network\" \"rook graph\" \"synchronous\"",
+        "Open neighborhood synchronous NOR dynamical systems on rook graphs K_m Cartesian K_n / line graph complete bipartite graph; exact periodic points and 2-cycles counted by rectangles and partial matchings."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches did not identify any table attributing the two-row orbit sequence 1, 7, 15, 31, 63, ... to simultaneous open-neighborhood NOR on rook graphs.",
+        "Standard rook graph references identify the graph as K_a square K_b = L(K_{a,b}); this identification alone contains no orbit count."
+      ],
+      "reasoning": "The integer sequence 2^b-1 by itself is ubiquitous and is not claimed as novel; what matters is its proved interpretation as the exact primitive orbit count and the all-size structural classification. No located graph-specific table supplied both the rule and the enumeration.",
+      "searches": [
+        "\"rook graph\" \"NOR\" \"2^n-1\" cycles",
+        "\"L(K_{2,n})\" \"NOR\" periods",
+        "\"rook graph\" \"parallel\" \"NOR\" \"attractor\"",
+        "Boolean nor networks on line graphs complete bipartite graph nonattacking rooks independent sets oscillation two cycles fixed points"
+      ]
+    },
+    "rationale": "A genuine new theorem in the searched and inspectable mathematical record: the all-size image classification and exact primitive two-cycle census on K_a square K_b for the open-neighborhood NOR map, including the unique square-board forbidden partial-matching layer. The closest old graph-join NOR result has inapplicable product structure. General period restrictions and the fixed-point/MIS correspondence are not claimed new. Inspection of accessible primary full texts and relevant proof sections from 2015, with indexed material from more recent works, found no theorem implying the new classification; residual unindexed or inaccessible equivalence risk remains.",
+    "residual_risks": [
+      "The finite indexed semantic search cannot prove worldwide novelty; unknown older work may state an equivalent closure-system counting theorem.",
+      "The latest Gadouleau–Kutner full PDF and some old related publisher full texts were inaccessible; priority comparison uses detailed accessible primary excerpts rather than pretending to have read entire inaccessible documents.",
+      "The generic image and fixed-point principles are old; originality is only the rook-graph structural classification and exact count."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides broad general orbit results and self-inclusive local Boolean function conventions; does not give exact open-neighborhood rook-graph periodic-image or orbit counts.",
+        "evidence": [
+          "Published March 24, 2015; DOI 10.1155/2015/594294; sections 2.1, 3.1 and 4.1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2015/594294",
+        "material_read": "Open-access full HTML, definitions in section 2, theorem discussion in section 3, NOR/NAND and independent-local-function discussion in section 4.",
+        "method": "Full HTML inspection of definitions, orbit statements, and cited scope.",
+        "title": "Parallel Dynamical Systems over Graphs and Related Topics: A Survey",
+        "trigger": "Direct archival study of NOR/NAND synchronous graph dynamical systems and their period restrictions."
+      },
+      {
+        "assessment": "Covers the fixed-point correspondence but not the recurrence image of simultaneous open-neighborhood NOR on rook graphs.",
+        "evidence": [
+          "ArXiv version 1 first public July 22, 2015; relation fix(G^-)=mis(G), equation (2), PDF page 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.06141",
+        "material_read": "28-page primary PDF accessed; the introduction, main theorem statements, relevant proof and complexity sections, fixed-point formula and graph-contraction focus were inspected.",
+        "method": "Read selected relevant sections of the parsed full PDF and visually inspected page 4 to verify the fixed-point claim and neighborhood convention.",
+        "title": "Fixed points in conjunctive networks and maximal independent sets in graph contractions",
+        "trigger": "Directly establishes the all-negative conjunctive network/maximal-independent-set correspondence used for fixed states."
+      },
+      {
+        "assessment": "Provides period-count bounds and selected family formulas for inclusive minterm/maxterm systems, not the same open-neighborhood rook graph formula.",
+        "evidence": [
+          "Complexity 2020, article 9708347, sections 1–3 excerpts; explicit self and neighbor dependence."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2020/9708347",
+        "material_read": "Accessible indexed article text including abstract, definition of self-inclusive local functions, summary of section 3, Proposition 1, Corollary 4 and conclusions; not a separately downloaded full article.",
+        "method": "Primary journal indexed sections and close comparison of self-inclusion and graph-family assumptions.",
+        "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+        "trigger": "A later work promising general counts of periodic points for maxterm and minterm parallel systems."
+      },
+      {
+        "assessment": "Its described results are about sequential updates and fixing schedules, not the synchronous period-two census. Missing full text remains a bounded priority risk.",
+        "evidence": [
+          "ArXiv first public March 26, 2024; Information and Computation 303 (2025), 105266; introduction and methods excerpts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.17658",
+        "material_read": "Primary publisher-indexed abstract, long introduction, definitions, sequential fixing-word and constituency results; arXiv full PDF was unavailable.",
+        "method": "Detailed indexed primary text comparison, with explicit lack of complete full-text verification.",
+        "title": "Generalising the maximum independent set algorithm via Boolean networks",
+        "trigger": "Uses exactly the open-neighborhood NOR/MIS local map, so a plausible broader antecedent."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c79fc791-9f54-44a6-a36b-c1ce6a8c1150",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an all-size natural graph-family recurrence classification. The result uncovers a precise square-board-only omission from otherwise entire partial matching strata, yields computable explicit binomial sums for every labelled primitive two-cycle census, and proves Q_{2,b}=2^b-1 for b>=3. These are dynamical graph invariants not determined by the generic period-two bound or the known maximal-independent-set fixed-point identification.",
+    "status": "PASS"
+  }
+}
