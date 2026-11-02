@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Every nonempty code has uniform opposite endpoints. For the fixed orientation the four three-bit prefix neighborhoods of compatible suffixes form a nested chain, so every code is contained in one of four valid universal Cartesian templates; disjoint boundaries for n at least 6 permit an arbitrary middle. Exact boundary generating polynomials yield the four binomial coefficients and bit complementation supplies the other orientation. Direct binomial asymptotics and polynomial sign comparisons prove the three claimed crossover densities. The verifier independently enumerated 255 prefix subsets, checked 475 weight/length pairs and 24 literal optimum cliques. Finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn et al., Theorem 8 and Table II: maximum unrestricted binary (1,3) code size is six times two to the middle length.",
+        "Wang-Wang arXiv:2108.06934v1 Sections I, III-IV: classical all-overlap coding constructions, enumerators and variable lengths."
+      ],
+      "reasoning": "A theorem maximizing total code cardinality is not a dominating fixed-weight bound: the low/high weight optimizers have four boundary pairs instead of the unweighted six, and their constant-weight layers can exceed the layers of unrestricted optimizers. Stronger alphabet or block-length coverage for all-overlap conditions imposes different constraints, so does not imply this all-n all-weight restricted-overlap formula.",
+      "searches": [
+        "Blackburn Esfahani Kreher Stinson 2211.10309 restricted overlaps constant weight code",
+        "https://arxiv.org/html/2211.10309v4",
+        "https://arxiv.org/html/2108.06934v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.10309 public HTML, Theorems 7-8, Table II, Sections I, III-IV, VII",
+      "arXiv:2108.06934v1 public HTML, Sections I, III-IV",
+      "Stanovnik 2025 Springer open-access public HTML Sections 2 and 4.1",
+      "arXiv:1303.1026 abstract only",
+      "Relevant published research records returned by the semantic search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blackburn et al., Theorems 7-8 characterize product constructions and unrestricted maximum via independent vertex sets; Section III describes a k=3 solution with three prefixes and two suffixes.",
+        "New claim: for every n at least six and each weight w, the optimum is the maximum of four explicit binomial expressions, with universal four-template containment and three density phase boundaries."
+      ],
+      "reasoning": "The original graph framework allows one to formulate a weighted optimization, but does not directly state, evaluate or solve it for all weights. The present nested-neighborhood argument proves that no non-Cartesian or smaller prefix set improves any weight layer, then optimizes coefficients rather than total boundary-pair counts. Its extreme-density optimum differs from the unweighted optimum. General algorithms need a substantive specialization to yield this particular theorem.",
+      "searches": [
+        "https://arxiv.org/html/2211.10309v4",
+        "https://link.springer.com/article/10.1007/s12190-025-02441-z",
+        "restricted overlaps code weight enumerator independent set boundary patterns prefix suffix length three"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blackburn et al., arXiv:2211.10309v4, Lemma 6 and Theorems 7-8: incompatibility-graph independence and unrestricted Cartesian block codes.",
+        "Stanovnik (2025), open-access Sections 2 and 4.1: maximality, expandability and constructions for (1,k)-overlap-free codes."
+      ],
+      "reasoning": "Synonyms include (1,3)-overlap-free, three-short-overlap-free, weakly mutually uncorrelated at a fixed upper overlap size, cross-bifix constrained, and fixed-composition synchronization code. The 2022 graph supplies a general search framework but not the exact maximum at each Hamming weight; its unweighted winning boundary set is not always a weighted winner. The inspected 2025 extension does not present this weight optimization.",
+      "searches": [
+        "restricted overlaps code weight enumerator independent set boundary patterns prefix suffix length three",
+        "fixed composition cross bifix free codes short overlaps length three",
+        "https://arxiv.org/html/2211.10309v4",
+        "https://link.springer.com/article/10.1007/s12190-025-02441-z"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Blackburn et al. Table II tabulates only unrestricted total counts for k up to six; k=3 gives six boundary pairs.",
+        "Compared public record titles and scientific summaries for non-overlap code maxima, variable-length exclusions, and alphabet-size tables; no weight-by-weight profile appears in the closest results."
+      ],
+      "reasoning": "Known tables report unrestricted maxima or differing overlap constraints, and do not provide this four-term binomial optimum as a table or a dominated parameter range. This negative search finding is only search evidence, not a claim of universal novelty.",
+      "searches": [
+        "golden ratio phase transitions optimal constant weight binary restricted overlap length 3 code density",
+        "binary (1,3)-overlap free fixed weight four boundary templates exact binomial capacity",
+        "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+        "2026/10/4/SCOPE-exact-length-six-non-overlapping-codes-at-alphabet-sizes-seven-t--a4c76833d8cb"
+      ]
+    },
+    "rationale": "The prior restricted-overlap graph framework and unrestricted size bound are explicitly acknowledged. The new exact fixed-Hamming-weight optimization requires classifying weighted maximal compatible boundary rectangles: four boundary weight polynomials suffice, and the optimum switches templates at three explicit density thresholds. The inspected primary texts and searched published records did not contain an equivalent all-n all-weight optimum. An unlocated equivalent specialization remains a specific risk.",
+    "residual_risks": [
+      "An unlocated fixed-composition specialization of the known boundary-graph method could coincide with the four-term optimum.",
+      "The first two strongly related papers support the contrast in forbidden-overlap sets but a globally exhaustive literature comparison is not possible.",
+      "No external independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRONG PRECURSOR: the boundary-graph method and unweighted maximizing templates are known; the full fixed-weight optimum and template-switch thresholds were not identified.",
+        "evidence": [
+          "Theorems 7-8 construct product codes from boundary-independent sets and maximize total size.",
+          "Table II reports the binary k=3 unweighted optimum six times two to the power n-6; Section III gives a specific three-prefix, two-suffix optimizer."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.10309v4",
+        "material_read": "Full public HTML: Introduction; Section III construction with k=3; Section IV graph model, Lemma 6, Theorems 7-8, Table II; discussion and weight search in remaining material.",
+        "method": "Read theorem statements/proofs and k=3 construction; searched text for fixed-weight claims and computed implication comparison against all four proposed coefficient polynomials.",
+        "title": "Constructions and bounds for codes with restricted overlaps",
+        "trigger": "The source directly defines (1,k)-overlap-free codes and solves the unweighted binary k=3 case."
+      },
+      {
+        "assessment": "Different source problem: all proper overlaps forbidden; generating functions concern q-ary constructions, their total cardinalities and variable-length counts.",
+        "evidence": [
+          "Section I defines fixed-length codes by excluding every nonempty proper prefix-suffix overlap.",
+          "Sections III-IV study q-ary generalization and variable-length cardinality bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2108.06934v1",
+        "material_read": "Full public HTML: abstract, Introduction, definitions, summary of fixed/variable length constructions and sections III-IV.",
+        "method": "Compared the precise forbidden-length sets and the quantities being enumerated.",
+        "title": "Q-ary non-overlapping codes: a generating function approach",
+        "trigger": "Potential generating-function formulation covering short-overlap code enumerators."
+      },
+      {
+        "assessment": "The inspected material gives general constructions and expandability; no exact binary k=3 fixed-weight maximum was identified.",
+        "evidence": [
+          "Abstract and Section 4 discuss general bounds, construction and maximal (1,k)-overlap-free codes.",
+          "HTML text search found no Hamming-weight optimization."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s12190-025-02441-z",
+        "material_read": "Open-access full HTML: abstract, introduction, Section 2 definitions and upper bounds, Section 4.1 (1,k) constructions and maximality statements, and text search for weight.",
+        "method": "Inspected problem definitions, paper aims, (1,k) constructions and possible fixed-weight enumerators.",
+        "title": "Codes with restricted overlaps: expandability, constructions, and bounds",
+        "trigger": "Direct later extension of the exact restricted-overlap research line."
+      },
+      {
+        "assessment": "Different forbidden set according to abstract; possible implicit variants in uninspected text remain residual risk.",
+        "evidence": [
+          "Abstract describes non-overlapping codes forbidding all proper prefix-suffix matches."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+        "material_read": "Bibliographic abstract and references only; no claim of full text inspection.",
+        "method": "Compared the definition of full nonoverlap with restricted overlap lengths.",
+        "title": "Non-overlapping codes",
+        "trigger": "Foundational closely named title that might subsume a short-overlap specialization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "27a92f19-f261-44e9-8a41-5656d911de3d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural constant-Hamming-weight optimization of an existing synchronization constraint, not resolved by an unrestricted-cardinality maximum: at extreme densities the unweighted-optimal six-pair templates lose to four-pair templates. Exact maxima for every length n at least 6 and weight, four explicit attaining constructions and the density-dependent golden-ratio changeovers describe a nontrivial design trade-off relevant to sparse and dense marker codes.",
+    "status": "PASS"
+  }
+}
