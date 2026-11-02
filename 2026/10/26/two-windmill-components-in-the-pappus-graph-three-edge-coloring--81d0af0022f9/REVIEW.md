@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Every perfect matching is exhausted by branching at the smallest unmatched vertex, every one-factorization by complementary triples of such matchings, and every Kempe move by components of all three two-color 2-factors. The twenty canonical colorings, full thirty-six-edge adjacency, and the two explicit ten-vertex component lists are in the standalone certificate. A second verifier enumerates edge color assignments rather than matchings and obtains the same entire graph digest. The quotient distinguishes global color renaming from graph-vertex relabeling.
+## correctness
 
-**Originality (PASS, subject to literature residuals).** The 2012 Belcastro–Haas work covers Kempe class counts, the 2017 Belcastro–Haas article develops structural properties of named and vertex-fixed coloring graphs (the latter has fewer allowable edges than the complete color-name quotient), and the 2021 Goedgebeur–Östergård work exhaustively counts equivalence classes for small cubic graphs, suppressing root-containing moves without preserving the full quotient adjacency. The 2017 full-text article and relevant 2021 algorithm/tables were materially inspected. None of these identified statements gives the full Pappus graph's color-permutation quotient as two windmills, with its two-color-cycle center criterion. Known aggregate class-count computations may already imply the number of components alone, which is explicitly not the sole novel claim.
+PASS
 
-**Mathematical value (PASS).** The exact transition graph for a canonical highly symmetric nonplanar cubic bipartite graph demonstrates extreme heterogeneity of local Kempe mobility: exactly one degree-nine center versus nine degree-three peripheral configurations in each equivalence class. Its local cycle-structure criterion identifies the centers without referring to their names or position in an enumeration. This refines class counts to complete adjacency, connectivity, and exchange-distance structure for a classical symmetric graph.
+Every 3-edge-coloring of a cubic graph is a partition into three pairwise disjoint perfect matchings. Recursive lowest-unmatched-vertex enumeration is exhaustive and gives exactly 42 perfect matchings; complementary disjoint pairs give precisely 20 globally color-normalized factorizations. Each pair of colors forms an even 2-factor, whose connected cycles exhaust all valid Kempe switches. A wholly fresh DP matching-and-switch enumeration reconstructed all 20 canonical 27-coordinate colorings, the 36 undirected adjacency edges and the deterministic complete-graph SHA-256 56ffa0b44d5b539ae41cc4056f5b6ca8821b12eaae1cad70608a02a36680ada6; degree histogram 2*9+18*3, two components of size 10, deletion of each unique degree-9 apex leaves three disjoint triangles, and all 20 cycle signatures matched. This is a complete finite proof for the single specified labeled graph, not a sampling extrapolation.
 
-**Residual scientific risks.** The sample is one finite graph rather than an infinite theorem, and a differently indexed graph/coloring database may contain an equivalent adjacency table. Deterministic finite enumeration certifies the stated graph, not novelty in every inaccessible article. The 2017 graph-theoretic framework is general, but its implications do not alone specify the Pappus instance without calculation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified contribution is the entire 20-vertex Pappus color-name quotient switch graph and intrinsic central two-factor profile, not generic Kempe equivalence or already tabulated numbers of connected components.
+
+## value
+
+PASS
+
+The Pappus graph is a canonical highly symmetric 18-vertex cubic bipartite graph, and Kempe switch connectivity is an established nontrivial reconfiguration invariant. Its exact quotient graph has unexpected rigid local geometry: two disconnected ten-vertex windmills with one highly mobile center in each and a simple intrinsic bichromatic-cycle characterization. The complete adjacency is independently reusable for Kempe-dynamics research and much sharper than merely counting components.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
