@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Leftmost subsequence embedding advances across two-symbol source runs with cost Phi(u)=|u|-e(u)+s(u). Single-letter deletion effects force an all-odd-run candidate and characterize precisely the boundary Phi=r+1, or Phi=r+2 with a long final run. Odd composition GFs give F_r, 2F_{r-1}, F_{r-2}; r=1 is explicit. The provided standalone checker exhaustively compares structural and actual MAS predicates through r=8 and additionally checks embedding costs through r=12 (412292 word-level comparisons). No finite observation substitutes for the displayed proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2025 source gives input-generic enumeration algorithms and longest-MAS search, not an evaluation of MAS(w_r).",
+        "2021 source has an exponential MAS family B_k with alphabet size at least four and strictly increasing-permutation source blocks, not doubled binary blocks."
+      ],
+      "reasoning": "General algorithms can compute the set but do not make the claimed exact output-count formula or three-layer classification a direct corollary. The 2021 large-alphabet lower bound neither implies the exact binary law nor controls the layer counts.",
+      "searches": [
+        "arxiv:2504.21471v1 Sections 5-6, Conclusion",
+        "arxiv:2108.13968 Section 3, propositions 3.6-3.10",
+        "published-finding corpus: maximal number minimal absent subsequences binary run limited words Fibonacci exponential lower bound"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2108.13968 (full Section 3 relevant pages)",
+      "arxiv:2504.21471v1 (abstract, MAS enumeration theorem statements and conclusion)",
+      "published-finding corpus/2026 Fibonacci shortest absent subsequence extremals RESULT.md",
+      "separate length-profile result for strictly alternating binary words"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published Fibonacci extremal is about the maximum cardinality of shortest absent subsequences among length-n binary words, not all minimal absent subsequences of doubled-run words.",
+        "Historical fixed-family exact formula uses (01)^m; its Greedy subsequence geometry and binomial layer counts differ.",
+        "The 2021 B_k construction requires a larger even alphabet and only an exponential lower bound."
+      ],
+      "reasoning": "None of the compared statements is stronger or subsumes this fixed-family MAS-length classification under a parameter identification. General enumeration is an algorithm to compute counts, not a closed symbolic classification.",
+      "searches": [
+        "published-finding corpus hit 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28; inspected RESULT.md",
+        "Comparison against exact minimal-absent spectra for strictly alternating binary source words",
+        "arxiv:2108.13968 full text Theorem 3.1 and Proposition 3.6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The general 2021 characterization addresses arbitrary MAS but does not state the exact Fibonacci doubled-run count.",
+        "published-finding corpus nearest named Fibonacci result counts maximum shortest absent subsequences, which is not the present all-minimal basis for one fixed word."
+      ],
+      "reasoning": "Aliases checked include MAS, minimal forbidden scattered subword, missing subsequence, odd-run candidates and Fibonacci. The shortest-absent extremal does not imply this all-minimal length spectrum. The available searches returned no equivalent exact family statement.",
+      "searches": [
+        "published-finding corpus: minimal absent subsequences number for binary words (0011)^k pairwise doubled alternating runs Fibonacci F_{r+2}",
+        "published-finding corpus: Fibonacci counts of minimal forbidden scattered subwords alternating binary double runs length two",
+        "web: \"minimal absent subsequences\" \"00110011\" Fibonacci",
+        "arxiv:2108.13968 Section 3, Theorem 3.1, Proposition 3.6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching exact table or OEIS-type binary doubled-run MAS length profile surfaced in the performed searches; Troníček (2023) abstract is algorithmic and its full text remains inaccessible.",
+        "Finite values 2,3,5,8,13,21,34,55 match Fibonacci but the claim includes a structural proof and complete infinite length spectrum."
+      ],
+      "reasoning": "The familiar Fibonacci number sequence alone is not a prior proof of its realization by this exact MAS statistic; no matching table connecting the invariant and family was found. Database search is not comprehensive.",
+      "searches": [
+        "published-finding corpus: minimal absent subsequences 0^2 1^2 repeated alternating word exact count",
+        "web: binary repeated runs \"minimal absent subsequences\" Fibonacci",
+        "web: number \"minimal absent subsequences\" \"00110011\" Fibonacci"
+      ]
+    },
+    "rationale": "Inspected 2021 MAS structural characterization and its large-alphabet B_k example; the 2025 primary optimal enumerator and conclusion; a published Fibonacci extremal for shortest absent subsequences, and the accessible abstract of Troníček (2023). None supplies this exact fixed-family MAS full length profile or dominates it by immediate specialization. An available separate classification concerns alternating singleton runs, rather than doubled runs. Residual unindexed prior-coverage risk noted.",
+    "residual_risks": [
+      "Potential unindexed equivalent formula or different terminology for this exact doubled-run MAS spectrum",
+      "Full text of Troníček (2023) was inaccessible after arXiv and open-access searches; an available abstract describes a MAS counting automaton but no explicit doubled-run spectrum; no independent priority review or formal proof assistant certification"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "B_k=(1·2·...·sigma)^k under sigma>=4; its lower bound is not exact binary doubled-run MAS length enumeration",
+        "evidence": [
+          "PDF page 7 printed (0-index p6): B_k definition and sigma>=4 restriction",
+          "Proposition 3.6 lower bound and Theorem 3.1 characterization"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+        "material_read": "Primary PDF Theorem 3.1 and its applications, the B_k definition and Proposition 3.6 full statement and proof, and surrounding Section 3 statements",
+        "method": "arXiv open-access primary PDF text and rendered page 7",
+        "title": "Absent Subsequences in Words",
+        "trigger": "foundational MAS characterization and an apparently plausible exponential periodic example"
+      },
+      {
+        "assessment": "input-generic counting/enumeration machinery, not an exact symbolic MAS count or length spectrum for alternating binary double runs",
+        "evidence": [
+          "Pages 3 and 14–23: algorithm results and scope",
+          "Page 23 conclusion: focus on improving general enumeration and longest MAS"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2504.21471",
+        "material_read": "Abstract, introduction, Section 5 MAS skeleton and algorithm theorem statements, Section 6 conclusion; full-PDF search for Fibonacci term",
+        "method": "arXiv v1 open-access primary full-text extraction and rendered pages",
+        "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+        "trigger": "2025 recent primary problem-defining literature and exact MAS enumeration algorithm"
+      },
+      {
+        "assessment": "A generic automaton and MAS counting procedure are described, but possible exact special-family results could not be ruled out without the full text",
+        "evidence": [
+          "Abstract specifies a counting algorithm and unspecified combinatorial properties, but gives no doubled-run Fibonacci family identity"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-031-49614-1_26",
+        "material_read": "Accessible paper abstract and bibliographic description only; full text not accessible from arXiv or open-access search",
+        "method": "Paper-title, author, arXiv and open-access searches plus publisher metadata",
+        "title": "On Problems Related to Absent Subsequences",
+        "trigger": "2023 combinatorial properties and counting algorithm for MASs"
+      },
+      {
+        "assessment": "maximal shortest-absent quantity under length budget differs from all minimal absences of one doubled-run source",
+        "evidence": [
+          "Finding: M_{2m}=F_{m+3}, M_{2m+1}=2F_{m+1}",
+          "Limitations: not minimal absent subsequences of arbitrary length"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28/RESULT.md",
+        "material_read": "Complete RESULTS file including statement, proof and limitations",
+        "method": "read published research result text",
+        "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+        "trigger": "closest semantically similar Fibonacci/absent subsequences record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "06eff8b8-a564-473b-9040-fcbb4696ca7f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This natural minimal obstruction basis for subsequence containment is fully classified for a symmetric binary doubled-run periodic family: three exact length layers, Fibonacci total, and an explicit structural test. This addresses output growth of general MAS enumeration and is neither a routine restatement of the known algorithms nor a finite census.",
+    "status": "PASS"
+  }
+}
