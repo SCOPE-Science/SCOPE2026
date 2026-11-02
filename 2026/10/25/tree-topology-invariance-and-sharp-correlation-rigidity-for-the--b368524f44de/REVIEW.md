@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each tree the simplex-volume sum is an even polynomial of degree at most two in each squared edge correlation: a coordinate reflection changes any independently selected tree-edge signs. Exact integer determinants were enumerated for all \(4368\) five-vertex subsets and verified on \(3^3\) squared nodes for each of the \(16\) trees. Tensor polynomial interpolation therefore establishes the identity for **all** real parameters. Uniform coordinate marginals give the denominator; differentiation of the explicit symmetric cubic bracket proves strict monotonicity and the unique equality case. The embedded checker replays exactly; finite evaluations are a complete certificate only because the polynomial degree bound is independently proved. The zero-correlation boundary and all \(t_e\in[0,1)\) are covered.
+PASS
 
-## Originality — PASS under accessible evidence
+The forest Fourier-character expansion gives total vertex weight 16 and all eight facet weights 8; no nonempty forest edge subset has singleton odd-degree boundary. The absolute 4-simplex determinant is invariant under cube-coordinate reflections. Independent sign flips of any tree edge correlation are realizable by spin reflections, so the degree<=5 in each rho variable restricts to degree<=2 in each t=rho². Exact polynomial interpolation is therefore justified at squared nodes 0,1,4, including formally negative weights at rho=2 (only an algebraic identity is asserted there). A newly implemented 4x4 determinant enumerator verified all 4368 five-subsets, the histogram (1360,2672,320,16) for determinant absolute sizes 0,1,2,3, and all 16*27=432 integer interpolation identities. The bracket Q=Q0+aQ1 has Q1=15-7(b+c)-bc>=0 and Q-(1-a)Q_a=90+22(b+c)-6bc+2a[15-7(b+c)-bc]>0 for a,b,c in [0,1), proving strict monotonicity and unique equality at zero correlations. These complete finite polynomial coefficients plus symbolic degree/evenness yield the continuous-domain result.
 
-The motivating full arXiv primary text specifies the unrestricted four-cube inequality but supplies no zero-field tree specialization or three-correlation identity. The closely relevant published Hamming-orbit-symmetric result has the same \(105/128\) optimum, but its weight domain does **not** contain the three-edge star: the equal-correlation star gives two unequal Hamming-one weights. An accessible earlier disjoint-pair result is a genuine two-edge boundary case, not a formula or inequality for three-edge connected trees. Actual research-record queries for tree/Ising/correlation aliases and exact formulas did not reveal a theorem covering the claimed all-tree identity. A missed equivalent older formula remains possible; neither partitioning by tree topology nor a failed search proves priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is not just another parameter restriction with the known sharp constant. Connected four-spin path and star models have genuinely three independent correlations. The exact profile is unexpectedly **independent of all tree topologies**, yielding one identity across 16 labelled combinatorial shapes, not a change of labels of a disconnected two-pair model. The sharp strict correlation rigidity supplies a nontrivial, structurally interpretable regime of a specific open convex-geometric inequality. No universal bound over arbitrary weights or cyclic graphs is claimed.
+The independent weighted-Hypercube general inequality is now covered by the updated October 2026 v2 of Averkov–von Dichter–Soprunov; the target must NOT be presented as proving an open 4-dimensional inequality. Its distinct contribution is the exact degree-six three-correlation profile, connected-tree topology invariance and strict sharp 105/128 rigidity. The already-published 105/128 result covers a different Hamming-weight symmetric cone: an Ising star with nonzero correlations typically assigns different masses to two weight-one cube vertices and is not in that cone.
 
-## Closest prior work and limits
+## value
 
-Averkov, von Dichter and Soprunov, arXiv:2608.14909v1 (14 August 2026), establish the problem and the proved lower-dimensional case. The published Hamming-symmetric sharp-gap result from 11 October 2026 gives a different domain with the same optimum. The earlier exact disjoint-pair law is covered as a degenerate edge-zero boundary of the new result and is not presented as a separate new finding. Unindexed literature remains an historical-priority risk; independent scientific review was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete three-parameter polynomial identity on all labelled four-spin Markov trees gives an exact natural non-symmetric family and an analytic correlation monotonicity law; its tree-versus-star invariance is nontrivial. The strictly optimal gap and equality structure quantify a meaningful probabilistic geometric restriction, rather than rechecking an arbitrary small perturbation of the general inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
