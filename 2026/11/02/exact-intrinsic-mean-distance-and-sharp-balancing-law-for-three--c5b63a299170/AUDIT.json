@@ -1,0 +1,168 @@
+{
+  "correctness": {
+    "rationale": "The proof lists all simple routes for same-edge and cross-edge pairs, performs the exact rectangle integrals including both detour-corner corrections, and gives the identity 108*T^2*(E-5T/27)=36*a*u^2+36*a*u*v+36*a*v^2+2*u^3+3*u^2*v+15*u*v^2+7*v^3 with a>0,u=b-a>=0,v=c-b>=0. Every coefficient is nonnegative, and equality forces u=v=0. Direct differentiation of the isosceles expression supplies the non-Schur-convexity witness. A locally executed standard-library checker reports 328 exact assertions and 750000 random point-pair comparisons; these do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baptista–Kennedy–Mugnolo arXiv:2312.04952 Theorem 3.2 gives, with E=3, general lower bound 5T/36 and doubly connected upper T/4.",
+        "Garijo–Márquez–Silveira arXiv:2103.11676 Theorem 3.1 evaluates any weighted graph in quadratic time in edge number."
+      ],
+      "reasoning": "The sharp 5T/27 lower bound within this theta topology strictly improves the general 5T/36 lower bound and has a different equality topology. The general O(m^2) algorithm ensures calculability but neither states nor implies the evaluated parameter optimization without additional work. The already-known T/4 upper bound is explicitly excluded from the novelty claim.",
+      "searches": [
+        "arxiv:2312.04952",
+        "arxiv:2103.11676",
+        "published-record query: Continuous Wiener index of metric theta graph three branches, equal length minimizing average distance."
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1068/b090177 (publisher metadata and abstract)",
+      "doi:10.1002/jgt.3190060410 (publisher metadata and later summary; full text unavailable)",
+      "arxiv:2103.11676 (primary full text)",
+      "arxiv:2312.04952 (primary full text)",
+      "published research record cceb12dd2a0d (title and summary)",
+      "published research record c282838fbdca (title and summary)",
+      "published research record SCOPE016 (genus-three banana graph tropical Torelli, different metric invariant and edge count)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The broader general lower bound for E=3 is 5T/36, weaker than 5T/27, and its equality is a flower graph rather than a theta graph.",
+        "The 2021 computation result is algorithmic and its published specialty formulas concern weighted trees, cactus graphs and equilateral complete graphs.",
+        "The published gnarledness identity max{1/(a+b),2/(b+c)} does not determine arclength-integrated geodesic distance."
+      ],
+      "reasoning": "The displayed closed-form invariant and strict global minimizer do not follow as stated corollaries from the inspected theorems; they require an explicit integral calculation and polynomial positivity. The same-topic restricted 1982 formulas leave a documented historical-coverage risk.",
+      "searches": [
+        "arxiv:2312.04952",
+        "arxiv:2103.11676",
+        "published record cceb12dd2a0d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Garijo–Márquez–Silveira arXiv:2103.11676 lines 29–41 reports 1982 restricted three-edge examples and a general evaluation algorithm.",
+        "Its full sections 3–4 give general evaluations and special graph classes but no all-positive-length theta cubic or length balancing optimizer."
+      ],
+      "reasoning": "The continuous Wiener/mean-distance index is equivalent to the same ordered double integral with arclength normalization. Existing authors investigate this invariant, but the inspected primary full text does not state its evaluated unrestricted three-arm formula or sharp fixed-total-length optimizer. The original relevant 1982 article is an unresolved full-text risk.",
+      "searches": [
+        "slow web search: \"banana graph\" \"average distance\" continuous weighted metric graph",
+        "slow web search: \"theta graph\" \"mean distance\" edge lengths continuous",
+        "fast web search: \"mean distance for shapes\" \"three edges\" constrained formula 1982 pdf",
+        "arxiv:2103.11676",
+        "published-record query: Continuous metric theta graph with three parallel edges of arbitrary lengths: uniform-arclength two-point mean shortest distance exact formula and sharp fixed-total-length inequality minimized by equal paths.",
+        "published-record query: Banana metric graph with three parallel edges; continuous Wiener index equal to explicit symmetric piecewise cubic in edge lengths, minimized when three lengths equal, with nonmonotone response to edge length balancing."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record topic “Exact algebraic gnarledness of three-path theta graphs” evaluates a reciprocal-scale algebraic invariant, not the continuous mean.",
+        "The 1982 summary reports special shapes, and Garijo–Márquez–Silveira explicitly describe only constrained-length three-edge multigraph examples in that work."
+      ],
+      "reasoning": "No exact unrestricted theta mean-distance table or exact sharp fixed-total-length ratio was found in these targeted searches. The fact that a search finds none is not proof of novelty; restricted historical cases may overlap special equal-length numerical values, which are not independently claimed as new.",
+      "searches": [
+        "published-record query: Metric theta graph sharp mean distance lower 5/27 total edge length unique equality equal three paths; non Schur convex metric mean distance max at lengths 3/11,15/11,15/11 for total 3.",
+        "slow web search: \"three parallel edges\" \"mean distance\" optimal equal",
+        "published record cceb12dd2a0d",
+        "doi:10.1068/b090177"
+      ]
+    },
+    "rationale": "No equivalent or stronger formula-plus-sharp fixed-topology optimizer was identified from targeted public research records and inspected primary literature. The 2021 full article explicitly restricts the 1982 three-edge multigraph examples to special lengths; its later general algorithm does not evaluate the sharp 5/27 bound. A 2023 paper gives a weaker graph-universal lower bound. Historical-priority uncertainty persists because direct full text of one relevant 1982 article was inaccessible.",
+    "residual_risks": [
+      "The full 1982 Journal of Graph Theory article was unavailable to inspect directly, though a detailed later paper describes its constrained-length examples.",
+      "Unindexed prior exact evaluations or extremal fixed-theta results are not excluded by negative database search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant pioneer of continuous network mean, but accessible abstract does not resolve unrestricted weighted theta case",
+        "evidence": [
+          "1982 publisher abstract describes eight specific shapes and six infinite families.",
+          "A public bibliographic record gives 1982-06-01 as source date."
+        ],
+        "identifier_or_url": "doi:10.1068/b090177",
+        "material_read": "Journal metadata, abstract and references; not full article",
+        "method": "Publisher page and dated public bibliographic record",
+        "title": "A Summary of Results on Mean Distance in Shapes",
+        "trigger": "Earliest historical shapes and three-branch metric networks"
+      },
+      {
+        "assessment": "Unresolved direct full-text comparison; later detailed 2021 paper says three-parallel-edge examples used very constrained lengths",
+        "evidence": [
+          "Journal of Graph Theory 6 (1982) 453–471.",
+          "Garijo et al. 2021 introduction explicitly describes restricted-length three-edge multigraph examples."
+        ],
+        "identifier_or_url": "doi:10.1002/jgt.3190060410",
+        "material_read": "Publisher abstract, article metadata and bibliographic references; full article unavailable",
+        "method": "Publisher page; attempted authorized institutional retrieval after open-text search unsuccessful",
+        "title": "Mean distance for shapes",
+        "trigger": "Potential exact old theta-graph formula and strongest historical overlap"
+      },
+      {
+        "assessment": "General computation implies evaluability of this case but no stated unrestricted closed cubic or sharp theta balancing theorem",
+        "evidence": [
+          "Introduction lines 29–45 about restricted prior three-parallel-edge cases and O(m^2) algorithm.",
+          "Theorem 3.1 and section 4 include algorithm and special families."
+        ],
+        "identifier_or_url": "arxiv:2103.11676",
+        "material_read": "Accessible full-text arXiv article introduction, definition, §3 exact two-edge methods, §4 special graph classes, and original bibliographic references",
+        "method": "Full-text read of arXiv HTML",
+        "title": "Continuous mean distance of a weighted graph",
+        "trigger": "General algorithm and explicit retrospective statement about 1982 restricted theta examples"
+      },
+      {
+        "assessment": "Existing lower 5T/36 for E=3 is weaker than 5T/27; upper T/4 for doubly connected graphs is prior-claimed only",
+        "evidence": [
+          "Theorem 3.2 general mean-distance bounds, including doubly connected upper T/4."
+        ],
+        "identifier_or_url": "arxiv:2312.04952",
+        "material_read": "Accessible full-text arXiv article abstract, §2 definition, Theorem 3.2 and examples, searches for theta family",
+        "method": "Full-text read of arXiv HTML",
+        "title": "Mean distance on metric graphs",
+        "trigger": "Potential dominating universal inequalities for fixed-length compact metric graphs"
+      },
+      {
+        "assessment": "Measures algebraic gnarledness, not arclength average shortest-path distance",
+        "evidence": [
+          "Published summary gives max{1/(a+b),2/(b+c)} as a different invariant."
+        ],
+        "identifier_or_url": "public research record: cceb12dd2a0d",
+        "material_read": "Published title and summary statement; no claim of full-text review",
+        "method": "Semantic indexed-record comparison against exact objective and parameters",
+        "title": "Exact algebraic gnarledness of three-path theta graphs",
+        "trigger": "Closest same-object result in published research index"
+      },
+      {
+        "assessment": "Discrete Rips persistent homology, not continuous pair-distance averaging",
+        "evidence": [
+          "Published summary concerns graph-metric Rips filtration of equal three-edge-length paths."
+        ],
+        "identifier_or_url": "public research record: c282838fbdca",
+        "material_read": "Published title and summary statement; no claim of full-text review",
+        "method": "Semantic indexed-record comparison",
+        "title": "Complete Vietoris–Rips persistence and symmetry of three-edge theta graphs",
+        "trigger": "Other same-object published research"
+      },
+      {
+        "assessment": "Genus-three four-edge banana graph, tropical Torelli invariant; neither our genus-two three-edge mean distance nor a stronger mean statement",
+        "evidence": [
+          "Summary compares metric structures using polystable complexes and Jacobian volume, not arclength mean distance."
+        ],
+        "identifier_or_url": "public research record: SCOPE016",
+        "material_read": "Published title and summary statement; not full text",
+        "method": "Semantic indexed-record comparison",
+        "title": "Two-sided tropical Torelli recovery from the mu-polystable decomposition is false for a genus-3 four-edge banana pair",
+        "trigger": "Banana-graph alias comparison with same-topology metric work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c5b63a29-9170-4fa5-8df1-d32eacf423b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The mean intrinsic distance is a canonical metric-measure invariant of a genus-two metric network. The complete positive-length cubic and sharp fixed-topology lower bound classify its unique optimum; a surprising majorization obstruction reveals a genuine failure of monotone geometric balancing. It is a natural continuous family, not an arbitrary finite parameter slice or recomputation of an existing numeric table.",
+    "status": "PASS"
+  }
+}
