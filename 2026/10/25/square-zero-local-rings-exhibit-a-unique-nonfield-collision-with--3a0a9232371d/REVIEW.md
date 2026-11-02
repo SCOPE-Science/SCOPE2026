@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (PASS).** Every proper ideal of a local square-zero ring lies in its maximal ideal, and the radical is a vector space over the residue field. Thus the ideal count is the sum of Gaussian binomial coefficients plus one. The product of two proper ideals is zero, so the only nonzero products of \(k\) ideals consist of all copies of the unit ideal or one nonzero proper ideal with the other factors equal to the unit ideal. The exact comparison with the field value follows from factorizations at \(k=2,3\) and a strictly positive recurrence for \(k\ge4\). Direct product computations in both eight-element examples confirm the collision. The finite checker is supplementary, not a proof of the general claim.
+## correctness
 
-**Originality (PASS, self-review).** Chakraborty and Patra (arXiv:2608.14618v1, Conjecture 4.2 and §10) introduce the invariant and state the field-characterization conjecture. Their discussed chain-ring and principal-ideal-ring cases do not cover the eight-element nonprincipal examples. Carvalho–Lomp–Smith (arXiv:1711.10580v1, §4.1) and Kim–Koç (arXiv:2609.16701v1, §5.3) investigate square-zero rings but not the ideal-product statistic or the sharp equality boundary. Search of published mathematical research records did not identify an equivalent probability classification. This is not a uniqueness certificate; an earlier unindexed equivalent statement remains a residual risk.
+PASS
 
-**Value (PASS).** The result disproves a concrete recently posed characterization, demonstrates that the field value is neither a general upper nor lower bound on nonfield square-zero locals, and replaces a single example with an exact formula and exhaustive equality/sign classification throughout a natural infinite family. The result is small and elementary but directly resolves the proposed boundary question in that class; it is not a global classification of all finite rings.
+All proper ideals lie in m; m²=0 makes the R-action on m factor through F_q, so proper ideals are exactly F_q-subspaces and L=1+Σ Gaussian coefficients. The only nonzero k-fold products have all factors R or exactly one nonzero proper ideal (L−2 choices) in one of k positions. Thus count 1+k(L−2). Field comparison factor D2=(L−2)(L−6), D3=(L−2)(L²+2L−20), D4=L⁴−64L+112 increasing/positive for real L≥3; recurrence D_(k+1)=L D_k+2^k(L−2)[k(L−2)−1] positive for all k≥4. For nonfields L=3 if r=1, L=q+4≥6 if r=2 and ≥17 for r≥3, so only L=6 at q=2,r=2 can collide. Both Z4[t]/(2t,t²) and F2[x,y]/(x,y)² have six ideals, 9 of 36 nonzero pairs, 27/36 zero products and different characteristics. Independent ideal-closure enumeration from ring operations checked both eight-element examples.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Independent best-of-knowledge comparison of exact final mathematical claim and implications against named primary literature and targeted Resultary results. Specific prior components are credited; no negative search alone establishes priority. A more general theorem may imply individual tools, but not the full proposed classification as explicitly identified.
+
+## value
+
+PASS
+
+A direct exact counterexample to a recent explicit field-characterization conjecture, sharpened into an exhaustive collision and sign classification across the natural entire square-zero local family. Gaussian-subspace enumeration is standard, but the invariant and its precise field-collision boundary are mathematically motivated, not arbitrary examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
