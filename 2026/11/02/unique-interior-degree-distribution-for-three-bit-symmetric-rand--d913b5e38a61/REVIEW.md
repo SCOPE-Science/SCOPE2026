@@ -1,0 +1,15 @@
+# Scientific review: a unique symmetric three-bit random-access optimum
+
+## Correctness — PASS
+The domain, linear-span recovery rule, and all quantifiers are explicit. The rational objective is independently reconstructed from the sixteen-subspace Markov recurrence and is consistent with the published three-dimensional expression. A strict positive-definite Hessian lower bound establishes global strong convexity. Three exact polynomial boundary inequalities, with rational Bernstein certificates over sixteen dyadic subintervals each, make every boundary worse than an explicit thirteen-column interior witness. Consequently the optimizer exists, is strictly interior and is unique. An exact rational gradient residual and the Hessian bound give a certified localization radius. `verify.py` recomputes the coefficients rather than trusting a saved log. Tests alone do not replace the symbolic Hessian and compactness proof.
+
+## Originality — PASS, with priority risk
+Wang and Yaakobi, *Random Access in DNA Storage: Algorithms, Constructions, and Bounds* (arXiv:2601.07053), already published the exact functional and a numerical three-weight binary allocation. Neither the published formula nor its numerical table states the global strict-convexity theorem, rigorously excludes all three probability-simplex faces, or proves uniqueness and the stated exact optimizer enclosure. These are the present claim; the already-known formula and numerical allocation are expressly excluded from novelty claims. Hofmeister, Bitar and Yaakobi (arXiv:2605.10919) optimize a different asymptotic peeling-decoder regime. Boruchovsky and collaborators (arXiv:2501.12274) study a large-field weight-one/two construction. The index and paper comparisons found no published theorem subsuming this complete finite-dimensional characterization. Unindexed or overlooked equivalent analysis remains possible.
+
+## Value — PASS
+This determines the **structure and uniqueness** of the best degree distribution in the smallest binary model with three nonzero column-weight classes, rather than giving another approximate candidate. It proves the necessity of all three degrees, certifies the entire boundary gap, and supplies a reproducible exact optimizer enclosure. Such finite-parameter design information is absent from large-dimension peeling asymptotics and is relevant to interpreting small-block fountain/DNA random-access designs. No general optimality among asymmetric generators, every fixed length, or other decoding models is claimed.
+
+## Scientific limits
+The optimizer is characterized in the continuous distribution space and is the infimum over arbitrary finite fully symmetric generators. Exact finite-length attainment is not established; neither is optimality outside the symmetric class. The numerical access value had been published previously and is not a new numerical improvement. Independent mathematical validation and complete publication-priority confirmation have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
