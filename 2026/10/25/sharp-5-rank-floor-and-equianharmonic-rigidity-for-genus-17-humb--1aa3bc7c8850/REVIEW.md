@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The cover's genus follows from tame Riemann–Hurwitz. The quotient character decomposition has a power-of-two kernel, so it preserves \(5\)-divisible groups; the genus-one Hasse criterion follows from the exact Legendre coefficient. The proof partitions the combinatorial configurations into shared-triple and three-disjoint-complement cases, with no unhandled \(h\ge3\) case. The first reduces to exactly \(21\) points of \(\mathbb F_{25}\), and the second to two explicit polynomial Euclidean coprimality checks; both replay from the bundled verifier. The sharper \(5\)-rank and \(a\)-number bounds follow using only these conclusions. Residual risk: the standard identification of the maximal cover with the full character-quotient Jacobian should be independently reviewed.
+## correctness
 
-## Originality
-**PASS under the inspected evidence, without a historical-priority guarantee.** Carvacho–Hidalgo–Quispe and Yamauchi give the Jacobian splitting; Edge and later studies supply Humbert–Edge geometry. None of the inspected full text establishes the simultaneous characteristic-five bound \(h\le4\), the required genus-two ordinarity when \(h\ge3\), or the unique sextuple with four supersingular four-subsets. The previous characteristic-five **five-branch** rank calculation and characteristic-three **six-branch** calculation do not imply these new characteristic-five **six-branch** compatibility results. Specialized finite-characteristic literature could nevertheless contain equivalent conclusions.
+PASS
 
-## Mathematical value
-**PASS.** A sharp lower bound for the \(5\)-rank across an entire three-parameter family of genus-\(17\) curves, and a rigid equality configuration for a natural supersingular quotient count, answer intrinsic moduli questions. The compatibility constraint between elliptic quotients and the genus-two quotient is the key structural content; it cannot be obtained by merely adding their dimensions or substituting parameters in the five-branch result. The example is a geometric extremum, not an arbitrary finite-field table.
+The 32-fold tame elementary 2-cover C_B branched at six points has genus 17 by Riemann–Hurwitz. Its 15 four-point elliptic double quotients and one genus-two quotient provide an isogeny with 2-power kernel, hence an isomorphism of 5-divisible groups; f5=15−h+r and a=h+a(H). In characteristic five, Legendre λ supersingular iff λ²−λ+1=0, yielding 2 completions of any triple. Pairwise intersection of four-subsets and the 21 possible F25 sixth points reduce the shared-triple case to exact 12/6/3 h-counts; all nine cases h≥3 have invertible genus-two Hasse matrix, and the h4 choices 2,3,4 are projectively conjugate. For the no-shared-triple three-quartet configuration, complementary pairs partition six points and normalization reduces supersingularity and Hasse singularity to coprime univariate polynomials P_t(c),det_t(c) for t=α,1−α. Independent exact F25 polynomial gcd computations confirmed both gcd 1, not just sampled field points. Thus h≥3⇒r=2, h≤4, f5≥13 and a≤4. At h4 four supersingular elliptics give Newton slopes 0^13,(1/2)^8,1^13. The coprime polynomial argument is essential for the infinite algebraic closure.
 
-## Closest literature and limits
-The 2015 arXiv manuscript arXiv:1507.02903, Section 5.3, contains the key factorization of Jacobians. A 2023 openly accessible article by Castorena–Frías-Medina studies Kummer and theta geometry of the same family, not the stated rank bound. Earlier own claims about characteristic-five five-point and characteristic-three six-point generalized Fermat covers are relevant but non-covering. Independent priority verification and an external scientific audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing Humbert–Edge/generalized Fermat curve decomposition produces exactly fifteen elliptic and one genus-two quotient; that is prior work. The claim combines characteristic-five Legendre supersingularity, branch-set compatibility and genus-two ordinarity to establish a sharp 5-rank floor and unique h=4 orbit, which the inspected complex-geometric references do not state.
+
+## value
+
+PASS
+
+The minimal geometric p-rank and a-number attainable in a natural genus-17 generalized Fermat/Humbert–Edge family are substantive arithmetic-geometric invariants; compatibility between supersingular elliptic quotients and genus-two ordinarity plus unique h4 orbit produces a sharp, motivated classification. Not a mere exercise in counting four-subsets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

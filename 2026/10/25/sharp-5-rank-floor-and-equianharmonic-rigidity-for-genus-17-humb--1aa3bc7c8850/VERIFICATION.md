@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The bundled `verify_humbert17.py` uses exact arithmetic in \(\mathbb F_{25}\) and the Euclidean algorithm in \(\mathbb F_{25}[c]\); it has no nonstandard dependencies. Invoke `python3 verify_humbert17.py` from the extracted package directory. It constructs the two equianharmonic roots, counts \(12,6,3\) among the \(21\) finite shared-triple continuations at \(h=2,3,4\), and verifies every relevant genus-two Hasse determinant is nonzero. It also constructs the *two* disjoint-complement cross-ratio polynomials from their definitions and checks each is coprime to the corresponding genus-two Hasse determinant. The explicit six-point witness has \(h=4\) and an ordinary genus-two double quotient.
+## correctness
 
-The proof separately justifies why these are all possible configurations: a triple has precisely two supersingular completions; four or more supersingular quadruples force a common triple; and the only other case with at least three is the disjoint-pair case with two polynomial equations. The finite calculations do not claim to enumerate all points of \(\mathbb P^1(\overline{\mathbb F}_5)\). The equality orbit is unique only for the maximum number of supersingular elliptic factors, not for every rank-minimizing curve.
+PASS
 
-Source arXiv:1507.02903, Section 5.3, supplies historical complex-analytic context for the genus-\(17\) isogeny; the characteristic-five prime-to-\(5\) kernel statement is proved directly in `RESULT.md`. Any independent audit is not yet performed.
+The 32-fold tame elementary 2-cover C_B branched at six points has genus 17 by Riemann–Hurwitz. Its 15 four-point elliptic double quotients and one genus-two quotient provide an isogeny with 2-power kernel, hence an isomorphism of 5-divisible groups; f5=15−h+r and a=h+a(H). In characteristic five, Legendre λ supersingular iff λ²−λ+1=0, yielding 2 completions of any triple. Pairwise intersection of four-subsets and the 21 possible F25 sixth points reduce the shared-triple case to exact 12/6/3 h-counts; all nine cases h≥3 have invertible genus-two Hasse matrix, and the h4 choices 2,3,4 are projectively conjugate. For the no-shared-triple three-quartet configuration, complementary pairs partition six points and normalization reduces supersingularity and Hasse singularity to coprime univariate polynomials P_t(c),det_t(c) for t=α,1−α. Independent exact F25 polynomial gcd computations confirmed both gcd 1, not just sampled field points. Thus h≥3⇒r=2, h≤4, f5≥13 and a≤4. At h4 four supersingular elliptics give Newton slopes 0^13,(1/2)^8,1^13. The coprime polynomial argument is essential for the infinite algebraic closure.
+
+## originality
+
+PASS
+
+Existing Humbert–Edge/generalized Fermat curve decomposition produces exactly fifteen elliptic and one genus-two quotient; that is prior work. The claim combines characteristic-five Legendre supersingularity, branch-set compatibility and genus-two ordinarity to establish a sharp 5-rank floor and unique h=4 orbit, which the inspected complex-geometric references do not state.
+
+## value
+
+PASS
+
+The minimal geometric p-rank and a-number attainable in a natural genus-17 generalized Fermat/Humbert–Edge family are substantive arithmetic-geometric invariants; compatibility between supersingular elliptic quotients and genus-two ordinarity plus unique h4 orbit produces a sharp, motivated classification. Not a mere exercise in counting four-subsets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
