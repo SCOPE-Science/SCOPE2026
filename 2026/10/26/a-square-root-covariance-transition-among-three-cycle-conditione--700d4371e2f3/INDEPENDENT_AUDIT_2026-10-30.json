@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:42:59.815363Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 5afb2b8815e4d4de7d5e5d7749c3a1fc50af45bf",
+        "assigned verify.py blob bfecd9932e633f46cd91a229b54ef9eb03778deb",
+        "independent_checks.py: three_cycle 40 assertions"
+      ],
+      "rationale": "Marked ordered cycles give E C_j=Z(n-j,2)/(jZ(n,3)), E(C_j C_k)=Z(n-j-k,1)/(jkZ(n,3)) for j≠k, where Z(m,h)=[m h]/m!. With k=n-j-r, r=floor(c√n), identities Z(m,1)=1/m, Z(m,2)=H_{m-1}/m and Z(m,3)=(H²_{m-1}-H^{(2)}_{m-1})/(2m) yield exact sign determinant D=1/2(H_{n-1}²-H_{n-1}^{(2)})−[nr/((n-j)(j+r))] H_{n-j-1}H_{j+r-1}. Expanding harmonic numbers for fixed j,c gives D=−(log c+γ/2)log n−γ log c−γ²/2−π²/12+o(1); at c=e^-γ/2 the constant is −π²/12<0. Substituting Z(n,3)~(log n)²/(2n) derives the two stated distinct covariance normalizations. Independently enumerated three-cycle permutations through n=7 and checked 40 bounded comparisons including critical-scale digamma signs. The floor error is O(1/√n) and does not change equality boundary.",
+      "residual_risks": [
+        "Distinct j and k required; fixed j,c pointwise asymptotic only.",
+        "The finite enumeration is not evidence of the n→∞ sign law, which comes from explicit harmonic expansion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arratia–Barbour–Tavaré 1992 abstract targets Ewens Poisson approximation, not this conditioned joint covariance.",
+          "Tavaré 2021 covers conditional moments but not the critical cancellation in material read."
+        ],
+        "reasoning": "Poisson process approximations under unconditioned Ewens, and general logarithmic combinatorial classes, do not directly give the joint short/near-spanning event conditioned on exactly three cycles. The moving k=n-j-Θ(√n) target lies outside usual fixed-length asymptotics.",
+        "searches": [
+          "permutations conditioned exactly three cycles covariance cycle counts long one small one sqrt n transition",
+          "Tavare Ewens permutations conditioned number cycles covariance counts large short 3 cycles",
+          "doi:10.1214/aoap/1177005647"
+        ]
+      },
+      "checked_sources": [
+        "Tavaré, The Magical Ewens Sampling Formula, BLMS 2021, DOI 10.1112/blms.12537, conditional cycle formula",
+        "Arratia–Barbour–Tavaré, Poisson Process Approximations for the Ewens Sampling Formula (1992), DOI 10.1214/aoap/1177005647",
+        "Lugo, Profiles of Permutations (2009), DOI 10.37236/188",
+        "Resultary semantic query: permutations conditioned exactly three cycles covariance cycle counts long one small one sqrt n transition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact D expression and its γ,π² constant derived in RESULT.md.",
+          "Tavaré conditional Ewens formula is the input, not the signed limit."
+        ],
+        "reasoning": "The prior marked-cycle law supplies an exact expression but not the nontrivial asymptotic cancellation. Carrying harmonic expansions two orders deeper yields both c* and the strictly negative critical constant. This is an analysis beyond routine substitution of a fixed parameter into a stated earlier theorem.",
+        "searches": [
+          "permutations conditioned exactly three cycles covariance cycle counts long one small one sqrt n transition",
+          "Tavare Ewens permutations conditioned number cycles covariance counts large short 3 cycles",
+          "doi:10.37236/188"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Z(n,3)=[n 3]/n! Stirling coefficient and marked-cycle formulas are classical.",
+          "Critical asymptotic depends on cancellation of two harmonic products with a negative constant at equality."
+        ],
+        "reasoning": "Conditioning the Ewens cycle counts on total cycle number three is equivalent to the positive 3-block logarithmic combinatorial assembly. Marked-length factorial moments yield the exact conditional covariance, so its finite-n formula is covered background; the square-root residual-label sign law is not an immediate restatement.",
+        "searches": [
+          "permutations conditioned exactly three cycles covariance cycle counts long one small one sqrt n transition",
+          "Tavare Ewens permutations conditioned number cycles covariance counts large short 3 cycles",
+          "doi:10.1112/blms.12537"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Stirling number identity recorded in RESULT.md and checked by enumeration.",
+          "Resultary query yielded unrelated S_n sampling spectra, no reported three-cycle-conditioned covariance transition."
+        ],
+        "reasoning": "Finite Stirling numbers and harmonic numbers are fully tabulated; the two-parameter finite covariance is computable from them. No table can by itself determine the exact c=e^-γ/2 n→∞ sign boundary or additional logarithmic order without proof.",
+        "searches": [
+          "permutations conditioned exactly three cycles covariance cycle counts long one small one sqrt n transition",
+          "Tavare Ewens permutations conditioned number cycles covariance counts large short 3 cycles",
+          "Resultary: 18 hits"
+        ]
+      },
+      "rationale": "The general Ewens sampling formula and Stirling factorial moments already encode the displayed finite conditional covariance; they are not claimed novel. Tavaré 2021 presents the conditioned sampling law and its moments, while Arratia–Barbour–Tavaré 1992 and Lugo 2009 study Ewens approximations/permutation profiles. No compared source supplies the cancellation and exact square-root residual-label sign transition with equality-boundary negative and an extra log power. The sharp asymptotic fact is independently derived rather than reading a table. Historical exhaustive priority is not established.",
+      "residual_risks": [
+        "Older conditional-permutation asymptotic treatments not fully accessible could encode the same boundary.",
+        "The exact moment identity alone is an elementary specialization of known Ewens factorial moments; only the sharp moving-tail cancellation is assessed for originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ESTABLISHED_MOMENT_INPUT",
+          "evidence": "Supports conditioned cycle combinatorics, not located the moving r~√n sign transition or equality log-scale constant.",
+          "identifier_or_url": "https://doi.org/10.1112/blms.12537",
+          "material_read": "Available original open HTML parts on Ewens sampling and conditioning/number of cycles, with formulas and discussions read; not claiming the entire monograph read.",
+          "method": "Wiley original scientific article HTML",
+          "title": "The Magical Ewens Sampling Formula",
+          "trigger": "Same conditioned cycle-count distribution and marked factorial moments"
+        },
+        {
+          "assessment": "RELEVANT_NOT_FULLY_INSPECTED",
+          "evidence": "Focus on Ewens Poisson approximation; cannot exclude implications hidden in uninspected full text.",
+          "identifier_or_url": "https://doi.org/10.1214/aoap/1177005647",
+          "material_read": "Publication abstract and metadata read; complete 1992 primary proof not accessed.",
+          "method": "Publisher index and bibliographic search",
+          "title": "Poisson Process Approximations for the Ewens Sampling Formula",
+          "trigger": "Older plausible stronger asymptotic on Ewens cycle profiles"
+        },
+        {
+          "assessment": "DIFFERENT_REGIME_PENDING_FULL_TEXT",
+          "evidence": "No exact three-cycle moving-length covariance statement in inspected material.",
+          "identifier_or_url": "https://doi.org/10.37236/188",
+          "material_read": "Abstract and bibliographic description read; full text not examined in this run.",
+          "method": "Publisher/indexed metadata",
+          "title": "Profiles of Permutations",
+          "trigger": "Permutation profile asymptotics near large cycle size"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "conditioned three-cycle factorial moments",
+        "explicit critical expansion in RESULT.md"
+      ],
+      "rationale": "The constrained sample space of three-cycle permutations naturally couples a fixed short cycle to a nearly spanning one. Determining whether their counts attract or repel, exactly where the sign switches on a √n leftover scale, and why the critical case loses a logarithmic order is a mathematically informative asymptotic classification, not merely repackaging Stirling numbers.",
+      "residual_risks": [
+        "No uniformity over j,c and no all-finite-n sign pattern is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For permutations conditioned to have exactly three cycles, covariance of C_j and C_{n-j-floor(c√n)} changes sign at c=e^-γ/2, with a strictly negative critical boundary and distinct (log n)^-3 versus (log n)^-4 scales.",
+  "limitations": [
+    "j and c fixed as n→∞; two marked cycle lengths distinct for sufficiently large n.",
+    "Classical marked factorial moments are acknowledged antecedents; older equivalent conditional asymptotics remain possible."
+  ],
+  "schema_version": 1
+}

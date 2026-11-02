@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Ordered marked-cycle enumeration yields the exact conditional mixed moment; Stirling first-kind coefficient identities reduce its sign to a harmonic determinant. For fixed short-cycle length and positive scaled residual count, classical harmonic asymptotics rigorously isolate the threshold coefficient and the strictly negative critical constant. The embedded Python checker passed 55 exhaustive conditional covariance cases and 24,517 exact rational harmonic/Stirling sign comparisons, with four auxiliary numerical asymptotic diagnostics. Such checks are supplementary, not infinite proofs.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+Marked ordered cycles give E C_j=Z(n-j,2)/(jZ(n,3)), E(C_j C_k)=Z(n-j-k,1)/(jkZ(n,3)) for j≠k, where Z(m,h)=[m h]/m!. With k=n-j-r, r=floor(c√n), identities Z(m,1)=1/m, Z(m,2)=H_{m-1}/m and Z(m,3)=(H²_{m-1}-H^{(2)}_{m-1})/(2m) yield exact sign determinant D=1/2(H_{n-1}²-H_{n-1}^{(2)})−[nr/((n-j)(j+r))] H_{n-j-1}H_{j+r-1}. Expanding harmonic numbers for fixed j,c gives D=−(log c+γ/2)log n−γ log c−γ²/2−π²/12+o(1); at c=e^-γ/2 the constant is −π²/12<0. Substituting Z(n,3)~(log n)²/(2n) derives the two stated distinct covariance normalizations. Independently enumerated three-cycle permutations through n=7 and checked 40 bounded comparisons including critical-scale digamma signs. The floor error is O(1/√n) and does not change equality boundary.
 
-The conditional Ewens law and raw factorial moments are prior knowledge. The specific asymptotic sign switch at \(e^{-\gamma/2}\sqrt n\), negative equality case, and change of logarithmic covariance scale were not found in the published-finding corpus comparisons or inspected primary material. The older Arratia--Barbour--Tavaré full text was unavailable, and other earlier equivalent asymptotics may exist. This is not a claim of an exhaustive priority search.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Three-cycle conditioning makes the coexistence of short and near-spanning cycles a natural constrained dependence problem. The square-root residual scale, exact critical constant and extra logarithmic cancellation at equality are structural and nontrivial, unlike a routine small-size moment computation. The theorem is pointwise in the short length and residual-scale constant.
+The general Ewens sampling formula and Stirling factorial moments already encode the displayed finite conditional covariance; they are not claimed novel. Tavaré 2021 presents the conditioned sampling law and its moments, while Arratia–Barbour–Tavaré 1992 and Lugo 2009 study Ewens approximations/permutation profiles. No compared source supplies the cancellation and exact square-root residual-label sign transition with equality-boundary negative and an extra log power. The sharp asymptotic fact is independently derived rather than reading a table. Historical exhaustive priority is not established.
 
-## Closest literature and limitations
+## value
 
-Tavaré, *The Magical Ewens Sampling Formula* (2021), gives the conditioned Ewens framework and thus the exact moment inputs. Lugo, *Profiles of Permutations* (2009), concerns cycle profiles. Arratia, Barbour, Tavaré (1992) provides the earlier Ewens approximation context, though full text was inaccessible. Neither abstract-only exclusion nor database nonappearance proves priority. No independent checking has been claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The constrained sample space of three-cycle permutations naturally couples a fixed short cycle to a nearly spanning one. Determining whether their counts attract or repel, exactly where the sign switches on a √n leftover scale, and why the critical case loses a logarithmic order is a mathematically informative asymptotic classification, not merely repackaging Stirling numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
