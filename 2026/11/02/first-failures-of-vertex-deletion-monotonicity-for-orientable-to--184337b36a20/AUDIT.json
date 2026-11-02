@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The infinite family has an explicit valid orientation forcing all m cycle vertices, and in every valid orientation the pendant leaf has no out-arc, yielding the matching upper bound. Deleting c3 leaves a unicyclic graph on m vertices with exactly two leaves, whose only valid orientations yield gamma_t=m-2. Connected noncycles have DOM_t at most order minus one; any valid oriented graph has directed total-domination number at least three, proving minimum six-vertex order. The provided C++ program enumerates all 2^15 six-vertex graphs, all relevant orientations and selected subsets, and all 720 relabelings; it verifies 9000 labeled pairs, 5850 underlying graphs and 18 marked classes. Two independently structured scripts check the family and the 18-class census.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blázsik–Nagy (2024) completely characterize connected graphs satisfying DOM_t(G)=|V(G)|-1, a stronger result for each separate parent graph parameter.",
+        "Anderson et al. (2023) give DOM_t(H)=|V(H)|-|L(H)| for connected unicyclic graphs, covering each deleted graph in the displayed family.",
+        "Neither inspected result enumerates the first six-vertex failing marked graph pairs."
+      ],
+      "reasoning": "The two general older results can be combined to imply the infinite-family parameter identities, so novelty is not assigned to those isolated identities. The graph/vertex comparison with the explicit conjecture and exhaustive first-failure marked-orbit census are the new target and are not stated or tabulated in the inspected work. A possible argument that even the family is a simple combined corollary is recorded as a residual risk.",
+      "searches": [
+        "arxiv:2411.04560v1 Theorem 1.3 and structural families F1/F2/F3",
+        "web: \"Characterization of graphs with orientable total domination number equal to\"",
+        "arxiv:2311.16307v1 Proposition 2.3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.16307v1, §1–2",
+      "arxiv:2411.04560v1, accessible primary full-text portions including introduction and theorem",
+      "2026 journal abstract metadata for the 2023 work",
+      "mathematical research records: actual semantic searches listed in the checks",
+      "web searches on the conjecture, vertex deletion, six-vertex counterexamples and later references"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 work asks whether deleting one vertex lowers upper orientable total domination by at most one; its unicyclic result gives the deleted parameter exactly.",
+        "The 2024 theorem implies the parent parameter for graphs lying in its characterized class.",
+        "The direct proof here independently reconstructs both values and proves least possible order; the six-vertex table is not a stated corollary of an existing census."
+      ],
+      "reasoning": "Older coverage is strong for the two separate values and can logically yield this family after extra construction. The specific explicitly conjectured inequality nevertheless fails; the additional complete first-failure orbit classification is not supplied by the cited parameter theorems. Scope and claims have been positioned around this distinction, without representing the isolated parameter formulas as original.",
+      "searches": [
+        "arxiv:2311.16307v1 §2 Proposition 2.3 and Conjecture 2.7",
+        "arxiv:2411.04560v1 Theorem 1.3",
+        "web: \"Blázsik\" \"Nagy\" \"Conjecture\" \"Anderson\" orientation total domination"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 conjecture is precisely the asserted inequality DOM_t(G) ≤ DOM_t(G-v)+1 for admissible vertex deletions.",
+        "Equivalent notions were checked: upper open orientable domination and directed total domination of valid orientations.",
+        "The exact deletion gap two violates the conjecture directly, not merely by a change of normalization."
+      ],
+      "reasoning": "The claimed property is a failure of an inequality between two graph parameters, plus a first-failure census of marked graph/vertex pairs. Searches under these equivalent descriptions did not retrieve a previous matching result; absence from search is not itself a novelty proof.",
+      "searches": [
+        "mathematical-record semantic query: counterexample to Conjecture 2.7 upper orientable total domination vertex deletion DOM_t(G) ≤ DOM_t(G-v)+1",
+        "mathematical-record semantic query: orientable total domination five-cycle plus chord pendant deletion gap",
+        "web query: \"Orientable total domination\" \"Conjecture 2.7\" 2024 2025 2026",
+        "arxiv:2311.16307v1 §2 Conjecture 2.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A complete 2^15 labeled-graph enumeration gives 9000 marked pairs and 18 marked isomorphism types.",
+        "An independently built six-vertex graph-atlas enumeration finds the same 18 types.",
+        "No corresponding published census or database table was identified in the actual records examined."
+      ],
+      "reasoning": "This is a natural first-failure layer of an explicitly proposed inequality, rather than an arbitrary graph statistic. The enumeration is new primary computation; lack of database matches is treated as evidence subject to incompleteness, not as a uniqueness proof.",
+      "searches": [
+        "mathematical-record semantic query: 9000 labeled six vertex counterexamples 18 isomorphism classes vertex deletion upper orientable total domination",
+        "web: \"orientable total domination\" \"vertex deletion\" \"two\"",
+        "mathematical-record: exact six-vertex oriented total-domination deletion census"
+      ]
+    },
+    "rationale": "An infinite counterfamily refutes the explicit vertex-deletion conjecture, with a structural minimum-order proof and a complete previously unlocated order-six marked census (9000 labeled graph/vertex pairs, 18 marked isomorphism classes). The parent maximum parameter is covered by stronger 2024 theory and is not claimed as new in isolation; the examined primary sources do not state the conjecture refutation or complete six-vertex census. Publication priority remains provisional.",
+    "residual_risks": [
+      "The 2024 parent-parameter classification, combined with the 2023 unicyclic formula, already implies the displayed infinite-family equalities; the new content is chiefly the explicit conjecture failure and first-obstruction census.",
+      "An unindexed prior counterexample or first-failure table may exist.",
+      "The later 2026 journal text of the 2023 paper was not inspected in full.",
+      "The six-vertex classification is a finite exhaustive computation, with separately checked source and an independent isomorphism cross-check, not a hand classification of all graph structures."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers unicyclic values and states the inequality as conjecture, not a counterexample/census.",
+        "evidence": [
+          "Submission history dated 2023-11-27.",
+          "§2 Conjecture 2.7 states upper bound under admissible single-vertex deletion.",
+          "§2 Proposition 2.3 covers connected unicyclic graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.16307v1",
+        "material_read": "Abstract; §1 definitions; §2 Proposition 2.3, Lemma 2.6, Conjecture 2.7 and nearby proof/discussion",
+        "method": "Primary article full-text HTML, relevant passages inspected directly",
+        "title": "Orientable total domination in graphs",
+        "trigger": "Origin of the conjecture and definition of a valid orientation"
+      },
+      {
+        "assessment": "Strongly covers isolated parent graph values, but no order-six marked deletion census or explicit conjecture refutation located.",
+        "evidence": [
+          "arXiv:2411.04560v1 dated 2024-11-07.",
+          "Theorem 1.3 characterizes connected graphs with DOM_t=|V|-1.",
+          "The inspected text formulates the main result for single-graph extremality rather than the vertex-deletion difference."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/385630673_Characterization_of_graphs_with_orientable_total_domination_number_equal_to_V-1",
+        "material_read": "Accessible full-text presentation: introduction; Theorem 1.3; families F1–F3; supporting structural proof and late proof passages, term searches for deletion and conjecture",
+        "method": "Primary lawful open full text mirrored with article text, read and searched",
+        "title": "Characterization of graphs with orientable total domination number equal to |V|-1",
+        "trigger": "Potentially dominating 2024 classification of parent graphs"
+      },
+      {
+        "assessment": "Confirms 2026 journal appearance; cannot exclude altered conjecture text in unavailable full published article.",
+        "evidence": [
+          "Discrete Applied Mathematics volume 382 (2026), pages 48–59, DOI 10.1016/j.dam.2025.11.031."
+        ],
+        "identifier_or_url": "https://eurekamag.com/research/100/495/100495996.php",
+        "material_read": "Publication metadata and abstract, not full journal text",
+        "method": "Web metadata review",
+        "title": "Orientable total domination in graphs (journal metadata)",
+        "trigger": "Check for subsequent journal publication and potential revised coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "184337b3-6a20-4fda-a534-9f31357f0370",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result identifies an actual obstruction to a specifically published vertex-deletion conjecture at its minimum feasible order, gives an infinite family, and completely enumerates the first-failure layer up to marked isomorphism. The exact 18-type census is structurally relevant to repairing or replacing the proposed inequality, not an unmotivated arbitrary finite slice. Existing stronger parent-parameter formulas are credited.",
+    "status": "PASS"
+  }
+}

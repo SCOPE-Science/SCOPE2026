@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** A direct orientation forces every main-cycle vertex by a distinct unique-in-neighbor witness; the pendant leaf forces an upper bound for all valid orientations. After deleting the indicated vertex, a unicyclic graph with exactly two leaves has the exact forced nonleaf total-domination number. The minimum order follows from the necessity of a directed cycle in every total dominating set and the characterization of connected graphs whose maximum over valid orientations equals the number of vertices. The finite six-vertex census is exhaustive over every graph mask, orientation, chosen subset, deleted vertex and permutation. The C++ verifier and the independent finite family verifier returned `VERIFY_OK`; the independently constructed NetworkX atlas check found the same 18 marked isomorphism classes.
+
+**Originality — PASS with residual risk.** The explicit 2023 vertex-deletion conjecture is contradicted. The 2024 theorem giving all graphs with maximum orientable total domination equal to order minus one is a significant overlap: coupled with the 2023 unicyclic formula, it implies the infinite-family parameter identities, so those bare values are not claimed as new. The principal new component is a complete first-failure boundary and order-six marked census, including 9000 labeled pairs and 18 isomorphism classes. Relevant full-text sections and mathematical-record queries revealed no directly equivalent census or explicit refutation; an unindexed or unpublished result remains possible.
+
+**Mathematical value — PASS.** The deletion inequality is an explicit published conjecture. Demonstrating failure at the least feasible order, giving arbitrarily large counterexample graphs, and classifying every minimum-order failure are structurally motivated conclusions, not arbitrary numerical samples. The table is a finite complete classification of the first obstruction layer; it does not claim a universal sharp replacement inequality.
+
+Closest sources: Anderson et al., arXiv:2311.16307v1 (Conjecture 2.7 and unicyclic formula); Blázsik and Nagy, arXiv:2411.04560v1 (global \(\mathrm{DOM}_t=|V|-1\) classification). Limitations: publication priority is not certified, and no universal upper bound on the vertex-deletion gap is established.
+
+Self-review: passed. Independent audit: not yet performed.
