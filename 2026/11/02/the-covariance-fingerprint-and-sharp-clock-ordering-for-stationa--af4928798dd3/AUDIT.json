@@ -1,0 +1,186 @@
+{
+  "correctness": {
+    "rationale": "Proof directly computes the equilibrium size-biased renewal interval integral and Brownian shared-past covariance; derivatives at atoms and stochastic inversion follow from one-sided differentiation; strict convexity of Phi_T establishes a unique minimum simultaneously for all horizons. Finite second moment ensures stationarity in L2. Tonelli and Karamata prove sharp third-moment transition with correct constants. Improper Fourier identity follows from integrable second derivative. Reproduced package numerical/symbolic comparisons (143), not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2306.13621 explicitly proves a sharp deterministic-clock minimum for stationary one-time spatial variance; our proof excludes this already-covered limit and instead determines all observation-window time-average variances.",
+        "arXiv:2509.06658 Section II-B obtains connected spatial correlations between distinct Brownian particles subject to a common clock, not lagged same-particle coordinate correlation.",
+        "Published result 2026/10/4/SCOPE-sharp-variance-envelope-at-fixed-success-probability-under-memor--bbc2b636e783 optimizes restarted completion-time variance at fixed success probability, a different observable, admissible class and constraint."
+      ],
+      "reasoning": "The known stronger-looking deterministic sharp-clock statement covers one-time MSD only, not the signed temporal mean over every positive window, and does not recover an arbitrary waiting distribution or unknown diffusivity from covariance. The distinct multi-particle and catastrophe papers cannot imply these statements without additional, absent identities.",
+      "searches": [
+        "Non-Poisson renewal resetting Brownian motion power-law resetting times, autocorrelation long-range dependence, temporal-mean fluctuations and ergodicity third moment threshold.",
+        "deterministic periodic resetting is unique minimizer of variance of finite-horizon time average of stationary Brownian position among all renewal resetting interarrival laws with same mean",
+        "Ergodic properties of Brownian motion under stochastic resetting Barkai Flaquer Galmes Mendez 2023 two time autocorrelation time average.",
+        "general approach to stochastic resetting Singh Gorska Sandev 2203.04046; Ergodic properties Brownian motion resetting Barkai 2306.13621; spectral content fBM resetting Majumdar Oshanin 1806.03435",
+        "arXiv:2306.13621 stationary variance sharp-restart discussion (p. 7)",
+        "arXiv:2509.06658 Section II-B",
+        "2026/10/4/SCOPE-sharp-variance-envelope-at-fixed-success-probability-under-memor--bbc2b636e783"
+      ]
+    },
+    "checked_sources": [
+      {
+        "detail": "full-text targeted sections general reset/MSD",
+        "identifier": "arXiv:2203.04046"
+      },
+      {
+        "detail": "full-text targeted renewal/propagator sections",
+        "identifier": "arXiv:2205.01613"
+      },
+      {
+        "detail": "stationary second moment and sharp periodic reset; later occupation sections",
+        "identifier": "arXiv:2306.13621"
+      },
+      {
+        "detail": "Poisson covariance/PSD",
+        "identifier": "arXiv:1806.03435"
+      },
+      {
+        "detail": "simultaneous reset pair correlations",
+        "identifier": "arXiv:2509.06658"
+      },
+      {
+        "detail": "published abstract/claim comparison",
+        "identifier": "2026/9/20/SCOPE-sharp-power-correlation-stationary-renewal-age-residual--23381feacbe8"
+      },
+      {
+        "detail": "published abstract/claim comparison",
+        "identifier": "2026/10/4/SCOPE-sharp-unequal-power-correlation-range-for-stationary-renewal-age--ef4feb831e3e"
+      },
+      {
+        "detail": "published abstract/claim comparison",
+        "identifier": "2026/10/4/SCOPE-sharp-variance-envelope-at-fixed-success-probability-under-memor--bbc2b636e783"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2203.04046 identifies finite-second-moment stationary-MSD condition, which agrees with C(0) in the present calculation but does not determine C(h>0).",
+        "arXiv:2205.01613 derives stationary *one-time* propagator Eq. (19) and renewal age/residual PDFs; the present proof additionally exploits shared Brownian increments only when no reset intervenes.",
+        "arXiv:2306.13621 sharp clock comparison is one-time stationary variance; the current Φ functional is a different strictly convex functional for every T.",
+        "arXiv:1806.03435 deals with Poisson reset covariance; arbitrary i.i.d. nonexponential intervals and inversion including atoms are beyond that special case."
+      ],
+      "reasoning": "The prior ingredients permit reconstruction of the current result, but they do not logically contain the evaluated complete-lag inverse law plus finite-window optimization without the new conditional Brownian covariance calculation, twice one-sided differentiating and integration/strict-Jensen argument. This is a claim-versus-implication comparison, not a title-only search.",
+      "searches": [
+        "Ergodic properties of Brownian motion under stochastic resetting Barkai Flaquer Galmes Mendez 2023 two time autocorrelation time average.",
+        "general approach to stochastic resetting Singh Gorska Sandev 2203.04046; Ergodic properties Brownian motion resetting Barkai 2306.13621; spectral content fBM resetting Majumdar Oshanin 1806.03435",
+        "stationary covariance general renewal resetting Brownian \"autocorrelation\" \"non-Poisson\"",
+        "Brownian stochastic resetting arbitrary renewal times autocorrelation spectral density inverse reset distribution",
+        "time average Brownian motion non-Poisson resetting deterministic optimal variance renewal time distribution stationary",
+        "arXiv:2306.13621 Section V",
+        "arXiv:2203.04046 stationary MSD",
+        "arXiv:1806.03435 Sec II",
+        "arXiv:2205.01613 Eqs (6)–(19)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2205.01613 Eqs. (6)–(15) derive renewal age and spatial propagator, not the two-time coordinate covariance.",
+        "arXiv:1806.03435 Eq. (4)–(5) provides a Poisson-reset covariance; inserting exponential intervals into the current theorem reduces to the same formula.",
+        "Published result 2026/9/20/SCOPE-sharp-power-correlation-stationary-renewal-age-residual--23381feacbe8 concerns correlations of renewal age and forward residual powers, not coordinates of a Brownian path or reset-law inversion."
+      ],
+      "reasoning": "The closest equivalent-formulation routes are (i) two-time coordinate covariance derived from renewal age and residual, (ii) Brownian spectral-density inversion, (iii) convex-order variance of an additive Brownian path functional. Age/residual marginal results and Poisson covariance are ingredients/special cases but do not themselves state or evaluate the full renewal-law inversion or all-horizon signed-time-average extremum.",
+      "searches": [
+        "Stationary Brownian diffusion reset at iid renewal times: covariance equals diffusivity times expected squared positive part of interval minus lag divided mean interval; time-average variance and sharp third-moment threshold for integrable correlations and inverse-time fluctuations.",
+        "stationary renewal reset Brownian positions covariance C(t) = D/E[L] E[(L-t)_+^2]; inversion C'' identifies survival law and C'(0) identifies diffusivity",
+        "Brownian stochastic resetting arbitrary renewal times autocorrelation spectral density inverse reset distribution",
+        "arXiv:2205.01613 Sections II–IV",
+        "arXiv:1806.03435 Section II, Eq. (4)–(5)",
+        "2026/9/20/SCOPE-sharp-power-correlation-stationary-renewal-age-residual--23381feacbe8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual semantic research-record searches returned 2026/9/20/SCOPE-sharp-power-correlation-stationary-renewal-age-residual--23381feacbe8 and 2026/10/4/SCOPE-sharp-unequal-power-correlation-range-for-stationary-renewal-age--ef4feb831e3e as the closest time-age results, with no exact two-time Brownian covariance-inversion record.",
+        "Literature search turned up arXiv:2203.04046 and arXiv:2205.01613 for stationary one-time laws and renewal-age distributions; no claimed numerical table or evaluated complete time-average-variance classification."
+      ],
+      "reasoning": "The result is a continuum, distribution-free theorem rather than a finite catalog invariant; searches for exact formulas and covariance inversion found no matching evaluated database or table. Absence from a searched index is not by itself novelty proof.",
+      "searches": [
+        "Stationary Brownian diffusion reset at iid renewal times: covariance equals diffusivity times expected squared positive part of interval minus lag divided mean interval; time-average variance and sharp third-moment threshold for integrable correlations and inverse-time fluctuations.",
+        "Non-Poisson renewal resetting Brownian motion power-law resetting times, autocorrelation long-range dependence, temporal-mean fluctuations and ergodicity third moment threshold.",
+        "stationary renewal reset Brownian positions covariance C(t) = D/E[L] E[(L-t)_+^2]; inversion C'' identifies survival law and C'(0) identifies diffusivity",
+        "deterministic periodic resetting is unique minimizer of variance of finite-horizon time average of stationary Brownian position among all renewal resetting interarrival laws with same mean",
+        "power law renewal reset times tail exponent 3 transition Brownian stationary integrated autocorrelation and time averaged position variance",
+        "published mathematical research records: covariance-inversion, renewal reset clock, time-average variance",
+        "arXiv:2203.04046; arXiv:2205.01613"
+      ]
+    },
+    "rationale": "Literature and published-result comparisons explicitly exclude already-known general renewal spatial laws, deterministic optimum of one-time stationary MSD, and Poisson covariance. The evaluated full-clock covariance fingerprint with unknown D and atoms, all-horizon time-average optimum, and third-moment threshold are new relative to material inspected, with generic regenerative-theorem and publication-priority residual risk.",
+    "residual_risks": [
+      "A general regenerative covariance theorem could imply the conditional Brownian correlation identity or parts of its inversion; no claim of universal priority is made.",
+      "General convex-order results may imply strict fixed-mean optimality once the polynomial reward functional has been established.",
+      "Search indexing cannot exclude obscure equivalent work; independent publication-priority assessment remains outstanding.",
+      "Only targeted material and identified relevant sections of the primary papers were examined, not every line of all appendices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general renewal spatial law and second-moment criterion; does not state the complete two-time coordinate covariance, inverse clock fingerprint or sharp finite-window signed-time-average optimization.",
+        "evidence": [
+          "arXiv:2203.04046 (first public 2022-03-08), diffusion MSD and stationary general-renewal discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2203.04046",
+        "material_read": "Introduction and general diffusion resetting method, stationary spatial second moment and conditions (pages 1–4), with first-page and page-two image inspection.",
+        "method": "Read text and inspect the arXiv PDF pages.",
+        "title": "General approach to stochastic resetting",
+        "trigger": "Exact general renewal reset and stationarity of Brownian spatial moments"
+      },
+      {
+        "assessment": "Derives renewal-time PDFs conditioned on position and one-time spatial propagators, not the evaluated temporal position covariance, its inversion, or all-window time-average optimum.",
+        "evidence": [
+          "arXiv:2205.01613 Eqs. (6)–(10), (11)–(19); stationary spatial propagator Eq. (19)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2205.01613",
+        "material_read": "Full introduction, renewal-age and residual derivations Section II, propagator Section III Eqs. (11)–(19), plus corresponding page-three screenshot and conclusion overview.",
+        "method": "Direct arXiv PDF text and screenshot verification.",
+        "title": "Conditioned backward and forward times of diffusion with stochastic resetting: a renewal theory approach",
+        "trigger": "Possibly dominating joint age/residual law enabling Brownian temporal covariance"
+      },
+      {
+        "assessment": "Sharp deterministic optimum for one-time stationary MSD is PRIOR. The new theorem explicitly does not claim it; evaluated signed time-average variance and clock inversion are different and not located.",
+        "evidence": [
+          "arXiv:2306.13621 Section V, pages 6–7 stationary variance and sharp reset, later occupation-time discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2306.13621",
+        "material_read": "Stationary spatial moments and sharp restart discussion, occupation times sections and nearby proofs including physical-phase distinction, plus first-page and relevant middle-page screenshot.",
+        "method": "Direct arXiv PDF text and screenshot verification.",
+        "title": "Ergodic properties of Brownian motion under stochastic resetting",
+        "trigger": "Closest known general-reset stationary moment and deterministic clock optimality"
+      },
+      {
+        "assessment": "Poisson-only covariance is a contained special case; arbitrary renewal clock and inverse spectral identification, all-window optimization are not covered.",
+        "evidence": [
+          "arXiv:1806.03435 Section II Eqs. (4)–(5), stationary Poisson Brownian covariance"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1806.03435",
+        "material_read": "General Poisson renewal resetting covariance derivation and Brownian special case, Section II and spectral formulas, checked page-three image.",
+        "method": "Direct arXiv PDF text and screenshot verification.",
+        "title": "Spectral content of fractional Brownian motion with stochastic reset",
+        "trigger": "General covariance and PSD might dominate proposed spectrum"
+      },
+      {
+        "assessment": "Correlations are between distinct particles at a common observation time and do not yield the same-particle two-time position covariance directly; different observable.",
+        "evidence": [
+          "arXiv:2509.06658, Section II-B two-particle position-square connected correlation"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2509.06658",
+        "material_read": "Introduction, model and Section II-B two-particle connected spatial moments, plus relevant PDF page screenshot.",
+        "method": "Direct arXiv PDF text and screenshot verification.",
+        "title": "Simultaneously reset Brownian particles with non-Poisson waiting times",
+        "trigger": "Recent non-Poisson resetting correlations could contain stronger results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "af492879-8dd3-4a47-ba16-b839e36b787d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The unknown-reset-law identifiability and every-window variance optimum are motivated by inference and precision of non-Poisson reset protocols. The result sharpens known one-time stationary-variance extremization to the complete time-average fluctuation profile, quantifies a factor-six long-time Poisson penalty, and identifies a natural third-moment phase boundary that differs from the previously known second-moment stationary threshold.",
+    "status": "PASS"
+  }
+}
