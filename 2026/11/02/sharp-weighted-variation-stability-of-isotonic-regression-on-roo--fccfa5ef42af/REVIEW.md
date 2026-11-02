@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The root minimization is strictly convex; for fixed root the leaves project individually to their lower bounds. On each strict active-set region this gives one explicit linear edge-gradient map. Its weighted \(\ell_1\) norm is computed from columns, and every active column is bounded by the corresponding singleton-active fraction. Piecewise affinity and continuity supply a global two-data bound; one-leaf-pooling perturbations attain each fraction, and an interior perturbation attains the identity value. The exact-rational standard-library checker passed 224,239 checks, but the analytic argument—not finite sampling—proves the all-parameter theorem. Hypotheses include every \(a_i>0\), \(w_i>0\), and arbitrary real data; no bound outside the star order is asserted. Risk: no formal or independent proof audit.
+
+## Originality — PASS (best-knowledge assessment)
+Primary references 1211.3930 (sequence bounded variation and iterative isotonic estimation), 1503.08458 (coordinatewise monotonicity of projections of general regression cones, including branching constraints), 1706.01852 (general seminorm contractivity for isotonic regression on chains), and Punera–Ghosh WWW 2008 (hierarchical isotonic smoothing) were materially read. Their results do not state the same weighted two-data edge-variation operator constant on a rooted star. The closest searchable research records concern \(\ell_p\) regression on chains and general partial orders, rather than variation across star edges. Existing historical chain-variation work does not logically imply a branching formula. Risk: an equivalent elementary sensitivity calculation could have been recorded implicitly or under different terminology. Search failures cannot establish uniqueness or independence.
+
+## Mathematical value — PASS
+This is a complete, attained and nontrivial sharp stability classification for the simplest branching order cone under two independently meaningful weight systems: observation reliabilities and graph-variation penalties. The degree-four change from contraction to amplification for unit masses and edge weights, and the exact matched-mass contraction criterion, expose a structural obstruction not captured by Euclidean projection nonexpansivity or chain results. The invariant is a natural nonlinear perturbation modulus rather than an arbitrary numerical slice. This is not claimed as a general-tree theorem or a paper-sized advance.
+
+Self-review: passed. Independent audit: not yet performed.
