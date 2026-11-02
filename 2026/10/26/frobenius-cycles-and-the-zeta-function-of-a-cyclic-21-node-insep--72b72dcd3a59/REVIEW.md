@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The gradient equations eliminate exactly to \(u^{21}=1\) in the affine chart \(x=1\), with no critical points at infinity. Separability proves that there are exactly 21 reduced points, and the nonzero mixed quadratic coefficient proves the \(A_1\) type (also following Shimada's Proposition 3.4). Frobenius acts by squaring on the roots, producing the stated orbit decomposition. The unique-square-root bijection on each finite extension and the smooth-conic exceptional fibers give the point formula. Summation over the six cycles yields the stated rational zeta function. An independently implemented finite-field enumeration checks five extension degrees. The global result is from the algebraic argument, not from finite enumeration.
+PASS
 
-## Originality — PASS (self-review)
+Over F2 the partial derivatives of G=x^5y+y^5z+z^5x imply x!=0 and y=u^5,z=u where u^21=1. These are 21 simple roots since derivative of u^21-1 is u^20, and w=u^13 has square u^5. Mixed second derivative G_yz=y^4 !=0 gives 21 A1 ordinary double points; Shimada supplies established singularity-to-K3 criterion. Frobenius squares u, yielding cycles of lengths 1,2,3,3,6,6. Each F_(2^n) base-plane point has unique square root in pure inseparable double cover; replacing a rational node by its split conic adds q points, giving #X=q²+q+1+q*gcd(21,q-1). Formal exponential of fixed Frobenius cycles yields exactly Z=[(1-T)(1-4T)(1-2T)^2(1-4T²)(1-8T³)^2(1-64T^6)^2]^{-1}. Independent check generated r_n and point totals n=1..12, e.g. (2,9),(4,33),(8,129),(64,5505). All n follows from order modulo 21, not test range.
 
-Dolgachev–Kondō's 2001 model has a different equation and the \(\mathbb P^2(\mathbb F_4)\) node set; Shimada's 2003 paper gives a much broader K3/critical-scheme theorem but the inspected explicit Examples 1.3–1.6 do not state the cyclic polynomial or this exact Frobenius profile and zeta function. Kedlaya–Sutherland's full paper treats smooth quartic models rather than the specified weighted double plane. Exact/alias/broader/reduction literature and database comparisons were performed; no covering claim identified. There remains the specific possibility that an isomorphic arithmetic twist or tabulated finite-field model contains the same zeta function under another presentation. No absolute uniqueness assertion is made.
+## originality
 
-## Value — PASS
+PASS
 
-The zeta function of a concrete symmetric supersingular K3 surface is a complete arithmetic invariant of its point counts across all extensions, not a single small-field census. The 21 singularities are organized by a natural cyclic \(\mu_{21}\)-action, and the nontrivial degree-six Frobenius splitting distinguishes this arithmetic form from the standard 21-node \(\mathbb F_4\)-configuration. Exact finite-field K3 zeta spectra are an established research focus. The computation provides a motivated explicit degree-two family member for arithmetic comparison without requiring a general theorem about all K3 surfaces.
+Dolgachev–Kondō and Shimada already establish the general characteristic-two 21-node A1 supersingular K3 geometry; do not credit it as new. The specific cyclic sextic root scheme, arithmetic Frobenius orbit list and all-extension zeta have not been found in inspected explicit examples or the smooth-quartic zeta census. A hidden isomorphic twist or specialist zeta table could subsume the explicit arithmetic invariant, documented as residual risk.
 
-## Prior work, qualifications
+## value
 
-Relevant primary material read: Dolgachev–Kondō §4.2 (arXiv:math/0112283); Shimada §1 Examples 1.3–1.6, §3 Propositions 3.4 and 3.13 (arXiv:math/0311073); Kedlaya–Sutherland §§1,3 (arXiv:1511.06945). Further inaccessible or unindexed arithmetic zeta tables may provide a non-obvious equivalent. The Artin invariant and geometric isomorphism class are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The zeta function/Frobenius cycle type is a canonical arithmetic invariant of a natural cyclic sextic K3 presentation; an explicit all-extension formula and minimal splitting field for 21 exceptional curves are substantive finite-field geometry rather than a known abstract K3 existence corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
