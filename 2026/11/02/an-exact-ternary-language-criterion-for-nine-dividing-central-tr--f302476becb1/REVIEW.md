@@ -1,0 +1,11 @@
+# Review of the central-trinomial divisibility-by-nine theorem
+
+**Correctness — PASS.** The exact Laurent identity \(A(x)^3=A(x^3)+3Q(x)\) yields three explicit mod-\(9\) digit-appending recurrences. The proof checks the exceptional first \(2\)-digit, the subsequent \(0\)/\(1\) shift, persistence of the valuation class, and the transition at a second digit \(2\). A disjoint count of digit strings gives the exact expression. The included standalone exact-integer checker reproduces the recurrence and all inputs below \(3^8\); bounded checks are corroboration, not the infinite argument.
+
+**Originality — PASS within inspected literature.** Hou–Li, arXiv:2312.13613, develops product-sum congruences rather than pointwise mod-\(9\) digit languages. Rampersad–Shallit, arXiv:2110.06244, Section 3, gives Deutsch–Sagan's mod-\(3\) characterization and a mod-\(5\) automaton; the mod-\(9\) classification and exact count are absent. Rowland–Yassawi, arXiv:1310.8635, Section 4.2, computes mod-\(4\) central-trinomial automata and supplies a general method; generic computability is not a printed explicit language/count formula. Mikić, arXiv:2311.14623, treats other valuation parameters. Literature and mathematical-record comparisons identified no theorem that states or immediately specializes to the new two-case mod-\(9\) classification. Residual risk: a prior machine-generated automaton or unindexed congruence may encode the same classification; absolute priority is not certified.
+
+**Mathematical value — PASS.** This is the first prime-square refinement of a natural and familiar mod-\(3\) digital divisibility theorem, with a particularly simple finite language and exact closed counting formula for every power-of-three interval. The result gives a structural explanation of why the density-one divisibility property is stronger than the mod-\(3\) criterion alone; the exceptional counting factor is not obtained merely by replacing \(3\) with \(9\) in the known Lucas product.
+
+**Scope and limitations.** No claims are made for modulus \(27\), higher valuations, or bibliographic priority beyond the inspected sources. The checker is finite; the Laurent-recursion argument is an infinite proof.
+
+Self-review: passed. Independent audit: not yet performed.

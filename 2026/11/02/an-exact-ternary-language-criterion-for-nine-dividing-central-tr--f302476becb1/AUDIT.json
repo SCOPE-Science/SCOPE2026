@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The exact Laurent identity A(x)^3=A(x^3)+3Q(x) yields all three mod-9 digit-appending recurrences with the correct boundary values T_0=T_1=1,T_2=3. The modular Lucas reduction is proved, the first 2-digit correction and its persistence are derived, and a second 2 forces divisibility by 9. Two disjoint classes of length-k digit strings yield 3^k-(k+6)2^(k-2). The independent exact-integer recurrence checker verified all 6561 indices below 3^8 and 2185 positive recurrence indices; these checks do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rowland and Yassawi, arXiv:1310.8635, Sec. 4.2, constructs a central trinomial automaton modulo 4, not modulo 9; their general constructions give algorithms for prime powers.",
+        "Rampersad and Shallit, arXiv:2110.06244, Sec. 3, gives mod-3 and mod-5 descriptions only."
+      ],
+      "reasoning": "A method to compute congruence automata could in principle reproduce the claimed language, but no inspected statement determines the actual ternary zero language at modulus 9 or counts it. This does not establish global priority against unpublished algorithm outputs.",
+      "searches": [
+        "Rowland Yassawi automatic congruences central trinomial modulo prime powers section 4.2",
+        "\"central trinomial\" Zeilberger AutoSquared mod 9",
+        "\"trinomial coefficients\" \"mod 9\" \"automata\" digits"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2312.13613 (Hou--Li)",
+      "arXiv:2110.06244 (Rampersad--Shallit)",
+      "arXiv:1310.8635 (Rowland--Yassawi)",
+      "arXiv:2311.14623 (Mikic)",
+      "OEIS A002426"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hou and Li, arXiv:2312.13613, Thms. 1.2-1.3, prove weighted sums of products T_k T_(k+1) modulo powers of their limits, not pointwise 9-divisibility.",
+        "Mikic, arXiv:2311.14623, Theorem 8 evaluates divisibility by the generalized trinomial parameter b, which is b=1 in the ordinary central trinomial specialization; Theorem 5 concerns central Delannoy numbers.",
+        "Rowland and Yassawi, arXiv:1310.8635, Sec. 4.2 is an automaton modulo 4 for the same central trinomial sequence."
+      ],
+      "reasoning": "The arithmetical objects, moduli, and quantifiers differ. None of these statements implies the new ternary-language criterion without additional modulus-9 arithmetic; the latter is supplied by the Laurent expansion and proof.",
+      "searches": [
+        "Hou Li 2023 central trinomial Theorem 1.2 1.3 congruence partial sums",
+        "Mikic 2023 generalized central trinomial valuation b parameter Theorem 8",
+        "\"central trinomial\" \"modulo 9\" base-three words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rampersad and Shallit 2022, Sec. 3, Theorem 7 (arXiv:2110.06244): digit 2 determines divisibility modulo 3; it does not state modulo-9 conditions.",
+        "OEIS A002426, comments: notes digit-2 avoidance for modulo 3, not the modulo-9 rule."
+      ],
+      "reasoning": "The new language strictly refines the known mod-3 criterion: one 2 can contribute either a single factor of 3 or at least two, governed by adjacency and suffix length. Mod-3 digit avoidance cannot distinguish these.",
+      "searches": [
+        "\"central trinomial\" \"mod 9\" \"automaton\" digits",
+        "\"central trinomial coefficients\" \"modulo 9\" ternary digits",
+        "\"central trinomial\" \"divisible by 9\" base 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002426 lists the first central trinomial numbers and explicitly identifies the modulo-3 no-digit-2 property; inspected comments contain no modulo-9 digit classification.",
+        "Finite values in OEIS A002426 do not by themselves imply the infinite language or closed count."
+      ],
+      "reasoning": "Neither the numerical list nor the cited modulo-3 comment establishes the new exact infinite classification or block count. Other unindexed tables remain a residual literature risk.",
+      "searches": [
+        "site:oeis.org \"central trinomial\" \"divisible by 9\"",
+        "site:oeis.org \"central trinomial\" \"multiple of 9\"",
+        "OEIS A002426 central trinomial divisible by 9 digit"
+      ]
+    },
+    "rationale": "Four potentially covering mathematical sources were materially inspected: the pointwise mod-3 digit theorem and mod-5 automaton in Rampersad--Shallit 2022; the mod-4 central-trinomial example and generic prime-power method in Rowland--Yassawi 2014; the trinomial-product-sum congruences of Hou--Li 2023; and the generalized-parameter divisibility formulas of Mikic 2023. None states a ternary digit-language criterion modulo 9 or its exact per-length enumeration. OEIS A002426 lists the mod-3 observation, not this mod-9 language. Generic algorithmic constructibility is not itself an explicit structural classification. Residual unindexed/computer-automaton prior-work risk remains.",
+    "residual_risks": [
+      "No claim of exhaustive global bibliographic priority: prior computational automata not in an indexed theorem may encode the language.",
+      "This theorem says only whether 9 divides a central trinomial coefficient, not the exact 3-adic valuation above two."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Their congruences concern weighted sums of products T_k T_(k+1); no per-index digit-language criterion modulo 9.",
+        "identifier_or_url": "arXiv:2312.13613",
+        "material_read": "Introduction, Theorems 1.2 and 1.3 and their stated pointwise versus weighted-sum formulations in the open full text and initial PDF pages",
+        "method": "arXiv accessible HTML full text; PDF initial theorem pages",
+        "title": "Reduction on the congruences of partial sums of P-recursive sequences",
+        "trigger": "2023 motivating trinomial congruence paper with potentially overlapping prime-power results"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 7 is modulo 3; Theorem 8 and Figure 5 are modulo 5; Theorem 9 is a modulo-prime Lucas product. No modulo 9 digit rule.",
+        "identifier_or_url": "arXiv:2110.06244; DOI:10.37236/10799",
+        "material_read": "Full PDF Section 3, pages 6-8, Theorems 7-10, plus paper introduction and surrounding statements",
+        "method": "Published PDF text and page image",
+        "title": "Congruence Properties of Combinatorial Sequences via Walnut and the Rowland-Yassawi-Zeilberger Automaton",
+        "trigger": "Explicit central trinomial congruences and automata"
+      },
+      {
+        "assessment": "NOT_COVERING_AS_STATED",
+        "evidence": "The printed central-trinomial computation concerns modulus 4, while the Lucas-product discussion concerns mod p. General methods alone do not print the modulus-9 criterion.",
+        "identifier_or_url": "arXiv:1310.8635",
+        "material_read": "Full PDF Section 4.2 pages 32-34, Section 5 Lucas-product discussion, and introductory algorithmic scope",
+        "method": "arXiv PDF searchable text with page 33 visual inspection",
+        "title": "Automatic congruences for diagonals of rational functions",
+        "trigger": "Broader automaton methods capable in principle of finite-prime-power classification"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 8 divides by the generalized parameter b, whose ordinary specialization is 1; Theorem 5 addresses central Delannoy valuations.",
+        "identifier_or_url": "arXiv:2311.14623",
+        "material_read": "Full-text Introduction, Theorems 5 and 8 with proofs and parameter definitions",
+        "method": "arXiv accessible HTML scientific text",
+        "title": "On new divisibility properties of generalized central trinomial coefficients and Legendre polynomials",
+        "trigger": "Title directly concerns divisibility and 3-adic valuations of related sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f302476b-ecb1-4cf8-a670-5a37eb606d33",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first nontrivial prime-square refinement of the natural central-trinomial mod-3 digit divisibility law is an exact, compact automaton-language description. It is accompanied by an exact count of all 9-divisible values on every complete ternary block, showing a quantitatively sharp density-one law. The special adjacency rule for a unique digit 2 is not a trivial consequence of the known mod-3 Lucas product, and it identifies a mathematically natural structural gap rather than an arbitrary finite search.",
+    "status": "PASS"
+  }
+}
