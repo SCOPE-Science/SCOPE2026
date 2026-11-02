@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The stated Fourier transform is derived from the explicit radial-exponential Gaussian subordination and differentiation at scale one; the positive constant and powers can be checked by evaluating at zero frequency. The finite-dimensional polynomial \(Q\) is then minimized on the full continuous interval \([0,1]\), with special attention to the vertex and both endpoints. Both spectral equality geometries follow by substituting the exact b-boundaries.
+## correctness
 
-The standalone `CHECK.py` script uses Python's standard-library rational fractions only. It verifies parameter-differentiation coefficients in integer dimensions, the exact lower and upper quadratic thresholds, and positivity/nonpositivity at selected exact spectral points. The proof covering all dimensions and real parameter ranges is in RESULT.md; numerical or finite checks are not claimed as infinite certification.
+PASS
 
-Exact analytic limitations: one common spatial scale, degree at most two, Euclidean separation. Literature comparisons are bounded, and independent validation has not been performed.
+Gaussian subordination gives the radial exponential Fourier transform C_d lambda (lambda^2+||xi||^2)^(-(d+1)/2). Differentiating in lambda at 1 for r and r^2 gives the exact nonnegative-spectral quadratic Q_{d,a,b}(u)=1-a+(d+1)(a-3b)u+(d+1)(d+3)b u^2 on u=1/(1+||xi||^2) in [0,1]. Independent symbolic derivatives rederived this polynomial. Bochner equivalence and elementary vertex/end-point minimization give the exact four semialgebraic regions for b<=0 and b>0, the a=0 interval [-1/(d(d+1)),4(d+3)/(9(d+1))], and dimension-uniform [0,4/9]. Density is positive away from at most two frequency spheres so all finite distinct-site Gram matrices are strictly positive definite; independent rational CHECK.py examples verify boundary algebra but the general theorem is analytic.
+
+## originality
+
+PASS
+
+The Matérn half-integer basis and Fourier formula are classical and explicitly credited. The present exact sign-indefinite coefficient positivity cone for a common exponential scale, including its dimension dependence and sharp zero spheres, is not supplied by inspected standard Matérn examples or radial positivity results for other rational/Bessel families.
+
+## value
+
+PASS
+
+Determining exactly when a sign-indefinite linear combination of natural exponential-polynomial radial covariance basis functions stays positive definite is a motivated parameter-classification problem in spatial statistics. Sharp per-dimension and all-dimension bounds are useful kernel-design constraints; this is more than merely checking positivity at a few selected coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

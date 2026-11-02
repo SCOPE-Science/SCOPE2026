@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T05:54:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian subordination gives the radial exponential Fourier transform C_d lambda (lambda^2+||xi||^2)^(-(d+1)/2). Differentiating in lambda at 1 for r and r^2 gives the exact nonnegative-spectral quadratic Q_{d,a,b}(u)=1-a+(d+1)(a-3b)u+(d+1)(d+3)b u^2 on u=1/(1+||xi||^2) in [0,1]. Independent symbolic derivatives rederived this polynomial. Bochner equivalence and elementary vertex/end-point minimization give the exact four semialgebraic regions for b<=0 and b>0, the a=0 interval [-1/(d(d+1)),4(d+3)/(9(d+1))], and dimension-uniform [0,4/9]. Density is positive away from at most two frequency spheres so all finite distinct-site Gram matrices are strictly positive definite; independent rational CHECK.py examples verify boundary algebra but the general theorem is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rasmussen and Williams, Gaussian Processes for Machine Learning (MIT Press, 2006), Chapter 4 §4.2 Matérn family",
+          "R. Bhatia and T. Jain, On some positive definite functions, arXiv:1409.7479",
+          "L. Golinskii, M. Malamud and L. Oridoroga, Radial positive definite functions and Schoenberg matrices with negative eigenvalues, arXiv:1502.07179"
+        ],
+        "reasoning": "Tested whether a more general theorem strictly implies the exact assertion. Bochner’s criterion and known Matérn Fourier transforms make the computation possible, but a catalogue of positive basis functions does not imply positivity of mixtures with negative coefficients; the sharp Q(u) interval/vertex classification is additional content.",
+        "searches": [
+          "Resultary semantic search: positive definite radial exponential times polynomial e^-r (1+a r+b r^2) all dimensions sharp coefficient cone",
+          "Literature search: positive definite radial exponential times polynomial e^-r (1+a r+b r^2) all dimensions sharp coefficient cone stronger general theorem"
+        ]
+      },
+      "checked_sources": [
+        "Rasmussen and Williams, Gaussian Processes for Machine Learning (MIT Press, 2006), Chapter 4 §4.2 Matérn family",
+        "R. Bhatia and T. Jain, On some positive definite functions, arXiv:1409.7479",
+        "L. Golinskii, M. Malamud and L. Oridoroga, Radial positive definite functions and Schoenberg matrices with negative eigenvalues, arXiv:1502.07179"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rasmussen and Williams, Gaussian Processes for Machine Learning (MIT Press, 2006), Chapter 4 §4.2 Matérn family",
+          "R. Bhatia and T. Jain, On some positive definite functions, arXiv:1409.7479",
+          "L. Golinskii, M. Malamud and L. Oridoroga, Radial positive definite functions and Schoenberg matrices with negative eigenvalues, arXiv:1502.07179"
+        ],
+        "reasoning": "Bochner’s criterion and known Matérn Fourier transforms make the computation possible, but a catalogue of positive basis functions does not imply positivity of mixtures with negative coefficients; the sharp Q(u) interval/vertex classification is additional content.",
+        "searches": [
+          "Resultary semantic search: positive definite radial exponential times polynomial e^-r (1+a r+b r^2) all dimensions sharp coefficient cone",
+          "Primary full-text comparison: Rasmussen and Williams, Gaussian Processes for Machine Learning (MIT Press, 2006), Chapter 4 §4.2 Matérn family"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rasmussen and Williams, Gaussian Processes for Machine Learning (MIT Press, 2006), Chapter 4 §4.2 Matérn family",
+          "R. Bhatia and T. Jain, On some positive definite functions, arXiv:1409.7479",
+          "L. Golinskii, M. Malamud and L. Oridoroga, Radial positive definite functions and Schoenberg matrices with negative eigenvalues, arXiv:1502.07179"
+        ],
+        "reasoning": "Inspected the equivalent/dual definitions, aliases and reductions, including the stated main prior. Bochner’s criterion and known Matérn Fourier transforms make the computation possible, but a catalogue of positive basis functions does not imply positivity of mixtures with negative coefficients; the sharp Q(u) interval/vertex classification is additional content.",
+        "searches": [
+          "Resultary semantic search: positive definite radial exponential times polynomial e^-r (1+a r+b r^2) all dimensions sharp coefficient cone",
+          "Primary comparison: Rasmussen and Williams, Gaussian Processes for Machine Learning (MIT Press, 2006), Chapter 4 §4.2 Matérn family"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rasmussen and Williams, Gaussian Processes for Machine Learning (MIT Press, 2006), Chapter 4 §4.2 Matérn family",
+          "R. Bhatia and T. Jain, On some positive definite functions, arXiv:1409.7479",
+          "L. Golinskii, M. Malamud and L. Oridoroga, Radial positive definite functions and Schoenberg matrices with negative eigenvalues, arXiv:1502.07179"
+        ],
+        "reasoning": "Resultary search retrieved unrelated exponential starlikeness and discrete Hamming positive-definiteness records, none an exact Euclidean e^-r(1+ar+br^2) admissibility table. An equivalent old covariance table cannot be excluded without exhaustive historical indexing.",
+        "searches": [
+          "Resultary semantic search: positive definite radial exponential times polynomial e^-r (1+a r+b r^2) all dimensions sharp coefficient cone",
+          "Exact-value/title search: positive definite radial exponential times polynomial e^-r (1+a r+b r^2) all dimensions sharp coefficient cone"
+        ]
+      },
+      "rationale": "The Matérn half-integer basis and Fourier formula are classical and explicitly credited. The present exact sign-indefinite coefficient positivity cone for a common exponential scale, including its dimension dependence and sharp zero spheres, is not supplied by inspected standard Matérn examples or radial positivity results for other rational/Bessel families.",
+      "residual_risks": [
+        "A classic Bochner-transform exercise or unindexed spatial covariance literature could contain the same quadratic coefficient cone under alternative parameter coordinates.",
+        "The 2016 multi-length-scale correlation-operator work was not inspected in full; its differently scaled kernel setting is only plausibly relevant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes positive covariance basis and parameter interpretations but does not state the full sign-indefinite coefficient region for fixed-rate polynomial times exponential.",
+          "evidence": [
+            "GPML 2006, Chapter 4, §4.2, Matérn half-integer cases",
+            "https://gaussianprocess.org/gpml/chapters/RW4.pdf"
+          ],
+          "identifier_or_url": "https://gaussianprocess.org/gpml/chapters/RW4.pdf",
+          "material_read": "Chapter 4 primary PDF, especially §4.2 Matérn covariance formulae and half-integer smoothness cases; inspected rendered page",
+          "method": "Primary PDF text and screenshot reading",
+          "title": "Gaussian Processes for Machine Learning, Chapter 4: Covariance Functions",
+          "trigger": "Canonical source for Matérn basis e^-r, (1+r)e^-r, quadratic-exponential radial covariances"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining exactly when a sign-indefinite linear combination of natural exponential-polynomial radial covariance basis functions stays positive definite is a motivated parameter-classification problem in spatial statistics. Sharp per-dimension and all-dimension bounds are useful kernel-design constraints; this is more than merely checking positivity at a few selected coefficients.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Rasmussen and Williams, Gaussian Processes for Machine Learning (MIT Press, 2006), Chapter 4 §4.2 Matérn family",
+    "R. Bhatia and T. Jain, On some positive definite functions, arXiv:1409.7479",
+    "L. Golinskii, M. Malamud and L. Oridoroga, Radial positive definite functions and Schoenberg matrices with negative eigenvalues, arXiv:1502.07179",
+    "Frozen Git RESULT.md and program files at https://github.com/SCOPE-Science/SCOPE2026/tree/68645bf4619cec1151436ccc53f5d66aab9d4541/2026/10/26/the-sharp-quadratic-exponential-radial-covariance-cone-in-every--42ccd73628d2",
+    "Full assigned Git tree recursively listed, nontruncated and SHA matched e29aaff903160d35dabb4eb39fb922d365ffa89e"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed exponential radial scale, real quadratic polynomial, Euclidean dimensions d>=1, isotropic stationary covariance and all finite distinct-site strict PD; not different scales or polynomial degree >=3.",
+    "Original proof and source inspected, new independent checks described in correctness. Calculations certify only exactly covered finite statements; not external publication priority or proof-assistant attestation.",
+    "Administrative publication transport blocked by unsanitized operational provenance; scientific PASS is distinct from ready publication."
+  ],
+  "residual_risks": [
+    "A classic Bochner-transform exercise or unindexed spatial covariance literature could contain the same quadratic coefficient cone under alternative parameter coordinates.",
+    "The 2016 multi-length-scale correlation-operator work was not inspected in full; its differently scaled kernel setting is only plausibly relevant."
+  ],
+  "schema_version": 1
+}
