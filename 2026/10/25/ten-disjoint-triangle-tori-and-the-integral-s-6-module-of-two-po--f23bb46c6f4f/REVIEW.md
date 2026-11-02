@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The ordinary two-point configuration space is modeled by its unordered deleted-square cubical complex. The explicit chain groups have ranks \((15,60,45)\). The program checks \(\partial_1\partial_2=0\), finds ten exact product-torus cycles with the stated single alternating relation, and calculates \(\operatorname{rank}_{\mathbb F_{101}}\partial_2=36\). The first nine product-torus columns have an exact \(9\times9\) coordinate determinant of \(+1\), which certifies an integral saturated rank-nine lattice in all integral cycles. The rank bound proves equality. Exhaustive signed action checks cover all \(720\) graph automorphisms. No finite experiment is extrapolated to other graphs.
+## correctness
 
-## Originality
-**PASS, with residual bibliographic risk.** Exact-object and synonym searches for ordinary unordered configurations of \(K_6\), disjoint triangle-pair tori, primitive syzygies, integral lattice indices and signed symmetric-group quotients found no directly covering result. The closest primary accounts concern ordered two-point graph spaces, their intersection forms, and general rational Betti-number results. Barnett–Farber (arXiv:0903.2180v1), Farber–Hanbury (arXiv:1005.2300v1), and relevant full-text sections of Barnett's Durham thesis were inspected. Those statements do not imply the ten-torus primitive alternating relation or any-nine integral basis. The general literature may nevertheless contain an unindexed equivalent computation; no claim of exhaustive bibliographic exclusion is made.
+PASS
 
-## Mathematical value
-**PASS.** Two vertex-disjoint simple cycles first become possible in a complete graph on six vertices, and their shortest representatives are complementary triangles. Hence the ten product tori are a canonical, symmetry-stable generating family. Showing that every nine form an integral basis and determining their unique signed dependence answers a natural geometric generation question, not just another Betti-number count. The integral lattice and signed representation distinguish phenomena invisible in the nonequivariant rational dimension.
+The graph configuration model uses 15 unordered vertex-pair zero-cells, 60 vertex–edge one-cells, 45 disjoint-edge square cells. The explicit signed square boundaries compose to zero. Each of ten oriented product triangle-pair torus chains is a 2-cycle. A primitive sign vector (1,-1,1,-1,1,-1,1,1,-1,1) spans their evident relation. Independent reconstructed 60×45 integer boundary matrix has characteristic-zero rank 36; the first nine torus columns have a coordinate 9×9 determinant +1. Therefore these nine cycles form a saturated rank-nine lattice in the free square chains and equal all of ker∂2. Since no 3-cells, H2≅Z9, any nine of ten basis, and a unique primitive relation. The signed chain-action formula and graph automorphism action yield the equivariant integral quotient 0→sgn→P→H2→0; finite source checker covers all 720 group elements. Crucially unordered vs ordered configurations and vertex collision exclusions were inspected. Finite enumeration is exhaustive for K6; not extrapolated to K_n generally.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Barnett–Farber and Farber–Hanbury provide intersection forms, general graph two-point configuration homology and explicit ranks for mature complete graphs, mostly in the ordered two-particle setting. Those results can imply ambient ranks under a quotient but not the primitive relation of exactly ten specific shortest disjoint-triangle tori or its integral S6 signed-module structure. Barnett thesis abstract includes ordered H2 generators for planar graphs, whereas K6 is nonplanar and the full thesis inaccessible. Qualified PASS; exact carrier/module may exist in specialist older literature.
+
+## value
+
+PASS
+
+K6 is the smallest complete graph where disjoint triangles give a rich natural family of product tori in the two-particle configuration space. The exact integral primitive relation and any-nine Z-basis property are sharper than rational dimension and could be used to calculate pairings, inclusions and symmetry. The integral equivariant lattice quotient is a meaningful single-object invariant; no general K_n theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
