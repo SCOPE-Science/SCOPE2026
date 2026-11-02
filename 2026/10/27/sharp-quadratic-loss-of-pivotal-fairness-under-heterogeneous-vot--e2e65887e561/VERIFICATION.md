@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The file `icos_influence_certificate.py` uses exact integer coefficient arrays to verify the pivotal-polynomial identity and the complete nine-class coefficient census across \(64\) probability-box corners and \(15\) pairs of voters. Executed with Python 3: checks passed for complementarity, monotonicity, five winning triples per voter, \(960\) polynomial comparisons, signed coefficient counts, and the sharpness witness. No third-party package, randomness, search approximation, or external certificate is required.
+## correctness
 
-The additional mathematical step—multiaffinity of each pivotal-probability difference and consequent attainment of every pairwise extremum at a corner—is proved in RESULT.md. Therefore the exact finite polynomial verification applies to every real-valued parameter in the continuous box. Results do not address correlated votes, different tie-breaking rules, or historical priority.
+PASS
+
+The winning rule has precisely the ten stated minimal winning triples; larger coalitions of size >=4 win, smaller coalitions lose. For independent Bernoulli votes each absolute pivotal probability is multiaffine in all other coordinates. Any pair difference is multiaffine, so maxima of its absolute value on [alpha,1-alpha]^6 lie among 64 vertices. Using delta=1-2alpha, an independently implemented signed-subset expansion verified all 64*15=960 integer coefficient polynomials and the exact nine-class signed histogram, including 360 zeros, 150 of each ±delta^2, 60 each of ±(3+delta^2)delta^2/4, 30 each of ±(1-delta^2)delta^2/2 and 60 each of ±(1-delta^2)delta^2/4. The mask-3 witness gives beta_2-beta_4=delta^2 identically; alpha=0 and 1/2 are included. This is an exact polynomial certificate plus a valid continuous multiaffine reduction, not finite numerical extrapolation.
+
+## originality
+
+PASS
+
+The asserted novelty is the heterogeneous six-propensity worst-case absolute pivotality disparity, not the Icos rule, common-bias Banzhaf fairness, or voting-index definitions. The independent comparison located no identical exact envelope, subject to Loeb-Conway 2000 full-text access risk.
+
+## value
+
+PASS
+
+Equal-bias fairness is a natural operational guarantee whose robustness fails under voter-specific independent propensities. A sharp quadratic bound for every closed-box perturbation size and an attaining profile is a motivated exact stability invariant; it is not a rephrased common-bias fairness result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

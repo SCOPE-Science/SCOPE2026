@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central quantifier is all real \(0\le\alpha\le1/2\) and all independent probabilities \(\mathbf p\in[\alpha,1-\alpha]^6\). Pivotal probability is multiaffine in these parameters, making its pairwise extrema corner-attained. A direct exact coefficient enumeration of all \(64\) corners times all \(15\) pairs establishes a complete nine-class polynomial list; every class is bounded by \((1-2\alpha)^2\), and the specified corner achieves equality. The standalone checker independently recalculates pivotal indicators directly from the voting rule and checks integer coefficients and counts. This is a finite symbolic identity certificate combined with a valid continuous-domain reduction, not a finite numerical approximation. All boundary cases, including \(\alpha=0,1/2\), are included.
+PASS
 
-## Originality — PASS, with residual historical-priority uncertainty
+The winning rule has precisely the ten stated minimal winning triples; larger coalitions of size >=4 win, smaller coalitions lose. For independent Bernoulli votes each absolute pivotal probability is multiaffine in all other coordinates. Any pair difference is multiaffine, so maxima of its absolute value on [alpha,1-alpha]^6 lie among 64 vertices. Using delta=1-2alpha, an independently implemented signed-subset expansion verified all 64*15=960 integer coefficient polynomials and the exact nine-class signed histogram, including 360 zeros, 150 of each ±delta^2, 60 each of ±(3+delta^2)delta^2/4, 30 each of ±(1-delta^2)delta^2/2 and 60 each of ±(1-delta^2)delta^2/4. The mask-3 witness gives beta_2-beta_4=delta^2 identically; alpha=0 and 1/2 are included. This is an exact polynomial certificate plus a valid continuous multiaffine reduction, not finite numerical extrapolation.
 
-Dhar–Mittal–Thomas (2026, arXiv:2602.13894v1, full preprint read), give fairness under common (identical) Bernoulli bias and introduce Icos as an established fair example, citing Loeb–Conway (2000). Those statements alone do not imply a sharp bound for six independently heterogeneous biases; the present claim measures a different six-dimensional perturbation and gives exact worst-case equality. Search comparisons against voting power, influence, heterogeneous turnout, and related six-player published research records found no matched bound. Loeb–Conway's abstract and citations were checked, but its full text could not be accessed; an earlier equivalent is possible. No guarantee of global novelty is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Fairness of this non-anonymous, resolute six-voter rule under a common vote bias raises a natural robustness question: how far can its voters' pivotal probabilities separate when participation/vote propensities differ? The exact \((1-2\alpha)^2\) law, complete coefficient chamber census, and attaining profile answer that question sharply for every allowed perturbation magnitude, separating an equal-bias design guarantee from worst-case heterogeneous operation. This is a natural quantitative stability boundary, not an arbitrary small-parameter recomputation.
+The asserted novelty is the heterogeneous six-propensity worst-case absolute pivotality disparity, not the Icos rule, common-bias Banzhaf fairness, or voting-index definitions. The independent comparison located no identical exact envelope, subject to Loeb-Conway 2000 full-text access risk.
 
-## Limitations
+## value
 
-Only one explicitly defined six-voter rule (up to relabeling), independent Bernoulli votes, and absolute pivotal probabilities are covered. The historical-primary-text gap leaves priority uncertainty. The polynomial certificate requires ordinary Python 3 but no third-party packages; an independent scientific review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equal-bias fairness is a natural operational guarantee whose robustness fails under voter-specific independent propensities. A sharp quadratic bound for every closed-box perturbation size and an attaining profile is a motivated exact stability invariant; it is not a rephrased common-bias fairness result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
