@@ -1,0 +1,14 @@
+# Mathematical review: maximum minimal 2-star-forming sets of cycles
+
+## Correctness — PASS
+The definition matches the star-containing-the-omitted-vertex formulation in the primary source. The local Boolean eligibility criterion enumerates the three possible placements of an omitted vertex in a 2-edge path. Inclusion-minimality is checked by every single deletion, and only vertices within distance two of a deleted vertex can change eligibility. Thus the nine-bit rule is equivalent to the graph property for every simple cycle of order at least nine. An explicit 256-state height vector certifies all 332 potential inequalities, implying the sharp \(3|S|\le2n\) bound. A complete tight-component census isolates precisely the periods three and six at equality. The finite exceptional orders are checked directly, and a maximal 2-independent construction supplies the matching lower bound. The included standalone checker independently enumerates actual path instances and verifies the finite certificate. Risks: integer-potential and component calculations must be replayed from the included source; finite sampling alone would not establish the infinite theorem, but the exact finite-state implication does.
+
+## Originality — PASS, qualified
+Chellali–Favaron (2009) define the invariant and prove baseline inequalities; Bhattacharjee (23 October 2026) proves hardness and chain-graph results, neither asserting this cyclic extremal-word classification. Searches for cyclic, 2-star-forming, upper parameters and the two primitive binary patterns in mathematical research records produced no equivalent claim, and broad graph-paper searches did not identify these exact multiplicities. The closest records on dissociation *polynomials* concern complete multipartite graphs or fan graphs and do not imply minimal 2-star-forming classification on cycles. The full manuscript of the related Sahbi October 2026 work was not accessible through the inspected PDF path, leaving a historical-priority risk. Search non-hits do not prove uniqueness or priority.
+
+## Mathematical value — PASS
+The numerical maximum alone does not enumerate optimal witnesses. At orders divisible by six, the six additional optimum sets contain an induced path and thus escape classification by maximum 2-independent/dissociation sets. The periodic-word rigidity and discontinuous three-versus-nine solution count describe a genuine structural boundary of a recently NP-hard upper-parameter problem on cycles. The precise optimal-set classification is a natural reusable test for combinatorial upper domination and finite-state graph covering methods, not a renaming or a tiny unmotivated finite slice.
+
+The verified theorem is restricted to labelled simple cycles, with complete structural enumeration claimed only for lengths divisible by three; independent historical-priority assessment remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
