@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For m>=3 and P,Q,R,B>0, concavity and dihedral orbit averaging reduce unrestricted independent weights to three classes. Exact Fourier 2x2 blocks and hub 3x3 quotient give lambda_2 as the minimum of two explicitly derived smaller roots. For target gap 1 the equivalent inequalities z>1, x+c_m y>=g(z), x>=h_m(z) yield a two-stage convex price minimization. Derivative signs and strict second derivative prove each regime, uniqueness of the mixed root and support outcomes including all edgewise optimizers. The provided verifier checked 2 symbolic identities, 2 rational examples, 84 matrix/budget cases and 48 asymmetric search cases; finite tests alone were not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd (2006), section 2.2 proves the averaging principle and sections 3.3–3.4 give other graph constraints; the method is broadly applicable but does not evaluate the helm price-dependent Fourier blocks.",
+        "Shakeri et al. (2015), Theorems 1–3 and supplemental Theorem 4, establish a threshold in a fixed-layer one-to-one coupling problem."
+      ],
+      "reasoning": "General semidefinite formulations cover the existence and convex computability of the optimization but do not logically state the explicit C_* formula, all-optimizer rim deletion condition, or equal-price finite-size transition. Requiring symmetry averaging and a fresh Fourier/Schur analysis is not a mere substitution into the two cited solution formulas.",
+      "searches": [
+        "Upper bounds on algebraic connectivity via convex optimization Ghosh Boyd 2006",
+        "Maximizing Algebraic Connectivity in Interconnected Networks arxiv 1510.06785",
+        "graph weight algebraic connectivity maximization semidefinite arxiv 2015 optimal"
+      ]
+    },
+    "checked_sources": [
+      "Ghosh and Boyd (2006), doi:10.1016/j.laa.2006.03.006 (available online May 5, 2006)",
+      "Shakeri et al. (2015), arXiv:1510.06785v1 (submitted October 22, 2015)",
+      "Targeted specialist literature and published-record similarity searches for helm spectral gap and price screening"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh–Boyd block-ring eigenvalue formula has a cycle of equal blocks but no singled-out hub or leaf-per-rim geometry; a rim-only reduced graph does not generate the required root h_m(z).",
+        "Shakeri et al fix both layer Laplacians and vary only interlayer couplings, whereas the present feasible set lets all three orbit weights vary and a positive P/Q threshold can delete a whole edge orbit."
+      ],
+      "reasoning": "The general sources support methodology but neither implication direction yields the reported price threshold or the sharp six-to-seven transition as a corollary. Exact loss-of-rim optimality follows from the new two-mode cost reduction, not from an existing eigenvalue enumeration.",
+      "searches": [
+        "Ghosh Boyd \"Graphs with ring structure\" section 3.4",
+        "Shakeri et al 2015 threshold budget interlayer one-to-one",
+        "Optimal algebraic connectivity of corona graph wheel sunlet graph hub and leaves priced edges Fourier Laplacian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected Ghosh–Boyd paper optimizes a block-ring family without a common hub or private leaves; its equation (29) is a ring spectral bound, not the three-price helm minimum-cost problem.",
+        "The inspected Shakeri et al. paper optimizes an interlayer edge set between fixed networks, not all three present edge classes."
+      ],
+      "reasoning": "The helm three-orbit target cannot be identified by simply changing edge parameters in these published models: the hub, pendant and ring weights all vary, and both a nonconstant Fourier mode and a hub/leaf contrast mode are binding in the mixed-price regime. An exact equivalent specialist formulation not retrieved remains possible.",
+      "searches": [
+        "\"helm graph\" \"algebraic connectivity\" \"optimal\" weights",
+        "\"helm graph\" \"Laplacian spectrum\" eigenvalues",
+        "Exact maximum algebraic connectivity spectral gap helm graph wheel with pendant leaf on each rim vertex conductance budget spoke rim pendant prices threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-index similarity results included a wheel symmetric-edge-polytope ellipsoid and a corona mixing calculation, but neither addressed the same spectral-gap design objective or priced helm graph.",
+        "Targeted helm queries chiefly returned distance-matrix, graph-labeling and antiadjacency-matrix studies, without an exact three-price spectral-gap table."
+      ],
+      "reasoning": "No matching exact table or closed-form optimization was located among the searched records. A negative search result is only limited evidence and not a mathematical proof of originality.",
+      "searches": [
+        "\"helm graph\" \"algebraic connectivity\" \"conductance\" budget",
+        "\"helm graph\" \"spectral gap\" weights optimization spokes rim pendant",
+        "Spectral gap price screening helm graph edge-class suppression rim vs spokes pendant",
+        "\"helm graph\" \"Laplacian spectrum\" eigenvalues"
+      ]
+    },
+    "rationale": "The explicitly priced three-class helm algebraic-connectivity maximization, its threshold P/Q=1/c_m, implicit unique mixed-phase optimum and sharp m=6 equal-price boundary were not entailed by the compared primary results. Standard convexity and symmetry averaging are prior tools, not claimed original. Published-index and specialist coverage remain incomplete.",
+    "residual_risks": [
+      "The searches are not exhaustive across non-English, unindexed, thesis or differently named graph-design literature.",
+      "General SDP treatments may include unstated implicit formulations from which this example is derivable; the explicit closed threshold and full three-price solution, not the methodology, are the originality claim.",
+      "No independent mathematical or literature audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General symmetry principle and cycle-block examples are prior; no explicit helm with priced three-class optimization.",
+        "evidence": [
+          "Paper marks available online May 5, 2006",
+          "Section 2.2 equation (8) group-average argument",
+          "Section 3.4 equation (29) block-ring gap with no apex or pendant vertices"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+        "material_read": "Primary 15-page PDF: title/earliest online date on page 1, section 2.2, sections 3.3 and 3.4 (including ring formula (29)), section 4 and method discussion.",
+        "method": "Full-text PDF opened and inspected with first-page screenshot and relevant passages",
+        "title": "Upper bounds on algebraic connectivity via convex optimization",
+        "trigger": "Potential broad dominance through analytic symmetry reduction for graph Laplacian spectra"
+      },
+      {
+        "assessment": "The paper addresses free one-to-one interlayer weights between fixed component-layer Laplacians, not simultaneous hub/rim/leaf price allocation on a helm.",
+        "evidence": [
+          "First arXiv submission October 22, 2015",
+          "Theorems 1–3: bound and threshold for interlayer budget",
+          "Supplemental Theorem 4: threshold involving component Laplacian pseudoinverses"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1510.06785",
+        "material_read": "Six-page arXiv PDF, title/version date, problem formulation in sections 1–2, Theorems 1–3 and supplemental Theorem 4, representative numerical discussion and endnotes.",
+        "method": "Primary arXiv first public v1 and PDF text inspected with first-page screenshot and selected theorem/supplemental passages",
+        "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+        "trigger": "Could include a stronger multilayer spectral-coupling allocation theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d97645b-0619-41aa-a60d-51146660f34b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This natural hub-and-rim network with private leaf sensors has three distinct edge roles. The complete design law shows when cycling connections improve global synchronization and when they are universally wasted under budget. The exact m=6 equal-price transition is a motivated finite cutoff and the mixed regime gives a reproducible scalar optimization in place of a large SDP; it is not simply a trivial recomputation of a known graph table.",
+    "status": "PASS"
+  }
+}
