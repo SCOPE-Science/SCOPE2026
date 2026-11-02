@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:59:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every positive a,b,c, distinct letters 0 and 1 force minimum attractor cardinality >=2. For b=1, the unique 1 must be chosen and any position in a longest zero run suffices, yielding 2a choices if a=c and max(a,c) otherwise. For b>=2 the unique 01 and 10 occurrences force the boundary pairs {a,a+b} (a>=c) or {a+1,a+b+1} (c>=a); a full factor-type partition proves sufficiency. Summing these cases gives F(z)=2z^3(1+2z+2z^2)/((1-z)^3(1+z)^2). Exact positive compositions give U_n=binom(n-1,2)-(n-2)-floor((n-2)/2); the pole order at z=1 gives mean 5/2. Independent direct factor-occurrence enumeration verified all 512 triples with run lengths 1..8 and all two-position sets, supplementary only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kempa et al 2018 supplies generic verification/optimization procedures.",
+          "Banbara et al 2026 treats Fibonacci/period-doubling, distinct from arbitrary run triples."
+        ],
+        "reasoning": "General per-word verification algorithms and morphic-family minimum-attractor theorems do not imply a uniform three-integer classification without a new boundary-factor argument.",
+        "searches": [
+          "three run binary string attractor all minimum attractors 0^a1^b0^c exact enumerator typical mean",
+          "arXiv:1907.04660v1 (https://arxiv.org/html/1907.04660v1)",
+          "Banbara et al., CPM 2026, DOI:10.4230/LIPIcs.CPM.2026.33"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1907.04660v1 (foundational HTML sections)",
+        "CPM 2026 Banbara et al DOI:10.4230/LIPIcs.CPM.2026.33 (abstract)",
+        "arxiv:1803.01695 Kempa et al general verification (abstract)",
+        "Resultary string attractor families and length-12 census",
+        "OEIS A339668: counts length-n binary words with minimum attractor size 2, not their number of minimizers (entry/comments and formulas inspected)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unique boundary factors 01 and 10 force the only pairs for b≥2, and singleton middle run is special.",
+          "The pole at z=1 gives mean 5/2 even though unique-minimum fraction tends to 1."
+        ],
+        "reasoning": "A generic algorithm can compute individual K(a,b,c) but does not state or imply the exact rational generating function or the rare b=1 contribution without analyzing its pattern. Finite census cannot certify all lengths.",
+        "searches": [
+          "three run binary string attractor all minimum attractors 0^a1^b0^c exact enumerator typical mean",
+          "arXiv:1907.04660v1 (https://arxiv.org/html/1907.04660v1)",
+          "Banbara et al., CPM 2026, DOI:10.4230/LIPIcs.CPM.2026.33"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mantaci et al define identical factor-occurrence attractors; their general bounds are not all minimum two-point sets for this domain.",
+          "The result explicitly allows same symbol in first and last runs, unlike three distinct-letter runs."
+        ],
+        "reasoning": "Compared minimum attractor positions for 0^a1^b0^c, binary three-block strings, and rational OGF/mean-typical separation.",
+        "searches": [
+          "three run binary string attractor all minimum attractors 0^a1^b0^c exact enumerator typical mean",
+          "arXiv:1907.04660v1 (https://arxiv.org/html/1907.04660v1)",
+          "Banbara et al., CPM 2026, DOI:10.4230/LIPIcs.CPM.2026.33"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published length-12 binary attractor census is finite and not the all n mean and OGF.",
+          "Other indexed minimum-attractor multiplicity tables concern Thue–Morse/pseudostandard families.",
+          "OEIS A339668 enumerates binary words whose minimum attractor size is 2 but does not count all minimum-position sets for each 0^a1^b0^c or give the conditional mean 5/2."
+        ],
+        "reasoning": "Searched published finite binary attractor censuses and tables, including indexed length-12 and special morphic families; checked whether fixed-n tables dominate an all-length theorem.",
+        "searches": [
+          "three run binary string attractor all minimum attractors 0^a1^b0^c exact enumerator typical mean",
+          "arXiv:1907.04660v1 (https://arxiv.org/html/1907.04660v1)",
+          "Banbara et al., CPM 2026, DOI:10.4230/LIPIcs.CPM.2026.33"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge comparison: the accessible primary works supply originating models or generic techniques but their inspected mathematical statements do not establish this exact complete final result; the four implication checks and specific priority risks below delimit this conclusion.",
+      "residual_risks": [
+        "Earlier binary-word enumeration, a finite census, or a specialized run-family formula not surfaced by searched indexes may already imply all or part of the theorem.",
+        "The mean 5/2 is over uniformly chosen exactly-three-run words, not all binary strings; this must remain explicit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces the notion, gives general estimates and special-family attractors; no inspected theorem lists all minimum pairs for 0^a1^b0^c or the all-length enumerator.",
+          "evidence": [
+            "General Proposition 1 bounds distinct factor counts using attractor size.",
+            "Special-family results concern standard Sturmian and other structured word families, not this full three-parameter language."
+          ],
+          "identifier_or_url": "arXiv:1907.04660v1 (https://arxiv.org/html/1907.04660v1)",
+          "material_read": "Full HTML: Section 2 exact definition and generic bounds, Section 3 connections to BWT/LZ, and later special-family descriptions including Sturmian and episturmian words.",
+          "method": "Full-text primary reading focused on the domain and quantifiers of the proposed all-three-run optimum-position enumeration.",
+          "title": "String Attractors and Combinatorics on Words",
+          "trigger": "Foundational string-attractor definitions and structural bounds, possible prior coverage for low-run binary words."
+        },
+        {
+          "assessment": "Fixed morphic families do not exhaust the positive three-run language or imply the stated rational enumerator.",
+          "evidence": [
+            "Fibonacci and period-doubling word families are distinct from unrestricted 0^a1^b0^c triples."
+          ],
+          "identifier_or_url": "Banbara et al., CPM 2026, DOI:10.4230/LIPIcs.CPM.2026.33",
+          "material_read": "Indexed abstract, title and scoped family statement; full paper not obtained/claimed read.",
+          "method": "Bibliographic and abstract-level object comparison.",
+          "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+          "trigger": "Current work enumerating all minimum attractors might be a broader enumeration theorem."
+        },
+        {
+          "assessment": "The table counts words with minimum attractor cardinality 2, not the multiplicity of minimum attractor sets in the three-run subfamily.",
+          "evidence": [
+            "Its a(n) counts total binary words with smallest attractor cardinality 2; the present F(z) sums number of distinct size-two choices over a restricted all-n language."
+          ],
+          "identifier_or_url": "https://oeis.org/A339668",
+          "material_read": "Entry statement, formulas, comments, computation and links inspected.",
+          "method": "Direct OEIS page reading and statistic/domain comparison to K(a,b,c), F(z) and the three-run conditional average.",
+          "title": "OEIS A339668: Number of length-n binary strings having minimum string attractor size 2",
+          "trigger": "Natural existing exact database/table for binary word attractor statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full set of minimum attractors, rather than just the minimum size, is a natural string-combinatorics invariant relevant to indexing and compression. A parameter-wide all-minimizers classification and all-length rational enumerator furnish a reusable exact result, while the rare singleton-middle-run contribution causes the mathematically informative mean-versus-typical gap 5/2 versus 1. It is not an arbitrary finite sample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1907.04660v1 (foundational HTML sections)",
+    "CPM 2026 Banbara et al DOI:10.4230/LIPIcs.CPM.2026.33 (abstract)",
+    "arxiv:1803.01695 Kempa et al general verification (abstract)",
+    "Resultary string attractor families and length-12 census"
+  ],
+  "disposition": "passed",
+  "limitations": "Exactly three positive binary runs with equal first/last symbol, ordinary noncyclic position attractors, uniform distribution on 3-run compositions. The result does not count arbitrary binary words or identify reversal equivalence classes.",
+  "schema_version": 1
+}

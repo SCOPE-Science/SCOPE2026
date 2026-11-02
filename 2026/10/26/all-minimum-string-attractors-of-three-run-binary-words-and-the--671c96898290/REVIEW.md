@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All three run lengths are arbitrary positive integers, and the selected sets are two-element subsets of ordinary one-indexed positions. The single-letter factors force at least two positions, and unique boundary factors force the exhaustive pair shapes for middle-run length at least two. In the singleton-middle-run case, every factor containing a one crosses the unique one; all remaining factors are zero powers, so precisely a position in a longest zero run is required. Every possible factor type is explicitly checked in the proof. The generating function follows from two finite-parameter rational sums, and the uniqueness and mean limits from exact composition counts and the order-three pole. An independent finite implementation enumerates 2,744 parameter triples and checks 38 aggregate coefficients and 38 uniqueness counts; finite tests are supplementary, not infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+For every positive a,b,c, distinct letters 0 and 1 force minimum attractor cardinality >=2. For b=1, the unique 1 must be chosen and any position in a longest zero run suffices, yielding 2a choices if a=c and max(a,c) otherwise. For b>=2 the unique 01 and 10 occurrences force the boundary pairs {a,a+b} (a>=c) or {a+1,a+b+1} (c>=a); a full factor-type partition proves sufficiency. Summing these cases gives F(z)=2z^3(1+2z+2z^2)/((1-z)^3(1+z)^2). Exact positive compositions give U_n=binom(n-1,2)-(n-2)-floor((n-2)/2); the pole order at z=1 gives mean 5/2. Independent direct factor-occurrence enumeration verified all 512 triples with run lengths 1..8 and all two-position sets, supplementary only.
 
-Direct scientific database checks for the three-run optimum-pair classification, equivalent count formula, length enumerator and unique/mean gap returned special-family studies (Thue–Morse, pseudostandard binary families, length-12 census) and no equivalent unrestricted three-run formula. The available mathematical publications classify **four-run** words with an actual fourth positive run, not this complete three-run case, so the present theorem is not stated as a corollary of an inspected prior claim. The 2019 combinatorial paper and the 2026 morphic-word paper were examined for their factor definition and multiplicity theorems; neither inspected discussion states or directly covers these three-run formulas. Indexed records are incomplete, so unindexed three-run coverage remains possible. General-purpose per-word verification algorithms also provide a way to compute examples, not the structural three-parameter theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves an infinite natural family of exact smallest-attractor classifications, including **all minimizers**, and the generating function computes exact total multiplicity at every length. The large discrepancy between almost-sure uniqueness and a mean of \(5/2\) identifies an interpretable rare-family contribution. This answers a motivated multiplicity question beyond minimum size or isolated finite computations, with a reproducible proof.
+Qualified best-of-knowledge comparison: the accessible primary works supply originating models or generic techniques but their inspected mathematical statements do not establish this exact complete final result; the four implication checks and specific priority risks below delimit this conclusion.
 
-## Limitations
+## value
 
-The word family has exactly three binary runs and is noncyclic; the mean is conditional on this family. An equivalent unindexed result remains a novelty risk. Only self-review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full set of minimum attractors, rather than just the minimum size, is a natural string-combinatorics invariant relevant to indexing and compression. A parameter-wide all-minimizers classification and all-length rational enumerator furnish a reusable exact result, while the rare singleton-middle-run contribution causes the mathematically informative mean-versus-typical gap 5/2 versus 1. It is not an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
