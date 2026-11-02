@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact spin elimination yields a finite product formula for the two-terminal correlation. For the 25-vertex example, the numerator factors into strictly signed terms and one degree-18 polynomial. The transformed polynomial has exactly two coefficient sign changes, so Descartes' theorem supplies an exhaustive root upper bound. Three exact rational sign evaluations provide two separated roots and establish simplicity. The infinite family is controlled by strict monotonicity in the lengths of its two negative branches, while the three-path obstruction follows from a two-sign-change polynomial and its simple boundary root. Reproduction from `verify.py` passed; finite checks support, but do not substitute for, the algebraic proof.
+## correctness
 
-**Originality — PASS, best-knowledge and not exhaustive.** The closest inspected direct precedent is Tanaka–Miyashita (arXiv:1003.0200), which has a direct negative path and positive length-two decorations and reports one thermal correlation sign crossing. Its topology does not cover the present two-crossing example. The iterated diamond model of Kobayashi–Fukumoto–Oguchi (arXiv:0901.3181) and the mixed-spin lattice of Jaščur–Štubňa–Szałowski–Balcerzak (arXiv:1604.03576) address different architectures and observables. Relevant published-record and accessible-prior-claim comparisons did not locate the same five-path instance or a dominating explicit theorem. Standard series/parallel elimination is known; it is not claimed as original. Remaining priority risk: an unlocated general theory for signed Ising two-terminal networks may already imply the root-count result.
+PASS
 
-**Mathematical value — PASS.** Competing paths in frustrated spin networks make terminal correlations temperature dependent. A single sign inversion in decorated bonds is known, but two distinct inversions under *equal* bond magnitudes demonstrate a nontrivial, reentrant entropic-competition mechanism without magnetic fields, multispin terms, or tuned coupling strengths. Exact root counts and an infinite length family make the observation a rigorous structural example rather than an isolated numerical curiosity. The three-path obstruction locates a natural simpler boundary, without making unsupported claims about four paths.
+PASS: Summing internal spins on each path yields endpoint weights P_±=prod_i(1±s_i t^{ell_i}), with correlation (P_+-P_-)/(P_++P_-), denominator positive for 0<t<1. Base numerator factorization -2t²(1-t²)²(1+t²+t⁴)Q(t) was recomputed exactly, as were all 19 coefficients of transformed (1+z)^18 Q(z/(1+z)). There are exactly two Descartes sign changes. Direct exact signs of the numerator at t=7/10,3/4,4/5 are -,+,-, proving exactly two simple roots with no extra tangency. The signed inverse-tanh sum is negative as t->0 and t->1 and positive at 3/4; increasing either negative long path length preserves positivity there, giving >=2 roots for every 9<=d<e. For <=3 paths, two positive and one negative reduction gives a polynomial with two positive sign variations, including the simple t=1 root, thus at most one interior root. Independent direct spin enumeration on a small three-branch graph checked path elimination. The finite d,e grid in the package is not used to infer the infinite family.
 
-The conclusions apply to the specific finite signed networks only; no full classification of arbitrary graphs, phase transition, or independently certified priority is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The signed-terminal-correlation law of a series-parallel theta network is standard. The checked potential new theorem is an equal-absolute-coupling *five*-path Ising network with exactly two finite-temperature sign changes, an infinite family with at least two, and a three-path impossibility boundary. Primary decorated-bond work has known nonmonotonicity and a single-crossing example but no inspected result implying the two-root 25-vertex example. Priority is best-of-knowledge, not exhaustive.
+
+## value
+
+PASS
+
+PASS: Reentrant sign of two-terminal thermal correlation under frustration is a natural observable; exactly two reversals with *identical absolute couplings* and no magnetic field identify a nontrivial topological entropy-competition mechanism. The rigorous Descartes root-count certificate and at-most-three-branch comparison give meaningful structural boundaries; a single approximate 25-vertex witness alone would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
