@@ -1,0 +1,15 @@
+# Scientific assessment: exact John ellipsoid of a spherical cap
+
+## Correctness — PASS
+For each integer \(d\ge3\) and \(-1<a<1\), the proposed center and semiaxes satisfy \(t-u=a\), \(ut=d(1-a^2)/(d+1)^2\), and \(v^2=u^2+dut\). Substitution into the boundary parametrization yields the exact ball-clearance square \(dut(s-1/d)^2\). The flat facet contacts at \(s=-1\), while the curved sphere contacts exactly at \(s=1/d\). Choosing a regular simplex among these contacts yields both required positive-weight John moment identities, so the unrestricted global optimizer is unique. Direct integration and elementary limits establish the volume ratios and dimensional regimes. `verify.py` checks these identities in parameter grids and by independent quadrature; finite tests are supplementary.
+
+## Originality — PASS with residual priority risk
+The planar half-disk inscribed ellipse was solved publicly in 2015 and is **not** claimed as a new case. Ivanov–Naszódi (arXiv:2212.11781, first public 2022-12-22) proves broad functional optimality conditions, not the explicit all-dimensional spherical-cap axes and offset-independent regular-simplex contact geometry. The 2016 paper *John Ellipsoid and the center of mass of a convex body* gives the necessary and sufficient classical moment criterion, again without these cap formulas. Published discussions of ellipsoids of capped hypercubes concern polytopes rather than spherical caps, and do not imply the theorem under any affine map (the bodies have different smoothness and facial structures). Exact-formula and alias searches did not find a covering theorem. Older geometrical literature may use *circular segment* or *truncated ball* terminology, so complete historical priority is not established.
+
+## Mathematical value — PASS
+A ball cut by one hyperplane is a canonical family of nonsymmetric convex bodies. Its **complete maximum-volume ellipsoid classification across every cut and dimension**, together with a uniform regular-simplex optimality witness, supplies a useful exact benchmark for affine rounding and John decompositions. The sharp hemisphere/thin-cap volume fractions and the three axial scales in large dimension reveal quantitative geometric behavior not supplied merely by the general John criterion. The planar isolated answer alone would be insufficient; the assessed statement is the entire higher-dimensional family and its geometric transition.
+
+## Closest sources and limitations
+The 2015 semicircle calculation completely covers the special planar, zero-offset member; no novelty is attributed to it. The 2022 general John–Löwner framework and the 2016 John decomposition provide proof tools, but not the explicit higher-dimensional formulas. This assessment is based on accessible full-text sections and searches, not an exhaustive historical bibliographic audit. No result is asserted for intersections with two independent cutting planes or for uniformity of high-dimensional limits outside the stated regimes.
+
+Self-review: passed. Independent audit: not yet performed.
