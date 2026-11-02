@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+
+The claimed finite-necklace identity is supported by a complete reflection double count in RESULT.md, including nonprimitive stabilizer multiplicities. Fixed-point-free Watson–Crick complementation excludes vertex-axis reflections; every permissible edge-axis fixed word has precisely one constrained linear halfword. The Möbius refinement follows from least-period factorization; the two-type run automaton gives the rational GC-weight generating function. The primitive finite-state shift and distinct GC weights on length-two cycles justify the local central limit estimate and exponential suppression of proper powers. The standalone verifier independently exhausts all rotation classes through length eight for run caps one–three, tests 132 composition cells, cross-checks rational coefficients through length twelve, and validates dynamic-programming instances through length eighty. The finite checks alone do not certify the infinite identities; the written structural arguments supply that proof.
+
+## Originality — PASS, with material access risk
+
+The closest accessible complete original paper, Immink–Cai (2018), already counts **linear** GC- and homopolymer-constrained words. Its run-matrix enumeration and variance methods are prior art, not part of the claimed novelty. The full Nguyen–Cai–Immink–Kiah (2020) article presents constrained linear-code encoders and error correction. The closest title-level competing paper, Taki Eldin–Matsui (2020), studies cyclic reverse-complement constant-GC run-length-limited *code constructions* via algebraic cyclic codes; the available abstract describes an algorithm for particular codes but no all-word rotation-orbit count or primitive Möbius classification. Its paywalled full text was unavailable, making equivalence a genuine residual priority risk. Generic Burnside orbit counting is also known, but the precise reflection-to-linear parameter bijection, double-counting treatment of imprimitive necklaces, all-composition parity obstruction, and local all-orders asymptotic were not found stated in primary material or matched records. Search failure is not claimed to prove global uniqueness.
+
+## Value — PASS
+
+Fixed GC balance, cyclic homopolymer run caps, and Watson–Crick equivalence are jointly motivated constraints in DNA sequence design. The result counts all symmetry-fixed rotation classes (not merely one construction) for arbitrary block lengths and cap, gives a sharp mod-four existence obstruction, extracts all primitive classes by exact Möbius inversion, and identifies their precise exponential-polynomial abundance. This separates double-strand-equivalent molecules from generic constrained strings and makes symmetry redundancy computable. The problem is a natural complete infinite-family classification, not an isolated small-instance table or a renamed transfer matrix. The inaccessible competing 2020 paper remains the main originality limitation; the results do not claim experimental performance or a distance property.
+
+Self-review: passed. Independent audit: not yet performed.
