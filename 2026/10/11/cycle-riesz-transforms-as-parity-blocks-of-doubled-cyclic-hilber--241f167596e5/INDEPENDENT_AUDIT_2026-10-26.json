@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T00:43:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md exact proof",
+        "verifier.py inspected as corroborative source; no blind reliance on VERIFY_OK",
+        "independently reconstructed finite Fourier blocks for N=3,4,5,6,9,12,17",
+        "high-precision half-grid norms for N=100,101,1000,1001"
+      ],
+      "rationale": "Reconstructed from actual RESULT.md the quantifiers N>=3, cyclic group Z/N, orientation T f(x)=f(x+1), Laplacian 2I-T-T^-1, zero-mean spectral inverse, normalized convolution, and sign conventions for H_(2N) including the vanishing 0/Nyquist modes. On nonzero character k, L eigenvalue 4 sin²(pi k/N), (T-I) eigenvalue 2i e^(pi i k/N) sin(pi k/N), hence R multiplier i e^(pi i k/N). Its inverse DFT is i Σ_{k=1}^{N-1} e^(2pi i k(r+1/2)/N)=-cot(pi(r+1/2)/N) using q^N=-1 and the finite geometric sum. Squaring yields -exp(2pi i k/N), zero at k=0, proving R²=-T(I-P0). For H_(2N), direct Fourier sine pairing gives zero even-offset kernel and 2cot(pi s/(2N)) on odd offsets. Its even-to-odd and odd-to-even restrictions, with the factor N/(2N)=1/2 from normalized convolutions, give exactly -R and -S_-R. Circulant convolution ℓ1/ℓ∞ norms equal the normalized absolute row sum, attained by a point mass/sign pattern; the same parity blocks imply ||H_(2N)||=||R_N|| and the displayed half-grid cotangent sum. Singular-term subtraction g(x)=cot(pi x)-1/(pi x), harmonic-number asymptotics and midpoint Euler–Maclaurin produce the common logarithmic constant and the even pi/18 versus odd -7pi/36 coefficients, with paritywise O(N^-4); for even N the N^-2 coefficient follows explicitly by combining harmonic +1/(3pi) and smooth -1/(3pi)+pi/18 contributions. Independently evaluated inverse kernels and BOTH parity blocks for N=3,4,5,6,9,12,17, matching to 1e-13, and high-precision C_N for N=100,101,1000,1001 with N² residual approaching predicted coefficients. These finite checks corroborate, never replace, the all-N algebra and asymptotic analysis. No claim about sharp interior ℓp operator norms or higher-dimensional cycles.",
+      "residual_risks": [
+        "The Euler–Maclaurin remainder order is an analytic paritywise statement; finite samples alone cannot certify it.",
+        "Only N>=3 and the stated Laplacian/frequency orientation; the N=2 exception is not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lust-Piquard (2004) abstract describes discrete Riesz transforms on products of abelian groups and cyclic cases; the full primary text was NOT read and cannot justify a noncoverage claim.",
+          "Wróbel (2014) treats single discrete Riesz transforms on finite cyclic groups as part of dimension-free bounds in 1<p<infinity; the inspected §5 is not an exact endpoint or doubled-Hilbert factorization theorem.",
+          "Domelevo–Ivanisvili–Petermichl–Volberg (2026) extend Lp estimates in a locally compact abelian setting, including cyclic groups; bounds do not give the submitted exact operator identity or ℓ¹/ℓ∞ endpoint formula."
+        ],
+        "reasoning": "Broader operator-domain inclusion is not by itself broader coverage of exact formulas. The general Riesz literature addresses interior-p inequalities; the exact-Hilbert norm source independently dominates the numerical endpoint subclaim, while the precise parity operator bridge is not supplied by these general results. The incomplete 2004 full-text inspection remains a named risk.",
+        "searches": [
+          "finite cyclic group forward difference Laplacian Riesz transform half-grid cotangent kernel square shift Hilbert transform even odd parity",
+          "cycle Riesz transform T-I discrete Laplacian inverse square root factorization Hilbert transform doubled circle cyclic",
+          "arXiv:1404.6921, §5 and Corollary 5.2",
+          "Lust-Piquard Adv. Math. 185 (2004), DOI 10.1016/j.aim.2003.07.002",
+          "Domelevo et al., arXiv:2606.20289"
+        ]
+      },
+      "checked_sources": [
+        "Gold–Oppenheim–Rader 1969, complete finite DFT Hilbert-transform paper",
+        "Wróbel 2014 arXiv:1404.6921, full manuscript §5",
+        "Separate exact cyclic-Hilbert endpoint RESULT.md, Resultary/2026 record --5a7ab3055d8e",
+        "Lust-Piquard 2004 DOI 10.1016/j.aim.2003.07.002 abstract only",
+        "Resultary semantic searches R1/R2/R3 (assigned record excluded from independent evidence)",
+        "Domelevo et al arXiv:2606.20289 abstract / full HTML"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Hilbert norm theorem gives L_(2N) and its large-order expansion; if the submitted R_N=-J1 H_(2N) E0 identity is proven separately, the equal R_N endpoints and their parity correction follow immediately.",
+          "Gold et al. provide the Hilbert kernel on 2N samples; deriving its even/odd blocks by substitution reduces to half-grid cotangent samples, and identifying the blocks with (T-I)L^(-1/2) requires the Fourier multiplier calculation.",
+          "For nonzero Fourier frequencies the identity (T-I)^2=-T(2I-T-T^(-1)) independently gives R_N²=-T(I-P0); neither inspected published comparator explicitly asserts that graph-Riesz square-shift law."
+        ],
+        "reasoning": "Compared exact logical implication, not title or parameter match. Prior Hilbert source covers the endpoint and asymptotic portions outright, while Wróbel supplies a general definition of the Riesz operator. The remaining operator bridge is an additional elementary calculation, not a direct quoted corollary or the known Hilbert numerical theorem itself. We credit only that structurally distinct result, with priority risk because standard signal-processing polyphase identities could already contain it.",
+        "searches": [
+          "Resultary/2026, 2026/10/11/SCOPE-exact-endpoint-norm-and-dyadic-parity-law-for-the-cyclic-hilbert--5a7ab3055d8e/RESULT.md (frozen source blob 3d4f266fe934b6b71acae252a4070412ea028c9a)",
+          "Gold–Oppenheim–Rader (1969), full 16-page PDF and finite impulse-response equation",
+          "Wróbel arXiv:1404.6921 §5",
+          "cycle Riesz transform T-I discrete Laplacian inverse square root factorization Hilbert transform doubled circle cyclic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The forward cycle Riesz multiplier is i exp(pi i k/N) for k=1,...,N-1; its square is -exp(2 pi i k/N) and it vanishes on the constant mode.",
+          "Gold–Oppenheim–Rader (1969) derives the standard finite even-length DFT Hilbert response with odd-offset cotangent samples, up to sign and normalization; decimating this kernel agrees with the half-integer cotangent kernel of R_N.",
+          "Wróbel (arXiv:1404.6921), §5, defines the discrete difference-Laplacian Riesz operator on cyclic groups (with convention-dependent scaling) and obtains interior Lp bounds; this is the relevant SAME operator rather than an unrelated Hilbert name."
+        ],
+        "reasoning": "Explicitly compared multiplier phases, the oriented finite difference, parity decimation, and cyclic Hilbert DFT sign convention. The classical Hilbert filter and same cycle Riesz construction are already known objects, but the inspected primary texts do not present the full R_N-to-H_(2N) operator block identification or its square-shift relation. Mere absence of the wording is not used as novelty proof; the actual prior mathematical implications and the elementary bridge are acknowledged.",
+        "searches": [
+          "finite cyclic group forward difference Laplacian Riesz transform half-grid cotangent kernel square shift Hilbert transform even odd parity",
+          "discrete Hilbert transform on cyclic groups frequency multiplier cotangent odd kernel endpoint norm parity decomposition",
+          "cycle Riesz transform T-I discrete Laplacian inverse square root factorization Hilbert transform doubled circle cyclic",
+          "arXiv:1404.6921 §5",
+          "Gold–Oppenheim–Rader 1969 finite DFT phase shifter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The directly returned indexed copy of the ASSIGNED result is excluded as independent priority evidence.",
+          "The full separate exact-Hilbert RESULT.md computes L_M for every cyclic length M and all parity-dependent second-order terms; substituting M=2N gives exactly the C_N norm and N^-2 constants in the submitted Riesz theorem.",
+          "Gold et al. 1969 contains the corresponding even finite DFT Hilbert cotangent impulse-response kernel, independently covering the Hilbert-kernel subclaim."
+        ],
+        "reasoning": "This is substantial exact prior coverage of the norm and asymptotic; it is not dismissed merely because the source calls the operator H rather than R. The distinct parity block identity and shift-square law were specifically compared and are absent as operator statements. Absence of further search hits is not a novelty certificate.",
+        "searches": [
+          "finite cyclic group forward difference Laplacian Riesz transform half-grid cotangent kernel square shift Hilbert transform even odd parity",
+          "discrete Hilbert transform on cyclic groups frequency multiplier cotangent odd kernel endpoint norm parity decomposition",
+          "cycle Riesz transform T-I discrete Laplacian inverse square root factorization Hilbert transform doubled circle cyclic",
+          "Resultary record: SCOPE-exact-endpoint-norm-and-dyadic-parity-law-for-the-cyclic-hilbert--5a7ab3055d8e",
+          "Resultary exact assigned-record hit: SCOPE-cycle-riesz-transforms-as-parity-blocks-of-doubled-cyclic-hilber--241f167596e5"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: the exact cyclic-Hilbert endpoint norm and the full parity-residue N^-2 asymptotics are ALREADY determined for H_(2N) by a separate published exact-Hilbert record; the 1969 finite DFT Hilbert paper already gives its odd cotangent impulse-response kernel. The surviving distinct content is a concrete identification of the forward graph-cycle difference-Laplacian Riesz transform as the even-to-odd half of the doubled cyclic Hilbert operator, its complementary shifted parity block, and the algebraic R_N^2=-T(I-P0) law. These operator-level statements are not stated in the inspected general cyclic-Riesz Lp bounds nor in the full exact-Hilbert source; their proof uses explicit Fourier phase comparison and parity-decimation, not a theorem claiming a universal block identification. Their algebra is short and based on classical symbols, so the historical priority judgment is necessarily qualified and does NOT credit the norm/asymptotic as independently new.",
+      "residual_risks": [
+        "The exact C_N norm and N^-2 correction are already published for H_(2N), so they are NOT independently novel despite the different Riesz wording.",
+        "1969 DFT impulse response plus 2014 cyclic-Riesz operator definitions make the surviving parity identification a short, natural calculation; an older polyphase DSP/filter literature result may already record the same equivalence.",
+        "Lust-Piquard 2004 full text was not obtained; do not assert noncoverage from abstract or mistaken 1998 PDF.",
+        "Both exact-Hilbert and assigned result have publication date 2026-10-11; their relative chronological priority was not established.",
+        "No search can establish exhaustive historical novelty; best-of-knowledge PASS applies only to exact Riesz/Hilbert structural linkage and square law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING",
+          "evidence": "Finite even-length Hilbert kernel with odd-offset cotangent samples (orientation-dependent sign), hence already covers the Hilbert impulse-response component, but does not identify the finite-cycle graph Riesz operator or state its square law.",
+          "identifier_or_url": "R. Gold, A. V. Oppenheim, C. M. Rader (1969), https://dsp-group.mit.edu/wp-content/uploads/2024/11/HilbertComplete.pdf",
+          "material_read": "Complete 16-page lawful public PDF, including introductory phase definitions, finite impulse-response formula on printed p.241 (equation 18), accompanying derivations and later implementation discussion; relevant pages inspected as rendered PDF images.",
+          "method": "Public PDF text and visual page inspection.",
+          "title": "Theory and Implementation of the Discrete Hilbert Transform",
+          "trigger": "Primary finite-length DFT Hilbert phase filter; exact same odd-offset cotangent kernel at even length."
+        },
+        {
+          "assessment": "NOT_COVERING_THE_FULL_STRUCTURAL_CLAIM",
+          "evidence": "Obtains dimension-independent strong Lp bounds with 1<p<infinity, not the displayed doubled finite-Hilbert parity blocks, square-shift formula or exact strong endpoints.",
+          "identifier_or_url": "B. Wróbel (2014), arXiv:1404.6921; DOI 10.1016/j.jfa.2014.07.005",
+          "material_read": "Open-access arXiv full text, especially introduction, §5 on cyclic-group applications, equations around 5.7 and Corollary 5.2.",
+          "method": "Lawful arXiv full manuscript/HTML inspection.",
+          "title": "Dimension free Lp estimates for single Riesz transforms via an H-infinity joint functional calculus",
+          "trigger": "Cyclic-group Riesz transforms defined by the same difference and Laplacian (modulo conventions)."
+        },
+        {
+          "assessment": "PARTIALLY_COVERING",
+          "evidence": "For M=2N its L_M endpoint norm and residue-class corrections equal exactly C_N and the submitted a_N. Its argument does not discuss graph Riesz transform (T-I)L_N^(-1/2) or parity-block equivalence.",
+          "identifier_or_url": "Resultary/2026, 2026/10/11/SCOPE-exact-endpoint-norm-and-dyadic-parity-law-for-the-cyclic-hilbert--5a7ab3055d8e/RESULT.md (frozen source blob 3d4f266fe934b6b71acae252a4070412ea028c9a)",
+          "material_read": "Entire RESULT.md including assumptions, exact cotangent formulas, proof via finite sine sums and harmonic/Euler–Maclaurin asymptotics, relationship and limitations; REVIEW.md also inspected.",
+          "method": "Read full published mathematical record at its Git blob by read-only GitHub connector.",
+          "title": "Exact endpoint norm and dyadic parity law for the cyclic Hilbert transform",
+          "trigger": "Nearest published exact source with the SAME Hilbert norm and second-order parity correction used in claimed result."
+        },
+        {
+          "assessment": "UNRESOLVED_SOURCE_RISK",
+          "evidence": "Its abstract establishes general cyclic Riesz coverage and dimension-free Lp subject matter. The inaccessible full article is neither classified as covering nor noncovering the exact parity identity.",
+          "identifier_or_url": "Françoise Lust-Piquard, Adv. Math. 185 (2004), 289–327, DOI 10.1016/j.aim.2003.07.002",
+          "material_read": "Abstract and bibliographic description only. ArXiv/preprint and lawful open-access full-text routes did not yield the SAME 2004 article. An institutional retrieval attempt returned a distinct 1998 Walsh/fermion paper by the same author, which was positively identified as NOT the requested paper; a subsequent query failed. No 2004 full text was read.",
+          "method": "Open bibliographic sources, attempted authorized institutional publisher access; no authentication bypass.",
+          "title": "Dimension free estimates for discrete Riesz transforms on products of abelian groups",
+          "trigger": "Foundational primary article explicitly mentioning cyclic-group cases of difference–Laplacian transforms."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md exact parity-factorization statement",
+        "1969 finite DFT Hilbert-kernel formula",
+        "Wrobel cyclic-group Riesz formulations",
+        "separate exact cyclic-Hilbert published theorem"
+      ],
+      "rationale": "PASS because the object is canonical: the difference–Laplacian Riesz transform of a finite graph cycle and the finite DFT Hilbert transform are separately important natural singular operators. The exact even/odd block equivalence (with a nontrivial shift/sign convention), and the square-root-of-translated-negative-identity algebra give a compact structural dictionary between graph spectral calculus and cyclic Fourier singular filters. This structural relation could reasonably be reused for transfer of kernel and spectral calculations; it is motivated prior to computing any finite constant. The sharp endpoint numeric values and paritywise asymptotics are NOT independently valuable discoveries here because the separate exact-Hilbert paper already determines them, but they are useful explicit corollaries illustrating the operator bridge. The argument is elementary rather than a deep new Lp theorem; no generalization to other graphs or interior p is asserted.",
+      "residual_risks": [
+        "Mathematical steps are short; claimed value rests on the natural operator identification and useful structural bridge, not on known endpoint coefficients.",
+        "May be implicit in older DSP polyphase filter identities; absence of a found statement does not prove priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "N≥3 only, standard nearest-neighbor graph Laplacian and FORWARD shift orientation; no ℓp sharp results for 1<p<∞ or other finite graphs.",
+    "Endpoint norm and parity-dependent finite-size coefficients already covered by the separately published exact cyclic-Hilbert theorem; claim of novelty restricted to structural Riesz/Hilbert identification.",
+    "1969 even-length Hilbert cotangent impulse response already known; do not advertise that as novel.",
+    "Full 2004 Lust-Piquard article not inspected despite lawful retrieval attempts; specific residual originality risk.",
+    "Public release withheld; metadata and audit references could expose confidential operational origin.",
+    "Historical ledger prefix preserved without asserting its older records have no defects."
+  ],
+  "schema_version": 1
+}
