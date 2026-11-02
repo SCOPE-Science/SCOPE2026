@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The signed graph-Laplacian formula and the identities \(P^2=aP\), \(Q^2=bQ\) reconstruct the dynamics. Tensor eigenbases establish the completely nondivisible case. If one dimension is divisible by the odd prime, the rank-one square-zero all-ones matrix creates size-two Jordan blocks and the sharp depth-two bound. If both dimensions are divisible, \(L^2=2J_m\otimes J_n\) has rank one and \(L^3=0\); a row/column-sum argument independently yields \(\operatorname{rank}L=m+n-2\), proving one size-three block and exact convergence counts. The canonical nilpotent-plus-invertible splitting, \(\dim\ker(L^t-I)\) and Möbius inversion establish every joint depth/period count. The bundled verifier checks these formulas by a separately constructed matrix and complete small-state enumeration. Finite tests are corroboration only.
+PASS
 
-## Originality — PASS, qualified
+Reconstructed L=(a+b)I-(J_m tensor I)-(I tensor J_n) over F_p with P^2=aP,Q^2=bQ. For a,b nonzero tensor constants and sum-zero spaces give eigenvalues 0,a,b,a+b with dimensions 1,m-1,n-1,(m-1)(n-1). For one zero residue, nilpotent J has one length-two block on the zero component and length-two blocks on nonzero component; for both zero, L^2=2J_m tensor J_n !=0, L^3=0, rank L=m+n-2. Fitting decomposition gives C_s=p^(mn-r_s) and H_sQ_t, Möbius inversion supplies primitive periods; binomial Jordan powers give p multiplier. Eight independently assembled finite-field matrices match all ranks through t=3, including p|m,n. These finite matrices corroborate the unrestricted proof.
 
-The closest inspected graph-specific source is Ducey, Gerhard and Watson (2015), which studies square rook-graph Laplacian Smith and critical groups and points to earlier rectangular integer Smith work. Those **two-sided equivalence** invariants do not classify the powers of the modular Laplacian under **similarity**. Moreno, Bollman and Aviño-Díaz (2006) supply general finite-field linear-dynamical methods, not an explicit all-size rook census. Peeters (2002), Theorem 3.4, already determines ranks of powers of a shifted adjacency matrix of the **square** Hamming graph when the field characteristic divides its alphabet size; in its two-coordinate specialization it covers the nilpotency-rank subcase for equal divisible dimensions. The asserted original extension concerns all unequal rectangular boards, the mixed-residue nonzero Jordan cases, and the complete simultaneous depth-period formulas, not the known square power-rank calculation. An inspected published prime-power modular lattice-kernel dilation has different translation geometry and does not imply the rectangular census. Accessible previous binary-parity work on complete-graph Cartesian products does not cover the odd-prime case. Searches did not find an equivalent statement, but hidden historical equivalences are still possible; not all cited older Smith papers were read in full.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact modular attractor phase diagram distinguishes sharp depths one, two and three by arithmetic divisibility, identifies the size-independent fraction \(1-1/p\) requiring the full three-step extinction when both dimensions vanish modulo \(p\), and counts every primitive orbit and transient stratum. This gives a complete natural family classification rather than a single experimental exception.
+Qualified PASS: complete rectangular odd-prime state-depth/primitive-period classification was not found in compared literature; Peeters 2002 already implies a divisible equal-size Hamming-graph power-rank subcase. Elementary tensor-algebra ingredients alone do not present the entire period/depth census. Similarity classification could be implicit in older modular-rook work.
 
-## Limitations and closest literature
+## value
 
-No claim is made for general graphs, composite moduli, sequential chip-firing or all published history. The finite-field tools are classical; the asserted addition is the explicit complete dynamical census for rectangular rook Laplacians in odd prime characteristic. General linear methods can potentially reproduce it with further parameter-specific work. Independent external review remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The simultaneous exact orbit census, nilpotent-depth transition and nonzero-Jordan period multipliers form a natural full classification of a canonical graph cellular automaton, useful beyond a single rank statistic; it isolates sharp phase regimes depending on m,n modulo p.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

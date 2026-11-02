@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T01:13:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed L=(a+b)I-(J_m tensor I)-(I tensor J_n) over F_p with P^2=aP,Q^2=bQ. For a,b nonzero tensor constants and sum-zero spaces give eigenvalues 0,a,b,a+b with dimensions 1,m-1,n-1,(m-1)(n-1). For one zero residue, nilpotent J has one length-two block on the zero component and length-two blocks on nonzero component; for both zero, L^2=2J_m tensor J_n !=0, L^3=0, rank L=m+n-2. Fitting decomposition gives C_s=p^(mn-r_s) and H_sQ_t, Möbius inversion supplies primitive periods; binomial Jordan powers give p multiplier. Eight independently assembled finite-field matrices match all ranks through t=3, including p|m,n. These finite matrices corroborate the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General finite linear map orbit structure follows from Fitting decomposition plus elementary Jordan theory.",
+          "The Peeters result covers equal q Hamming graphs when p divides q, not arbitrary rectangular residues or explicit primitive counts."
+        ],
+        "reasoning": "General Fitting/Jordan machinery supplies ingredients but applying it to rectangular rook Laplacians and stating exact all-regime counts requires the separate structural block calculation. Mathematical generality of tools alone is not a prior classified theorem.",
+        "searches": [
+          "arXiv:math/0604534 finite dynamical systems linear automata finite fields",
+          "Peeters 2002 J Algebraic Combin 15 pp127-149"
+        ]
+      },
+      "checked_sources": [
+        "Assigned 2026/10/25/.../RESULT.md and verified graph-based Python source blobs at commit 6bbb4a0f675439d5e8aed612d24443f0509b6b2d",
+        "Independent rook finite-field ranks: eight parameter pairs, powers t=0..3",
+        "Peeters (2002) Theorem 3.4, visually inspected",
+        "Resultary semantic search: rook graph modular Laplacian"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Peeters gives a p-rank power recurrence in H(d,q), with q uniform and p|q; it already contains square divisible-by-p rank information.",
+          "Ducey et al. concern integer Laplacian Smith invariants, not similarity classes of powers or orbit periods."
+        ],
+        "reasoning": "Peeters decisively covers the square divisible p power-rank component, acknowledged and excluded from separate novelty. It does not imply one-divisible rectangular Jordan periods or Möbius orbit counts from its stated restrictions. Other integer Smith classifications do not determine similarity Jordan data.",
+        "searches": [
+          "Peeters 2002 Theorem 3.4 full-text pp137-139",
+          "Ducey-Gerhard-Watson arXiv:1507.06583 Smith and critical groups"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Square H(2,q) with p|q fits p-rank of adjacency-plus-shift; Smith p-ranks are not dynamical period counts."
+        ],
+        "reasoning": "The closest equivalent language is linear finite dynamical systems on the Cartesian product of cliques. Peeters power-ranks overlap the equal-size double-divisible part, while the five-regime rectangular primitive-orbit formulas remain outside that theorem.",
+        "searches": [
+          "Resultary semantic query 2026-10-30: rook graph Laplacian modular field Jordan period",
+          "Peeters 2002 Theorem 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits on rook homology/critical groups and prime-power cellular Laplacians concern different invariants.",
+          "No located table supplies a joint labeled depth/primitive-period histogram for arbitrary m,n,p."
+        ],
+        "reasoning": "An exact table would require these five residue regimes and all periods; inspected cited tables are p-ranks or unrelated topological invariants, not the claimed histogram. Failed database search does not establish absolute novelty.",
+        "searches": [
+          "Resultary semantic query 2026-10-30: rook modular Laplacian",
+          "Peeters 2002 Theorem 3.4"
+        ]
+      },
+      "rationale": "Qualified PASS: complete rectangular odd-prime state-depth/primitive-period classification was not found in compared literature; Peeters 2002 already implies a divisible equal-size Hamming-graph power-rank subcase. Elementary tensor-algebra ingredients alone do not present the entire period/depth census. Similarity classification could be implicit in older modular-rook work.",
+      "residual_risks": [
+        "A historical explicit Jordan/orbit classification under a different finite-automata alias may predate the record.",
+        "Peeters square divisible regime already covers one rank component; no novelty attribution to that component.",
+        "General linear automaton and 1991 rectangular rook critical-group primary papers not examined in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE: equal-size p-divisible power-rank subcase only",
+          "evidence": [
+            "Theorem 3.4 explicitly assumes prime p divides common Hamming alphabet q and computes ranks of shifted adjacency powers."
+          ],
+          "identifier_or_url": "Peeters, Journal of Algebraic Combinatorics 15 (2002), Theorem 3.4, https://www.maths.tcd.ie/EMIS/journals/JACO/Volume15_2/v121065651493101.fulltext.pdf",
+          "material_read": "Primary full text: introduction, Hamming discussion and Theorem 3.4 on PDF page index 11; visually inspected the theorem matrix Q and restrictions p|q.",
+          "method": "Primary PDF text plus screenshot page 12",
+          "title": "On the p-Ranks of the Adjacency Matrices of Distance-Regular Graphs",
+          "trigger": "Exact rook/Hamming p-rank and power-rank prior overlap"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_ONLY with residual risk",
+          "evidence": [
+            "General linear automata framework, no exact rectangular-rook table established from materials inspected."
+          ],
+          "identifier_or_url": "arXiv:math/0604534",
+          "material_read": "Bibliographic record and stated general framework; not a verified full-paper comparison",
+          "method": "Lawful arXiv source and title/summary",
+          "title": "Finite Dynamical Systems, Linear Automata, and Finite Fields",
+          "trigger": "Broader finite-field dynamical formalism"
+        },
+        {
+          "assessment": "NOT_DECISIVE: Smith invariants are not similarity invariants",
+          "evidence": [
+            "The square graph integral critical group is determined by row/column-equivalence rather than linear map powers."
+          ],
+          "identifier_or_url": "arXiv:1507.06583",
+          "material_read": "Title, abstract and cited mathematical scope; full text not inspected in this execution",
+          "method": "Bibliographic abstract comparison",
+          "title": "The Smith and Critical Groups of the Square Rook Graph and its Complement",
+          "trigger": "Same graph, different modular invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simultaneous exact orbit census, nilpotent-depth transition and nonzero-Jordan period multipliers form a natural full classification of a canonical graph cellular automaton, useful beyond a single rank statistic; it isolates sharp phase regimes depending on m,n modulo p.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Peeters 2002 square divisible-prime p-rank overlap must be credited; not independently novel.",
+    "Source rank tests are bounded and do not replace all-prime proof."
+  ],
+  "schema_version": 1
+}
