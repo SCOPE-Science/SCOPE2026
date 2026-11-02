@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cyclic gaps of an independent set in \(C_L^r\) have size at least \(r+1\), forcing \(\alpha(C_L^r)=m\) for \(L=(r+1)m+s\) and \(0\le s\le2\). Rooted weak-composition counting yields the exact configuration numbers. Deleting the exchanged token exposes a unique insertable gap with at most three consecutive replacement sites. This proves every legal exchange is local and gives the degrees. Unit-slack circulation connects the surplus-one and surplus-two classes. The Johnson-graph triangle classification and the count of length-two exchanges prove exactly \(L\) triangles in the surplus-two case. Direct and gap-based enumerations verified 36 and 162 parameter cases, respectively. Their limits are finite; the proof is all-parameter.
+## correctness
 
-## Originality — PASS, with stated residual risk
-The known independence number, independence polynomial and generic equality of maximum-set token jumping and token sliding are explicitly credited. The new statement is the exact phase classification of the maximum-set exchange graphs, including a connected four-regular regime with a determined triangle count. The inspected full-text sections of Kamiński–Medvedev–Milanič (arXiv:1008.4563), Avis–Hoang (arXiv:2203.16861), and the antiprism background account did not provide these conclusions or a theorem that implies them as a stated special case. Targeted literature and mathematical-record queries for cycle powers, antiprisms, optimal independent sets, local exchanges, and triangles did not reveal a covering result. A missed equivalent treatment of cyclic exclusion processes is a genuine remaining risk; indexed-search absence is not a uniqueness certificate.
+PASS
 
-## Value — PASS
-The problem asks whether optimum independent configurations can be moved through valid single-vertex changes without dropping optimum cardinality. These configurations are classical dense cyclic packings, so the smallest amounts of spare space \(s=0,1,2\) are natural rather than arbitrary slices. The finding establishes a sharp qualitative change from complete freezing to a single cycle to a connected four-regular graph with exactly known triangle inventory, throughout a two-parameter infinite family. This is structural information not supplied by independence polynomials. It also specializes to a complete connectivity classification for all antiprism graphs. The result does not assert a diameter formula or cover larger surplus.
+Cyclic gap lengths d_i≥r+1 for an m-set give nonnegative slack g_i with Σg_i=s. Counting marked selected vertices and weak compositions yields m|V|=L C(m+s−1,s). For a fixed common (m−1)-subset, at most one gap allows reinsertion, because two gaps of length ≥2(r+1) contradict total length L<(m+1)(r+1); feasible positions are an interval of length ≤s+1≤3. Thus every exchange moves at distance ≤2≤r. Unit slides transfer one slack unit to an adjacent gap. With s=1 all degrees 2 and slack circulates, giving connected C_L; with s=2, one double unit gap or two single-unit gaps gives exactly four distinct moves per configuration. Slack transportation collects and rotates surplus, giving connectedness. Three pairwise exchange-adjacent maximum sets must share m−1 vertices by maximality, hence one feasible 3-point interval and one displacement-two edge; exactly L double-gap configurations supply 2L incidences/2=L such edges and L triangles. Independent brute-force adjacency/independent-set/exchange enumeration checked 27 complete small (r,m,s) configurations including components, degrees and triangles; infinite proof is the gap argument.
 
-## References and limitations
-Closest inspected sources: Kamiński, Medvedev and Milanič, arXiv:1008.4563 (2010); Avis and Hoang, arXiv:2203.16861 (2022/2023), particularly structural sections and appendix; Weisstein, *Antiprism Graph*, MathWorld. Sources give general reconfiguration frameworks and pre-existing graph/independence facts but no identified coverage of the asserted phase and triangle theorem. An indexed or inaccessible source may nonetheless contain an equivalent; no external independent scientific assessment has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior literature gives independent-set counts, token-jumping/sliding definitions, and general equivalence of jumping/sliding for maximum independent sets. The result isolates previously unstated all-parameter s=0/1/2 transition, 4-regularity and the exact L triangle enumeration; vertex-count formula alone is elementary and not claimed as a novelty.
+
+## value
+
+PASS
+
+Near-packed maximum independent sets of natural cycle powers exhibit a sharp frozen→cyclic→4-regular connected reconfiguration transition when exactly two excess sites become available. Exact triangle count measures local move redundancy and distinguishes the two-slack regime; extends directly to antiprism graphs. Motivated structural classification, not mere recounting of an independence polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

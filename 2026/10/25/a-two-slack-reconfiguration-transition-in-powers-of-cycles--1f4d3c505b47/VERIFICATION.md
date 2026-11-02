@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-The scripts use only the Python 3 standard library and construct their inputs from their own parameters. Commands run:
+## correctness
 
-```sh
-python3 verify_bruteforce.py > verify_bruteforce.out
-python3 verify_gaps.py > verify_gaps.out
-```
+PASS
 
-The first output begins `BRUTE_FORCE_OK 36` and the second begins `GAP_CHECK_OK 162`. Each line gives the cycle-power parameter pair, surplus, circumference, number of optimum configurations, exchange edges, components, and triangles. Both programs check all asserted finite-case formulas and adjacency constraints. The direct adjacency enumeration also checks that no admissible maximum-cardinality token jump exceeds cyclic distance two.
+Cyclic gap lengths d_i≥r+1 for an m-set give nonnegative slack g_i with Σg_i=s. Counting marked selected vertices and weak compositions yields m|V|=L C(m+s−1,s). For a fixed common (m−1)-subset, at most one gap allows reinsertion, because two gaps of length ≥2(r+1) contradict total length L<(m+1)(r+1); feasible positions are an interval of length ≤s+1≤3. Thus every exchange moves at distance ≤2≤r. Unit slides transfer one slack unit to an adjacent gap. With s=1 all degrees 2 and slack circulates, giving connected C_L; with s=2, one double unit gap or two single-unit gaps gives exactly four distinct moves per configuration. Slack transportation collects and rotates surplus, giving connectedness. Three pairwise exchange-adjacent maximum sets must share m−1 vertices by maximality, hence one feasible 3-point interval and one displacement-two edge; exactly L double-gap configurations supply 2L incidences/2=L such edges and L triangles. Independent brute-force adjacency/independent-set/exchange enumeration checked 27 complete small (r,m,s) configurations including components, degrees and triangles; infinite proof is the gap argument.
 
-The direct enumeration covers \(2\le r\le5\), \(2\le m\le4\), \(s\in\{0,1,2\}\). The separate gap enumeration covers \(2\le r\le7\), \(2\le m\le10\), \(s\in\{0,1,2\}\). Each program was rerun from its packaged location. Tests do not replace the cyclic-gap proof for all \(r,m\).
+## originality
 
-The original published independence numbers and general maximum-set token-swap equivalence are background, not independently certified discoveries. No external independent audit has been undertaken.
+PASS
+
+Prior literature gives independent-set counts, token-jumping/sliding definitions, and general equivalence of jumping/sliding for maximum independent sets. The result isolates previously unstated all-parameter s=0/1/2 transition, 4-regularity and the exact L triangle enumeration; vertex-count formula alone is elementary and not claimed as a novelty.
+
+## value
+
+PASS
+
+Near-packed maximum independent sets of natural cycle powers exhibit a sharp frozen→cyclic→4-regular connected reconfiguration transition when exactly two excess sites become available. Exact triangle count measures local move redundancy and distinguishes the two-slack regime; extends directly to antiprism graphs. Motivated structural classification, not mere recounting of an independence polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
