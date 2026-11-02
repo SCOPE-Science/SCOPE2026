@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:50:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md frozen blob 7519963bd6c12e1e72f123fe20cc9196f8f2e496",
+        "verify.py frozen blob dda29fc058cc8dc072cc2c911ee66d9364984e0d",
+        "independent 18-state Liouvillian matrix inversion test",
+        "Fedichkin et al. cycle symmetry and mixing; Kassal/Aspuru-Guzik dephasing/trap model"
+      ],
+      "rationale": "The odd reflection sector is spanned by distinct sine-wave modes u_k vanishing at trap, while every even eigenmode of the cycle Hamiltonian has nonzero trap amplitude. Therefore L0 has semisimple zero exactly on E_k=|u_k><u_k|; all complementary blocks either oscillate at nonzero frequency or decay under the positive trap. The compression ΠDΠ is B−I where B_kl=Σ_j |u_k(j)|²|u_l(j)|². Since the odd projector diagonal is 1/2 on all moved vertices and 0 on reflection-fixed vertices, Σ_l B_kl=1/2; symmetry and nonnegativity give ||B||<=1/2 and 1ᵀ(I−B)^−1=2*1ᵀ. The Schur complement around the semisimple zero mode yields κ(-Lκ)^−1→Π(I−B)^−1Π; trace equals 2Tr(Qρ). The Hilbert–Schmidt dissipation identity rules out peripheral eigenoperators at κ>0, proving finite survival integral. A density supported at reflection-fixed vertex has Πρ=0 and bounded resolvent contribution, giving O(1). Independent direct Liouvillian solves for n3–6, all localized sources, γ=0.9, extrapolate κ=.001,.0002; all 18 match coefficient with max error <6e-7. Finite tests corroborate but do not prove all n or all coherent ρ.",
+      "residual_risks": [
+        "Perturbative statement fixes n and γ; no simultaneous limits.",
+        "The lifetime integral and rate normalization explicitly use −γ{P0,X} and offdiagonal decay −κ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fedichkin finite-cycle mixing without irreversible sink; Bressanini dephasing classicalization; Gaab likely broader network model including absorption but complete material inaccessible."
+        ],
+        "reasoning": "Broader network models may imply the specialized reflection-projector coefficient if full spectral calculations exist. No decisive covering formula identified in accessible material; uninspected Gaab is a named residual risk not scientific failure.",
+        "searches": [
+          "Fedichkin, Solenov, Tamon, arXiv:quant-ph/0509163 cycle quantum walk with decoherence",
+          "Gaab, Bardeen 2004 Haken–Strobl dephasing and trapping",
+          "Bressanini et al. arXiv:2204.01836 quantum walk classicalization"
+        ]
+      },
+      "checked_sources": [
+        "Fedichkin–Solenov–Tamon quant-ph/0509163",
+        "Kassal–Aspuru-Guzik arXiv:1201.5202",
+        "Bressanini–Benedetti–Paris arXiv:2204.01836",
+        "Gaab–Bardeen JCP 2004 abstract, full text unavailable",
+        "Resultary quantum-walk search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The decisive new expression is a universal coefficient 2 Tr(Qρ), including coherent initial states and reflection fixed exceptional sites."
+        ],
+        "reasoning": "Mixing-rate and finite-recombination efficiency results require additional singular-limit analysis to imply this exact coefficient; inaccessible Gaab could already supply a stronger statement, which must be independently checked before asserting historical priority.",
+        "searches": [
+          "Fedichkin et al. (2005) mixing without absorber",
+          "Kassal/Aspuru-Guzik (2012) ordered ring transfer with recombination",
+          "Gaab/Bardeen (2004) trap plus dephasing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent assertion is a first-order eigenvalue splitting of the reflection-odd decoherence-free subspace, yielding universal leading mean first absorption time 1/κ for localized moved sites.",
+          "Kassal considers transport efficiency with competing recombination, which is not the same observable or scaling."
+        ],
+        "reasoning": "Both use ring + dephasing + trap, but their normalized efficiency does not directly yield κ*T without a zero-background-loss singular limit and all-state coefficient. Potential hidden equivalence in Gaab remains unresolved priority risk.",
+        "searches": [
+          "Resultary query: quantum walk cycle site trap weak dephasing lifetime absorption reflection dark state inverse dephasing coefficient",
+          "Kassal–Aspuru-Guzik arXiv:1201.5202",
+          "Gaab–Bardeen 2004 DOI 10.1063/1.1786922"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-n table reproducing coefficient 2Tr(Qρ) found; published plots and numeric efficiency curves do not establish the singular coefficient for all n."
+        ],
+        "reasoning": "A finite numerical table cannot imply the all-cycle all-density theorem without analytic structure. A table with precisely the coefficient might be relevant if combined with an exact general theorem; none verified.",
+        "searches": [
+          "Resultary published SCOPE quantum-walk dark-state weak-dephasing lifetime search",
+          "Kassal–Aspuru-Guzik numerical ring transport efficiency figures",
+          "Gaab–Bardeen JCP 121 (2004) indexed abstract"
+        ]
+      },
+      "rationale": "Qualified best of knowledge with substantial inaccessible-priority risk. Fedichkin et al. study dephased finite cycles without localized irreversible sink; Kassal/Aspuru-Guzik study environment-assisted efficiency on quantum rings with recombination and traps; these do not directly provide the fixed-γ, zero-background-loss integrated survival coefficient 2Tr(Qρ) for all initial density matrices. Gaab–Bardeen (2004) models coherent connectivity and trapping with Haken–Strobl dephasing and might imply this exact special case. Its abstract was read; authorized full-text retrieval returned vpn_disconnected; no assertion of whole-document noncoverage or priority guarantee.",
+      "residual_risks": [
+        "Gaab–Bardeen 2004 is plausibly near-equivalent; full paper could not be read because authorized Oxford VPN was disconnected.",
+        "Kassal/Aspuru-Guzik full text not obtained; overlapping ring/sink models remain relevant.",
+        "The theorem is singular weak-dephasing, finite n and γ fixed; limit is not uniform."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not model same localized absorber in inspected material.",
+          "evidence": "Studies cycle mixing time with decoherence.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0509163",
+          "material_read": "Accessible arXiv abstract and relevant models, not a full-read assertion.",
+          "method": "Primary preprint abstract/model",
+          "title": "Mixing and Decoherence in Continuous-Time Quantum Walks on Cycles",
+          "trigger": "Exact geometry cycles and dephasing"
+        },
+        {
+          "assessment": "Cannot claim full-paper noncoverage; published observable is efficiency with uniform recombination, differing from mean absorption without other losses.",
+          "evidence": "Ring energy transport with trap and dephasing plus competing background decay.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.5202",
+          "material_read": "Abstract and accessible indexed model passages concerning ring and recombination; attempts at full arXiv/open-access text failed.",
+          "method": "Primary accessible material, limited access",
+          "title": "Environment-assisted quantum transport in ordered systems",
+          "trigger": "Same ring + dephasing + trapping family"
+        },
+        {
+          "assessment": "Substantial possible implication; no whole-document NOT_COVERING judgment.",
+          "evidence": "2004 J. Chem. Phys. 121, 7813–7820.",
+          "identifier_or_url": "https://doi.org/10.1063/1.1786922",
+          "material_read": "Accessible abstract only; same-paper arXiv/preprint and lawful OA attempts did not yield full text, authorized Oxford institutional attempt returned vpn_disconnected.",
+          "method": "Abstract + authorized unavailable full-text attempt",
+          "title": "The effects of connectivity, coherence, and trapping on energy transfer in simple light-harvesting systems studied using the Haken–Strobl model with diagonal disorder",
+          "trigger": "Potentially directly covering source with localized traps and dephasing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dark-state symmetry decomposition of cycle Hamiltonian",
+        "weak-dephasing singular perturbation and trap absorption literature"
+      ],
+      "rationale": "The 1/κ lifetime coefficient for coherent quantum transport with a symmetry-protected dark subspace is a natural quantitative trap-escape invariant. The unexpectedly n- and sink-independent coefficient for localized nonfixed sites, with an exact all-state projection formula and sharp fixed-point exceptions, is a motivated structural result beyond a simulation of transport efficiency.",
+      "residual_risks": [
+        "No uniform large-n limit, trap-rate scaling, full absorption distribution or competing recombination."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any fixed finite simple cycle C_n (n>=3), single trap strength γ>0, uniform site dephasing κ→0+, and any density matrix ρ, lim κ*T_κ(ρ)=2 Tr(Qρ), with Q the reflection-odd projector. For reflection-fixed site starting states the limit is zero and the mean lifetime remains O(1).",
+  "limitations": [
+    "All density matrices allowed but n and γ fixed, kappa decreases to zero.",
+    "Full Gaab/Bardeen 2004 and Kassal/Aspuru-Guzik source text not obtained, qualified priority.",
+    "Source numerical verifier not treated as unrestricted proof."
+  ],
+  "schema_version": 1
+}
