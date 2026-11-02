@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructed: independent Poisson edge clocks give precise q-exponents; adjacent selected low-degree paths of size \\(s\\) contribute \\(O(D^{(1-s)/2})\\) to mixed factorial moments; high-degree expectation is bounded by \\(Rq^3\\); asymptotic degree-class Poisson independence, last-mark integral and Gumbel leaf-dominant law follow. The m-rate aggregate Poisson process de-Poissonizes via a coupled sum of exponentials and \\(T=O_{\\Pr}(m\\log m)\\). Spider no-adjacent-absences recurrence, center subtraction and coefficient transform are algebraically exact. Standalone checker passed 105 deterministic exact/numerical assertions; tests are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Falgas-Ravry et al. 2016 contains general concentration/covering criteria but not the stated mixed extreme-value CDF or the last-degree distribution in examined main results.",
+        "Godbole et al. 2018 discusses threshold progression in multiple combinatorial coverage settings and Stein-Chen tools but not uniform sampling of edges on irregular graph sequences."
+      ],
+      "reasoning": "General coupon-collector frameworks are applicable as proof methods and could imply related approximations under additional verification; none of the examined broader results is a stated theorem implying the exact degree-stratified crossover with the specified graph hypotheses and leaf mark. Uninspected general reductions remain a priority risk.",
+      "searches": [
+        "edge coupon collector on trees spider graph crossover leaves degree-two vertices Gumbel mixture first uncovered",
+        "non Gumbel cover time crossover degree one degree two random graph edge sampling",
+        "arXiv:1601.04455",
+        "arXiv:1803.09601"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/journals/JIS/VOL11/Tauraso/tauraso18.pdf",
+      "https://arxiv.org/abs/1601.04455",
+      "https://arxiv.org/abs/1803.09601"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tauraso 2008 generic transform implies an algorithm to compute exact finite graph cover-time laws; the claimed spider formula is a closed form of that general calculation.",
+        "The 2016 structured-coupon framework includes this process as a special case but its inspected bounds/concentration claims are not the mixed-class limit in the present parameterization.",
+        "The 2018 threshold-progression paper addresses different random covering models."
+      ],
+      "reasoning": "A previously published general generating-function transform is explicitly credited, not treated as a novelty. None of the inspected primary claims gives a direct implication-equivalent asymptotic mixed law, the last-covered-degree probability, or the evaluated polynomial as a displayed result. Prior generality may motivate future historical search.",
+      "searches": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL11/Tauraso/tauraso18.pdf",
+        "arXiv:1601.04455",
+        "arXiv:1803.09601",
+        "sharp mixed Gumbel law for covering vertices by sampling graph edges on k arm spider tree k over arm length degree one two"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A no-uncovered-vertex event under independent edge thinning equals the union of covered edge subsets, so the finite spider polynomial has a known generic edge-cover enumeration interpretation.",
+        "Tauraso 2008, pp.1-4, studies edge endpoint sampling and gives a general combinatorial transform, then treats regular graphs.",
+        "Falgas-Ravry et al. 2016, Introduction and selected sections, formulates structured coupon coverage with random set-valued coupons."
+      ],
+      "reasoning": "The finite probability expression is an explicitly evaluated instance of known exact-transform machinery; it is not claimed as a new generic cover transform. The specific degree-one/degree-two mixed limiting law and asymptotic last-cover class are not supplied by those inspected statements.",
+      "searches": [
+        "independent uniform random edges cover all vertices spider graph degree one degree two non Gumbel double exponential critical leaf count square root",
+        "sharp mixed Gumbel law for covering vertices by sampling graph edges on k arm spider tree k over arm length degree one two",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL11/Tauraso/tauraso18.pdf",
+        "arXiv:1601.04455"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published spider result on edge general-position is a deterministic classification of selected edge configurations unrelated to coverage stopping times.",
+        "Published spider curvature result is about tree geometry, not random edge exposure.",
+        "No lookup revealed an edge-cover table containing the stated finite spider probability polynomial or asymptotic class mark."
+      ],
+      "reasoning": "A graph-edge covering polynomial can in principle recover the finite formula, so lack of a matching table is not novelty proof. The evaluated arm-factorization and degree-stratified limit were not found in actual searches.",
+      "searches": [
+        "random edge exposure no isolated vertices spider caterpillar graph completion time",
+        "exact edge-activation cover probability spider tree Fibonacci recurrence random edge coupon no isolated vertices"
+      ]
+    },
+    "rationale": "The complete uniform-edge exposure distribution, irregular-degree mixed rare-vertex limit and last-degree mark are compared at the level of implication rather than title. Tauraso 2008 gives generic finite transforms and regular-graph mean results, not the stated two-class asymptotic; the spider recurrence evaluates an acknowledged generic transform. Falgas-Ravry et al. 2016 provide broad structured-coupon methodology without this explicit degree-stratified law in examined text; Godbole et al. 2018 give other coverage threshold examples. Relevant indexed literature records concern other graph invariants or reset coupon models. Residual risk: older general theorems could subsume this conclusion; not claimed as historical proof of novelty.",
+    "residual_risks": [
+      "Classical graph edge-cover enumerator formulas already yield arbitrary exact finite cover-time laws via generic transforms; only the compact spider specialization and asymptotics are distinguished here.",
+      "Uninspected historical covering literature or more general Poisson-approximation theorems could yield the mixed law as a corollary; search is not independent historical-priority certification.",
+      "Independent mathematical audit not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Generic finite transform covers the model, but graph-family analysis focuses on regular graphs; no specific mixed irregular-degree limit or balanced-spider factorization in examined pages.",
+        "evidence": [
+          "Page 1 defines picking a uniform edge and marking both endpoints; pages 1-2 derive exact cover enumerator transform; pages 2-4 prove regular-graph mean asymptotics."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL11/Tauraso/tauraso18.pdf",
+        "material_read": "Full ten-page PDF text, including introductory exact finite transform, regular-graph theorem, and exact graph-family sections; page 1 visually inspected",
+        "method": "Primary PDF text, page image, and theorem/section comparison",
+        "title": "Edge Cover Time for Regular Graphs",
+        "trigger": "Same edge-selection process and possible general dominance"
+      },
+      {
+        "assessment": "General set-valued coupon collection framework subsumes the model as an example, but inspected conclusions do not present the specific mixed Poisson extreme-value statement or leaf last-cover mark.",
+        "evidence": [
+          "ArXiv abstract defines independent random subset coupons; central sections describe general mean/concentration criteria and dependence controls."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1601.04455",
+        "material_read": "Primary PDF introduction, central general bounds/concentration sections, and examples; front page visually inspected",
+        "method": "Open-access preprint full-text structural and selected substantive section examination",
+        "title": "Speed and concentration of the covering time for structured coupon collectors",
+        "trigger": "Broad method potentially covering sampled graph edges"
+      },
+      {
+        "assessment": "Threshold progression and dependence-control framework covers other combinatorial examples but not the graph-degree one/two edge-cover crossover.",
+        "evidence": [
+          "ArXiv first publicly posted 26 March 2018; paper addresses coverage thresholds using Janson, Stein-Chen and Talagrand in extremal/additive settings."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1803.09601",
+        "material_read": "Open-access PDF introduction, section/thesis structure, and closing questions; front page visually inspected",
+        "method": "Primary preprint PDF with page screenshots and text inspection",
+        "title": "Threshold Progressions in a Variety of Covering and Packing Contexts",
+        "trigger": "Verified public 2018 motivating literature on random covering thresholds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cccbd1bd-5432-4a58-b00b-d30b85af8c35",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivated competition of degree-one and degree-two rare uncovered vertices yields an explicit non-Gumbel two-scale distribution and a mathematically natural last-degree mark; a tunable spider family provides a compact all-time finite law useful for benchmarking and studying irregular edge-exposure reliability. This is more than a generic cover transform or a small fixed-graph computation; known generic formulas are credited.",
+    "status": "PASS"
+  }
+}
