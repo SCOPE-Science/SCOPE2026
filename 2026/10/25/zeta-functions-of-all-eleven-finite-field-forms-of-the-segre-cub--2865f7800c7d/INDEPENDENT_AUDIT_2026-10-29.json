@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T09:52:55.491028Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For characteristic p>=5, the Segre cubic has ten nodes indexed by unordered 3+3 partitions N and 15 planes indexed by perfect matchings M. Blowing up ten nodes yields smooth Y isomorphic to compactified M_{0,6}. Keel’s Picard presentation has 25 boundary generators and 9 independent relations; the 15 plane classes plus the invariant sum of exceptional classes give the full 16-dimensional rational Picard representation with trace 1+fixed(M). Hard Lefschetz and Poincaré duality produce equal characters on H2 and H4 and point count Y=1+q^{3s}+(1+fixed(M^{sigma^s}))(q^s+q^{2s}). Replacing each exceptional quadric by its node subtracts fixed(N) q^{2s}+fixed(R) q^s, where R indexes the two individual tangent-quadric rulings per node and accounts for non-split quadrics. This yields the exact all-s extension-count formula and the zeta Euler-product factors. Fresh independent combinatorial enumeration of 15 matchings, 10 nodes and 20 rulings reconstructed all 11 conjugacy profiles; separately direct F5^d trace-equation enumeration for degrees d<=6 verified all 11 twisted F5 point counts (256,146,176,226,121,131,211,186,136,156,151), not just the untwisted case. Finite q=5 checks corroborate the cited geometry; the all-prime-power statement rests on the blowup/Picard trace argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dolgachev §2 gives the 10 nodes, 15 planes and S6 equations but not the complete zeta profiles.",
+          "Carr/Keel gives Pic(Mbar0,6) generators and relations.",
+          "Cheltsov–Tschinkel–Zhang §2 has invariant Picard-rank data for selected subgroups and equivariant resolution; the main theorem concerns group linearizability, not finite-field zeta formulas."
+        ],
+        "reasoning": "The broad geometry is enough input for a new derivation but does not by itself display the 11 coefficients or handle non-split rulings; a published universal equivariant motive formula specialized to the Segre cubic might dominate, and its absence has not been proved.",
+        "searches": [
+          "Dolgachev arxiv:1501.06432 Corrado Segre and nodal cubic threefolds",
+          "Avilov arxiv:1812.11363 forms Segre cubic",
+          "Segre cubic zeta function moduli space M0,6 S6 action finite fields",
+          "Cheltsov Tschinkel Zhang 2023 Equivariant geometry of the Segre cubic and the Burkhardt quartic arxiv 2308.15271"
+        ]
+      },
+      "checked_sources": [
+        "Dolgachev arxiv:1501.06432 (primary full PDF)",
+        "Avilov arxiv:1812.11363 (primary full PDF)",
+        "Carr arxiv:0911.2649 (primary full PDF)",
+        "Resultary Segre cubic point/zeta search (8 hits, none matching)",
+        "Actual verify_segre.py and verify_finitefield.py inspected as code, not treated as independent proof",
+        "Cheltsov–Tschinkel–Zhang arxiv:2308.15271v2 (full arXiv HTML; S6/Picard section)",
+        "Cheltsov–Tschinkel–Zhang arxiv:2308.15271v2 (full arXiv HTML; S6/Picard section)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ten nodes, fifteen planes and Picard rank 16 are previously known.",
+          "The non-split quadric ruling action R contributes -#R^sigma q, and is not determined by node fixed counts N alone."
+        ],
+        "reasoning": "The existing geometry and form classification supply ingredients but require an additional explicit equivariant Picard and exceptional-ruling calculation to imply this exact zeta formula. A paper with that complete calculation would cover the result regardless of title.",
+        "searches": [
+          "Dolgachev Segre 10 nodal cubic §2",
+          "Avilov On forms of the Segre cubic §§2–3",
+          "Carr polygonal presentation of Pic(Mbar0,n)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All s counts are equivalently a Frobenius character formula 1+M-N in degree 4 and 1+M-R in degree 2.",
+          "Avilov classifies forms by S6 Galois action but does not furnish the 11 Frobenius q²,q coefficient table in inspected sections."
+        ],
+        "reasoning": "An equivariant motive/cohomology decomposition for compactified M0,6 could encode the same formula after nodal correction; that possibility is included as a priority risk. The classical classification of forms is not itself the arithmetic zeta classification.",
+        "searches": [
+          "Segre cubic finite field forms Frobenius permutations point counts zeta functions exceptional rulings",
+          "Avilov arxiv:1812.11363 On forms of the Segre cubic",
+          "Carr arxiv:0911.2649 Keel Picard presentation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fresh independent direct trace-algebra F5 count matched all 11 rows: 256,146,176,226,121,131,211,186,136,156,151.",
+          "No exact 11-form zeta table was identified in inspected Avilov/Dolgachev or Resultary search.",
+          "Cheltsov–Tschinkel–Zhang §2 table is for selected subgroup invariant Picard ranks, not the eleven cyclic-twist rational-point coefficient pairs."
+        ],
+        "reasoning": "The asserted table is a natural complete census of exactly eleven isomorphism classes of twists, and extension-field identity provides more than an F5 example list; unindexed pre-existing tables remain possible.",
+        "searches": [
+          "Segre cubic 11 conjugacy classes finite field point counts coefficients 6 -4",
+          "Resultary: Segre cubic finite field forms Frobenius permutations point counts zeta functions exceptional rulings"
+        ]
+      },
+      "rationale": "Prior Dolgachev (2015) describes Segre cubic equations, ten nodes/fifteen planes and moduli resolution; Carr/Keel provides Picard relations; Avilov (2018) classifies forms and geometric Galois actions. These foundations are credited. The all-eleven Frobenius class point counts AND entire extension-field zeta products, including individual-ruling splitting correction, are not established by the inspected primary statements. Search for dominating equivariant M0,6 motives or precomputed zeta tables found no explicit equivalent, but such prior formulations remain a priority risk. Resultary found other finite-field classifications, not Segre cubic zeta for eleven classes.",
+      "residual_risks": [
+        "A pre-existing equivariant motive or zeta-function formula for \\bar M_{0,6} plus nodal correction could imply the whole result under a change of presentation.",
+        "The S6 outer-automorphism convention for coordinate action versus moduli action must be preserved exactly; swapping them corrupts the class table.",
+        "The finite-field direct check covers q=5, not arbitrary p; uniform correctness rests on characteristic>=5 geometry and cohomological descent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATION_ONLY: geometry known, not arithmetic zeta table",
+          "evidence": [
+            "Dolgachev §2 Proposition 2.2: 10 nodes and 15 planes, configuration (15_4,10_6); symmetric equations in six coordinates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.06432",
+          "material_read": "Full accessible primary PDF, §2 on ten nodes, 15 planes, S6 equations and moduli correspondence; figure and Proposition 2.2 inspected",
+          "method": "arXiv PDF parsed with page-image inspection",
+          "title": "Corrado Segre and nodal cubic threefolds",
+          "trigger": "Primary source geometry of Segre cubic"
+        },
+        {
+          "assessment": "FOUNDATION_ONLY: 11 form types known; full zeta/extension tables not identified in read sections",
+          "evidence": [
+            "Avilov 2018 studies S6-forms and birational rigidity, not the stated point-count coefficient table."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.11363",
+          "material_read": "Full accessible primary PDF, statements and §§2–3 describing forms, Galois actions and birational geometry",
+          "method": "arXiv PDF with page-image inspection",
+          "title": "On forms of the Segre cubic",
+          "trigger": "Most directly relevant classification of twists/forms"
+        },
+        {
+          "assessment": "FOUNDATION_ONLY: relation rank mechanism; not an arithmetic Segre twist census",
+          "evidence": [
+            "Carr 2009 explains Keel boundary divisor presentation of Pic(Mbar0,n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0911.2649",
+          "material_read": "Accessible full primary PDF with Picard generators/relations and relevant presentation inspected",
+          "method": "arXiv PDF with page-image inspection",
+          "title": "A polygonal presentation of Pic of the moduli space of genus-zero curves",
+          "trigger": "Critical Picard relations and representation"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE: gives invariant Picard ranks for selected subgroups and the equivariant Mbar0,6 resolution, but not the eleven finite-field cyclic-conjugacy zeta functions or all extension-field point counts",
+          "evidence": [
+            "Cheltsov, Tschinkel & Zhang, arxiv:2308.15271v2, §2 says Xtilde is S6-equivariantly isomorphic to Mbar0,6 and lists invariant Picard ranks by selected subgroup; principal Theorem 1 is about linearizability, not zeta functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2308.15271v2",
+          "material_read": "Complete accessible 2023/2026 arXiv HTML text; Introduction Theorem 1, Background §2 Segre cubic and its table of invariant Picard/class-group ranks, Segre-specific §6, conclusion; searched for zeta/finite-field count terms",
+          "method": "Primary open-access arXiv HTML, statements and relevant sections inspected",
+          "title": "Equivariant geometry of the Segre cubic and the Burkhardt quartic",
+          "trigger": "Same Segre cubic with explicit S6 action, group-equivariant Picard data and potentially stronger character tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete exact arithmetic classification of every finite-field form of a classical 10-nodal cubic threefold is a natural invariant, not an arbitrary example table: it determines all extension counts and rational zeta functions and exposes the ruling-splitting correction. The finite field form classification is known; the contribution is the explicit uniform arithmetic character computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dolgachev arxiv:1501.06432 (primary full PDF)",
+    "Avilov arxiv:1812.11363 (primary full PDF)",
+    "Carr arxiv:0911.2649 (primary full PDF)",
+    "Resultary Segre cubic point/zeta search (8 hits, none matching)",
+    "Actual verify_segre.py and verify_finitefield.py inspected as code, not treated as independent proof",
+    "Cheltsov–Tschinkel–Zhang arxiv:2308.15271v2 (full arXiv HTML; S6/Picard section)",
+    "Cheltsov–Tschinkel–Zhang arxiv:2308.15271v2 (full arXiv HTML; S6/Picard section)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Frobenius acts on the SIX SEGRE COORDINATES; the moduli-point S6 action is outer-twisted relative to this convention.",
+    "Characteristic p>=5 only; rational points on the singular projective cubic, not smooth locus/resolution."
+  ],
+  "residual_risks": [
+    "A pre-existing equivariant motive or zeta-function formula for \\bar M_{0,6} plus nodal correction could imply the whole result under a change of presentation.",
+    "The S6 outer-automorphism convention for coordinate action versus moduli action must be preserved exactly; swapping them corrupts the class table.",
+    "The finite-field direct check covers q=5, not arbitrary p; uniform correctness rests on characteristic>=5 geometry and cohomological descent."
+  ],
+  "schema_version": 1
+}
