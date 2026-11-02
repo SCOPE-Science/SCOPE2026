@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` from a directory containing the accompanying `count.c` and `verify.py`. Python standard library plus a C11 compiler are required. The test runs field-polynomial irreducibility and multiplicative sanity checks, direct low-degree point enumerations, algebraic Frobenius action on all fourteen geometric nodes in \(\mathbb F_{64}\), and exhaustive character sums for degrees 1 through 12. Exact rational Newton identities, K3 reciprocal symmetry, cyclotomic factor multiplication, and exceptional-curve cancellation are checked without floating point. The observed final token is `VERIFY_OK`.
+## correctness
 
-This checks the finite arithmetic inputs to a mathematical proof. The infinite all-extension conclusion additionally uses standard K3 cohomology and Weil bounds; the code does not search infinitely many fields. The self-review is included in `REVIEW.md` and `AUDIT.json`. Independent audit or outside verification has not taken place. In the coefficient-field check, the Frobenius node-orbit decomposition is computed in the full \(\mathbb F_{64}\), rather than assumed from the desired zeta factor.
+PASS
+
+The affine singular equations y^7=1, z=y^5, w^4+w^2=y give exactly fourteen geometric nodes. Artin–Schreier splitting over F8 establishes the Frobenius orbit partition (2,3,3,6). The finite-field formula X(F_{2^m})=q²+q+1+S_m is exact; independently enumerated S_m with a separate binary-field routine for m=1..8, and independently compiled a separate C11 enumerator for m=9..12, matching ALL twelve source sequence values. Exceptional P¹ corrections yield traces on K3 H²; Newton identities from twelve sums, rank22 and reciprocal functional equation uniquely recover the cyclotomic polynomial. Finite counts plus this global cohomological bridge, not extrapolation, establish every extension. Independent checks support the exact arithmetic and the proof uses standard K3 facts for the unrestricted cohomological conclusion.
+
+## originality
+
+PASS
+
+Catanese and Schütt already construct the fourteen-node characteristic-two quartic and supersingular K3 resolution. The new claim is the explicit F2-model Frobenius descent and complete arithmetic zeta factorization, not the geometric node bound. Relevant primary sections were read; no exact same arithmetic result was found there, with usual unindexed-computation risk.
+
+## value
+
+PASS
+
+A complete Hasse–Weil zeta function and geometric Frobenius orbit decomposition are natural arithmetic invariants of a highly singular small-characteristic quartic; the result distinguishes the singular surface from its smooth K3 resolution and determines every extension-field point count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
