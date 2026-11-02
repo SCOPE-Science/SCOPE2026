@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Explicit disjoint-position hypergeometric probability counting establishes exact unconditional first and mixed moments. Their polynomial factorization and the inequality \(ab\ge2(n-2)\) prove strict positivity. Uniform run-composition decompositions prove zero covariance at all even total-run counts and a nonpositive exact mixture covariance at odd counts, with strict negative covariance at three runs. The standalone verifier independently enumerates all compositions through word length 13 and checks further exact parameter values. Finite experiments are not used as an infinite proof. Limitations: finite linear uniformly shuffled fixed-composition words with \(a,b\ge2\).
+## correctness
 
-**Originality — PASS, with explicit residual priority risk.** The checked published research index research record on fixed-composition transition-indicator covariances concerns individual transition indicators, not the joint counts of singleton runs of opposite colors or the conditioned-versus-unconditioned sign reversal. The inspected full text of Smeeton–Cox (2003) concerns the total run count in shuffling. Doğanaksoy et al. (2015) discuss run-length-one statistics but not this fixed-composition cross-color conditional covariance theorem. Barton–David (1957) and Barton (1967) are related older potentially dominating references whose full texts could not be inspected; this leaves a genuine residual risk. No overlap check proves historical uniqueness.
+PASS
 
-**Value — PASS.** In fixed-composition runs testing, singleton one-runs and zero-runs are natural measures of symbol-specific isolation and clustering, while total run count is the standard conditioning statistic. The strict reversal from positive unconditional to nonpositive run-stratified covariance holds uniformly over all nondegenerate compositions, with a sharp negative three-run formula. It identifies a structurally meaningful dependence phenomenon affecting interpretation of separately measured gap and block counts, beyond a one-off covariance exercise. It does not claim a downstream testing theorem.
+For fixed-composition sampling, any prescribed p ones and q zeros at disjoint positions has hypergeometric probability (a)_p(b)_q/(a+b)_{p+q}. Partition the simultaneous singleton indicators by endpoint/interior and separation; prescribed local bit patterns give E X, E Y and E XY, with factoring Cov=2ab(a-1)(b-1)[ab(2n-3)-2n]/[n²(n-1)²(n-2)(n-3)]>0 using ab>=2(n-2). Given run counts and starting bit, one- and zero-run lengths are independent uniform compositions; expected singleton count in r parts summing to a is r(r-1)/(a-1). Even R fixes both run numbers and yields conditional independence. Odd R mixes two opposing endpoint orientations with weights C(a-1,t)C(b-1,t-1) and C(a-1,t-1)C(b-1,t), producing the negative covariance; t=1 simplifies to -4/(n-2)^2. The n=4,5 boundary cases are separately checked. Independent exact rational enumeration for all 2<=a,b<=7 agrees with both marginal and conditioned formulas.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The classical Wald–Wolfowitz/Smeeton–Cox run-count distribution and Doğanaksoy et al. length-one run tests establish ingredients, and the previously published Resultary dependence-phases paper is on **transition indicators** rather than opposite-color singleton *run counts*. Neither inspected same-sample claim implies the universal conditional-vs-unconditional sign reversal, but Barton & David (1957) Multiple Runs and Barton (1967) completed runs may contain broader multivariate generating-function machinery. That historical risk is explicit; best-of-knowledge PASS is not a universal priority certificate.
+
+## value
+
+PASS
+
+In fixed-composition testing the per-color singleton-run counts are natural measures of isolated local symbols, and the total run count is the standard statistic used for conditioning. A uniform positive-to-nonpositive covariance reversal at every fixed run count, with strict sign at R=3, is an interpretable nontrivial dependence phenomenon. The exact algebra matters to run-stratified interpretation, without claiming a new downstream test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
