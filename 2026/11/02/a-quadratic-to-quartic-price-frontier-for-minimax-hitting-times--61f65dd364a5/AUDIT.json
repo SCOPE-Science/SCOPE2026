@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "The backward equations give oriented endpoint hitting times as the sums of cumulative stationary masses and complementary masses divided by conductances. Every other oriented hitting time is a positive subinterval sum. Weighted Cauchy–Schwarz yields the exact scalar dual lower bound, and strictly concave scalar maximization selects an allocation that attains it. Endpoint derivative signs determine the worst direction; strict convexity yields a unique global conductance vector. The explicit right-of-center surcharge threshold follows from the derivative at the boundary. A controlled integrable-singularity Riemann sum gives the two distinct quadratic and quartic price-scaling laws. The bundled program passed 19,538 supplementary finite checks, including direct hitting-equation solves and numerical competing allocations; finite checks are not used as proof of the infinite claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh, Boyd and Saberi, Minimizing Effective Resistance of a Graph, public full paper §§3,5.1,8: optimized total R; §8 explicitly mentions max symmetric R as a generic convex variation",
+        "Palacios et al. 2014 full journal HTML sections 2 and 4; no conductance-budget optimization",
+        "Aldous–Fill Chapters 3.7 and 4: hitting/commute parameters and variational comparisons",
+        "Berman (1964), DOI 10.1287/mnsc.10.4.734, publisher abstract: continuous concave-upward activity time-cost functions, minimum cost for a completion deadline, parametric solution, broader convex-resource predecessor. No accessible detailed theorem statement."
+      ],
+      "reasoning": "Convex resistance optimization supplies a methodological predecessor but no theorem dominating this asymmetric first-passage objective with external stationary masses. For three vertices with prices \\((1,3)\\), max-resistance minimization yields conductance ratio \\(\\sqrt{3}\\), whereas the robust mean-hitting minimizer yields \\(\\sqrt{3/2}\\). Neither solution implies the other. General convexity alone does not provide the explicit threshold or its two scaling exponents. Berman 1964 provides a broad PERT convex-resource precedent, potentially encompassing general minimax reciprocal-cost design via reductions. Its abstract does not claim the fixed-stationary path one-defect threshold or position-sensitive quadratic/quartic law, but the full text was not accessible; this is an explicit priority risk rather than a whole-document negative claim.",
+      "searches": [
+        "\"Hitting Times of Walks on Graphs through Voltages\" arxiv",
+        "\"Hitting Times of Walks on Graphs through Voltages\" original online 2014",
+        "optimal allocation conductances minimize maximum mean hitting time reversible Markov chain path budget",
+        "optimal design minimax hitting times birth death process edge weights resource allocation",
+        "E B Berman Resource Allocation in a PERT Network Under Continuous Activity Time Cost Functions 1964 arxiv.org pdf",
+        "E B Berman 1964 PERT resource allocation full text pdf open access",
+        "Berman 1964 Resource Allocation in a PERT Network Under Continuous Activity Time-Cost Functions pdf full text minimax convex reciprocal"
+      ]
+    },
+    "checked_sources": [
+      "Palacios–Gómez–Del Río, Journal of Probability 2014, DOI 10.1155/2014/852481, full HTML",
+      "Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph, accessible full PDF §§1–8",
+      "Aldous–Fill, Reversible Markov Chains and Random Walks on Graphs, public chapters 3.7 and 4",
+      "Fiedler 1993 bibliographic metadata only (full text not inspected)",
+      "Berman 1964 DOI 10.1287/mnsc.10.4.734: published abstract only; full text inaccessible"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh et al. §5.1 uses total resistance = sum i(n-i)/c_i, §8 max effective resistance only as convex program",
+        "Aldous–Fill Chapter 4 defines worst mean commute time, distinct from max one-way hitting",
+        "Fiedler 1993, Some Minimax Problems for Graphs: secondary bibliographic references classify the topic as graph spectral/minimax; full original not accessed",
+        "Berman 1964 publisher abstract, DOI 10.1287/mnsc.10.4.734: general time-cost allocation on PERT networks, not a readable statement of Markov-path surcharge asymptotics"
+      ],
+      "reasoning": "The fixed-stationarity directed hitting problem is not a corollary of symmetric resistance minimization: equality of the two endpoint times is an additional price-dependent active constraint that can cease at Q_c. General convex/dual methods could inspire a derivation, but the inspected results do not assert this explicit closed classification or its location-dependent scaling. The inaccessible Fiedler source is disclosed and is not used as a negative full-text comparison. The general allocation problem can be cast as a small PERT-like path maximum; this structural reduction is a methodological overlap and not novel in itself. The exact fixed-law price frontier remains a separately compared claim. The inaccessible detailed Berman theorems prevent categorical exclusion of stronger coverage.",
+      "searches": [
+        "\"Some minimax problems for graphs\" Fiedler abstract",
+        "\"optimal\" \"mean first passage time\" \"birth death\" \"rates\" \"budget\"",
+        "minimize maximal directional first passage times on path rate budget stationary target scalar concave price dual",
+        "\"Resource Allocation in a PERT Network Under Continuous Activity Time-Cost Functions\" Management Science 1964"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Palacios, Gómez and Del Río (2014), DOI 10.1155/2014/852481, §2 Corollary 6: hitting-time evaluation on linear networks, no budget optimization",
+        "Aldous–Fill, reversible-chain chapters 3.7 and 4: commute and hitting-time identities, not directional price design"
+      ],
+      "reasoning": "An individual directional hitting time is not generally the symmetric effective resistance or commute time. On a path the commute is sum 1/c_i, whereas the worst single direction is max(sum M_i/c_i,sum (1-M_i)/c_i). With heterogeneous prices the optimizers differ. Literature and semantic claim searches did not identify the exact scalar dual and surcharge frontier.",
+      "searches": [
+        "\"minimize the maximum\" \"hitting time\" \"conductance\" \"path\"",
+        "\"optimal\" \"hitting times\" \"fixed stationary distribution\" \"path\"",
+        "minimax expected first hitting time resource allocation weighted path Markov chains square root dual Lagrange threshold",
+        "reversible birth death Markov path arbitrary stationary distribution rate conductance price budget minimizing maximum mean first passage hitting time exact optimal robust endpoint hitting optimization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Palacios et al. 2014, DOI 10.1155/2014/852481: linear hitting-time formula only",
+        "Ghosh et al. 2006/2008: explicit tree square-root allocation for total resistance uses edge coefficient i(n-i), not a price-dependent maximum of two oriented sums",
+        "No exact table or matching one-price threshold was found in the named searches"
+      ],
+      "reasoning": "The exact critical price \\(Q_c(n,k)\\), the quadratic-scale coefficient \\(4\\theta/[9(2\\theta-1)^2]\\), and the fixed-offset quartic-scale coefficient \\(1/(18s^2)\\) were compared against the inspected source claims. No inspected source gives these exact parameters. Search failure itself is not considered a proof of novelty.",
+      "searches": [
+        "uniform reversible birth death chain path one exceptional edge cost critical threshold robust two-way endpoint hitting time asymptotic quadratic quartic n",
+        "\"minimizing effective resistance of a graph\" full text",
+        "\"resource allocation\" \"birth-death\" \"first passage\" optimization"
+      ]
+    },
+    "rationale": "Inspected primary literature covers underlying mean hitting-time identities, broader convex PERT resource allocation, and optimization of symmetric total or maximal effective resistance, not the maximum of two directional first-hitting times at a prescribed stationary law, nor the exact one-edge active-direction threshold and its quadratic/quartic scaling. Specific implications were compared, rather than titles alone. The distinct sharp one-surcharge price frontier and its spatial quadratic/quartic crossover were not found in inspected statements, but Berman (1964) provides a stronger general method precedent whose complete scope was inaccessible; priority remains qualified.",
+    "residual_risks": [
+      "An unlocated specialist treatment of robust first-passage resource allocation could contain an equivalent result.",
+      "The full text of Fiedler (1993) was not obtained; available topic descriptions are insufficient for whole-document exclusion.",
+      "Standard minimax and weighted Cauchy–Schwarz tools make the dual approach accessible; a predecessor might state a more general theorem whose specialization covers this one, even without using the same terminology.",
+      "The 1964 Berman PERT network convex time-cost paper may cover the generic minimax resource-allocation method; authorized full-text retrieval was blocked by VPN disconnection. Its specialization might cover more than the public abstract indicates; the exact spatial price crossover is the intended distinct assertion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers evaluation and voltage identities; not fixed-stationary conductance-budget robust minimax design",
+        "evidence": [
+          "Journal states first published 20 May 2014",
+          "Corollary 6 evaluates hitting times on linear graphs; §4 proves Tetali formula"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2014/852481",
+        "material_read": "Open full-text journal HTML: introduction, §2 theorem and Corollary 6 on linear networks, §4 and references",
+        "method": "Direct inspection of publisher-hosted full HTML, including stated theorems and scope",
+        "title": "Hitting Times of Walks on Graphs through Voltages",
+        "trigger": "Exact birth–death and linear-network hitting-time identities; plausible general coverage"
+      },
+      {
+        "assessment": "Optimizes symmetric total resistance; general max symmetric resistance listed, but does not state optimal max directional mean first passage under fixed stationary masses",
+        "evidence": [
+          "§5.1 tree cost coefficients are numbers of paths through edges",
+          "§8 max effective resistance is named as a generic convex extension without this directed-price theorem"
+        ],
+        "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/ghosh_boyd.pdf",
+        "material_read": "Full PDF text relevant §§1,2.3,3.1,4,5.1,8; first-page image inspected; §§5.1 and 8 formulas and scope compared",
+        "method": "Accessible PDF extraction, visual first-page cross-check and direct section inspection",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Closest broad conductance optimization over graph weights, includes paths and max-resistance extension"
+      },
+      {
+        "assessment": "The source gives basic reversible-chain context; no conductance-price allocation or one-surcharge transition",
+        "evidence": [
+          "Chapter 4 defines worst mean commute time (sum of both directional hitting times), not max one direction",
+          "Chapter 3.7 gives Dirichlet and Thompson variational principles"
+        ],
+        "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch3.S7.html",
+        "material_read": "Open chapters 3.7 (extremal characterization) and 4 (worst-case commute time introduction and parameter comparison)",
+        "method": "Direct inspection of public HTML chapter text and theorem statements",
+        "title": "Reversible Markov Chains and Random Walks on Graphs",
+        "trigger": "Earlier theory of maximal hitting and commute times, duality and fixed stationary laws"
+      },
+      {
+        "assessment": "Priority risk retained; available secondary descriptions indicate spectral graph objectives, not established coverage of directed hitting-time design",
+        "evidence": [
+          "Discrete Mathematics 121 (1993), 65–74; title alone insufficient to conclude noncoverage"
+        ],
+        "identifier_or_url": "https://dblp.org/rec/journals/dm/Fiedler93",
+        "material_read": "Bibliographic record and later citations only; full text not located",
+        "method": "Bibliographic searches and indirect topic classification, not a full-text examination",
+        "title": "Some minimax problems for graphs",
+        "trigger": "Potentially broad older minimax graph optimization"
+      },
+      {
+        "assessment": "General conceptual PERT convex time-cost optimization is an important predecessor. Abstract does not state specific stationary-law frontier and scale constants. Full text uninspected, so not classified NOT_COVERING.",
+        "evidence": [
+          "Publisher abstract describes minimum cost by deadline with continuous convex activity time-cost and parametric solution",
+          "DOI 10.1287/mnsc.10.4.734, published online 1 July 1964; institutional full-text route returned VPN disconnected"
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/mnsc.10.4.734",
+        "material_read": "Publisher abstract, bibliographic metadata and publicly displayed citations; no full text obtained",
+        "method": "OA and arXiv discovery searches; authorized institutional download attempted, blocked by disconnected institutional VPN; no access bypass",
+        "title": "Resource Allocation in a PERT Network Under Continuous Activity Time-Cost Functions",
+        "trigger": "Broader convex resource-allocation formulation may dominate the generic minimax design"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61f65dd3-64a5-410e-8020-c5f5378e23bb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact all-price, all-fixed-stationary-law classification solves the natural robust resource allocation problem minimizing the slowest ordered-state traversal on a reversible path. It is more than an elementary symmetric resistance allocation because price asymmetry changes which directional hitting constraint is active. The explicit exact surcharge boundary and its different quadratic versus quartic scaling when an expensive link moves toward the midpoint identify a meaningful large-system design crossover. The one-price family is motivated by the general model, not an arbitrary numerical slice. The result has no claim for general graphs or tail control.",
+    "status": "PASS"
+  }
+}
