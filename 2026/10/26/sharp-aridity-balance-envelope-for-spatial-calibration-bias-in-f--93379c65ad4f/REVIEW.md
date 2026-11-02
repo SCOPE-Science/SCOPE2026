@@ -1,25 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim uses positive precipitation and potential-evaporation volumes, one common finite Fu exponent, and exact algebraic pooling. Strict \(\ell^w\) Minkowski inequality proves the global direction and equality condition. Differentiation with respect to the exponent gives the binary-entropy sensitivity identity. A full Hessian expansion gives the normalized precipitation–demand mismatch coefficient; the binary-entropy power series proves the sharp aridity-one maximum. Strict partial-gradient ordering proves monotonicity for both two-region allocation branches. The independently written standard-library verification program reproduces the radical benchmark and finite parameter checks. The proof is not extrapolated from those numerical checks.
+PASS
 
-## Originality — PASS, with stated historical-priority risk
+For positive P_i,D_i, w>1 and additive water-equivalent volumes, Minkowski gives F_w(sum P_i,sum D_i)<=sum F_w(P_i,D_i)<P+D. Equality on the left iff all positive local pairs are proportional; derivative d log F_theta/dtheta=-H(p_theta)/theta^2 gives unique fitted theta in (1,w]. For P_i=P(a_i+eps u_i), D_i=D(a_i+eps v_i), sum u=sum v=0 and positive a_i, the degree-one-homogeneous Hessian of F_w, including its a_i^{-1} scaling, yields (w^2(w-1)/2)*[p(1-p)/H(p)]*sum (u_i-v_i)^2/a_i *eps^2+O(eps^3) for w-w_hat. The entropy identity H((1+z)/2)>=(1-z^2) log2 is exact and is strict for 0<|z|<1, giving sharp envelope w^2(w-1)*A/(8 log2) uniquely at P=D for nonzero A. P-gradient ordering proves global two-region monotonicity for every 0<a,b<1. At A=0 proportionality holds for all sufficiently small eps. Independent scalar root solving and the exact radical test were replayed. Finite samples support but do not establish quantifiers.
 
-Fu (1981) and Zhang et al. (2004) establish the underlying water-balance response. Classical Minkowski inequality fully covers the nonnegative aggregation sign, which is credited rather than claimed new. Greve et al. (2015) investigate distributions of differing catchment exponents; Abatzoglou and Ficklin (2017) explain their spatial variation; Koppa and Gebremichael (2017) develop measurement-error metrics; Greve et al. (2020) use distributions of grid-calibrated exponents. The mathematical distinction is **aggregation with an exactly identical local exponent**, with an explicit second-order fitted-exponent penalty proportional to a normalized spatial contrast, and its **sharp universal** extremum at pooled aridity one. The inspected accessible full texts did not state that combined classification. Broader results on norms and parameter sensitivity may imply portions and priority is not independently established.
+## originality
 
-## Value — PASS
+PASS
 
-Estimating a single Budyko parameter from pooled subcatchment values is a natural operation in basin-scale hydrology. The result proves that the operation creates a downward parameter shift even without physical parameter variation; it quantifies its leading size and identifies the pooled climatic regime of greatest infinitesimal sensitivity. The contrast \(\sum_i(u_i-v_i)^2/a_i\) is dimensionless and can be calculated directly from small share differences. The sharp coefficient can help interpret resolution-dependent calibration and distinguish mixing effects from inferred catchment-property changes. The result is restricted to Fu's idealized long-term balance and is not a field-calibrated correction.
+Common-exponent aggregation sign follows classical Minkowski and is not novel. A closely relevant 2017 HESS paper already derives spatial heterogeneity closure and average-ET aggregation bias for Budyko curves, and must be credited. The conditional claim of originality is only the Fu parameter-fit quadratic bias with weighted mismatch, binary-entropy ratio, globally sharp P=D envelope and two-region strict optimizer. This precise parameter inversion/envelope was not verified as previously stated in accessible material, but the 2017 full text was not obtained: priority is qualified, not certified.
 
-## Sources and limitations
+## value
 
-- Zhang et al. (2004), *A rational function approach for estimating mean annual evapotranspiration*, DOI 10.1029/2003WR002710; day-resolved first publication 2004-02-05. An accessible indexed article showed introduction, theoretical sections, empirical comparisons and appendix material; publisher full-text retrieval was not consistently available.
-- Greve et al. (2015), *Introducing a probabilistic Budyko framework*, DOI 10.1002/2015GL063449; accessible full HTML inspected, notably theory and stochastic exponent construction.
-- Abatzoglou and Ficklin (2017), DOI 10.1002/2017WR020843; accessible full HTML inspected for spatial variability and climatic inputs.
-- Koppa and Gebremichael (2017), DOI 10.1002/2017WR020593; accessible full HTML inspected for error metrics and parameter sensitivity.
-- Greve, Burek and Wada (2020), DOI 10.1029/2019WR026280; accessible full HTML inspected for grid-level calibration and pooled regions.
+PASS
 
-The earlier Fu (1981) publication day and complete original text were not verified. No inference about field identifiability, interacting hydrological processes, or historical priority beyond the stated searches is made.
+A physically motivated inverse-calibration aggregation problem: pooled observations can suggest parameter heterogeneity where none exists. The normalized contrast energy and sharp climatic location of worst infinitesimal fitted-parameter bias provide a quantitative scale-effect diagnostic; it is mathematically distinct from general Jensen sign and bounded to exact common-w hydrological algebra. Precise coefficient can guide catchment aggregation sensitivity studies without claiming realism beyond hypotheses.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
