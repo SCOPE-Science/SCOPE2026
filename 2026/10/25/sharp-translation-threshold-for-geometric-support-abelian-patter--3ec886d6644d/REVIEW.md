@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Each support diagonal is a matching. Two distinct diagonal matchings have no alternating cycle, and beyond the second diagonal strict growth forces every new edge to introduce a previously unused endpoint. At and above the cutoff, the explicit pairwise distinct left/right coordinates produce a cycle, including the equality case. These arguments verify all quantifiers, integer boundaries, and the infinite graph conclusion. Exact finite checker outputs are corroborating rather than conclusive.
+## correctness
 
-## Originality
-PASS under the checked evidence, with a specific residual bibliographic risk. The 2026 forest characterization and its strict-doubling sufficient criterion are prior work, as is the published support-envelope result. None of these examined statements entails the translated-geometric *if-and-only-if* cutoff: the sufficient criterion fails already for the qualifying pair \((b,c)=(3,2)\), while the support-envelope bound has no mechanism to construct the failure cycles. Exact mathematical-record searches for translated geometric supports and incidence cycles found no direct match. The full primary 2026 article could not be retrieved; this is an explicit limitation, not a claim of exhaustive priority certification.
+PASS
 
-## Value
-PASS. The complete two-parameter classification settles a natural extremal symbolic-dynamical support family. Its quadratic sharp cutoff exhibits a stability-versus-obstruction boundary under translation, and its obstruction has an exact minimal three-level construction. This goes beyond a single example or a restatement of the general forest criterion.
+Let a_j=b^j+c with integers b>=2,c>=−1. Each support diagonal is a matching. Union of first two matchings contains no alternating cycle because a two-step left-vertex move shifts by a fixed signed gap b−1. If c<b(b−2), for j>=1, a_(j+1)−2a_j=(b−2)b^j−c>0; every new matching edge has at most one previously incident endpoint, so attaching it cannot create a cycle. A finite cycle would be contained in a finite prefix. If c>=b(b−2), with q=b−1, a=c+1, the b+1 left vertices iq, b right vertices a−iq (i<b), and the final right vertex a+q are distinct and nonnegative, and four specified edge families assemble a 2(b+1)-cycle on first three support levels. At equality nonnegativity holds exactly, so cutoff is sharp. Published Theorem E of Zeng–Xue–Zeng transfers forestness to Abelian pattern Sturmian characteristic words. Independently checked 435 (b,c) pairs using exact union-find on first four support diagonals, bases 2..11 and offsets around thresholds; these checks are not the universal proof.
 
-## Closest literature and limits
-Zeng–Xue–Zeng (2026) supplies the forest correspondence and a sufficient growth condition; the 2026 published note on the logarithmic support envelope covers a different necessary bound and the example of translated binary powers. An earlier equivalent translated-support classification remains possible. The theorem does not apply to arbitrary sparse supports or nonintegral parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full 2026 Zeng–Xue–Zeng original paper Theorem E characterizes the class by incidence-forest graphs. Its Proposition 7.12 in accessible version v3 supplies strict doubling as a sufficient criterion, with {3^j} example and {2^j} cycle, but does not establish the full iff translation cutoff or the new explicit cycles for all (b,c). The published Resultary note proves an overall logarithmic occurrence bound and the {2^j−1} extremizer; those inequalities do not classify all integer translations. Best-of-knowledge PASS with older incidence-graph terminology risk.
+
+## value
+
+PASS
+
+A natural two-parameter deformation of geometric sparse supports undergoes an exact sharp quadratic-in-base transition from acyclic to cyclic sum-incidence. Complete classification and explicit small finite obstructions sharpen prior sufficient growth and density results, not mere renaming of the forest criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

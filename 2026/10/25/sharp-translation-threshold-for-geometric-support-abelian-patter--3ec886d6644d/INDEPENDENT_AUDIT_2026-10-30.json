@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T00:06:12.361778Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let a_j=b^j+c with integers b>=2,c>=−1. Each support diagonal is a matching. Union of first two matchings contains no alternating cycle because a two-step left-vertex move shifts by a fixed signed gap b−1. If c<b(b−2), for j>=1, a_(j+1)−2a_j=(b−2)b^j−c>0; every new matching edge has at most one previously incident endpoint, so attaching it cannot create a cycle. A finite cycle would be contained in a finite prefix. If c>=b(b−2), with q=b−1, a=c+1, the b+1 left vertices iq, b right vertices a−iq (i<b), and the final right vertex a+q are distinct and nonnegative, and four specified edge families assemble a 2(b+1)-cycle on first three support levels. At equality nonnegativity holds exactly, so cutoff is sharp. Published Theorem E of Zeng–Xue–Zeng transfers forestness to Abelian pattern Sturmian characteristic words. Independently checked 435 (b,c) pairs using exact union-find on first four support diagonals, bases 2..11 and offsets around thresholds; these checks are not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Strict-doubling sufficient condition implies a simple subrange, but (b,c)=(3,2) is a forest although strict doubling fails at the first support level. The envelope gives d_j>=2^j−1, a necessary global restriction; it cannot force a cycle at each forbidden c."
+        ],
+        "reasoning": "Neither stronger-looking sufficient growth nor necessary logarithmic density bounds imply the exact if-and-only-if threshold.",
+        "searches": [
+          "arXiv:2609.28059v3 Proposition 7.12 and Example 7.13",
+          "Resultary 2026/10/4/SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen GitHub RESULT.md, verify.py, SLOGAN.txt, REVIEW.md, VERIFICATION.md",
+        "arXiv:2609.28059v3 relevant sections with PDF screenshots",
+        "Resultary published full RESULT.md at blob fe6be83208a09269e06b8cf5730ec6b151073211",
+        "Kamae–Widmer–Zamboni abstract",
+        "Resultary semantic search of published mathematical records, 2026-10-29"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Forest/word correspondence is prior. Sufficient criterion uses a_(j+1)>2a_j for every level and does not handle c=(3,2); the new initial-two-matchings lemma removes first-level need, and the explicit threshold cycle gives necessity."
+        ],
+        "reasoning": "The iff translation theorem requires two additional structural arguments not supplied by the checked prior implications.",
+        "searches": [
+          "Zeng–Xue–Zeng Theorem E",
+          "Zeng–Xue–Zeng Proposition 7.12",
+          "published Resultary logarithmic support envelope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem E gives general equivalence between binary Abelian pattern Sturmian words and forest supports; it does not state which c work for b^j+c."
+        ],
+        "reasoning": "The present theorem solves nontrivial forestness for a special infinite family, not simply stating equivalent names for the condition.",
+        "searches": [
+          "Resultary query: Abelian pattern Sturmian words support {b^j+c} sharp translation forest bipartite sum graph",
+          "arXiv:2609.28059v3 Theorem E"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary example {2^j} is a 6-cycle and {3^j} is a forest; this matches the theorem endpoints but is not the two-parameter classification."
+        ],
+        "reasoning": "No found exact b,c table. The matching examples are credited, not presented as newly discovered.",
+        "searches": [
+          "Resultary search for geometric-support translation and incidence cycles",
+          "arXiv:2609.28059v3 examples"
+        ]
+      },
+      "rationale": "Full 2026 Zeng–Xue–Zeng original paper Theorem E characterizes the class by incidence-forest graphs. Its Proposition 7.12 in accessible version v3 supplies strict doubling as a sufficient criterion, with {3^j} example and {2^j} cycle, but does not establish the full iff translation cutoff or the new explicit cycles for all (b,c). The published Resultary note proves an overall logarithmic occurrence bound and the {2^j−1} extremizer; those inequalities do not classify all integer translations. Best-of-knowledge PASS with older incidence-graph terminology risk.",
+      "residual_risks": [
+        "Earlier paper might state equivalent translated-geometric thresholds in additive graph/forest vocabulary not indexed by this title.",
+        "Original version-v1 Proposition 7.14 has been renumbered Proposition 7.12 in inspected version v3; citations must specify version."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATION FOR FOREST EQUIVALENCE; NO TRANSLATED GEOMETRIC IFF IN RELEVANT SECTIONS",
+          "evidence": "Gives sufficient d_(n+1)>2d_n and examples {3^j} forest and {2^j} cyclic; does not state exact b(b−2) cutoff.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.28059",
+          "material_read": "Accessible complete version 3 PDF, 42 pages: theorem E, Section 7 proof statements, Proposition 7.12, Example 7.13 (numbering differs from earlier v1 reference); visually inspected pages 35 and 39.",
+          "method": "Read theorem/relevant full passages and inspected PDF page screenshots.",
+          "title": "Abelian maximal pattern complexity and extremal words",
+          "trigger": "Exact source of forest criterion and near-matching sufficient growth condition"
+        },
+        {
+          "assessment": "COVERS DENSITY ENVELOPE ONLY, NOT TRANSLATION THRESHOLD",
+          "evidence": "Establishes sum_(d<=N)(d+1)<=2N+1 and sharp support {2^j−1}, not b,c exact iff.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20",
+          "material_read": "Complete RESULT.md fetched by GitHub at blob fe6be83208a09269e06b8cf5730ec6b151073211: finding, proof, verification, references.",
+          "method": "Read full RESULT.md including sharp envelope proof.",
+          "title": "Sharp logarithmic support envelope for Abelian pattern Sturmian words",
+          "trigger": "Closest published mathematical finding with same support family edge case"
+        },
+        {
+          "assessment": "FOUNDATIONAL, NO RELEVANT SPECIFIC SUPPORT FORMULA IN ABSTRACT",
+          "evidence": "Introduces Abelian maximal pattern complexity in different generality.",
+          "identifier_or_url": "https://doi.org/10.1017/etds.2013.51",
+          "material_read": "Published abstract and bibliographic description only.",
+          "method": "Read abstract; did not claim whole article inspection.",
+          "title": "Abelian maximal pattern complexity of words",
+          "trigger": "Foundational earlier symbolic-complexity definition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural two-parameter deformation of geometric sparse supports undergoes an exact sharp quadratic-in-base transition from acyclic to cyclic sum-incidence. Complete classification and explicit small finite obstructions sharpen prior sufficient growth and density results, not mere renaming of the forest criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uses external proven forest-to-word correspondence. Integers b>=2,c>=-1 only; translations deleting initially negative terms excluded.",
+    "Earlier paper might state equivalent translated-geometric thresholds in additive graph/forest vocabulary not indexed by this title.",
+    "Original version-v1 Proposition 7.14 has been renumbered Proposition 7.12 in inspected version v3; citations must specify version."
+  ],
+  "schema_version": 1
+}
