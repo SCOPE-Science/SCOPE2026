@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** In the exact clean source Hamiltonian, Fourier decomposition yields a three-mode block with cubic identity \(B^3=4J^2B\). A chiral involution forces the propagator singular values into \(g,1,g^{-1}\). The full-time Frobenius identity \(F=3+8us+4u(u-v)s^2\) has a strictly optimal time \(s=1\) and optimal momentum given by the minimum discrete \(v\). This proves the displayed closed global norm and all boundary cases. The standard-library checker passed 35,620 finite tests; it does not replace the analytical proof.
+
+**Originality — PASS, qualified.** Liu et al. (arXiv:2311.03166, Eqs. (1),(12),(25),(40),(48), Appendices A/B) already prove the clean pi-flux band spectrum and compact localization, which are expressly credited. Zhang, Xu and Jin (arXiv:2308.11968, Secs. III–IV) treat selected-site dynamics of a different two-band non-Hermitian cage. Leykam, Flach and Chong (arXiv:1704.00896, Sec. III) establish non-Hermitian flat-band/exceptional-point amplification in another geometry; Martínez-Strasser et al. (arXiv:2307.08754) and Li, Liu and Liu (arXiv:2403.07459) address related diamond/AB-cage properties. No covering exact all-input, all-time norm or modulo-four sharp classification was found in the inspected literature and targeted mathematical research index. Residual risk: a more general nonnormal similarity-norm theorem, unindexed specialized source, or uninspected source detail may implicitly cover the result.
+
+**Mathematical value — PASS.** The precise operator-norm problem answers an experimentally motivated worst-case coherent-amplification question that cannot be resolved from flat eigenenergies alone. The all-size closed formula and strict arithmetic resonance are structural rather than a list of sample calculations, with a sharp strong-nonreciprocity law and physical finite-size implications.
+
+**Scientific limitations.** The result concerns only clean, uniform, zero-potential, flux-\(\pi\) periodic chains and the standard Euclidean norm. A non-Hermitian amplitude propagator is not a trace-preserving quantum channel. The current proof is self-contained, but independent audit and publication-priority verification are outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
