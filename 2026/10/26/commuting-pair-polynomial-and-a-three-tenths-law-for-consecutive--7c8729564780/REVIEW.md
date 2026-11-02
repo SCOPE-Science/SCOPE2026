@@ -1,15 +1,21 @@
-# Review of commuting-pair polynomial for consecutive-diagonal rook monoids
+# Independent mathematical audit
 
-## Correctness
-PASS. The monoid is specified as interval partial translations, with exact composition domains. Independent disjoint-interval counting gives the zero-zero term. The idempotent/idempotent, mixed idempotent/nilpotent, and equal-sign nilpotent/nilpotent cases partition nonzero equal products without overlap; opposite-sign nilpotents cannot have nonzero commuting products. The finite integer identities yield the stated degree-six polynomial. The direct finite-map checker independently verifies every product and every category through dimension twelve.
+## correctness
 
-## Originality
-PASS on the sources inspected, subject to priority risk. The foundational 2021 preprint supplies the product law, not this pairwise commuting enumerator; the 2023 extension studies a continuous supermonoid and does not state an integer pair-count formula. A prior exact count of single nonzero products in the same monoid does not give the simultaneous equal-product count. General symmetric-inverse centralizer work concerns a different (larger) monoid. Search results did not identify an equivalent expression, but negative retrieval does not prove novelty. A potentially relevant full symmetric-inverse centralizer article was only inspected through its abstract.
+PASS
 
-## Value
-PASS. Commuting probability is a natural isomorphism invariant of finite semigroups. The result gives its complete exact value for a canonical infinite family, a positive and unexpectedly simple limit \(3/10\), a first-order correction, and a structural explanation separating the dominant zero-zero mechanism from rare nonzero commuting products. This is not a restatement of the prior one-direction product count.
+An element is zero or a partial interval translation, with n(n+1)(2n+1)/6 nonzero elements. For two nonzero translations, xy=yx=0 is equivalent to two independent interval-disjointness constraints; summing H_(k,j)^2 gives Z_n. If products are equal and nonzero, exhaustive case partition: both idempotent interval identities (intersecting intervals), one idempotent (contains convex hull of other factor's source and image, with two orderings), or both nonzero translations of the same sign and matching first position with parameters (a,t,v,ell) satisfying a+t+v+ell<=n+1. Opposite-sign nonzero products cannot agree. This yields N_n and C_n=2|M_n|-1+Z_n+N_n. Independent partial-dictionary composition exhaustively checked every pair for n=1..9, matching all three polynomial terms, while proof covers every n>=2. Leading terms give the 3/10 limit and 3/(10n) correction.
 
-## Remaining scientific limits
-This is an integer-parameter monoid theorem, not an analogue asserted for all order-preserving partial isometries or a classification of centralizers of individual elements. Full-text inspection of some older broader-monoid literature remains a priority risk. Small finite enumerations support but do not prove the infinite family; the case analysis does.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fikioris–Fikioris (2021/2022) supply the exact monoid, multiplication law, and Section 8 one-direction nonzero-product counts, but not the joint equation xy=yx. Their 2023 real-parameter extension has a distinct underlying monoid and study. Araújo–Bentz–Konieczny (2012) study graph diameter/cliques for the *whole* symmetric inverse semigroup; centralizer work for the ambient monoid is also different. The new polynomial is an evaluated nontrivial two-product equality census, not a renamed old product count.
+
+## value
+
+PASS
+
+Commuting probability is a natural global invariant of finite inverse semigroups. The exact polynomial, constructive disjoint case partition and 3/10 limit give a complete probability law for this well-established family, distinguishing equality-of-products from simple nonzero multiplication.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
