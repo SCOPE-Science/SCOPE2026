@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T17:14:41.895344Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 71f65e401cde08500eddca6fdb29a9d4c52ab76e",
+        "Assigned odd_cycle_verification.py blob ae52f2004bcd0c6c18ac3c1c1bfa1c588aaecebd",
+        "Private independent_checks_private.py odd cap all vertex and Dirichlet mean checks",
+        "Trace kernel and Dirichlet functional invariance principle"
+      ],
+      "rationale": "For odd n, A=I+cyclic_shift has determinant 2. Under y=1-Ax the odd-cycle inequality sum x<=(n-1)/2 becomes sum y>=1; the violating region is exactly the full y-standard simplex because all its vertices invert to feasible x>=0, edge-compatible points. Jacobian gives cap volume 1/(2n!). Trace of the Hilbert--Schmidt kernel 1_{u+v<=1} raised to odd n gives ambient volume from eigenvalues 2(-1)^j/((2j+1)pi) and secant-number beta identity. The cap has Dirichlet coordinates; alternating centered exponential partial sums obey a functional CLT, and inverse A produces the antiperiodic Brownian bridge-like process B(t)-B(1)/2. Its covariance 1/4-|s-t|/2 is inverse to antiperiodic Laplacian with double odd-frequency eigenvalues. The spectral determinant yields sech(sqrt(s/2)), and finite Dirichlet second moments yield n/[4(n+2)]. Independent exact/numerical linear algebra checked det(A)=2, all n+1 simplex vertices feasible and finite mean n=5,7,9,11. This finite test does not replace functional convergence.",
+      "residual_risks": [
+        "Convergence is in distribution, not almost sure; q law only for uniform points conditional on violating integrality, not the full polytope sample."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bärmann--Schneider supply the complete odd-cycle stable-set convex-hull inequality.",
+          "Kafer et al. treat circuit diameter; Hamano et al. treat Ehrhart series, not conditional Euclidean radius distributions."
+        ],
+        "reasoning": "Even full facet and Ehrhart theories do not supply the fixed Euclidean-volume conditional Brownian geometry; such a result would require additional probabilistic analysis.",
+        "searches": [
+          "Bärmann--Schneider arXiv:2101.09267 Section 3.3 Theorem 5",
+          "Kafer--Pashkovich--Sanità arXiv:1709.09642 Section 5",
+          "Hamano--Hibi--Ohsugi arXiv:1603.09613"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2101.09267 odd-cycle facets",
+        "arXiv:1709.09642 circuits",
+        "arXiv:1603.09613 Ehrhart",
+        "Resultary same-object minimum sphere and ellipsoid"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Facet inequalities imply the cap is a simplex after the determinant-2 coordinate transformation, but do not state its complete normalized probability and limiting quadratic functional.",
+          "Known Brownian antiperiodic quadratic transform is a mathematical tool, not a claim about fractional stable-set random cap points."
+        ],
+        "reasoning": "Originality survives after stripping known facet/transfer-operator inputs because the specific conditional geometry and process link require new composition; value not assigned to classical spectral product alone.",
+        "searches": [
+          "Bärmann--Schneider 2021 odd-cycle inequality",
+          "Hamano--Hibi--Ohsugi 2016 Ehrhart series",
+          "Classical Euler secant numbers and Donsker invariance principle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relaxation can be described as FRAC(C_n), a circular transfer-operator volume, or a transformed Dirichlet simplex conditioned on the odd-cycle inequality.",
+          "The process B(t)-B(1)/2 has antiperiodic covariance, unlike the pinned standard Brownian bridge."
+        ],
+        "reasoning": "Analytically identified aliases and recognized classical input, but none of the retrieved prior polytope statements specifies the conditional Euclidean quadratic limit.",
+        "searches": [
+          "Resultary: fractional stable set polytope odd cycles fractional cap volume Brownian bridge Euler secant numbers",
+          "Kafer--Pashkovich--Sanità arXiv:1709.09642 fractional stable-set polytope odd cycles",
+          "Hamano--Hibi--Ohsugi arXiv:1603.09613"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously published SCOPE results on the same FRAC(C_n) determine minimal sphere contacts or John ellipsoids but no conditional cap volume-uniform law.",
+          "Volume of cap is exact but no retrieved table gave the limiting squared-radius distribution."
+        ],
+        "reasoning": "Same convex body does not make different geometric invariants equivalent; an exact conditional law could still be historically indexed elsewhere.",
+        "searches": [
+          "Resultary odd-cycle fractional stable-set simplex conditional cap Brownian probability",
+          "Resultary 2026/10/11 parity-split minimum sphere of cycle fractional stable-set polytopes",
+          "Resultary John ellipsoid odd-cycle fractional polytopes"
+        ]
+      },
+      "rationale": "The unique odd-cycle stable-set facet and circuit polytope are prior mathematics. Their exact fractional volume and the missing cap can be reduced to well-known trace/kernel combinatorics, so only the combined exact conditional cap probability and antiperiodic Gaussian-quadratic limiting law are claimed as additional findings. No inspected primary result establishes that combined geometric-probability theorem. Similar Brownian bridge quadratic functionals are standard processes, and bibliographic alias risk is retained.",
+      "residual_risks": [
+        "Conditional Dirichlet-simplex Brownian functional might be known in cyclic-order-polytope, alternating-permutation or Brownian quadratic function literature without the FRAC(C_n) title.",
+        "No global family-wide probability result beyond odd cycles is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows the classical additional facet, not a conditional cap radius limit",
+          "evidence": [
+            "Section 3.3 and Theorem 5"
+          ],
+          "identifier_or_url": "arXiv:2101.09267 (Bärmann--Schneider)",
+          "material_read": "Primary accessible mathematical text, Section 3.3 Theorem 5 defining odd-cycle characterization",
+          "method": "arXiv primary open mathematical text",
+          "title": "Set characterizations and convex extensions for geometric convex-hull proofs",
+          "trigger": "Exactly same odd-cycle stable-set convex-hull inequality"
+        },
+        {
+          "assessment": "Circuit metrics do not provide the asserted Euclidean conditional distribution",
+          "evidence": [
+            "Section 5 graph polytope context"
+          ],
+          "identifier_or_url": "arXiv:1709.09642 (Kafer--Pashkovich--Sanità)",
+          "material_read": "Accessible mathematical preprint discussion of circuit behavior in odd cycle stable-set relaxations",
+          "method": "arXiv PDF primary text inspection",
+          "title": "On the Circuit Diameter of some Combinatorial Polytopes",
+          "trigger": "Same graph relaxation and facet structure"
+        },
+        {
+          "assessment": "Ehrhart polynomial/series is different from Euclidean conditional Brownian radius distribution",
+          "evidence": [
+            "Main enumerative scope and definitions"
+          ],
+          "identifier_or_url": "arXiv:1603.09613 (Hamano--Hibi--Ohsugi)",
+          "material_read": "Primary mathematical introduction/Ehrhart statements in accessible PDF",
+          "method": "arXiv PDF inspection",
+          "title": "Ehrhart series of fractional stable set polytopes of finite graphs",
+          "trigger": "Potential stronger all-cycle lattice enumeration"
+        },
+        {
+          "assessment": "Minimal enclosing ball contacts differ from conditional random cap geometry",
+          "evidence": [
+            "Odd half-integral vertex is interior of minimum sphere"
+          ],
+          "identifier_or_url": "Resultary 2026/10/11 SCOPE-cycle-fractional-stable-set-polytopes-have-a-parity-split-minimu--0b914e4f06d2",
+          "material_read": "Published finding title and summary",
+          "method": "Resultary search result inspection",
+          "title": "Cycle fractional stable-set polytopes have a parity-split minimum sphere",
+          "trigger": "Same polytope named object, different natural Euclidean invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Classical odd-cycle integrality gap geometry",
+        "Exact n-simplex cap, Euler secant volumes, Gaussian limit"
+      ],
+      "rationale": "The integrality-violating region is exponentially/superfactorially rare in normalized volume, yet a conditional uniform point remains at a nondegenerate radius around the fractional vertex. The exact 1/(n|E_{n-1}|) rarity and antiperiodic Brownian quadratic limit provide independently useful, natural geometry and probability invariants of classical odd-cycle integer programming relaxations.",
+      "residual_risks": [
+        "No finite-dimensional density or other graph family is classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only odd cycles n>=5, normalized conditional uniform Euclidean volume, and squared radius from all-half vector.",
+    "The Laplace formula describes squared radius; no rate or almost-sure path coupling asserted."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The inverse cyclic edge-slack transform has absolute determinant two and sends the complete standard simplex to the missing integrality cap. The total fractional volume is obtained from a trace-class transfer kernel, and the conditional Dirichlet representation gives a functional central limit theorem. The covariance of the limiting Gaussian path has the antiperiodic Laplacian spectrum; the resulting nonnegative Gaussian quadratic functional has Laplace transform \(\operatorname{sech}(\sqrt{s/2})\). A finite-dimensional Dirichlet-moment calculation establishes the exact conditional squared-radius mean. Reproducibility code verifies finite affine identities and samples asymptotic diagnostics, not infinite limits.
+## correctness
 
-**Originality — PASS with residual bibliographic risk.** Kafer, Pashkovich and Sanità study circuit diameter of the same fractional stable-set relaxation; Bärmann and Schneider prove the odd-cycle integral hull inequality. Directly relevant published studies establish the same polytope's minimum sphere and maximum inscribed ellipsoid. None of those inspected mathematical statements determines the Euclidean-volume law conditioned on violating integrality. The indexed literature and equivalent alternating Dirichlet/Brownian descriptions did not disclose a dominating theorem. A hidden equivalent description of the Brownian functional remains possible; failed search alone is not novelty proof.
+PASS
 
-**Value — PASS.** This is a natural comparison of fractional and integral graph polytopes, revealing that a superfactorially small relative-volume gap can retain a nontrivial dimension-independent Euclidean radial profile. The limit is explicitly characterized by a spectral law and an elementary special-function Laplace transform. The question has mathematical motivation independent of the computed scalar probability.
+For odd n, A=I+cyclic_shift has determinant 2. Under y=1-Ax the odd-cycle inequality sum x<=(n-1)/2 becomes sum y>=1; the violating region is exactly the full y-standard simplex because all its vertices invert to feasible x>=0, edge-compatible points. Jacobian gives cap volume 1/(2n!). Trace of the Hilbert--Schmidt kernel 1_{u+v<=1} raised to odd n gives ambient volume from eigenvalues 2(-1)^j/((2j+1)pi) and secant-number beta identity. The cap has Dirichlet coordinates; alternating centered exponential partial sums obey a functional CLT, and inverse A produces the antiperiodic Brownian bridge-like process B(t)-B(1)/2. Its covariance 1/4-|s-t|/2 is inverse to antiperiodic Laplacian with double odd-frequency eigenvalues. The spectral determinant yields sech(sqrt(s/2)), and finite Dirichlet second moments yield n/[4(n+2)]. Independent exact/numerical linear algebra checked det(A)=2, all n+1 simplex vertices feasible and finite mean n=5,7,9,11. This finite test does not replace functional convergence.
 
-**Limitations.** Only odd cycles and the conditional cap measure are treated. No general graph relaxation theorem follows. Simulations do not establish infinite statements; independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unique odd-cycle stable-set facet and circuit polytope are prior mathematics. Their exact fractional volume and the missing cap can be reduced to well-known trace/kernel combinatorics, so only the combined exact conditional cap probability and antiperiodic Gaussian-quadratic limiting law are claimed as additional findings. No inspected primary result establishes that combined geometric-probability theorem. Similar Brownian bridge quadratic functionals are standard processes, and bibliographic alias risk is retained.
+
+## value
+
+PASS
+
+The integrality-violating region is exponentially/superfactorially rare in normalized volume, yet a conditional uniform point remains at a nondegenerate radius around the fractional vertex. The exact 1/(n|E_{n-1}|) rarity and antiperiodic Brownian quadratic limit provide independently useful, natural geometry and probability invariants of classical odd-cycle integer programming relaxations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
