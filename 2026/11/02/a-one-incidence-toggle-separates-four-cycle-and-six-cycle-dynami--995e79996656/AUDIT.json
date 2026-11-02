@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Design identities imply BB^T=I. Conjugation gives U=I+ua^T and V=I+au^T; orthogonal decomposition when u^Ta=0 and rank-two correction when u^Ta=1 prove all iterate identities, dimensions, and finite-field population counts. Distinct GF2 matrix and bit-vector implementations corroborate 137 single-edge toggles and exhaustive four-point dynamics; proof is not inferred from experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaski–Östergård, DOI 10.1002/jcd.20145, classifies biplanes with k=11; abstract does not discuss dynamical maps.",
+        "Ogihara–Uchizawa treats general XOR-network computational complexity, not this explicit enumeration."
+      ],
+      "reasoning": "A general matrix-method framework permits computation for an individual graph but supplies neither a stated universal theorem for all symmetric designs with these parity constraints nor the associated formulas without the rank-one analysis.",
+      "searches": [
+        "\"symmetric 2-(v,k,lambda) design k odd lambda even edge toggle finite field network adjacency periods\"",
+        "\"incidence graph symmetric designs 2 rank adjacency matrix mod 2 nilpotent\""
+      ]
+    },
+    "checked_sources": [
+      "https://personal.math.vt.edu/brown/doc/1152.pdf",
+      "https://doi.org/10.1002/jcd.20145",
+      "https://doi.org/10.1007/s00224-022-10111-x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The design articles provide existence/construction/classification but no equivalent dynamical consequence.",
+        "The general XOR-network source proves algorithmic properties rather than this exact dynamical classification."
+      ],
+      "reasoning": "The claim requires the parity restriction BB^T=I, independent u,a, and a one-entry toggle; generic XOR methods and structural design counts alone do not imply the exact primitive-period formulas as quoted statements.",
+      "searches": [
+        "\"Synchronous Boolean Finite Dynamical Systems on Directed Graphs over XOR Functions\"",
+        "\"There are exactly five biplanes with k = 11\"",
+        "\"The Fabulous (11,5,2) Biplane\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brown (2004), DOI 10.1080/0025570X.2004.11953234, studies the (11,5,2) design but no toggle dynamics in inspected text.",
+        "General XOR systems: DOI 10.1007/s00224-022-10111-x."
+      ],
+      "reasoning": "Conjugating the toggled incidence adjacency update to a rank-one perturbation of a swap gives an equivalent orthogonal-matrix formulation; the inspected works do not assert its four-versus-six period split.",
+      "searches": [
+        "\"biplane incidence graph one edge deleted inserted parity dynamics period six Jordan\"",
+        "\"binary orthogonal incidence matrices single entry toggling synchronous XOR period six primitive orbits characteristic two\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Known biplane catalogues classify incidence structures, while the new counts are symbolic in v and q."
+      ],
+      "reasoning": "No located table of orbit types or preimage basin populations for the toggled design Levi graphs. A failed index search is not a proof of uniqueness.",
+      "searches": [
+        "\"one edge incidence xor dynamics symmetric design biplane\"",
+        "\"biplane incidence graph one edge deleted inserted parity dynamics period six Jordan\""
+      ]
+    },
+    "rationale": "The located design literature supplies incidence geometry and classifies biplanes but does not state the one-incidence toggle XOR orbit bifurcation. General synchronous XOR papers give computational techniques without the sharp design-specific period/basin census. Actual semantic and mathematical-implication comparisons found no covering result; full-text and indexing limitations remain.",
+    "residual_risks": [
+      "An older rank-one orthogonal-matrix theorem might imply the period formulas without the same terminology.",
+      "Full text of the 2007 biplane-classification article was not inspected; its accessible abstract addresses biplane enumeration.",
+      "Other nonindexed design-dynamics literature may overlap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes design parameters and difference-set example, not a one-edge XOR dynamical period census.",
+        "evidence": [
+          "The cyclic difference set {1,3,4,5,9} defines a 2-(11,5,2) symmetric design; the paper presents combinatorial properties rather than synchronous update maps."
+        ],
+        "identifier_or_url": "https://personal.math.vt.edu/brown/doc/1152.pdf",
+        "material_read": "Open full author-posted PDF, inspected pages including construction and cyclic difference set (pp. 88–95 depending pagination).",
+        "method": "Read text and inspected relevant page renderings, including design-construction equations.",
+        "title": "The Fabulous (11,5,2) Biplane",
+        "trigger": "A canonical symmetric design with odd k and even lambda; possible existing XOR result."
+      },
+      {
+        "assessment": "Abstract proves complete list of biplanes with k=11, and does not state one-incidence XOR dynamics; full-text omission remains residual risk.",
+        "evidence": [
+          "Publisher first-published date: 2007-02-22; abstract identifies exhaustive classification of k=11 biplanes."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jcd.20145",
+        "material_read": "Publisher abstract and bibliography only; full paper not accessed.",
+        "method": "Read the publisher abstract and cited subject/claims; full text unavailable via lawful accessible channels.",
+        "title": "There are exactly five biplanes with k = 11",
+        "trigger": "Potentially relevant exact biplane classification."
+      },
+      {
+        "assessment": "General computational complexity of XOR-network questions, without an exact symmetric-design one-edge toggle classification.",
+        "evidence": [
+          "The article frames reachability and intersection complexity under XOR local maps, distinct from primitive-period counts for design incidence graphs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00224-022-10111-x",
+        "material_read": "Open-access scholarly text, including introductory definitions and main reachability/complexity discussion.",
+        "method": "Inspected accessible text and representative page renderings; compared the named theorems with the proposed incidence-toggle claim.",
+        "title": "Synchronous Boolean Finite Dynamical Systems on Directed Graphs over XOR Functions",
+        "trigger": "General Boolean-XOR dynamical systems might imply cycle classifications."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "995e7999-6656-4cad-a8dd-17400505b31f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The single-edge insertion/deletion asymmetry gives a natural sharp structural dichotomy (order six invertible vs one-step entry to order-four recurrence) and exact orbit/basin counts for every symmetric design satisfying a common parity condition, not a narrow computational curiosity.",
+    "status": "PASS"
+  }
+}
