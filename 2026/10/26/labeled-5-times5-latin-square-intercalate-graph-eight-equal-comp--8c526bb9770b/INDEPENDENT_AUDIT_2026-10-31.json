@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:41:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/labeled-5-times5-latin-square-intercalate-graph-eight-equal-comp--8c526bb9770b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/labeled-5-times5-latin-square-intercalate-graph-eight-equal-comp--8c526bb9770b/verify_latin5.py",
+        "/mnt/data/scope_worker-06_20261031T073315Z/independent_checks.py"
+      ],
+      "rationale": "The 1,344 Latin squares with normalized first row expand uniquely by 120 symbol relabelings to 161,280 fully labeled squares. Two explicit representatives B and cyclic C have autotopism stabilizers of orders 12 and 100, verified independently from all 120² row/column permutation pairs; orbit-stabilizer yields 144,000 noncyclic and 17,280 cyclic squares. The cyclic class has no intercalates. The four switches from B lie in its even-isotopy orbit, whose size is 60³/12=18,000. An independent full neighbor BFS from B reached all 18,000 and exact shells (1,4,12,36,108,252,612,1284,2256,3624,4812,3828,1112,59), so graph transitivity yields diameter/radius 13. The eight cosets of A5³ give eight components, each 4-regular with 36,000 edges. The four classical parity triples split two per component by relabeling parity and preservation of all triples. The finite complete enumeration is legitimate finite proof, not sampling or infinite extrapolation.",
+      "residual_risks": [
+        "Exactly order 5 and exactly two-symbol intercalate switches are studied; other local moves or quotient graphs can have different connectivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General result that parity is invariant under intercalate moves limits reachability but does not give exactly two components per parity sector; Jacobson–Matthews allow moves beyond proper intercalate switches."
+        ],
+        "reasoning": "Neither stronger move connectivity nor a four-parity lower obstruction implies the exact eight connected components and diameter.",
+        "searches": [
+          "Wanless 2004 parity invariant intercalate graph classes",
+          "Jacobson Matthews 1996 generating uniformly distributed random Latin squares improper"
+        ]
+      },
+      "checked_sources": [
+        "https://users.monash.edu.au/~iwanless/papers/cycleswapgr.GC.pdf",
+        "https://doi.org/10.1002/jcd.20282",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/labeled-5-times5-latin-square-intercalate-graph-eight-equal-comp--8c526bb9770b/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From Wanless order-five quotient of two vertices, orbit cardinalities 17,280 and 144,000 do not determine whether the 144,000-vertex labeled subgraph has one, eight, or many components or its diameter."
+        ],
+        "reasoning": "The exact graph geometry requires the group-coset closure witnesses and full 18,000-vertex BFS, not just earlier quotient classification.",
+        "searches": [
+          "Wanless Cycle Switches in Latin Squares §2 and table order five two isolated classes",
+          "Cavenagh Stones 2011 Near-automorphisms of Latin squares"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wanless uses vertices equal to isotopy or main CLASSES, not individual 5x5 labeled Latin squares. Collapsing to quotient identifies the enormous noncyclic labeled orbit and can hide component disconnection."
+        ],
+        "reasoning": "The original mathematical objects are distinguished by quotient choice: connectivity in an isotopy quotient is not connectivity of a labeled graph. The eight components are genuine lifted invariants.",
+        "searches": [
+          "Wanless 2004 Cycle Switches in Latin Squares order 5 intercalate isotopy classes",
+          "labeled Latin square order five intercalate switch graph components diameter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned no 8-by-18,000 labeled-order-five intercalate table; closest Latin-related findings involved order-eight autotopism classes or Latin arrays."
+        ],
+        "reasoning": "No dedicated exact labeled-census table was located, but unpublished exact enumeration or thesis material could exist.",
+        "searches": [
+          "Resultary: Latin square order 5 intercalate switching labeled connected components diameter",
+          "order five 18000 36000 intercalate graph diameter 13"
+        ]
+      },
+      "rationale": "Wanless 2004 directly studies intercalate switching on isotopy/main classes, not all fully labeled squares. Its order-five quotient has two isolated class vertices, collapsing 144,000 noncyclic states to a single vertex and losing the eight individual connected sectors and diameter. The earlier parity obstruction alone yields four signatures, not their twofold splitting. Cavenagh–Stones 2011 is about near-automorphisms; Jacobson–Matthews uses a broader move system through improper squares. No inspected primary result implies the labeled census.",
+      "residual_risks": [
+        "A full 2011 Cavenagh–Stones paper or unpublished order-five full labeled graph table could contain equivalent metrics.",
+        "No higher-order or mixing-time result is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies quotient-vertex isotopy/main classes; order-five class graph two disconnected vertices, distinct from labeled graph",
+          "evidence": "Abstract and §2 explicitly define quotient classes; p.551 says two order-5 class vertices disconnected.",
+          "identifier_or_url": "https://users.monash.edu.au/~iwanless/papers/cycleswapgr.GC.pdf",
+          "material_read": "Open author-hosted PDF inspected, pp. 545-551 and discussion of isotopy/main-class switching; PDF page images 1 and 7 examined",
+          "method": "lawful author full-text PDF with page screenshots",
+          "title": "Cycle Switches in Latin Squares",
+          "trigger": "Closest original result on intercalate-switch connectivity for order five"
+        },
+        {
+          "assessment": "Study local near-automorphism characterization, not a verified full labeled 161,280-state census",
+          "evidence": "Published in J. Combin. Designs 19 (2011) 365-377; full text priority remains uncertain.",
+          "identifier_or_url": "https://doi.org/10.1002/jcd.20282",
+          "material_read": "Publisher abstract and bibliographic details only; full article not read",
+          "method": "publisher abstract",
+          "title": "Near-automorphisms of Latin squares",
+          "trigger": "Potential same small 2×2 moves and symmetries"
+        },
+        {
+          "assessment": "Their connectivity uses enlarged move set including improper Latin squares; it does not imply intercalate-only labeled connectivity",
+          "evidence": "Wanless §2 explicitly distinguishes moves that pass through non-Latin states.",
+          "identifier_or_url": "https://doi.org/10.1002/(SICI)1520-6610(1996)4:6<405::AID-JCD3>3.0.CO;2-J",
+          "material_read": "Publication abstract, citation context from Wanless §2, not complete original paper",
+          "method": "bibliographic abstract and Wanless cross-reference",
+          "title": "Cycle-switching and uniformly sampled Latin squares",
+          "trigger": "Broader proper/improper transition graph might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://users.monash.edu.au/~iwanless/papers/cycleswapgr.GC.pdf",
+        "https://doi.org/10.1002/jcd.20282",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/labeled-5-times5-latin-square-intercalate-graph-eight-equal-comp--8c526bb9770b/RESULT.md"
+      ],
+      "rationale": "A canonical finite reconfiguration graph for a historically studied combinatorial design problem. The exact eight components refine classical parity constraints and show an obstruction that the two-state isotopy quotient completely hides; uniform 13-step diameter provides a natural exact reachability invariant needed for intercalate-only local-move studies.",
+      "residual_risks": [
+        "The result is an exact order-five classification; it does not extrapolate to all Latin-square orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The graph on all 161,280 individually labeled order-5 Latin squares under legal two-symbol 2×2 switches has 17,280 isolated vertices and eight isomorphic 4-regular vertex-transitive components, each 18,000 vertices, 36,000 edges and diameter 13; every parity sector contains two components.",
+  "limitations": [
+    "Exactly order 5 and exactly two-symbol intercalate switches are studied; other local moves or quotient graphs can have different connectivity.",
+    "A full 2011 Cavenagh–Stones paper or unpublished order-five full labeled graph table could contain equivalent metrics.",
+    "No higher-order or mixing-time result is claimed.",
+    "The result is an exact order-five classification; it does not extrapolate to all Latin-square orders."
+  ],
+  "schema_version": 1
+}

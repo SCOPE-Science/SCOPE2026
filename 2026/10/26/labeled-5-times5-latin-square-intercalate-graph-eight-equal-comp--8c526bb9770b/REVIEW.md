@@ -1,15 +1,21 @@
-# Review of labeled order-five Latin-square intercalate switching
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is finite and sharply defined. Exhaustive row-permutation completion proves the complete \(161{,}280\)-square universe. The two explicit isotopy representatives have stabilizers of sizes \(100\) and \(12\), computed by all \(120^2\) possible row/column pairs and forced symbol maps, giving disjoint orbits of sizes \(17{,}280\) and \(144{,}000\). For the noncyclic representative, four legal switches each have explicit all-even isotopy witnesses. Thus its \(A_5^3\) orbit is switch-closed and has size \(18{,}000\). A direct breadth-first traversal reaches all \(18{,}000\) states and has maximum distance \(13\). Transitivity of the even-isotopy orbit converts this eccentricity into the component diameter. An independent full-state graph traversal recovers eight size-\(18{,}000\) components, \(17{,}280\) isolates, and four parity sectors of two components each. `verify_latin5.py` executes these exact checks; no experiment is being extrapolated to arbitrary order.
+## correctness
 
-## Originality — PASS with residual risk
-The 2004 full text of Wanless treats switching graphs **after quotienting** by isotopy or main classes and records the two isolated class-vertices at order five; its parity discussion detects at most four labeled sectors. The new result is about the labeled lift, revealing a further twofold split in each parity sector and computing the exact diameter and vertex transitivity of all nontrivial pieces. Cavenagh–Stones (2011) concerns existence of near-automorphisms and Jacobson–Matthews (1996) uses a broader move system; neither accessible statement implies the asserted graph classification. An earlier exact order-four labeled intercalate-graph classification does not cover order five. Targeted record searches for the exact sizes, parity splitting, aliases, and graph metrics returned no covering item. Unindexed exact tables and unread portions of the 2011 paper are genuine residual risks rather than proof of uniqueness.
+PASS
 
-## Value — PASS
-Order five is the first nontrivial odd-order case with abundant intercalate moves but also an isolated cyclic isotopy class. Wanless's quotient compresses the complete noncyclic region into one state. Resolving its labeled, parity-preserving reconfiguration geometry shows that intercalate-only Markov chains are obstructed more strongly than the standard parity triple predicts, and that the eight equal mobile sectors nevertheless have a uniform finite transition diameter \(13\). The exact classification is intrinsic to a canonical, historically studied design space; it is not an arbitrary graph slice or an unspecified metric gain.
+The 1,344 Latin squares with normalized first row expand uniquely by 120 symbol relabelings to 161,280 fully labeled squares. Two explicit representatives B and cyclic C have autotopism stabilizers of orders 12 and 100, verified independently from all 120² row/column permutation pairs; orbit-stabilizer yields 144,000 noncyclic and 17,280 cyclic squares. The cyclic class has no intercalates. The four switches from B lie in its even-isotopy orbit, whose size is 60³/12=18,000. An independent full neighbor BFS from B reached all 18,000 and exact shells (1,4,12,36,108,252,612,1284,2256,3624,4812,3828,1112,59), so graph transitivity yields diameter/radius 13. The eight cosets of A5³ give eight components, each 4-regular with 36,000 edges. The four classical parity triples split two per component by relabeling parity and preservation of all triples. The finite complete enumeration is legitimate finite proof, not sampling or infinite extrapolation.
 
-## Closest literature and limitations
-Wanless (2004), DOI `10.1007/s00373-004-0567-7`, full text read in relevant sections, is the closest source. Cavenagh and Stones (2011), DOI `10.1002/jcd.20282`, is supported by abstract and a publisher first-public date of 2011-03-03, but full text could not be accessed. Jacobson and Matthews (1996), DOI `10.1002/(SICI)1520-6610(1996)4:6<405::AID-JCD3>3.0.CO;2-J`, studies a wider switch system. No claim is made about higher orders, mixing times, or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wanless 2004 directly studies intercalate switching on isotopy/main classes, not all fully labeled squares. Its order-five quotient has two isolated class vertices, collapsing 144,000 noncyclic states to a single vertex and losing the eight individual connected sectors and diameter. The earlier parity obstruction alone yields four signatures, not their twofold splitting. Cavenagh–Stones 2011 is about near-automorphisms; Jacobson–Matthews uses a broader move system through improper squares. No inspected primary result implies the labeled census.
+
+## value
+
+PASS
+
+A canonical finite reconfiguration graph for a historically studied combinatorial design problem. The exact eight components refine classical parity constraints and show an obstruction that the two-state isotopy quotient completely hides; uniform 13-step diameter provides a natural exact reachability invariant needed for intercalate-only local-move studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
