@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T17:00:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a two-row ladder L_n and 3<=k<=2n-3, every complement with >=k+2 vertices contains a disconnected k-subset by choosing an extreme-column vertex of induced degree at most two, giving the full skeleton below codimension one. Missing top facets correspond exactly to connected k-subsets; missing next-to-top faces correspond to deletion-robust (k+1)-subsets, which in a ladder are precisely full consecutive rung blocks, counted by b_{n,k}. Enumerating connected induced subsets by 3 column states and forbidding adjacent opposite singletons yields 2A and D recurrence with GF C(z,t)=zt(2+t+zt^2)/((1-z)^2(1-z(t+t^2)-z^2t^3)). The alternating binomial Euler identity yields beta_{n,k}=binom(2n-1,k-1)-[z^n t^k]C+b_{n,k}; Theorem 5.6 of Chandrakar et al. supplies the precisely matching pure shellability range, upgrading Euler to an integral top-dimensional sphere wedge. Independent direct connectivity/deletion-robust/cut-face checks covered every permitted k for n=3..7, including k=5 ranks 13,85,270,636 for n=4..7. Finite enumeration was not used to prove all-n classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chandrakar et al. Theorem 5.6: shellability for 3<=k<=2n-3; Resultary 2026/10/11/SCOPE-high-girth-cut-complexes-are-wedges-of-top-dimensional-spheres--ec8bbe3d352b requires girth≥k+2."
+        ],
+        "reasoning": "Shellability determines possible homotopy dimensions but not their multiplicities. The ladder has girth four, so the high-girth theorem is inapplicable for k≥3.",
+        "searches": [
+          "arXiv:2408.07646v3 Theorem 5.6",
+          "high girth cut complexes wedge exact ranks",
+          "ladder graph cut complex all k shellability sphere rank rational generating function connected induced subsets"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2407.08158",
+        "https://arxiv.org/html/2408.07646v3",
+        "Resultary/2026/10/11/SCOPE-high-girth-cut-complexes-are-wedges-of-top-dimensional-spheres--ec8bbe3d352b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shellability theorem yields wedge only, and published first few ranks do not fix an infinite bivariate generating series."
+        ],
+        "reasoning": "Computing the missing connected and 2-connected complement counts by finite automata is the novel enumerative step, not implied by shellability itself.",
+        "searches": [
+          "arXiv:2407.08158 Section 5 Table 3",
+          "arXiv:2408.07646v3 Theorem 5.6",
+          "ladder graph cut complex all k shellability sphere rank rational generating function connected induced subsets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2407.08158 Section 5 and Table 3 gives small-case ordinary k-cut ranks; arXiv:2408.07646v3 Definition 2.8 gives same ordinary cut-complex convention."
+        ],
+        "reasoning": "The target object agrees with the published ordinary cut complex, not with the separate total cut complex whose omitted sets must be independent. The all-parameter rational GF goes beyond tabulated values.",
+        "searches": [
+          "ladder graph cut complex all k shellability sphere rank rational generating function connected induced subsets",
+          "two-row grid ordinary k-cut complex Betti polynomial connected induced subset counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite 5-cut ranks 13,85,270,636 match Bayer et al. Table 3; no all-n,k generating function appears in the materially inspected section."
+        ],
+        "reasoning": "Known finite table entries are correctly attributed; the formula specifies infinitely many previously unlisted coefficients and all permitted k, not merely recomputation of known data.",
+        "searches": [
+          "ladder graph cut complex all k shellability sphere rank rational generating function connected induced subsets",
+          "arXiv:2407.08158 Table 3 5-cut ladder n4 5 6 7"
+        ]
+      },
+      "rationale": "Bayer et al. establish the ordinary cut complexes and finite grid tables including 5-cut values; Chandrakar et al. prove shellability for the same two-row k-range. The combination provides wedge existence but not the generating function or the all-k sphere multiplicities: the missing enumerators and exceptional subface classification are mathematical work. Published high-girth and circular-ladder results do not cover ordinary path ladders in this range. Best-of-knowledge.",
+      "residual_risks": [
+        "An unindexed all-k ladder connected-subset GF or sphere count formula may overlap with this calculation; source-search absence is not proof of priority.",
+        "Top-dimensional wedge classification relies on prior shellability, not a new shelling proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE",
+          "evidence": [
+            "Contains finite k=5 ladder values, not the complete bivariate rank generating function."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.08158",
+          "material_read": "Original article Section 2 definitions, Section 5 grid results and Table 3",
+          "method": "Read available primary full text for statements/tables and compared counts",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Same ordinary cut-complex construction and small ladder-grid data"
+        },
+        {
+          "assessment": "SHELLABILITY_SUPPORTS_NOT_RANKS",
+          "evidence": [
+            "Theorem 5.6 proves shellability for 3<=k<=2n-3; no complete rank GF is given by that theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2408.07646v3",
+          "material_read": "Full arXiv HTML, Introduction Theorem 1.2, Section 5 Theorem 5.6 and proof at lines 1010-1040",
+          "method": "Compared quantifiers, dimension, ordinary vs total cut, and shelling to claimed Euler-enumerator output",
+          "title": "Topology of total cut complexes and cut complexes of grid graphs",
+          "trigger": "Strongest same-object topology theorem"
+        },
+        {
+          "assessment": "HYPOTHESIS_FALSE",
+          "evidence": [
+            "For k>=3, k+2>=5>4 so the theorem cannot imply the ladder formula."
+          ],
+          "identifier_or_url": "Resultary/2026/10/11/SCOPE-high-girth-cut-complexes-are-wedges-of-top-dimensional-spheres--ec8bbe3d352b",
+          "material_read": "Indexed statement and hypothesis in semantic retrieval",
+          "method": "Checked ladder girth=4 against girth>=k+2 required",
+          "title": "High-girth cut complexes are wedges of top-dimensional spheres",
+          "trigger": "Potential rank formula of broader graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is natural and the complete two-parameter topological invariant is not a trivial substitution: it extends isolated tabulations to all admissible n,k and gives an effective rational generating function for full integral homotopy sphere ranks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Ordinary k-cut complex only, n>=3 and 3<=k<=2n-3; excludes total cut and circular ladder variants."
+  ],
+  "schema_version": 1
+}
