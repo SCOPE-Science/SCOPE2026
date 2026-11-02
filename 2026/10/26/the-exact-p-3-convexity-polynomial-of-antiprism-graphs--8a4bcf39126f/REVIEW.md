@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Every edge lies in a connected family of edge-sharing triangles. Thus a non-full convex set cannot contain a distance-two pair. The complete cyclic-gap characterization gives the weighted transfer, and the trace/log-determinant identity proves the exact rational series. The gap length bound and alternating construction prove the exact largest proper-set cardinality. Direct exhaustive vertex checks for orders three to ten and cyclic-word checks through order twelve agree.
+## correctness
 
-**Originality: PASS, with disclosed priority risk.** The primary 2026 counting paper treats general algorithms, tree and threshold cases, not an antiprism bivariate enumerator. Earlier exact cactus, circular-ladder and Heawood formulas do not include antiprisms; published-finding corpus searches for graph-square 2-packings and equivalent antiprism descriptions found no matching result. This is best-knowledge originality, not a mathematical proof of historical uniqueness. Published graph-square independent-set formulas not retrieved remain possible.
+PASS
 
-**Value: PASS.** The theorem supplies a complete closed cardinality polynomial across a natural infinite, planar, 4-regular triangulated band, connects convexity to distance-two packing and gives a sharp extremal density. It answers a nontrivial motivated enumeration question rather than computing a small isolated table.
+Checked that every antiprism edge belongs to an edge-overlap-connected family of triangles; an adjacent selected pair forces its triangle and then every triangle, yielding the full set. Distance-two selected pairs force the middle vertex, so no proper convex subset can have pairs within distance two. Conversely any distance-two packing meets the outside-neighbor rule. Each selected cyclic column has A or B, with successive gaps >=2 and a gap 2 allowed only from A to B; both directed gaps are checked even for two sites and n=3. The weighted 2x2 transfer R=t²E+t³J/(1-t) produces the labelled cyclic enumeration -t d/dt log det(I-zR), yielding the claimed rational GF; nonconsecutive short gaps prove floor(2n/5) and explicit constructions attain it. Fresh independently implemented outside-neighbor subset enumeration for n=3..9 agrees exactly with independent distance-two packing enumeration and rational coefficients. Finite checking supports the proof, which is symbolic for all n.
 
-**Literature and limitations.** Dourado–Grippo–Lin–Protti, *Counting P3-convex sets in graphs*, arXiv:2603.04706v1 (2026-03-05), is the motivating primary work. The answer is restricted to antiprisms and labels individual subsets; it does not count symmetry orbits. Numerical checks are finite and independent priority/mathematical audits are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general P3-convex counting problem, several algorithmic graph classes, and graph-square independent-set methods are established. The assessed additional contribution is the exact all-order antiprism polynomial and sharp maximum proper subset size through a two-colour cyclic gap decomposition. The 2026 complete primary paper focuses general algorithms, trees, threshold/split graphs and extremal classes, not this antiprism formula. Generic graph algorithms do not directly entail a uniform rational closed form.
+
+## value
+
+PASS
+
+Antiprism graphs are a natural vertex-transitive 4-regular planar family. The theorem gives a structural closure classification and complete graded convexity polynomial, with a sharp packing threshold, beyond a finite small-graph census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

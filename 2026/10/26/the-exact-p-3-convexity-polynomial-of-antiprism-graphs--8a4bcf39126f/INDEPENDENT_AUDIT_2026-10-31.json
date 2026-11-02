@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T10:47:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked that every antiprism edge belongs to an edge-overlap-connected family of triangles; an adjacent selected pair forces its triangle and then every triangle, yielding the full set. Distance-two selected pairs force the middle vertex, so no proper convex subset can have pairs within distance two. Conversely any distance-two packing meets the outside-neighbor rule. Each selected cyclic column has A or B, with successive gaps >=2 and a gap 2 allowed only from A to B; both directed gaps are checked even for two sites and n=3. The weighted 2x2 transfer R=t²E+t³J/(1-t) produces the labelled cyclic enumeration -t d/dt log det(I-zR), yielding the claimed rational GF; nonconsecutive short gaps prove floor(2n/5) and explicit constructions attain it. Fresh independently implemented outside-neighbor subset enumeration for n=3..9 agrees exactly with independent distance-two packing enumeration and rational coefficients. Finite checking supports the proof, which is symbolic for all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dourado et al. provide general algorithms and exact tree/threshold results rather than a symbolic antiprism family enumeration",
+          "Antiprism is not a bipartite prism: antiprisms contain a connected triangular cover"
+        ],
+        "reasoning": "Although an algorithm for arbitrary graphs could produce C_n separately, it does not by its stated conclusion establish the exact rational family GF. Different graph classes cannot dominate simply by similar names.",
+        "searches": [
+          "Dourado Grippo Lin Protti Counting P3-convex sets in graphs arXiv2603.04706 Sections2–4",
+          "Web: antiprism P3 convexity independence polynomial antiprism square",
+          "Bresar Klavzar Rall Packings in bipartite prisms and hypercubes arXiv2309.04963"
+        ]
+      },
+      "checked_sources": [
+        "Dourado–Grippo–Lin–Protti arXiv2603.04706 full primary PDF",
+        "Brešar–Klavžar–Rall arXiv2309.04963 published abstract",
+        "Resultary search and public web antiprism packing aliases",
+        "Git frozen RESULT.md, verify_antiprism.py, metadata and audit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary 2026 work proves general #P-completeness, algorithms for trees/threshold graphs, and exact exponential method; none states polynomial for antiprisms",
+          "Present triangle propagation and coloured gap transfer derive an exact formula for all n and are mathematically additional"
+        ],
+        "reasoning": "The existing general algorithms imply computability for each finite n, but not the closed form or max-proper formula without the new specialization. A prior exact square independence polynomial would imply the claim; none was found.",
+        "searches": [
+          "arxiv:2603.04706v1 Introduction and Sections2–4",
+          "Resultary and web graph square independence polynomial alias"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nonfull convex sets coincide with independent sets of the square graph A_n²; this is an exact equivalent formulation proved in RESULT.md",
+          "Published 2026 convexity work defines the outside-neighbor criterion but does not give the antiprism square independent-set polynomial"
+        ],
+        "reasoning": "The graph-square independence polynomial is the critical alias. An earlier complete antiprism-square independence polynomial would cover this claim even if named differently. Searches uncovered general packing results for bipartite prisms, a different family, but no matching full polynomial.",
+        "searches": [
+          "Resultary: antiprism graph P3-convexity sets convexity polynomial distance-two packing independent set square",
+          "Web antiprism graph 2-packing independence polynomial square antiprism P3 convexity",
+          "GitHub research index: antiprism convexity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct independent n=8 computation gives C8=1+16z+56z²+16z³+z^16; n=5 gives 1+10z+5z²+z^10",
+          "No published antiprism-specific all-order coefficient table was identified; general convexity literature includes algorithms but not these coefficients"
+        ],
+        "reasoning": "No exact database match surfaced. This does not exclude unindexed graph-polynomial databases or computations of the square graph.",
+        "searches": [
+          "Resultary antiprism square 2-packing polynomial query",
+          "Web antiprism graph convex sets exact polynomial",
+          "Research GitHub index antiprism convexity"
+        ]
+      },
+      "rationale": "The general P3-convex counting problem, several algorithmic graph classes, and graph-square independent-set methods are established. The assessed additional contribution is the exact all-order antiprism polynomial and sharp maximum proper subset size through a two-colour cyclic gap decomposition. The 2026 complete primary paper focuses general algorithms, trees, threshold/split graphs and extremal classes, not this antiprism formula. Generic graph algorithms do not directly entail a uniform rational closed form.",
+      "residual_risks": [
+        "An earlier independence-polynomial formula for the square of antiprism graph, perhaps under circulant/Cayley terminology, would imply the claimed generating function.",
+        "Direct subset computation is bounded n<=9, while all-n claim relies on triangle propagation and transfer matrix proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ESTABLISHES general P3 counting framework; inspected results do not state labelled antiprism C_n(z) or rational all-n family formula",
+          "evidence": "arXiv:2603.04706 pp.1–5, Sections 2–4; web , ",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.04706",
+          "material_read": "Full 27-page primary PDF abstract, definitions, introduction, Section 2 tree and extremal structure, Section 3 complexity and threshold graphs, Section 4 algorithms; searched antiprism and inspected relevant results",
+          "method": "arXiv lawful full-text PDF including screenshot of page 5",
+          "title": "Counting P3-convex sets in graphs",
+          "trigger": "Same convexity predicate and potentially dominating general theorem"
+        },
+        {
+          "assessment": "Different bipartite prism family; does not directly determine the triangle-rich antiprism square polynomial",
+          "evidence": "web ",
+          "identifier_or_url": "https://arxiv.org/abs/2309.04963",
+          "material_read": "Public abstract/metadata and class descriptions, not full paper; no full-text noncoverage asserted",
+          "method": "web search of primary abstract/catalogue",
+          "title": "Packings in bipartite prisms and hypercubes",
+          "trigger": "Packing-number alias and similar prism word"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Antiprism graphs are a natural vertex-transitive 4-regular planar family. The theorem gives a structural closure classification and complete graded convexity polynomial, with a sharp packing threshold, beyond a finite small-graph census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n>=3, P3-convex subsets of antiprism A_n are precisely the empty set, whole graph, and nonempty graph-distance>=3 packings. Their cardinality polynomial satisfies sum_{n>=3}(C_n(z)-1-z^(2n))t^n = (2zt^3(3-2t)+z^2t^5(5-4t))/((1-t)(1-t-2zt^3-z^2t^5)); maximum size of a proper convex subset is floor(2n/5).",
+  "limitations": [
+    "Applies to labelled vertex subsets of n-gonal antiprisms n>=3, not automorphism orbit counts or arbitrary planar 4-regular graphs.",
+    "An earlier independence-polynomial formula for the square of antiprism graph, perhaps under circulant/Cayley terminology, would imply the claimed generating function.",
+    "Direct subset computation is bounded n<=9, while all-n claim relies on triangle propagation and transfer matrix proof."
+  ],
+  "schema_version": 1
+}
