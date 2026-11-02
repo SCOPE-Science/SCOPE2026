@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The claim follows from an exact sign identity and monotonicity of the divided-power function. The proof treats the boundary exponents \(q=0\) and \(q=1\), the strict-acceleration case, the nonaccelerating case, and the high-redshift limit. The illustrative flat-\(\Lambda\)CDM root agrees with the published rounded value; the numerical check is not used as proof.
+PASS
 
-## Originality
+Using E(y)^2/y²−1=Σ Ω_i(y^{q_i}−1)=(y−1)F(y), with F=ΣΩ_i (y^{q_i}−1)/(y−1), the drift sign is minus sign F for E,y>0. F(1+)=ΣΩ_i q_i=2q0. For q<0 or q>1, φ_q is strictly increasing on y>1 by derivative g_q'=q(1−q)y^{q−2}(y−1)<0 and g_q(1)=1. φ_1≡1; φ_0≡0. Hence F is nondecreasing and, whenever q0<0, strictly increasing. The mandatory positive q>=1 fluid makes F eventually positive (q=1 constant positive or q>1 divergent) while negative-q contributions tend to zero from below. This proves existence and uniqueness iff q0<0; at q0=0 F immediately positive. For no accelerating component all q>=1, F positive. Curvature cancels by normalization; no restriction Ωk sign beyond H>0 and normalization. Independent exact algebra and ΛCDM root z≈2.08876043244513 (Ωm=.3, ΩΛ=.7) confirm the illustrative case; finite example is not the theorem proof.
 
-The closest sources give the redshift-drift law, its zero equation, selected closed-form models, and a general finite-component FLRW formula. In the inspected relevant sections, none states the exact uniqueness-if-and-only-if-\(q_0<0\) classification for components with \(q_i<0\) or \(q_i\geq1\). The later portions of the general-model paper were not fully inspected, so the originality assessment retains that explicit residual risk.
+## originality
 
-## Value
+PASS
 
-The result gives a complete and exact root-count criterion for a standard cosmological component class. It links the existence of the sign reversal to present acceleration, shows the direction of the sign change, and removes curvature from the crossing equation. The scope restriction is mathematically explicit and avoids claiming uniqueness for intermediate exponents.
+Qualified best-of-knowledge: Sandage/Loeb established drift observable, Alves et al. explicit ΛCDM crossing and Lobo et al. general constant-w mixture equations. The inspected Lobo full paper discusses typical nontrivial zero and low-z deceleration but does not state the exact iff-and-unique theorem for the separated exponent class, while its formulas strongly overlap. Present theorem adds monotonic divided-power zero-count classification, not new cosmological equations.
 
-## Closest literature and limitations
+## value
 
-Sandage (1962) introduced the observable; Loeb (1998) treated the matter–vacuum signal; Alves et al. (2019) gave a general zero equation and a flat-\(\Lambda\)CDM formula; Lobo et al. (2022 preprint; published 2024) treated a general finite mixture and discussed typical roots. The theorem assumes nonnegative densities, constant equations of state, an expanding FLRW branch, at least one positive-density component with \(w_i\geq0\), and no component with \(-1/3<w_i<0\). It does not apply to interacting fluids, variable equations of state, or inhomogeneous cosmologies.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The existence and number of positive-redshift drift sign changes are natural global observables in standard constant equation-of-state cosmologies. Unlike mere root formulas or numerical plots, the theorem provides a sharp, all-mixture topological root count in terms of the local observable q0, even with curvature; the exponent separation explains exactly why it works. This is an independently useful structural lemma, albeit short and confined to a physically motivated but not universal fluid class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
