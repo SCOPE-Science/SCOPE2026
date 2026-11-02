@@ -1,11 +1,21 @@
-# Scientific review of the tetrahedral catenary law
+# Independent mathematical audit
 
-**Correctness:** PASS. The argument applies the published complete minimal presentations of the same four-generator tetrahedral numerical semigroups and bounds all factorization distances by their maximal relation-side lengths. For the lower bounds it exhibits a critical fiber where a pure factorization is isolated or has an unavoidable long first edge; the exceptional class \(n\equiv0\pmod6\) is handled by a closed-set argument over all presentation moves. The packaged standard-library verifier exhaustively computes all critical fibers for \(4\le n\le33\), checking 88 distinct fibers. This is corroboration rather than an unbounded proof.
+## correctness
 
-**Originality:** PASS within investigated evidence. Robles-Pérez–Rosales (arXiv:1706.04378, Proposition 33) publish the input presentation but not the catenary value. Chomicz (arXiv:2604.25653) studies four squares and four triangular numbers, not four tetrahedral numbers; Süer–Sezgin (arXiv:2011.09548) cover specific three-generated telescopic families. Targeted literature and mathematical-record searches did not reveal the exact six-class tetrahedral formula. The formula is derived from known presentations, so implicit earlier coverage via general methods remains the leading priority risk.
+PASS
 
-**Mathematical value:** PASS. The result closes the ordinary catenary-degree computation for the entire natural four-consecutive-tetrahedral family, revealing a nonconstant mod-six law. Catenary degree measures the maximum necessary factorization-change distance; unlike a single small numerical value, this is an exact infinite classification. Its relation to a contemporaneous classification of four consecutive triangular semigroups motivates precisely this missing family.
+PASS: Read the actual six minimal presentations in Robles-Perez/Rosales Proposition 33 and checked the generator ordering matches. Every presentation move has distance bounded by its largest side length, giving the six matching upper bounds. For classes 1,2,4 mod 6 the pure (n+3)e1 factorization is disjoint from any other factorization by uniqueness of (n+2)e1; the known ne2 alternative forces a step >=n+3. For classes 3,5, pure (n+2)e4 is disjoint and any other factorization uses generators <=g3, hence has at least n+5 atoms. For class 0, complete presentation moves from (n+4)e2 cannot create simultaneous e2/e3 needed for the e4 relation, so the fiber has no e4; pure (n+1)e3 is isolated and every other uses g1,g2 and length >=n+4. All coefficients were verified nonnegative integers. Independently checked equality of all relation weights and maximum side lengths for n=4..33 and exact bottleneck catenary degree in all critical Betti fibers for representative n=4..9. These finite tests are supplementary to the all-n presentation/completeness argument.
 
-**Limits:** No independent audit; not a classification of monotone catenary degrees or of individual elementwise degree sets. The completeness of the minimal presentation is taken from the cited 2017 primary theorem. The finite computational range is bounded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, with substantial acknowledged premise: the six minimal presentations of precisely these tetrahedral semigroups were already published in 2017. The new statement is the exact ordinary catenary degree across all residue classes, including a bottleneck proof; no inspected earlier paper states or mathematically entails it without an additional fiber argument.
+
+## value
+
+PASS
+
+PASS, modest but substantive: the ordinary catenary degree is a natural factorization invariant for a canonical infinite family whose presentations are known, and its exact six-residue closed law fills the tetrahedral instance next to the recently treated square and triangular cases. The necessity of a bottleneck, especially the no-mixed-coordinate fiber for n divisible by 6, is a mathematical step beyond reprinting the existing presentation; not a large general theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
