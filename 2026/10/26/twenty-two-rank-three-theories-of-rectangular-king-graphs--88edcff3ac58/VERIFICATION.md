@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-`king_rank3_verifier.py` uses only Python 3's standard library. Run `python3 king_rank3_verifier.py` in an empty writable directory to regenerate `classification.json` and reproduce the verification messages.
+# Independent mathematical audit
 
-The first algorithm explicitly constructs the complete equality/adjacency diagram of every ordered triple (including repeated vertices), then computes all one-variable extensions at ranks one, two, and three. The second independently computes the four possible adjacency masks of a third vertex distinct from an ordered pair. The two produce exactly the same partition of all twenty-eight canonical parameter pairs into twenty-two classes. Every class is given with all its canonical members and a least-order representative in `classification.json`.
+## correctness
 
-The recorded output in `verification_output.txt` is:
+PASS
 
-```
-CANONICAL_OK pairs=28 classes=22 independent_algorithms=2
-PATH_CHECK_OK n=7..30
-EXTERNAL_PARAMS_OK unordered_pairs_m_n_1_to_12=78
-CROSS_SHAPE_EQUIVALENCE_OK 3x7=4x6 5x6=7x7
-SHARP_BOUND_OK minimum_maximum_representative_order=30
-VERIFY_OK
-```
+Rank-three FO types are exactly obtained by the recursive SET of all one-vertex atomic extensions, including repeated vertices, so a three-round EF game is equivalent to the ordered triple profile. P_m for m>=7 has identical rank-three types by endpoint-distance and third-vertex neighborhood patterns; coordinatewise Duplicator strategy preserves king graph strong-product adjacency (both equal-or-adjacent components except equal full vertex). This reduces all infinite pairs to 28 unordered pairs 1<=m<=n<=7. Independently reimplemented full atomic diagram recursion on canonical graphs, obtaining precisely 22 classes and the stated nontrivial mergers, plus checked six larger representatives; independent ranking of class minimum products gives max 30. Thus the infinite quantifier follows from finite reduction, NOT empirical large-board checks. Statements exclude counting quantifiers and named coordinates.
 
-The explicit checks for parameter pairs through twelve and for paths up to thirty are corroborative only. The unlimited-domain reduction to parameters at most seven follows from the path extension-pattern lemma and the coordinatewise Ehrenfeucht–Fraïssé product strategy in `RESULT.md`. Neither the empirical checks nor the output log alone proves the infinite assertion. No external formal certification or independent validation is claimed.
+## originality
+
+PASS
+
+Best-of-knowledge new complete rank-three pure-adjacency equivalence classification for king graphs, as distinct from the older path threshold. Both three-round equivalence and the cross-shape collapse were compared, including undirected path/strong-product aliases and Cartesian-grid contrasts; no exact 22-class table or 30-cell sharp representative bound was located. Unindexed logical-graph classification could overlap.
+
+## value
+
+PASS
+
+Exact rank-three FO partition for a canonical two-parameter family of diagonal-adjacent grid graphs is a complete natural logical classification; the surprising equivalences K_(3,7)~K_(4,6) and K_(5,6)~K_(7,7), and a sharp 30-cell test representative, are not numerology from a one-off small instance. General FO questions on the family reduce to a fixed finite domain at this rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

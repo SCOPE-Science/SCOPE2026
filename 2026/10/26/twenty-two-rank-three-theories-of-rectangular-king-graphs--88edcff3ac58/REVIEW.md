@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is about all positive rectangular dimensions, not a finite experiment. An exact three-round Ehrenfeucht–Fraïssé argument preserves king-graph adjacency under coordinatewise path games; the seven-vertex path threshold is independently justified by all possible third-vertex atomic adjacency patterns. This leaves precisely twenty-eight finite canonical graphs. Complete atomic-type computation and an independent neighborhood-mask method agree on every pairwise equivalence, giving twenty-two classes. The largest least-order representative has thirty vertices, and the code checks the entire canonical table. The principal limitation is that the exact finite table is supplied as reproducible computation rather than as twenty-two manually expanded distinguishing sentences.
+## correctness
 
-**Originality — PASS, subject to residual bibliographic risk.** Brown and Hoshino's 2007 full-text path/cycle result supplies the factor cutoff but does not determine strong-product theories. The king-graph reference records structure and conventional graph invariants, not the logical classification. Existing Cartesian-grid bounded-rank conclusions concern a different, diagonal-free adjacency relation and do not logically imply the present strong-product table. Searches for king-graph three-round equivalence, strong path products, and matching twenty-two-class or thirty-vertex classifications did not uncover equivalent coverage. This is a best-knowledge comparison, not proof of global uniqueness; unindexed literature remains a risk.
+PASS
 
-**Value — PASS.** Exact logical equivalence classes for a classical two-parameter graph family are a natural complete classification, especially since the family exhibits non-obvious cross-shape collisions. There are exactly fifteen genuinely two-dimensional classes in addition to seven one-dimensional path classes, with a sharp and nontrivial thirty-vertex testing ceiling. This gives a finite exhaustive testing domain for arbitrary rank-three adjacency sentences on rectangular king graphs. It is not an automatic corollary of the path cutoff or of a Cartesian-grid classification: the diagonal moves alter two-point extension types and the sharp representative size.
+Rank-three FO types are exactly obtained by the recursive SET of all one-vertex atomic extensions, including repeated vertices, so a three-round EF game is equivalent to the ordered triple profile. P_m for m>=7 has identical rank-three types by endpoint-distance and third-vertex neighborhood patterns; coordinatewise Duplicator strategy preserves king graph strong-product adjacency (both equal-or-adjacent components except equal full vertex). This reduces all infinite pairs to 28 unordered pairs 1<=m<=n<=7. Independently reimplemented full atomic diagram recursion on canonical graphs, obtaining precisely 22 classes and the stated nontrivial mergers, plus checked six larger representatives; independent ranking of class minimum products gives max 30. Thus the infinite quantifier follows from finite reduction, NOT empirical large-board checks. Statements exclude counting quantifiers and named coordinates.
 
-**Limitations.** This is a finite uncoloured pure-adjacency, rank-three statement, not a claim about higher rank, counting logic, named coordinates, or unrestricted graph classes. Some literature might contain an equivalent formulation. The finite calculation is reproducible from embedded files, but no independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new complete rank-three pure-adjacency equivalence classification for king graphs, as distinct from the older path threshold. Both three-round equivalence and the cross-shape collapse were compared, including undirected path/strong-product aliases and Cartesian-grid contrasts; no exact 22-class table or 30-cell sharp representative bound was located. Unindexed logical-graph classification could overlap.
+
+## value
+
+PASS
+
+Exact rank-three FO partition for a canonical two-parameter family of diagonal-adjacent grid graphs is a complete natural logical classification; the surprising equivalences K_(3,7)~K_(4,6) and K_(5,6)~K_(7,7), and a sharp 30-cell test representative, are not numerology from a one-off small instance. General FO questions on the family reduce to a fixed finite domain at this rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
