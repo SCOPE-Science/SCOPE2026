@@ -1,0 +1,192 @@
+{
+  "correctness": {
+    "rationale": "For h<=1 strict Jensen gives unique all-equal dosing. For h>1, equal marginal utilities at any two unequal positive doses imply positive second derivative along their transfer, by the exact hyperbolic sine inequality, excluding such a pair in a local/global maximum. Every possible optimum is therefore equal on its positive support. The single-peaked g(t)=log(1+t^h)/t has a unique peak u_h, implying each adjacent k/k+1 objective crosses once in strictly ordered brackets; chaining rules out nonadjacent ties/skipped active counts. The stated theta_1 is solved algebraically. The included checker passed 52,569 exact-rational finite grid tests and 21,600 numeric random tests, plus 56 switch brackets; finite tests are supplemental, not a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "1970 Vicentini bibliographic record https://commons.case.edu/wsom-ops-reports/370/",
+        "1974 Ginsberg bibliographic/secondary abstract https://www.econbiz.de/10002439510 ; https://www.researchgate.net/publication/5152514_Resource_Allocation_When_Projects_Have_Ranges_of_Increasing_Returns",
+        "1980 Zipkin abstract https://doi.org/10.1287/mnsc.26.1.34",
+        "2009 Agrali & Geunes abstract https://ideas.repec.org/a/eee/ejores/v193y2009i2p605-615.html",
+        "2020 Westerink-Duijzer full text https://doi.org/10.1111/poms.13184"
+      ],
+      "reasoning": "Nonconcave S-shaped allocation is an established topic. In particular Ginsberg reports a complete solution for identical convex-concave plants, which may subsume the reduction to equal positive allocations. General candidate enumeration or sufficient conditions do not themselves imply that for this Hill/log response every support size occurs exactly once in strict sequence, or give the unique threshold brackets. Since the 1970, 1974 and 1980 complete texts were unavailable, a stronger general theorem could imply even the staircase; this is an explicit residual risk.",
+      "searches": [
+        "s shaped resource allocation identical activities k active equal doses logarithmic Hill utility sharp staircase",
+        "Vicentini 1970 On the Resource Allocation Problem with S-Shaped Utility Functions",
+        "nonconcave separable resource allocation identical s-shaped utility functions equal positive allocations optimal support size sigmoid Hill",
+        "The multiplant firm with increasing returns to scale Ginsberg 1974 abstract optimal plants",
+        "\"Solving knapsack problems with S-curve return functions\"",
+        "\"Core Allocations for Cooperation Problems in Vaccination\" Ginsberg"
+      ]
+    },
+    "checked_sources": [
+      "https://commons.case.edu/wsom-ops-reports/370/",
+      "https://www.econbiz.de/10002439510",
+      "https://doi.org/10.1287/mnsc.26.1.34",
+      "https://doi.org/10.1177/1087057114521867",
+      "https://doi.org/10.3389/fphar.2015.00181",
+      "https://doi.org/10.1038/srep14701",
+      "https://doi.org/10.1111/poms.13184",
+      "https://ideas.repec.org/a/eee/ejores/v193y2009i2p605-615.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhao 2014 Bliss survival combination is a modeling antecedent, not fixed-budget optimization.",
+        "Di Veroli 2015 independent Hill fitting evaluates one shared concentration across mechanisms, not a divisible budget.",
+        "Ginsberg 1974 abstract states complete solution for identical plants but does not reveal whether it proves these strict Hill switching identities.",
+        "Westerink-Duijzer 2020 section 2.3 explicitly credits Ginsberg 1974 for analytic S-shaped allocation conditions, not these Hill-support thresholds."
+      ],
+      "reasoning": "The new claim strictly contains a specialized optimization assertion (every global optimizer is equal on its active support) and, crucially, a full no-skipping k=1..n budget phase diagram with exactly one adjacent crossing in the explicit interval (k*u_h,(k+1)*u_h), and theta_1=2*(2^h-2)^(1/h). General convex/concave candidate algorithms do not directly supply the latter; whether unavailable original theorems imply it remains a serious unresolved priority comparison, but accessible material does not decisively cover it.",
+      "searches": [
+        "global optimizer product of independent Hill survival curves under fixed total dose has equal positive coordinates and stepwise number of active arms",
+        "identical sigmoid utility maximizing sum log(1+dosage^h) simplex budget equal active coordinates",
+        "s shaped resource allocation identical activities k active equal doses logarithmic Hill utility sharp staircase",
+        "\"The multiplant firm with increasing returns to scale\" identical plants complete solution",
+        "\"Resource Allocation When Projects Have Ranges of Increasing Returns\" Ginsberg"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2014 Zhao: https://doi.org/10.1177/1087057114521867 (full text, multiplicative Bliss model)",
+        "2015 Di Veroli: https://doi.org/10.1038/srep14701 (full text, independent Hill-response components)",
+        "A different medical-resource feasible-domain comparison is not a matching Hill support-staircase proof"
+      ],
+      "reasoning": "Optimizing a product of survival fractions is precisely equivalent to maximizing the sum of log(1+(dose/scale)^h); searches in both pharmacological and separable-optimization language retrieved models and unrelated allocations but no exact equal-support budget staircase. A separate two-parameter medical resource allocation concerns a different feasible domain, not identical independent Hill channels.",
+      "searches": [
+        "Hill survival independent drug targets fixed total dose optimal allocation number active pathways equal split versus concentrate sigmoid",
+        "identical sigmoid utility maximizing sum log(1+dosage^h) simplex budget equal active coordinates",
+        "Hill-law survival probability dose allocation support staircase critical thresholds",
+        "\"log(1+x^p) allocation equal optimum resource threshold\"",
+        "\"Hill active pathways dose budget optimal allocation equal\"",
+        "\"log(1+x^a) resource allocation sigmoid S shaped functions\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://doi.org/10.1177/1087057114521867: no fixed-total-dose optimal-support table in the inspected article",
+        "https://doi.org/10.1038/srep14701: independent Hill response components but no allocated-dose support table",
+        "https://www.econbiz.de/10002439510: closely related nonconcave identical-plant optimization, original full text inaccessible"
+      ],
+      "reasoning": "The accessible full papers and bibliographic evidence do not supply an identical n-target survival-product table or exact threshold sequence. The closest nonconcave-allocation originals are incompletely inspected, so absence in the accessible evidence is not an exhaustive nonexistence claim.",
+      "searches": [
+        "Hill-law survival probability dose allocation support staircase critical thresholds",
+        "global optimizer product of independent Hill survival curves under fixed total dose has equal positive coordinates and stepwise number of active arms",
+        "\"Hill-law survival probability dose allocation support staircase critical thresholds\"",
+        "identical sigmoid utility maximizing sum log(1+dosage^h) simplex budget equal active coordinates"
+      ]
+    },
+    "rationale": "No inspected full text establishes the unique sequential Hill-specific budget thresholds, their strict ordered brackets, or the exact first switching budget. The general identical-plant allocation literature plausibly covers a portion of the equal-support reduction, and its unavailable texts create a material priority risk, specifically recorded rather than silently discounted. The novelty assessment is best-knowledge provisional and not a claim of exhaustive priority.",
+    "residual_risks": [
+      "The original 1974 Ginsberg paper explicitly claims a complete solution for identical convex-concave plants: its inaccessible full text may contain a theorem implying more of the present result than the accessible abstract shows.",
+      "The 1970 Vicentini and 1980 Zipkin full texts remain inaccessible; general structural coverage cannot be excluded.",
+      "The model is a simplified independent-effects benchmark, not a validated pharmacological dose allocation rule.",
+      "Similarity searches of one database and the inspected literature do not establish global novelty or independent certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest general predecessor, potential coverage of resource-allocation structure; cannot assert whole document does not contain specialized theorem",
+        "evidence": [
+          "Abstract defines maximize sum Fi(xi) under shared nonnegative resource constraint, same optimization class",
+          "Public record gives 1970-08-01"
+        ],
+        "identifier_or_url": "https://commons.case.edu/wsom-ops-reports/370/",
+        "material_read": "Repository publication-date record and abstract; PDF full text unavailable",
+        "method": "Web bibliographic HTML and attempted PDF download; institutional retrieval blocked by storage-capacity restriction",
+        "title": "On the Resource Allocation Problem with S-Shaped Utility Functions",
+        "trigger": "1970 direct same optimization with general S-shaped returns"
+      },
+      {
+        "assessment": "Highly relevant, may subsume equal-positive reduction and possibly more. No direct conclusion about Hill-specific strict switch sequence justified from the abstract",
+        "evidence": [
+          "1974 full-paper abstract reproduced on 2008 resource-allocation reference listing says complete solution for identical plants",
+          "https://doi.org/10.1111/poms.13184 section 2.3 names Ginsberg analytic conditions"
+        ],
+        "identifier_or_url": "https://www.econbiz.de/10002439510",
+        "material_read": "Bibliographic record and secondary reproduction of the abstract; original full text unavailable",
+        "method": "Bibliographic web search; secondary paper account in open 2020 research review",
+        "title": "The multiplant firm with increasing returns to scale",
+        "trigger": "1974 theoretical complete solution for identical convex-concave plants"
+      },
+      {
+        "assessment": "Broad algorithmic work could reduce problem to candidate supports but no specific Hill staircase in accessible abstract",
+        "evidence": [
+          "Abstract: simple ranking methods for nonlinear resource allocation"
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/mnsc.26.1.34",
+        "material_read": "Abstract and bibliographic publication record, not entire paper",
+        "method": "Publisher abstract read; full text inaccessible",
+        "title": "Simple Ranking Methods for Allocation of One Resource",
+        "trigger": "General nonlinear separable allocation ranking algorithm"
+      },
+      {
+        "assessment": "Models combinations and response surface, not the all-budget global optimal activation staircase",
+        "evidence": [
+          "Bliss model is a response-surface baseline for multiple agents"
+        ],
+        "identifier_or_url": "https://doi.org/10.1177/1087057114521867",
+        "material_read": "Full accessible text, model and methods passages",
+        "method": "Opened and read HTML main article",
+        "title": "A New Bliss Independence Model to Analyze Drug Combination Data",
+        "trigger": "Multiplicative independent efficacy assumption"
+      },
+      {
+        "assessment": "Reviews reference definitions and interaction measures, not how a fixed dose budget changes active target count",
+        "evidence": [
+          "Bliss versus Loewe independence contrast"
+        ],
+        "identifier_or_url": "https://doi.org/10.3389/fphar.2015.00181",
+        "material_read": "Full accessible article, introduction and response-model comparisons",
+        "method": "Read full accessible HTML article",
+        "title": "What is synergy? The Saariselkä agreement revisited",
+        "trigger": "Independent survival benchmark and synergy terminology"
+      },
+      {
+        "assessment": "Independent Hill components are a modeling predecessor, but its shared concentration input does not optimize a dose sum across channels",
+        "evidence": [
+          "Multiphasic dose-response fitting with multiple independent Hill components"
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/srep14701",
+        "material_read": "Full accessible article including model and fitting method",
+        "method": "Read full accessible HTML article",
+        "title": "An automated fitting procedure and software for dose-response curves with multiphasic features",
+        "trigger": "Independent Hill response components already used in data fitting"
+      },
+      {
+        "assessment": "General vaccination allocation/coalitional game, no matching strict Hill dose staircase; provides evidence that older general optimization literature is important",
+        "evidence": [
+          "Section 2.3 cites Ginsberg 1974, resource allocation with S-shaped return functions and analytic optimality conditions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/poms.13184",
+        "material_read": "Full open article, including Section 2.3 and references",
+        "method": "Read web HTML introduction, literature review, model and references",
+        "title": "Core Allocations for Cooperation Problems in Vaccination",
+        "trigger": "Historical literature link to Ginsberg and S-shaped resource-allocation problems"
+      },
+      {
+        "assessment": "NP-hard general heterogeneous setting, algorithms/approximations; no sharp Hill-specific switches stated",
+        "evidence": [
+          "General S-curve resource allocation, NP-hard and special-case algorithms"
+        ],
+        "identifier_or_url": "https://ideas.repec.org/a/eee/ejores/v193y2009i2p605-615.html",
+        "material_read": "Abstract and bibliographic record only",
+        "method": "Inspected scholarly indexing abstract",
+        "title": "Solving knapsack problems with S-curve return functions",
+        "trigger": "Potential universal S-shaped allocation algorithm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a81be9bb-d6bd-4ab1-9368-69860dc26a31",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural coupled-resource independent-target model has nontrivial S-shaped cooperative dose response: optimal activation support does not merely change between all-to-one and spread-to-all, but necessarily uses every intervening integer support size in exact order, and no unequal positive split can ever win. The explicit sharp thresholds make an all-n, all-real-exponent allocation rule possible. This is a motivated structural boundary for interpreting independent Hill mechanisms and an exact benchmark for more realistic allocation models, not a renaming, trivial special case, or small numerical improvement. Model idealizations and unreviewed historical priority are explicitly distinguished from mathematical value.",
+    "status": "PASS"
+  }
+}
