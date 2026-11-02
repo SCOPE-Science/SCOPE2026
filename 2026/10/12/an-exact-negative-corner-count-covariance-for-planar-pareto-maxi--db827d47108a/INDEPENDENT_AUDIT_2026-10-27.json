@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T02:46:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md, seven Git blob IDs and independently reconstructed source tree",
+        "Pinned check_pareto_records.py/VERIFICATION.md inspected without relying on saved VERIFY_OK",
+        "Independent exact-rational verifier, 199 exhaustive permutation cells and 297 grid cells"
+      ],
+      "rationale": "For independent continuous coordinate marginals, sorting descending X leaves iid Y and makes M_n the upper-record sum. Given A_n=a, K_n counts Y threshold exceedances among the first a ranks. Each record indicator i<=a is independent of the symmetric first-a count; for i>a and j<=a conditional rank symmetry gives Cov(R_i,1{Z_j>t})=-(1-q)(1-(1-q)^(i-1))/(i(i-1)). Summing yields equation (1), and binomial mixing yields (2), with zero endpoint a=0,n. Telescoping a*sum_{i=a+1}^n1/[i(i-1)]=1-a/n and bounding the q-geometric tail give the strictly positive error and bound (4) for all n>=2 and p,q in (0,1), implying (3). Independent exact-rational checks verified all 199 n=2..7 rank cells and 297 grid cases up to n=34, including n=2:-1/16 and n=3:-15/128 at p=q=1/2. Finite checks supplement but do not prove the infinite-domain theorem.",
+      "residual_risks": [
+        "The proof assumes iid pairs, independent continuous coordinates, fixed interior thresholds, and two dimensions; it does not extend to dependent coordinates, ties, moving thresholds, or higher dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jacobovic–Zuk Theorem 2 concerns a maximal-indicator correlation inequality; Section 3 treats variance and asymptotic normality of sums of maximal indicators.",
+          "Bentley et al. establish maximal-point expectation models; Bai et al. establish maxima-count limit laws.",
+          "Barbour–Xia full text inaccessible; hence full-document coverage is NOT excluded."
+        ],
+        "reasoning": "Marginal expectation, variance, CLTs, and pairs of maximal-index indicators do not automatically determine the covariance with a spatial exceedance statistic; no inspected stronger statement yields the exact formula. An uninspected joint empirical/record process remains possible.",
+        "searches": [
+          "Resultary: exact covariance Pareto maximal points number of sample points upper right rectangle northeast quadrant threshold exceedance count in iid planar uniform sample",
+          "Jacobovic–Zuk 2022 arXiv:2209.00346 Theorems 2–4",
+          "Bentley et al. 1978 DOI:10.1145/322092.322095",
+          "Bai et al. 2001 DOI:10.1214/EJP.v6-76",
+          "Barbour–Xia 2001 DOI:10.1239/aap/1011994025"
+        ]
+      },
+      "checked_sources": [
+        "Bentley et al., Journal of the ACM 25(4), 536–543 (1978), DOI 10.1145/322092.322095",
+        "Bai et al., Electronic Journal of Probability 6, paper 3 (2001), DOI 10.1214/EJP.v6-76",
+        "Barbour & Xia, Advances in Applied Probability 33, 727–750 (2001), DOI 10.1239/aap/1011994025 (abstract only)",
+        "Jacobovic & Zuk (2022), arXiv:2209.00346, 16-page primary full text",
+        "Three semantic Resultary queries on Pareto maxima / corner occupancy / record-prefix covariance",
+        "Target record primary RESULT.md, original AUDIT.json and its checked reference bibliography"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n=2 and p=q=1/2 the submitted exact covariance is -1/16; for fixed p,q its limit is -(1-p)(1-q).",
+          "Prior known E[M_n]=H_n and the pairwise maximal-indicator covariance or CLT do not fix E[M_n K_n] absent the added joint threshold information.",
+          "The direct proof computes Cov(R_i,1{Z_j>t})=-(1-q)[1-(1-q)^(i-1)]/[i(i-1)] for i>j, which is the missing coupling."
+        ],
+        "reasoning": "The exact cross covariance and finite-sample exponential envelope are not immediate corollaries of the inspected marginal or pairwise-maxima results. An earlier unexamined theorem with stronger joint-process coverage remains the key residual risk.",
+        "searches": [
+          "Resultary: exact covariance Pareto maximal points number of sample points upper right rectangle northeast quadrant threshold exceedance count in iid planar uniform sample",
+          "Resultary: upper record count covariance with number of exceedances among first a iid observations record indicators",
+          "Jacobovic–Zuk 2022 arXiv:2209.00346",
+          "Bai et al. 2001 DOI:10.1214/EJP.v6-76"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sorting by descending first coordinate converts M_n into the upper-record count of iid Z_i; the north-east occupancy K_n becomes the number of Z_i>t in the initial segment of random length A_n.",
+          "Resultary 2026/9/21/SCOPE-nonidentical-record-indicator-independence-counterexample--638a911adad4 concerns nonidentically distributed record-indicator dependence, not corner-occupancy cross moments."
+        ],
+        "reasoning": "The geometric problem is equivalent to record-count covariance against a fixed-threshold exceedance count on a rank-ordered prefix. A theorem only giving independent record indicators does not yield the dependence with prefix exceedances; no covering equivalent was located.",
+        "searches": [
+          "Resultary: upper record count covariance with number of exceedances among first a iid observations record indicators",
+          "Web: random records number of records covariance threshold exceedances partial sample",
+          "Resultary: records in random permutation covariance intersection of first a positions with top b values record count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is a formula for all integers n>=2, all fixed p,q in (0,1), and all conditional a; it is not a single numerical table lookup.",
+          "Resultary nearby findings concern bivariate record kills, heterogeneous record-indicator independence, and unrelated random-order covariances, rather than the exact same northeast count observable."
+        ],
+        "reasoning": "No exact existing table, record, or database match was identified. This is a parameterized analytic identity; negative search cannot certify uniqueness.",
+        "searches": [
+          "Resultary: exact covariance Pareto maximal points number of sample points upper right rectangle northeast quadrant threshold exceedance count in iid planar uniform sample",
+          "Resultary: negative covariance maximal skyline size and count points in orthant upper corner limiting constant",
+          "Resultary: exact number of maximal points versus count in upper right quadrant joint moments",
+          "GitHub primary repository: same mathematical model first-public record metadata"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact mixed covariance between number of planar Pareto maxima and fixed northeast occupancy, including every conditional count, strict sign, universal nonzero limit and exponential finite-sample envelope. The broad primary literature inspected studies mean/variance/limit behavior of the maxima count or maximal-point indicators, not the required cross statistic. Prior permutation symmetry alone does not determine the cross moment.",
+      "residual_risks": [
+        "A historical full joint empirical-record process theorem may imply the exact mixed covariance under an alias not found in searched literature.",
+        "Barbour–Xia complete text was not retrieved: the authorized institutional access returned vpn_disconnected; no bypass or repeated request attempted.",
+        "Negative literature/database search does not establish absolute historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected mean-count results do not determine the submitted joint covariance; no assertion about uninspected material.",
+          "evidence": [
+            "Bentley–Kung–Schkolnick–Thompson (1978), Journal of the ACM 25(4), 536–543; expectation/algorithm focus."
+          ],
+          "identifier_or_url": "https://doi.org/10.1145/322092.322095",
+          "material_read": "Abstract, accessible primary descriptions and discussion of expected maximal-vector counts and maxima-search algorithms.",
+          "method": "Compared the stated mean-maxima results and permutation model with conditional mixed corner-occupancy covariance.",
+          "title": "On the Average Number of Maxima in a Set of Vectors and Applications",
+          "trigger": "Foundational record-order treatment of maximal points in planar product samples."
+        },
+        {
+          "assessment": "Inspected marginal results do not themselves imply the full fixed-corner cross-moment formula; historical equivalence remains possible.",
+          "evidence": [
+            "Bai–Hwang–Liang–Tsai (2001), Electronic Journal of Probability 6, paper 3."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/EJP.v6-76",
+          "material_read": "Public journal abstract, theorem/section descriptions and available indexed primary passages on marginal maxima counts in planar regions.",
+          "method": "Compared maximum-count distribution and planar spatial-decomposition statements with the fixed-threshold covariance.",
+          "title": "Limit Theorems for the Number of Maxima in Random Samples from Planar Regions",
+          "trigger": "Primary limit theorems for the same planar maximal-point count."
+        },
+        {
+          "assessment": "ACCESS_LIMITATION: not assessed for full-document noncoverage; this remains an explicit priority risk.",
+          "evidence": [
+            "Barbour–Xia (2001), Advances in Applied Probability 33, 727–750; accessible abstract addresses maxima-count approximation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/aap/1011994025",
+          "material_read": "Abstract, bibliographic material and short indexed primary excerpts only; the complete paper was not accessible.",
+          "method": "Attempted lawful open-access and preprint searches before authorized institutional retrieval; retrieval required manual VPN connection.",
+          "title": "The Number of Two-Dimensional Maxima",
+          "trigger": "Directly relevant planar record/maxima approximation work, potential implicit joint process theorem."
+        },
+        {
+          "assessment": "Theorems concern maximal-indicator interactions, variance and CLT; the inspected results do not state or immediately force the mixed corner-occupancy covariance.",
+          "evidence": [
+            "Jacobovic–Zuk (2022), arXiv:2209.00346, Abstract, Theorem 2, and Section 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.00346",
+          "material_read": "Accessible 16-page primary PDF inspected at abstract, introduction, Theorem 2 and Section 3 theorem statements/proofs on maximal-indicator covariance and CLT.",
+          "method": "Read actual PDF text and rendered first page; compared joint indicator events and variance identities to a count of points in a fixed upper corner.",
+          "title": "A correlation inequality for random points in a hypercube with some implications",
+          "trigger": "Closest additional primary study of pairwise maximal indicators, covariance and asymptotic independence."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md conditional covariance, limit and uniform error",
+        "Bentley et al. and Bai et al. for motivations and known marginal maximal-count analysis"
+      ],
+      "rationale": "The number of Pareto maxima and count exceeding a fixed northeast corner are natural descriptors of a random skyline. Although M_n is independent of each marginal threshold count and even of their pair, it has a strictly negative covariance with their intersection; the exact conditional sign, universal nonzero limit, and exponential error give meaningful structural and finite-sample information. The result is not simply the standard harmonic expectation, a marginal CLT, or a finite table recomputation. The scope is a focused exact statistic rather than a general skyline theorem.",
+      "residual_risks": [
+        "No claims for non-product coordinates, higher dimensions, causal interpretations or stochastic domination."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact proof applies only to n>=2, 0<p,q<1, iid planar continuous independent coordinates and fixed thresholds.",
+    "Barbour–Xia full text inaccessible under authorized institutional retrieval; comparison limited to abstract and indexed passages.",
+    "Finite verification not a substitute for analytic universal theorem; no formal proof or external expert certification.",
+    "No GitHub writes or dispatcher closeout performed."
+  ],
+  "schema_version": 1
+}
