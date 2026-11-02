@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Expanding four Gaussian TT replicas by Isserlis pairings gives exactly three pairing states per mode. Mismatching physical indices constrain the local state; adjacent equal or unequal pairings contribute 1 or 1/r. The 3×3 transfer matrix has eigenvalues 1+2/r and 1-1/r (double), giving the exact product and diagonal moment. Strict decrease and convexity of log((1+2z^g)/3), 0<z<1, produce both sharp extrema; expanding the finite diagonal quadratic form proves the variance statement. Standalone CHECK.py independently brute-expands all four Gaussian bond paths for selected exact cases, plus 22,694 rational test assertions; no computational evidence replaces the all-parameter proof. Boundary cases r=1, k=0, k=1, k=d are separately handled.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2606.15679, Theorems 5 and 7 use rank-one contraction moments and trace-scale concentration.",
+        "arXiv:2003.05101, Theorem 1 gives tensorized projection variance bounds.",
+        "arXiv:2603.11009, Proposition 7.4 is an upper bound for real TTStack, rather than an exact real entrywise covariance.",
+        "arXiv:2309.04952, Theorem 1 exactly covers the r=1 Gaussian tensor-product case."
+      ],
+      "reasoning": "The inspected broader-looking results apply to distinct observables or supply inequalities, not the specific finite-rank real two-entry fourth moment. The covered r=1 endpoint and known diagonal moment are explicitly excluded from novelty.",
+      "searches": [
+        "https://arxiv.org/abs/2606.15679",
+        "https://arxiv.org/abs/2309.04952",
+        "https://arxiv.org/abs/2003.05101",
+        "https://arxiv.org/abs/2603.11009"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.15679 §§2–3, Definition 1, Lemma 2, Theorems 5 and 7 (inspected rendered primary text)",
+      "arxiv:2309.04952 §1.2, Theorems 1 and 2 (inspected rendered primary text)",
+      "arxiv:2003.05101 §§3–5, Theorem 1 (inspected rendered primary text)",
+      "arxiv:2603.11009 §§7.1–7.4, Proposition 7.4 and proof (inspected rendered primary text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5 of arXiv:2606.15679 fixes one vector u and does not determine mixed products for two distinct non-factorizable pair configurations.",
+        "Meyer–Avron Theorem 1 controls r=1; r>1 cross moments can vary with mismatch gaps even when the mismatch count is fixed.",
+        "Cazeaux–Dupuy–Justiniano Proposition 7.4 supplies a real-case upper inequality, not equality."
+      ],
+      "reasoning": "No compared theorem entails the sharp r>1 minimum and maximum at fixed mismatch count. The r=1 and diagonal special cases are acknowledged as covered. The original contribution is thus the positive-bond-rank covariance kernel and its extremal consequence, subject to historical-priority risk.",
+      "searches": [
+        "https://arxiv.org/abs/2606.15679",
+        "https://arxiv.org/abs/2309.04952",
+        "https://arxiv.org/abs/2603.11009",
+        "exact diagonal trace estimation variance TT tensor train Gaussian sampling coordinate pair fourth moments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 5 of arXiv:2606.15679 gives individual contraction moments; Theorem 1 of arXiv:2309.04952 describes independent Kronecker-product probes.",
+        "The present three-state transfer identity uses pairwise physical-index equality constraints at every mode and r-dependent bond transitions."
+      ],
+      "reasoning": "Compared Wick/Isserlis four-replica, transfer matrix, Gaussian MPS, and covariance-kernel formulations. The rank-one limit is covered but has no dependence on gap lengths; a positive-bond-rank exact multi-mismatch formula was not found.",
+      "searches": [
+        "Gaussian tensor train probe coordinate squared covariance Wick pairings three state Potts transfer matrix diagonal trace estimator",
+        "random matrix product states fourth moment two distinct entries equality pattern r bond dimension",
+        "https://arxiv.org/abs/2606.15679"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or indexed record with the positive-rank mismatch-gap kernel appeared in the mathematical-record semantic searches.",
+        "Closest returned results include unrelated AdaHessian Gaussian diagonal-estimation leakage and general covariance-moment findings, rather than Gaussian TT coordinate covariances."
+      ],
+      "reasoning": "Checked actual mathematical-record hits by their underlying claims and implication, not just titles. Search incompleteness is not a uniqueness or priority certificate; a general tensor-network formula might be catalogued under different terminology.",
+      "searches": [
+        "Gaussian tensor train probe coordinate squared covariance Wick pairings three state Potts transfer matrix diagonal trace estimator",
+        "exact diagonal trace estimation variance TT tensor train Gaussian sampling coordinate pair fourth moments",
+        "random matrix product states fourth moment two distinct entries equality pattern r bond dimension",
+        "tensor train stochastic trace estimator mode order effect variance diagonal matrix"
+      ]
+    },
+    "rationale": "The central claim is the exact finite-bond-rank (r>1) cross-coordinate fourth-moment gap formula and sharp ordering for diagonal trace estimation. Its diagonal moment is known from the motivating paper and its bond-rank-one specialization from Meyer–Avron; those are not counted as new. Four relevant primary full texts were compared for exact matching statements and broader implications, and claim/alias searches of accessible previous claims and the mathematical findings database did not reveal coverage. Priority uncertainty remains for unlocated general tensor-network Wick transfer identities.",
+    "residual_risks": [
+      "Three-state Wick-transfer expressions are structurally classical and an earlier equivalent Gaussian tensor-network identity may exist under a different name.",
+      "Semantic and keyword searches do not establish exhaustive global priority; independent historical literature audit remains outstanding.",
+      "The rank-one case is already covered by earlier exact Kronecker variance theory; only the finite r>1 spacing dependence is treated as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers isotropy and the single-coordinate fourth moment, but the inspected result uses separate individual fourth-moment bounds for trace quadratic forms; it does not give a positive-bond-rank mixed-coordinate mismatch-spacing identity or arrangement classification.",
+        "evidence": [
+          "Definition 1 defines the same normalization and core distribution.",
+          "Theorem 5 gives sharp moments for single rank-one tensor contractions.",
+          "Theorem 7 §3.2 applies Cauchy–Schwarz to individual contractions for a trace-scale variance bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.15679",
+        "material_read": "Accessible rendered primary full text: Definition 1, Lemma 2, §3.1, Theorem 5, §3.2 and Theorem 7 inspected.",
+        "method": "Compared coordinate fourth-moment equality and trace quadratic-form bounds to the proposed two-coordinate cross moment and extremizers.",
+        "title": "Stochastic trace estimation with tensor train random vectors",
+        "trigger": "Identical Gaussian TT vector normalization and trace-estimation observable."
+      },
+      {
+        "assessment": "Explicitly covers the rank-one specialization and is credited. Its independent Kronecker factors have no shared positive-dimensional TT bonds and hence cannot imply the bond-rank-greater-than-one gap-order dependence.",
+        "evidence": [
+          "Theorem 1 gives an exact Kronecker-Hutchinson Gaussian variance using partial traces and partial transposes.",
+          "Its probe is a tensor product of independent factor vectors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.04952",
+        "material_read": "Accessible rendered primary full text: §1.2 Theorems 1 and 2, definitions and exact variance formulas inspected.",
+        "method": "Compared rank-one Kronecker probe with finite-bond-rank TT contraction; checked parameter implication.",
+        "title": "Hutchinson's Estimator is Bad at Kronecker-Trace-Estimation",
+        "trigger": "Exact variance of independent Gaussian tensor-product probes; possible equivalence at rank one."
+      },
+      {
+        "assessment": "Theorem 1 provides projection variance bounds and a shared normalization factor; does not classify cross-coordinate squared moments by differing-mode locations or optimize placement.",
+        "evidence": [
+          "§3 defines Gaussian TT random projections.",
+          "Theorem 1 and §5 derive moment/variance bounds for projection norms."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.05101",
+        "material_read": "Accessible rendered primary full text: definitions, Theorems 1 and 2, and variance proof in §5 inspected.",
+        "method": "Compared exact cross coordinate covariance and positional dependence against reported norm-projection variance estimates.",
+        "title": "Tensorized Random Projections",
+        "trigger": "Same real Gaussian TT tensorized random-projection construction."
+      },
+      {
+        "assessment": "Proposition 7.4 is an upper bound in the real case (equality stated for complex); its TTStack model and partial-trace bounds do not establish an exact finite-rank real coordinate-kernel with sharp mismatch-gap extrema.",
+        "evidence": [
+          "Proposition 7.4 and its proof explicitly distinguish a real-case inequality from complex-case equality.",
+          "§7.4 uses the bound to control randomized SVD errors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.11009",
+        "material_read": "Accessible rendered primary full text: §§7.1–7.2 including Proposition 7.4 and its proof, and §7.4 inspected.",
+        "method": "Checked whether real Gaussian moment inequalities are equalities, and whether they imply the coordinatewise pair kernel.",
+        "title": "Linear-Scaling Tensor Train Sketching",
+        "trigger": "Real Gaussian TTStack partial-trace moment estimates potentially dominate the proposed formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "de93365f-c409-41ed-b0ba-4c9964c6efe6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the entire coordinatewise fourth-moment kernel for real Gaussian finite-bond-rank TT probes and consequently the exact variance of arbitrary diagonal stochastic trace estimators. Its sharp fixed-mismatch ordering solves a natural mode-layout problem; two positive diagonal matrices with identical trace and eigenvalues yield exact variance 52 versus 99/2 for one sketch merely by different mode placement. This is an exact structural correlation result not subsumed by concentration inequalities or an arbitrary slice.",
+    "status": "PASS"
+  }
+}
