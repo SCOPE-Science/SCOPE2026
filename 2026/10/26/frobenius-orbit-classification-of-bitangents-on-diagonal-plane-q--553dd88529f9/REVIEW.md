@@ -1,11 +1,21 @@
-# Review of the arithmetic bitangent classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit disjoint families of twelve coordinate-pair lines and sixteen all-nonzero lines have squared restrictions by a polynomial identity valid in every odd characteristic. Standard odd-theta-characteristic theory gives an exhaustive total of 28. Frobenius acts by fourth-root shifts, with a separate quadratic-character argument for fields congruent to three modulo four. The proof determines all cycle lengths; independent binary-square finite-field enumeration tests representative coefficient classes for eleven odd prime fields and for the nonprime field of nine elements. Computation is supplementary, not a substitute for the uniform proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Classical formulas supply the geometric 12+16 bitangent families; they are not new. The examined Plaumann–Sturmfels–Vinzant paper describes general bitangent algorithms, Meagher–Top classifies finite-field genus-three twists, Bethea–Brazelton gives the Fermat quartic geometric automorphism action, and the finite quartic database lists bitangents for certain small fields. None of the examined material states the full coefficientwise Frobenius-cycle and zeta classification over all odd finite fields. A prior Galois-theta interpretation or an implicit specialization of known automorphism and twisting data may cover it; a search failing to locate an equivalent table does not establish historical priority.
+PASS
 
-**Mathematical value — PASS.** The 28-bitangent scheme is a canonical arithmetic invariant of a genus-three plane quartic. The theorem gives a natural complete descent classification for every diagonal twist, separating all splitting fields and describing exceptional rigidity: the exact count of four rational bitangents, unchanged by coefficients, for every field congruent to three modulo four. These explicit arithmetic theta data are finer than the existence of the 28 geometric bitangents and have applications to calculations involving odd theta characteristics and bitangent descent.
+For each of three coordinate-pair line families, fourth root equations u^4=-b/a etc produce 12 distinct theta-contact lines. The 16 lines X=uY+vZ with u^4=b/a,v^4=c/a satisfy an explicit perfect-square restriction identity, valid also in characteristic 3. The 28 lines are distinct, and the classical genus-three odd-theta-characteristic count exhausts them in characteristic not two (hyperflex tangents included). For q≡1 mod4, Frobenius acts on each fourth-root torsor by additive shift of exponent r, s, s-r plus epsilon for -1, and acts diagonally on 16 two-parameter lines, yielding exact orbit profile and all extension-field fixed-point counts. For q≡3 mod4, quadratic characters give four rational lines and all fourth roots lie in F_(q^2), forcing 1^4 2^12. Finite arithmetic checks directly enumerated all rational projective lines and binary-quartic square restrictions in p=3,5,7,11,13, and checked 16 residue patterns for each congruence; 100 cases passed without treating finite sampling as all-field proof.
 
-**Closest literature and limitations.** The geometric equations and 12+16 action are classical. The finite-field twist and small-field catalogs overlap in objects but not in the inspected universal arithmetic profile. Priority remains qualified because the calculation is an explicit refinement of known data. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: the 12+16 Fermat-quartic geometric bitangent decomposition and group action are classical, and Meagher–Top already classify Dyck–Fermat twists and Frobenius of Jacobians. The read full source has no bitangent calculation (a text search of all 26 pages found no occurrence), and Bethea–Brazelton's 12+16 complex automorphism action does not explicitly derive the coefficientwise arithmetic Frobenius cycle table including q≡3 mod4 and characteristic 3. The complete orbit table is a modest but natural arithmetic extraction; generic twist/Galois group action may make it easily derivable and prior specialist literature may already contain it.
+
+## value
+
+PASS
+
+PASS: arithmetic splitting and rational bitangent counts control field-of-definition questions on a natural genus-three family. The explicit all-odd-field cycle profile and finite-étale zeta include hyperflexes and extend classical 28-line geometric enumeration to arithmetic fields; one can need exact extension degrees rather than just the geometric line set. The result is not advertised as a classification of arbitrary quartics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
