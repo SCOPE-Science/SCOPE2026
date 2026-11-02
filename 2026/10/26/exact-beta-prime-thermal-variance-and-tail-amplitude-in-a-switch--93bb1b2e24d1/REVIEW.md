@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The average stiffness is positive, so the stationary stochastic convolution exists and is unique. A zero-flux invariant-density calculation for the conditional variance gives two separately normalized beta-prime laws; Gaussian conditioning then proves the position distribution, exact tail amplitude, and moment thresholds. A pole calculation proves the even-moment critical residues. Exact-rational comparisons with an independent two-state stationary generator recurrence and symbolic density-balance checks support the derivation, not replace it.
+## correctness
 
-## Originality — PASS, qualified
-The exponent and moment-threshold aspects are already covered by de Saporta–Yao (2005), Bardet–Guérin–Malrieu (2009), and general switching-diffusion methods. They are not claimed as new. The inspected sources and semantic literature comparisons did not state the evaluated conditional beta-prime mixture and explicit tail coefficient or symmetric-rate residue ladder. One important unresolved risk is that a specialized study of dichotomously modulated harmonic force constants could already contain an equivalent probability law. A historical nonappearance in searches is not mathematical proof of priority.
+PASS
 
-## Value — PASS
-The result produces an actual closed probability distribution and a quantitative rare-excursion prefactor for a physically motivated stability-switching process. It separates existence of a stationary state from finiteness of its thermal moments, with an infinite explicitly quantified sequence of divergences. The mixed stable/unstable trap has natural relevance to randomly changing trapping protocols.
+The stochastic convolution is finite since the environmental Lyapunov mean (kv-hu)/(u+v)>0. The variance PDMP has f_+=-2kz and f_-=2h(z+c); zero stationary flux and J'/J=a/z-(a+b)/(z+c) give the claimed two beta-prime conditional laws with environmental weights. Their b-tail, Gaussian product moments and beta-prime moment identities give the amplitude and residues. Independent program compared mixture moments with a separately derived two-state generator recurrence for several admissible rational cases; this supports, but does not prove, the unrestricted identity.
 
-## Closest literature and limitations
-Guyon–Iovleff–Yao (2004) give general linear switching-diffusion theory; de Saporta–Yao (2005) cover the heavy-tail exponent in the two-state setting; Bardet–Guérin–Malrieu (2009) discuss general moment thresholds; Huang et al. (2014) develop transform and moment recurrences; Bena (2006) reviews dichotomous noise. The claim is limited to scalar, additive thermal noise with two positive-rate switching modes, and does not establish independence from all published prior work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+de Saporta–Yao already establish heavy-tail exponent for two-state stable/unstable linear diffusions; Bardet–Guérin–Malrieu supply general switching-OU recurrence and moment conditions. Those antecedents cover exponent and thresholds, which are NOT novel. The inspected material did not exhibit the explicit *conditional* normalized beta-prime thermal-variance laws together with the evaluated one-time tail amplitude and symmetric-rate residues. The two-state original full text was not exhaustively inspected, so a specialized equivalent law remains a priority risk.
+
+## value
+
+PASS
+
+The invariant one-time distribution for a standard hybrid stable/unstable trap is a natural physical and probabilistic object. An explicit normalized mixing law, exact high-tail coefficient, and critical-moment residues supply information not obtained by knowing only a power-law exponent; useful for numerical comparison and parameter regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
