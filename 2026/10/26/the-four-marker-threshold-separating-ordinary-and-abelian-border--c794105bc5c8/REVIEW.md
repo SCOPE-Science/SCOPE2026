@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes two short-border reductions, proves that opposite-endpoint binary words containing at most three ones cannot possess a disjoint equal-Parikh prefix/suffix pair unless they already have a literal border, and handles three-or-fewer zeros by complementation. The four-one case reduces every candidate Abelian border to two ones per side, giving the gap inequality \(a+b\leq c+d\); among these words the only remaining literal border is present exactly when \(b=d\). Parametrization by \(e,f,b,d\) gives an unambiguous rational generating function and asymptotic estimate. Direct finite verification agrees with the proof across the stated ranges. The finite checks alone do not establish unrestricted validity.
+PASS
 
-## Originality — PASS (historical priority qualified)
+Ordinary border implies Abelian border. For a binary word with <=3 occurrences of either bit, if endpoints agree it has a length-one ordinary border; otherwise orient 0...1, let a leading zero run and d final pre-one zero run. If a<=d the literal border 0^a1 exists. If a>d, any disjoint prefix/suffix before left first 1 has fewer 1s than the suffix, and with <=3 ones they cannot each have >=2 ones; hence no Abelian border. For four ones, write 0^a1 0^b1 0^c1 0^d1. Exceptional iff a>d, a+b<=c+d, b!=d; first two enforce an Abelian border with exactly two ones per side and prevent one-one literal border; b!=d excludes the only possible two-one literal border. Reversal covers endpoint 1...0; complementary words covered by sparse rigidity. Parametrize a=d+e,c=b+e+f with e>=1,f>=0,b!=d, yielding 4z^8/((1-z)(1-z^2)^2(1-z^4)), shortest n=8, B_n~n^3/24 and B_n/binom(n,4)~1/n. Independently enumerated all 44,550 words of length <=22 with <=4 ones and checked the mixed-border condition and initial coefficients; proof extends all lengths.
 
-The 2013 Rampersad–Rigo–Salimov paper and the 2014 Goč et al. expansion count Abelian borders, without imposing absence of literal borders. Blanchet-Sadri–Chen–Hawes (2017) classify shortest Abelian-border length over all binary words, not fixed-weight intersection with literal unborderedness. Charlier et al. (2016) focus on periodicity and Abelian-unbordered factors, not the exact mixed-border exceptional class. A short ordinarily unbordered but Abelian-bordered word appears explicitly in the earlier literature; only the complete first-exceptional-layer classification and distribution are assessed here. The full Christodoulakis et al. (2014) text was inaccessible, so an earlier equivalent classification cannot be excluded absolutely.
+## originality
 
-## Value — PASS
+PASS
 
-The result identifies the exact minority-letter threshold at which classical and commutative border notions diverge, supplies the entire next fixed-content family, and quantifies its vanishing but polynomially populated exception density. The finite-support threshold and exact enumerator are natural reconstruction/word-boundary invariants rather than an arbitrary length slice.
+The shortest mixed-border word was already known; Goc–Rampersad–Rigo–Salimov (2014) full manuscript explicitly discusses binary Abelian-border paths and global counts, but does not classify the joint condition ordinarily unbordered AND Abelian bordered by exactly four occurrences. Christodoulakis et al (2014) relevant same-object abstract was accessible but full journal article unavailable. The new claim is the sharp sparse rigidity plus complete fixed-weight-four exceptional enumeration and rational generating function; the existence of the length-8 example is explicitly prior.
 
-## Limits
+## value
 
-Binary linear words only; the sharp discrepancy formula is restricted to exactly four ones. The new result has not undergone an external mathematical audit, and inaccessible primary literature leaves a specific historical-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact point where ordinary and Abelian border notions separate under sparse symbol multiplicity is a natural threshold in combinatorics on words; the first exceptional layer is a complete infinite family with explicit gap inequalities, rational enumerator and asymptotic proportion. This is more informative than merely repeating a known length-eight example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

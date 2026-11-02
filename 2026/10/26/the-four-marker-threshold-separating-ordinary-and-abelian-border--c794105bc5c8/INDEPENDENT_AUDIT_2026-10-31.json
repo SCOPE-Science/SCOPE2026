@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:55:37.370546Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 8074387c7b2e53aea0445b703ee9b4aeffeeb2e8",
+        "Frozen checker.py blob d323fe56afd5aa563b429393c0b00fffa738f0a1",
+        "independent_mathematical_checks.py"
+      ],
+      "rationale": "Ordinary border implies Abelian border. For a binary word with <=3 occurrences of either bit, if endpoints agree it has a length-one ordinary border; otherwise orient 0...1, let a leading zero run and d final pre-one zero run. If a<=d the literal border 0^a1 exists. If a>d, any disjoint prefix/suffix before left first 1 has fewer 1s than the suffix, and with <=3 ones they cannot each have >=2 ones; hence no Abelian border. For four ones, write 0^a1 0^b1 0^c1 0^d1. Exceptional iff a>d, a+b<=c+d, b!=d; first two enforce an Abelian border with exactly two ones per side and prevent one-one literal border; b!=d excludes the only possible two-one literal border. Reversal covers endpoint 1...0; complementary words covered by sparse rigidity. Parametrize a=d+e,c=b+e+f with e>=1,f>=0,b!=d, yielding 4z^8/((1-z)(1-z^2)^2(1-z^4)), shortest n=8, B_n~n^3/24 and B_n/binom(n,4)~1/n. Independently enumerated all 44,550 words of length <=22 with <=4 ones and checked the mixed-border condition and initial coefficients; proof extends all lengths.",
+      "residual_risks": [
+        "First-exceptional-layer enumeration is only fixed weight four, not all compositions or alphabets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Global distribution by shortest Abelian border length and lattice path encodings are known, but a joint ordinary-versus-Abelian discrepancy with fixed symbol multiplicity is a different statistic."
+        ],
+        "reasoning": "If a prior theorem explicitly counted joint minimal Abelian border with absence of every literal border it would dominate this result; no such implication was established from inspected primary content. The 2014 journal article remains a specific risk.",
+        "searches": [
+          "Resultary query: binary words ordinary unbordered Abelian bordered four ones shortest mixed border weight four generating function",
+          "Blanchet-Sadri et al arXiv:1708.06461"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 8074387c7b2e53aea0445b703ee9b4aeffeeb2e8",
+        "Frozen checker.py blob d323fe56afd5aa563b429393c0b00fffa738f0a1",
+        "Goc et al full author-version PDF DOI:10.1142/S0129054114400267",
+        "Christodoulakis et al 2014 DOI:10.1016/j.dam.2014.02.012 abstract, inaccessible full",
+        "Blanchet-Sadri et al arXiv:1708.06461 summary",
+        "Resultary query: binary words ordinary unbordered Abelian bordered four ones shortest mixed border weight four generating function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previously known Abelian-unbordered enumeration and infinite-word periodicity concern different quantifiers and do not imply a≤d/b≠d conditions on four zeros gaps."
+        ],
+        "reasoning": "The sparse up-to-three rigidity and complete gap inequalities require comparing literal and Parikh borders together; known global Abelian theory is machinery, not a proved implication of these joint formulas.",
+        "searches": [
+          "Resultary query: binary words ordinary unbordered Abelian bordered four ones shortest mixed border weight four generating function",
+          "Goc et al 2014 full article; Charlier et al 2016 DOI:10.1016/j.ejc.2015.07.003"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary borders are literal prefix-suffix equality; Abelian borders are equality of Parikh vectors; fixed-weight composition is a natural refinement."
+        ],
+        "reasoning": "An enumeration of Abelian-bordered or Abelian-unbordered words alone does not specify which are ordinary-unbordered, since their intersection must be subtracted; the assigned fixed-four classification is not a reparameterization of the global enumerator.",
+        "searches": [
+          "Resultary query: binary words ordinary unbordered Abelian bordered four ones shortest mixed border weight four generating function",
+          "Goc et al DOI:10.1142/S0129054114400267"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Shortest eight-letter mixed-border example aabbabab appears in older literature; the new B_8=4 is not novelty by itself."
+        ],
+        "reasoning": "Full global Abelian count or shortest-example table does not give the all-length fixed-weight-four generating function 4z^8/((1-z)(1-z²)^2(1-z^4)); targeted published search found no exact joint enumerator, subject to unindexed literature.",
+        "searches": [
+          "Resultary query: binary words ordinary unbordered Abelian bordered four ones shortest mixed border weight four generating function",
+          "Christodoulakis et al DOI:10.1016/j.dam.2014.02.012"
+        ]
+      },
+      "rationale": "The shortest mixed-border word was already known; Goc–Rampersad–Rigo–Salimov (2014) full manuscript explicitly discusses binary Abelian-border paths and global counts, but does not classify the joint condition ordinarily unbordered AND Abelian bordered by exactly four occurrences. Christodoulakis et al (2014) relevant same-object abstract was accessible but full journal article unavailable. The new claim is the sharp sparse rigidity plus complete fixed-weight-four exceptional enumeration and rational generating function; the existence of the length-8 example is explicitly prior.",
+      "residual_risks": [
+        "Christodoulakis–Christou–Crochemore–Iliopoulos 2014 full text inaccessible via OA and Oxford (VPN disconnected); may explicitly contain weight-four mixed-border results.",
+        "The eight-letter ordinary-unbordered/Abelian-bordered witness is previously known and is not claimed as a new example."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS global Abelian-border enumeration and known shortest discrepancy example; inspected body does not state joint weight-four mixed-border series",
+          "evidence": "The full manuscript counts Abelian-unbordered words rather than the exceptional intersection ordinary-unbordered and Abelian-bordered fixed weight four.",
+          "identifier_or_url": "https://doi.org/10.1142/S0129054114400267",
+          "material_read": "Complete accessible author-version manuscript: definitions, lattice/Motzkin method, example aabbabab, global enumerations and references; PDF page images also checked",
+          "method": "Full PDF text and screenshots of relevant pages",
+          "title": "On the Number of Abelian Bordered Words (with an Example of Automatic Theorem-Proving)",
+          "trigger": "Strong same-object antecedent; shortest counterexample"
+        },
+        {
+          "assessment": "POSSIBLE COVERAGE RISK: not read in full; no whole-document noncoverage claim",
+          "evidence": "Oxford returned vpn_disconnected job c9b02f63ea489d9b22e31f217891d9ec; full appendices unavailable.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.02.012",
+          "material_read": "Public abstract and bibliographic description only; full text unavailable",
+          "method": "Open-access attempts followed by authorized Oxford Download",
+          "title": "Abelian borders in binary words",
+          "trigger": "Same binary words and Abelian borders, plausible exact classification"
+        },
+        {
+          "assessment": "Related global Abelian-border distribution, not direct evidence of joint mixed-border weight-four classification",
+          "evidence": "Prior lattice-path approach may be adaptable; that alone is not a closed-form implication.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.06461",
+          "material_read": "Paper abstract and summary, not full text",
+          "method": "arXiv bibliographic/abstract search",
+          "title": "Dyck Words, Lattice Paths, and Abelian Borders",
+          "trigger": "More global enumeration by shortest Abelian border length"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 8074387c7b2e53aea0445b703ee9b4aeffeeb2e8",
+        "Goc et al full author-version PDF DOI:10.1142/S0129054114400267",
+        "Christodoulakis et al 2014 DOI:10.1016/j.dam.2014.02.012 abstract, inaccessible full"
+      ],
+      "rationale": "The exact point where ordinary and Abelian border notions separate under sparse symbol multiplicity is a natural threshold in combinatorics on words; the first exceptional layer is a complete infinite family with explicit gap inequalities, rational enumerator and asymptotic proportion. This is more informative than merely repeating a known length-eight example.",
+      "residual_risks": [
+        "No statement about all symbol weights or words over alphabets larger than binary."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 8074387c7b2e53aea0445b703ee9b4aeffeeb2e8",
+    "Frozen checker.py blob d323fe56afd5aa563b429393c0b00fffa738f0a1",
+    "Goc et al full author-version PDF DOI:10.1142/S0129054114400267",
+    "Christodoulakis et al 2014 DOI:10.1016/j.dam.2014.02.012 abstract, inaccessible full",
+    "Blanchet-Sadri et al arXiv:1708.06461 summary",
+    "Resultary query: binary words ordinary unbordered Abelian bordered four ones shortest mixed border weight four generating function"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "First-exceptional-layer enumeration is only fixed weight four, not all compositions or alphabets.",
+    "No statement about all symbol weights or words over alphabets larger than binary.",
+    "The finite independent checker is corroboration, not an infinite proof or originality/value certification.",
+    "Scientific judgment is best-of-knowledge; publication remains withheld because public metadata cannot be sanitized with validated guarded complete bytes."
+  ],
+  "residual_risks": [
+    "Christodoulakis–Christou–Crochemore–Iliopoulos 2014 full text inaccessible via OA and Oxford (VPN disconnected); may explicitly contain weight-four mixed-border results.",
+    "The eight-letter ordinary-unbordered/Abelian-bordered witness is previously known and is not claimed as a new example."
+  ],
+  "schema_version": 1
+}
