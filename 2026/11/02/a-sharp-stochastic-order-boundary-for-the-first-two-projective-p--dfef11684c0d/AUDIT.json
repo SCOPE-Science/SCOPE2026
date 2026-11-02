@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact inclusion-exclusion yields both survival identities. Every projective-plane coefficient is derived from an explicit exhaustive subset enumeration of 7 and 13 normalized projective points; an independent covered-set recurrence checks finite-time probabilities. Fano positivity is an exact recurrence from a closed gap formula. For q=3 the differences at t=4,5,6 are rational, and for every t>=7 the discarded-positive-term envelope B(t) is monotone with exact B(7)>0. The embedded code passed 250 exact checks; no infinite result is inferred from finite sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 general coverage paper proposes expected-time ordering and gives coverage-time expectation formulas, subsequently disproved in general; no all-time Fano/PG(2,3) comparison is stated.",
+        "Berend--Sher, arXiv:2509.17201v2, Theorem 2.1 constructs distributions with smaller expected coverage time, on a different extremality problem."
+      ],
+      "reasoning": "Expectation comparisons and general coverage bounds do not imply stochastic domination, and indeed the ternary example has a positive mean difference with a negative survival gap at t=4. Their published results therefore cannot simply subsume the claimed theorem.",
+      "searches": [
+        "Finite geometry uniform regular coupon coverage projective-plane lines stochastic ordering tails full random hypergraph",
+        "Projective plane coupon collector full-model stochastic ordering distributional extremality negative expectation conjecture",
+        "arXiv:2510.25305 Theorem 1 and Section VII",
+        "arXiv:2509.17201 Theorem 2.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.28216v1 (2026-06-26, primary MSC 60C05)",
+      "arXiv:2510.25305 (2025-10-29)",
+      "arXiv:2509.17201v2 (first public version 2025-09-21)",
+      "https://github.com/berend256/slow-fair-CCP (README for exact recovery sets and mean computation)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source Fano Markov-chain calculation yields only E[T]=163/30; the all-time Fano difference is an explicit positive exponential polynomial.",
+        "At PG(2,3), the exact new tail gaps have opposite signs at t=4 and t=5, so no stochastic-order conclusion follows from its larger expected time."
+      ],
+      "reasoning": "The new claim is neither a restatement of expected-time extremality nor a parameter-specialization of a published stochastic comparison found in the inspected sources. Classical inclusion-exclusion is used as a tool, not claimed as an original theorem. The all-time sign proof requires the explicit projective incidence spectrum and the positive envelope B(t).",
+      "searches": [
+        "Barak-Pelleg Berend Fano Geometry and Slow Coupon Collecting arXiv:2606.28216 exact coverage time distribution stochastic order PG(2,2) PG(2,3)",
+        "7 point Fano plane lines versus all 35 triples full coupon batch coverage time survival tails Laplace transform stochastic dominance",
+        "13 point PG(2,3) lines versus all 715 four-subsets cover time single crossing of survival probability at 4 and 5 draws",
+        "Projective plane coupon collector full-model stochastic ordering distributional extremality negative expectation conjecture",
+        "\"Fano Geometry and Slow Coupon Collecting\" \"first-order\" \"stochastic\"",
+        "\"Fano\" \"full model\" \"stochastic\" coupon collector",
+        "\"projective plane\" coupon collector \"distribution\" \"stochastic order\"",
+        "\"uniform regular\" \"Fano\" \"stochastic order\" coupon"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barak-Pelleg--Berend, arXiv:2606.28216, Theorem 2.1, Section 3: expectations and recovery-set counts; the new statement compares every integer-time survival probability.",
+        "Grunbaum--Yaakobi, arXiv:2510.25305, Section III: expected time from recovery-set coefficients, not the Fano/ternary pointwise order classification."
+      ],
+      "reasoning": "Equivalent formulations include first-order stochastic domination, sign of tail differences, monotone-functional inequalities, Laplace/PGF comparison, and recovery-set occupancy transforms. The two included stochastic statements are stronger and distinct from known expectation comparisons; finite recovery data alone gives formulas but does not supply the all-integer sign classification.",
+      "searches": [
+        "Barak-Pelleg Berend Fano Geometry and Slow Coupon Collecting arXiv:2606.28216 exact coverage time distribution stochastic order PG(2,2) PG(2,3)",
+        "7 point Fano plane lines versus all 35 triples full coupon batch coverage time survival tails Laplace transform stochastic dominance",
+        "\"Fano plane\" coupon collector \"first-order stochastic\"",
+        "\"projective plane\" coupon collecting \"stochastic domination\" coverage",
+        "\"Fano plane\" \"coverage time\" \"stochastic dominance\"",
+        "arXiv:2606.28216",
+        "arXiv:2510.25305"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Barak-Pelleg--Berend Table 1 lists the means 163/30 versus 85691/15810 and 43633/4620 versus 1746879067753/185252315340.",
+        "The authors public code supplement describes recovery-set counts and expectations, not a tabulated exact stochastic-order sign theorem.",
+        "Targeted mathematical-record searches did not identify the exact projective-plane survival-tail crossing."
+      ],
+      "reasoning": "Our verifier reproduces the published mean table for sanity, but the accepted finding concerns full-distribution inequalities and the t=4 to t=5 reversal. The table of expectations does not encode the pointwise ordering without additional derivation.",
+      "searches": [
+        "Fano plane fair coupon collector full model stochastic dominance entire tail distribution coverage time projective plane seven lines 3-subsets",
+        "Fano plane seven coupon cover time tail stochastic domination batch coupons",
+        "13 point PG(2,3) lines versus all 715 four-subsets cover time single crossing of survival probability at 4 and 5 draws",
+        "\"coupon\" \"Fano plane\" \"tail\" \"distribution\"",
+        "\"Fano Geometry and Slow Coupon Collecting\" \"stochastic dominance\"",
+        "\"Fano Geometry and Slow Coupon Collecting\" \"distribution\" probability",
+        "https://github.com/berend256/slow-fair-CCP"
+      ]
+    },
+    "rationale": "Theorem 2.1 and Section 3 of Barak-Pelleg and Berend give expectations for the projective-plane mechanisms, not all-time stochastic comparisons. The derived exact Fano tail gap and the complete q=3 sign reversal are not consequences of their expectation inequality; the q=3 example explicitly shows why a mean comparison cannot certify stochastic order. General recovery-set techniques can calculate finite distributions, but do not directly imply the strict all-time sign pattern here. Targeted scholarly and mathematical-record searches did not identify the exact stochastic-order statement; unindexed priority remains a risk.",
+    "residual_risks": [
+      "Unindexed prior work may have derived the same exact survival probabilities or their stochastic-order implications without searchable terminology.",
+      "The motivating paper already computes finite recovery-set statistics, which makes the distribution calculation an implicit computable consequence; this result claims the exact all-time sign classification, not novelty of those underlying statistics.",
+      "No conclusion is established for projective planes beyond the two smallest orders."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Expected values, first counterexample, and Markov-stage arguments do not give the pointwise tail sign theorem. The paper does include recovery-set data, noted as possible implicit antecedent, but no all-time stochastic ordering.",
+        "evidence": [
+          "Theorem 2.1 and Table 1, arXiv:2606.28216; Section 3, paragraphs on Fano direct Markov proof and exact enumeration for q=3 and q=4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.28216",
+        "material_read": "ArXiv full-text rendering: Introduction, Theorem 2.1, Section 3 Fano Markov-chain derivation and q=3 recovery sets, star mechanism, and concluding results.",
+        "method": "Lawful open arXiv full-text HTML rendering viewed as text.",
+        "title": "Fano Geometry and Slow Coupon Collecting",
+        "trigger": "Same geometric coupon mechanisms and direct expected-time source"
+      },
+      {
+        "assessment": "General expectation and recovery-set formulas, and a stochastic bound in a separate continuous-circle versus discrete-window model; no Fano or ternary projective-plane survival comparison.",
+        "evidence": [
+          "Section III Theorem 1; Section VI Lemma 2; Section VII discussion of expectation monotonicity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.25305",
+        "material_read": "Sections I, III, VI and VII including Theorem 1, the batch-coverage comparison and proposed uniform-regular expectation question.",
+        "method": "Lawful open arXiv rendered full text.",
+        "title": "General Coverage Models: Structure, Monotonicity, and Shotgun Sequencing",
+        "trigger": "Original expected-extremality conjecture and general recovery-set framework"
+      },
+      {
+        "assessment": "Distribution optimization problem chiefly about smaller expected collection times under specified other laws; no covered projective-plane tail inequality in inspected statements.",
+        "evidence": [
+          "Theorem 2.1 and Proposition 2.4, arXiv:2509.17201v2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.17201v2",
+        "material_read": "Abstract, Introduction, Section 2 main results and start of Section 3 proofs.",
+        "method": "Lawful open arXiv full-text HTML rendering viewed as text.",
+        "title": "On a Conjecture on Uniform Group Drawings in the Coupon Collector Problem",
+        "trigger": "Nearby uniform group-drawing extremality literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dfef1168-4c0d-40a7-8629-622351bc519b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact first-order stochastic comparison is a natural strengthening of the 2026 finite-geometric counterexample to expected coverage-time extremality. The Fano mechanism is slower at every nontrivial tail, but the very next projective-plane mechanism reverses direction between t=4 and t=5. The sharp discrete sign classification distinguishes global mean delay from transient rapid completion; it is a structural boundary for natural benchmark designs, not a routine new parameter value.",
+    "status": "PASS"
+  }
+}
