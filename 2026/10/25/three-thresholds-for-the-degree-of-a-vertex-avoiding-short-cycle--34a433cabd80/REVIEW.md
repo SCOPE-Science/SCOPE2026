@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact probability expression follows from independent edge families after fixing the distinguished vertex's neighbors. Its adjacent-weight ratio is obtained by exact cancellation, and direct enumeration checks all graphs on up to six vertices. The ratio bounds prove concentration on the Lambert scale; separate binomial-deviation and Laplace arguments prove the rarity regimes and critical large-deviation principle. The extrapolation to arbitrary \(n\) rests on these analytic arguments, not on enumeration.
+## correctness
 
-**Originality: PASS (provisional historical priority).** Janson–Ruciński, arXiv:0905.0972, Theorem 3.1 and Example 3.5, bound upper tails of rooted subgraph counts; they do not yield the simultaneous zero-triangle/zero-four-cycle conditioned degree law as stated. Stark–Wormald, arXiv:1608.05193, Theorems 1.1–1.3, treat absence of a prescribed subgraph throughout the graph, not an event confined to one root. A previously recorded single-root triangle-avoidance calculation does not contain the independent per-outside-vertex factor needed here; notably its suppression threshold differs. Exact public-source comparisons and searches detected no direct coverage. A general earlier enumeration or large-deviation theorem might specialize to the result, so priority requires independent review.
+PASS
 
-**Value: PASS.** Rooted short-cycle exclusion is a natural local tree-likeness condition in random graph exploration. The three degree/rarity boundaries distinguish degree collapse, saddle suppression, typical-degree behavior, and Poisson-scale rarity. The exact finite distribution and critical rate function identify the mechanisms, rather than merely giving an elementary expectation. The assertion is restricted to one distinguished root in a homogeneous independent-edge graph.
+Given root degree d and its neighborhood, triangle avoidance forces binom(d,2) absent internal edges and square avoidance forces each outside vertex to choose at most one of d neighbor edges. Independence gives w(d)=binom(n-1,d)p^d q^(n-1-d+binom(d,2)) (q^d+d p q^(d-1))^(n-1-d), with separate d=0 case. Re-derived positive adjacent-weight ratio and Lambert saddle log(lambda/x)=beta*x, x=W(n²p³)/(np²). Scrutinized proof uniform ratio windows, Chernoff degree tails, the alpha=2/3 Stirling rate I_c(a), and alpha=3/4 Poisson-scale avoidance. Independently enumerated ALL labeled graphs on 2..6 vertices with different root cycle detector; degree-by-allowed-graphs counts match binom(m,d)(1+d)^(m-d)2^binom(m-d,2) exactly. These finite checks corroborate the probability law, not all asymptotic rates.
 
-**Scientific limitations and residual risks.** Historical priority is uncertain; the exact formula may be implicitly available in older rooted graph enumeration. No central limit theorem or finite-sample error rates are supplied. The probability below \(\alpha=2/3\) is only logarithmically asymptotic. Full independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Janson–Ruciński 2009 gives *upper tail* bounds for rooted subgraph counts, not the joint zero event or degree conditioned on it. Stark–Wormald 2016/2018 analyzes absence of a fixed subgraph throughout the entire random graph, not simultaneous local triangle/square exclusion at a chosen root. Exact conditional independence is elementary, but the full three-boundary degree/rarity picture is not a corollary without new saddle and LDP analysis. Existing root cycle-exclusion probability literature could still encode an equivalent phase diagram.
+
+## value
+
+PASS
+
+The local tree-like neighborhood condition is natural for branching approximations in sparse random graphs. Exact conditional degree and three asymptotic rarity transitions identify mechanisms between local avoidance and vertex degree, including a critical LDP; not merely a negative occurrence test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

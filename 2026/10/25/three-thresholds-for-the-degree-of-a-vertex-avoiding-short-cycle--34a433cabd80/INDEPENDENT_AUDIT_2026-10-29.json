@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T20:16:23.512720Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given root degree d and its neighborhood, triangle avoidance forces binom(d,2) absent internal edges and square avoidance forces each outside vertex to choose at most one of d neighbor edges. Independence gives w(d)=binom(n-1,d)p^d q^(n-1-d+binom(d,2)) (q^d+d p q^(d-1))^(n-1-d), with separate d=0 case. Re-derived positive adjacent-weight ratio and Lambert saddle log(lambda/x)=beta*x, x=W(n²p³)/(np²). Scrutinized proof uniform ratio windows, Chernoff degree tails, the alpha=2/3 Stirling rate I_c(a), and alpha=3/4 Poisson-scale avoidance. Independently enumerated ALL labeled graphs on 2..6 vertices with different root cycle detector; degree-by-allowed-graphs counts match binom(m,d)(1+d)^(m-d)2^binom(m-d,2) exactly. These finite checks corroborate the probability law, not all asymptotic rates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson–Ruciński arXiv:0905.0972 Theorem 3.1/examples",
+          "Stark–Wormald arXiv:1608.05193 Theorems 1.1-1.3 global no-H asymptotics."
+        ],
+        "reasoning": "Generic upper-tail and global subgraph nonexistence theorems do not directly yield this root-local conditional degree law. A general large-deviation principle might yield limiting rate functions but would need a specialization resolving the simultaneous constraints.",
+        "searches": [
+          "Erdos Renyi rooted triangle and 4-cycle exclusion conditional degree Lambert W thresholds",
+          "degree distribution root not in triangle or 4-cycle Erdos Renyi conditioned root cycles",
+          "Janson Rucinski 2009 upper tails rooted random graphs and Stark Wormald 2016 global nonexistence",
+          "Resultary rooted girth four-cycle root conditional degree"
+        ]
+      },
+      "checked_sources": [
+        "Erdos Renyi rooted triangle and 4-cycle exclusion conditional degree Lambert W thresholds",
+        "Janson Rucinski 2009 upper tails rooted random graphs and Stark Wormald 2016 global nonexistence",
+        "Resultary rooted girth four-cycle root conditional degree",
+        "degree distribution root not in triangle or 4-cycle Erdos Renyi conditioned root cycles",
+        "https://arxiv.org/abs/0905.0972",
+        "https://arxiv.org/abs/1608.05193"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source ratio and analytic saddle derivation",
+          "Stark–Wormald global absence vs root degree distinction."
+        ],
+        "reasoning": "Known single-root triangle exclusion cannot imply simultaneous square avoidance: without B_d there is no n d²p² suppression and the alpha=2/3 Lambert transition shifts. Classical subgraph Poisson counts give the alpha=3/4 endpoint but not complete conditional distribution at alpha=1/2 and 2/3.",
+        "searches": [
+          "Erdos Renyi rooted triangle and 4-cycle exclusion conditional degree Lambert W thresholds",
+          "degree distribution root not in triangle or 4-cycle Erdos Renyi conditioned root cycles",
+          "Janson Rucinski 2009 upper tails rooted random graphs and Stark Wormald 2016 global nonexistence",
+          "Resultary rooted girth four-cycle root conditional degree"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janson–Ruciński 2009 rooted upper-tail events",
+          "Exact root neighborhood conditional factor B_d(p)^(m-d)."
+        ],
+        "reasoning": "Event E_n equals absence of both triangles through root and simple four-cycles through root, not global girth>4. Conditional root degree differs from global H-free graph degree distribution.",
+        "searches": [
+          "Erdos Renyi rooted triangle and 4-cycle exclusion conditional degree Lambert W thresholds",
+          "degree distribution root not in triangle or 4-cycle Erdos Renyi conditioned root cycles",
+          "Janson Rucinski 2009 upper tails rooted random graphs and Stark Wormald 2016 global nonexistence",
+          "Resultary rooted girth four-cycle root conditional degree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently enumerated root-degree coefficients through n=6",
+          "Published exact local-triangle-only law lacks B_d term."
+        ],
+        "reasoning": "Finite exact weights are obtained from independent Bernoulli edges, so not claimed as wholly new probabilistic mechanism; no prior exact table of the joint local event with five degree regimes found.",
+        "searches": [
+          "Erdos Renyi rooted triangle and 4-cycle exclusion conditional degree Lambert W thresholds",
+          "degree distribution root not in triangle or 4-cycle Erdos Renyi conditioned root cycles",
+          "Janson Rucinski 2009 upper tails rooted random graphs and Stark Wormald 2016 global nonexistence",
+          "Resultary rooted girth four-cycle root conditional degree"
+        ]
+      },
+      "rationale": "Janson–Ruciński 2009 gives *upper tail* bounds for rooted subgraph counts, not the joint zero event or degree conditioned on it. Stark–Wormald 2016/2018 analyzes absence of a fixed subgraph throughout the entire random graph, not simultaneous local triangle/square exclusion at a chosen root. Exact conditional independence is elementary, but the full three-boundary degree/rarity picture is not a corollary without new saddle and LDP analysis. Existing root cycle-exclusion probability literature could still encode an equivalent phase diagram.",
+      "residual_risks": [
+        "An earlier general rooted-neighborhood LD result might imply the simultaneous conditional law without using same words.",
+        "Probability estimates at the borderline alpha=2/3 rely on precise uniformity of Stirling/Laplace expansions; small-n enumeration does not validate them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives upper-tail event bounds; no directly covering conditional degree distribution for simultaneous root-zero triangle/square event in read material.",
+          "evidence": [
+            "Theorem 3.1 upper tails, not exclusion LDP."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0905.0972",
+          "material_read": "Opened full primary PDF and examined Theorem 3.1 and Examples 3.3–3.5, including screenshot of relevant page",
+          "method": "arxiv PDF theorem/specified examples",
+          "title": "Upper tails for counting objects in randomly induced subhypergraphs and rooted random graphs",
+          "trigger": "Rooted random graph counts may dominate conditional avoidance theorem"
+        },
+        {
+          "assessment": "Hypothesis/event is global no G0 copies, not rooted avoidance of both C3 and C4; this distinction makes abstract theorem not a direct result. No claim about uninspected appendices.",
+          "evidence": [
+            "2018 paper global subgraph nonexistence with exponential power-series probabilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.05193",
+          "material_read": "Primary arxiv abstract and Cambridge 2018 published abstract; complete 44-page paper not inspected",
+          "method": "arxiv/Cambridge primary publication abstracts",
+          "title": "The probability of nonexistence of a subgraph in a moderately sparse random graph",
+          "trigger": "Closest zero-subgraph probability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The local tree-like neighborhood condition is natural for branching approximations in sparse random graphs. Exact conditional degree and three asymptotic rarity transitions identify mechanisms between local avoidance and vertex degree, including a critical LDP; not merely a negative occurrence test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed c>0 and alpha in (0,1), no uniform-in-parameter estimate.",
+    "No conditional central limit law or finite-size error rates.",
+    "For alpha<2/3 rarity probability is logarithmic leading order only, not a multiplicative prefactor."
+  ],
+  "schema_version": 1
+}
