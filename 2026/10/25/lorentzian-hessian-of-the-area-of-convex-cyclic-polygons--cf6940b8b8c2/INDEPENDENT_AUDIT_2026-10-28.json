@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:46:39Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md Git blob ccb298b72dc22ad446aaa87f6b45cefafb9a776e, all six source entries tree af5a142c9837ff5e2b40934c8a35d614c6c7e578 verified at inventory commit.",
+        "Independent 5-side-vector centered/noncentered checks: 52 finite-difference Hessian entries, maximum absolute error 6.14e-5; all checked inertia and Euler identities.",
+        "The signed closure, area gradient, determinant lemma and positivity arguments were inspected independently and yield the full stated n>=3 theorem."
+      ],
+      "rationale": "For n>=3, strict convex-cyclic side-length chambers separate into centered (all signs +) and noncentered (only the unique longest side negative); the diameter/semicyclic locus is excluded. Differentiate signed central-angle closure and the signed fan-area formula to obtain R_j=R sigma_j/(q_j S), gradient A_i=sigma_i q_i/2 and H=diag(-sigma_i d_i/(2q_i))+(2R^2/S)vv^T with v_i=sigma_i/q_i. On centered chambers D negative and the update positive; on noncentered D has positive index 1 while the update is negative. In both cases rank-one inertia implies <=1 positive eigenvalue; Euler homogeneity d^T H d=2Area>0 gives at least one. Determinant lemma with 4R^2 T-S=sum sigma_i q_i/d_i>0 proves H nonsingular. Hence exactly (1,n-1) for every stated chamber. A harmless but genuine intermediate typo in the source proof writes S=2R sum tan(alpha) (twice); by definitions S=sum tan(alpha), and only its sign is invoked, so the displayed final Hessian and inertia proof remain correct. Independent central-angle finite-difference checks cover both chambers but are not a universal proof.",
+      "risks": [
+        "The source proof mistakenly multiplies S by 2R in one intermediate tangent identity; it is dimensionally inconsistent but used only for the sign. No claim on semicyclic or degenerate boundaries; numerical checks cannot replace the analytic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hyperbolic cyclic-polygon derivatives depend on curvature; signed-area Morse Hessians on linkage moduli fix side lengths, so their variables are polygon vertices, not the n-dimensional side-length vector.",
+          "Dulio–Laeng provides cyclic-area identities, not a displayed all-chamber matrix signature theorem in the inspected statements."
+        ],
+        "reasoning": "These apparently broader treatments involve different coordinates, curvature or implicit equations; none of the inspected results mathematically entails the rank-one Euclidean side-length Hessian and inertia without additional derivation.",
+        "searches": [
+          "DeBlois arXiv:1101.4971 area and circumradius derivatives",
+          "Khimshiashvili Cyclic Polygons as Critical Points Hessian Morse indices",
+          "Dulio Laeng generalized Heron Brahmagupta equality 2021"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0407300 (primary text opening pages)",
+        "arXiv:1101.4971 (primary text and p.4)",
+        "Khimshiashvili (2008), fixed-length linkage critical-point comparison",
+        "Resultary area Hessian semantic search 2026-10-28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The present noncentered sign S<0 follows from strict superadditivity of tangent under the signed closure; determinant requires strict positive signed cotangent sum.",
+          "A Morse index on the fixed-length configuration space is not the signature of D² Area(d) with d varied."
+        ],
+        "reasoning": "The claim is a differentiated structural refinement of known area theory, and the original-area polynomial alone does not state its global Hessian inertia; priority remains qualified.",
+        "searches": [
+          "Maley Robbins Roskies arXiv:math/0407300 implicit area polynomial vs second derivatives",
+          "Khimshiashvili 2008 fixed-side-length critical signed-area Hessian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maley–Robbins–Roskies, On the Areas of Cyclic and Semicyclic Polygons, establishes generalized Heron polynomial relations for area squared.",
+          "DeBlois develops hyperbolic cyclic-polygon geometry and notes derivative results; the audited Hessian differentiates Euclidean area with variable side lengths."
+        ],
+        "reasoning": "An algebraic area equation defines the same area implicitly, but equality of implicit area data is not an explicit inertia classification across centered and noncentered chambers. Equivalence through differentiated formulas remains a qualified priority risk.",
+        "searches": [
+          "Resultary semantic query: Lorentzian Hessian area of cyclic polygon side lengths Euclidean inertia rank-one derivative circumradius",
+          "arXiv:math/0407300 Maley Robbins Roskies cyclic semicyclic polygon areas",
+          "DeBlois arXiv:1101.4971 Euclidean vs hyperbolic area derivative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieved unrelated reduced-polygon area-stability and cyclic polygon invariant records, not a matching Hessian table or signature formula."
+        ],
+        "reasoning": "The assertion is a continuum theorem, not a small-instance numerical-table lookup; a negative database search does not prove absolute novelty.",
+        "searches": [
+          "Resultary semantic search Lorentzian cyclic polygon Hessian global inertia",
+          "web search cyclic polygon area Hessian side lengths eigenvalues table and generalized Heron polynomials"
+        ]
+      },
+      "rationale": "Best-of-knowledge original structural classification of the Euclidean area Hessian in side-length coordinates. Implicit generalized-Heron area equations and fixed-length linkage Morse indices are related but not the explicit all-chamber rank-one Hessian/inertia statement. An unstated derivative corollary of an existing implicit area equation remains possible.",
+      "residual_risks": [
+        "One intermediate 2R typo in the pinned proof must be explicitly flagged if editorially revised.",
+        "Implicit algebraic area formula could encode a previously unnoticed equivalent Hessian result; no exhaustive priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: implicit area polynomial; no explicit Hessian sign theorem in inspected passages.",
+          "evidence": [
+            "Generalized Heron polynomials encode squared cyclic-polygon area; opening equations and statements do not classify the side-length Hessian."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0407300",
+          "material_read": "Primary arXiv PDF mathematical statement, introductory derivation and generalized-Heron polynomial formulation (opening pages)",
+          "method": "Full-text PDF and rendered page inspection",
+          "title": "On the Areas of Cyclic and Semicyclic Polygons",
+          "trigger": "Same area function and all n cyclic polygons"
+        },
+        {
+          "assessment": "DISTINCT_GEOMETRY: hyperbolic cyclic area, not the Euclidean side-length Hessian.",
+          "evidence": [
+            "The paper studies cyclic hyperbolic polygons and their area/radius geometry, so curvature normalization differs from the audited Euclidean theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1101.4971",
+          "material_read": "ArXiv PDF abstract and relevant introduction/derivative framing (including p.4)",
+          "method": "Full-text PDF and rendered page inspection",
+          "title": "The geometry of cyclic hyperbolic polygons",
+          "trigger": "Potential stronger area/circumradius derivative theorem"
+        },
+        {
+          "assessment": "POTENTIALLY_RELATED: different variables (vertex configurations at fixed sides); full-source overlap risk remains.",
+          "evidence": [
+            "Morse indices of signed-area critical points do not automatically determine H=D²Area(d) in side coordinates."
+          ],
+          "identifier_or_url": "https://rmi.tsu.ge/geo/open_science/annex4_docs_geo/Khimsh6.pdf",
+          "material_read": "Bibliographic and mathematical description of fixed-length polygon-linkage Morse theory",
+          "method": "Source reference comparison; complete document not independently assessed in this run",
+          "title": "Cyclic Polygons as Critical Points",
+          "trigger": "Same word Hessian and cyclic polygons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Global all-n centered and noncentered classification including a nonsingularity proof.",
+        "Natural input coordinates are side lengths, directly tied to generalized Heron geometry."
+      ],
+      "rationale": "The full signature (one positive and n-1 negative) and explicit diagonal/rank-one formula give a natural structural Lorentzian property for the cyclic-polygon area function on its entire side-length chambers. This supports constrained extremization and stability, not merely a regular-polygon or sampled numerical fact.",
+      "risks": [
+        "No assertion at the semicyclic boundary, where q_i can vanish."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md/ccb298b72dc22ad446aaa87f6b45cefafb9a776e",
+    "arXiv:math/0407300",
+    "arXiv:1101.4971",
+    "Khimshiashvili 2008",
+    "Dulio–Laeng 2021"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "This is a local smooth-chamber Hessian theorem, not a semicyclic extension."
+  ],
+  "residual_risks": [
+    "The S=2R sum tan(alpha) intermediate factor is incorrect but sign-only.",
+    "Historical derivative equivalent from an implicit area formula is not excluded."
+  ],
+  "schema_version": 1
+}
