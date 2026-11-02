@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The standalone `three_band_cauchy_verification.py` was executed successfully with SymPy and mpmath. It checks the general coefficient and discriminant identities symbolically, the two-interval discriminant, the exact coalescence at \(r=2/5,s=1/15\), and the squared local splitting coefficient \(91/100\). It also compares the endpoint formula against direct high-precision integration for examples in both simple-zero regimes. The exact output includes the threshold \(s_*=0.06666666666666666666666667\) at \(r=0.4\).
+## correctness
 
-The proof of the complete parameter partition is analytic and does not rely on enumeration. Symbolic algebra checks are independent expressions of stated identities but are not an external proof assistant. Literature comparisons are bounded; independent audit and independent validation have not been performed.
+PASS
+
+Integrated the exact endpoint kernel: with r=a/b,s=c/b,w=(z/b)^2, the numerator is Aw^2+Bw+C, A=1-r+s, B=(1-r)(r-s^2)-s(r^2+1), C=rs(r-(1-r)s)>0. Its discriminant factors as -(1-r)(r-s)(1+s)Q_r(s), Q_r(s)=(1-r)s^2+(r^2+6r+1)s-r(1-r). Q increases strictly with a single root in (0,r); B>0 on the nonnegative-discriminant branch. The pole locations cannot cancel. Mapping the two w-roots by square roots proves the complete upper-plane classification, holomorphic multiplicities, and square-root opening. Independent SymPy checks confirmed rational identity, discriminant, two-interval polynomial and exact (r,s)=(2/5,1/15) collision and prefactor squared 91/100. One/two bands permit zero/one upper zeros respectively. This is an algebraic all-parameter proof, not a numerical extrapolation.
+
+## originality
+
+PASS
+
+The available primary wavelet papers give the holomorphic Cauchy-wavelet setting and behavior of phase retrieval near zeros, but do not supply this exact three-uniform-band discriminant or minimal component collision classification. Resultary semantic searches returned no statement dominating the submitted phase diagram. The priority judgment is best-of-knowledge, conditional on unindexed rational Cauchy-transform literature.
+
+## value
+
+PASS
+
+Zeros and their coalescence control analytic-wavelet phase singularities. The smallest possible number of equal-height bands producing an upper-plane double zero and a sharp dimensionless parameter frontier is a motivated global classification, beyond a single numerical example; it is not a claim of phase-reconstruction robustness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

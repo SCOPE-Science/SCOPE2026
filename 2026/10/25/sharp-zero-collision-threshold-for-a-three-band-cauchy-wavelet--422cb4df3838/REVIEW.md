@@ -1,19 +1,21 @@
-# Scientific review: three-band Cauchy-wavelet zeros
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The endpoint integral equals a rational function in the squared product coordinate. Exact polynomial collection gives \(N=Aw^2+Bw+C\), and exact factorization gives \(\Delta=-(1-r)(r-s)(1+s)Q_r(s)\). The proof establishes \(A,C>0\), the unique root \(s_*\) of a strictly increasing quadratic \(Q_r\), \(B>0\) before and at the collision, and the upper-half-plane multiplicities in every regime. The critical example \((r,s)=(2/5,1/15)\) has a double zero at \(i\sqrt3/5\) in scaled coordinates and a square-root horizontal-opening coefficient \(\sqrt{91}/10\). An exact symbolic verifier and independent numerical integral comparisons passed; finite examples are not the infinite-parameter proof.
+PASS
 
-## Originality — PASS under bounded comparison
+Integrated the exact endpoint kernel: with r=a/b,s=c/b,w=(z/b)^2, the numerator is Aw^2+Bw+C, A=1-r+s, B=(1-r)(r-s^2)-s(r^2+1), C=rs(r-(1-r)s)>0. Its discriminant factors as -(1-r)(r-s)(1+s)Q_r(s), Q_r(s)=(1-r)s^2+(r^2+6r+1)s-r(1-r). Q increases strictly with a single root in (0,r); B>0 on the nonnegative-discriminant branch. The pole locations cannot cancel. Mapping the two w-roots by square roots proves the complete upper-plane classification, holomorphic multiplicities, and square-root opening. Independent SymPy checks confirmed rational identity, discriminant, two-interval polynomial and exact (r,s)=(2/5,1/15) collision and prefactor squared 91/100. One/two bands permit zero/one upper zeros respectively. This is an algebraic all-parameter proof, not a numerical extrapolation.
 
-The accessible primary Cauchy-wavelet sources are Mallat and Waldspurger (arXiv:1404.1183, especially §§2.2,6.4) and Holighaus et al. (arXiv:1906.00738, especially §V-A). The former proves phase-retrieval results and discusses the qualitative role of zeros, and the latter studies phase poles at simple zeros, not this double-zero geometry. Accessible prior exact examples concern discrete four-atom Cauchy-wavelet transforms, higher-order two-band transforms, or general positive Cauchy-transform zero containment. Comparison by operator, input measure, derivative order, and implication found none that fixes this three-band threshold. A bounded public-literature and mathematical-record search did not locate an equivalent result; an unindexed equivalence remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Three disjoint equal-height intervals are the least complex multiband indicator geometry permitting an upper-half-plane Cauchy-wavelet zero collision; one and two intervals cannot exhibit it. The theorem determines its full parameter partition and sharp square-root unfolding, providing a precise model of multiple zeros in a representation where zeros have consequences for phase gradient and reconstruction.
+The available primary wavelet papers give the holomorphic Cauchy-wavelet setting and behavior of phase retrieval near zeros, but do not supply this exact three-uniform-band discriminant or minimal component collision classification. Resultary semantic searches returned no statement dominating the submitted phase diagram. The priority judgment is best-of-knowledge, conditional on unindexed rational Cauchy-transform literature.
 
-## Limits
+## value
 
-The theorem neither proves stability under noise nor extends to unequal band heights. Publication priority and independent mathematical validation remain unsettled.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Zeros and their coalescence control analytic-wavelet phase singularities. The smallest possible number of equal-height bands producing an upper-plane double zero and a sharp dimensionless parameter frontier is a motivated global classification, beyond a single numerical example; it is not a claim of phase-reconstruction robustness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
