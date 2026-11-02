@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T22:42:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Six pinned source blobs RESULT.md, SLOGAN.txt, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md; directory tree independently reconstructed from all six blob IDs",
+        "https://arxiv.org/abs/2610.00312 Theorem 1.2, Proposition 7.2, proof in Section 7",
+        "https://journals.msp.org/mscand/article/download/769/768/800 pp.89-91 for bounded-case background"
+      ],
+      "rationale": "Reconstructed the exact pointwise deductions from Fletcher 2026 Theorem 1.2 for every n>=2 and every uniformly quasiregular f:B^n->B^n. The theorem asserts exactly (a) every orbit relatively compact, split into locally uniform f^m->x0 with unique attracting/superattracting fixed point or onto uniformly quasiconformal d-isometric homeomorphism with subsequential identity; (b) all f^m->w in the boundary. A prime q>=2 periodic x gives finite compact orbit and excludes (b); the nonconstant periodic sequence f^m(x) has no limit, excluding the attracting branch, hence forces the homeomorphism branch. Outside that branch, in (a) all f^m(x)->x0 so a periodic or recurrent x is x0, and x0 itself is fixed/recurrent; in (b), every interior orbit tends to w on the sphere, excluding relatively compact, periodic, or recurrent interior points. Thus fixed/periodic/recurrent/some compact orbit exist together in (a), and none in (b). The q=1 case, q>=2 case, n=2 case, and boundary escape are consistent. The proof uses only exact convergence/compactness and no numerical computation or unchecked certificate. This C PASS is conditional on the cited deep source theorem, independently read but not reproved.",
+      "residual_risks": [
+        "Fletcher 2026 deep Schwarz-Pick and hyperbolicity proof treated as an explicitly cited premise, not fully independently re-established.",
+        "No Lean/expert attestation exists in the package; none is invented.",
+        "No self-map result is asserted for globally defined uqr maps on R^n or S^n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fletcher arXiv:2610.00312 Theorem 1.2 directly covers all n>=2, no properness or surjectivity, same uqr maps and the precise dynamical split.",
+          "Fletcher-Macclure 2020 Theorem 1.8 is earlier but only B^3 proper/surjective.",
+          "Hinkkanen-Martin-Mayer 2004 Propositions 4.6 and 4.9 supply attracting and rotation domains used by Fletcher 2026, not the all-ball global escape half."
+        ],
+        "reasoning": "The 2026 theorem strictly dominates every asserted consequence because it describes entire forward iterates, not merely periodic or recurrent points; no parameter or normalization reduction is needed. Earlier 2020/2004 results are narrower and are not the decisive source for the universal claim.",
+        "searches": [
+          "uniformly quasiregular ball self-map periodic cycle recurrent point Denjoy Wolff Fletcher bounded escaping dichotomy non-injective",
+          "Denjoy Wolff uniformly quasiregular no periodic points nonelliptic rotation domain convergence to attracting fixed point",
+          "Schwarz-Pick Denjoy-Wolff uniformly quasiregular Theorem 1.2",
+          "Fletcher Macclure Denjoy-Wolff Theorem 1.8 ball B3",
+          "Hinkkanen Martin Mayer local dynamics Proposition 4.9 stable components",
+          "https://arxiv.org/abs/2610.00312",
+          "https://arxiv.org/abs/1703.02455",
+          "https://journals.msp.org/mscand/article/download/769/768/800"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.00312 Theorem 1.2 and Proposition 7.2",
+        "https://arxiv.org/abs/1703.02455 Theorem 1.8 and Remark 1.10",
+        "https://journals.msp.org/mscand/article/download/769/768/800 Propositions 4.6 and 4.9",
+        "https://arxiv.org/abs/1306.3298 Theorems 1 and 2",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-periodic-and-recurrent-rigidity-for-non-elliptic-uniformly-quasi--166c1a622188 assessed record self-hit excluded from priority"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.2(a) says in the bounded case either full iterates converge to the unique interior attractor or the map is an onto uniformly quasiconformal homeomorphism with d-isometry and subsequential identity.",
+          "Theorem 1.2(b) says all iterates converge locally uniformly to one boundary point.",
+          "A finite periodic orbit cannot have boundary limit; if q>=2 it cannot converge to a single interior point; a recurrent subsequence necessarily agrees with the full-orbit limit."
+        ],
+        "reasoning": "The proof in submitted RESULT.md literally applies these three elementary observations to the already proven cases. There is no additional structural or geometric theorem. Thus the final claim is a routine corollary of a stronger existing theorem, including all stated equivalences, and fails scientific originality under the requested implication-based criterion.",
+        "searches": [
+          "https://arxiv.org/abs/2610.00312",
+          "Fletcher 2026 Theorem 1.2 Proposition 7.2",
+          "https://arxiv.org/abs/1703.02455",
+          "Fletcher Macclure 2020 Theorem 1.8 Remark 1.10",
+          "https://journals.msp.org/mscand/article/download/769/768/800",
+          "Hinkkanen Martin Mayer 2004 Propositions 4.6 4.9",
+          "uniformly quasiregular ball self-map periodic cycle recurrent point Denjoy Wolff Fletcher bounded escaping dichotomy non-injective"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fletcher 2026 Theorem 1.2(a)(b) and Proposition 7.2 contain an exhaustive asymptotic trichotomy after splitting the bounded branch.",
+          "The submitted Per(f)=Rec(f)={x0} or empty assertion is the pointwise limit-set rephrasing of the same trichotomy; no further lemma of uqr geometry is used.",
+          "The source HTML does not use the labels periodic point/recurrent/cycle, but implication subsumes absence of cycles and recurrence equivalences."
+        ],
+        "reasoning": "The aliases “nontrivial cycles force the elliptic branch,” “all nonelliptic recurrent points are fixed,” and “a relatively compact orbit diagnoses attraction” are obtained by checking convergence of finite or recurrent subsequences against the three mutually exclusive cases in the source theorem. Their absence as exact text is irrelevant; they add no hypothesis or independent proof.",
+        "searches": [
+          "uniformly quasiregular ball self-map periodic cycle recurrent point Denjoy Wolff Fletcher bounded escaping dichotomy non-injective",
+          "recurrent periodic rigidity for non-elliptic uniformly quasiregular ball maps",
+          "uniformly quasiregular noninjective self-map ball periodic points Denjoy-Wolff",
+          "recurrent point uniformly quasiregular self-map ball Denjoy-Wolff",
+          "https://arxiv.org/abs/2610.00312"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned the assessed finding itself as its strongest match; this is not independent priority.",
+          "The source Theorem 1.2 and Proposition 7.2 contain the mathematical conditions completely.",
+          "There is no numerical invariant, tabulated spectrum, finite census or database calculation in this research claim."
+        ],
+        "reasoning": "No external exact-value table is relevant; the appropriate exact-coverage test is theorem implication, which succeeds through Fletcher Theorem 1.2 even without a verbatim database entry. The self-hit cannot be counted as independent novelty evidence.",
+        "searches": [
+          "recurrent periodic rigidity for non-elliptic uniformly quasiregular ball maps",
+          "periodic and recurrent rigidity non-elliptic uniformly quasiregular ball maps",
+          "arXiv:2610.00312 periodic cycle recurrent point",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-periodic-and-recurrent-rigidity-for-non-elliptic-uniformly-quasi--166c1a622188"
+        ]
+      },
+      "rationale": "All parts of the submitted final claim are immediate implications of Fletcher's Theorem 1.2 (2026), the very result cited as the proof's sole premise. Naming a new orbit-level corollary, or observing that the lead paper does not contain the words 'recurrent' or 'periodic point', cannot defeat implication-level coverage. For a prime q>=2 cycle the finite orbit rules out boundary escape, while its nonconvergent time sequence excludes convergence to x0, leaving exactly the isometric homeomorphism branch of that theorem. In the excluded-elliptic regime the same dichotomy already determines periodic and recurrent sets by taking limits. Resultary's match is this same assessed record, never independent priority. This is a scientifically decisive O failure, not an access or failed-search shortcut.",
+      "residual_risks": [
+        "The lead 2026 theorem is a recent preprint; independent complete proof certification of its foundational chain metric results was not attempted. This does not alter the demonstrated logical coverage conditional on the source theorem.",
+        "Full-text comparisons are bounded to the accessed primary articles; an unindexed note could also have stated the corollary explicitly, but no such note is needed to reach O FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY_DOMINATES_CLAIM: Theorem 1.2 provides the complete bounded/escaping and attracting-versus-homeomorphism alternatives. Every submitted orbit consequence follows by applying limit definitions, although the paper does not present it as a separately titled orbit classification.",
+          "evidence": "Theorem 1.2(a): every orbit relatively compact, then either f^m->unique attracting or super-attracting x0 locally uniformly or f is onto uniformly quasiconformal homeomorphism/d-isometry with f^{k_j}->id; (b): f^m->w in boundary; Proposition 7.2 repeats the bounded split. arXiv rendering lines 55-68 and 427-496.",
+          "identifier_or_url": "Alastair N. Fletcher, arXiv:2610.00312v1; https://arxiv.org/abs/2610.00312",
+          "material_read": "Full publicly rendered article HTML: Theorems 1.1 and 1.2, Corollary 1.3, Section 7 Propositions 7.1-7.4 and proof of Theorem 1.2, end-of-paper open questions, and term searches for periodic/recurrent/cycle.",
+          "method": "Read full-text arXiv rendering; theorem-by-theorem logical implication check; searched all page text for the three orbit terms.",
+          "title": "Schwarz-Pick and Denjoy-Wolff for uniformly quasiregular maps",
+          "trigger": "Exact object/hypotheses, sole premise of the submitted proof; decisive implication/priority comparison."
+        },
+        {
+          "assessment": "PRIOR_NARROWER_COVERAGE: Theorem 1.8 applies to proper surjective uqr self-maps of B^3, not arbitrary all-dimensional ball maps; nevertheless analogous orbit conclusions follow under those earlier assumptions.",
+          "evidence": "Theorem 1.8 explicitly assumes f:B^3->B^3 proper and surjective; Remark 1.10(i) says this proof cannot drop those assumptions. Article lines 116-127, 635-641.",
+          "identifier_or_url": "Alastair Fletcher and Douglas Macclure, arXiv:1703.02455; DOI:10.1007/s11854-020-0107-6; https://arxiv.org/abs/1703.02455",
+          "material_read": "Full arXiv article HTML with focused inspection of Theorem 1.8, Corollary 1.9, Remark 1.10 and Section 7 proof.",
+          "method": "Full-text primary-source reading and comparison of dimension, properness, and surjectivity hypotheses.",
+          "title": "Strongly automorphic mappings and Julia sets of uniformly quasiregular mappings",
+          "trigger": "Earlier ball Denjoy-Wolff theorem; check all-dimensional scope and whether previous stronger statement already existed."
+        },
+        {
+          "assessment": "SUPPLIES_BOUNDED_DYNAMICS_INPUT; not itself a stand-alone arbitrary-ball global Denjoy-Wolff dichotomy. Its attracting-versus-rotation-domain classification underlies the directly dominating 2026 theorem.",
+          "evidence": "Proposition 4.6 relates constant subsequential limits to attracting/superattracting fixed points; Proposition 4.9 classifies stable components as attracting, parabolic or rotation domains (PDF pp.89-91).",
+          "identifier_or_url": "Hinkkanen, Martin, Mayer, Mathematica Scandinavica 95 (2004), 80-100; DOI:10.7146/math.scand.a-14450; https://journals.msp.org/mscand/article/download/769/768/800",
+          "material_read": "Publisher-hosted 21-page PDF text extraction, rendered inspection of pp.80, 89-91 (PDF pages 0,9,10,11), in particular Propositions 4.6 and 4.9, their definitions and proof passages.",
+          "method": "Publisher PDF text extraction with page screenshot inspection for theorem wording and hypotheses.",
+          "title": "Local dynamics of uniformly quasiregular mappings",
+          "trigger": "Fletcher 2026 Proposition 7.2 explicitly reduces bounded-dynamics alternatives to this source Propositions 4.6 and 4.9."
+        },
+        {
+          "assessment": "DIFFERENT_SETTING: global closed-manifold Julia-set accumulation/density assertions cannot imply non-elliptic self-map-of-open-ball absence or the bounded/escaping dichotomy.",
+          "evidence": "Theorem 1 considers M\\S_f with M closed and Julia-set accumulation by periodic points; Theorem 2 gives density criteria; page lines 20-93.",
+          "identifier_or_url": "Okuyama and Pankka, arXiv:1306.3298; https://arxiv.org/abs/1306.3298",
+          "material_read": "Full publicly rendered arXiv article HTML; focused inspection of Theorems 1 and 2, hypotheses (local maps from punctured closed manifold) and the periodic-point definitions.",
+          "method": "Primary text and theorem-level implication comparison; no inference from title alone.",
+          "title": "Accumulation of periodic points for local uniformly quasiregular mappings",
+          "trigger": "Potential stronger periodic-orbit classification under quasiregularity with non-injectivity."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.00312 Theorem 1.2/Proposition 7.2",
+        "https://journals.msp.org/mscand/article/download/769/768/800 Proposition 4.9",
+        "https://arxiv.org/abs/1306.3298 periodic-point comparison"
+      ],
+      "rationale": "Periodic and recurrent orbit sets are natural dynamical objects, and the stated diagnostic is educationally useful. Nonetheless the entire classification is obtained by taking constant limits of a sequence and ruling out convergence of a nonconstant periodic sequence. It introduces no new geometric estimate, structural lemma, boundary example, quantitative restriction, classification not already implicit in the complete source trichotomy, or independent invariant calculation. The gain over Fletcher 2026 Theorem 1.2 is terminology/exposition, precisely the kind of routine corollary the standard excludes as a stand-alone research contribution. The basic orbit-logic is not a motivated additional mathematical gap requiring a research finding.",
+      "residual_risks": [
+        "An expository corollary could help readers locate periodic behavior, but usefulness in exposition is not by itself substantive standalone scientific value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The result is conditional on the deep 2026 preprint theorem, which is cited rather than reproved.",
+    "No generalization to globally defined maps or dynamics in the isometric homeomorphism branch.",
+    "Resultary self-hit excluded; publication not_ready is transport/confidentiality, not the source of the scientific FAIL."
+  ],
+  "schema_version": 1
+}
