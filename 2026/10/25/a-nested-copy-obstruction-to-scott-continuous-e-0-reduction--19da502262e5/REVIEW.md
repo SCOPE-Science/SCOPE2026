@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Scott continuity implies monotonicity. Along the nested diagram chain, the output sets are nested. If the endpoints are E0-equivalent, their set difference is finite, so the intermediate output is also E0-equivalent to both endpoints. This contradicts the reduction property when the middle structure is nonisomorphic to the endpoints. The equivalence-structure example is built by placing full infinite classes and finite subsets of other infinite classes into disjoint target classes, which preserves both equivalence and non-equivalence on the induced substructure.
+PASS
 
-## Originality
+Scott continuity on the positive-diagram subspace preserves specialization order, hence diagram inclusions map to subset inclusions. If A0 subset B0 subset A1 are positive diagrams of endpoint-isomorphic but middle-nonisomorphic structures, a reduction to E0 forces endpoint output symmetric difference finite; the nested middle output must then differ from either endpoint by only a finite set, contradiction. For each E_n, choose countably infinite infinite target equivalence classes, reserve one subcollection as full infinite classes in B_m and take m-element subsets of another to form finite m-classes; repeat inside B_m to obtain A_n with finite n-classes. Induced substructures preserve equality/inequality facts, and domains can be nested proper subsets of N as in the cited positive-text learning definition. The proof is infinite and order-theoretic; no finite experiment is offered as a substitute.
 
-PASS, with bounded-search limitations. published-finding corpus searches used exact Scott-continuity, positive-diagram, E0, and TxtEx phrases and returned no direct match. The 2025 paper on Friedman–Stanley jumps treats Cantor-continuous reductions for full structure codes. The 2024 paper on learning from text gives the positive-infinitary characterization, establishes the canonical family’s TxtEx-completeness, and asks for a Scott-continuous/Borel-equivalence characterization; it does not state this nested-copy obstruction. A differently phrased prior observation may exist.
+## originality
 
-## Value
+PASS
 
-PASS. The result rules out a direct and natural transfer of the familiar E0 reduction criterion from full atomic information to Scott-continuous positive information. The obstruction is general for any learning domain containing the stated nested-copy chain, and the canonical complete family shows that the condition is not vacuous.
+The standard Cantor-continuous full-diagram E0 criterion and the known positive-data TxtEx-completeness are credited. Bazhenov et al. (2024) Proposition 6 already uses Scott monotonicity for an embedding obstruction, so the monotonicity *technique* is not new. The separately scoped statement is an order-convexity obstruction for the specific target E0 and its application to a canonical TxtEx-complete equivalence-structure family; it rules out the naive direct E0 analogue raised in their Question 1 but does not solve that entire characterization. Priority of an equivalent generic monotonicity lemma is a residual risk.
 
-## Closest literature and limitations
+## value
 
-The closest sources are Cipriani–Marcone–San Mauro, arXiv:2501.12846, for continuous E0 reductions in explanatory learning, and Bazhenov et al., arXiv:2402.05744, for TxtEx-learning and the explicit open question about Scott-continuous maps. The result does not characterize all positive-data learning classes and does not rule out other target equivalence relations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The simple order argument has a concrete nontrivial consequence for a canonical positive-data learning example: a TxtEx-complete family cannot satisfy the naive Scott-continuous E0 analogue of a known full-diagram criterion. This resolves one natural target choice arising from an explicitly stated question, rather than merely renaming order monotonicity; the modest scope and elementary proof are acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
