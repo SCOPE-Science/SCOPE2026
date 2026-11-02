@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The companion `verify_intersections.py` provides independent finite exhaustive computations. It enumerates the rank-\(\ell\) summands of \(R^n\) through canonical reduced-row-echelon residue bases, iterates every allowed radical lift, and forms each actual intersection with the coordinate summand by all \(R\)-linear combinations.
+# Independent mathematical audit
 
-Over \(\mathbb F_p[\varepsilon]/(\varepsilon^2)\), direct enumeration covers ten instances for \(p=2,3\) and dimensions at most four. For the mixed-characteristic ring \(\mathbb Z/4\mathbb Z\), six additional instances are checked. The program compares the entire \((a,b)\)-distribution to the Gaussian formula, including zero-count cases, and separately verifies the summation identity at \(q\in\{2,3,4,5,7\}\), \(1\le n\le9\), all feasible ranks. Its successful terminal marker is `ALL_CHECKS_OK`.
+## correctness
 
-A representative dimension-four balanced binary case has \(560\) free rank-two summands with type counts \(N(0,0)=256\), \(N(0,1)=144\), \(N(0,2)=6\), \(N(1,0)=144\), \(N(1,1)=9\), \(N(2,0)=1\). Both residue-characteristic-two dual numbers and \(\mathbb Z/4\mathbb Z\) yield these counts.
+PASS
 
-Finite testing does not prove all dimensions, arbitrary prime powers, or the limiting law. Those follow from the mathematical proof in RESULT.md. The verification uses no external package beyond Python's standard library; run with `python3 verify_intersections.py`.
+For fixed residue ℓ-plane L, free summand lifts form q^{ℓ(n−ℓ)} graph torsor. Grassmann intersection L∩H has dimension d with Gaussian count. The canonical obstruction δ:S→F_q^n/(H+L) is surjective-uniform across lifts, of dimension c×d; its rank b gives torsion multiplicity, kernel dimension a=d−b the free rank. Multiplication yields the explicit Gaussian coefficient and GL_b count, normalized by q^{ℓ(n−ℓ)}[n ℓ]_q. In critical window, Gaussian asymptotics give residue mass Φ∞q^{-d(d+s)}/(Φ_dΦ_{d+s}); conditional b is matrix rank. A uniform summable q^{-d(d+s)} tail proves total-variation convergence. Independent Gaussian normalization and Z4 small free-submodule enumeration passed.
+
+## originality
+
+PASS
+
+Qualified PASS: Byrne et al describe free module counts and density, not pairwise random intersection Smith types. Cao 2011 orbital association scheme results on framed matrix pairs could subsume finite enumerative formula upon orbit-summing, a substantial priority caveat; they do not explicitly provide the joint torsion/free critical-window limit in inspected sections. Landjev et al 2026 treat extremal intersecting families, not random summand law. The defended novelty is joint probability limit and explicit obstruction disintegration, not general framed-orbit counting.
+
+## value
+
+PASS
+
+Finite chain-ring direct summands naturally intersect in mixed free/torsion modules unlike vector spaces. This gives the full exact joint intersection-type law for both equal/mixed characteristic rings and meaningful critical-window limiting torsion-only mass; a reusable invariant for code/Grassmannian geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
