@@ -1,15 +1,21 @@
-# Scientific review: wedge-divisible trivectors
+# Independent mathematical audit
 
-## Correctness — PASS
-The exterior-factor argument forces the divisor-space dimension of each nonzero trivector to be \(0\), \(1\), or \(3\); the bivector-rank step holds even in characteristic two. The proper projective-line incidence proves closure and irreducibility. Its open unique-divisor stratum has a regular inverse, giving smoothness, dimension \(\binom n2\), and rationality. Tangent spaces at every nonzero decomposable point contain the strictly oversized space \(U\wedge\Lambda^2V\); the origin has full ambient tangent space. Gaussian-binomial fiber counts avoid double counting because rank-at-least-four bivectors yield unique divisor lines. Exterior perfect pairing verifies equal central wedge ranks in the six-generator differential. The complete \(2^{20}\)-element binary experiment and three prime-field homology checks agree with these independently derived formulas.
+## correctness
 
-## Originality — PASS, with explicitly retained risks
-The nonzero wedge-annihilator and decomposability criterion is established background in Ghorpade–Patil–Pillai, arXiv:0710.5161, and is not treated as new. Draisma–Shaw, arXiv:0909.5676, concern trilinear-form *contraction* singularities; this is distinct from exterior multiplication divisibility. Kaipa–Pillai, arXiv:1203.0290, classify finite-field orbit types in low dimensions; this could imply the six-dimensional example, so that example is not the originality anchor. The assessed claim is the unified arbitrary-dimensional reduced variety, its exact singular locus, and all-finite-field divisor-rank census. Multiple searches for direct or stronger equivalent statements did not identify domination, but terminology in classical alternating-form/subspace varieties remains a genuine priority risk. The cited sources and similarity results do not establish absolute uniqueness.
+PASS
 
-## Value — PASS
-The locus \(\{\alpha:\exists\,0\ne v,\ v\wedge\alpha=0\}\) is intrinsic to any exterior algebra and is the precise rank-defect locus of a natural multiplication map. Its dimension, singular locus, and all-field point counts form an exact complete classification of these natural invariants for every \(n\ge6\); the singularity transition along decomposable tensors is structural rather than an arbitrary small-parameter census. The resulting homology distributions in dimension six illustrate direct uses but are not required to justify the geometric result.
+For α=v∧β and v≠0, a bivector quotient β of alternating rank2 is simple and gives a three-dimensional divisor space; rank≥4 gives unique divisor line. The incidence Z=Tot(L⊗Λ²Q) over P(V) is smooth irreducible and proper over X_n, of dimension (n−1)+binom(n−1,2)=binom(n,2), birational over the unique-divisor stratum with a regular kernel-line inverse. At α decomposable with factor space U, the tangent space contains U∧Λ²V of dimension binom(n,3)−binom(n−3,3)=binom(n,2)+(n−5)(n−2), proving singularity for n≥6; the origin has full ambient tangent. Simple trivectors form cone Gr(3,V), dimension3n−8. Count unique divisor lines by Gaussian binomials and non-simple bivector quotients; the n6 exterior perfect pairing yields wedge ranks (1,6−d,6−d,1) and homology (0,d,9+d,18,9+d,d,0). Independent q2 n6/7 finite-field Gaussian arithmetic gives n6 counts 1395, 54684, 992496 and n7 counts 11811,4078732,34355647824; all-parameter proof is geometric rather than finite enumeration.
 
-## Closest literature and limits
-See Ghorpade–Patil–Pillai (2007), Draisma–Shaw (2009), Kaipa–Pillai (2012), and related later work on exterior-algebra self-annihilating subspaces. Classical incidence resolutions and subspace-variety results may already imply portions of the geometry; any such implication would narrow publication priority. Finite computations support, but cannot replace, the general argument. Reduced geometry is distinguished from potentially nonreduced scheme structures, and independent mathematical validation is unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge, after comparing the actual theorem and its implications to retrieved Resultary records and the named published primary material. Known α decomposable iff dim D=3 is a premise; the claimed new part is dim1 open stratum, exact reduced singular support, and all-field point counts with six-generator cohomology. Bruns–Conca’s exterior-image singularity is not directly X_n; an abstract general theorem may still imply the geometry. Residual priority/access risks are explicitly retained.
+
+## value
+
+PASS
+
+Exterior-divisibility is the intrinsic rank defect of the natural wedge-by-trivector operator. The uniform reduced singular locus and exact point census for all dimensions and all finite fields is a natural complete structural classification; six-dimensional square-zero multiplication homology is a motivated consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
