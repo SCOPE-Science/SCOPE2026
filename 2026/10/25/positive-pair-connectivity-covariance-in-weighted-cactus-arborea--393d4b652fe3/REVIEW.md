@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The forest measure factors across cactus blocks because its only cycle constraints are local. The cycle-local covariance is exactly the explicitly expanded nonnegative four-cell polynomial divided by a positive square. Two nontrivial two-way arc partitions necessarily have an occupied diagonal pair, making it strictly positive. Independent-block multiplication proves the global result, including its precise equality and independence cases. A standalone standard-library checker passed 1,095 exact assertions; the infinite theorem depends on the symbolic proof, not the finite tests.
+## correctness
 
-## Originality — PASS (bounded priority assessment)
-The result settles a cactus, arbitrary-positive-activities case of the two-connectivity conjecture explicitly stated in Çiçeksiz–Ravichandran (2026, Section 6, Conjecture 6.2); their Proposition 6.1 gives only a high-fugacity result in its setting. Huang (2023) develops the weighted arboreal-gas measure and edge-negative-correlation techniques without the strict two-connectivity block-route classification. Closest search results concerning negative **edge** association, cycle decomposition, and cactus geometry do not imply this exact positive **connectivity** result. Residual risk: a previously overlooked block decomposition theorem might imply it. Full historical priority is not certified.
+PASS
 
-## Value — PASS
-The result establishes an infinite host-graph family, all finite strictly positive heterogeneous fugacities, and an exact independence versus strict-association criterion. These distinctions address a stated general covariance conjecture, rather than computing an isolated example. Weighted cycles constitute a basic non-product model where conditioning to be acyclic produces subtle dependence; the four-cell identity is an explicit reusable structural certificate.
+In any cactus all edge cycles are separate blocks; the forest law factors across bridge/cycle blocks. For two distinct endpoints of a traversed cycle, connectivity means all missing edges lie in one of two complementary arcs. Overlay two arc partitions into four cells with failure odds a,b,c,d. Conditional cycle covariance numerator is S Z - U V; independently expanded it in SymPy and exactly verified the stated sum ad[(a+d)(1+b)(1+c)+b+c+bc]+bc[(b+c)(1+a)(1+d)+a+d+ad]+2abcd. Every two nontrivial row/column partitions have a nonzero diagonal cell-pair (ad>0 or bc>0), giving strict positivity. Multiplying independent block expectations yields global covariance positive iff routes share at least one block, otherwise independence. The symbolic identity is an exact all-weight certificate, not merely numerical testing.
 
-## Limits
-The conclusion is confined to cactus hosts and pairwise (not arbitrary multivariate) connectivity events, with positive finite weights. It does not resolve general-graph connectivity or other random-cluster parameters. Exact finite experiments are supplementary. Historical priority and independent validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Çiçeksiz–Ravichandran arXiv:2610.00549 Section 6 explicitly conjectures general forest two-pair positive correlation and proves large-fugacity results, while the current all-positive-heterogeneous-weight cactus subfamily with strictness is not established by its inspected section. Shared-terminal cases extend the cited conjecture assumptions but follow the same block proof. Edge-negative dependence is a different statistic.
+
+## value
+
+PASS
+
+This solves a structurally natural all-fugacity subfamily of an active general connectivity-correlation conjecture and gives an exact independence/strictness criterion; allowing arbitrary positive edge fugacities and overlapping terminal pairs gives useful control unavailable from a high-fugacity asymptotic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
