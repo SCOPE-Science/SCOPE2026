@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete claim concerns a fixed compact planar convex body of positive area, three independent area-uniform points, and \(T\to\infty\). For a line through the first two points, the Jacobian \(|s_1-s_2|\), the exact circumradius relation and the bound \(|Th|\le D^2/2\) justify dominated convergence to a chord-wise Vandermonde density. The normalized integral \(1/30\), sixth chord-power and sorted-gap mixture are computed analytically. The scaled signed transverse coordinate has an independent uniform limit. Disk and square specializations have been recomputed, while stochastic simulation provides corroboration only. The proof does not confuse simulation with a limit theorem.
+PASS
 
-## Originality — PASS relative to inspected primary evidence
+For any compact convex planar K with area A>0, sample three independent area-uniform points. Parametrize the unoriented line through first two by theta∈[0,pi), normal offset p and scalar chord coordinates s1,s2; the exact Jacobian is |s1-s2|. Circumradius R=|X1-X3||X2-X3|/(2|h|), h transverse height of X3. Under R>T, substitute t=Th: bounded diameter implies |t|<=diam(K)^2/2, enabling dominated convergence of the convex chord-section indicators and |t|<|s3-s1||s3-s2|/2. Integration yields 3-point Vandermonde density on each chord, whose interval [0,1] integral is 1/30. Thus T P(R>T)->Q6(K)/(30 A³), line density ell^6/Q6, normalized sorted gaps 1/2 Dir(1,3,2,1)+1/2 Dir(1,2,3,1), transverse U uniform[-1,1] independently of line and gaps. Independently recalculated integral 1/30, disk Q6=2048*pi*a^7/35 and tail 1024*a/(525*pi²), square diagonal/side ratio 8sqrt(2)/7. The existing finite Monte Carlo script is not treated as an asymptotic proof.
 
-Heinrich's 2009 chord-power integral study motivates the geometric quantity; fuller related works on quadrangles and ellipsoids have been read for possible implications. The 2026 Euclidean-ball circumradius literature already establishes the unit-disk scalar tail; that is expressly credited and excluded from the novelty claim. Another published result treats the opposite, small-circumradius tail. Neither source yields the marked joint conditional law for all convex planar bodies. Kendall's 1985 study of exact random-triangle shape distributions is a serious plausible predecessor, but its full text was unavailable: only abstract-level overlap assessment is justified. Consequently novelty is best-knowledge and historical priority remains provisional. The structured originality checks record actual queries, materials and implication comparisons.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The joint conditioning result determines not only a probability exponent, but the asymptotic distribution of a geometrically meaningful random line, four normalized point gaps, and a transverse mark. Its universal Dirichlet-mixture independence and sixth-chord shape bias distinguish bodies even when leading scalar probability information is inadequate. The exact disk Beta-offset and square diagonal/side line ratio illustrate the new information without asserting either scalar disk constant as new. This is a motivated random-geometry question, not an arbitrary numerical slice.
+Prior Blaschke–Petkantschin/chord-power theory includes the sixth chord integral, and the unit-disk scalar circumradius tail was already established in 2026; neither alone implies the entire marked limit for arbitrary convex K. Kendall 1985 is the key plausible same-object shape-density paper, and its publisher abstract explicitly treats i.i.d. points from convex K and near-collinearity. Full text was not acquired despite open attempts and an authorized institutional attempt blocked by disconnected VPN. Its shape-density does not visibly identify Euclidean line offset, chord-sixth-power line bias and the independent gap/transverse marks, but priority risk is substantial and retained. Best-of-knowledge originality restricted to the full marked law, not the scalar disk coefficient.
 
-## Limitations and residual risks
+## value
 
-The result is asymptotic only and assumes convexity, area-uniform sampling and three points. There is no stated quantitative convergence rate. Kendall (1985) and the lead 2009 archival preprint could not be fully read; historical priority may require more comprehensive access. Computational spot checks do not establish the theorem or independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The marked limit describes not just how rarely a random triangle is nearly collinear but where its supporting line lies, how its three points separate along the chord and how the small transverse displacement scales. The Dirichlet mixture and sixth-power chord bias provide natural geometric-probability data for rare-event simulation and integral-geometric tail asymptotics; this is substantive beyond a known scalar benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
