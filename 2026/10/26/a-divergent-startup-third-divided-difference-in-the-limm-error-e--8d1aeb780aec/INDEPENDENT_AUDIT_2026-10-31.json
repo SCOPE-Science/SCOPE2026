@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T12:54:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly read the lawful Virginia Tech accepted manuscript (2022), Section 7: equation (7.4) defines delta^{k+1}=y^{(k+1)}(xi)/(k+1)!; (7.5) multiplies by (k+1)! C_k h^{k+1}; Remark 7.2 prints delta2=[(y1-y0)/h-f0]/(2h), delta3=[delta2-J0 f0]/(3h). For y′=y y0=f0=J0=1 and first-order LIMM (1-h)(y1-y0)=h, exact algebra gives y1=1/(1-h), delta2=1/[2(1-h)], delta3=(2h-1)/[6h(1-h)]. Thus h delta3 -> -1/6 while exact limit +1/6. Independent fractions verify formula for h=1/10,1/100,1/1000; the rational identity proves the asymptotic, not finite extrapolation. arXiv v1 numbering differs (Remark8.2), accepted manuscript confirms cited Remark7.2/eq7.4,7.5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Compared primary sources: https://vtechworks.lib.vt.edu/bitstreams/ece2b7e2-9df7-40f7-beae-dbd493290dba/download, https://arxiv.org/pdf/2011.10685; Resultary semantic searches for exact aliases and implication coverage."
+        ],
+        "reasoning": "Standard divided-difference convergence and consistency theory entails the correct target y′′′/6; the submitted discovery identifies a specific contradicting printed instruction. No broader LIMM convergence theorem is disproved, and code may use a corrected formula.",
+        "searches": [
+          "linearly implicit multistep LIMM Remark 7.2 divided difference startup third derivative 2011.10685",
+          "LIMM third divided difference first step estimator discrepancy Glandon Sandu",
+          "https://vtechworks.lib.vt.edu/bitstreams/ece2b7e2-9df7-40f7-beae-dbd493290dba/download",
+          "https://arxiv.org/pdf/2011.10685",
+          "https://doi.org/10.1137/20M133748X"
+        ]
+      },
+      "checked_sources": [
+        "Accepted primary full text Virginia Tech repository page17-18",
+        "arXiv:2011.10685v1 full primary text pages18-20",
+        "SIAM 2022 publisher abstract/metadata",
+        "independent_checks.py exact Fraction arithmetic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Compared primary sources: https://vtechworks.lib.vt.edu/bitstreams/ece2b7e2-9df7-40f7-beae-dbd493290dba/download, https://arxiv.org/pdf/2011.10685; Resultary semantic searches for exact aliases and implication coverage."
+        ],
+        "reasoning": "The paper itself fixes the normalization and prescribes a conflicting formula. Exact substitution proves divergence, but its own fixed-step theorem and any implementation are logically independent of that printed startup initialization; claim scope respects this.",
+        "searches": [
+          "linearly implicit multistep LIMM Remark 7.2 divided difference startup third derivative 2011.10685",
+          "LIMM third divided difference first step estimator discrepancy Glandon Sandu",
+          "https://vtechworks.lib.vt.edu/bitstreams/ece2b7e2-9df7-40f7-beae-dbd493290dba/download",
+          "https://arxiv.org/pdf/2011.10685",
+          "https://doi.org/10.1137/20M133748X"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Compared primary sources: https://vtechworks.lib.vt.edu/bitstreams/ece2b7e2-9df7-40f7-beae-dbd493290dba/download, https://arxiv.org/pdf/2011.10685; Resultary semantic searches for exact aliases and implication coverage."
+        ],
+        "reasoning": "Equivalent formulation: the printed initial delta3 estimate fails even consistency on analytic scalar y′=y and its h^3-scaled contribution is O(h^2) rather than O(h^3). This is an explicit symbolic comparison within the same paper, not independent method invention.",
+        "searches": [
+          "linearly implicit multistep LIMM Remark 7.2 divided difference startup third derivative 2011.10685",
+          "LIMM third divided difference first step estimator discrepancy Glandon Sandu",
+          "https://vtechworks.lib.vt.edu/bitstreams/ece2b7e2-9df7-40f7-beae-dbd493290dba/download",
+          "https://arxiv.org/pdf/2011.10685",
+          "https://doi.org/10.1137/20M133748X"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Compared primary sources: https://vtechworks.lib.vt.edu/bitstreams/ece2b7e2-9df7-40f7-beae-dbd493290dba/download, https://arxiv.org/pdf/2011.10685; Resultary semantic searches for exact aliases and implication coverage."
+        ],
+        "reasoning": "No external database or numerical table governs the algebraic discrepancy: the decisive exact data are published equations (7.4),(7.5),Remark7.2 in the accepted manuscript and corresponding arXiv v1 (8.4),(8.5),Remark8.2. Searches for errata/corrections found no matching published note; absence is not proof of priority.",
+        "searches": [
+          "linearly implicit multistep LIMM Remark 7.2 divided difference startup third derivative 2011.10685",
+          "LIMM third divided difference first step estimator discrepancy Glandon Sandu",
+          "https://vtechworks.lib.vt.edu/bitstreams/ece2b7e2-9df7-40f7-beae-dbd493290dba/download",
+          "https://arxiv.org/pdf/2011.10685",
+          "https://doi.org/10.1137/20M133748X"
+        ]
+      },
+      "rationale": "Best-of-knowledge after statement-level comparison: Equivalent formulation: the printed initial delta3 estimate fails even consistency on analytic scalar y′=y and its h^3-scaled contribution is O(h^2) rather than O(h^3). This is an explicit symbolic comparison within the same paper, not independent method invention. Standard divided-difference convergence and consistency theory entails the correct target y′′′/6; the submitted discovery identifies a specific contradicting printed instruction. No broader LIMM convergence theorem is disproved, and code may use a corrected formula.",
+      "residual_risks": [
+        "An unindexed erratum or software correction could remove the practical impact; no software was inspected.",
+        "Only conditional leading local-error estimate with nonzero order-two coefficient; no claim entire algorithm diverges."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirmed exact printed initialization and factorial normalization, and proper 7.2 numbering for this 2022 manuscript.",
+          "evidence": "https://vtechworks.lib.vt.edu/bitstreams/ece2b7e2-9df7-40f7-beae-dbd493290dba/download",
+          "identifier_or_url": "https://vtechworks.lib.vt.edu/bitstreams/ece2b7e2-9df7-40f7-beae-dbd493290dba/download",
+          "material_read": "Primary full PDF pages 17-18, equations (7.4),(7.5), Remark 7.2, and first-order LIMM definition in Section 2; both equations read visually",
+          "method": "Read relevant primary full-text sections directly (not just abstract)",
+          "title": "Linearly Implicit Multistep Methods for Time Integration (Glandon, Narayanamurthi, Sandu accepted version)",
+          "trigger": "precisely the cited printed formulas"
+        },
+        {
+          "assessment": "Same formulas with different numbering in 2020 preprint; does not change algebraic inconsistency.",
+          "evidence": "https://arxiv.org/pdf/2011.10685",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.10685",
+          "material_read": "Full primary PDF section 8, especially Remark 8.2 and equations (8.4),(8.5)",
+          "method": "Read relevant primary full-text sections directly (not just abstract)",
+          "title": "Linearly Implicit Multistep Methods for Time Integration (arXiv v1)",
+          "trigger": "version comparison and mathematical equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a mathematically explicit inconsistency between a published numerical method’s normalized divided difference and its startup approximation. The wrong asymptotic *order*, not merely coefficient, matters for the adaptive controller’s first error estimate and motivates checking or correcting implementations, without claiming convergence failure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In the printed accepted manuscript of Glandon-Narayanamurthi-Sandu LIMM (Remark 7.2), order-one starter y1=1/(1-h) on y′=y yields estimated third divided difference (2h-1)/(6h(1-h)), diverging as -1/(6h) versus exact normalized y′′′/6=1/6, so printed order-two startup error estimate has h^2 rather than h^3 leading scale conditional on nonzero coefficient.",
+  "limitations": [
+    "Claim concerns printed startup formula, not performance or validity of actual software.",
+    "Published accepted version uses Remark7.2, arXiv v1 calls it Remark8.2.",
+    "An unindexed erratum or software correction could remove the practical impact; no software was inspected.",
+    "Only conditional leading local-error estimate with nonzero order-two coefficient; no claim entire algorithm diverges."
+  ],
+  "schema_version": 1
+}
