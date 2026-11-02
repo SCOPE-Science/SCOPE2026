@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:42:59.815336Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md Git blob 5f5bc6f445de440e57650ecbeece5bef1ee791ab",
+        "assigned check.py blob e0b1bc47ecf1f591b2aa759a65189d331d8f18e9",
+        "independent_checks.py: gef nine assertions"
+      ],
+      "rationale": "Reconstructed the circular-Gaussian Laguerre expansion Cov(log|X|,log|Y|)=Li_2(q)/4. Jensen radial differentiation yields the exact convergent Bessel series rs Σ_k exp[-k(r²+s²)] [2rs I0(2krs)-(r²+s²)I1(2krs)]. For r=R+a,s=R+b, asymptotics for scaled I0,I1 produce the stated Li_{3/2}-2d²Li_{1/2} function with O_A(R^-1) normalized error, including d=0 by a summable k^-3/2 diagonal term and bounded d²Li_{1/2}. Write x=d²; g(x)=Li_{3/2}(e^-x)-2xLi_{1/2}(e^-x), g'(x)=-3Li_{1/2}+2xLi_{-1/2}. Tilting a geometric law by decreasing k^-1/2 bounds Li_{-1/2}/Li_{1/2}≤(1-e^-x)^-1, proving strict decrease through x=1/2; for x≥1/2 each term of Σ e^-kx k^-3/2(1-2kx) is negative. Exactly one root follows; 9 independent mpmath finite-radius and sign diagnostics passed, not the universal proof.",
+      "residual_risks": [
+        "The mixed radial derivative at coincident radii requires L² continuity or uniform summation; proof gives these, rather than assuming pointwise differentiation through random zeros.",
+        "Claim is bounded physical offsets, not growing radial gaps or any CLT."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiro–Nishry Theorem 1.4: Var N(r)∼ζ(3/2)r/(4√π) for planar GEF.",
+          "Buckley–Sodin: covariance for argument increments of homothetic fixed curves."
+        ],
+        "reasoning": "A universal covariance theorem uniform for radii R+a,R+b would dominate this GEF claim, but the inspected Kiro–Nishry Theorem 1.4 and Buckley–Sodin fixed-curves results have different quantifiers. Their diagonal/fixed-shape limit does not directly include the one-parameter d crossover.",
+        "searches": [
+          "planar Gaussian entire function zero count covariance concentric nested disks microscopic radial separation polylogarithm negative covariance sign reversal",
+          "planar Gaussian entire function number zeros covariance two concentric disks radius difference negative correlation microscopic",
+          "doi:10.1112/jlms.12457"
+        ]
+      },
+      "checked_sources": [
+        "Kiro–Nishry, Fluctuations for zeros of Gaussian Taylor series (2021), https://doi.org/10.1112/jlms.12457, Theorem 1.4 & Appendix",
+        "Buckley–Sodin, Fluctuations of the increment of the argument for the Gaussian entire function (2017), DOI 10.1007/s10955-017-1813-z",
+        "Forrester–Honner, Exact statistical properties of the zeros of complex random polynomials (1999), arxiv:cond-mat/9812388",
+        "Resultary semantic query: planar Gaussian entire function zero count covariance concentric nested disks microscopic radial separation polylogarithm negative covariance sign reversal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RESULT.md steps 1–4 reconstruct the nontrivial limiting computation and unique-zero inequality.",
+          "Kiro–Nishry Theorem 1.4 covers d=0 only."
+        ],
+        "reasoning": "The historical one-circle variance and planar pair correlations provide the input; proving uniform bounded-gap asymptotics, the polylog combination, and a single sign crossing requires additional mixed-radius analysis. No checked theorem with stronger hypotheses matching these moving disks yields the final statement by direct substitution.",
+        "searches": [
+          "planar Gaussian entire function zero count covariance concentric nested disks microscopic radial separation polylogarithm negative covariance sign reversal",
+          "planar Gaussian entire function number zeros covariance two concentric disks radius difference negative correlation microscopic",
+          "arxiv:cond-mat/9812388"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kiro–Nishry Appendix proves circle-count variance and Gaussian zero covariance methods, not off-diagonal two-radius profile.",
+          "Buckley–Sodin signed-length formalism concerns fixed curves, not the present shrinking scaled separation."
+        ],
+        "reasoning": "The two-disk covariance can be written as an integral of the known zero-pair truncated correlation over two disks or as a mixed derivative of a dilogarithmic circular-log covariance. Neither expression alone states the uniform moving-boundary limit and unique negative-correlation threshold.",
+        "searches": [
+          "planar Gaussian entire function zero count covariance concentric nested disks microscopic radial separation polylogarithm negative covariance sign reversal",
+          "planar Gaussian entire function number zeros covariance two concentric disks radius difference negative correlation microscopic",
+          "arxiv:1608.05590",
+          "arxiv:1911.13051"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kiro–Nishry diagonal constant and Forrester–Honner bulk correlations are acknowledged background.",
+          "Resultary zero-set search hits describe unrelated Bergman kernel zero classes."
+        ],
+        "reasoning": "The question is an asymptotic covariance function of a continuous Gaussian point process, not a canonical finite sequence with a known exhaustive table. The available precise prior constant is its diagonal ζ(3/2)/(4√π), which is reproduced, not appropriated as a new value.",
+        "searches": [
+          "planar Gaussian entire function zero count covariance concentric nested disks microscopic radial separation polylogarithm negative covariance sign reversal",
+          "planar Gaussian entire function number zeros covariance two concentric disks radius difference negative correlation microscopic",
+          "Resultary: 17 hits"
+        ]
+      },
+      "rationale": "Kiro–Nishry (2021) Theorem 1.4 gives the single-circle asymptotic variance, including the same ζ(3/2)/(4√π) coefficient, while its Appendix A derives one-disk zero-count formulas. Buckley–Sodin (2017) addresses argument-increment covariances on fixed curves under homothetic dilation; its stated fixed-curve limit does not automatically give a two-curve family whose separation shrinks on the scaled geometry as 1/R. Existing planar GEF two-point correlation functions can in principle be integrated to recover finite two-disk covariances. No primary statement actually inspected establishes the moving-radius Li-polylog crossover with rigorously unique sign threshold. This is best-of-knowledge, not a declaration that such an implicit calculation cannot be in older literature.",
+      "residual_risks": [
+        "A differently written microscopic two-circle limit may follow by integrating old exact pair-correlations; no claim that integration is impossible.",
+        "Full primary text of Buckley–Sodin and Forrester–Honner was not read in this execution; available title/abstract and cross-citations limit priority assurance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIAGONAL_COVERAGE_ONLY",
+          "evidence": "Theorem 1.4 asserts one-radius variance, Appendix formulates variance for the disk, without fixed-physical-gap nested-disk sign transition in inspected sections.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12457",
+          "material_read": "Open full HTML; carefully read introduction, Theorem 1.4, and Appendix formulas for one-disk expected counts and variance; not asserting every line inspected.",
+          "method": "Wiley original HTML, scientific statements and hypotheses compared",
+          "title": "Fluctuations for zeros of Gaussian Taylor series",
+          "trigger": "Same planar Gaussian Taylor series and variance constant"
+        },
+        {
+          "assessment": "RELEVANT_NOT_FULLY_INSPECTED",
+          "evidence": "Limit based on a signed-length inner product for fixed planar curves, unlike R-dependent concentric curves with 1/R scaled separation.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.05590",
+          "material_read": "Abstract and publication metadata; full original text not inspected here.",
+          "method": "arXiv abstract and King’s College accepted manuscript listing",
+          "title": "Fluctuations of the increment of the argument for the Gaussian entire function",
+          "trigger": "Potential stronger curve covariance under dilation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "explicit kernel K(d), sign proof in assigned RESULT.md",
+        "Kiro–Nishry 2021 baseline diagonal variance"
+      ],
+      "rationale": "Negative correlation of zero counts in nested disks is a nonobvious structural phenomenon of a canonical hyperuniform point process. The full continuous crossover function, its one rigorous threshold, and diagonal consistency provide a naturally motivated exact two-scale statistical invariant useful for studying fluctuations of expanding windows; it is not a small arbitrary table.",
+      "residual_risks": [
+        "The leading term does not resolve the sign at d=d* for finite R; no distributional limit is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For fixed bounded radial offsets of large concentric disks in the planar GEF, Cov(N(R+a),N(R+b))/R=K(|a-b|)+O_A(R^-1), with K(d) the explicit Li_{3/2}-2d²Li_{1/2} expression and a unique sign-change gap 0.54676907543845...",
+  "limitations": [
+    "The offsets must stay bounded as R→∞; no uniformity for growing gap or CLT.",
+    "At the critical gap leading order alone cannot decide the finite-radius sign.",
+    "Prior exact pair-correlation results may encode an equivalent formula, priority comparison bounded."
+  ],
+  "schema_version": 1
+}

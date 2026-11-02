@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full proof establishes the Laguerre-coefficient identity for logarithms of correlated circular Gaussians, an exact all-radius Bessel series for nested zero-count covariance, a uniform bounded-offset Bessel expansion with summable error terms, and uniqueness of the kernel's one sign change through a monotone tilted-geometric bound. The comparison between mixed radial differences of the Jensen-logarithm covariance and the separate count-covariance formula checks the nonstandard differentiation identity. The 29 standalone numerical assertions passed; these finite checks corroborate but do not prove the asymptotic and uniqueness statements.
+## correctness
 
-**Originality — PASS, with a limited historical-priority risk.** The focal 2019 Gaussian Taylor-series fluctuation paper gives a one-circle variance limit, not an explicit two-circle signed fixed-radial-gap crossover. The fixed-curve argument-increment covariance result works in a different (macroscopically separated or shared-fixed-curve) scaling regime. Earlier bulk zero-pair correlations give general two-point input, but their statement does not itself identify the bounded physical gap polylogarithmic covariance formula or its unique sign-change location. The new statement may be implicitly derivable from classical correlation formulas, which is acknowledged as residual priority uncertainty rather than treated as a novelty guarantee.
+PASS
 
-**Value — PASS.** Nested zero counts need not correlate positively. The formula supplies their entire universal microscopic covariance profile, an exact nontrivial one-crossing classification, and a numerically identified critical physical gap. The sign reversal resolves a geometrically natural structural question not answered by the established one-circle variance coefficient alone.
+Reconstructed the circular-Gaussian Laguerre expansion Cov(log|X|,log|Y|)=Li_2(q)/4. Jensen radial differentiation yields the exact convergent Bessel series rs Σ_k exp[-k(r²+s²)] [2rs I0(2krs)-(r²+s²)I1(2krs)]. For r=R+a,s=R+b, asymptotics for scaled I0,I1 produce the stated Li_{3/2}-2d²Li_{1/2} function with O_A(R^-1) normalized error, including d=0 by a summable k^-3/2 diagonal term and bounded d²Li_{1/2}. Write x=d²; g(x)=Li_{3/2}(e^-x)-2xLi_{1/2}(e^-x), g'(x)=-3Li_{1/2}+2xLi_{-1/2}. Tilting a geometric law by decreasing k^-1/2 bounds Li_{-1/2}/Li_{1/2}≤(1-e^-x)^-1, proving strict decrease through x=1/2; for x≥1/2 each term of Σ e^-kx k^-3/2(1-2kx) is negative. Exactly one root follows; 9 independent mpmath finite-radius and sign diagnostics passed, not the universal proof.
 
-**Closest literature and limitations.** Kiro and Nishry (arXiv:1911.13051), Buckley and Sodin (arXiv:1608.05590), and Forrester and Honner (arXiv:cond-mat/9812388) are the primary comparisons; general pair-correlation formulas remain the principal potential implicit-coverage risk. The proof is limited to the planar Gaussian entire function, concentric disks, and bounded offset scaling; it does not determine the sign for finite radii exactly at the limiting threshold.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kiro–Nishry (2021) Theorem 1.4 gives the single-circle asymptotic variance, including the same ζ(3/2)/(4√π) coefficient, while its Appendix A derives one-disk zero-count formulas. Buckley–Sodin (2017) addresses argument-increment covariances on fixed curves under homothetic dilation; its stated fixed-curve limit does not automatically give a two-curve family whose separation shrinks on the scaled geometry as 1/R. Existing planar GEF two-point correlation functions can in principle be integrated to recover finite two-disk covariances. No primary statement actually inspected establishes the moving-radius Li-polylog crossover with rigorously unique sign threshold. This is best-of-knowledge, not a declaration that such an implicit calculation cannot be in older literature.
+
+## value
+
+PASS
+
+Negative correlation of zero counts in nested disks is a nonobvious structural phenomenon of a canonical hyperuniform point process. The full continuous crossover function, its one rigorous threshold, and diagonal consistency provide a naturally motivated exact two-scale statistical invariant useful for studying fluctuations of expanding windows; it is not a small arbitrary table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
