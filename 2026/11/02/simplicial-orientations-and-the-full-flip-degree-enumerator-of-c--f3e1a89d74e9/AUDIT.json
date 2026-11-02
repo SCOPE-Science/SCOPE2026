@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Canonical alternating blocks of every acyclic K_{m,n} orientation are unique. An edge is flippable exactly across consecutive blocks, giving degree sum_i |W_i||W_{i+1}|. Their blow-up path is connected and has the minimum m+n−1 edges exactly when every internal block is a singleton. Counting even- and odd-length sequences gives the displayed falling-factorial simple-vertex formula, including the star and balanced boundaries. Independently, 2-by-n binary matrices forbid simultaneous 01 and 10 columns, yielding the closed binomial degree polynomial; the balanced-family limit follows by an explicit count of a subset of orientations. Two standalone checkers reproduce degree polynomials for small parameters using independent representations. No infinite claim rests on finite computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The generic theorem identifies the flip graph of any graph with the graphical zonotope skeleton, but contains no closed simple-vertex classification for complete bipartite graphs.",
+        "Known orientation-count formulas give poly-Bernoulli totals rather than degree-polynomial coefficients."
+      ],
+      "reasoning": "The classical general equivalence covers the meaning of flip degree and does not cover the multiplicities of its specific values. The known total count is the evaluation of the proposed polynomial at one and cannot determine its other coefficients. Existing general criteria for simplicity are not enumerations of the complete-bipartite equality cases.",
+      "searches": [
+        "graphical zonotope of complete bipartite K_m,n degree sequence vertex degree minimal orientations Hasse diagrams",
+        "edge flip graph acyclic orientations K_{m,n} degree enumerator sum adjacent alternating blocks",
+        "Cardinal et al. 2022, arxiv:2212.03915"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1412.3685 (HTML Sections 2.1 and 2.3)",
+      "arxiv:2212.03915v1 (HTML Sections 2.2–2.3)",
+      "arxiv:2303.09021v2 (HTML introduction and Sections 2–3)",
+      "Published mathematical research record: exact Löwner ellipsoid of complete-bipartite graphical zonotopes (abstract-level only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known local flippability rule yields degree as adjacent-block product sum, which is explicitly acknowledged as a consequence of prior work.",
+        "The new equality characterization counts block sequences with every internal block a singleton, giving 2 sum_{k=1}^{p-1}(m)_k(n)_k + p!(q)_{p-1}(2^{q-p+1}-2).",
+        "A separate forbidden-pair argument proves D_{2,n}(t)=2^n t^{2n}+2 sum_{j=1}^n binom(n,j)2^{n-j}t^{n+j}."
+      ],
+      "reasoning": "The older ordered-block theorem makes an unsimplified weighted sum accessible but does not itself state or numerically fix the all-parameter simple-vertex count or the two-by-n degree histogram. We do not claim a new representation or new flippability criterion; the exact closed evaluations are the claimed original mathematical facts.",
+      "searches": [
+        "complete bipartite acyclic orientations flipping one edge degree distribution tree transitive reduction Hasse diagram minimal flippable edges K_mn poly-Bernoulli",
+        "graphical zonotope of complete bipartite K_m,n degree sequence vertex degree minimal orientations Hasse diagrams",
+        "poly-Bernoulli graphical zonotope K_{2,n} degree m+n-1 number of simple vertices n 2^n",
+        "arxiv:1412.3685 Section 2.3",
+        "arxiv:2212.03915 Section 2.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acyclic orientations of K_{m,n} correspond to lonesum 0–1 matrices and alternating monochromatic ordered blocks (arxiv:1412.3685).",
+        "Acyclic-orientation flips correspond to the transitive reduction and the 1-skeleton of the graphical zonotope (arxiv:2212.03915)."
+      ],
+      "reasoning": "Equivalent terminology is simple chamber, tree transitive reduction, minimum flip degree, or simple vertex of the graphical zonotope. Those are recognized as the same property here. The present contribution enumerates all its occurrences in K_{m,n}; the historical criterion for testing a single edge is explicitly credited and is not counted as new.",
+      "searches": [
+        "complete bipartite acyclic orientations flipping one edge degree distribution tree transitive reduction Hasse diagram minimal flippable edges K_mn poly-Bernoulli",
+        "\"simplicial\" chambers hyperplane arrangement complete bipartite K_mn transitive reduction spanning tree orientation count",
+        "Cameron, Glass, Rekvényi, Schumacher 2014 Sections 2.1 and 2.3",
+        "Cardinal et al. 2022 Sections 2.2–2.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published literature gives B_m^{(-n)} as total number of acyclic orientations of K_{m,n}.",
+        "The 2014 paper identifies lonesum matrices; the 2023 encoding paper also addresses enumerative totals. Neither material inspected gives the simple-vertex count formula or full degree polynomial for all K_{2,n}."
+      ],
+      "reasoning": "Known tables of total counts cannot imply the degree-by-degree histogram without additional structure. The new identities reduce to known totals at t=1 but include nontrivial weighted coefficients and sharp classification of minimum-degree cases. There remains the possibility of a specialized unpublished or unindexed table.",
+      "searches": [
+        "acyclic orientations of complete bipartite graph K_mn lonesum matrices 2014 Cameron Glass Rekvenyi Schumacher",
+        "poly-Bernoulli graphical zonotope K_{2,n} degree m+n-1 number of simple vertices n 2^n",
+        "arxiv:1412.3685",
+        "arxiv:2303.09021"
+      ]
+    },
+    "rationale": "The published Cameron–Glass–Rekvényi–Schumacher decomposition and edge-flippability criterion are explicitly prior and not independently novel. The new enumerations count precisely when the entire transitive reduction is a tree, give an all-parameter falling-factorial formula for simple graphical-zonotope vertices, and evaluate the complete degree polynomial in the infinite two-by-n family. Inspected primary research states the underlying encoding or generic flippability, not either exact enumeration. Targeted searches and published mathematical-record comparisons found no stronger theorem subsuming these particular enumerations. Unindexed equivalent work remains a residual risk.",
+    "residual_risks": [
+      "A published but unindexed characterization of simplicial chambers of complete bipartite graphic arrangements could contain an equivalent falling-factorial count.",
+      "Published related mathematical records were checked at abstract level, not all corresponding source documents were accessible or read.",
+      "The general weighted ordered-block sum is straightforward from previously known local flip criteria; originality is restricted to its exact closed refinements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The alternating-block orientation encoding and which edges flip are prior, but it does not present the exact all-parameter simple-vertex count or K_{2,n} flip-degree polynomial",
+        "evidence": [
+          "arxiv:1412.3685, first public 2014-12-11; complete-bipartite total count in terms of poly-Bernoulli numbers",
+          "Sections 2.1 and 2.3: alternating blocks and adjacent-block edge-reversal structure"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1412.3685",
+        "material_read": "HTML full text, especially Sections 2.1 and 2.3, definitions, block encodings, and individual-edge flippability discussion",
+        "method": "Read text and compare the objects, parameters, and exact implications of its enumeration/flip criteria",
+        "title": "Acyclic orientations and poly-Bernoulli numbers",
+        "trigger": "Direct original treatment of acyclic orientations of complete bipartite graphs"
+      },
+      {
+        "assessment": "Generic zonotopal flip equivalence applies, but neither the minimum-degree multiplicity formula nor the closed K_{2,n} degree polynomial follows as a stated result",
+        "evidence": [
+          "arxiv:2212.03915, Sections 2.2–2.3: reversal of transitive-reduction arcs and graphical zonotope one-skeleton"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2212.03915v1",
+        "material_read": "HTML full text, especially Sections 2.2–2.3",
+        "method": "Read definitions and implication statements; compared general flippable-edge criterion and complete-bipartite enumerative consequences",
+        "title": "Combinatorial generation via permutation languages. V. Acyclic orientations",
+        "trigger": "Closest general equivalence between orientation flips, transitive reductions, and graphical zonotopes"
+      },
+      {
+        "assessment": "Provides related enumeration and encoding results but no identified coverage of the stated K_{m,n} simple-vertex count or K_{2,n} flip-degree profile",
+        "evidence": [
+          "arxiv:2303.09021, complete-multipartite orientation encodings and counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2303.09021v2",
+        "material_read": "HTML introduction and Sections 2–3, with focus on encoding and enumerating graph orientations",
+        "method": "Read mathematical definitions and formulas for orientation encodings; compared to weighted flip-degree counts",
+        "title": "Encoding and Enumerating Acyclic Orientations of Graphs",
+        "trigger": "A plausible strengthening of complete-multipartite orientation enumerations"
+      },
+      {
+        "assessment": "Its 2^m+2^n−2 contact vertices are distinguished by row/column monochromatic signs; this is a different extremal condition and cannot imply the full degree polynomial or the simple-vertex count from its available summary. Full text was not read.",
+        "evidence": [
+          "Abstract-level published result states number and shape of minimum-enclosing ellipsoid contacts; it does not mention simple vertices or a flip-degree polynomial."
+        ],
+        "identifier_or_url": "published mathematical record, 2026/10/11, id 3af21ae2f6c8",
+        "material_read": "Title and abstract-level finding summary (not full text)",
+        "method": "Compared the precise characterized extremizers: ellipsoid contacts versus minimum-degree simple vertices",
+        "title": "Exact Löwner ellipsoid and contact vertices of complete-bipartite graphical zonotopes",
+        "trigger": "Same underlying complete-bipartite graphical zonotope family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f3e1a89d-74e9-4835-841c-fec10e104481",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Simple vertices of a graphical zonotope are intrinsic structural invariants, and the exact count for all complete-bipartite cases identifies when the local orientation-flip graph has the smallest possible branching degree. The K_{2,n} formula computes the entire degree distribution, not an arbitrary isolated coefficient, and establishes exponential rarity of simple orientations. The theorem ties a classical poly-Bernoulli object to local geometric simplicity and resolves a natural enumeration beyond known totals or individual flip tests.",
+    "status": "PASS"
+  }
+}
