@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T16:49:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob a17b09e4a95d6f307df46b0e6b1a1852e91b9020",
+        "Fischer–Glynn arXiv:2610.24668 Theorem 1, equations (3),(4), Table 1",
+        "independent_checks.py numerical bracketing and two independent quadratures"
+      ],
+      "rationale": "For 0<s<t the standardized Brownian pair has correlation r=sqrt(s/t), so splitting the time square converts variance into 2∫_0^1r[G_z(r)-G_z(0)]dr for the bivariate normal square probability G_z. Differentiation of the Gaussian density in correlation equals mixed spatial differentiation; evaluating four corners gives G_z′(r)=[exp(-z²/(1+r))-exp(-z²/(1-r))]/(pi sqrt(1-r²)). Integration by parts yields the stated positive one-dimensional variance formula. With r=(1-t²)/(1+t²), k=z²/2, the derivative has sign C(k)-A(k), where A,C are positive Laplace-type integrals. A(0)=pi/8-1/4<C(0)=pi/8+1/4; the logarithmic slope of A/C is E_C[1+t^-2]-E_A[1+t²]>0 on 0<t<1, and A/C→infinity using compact subinterval bounds. Hence a unique crossing and unique global variance maximum. Near z=0, singular substitution in W′(a),a=z², yields W′=2/pi-2sqrt(2/pi)sqrt(a)+o(sqrt(a)), so V=2z²/pi-(4/3)sqrt(2/pi)z³+o(z³). At z→infinity, boundary-layer scaling y=z²(1-r), dominated by sqrt(2y)exp(-y/4), gives V~8 phi(z)/z³~4 delta/z². Independent two distinct quadratures agreed for ten thresholds; scalar root k*=0.344054851601727 and V*=0.08135656185520389; small/large asymptotic numerical checks corroborate but do not prove the limits.",
+      "residual_risks": [
+        "The statistics concern the limiting Brownian functional under an invariance principle, not finite-sample confidence-interval variance or distributions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fischer–Glynn provide a PDE for the entire occupation-fraction law, a more general computational framework, without deriving these analytic threshold-variance properties in the compared theorem statements.",
+          "Ehrhardt–Majumdar–Bray study crossing and occupation statistics for Gaussian stationary processes, including Ornstein–Uhlenbeck, but equivalence to these precise square-root-weighted interval constants was not resolved from the available abstract."
+        ],
+        "reasoning": "A more general density PDE does not directly entail a single-crossing proof or sharp constants without additional analysis. Historical stationary Gaussian occupation work is material residual risk.",
+        "searches": [
+          "arXiv:2610.24668 full paper §2 Table 1 and §3 PDE",
+          "arXiv:cond-mat/0306101 Ehrhardt Majumdar Bray Gaussian stationary occupation",
+          "Brownian confidence interval coverage occupation time variance unique maximum small threshold asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.24668",
+        "arXiv:cond-mat/0306101",
+        "R. L. Plackett 1954 Biometrika 41:351–360",
+        "Resultary semantic query 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source second-moment triple integral can be reduced by Gaussian correlation differentiation and integration by parts to a new one-dimensional integral.",
+          "Classical Plackett derivative yields the identity for G_z′ but not the strict monotonicity of A/C or the small/large-z asymptotic constants."
+        ],
+        "reasoning": "Equation (4) in the prior paper implicitly contains V(z) and thus all quantitative facts as integral consequences, but that is not direct prior statement/stronger theorem of uniqueness, which needs a nontrivial new monotone-likelihood ratio comparison.",
+        "searches": [
+          "arXiv:2610.24668 Theorem 1 equation (4) Table 1",
+          "Brownian confidence interval coverage occupation time variance unique maximum small threshold asymptotic",
+          "Plackett bivariate Gaussian derivative formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fischer–Glynn arXiv:2610.24668 full rendered manuscript Theorem 1 and equation (4) define exactly this limiting functional and give nested second-moment integration and Table 1 standard deviations.",
+          "Their numerical table shows a broad peak in roughly δ in [.3,.5], but no theorem in inspected sections on a unique optimizer or sharp z endpoint coefficients."
+        ],
+        "reasoning": "The Brownian occupation is equivalent by logarithmic-time change to a weighted Ornstein–Uhlenbeck occupation; this identifies a meaningful alias but not an explicit theorem settling unique maximizing z and the two stated endpoint constants.",
+        "searches": [
+          "Brownian confidence interval coverage occupation time variance unique maximum small threshold asymptotic",
+          "Brownian occupation sqrt boundary Ornstein Uhlenbeck time average covariance asymptotic variance",
+          "arXiv:2610.24668 Fischer Glynn"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original Table 1 numerically lists standard deviations at 11 δ values (including .45 with SD .2844 and .5 with .2787); no listed δ equals the proved optimum ≈.406808.",
+          "Independent root gives z*=0.82952378, V*=0.08135656; not inferable as rigorous unique peak from the sampled original table."
+        ],
+        "reasoning": "The source table supplies approximate baseline values and hints at the maximum but cannot exclude multiple maxima or establish asymptotic constants. Exact integral characterization and proof of uniqueness go beyond table interpolation.",
+        "searches": [
+          "arXiv:2610.24668 Table 1 coverage standard deviation values",
+          "Brownian confidence interval coverage occupation time variance unique maximum small threshold asymptotic",
+          "variance coverage peak Brownian 0.593191914"
+        ]
+      },
+      "rationale": "Full matching primary article confirms the Brownian functional, second moment and numerical peak were known. The exact single-crossing analytic law and both sharp asymptotic constants remain nontrivial new refinements under best-of-knowledge comparison.",
+      "residual_risks": [
+        "Although the inspected 2003 OU sign-occupation article treats a different observable and time weighting, other historical two-sided OU interval-occupation literature could conceivably cover this exact weighted functional.",
+        "Original source already computed approximate variance values, so only analytic uniqueness and sharp asymptotic constants are counted as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FUNCTIONAL_AND_SECOND_MOMENT_PRIOR_NOT_ANALYTICAL_UNIQUENESS",
+          "evidence": "Equation (4) is a nested second-moment integral and Table 1 gives numerical standard deviations; no uniqueness/endpoint constant result found in the relevant main theorems.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.24668",
+          "material_read": "Full arXiv rendered article, §1–§5, Theorem 1, equations (3) and (4), numerical Table 1 and PDE/Markov sections",
+          "method": "Read complete primary accessible mathematical article",
+          "title": "On the Proportion of Time that a Conventional Confidence Interval Covers",
+          "trigger": "Exactly same Brownian statistic and known variance tables"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE_AND_WEIGHT",
+          "evidence": "The paper studies discrete/equal-time-weight occupancy of the positive half-line of stationary Gaussian processes and crossing counts, not the exponentially weighted OU occupation of the two-sided interval [-z,z] with continuously varying z. Its exact sign-occupation variance formula does not state the present unique z maximum or sharp endpoint coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0306101",
+          "material_read": "Full arXiv HTML text, Introduction logarithmic-time Brownian-to-OU mapping (3)–(5), §VII eqs (63)–(67) sign occupation and covariance expansions, and conclusion",
+          "method": "Full relevant primary mathematical sections read",
+          "title": "Persistence Exponents and the Statistics of Crossings and Occupation Times for Gaussian Stationary Processes",
+          "trigger": "Ornstein–Uhlenbeck occupation under logarithmic-time transformation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2610.24668 Theorem 1 and Table 1",
+        "Git RESULT.md unique-root and boundary-layer proofs"
+      ],
+      "rationale": "The fractional time coverage of ordinary confidence intervals is a motivated inferential statistic whose limiting variance materially affects monitoring interpretation. A unique worst-variability coverage threshold and sharp extreme-confidence decay law answer natural exact questions that the source numerical table and PDE do not determine.",
+      "residual_risks": [
+        "The result is for the limiting variance, not finite-n inference, density, higher moments, or quantiles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The Brownian square-root-band occupation coverage variance has a one-dimensional integral representation, exactly one global maximum at nominal coverage approximately 59.3192%, and sharp small- and large-band endpoint asymptotics.",
+  "limitations": [
+    "Brownian continuous-time threshold z>0 over [0,1] only.",
+    "Approximate maximizer digits are quadrature, while analytic unique root and endpoints are proved."
+  ],
+  "schema_version": 1
+}
