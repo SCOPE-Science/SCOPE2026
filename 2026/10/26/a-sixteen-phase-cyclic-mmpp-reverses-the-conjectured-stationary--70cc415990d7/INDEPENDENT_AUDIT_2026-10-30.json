@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:42:59.815352Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md Git blob 387b89e1907a85dc72792d60dccbb705fd8969ef",
+        "assigned verify.py Git blob 95e3094f960a19934b651abdd5ec8b550e429502",
+        "independent_checks.py: mmpp 9 assertions"
+      ],
+      "rationale": "Read the finite generator and verified row sums, irreducible sixteen-cycle, stationary phase π_j=1/16 and strictly positive λ_j=1+10^-3 cos(πj/8). Palm event phase α_j=π_j λ_j/λ̄ with λ̄=1. Duhamel expansion C=Q-I-εV gives S_t-S_e=ε²e^-u I(u)+E, |E|≤ε³e^-u u² e^{εu}/2, I=1/2∫_0^u e^{-(1-cos π/8)s} cos(s sin π/8)ds. At u*=3π/(2sin π/8), the exact Fourier integral I=(1-e^{-3πtan(π/16)/2}/tan(π/16))/4<-1/6, while εu*²e^{εu*}/2<169/1974<1/6. The strict negative gap follows; derivative at zero is ε²/2>0. Independent 55-digit matrix exponential and analytic inequalities (nine checks) independently yielded S_t(u*)-S_e(u*)≈-1.08728715778341885e-12. This magnitude is tiny and numerical subtraction was not used as a proof.",
+      "residual_risks": [
+        "No claim about squared coefficient of variation (conjecture III) or orders outside this explicit 16-state example.",
+        "The negative difference is small, requiring analytic signed error bounds rather than conventional floating-point certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2022 primary paper: universal IV is expressly conjectured after special cases.",
+          "2018 abstract: apparently contrary assertion; full text inaccessible."
+        ],
+        "reasoning": "The 2022 proven order for all MSPPs and MMPPs of order two does not cover an order-16 directed-cycle MMPP. The 2018 abstract might claim a universal theorem, but its validity and exact statement are not established; an actually valid universal order would contradict the exact analytic sign certificate, so no valid implication can simply be assumed.",
+        "searches": [
+          "Markov modulated Poisson stationary time waiting versus event Palm waiting stochastic ordering counterexample cyclic nonreversible",
+          "Asanjarani Nazarathy MMPP stochastic ordering waiting stationary time event Conjecture 3.9 counterexample",
+          "doi:10.1017/S1446181122000013"
+        ]
+      },
+      "checked_sources": [
+        "Asanjarani–Nazarathy, Stationary Markovian Arrival Processes: Results and Open Problems, ANZIAM 64 (2022), DOI 10.1017/S1446181122000013, Conjecture 3.9",
+        "Asanjarani–Nazarathy, The Squared Coefficient of Variation for MMPP is Greater than Unity, arxiv:1802.08400 abstract (2018)",
+        "Resultary semantic search: Markov modulated Poisson stationary time waiting versus event Palm waiting stochastic ordering counterexample cyclic nonreversible"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Analytic Duhamel estimate and derivative in RESULT.md Steps 1–4.",
+          "2022 Conjecture 3.9 and 2018 abstract discrepancy explicitly recorded."
+        ],
+        "reasoning": "A strictly negative S_t(u*)−S_e(u*) would refute an earlier valid claim of universal domination, so the 2018 abstract needs scientific and bibliographic reconciliation rather than labeling the new calculation as automatically covered. The available 2022 original contains a conjecture, which does not imply this explicit signed counterexample.",
+        "searches": [
+          "Markov modulated Poisson stationary time waiting versus event Palm waiting stochastic ordering counterexample cyclic nonreversible",
+          "Asanjarani Nazarathy MMPP stochastic ordering waiting stationary time event Conjecture 3.9 counterexample",
+          "arxiv:1802.08400"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Asanjarani–Nazarathy 2022 abstract statements III and IV and Conjecture 3.9.",
+          "RESULT.md gives opposite strict signs at u≈0 and u*."
+        ],
+        "reasoning": "Compare state-time forward-recurrence survival πe^{(Q-D)u}1 to Palm event-interval survival (πD/λ̄)e^{(Q-D)u}1. Equivalent integrated-tail order or NBUE-like conditions would imply assertion IV. The 16-state example falsifies the stated universal order, not the separate SCV≥1 conjecture.",
+        "searches": [
+          "Markov modulated Poisson stationary time waiting versus event Palm waiting stochastic ordering counterexample cyclic nonreversible",
+          "Asanjarani Nazarathy MMPP stochastic ordering waiting stationary time event Conjecture 3.9 counterexample",
+          "arxiv:1905.01736",
+          "arxiv:1802.08400"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2022 paper reports numerical tests that did not disprove IV.",
+          "Resultary query returned other stationary Markov/reversible and queue statistics, no matching MMPP assertion IV counterexample."
+        ],
+        "reasoning": "The finding is a finite explicit counterexample, not a canonical enumerative sequence or table. Checked MMPP literature lists model classes and Monte Carlo searches, but no indexed sixteen-state cyclic sinusoidal counterexample with this Fourier remainder certificate was located.",
+        "searches": [
+          "Markov modulated Poisson stationary time waiting versus event Palm waiting stochastic ordering counterexample cyclic nonreversible",
+          "Asanjarani Nazarathy MMPP stochastic ordering waiting stationary time event Conjecture 3.9 counterexample",
+          "Resultary: 20 hits"
+        ]
+      },
+      "rationale": "The full Asanjarani–Nazarathy 2022 paper frames time-stationary stochastic dominance over event-stationary as Conjecture 3.9 (statement IV) for general MMPPs; its proven regimes are MSPPs and two-state MMPPs and its four-phase example concerns nonmonotonic hazard rate rather than failure of the waiting-time order. The earlier 2018 arXiv:1802.08400 abstract says an associated stochastic order was proved, whereas the authors later call the general order conjectural. Its full text could not be accessed; this inconsistency is material, not dismissed. The explicitly checked strict counterexample is logically incompatible with any valid universal dominance theorem, so a purported earlier universal proof does not establish strong factual coverage of the counterexample itself. A prior example may still exist.",
+      "residual_risks": [
+        "arxiv:1802.08400 is a directly relevant but full-text inaccessible same-author precursor whose abstract claims an associated stochastic ordering; cannot exclude overlap or resolve conflict from abstract alone.",
+        "The earlier article is not treated as retracted, wrong, or read in full; no invented priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONJECTURE_NOT_COVERING_COUNTEREXAMPLE",
+          "evidence": "General MMPP IV is explicitly conjectural; proven IV for order two and MSPP, and four-state example is about hazard monotonicity.",
+          "identifier_or_url": "https://doi.org/10.1017/S1446181122000013",
+          "material_read": "Full accessible Cambridge HTML material: paper abstract, definitions, statements I–IV, stochastic-order proposition, Conjecture 3.9 and described examples; not claiming word-for-word entire proof memorized.",
+          "method": "Original journal full-text HTML and source comparison",
+          "title": "Stationary Markovian Arrival Processes: Results and Open Problems",
+          "trigger": "Same mathematical stochastic order, exact MMPP matrix notation and conjecture"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE_PRIORITY_RISK",
+          "evidence": "Abstract claims SCV proof and associated stochastic order without inspectable quantifiers; 2022 paper subsequently calls IV conjectural.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.08400",
+          "material_read": "2018 arXiv abstract only. Full preprint inaccessible through arXiv/OA mirror; authorized institutional route returned vpn_disconnected, with no bypass.",
+          "method": "arXiv metadata/abstract, lawful OA attempts; institutional retrieval blocked",
+          "title": "The Squared Coefficient of Variation for MMPP is Greater than Unity",
+          "trigger": "Same authors earlier assert related stochastic order apparently contradicting their later conjecture"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Asanjarani–Nazarathy 2022 Conjecture 3.9",
+        "RESULT.md exact 16-phase construction"
+      ],
+      "rationale": "A rigorous explicit counterexample to a published universal stochastic-order conjecture is scientifically consequential even when the system has only sixteen phases. The Fourier-mode construction explains the mechanism (nonreversible oscillatory modulation) and provides a verifiable analytic sign margin independent of fragile numerical subtraction.",
+      "residual_risks": [
+        "The counterexample does not resolve conjecture III about event-interval squared coefficient of variation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "An irreducible cyclic sixteen-phase MMPP with rates 1+10^-3 cos(πj/8) violates the conjectured universal stochastic order S_time≥S_event at u*=3π/(2sin(π/8)), while the opposite inequality holds sufficiently near zero.",
+  "limitations": [
+    "The sign crossing concerns the waiting-time stochastic order (IV), not the separate squared-CV assertion (III).",
+    "The earlier 2018 same-author manuscript was not fully accessible; abstract conflicts with the 2022 conjecture."
+  ],
+  "schema_version": 1
+}
