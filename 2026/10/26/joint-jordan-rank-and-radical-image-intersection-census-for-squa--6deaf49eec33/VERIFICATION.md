@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone `verify_rank_triples.py` was run using Python and returned `VERIFY_OK_TWO_LOOP_RADICAL_SQUARE_ZERO_RANK_TRIPLES`. Its checks independently enumerate square-zero matrices over the prime fields of orders 2, 3 and 5 in the listed small dimensions, calculate every ordered pair's zero-product conditions, and recover each image-intersection dimension by elimination on the concatenated column matrices. The predicted count is calculated from an entirely separate Gaussian-binomial expression.
+# Independent mathematical audit
 
-Test cases: \((n,q)=(1,2),(2,2),(2,3),(2,5),(3,2),(3,3),(4,2)\). At \((n,q)=(4,2)\), there are 316 square-zero matrices and 8,296 ordered pairs satisfying all products zero, occupying exactly 10 rank-triple strata. Other test totals are printed by the code.
+## correctness
 
-The exact theorem for arbitrary \(n\) and prime-power \(q\) follows from the written image-incidence/surjection bijection, not from these finite tests. The verifier uses prime fields only; the proof applies unchanged to extension fields. The geometric assertion is proved via relative Grassmannians and full-rank bundle opens; no machine proof or independent review has been performed.
+PASS
+
+Both maps annihilate L=im(A)+im(B) iff A²=B²=AB=BA=0. Choose L of dimension ℓ=r+s−t; U=im(A) of dimension r; T=U∩W of dimension t; W/T a graph complement to U/T, contributing q^((r−t)(s−t)). Then A and B independently descend to surjections from V/L to U,W, contributing S_q(n−ℓ,r)S_q(n−ℓ,s). This is an actual bijection, yielding exact zero/feasibility boundaries including n=0, zero operators. The incidence base is a smooth rational relative Grassmannian and affine complement bundle; open surjective Hom vector-bundle fibers give smooth rational geometrically integral total strata, with calculated r(n−r)+t(r−t)+(s−t)(n−s)+(n−ℓ)(r+s) dimension. Independently enumerated binary square-zero matrices and all products for n=2,3,4, obtaining 10,148,8296 valid ordered pairs respectively and all predicted rank triples; these checks are finite corroboration, not proof for arbitrary fields.
+
+## originality
+
+PASS
+
+Targeted statement/implication comparison against related published Resultary research records and primary sources; best-of-knowledge originality with explicit risks. Exact finite-field rank/rank/image-intersection census of annihilating square-zero two-loop representations, with smooth rational geometrically irreducible strata and dimension.
+
+## value
+
+PASS
+
+The two ranks prescribe natural individual square-zero Jordan types and their image overlap measures a natural common-radical invariant for modules over k[u,v]/(u,v)^2. A complete uniform finite-field multiplicity and smooth rational geometry for every feasible triple are not a mere scalar textbook deduction or an arbitrary small slice, and can inform representations and degeneration calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

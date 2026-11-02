@@ -1,19 +1,21 @@
-# Review of the joint Jordan-rank and image-intersection census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The four zero-product equations hold if and only if both operators annihilate the sum of their image spaces. Image-space incidence data give the four Gaussian factors, and two independent surjections from the common quotient give the two full-rank matrix factors. The incidence variety is a smooth rational relative-Grassmann/affine-bundle construction, and the surjective-map locus is open in its vector bundle. Boundary cases including zero matrices are handled. Independent exhaustive tests agree for every coefficient in the specified small prime-field ranges.
+PASS
 
-## Originality
+Both maps annihilate L=im(A)+im(B) iff A²=B²=AB=BA=0. Choose L of dimension ℓ=r+s−t; U=im(A) of dimension r; T=U∩W of dimension t; W/T a graph complement to U/T, contributing q^((r−t)(s−t)). Then A and B independently descend to surjections from V/L to U,W, contributing S_q(n−ℓ,r)S_q(n−ℓ,s). This is an actual bijection, yielding exact zero/feasibility boundaries including n=0, zero operators. The incidence base is a smooth rational relative Grassmannian and affine complement bundle; open surjective Hom vector-bundle fibers give smooth rational geometrically integral total strata, with calculated r(n−r)+t(r−t)+(s−t)(n−s)+(n−ℓ)(r+s) dimension. Independently enumerated binary square-zero matrices and all products for n=2,3,4, obtaining 10,148,8296 valid ordered pairs respectively and all predicted rank triples; these checks are finite corroboration, not proof for arbitrary fields.
 
-PASS, with acknowledged historical-priority risk. Schröer's component classification and Oblak's feasibility classification concern different outputs, as does the general canonical-form treatment by Bondarenko, Gerasimova and Sergeichuk. Huang's unrefined aggregate counts include a broader set of mutually annihilating pairs but do not state this square-zero individual-rank and image-intersection census. An accessible earlier result for a two-loop radical-square-zero representation variety determines joint total-image and common-kernel ranks, which do not determine individual ranks or the image intersection. No inspected exact formula gives the displayed three-parameter multiplicities. Relevant full texts were read selectively and a corresponding theorem elsewhere remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. For a natural Artinian algebra, the two operator ranks fix the two Jordan types; their intersection measures the overlap of the radical images. The formula gives every finite-field multiplicity of these jointly natural invariants, exact feasibility boundaries, and geometry of every stratum for all sizes and fields. This is not merely a computation at a selected small size.
+Targeted statement/implication comparison against related published Resultary research records and primary sources; best-of-knowledge originality with explicit risks. Exact finite-field rank/rank/image-intersection census of annihilating square-zero two-loop representations, with smooth rational geometrically irreducible strata and dimension.
 
-## Risks and limits
+## value
 
-No enumeration of simultaneous-similarity classes, higher nilpotency indices or ambient nonreduced schemes is claimed. Earlier general canonical-form and representation-variety results could contain an implicit equivalent parameterization. Computational checking is finite; the universal claim is supported by a combinatorial proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two ranks prescribe natural individual square-zero Jordan types and their image overlap measures a natural common-radical invariant for modules over k[u,v]/(u,v)^2. A complete uniform finite-field multiplicity and smooth rational geometry for every feasible triple are not a mere scalar textbook deduction or an arbitrary small slice, and can inform representations and degeneration calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
