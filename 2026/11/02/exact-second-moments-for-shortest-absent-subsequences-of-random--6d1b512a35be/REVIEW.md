@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness (PASS).** The greedy absence criterion holds for arbitrary \(q\ge2\), \(k\ge1\), and every ordered target of length \(k+1\). The use of ranks with a weak inequality correctly treats repeated adjacent letters. The exact two-class tensor transfer follows by elementary moments of two distinct random ranks, and its characteristic polynomial gives the recurrence. Strict Perron-root domination of the squared mean gives growing relative variance. The executable checker separately verifies all four rank-sum entries and exhaustive direct subsequence absence on bounded alphabets/blocks.
+
+**Originality (PASS, with residual priority risk).** The source that introduced shortest absent subsequences (Kosche et al., arXiv:2108.13968) analyzes structural characterizations and worst cases, while Adamson et al. (arXiv:2407.18599v1) optimize extreme counts for fixed universality. A highly relevant published record on Fibonacci-extremal binary shortest absent subsequences provides maxima rather than random-ensemble moments. Searches for random permutation arches, expected shortest absent counts, second moment, variance, and distributional laws returned no equivalent statement among the inspected sources. The tensor technique is classical and not separately claimed as new; unindexed equivalent results remain possible.
+
+**Value (PASS).** The uniform shortest-length universal ensemble is an intrinsic reference distribution on all \((q!)^k\) minimal universal words. The exact mean/variance solve a natural average-case counterpart to the published extremal problem for all alphabet sizes and block counts. The positive, explicit exponential relative-variance rate reveals substantial non-concentration that is invisible from the mean or extremal bounds alone. The result does not infer a full distribution or concentration inequality.
+
+Self-review: passed. Independent audit: not yet performed.
