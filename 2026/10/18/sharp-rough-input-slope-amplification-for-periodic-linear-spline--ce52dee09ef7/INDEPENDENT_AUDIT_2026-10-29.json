@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T15:49:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 170ca78b6633f6a871bd4ff05ad7e398388bd294",
+        "Frozen checks/periodic_spline_gain.py Git blob 0a1776e821254525e08e5a74f3cea4d6b9326448",
+        "Independent checker included separately as downloadable reproducibility evidence"
+      ],
+      "evidence": [
+        "Exact source RESULT.md definitions, inverse Gram and sign derivation, and infinite-kernel geometric integral checked algebraically",
+        "Independent rational Gauss-Jordan matrix inversions n=3..19; exact values C3=3, C4=27/8, C5=192/55; numerical Green-kernel matching 65-digit arithmetic; periodized kernel sampled separately",
+        "No false deduction of a two-sided asymptotic rate: only upper O(q^(n/2)) and strict positivity"
+      ],
+      "rationale": "The mass Gram matrix is (6n)^{-1} times a strictly positive circulant tridiagonal matrix A with diagonal 4 and neighbor 1 (including n=3). The Green recurrence 4g_j+g_{j-1}+g_{j+1}=delta_{0j} has summable solution (-q)^|j|/(2sqrt(3)), q=2-sqrt(3); periodization gives the exact inverse A_n. Differencing rows 1 and 0 yields a signed derivative hat kernel, and L-infinity/L1 duality gives the sharp norm attained by the sign of that kernel. Nodal sign alternation (one exact zero for odd n) makes absolute affine-cell integrals equal the displayed cyclic rational expression, without vanishing denominators. The infinite signed kernel has exact absolute integral (9-sqrt(3))/2 from a central crossing plus geometric tails. The finite kernel is its absolute-convergent periodization, where cancellation of opposed copies on a positive-length subinterval makes strict inequality; the tail bound on a centered length-n interval is O(q^(n/2)). These analytic facts prove all n>=3, not merely numerically tested n.",
+      "residual_risks": [
+        "Finite numerical comparison is not an exhaustive proof; the analytic Green and periodization argument is essential",
+        "No claim beyond uniform one-dimensional periodic continuous degree-one splines or a two-sided deficit equivalent"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Passenbrunner 2016 Theorem 1.4 proves a uniform L-infinity projector bound for arbitrary knots and orders, not differentiated sharp norm",
+          "de Boor (2011) boundedly inverts a biinfinite B-spline Gram matrix but does not compute the periodic norm after derivative",
+          "Oswald 2012 abstract addresses undifferentiated L-infinity projection bounds; full paper inaccessible"
+        ],
+        "reasoning": "A general stability bound is not a stronger exact sharp slope coefficient. None of the inspected stronger-in-assumptions sources supplies the signed row-difference L1 integration or full finite-period deficit. An inaccessible but plausible broader primary source remains a risk.",
+        "searches": [
+          "Resultary: periodic linear spline projection inverse mass matrix Green function sharp gradient stability",
+          "web: finite element L2 projection W1 infinity stability sharp constant uniform mesh derivative kernel",
+          "arXiv:1608.06720 Theorem 1.4"
+        ]
+      },
+      "checked_sources": [
+        "M. Passenbrunner, Monotonicity of the Lebesgue constant for equally spaced knots, arXiv:1103.1949; lawful full-text thesis https://www.jku.at/fileadmin/gruppen/194/Paul/Dissertation_Markus_Passenbrunner.pdf, chapter 3",
+        "M. Passenbrunner, Orthogonal projectors onto spaces of periodic splines, arXiv:1608.06720; original eleven-page paper, theorem 1.4 and section 3",
+        "C. de Boor, On the (bi)infinite case of Shadrin’s theorem concerning the L-infinity-boundedness of the L2-spline projector (2011), full original 5 pages",
+        "P. Oswald, L-infinity bounds for the L2 projection onto linear spline spaces (2012), DOI 10.1007/978-1-4614-4565-4_24, abstract only",
+        "Resultary mathematical findings semantic search: three fresh queries about periodic spline rough-input derivative norm, inverse Gram Green function, and sharp finite-element W1 infinity projection; no directly dominating theorem identified",
+        "Published affine simplex L2 least-squares projector positivity bound, 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34 (different operator and invariant)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing Green inversion machinery gives a recurrence but not the exact derivative-kernel L1 norm",
+          "New proof takes differences of adjacent inverse Gram rows, integrates absolute affine crossings, and compares periodized infinite kernels with a strict cancellation interval",
+          "2016 source proves value-projection boundedness, not an algebraic sharp inverse-mesh gradient constant"
+        ],
+        "reasoning": "The old estimates do not imply the complete stated theorem simply by specialization, renaming, or substituting a parameter; the added derivative row and cancellation analysis is substantive. However uninspected older exact derivative formulas might imply the result.",
+        "searches": [
+          "Read Passenbrunner 2011 thesis chapter 3 formula (3.2.1), Theorems 3.2.1–3.2.2",
+          "Read Passenbrunner 2016 Theorems 1.3,1.4 and Section 3",
+          "Read de Boor 2011 complete paper",
+          "Search Oswald 2012 full text under DOI"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Passenbrunner 2016 Theorem 1.4 concerns undifferentiated P_n from L-infinity to L-infinity",
+          "Passenbrunner 2011 thesis Chapter 3 formula (3.2.3) concerns undifferentiated interval Lebesgue norm",
+          "No equivalent result found in Resultary closest hits; an affine least-squares simplex positivity norm is a distinct operator and objective"
+        ],
+        "reasoning": "The claimed invariant is the L1 norm of the spatial derivative evaluation kernel of the projector, rather than the undifferentiated Lebesgue kernel, a W1-infinity norm on differentiable inputs, or a simplex-local positivity defect. No stated equivalence or reduction in the full relevant papers yields this sharp constant.",
+        "searches": [
+          "Resultary: sharp L infinity to derivative Lipschitz norm L2 orthogonal projection uniform periodic piecewise linear splines sharp constant exponential finite mesh",
+          "web: \"9 - sqrt(3)\" spline projection derivative",
+          "web: \"3.633974596\" spline projector"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent rational checker reproduces C_3=3, C_4=27/8, C_5=192/55",
+          "Targeted semantic and exact-constant searches yielded no earlier exact periodic derivative table"
+        ],
+        "reasoning": "Exact small-degree computations confirm, but do not establish novelty; no prior exact data set or finite-invariant table was located. This is qualified by possible unindexed spline literature.",
+        "searches": [
+          "Resultary: finite element L2 projection W1 infinity stability sharp constant uniform mesh derivative kernel",
+          "web: 3.633974596 spline projection",
+          "web: exact rational 192/55 27/8 periodic spline Lipschitz gain"
+        ]
+      },
+      "rationale": "Best-of-knowledge: inspected relevant primary proofs on interval Lebesgue norms and periodic spline projector L-infinity boundedness do not imply the sharp norm after differentiation, the all-n formula or strict exponentially decaying finite-period deficit. The bi-infinite Gram recurrence is prior technique, not claimed novelty. Search comparisons considered equivalent operator formulations, broader prior results, databases/tables and exact claim implication, with an inaccessible plausible Oswald paper recorded as a risk, not a fabricated negative result.",
+      "residual_risks": [
+        "Earlier exact derivative stability of uniform cardinal spline projection may appear under L-infinity to W1-infinity terminology or graph convolution norms",
+        "Oswald 2012 full text unavailable; abstract alone cannot exclude hidden relevant calculations",
+        "Grigorieff–Sloan full text not inspected; potential broader implications are not conclusively excluded",
+        "Unsuccessful semantic and exact-constant search does not prove absolute novelty"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: undifferentiated interval L-infinity Lebesgue norm and monotonicity, not sharp periodic derivative gain",
+          "evidence": [
+            "Chapter 3 inverse Gram formula (3.2.1), undifferentiated Lebesgue norm (3.2.3), Theorems 3.2.1–3.2.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1103.1949; full thesis https://www.jku.at/fileadmin/gruppen/194/Paul/Dissertation_Markus_Passenbrunner.pdf",
+          "material_read": "Full lawful thesis chapter 3 original theorems and proofs, pages ~60–62, including (3.2.1) and Theorems 3.2.1–3.2.2",
+          "method": "Direct complete primary mathematical argument and PDF visual cross-check",
+          "title": "Monotonicity of the Lebesgue constant for equally spaced knots",
+          "trigger": "Same uniform linear B-spline inverse Gram structure"
+        },
+        {
+          "assessment": "NOT_COVERING: projector L-infinity boundedness and convergence; no sharp rough-input differentiated kernel or finite period constant",
+          "evidence": [
+            "Theorem 1.4 general uniform L-infinity bound; proof in Section 3"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.06720",
+          "material_read": "Complete 11-page original paper including Theorems 1.3–1.4 and Section 3 full kernel estimates",
+          "method": "Direct primary full-text and PDF page inspection",
+          "title": "Orthogonal projectors onto spaces of periodic splines",
+          "trigger": "Identical periodic orthogonal spline projector class"
+        },
+        {
+          "assessment": "NOT_COVERING: bi-infinite L-infinity Gram inversion and undifferentiated projection norm, not exact periodic derivative amplification",
+          "evidence": [
+            "Bi-infinite Gram inverse bound and undifferentiated L-infinity estimate"
+          ],
+          "identifier_or_url": "https://geodesic.mathdoc.fr/item/TIMM_2011_17_3_a4/",
+          "material_read": "Complete original five-page author manuscript; definitions, proofs and final bounds",
+          "method": "Direct primary author-paper PDF inspection",
+          "title": "On the (bi)infinite case of Shadrin’s theorem concerning the L-infinity-boundedness of the L2-spline projector",
+          "trigger": "Potential exact bi-infinite inverse Gram kernel"
+        },
+        {
+          "assessment": "INCOMPLETE_COMPARISON: abstract concerns undifferentiated projector norm; possible unstated derivative consequences remain risk",
+          "evidence": [
+            "Oswald 2012 published abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-1-4614-4565-4_24",
+          "material_read": "Published abstract and citation only; original full text not obtained via lawful OA, arXiv, or authorized institution",
+          "method": "Published abstract comparison; protected full text inaccessible; no inference about unseen sections",
+          "title": "L∞-Bounds for the L2-Projection onto Linear Spline Spaces",
+          "trigger": "Plausible sharp spline projection stability theorem"
+        },
+        {
+          "assessment": "INCOMPLETE_COMPARISON: discrete projection and stability for differentiable input differ, but unseen more general statements not excluded",
+          "evidence": [
+            "Grigorieff and Sloan 1998 publisher abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0308210500026977",
+          "material_read": "Publisher abstract and discussion of discrete quadrature projection only; full paper not established",
+          "method": "Abstract and title comparison",
+          "title": "Stability of discrete orthogonal projections for continuous splines",
+          "trigger": "Potential exact gradient stability extension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "M. Passenbrunner, Monotonicity of the Lebesgue constant for equally spaced knots, arXiv:1103.1949; lawful full-text thesis https://www.jku.at/fileadmin/gruppen/194/Paul/Dissertation_Markus_Passenbrunner.pdf, chapter 3",
+        "M. Passenbrunner, Orthogonal projectors onto spaces of periodic splines, arXiv:1608.06720; original eleven-page paper, theorem 1.4 and section 3",
+        "C. de Boor, On the (bi)infinite case of Shadrin’s theorem concerning the L-infinity-boundedness of the L2-spline projector (2011), full original 5 pages"
+      ],
+      "evidence": [
+        "Natural operator norm C_n=(1/n)||P_n||_(L-infinity to Lip) intrinsically measures sharp rough-data gradient sensitivity",
+        "All-n Green-kernel formula, strict sharp uniform bound and rate distinguish this from qualitative finite-element inverse inequalities"
+      ],
+      "rationale": "Sharp rough-input to slope amplification is a mathematically natural stability invariant of the uniform periodic linear-spline L2 projector. Its exact finite-mesh values and sharp algebraic constant with exponential finite-circle stabilization give quantitative benchmark information for Galerkin reconstruction that generic order-of-growth inverse estimates and the projector Lebesgue norm do not determine. This is an exact structural family, not an arbitrary small numerical slice or a claim about all spline orders.",
+      "residual_risks": [
+        "Application is restricted to equal knots, degree one and periodic boundary conditions; no claim for nonuniform meshes or general inverse estimates"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every integer n>=3, the normalized sharp Lipschitz amplification C_n of the periodic uniform continuous linear-spline L2 orthoprojector from bounded L-infinity inputs equals an explicit sum of affine-crossing integrals of a closed signed tridiagonal Green kernel; it has strict finite-n upper bound and sharp mesh-uniform supremum (9-sqrt(3))/2 with positive O((2-sqrt(3))^(n/2)) deficit.",
+  "limitations": [
+    "Uninspected full Oswald primary text remains a priority risk, institutional full-text access disconnected; no access bypass attempted",
+    "This is a scientific independent audit with best-of-knowledge originality, not a formal proof certificate or a publication",
+    "No GitHub write or dispatcher closeout"
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The circular hat Gram matrix is explicitly tridiagonal-circulant, and the stated inverse follows from the absolutely summable fundamental solution of its integer-line recurrence. The derivative evaluation kernel and its sign alternation yield the finite norm without any unproved maximum-location assertion. Periodization gives a strict universal comparison; the two-sided tail decomposition yields the asserted upper rate. Exact-rational finite checks and direct signed-affine integrals were independently reproduced. The finite checks are illustrative, not the proof of the universal statements.
+## correctness
 
-## Originality — PASS, within available evidence
-The most relevant inspected full texts, Passenbrunner 2011 (Sections 1–2) and Passenbrunner 2016 (Sections 1–3), treat the projector's undifferentiated endpoint norms, inverse Gram decay, and almost-everywhere convergence. They do not state a sharp periodic operator norm from rough \(L^\infty\) inputs to the Lipschitz seminorm, nor its exact finite-cell and exponential-defect formulas. In particular, a uniform \(L^\infty\to L^\infty\) projector norm cannot determine the sharp derivative amplification. An independent earlier presentation remains possible; the abstract-only 2012 Oswald and 2011 de Boor sources are explicitly unresolved as complete-text comparisons.
+PASS
 
-## Value — PASS
-An optimal inverse-mesh gradient constant is a natural stability datum for continuous piecewise-linear Galerkin approximation and reconstruction from bounded rough functions. The exact finite formula is valid for every mesh size, while the limiting algebraic constant and exponential finite-circle stabilization distinguish it from generic order-of-magnitude inverse inequalities. Neither a routine restatement of an undifferentiated Lebesgue norm nor an arbitrary numerical slice is claimed.
+The mass Gram matrix is (6n)^{-1} times a strictly positive circulant tridiagonal matrix A with diagonal 4 and neighbor 1 (including n=3). The Green recurrence 4g_j+g_{j-1}+g_{j+1}=delta_{0j} has summable solution (-q)^|j|/(2sqrt(3)), q=2-sqrt(3); periodization gives the exact inverse A_n. Differencing rows 1 and 0 yields a signed derivative hat kernel, and L-infinity/L1 duality gives the sharp norm attained by the sign of that kernel. Nodal sign alternation (one exact zero for odd n) makes absolute affine-cell integrals equal the displayed cyclic rational expression, without vanishing denominators. The infinite signed kernel has exact absolute integral (9-sqrt(3))/2 from a central crossing plus geometric tails. The finite kernel is its absolute-convergent periodization, where cancellation of opposed copies on a positive-length subinterval makes strict inequality; the tail bound on a centered length-n interval is O(q^(n/2)). These analytic facts prove all n>=3, not merely numerically tested n.
 
-## Closest sources and limits
-Passenbrunner (2011, arXiv:1103.1949) supplies a related inverse-mass recurrence but proves undifferentiated interval Lebesgue monotonicity. Passenbrunner (2016, arXiv:1608.06720) covers periodic orthogonal spline projectors but proves qualitative endpoint bounds and convergence. The result does not claim optimality for irregular meshes, higher polynomial degrees, or \(W^{1,\infty}\to W^{1,\infty}\) stability.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: inspected relevant primary proofs on interval Lebesgue norms and periodic spline projector L-infinity boundedness do not imply the sharp norm after differentiation, the all-n formula or strict exponentially decaying finite-period deficit. The bi-infinite Gram recurrence is prior technique, not claimed novelty. Search comparisons considered equivalent operator formulations, broader prior results, databases/tables and exact claim implication, with an inaccessible plausible Oswald paper recorded as a risk, not a fabricated negative result.
+
+## value
+
+PASS
+
+Sharp rough-input to slope amplification is a mathematically natural stability invariant of the uniform periodic linear-spline L2 projector. Its exact finite-mesh values and sharp algebraic constant with exponential finite-circle stabilization give quantitative benchmark information for Galerkin reconstruction that generic order-of-growth inverse estimates and the projector Lebesgue norm do not determine. This is an exact structural family, not an arbitrary small numerical slice or a claim about all spline orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

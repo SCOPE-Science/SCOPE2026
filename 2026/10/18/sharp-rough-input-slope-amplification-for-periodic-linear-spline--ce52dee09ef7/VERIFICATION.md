@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and scope
 
-Execute `python3 checks/periodic_spline_gain.py` with ordinary Python 3; it uses only the standard library. The script constructs the periodic mass matrix independently over rational numbers, inverts it, integrates the absolute derivative kernel cellwise, tests the periodized Green formula, and checks exact small-degree constants and sampled convergence. It prints an assertion count on successful completion.
+# Independent mathematical audit
 
-The proof requires no numerical limiting argument. The critical universal identities are the integer-line inverse \((A_\infty^{-1})_{ij}=(-q)^{|i-j|}/(2\sqrt3)\) for \(q=2-\sqrt3\), its periodization to the finite inverse, the fact that neighboring finite derivative coefficients have opposing signs or contain exactly one zero, and the explicit absolute-integral calculation. The infinite signed kernel is absolutely integrable; the periodization comparison and its exponentially small tail complete the global claim.
+## correctness
 
-The checker verifies individual finite dimensions, not the infinite theorem, bibliographic originality, or external certification. It uses no third-party papers or remote resources at execution time. Independent audit has not been performed.
+PASS
+
+The mass Gram matrix is (6n)^{-1} times a strictly positive circulant tridiagonal matrix A with diagonal 4 and neighbor 1 (including n=3). The Green recurrence 4g_j+g_{j-1}+g_{j+1}=delta_{0j} has summable solution (-q)^|j|/(2sqrt(3)), q=2-sqrt(3); periodization gives the exact inverse A_n. Differencing rows 1 and 0 yields a signed derivative hat kernel, and L-infinity/L1 duality gives the sharp norm attained by the sign of that kernel. Nodal sign alternation (one exact zero for odd n) makes absolute affine-cell integrals equal the displayed cyclic rational expression, without vanishing denominators. The infinite signed kernel has exact absolute integral (9-sqrt(3))/2 from a central crossing plus geometric tails. The finite kernel is its absolute-convergent periodization, where cancellation of opposed copies on a positive-length subinterval makes strict inequality; the tail bound on a centered length-n interval is O(q^(n/2)). These analytic facts prove all n>=3, not merely numerically tested n.
+
+## originality
+
+PASS
+
+Best-of-knowledge: inspected relevant primary proofs on interval Lebesgue norms and periodic spline projector L-infinity boundedness do not imply the sharp norm after differentiation, the all-n formula or strict exponentially decaying finite-period deficit. The bi-infinite Gram recurrence is prior technique, not claimed novelty. Search comparisons considered equivalent operator formulations, broader prior results, databases/tables and exact claim implication, with an inaccessible plausible Oswald paper recorded as a risk, not a fabricated negative result.
+
+## value
+
+PASS
+
+Sharp rough-input to slope amplification is a mathematically natural stability invariant of the uniform periodic linear-spline L2 projector. Its exact finite-mesh values and sharp algebraic constant with exponential finite-circle stabilization give quantitative benchmark information for Galerkin reconstruction that generic order-of-growth inverse estimates and the projector Lebesgue norm do not determine. This is an exact structural family, not an arbitrary small numerical slice or a claim about all spline orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
