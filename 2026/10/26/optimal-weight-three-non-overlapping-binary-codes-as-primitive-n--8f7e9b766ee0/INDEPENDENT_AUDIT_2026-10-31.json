@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:03:55.462070Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md explicit proof, checker.py source read, fresh independent brute checks n=4..18, arXiv papers read."
+      ],
+      "rationale": "Any non-overlapping codeword must be primitive and two codewords cannot occupy the same cyclic rotation orbit, giving |C|<=floor(binomial(n,3)/n)=floor((n-1)(n-2)/6). The construction chooses words with ones at (i,j,n-1), i>=h-1, j>=n-h, h=ceil(n/3), i<j<n-1. Every proper matching prefix must end at one of the internal 1 positions: at i+1 it would require i_u+j_v<=n-2, contradicted by i_u+j_v>=n-1; at j+1 the suffix contains all three ones but the prefix only two. The j-sum gives (h-1)(2n-3h)/2, equal to the floor bound in all three residues n mod 3. If 3|n exactly n/3 words have period n/3; otherwise every weight-three word is primitive. Rotation packing therefore covers all primitive necklaces. Independent brute overlap, word count and rotation-union checks for every n=4..18 confirm finite cases.",
+      "residual_risks": [
+        "Finite checks are not a proof for all n; the two-case overlap and residue classes give the all-length result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chee construction requires long zero-prefix and bounded zero runs; Blackburn Theorem 1 is an alphabet-size total-code bound and its exact results cover special lengths/large alphabets; Stanovnik unrestricted max codes optimize across many weights."
+        ],
+        "reasoning": "A maximum over all compositions does not imply an exact restricted optimum except when a matching lower bound happens to have weight 3. No inspected general theorem exhibits the all-n weight-three construction.",
+        "searches": [
+          "Chee Kiah Purkayastha Wang arxiv:1209.0236 full PDF",
+          "Blackburn arxiv:1303.1026 full PDF",
+          "Stanovnik Moškon Mraz DOI 10.1007/s10623-023-01344-z full HTML"
+        ]
+      },
+      "checked_sources": [
+        "Actual frozen code RESULT.md and checker.py",
+        "arXiv:1209.0236 full PDF relevant construction",
+        "arXiv:1303.1026 full PDF upper bound/construction",
+        "Stanovnik et al. 2024 full-text HTML",
+        "Resultary semantic query including nonoverlap variants"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical disjoint cyclic orbit argument proves only n|C|<=binomial(n,3), not existence of a transversal; the supplied two-index family provides the missing all-n attainability."
+        ],
+        "reasoning": "Prior upper bounds and unrestricted code constructions do not imply the claimed constrained all-n equality without new non-overlap and orbit-count arguments.",
+        "searches": [
+          "arxiv:1209.0236v2 Theorem 3.2 and Corollary 3.1",
+          "arxiv:1303.1026v3 Theorem 1 and constructions",
+          "Stanovnik 2024 full HTML"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Terminology cross-bifix-free, non-overlapping, mutually uncorrelated all share the same forbidden proper prefix/suffix condition. Primitive necklace transversal is a stronger equality condition on rotation packing."
+        ],
+        "reasoning": "Searched key aliases and compared code construction constraints; the all-length fixed-composition equality is not equivalent to general unrestricted maximum.",
+        "searches": [
+          "Resultary query constant weight three binary cross bifix free non overlapping codes primitive necklace optimal",
+          "arxiv:1209.0236 and arxiv:1303.1026 PDF searches weight"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small n=4..16 can coincide with known unrestricted cardinalities; those tables do not cover arbitrary n or the exact primitive-orbit partition for fixed weight 3."
+        ],
+        "reasoning": "The claim is a closed formula for every n and exact transversal structure rather than recomputation of a finite collection of integer entries.",
+        "searches": [
+          "Resultary weight-three non-overlapping code semantic search",
+          "Blackburn 2015 small-length code cardinalities",
+          "Stanovnik 2024 unrestricted finite optimum tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the all-n fixed-weight-three optimum and primitive-necklace transversal; the cyclic-orbit upper bound is classical, not novel. Chee et al. (arXiv:1209.0236) give long-zero-run constructions and near-optimal cardinalities for unrestricted compositions; Blackburn (arXiv:1303.1026) gives general q,n constructions and short-n exact values; Stanovnik–Moškon–Mraz (2024) optimize unrestricted codes. None of their inspected relevant theorems imposes exactly three ones for every n or proves a full primitive-weight-three necklace transversal. Some isolated n values follow from unrestricted tables; an unindexed specialized construction remains possible.",
+      "residual_risks": [
+        "Unindexed older synchronization-code or necklace-transversal results may have an equivalent construction.",
+        "Small n optimum cardinalities alone are not historically new; originality is the uniform fixed-weight attainment and exact necklace partition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_CONSTRUCTION_DIFFERENT_CONSTRAINT",
+          "evidence": "Long zero run/Fibonacci cardinality construction, not an all-n weight-three primitive necklace partition.",
+          "identifier_or_url": "https://arxiv.org/pdf/1209.0236",
+          "material_read": "Accessible eight-page PDF, primary construction and recursive Theorem 3.2, cardinality Corollary 3.1, rendered page 3",
+          "method": "OA arXiv PDF full-text and rendered page",
+          "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+          "trigger": "Foundational near-optimal binary cross-bifix-free constructions"
+        },
+        {
+          "assessment": "RELATED_CLASS_NOT_WEIGHT3_CLASSIFICATION",
+          "evidence": "Unrestricted q-ary maximum and short-n exceptions, no all-n weight-three code theorem in inspected statements.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.1026",
+          "material_read": "Accessible 14-page PDF, abstract, Section 2 upper bounds and Theorem 1, construction statements and rendered page 4",
+          "method": "OA arXiv PDF full-text and rendered page",
+          "title": "Non-overlapping codes",
+          "trigger": "Broad non-overlapping codes and cyclic packing"
+        },
+        {
+          "assessment": "UNRESTRICTED_OPTIMIZATION_NOT_THE_SAME_FIXED_WEIGHT",
+          "evidence": "Optimizing all-word codes does not classify fixed weight-three subcodes in every length.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+          "material_read": "Accessible publisher HTML, named methods, constructions, main classification and tables, searched key weight/primitive vocabulary",
+          "method": "OA publisher full HTML content inspection",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Potential dominating 2024 full global optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Synchronization framing, constant-weight codes, primitive cyclic combinatorics, explicit all-length optimum."
+      ],
+      "rationale": "Fixing weight exactly three is a natural low-energy/constant-composition synchronization constraint independent of unconstrained non-overlap optimization. The all-blocklength optimum saturates the cyclic bound and the construction supplies one codeword per primitive necklace, including the nonprimitive n divisible by 3 boundary. This is a genuine infinite classification with an explicit constructive code, not a routine consequence of known upper bound.",
+      "residual_risks": [
+        "No Hamming-distance error-correction guarantee or arbitrary-weight result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Binary words exactly three ones, n>=4, including self-overlaps forbidden; not reverse-complement or arbitrary weight.",
+    "Novelty remains best-known, not absolute historical proof."
+  ],
+  "schema_version": 1
+}

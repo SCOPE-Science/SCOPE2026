@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python checker.py` with Python 3 and no third-party packages. The program enumerates every codeword in the stated construction for \(4\le n\le16\), checks every ordered codeword pair (including a word paired with itself) and every proper prefix/suffix length, and compares the union of all cyclic rotations with all primitive length-\(n\), weight-three words. For \(4\le n\le100000\), it also checks the polynomial closed-form count identity by integer arithmetic.
+## correctness
 
-The execution completed successfully with the final line `PASS: exhaustive word and overlap checks through n=16; arithmetic count n=4..100000`. For lengths \(4\) through \(16\), the code sizes were \(1,2,3,5,7,9,12,15,18,22,26,30,35\). For lengths divisible by three, the checker independently found exactly \(n/3\) nonprimitive weight-three words; otherwise it found none.
+PASS
 
-These finite checks cannot establish the universal quantifier; the all-length proof is in `RESULT.md`. No outside verifier has been used and no independent review or validation is asserted.
+Any non-overlapping codeword must be primitive and two codewords cannot occupy the same cyclic rotation orbit, giving |C|<=floor(binomial(n,3)/n)=floor((n-1)(n-2)/6). The construction chooses words with ones at (i,j,n-1), i>=h-1, j>=n-h, h=ceil(n/3), i<j<n-1. Every proper matching prefix must end at one of the internal 1 positions: at i+1 it would require i_u+j_v<=n-2, contradicted by i_u+j_v>=n-1; at j+1 the suffix contains all three ones but the prefix only two. The j-sum gives (h-1)(2n-3h)/2, equal to the floor bound in all three residues n mod 3. If 3|n exactly n/3 words have period n/3; otherwise every weight-three word is primitive. Rotation packing therefore covers all primitive necklaces. Independent brute overlap, word count and rotation-union checks for every n=4..18 confirm finite cases.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the all-n fixed-weight-three optimum and primitive-necklace transversal; the cyclic-orbit upper bound is classical, not novel. Chee et al. (arXiv:1209.0236) give long-zero-run constructions and near-optimal cardinalities for unrestricted compositions; Blackburn (arXiv:1303.1026) gives general q,n constructions and short-n exact values; Stanovnik–Moškon–Mraz (2024) optimize unrestricted codes. None of their inspected relevant theorems imposes exactly three ones for every n or proves a full primitive-weight-three necklace transversal. Some isolated n values follow from unrestricted tables; an unindexed specialized construction remains possible.
+
+## value
+
+PASS
+
+Fixing weight exactly three is a natural low-energy/constant-composition synchronization constraint independent of unconstrained non-overlap optimization. The all-blocklength optimum saturates the cyclic bound and the construction supplies one codeword per primitive necklace, including the nonprimitive n divisible by 3 boundary. This is a genuine infinite classification with an explicit constructive code, not a routine consequence of known upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
