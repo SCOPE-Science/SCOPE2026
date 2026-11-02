@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact adjoint integration-by-parts identity and optimization of the signed integral on each fixed cell; local simple-zero linearization with error <=||sigma''||_infty h^3 per cell; Fourier expansion of g with coefficients (-1)^k/(pi^2 k^2) and Parseval yield the exact mean and m-dependent variance; synchronization and half-period cancellation give 1/180 and 1/2880. Strictly finite reproducibility checks supplement analytical proofs. Aligned roots, physical endpoint cells and uniform phase remainders are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bourdin–Trélat, arXiv:2302.02965v1, prove qualitative sampled-data state/costate convergence.",
+        "Scarinci–Veliov, Theorem 3.1, prove an O(h^{2/kappa}) bound for a more flexible reconstruction from augmented scheme variables."
+      ],
+      "reasoning": "The general source covers a broader dynamics class but a weaker qualitative conclusion; the second-order paper changes the admissible within-cell control and studies trajectory/control errors, not the sharp exact zero-order-hold value gap and arithmetic random-shift variance. Neither dominates this statement.",
+      "searches": [
+        "https://arxiv.org/abs/2302.02965",
+        "https://link.springer.com/article/10.1007/s10589-017-9948-z",
+        "2017 Scarinci Veliov higher-order numerical bang-bang scheme switching function sampled grid average value error second order"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2302.02965",
+      "https://arxiv.org/html/2011.10022v5",
+      "https://link.springer.com/article/10.1007/s10589-017-9948-z",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-cubic-grid-phase-law-for-a-sampled-bang-switch-in-a-controlled-q--99b8c1c493cd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The qubit result has O(N^{-3}) time excess, one interior pulse, and an endpoint branch; the current result is O(m^{-2}) exact-control-objective excess with no terminal-state constraint, plus common-shift covariance and 16-fold two-switch parity effect.",
+        "Qualitative convergence alone supplies no exact 1/12 mean, 1/180 and 1/2880 variance coefficients."
+      ],
+      "reasoning": "The novel conclusions are not special cases of the examined primary results; they require a different exact objective decomposition and harmonic phase-correlation calculation. Elementary lemmas alone are not claimed novel.",
+      "searches": [
+        "sampled-data bang-bang scalar affine linear optimal control fixed grid exact objective gap switching function simple zero h^2 min(fractional phase squared) randomized grid shift covariance",
+        "random shifted mesh bang bang switching control objective discretization subcell loss Fourier phase coupling two switches parity variance sixteen factor",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-cubic-grid-phase-law-for-a-sampled-bang-switch-in-a-controlled-q--99b8c1c493cd",
+        "https://arxiv.org/abs/2302.02965"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aghaee–Hager use free switching-time optimization, not grid-locked switching.",
+        "The 2017 Scarinci–Veliov within-cell Volterra–Fliess controls can switch inside each sample; Theorem 3.1 is not a fixed-grid value-gap law."
+      ],
+      "reasoning": "Equivalently the present claim is an exact best-cellwise-sign approximation of a smooth switching function. Optimizing switch times or allowing within-cell moments removes that restriction, so those seemingly equivalent optimal-control formulations do not imply the same loss. Fourier covariance further depends on a single random common grid offset.",
+      "searches": [
+        "sampled-data bang-bang scalar affine linear optimal control fixed grid exact objective gap switching function simple zero h^2 min(fractional phase squared) randomized grid shift covariance",
+        "random shifted mesh bang bang switching control objective discretization subcell loss Fourier phase coupling two switches parity variance sixteen factor",
+        "https://arxiv.org/html/2011.10022v5",
+        "https://link.springer.com/article/10.1007/s10589-017-9948-z"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record: 2026/10/4/SCOPE-cubic-grid-phase-law-for-a-sampled-bang-switch-in-a-controlled-q--99b8c1c493cd",
+        "Its full public RESULT.md proves cubic sampled qubit time excess with coefficient r(1-r)/3; not a quadratic value gap or Fourier variance.",
+        "Other search hits involved unrelated grid-phase sampling and optimization methods, with no matching object and full claim."
+      ],
+      "reasoning": "No matching exact claim/table is evident from the queried available published research records. Semantic search and partitioning do not establish priority or uniqueness.",
+      "searches": [
+        "sampled-data bang-bang scalar affine linear optimal control fixed grid exact objective gap switching function simple zero h^2 min(fractional phase squared) randomized grid shift covariance",
+        "random shifted mesh bang bang switching control objective discretization subcell loss Fourier phase coupling two switches parity variance sixteen factor",
+        "2017 Scarinci Veliov higher-order numerical bang-bang scheme switching function sampled grid average value error second order",
+        "Sharp second order sampled-data bang-bang linear optimal control value gap mesh phase switching time cell boundaries random grid shift 1/12 constant"
+      ]
+    },
+    "rationale": "Compared mathematical implications, not keywords: the sharp quadratic objective-gap and its shared-shift Fourier covariance for scalar affine zero-order-hold controls are absent from the inspected qualitative convergence theorem, the free switching-point algorithm, the within-cell enriched higher-order control scheme, and the closest cubic qubit time-excess result. Targeted database queries returned no equivalent claim; absence alone does not prove uniqueness. Classic local crossing and Fourier lemmas are acknowledged as prior elementary components.",
+    "residual_risks": [
+      "An unexamined specialized switching-time quantization paper might subsume part or all of this value-gap / shift-covariance statement under different language.",
+      "The local crossing and Fourier convolution machinery are standard; novelty is only assessed for their exact combination in the stated optimal-control problem.",
+      "No independent publication-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes uniform convergence of state and costate under broad assumptions, not a leading objective-gap coefficient or shifted-grid covariance.",
+        "evidence": "arXiv:2302.02965v1, submitted 2023-02-06; introduction and Sections 2–3 address qualitative state/costate convergence rather than the claimed sharp value gap.",
+        "identifier_or_url": "https://arxiv.org/html/2302.02965v1",
+        "material_read": "Open-access full HTML: introduction, setup of partitions and sampled piecewise-constant controls, convergence theorem statements and adjacent proofs.",
+        "method": "Full-text semantic and theorem comparison of sampled-data objective, rate, random shift and switching-phase assumptions.",
+        "title": "Convergence in nonlinear optimal sampled-data control problems",
+        "trigger": "Primary motivating source for qualitative sampled-data convergence; check whether a sharp switching-grid objective law is present."
+      },
+      {
+        "assessment": "Uses augmented moment variables and reconstructs switches inside cells; proves a second-order trajectory/control estimate, not exact zero-order-hold restriction or grid-shift variance. Does not dominate the present claim.",
+        "evidence": "Published 2017-10-06, DOI 10.1007/s10589-017-9948-z; Theorem 3.1, equations (3.14)–(3.17).",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10589-017-9948-z",
+        "material_read": "Full accessible publisher HTML, mathematical formulation in Section 2, discrete Volterra–Fliess scheme Section 3 and Theorem 3.1 including within-cell switching construction (equations 3.14–3.17).",
+        "method": "Compare control family and scheme, optimand, order and whether the stated estimates imply phase-specific value loss.",
+        "title": "Higher-order numerical scheme for linear quadratic problems with bang-bang controls",
+        "trigger": "Highly relevant primary published bang-bang numerical control error estimates; potential stronger coverage."
+      },
+      {
+        "assessment": "Switch positions are optimized continuously, so the method can avoid grid quantization and does not imply the fixed-grid leading value-gap law or variance.",
+        "evidence": "arXiv:2011.10022v1 (2020-11-19); independent switching-point parameterization is the algorithm's defining feature.",
+        "identifier_or_url": "https://arxiv.org/html/2011.10022v5",
+        "material_read": "Open-access full HTML: introduction, switching-time decision variables, formulae for derivatives and numerical method sections.",
+        "method": "Compare free switching-point choice with fixed sampling grid and shared random phase.",
+        "title": "The Switch Point Algorithm",
+        "trigger": "Possible equivalent description via optimizing switching times."
+      },
+      {
+        "assessment": "Different two-level quantum state-transfer model with one adjustable interior pulse; its cubic time-excess law cannot imply a quadratic affine-objective value loss or a multi-switch Fourier variance and parity law.",
+        "evidence": "Cubic coefficient r(1-r)/3 at order N^{-3}; local endpoint branch, not globally optimal; no random-phase covariance.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-cubic-grid-phase-law-for-a-sampled-bang-switch-in-a-controlled-q--99b8c1c493cd",
+        "material_read": "Complete published RESULT.md: finding, qubit definitions, local propagator expansion, proof, scope and references.",
+        "method": "Compare object, endpoint constraint, pulse freedoms, order, quantity optimized and implication for random mesh shifts.",
+        "title": "Cubic grid-phase law for a sampled bang switch in a controlled qubit",
+        "trigger": "Closest public mathematical finding: explicit bang-switch grid-phase asymptotics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0e181d04-6943-46f6-ba59-5996eaee9ff3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantifies a practically motivated fixed sample-rate bang-bang value loss and resolves how a shared randomized sampling-grid origin changes its mean and variance. A 16x mesh-parity resonance can alter variability at fixed nominal discretization resolution; the coefficient is exact and useful for diagnosing grid placement, not an arbitrary unmotivated invariant. Scope and no-guarantee publication-priority risks are explicit.",
+    "status": "PASS"
+  }
+}
