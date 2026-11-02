@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For the positive principal eigenfunction, the logarithmic-slope Prüfer phase decreases at constant rate between traps. Each positive delta interaction has a sharp attainable phase advance \(2\arctan(a_j/(2t))\). Summation gives a strict scalar upper bound; the phase-balanced configuration attains it with a positive eigenfunction and is the unique equality case. The proof covers every stipulated endpoint and trap parameter, including reflecting boundaries; finite transfer-matrix tests corroborate the identities but are not the universal proof.
+## correctness
 
-## Originality
-**PASS on the compared mathematical statements, with a qualified priority risk.** Karulina–Vladimirov study first-eigenvalue extrema under freely variable integral-constrained singular potentials and single concentrated atoms, whereas the present design fixes each positive atom separately. Exner's fully examined paper and a subsequently published loop result impose identical strengths and periodic geometry, not an arbitrary ordered heterogeneous array with two Robin boundaries. Kurasov–Serio freely redistribute a total potential/coupling resource on a fixed graph. These distinctions concern the optimization constraints and the actual implications, not merely names or parameters. Earlier broader optimal-control or oscillation treatments might contain an equivalent construction; the full text of one relevant published loop result was not accessible.
+PASS
 
-## Mathematical value
-**PASS.** In long-time absorption design the principal decay exponent is the natural rate. The theorem provides a complete and unique many-trap solution, allowing unequal trap reactivities and independently reactive endpoints, and a computationally inexpensive exact geometric prescription. The arctangent-spacing law is qualitatively distinct from equal spacing under unequal trap strengths. It does not solve finite-time or multidimensional trap placement.
+For all L>0, N≥1, h0,hL≥0 and individually fixed aj>0, the ground eigenfunction of the real Robin/delta quadratic form is strictly positive. Its principal Prüfer phase θ=atan(u′/(tu)) decreases exactly −t between traps and its jth positive delta jump is at most 2atan(aj/(2t)), sharply only when the incoming/outgoing logarithmic slopes are −aj/2 and +aj/2. The summed inequality bounds t by the unique positive scalar root; the prescribed strictly positive gaps build a globally positive ground eigenfunction attaining equality, and strict equality conditions force every trap location uniquely. The D multiplier is only diffusion normalization. Independent direct harmonic-transfer and first positive root checks for 28 heterogeneous instances and 84 competitors corroborate, not prove, global uniqueness.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The precise all-N fixed-labeled-heterogeneous-strength Robin placement theorem differs mathematically from budget-constrained singular-potential optimization, equal-strength interactions on loops, and quantum-graph resource allocation. Those broader-looking domains do not contain the same constrained optimization with independently fixed aj. Priority qualification is needed for unindexed Sturm–Liouville phase-allocation results.
+
+## value
+
+PASS
+
+Optimizing principal decay rate for multiple partially absorbing traps with unequal reactivities and reactive boundaries is a natural inverse-design problem. The theorem supplies an analytic unique global optimum and a transparent nonuniform phase-spacing law for every finite N, not a weak-coupling approximation or a brute-force sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
