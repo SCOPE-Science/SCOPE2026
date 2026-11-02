@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:49:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, actual verify_s4.py and 24-permutation generating-pair code inspected",
+        "independent_checks.py computed exact group DP for all |word|<=24 and full 65-state Moore right-congruence minimization"
+      ],
+      "rationale": "The group law a,b was materialized on all 24 permutations. For identity words of length>24, 25 prefix positions force an identity subword of length<=24, so induction decomposes the Parikh vector into identity vectors from bounded length. The exact P_ij right-multiplication DP through total length24 independently reconstructs all 325 Parikh coordinates and agrees with the proposed five generator monoid; generator irredundancy and its even/odd modulus-4 membership normal form follow from nonnegative semigroup bounds. Periodic folding (i mod 4 beyond 9, j mod 2 beyond 3) gives 65 reachable canonical count states. Independently computing the complete DFA successor partition yields exactly 44 pairwise distinguishable right-congruence classes, with 33 classes size1, nine size2 and two size7. The finite group reduction and automaton partition exhaust all infinite words, unlike an arbitrary truncated simulation.",
+      "residual_risks": [
+        "The 24-word cutoff is justified by prefix pigeonhole; the first 100 lengths alone would not establish it.",
+        "One specific ordered S4 generating pair and complete DFAs only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoffmann 2020 proves regularity of arbitrary group-language commutative closures and constructive complexity bounds, not the exact minimal 44 for this particular regular action.",
+          "The submitted 5-generator Parikh semigroup is a concrete refinement of the broad constructive theorem."
+        ],
+        "reasoning": "General upper bounds and recognizability imply only existence of a DFA, not the exact 44 quotient or five minimal primitive vectors.",
+        "searches": [
+          "https://arxiv.org/abs/2004.11772",
+          "https://arxiv.org/abs/2111.13524",
+          "S4 identity language commutative closure Parikh vectors state complexity 44 minimal DFA"
+        ]
+      },
+      "checked_sources": [
+        "S4 identity language commutative closure Parikh vectors state complexity 44 minimal DFA",
+        "https://arxiv.org/abs/2004.11772",
+        "https://arxiv.org/abs/2111.13524"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hoffmann theorem provides upper state complexity in terms of original group automaton size, not an exact quotient.",
+          "Membership normal form and explicit DFA minimization are additional concrete calculations for identity words."
+        ],
+        "reasoning": "The broad theorem logically implies regularity but not this exact semigroup basis or minimal class count without carrying out the finite, group-specific analysis.",
+        "searches": [
+          "https://arxiv.org/abs/2004.11772",
+          "S4 identity language commutative closure Parikh vectors state complexity 44 minimal DFA"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A commutative closure can be described as a nonnegative Parikh monoid and recognized by a modular-threshold automaton.",
+          "Hoffmann 2020 Example 4 on a 4-point permutation automaton does not recognize the identity language of the 24-element regular action."
+        ],
+        "reasoning": "The most plausible disguised equivalent language would be the same identity-word Parikh semigroup, but the published example has different final-state set and so its state count cannot be imported.",
+        "searches": [
+          "S4 identity language commutative closure Parikh vectors state complexity 44 minimal DFA",
+          "https://arxiv.org/abs/2004.11772",
+          "Parikh identity language S4 4 cycle transposition commutative closure state complexity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full finite count-state set and independently reproduced 44-class partition are explicit certificate; comparison with published Example 4 found no matching identity-language table.",
+          "Resultary near results are other language-complexity settings, not same S4 identity monoid."
+        ],
+        "reasoning": "A known complete subgroup multiplication table alone is insufficient to imply minimal DFA state count; a direct prior exact 44-state table was not found, without exhaustive priority claim.",
+        "searches": [
+          "S4 identity language commutative closure Parikh vectors state complexity 44 minimal DFA",
+          "S4 identity products a four cycle b transposition five Parikh generators 44 DFA",
+          "Hoffmann Example 4 permutation automaton state count"
+        ]
+      },
+      "rationale": "The general regularity and state-complexity upper bounds for commutative closures of group languages are prior theory. Hoffmann 2020 Example 4 uses the same type of 4-point permutation generators but a different accepting language based on state subsets; regular-action identity words require the full 24-element group. The five identity-count primitive vectors and exact 44-state Myhill–Nerode quotient are not supplied by the inspected general result.",
+      "residual_risks": [
+        "Possible publication about identity-count monoids or a four-point permutation automaton whose conventions yield an equivalent language, not found in targeted query.",
+        "This is an isolated exact S4 invariant, not a general group-language classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL BOUNDS; DISTINCT EXAMPLE ACCEPTANCE LANGUAGE",
+          "evidence": "Theorem on group regularity does not specify our five identity-count vectors; Example 4 recognizes a subset-of-four-point-states language, not the full S4 identity word language.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.11772",
+          "material_read": "Primary arXiv full 22-page PDF retrieved, statement, general bounds and Example 4 with accepting convention read; rendered first page inspected",
+          "method": "Primary arXiv PDF text and screenshot",
+          "title": "State Complexity Bounds for the Commutative Closure of Group Languages",
+          "trigger": "Same operation and a four-point transposition/cycle automaton that might dominate"
+        },
+        {
+          "assessment": "BROAD OPERATION FRAMEWORK; EXACT EXAMPLE UNCLEARED",
+          "evidence": "Later treatment of commutative languages may contain technical examples not excluded from full document.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.13524",
+          "material_read": "Title, bibliographic record and abstract read; full technical text NOT inspected",
+          "method": "Primary arXiv abstract/bibliographic description",
+          "title": "State Complexity Investigations on Commutative Languages",
+          "trigger": "Possible later stronger general operation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Known general group-language commutative closure theory makes the natural special case meaningful",
+        "Actual 24-element group and minimal complete DFA certificate with distinguishing suffixes"
+      ],
+      "rationale": "S4 with a 4-cycle and transposition is a standard smallest nonabelian symmetric-group test case. The exact five primitive identity-count vectors and 44-class minimal recognizer are independently useful sharp benchmarks for commutative closure/state complexity beyond qualitative regularity and broad bounds. The evidence is a complete natural exact invariant, not an arbitrary choice of finite sample.",
+      "residual_risks": [
+        "No claim for all S_n or arbitrary generating sets; a single finite benchmark has limited generality and future reuse remains an informed prospect."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For positive letters a=(0 1 2 3) and b=(0 1) generating S4, identity-product word language W, the Parikh monoid is minimally generated by (0,2),(4,0),(3,3),(6,4),(9,3), and its commutative closure has exactly 44 states in a complete minimal DFA.",
+  "limitations": [
+    "Complete deterministic automata including rejecting states; group identity and a 4-point stabilizer language must not be conflated.",
+    "No formal mechanized proof or exhaustive literature priority certification.",
+    "No external expert attestation or Lean formal proof; finite experiments support but do not prove unbounded parameters.",
+    "Publication withheld until guarded privacy-safe complete public metadata replacements exist."
+  ],
+  "schema_version": 1
+}

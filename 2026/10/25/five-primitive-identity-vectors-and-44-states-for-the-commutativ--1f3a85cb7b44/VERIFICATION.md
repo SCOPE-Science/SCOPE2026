@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run `python3 verify_s4.py` using the standard library. It constructs the 24 permutations of four symbols, computes all products represented by each of the 325 Parikh pairs with total length at most 24, checks the exact five-generator monoid equality for all those pairs, and tests five explicit identity witnesses and generator irredundancy. The algorithm then checks a separate length-100 membership profile and constructs a reachable 65-state complete DFA. Two independent finite partition procedures agree on precisely 44 right quotients, with every pair of different quotients separated by a suffix of length at most seven.
+# Independent mathematical audit
 
-# Scientific proof limit
-The finite group-state pigeonhole lemma is what extends the exhaustive length-24 computation to every word length. The length-100 tests provide independent finite corroboration only. Exact matching checks of the supplied Python code were run; no independent audit has been performed.
+## correctness
+
+PASS
+
+The group law a,b was materialized on all 24 permutations. For identity words of length>24, 25 prefix positions force an identity subword of length<=24, so induction decomposes the Parikh vector into identity vectors from bounded length. The exact P_ij right-multiplication DP through total length24 independently reconstructs all 325 Parikh coordinates and agrees with the proposed five generator monoid; generator irredundancy and its even/odd modulus-4 membership normal form follow from nonnegative semigroup bounds. Periodic folding (i mod 4 beyond 9, j mod 2 beyond 3) gives 65 reachable canonical count states. Independently computing the complete DFA successor partition yields exactly 44 pairwise distinguishable right-congruence classes, with 33 classes size1, nine size2 and two size7. The finite group reduction and automaton partition exhaust all infinite words, unlike an arbitrary truncated simulation.
+
+## originality
+
+PASS
+
+The general regularity and state-complexity upper bounds for commutative closures of group languages are prior theory. Hoffmann 2020 Example 4 uses the same type of 4-point permutation generators but a different accepting language based on state subsets; regular-action identity words require the full 24-element group. The five identity-count primitive vectors and exact 44-state Myhill–Nerode quotient are not supplied by the inspected general result.
+
+## value
+
+PASS
+
+S4 with a 4-cycle and transposition is a standard smallest nonabelian symmetric-group test case. The exact five primitive identity-count vectors and 44-class minimal recognizer are independently useful sharp benchmarks for commutative closure/state complexity beyond qualitative regularity and broad bounds. The evidence is a complete natural exact invariant, not an arbitrary choice of finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
