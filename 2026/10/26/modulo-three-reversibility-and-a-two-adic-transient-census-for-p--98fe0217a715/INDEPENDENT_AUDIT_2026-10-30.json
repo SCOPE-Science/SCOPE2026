@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:56:27Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Simple C_n requires n>=3 to have three distinct neighbors; all computations mod2 and synchronous open-neighbor updating.",
+        "Fixed-point formula counts labeled configurations of period dividing m, not primitive period without Möbius inversion."
+      ],
+      "rationale": "The two-row binary linear rule on C_n□K2 is conjugate over F2[z]/(z^n+1) to J=[[d,1],[0,d]], d=(z²+z+1)/z. Since P=z²+z+1 has primitive third roots, it divides z^n+1 iff 3|n, with exact multiplicity k=2^v2(n). Chinese-remainder decomposition gives an invertible 2n−4k dimensional complement and nilpotent primary module of dimension 4k; J has nilpotent index 2 for k=1 and exactly k for k even>=2. Solving J^t(u,s)=0 gives binary kernel dimension 2min(t,2) for k=1 or 4min(t,k) otherwise. Counting kernel fibers gives the stated recurrent, entry-time, basin and maximal-time fractions. For m even J^m+I has diagonal factor d^m+1; for m odd the diagonal and d^(m−1) generate the unit ideal, so Smith factors are (1,(d^m+1)^2). Polynomial gcd kernel dimensions with z^n+1 yield |Fix(F^m)| and Möbius inversion yields primitive cycles.",
+      "status": "PASS",
+      "verification": "Independently built binary adjacency matrices and polynomial arithmetic, checked transient-kernel ranks and polynomial gcd fixed-point exponents for circumferences n=3..17 and all m=1..17; inspected frozen checker source and matched its distinct algorithms. Analytically checked special n=3 (k=1) and n=6 (k=2) boundary fractions."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inaccessible 2008 paper concerns general cycle structure of additive automata and might include a more general polynomial invariant-factor theorem.",
+          "General algebraic vector-group endomorphisms (2022) are broader, but accessible material does not evaluate the exact prism singular cyclotomic factor or odd/even Smith normal forms."
+        ],
+        "reasoning": "An abstract general kernel method could derive the result once the target map is analyzed; absent already evaluated formulas do not prove novelty. The inaccessible 2008 primary remains a priority risk.",
+        "searches": [
+          "Resultary: binary additive cellular automata circular ladder prism Cn Cartesian K2 parity neighbour reversibility transient period census",
+          "Ganguly/Sikdar/Chaudhuri DOI:10.3233/FUN-2008-87202",
+          "arXiv:2211.02866"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen blob 7179dedbe21c880d18389aabd062a5a581d43c73",
+        "prism_xor_check.py frozen blob 13dd2560ce4d33e8b52e35f0260d6b756ce46a27",
+        "C. Moore, Quasi-Linear Cellular Automata, arXiv:adap-org/9701001 (background abstract/lawful synopsis)",
+        "Byszewski & Cornelissen, Multiband Linear Cellular Automata and Endomorphisms of Algebraic Vector Groups, arXiv:2211.02866 (public textual sections)",
+        "Ganguly/Sikdar/Pal Chaudhuri, Exploring Cycle Structures of Additive Cellular Automata, Fundamenta Informaticae 87 (2008) DOI:10.3233/FUN-2008-87202 (abstract only)",
+        "Resultary:2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General reversibility of linear CA is equivalent to invertibility of the relevant polynomial matrix; the target evaluates it to precisely 3∤n.",
+          "General Smith-normal-form fixed-point counting is algebraically known; the target odd/even m arithmetic and primary nilpotent length must still be computed."
+        ],
+        "reasoning": "The specific full census is a nontrivial specialization not shown in inspected sources, but uninspected general theorems might logically imply it; that risk is explicit, not dismissed.",
+        "searches": [
+          "Resultary: binary additive cellular automata circular ladder prism Cn Cartesian K2 parity neighbour reversibility transient period census",
+          "Moore arXiv:adap-org/9701001",
+          "Ganguly/Sikdar/Chaudhuri 2008 abstract",
+          "Byszewski/Cornelissen 2022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General linear CA treat Laurent polynomial multiplication; they do not specialize in accessible statements to the 2-by-n cyclic prism adjacency with P=z²+z+1.",
+          "Resultary related Boolean-cube and multipartite parity automata use different graph modules and residue conditions."
+        ],
+        "reasoning": "Related parity automata methods are comparable, but no equivalent named classification of the exact prism graph and both transient and period census was located.",
+        "searches": [
+          "Resultary: binary additive cellular automata circular ladder prism Cn Cartesian K2 parity neighbour reversibility transient period census",
+          "Resultary: prism C_n square K_2 XOR parity cellular automaton modulo 3 transient period exact gcd",
+          "Moore 1997 Quasi-Linear Cellular Automata",
+          "Byszewski-Cornelissen arXiv:2211.02866"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related exact Boolean-cube result has n mod4 dynamics on a distance-two graph, not circular prisms with n mod3.",
+          "The source period formula computes gcd(z^n+1,((z²+z+1)^m+z^m)^{1 or 2}) for each m; no matching specialized table was retrieved."
+        ],
+        "reasoning": "No exact prism orbit count dataset was found among retrieved published records. An explicit formula may be derivable from a generic additive CA cycle method, and search absence alone is not proof of newness.",
+        "searches": [
+          "Resultary: binary additive cellular automata circular ladder prism Cn Cartesian K2 parity neighbour reversibility transient period census",
+          "Resultary: prism C_n square K_2 XOR parity cellular automaton modulo 3 transient period exact gcd",
+          "Resultary published record 2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4"
+        ]
+      },
+      "rationale": "The specific prism graph family yields an explicit modulo-three reversibility threshold, exact two-adic transient and basin census, and an all-time period polynomial-gcd law. Additive CA polynomial methods and broad cycle-structure tools are prior.",
+      "residual_risks": [
+        "The 2008 article on additive cellular automata cycle structures has highly relevant title and abstract; its full text was inaccessible and a specialized finite-prism deduction cannot be excluded.",
+        "General linear cellular automaton classification could yield the gcd laws as a corollary, though no already evaluated C_n×K2 formula was found.",
+        "No claim about orbit periods over an infinite lattice, state identification under graph symmetries or simplified least-period support."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cannot assert NOT_COVERING for the whole paper; retained as priority risk.",
+          "evidence": "The title/abstract address additive cellular automata cycle structure, possibly implying special graph orbit counts.",
+          "identifier_or_url": "DOI:10.3233/FUN-2008-87202",
+          "material_read": "Publisher/bibliographic abstract only; full article not available through attempted arXiv/OA routes.",
+          "method": "Public abstract search, then authorized institutional request returned vpn_disconnected; no bypass",
+          "title": "Exploring Cycle Structures of Additive Cellular Automata",
+          "trigger": "Direct potentially general orbit-census predecessor"
+        },
+        {
+          "assessment": "Provides general algebraic method, not an inspected explicit modulo-three prism recurrence/transient gcd table.",
+          "evidence": "General multiband polynomial correspondence, distinct from fixed finite circular-prism adjacency.",
+          "identifier_or_url": "arXiv:2211.02866",
+          "material_read": "Public preprint bibliographic and accessible explanatory sections on algebraic vector-group and multiband CA framework.",
+          "method": "Lawful primary preprint search and section reading",
+          "title": "Multiband Linear Cellular Automata and Endomorphisms of Algebraic Vector Groups",
+          "trigger": "General multiband Laurent polynomial dynamics could include cylinder specializations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The circular prism is a canonical cubic graph and the synchronous binary parity rule is a natural linear dynamical system on it. Its complete reversible/singular phase boundary, sharp two-adic entry-time census and exact period-count algorithm are independently useful graph-dynamical invariants, not isolated small-n instances.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen blob 7179dedbe21c880d18389aabd062a5a581d43c73",
+    "prism_xor_check.py frozen blob 13dd2560ce4d33e8b52e35f0260d6b756ce46a27",
+    "C. Moore, Quasi-Linear Cellular Automata, arXiv:adap-org/9701001 (background abstract/lawful synopsis)",
+    "Byszewski & Cornelissen, Multiband Linear Cellular Automata and Endomorphisms of Algebraic Vector Groups, arXiv:2211.02866 (public textual sections)",
+    "Ganguly/Sikdar/Pal Chaudhuri, Exploring Cycle Structures of Additive Cellular Automata, Fundamenta Informaticae 87 (2008) DOI:10.3233/FUN-2008-87202 (abstract only)",
+    "Resultary:2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only finite simple circular prisms n>=3, labeled binary configurations and synchronous open-neighbor rule.",
+    "No assertion that every m supports a nonzero primitive cycle; the formula evaluates its count, sometimes zero."
+  ],
+  "residual_risks": [
+    "The 2008 article on additive cellular automata cycle structures has highly relevant title and abstract; its full text was inaccessible and a specialized finite-prism deduction cannot be excluded.",
+    "General linear cellular automaton classification could yield the gcd laws as a corollary, though no already evaluated C_n×K2 formula was found.",
+    "No claim about orbit periods over an infinite lattice, state identification under graph symmetries or simplified least-period support."
+  ],
+  "schema_version": 1
+}
