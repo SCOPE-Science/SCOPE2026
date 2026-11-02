@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:50:10.976653Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md blob 4972cb913407001acbc69a395ea39fae6e9ab2e8",
+        "Independently verified Git tree 1b2b6e33535f3600e6c6bc25d0310055a9c41b04",
+        "independent_checks.py and independent_check_results.json"
+      ],
+      "rationale": "For one-dimensional full even N>=4, alpha=1, kernel K=1+gamma sum_{k≠0} e^{2πik(s-t)}/k² and density mu=(π/2)|sin2πt|, nonzero circulant DFT modes of optimal weights equal integrals of periodic triangular nodal hats. Only the zero mode differs, yielding w_j=b_j-gamma*d_N/[N(1+gamma*a_N)]. Direct Fourier series of mu and cotangent sum give d_N=1-(π/N)cot(π/N)>a_N and b_min=B_N=1/2-N sin(2π/N)/(4π), only at j=0,N/2 by circular-unimodal convolution. Thus solving w_min=0 yields exact gamma_N, with two zero weights at equality and negative above. Transformed node coincidences allow a nonnegative polynomial supported only at x=0 to witness negative quadrature. Taylor expansion gives gamma_N=N+π²/3+O(N^-1), while constant Q(1) crosses at gamma=(d-a)^-1~45 N^4/π^4. Independent quadrature and direct Bernoulli-kernel matrix solves for N=4,6,...,16 matched hat+offset to 8.3e-13. Finite checks corroborate the Fourier argument, do not establish all N.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karvonen et al give positivity sufficient conditions using total positivity / local optimum and bounds on weight size; neither yields iff threshold for this kernel.",
+          "Bartel et al broad method spans higher dimensions and other smoothness but accessible abstract does not state positivity analysis."
+        ],
+        "reasoning": "A broader cubature method is not a stronger positivity theorem; the source preprint is high-priority unknown rather than claimed ruled out.",
+        "searches": [
+          "Karvonen Kanagawa Särkkä 2019 Sections 3.7 and 4.3",
+          "Bartel et al arXiv:2610.01113 abstract",
+          "Resultary semantic lattice cubature search"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md 4972cb913407001acbc69a395ea39fae6e9ab2e8",
+        "Pinned verification tree 95128ea6e735bd200b6e62d6b826beb6ff5e81d8",
+        "Bartel et al arXiv:2610.01113 abstract (full text unavailable)",
+        "Karvonen et al 2019 full open-access HTML",
+        "Independent Bernoulli kernel matrix / adaptive quadrature 7 grids"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weighted Chebyshev-density transform and kernel solve produce unknown-sign optimal weights; convergence error alone does not imply positivity.",
+          "Kernel total positivity hypotheses in Karvonen do not apply directly to the periodic Sobolev kernel and signed zero-mode shift."
+        ],
+        "reasoning": "Even if the algorithm is prior art, the necessary and sufficient positive-weight interval and N-vs-N^4 threshold separation are additional implications requiring a separate calculation.",
+        "searches": [
+          "Bartel et al source description of optimized weights",
+          "Karvonen et al Proposition 3, Theorem 1, Section 3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2019 paper explains Brownian-motion posterior means as nonnegative piecewise-linear hat cardinal functions, unlike present periodic kernel with penalized constant mode.",
+          "Exact gamma_N and B_N are absent from searchable results; 2026 preprint complete text unavailable."
+        ],
+        "reasoning": "Periodic Sobolev interpolation and Bayesian cubature are viable aliases. Available distinct frameworks do not mechanically imply the displayed even-N threshold; inability to read identical-source full text remains a risk.",
+        "searches": [
+          "Resultary query: Chebyshev periodization Korobov lattice Bayesian kernel quadrature positivity weights Sobolev hat Fourier negative common shift",
+          "Bartel et al. arXiv:2610.01113 2026 source title/abstract; Karvonen 2019"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2019 examples are total-positive or Brownian-hat settings; unlike the given periodic Chebyshev density.",
+          "The exact gamma_N sequence requires density Fourier coefficients and a cotangent identity not supplied in the inspected 2019 table."
+        ],
+        "reasoning": "No exact preexisting threshold table established; full Bartel numerical appendix was not readable, a residual comparative risk.",
+        "searches": [
+          "Bartel arXiv:2610.01113 abstract / numerical method",
+          "Karvonen 2019 full text Section 3.7/4.3",
+          "Resultary Fourier sampling queries"
+        ]
+      },
+      "rationale": "The October 2026 Bartel–Gilbert–Griebel–Kuo–Sloan method and kernel-optimal equation are direct background. Karvonen–Kanagawa–Särkkä (2019) gives general sufficient conditions and positive Brownian-hat cases, but those involve a different constant-mode normalization and do not establish this Chebyshev-density threshold. The recent method paper complete text could not be retrieved through public arXiv/OA attempts and authorized institutional access returned storage_limit. Best-of-knowledge O PASS is therefore qualified by this material same-method priority risk rather than a false full-text noncoverage claim.",
+      "residual_risks": [
+        "Full text of identical-source Bartel et al arXiv:2610.01113 was unavailable; authorized institutional download reported storage limit. A hidden example or appendix could include the same special-case threshold.",
+        "The circular unimodal convolution strictness must be read for all even N, not inferred from checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Describes general positivity/magnitude regimes and a different Brownian-hat mechanism; not a covering computation for the periodized Korobov weights.",
+          "evidence": [
+            "web ;  lines 410–420;  lines 574–600"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-019-09901-0",
+          "material_read": "Full open-access HTML, Sections 3.4–3.8 (especially 3.7 piecewise-linear Brownian example), 4.3 Theorem 5 and stability discussion",
+          "method": "web searchable full HTML",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Closest published positivity theory"
+        },
+        {
+          "assessment": "Method is directly prior; detailed weight-sign analysis cannot be excluded without full text.",
+          "evidence": [
+            "web turn919057academia50; institutional error download storage limit reached"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01113",
+          "material_read": "Abstract and method description ONLY; full PDF and HTML blocked, authorized institutional download returned storage limit",
+          "method": "arXiv search/abstract and independent retrieval attempts; no claimed reading beyond abstract",
+          "title": "A higher order lattice-based method for high-dimensional numerical integration using periodization",
+          "trigger": "Exact same algorithm, primary priority risk"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Mathematical motivation and non-implication reasoning in originality comparisons",
+        "Reviewed exact theorem / scope / boundaries in RESULT.md"
+      ],
+      "rationale": "The exact loss of nonnegative weights for a natural kernel-based cubature algorithm is a numerical-stability boundary; identifying a linear-in-N onset while the constant remains positive to quartic-in-N gamma separates two fundamentally different positivity notions. It provides an explicit nonnegative polynomial counterexample rather than only numerical instability.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md 4972cb913407001acbc69a395ea39fae6e9ab2e8",
+    "Pinned verification tree 95128ea6e735bd200b6e62d6b826beb6ff5e81d8",
+    "Bartel et al arXiv:2610.01113 abstract (full text unavailable)",
+    "Karvonen et al 2019 full open-access HTML",
+    "Independent Bernoulli kernel matrix / adaptive quadrature 7 grids"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality is conditional, not a priority certification.",
+    "Bounded independent computational checks corroborate, not replace, all-parameter mathematical proofs.",
+    "Full text of identical-source Bartel et al arXiv:2610.01113 was unavailable; authorized institutional download reported storage limit. A hidden example or appendix could include the same special-case threshold.",
+    "The circular unimodal convolution strictness must be read for all even N, not inferred from checks."
+  ],
+  "residual_risks": [
+    "Full text of identical-source Bartel et al arXiv:2610.01113 was unavailable; authorized institutional download reported storage limit. A hidden example or appendix could include the same special-case threshold.",
+    "The circular unimodal convolution strictness must be read for all even N, not inferred from checks."
+  ],
+  "schema_version": 1
+}
