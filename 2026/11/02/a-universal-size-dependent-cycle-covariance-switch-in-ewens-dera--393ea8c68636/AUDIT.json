@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The marked-cycle bijection gives the exact mixed moment. The θ-weighted recurrence A_n=(n-1)(A_{n-1}+θ A_{n-2}) and its differentiated B_n recurrence imply δ_n=(1-p_n)(1-δ_{n-1}), making the residual cycle mean monotone and establishing opposite endpoint signs. Locally uniform singularity analysis of e^{-θz}(1-z)^{-θ} supplies μ_n=θ log n−θ−θ ψ(θ)+Oθ(1/n) and the signed macroscopic profile. The checker independently enumerates 51,024 weighted derangement instances and passes 5,658 exact assertions; enumeration does not replace the unrestricted proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2020 paper treats Ewens derangements with arbitrary θ but provides cycle moments/means, not this sign-order theorem in read sections.",
+        "2022 paper treats biased derangements and asymptotic cycle counts, not a covariance transition in material inspected.",
+        "Ford toolkit unrestricted cycle-length results do not condition on absence of singleton cycles."
+      ],
+      "reasoning": "No inspected broader theorem directly states the all-length sign classification or macroscopic signed formula; the established factorial-moment formulas are quantitatively stronger at the raw joint-moment level but do not already provide the structural conclusion as a stated theorem. Risk of implicit derivability noted.",
+      "searches": [
+        "arxiv 2006.04840 Sections 2.1, 2.3, 2.4",
+        "arxiv 2211.13831 Sections 3 and 4",
+        "arxiv 2104.12019 Sections 1.2-1.3",
+        "published-finding corpus: random permutation number of cycles length r covariance with total cycles derangement"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2006.04840 Sections 1-2",
+      "Published SPA 2022 author-hosted PDF front matter/Section 2",
+      "arxiv:2211.13831 Sections 2-5",
+      "arxiv:2104.12019 Intro Sections 1.2-1.3",
+      "published-finding corpus semantic search: Uniform derangements covariance count of r cycles and total number of cycles exact sign threshold at n(1-1/e)",
+      "published-finding corpus semantic search: derangements long cycles negatively correlated total cycle count short cycles positively correlated monotonic covariance sign",
+      "published-finding corpus semantic search: derangement conditioned on one r cycle remaining uniform derangement phase transition r/n",
+      "published-finding corpus semantic search: random cycle decomposition no singleton parts total component count component r-count sign reversal"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2020 factorial moments determine exact covariance values, but no monotonicity of µ_m appears in its stated moment results.",
+        "Proof here uses a separate weighted derangement insertion recurrence and gamma coefficient asymptotics to force a single critical fraction."
+      ],
+      "reasoning": "Raw finite covariance is a corollary of previous moments and not the claimed novel substance. Neither the reviewed sources nor the closest records were found to imply the complete one-transition sign theorem as an already-proved statement. A future priority check could discover an unlocated extraction; this is the main residual risk.",
+      "searches": [
+        "arxiv 2006.04840 Eq. 6, 7, 10",
+        "arxiv 2211.13831 Section 3.2 and 3.3",
+        "published-finding corpus record: 2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad",
+        "published-finding corpus record: 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+        "published-finding corpus record: 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Marked-cycle size bias: E[C_r K]/E[C_r]=1+μ_{n-r}; 2020 paper Section 2.1 mixed factorial moments and Section 2.3 total count."
+      ],
+      "reasoning": "An algebraically equivalent formula for covariance is contained in older factorial-moment data; the proposed novel content is the monotone sign theorem and limiting transition profile, which do not follow from mere formula identification without the residual-mean recurrence and asymptotic comparison.",
+      "searches": [
+        "published-finding corpus: Uniform derangements covariance count of r cycles and total number of cycles exact sign threshold at n(1-1/e)",
+        "published-finding corpus: derangements long cycles negatively correlated total cycle count short cycles positively correlated monotonic covariance sign",
+        "published-finding corpus: derangement conditioned on one r cycle remaining uniform derangement phase transition r/n",
+        "published-finding corpus: random cycle decomposition no singleton parts total component count component r-count sign reversal",
+        "arxiv 2006.04840 cycle factorial moments and total number of cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus hits favored unrelated permutation indicator covariances and a structurally analogous set-partition block size covariance switch (id 2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad).",
+        "No exact numerical table or database identity specifying 1−e^{-1/θ} phase was returned."
+      ],
+      "reasoning": "The closest indexed set-partition result switches at the Lambert-W scale, a different species with different normalization and no implication for Ewens derangements; search nonappearance is not proof of uniqueness.",
+      "searches": [
+        "Uniform derangements covariance count of r cycles and total number of cycles exact sign threshold at n(1-1/e)",
+        "derangements long cycles negatively correlated total cycle count short cycles positively correlated monotonic covariance sign",
+        "derangement conditioned on one r cycle remaining uniform derangement phase transition r/n",
+        "random cycle decomposition no singleton parts total component count component r-count sign reversal",
+        "published-finding corpus search: Uniform derangements covariance count of r cycles and total number of cycles exact sign threshold at n(1-1/e)"
+      ]
+    },
+    "rationale": "In the inspected 2020 primary paper exact factorial moments and mean cycle totals already imply the unclassified covariance, which is explicitly not claimed as novel. The simultaneous all-length single-crossing ordering, θ-dependent universal critical fraction, and signed macroscopic profile were not found as explicit or dominant results in the relevant inspected 2020/2022 primary papers or actual published-finding corpus searches. Residual priority risk remains because general formulas can be specialized.",
+    "residual_risks": [
+      "The covariance itself follows from already-known factorial moments; an earlier explicit analysis of its sign switch might be unindexed or occur in sections not fully compared.",
+      "No independent audit or human priority assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the model and exact individual moments, so the unprocessed covariance formula is already implied. Does not state or prove universal one-transition ordering, phase boundary or signed macroscopic profile in the inspected parts.",
+        "evidence": [
+          "Eq. 6 gives general cycle factorial moments; Eq. 7 mean j-cycle count; Eq. 10 total mean; Eq. 12 conditioned-Poisson construction."
+        ],
+        "identifier_or_url": "arxiv:2006.04840; https://www.columbia.edu/cu/simontavare/STpapers-pdf/djt20b.pdf",
+        "material_read": "Open-access HTML Sections 1.1, 2.1 (equations 6,7), 2.3 (equation 10), 2.4 (equations 11,12); published PDF pp. 1 and 3 visually inspected.",
+        "method": "Section-level full-text reading and theorem/implication comparison; equations are actual published material.",
+        "title": "Random derangements and the Ewens Sampling Formula / The Feller Coupling for random derangements",
+        "trigger": "Same Ewens conditioned-derangement model; all cycle factorial moments and total means are obvious potential stronger coverage."
+      },
+      {
+        "assessment": "Gives Markov couplings and marginal/count limits but no identified simultaneous sign-classification of Cov(C_r,K), or theta-dependent critical cycle fraction.",
+        "evidence": [
+          "Section 3.2 Theorem 1 computes expected total cycles; Section 3.3 Lemma 4 concerns expected cycle-length counts; no covariance result was located in the accessible HTML."
+        ],
+        "identifier_or_url": "arxiv:2211.13831",
+        "material_read": "HTML Abstract and Sections 2.3, 3.2 (expected cycle count), 3.3 (length-specific mean), 4 description, 5 central limit discussion.",
+        "method": "Primary full-text section reading; targeted covariance term searches and statement comparisons.",
+        "title": "Markov chains arising from biased random derangements",
+        "trigger": "Later paper on biased derangements potentially covers conditional cycle statistics."
+      },
+      {
+        "assessment": "Treats principally unrestricted permutations and cycle-length subsets, rather than the fixed-point-free weighted model and this covariance sign transition.",
+        "evidence": [
+          "Theorem 1.3 bounds mixed binomial moments in the unrestricted model; derangements arise as an example for one-cycle absence."
+        ],
+        "identifier_or_url": "arxiv:2104.12019",
+        "material_read": "HTML Introduction and Sections 1.2–1.3, including joint binomial moment theorem and local law, with targeted derangement and covariance searches.",
+        "method": "Primary HTML theorem comparison.",
+        "title": "Cycle type of random permutations: A toolkit",
+        "trigger": "General random-permutation cycle-count bounds might dominate the proposed result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "393ea8c6-8636-47e1-a9d5-64aa08fe88bb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A motivated structural classification of component dependence in a classical species-sampling/permutation model: a fixed-size r-cycle count can correlate positively or negatively with the total number of components. The full classification for every θ>0, universal nontrivial fraction 1−exp(−1/θ), and signed n-scale dependence profile supply predictions for macroscopic cycle-size classes; these are neither a single small numerical improvement nor an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
