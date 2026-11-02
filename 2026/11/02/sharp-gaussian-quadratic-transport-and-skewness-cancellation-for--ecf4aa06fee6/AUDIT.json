@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Exactly computed finite-volume variance and third cumulant give explicit long-run coefficients. Strictly positive 2x2 transfer matrix has an analytic Perron eigenvalue and strict spectral decay away from lattice frequencies; stationary spectral prefactor has zero first derivative. Arbitrarily high-order local Edgeworth inversion plus Euler--Maclaurin yields the necessary relative central CDF approximation, with explicit half-cell correction. Monotone quadratic quantile coupling produces a width-squared term and shift-squared term; Chernoff and fourth-moment estimates control tails. The 97 deterministic checks reproduce exact finite-volume moment identities and numerical transport constants. Fixed parameters are essential.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bobkov 2018, Theorem 1.3 and its explicit Cramér nonlattice condition, PDF p. 4.",
+        "Zhang--Xie arXiv:2609.09480, accessible abstract: higher-order Wasserstein rates for uniformly ergodic Markov functionals, not sharp leading constants.",
+        "Hafouta--Leppänen arXiv:2610.30352v1, §§1--2, rate-level result."
+      ],
+      "reasoning": "General Markov or mixing Gaussian-approximation bounds do not fix their exact asymptotic coefficient. Nonlattice transport constants omit the positive lattice correction. A broader, unsurveyed lattice Markov transport theorem could imply the result; this remains a priority risk.",
+      "searches": [
+        "asymptotic W2 limit weakly dependent Markov additive functional discrete lattice CLT skewness variance correction",
+        "binary Markov chain third cumulant 1+4rho+rho squared cancellation skewness negative autocorrelation",
+        "Edgeworth expansion finite-state Markov additive integer lattice 2 state sums Gaussian 2020 spectral"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.30352v1, 2026-10-21",
+      "doi:10.1214/aos/1176347637, Kolassa--McCullagh 1990",
+      "doi:10.1007/s00440-017-0756-2, Bobkov 2018",
+      "arXiv:2609.09480, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kolassa--McCullagh establish corrected lattice CDF asymptotics, not optimal transport for correlated Markov sums.",
+        "Bobkov 2018 transport asymptotic theorem requires nonlattice summands.",
+        "The preexisting independent finite-lattice sharp W2 limit has independence, whereas nonzero \\(\rho\\) gives nonvanishing cross-correlations and different cumulants."
+      ],
+      "reasoning": "The old independent coefficient is precisely recovered at \\(\rho=0\\), so no originality is claimed there. The nonzero-correlation dependence correction and its negative-correlation zero locus require long-run triple correlations plus a Markov spectral Edgeworth argument. The cited rate and lattice results individually do not imply that formula without additional analysis.",
+      "searches": [
+        "sharp Wasserstein 2 Gaussian normal approximation stationary binary Markov chain lattice quantization skewness explicit leading coefficient",
+        "stationary two-state Markov Bernoulli sum skewness cancellation negative autocorrelation root -2+sqrt3 third cumulant",
+        "asymptotic W2 limit weakly dependent Markov additive functional discrete lattice CLT skewness variance correction",
+        "exact sharp n W_2 squared standardized binomial normal Gaussian: lattice quantization 1/(12pq) plus Edgeworth skewness  (1-2p)^2/(18pq)",
+        "continuity corrected Edgeworth lattice binomial Gaussian quantile transport W2 squared sharp asymptotic constant plus variance skewness",
+        "Gaussian transport monotone binomial convergence W2 error coefficient n to infinity exact 1/3 symmetric case"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hafouta--Leppänen arXiv:2610.30352v1, introduction and general bound: optimal rates only; no exact stationary Bernoulli chain constant.",
+        "Kolassa--McCullagh 1990, pp. 981--984, lattice Edgeworth theory is for independent identically distributed lattice variables."
+      ],
+      "reasoning": "The candidate is equivalent to an explicit Markov occupation-count quantile-transport expansion and to a lattice floor plus long-run-cumulant square. The references yield necessary bounds and expansion tools, but the stated sharp dependent coefficient and nonsymmetric cancellation locus are not an explicit or automatic special case of their independent statements.",
+      "searches": [
+        "sharp Wasserstein 2 Gaussian normal approximation stationary binary Markov chain lattice quantization skewness explicit leading coefficient",
+        "stationary two-state Markov Bernoulli sum skewness cancellation negative autocorrelation root -2+sqrt3 third cumulant",
+        "asymptotic W2 limit weakly dependent Markov additive functional discrete lattice CLT skewness variance correction",
+        "exact Wasserstein second order asymptotic two state Markov binomial sums Gaussian lattice skewness"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest mathematical-record matches were a dyadic quantile functional, Poisson-binomial cumulant bounds, and finite type-class Hamming-Wasserstein identities; none reported this coefficient.",
+        "An independent-summand lattice transport limit evaluates the zero-correlation case, not a Markov chain with nonzero autocorrelation."
+      ],
+      "reasoning": "No numerical table, database record or previous accessible finding gave the exact positive-transition two-state Markov formula or the feasible asymmetric zero-skew root; text search is not proof of absence.",
+      "searches": [
+        "sharp Wasserstein 2 Gaussian normal approximation stationary binary Markov chain lattice quantization skewness explicit leading coefficient",
+        "stationary two-state Markov Bernoulli sum skewness cancellation negative autocorrelation root -2+sqrt3 third cumulant",
+        "exact sharp n W_2 squared standardized binomial normal Gaussian: lattice quantization 1/(12pq) plus Edgeworth skewness  (1-2p)^2/(18pq)",
+        "continuity corrected Edgeworth lattice binomial Gaussian quantile transport W2 squared sharp asymptotic constant plus variance skewness",
+        "Gaussian transport monotone binomial convergence W2 error coefficient n to infinity exact 1/3 symmetric case"
+      ]
+    },
+    "rationale": "The novel assertion excludes the known independent case and provides an exact nonzero-correlation 2-state Markov occupation W2 coefficient and feasible skewness cancellation. The materially inspected principal results provide rate bounds, nonlattice transport asymptotics or independent lattice expansions but not this implication. Results of record searches are not uniqueness proofs; further literature review could uncover an implicit general theorem.",
+    "residual_risks": [
+      "An older high-order lattice Edgeworth or quantile-transport theorem for finite-state Markov additive functionals may implicitly subsume the coefficient.",
+      "The recent Markov Wp manuscript arXiv:2609.09480 was available only at abstract level in this review; it is a rate theorem from its abstract.",
+      "Database and available-record search are incomplete and cannot establish worldwide priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Rates without the candidate dependent exact leading coefficient",
+        "evidence": [
+          "arXiv:2610.30352v1, first posted 2026-10-21, abstract and §§1--2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.30352v1",
+        "material_read": "Title, dated abstract, Introduction and general Wasserstein-2-bound presentation",
+        "method": "Accessible arXiv full text HTML; inspected abstract, Introduction and section structure",
+        "title": "Optimal CLT error bounds in the second order Wasserstein metric via Stein’s method for weakly dependent sequences",
+        "trigger": "Primary eligible motivating publication, optimal W2 mixing rates"
+      },
+      {
+        "assessment": "Proves lattice Edgeworth expansion for independent observations, not the correlated Markov W2 limit",
+        "evidence": [
+          "Kolassa--McCullagh 1990, printed pp. 981--984, equation (2), Theorem"
+        ],
+        "identifier_or_url": "https://galton.uchicago.edu/~pmcc/pubs/paper16.pdf",
+        "material_read": "Full main theorem and proof on printed pp. 981--984, including integer-lattice correction and Sheppard cumulants",
+        "method": "Original authorized author-hosted PDF inspected as page images",
+        "title": "Edgeworth Series for Lattice Distributions",
+        "trigger": "Critical high-order continuity-corrected lattice expansion used in proof"
+      },
+      {
+        "assessment": "The sharp moment asymptotic explicitly assumes Cramér nonlattice condition, not satisfied here; generic sharp rate is not an exact coefficient",
+        "evidence": [
+          "Bobkov 2018, Theorem 1.3, nonlattice condition (1.6)"
+        ],
+        "identifier_or_url": "https://www-users.cse.umn.edu/~bobko001/papers/2017_PTRF_CLT.for.W.p_online.version.pdf",
+        "material_read": "PDF printed introductory pp. 1--4 including Theorems 1.1 and 1.3 and their conditions",
+        "method": "Original author-hosted PDF inspected as page images and extracted text",
+        "title": "Berry--Esseen bounds and Edgeworth expansions in the central limit theorem for transport distances",
+        "trigger": "Potential stronger asymptotic W2 theorem"
+      },
+      {
+        "assessment": "Rate-level Markov Wp bound, but full text comparison remains a residual priority risk",
+        "evidence": [
+          "arXiv:2609.09480, abstract dated 2026-09-08"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.09480",
+        "material_read": "Accessible dated abstract, not entire body",
+        "method": "Search-indexed arXiv abstract inspection",
+        "title": "Gaussian Approximation for Multivariate Martingale Sums from Uniformly Ergodic Markov Chains",
+        "trigger": "Closely related 2026 Markov Gaussian Wp literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ecf4aa06-fee6-469c-b241-ad1932f4de8e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural two-state Markov occupation statistic has an exact sharp W2-normalization constant, with a nonremovable lattice term and a distinct squared long-run skewness term. The surprising internal antiferromagnetic cancellation root occurs for asymmetric marginals in a sharply delimited feasible interval, a structure invisible in generic optimal-rate CLTs.",
+    "status": "PASS"
+  }
+}
