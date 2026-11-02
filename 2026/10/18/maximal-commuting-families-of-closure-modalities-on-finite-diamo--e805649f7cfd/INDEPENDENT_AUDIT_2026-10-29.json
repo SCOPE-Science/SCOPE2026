@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T13:48:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/359233893f22559a64d1a2a83158566d85606adf/2026/10/18/maximal-commuting-families-of-closure-modalities-on-finite-diamo--e805649f7cfd/RESULT.md",
+        "Git tree blobs RESULT.md, check.py, SLOGAN.txt, REVIEW.md, VERIFICATION.md",
+        "Independent Python checker independent_commuting_modalities_06.py"
+      ],
+      "rationale": "The theorem concerns each n>=3 and arbitrary ordered k>=0 including repetitions. Every extensive isotone idempotent endomap has exactly the A_S, B_i, C normal forms: if f(0)=0, each atom maps to itself/top; if f(0)=top then f=C; if f(0)=a_i, monotonicity and idempotence enforce B_i. Compositions yield A_S A_T=A_(S cap T), B_i B_j=C for i≠j, C absorbing, and A_S B_i=B_i A_S=B_i exactly for i in S; otherwise A_S B_i=C but B_i A_S(0)=a_i, so they do not commute. Every commuting collection is contained in F_J for its occurring B_i, and F_J is maximal against any outside B_i (excluded by A_J) or A_S (excluded by B_j for omitted j in J). Therefore 2^n maximal families, sizes 2^(n-|J|)+|J|+1, all closed under composition. For an ordered k-tuple, fix the exactly occurring B-set J, force each B_j at least once and all A_S to contain J; inclusion-exclusion produces the given sum and EGF. For k=0 only J=empty contributes 1; k=2 yields 4^n+(n+2)2^n+(n+1)^2. Independent from-scratch enumeration of the original order axioms and composition graph for n=3,4,5 recovered 2^n maximal families and k=0,1,2,3,4 tuple counts (n=3: 1,12,120,1080,9240; n=4: 1,21,377,6237,100337; n=5: 1,38,1284,41192,1306896). These tests corroborate, not prove, the unbounded formulas.",
+      "residual_risks": [
+        "The maximal-commutative-submonoid statement is relative to submonoids made exclusively of closure maps; it is not maximal among arbitrary transformation submonoids.",
+        "No full formal verification was performed; finite tests are not proofs of arbitrary n,k.",
+        "The unrefined count and normal forms are prior literature (Glück 2024)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cousot and Cousot, Pacific J. Math. 82 (1979), Theorem 6.2, assumes an already commuting family and describes its common fixed points.",
+          "Cousot and Cousot, Portugal. Math. 38 (1979), Theorem 4.3, characterizes the order/lattice of all upper closure operators, not maximal commuting submonoids.",
+          "Glück, LMCS 20(3) (2024), Lemma 7.5(4), gives 2^n+n+1 closure systems on a width-n diamond."
+        ],
+        "reasoning": "General fixed-point and closure-order theorems do not specify the pairwise compositional commutation graph for the exact finite diamond. The stronger general frameworks seen do not imply this compatibility enumeration without the new elementary computation.",
+        "searches": [
+          "Cousot and Cousot 1979 complete lattice commuting operators common fixed points",
+          "Cousot 1979 lattice of all closure operators complete lattice structure",
+          "Glück 2024 counting closure operators diamond Lemma 7.5",
+          "Grigoriev Petrukhin 2022 monotonic modal multilattice logic"
+        ]
+      },
+      "checked_sources": [
+        "Glück, LMCS 20(3) (2024), arXiv:2302.13081 (primary relevant section)",
+        "Cousot & Cousot, Pacific J. Math. 82 (1979), §6, Theorem 6.2",
+        "Cousot & Cousot, Portugal. Math. 38 (1979), Theorem 4.3",
+        "Resultary finite criterion for commuting box and diamond condensations (2026-10-04)",
+        "Resultary exact ordered tuple orbit count random distributive lattice (2026-09-30)",
+        "Grigoriev and Petrukhin, Journal of Logic and Computation, DOI 10.1093/logcom/exac028 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known 2^n+n+1 is a count of vertices of the compatibility graph; it does not determine its maximal cliques or ordered cliques.",
+          "Common-fixed-point theorems start with pairwise commuting operators and cannot classify compatibility without extra structure.",
+          "Published Resultary relation-condensation and random-distributive-lattice tuple orbit claims have different maps and equivalence relations."
+        ],
+        "reasoning": "The new result implies the known raw count as part of its elementary normal form, but the known count does not imply the new clique geometry. The comparison is of hypotheses and objects, not of similar keywords or numbers.",
+        "searches": [
+          "arXiv:2302.13081 Definition 3.1 and 2024 Lemma 7.5",
+          "Pacific J. Math. 1979 Theorem 6.2 commuting monotone operators",
+          "Portugal. Math. 1979 Theorem 4.3 closure operators",
+          "Resultary: finite criterion for commuting box and diamond condensations",
+          "Resultary: exact ordered-tuple orbit count for random distributive lattice"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Glück (2024), Definition 7.4 and Lemma 7.5, enumerates closure systems, not their commutation graph.",
+          "Published relation-condensation result concerns right-composition of binary relations with preorder relations, not endomaps on a height-two atom-diamond."
+        ],
+        "reasoning": "A closure operator is equivalently a family of closed points, but the map-composition compatibility predicate is additional structure. The published modal relation completion operators act on a different carrier and do not imply the maximal-family parameterization.",
+        "searches": [
+          "commuting closure operators diamond lattice maximal family",
+          "maximal commutative submonoids closure operators on M_n",
+          "Resultary: maximal pairwise commuting closure maps diamond and arbitrary commuting k-tuples",
+          "Resultary: finite criterion for commuting box and diamond condensations (2026-10-04)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published tuple-orbit problem concerns automorphism orbits of the random distributive lattice, not map-commutation tuples.",
+          "No exact database or table giving all n,k of this commutation enumerator was identified among actual searches."
+        ],
+        "reasoning": "The new theorem is structural and valid for arbitrary n≥3 and tuple length k≥0. Failure to find a database or exact table is a limitation of search, not a novelty proof.",
+        "searches": [
+          "count ordered k tuples commuting closure operators diamond M_n",
+          "\"diamond lattice\" \"commuting\" \"closure operators\"",
+          "\"41 120 377 1284\" commuting closure",
+          "Resultary semantic exact ordered tuple orbit count distributive lattice"
+        ]
+      },
+      "rationale": "Glück has already established the individual closure-map classification and 2^n+n+1 diamond count; neither is claimed as new. The additional commutation criterion, 2^n maximal commuting families, their sizes, and all-arity tuple enumeration are not consequences of that unrefined count. The inspected general monotone-operator fixed-point work assumes commuting operators without classifying which pairs commute. The modal-multilattice logic paper concerns a different algebraic semantics. This is a qualified best-of-knowledge comparison, not a priority certification. Independent priority check read the full relevant primary sections of Glück (2024), two Cousot (1979) papers, and both specifically compared Resultary published mathematical statements. Best-of-knowledge PASS with explicit unknown unindexed semigroup risk.",
+      "residual_risks": [
+        "An unindexed finite semigroup or idempotent-transformation theorem may contain an equivalent commutation graph classification.",
+        "The 2022 modal-multilattice full text was not obtained; its different focus is supported only by accessible abstract, not whole-paper review.",
+        "Search failures do not establish exhaustive priority; Lemma numbering in Glück differs among versions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the known normal forms and unrefined count, not the pairwise-commutation compatibility classification",
+          "evidence": "Lemma 7.5(4) states 2^n+n+1 closure systems; section 7 concerns counting closures rather than commuting collections.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.13081",
+          "material_read": "Definitions 3.1 and 7.4, Lemma 7.5 (2024 version), Section 7.2 and introduction; PDF page 16 was visually inspected",
+          "method": "Open-access full-text PDF examination, page screenshots and PDF-wide search",
+          "title": "Isolated Suborders and their Application to Counting Closure Operators",
+          "trigger": "Same carrier and individual closure count"
+        },
+        {
+          "assessment": "Assumes commutativity, characterizes common fixed points, no diamond compatibility test",
+          "evidence": "Theorem 6.2 explicitly starts from a family of monotone commuting operators and characterizes their common fixed-point lattice.",
+          "identifier_or_url": "https://msp.org/pjm/1979/82-1/pjm-v82-n1-p04-s.pdf",
+          "material_read": "Section 6, especially Theorem 6.2 and proof, with original page 53 visually inspected",
+          "method": "Primary open-access PDF, text extraction and original page image",
+          "title": "Constructive Versions of Tarski's Fixed Point Theorems",
+          "trigger": "General theorem about families of commuting lattice operators"
+        },
+        {
+          "assessment": "Covers lattice structure on all closure maps, not maximal commuting submonoids",
+          "evidence": "Theorem 4.3 states completeness of lattice of upper closure operators with pointwise structure.",
+          "identifier_or_url": "https://www.di.ens.fr/~cousot/COUSOTpapers/publications.www/CousotCousot-PORTM-38-2-p185--198-1979.pdf",
+          "material_read": "Introduction and original p.191 Theorem 4.3 and corollary visually inspected",
+          "method": "Primary scanned open-access PDF with page images",
+          "title": "A Constructive Characterization of the Lattices of All Retractions, Preclosure, Quasi-Closure and Closure Operators on a Complete Lattice",
+          "trigger": "Broader theorem about all closure maps as an ordered family"
+        },
+        {
+          "assessment": "Different relation-completion operators, not closure maps on atom diamonds",
+          "evidence": "Its operators are R↦R∘≤ and R↦R∘≤^{-1} on relations over a preorder.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-finite-criterion-for-commuting-box-and-diamond-condensations--c53088b3c02d",
+          "material_read": "Full RESULT.md mathematical statement and proof",
+          "method": "Published Git repository exact source",
+          "title": "Finite criterion for commuting box and diamond condensations",
+          "trigger": "Published related result with matching commutation language"
+        },
+        {
+          "assessment": "Orbit equivalence under automorphisms of random distributive lattice, not commuting closure maps",
+          "evidence": "Counts congruences of free distributive lattice F_n, giving 2^(2^n-2) orbits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-exact-ordered-tuple-orbit-count-for-the-random-distributive-latt--73eb54babf15",
+          "material_read": "Full RESULT.md mathematical statement and proof",
+          "method": "Published Git repository exact source",
+          "title": "Exact ordered-tuple orbit count for the random distributive lattice",
+          "trigger": "Published exact arbitrary ordered tuple enumeration on lattices"
+        },
+        {
+          "assessment": "Accessible material concerns modal-multilattice soundness/completeness; whole-document noncoverage not asserted",
+          "evidence": "Abstract describes sequent calculi, duality and completeness, not a diamond closure commutation enumerator.",
+          "identifier_or_url": "https://doi.org/10.1093/logcom/exac028",
+          "material_read": "Publisher abstract and bibliographic details, not full text",
+          "method": "Publisher abstract, arXiv/OA searches for available full text",
+          "title": "Basic Modal Congruent and Monotonic Multilattice Logics",
+          "trigger": "Broad modal-framework comparator, not same specific carrier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Glück 2024 Lemma 7.5: prior individual-map count",
+        "Submitted final RESULT.md maximal-family derivation",
+        "Independent bounded commutation-graph enumeration for n=3,4,5"
+      ],
+      "rationale": "The mathematical problem is natural: a set of idempotent extensive monotone operators can be applied in any order without changing the composite precisely when the operators pairwise commute. The diamond M_n is the simplest natural nondistributive lattice family of unbounded width. This theorem resolves its complete compatibility graph maximal-clique structure and counts all ordered commuting tuples for arbitrary k with repetitions, a genuinely structural and useful infinite-parameter invariant beyond the known isolated closure count. There is no claim of a general finite-lattice classification or downstream application.",
+      "residual_risks": [
+        "Broader generalizations to other lattice families remain unproved.",
+        "Value is a narrow intrinsic structural classification, not a large general theory."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>=3, the closure modalities on the labelled n-atom diamond M_n are A_S, B_i, C. The 2^n maximal pairwise-commuting families are exactly F_J={A_S:J subset S} union {B_i:i in J} union {C}, with size 2^(n-|J|)+|J|+1. Ordered commuting k-tuples with repetition for k>=0 have the stated inclusion-exclusion formula and EGF and T_n(2)=4^n+(n+2)2^n+(n+1)^2. Maximality is relative to collections of closure modalities only.",
+  "schema_version": 1
+}

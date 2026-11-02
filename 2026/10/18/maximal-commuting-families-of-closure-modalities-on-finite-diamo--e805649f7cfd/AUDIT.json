@@ -1,115 +1,150 @@
 {
   "correctness": {
-    "rationale": "Every extensive isotone idempotent map on the finite atom diamond is uniquely of type \\(A_S\\), \\(B_i\\), or \\(C\\), as determined by its bottom image and fixed atoms. Composition gives \\(A_S\\circ A_T=A_{S\\cap T}\\), distinct \\(B_i\\) multiply to \\(C\\), and \\(A_S\\) commutes with \\(B_i\\) exactly when \\(i\\in S\\); \\(C\\) is absorbing. Thus the maximal compatible families are \\(\\mathcal F_J\\) for subsets \\(J\\subseteq[n]\\). Inclusion-exclusion gives the ordered \\(k\\)-tuple counts, including \\(k=0\\). Direct exhaustive enumeration verifies the original axioms, commutation graph and maximality through eight atoms, plus selected tuples of lengths up to four. Finite computation corroborates but does not establish the infinite claim.",
+    "limitations": [
+      "Composition of noncommuting closure operators need not be a closure operator.",
+      "No meet or join preservation is imposed.",
+      "The statement concerns labelled atoms and n≥3; no general finite-lattice classification is asserted."
+    ],
+    "rationale": "For M_n, each extensive isotone idempotent endomap has one of the unique forms A_S, B_i, or C, determined by its image of 0. The A maps compose by intersection; B_i B_j=C for i≠j; C absorbs all maps; and A_S and B_i commute exactly for i in S. These identities yield all maximal families F_J. Inclusion-exclusion on exactly occurring B_i gives the ordered k-tuple formula and exponential generating function. Enumeration of small labelled diamonds corroborates the general elementary proof; finite tests alone do not establish it.",
     "status": "PASS"
   },
   "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Cousot & Cousot (1979) abstracts a common-fixed-point principle for commuting operators on complete lattices, but not a compatibility classification or enumerators for \\(M_n\\).",
-        "Grigoriev & Petrukhin, DOI:10.1093/logcom/exac028, establishes modal-multilattice semantics and completeness, rather than stated diamond-specific commuting family counts in accessible material.",
-        "Glück, arXiv:2302.13081, Section 7.1 explicitly records diamond closure systems and their number, which is a strictly weaker invariant than pairwise commutation structure."
+        "Cousot and Cousot, Pacific J. Math. 82 (1979), Theorem 6.2, assumes an already commuting family and describes its common fixed points.",
+        "Cousot and Cousot, Portugal. Math. 38 (1979), Theorem 4.3, characterizes the order/lattice of all upper closure operators, not maximal commuting submonoids.",
+        "Glück, LMCS 20(3) (2024), Lemma 7.5(4), gives 2^n+n+1 closure systems on a width-n diamond."
       ],
-      "reasoning": "General fixed-point results and semantic frameworks may apply to every pair of already commuting closures but do not in their inspected claims classify which closures commute on a diamond. The special enumerator is not a tautological rewriting of the total count. Residual risks include inaccessible full text and unindexed algebra literature.",
+      "reasoning": "General fixed-point and closure-order theorems do not specify the pairwise compositional commutation graph for the exact finite diamond. The stronger general frameworks seen do not imply this compatibility enumeration without the new elementary computation.",
       "searches": [
-        "\"commuting closure operators\" lattice semilattice closure systems order independence",
-        "\"maximal commuting families\" \"closure operators\" finite lattices",
-        "Commuting closure operator modalities on finite diamond lattice, normal form and maximal pairwise commuting families",
-        "Glück arXiv:2302.13081 PDF full-text search for \"commut\" and section 7.1"
+        "Cousot and Cousot 1979 complete lattice commuting operators common fixed points",
+        "Cousot 1979 lattice of all closure operators complete lattice structure",
+        "Glück 2024 counting closure operators diamond Lemma 7.5",
+        "Grigoriev Petrukhin 2022 monotonic modal multilattice logic"
       ]
     },
     "checked_sources": [
-      "arxiv:2302.13081 (relevant diamond lemma and definition read)",
-      "doi:10.1093/logcom/exac028 (abstract and publication metadata read)",
-      "Cousot-Cousot-1979 published author abstract",
-      "Finite criterion for commuting box and diamond condensations (published result 2026-10-04)",
-      "Exact ordered-tuple orbit count for the random distributive lattice (published result 2026-09-30)"
+      "Glück, LMCS 20(3) (2024), arXiv:2302.13081 (primary relevant section)",
+      "Cousot & Cousot, Pacific J. Math. 82 (1979), §6, Theorem 6.2",
+      "Cousot & Cousot, Portugal. Math. 38 (1979), Theorem 4.3",
+      "Resultary finite criterion for commuting box and diamond condensations (2026-10-04)",
+      "Resultary exact ordered tuple orbit count random distributive lattice (2026-09-30)",
+      "Grigoriev and Petrukhin, Journal of Logic and Computation, DOI 10.1093/logcom/exac028 (abstract only)"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Glück lists the \\(2^n+n+1\\) diamond closures by their fixed-point systems, not an explicit commutation relation.",
-        "The prior finite-modal-lattice record counts ordered (box, diamond) Dunn modal expansions, not arbitrary idempotent inflationary maps and their maximal commuting families.",
-        "The prior fixed-point rank result concerns C2×Cn and the Horn-commutation result concerns Boolean powerset update rules, so their predicates and carriers differ."
+        "Known 2^n+n+1 is a count of vertices of the compatibility graph; it does not determine its maximal cliques or ordered cliques.",
+        "Common-fixed-point theorems start with pairwise commuting operators and cannot classify compatibility without extra structure.",
+        "Published Resultary relation-condensation and random-distributive-lattice tuple orbit claims have different maps and equivalence relations."
       ],
-      "reasoning": "The new structure is a compatible-family classification in the same family whose individual closure count was known. Its implication direction is from the explicit commutation law to k-ary counts; the unrefined earlier counts do not determine compatibility orbits, while general results on already commuting operators do not decide compatibility. Different previously recorded carriers, identities and operations do not subsume this finite-diamond theorem.",
+      "reasoning": "The new result implies the known raw count as part of its elementary normal form, but the known count does not imply the new clique geometry. The comparison is of hypotheses and objects, not of similar keywords or numbers.",
       "searches": [
-        "Glück arXiv:2302.13081, Def.3.1 and Lemma7.4",
-        "Cousot & Cousot (1979), abstract and introductory published description",
-        "Accessible own record df4f43ad-b637-4644-bfd1-e263c9b0d2b7 (modal lattice expansion counts)",
-        "Accessible own record 7ccf303d-9374-4e3e-ae61-68786105acec (closure-operator fixed-point rank on C2 x Cn)",
-        "Accessible own record c9341c58-d4d1-4c3a-a4aa-e6a638ac7483 (commuting Horn one-head systems)"
+        "arXiv:2302.13081 Definition 3.1 and 2024 Lemma 7.5",
+        "Pacific J. Math. 1979 Theorem 6.2 commuting monotone operators",
+        "Portugal. Math. 1979 Theorem 4.3 closure operators",
+        "Resultary: finite criterion for commuting box and diamond condensations",
+        "Resultary: exact ordered-tuple orbit count for random distributive lattice"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "The published result “Finite criterion for commuting box and diamond condensations” concerns condensation of modal *relations* on preorders, not closure endomaps of \\(M_n\\).",
-        "The published result “Exact ordered-tuple orbit count for the random distributive lattice” counts ordered tuple orbits in a random distributive lattice, not commuting closure modalities.",
-        "Glück, arXiv:2302.13081, Lemma 7.4, gives all closure systems on diamond lattices but no pairwise composition test in the relevant full-text section."
+        "Glück (2024), Definition 7.4 and Lemma 7.5, enumerates closure systems, not their commutation graph.",
+        "Published relation-condensation result concerns right-composition of binary relations with preorder relations, not endomaps on a height-two atom-diamond."
       ],
-      "reasoning": "The compared statements do not identify the same objects and predicates; neither relation condensation, tuple automorphism orbits, nor unrefined closure counting entails the pairwise-commutation compatibility graph or arbitrary-arity tuple enumerator. Terminological aliases checked include closure operators, modalities, atom diamonds and maximal commuting families.",
+      "reasoning": "A closure operator is equivalently a family of closed points, but the map-composition compatibility predicate is additional structure. The published modal relation completion operators act on a different carrier and do not imply the maximal-family parameterization.",
       "searches": [
-        "Commuting closure operator modalities on finite diamond lattice, normal form and maximal pairwise commuting families",
-        "count ordered k-tuples of pairwise commuting closure operators on M_n finite diamond lattice 2^n maximal commutative subfamilies",
-        "\"diamond lattice\" \"commuting\" \"closure operators\"",
-        "\"commuting closure operators\" finite \"diamond\" M3"
+        "commuting closure operators diamond lattice maximal family",
+        "maximal commutative submonoids closure operators on M_n",
+        "Resultary: maximal pairwise commuting closure maps diamond and arbitrary commuting k-tuples",
+        "Resultary: finite criterion for commuting box and diamond condensations (2026-10-04)"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "No searched table was identified as giving the all-arity diamond-closure compatibility counts. Raw table values alone would not establish the maximal-family classification."
+        "Resultary published tuple-orbit problem concerns automorphism orbits of the random distributive lattice, not map-commutation tuples.",
+        "No exact database or table giving all n,k of this commutation enumerator was identified among actual searches."
       ],
-      "reasoning": "The enumerator includes arbitrary tuple length k and a complete structural parameterization; no exact matching table or machine-readable database claim was identified in the actual searches. Negative results do not establish uniqueness.",
+      "reasoning": "The new theorem is structural and valid for arbitrary n≥3 and tuple length k≥0. Failure to find a database or exact table is a limitation of search, not a novelty proof.",
       "searches": [
-        "\"41, 120, 377, 1284\" closure",
-        "\"41 120 377 1284\" commuting",
-        "count ordered k-tuples of pairwise commuting closure operators on M_n finite diamond lattice 2^n maximal commutative subfamilies"
+        "count ordered k tuples commuting closure operators diamond M_n",
+        "\"diamond lattice\" \"commuting\" \"closure operators\"",
+        "\"41 120 377 1284\" commuting closure",
+        "Resultary semantic exact ordered tuple orbit count distributive lattice"
       ]
     },
-    "rationale": "Glück’s 2023 Lemma 7.4 counts the \\(2^n+n+1\\) closure operators on the diamond and describes their closure systems, so that baseline is explicitly excluded from novelty. The final claim adds a full pairwise-commutation geometry, all maximal families, and an arbitrary-arity exponential generating function. Successful semantic published-record queries for diamond closure commutation and arbitrary commuting tuples returned related results about other modal condensations and ordered tuple orbits, not a claim implying the diamond statements. Comparisons with accessible previous findings identify them as distinct relational/modal-algebra or Horn-closure classification problems. A general 1979 common-fixed-point theorem provides no diamond-specific enumerators. Search failure and incomplete full-text access leave a nonzero equivalent-formulation risk.",
+    "rationale": "Glück has already established the individual closure-map classification and 2^n+n+1 diamond count; neither is claimed as new. The additional commutation criterion, 2^n maximal commuting families, their sizes, and all-arity tuple enumeration are not consequences of that unrefined count. The inspected general monotone-operator fixed-point work assumes commuting operators without classifying which pairs commute. The modal-multilattice logic paper concerns a different algebraic semantics. This is a qualified best-of-knowledge comparison, not a priority certification.",
     "residual_risks": [
-      "An equivalent semigroup-theoretic formulation could exist under different terminology or in an unindexed publication.",
-      "Search results and inspected literature do not establish worldwide uniqueness; some source comparisons are based on abstracts rather than full text.",
-      "Full text of the 2022 modal-multilattice article and the 1979 commuting-operator article was not inspected; their abstracts alone cannot establish whole-paper noncoverage."
+      "An unindexed finite semigroup or idempotent-transformation theorem may contain an equivalent commutation graph classification.",
+      "The 2022 modal-multilattice full text was not obtained; its different focus is supported only by accessible abstract, not whole-paper review.",
+      "Search failures do not establish exhaustive priority; Lemma numbering in Glück differs among versions."
     ],
     "source_inspections": [
       {
-        "assessment": "COVERS_BASELINE_NOT_NEW_COMMUTATION",
-        "evidence": "Lemma 7.4 explicitly counts \\(2^n+n+1\\) closure systems on diamond of width n, and page 16 describes the three fixed-system classes. The relevant text does not state all-k commuting compatibility; total number is not claimed as new.",
-        "identifier_or_url": "https://arxiv.org/abs/2302.13081",
-        "material_read": "Abstract, Introduction, Definition 3.1 and closure-system principles, Section 7.1 Definition 7.1 and Lemma 7.4, with full-PDF text searches for commutation",
-        "method": "Primary lawful OA PDF, selected extracted pages and page-image visual check; PDF-wide keyword search",
+        "assessment": "Covers the known normal forms and unrefined count, not the pairwise-commutation compatibility classification",
+        "evidence": "Lemma 7.5(4) states 2^n+n+1 closure systems; section 7 concerns counting closures rather than commuting collections.",
+        "identifier_or_url": "https://arxiv.org/pdf/2302.13081",
+        "material_read": "Definitions 3.1 and 7.4, Lemma 7.5 (2024 version), Section 7.2 and introduction; PDF page 16 was visually inspected",
+        "method": "Open-access full-text PDF examination, page screenshots and PDF-wide search",
         "title": "Isolated Suborders and their Application to Counting Closure Operators",
-        "trigger": "Direct same-carrier normal form and count of closures on width-n diamonds"
+        "trigger": "Same carrier and individual closure count"
       },
       {
-        "assessment": "GENERAL_FRAMEWORK_NO_DECISIVE_COVERAGE_IN_READ_MATERIAL",
-        "evidence": "Abstract states algebraic and neighborhood completeness for basic monotone modal multilattice logics; no specific count of commuting closure maps on atom diamonds appears in the material inspected.",
-        "identifier_or_url": "https://doi.org/10.1093/logcom/exac028",
-        "material_read": "Published abstract, article table of contents, online-first date 2022-04-07",
-        "method": "Publisher abstract and metadata (full article not accessible in this inspection)",
-        "title": "Basic modal congruent and monotonic multilattice logics",
-        "trigger": "Potential stronger modal-operator framework that could subsume commuting families"
-      },
-      {
-        "assessment": "RELATED_GENERALITY_WITH_FULL_TEXT_RISK",
-        "evidence": "The abstract concerns constructive common fixed-point characterization under a commuting assumption, not a criterion deciding which diamond closures commute or counting all ordered tuples.",
-        "identifier_or_url": "https://cs.nyu.edu/~pcousot/COUSOTpapers/Tarski-79.shtml",
-        "material_read": "Author-hosted publication abstract and bibliographic record",
-        "method": "Author-hosted abstract; no full-paper assertion of noncoverage",
+        "assessment": "Assumes commutativity, characterizes common fixed points, no diamond compatibility test",
+        "evidence": "Theorem 6.2 explicitly starts from a family of monotone commuting operators and characterizes their common fixed-point lattice.",
+        "identifier_or_url": "https://msp.org/pjm/1979/82-1/pjm-v82-n1-p04-s.pdf",
+        "material_read": "Section 6, especially Theorem 6.2 and proof, with original page 53 visually inspected",
+        "method": "Primary open-access PDF, text extraction and original page image",
         "title": "Constructive Versions of Tarski's Fixed Point Theorems",
-        "trigger": "General simultaneous fixed-point results for commuting lattice operators"
+        "trigger": "General theorem about families of commuting lattice operators"
+      },
+      {
+        "assessment": "Covers lattice structure on all closure maps, not maximal commuting submonoids",
+        "evidence": "Theorem 4.3 states completeness of lattice of upper closure operators with pointwise structure.",
+        "identifier_or_url": "https://www.di.ens.fr/~cousot/COUSOTpapers/publications.www/CousotCousot-PORTM-38-2-p185--198-1979.pdf",
+        "material_read": "Introduction and original p.191 Theorem 4.3 and corollary visually inspected",
+        "method": "Primary scanned open-access PDF with page images",
+        "title": "A Constructive Characterization of the Lattices of All Retractions, Preclosure, Quasi-Closure and Closure Operators on a Complete Lattice",
+        "trigger": "Broader theorem about all closure maps as an ordered family"
+      },
+      {
+        "assessment": "Different relation-completion operators, not closure maps on atom diamonds",
+        "evidence": "Its operators are R↦R∘≤ and R↦R∘≤^{-1} on relations over a preorder.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-finite-criterion-for-commuting-box-and-diamond-condensations--c53088b3c02d",
+        "material_read": "Full RESULT.md mathematical statement and proof",
+        "method": "Published Git repository exact source",
+        "title": "Finite criterion for commuting box and diamond condensations",
+        "trigger": "Published related result with matching commutation language"
+      },
+      {
+        "assessment": "Orbit equivalence under automorphisms of random distributive lattice, not commuting closure maps",
+        "evidence": "Counts congruences of free distributive lattice F_n, giving 2^(2^n-2) orbits.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-exact-ordered-tuple-orbit-count-for-the-random-distributive-latt--73eb54babf15",
+        "material_read": "Full RESULT.md mathematical statement and proof",
+        "method": "Published Git repository exact source",
+        "title": "Exact ordered-tuple orbit count for the random distributive lattice",
+        "trigger": "Published exact arbitrary ordered tuple enumeration on lattices"
+      },
+      {
+        "assessment": "Accessible material concerns modal-multilattice soundness/completeness; whole-document noncoverage not asserted",
+        "evidence": "Abstract describes sequent calculi, duality and completeness, not a diamond closure commutation enumerator.",
+        "identifier_or_url": "https://doi.org/10.1093/logcom/exac028",
+        "material_read": "Publisher abstract and bibliographic details, not full text",
+        "method": "Publisher abstract, arXiv/OA searches for available full text",
+        "title": "Basic Modal Congruent and Monotonic Multilattice Logics",
+        "trigger": "Broad modal-framework comparator, not same specific carrier"
       }
     ],
     "status": "PASS"
   },
+  "previously_published_pending_reaudit": false,
   "review_type": "self_review",
   "schema_version": 1,
-  "scope_run_id": "e805649f-7cfd-491c-9ed7-2558e20f4dec",
   "self_review_status": "passed",
   "value": {
-    "rationale": "Pairwise commutation of closure modalities is the intrinsic algebraic condition for order-independent combination. On the first natural nondistributive atom diamonds the theorem gives a complete structural classification of *all maximal* compatible systems, shows exactly which subsets of the \\(n\\) atomic modal updates may coexist with which fixed-point closures, and solves the arbitrary-multiplicity tuple enumeration. These are natural infinite-parameter invariants, not an arbitrary short enumeration, and the result distinguishes global compatibility from the previously known total count. It makes no claim about downstream complexity gains or transfer to other lattice classes.",
+    "rationale": "Commutation is the exact condition for order-independent composition of extensive isotone idempotent modalities. On the smallest natural nondistributive atom diamonds, the result classifies all maximal compatible families and counts arbitrary ordered commuting tuples with repetition. These are exact structural invariants of a natural infinite-parameter model, not arbitrary finite-case enumeration; scope is deliberately restricted to this lattice family.",
     "status": "PASS"
   }
 }
