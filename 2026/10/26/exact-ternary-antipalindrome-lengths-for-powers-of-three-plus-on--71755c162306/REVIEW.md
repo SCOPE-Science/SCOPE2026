@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Column carries in adding two ternary antipalindromes are binary and cannot revert to zero when the target internal digits vanish. Their exact count, determined by digit sums, forces a single transition. Complementary digit symmetry excludes unequal lengths outside differences zero or two, proves impossibility for odd indices, and yields a unique explicit even-index pair. The explicit three-term sum is an exact identity. An independently enumerating verifier exhausts indices through fourteen; the proof, not finite tests, handles all positive indices.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** Dvořáková–Kruml–Ryzák (arXiv:2008.06864 and *Acta Polytechnica* 2021) formulate a conjectural bound of three ternary antipalindromic summands and provide finite computation. They do not classify the exact length for powers of three plus one or unique two-summand expressions. Semantic mathematical searches, published-finding corpus comparisons and accessible prior claims revealed no covering theorem. An unindexed equivalent theorem remains possible.
+PASS
 
-**Value — PASS.** A natural infinite radix-boundary family has exact alternating minimal additive lengths. The odd indices prove a sharp necessity of three summands infinitely often; the even indices have a unique explicit two-term decomposition. This is a structural sharpening of a published additive-representation question, not an isolated census.
+For N=3^n+1, n>=1, reconstruct digit-complement definition and ternary carry count: antipalindrome length equals digit sum; two-summand digits force lengths n and n-2 and a single carry transition. Length gaps >=4 and same-length pair except n=2 are impossible. Complement symmetry forces unique alternating middle digits for even n>=6 and excludes odd n. Verify explicit B_n=3^(n-3)+1+2 sum_(j=1)^(n/2-2)3^(2j), A_n=3^n+1-B_n, and 3-summand 1+U_n+V_n, with n=1,2,4 boundaries. Independently generated all admissible ternary antipalindromes up to N=3^16+1 and exhaustively counted unordered two-sums for n=1..16: exactly claimed H values and unique pair whenever two summands possible. Only the symbolic carry argument proves all n.
 
-**Scope and limitations.** No full resolution of the general ternary three-summand conjecture. The verifier is finite, and no independently certified priority or proof audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A primary full-text check finds the antecedent ternary antipalindrome three-summand assertion only as a conjecture, with a finite scan through five million. Neither it nor nearby published Resultary palindrome/word-attractor work determines the infinite exact sequence, parity break, and unique representations. No equivalence or stronger theorem was identified, subject to unindexed historical work.
+
+## value
+
+PASS
+
+The powers-of-three-plus-one sequence is a canonical boundary family for base-three complementary-digit additive decompositions; obtaining the exact least summand number and uniqueness for all indices resolves a motivated infinite phase pattern beyond a finite check or a mechanical reformulation of the three-summand conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
