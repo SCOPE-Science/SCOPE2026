@@ -1,0 +1,11 @@
+# Review: unique four-variable random-graph equivalence among Latin-square graphs
+
+**Correctness: PASS.** Four-variable random-graph equivalence is equivalent to the three-anchor extension property. A mixed triangle forces a Latin-square rectangle identity, which implies that all row permutations form a regular elementary abelian 2-group. Orders two and four have explicit extension obstructions, and dimensions at least four have an independent-vector obstruction. The only remaining order-eight case is checked exhaustively by two standalone programs in independent representations; both were executed and reproduced their saved outputs. Translation symmetry plus an explicit singleton common neighbor gives vertex-criticality. The finite computation is a complete finite proof of exactly the reduced case, not evidence by extrapolation.
+
+**Originality: PASS, with risks.** The nearest 2003 paper handles odd-order half-direction affine-plane graphs, while the 2008 even-order result uses half the parallel classes, four directions at order eight rather than three. The 2015 Latin-square graph paper concerns chromatic number, and the nearest accessible prior findings concern weaker two-extension robustness or different signatures. No known source directly implies the *all-Latin-square* Boolean rigidity and unique FO^4-Rado graph. The 2008 full text and 2026 VC-dimension paper were not completely inspected; a hidden general theorem or terminological alias remains a risk.
+
+**Mathematical value: PASS.** A classical infinite family admits a sharp and unexpected complete classification: exactly one 64-vertex member has unrestricted four-variable random-graph theory, despite abundant 3-e.c. affine-geometry graphs with other direction counts. The necessity is a structural Boolean-group theorem, not a small computational census, and the survivor is deletion-critical. The precise classification and barrier to three-direction constructions are the primary value.
+
+**Boundaries:** Plain cell-graph adjacency/equality, three coordinate types, Latin squares of order at least two. This does not classify other net graphs, other graph languages, counting logic or larger variable widths. Independent priority and mathematical verification are not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
