@@ -1,12 +1,21 @@
-# Scientific review: fourth-cumulant sign of translated-trap work
+# Independent mathematical audit
 
-## Correctness — PASS
-The fourth-time connected correlation of the stationary fair telegraph chain is reconstructed explicitly for ordered arguments. The sign theorem then reduces to strict positivity of a fourfold integral of a nonzero one-signed deterministic work kernel. The finite-time optimal-protocol kernel includes both physical endpoint jumps. Its initial ordered-integral moments are evaluated on the entire stationary prehistory, then propagated by the exact four-dimensional ODE cascade. An independent two-state Markov moment hierarchy and numerical ODE solve agree in 171 deterministic tests. The cyclic counterexample is established for finite sufficiently large stiffness by an L4 approximate-identity limit, with the independent Gaussian noise removed using cumulant additivity. The asymptotic follows from the limiting ODE coefficients and exact variance. Boundaries are explicit: stiffness, activity and decorrelation positive, thermal diffusion nonnegative, finite nonzero displacement, monotone BV driving for universal negativity, fixed positive short delay and sufficiently large finite stiffness for positivity.
+## correctness
 
-## Originality — PASS, subject to independent priority review
-Closest primary source: Garcia-Millan et al., arXiv:2407.18542 (2024-07-26), describes trap translation, mean-work optimality and second-order fluctuations. The companion Schüttler et al., arXiv:2501.18613 (Sec. III; Appendix A) derives the open-loop optimum and exact variance, and explicitly remarks that higher moments may differ between telegraphic and Gaussian active propulsion; its full accessible HTML text was examined. Neither provides a signed fourth work-cumulant formula or monotone/cyclic sign criterion in the examined materials. Baldovin–Manacorda, arXiv:2602.04560, optimizes temporally varying stiffness and tumbling rate rather than deterministic trap-center translations; its abstract/model scope was checked. The four-time Markov cumulant used in the proof is a standard identity, not presented as a novel standalone lemma. Semantic searches of mathematical research records and available prior research claim histories found no directly covering work-functional result; this is not a proof of uniqueness. The most important remaining priority risk is an unlocated general theorem about signed telegraph additive functionals or an unindexed work-distribution derivation that might imply the claim without matching its terminology.
+PASS
 
-## Scientific value — PASS
-This is a control-sensitive higher-order fluctuation law for an actively driven thermodynamic observable. The physically standard and experimentally relevant optimal open-loop transport has the same mean work and variance for matched run-and-tumble and Gaussian active noise, but demonstrably different sign and magnitude at fourth order. The leading asymptotic coefficient is stiffness- and distance-independent. The explicit short cyclic-reversal construction shows that the universal sign is a property of monotone driving, not just a general property of telegraph statistics. This identifies a concrete protocol-design distinction and a non-Gaussian diagnostic. It does not assert finite-time optimality in higher cumulants, sign universality for feedback, or a complete arbitrary-cyclic-protocol phase diagram.
+The centered process is a linear filter of telegraph noise plus independent Gaussian thermal noise. Work random part equals −ω∫gσ−√(2D)∫g dB; Gaussian term has vanishing fourth cumulant. For s1<s2<s3<s4 the stationary telegraph fourth joint cumulant is exactly −2 exp{−γ[(s3−s1)+(s4−s2)]}, verified independently from all three pairings. Integrating it gives −48ω⁴ times an ordered positive-kernel integral. Nontrivial monotone finite-variation λ makes g nonzero and one-signed, proving strict negativity. For optimal initial/final jumps and linear interior, g=c(2e^(ks) for s<0,1 for 0≤s≤T); the A,B,C,J cascade has C→1/(2γ³), J=T/(2γ³)+O(1). Combined with Q=2T/γ+O(1), this yields the stated kurtosis coefficient after c cancels. For cyclic ±a jumps at separation δ, k→∞ gives 4(1−e^(−γδ))(3e^(−γδ)−1) by exact two-state parity, so short δ yields positive sign for sufficiently large finite k. Independently checked four-time cumulants, pulse-sign formula and Gaussian cancellation; inspected original standalone checker’s independent Markov moment recursion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The primary active-particle work paper gives this exact model, known optimum and second-order variance (prior work), explicitly notes non-Gaussian fluctuations, but its relevant derivations do not present a universal monotone-protocol fourth-cumulant sign theorem or the order-1/T coefficient and reversal counterexample. The telegraph fourth-correlation identity is standard; its work-protocol consequences constitute the assessed contribution.
+
+## value
+
+PASS
+
+A strict fourth-cumulant sign law for all monotone drive protocols, sharp contrast with cyclic reversal and Gaussian propulsion, and a concrete long-time coefficient resolve a motivated non-Gaussian work-fluctuation question beyond the known optimum/variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
