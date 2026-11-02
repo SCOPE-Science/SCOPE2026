@@ -1,0 +1,11 @@
+# Scientific review: three-variable distance-intersection support criterion
+
+**Correctness (PASS).** Distance equality and distance-three-witness formulas use at most three variable names. The arbitrary-duration three-pebble strategy preserves pairwise distances via strictly positive distance-intersection coefficients; the converse witnesses each different coefficient's zero status with a three-variable sentence. Edge cases of diameter zero and one and repeated pebble placements are covered. Coordinate-type counting independently proves the Hamming consequence. The standalone enumeration checks finite examples, not the infinite proof.
+
+**Originality (PASS, with priority risk).** The two full-text primary surveys separately supply distance-intersection coefficients and finite-variable pebble-game methods. Inspected passages do not directly state the necessary-and-sufficient Boolean support classification. Related results on strongly regular graphs already give the diameter-two rank-three extension classification; this work includes that subclass but also handles arbitrary diameter, unlimited quantifier depth and an exact converse. Earlier rank-four Hamming classifications do not decide the unrestricted three-variable theories. A broad pre-existing relation-algebra or coherent-configuration theorem may imply the result without the same terminology; independent literature priority review remains necessary.
+
+**Mathematical value (PASS).** This is a uniform necessary-and-sufficient logical equivalence invariant over an established graph class of unbounded diameter, not an arbitrary numerical instance. It provides a tractable boolean reduction of the intersection parameters, and an exact all-dimensions Hamming classification despite unbounded graph cardinalities. In particular it separates the expressive power of ordinary three-variable logic from counting logics that retain multiplicities.
+
+**Scope and limitations.** Connected, finite, simple distance-regular graphs in pure adjacency/equality; no counting or fourth variable. The computation samples low-dimensional Hamming examples and cycles only. Historical-priority verification is not exhaustive.
+
+Self-review: passed. Independent audit: not yet performed.
