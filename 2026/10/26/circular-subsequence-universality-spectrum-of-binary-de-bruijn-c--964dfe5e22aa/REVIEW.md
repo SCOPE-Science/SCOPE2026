@@ -1,15 +1,21 @@
-# Review of the order-five circular subsequence-universality classification
+# Independent mathematical audit
 
-## Correctness
-The precise domain is all binary de Bruijn cycles of order five, modulo rotations only. The Hamiltonian-window traversal exhausts all uniquely zero-window-rooted cycles; the independent Euler-edge traversal produces the same canonical set. Each of the \(2048\) distinct cycles has all length-five cyclic factors verified. The backward shortest-absent-subsequence recurrence follows by factoring at the earliest occurrence of the initial letter; comparing it with the independently implemented greedy arch computation verifies all \(32\) rotations of every cycle. The exact counts \(512\) and \(1536\), canonical joint table, and complementation/reversal orbit refinement are rechecked by `verify.py`, including the entire supplied certificate. The result is exact finite enumeration, not an infinite inference from experiments.
+## correctness
 
-## Originality
-Hébrard (1991) introduced the arch method. Barker et al. (2020) introduced circular scattered-factor universality and explicitly mention de Bruijn sequences as motivation; their Section 4 gives general bounds and computational principles rather than this order-five conditional enumeration. Fleischmann et al. (2021) and Schnoebelen–Veron (2023) further analyze circular indices and algorithms. A published finite-length distribution of ordinary binary words by subsequence-universality index does not count only de Bruijn cycles or their maximizing rotations. No exact order-five tally was found in the inspected primary materials or targeted semantic/database searches. The 1991 full text was inaccessible; equivalent unindexed or otherwise unexamined tables remain a priority risk.
+PASS
 
-## Value
-A de Bruijn cycle is optimal for contiguous factor coverage, but cyclic **scattered** coverage after deletions is a different natural measure. At the first order with more than a small handful of inequivalent cycles and a nonuniform index split, the theorem establishes that exactly one quarter of all cycles reach only index \(10\), while three quarters attain \(11\). This is a natural complete finite classification useful for selecting de Bruijn test patterns when deletion-robust diversity is relevant, and as a benchmark for exact circular-universality algorithms. Neither uniqueness of the count nor proof reproducibility alone is being used as its value argument.
+A binary de Bruijn cycle of order5 is uniquely rooted at its 00000 window. Hamiltonian circuits in the five-bit shift-and-append graph rooted at zero biject the rotation classes; a separate direct DFS independently enumerated all 2048 unique cycles and explicitly checked 32 distinct cyclic length-five windows for each. For every 32-symbol linear rotation, the shortest absent binary-subsequence DP and greedily terminated full-alphabet arches computed identical universality indices. All 2048 times32 rotations were evaluated, giving exactly 512 cycles circular index10 and 1536 index11; canonical split (iota,zeta): (9,10)256,(10,10)256,(10,11)1152,(11,11)384. The independent complement/reversal orbit tally is 16 and120 (sizes2,4) at zeta10 and 16 and376 at zeta11. The source's distinct Euler-edge enumerator provides a second traversal check. This is a genuinely exhaustive finite proof for exactly order5; it is not an all-order inference or sampling claim.
 
-## Remaining risks
-The theorem does not generalize to arbitrary de Bruijn order. Its proof is computer-assisted and awaits independent audit. A closed-form count for every order, a table contained in an inaccessible specialized source, or a previously tabulated equivalent orbit distribution could subsume the historical novelty. No such implication was verified during this review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+De Bruijn's classical 2048 count and the Hamiltonian/Eulerian bijections are old. Hébrard's arch factorization and Barker et al. Definition4/Lemma20 establish the circular universality invariant and general inequalities, while Fleischmann et al. treat circular universality of general words; none of the inspected full texts presents the conditional spectrum for all order5 de Bruijn cycles. A Resultary record gives a closed-form finite-length universality distribution for *unrestricted* binary words (different conditioning), not for 2048 de Bruijn cycles. No exact 512/1536 order-five table was recovered; historical priority remains limited by potential unindexed specialized tables and older Hébrard full text.
+
+## value
+
+PASS
+
+De Bruijn cycles are optimal contiguous factor covers, but scattered-subsequence universality after deletions is an independent natural coverage metric used for word universality and robust test patterns. A complete tally at the first order exhibiting a nonuniform circular index spectrum—one quarter at10, three quarters at11—can guide selection of deletion-resilient de Bruijn test cycles and benchmark algorithms. The precise full-order-five spectrum is a natural finite classification and is not merely a random slice, copied sequence table, or unmotivated arithmetic experiment. No all-order general theorem or downstream application is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

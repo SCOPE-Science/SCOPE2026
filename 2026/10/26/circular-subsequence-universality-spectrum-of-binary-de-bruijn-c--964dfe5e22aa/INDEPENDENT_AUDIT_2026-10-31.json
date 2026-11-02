@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T22:06:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A binary de Bruijn cycle of order5 is uniquely rooted at its 00000 window. Hamiltonian circuits in the five-bit shift-and-append graph rooted at zero biject the rotation classes; a separate direct DFS independently enumerated all 2048 unique cycles and explicitly checked 32 distinct cyclic length-five windows for each. For every 32-symbol linear rotation, the shortest absent binary-subsequence DP and greedily terminated full-alphabet arches computed identical universality indices. All 2048 times32 rotations were evaluated, giving exactly 512 cycles circular index10 and 1536 index11; canonical split (iota,zeta): (9,10)256,(10,10)256,(10,11)1152,(11,11)384. The independent complement/reversal orbit tally is 16 and120 (sizes2,4) at zeta10 and 16 and376 at zeta11. The source's distinct Euler-edge enumerator provides a second traversal check. This is a genuinely exhaustive finite proof for exactly order5; it is not an all-order inference or sampling claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barker Lemma20 establishes iota(w)<=zeta(w)<=iota(w)+1, but does not enumerate order-five de Bruijn cycles.",
+          "Fleischmann et al. give general arch-remainder theorems for arbitrary words, without conditional distribution among 2048 de Bruijn cycles in inspected text."
+        ],
+        "reasoning": "Generic algorithms could compute the values but do not themselves imply the precise 512/1536 classification without exhaustively applying them to the constrained family. A broader formula for all de Bruijn orders would dominate if found; none was verified.",
+        "searches": [
+          "Resultary: binary de Bruijn order five 2048 cycles scattered subsequence circular universality index distribution 10 11 arch",
+          "arXiv:2003.04629",
+          "arXiv:2104.09063",
+          "DOI:10.1016/0304-3975(91)90170-7",
+          "Resultary ID:2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "checked_sources": [
+        "Barker, Fleischmann, Harwardt, Manea, Nowotka, Scattered Factor-Universality of Words, arXiv:2003.04629, https://arxiv.org/pdf/2003.04629",
+        "Fleischmann, Germann, Nowotka, Scattered Factor Universality — The Power of the Remainder, arXiv:2104.09063, https://arxiv.org/pdf/2104.09063",
+        "J.-J. Hébrard, An algorithm for distinguishing efficiently bit-strings by their subsequences, Theoretical Computer Science 82 (1991), DOI:10.1016/0304-3975(91)90170-7",
+        "Resultary published closed-form law for binary subsequence universality (unrestricted), 2026/10/4, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "Classical binary de Bruijn 2048 count for order five."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given any canonical iota=10, Barker's bound allows either zeta=10 or11, so it does not determine the 256 vs1152 split; for iota9 it likewise does not tell the count.",
+          "An unconditional binary-word generating function does not imply the probability conditioned on the 2048 de Bruijn cycles without a correlation theorem."
+        ],
+        "reasoning": "The exact joint and orbit counts require complete conditional enumeration; prior simple bounds and known total cannot yield them by substitution.",
+        "searches": [
+          "Resultary: binary de Bruijn order five 2048 cycles scattered subsequence circular universality index distribution 10 11 arch",
+          "arXiv:2003.04629",
+          "arXiv:2104.09063",
+          "DOI:10.1016/0304-3975(91)90170-7",
+          "Resultary ID:2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barker Definition4 identifies zeta(C)=max over rotations iota, precisely the statistic being classified.",
+          "Binary de Bruijn order5 cycles are exactly length32 cyclic words covering each five-bit contiguous factor once, not unrestricted binary length32 words."
+        ],
+        "reasoning": "The invariant is known, not new; the new input restriction (de Bruijn) and exact conditional histogram are mathematically distinct from generic-word distribution and from contiguous coverage count.",
+        "searches": [
+          "Resultary: binary de Bruijn order five 2048 cycles scattered subsequence circular universality index distribution 10 11 arch",
+          "arXiv:2003.04629",
+          "arXiv:2104.09063",
+          "DOI:10.1016/0304-3975(91)90170-7",
+          "Resultary ID:2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary 2026/10/4 result gives generating series (1+z)/(1-z-2uz²) for *all* binary words, not the de Bruijn-conditioned rotating-cycle histogram.",
+          "De Bruijn count 2048 is classical; existing databases for that enumeration do not determine iota and zeta per cycle."
+        ],
+        "reasoning": "This exact finite case is especially susceptible to prior tables; targeted searches and reading failed to reveal this particular conditional statistic, which is a qualified comparison rather than a uniqueness proof.",
+        "searches": [
+          "Resultary: binary de Bruijn order five 2048 cycles scattered subsequence circular universality index distribution 10 11 arch",
+          "arXiv:2003.04629",
+          "arXiv:2104.09063",
+          "DOI:10.1016/0304-3975(91)90170-7",
+          "Resultary ID:2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "rationale": "De Bruijn's classical 2048 count and the Hamiltonian/Eulerian bijections are old. Hébrard's arch factorization and Barker et al. Definition4/Lemma20 establish the circular universality invariant and general inequalities, while Fleischmann et al. treat circular universality of general words; none of the inspected full texts presents the conditional spectrum for all order5 de Bruijn cycles. A Resultary record gives a closed-form finite-length universality distribution for *unrestricted* binary words (different conditioning), not for 2048 de Bruijn cycles. No exact 512/1536 order-five table was recovered; historical priority remains limited by potential unindexed specialized tables and older Hébrard full text.",
+      "residual_risks": [
+        "Full original Hébrard 1991 paper was not acquired; an unindexed cycle table could exist.",
+        "The theorem applies only to de Bruijn order five and cannot imply any infinite-order classification.",
+        "No all-order formula is provided; the full 73,768-byte source certificate was reconstructed independently and its Git blob SHA-1 matched exactly, but other orders remain unclassified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives invariant zeta and bounds iota<=zeta<=iota+1 for any word; no count conditional on de Bruijn order five in inspected text.",
+          "evidence": "Introduction mentions de Bruijn sequences as contiguous-factor motivation; Definition4 and Lemma20 precisely match definitions/inequalities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+          "material_read": "30-page arXiv PDF available; introduction, Definition4 p.5, Section4 Lemma20 pp.12–14 and proof p.13 inspected with screenshot.",
+          "method": "arXiv open-access full PDF text plus page screenshot",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Original circular universality definition and direct mention of de Bruijn sequences"
+        },
+        {
+          "assessment": "Works with general words and arch remainder and circular universality, not an inspected order-five de Bruijn cycle distribution.",
+          "evidence": "Abstract describes characterization and generalization to arbitrary alphabets; no de Bruijn conditional table identified.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.09063",
+          "material_read": "20-page arXiv PDF available; abstract/introduction and circular/remainder scope examined; screenshot first page.",
+          "method": "arXiv open-access full PDF text plus screenshot",
+          "title": "Scattered Factor Universality — The Power of the Remainder",
+          "trigger": "Potential stronger circular universality theorem"
+        },
+        {
+          "assessment": "Do not claim whole-paper noncoverage; possible prior specialized table is residual risk.",
+          "evidence": "Fleischmann et al. intro attributes arch factorization to Hébrard 1991.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-3975(91)90170-7",
+          "material_read": "Citation and later papers’ attribution examined; full 1991 paper not lawfully obtained and publisher redirect inaccessible.",
+          "method": "Cross-citations in later full texts and bibliographic record",
+          "title": "An algorithm for distinguishing efficiently bit-strings by their subsequences",
+          "trigger": "Foundational arch method might include related combinatorics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "De Bruijn cycles are optimal contiguous factor covers, but scattered-subsequence universality after deletions is an independent natural coverage metric used for word universality and robust test patterns. A complete tally at the first order exhibiting a nonuniform circular index spectrum—one quarter at10, three quarters at11—can guide selection of deletion-resilient de Bruijn test cycles and benchmark algorithms. The precise full-order-five spectrum is a natural finite classification and is not merely a random slice, copied sequence table, or unmotivated arithmetic experiment. No all-order general theorem or downstream application is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Barker, Fleischmann, Harwardt, Manea, Nowotka, Scattered Factor-Universality of Words, arXiv:2003.04629, https://arxiv.org/pdf/2003.04629",
+    "Fleischmann, Germann, Nowotka, Scattered Factor Universality — The Power of the Remainder, arXiv:2104.09063, https://arxiv.org/pdf/2104.09063",
+    "J.-J. Hébrard, An algorithm for distinguishing efficiently bit-strings by their subsequences, Theoretical Computer Science 82 (1991), DOI:10.1016/0304-3975(91)90170-7",
+    "Resultary published closed-form law for binary subsequence universality (unrestricted), 2026/10/4, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+    "Classical binary de Bruijn 2048 count for order five."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite exhaustive classification for order five only; no all-order universality distribution.",
+    "Ordinary rotation classes, not quotient by bit complement or reversal; one traversal only.",
+    "Full original Hébrard 1991 paper was not acquired; an unindexed cycle table could exist.",
+    "The theorem applies only to de Bruijn order five and cannot imply any infinite-order classification.",
+    "No all-order formula is provided; the full 73,768-byte source certificate was reconstructed independently and its Git blob SHA-1 matched exactly, but other orders remain unclassified."
+  ],
+  "schema_version": 1
+}
