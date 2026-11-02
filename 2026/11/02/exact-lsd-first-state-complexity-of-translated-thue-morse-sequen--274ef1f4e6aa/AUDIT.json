@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "An explicit reachable carry/parity DFAO computes every input correctly. Residuals are distinct by a self-contained aperiodicity proof, so the automaton is minimal. Digit-layer intervals count every quotient/parity state without overlap, including six universal low states, all short shifts, and the extremal dyadic layers. The embedded verifier completed 4,096 finite minimizations, 98,208 direct input checks, 4,088 block extremizer checks and 300 large-shift checks; finite checks corroborate rather than establish the infinitely quantified theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 paper gives a general upper bound for a single tail operation and the Thue–Morse c=1 equality, but no all-c minimal automaton.",
+        "arXiv:2512.10017 Theorems 19–20 specify MSD-first shifts; its general LSD-first state bounds are not exact all-shift formulas.",
+        "arXiv:2603.18858 Theorem 3.2 concerns the Fibonacci word under valid Zeckendorf representations.",
+        "arXiv:1910.08543 concerns multiplicative copies mT+r with restricted remainders."
+      ],
+      "reasoning": "A general upper bound on the automaton size, or an exact formula for a different numeral direction or sequence, is not a stronger theorem implying the exact binary LSD-first shifted Thue–Morse formula. The full special-case c=1 prior result is explicitly excluded from originality.",
+      "searches": [
+        "Zantema and Bosma, Complexity of automatic sequences (2022), Theorems 16 and 20",
+        "Moradi, Rampersad and Shallit, arXiv:2512.10017, Theorems 9, 19, 20",
+        "Moradi et al., arXiv:2603.18858, Theorems 3.1 and 3.2",
+        "Charlier et al., arXiv:1910.08543, abstract and introduction"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2512.10017",
+      "https://arxiv.org/html/2512.10017v5",
+      "https://arxiv.org/html/2603.18858v1",
+      "https://arxiv.org/abs/1910.08543",
+      "https://www.math.ru.nl/~bosma/pubs/Zantema_Bosma_Complexity_of_Automatic_Sequences.pdf",
+      "https://oeis.org/A382296"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 preprint studies both types of input, but its explicit Thue–Morse shift estimates in Theorems 19–20 are MSD-first.",
+        "The 2026 Fibonacci shift paper is based on Zeckendorf admissibility and a different automatic sequence.",
+        "The 2022 exact three-state one-tail example agrees with S(1)=3 and is a strict special case.",
+        "The 2019 remainder constraint r<m excludes nontrivial negative translation of T when m=1."
+      ],
+      "reasoning": "Neither a proper special case, a nonsharp upper bound, nor an incomparable input model entails an exact all-parameter formula and unique/minimizing and complete/maximizing shifts. The proof here directly derives reachability and residual separation.",
+      "searches": [
+        "arXiv:2512.10017v5 Section 4.2 shifted Thue–Morse",
+        "arXiv:2603.18858v1 Section 3 shifted Fibonacci",
+        "Zantema–Bosma 2022 Section 7 single-tail operation",
+        "Charlier–Cisternino–Massuir arXiv:1910.08543 classification mT+r"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The minimum complete LSD-first automaton size equals the number of distinct residual subsequences in the binary 2-kernel.",
+        "Zantema and Bosma (2022) Section 7 report reversed-input Thue–Morse tail complexity 3, the present c=1 case.",
+        "arXiv:2512.10017v5 Section 4 gives general kernel bounds and results for a distinct, MSD-first shift problem."
+      ],
+      "reasoning": "Reversing inputs and using kernel cardinality are true equivalences for this model, so title differences alone cannot protect novelty. The material inspected supplies bounds, the single-step instance, or MSD-first parameters, not a formula for every shifted 2-kernel or the complete extremal spectrum.",
+      "searches": [
+        "\"lsd-first\" \"Thue-Morse\" \"shift\" \"states\" \"number\"",
+        "\"2-kernel\" \"shift\" \"Thue-Morse\" number sequences",
+        "Zantema and Bosma (2022), Section 5 kernel relation and Section 7 tail complexity",
+        "arXiv:2512.10017v5, Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A382296 states explicitly that it counts MSD-first automata, with beginning 2,4,6,10,...; the proved LSD-first values begin 2,3,5,6,... .",
+        "No indexed exact all-c LSD-first cardinality or complete dyadic extremizer table was identified in these targeted comparisons."
+      ],
+      "reasoning": "The prominent apparent exact database match uses the opposite input direction and different state counts. Absence from an index is weak evidence and is not used by itself as an originality certificate.",
+      "searches": [
+        "OEIS A382296 shifted Thue–Morse automaton state table",
+        "\"lsd-first\" \"Thue-Morse\" \"shift\" \"minimal\" states",
+        "\"shifted Thue-Morse\" \"2-kernel\" \"states\""
+      ]
+    },
+    "rationale": "Relevant primary full texts were compared at the level of input direction, actual sequence, numeration system, transform, quantified parameter range and implication. General operations bounds and the exact c=1 case do not give the full all-shift digit formula or exact extrema. The MSD-first shifted Thue–Morse table and the Zeckendorf Fibonacci result are inequivalent. Targeted indexed claims did not show dominating coverage. An unindexed source remains a priority risk, not a proof of novelty.",
+    "residual_risks": [
+      "Possible unindexed earlier exact shifted binary 2-kernel enumeration despite no equivalent retrieved statement.",
+      "Some literature assumes only canonical numeral representations; the present theorem explicitly quantifies over all finite input words including trailing zeros.",
+      "Exhaustive publication priority and independent mathematical validation have not been established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the one-step exact special case and broad bounds, not exact all-shift cardinalities or extremizers",
+        "evidence": [
+          "Section 7: reversed-input Thue–Morse tail has three states",
+          "Theorem 16: general doubled bound for one tail",
+          "Theorem 20: general arithmetic-subsequence bound"
+        ],
+        "identifier_or_url": "https://www.math.ru.nl/~bosma/pubs/Zantema_Bosma_Complexity_of_Automatic_Sequences.pdf",
+        "material_read": "Full-text pages 1–2 and 9–11, including Thue–Morse examples and theorems 16, 18, 20",
+        "method": "Read primary PDF text and corresponding rendered pages, comparing input conventions and theorem quantifiers",
+        "title": "Complexity of automatic sequences",
+        "trigger": "Direct prior work on state complexity of tails and the LSD-first kernel"
+      },
+      {
+        "assessment": "Reports general LSD-first bounds and MSD-first Thue–Morse shift estimates but not the present exact LSD-first formula",
+        "evidence": [
+          "Theorem 19 and Theorem 20 explicitly say msd-first",
+          "Section 4 notes 2-kernel equivalence with minimal lsd-first states",
+          "2025-12-10 first arXiv submission confirmed"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.10017v5",
+        "material_read": "Abstract, introduction, Sections 4 and 4.2, relevant theorem statements and Section 6",
+        "method": "Read accessible arXiv HTML full-text sections, with explicit MSD/LSD direction comparison",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Most relevant new binary shifted-sequence state-complexity framework"
+      },
+      {
+        "assessment": "Exact Fibonacci-word Zeckendorf shift complexity, not Thue–Morse binary shift complexity",
+        "evidence": [
+          "Theorem 3.2 gives explicit Fibonacci Zeckendorf-state count",
+          "Theorem 3.1 gives logarithmic bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.18858v1",
+        "material_read": "Abstract, introduction, Section 3 definitions and Theorems 3.1 and 3.2",
+        "method": "Read arXiv HTML, compare numeration system and sequence",
+        "title": "State Complexity of Shifts of the Fibonacci Word",
+        "trigger": "Exact LSD-first shift result for a prominent automatic sequence"
+      },
+      {
+        "assessment": "Classifies mT+r with 0≤r<m, which does not cover arbitrary additive shifts t(n+c)",
+        "evidence": [
+          "The claimed parameter range is m≥1 and 0≤r<m"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.08543",
+        "material_read": "Primary abstract, introduction and statement of target family",
+        "method": "Read full-text arXiv abstract and introduction; compare parameter domains",
+        "title": "Minimal automaton for multiplying and translating the Thue-Morse set",
+        "trigger": "Potential older state-complexity classification mentioning translation of Thue–Morse sets"
+      },
+      {
+        "assessment": "Different sequence of state counts; MSD-first not LSD-first",
+        "evidence": [
+          "Entry says msd-first; starts 2,4,6,10",
+          "Points to 2026 proof for shifts by powers of two in MSD-first regime"
+        ],
+        "identifier_or_url": "https://oeis.org/A382296",
+        "material_read": "Definition, initial values, references, date and listed formula",
+        "method": "Read original sequence entry and verify explicitly declared MSD-first input",
+        "title": "OEIS A382296",
+        "trigger": "Exact database of state counts for shifted Thue–Morse sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "274ef1f4-e6aa-4909-b11d-c4a39b5b10ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full shifted \\(2\\)-kernel cardinality of the archetypal automatic sequence is a natural complexity invariant. The exact formula for every shift plus unique minima and \\(2^{k-3}\\) explicitly characterized maxima in each dyadic block captures nontrivial oscillation invisible in the known O(log c) framework. The result is not a one-off instance, renaming, parameter substitution or mere computation.",
+    "status": "PASS"
+  }
+}
