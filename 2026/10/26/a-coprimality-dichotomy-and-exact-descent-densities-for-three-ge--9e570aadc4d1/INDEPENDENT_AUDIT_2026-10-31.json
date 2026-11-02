@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:48:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The generating function F(q)=product_{v=a,b,c}(1-q^v)^{-1} has a triple pole at q=1. Because gcd(a,b,c)=1, every nonidentity pole has order <=2 and double poles arise exactly at common nontrivial roots of pair denominations. The three pair-gcds are mutually coprime, avoiding overlapping double-pole classes. Taking coefficients and the finite Fourier sawtooth yields Delta(n)=n/(abc)[1+sum_{pairs} t(-u+d*epsilon(n))]+O(1) with bounded L-periodic remainder. CRT makes all nonwrap and wrap epsilon statuses simultaneous and yields strictly negative (when all v>=2) and positive leading slopes on positive-density classes. For exactly one shared pair, signs exhaust classes and densities are (d-u)/d and u/d, no ties eventually. The a=1 boundary reduces Delta to a two-generator denumerant, giving nonnegative values and eventual 1/gcd(b,c) positive density. I independently checked exact first-difference quasipolynomial slopes across all residues for eight primitive families by dynamic counting, not as an infinite proof. Includes repeated denominations if overall gcd=1; stabilizing index is not quantified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General step-polynomial algorithms yield quasipolynomial coefficients for fixed input; they may recover the periodic slope computationally.",
+          "Liu–Xin fast denumerant algorithm computes exact values rather than a closed universal monotonicity/density theorem."
+        ],
+        "reasoning": "These broader methods could generate the data with extra analysis, but no inspected theorem states or automatically gives the simplification in terms of pairwise gcds and modular inverses. The risk of implicit algorithmic coverage is retained.",
+        "searches": [
+          "arxiv:1312.7147 Theorems 1.2 1.3",
+          "arxiv:2406.18955 denumerants fast algorithm",
+          "three generator denumerants consecutive difference sign density pairwise coprime inverse modulo common gcd oscillation"
+        ]
+      },
+      "checked_sources": [
+        "assigned Git RESULT.md, REVIEW.md and verify.py at frozen tree SHA",
+        "Baldoni et al. arXiv:1312.7147 Theorems 1.2/1.3, Lemma 4.3",
+        "Aldrich et al. arXiv:2610.20899 abstract/limited material",
+        "Liu–Xin arXiv:2406.18955 abstract/limited material",
+        "Resultary semantic query three generator denumerants consecutive difference sign density pairwise coprime inverse modulo common gcd oscillation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Baldoni Lemma 4.3 proves distinct maximal sublist gcds pairwise coprime, used here as a key idea, and Theorem 1.3 says a periodic term exists; sign and modular inverse frequency are additional.",
+          "Aldrich et al. bound P(n) at a target; pointwise upper/lower bounds need not imply eventual signs of P(n+1)-P(n)."
+        ],
+        "reasoning": "The current specific density/coprimality criterion is not quoted as a corollary of existing bounds or algorithms. Core quasipolynomial machinery belongs to prior literature; actual simplification needs the first-difference Fourier computation.",
+        "searches": [
+          "Baldoni arxiv:1312.7147 Theorem 1.3 and Lemma 4.3",
+          "Aldrich Gulbrandsen Keddy arxiv:2610.20899 Theorem C",
+          "three generator denumerants consecutive difference sign density pairwise coprime inverse modulo common gcd oscillation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Baldoni et al. Theorem 1.2 computes highest fixed number of denumerant quasi-polynomial coefficients; their Theorem 1.3 identifies the largest gcd-repeated sublists and periodic top coefficient.",
+          "The claim identifies the signs of consecutive values and exact residue densities, which require a cancellation and modular-inverse analysis of first differences, not just computing P(n)."
+        ],
+        "reasoning": "Top coefficient periodicity is mathematically related but not itself the if-and-only-if sign law. Looked for aliases restricted partition function, vector partition, denumerant oscillation and first-difference sign.",
+        "searches": [
+          "three generator denumerants consecutive difference sign density pairwise coprime inverse modulo common gcd oscillation",
+          "denumerant three generators P(n+1)-P(n) pairwise coprime eventually strictly increasing theorem quasi-polynomial",
+          "Baldoni Berline De Loera Dutra Koppe Vergne coefficients Sylvester denumerant arxiv:1312.7147"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary query returned no exact prior formula matching three-coin consecutive-difference sign densities; returned arithmetic/Fourier records concerned unrelated finite cyclic invariants.",
+          "A finite integer verifier is present but its sampled outputs do not establish novelty or infinity."
+        ],
+        "reasoning": "No known exact table was found for this universal class; the theorem is not a mere recomputation of particular denumerant coefficients. Non-detection is explicitly not novelty proof.",
+        "searches": [
+          "three generator denumerants consecutive difference sign density pairwise coprime inverse modulo common gcd oscillation",
+          "Resultary published denumerant descent density gcd triple",
+          "denumerant sign table a b c"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: broad coefficient/quasipolynomial algorithms are known, including the highest-degree periodic coefficients, but the sharp eventual increase iff pairwise coprimality, the inverse-modular exact one-pair descent density and multi-pair positive lower densities were not stated or transparently implied by inspected primary results. This might be algorithmically derivable from those broader methods, which is a genuine residual priority risk.",
+      "residual_risks": [
+        "General step-polynomial algorithms can recover periodic slopes, so a pre-existing explicit corollary under different terminology may cover the result.",
+        "The most recent three-denumerant paper was not inspected in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General coefficient and gcd-period results; not the exact explicit sign-density theorem in inspected material",
+          "evidence": "Theorem 1.2 lines 173–183; Theorem 1.3 and Lemma 4.3 lines 1433–1442.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.7147",
+          "material_read": "Pages 2–4 Theorems 1.2/1.3 and pages 16–17 Lemmas 4.3–4.5 concerning periodic coefficients and pair gcds",
+          "method": "28-page accessible primary PDF text plus screenshot of p. 2",
+          "title": "Coefficients of Sylvester’s Denumerant",
+          "trigger": "High-relevance same object and pair-gcd coefficient algorithms"
+        },
+        {
+          "assessment": "Pointwise count bounds are not a stated sign-frequency classification; full-text coverage remains possible",
+          "evidence": "Aldrich–Gulbrandsen–Keddy October 2026, Theorem C described as quasipolynomial bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.20899",
+          "material_read": "Abstract and bibliographic Theorem C bounds as cited in package; full paper not independently inspected in this execution",
+          "method": "abstract/limited quoted source, not full-text exclusion",
+          "title": "Enumerating Integral Points on Triangles in R^3",
+          "trigger": "Recent same three-generator denumerant"
+        },
+        {
+          "assessment": "Exact counts can imply signs after additional computation, unlike universal modular-inverse formula",
+          "evidence": "Liu–Xin 2024, algorithm for three-variable denumerants.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.18955",
+          "material_read": "Abstract and named computational contribution; full text not materially read in this execution",
+          "method": "limited text, no blanket noncoverage claim",
+          "title": "A Fast Algorithm for Denumerants with Three Variables",
+          "trigger": "Potential stronger algorithm covering three-generator counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The target-to-target direction of change of a natural denumerant is not implied by its dominant quadratic growth because double-pole oscillations contribute linear quasipolynomial coefficients. The theorem gives a complete qualitative coprimality classification and exact densities on the natural one-shared-pair stratum, useful for restricted partition and factorization counts; far more than an arbitrary coin table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned Git RESULT.md, REVIEW.md and verify.py at frozen tree SHA",
+    "Baldoni et al. arXiv:1312.7147 Theorems 1.2/1.3, Lemma 4.3",
+    "Aldrich et al. arXiv:2610.20899 abstract/limited material",
+    "Liu–Xin arXiv:2406.18955 abstract/limited material",
+    "Resultary semantic query three generator denumerants consecutive difference sign density pairwise coprime inverse modulo common gcd oscillation"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "General step-polynomial algorithms can recover periodic slopes, so a pre-existing explicit corollary under different terminology may cover the result.",
+    "The most recent three-denumerant paper was not inspected in full."
+  ]
+}
