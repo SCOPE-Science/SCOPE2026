@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:10:21.732695Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For self-adjoint 0<=F<=qI, the centered operator F-qI/2 has norm <=q/2. Therefore H u=(q/2)u+(F-qI/2)Pu+(G-qI/2)(I-P)u gives ||Hu||<=q/2+(q/2)(||Pu||+||(I-P)u||)<=q(1+sqrt(2))/2 for every dimension. In dimension 2, P=diag(1,0) and rank-one F,G projectors onto symmetric vectors at angle pi/8 produce a symmetric H with norm exactly C=(1+sqrt(2))/2. Scaling and small positive-definite perturbation establish iff damping threshold qcrit=2/(1+sqrt(2)). The supplied same-generator backward-Euler example A=diag(1/2000,5), F=(I+A/2)^(-2), G=(I+A)^(-1), P=ones(2,2)/2 has exact ||H e1||^2-1=31863808011974591697209/39416723919275164992358416>0 (independently rederived using rational arithmetic), while G-F is positive diagonal and H is similar via positive diagonal scaling to G-(G-F)^(1/2)P(G-F)^(1/2), Hermitian lying strictly between F and G: spectrum inside (0,1). This is transient one-step growth, not divergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tan et al. Section 2.3 contains H_P but analyzes nonlinear parareal iteration error with rho_k(P), not optimal norm under operator interval 0<=F,G<=qI. Jin et al. study componentwise spectral convergence factor kappa(r,R,J,s), no arbitrary noncommuting projection."
+        ],
+        "reasoning": "Neither a general convergence estimate nor scalar commuting spectral bound dominates sharp Euclidean one-step norm q(1+sqrt2)/2 for arbitrary P. The 2D extremizer and same-generator check are additional structural conclusions.",
+        "searches": [
+          "arXiv:2610.21680 Tan--Xu--Zhang--Su 2026",
+          "arXiv:2311.15320 Jin--Lin--Zhou v2 2025",
+          "doi:10.1051/proc:082508 Gander--Petcu 2008"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md d51cb9b484b8e0f00af5a218ba07c7c4660abe6b",
+        "Exact rational check.py 744906af320fd6827b0376f31953d3aa576c5614",
+        "Independent Fraction computation of nonzero ||He1||^2-1",
+        "arXiv:2610.21680 full-section accessible HTML transcription",
+        "arXiv:2311.15320 full primary PDF",
+        "doi:10.1051/proc:082508 abstract",
+        "doi:10.1016/j.jmaa.2021.125650 relevant theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tan Eq H_P directly implies the expression H=FP+G(I-P) for linear F,G, but their theorems control iteration-dependent residual errors rather than one-step PSD norm. Conde treats two orthogonal projections and their sums/anticommutators, not independent F,G with third P."
+        ],
+        "reasoning": "The map itself is explicitly old, not novel. Only the exact optimally sharp stability envelope and counterexample exceed the inspected prior implications. One-step expansiveness cannot be conflated with iteration divergence.",
+        "searches": [
+          "Tan et al. 2026 Section 2.3, 3.2, 5",
+          "Jin et al. 2025 Section 3 componentwise kappa",
+          "Conde 2022 operator-projection sum/anticommutator norms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent form H=G+(F-G)P, the linearization of projection-corrected coarse propagator in Tan et al.; universal property is norm bound not spectral radius."
+        ],
+        "reasoning": "Searching both algebraic forms and numerical stability aliases found the operator map as prior but not the sharp PSD envelope. Norm of sum/difference of two projections is a different two-projection functional, not a proof of this triple-operator bound.",
+        "searches": [
+          "Resultary: two positive contractions orthogonal projection blend F P + G(I-P) (1+sqrt2)/2 exact norm",
+          "Web: two positive selfadjoint contractions split orthogonal projection sum norm 1.207106781",
+          "arXiv:2610.21680 operator H_P"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-dimensional qcrit constant and common-generator exact rational transient-growth example were not located in inspected tables; Tan et al. report nonlinear numerical comparisons, not these invariants."
+        ],
+        "reasoning": "The supplied rank-one extremizer is a mathematical identity, not an empirical maximum; known parareal test tables do not imply the all-triples upper bound. A missing exact-constant search result is not historical proof.",
+        "searches": [
+          "Resultary positive semidefinite projection blend damping threshold",
+          "Web exact \"1+sqrt(2)\" two contractions projection",
+          "arXiv:2610.21680 numeric experiments"
+        ]
+      },
+      "rationale": "The map H_P(x)=G(x)+F(Px)-G(Px) is explicitly prior work in projection-based parareal. The newly evaluated sharp norm over positive self-adjoint F,G, its universal threshold, and common-generator backward-Euler counterexample are not established by the inspected nonlinear convergence bounds or single-eigenmode coarse-propagator estimates. Earlier exact generic block-projection inequalities remain a plausible unindexed equivalent.",
+      "residual_risks": [
+        "The Gander--Petcu 2008 complete OA article could not be opened (403); it could contain a more general one-step norm bound.",
+        "The original Tan et al. 2026 arXiv PDF was unavailable (web DisabledError); a secondary HTML transcription was read, with possible omissions.",
+        "An unindexed generic C*-algebra inequality might already evaluate this sharp constant.",
+        "The claim guarantees only one-step nonexpansivity at the threshold; it does not certify nonlinear stability or asymptotic divergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines map and gives nonlinear iteration error bounds and numerical results; no exact PSD universal operator norm threshold or common-generator example in inspected transcription.",
+          "evidence": "Tan et al. 2026, H_P=G+F(Px)-G(Px), Theorem 2 error factor",
+          "identifier_or_url": "https://arxiv.org/abs/2610.21680",
+          "material_read": "Original arXiv PDF and HTML attempted but unavailable; read accessible complete-section HTML transcription (Sections 2.3,3.2,4,5,6) on https://www.paperpeel.com/paper/2610.21680; not claimed as source-original full PDF.",
+          "method": "Accessible full-section HTML text comparison with explicit Eq H_P",
+          "title": "Projection-Based Parareal for Nonlinear Initial-Value Problems",
+          "trigger": "Source of exact blended map and closest plausible full coverage"
+        },
+        {
+          "assessment": "Derives scalar eigenmode coarse/fine propagation stability optimization, not arbitrary orthogonal P blend sharp operator norm.",
+          "evidence": "Jin--Lin--Zhou 2025, Eq (3.1)-(3.2) kappa(r,R,J,s)",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.15320",
+          "material_read": "Read primary preprint introduction, Section 2 setup and Section 3 componentwise convergence-factor derivation; inspected page image; full 26-page document not read exhaustively.",
+          "method": "Primary PDF theorem and scalar-versus-nonnormal comparison",
+          "title": "Optimizing Coarse Propagators in Parareal Algorithms",
+          "trigger": "Potential stronger stability statement"
+        },
+        {
+          "assessment": "Introduces/analyzes Krylov projection parareal but no whole-paper NOT_COVERING claim; possible uninspected equivalent stability lemma remains risk.",
+          "evidence": "Gander--Petcu ESAIM Proc. 25 (2008), 114–129",
+          "identifier_or_url": "https://doi.org/10.1051/proc:082508",
+          "material_read": "Read publisher article bibliographic abstract and citations; OA primary PDF URL returned 403, complete text not read.",
+          "method": "Abstract-level only, explicit source-access limitation",
+          "title": "Analysis of a Krylov Subspace Enhanced Parareal Algorithm for Linear Problems",
+          "trigger": "Historical antecedent to projection-based parareal"
+        },
+        {
+          "assessment": "Norm formulas for sums/products of two orthogonal projections do not assert universal norm of FP+G(I-P) with arbitrary PSD F,G.",
+          "evidence": "Conde 2022 Theorem 1.1 and Proposition 3.3",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2021.125650",
+          "material_read": "Read published primary article accessible selected theorem/proposition snippets.",
+          "method": "Theorem and operator expression comparison",
+          "title": "A note about the norm of the sum and the anticommutator of two orthogonal projections",
+          "trigger": "Potential generic norm identity at same constant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For time-parallel splitting, knowing that both propagators are strictly contractive spectrally is not sufficient to guarantee no one-step Euclidean norm growth. The exact sharp universal damping boundary, optimizing 2D extremizer and dissipative common-ODE example isolate a physically/numerically motivated structural stability issue; it is not a claim of full iteration divergence or nonlinear convergence failure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The Gander--Petcu 2008 complete OA article could not be opened (403); it could contain a more general one-step norm bound.",
+    "The original Tan et al. 2026 arXiv PDF was unavailable (web DisabledError); a secondary HTML transcription was read, with possible omissions.",
+    "An unindexed generic C*-algebra inequality might already evaluate this sharp constant.",
+    "The claim guarantees only one-step nonexpansivity at the threshold; it does not certify nonlinear stability or asymptotic divergence."
+  ],
+  "schema_version": 1
+}
