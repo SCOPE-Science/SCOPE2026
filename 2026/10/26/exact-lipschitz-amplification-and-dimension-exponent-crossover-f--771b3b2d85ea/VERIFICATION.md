@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify_hypercube_p_lip.py` with the standard Python library. The script constructs the full cube graph from bit flips rather than relying solely on shell multiplicities, exactly solves grounded rational Laplace systems at \(p=2\) for dimensions two through five, checks individual vertices/edges against the formula, and independently evaluates all full-graph nonlinear Euler equations and edge gradients for dimensions three through eight and exponents \(1.5,3,5,11\).
+## correctness
 
-Recorded output from the actual verifier execution:
+PASS
 
-```
-exact p=2 2 norm 1
-exact p=2 3 norm 6/5
-exact p=2 4 norm 3/2
-exact p=2 5 norm 15/8
-critical scaling 0.5 finite 2.46733172 limit 2.51620862
-critical scaling 1.0 finite 1.60079919 limit 1.61857611
-critical scaling 2.0 finite 1.27076458 limit 1.27826369
-PASS: exact-rational full-graph interior vertices 52
-PASS: exact-rational full-graph edges 128
-PASS: nonlinear full-graph interior Euler equations 1968
-PASS: nonlinear full-graph edge values 7152
-```
+Strict convexity of |t|^p and connectedness yield a unique minimizer; cube coordinate permutation invariance makes it radial by Hamming layer. There are d*binom(d-1,k) edges between consecutive layers; Hölder gives unique increments proportional to binom(d-1,k)^(-1/(p-1)), establishing linearity for two boundary values despite nonlinear energy. Graph Lipschitz seminorm is max absolute edge increment, while boundary Lipschitz norm is |Δf|/d, giving exact d/S. Interior binomials >1 prove finite-d monotonicity; only two endpoint terms survive for fixed p as d grows. Uniform binomial entropy estimates and Riemann sums prove the p/d finite-ratio integral; central strip bounds yield divergence for ratio0, uniform bounded entropy gives limit1 at infinity. Independently tested nonlinear radial Euler equations and edge slopes for d<=8 and multiple p. Those checks are corroboration; the universal proof is analytic.
 
-For the nonlinear checks the program tests zero p-Laplacian residual for every unlabeled vertex (absolute tolerance \(2\cdot10^{-11}\)) and graph-edge amplitude against the claimed sharp formula. For the entropy comparisons at dimension \(300\), it uses a numerical Riemann integral to check agreement within \(0.06\), **not** to establish convergence. The analytical chain reduction, Hölder equality, and uniform Stirling bounds are required to prove the theorem for every dimension and exponent. No independent external mathematical validation is asserted.
+## originality
+
+PASS
+
+Graph p-voltage minimization for two terminals and the p=2 electrical-resistance specialization are prior art. Bounded arbitrary Lipschitz extension operators differ from the specific variational selector: a norm-one extension exists, but this selector has larger norm. Earlier p/d transitions in random geometric graphs do not entail the Hamming cube exact binomial sum or entropy crossover.
+
+## value
+
+PASS
+
+A sharp, nontrivial operator norm of a natural variational extension on an infinite canonical graph family, and the exact critical scaling where energy selection ceases to amplify Lipschitz data, are mathematically motivated beyond a routine p-Laplacian existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

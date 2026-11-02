@@ -1,15 +1,21 @@
-# Scientific review: Equational probability spectra of finite Latin affine quandles
+# Independent mathematical audit
 
-## Correctness — PASS
-Every binary term coefficient is shown to range over the full ring \(\mathbb F_p[T]\): closure of the finite coefficient set under the two bijective right translations generates all increments \(T^j(I-T)\), which span the ring. Every equation consequently has image \(g(T)V\) for one divisor of the minimal polynomial, and every such image is attained by a two-variable equation. The primary-module kernel calculation and both directions of the minimal-spectrum equivalence follow. The standalone program independently checks eight finite Latin matrix examples by enumerating term-coefficient closure and equation ranks; this is corroboration, not an exhaustive check of all dimensions.
+## correctness
 
-## Originality — PASS, qualified
-Cardó's 2026 primary papers define equational probability spectra and establish necessary groupoid conditions and general properties, but do not state the all-equation module-kernel formula or the irreducible-minimal-polynomial criterion for finite Latin affine quandles. Bonatto's characterization of simple affine quandles requires irreducible action and is not the spectral criterion, as repeated scalar modules illustrate. Direct and equivalent-formulation literature searches and indexed record searches produced no stronger covering statement. The Takasaki scalar specialization was previously calculated and is credited as a special case, not claimed again.
+PASS
 
-## Mathematical value — PASS
-The exact spectrum gives an all-parameter classification of an emerging invariant for a broad natural quandle family, including nonsemisimple linear operators, with a sharp and non-obvious minimality criterion. The fact that indecomposability of the quandle is unnecessary distinguishes the claim from standard classifications of simple affine quandles.
+For finite Latin affine quandle x▷y=Tx+(I-T)y, T and I-T invertible, all binary term coefficients form exactly R=F_p[T]: the finite set closed under a▷b=Ta+(I-T)b contains 0,I, inverse bijections of right translations, and by conjugating obtains additive translations by every T^j(I-T); those span R. Arbitrary equations have image sum_j c_j V = g(T)V for an ideal generator g dividing the minimal polynomial. Uniform linear fibers yield probability |ker g(T)|/|V|, and each g is realized with a binary equation. Primary module blocks give precisely the claimed p-power levels, with irreducible minimal polynomial iff the spectrum is {p^-n,1}, without assuming a simple module. Our independent closure and rank computation checked explicit examples; all finite dimensions follow from the module argument.
 
-## Closest literature and limitations
-C. Cardó, arXiv:2603.19487 (Theorem 4 and the quasigroup question), arXiv:2604.08446 (equational-spectrum framework); M. Bonatto, arXiv:1904.13388 (affine simplicity). The proof assumes the binary quandle signature only, prime-field additive vector spaces and both multipliers invertible; it does not claim a theorem for non-Latin or non-affine quandles. Unindexed equivalent prior work is possible. No computational sample establishes the infinite theorem on its own.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: compared equivalent formulations, stronger-coverage implications, exact tables, and primary literature at their true theorem scopes. No identified inspected source directly states the entire assessed refinement; named inaccessible/implicit-cover risks are retained rather than converted into automatic failure. This does not certify historical priority.
+
+## value
+
+PASS
+
+The equational-probability spectrum is a natural finite-algebra invariant already studied by Cardó. The full attainable set for arbitrary Latin Alexander operator—including nilpotent primary blocks, direct sums and a two-variable completeness theorem—is a useful explicit classification. The minimal-spectrum test differs mathematically from simplicity of the module; it is more than a sample calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

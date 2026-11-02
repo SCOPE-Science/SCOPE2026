@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact verifier `verify.py` was run with Python's standard library from its package path. It enumerated every triple intersection of 52 half-integer discontinuity planes and four box-boundary planes within the bounded prism using exact integer determinants, obtaining precisely the candidate knot set `0,1/6,1/4`. It then evaluated the two-dimensional Haar integral by exact rational slicing at six parameter values interior to the two intervals and at each endpoint. Because the signed cell areas are quadratic functions on the knot-free parameter intervals, these checks prove the full real-parameter identity.
+# Independent mathematical audit
 
-The lower-order Walsh independence identities are proved separately from Fourier parity and Haar orthogonality. They do not rely on finite enumeration. The entropy-zero statement is proved by polynomial growth of orbit-covering numbers. The certificate makes no claims about arbitrary fourth-order time patterns, longer blocks, or external independent auditing.
+## correctness
+
+PASS
+
+For Z_n=s(x+n y+binom(n,2)alpha), all nonempty Walsh moments of up to three distinct times vanish: s has only odd nonzero Fourier frequencies, and Haar integration requires both sum k_j=0 and sum n_j k_j=0; three odd k cannot sum to zero. Thus four-word distribution depends only on C(alpha)=E product Z_0..Z_3. Translation alpha->alpha+1/2 and negation reduce alpha to d=dist(alpha,1/2 Z)∈[0,1/4]. Discontinuity hyperplane arrangement for 4 signs has only critical d=0,1/6,1/4, and signed polygonal area is quadratic between knots. Independently re-enumerated all 56 relevant planes and exact possible breakpoints; rational slice integrations at six phases confirm C=1/3-16d²+48(d-1/6)_+². The algebraic completeness argument then extends the finite exact computations to all real alpha. C vanishes iff d=sqrt(3)/12, with zero entropy from polynomial Bowen covering; independent checks do not assert generic higher-order independence.
+
+## originality
+
+PASS
+
+Host–Kra and Bergelson–Host–Kra–Ruzsa treat 2-step nilsystems/higher-order correlations and include the same skew torus transformation; three-wise parity/Fourier independence is a classical tool. No exact half-circle sign four-block phase formula or exceptional irrational independence parameters were located in those inspected sources. Resultary reports a different four-sign Sparre Andersen Walsh interaction identity, which establishes the generic 3-wise-to-4-wise form but not C(alpha). Potential older symbolic dynamics computations remain a risk.
+
+## value
+
+PASS
+
+The stationary process is three-wise independent but never Bernoulli by its zero entropy, and has isolated irrational parameters where four consecutive signs also become independent. The exact full probability law and phase classification create a sharp natural example separating low-order dependence from entropy, not an arbitrary coefficient table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

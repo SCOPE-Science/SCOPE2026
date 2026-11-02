@@ -1,11 +1,21 @@
-# Scientific review of the dyadic three-central valuation spectrum
+# Independent mathematical audit
 
-**Correctness — PASS.** The derivation uses the exact published modular-inverse floor-sum formula, converts it into an alternating-digit carry statistic, distinguishes the nontrivial odd-length terminal carry, and multiplies two explicitly verified transfer matrices. Inverting a two-by-two polynomial matrix yields the rational functions, differentiation yields exact mean values, and an analytic Perron-eigenvalue expansion yields the stated Gaussian limit and variance slope. A separate exact coefficient recurrence, modular-inverse floor sum, and all histogram matrices were replayed through 4,096 indices. Finite experiments are corroboration, not the infinite proof.
+## correctness
 
-**Originality — PASS, qualified by residual literature risk.** The 2008 work of Straub, Moll and Amdeberhan already proves the individual valuations and an alternating digit condition for oddness. The present result does not claim either fact as new. The full text, including Theorems 3.2, 3.5, 3.7 and future directions, does not give the two generating functions for valuation histograms, the exact dyadic means, the extremal multiplicities, or the normal limit with its variance coefficient. OEIS A004987 tabulates the coefficient sequence but not these laws. Targeted general and alias searches found no explicit duplicate. The known carry theorem is a powerful prerequisite, so an equivalent specialization in generic transfer-matrix or digit-statistic literature remains a genuine residual risk.
+PASS
 
-**Value — PASS.** The originally posed parity problem distinguishes the exceptional odd indices; the new result determines every possible valuation frequency simultaneously on every dyadic block and the normalized shape of the entire distribution. The parity-dependent boundary treatment and non-binomial variance slope are natural quantitative invariants of this named sequence, not arbitrary numerical slices. The exact rational functions also permit efficient extraction of arbitrary fixed-valuation frequencies and sharp maximum multiplicities.
+Reconstructed Straub–Moll–Amdeberhan known pointwise valuation carry theorem using binary digits of 3^(-1) with alternating 0,1. Carry transition at b=0 has E(u)=[[2,0],[1,u]], at b=1 O(u)=[[1,u],[0,2u]], so pair T=EO=[[2,2u],[1,u+2u²]], trace 2+u+2u² determinant 4u². The even terminal vector (1,1) and distinct odd terminal (1,u) yield precisely the two rational generating functions by (I-zT)^(-1). Differentiation at u=1 gives exact means; Perron eigenvalue 4 with second eigenvalue1, derivative log λ(e^t) at zero 1, second derivative 4/3, prove variance slope and CLT by analytic perturbation. Input-digit constraints determine sharp maximum and zero frequencies. Independent exact arithmetic checked all 4096 first coefficients, carry counts, transfer formula and symbolic rational functions. No finite sample is used to deduce the CLT.
 
-**Closest literature and limits.** Straub–Moll–Amdeberhan (arXiv:0811.2028v1) contains the exact pointwise valuation formula and binary oddness characterization. OEIS A004987 contains the original coefficient list and subsequent algebraic identities. Neither inspected source contains the asserted complete block distribution. The result is restricted to the prime two and the three-central coefficients; no local limit or other-prime theorem is asserted. Self-review is not an external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2008 primary paper proves integrality, pointwise carry valuations and a parity characterization, which are explicitly credited. Its inspected full text does not provide the complete pair of dyadic valuation generating functions, sharp frequency endpoints and Gaussian law. A generic transfer-matrix CLT is antecedent methodology but not the explicit evaluated spectrum.
+
+## value
+
+PASS
+
+The exact complete histogram of a natural integer sequence over every dyadic initial block, together with explicit extrema and a Gaussian scaling law, is a coherent natural combinatorial-arithmetic invariant; it is not merely restating the known pointwise carry criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

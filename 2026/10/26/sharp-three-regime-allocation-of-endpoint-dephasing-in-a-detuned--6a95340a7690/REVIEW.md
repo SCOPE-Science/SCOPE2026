@@ -1,15 +1,21 @@
-# Scientific assessment: endpoint-noise allocation in a three-site quantum transport model
+# Independent mathematical audit
 
-## Correctness — PASS
-The Lindblad model is explicit, completely positive, and loses trace only through the collection endpoint. Positivity, the two nonzero hopping amplitudes, and compactness prove full absorption and finite mean time. Solving the nine integrated matrix equations yields the stated rational expression without approximation. The explicit positive second derivative, evaluated throughout the closed allocation interval, establishes strict convexity, unique optimizer and both sharp transition boundaries. The submitted checker independently solves the complex nine-dimensional generator and verifies the identities in exact symbolic arithmetic. Limitation: numeric sampling cannot replace the analytic argument.
+## correctness
 
-## Originality — PASS (subject to historical-priority risk)
-Kassal and Aspuru-Guzik (arXiv:1201.5202) established environmental effects in ordered chains. Contreras-Pulido and collaborators (arXiv:1407.0924) derive exact stationary current for triple quantum dots with equal dephasing on all three dots. Zhang and collaborators (arXiv:1706.09524), notably Appendix A, treat trimer times with uniform dephasing. Behzadi and collaborators (arXiv:1412.3745) study selective noise in larger networks. Lawrence, Wang and Segal (arXiv:2604.23005) optimize site-dependent noise in a different three-site geometry and use a perturbative analytical regime, with dephasing restricted to sites 2 and 3, not the present sites 1 and 3. Inspection of relevant model sections and calculations finds none to assert the present exact fixed-budget allocation function or both detuning thresholds. This does not exclude equivalent results in inaccessible or unindexed publications.
+PASS
 
-## Mathematical value — PASS
-The location of environmental noise is a design variable; the theorem solves an exact constrained allocation problem and detects a mixed-noise phase between distinct pure-endpoint regimes. All transition boundaries are explicit and experimentally interpretable within the idealized model. This is not a generic or unmotivated special-value evaluation. Scope is limited to linear, single-excitation dynamics with endpoint dephasing and center detuning.
+Integrated Lindblad survivor X=∫rho dt solves -L_u X=P1 because positivity and nearest-neighbor couplings force finite-time strictly decreasing trace and uniform exponential absorption by compactness. Nine real integrated equations give T(u)=3/kappa+[2(G+kappa)-u]/4+Delta^2(G+kappa+u)/[4+u(G+kappa-u)]. Independent Liouvillian 9x9 inversion at five parameter choices matches this formula within 4e-15. Symbolic derivatives yield T"=2Delta^2[((G+kappa-u)^3+2u^3+12u)]/[4+u(G+kappa-u)]^3>0 when Delta!=0. Endpoint derivative signs exhaust and uniquely classify minima, with Delta=0 strictly decreasing. For G+kappa<2 thresholds Delta_S and Delta_T from respective endpoint roots satisfy Delta_S<Delta_T due strict derivative monotonicity, giving source/interior/target regimes. No finite sample is used as proof of convexity.
 
-## Verification and limitations
-`check_endpoint_noise.py` passed 11 exact symbolic identities, 900 independent Lindblad linear-system comparisons, 1,200 convexity/derivative checks, and 650 optimizer checks; a numerical illustration samples all three phases. There is no independent assessment, no multi-excitation model, and no guarantee of experimental robustness. Full priority over all historical literature is not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct statement after exact model/quantifier comparisons with relevant primary work, related published mathematical records and natural equivalent formulations; no absolute novelty certification.
+
+## value
+
+PASS
+
+Exact optimal site-noise allocation at fixed total dephasing budget is a natural constrained transport-control problem. The sharp two detuning thresholds and a nontrivial interior allocation are useful even in the smallest coherent network, distinct from optimizing a uniform noise strength.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

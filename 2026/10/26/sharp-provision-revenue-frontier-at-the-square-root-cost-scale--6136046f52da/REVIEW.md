@@ -1,17 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-PASS. The envelope-payment identity gives the virtual-surplus upper bound. At fixed provision probability, the upper-tail rearrangement inequality is exact and is attained by a monotone threshold allocation with EPIR envelope payments. The central limit theorem and uniform integrability yield the stated Gaussian frontier. The equality point's lower-order behavior is explicitly left open.
+## correctness
 
-## Originality
+PASS
 
-PASS. The closest primary source, Xi–Xie, provides AMT budget formulas and the square-root boundary but does not state the fixed-provision-probability frontier as a necessary-and-sufficient criterion for every DSIC, EPIR mechanism. Kleinberg and Yuan analyze optimal revenue for uniform public projects rather than the full probability/revenue curve. published-finding corpus searches returned no directly equivalent finding. This is a quantitative extension of standard identities, not a claim that those identities are new.
+DSIC monotone allocation and the envelope payment equation with type-0 EPIR baseline t_i(0)<=0 yield E total transfers<=E[(sum_i(2V_i−1))q(V)]. Under E q=p and 0<=q<=1, the upper-tail rearrangement of Z_n=sum(2V_i−1) gives the exact maximum R_n(p)=∫_(1−p)^1Q_Z(u)du. The top-Z threshold is monotone in each report and standard zero-baseline envelope transfers attain it, giving exact budget criterion. CLT with Var(Z_n/n^1/2)=1/3 plus uniform L² integrability yields R_n(p)/sqrt(n)→φ(Φ^{-1}(1−p))/sqrt(3). The Gaussian inverse Mills ratio decreases strictly from infinity to zero, giving unique pκ and the claimed limsup/stability on strictly feasible side. Independent Irwin–Hall integrations verified n=1,2 and the Gaussian scaling up to n=100.
 
-## Value
+## originality
 
-PASS. The result closes the critical-scale question with an exact finite-\(n\) feasibility criterion and a sharp asymptotic boundary. It distinguishes the critical regime from the already-known subcritical sufficiency and supercritical revenue obstruction. The frontier also identifies which fixed provision probabilities remain feasible away from the equality point.
+PASS
 
-## Closest literature and limitations
+Best-of-knowledge original for the restricted final claim after direct implication-based comparison; primary overlap, unavailable full text and mathematical reduction risks are explicitly documented, not treated as absence-proof.
 
-Xi and Xie, arXiv:2101.02423, is the closest source: its AMT results cover \(c_n=o(\sqrt n)\), its revenue theorem gives an \(O(\sqrt n)\) scale, and its text notes the AMT critical-scale problem. Kleinberg and Yuan, arXiv:1305.0534, establish the \(\Theta(\sqrt n)\) optimal-revenue scale for uniform public projects. Mailath–Postlewaite concerns a different unanimous bargaining model; its full text was not obtained. Hellwig is relevant background, but the accessible abstract and the discussion in Xi–Xie do not establish the stated frontier. The inequality follows from standard tools, so an unindexed equivalent formulation remains a residual novelty risk.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The theorem gives a sharp exact quantile-indexed attainable provision/payment tradeoff rather than just a total revenue O(sqrt(n)) bound; it resolves the square-root-cost regime with a clean critical success-probability boundary for a natural canonical public-good model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

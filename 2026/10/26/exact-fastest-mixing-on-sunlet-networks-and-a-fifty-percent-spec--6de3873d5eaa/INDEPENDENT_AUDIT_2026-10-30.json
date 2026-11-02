@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:14:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7b67979c9be6db4cb75b9658f64a228f78fcc9be/2026/10/26/exact-fastest-mixing-on-sunlet-networks-and-a-fifty-percent-spec--6de3873d5eaa",
+        "2026/10/26/exact-fastest-mixing-on-sunlet-networks-and-a-fifty-percent-spec--6de3873d5eaa/RESULT.md",
+        "2026/10/26/exact-fastest-mixing-on-sunlet-networks-and-a-fifty-percent-spec--6de3873d5eaa/verify.py",
+        "independent_checks.py: pass group 4"
+      ],
+      "rationale": "Reconstructed the dihedral automorphism averaging argument using the convex centered operator norm, valid for all noninvariant feasible matrices. For invariant weights a,b, 2a+b<=1, diagonalization along the ring yields eigenvalues 1-b-a delta ±sqrt(b²+a²delta²), delta=1-cos(2pi j/n). For r=u²=1-cos(2pi/n), the positive-mode lower envelope strictly decreases in a and has a strictly convex unique b optimizer: a=(u+2)/(2H), b=u(u+1)/H, H=u²+2u+2. Check negative modes using mu²-[b²+(1-b)²]=u(u+2)(2-u²)/H²>0 for n>=3; mu=2(u+1)/H is actually attained as SLEM. At a=b=1/3 heuristic mu=(2-u²+sqrt(1+u^4))/3, optimal/heuristic gap tends to 3/2. Independent matrix eigenvalue experiments at all n=3..50 reproduce both; proof is all-mode analytical and not extrapolated.",
+      "residual_risks": [
+        "Computational examples alone do not establish quantification beyond checked finite parameters; the analytical or finite-exhaustive proof is separately evaluated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd et al. symmetry results reduce the search and general SDP can certify finite n, but their published graph examples and general theorems do not imply explicit a_n,b_n for every cycle length and the 3/2 spectral-gap ratio.",
+          "The norm min ||P-J||_2 and standard Metropolis weights are prior art.",
+          "Cycle and wheel examples differ from a leaf on every cycle vertex."
+        ],
+        "reasoning": "Boyd et al. symmetry results reduce the search and general SDP can certify finite n, but their published graph examples and general theorems do not imply explicit a_n,b_n for every cycle length and the 3/2 spectral-gap ratio.",
+        "searches": [
+          "Resultary semantic search: fastest mixing Markov chain sunlet graph pendant cycle SLEM exact",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "https://arxiv.org/abs/0709.0955",
+          "https://doi.org/10.1007/s00440-023-01257-x"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "https://arxiv.org/abs/0709.0955",
+        "https://doi.org/10.1007/s00440-023-01257-x",
+        "Resultary semantic search: fastest mixing Markov chain sunlet graph pendant cycle SLEM exact"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From general automorphism averaging one still must minimize strict convex g(b) and bound all negative Fourier modes to prove the global SLEM equality. These calculations carry the distinct result.",
+          "The norm min ||P-J||_2 and standard Metropolis weights are prior art.",
+          "Cycle and wheel examples differ from a leaf on every cycle vertex."
+        ],
+        "reasoning": "From general automorphism averaging one still must minimize strict convex g(b) and bound all negative Fourier modes to prove the global SLEM equality. These calculations carry the distinct result.",
+        "searches": [
+          "Resultary semantic search: fastest mixing Markov chain sunlet graph pendant cycle SLEM exact",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "https://arxiv.org/abs/0709.0955",
+          "https://doi.org/10.1007/s00440-023-01257-x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This is the convex centered-operator norm problem for a leaf-corona of a cycle (also called sunlet or circular caterpillar), and Fourier blocks diagonalize the symmetry-reduced optimizer.",
+          "The norm min ||P-J||_2 and standard Metropolis weights are prior art.",
+          "Cycle and wheel examples differ from a leaf on every cycle vertex."
+        ],
+        "reasoning": "This is the convex centered-operator norm problem for a leaf-corona of a cycle (also called sunlet or circular caterpillar), and Fourier blocks diagonalize the symmetry-reduced optimizer.",
+        "searches": [
+          "Resultary semantic search: fastest mixing Markov chain sunlet graph pendant cycle SLEM exact",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "https://arxiv.org/abs/0709.0955",
+          "https://doi.org/10.1007/s00440-023-01257-x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact closed forms in n cannot be replaced by a finite numerical optimal-weight table; independent finite n=3..50 matrices corroborated spectra, and search for sunlet fastest-mixing datasets found no identical closed formula.",
+          "The norm min ||P-J||_2 and standard Metropolis weights are prior art.",
+          "Cycle and wheel examples differ from a leaf on every cycle vertex."
+        ],
+        "reasoning": "Exact closed forms in n cannot be replaced by a finite numerical optimal-weight table; independent finite n=3..50 matrices corroborated spectra, and search for sunlet fastest-mixing datasets found no identical closed formula.",
+        "searches": [
+          "Resultary semantic search: fastest mixing Markov chain sunlet graph pendant cycle SLEM exact",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "https://arxiv.org/abs/0709.0955",
+          "https://doi.org/10.1007/s00440-023-01257-x"
+        ]
+      },
+      "rationale": "Boyd–Diaconis–Xiao provide convex fastest-mixing Markov-chain framework; Boyd–Diaconis–Parrilo–Xiao give automorphism averaging and examples pure cycles/wheels/bump rings, not the present ring with one degree-one pendant per cycle node. The general SDP solves finite instances but does not state this exact all-n closed form or asymptotic ratio in inspected text. Specialized sunlet chain literature remains possible.",
+      "residual_risks": [
+        "An older spectral-graph optimization treatment of circular ladders with leaves could derive the exact formula under the label corona C_n∘K1.",
+        "Full uniqueness among noninvariant optimizers is not proved or claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework covers feasibility/averaging, not the explicit sunlet family formula",
+          "evidence": [
+            "The norm min ||P-J||_2 and standard Metropolis weights are prior art."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "Relevant fastest-mixing SDP definitions and maximal-degree/Metropolis comparison as documented and cross-checked; no claim of exhaustive independent PDF reading during this run",
+          "method": "Matched convex SLEM objective and heuristic edge probability prescriptions",
+          "title": "Boyd, Diaconis and Xiao, Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Foundational exact optimization and two comparison heuristics"
+        },
+        {
+          "assessment": "Symmetry reduction already known; no all-orders sunlet ring-with-n-leaves formula found",
+          "evidence": [
+            "Cycle and wheel examples differ from a leaf on every cycle vertex."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Full open HTML article including its group-action proof and examples of cycles and wheels",
+          "method": "Checked dihedral averaging and compared listed core/leaf graph families",
+          "title": "Boyd, Diaconis, Parrilo and Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Most likely dominating automorphism-averaging theorem and ring examples"
+        },
+        {
+          "assessment": "Asymptotic geometric bounds do not supply full exact finite-n sunlet weights",
+          "evidence": [
+            "Gap comparison is exact within the symmetric supported nonnegative class."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00440-023-01257-x",
+          "material_read": "Relevant abstract, bounds and scope compared, not a full independent reading",
+          "method": "Checked bound/classification framework against exact 2x2 Fourier mode derivation",
+          "title": "Olesker-Taylor and Zanetti, Geometric Bounds on the Fastest Mixing Markov Chain",
+          "trigger": "Could imply exact fastest mixing from general geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "https://arxiv.org/abs/0709.0955",
+        "https://doi.org/10.1007/s00440-023-01257-x",
+        "2026/10/26/exact-fastest-mixing-on-sunlet-networks-and-a-fifty-percent-spec--6de3873d5eaa/RESULT.md"
+      ],
+      "rationale": "Sunlets form a natural infinite bounded-degree graph family with slow ring mixing. Exact optimum edge weights, all-eigenmode attainment, and a 50% limiting gap advantage over standard heuristics are useful analytic mixing benchmarks; the result is not merely a numerical SDP instance.",
+      "residual_risks": [
+        "Downstream use is plausible but not asserted as a published external application; value rests on the motivated mathematical claim itself."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Priority judgments are best-of-knowledge, not independent publication certificates; specific overlap risks are recorded in originality.",
+    "No write to GitHub or dispatcher completion endpoint. Frozen tree and its directory matched at assigned commit; current floating main branch not asserted unchanged.",
+    "Publication withheld until public-origin metadata and dates can be corrected with complete guarded replacement bytes."
+  ],
+  "schema_version": 1
+}

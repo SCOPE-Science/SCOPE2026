@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-The checked equation over \(\mathbb F_3\) is \(X^5Y+X^5Z-X^3Y^3+X^3Z^3+XZ^5+Y^5Z-Y^3Z^3=0\).
+## correctness
 
-1. Compile and run `g++ -O3 -std=c++17 verify.cpp -o check && ./check` from the directory containing the two source files. The program constructs explicit fields of orders \(3^m\) for \(1\le m\le10\), validates multiplicative periods and exhaustive field traversal, computes \(\deg\gcd_y(f_x,y^{3^m}-y)\) for every \(x\), adds the four points at infinity, and prints every exact point count. For \(m\le5\) it also directly enumerates all affine pairs to cross-check the gcd computation. Its successful final marker is `VERIFY_OK`.
-2. Run `python3 check_arithmetic.py`. The script checks the reduction identity at the affine singular locus and \(\gcd(G,R)=1\) in characteristic three. It computes the twenty-one Weil coefficients from the point counts, checks \(\deg L=20\) and \(c_{10}
-ot\equiv0\pmod3\), and performs the exact Rabin irreducibility test modulo \(23\). Its final marker is `VERIFY_ARITHMETIC_OK`.
+PASS
 
-The finite point counts through degree ten are exhaustive computations, not randomly sampled values. The conclusion for all extension degrees also uses the smooth genus-ten Weil functional equation and Newton identities. Irreducibility over \(\mathbb Q\) follows from the modular irreducibility certificate; geometric absolute simplicity is not tested or claimed. Independent audit and validation have not been performed.
+Recomputed smoothness elimination gcd(G(y),R(y))=1 in F3[y], with G=y^16(y+1)^5-1 and R=-y^18+y^12-y^4-y^3. An independently written C++ GF(3^m) primitive-modulus gcd enumerator traversed all field elements and verified point counts (13,21,34,73,288,708,2253,6529,19681,58236) for m=1..10. Newton sums reconstruct the first eleven coefficients of L, genus-ten functional equation determines all 21; checker confirms mod23 Rabin irreducibility via gcd for j=4,10 and x^(23^20) ≡x mod L. Nonzero middle coefficient 44020 mod3 yields ordinary p-rank10 and a-number0. Irreducibility over Q precludes base-field isogeny decomposition. Count certificate is COMPLETE for the ten required extension degrees, not a mere sample; no absolute simplicity is claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality supported by comparisons of exact statements, same-object sources and published Resultary records; material limitations and possible unindexed equivalences explicitly retained. The statement is equivalently the full extension-field point-count sequence/zeta numerator of the exact degree-six plane-filling pencil member; no checked source gives this arithmetic isogeny class. The polynomial determines every subsequent count by Weil rationality.
+
+## value
+
+PASS
+
+A complete zeta polynomial and isogeny simplicity/ordinarity for a natural degree-q+3 plane-filling curve, enabling precise point counts over every extension and identifying a genuinely ten-dimensional simple ordinary Jacobian; not a trivial re-expression of the known rational point count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

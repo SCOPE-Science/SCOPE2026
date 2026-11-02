@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes safe primes \(p=2q+1\), requires ordinary positive representatives \(a+b<p\), and counts only fixed-first-entry witnesses in the \(3\pmod8\) branch. For \(p\ge11\), the congruence \(p\equiv11\pmod{12}\) and order-\(2q\) criterion reduce primitive roots to nonresidues other than \(-1\). The \(7\pmod8\) construction is verified by exact residues \((-1/2,-3/2,-2)\) and a product congruence. The \(3\pmod8\) count follows from the quadratic-character sum \(-1\), proved by a hyperbola bijection, the two linear character sums, and removal of exactly one forbidden residue. A nonsquare discriminant excludes the only remaining order-\(2\) obstruction in the product. Explicit smallest-prime cases are checked. The standalone order-based verifier checks all safe primes through \(50000\), but finite checking is not the proof.
+## correctness
 
-## Originality — PASS, qualified
-Sun's Conjecture 4.2(i) states the complete four-primitive-root requirement as a conjecture, and OEIS A260947 provides scattered minimum-sum data, not a general safe-prime theorem or fixed-first-entry count. Cohen–Oliveira e Silva–Trudgian's two-summand theorem lacks the primitive-sum/product conditions; neither its implication nor a standard additive representation supplies the new assertion. Search comparisons included safe-prime, Sophie Germain, primitive-root quadruple and quadratic-nonresidue-pair formulations, plus relevant published-result searches. A previously published equivalent statement could have escaped these searches; see the structured scientific comparison.
+PASS
 
-## Mathematical value — PASS
-The answer resolves a canonical and naturally defined infinite *parameter family* of an explicitly posed four-primitive-root existence question, identifies both small exceptions, gives a uniform constructive branch, and sharpens the other branch to an exact multiplicity. It connects multiplicative order and a short-distance character correlation while retaining the integer inequality that the original conjecture demands. It is not merely the classical character-sum identity, which is acknowledged as existing background.
+For p>=11, p=11 mod12, Legendre(-1)=-1 and Legendre(3)=1, and in cyclic multiplicative group order 2q the primitive roots are exactly the nonresidues other than -1. If p=7 mod8, a=(p-1)/2, b=(p-3)/2 have a+b=p-2 and abc≡b. If p=3 mod8, a=2 primitive; the exact character sum Σχ(x(x+2))=-1 and linear sums give (p-3)/4 residues with χ(b)=χ(b+2)=-1, of which b=p-3 uniquely violates the representatives/primitive conditions. Hence (p-7)/4 witnesses; the product cannot be -1 because (b+1)^2=1/2 is impossible when χ(2)=-1. p=5,7 checked by listing primitive roots. Independent order tests validated all safe primes p<1000, while the proof is for all safe primes.
 
-## Scope and residual uncertainty
-No assertion for nonsafe primes, no all-pairs enumeration, no claim that infinitely many safe primes exist, and no independent mathematical review. An equivalent safe-prime specialization in unlocated literature remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct statement after exact model/quantifier comparisons with relevant primary work, related published mathematical records and natural equivalent formulations; no absolute novelty certification.
+
+## value
+
+PASS
+
+A uniform construction for the safe-prime subfamily of Sun’s explicit primitive-root conjecture, including exact small exceptions and a closed fixed-first-coordinate count. The extra fourth-root condition and ordinary integer sum bound make it a substantive constrained primitive-root existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

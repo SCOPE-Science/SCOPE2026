@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T16:16:47.735557Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact Gram for rows r1=(1,0,0), r2=(t,s,0), r3=(t,0,s) is [[1,t,t],[t,1,t²],[t,t²,1]], determinant d², d=1-t². Exact Schur pivots give det normalized Gram H=1, with class (trace, inverse trace): A=(T,T), B=(T,T-y²/d), C=(T+y²/[d(1+y)],T-y²/d), y=t², T=1+2/d. Thus positive-eigenvalue cubic polynomials obey chi_B=chi_A-(y²/d)z and chi_C=chi_B-y² z²/[d(1+y)], so largest roots strictly increase A<B<C. Saddle spectrum lambda±=(1±sqrt(1+4mu))/2 proves strict spectral-radius classes, d*mu_A->2, d*mu_C->5/2 gives ratio sqrt(5)/2. For two unit constraints reversed pivots have same trace/determinant. Independently reproduced all trace identities with symbolic exact algebra; finite tests not proof of open-interval classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Schur or Cholesky theory reduces the spectral problem but does not by itself order largest roots for three permutations; the strict polynomial comparison is new case-specific work."
+        ],
+        "reasoning": "General Schur or Cholesky theory reduces the spectral problem but does not by itself order largest roots for three permutations; the strict polynomial comparison is new case-specific work.",
+        "searches": [
+          "optimal ordering sequential Schur complement preconditioner saddle point arrow matrix row permutation correlated constraints",
+          "Bergamaschi & Bergamaschi arXiv:2610.17940 full 16-page PDF"
+        ]
+      },
+      "checked_sources": [
+        "Bergamaschi & Bergamaschi arXiv:2610.17940 full 16-page PDF",
+        "Wang–Zhang–Chen arXiv:2407.19217",
+        "Golub–Greif–Varah DOI:10.1137/04060679X",
+        "Notay DOI:10.1137/130911962",
+        "Resultary semantic search",
+        "Resultary: optimal ordering sequential Schur complement preconditioner saddle point arrow matrix row permutation correlated constraints"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matrix family has explicitly nonzero r2·r3=t² and r1·r2=r1·r3=t, so a least-correlated-pair heuristic is specifically contradicted. Prior spectrum formulas alone do not yield the full strict ordering or the sqrt(5)/2 ratio without these coefficient identities."
+        ],
+        "reasoning": "The matrix family has explicitly nonzero r2·r3=t² and r1·r2=r1·r3=t, so a least-correlated-pair heuristic is specifically contradicted. Prior spectrum formulas alone do not yield the full strict ordering or the sqrt(5)/2 ratio without these coefficient identities.",
+        "searches": [
+          "optimal ordering sequential Schur complement preconditioner saddle point arrow matrix row permutation correlated constraints",
+          "Bergamaschi & Bergamaschi arXiv:2610.17940 full 16-page PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bergamaschi & Bergamaschi arXiv:2610.17940, full text §2–5",
+          "The exact sequential-block construction and generic spectrum are background; the assessed strict three-class ordering is not asserted in inspected sections."
+        ],
+        "reasoning": "Bergamaschi & Bergamaschi arXiv:2610.17940, full text §2–5",
+        "searches": [
+          "optimal ordering sequential Schur complement preconditioner saddle point arrow matrix row permutation correlated constraints",
+          "Bergamaschi & Bergamaschi arXiv:2610.17940 full 16-page PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact family-level algebraic spectral ordering is not a database quantity; a search for Cholesky ordering and arrow saddle cases found general block methods, not this 0<t<1 comparison.",
+          "Resultary results concerned two-coordinate Gauss-Seidel, Kaczmarz, and generic saddle systems, without the same 6x6 exact-Schur claim."
+        ],
+        "reasoning": "An exact family-level algebraic spectral ordering is not a database quantity; a search for Cholesky ordering and arrow saddle cases found general block methods, not this 0<t<1 comparison.",
+        "searches": [
+          "optimal ordering sequential Schur complement preconditioner saddle point arrow matrix row permutation correlated constraints",
+          "Resultary semantic search"
+        ]
+      },
+      "rationale": "The Bergamaschi 2026 primary text establishes exact forward Schur pivots and symmetric preconditioning, not a cross-permutation spectral-radius theorem. Wang 2024 uses an approximate triangular preconditioner in a different boundary-control model; published broader saddle-point preconditioner results may contain an equivalent ordering lemma.",
+      "residual_risks": [
+        "Older specialized elimination-ordering literature may contain equivalent conclusions; 2006/2014 publisher works not exhaustively inspected.",
+        "No claim of MINRES iteration-count or finite-precision optimality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework known; cross-permutation three-class optimization absent in material read",
+          "evidence": [
+            "Sequential Schur blocks and normalized spectrum established, not the studied six-order comparison."
+          ],
+          "identifier_or_url": "arXiv:2610.17940",
+          "material_read": "Full 16-page lawful preprint, especially exact Schur definition and spectral analysis in §§2–5; relevant pages inspected visually",
+          "method": "arXiv PDF text plus page image",
+          "title": "Block diagonal preconditioners for arrow-shaped multiple saddle-point linear systems",
+          "trigger": "Identical preconditioning construction"
+        },
+        {
+          "assessment": "Different approximate triangular preconditioner and control application; whole-document noncoverage not asserted",
+          "evidence": [
+            "A distinct spectral objective and matrix block structure."
+          ],
+          "identifier_or_url": "arXiv:2407.19217",
+          "material_read": "Published primary abstract/accessible relevant descriptions, not complete main article",
+          "method": "bibliographic comparison",
+          "title": "Permuted preconditioning for extended saddle point problem arising from Neumann boundary control",
+          "trigger": "Similar row permutation preconditioning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies the smallest number of scalar constraints where order matters and a sharp, strictly worse least-correlation heuristic for a natural sequential preconditioner, including a limiting penalty; no claim about solver runtime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older specialized elimination-ordering literature may contain equivalent conclusions; 2006/2014 publisher works not exhaustively inspected.",
+    "No claim of MINRES iteration-count or finite-precision optimality.",
+    "Complete public metadata sanitization and truthful publication-date corrections not staged; scientific acceptance is not public certificate, Lean proof, or expert attestation."
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:10:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen complete RESULT.md and exact Git tree from assigned commit",
+        "independently implemented mathematical checks in independent_checks.py",
+        "critical lemmas reconstructed from definitions, not merely VERIFY_OK"
+      ],
+      "rationale": "Reconstructed Straub–Moll–Amdeberhan known pointwise valuation carry theorem using binary digits of 3^(-1) with alternating 0,1. Carry transition at b=0 has E(u)=[[2,0],[1,u]], at b=1 O(u)=[[1,u],[0,2u]], so pair T=EO=[[2,2u],[1,u+2u²]], trace 2+u+2u² determinant 4u². The even terminal vector (1,1) and distinct odd terminal (1,u) yield precisely the two rational generating functions by (I-zT)^(-1). Differentiation at u=1 gives exact means; Perron eigenvalue 4 with second eigenvalue1, derivative log λ(e^t) at zero 1, second derivative 4/3, prove variance slope and CLT by analytic perturbation. Input-digit constraints determine sharp maximum and zero frequencies. Independent exact arithmetic checked all 4096 first coefficients, carry counts, transfer formula and symbolic rational functions. No finite sample is used to deduce the CLT.",
+      "residual_risks": [
+        "Only k=3, p=2 and complete initial dyadic blocks; other primes and arbitrary intervals unclassified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original carries theorem covers each individual valuation, and a generic finite-state Markov/transfer CLT could cover Gaussianity in principle."
+        ],
+        "reasoning": "The old theorem does not directly state exact full dyadic distributions, evaluated mean/variance slope 2/3 or extremal multiplicities; the explicit alternating-bit transfer is substantive, though simple.",
+        "searches": [
+          "Straub Moll Amdeberhan 2008 Theorem 3.7",
+          "arXiv:0811.2028v1 Theorem 3.7"
+        ]
+      },
+      "checked_sources": [
+        "Straub et al arXiv:0811.2028v1 primary 11-page PDF",
+        "OEIS A004987",
+        "Resultary 3 central binomial coefficients binary carries dyadic valuation distribution generating function Gaussian limit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pointwise carry theorem and oddness criterion are covered. The factor (1,u) for an odd terminal carry is an extra boundary condition needed for the correct odd-series numerator."
+        ],
+        "reasoning": "The pointwise formula permits calculation of any finite histogram but does not itself supply the uniform rational family and its spectral asymptotic without additional enumeration.",
+        "searches": [
+          "arXiv:0811.2028v1 Theorem 3.7, Corollary 3.4 and equation (2.9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical generalized central coefficient c_n and its alternating binary carry count agree with the primary theorem."
+        ],
+        "reasoning": "The new claim translates that known pointwise carry statistic into two rational block-distribution series; alias identification prevents claiming the old criterion as new.",
+        "searches": [
+          "3 central binomial coefficients binary carries dyadic valuation distribution generating function Gaussian limit",
+          "Straub Moll Amdeberhan Theorem 3.7 arXiv:0811.2028",
+          "OEIS A004987"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS records 3-central binomial coefficient terms and recurrence; Resultary top hits concern different probability/valuation sequences."
+        ],
+        "reasoning": "A sequence table is not an all-block valuation polynomial and convergence theorem. No matching exact table appeared among inspected resources.",
+        "searches": [
+          "OEIS A004987",
+          "Resultary 3 central binomial coefficients binary carries dyadic valuation distribution generating function Gaussian limit"
+        ]
+      },
+      "rationale": "The 2008 primary paper proves integrality, pointwise carry valuations and a parity characterization, which are explicitly credited. Its inspected full text does not provide the complete pair of dyadic valuation generating functions, sharp frequency endpoints and Gaussian law. A generic transfer-matrix CLT is antecedent methodology but not the explicit evaluated spectrum.",
+      "residual_risks": [
+        "Generic digital transducer limit theorem may render the Gaussian portion an immediate specialization.",
+        "Unindexed explicit enumerators could cover the same dyadic histogram; finite literature search is not proof of global novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known pointwise carry valuation; no complete dyadic-block histogram or Gaussian law stated in inspected material",
+          "evidence": "Theorem 3.7 binary carry interpretation; equation (2.9); Corollary 3.4 parity.",
+          "identifier_or_url": "arXiv:0811.2028v1; https://arminstraub.com/downloads/pub/centralbinomials.pdf",
+          "material_read": "Complete 11-page original full-text PDF, particularly Proposition 2.1, Section 3, Corollary 3.4, Theorem 3.7 and near-final remarks; pages 7 and 9 examined visually",
+          "method": "Primary author-hosted PDF full-text and page inspection",
+          "title": "The p-adic valuation of k-central binomial coefficients",
+          "trigger": "Same sequence and strongest known individual valuation characterization"
+        },
+        {
+          "assessment": "Known coefficient values, not the assessed dyadic valuation distribution",
+          "evidence": "OEIS A004987 names 3-central coefficients and cites 2008 theorem.",
+          "identifier_or_url": "https://oeis.org/A004987",
+          "material_read": "Sequence identity and displayed recurrence and references; not exhaustive historical literature",
+          "method": "Sequence record comparison",
+          "title": "OEIS A004987: 3-central binomial coefficients",
+          "trigger": "Exact sequence/database identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "actual final RESULT.md statement and proof",
+        "prior-work comparison against same objects and invariants"
+      ],
+      "rationale": "The exact complete histogram of a natural integer sequence over every dyadic initial block, together with explicit extrema and a Gaussian scaling law, is a coherent natural combinatorial-arithmetic invariant; it is not merely restating the known pointwise carry criterion.",
+      "residual_risks": [
+        "Independent checks corroborate finite cases; proof of CLT requires analytic spectral gap."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only k=3, p=2 and complete initial dyadic blocks; other primes and arbitrary intervals unclassified.",
+    "Independent checks corroborate finite cases; proof of CLT requires analytic spectral gap."
+  ],
+  "schema_version": 1
+}

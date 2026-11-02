@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accompanying `power_dual_verify.py` uses only the Python 3 standard library. It independently constructs the two graphs from their edge descriptions (the dodecahedral graph has \(20\) vertices, \(30\) edges, degree \(3\); the icosahedral graph has \(12\) vertices, \(30\) edges, degree \(5\)). It checks that no singleton succeeds. Each of the \(190\) dodecahedral and \(66\) icosahedral pairs is tested twice, using set differences and bitwise masks for the simultaneous propagation rule. Independent BFS calculations give all base-graph distances and the full minimum-set exchange distances.
+# Independent mathematical audit
 
-The verified per-distance wave-size sequences are \(D: (6), (7,10), (8,10,14,18,20), (8), (8)\) for distances \(1,2,3,4,5\), and \(I: (8,10,12), (10,12), (12)\) for distances \(1,2,3\). Thus exactly \(60\) dodecahedral pairs and all \(66\) icosahedral pairs work. The complete exchange distributions are \(D: (300,870,600)\) and \(I: (660,1485)\).
+## correctness
 
-Run `python3 power_dual_verify.py` after extracting the package. Expected final line: `VERIFY_OK`.
+PASS
 
-The observation-round index starts after the initial closed-neighborhood observation; papers that count the initial observation as round one give round counts larger by one. No claims are made about larger graph families, physical robustness, independent peer review, or absence of unindexed prior work.
+The explicit GP(10,2) dodecahedron (20 vertices) and 12-vertex icosahedron define all edges without pictorial ambiguity. Singletons stall because each initially observed neighbor has two unobserved neighbors. Completely enumerating 190 and 66 two-vertex seed sets by deterministic closed-neighborhood plus simultaneous unique-neighbor propagation proves: only dodecahedral distance-three pairs succeed (60), every icosahedral pair succeeds (66). For D the distance-three adjacency graph is six-regular; optimal-set exchange graph is its line graph (60 vertices, 300 edges). Full BFS determines distances (300,870,600), diameter three; I exchange graph is L(K12) (66 vertices, 660 edges, diameter two). Our separately implemented bitmask and set propagation and independent BFS reproduced all 256 cases. Since the target graphs are fixed finite objects, the complete census is a finite proof, not extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: compared equivalent formulations, stronger-coverage implications, exact tables, and primary literature at their true theorem scopes. No identified inspected source directly states the entire assessed refinement; named inaccessible/implicit-cover risks are retained rather than converted into automatic failure. This does not certify historical priority.
+
+## value
+
+PASS
+
+Power domination is a natural network forcing invariant. A complete location, propagation-time and basis-exchange classification for two canonical planar-dual Platonic graphs provides exact data for both placement and reconfiguration, not merely small instance number checks; the rigid distance-three condition versus all-pairs dual contrast is structurally informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

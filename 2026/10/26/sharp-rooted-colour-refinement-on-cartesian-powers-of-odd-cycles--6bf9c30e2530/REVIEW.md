@@ -1,15 +1,21 @@
-# Scientific review: rooted odd-cycle powers
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated quantifiers are all integers \(r\ge2\), \(d\ge1\). Cartesian distance equals the sum of coordinate distances. Each positive-distance coordinate in an odd cycle has one (and only one) neighbour decreasing the distance, so the predecessor multiset at layer \(D-1\) is exactly \(\sum_{\ell=1}^r j_\ell[j-e_\ell+e_{\ell-1}]\). Its zeroth coordinate sum and subsequent coordinate sums invert to the unique original profile. The induction on refinement rounds is therefore unconditional and proves the full partition, not merely its final number of blocks. The terminal layer and the two nonempty last layers establish the sharp \(rd-1\) round bound. Root-preserving coordinate symmetries prove profile-wise orbit transitivity and the multinomial class-size formula. The independently implemented full-graph and weighted-quotient finite verifiers passed; they are corroboration, not a proof of arbitrary cases.
+## correctness
 
-## Originality — PASS, qualified
-The 2014 primary treatment of colour refinement concerns general algorithms and fractional automorphisms, without the specified graph family or layer-by-layer theorem. Kiefer–McKay (2020) gives general-graph worst-case iteration constructions, not this rooted Cartesian-power classification. Kluge (2022) treats circulant graphs, primarily two-dimensional refinement, and a two-individualization canonical-labelling result for prime-order cyclic groups; it does not state the one-root Cartesian-power formula. The known complete-graph Cartesian-power/Hamming setting is not a dominating result: \(C_{2r+1}\) for \(r\ge2\) is not complete, and deleting edges changes refinement. Targeted searches of the existing mathematical result corpus and online primary literature found no implication-equivalent theorem. This is a best-knowledge result, not an assertion of priority certification. The possibility of an unindexed odd-torus equitable-partition treatment is retained as a residual risk.
+PASS
 
-## Mathematical value — PASS
-The family contains non-Hamming, non-distance-regular high-dimensional graph products with an arbitrary odd circumference. A complete, sharp answer for how one-root counting refinement detects their coordinate-distance orbits contrasts with the general exponential-size graph description; the exact round progression and reconstruction lemma provide a usable structural mechanism. The result supplies exact cell counts and sizes for all parameter values, not a small finite example, minor constant improvement, or renamed Hamming formula.
+Cartesian graph distance from the origin is D=sum_l l j_l. A radius-t unrolled neighbourhood without the individual root has identical initial color data in the regular vertex-transitive graph, so all D>t share one color. Every nonzero-distance coordinate on an odd cycle has exactly one predecessor closer to root; thus from a vertex of profile j, M=d-j0 predecessors carry profiles j-e_l+e_(l-1) with multiplicity j_l. The counts S_0=M j0+j1 and S_l=(M-1)j_l+j_(l+1) recursively recover j, ensuring layer-D profiles split at round D. This inductively proves the full intermediate partition. At round rd-1 all but the unique distance rd profile are already distinct; this last background is itself one profile and stable by automorphism orbit invariance. At rd-2 the rd-1 and rd profiles remain merged, proving sharpness. Sign reflections and coordinate permutations give transitive root stabilizer action on each profile; counting yields class sizes. Independent full-graph refinement on C5, C7, C9 powers (220 total test vertices) confirmed every intermediate partition and sizes.
 
-## Limits and relationship to literature
-No assertion is made for even cycles, mixed cycle lengths, multiple individualized vertices, or identification relative to arbitrary external graphs. Literature comparison included the publicly accessible full texts of Kersting et al. (2014) and Kiefer–McKay (2020), the arXiv HTML full text of Kluge (2022), and relevant mathematics-result searches. The C3/Hamming case is deliberately excluded as pre-existing. External, independent checking of the theorem and publication priority remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard equitable refinement and automorphism-invariant partitions are known, as are worst-case 1-WL iteration bounds. Kluge studies circular Cayley graphs and prime-order individualization with 2-WL emphasis, but not one-root counting 1-WL on arbitrary Cartesian powers with sharp roundwise profile theorem. The structural predecessor inversion and rd-1 stabilization give additional content beyond generic bounds; originality accepted with general association-scheme/cubelike-product literature risk.
+
+## value
+
+PASS
+
+A round-by-round exact characterization of counting refinement for a natural infinite product graph family identifies when local information reaches root-stabilizer orbit granularity and provides a sharp parallel refinement depth. This is a motivated structural classification rather than a small finite WL experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review of the critical-seed turnover finding
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is restricted to the normalized six-compartment MB ODE at \(\kappa=\rho\beta_1+(1-\rho)\beta_2\), with initial behavior composition at switching equilibrium. Direct summation gives the exact \((S,I,R,d)\) subsystem; positivity and conservation ensure global boundedness. The signed imbalance \(d\leq0\) makes \(I\leq\varepsilon e^{-\kappa\varepsilon t}\), yielding the finite final size and exact recovered-coordinate balance. At positive turnover, \(|d|\leq C\varepsilon/a\) makes the correction terms lower order; at zero turnover, the unique final-size root has curvature \(M_2\). The separate uniform-tail argument proves continuity at each nonzero seed and validates the noncommuting iterated limits. The exact example \(M_2=76/49\) was checked against direct integration. Numeric results are not relied upon for the theorem.
+PASS
 
-## Originality — PASS with documented residual risk
+Adding the three infected equations eliminates symptom transfers and gives I-dot=(κS+δd−κ)I; subtracting ρ times S-dot gives d-dot=−(a+BI)d−ρ(1−ρ)δSI, d(0)=0, hence d≤0. Since S≤1−ε, I≤εe^(−κεt). For a>0, |d|≤ρ(1−ρ)δε/a; using z=R, S=1−z−I, the integrated exact balance ε=Z²/2+∫I dz−(δ/κ)∫d dz bounds corrections by O_a(ε√ε), proving Z/√ε→√2. At a=0 the two S_j are exponentials in R, giving curvature M2>1 and √(2/M2). Uniform exponential remaining-infection bound proves continuity in a for fixed ε. Independent high-precision final-size roots for the ρ=1/4 example confirmed M2=76/49 and the boundary amplitude.
 
-The full Allen–Heller–Pons article (arXiv:2207.08999, Sections 2–5 and appendix context) proves reproduction-number/sensitivity statements but does not give a final-size critical-seed theorem. Magal–Seydi–Webb (2018, equations (3.2)–(3.4)) treat group-conserving SIR dynamics without switching membership. El Attouga–El Khalifi (2024, Section 2.3) treat fixed heterogeneous susceptibility and imply the zero-turnover final-size equation but not the positive-turnover coefficient nor the interchange failure. Perra et al. (2011, behavior-transition sections) treat disease-induced fear spread, a different switching law. Searches for the precise two-parameter singular limit, model name, aliases, and published research records did not expose a dominating statement. A more general unindexed epidemic singular-perturbation result remains possible; no human or independent literature audit has occurred.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result locates a real singular modeling boundary: replacing a very slow but positive behavior turnover by zero is harmless at a fixed nonzero seed yet changes the leading critical-outbreak size at vanishing seed. The coefficient jump is exact, parameter-transparent, and not a routine calibration of \(\mathcal R_0\), which remains one in both regimes. It separates timescale equilibration from permanently frozen susceptibility composition, a structural issue for critical outbreak projections.
+Best-of-knowledge novelty of the exact final statement after explicit comparison with related stronger/alternate formulations; any inaccessible source is recorded as a residual risk, not assumed noncovering.
 
-## Scope and risks
+## value
 
-The theorem is deterministic; no finite simulation proves the limits. The exact zero-turnover model is a boundary extension, and no uniform crossover at \(a\asymp\sqrt\varepsilon\) is claimed. Stochastic outbreaks, broader time-dependent behavior changes, and independent review remain unaddressed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural singular order-of-limits issue in a published epidemiological model: the exact threshold final-size amplitude differs between static heterogeneous classes and arbitrarily slow positive switching, despite pointwise continuity in switching for every positive seed. This is not merely an R0 restatement and has an explicit analytically controlled boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

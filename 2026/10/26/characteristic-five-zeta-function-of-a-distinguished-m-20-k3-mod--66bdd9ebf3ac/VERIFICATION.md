@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The source program `verify.py` uses only Python's standard library. Run `python3 verify.py` from its containing directory. The successful result ends in `VERIFY_OK`.
+# Independent mathematical audit
 
-The program constructs the 20 three-column minors of the matrix of three quadrics, verifies each is nonzero modulo five, and calculates all normalized projective base points over \(\mathbb F_5\) and \(\mathbb F_{25}\), represented as \(\mathbb F_5[t]/(t^2-2)\). A base point with \(r\) nonzero square-coordinate values contributes \(2^{r-1}\) projective points precisely when their nonzero quadratic characters agree.
+## correctness
 
-The program obtains base contributions \(\{5:6\}\) over \(\mathbb F_5\) and \(\{4:15,5:6,6:30\}\) over \(\mathbb F_{25}\). It separately enumerates all normalized projective six-tuples over \(\mathbb F_5\) and gets 96. It obtains the degree-two Frobenius trace sum and squared-trace sum \(70\) and \(550\). The mathematical proof derives all eigenvalues using the Weil absolute-value theorem; finite computations alone are not asserted to prove infinite point counts.
+PASS
 
-The K3 geometry, Lefschetz trace formula, cohomological Betti number 22, and Weil bound are standard theorems invoked with their assumptions stated in RESULT.md. No computer algebra, external certificate, or independent validation is claimed. The first public motivating source date is October 14, 2019, verified from its arXiv posting rather than its subsequent revisions.
+The exact 3x6 coefficient matrix has all twenty 3x3 minors nonzero in F5, forcing geometric Jacobian rank three on the finite square-cover of P2; adjunction and H1 vanish for a smooth complete intersection (2,2,2). Independently enumerated square-character projective lifts: F5 six base points of r=5 give 96, and F25 15 of r=4, six of r=5, thirty of r=6 give 1176. K3 Betti number 22 gives traces 70 and 550. Since |alpha_i|=5, the second trace saturates the triangle inequality, forcing each alpha_i=±5; trace 70 gives 18 plus, four minus. Thus Z=1/[(1-T)(1-25T)(1-5T)^18(1+5T)^4].
+
+## originality
+
+PASS
+
+Best-of-knowledge original on the stated restricted theorem after comparison of exact implications; no exhaustive priority claim and specified inspection limits remain.
+
+## value
+
+PASS
+
+The exact full zeta function determines every extension-field point count and the cohomological Frobenius spectrum for an explicitly distinguished symmetric K3 surface; this is not merely reproducing its complex model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The mathematical proof was reconstructed algebraically. For every selected atom, geometric-series cancellation proves the explicit uniform estimate with the dominated-convergence error. Each finite Vandermonde system is invertible because its nodes are distinct and its mass weights are positive. Each stage permits independent control of the entire partial-block residual and the full squared-norm budget; therefore ordinary partial sums converge for every coordinate, and the attached tail is square summable. The polynomial restriction has diagonal coefficient one and is invertible in every degree. All of these checks are exact and infinite-dimensional arguments, not extrapolations from a finite diagnostic.
+## correctness
 
-The de Branges–Rovnyak separation invokes Theorem 2.1 and Lemma 3.2 of arXiv:2610.15019v1 under their verified assumptions: the associated Pythagorean numerator is outer and the symbol has real part at least one half. The leading paper's full eight-page version was inspected, including construction and conclusions; its scope is a specific dyadic measure and an existential counterexample.
+PASS
 
-Unproved or unverified matters: purely nonatomic measures; necessity of infinite atomicity; effective bounds on block lengths; comprehensive equivalence searches across older unbounded Toeplitz terminology; and independent external review. No computational log is substituted for proof.
+For each atom ζ_j the geometric-sum estimate and dominated convergence show η_j(L)→0 uniformly in block start N and coordinate m. Weighted Vandermonde on distinct nodes ζ_j^(−1) solves M+1 residual equations each stage. Arbitrarily long blocks simultaneously ensure ℓ² tail cost ≤ε²2^(−M−1) and partial-block error ≤2^(−M−3), so every increasing-index coefficient series converges to zero, not just a subsequence of stage endpoints; initial polynomial jet is untouched. Positive-real Herglotz symbol has 1/φ∈H∞ and φ∈H^p (p<1), hence outer. The cited companion norm identity and strict H(b)>H2 norm for nonzero outer b force ker(T)∩H(b)=0. Upper-triangular polynomial restriction has diagonal 1, hence maps polynomials onto polynomials; adding arbitrarily close dense-kernel elements shows every (g,h) is in the graph closure. Independently evaluated atom-extraction bound for a finite atomic example; its finite test is illustrative only.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty of the exact final statement after explicit comparison with related stronger/alternate formulations; any inaccessible source is recorded as a residual risk, not assumed noncovering.
+
+## value
+
+PASS
+
+Strong and natural operator-theoretic upgrade of a recent coefficient-formula counterexample: every prescribed Taylor jet is approximable by a zero-output vector for every infinitely atomic positive measure, and the graph closure is maximally nonclosable. This delineates exactly why the formal coordinatewise operator cannot be identified with a closed Toeplitz realization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

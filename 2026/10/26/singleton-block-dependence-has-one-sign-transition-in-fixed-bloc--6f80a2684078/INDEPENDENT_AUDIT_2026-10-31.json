@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T01:13:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md, original verify source, exact frozen Git tree/blob IDs",
+        "independent_checks.py groups and current independent Git reconstruction"
+      ],
+      "rationale": "Marking one size-s block and deleting it is a uniform (n-s,k-1) partition, so the conditional expected singleton count is F_(k-1)(n-s), giving the exact covariance. The ordered fiber-size distribution for a random uniform surjection onto b blocks has weight product_i 1/j_i!. Log-concavity of 1/j! for positive j and preservation under convolution imply the conditional single-fiber distributions are monotone-likelihood-ratio ordered as total m increases; the new largest supported j is strictly positive, hence F_b(m) strictly decreases for all m>=b. Decreasing residual n-s thus gives strict bracket increase, and the maximal-s endpoint is positive as not all partitions at n>=k+2 have k-1 singletons. Fixed-b inclusion-exclusion Stirling asymptotics F_b(m)~m*b/(b-1)*((b-1)/b)^m yield the macroscopic boundary. Independent exact Stirling covariance comparisons, sign monotonicity and (6,3,3) zero case passed. The fixed-k theorem does not follow merely from unconditioned Bell ratios.",
+      "residual_risks": [
+        "Strict decrease F_b holds for b>=2 and m>=b, with b=k-1>=2; the degenerate b=1 case was deliberately excluded.",
+        "The macroscopic cutoff holds fixed k, not k proportional to n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arratia–DeSalvo treat n-k of order sqrt n, not fixed k, and Mutafchiev–Savov focus on the maximum multiplicity in unconditioned partitions. Conditional factorial moments are implicit in combinatorial occupancy frameworks."
+        ],
+        "reasoning": "The more general occupancy framework can recover moment formulas by substitution; none of the inspected statements entails the strict monotone sign pattern and fixed-k fractional boundary.",
+        "searches": [
+          "arXiv:1807.03926 Arratia DeSalvo random partitions fixed blocks",
+          "arXiv:1811.07951 maximal block-size multiplicity",
+          "Timashev 2003 known number of blocks"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8198e77842ad full primary RESULT.md",
+        "arXiv:1807.03926 full PDF",
+        "arXiv:1811.07951 full PDF",
+        "Timashev 2003 DOI 10.4213/dm201 full original Russian 11-page PDF, Theorems 1-8 and formula (24)",
+        "Resultary fixed-k singleton size covariance searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unconditioned Palm transform yields E[f(K_n)|size-s marked], not E[X1|K_n=k,size-s marked]. Arratia–DeSalvo operate near diagonal; Timashev abstract mentions distributions/means and limit laws, not a cross-size strict sign theorem."
+        ],
+        "reasoning": "The new MLR monotonicity is additional mathematical content; earlier moment identities are insufficient to force the single sign transition without an inequality.",
+        "searches": [
+          "Resultary record 8198e77842ad full RESULT.md",
+          "arXiv:1807.03926 full text",
+          "Timashev DOI 10.4213/dm201 abstract and accessible Russian material"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published unconditioned Bell partition result states Cov(K_n,X_s) and threshold ~log n. Conditioning on K_n=k makes Cov(K_n,X_s)=0 and changes the target to Cov(X1,X_s), threshold rho_k n."
+        ],
+        "reasoning": "Conditioning does not permit substitution of total block count for singleton count, so the similar one-switch language refers to different random variables and asymptotic scales.",
+        "searches": [
+          "Resultary: random set partitions fixed k singleton size s covariance sign switch Stirling conditional singleton",
+          "Resultary 2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad full RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No tabulation of all (n,k,s) triple sign patterns found; the candidate database uses different Bell sampling."
+        ],
+        "reasoning": "The theorem is an infinite parameter classification via Stirling numbers, not a bounded table or a tiny example; exact zero at n=6 is corroboration only.",
+        "searches": [
+          "Stirling covariance singleton vs block size exact table fixed k",
+          "Resultary published covariance record 8198e77842ad"
+        ]
+      },
+      "rationale": "Unlike the closely related published Bell-partition result, which concerns Cov(total number of blocks, X_s) in an unconditioned model and a logarithmic threshold, this claim concerns Cov(X1,X_s) at exactly k blocks and a positive-fraction threshold. General factorial moment methods imply its raw moments but not plainly the strict one-crossing inequality.",
+      "residual_risks": [
+        "Timashev 2003 complete original Russian paper was inspected; its single-size factorial moment formula could imply pieces of the mixed moment by generalization, and other older conditional occupancy literature could contain the full one-switch result.",
+        "The resulting fixed-k asymptotic is not uniform when k grows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct unconditioned Cov(K,X_s), log(n) scale; no coverage of fixed-k Cov(X1,X_s)",
+          "evidence": "Explicit K_n random variable and Bell B_n sampling in its Finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad/RESULT.md",
+          "material_read": "Full RESULT.md finding, proof of Palm identity and Bell-ratio threshold, exact domain",
+          "method": "read complete primary published result from GitHub",
+          "title": "Block-size counts switch covariance sign at the Lambert-W scale",
+          "trigger": "Closest published one-switch block-count theorem"
+        },
+        {
+          "assessment": "Different n-k asymptotic regime; no direct strict sign classification at fixed k",
+          "evidence": "Theorem concerns n-k in a square-root regime.",
+          "identifier_or_url": "arXiv:1807.03926",
+          "material_read": "Full arXiv PDF, main statements and near-diagonal asymptotic discussion",
+          "method": "open arXiv primary PDF, page screenshot",
+          "title": "Attacks and alignments: rooks, set partitions, and permutations",
+          "trigger": "Primary random partitions conditioned on block count"
+        },
+        {
+          "assessment": "Unconditioned maximum multiplicity rather than covariance at fixed block count",
+          "evidence": "Object and statistic are different.",
+          "identifier_or_url": "arXiv:1811.07951",
+          "material_read": "Full open arXiv paper, principal results and assumptions",
+          "method": "open primary PDF",
+          "title": "On the maximal multiplicity of block sizes in a random set partition",
+          "trigger": "Possible broader block-size dependency result"
+        },
+        {
+          "assessment": "All inspected results concern single selected X_r and regimes n,N growing; no mixed X1-Xs strict sign theorem appears, though general conditioning principles may implicitly yield moments",
+          "evidence": "Formula (24) is factorial moments of a single X_r; Theorem 3 is mean and variance of X_r; Theorems 4-8 give local/Poisson limits, not strict cross-covariance.",
+          "identifier_or_url": "DOI:10.4213/dm201",
+          "material_read": "Full 11-page original Russian PDF: abstract, Theorems 1-8, formulas (24) for single-size factorial moments, concluding section and references; English translation not read",
+          "method": "lawful open MathNet original PDF with page-level text and screenshots",
+          "title": "Random partitions of sets with a known number of blocks",
+          "trigger": "Same conditioned set-partition distribution; plausible priority threat"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "actual RESULT.md finding, precise domain and proof",
+        "originality comparisons and the motivated object/invariant"
+      ],
+      "rationale": "The fixed-block occupancy model is fundamental in combinatorial probability; a complete covariance sign classification and a sharp linear-scale transition for singleton counts versus large blocks give a natural, reusable dependence threshold. The zero-covariance but nonindependent example clarifies the scope.",
+      "residual_risks": [
+        "The conditional mixed-moment identity is classical marking; value rests on strict sign structure and fixed-k boundary, not that identity alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact sign order and asymptotic for k>=3 only, not arbitrary two non-singleton sizes.",
+    "The full origin and first public date of this theorem remain unverified; no publishable metadata supplied."
+  ],
+  "schema_version": 1
+}

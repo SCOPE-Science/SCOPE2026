@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Delorme gluing reduces every three-generated complete intersection to two coprime generators multiplied by an integer, plus one non-atomic generator. The stated Frobenius formula is reconstructed by residue classes, and exhaustive cases \(m=qa\) and \(m=p\) yield a sharp bound. Equality forces one generator triple. Direct finite checks through \(s=6\) independently support, but do not replace, the all-parameter proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Li–Zhang's August 2026 realization theorem explicitly leaves minimum genus at fixed embedding dimension and multiplicity to future work. The 2017 all-semigroup minimum-genus algorithms and classical gluing theorem do not state the presented closed form and unique minimizer for three-generated complete intersections at every square multiplicity. Targeted mathematical literature and database searches found no covering theorem. Older or unindexed extremal-genus literature remains a genuine priority risk.
+PASS
 
-**Mathematical value — PASS.** The result answers an infinite natural slice of the quantitative extremal problem identified in current research. It gives a sharp cubic-in-side-length minimum, and uniquely characterizes every minimizing semigroup, not merely existence or a finite table. The proof exposes a strict obstruction to an alternative gluing orientation; no result for nonsquare multiplicities is claimed.
+For a three-generated CI gluing S=<qa,qb,p>, gcd(a,b)=gcd(p,q)=1, q>=2, a<b, p nonminimal in <a,b>, the Frobenius number is q(ab-a-b)+(q-1)p and the multiplicity is min(qa,p). Because ab-a-b>=a^2-a-1, if qa=m=s^2 then p>=m+1 gives F>=m(a+q-2)-1>=2m(s-1)-1 by AM–GM, equality only a=q=s,b=s+1,p=m+1. If p=m<qa, q>s^2/a implies a strict improvement over the same target; for a=s integer q>=s+1 yields strict inequality. The candidate p=s^2+1=(s-1)s+(s+1) is legal and achieves F=2s^2(s-1)-1; CI symmetry gives g=(F+1)/2. Independent finite gluing search confirmed uniqueness for s=2..6; those tests are not the universal proof.
 
-**Closest literature and limitations.** Li–Zhang (arXiv:2608.21556), Delorme (1976), García-García et al. (arXiv:1712.05220). The fixed multiplicity must be a perfect square, the embedding dimension must be three, and independent review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original for the restricted final claim after direct implication-based comparison; primary overlap, unavailable full text and mathematical reduction risks are explicitly documented, not treated as absence-proof.
+
+## value
+
+PASS
+
+This closes an explicit infinite fixed-embedding-dimension slice of the minimum-genus problem for complete intersections, including uniqueness, and distinguishes it from generic semigroup genera and mere realizability. It is not a renaming of a two-generator formula: the gluing parameters require optimized global inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

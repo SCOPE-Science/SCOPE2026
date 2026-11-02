@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:11:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob ad187cd434a819f0b4e4e7da2c21e56a6e72487d",
+        "frozen verify.py blob f863ba9e477b17f0d795aac57e673ee02c187f54 inspected",
+        "independent_checks.py BREATHING exact exhaustive independent Fraction evaluation"
+      ],
+      "rationale": "The Bernoulli shift representation converts falling into H_{s+k} into a zero run with length >=m+k+a_{s+k}; minimizing over offsets modulo q yields b_s exactly. Complete safe runs give finite nonnegative q-phase renewal matrix K_m(z); its spectral-radius singularity determines the exponential survival rate. For the uncapped matrix K_inf(z)=zP/2(I-zP/2)^-1, Perron eigenvalue is z/(2-z), left/right vectors uniform/all-ones, derivative 2 at z=1. Missing row mass is 2^-(m+b_s); finite-dimensional perturbation yields gamma_m=2^-m(2q)^-1 sum 2^-b_s+O_{q,a}(m4^-m). b_s<=a_s gives sharp general minimum; equality requires the cyclic reverse staircase, uniquely. Independent exact Fraction enumeration of all (q-1)! cyclic representatives for q=2,...,8 recovered maximum coefficients and counts (3/8,1);(1/3,1);(9/32,4);(1/4,10);(11/48,12);(23/112,144);(3/16,864), confirming finite exhaustive claims. No extrapolation to q>8 maxima.",
+      "residual_risks": [
+        "Small-hole expansion is for each fixed q and schedule, m->infinity after N->infinity escape limit; not uniform when q grows with m.",
+        "Finite maximum spectrum proven only for q<=8, no unsupported formula for larger periods."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Poo-Marcus original Section IV.A p4473 explicitly titled Complete Linear Ordering of C(m) Up to Period 4; Proposition 22 orders q<=4.",
+          "Béal et al 2011 periodic-finite-type shift methods are broad capacity algorithms, not the stated all-q reverse staircase extremum."
+        ],
+        "reasoning": "The earlier TMTR formalism is very general and can compute any fixed schedule implicitly; it does not, in inspected statements, give a universal closed optimizer or exact q5-8 multiplicities. A nonobvious reduction to prior capacity orderings is a residual risk.",
+        "searches": [
+          "Resultary semantic search: periodically breathing holes doubling map escape rates periodic maximum transition run constraints ordering extremal permutations",
+          "https://personal.math.ubc.ca/~marcus/pubs_electronic/TMTR.pdf",
+          "doi:10.1109/TIT.2011.2143910"
+        ]
+      },
+      "checked_sources": [
+        "Poo-Marcus 2006 complete primary PDF Section IV",
+        "Livorati et al arxiv:1312.7030 relevant full original excerpt",
+        "Béal et al DOI 10.1109/TIT.2011.2143910 background",
+        "Resultary query periodically breathing holes doubling map escape rates periodic maximum transition run constraints ordering extremal permutations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Poo-Marcus derives exact characteristic equations, enabling numeric capacity of a given phase schedule.",
+          "Livorati et al 2014 treats time-varying oscillating or breathing holes with Ulam approximations, not q! permutation optimization."
+        ],
+        "reasoning": "General finite-matrix computability does not logically state which permutation of q distinct cap offsets maximizes or minimizes the leading small-hole coefficient; the universal reverse optimizer and q5-8 exhaustive classification are the nontrivial comparative facts. Overlap for q<=4 is explicitly credited.",
+        "searches": [
+          "Resultary semantic search: periodically breathing holes doubling map escape rates periodic maximum transition run constraints ordering extremal permutations",
+          "https://personal.math.ubc.ca/~marcus/pubs_electronic/TMTR.pdf",
+          "https://arxiv.org/pdf/1312.7030"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Poo-Marcus 2006 defines time-varying maximum transition-run constraints (TMTR) and obtains transfer-matrix capacities for periodically capped zero runs.",
+          "A dyadic interval [0,2^-L) is exactly L leading binary zeros, so the source TMTR constraints are an equivalent symbolic-dynamics representation of the problem."
+        ],
+        "reasoning": "The present b_s is a min-plus erosion of a periodic run cap, and its escape exponent is the deficit of the constrained shift entropy. The general capacity is prior; exact optimized rare-hole coefficient and high-period extrema are the assessed new results.",
+        "searches": [
+          "Resultary semantic search: periodically breathing holes doubling map escape rates periodic maximum transition run constraints ordering extremal permutations",
+          "https://personal.math.ubc.ca/~marcus/pubs_electronic/TMTR.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source Poo-Marcus capacity order list covers q2-4, overlaps the first three table rows.",
+          "Independent complete rational enumeration was required for q5-8, including q7 coefficient 23/112 and 144 maximizers.",
+          "Resultary closest hit 2026/10/11/SCOPE-a-three-phase-periodic-orbit-and-zeta-trichotomy-for-symmetric-n--8027a957802c concerns negative doubling and symmetric holes, not this schedule."
+        ],
+        "reasoning": "The q2-4 table is not novel; q5-8 schedule-maximizer counts are finite but natural complete extremal classifications for first unaddressed periods. No earlier matching table found in inspected sources.",
+        "searches": [
+          "Resultary semantic search: periodically breathing holes doubling map escape rates periodic maximum transition run constraints ordering extremal permutations",
+          "Resultary id 2026/10/11/SCOPE-a-three-phase-periodic-orbit-and-zeta-trichotomy-for-symmetric-n--8027a957802c"
+        ]
+      },
+      "rationale": "Poo-Marcus 2006 gives the same family of periodically varying maximum-run constraints and a characteristic-matrix capacity method, and explicitly orders capacities only through period four. The assessed refinement is the closed leading small-hole erosion coefficient, unique all-period minimizer and exact q5-8 maximizing schedule classification. Livorati et al study breathing holes at the same map but in different geometric parameterization, not nested dyadic phase permutations. Best-of-knowledge PASS with implicit-capacity derivation risk.",
+      "residual_risks": [
+        "TMTR capacity characteristic equations might encode an equivalent all-period leading-coefficient optimization in subsequent work.",
+        "The maximum order table is only q<=8 and does not imply an all-period maximum formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Very strong structural prior work with direct equivalence, ordering only through q=4 in read theorem; q5-8 and all-period universal optimized coefficient not displayed.",
+          "evidence": [
+            "Section IV.A title Complete Linear Ordering of C(m) Up to Period 4; Proposition 22 and q=2,3,4 chains."
+          ],
+          "identifier_or_url": "https://personal.math.ubc.ca/~marcus/pubs_electronic/TMTR.pdf",
+          "material_read": "Original PDF (17 pages), main definitions and capacity/characteristic equations, Section IV.A and Proposition 22 at printed p4473 (PDF page 9), including q2-4 ordering.",
+          "method": "Opened and rendered primary PDF pages 0 and 9, read equivalent symbolic definitions and exact ordered-capacity table.",
+          "title": "Time-Varying Maximum Transition Run Constraints",
+          "trigger": "Exactly equivalent periodic capped binary zero-run model"
+        },
+        {
+          "assessment": "Different time-varying hole family and numerical overlap analysis; no fixed-parameter permutation optimizer in inspected core statements.",
+          "evidence": [
+            "Abstract: escape rate well described by overlap with images for holes centred at periodic orbits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.7030",
+          "material_read": "Original nine-page arXiv PDF first page, abstract, model and numerical analytic setup for oscillating and breathing holes.",
+          "method": "Opened primary PDF, read introductory model and rendered page 0.",
+          "title": "Escape through a time-dependent hole in the doubling map",
+          "trigger": "Same map and breathing-hole topic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "fixed-q perturbative Perron proof",
+        "Poo-Marcus general capacity ordering through q4",
+        "independent exhaustive q2..8 enumeration"
+      ],
+      "rationale": "Choosing when holes are largest is a natural extremal design problem for a non-autonomous dynamical system. The exact leading escape coefficient separates schedules asymptotically, the reverse-staircase uniqueness holds for arbitrarily many phases, and the fully enumerated first nontrivial maximal periods reveal a real break from a misleading linear pattern at q=7.",
+      "residual_risks": [
+        "No finite-m exact schedule ordering promised; only leading asymptotic coefficient."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No closed formula for q>8 maximum coefficient.",
+    "Original time-varying maximum-run theory acknowledged as source of general exact capacities.",
+    "Five frozen source directory entries and all immediate file blobs were checked at exact commit and current main at inspection; later branch changes are not excluded.",
+    "The record remains not_ready for publication due inherited private operational metadata and unverified initial public dates; this is a transport/confidentiality hold, NOT scientific rejection.",
+    "No GitHub writes or dispatcher closeout writes."
+  ],
+  "schema_version": 1
+}

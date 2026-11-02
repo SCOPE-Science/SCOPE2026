@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The residual average is an independent Gaussian factor because its cross covariance with every residual difference vanishes. Gaussian regression yields a full-rank residual-difference matrix and, after projecting one column away from the other \(m-1\), a nondegenerate isotropic Gaussian remainder of dimension \(d-m+1\). Its inverse-radius moment is finite exactly below that dimension, and independent residual-average noise forces the corresponding Anderson coefficient moment to diverge at and above it. The output separates as \(H\alpha+B\), where \(H\) has full column rank and \(B\) has all moments, precluding cancellation of the heavy tail. Fixed positive ridge regularization bounds the inverse singular-value filter and makes every output polynomial moment finite. The included checker passed 12,310 identities and matrix checks. The infinite-domain arguments are proved analytically; sampling alone would be insufficient.
+PASS
 
-## Originality — PASS, subject to publication-priority risk
+Independence is exact: xi=mean(epsilon_i) is jointly Gaussian and orthogonal to each column noise difference, so r0=a-R1/(m+1)+xi. Conditioning on R_{-j}, Gaussian regression gives the residual orthogonal column u_j in t=d-m+1 dimensions with nonsingular isotropic Gaussian density, whose inverse radius has finite p moment exactly when p<t by polar integration. The independent xi makes conditional alpha_j normal with variance sigma^2/((m+1)||u_j||^2), giving the matching divergence lower bound even when its mean shifts. For sufficiency, finite Gaussian moments and the u_j inverse bound control alpha. Since Z=H alpha+B, H has full column rank and B=y0-Proj_col(R)r0 has moments of all orders, no tail cancellation is possible. Tikhonov pseudoinverse operator norm <=1/(2sqrt(lambda)), giving all polynomial moments. New independent checks reconstructed Gaussian inverse covariance matrices and least-squares/output decompositions; these tests cannot prove the rare-event integrability.
 
-The accessible primary text of Lupo Pasini et al. (arXiv:2110.14813, first version 2021-10-26) treats noisy Anderson acceleration, mixing and smoothing but does not state an exact all-moment output threshold in the materially inspected equations and analysis. De Sterck–He (arXiv:2109.14176) develops deterministic linear Anderson convergence and standard mixing formulas. Shi et al. (arXiv:1909.03245) and Scieur et al. (arXiv:1606.04133) study regularization, without the identified correlated Gaussian moment threshold in the inspected material. Classical small-singular-value / Wishart integrability facts explain the core small-ball mechanism and are explicitly not claimed as novel. The specific application additionally requires the shared-noise independent-average representation, the affine-span noncancellation step, and a sharp all-memory classification. Targeted literature and published-record searches found no directly covering claim. Pollock–Rebholz (arXiv:2211.12953) was not fully accessible; comparison with its filtering work is limited to accessible descriptive text. No absence-of-prior-work claim is certain without independent exhaustive review, especially in Gaussian regression literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The memory parameter is a natural user-controlled numerical design choice; the theorem identifies a sharp dimension-dependent loss of finite expected error that generic conditioning warnings do not quantify. The full-memory singular regime has infinite mean even with arbitrarily small nonzero oracle noise, and near-full memory has finite mean but infinite variance. The theorem distinguishes two common remedies: fixed output damping is ineffective at removing the tail while ridge regularization restores all moments. The result is one-shot and does not purport to prove stochastic Anderson iteration convergence. These boundaries are useful for interpreting moment-based solver diagnostics and designing safeguards.
+Random rectangular pseudoinverse codimension moments, Anderson least-squares formulas, instability motivation, and ridge conditioning are established prior art. The specific statement for the evaluated extrapolated point with a correlated difference matrix, an independent common Gaussian residual average, and no output cancellation is a sharp new application not located in inspected primary definitions/analyses. Best-of-knowledge PASS; a broad Gaussian regression pseudoinverse theorem might imply parts under alternative wording.
 
-## Closest sources and risks
+## value
 
-The closest algorithmic source is *Stable Anderson Acceleration for Deep Learning* (arXiv:2110.14813), particularly its residual least-squares and noisy-oracle sections. *Regularized Anderson Acceleration for Off-Policy Deep Reinforcement Learning* (arXiv:1909.03245) is the closest regularization comparison. *Filtering for Anderson Acceleration* (arXiv:2211.12953) remains a full-text accessibility limitation. Classical random matrix inverse moments could imply parts of the numerical theorem once the correlation structure and exact output decomposition are supplied; specialized prior formulations remain a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The one-shot extrapolation output is the actual object used by numerical optimization: its exact loss of moments at near-square memory depth predicts heavy-tailed failures that finite testing and ordinary variance analyses can miss. Distinguishing harmless fixed outer relaxation from tail-healing positive Tikhonov is practically and mathematically motivated; not a mere standard inverse-Gaussian restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

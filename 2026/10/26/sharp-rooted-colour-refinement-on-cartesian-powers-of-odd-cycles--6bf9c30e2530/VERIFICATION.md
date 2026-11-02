@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 odd_cycle_wl_verifier.py` using Python 3 with only the standard library. The recorded replay output is embedded in `verification_output.txt`.
+## correctness
 
-The first implementation explicitly builds all vertices and edges of \(C_{2r+1}^{\square d}\), applies simultaneous count-based colour refinement to the entire graph, compares every intermediate round with the predicted distance-layer partition, and checks terminal classes and sizes. It tested 20 graph configurations with 4,006 vertices in total.
+PASS
 
-The second implementation constructs the weighted transition graph on the weak compositions of \(d\) into \(r+1\) parts. It verifies the degree \(2d\), checks one downward edge per nonzero coordinate and the predecessor-moment reconstruction, and computes colour refinement on the quotient independently; it tested 56 configurations with a combined 2,898 quotient profiles. The two procedures use different adjacency representations.
+Cartesian graph distance from the origin is D=sum_l l j_l. A radius-t unrolled neighbourhood without the individual root has identical initial color data in the regular vertex-transitive graph, so all D>t share one color. Every nonzero-distance coordinate on an odd cycle has exactly one predecessor closer to root; thus from a vertex of profile j, M=d-j0 predecessors carry profiles j-e_l+e_(l-1) with multiplicity j_l. The counts S_0=M j0+j1 and S_l=(M-1)j_l+j_(l+1) recursively recover j, ensuring layer-D profiles split at round D. This inductively proves the full intermediate partition. At round rd-1 all but the unique distance rd profile are already distinct; this last background is itself one profile and stable by automorphism orbit invariance. At rd-2 the rd-1 and rd profiles remain merged, proving sharpness. Sign reflections and coordinate permutations give transitive root stabilizer action on each profile; counting yields class sizes. Independent full-graph refinement on C5, C7, C9 powers (220 total test vertices) confirmed every intermediate partition and sizes.
 
-All finite checks ended in `ALL_TESTS_PASS`. These are corroborating tests only; the universal result is proved by a symbolic induction in `RESULT.md`. No Lean, external certification, or independent audit is asserted. The verifier does not claim to search or verify scientific novelty.
+## originality
+
+PASS
+
+Standard equitable refinement and automorphism-invariant partitions are known, as are worst-case 1-WL iteration bounds. Kluge studies circular Cayley graphs and prime-order individualization with 2-WL emphasis, but not one-root counting 1-WL on arbitrary Cartesian powers with sharp roundwise profile theorem. The structural predecessor inversion and rd-1 stabilization give additional content beyond generic bounds; originality accepted with general association-scheme/cubelike-product literature risk.
+
+## value
+
+PASS
+
+A round-by-round exact characterization of counting refinement for a natural infinite product graph family identifies when local information reaches root-stabilizer orbit granularity and provides a sharp parallel refinement depth. This is a motivated structural classification rather than a small finite WL experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

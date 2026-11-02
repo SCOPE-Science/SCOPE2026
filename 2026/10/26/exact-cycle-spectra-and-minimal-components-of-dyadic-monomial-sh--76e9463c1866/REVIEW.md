@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binomial difference proves permutation status at every power of two. Positive-valuation orbit displacements begin at exactly \(1+ds\) powers of two. Odd residues have exact two-step displacement valuations \(2\) for even degree and \(3\) for odd degree. A Taylor-derived derivative congruence lifts these valuations by one at every doubling, proving all finite periods and the transitive balls of the infinite decomposition. The standalone verifier exhaustively checks 247 finite degree/depth pairs without establishing the infinite theorem by enumeration.
+PASS
 
-## Originality — PASS, qualified
+Verified the polynomial lifts to bijections by f(x+2^t)-f(x)≡2^t (mod 2^(t+1)); exact iteration doubling lemma uses Taylor G^2(x)-x=Delta(1+G'(x))+O(Delta^2) with v2(Delta)>=2 and G'≡1 (mod4). Positive shells begin at exact displacement 1+ds and double valuation every power-of-two iterate. Odd shells start with a two-step displacement of valuation 2 for even d and 3 for odd d, then double. Orbit lengths follow from these valuations, and count-versus-ball-cardinality proves every asserted ball is minimal; nonzero points cannot be periodic in Z_2 because f(x)=x iff x=0. Independent exhaustive finite permutation tracing for d=3..11 and k=1..11 passed; infinite case follows the algebra, not finite tracing.
 
-Rivest's 2001 theorem characterizes permutation polynomials over powers of two, Anashin's 2007 paper includes the quadratic example and general 2-adic machinery, and Fan–Liao's 2010 manuscript develops cycle-lifting and completely treats quadratic polynomials. Therefore the present theorem excludes the previously covered quadratic degree and supplies explicit component and cycle counts for every degree at least three. published-finding corpus searches and relevant OEIS/primary text searches found no exact equivalent. Broader unindexed 2-adic specializations remain a genuine priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Complete orbit cycles and minimal clopen decompositions make the modular dynamics explicit across all degrees and moduli; in particular, the odd-unit parity phase and exact \(2^{(d-1)s}\) shell multiplicity are structural rather than isolated finite observations.
+Best-of-knowledge new explicit all-depth, all-degree>=3 period and clopen-ball census. Prior polynomial permutation criteria and general p-adic cycle-lifting machinery apply but do not explicitly evaluate this family; previously classified quadratic degree is excluded and not presented as new.
 
-## Limits and literature
+## value
 
-Checked primary full texts: R. L. Rivest (2001), doi:10.1006/ffta.2000.0282; V. Anashin (2007), arXiv:0710.1418; A. Fan and L. Liao (2010), arXiv:1010.5583. General lifting methods are related and might make portions derivable by specialization. This does not certify absolute publication priority. General coefficients \(2a\) are outside the theorem. Independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full orbit-length classification for an infinite p-adic dynamical family and the one-versus-two parity transition identify natural invariants of permutation polynomials. It goes substantially beyond a direct check of bijectivity or isolated small depths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

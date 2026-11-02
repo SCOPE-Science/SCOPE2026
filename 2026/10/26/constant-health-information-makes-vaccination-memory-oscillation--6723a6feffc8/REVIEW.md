@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The main identity follows from three bounded logarithmic/linear stationarity relations: mean susceptibility, mean susceptible mass balance, and log-odds vaccination balance. Probability normalization of the memory kernel ensures mean delayed coverage equals mean current coverage. Equation (4) in the proof is algebraically equivalent to the two averaged balances and the equilibrium polynomial; the exact rational/symbolic diagnostic in `verify.py` checks elimination. The strictly positive sign is a Jensen equality classification with its precise interior qualifications. The numerical Erlang-2 check demonstrates quantitative consistency but is not used for the universal theorem. The explicit limitations protect against misidentifying numerical recurrence as a proof of periodic orbit existence.
+## correctness
 
-## Originality (PASS, residual risk documented)
-The source article [1] already gives the vaccination-memory model, steady states and oscillatory numerics. Bauch [2] already remarks that mean uptake and prevalence remain unchanged during certain imitation oscillations, and this campaign-free boundary is expressly excluded from the novelty claim. d'Onofrio et al. [3] already explore constant public campaigns and delay-induced oscillations; their main article does not state a model-specific inverse-coverage variance discount comparing positive-campaign oscillations to their matching endemic equilibrium. The new proposition quantitatively connects the public-information term with a strict stationary disease-burden discount for arbitrary-amplitude orbits and normalized memory laws. Searched mathematical research records include stationary covariance/mean identities in other epidemic models, but none with an implication covering this exact delayed vaccination campaign identity. Source [3]'s supplementary mathematical proofs were not fully reviewed, and priority remains contingent on independent literature review; no unsupported uniqueness claim is made.
+PASS
 
-## Value (PASS)
-Long-run disease burden can differ from the endemic equilibrium even when both derive from the same deterministic vaccination game. The formula determines both the sign and exact size of this difference from a natural fluctuation statistic, uniformly over discrete and distributed memories. The positive-campaign versus no-campaign contrast addresses an epidemiologically motivated bifurcation-analysis gap and avoids the false assumption that steady-state infection levels automatically determine infection averages during recurrent behavior. The result is a general, parameter-explicit structural law, not an unmotivated numerical slice.
+For positive I, averaging d log I gives mean S=delta/beta. Averaging dI and dS yields mean I=(mu/delta)(q-mean p). Averaging d log[p/(1-p)] yields mean I=alpha mean p-eta E(1/p), since normalized delay preserves stationary mean p. The unique interior equilibrium satisfies analogous I*=alpha p*-eta/p* and I*=(mu/delta)(q-p*). Subtraction gives (alpha+mu/delta+eta/(p* mean p))(mean p-p*)=eta(E1/p-1/mean p). The last term equals E[(p-mean p)^2/p]/(mean p)^2>0 for nonconstant p, proving discount; at eta=0 means coincide. Stationary measure extension follows by bounded observables and invariance, not numerical periodic orbit existence. Sympy identity and a rational formula check independently passed.
 
-## Relationship to previous findings and limitations
-Existing related mean-infection results concern different epidemic systems, forcings, or equilibrium sensitivity; no matching claim was identified in the accessible earlier records. Literature risks remain as stated in RESULT.md, particularly potential equivalent forms in stationary-process theory and the incompletely inspected supplemental material for [3]. No assumption of a proven periodic-attractor existence result is made. Independent review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original on the stated restricted theorem after comparison of exact implications; no exhaustive priority claim and specified inspection limits remain.
+
+## value
+
+PASS
+
+A finite-amplitude invariant mean identity identifies a strict campaign-dependent reduction in average prevalence independent of delay-kernel shape. It explains a qualitative distinction between oscillatory and endemic burden beyond local linear stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is deductive: for any composite-base prime support of size at least two and any proposed period/threshold, Chinese remaindering produces two indices in the same arithmetic progression whose final nonzero digits are provably unequal. The positive and negative prime-power cases are taken from the 2012 primary article, Theorem 7 and Proposition 10. Neither experimental evidence nor a search result is used as a substitute for these universal statements.
+## correctness
 
-Run `python3 verify.py` with Python 3.8 or later. The standalone standard-library code constructs exact congruence witnesses for 22 mixed-prime bases and 16 proposed periods; evaluates the actual last-nonzero digits for 75 bounded witness pairs; and compares four positive-period prime-power bases at 128 indices each. Expected output:
+PASS
 
-```text
-VERIFY_OK mixed_prime_period_witnesses 352 direct_witness_evaluations 75 prime_power_positive_period_cases 512
-```
+For b with distinct primes p,q and arbitrary proposed period T, split T into support-on-b T_parallel and coprime T_perp, choose k with T_parallel|b^k and b^k>=N, and CRT u>1 with u=0 mod p, u=1 mod q and T_perp. n=b^k and m=b^k u are congruent mod T; n^n has final nonzero digit 1, while b does not divide u^m (q|b and u=1 mod q), so exactly km base-b factors are removed from m^m and F_b(m)=u^m mod b is divisible by p. This proves mixed-prime nonperiodicity for every period, not via finite search. Grau–Oller-Marcen Theorem 7 supplies all prime-power cases and Proposition 10 positive period. Independent bounded CRT witnesses confirmed 20 bases and 14 periods.
 
-These finite calculations verify code and illustrative arithmetic, not the conjecture over infinitely many bases/periods. The published prime-power theorem is not recreated or independently certified. Scientific comparison with the original preprint, a later analytic-function paper and a numerical sequence table is documented separately; unindexed prior art could affect priority. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge original on the stated restricted theorem after comparison of exact implications; no exhaustive priority claim and specified inspection limits remain.
+
+## value
+
+PASS
+
+A constructive universal CRT obstruction closes the explicit mixed-prime gap in the published conjecture. Despite elementary proof tools, an all-base if-and-only-if classification of a natural last-nonzero-digit sequence is mathematically significant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

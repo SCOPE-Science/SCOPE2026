@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Execute `python3 verify_safe_prime.py 50000` after extracting this file and `RESULT.md` in the same directory. The check enumerates all primes \(p\le50000\) for which \((p-1)/2\) is also prime. It tests the exact fixed-first-entry count for primes \(p\equiv3\pmod8\) and the explicit witness for \(p\equiv7\pmod8\), using modular-power primitive-order checks rather than Legendre symbols. It also exhaustively checks the two excluded small safe primes. Observed output:
+## correctness
 
-`VERIFY_OK: safe primes <= 50000, 196 in 3 mod 8 and 193 in 7 mod 8; 5,7 excluded`
+PASS
 
-The code does not prove the theorem for larger primes. The universal argument depends on the cyclic-group order classification, the hyperbola character-sum identity, and the explicitly stated boundary and nonsquare arguments in `RESULT.md`. No separate mathematical assessment beyond self-review or independent audit is claimed.
+For p>=11, p=11 mod12, Legendre(-1)=-1 and Legendre(3)=1, and in cyclic multiplicative group order 2q the primitive roots are exactly the nonresidues other than -1. If p=7 mod8, a=(p-1)/2, b=(p-3)/2 have a+b=p-2 and abc≡b. If p=3 mod8, a=2 primitive; the exact character sum Σχ(x(x+2))=-1 and linear sums give (p-3)/4 residues with χ(b)=χ(b+2)=-1, of which b=p-3 uniquely violates the representatives/primitive conditions. Hence (p-7)/4 witnesses; the product cannot be -1 because (b+1)^2=1/2 is impossible when χ(2)=-1. p=5,7 checked by listing primitive roots. Independent order tests validated all safe primes p<1000, while the proof is for all safe primes.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct statement after exact model/quantifier comparisons with relevant primary work, related published mathematical records and natural equivalent formulations; no absolute novelty certification.
+
+## value
+
+PASS
+
+A uniform construction for the safe-prime subfamily of Sun’s explicit primitive-root conjecture, including exact small exceptions and a closed fixed-first-coordinate count. The extra fourth-root condition and ordinary integer sum bound make it a substantive constrained primitive-root existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

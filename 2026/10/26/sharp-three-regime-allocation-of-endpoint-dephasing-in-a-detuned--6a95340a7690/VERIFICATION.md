@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact endpoint-noise allocation result
+# Independent mathematical audit
 
-The analytic result assumes a Hermitian three-site tridiagonal Hamiltonian with unit coherent hopping, arbitrary real central detuning, right-end sink rate strictly positive, and fixed positive total pure dephasing divided only between the two endpoints. The initial state is the left-end projector.
+## correctness
 
-The independent nine-dimensional complex Lindblad superoperator construction, run directly from `check_endpoint_noise.py`, verified 900 seeded parameter points against the closed rational mean-absorption formula. Symbolic checks confirmed all nine integrated-density linear relations, the trace identity and the second derivative. The program also checked 1,200 strict-convexity/derivative comparisons, 650 global minimizations, and representative settings on both endpoints and inside the allocation interval.
+PASS
 
-The decisive non-numerical steps are: total absorption by positivity and finite-dimensional irreducibility along the chain; the unique solution of the integrated master equation; strict positivity of the analytic second derivative at nonzero detuning; and endpoint slope comparisons. Uniform sampling does not prove these statements; the proof does. The numeric comparisons are illustrative tests under finite arithmetic precision. No independent audit was performed.
+Integrated Lindblad survivor X=∫rho dt solves -L_u X=P1 because positivity and nearest-neighbor couplings force finite-time strictly decreasing trace and uniform exponential absorption by compactness. Nine real integrated equations give T(u)=3/kappa+[2(G+kappa)-u]/4+Delta^2(G+kappa+u)/[4+u(G+kappa-u)]. Independent Liouvillian 9x9 inversion at five parameter choices matches this formula within 4e-15. Symbolic derivatives yield T"=2Delta^2[((G+kappa-u)^3+2u^3+12u)]/[4+u(G+kappa-u)]^3>0 when Delta!=0. Endpoint derivative signs exhaust and uniquely classify minima, with Delta=0 strictly decreasing. For G+kappa<2 thresholds Delta_S and Delta_T from respective endpoint roots satisfy Delta_S<Delta_T due strict derivative monotonicity, giving source/interior/target regimes. No finite sample is used as proof of convexity.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct statement after exact model/quantifier comparisons with relevant primary work, related published mathematical records and natural equivalent formulations; no absolute novelty certification.
+
+## value
+
+PASS
+
+Exact optimal site-noise allocation at fixed total dephasing budget is a natural constrained transport-control problem. The sharp two detuning thresholds and a nontrivial interior allocation are useful even in the smallest coherent network, distinct from optimizing a uniform noise strength.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

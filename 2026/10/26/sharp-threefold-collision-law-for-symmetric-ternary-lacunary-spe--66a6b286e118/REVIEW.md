@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every integer target and all exponents are covered. Balanced-ternary digit uniqueness proves the signed two-power sum lemma, including the only doubled-power carry. A least-3-adic-valuation argument isolates pure powers of three as the only additional lower-exponent triples. For targets prime to three, congruence classes show all primitive triples have one of two forms, containing at most two and one representations. Both forms can attain their maxima only at normalized targets \(7\) and \(-5\); sign symmetry and explicit witnesses establish all equality cases. Pure powers of three have two representations and zero has none. The independent finite checker tests depths through eleven, without substituting finite evidence for the universal proof.
+PASS
 
-## Originality — PASS (qualified)
+Balanced ternary makes a noncancelling unordered pair of distinct powers (or zero plus a power) unique, with the sole doubled-power carry 2ε3^j=-ε3^j+ε3^(j+1). For D nonzero, the least exponent and residue mod3 reduce all primitive representations by ν3(D), except the three identical-power terms when D=±3^v. After sign normalizing d≡1 mod3, every triple is {1,u,w} with u,w∈{0,±3^j:j>=1} and u+w=d−1≠0, or {-1,-1,w} with w=d+2 in that set. The pair lemma bounds the first family by 2 and second by 1. Equality requires d=1+2ε3^j and d+2 signed 3-power, forcing d=7 or -5 at j=1, plus sign inverses; special D=±3^v has only 2 types. Independent complete finite-depth unordered triple enumerations up to exponent depth 8 give r<=3 with saturation only ±5,±7 times powers of 3. Infinite completeness follows from the residue proof, not finite truncation.
 
-The relevant primary manuscripts are Gonçalves–Ferreira (arXiv:2510.20934v1) and Ciccone–Gonçalves (arXiv:2208.09441). The first proves a sharp extension theorem only for ratios strictly exceeding three, and its Section 1.2 and Lemma 4 do not give a uniform primitive three-representation classification for the exact ratio-three spectrum. The second assumes the \(\mathrm{P}(3)\) property, which this spectrum violates. Searches for primitive triple-sum fibers, balanced ternary collisions and finite-frequency resonance returned no stronger implication. A previous aggregate sixth-moment formula for the same spectrum determines a sum over all ordered convolution coefficients but does not determine each primitive representation count or its complete maximizing target set. This is not an exhaustive historical-priority guarantee; unindexed additive-combinatorial literature remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact uniform bound and the complete equality-fiber classification concern a natural borderline symmetric lacunary spectrum singled out in current Fourier extension research. The \(5\) and \(7\) families show two distinct arithmetic collision mechanisms at every scale. The noncancellation restriction separates nontrivial cubic interactions from arbitrarily many tautological ones. This is a motivated full infinite-family arithmetic classification, not a claim to settle the analytically harder circle extension problem.
+Best-of-knowledge distinct statement after exact model/quantifier comparisons with relevant primary work, related published mathematical records and natural equivalent formulations; no absolute novelty certification.
 
-## Limitations
+## value
 
-No optimal Fourier extension norm or Bessel-integral bound follows. Historical priority is not independently certified. Reproducible finite checks are corroborative only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact pointwise primitive three-frequency fiber multiplicity and complete saturation locus at the critical ratio-three lacunarity endpoint give a natural structural arithmetic invariant relevant to decomposing cubic Fourier coefficients. The statement expressly avoids claiming an unproved sharp Fourier extension bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

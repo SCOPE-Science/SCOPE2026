@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result concerns every integer \(m\ge4\) and no other range. The proof uses two independently checkable series identities \(L_1=L_2=0\), the uniquely minimal valuation \(\nu_2(L_3)=-2\), an exact rational expansion of the tail, the uniform lower bound \(\nu_2(T_{2^m})\ge-4\), and the factorial valuation \(\nu_2((2^m)!)=2^m-1\). Those steps yield the exact two formulas without extrapolation. Exact recurrence and two-adic congruence tests serve as auxiliary checks, not as the infinite proof.
+## correctness
 
-## Originality — PASS, within checked evidence
-Farhi (2022) identifies the same sequence and proves integrality; his separate 2022 general bound does not determine dyadic valuations. Dubickas (2024), Theorem 1 and equation (2.4), gives a sharp bound and exact valuations at indices one *below* powers of two, not at the powers themselves. Farhi (2023) discusses dilogarithm-induced valuations for a distinct harmonic-weighted sum. The OEIS A003149 entry tabulates the corresponding integer sequence without this identity. Targeted overlap searches in current mathematical records did not identify the same formula or a stronger theorem implying it. A residual risk remains that standard polylogarithm techniques or unindexed literature contain an unstated equivalent consequence; publication priority is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The exact two-adic order at each power-of-two index directly addresses the unusual divisibility motivating the primary papers, and is not implied by the established sharp *general lower bound*. The pair of vanishing polylogarithm terms produces an unexpectedly large valuation jump: the valuation at \(n=2^m\) is \(n+2m-2\), whereas the preceding index has valuation \(n-m\) by Dubickas's equation (2.4). This is a natural infinite arithmetic subfamily, not an arbitrary finite slice. The work does not determine the full valuation sequence.
+The recurrence telescopes to a_n=n!S_n/2^n. The 2-adic logarithm at z=2 gives L1=sum 2^j/j=0, and the formal dilogarithm transformation Li2(z)+Li2(z/(z-1))=-1/2 log²(1-z) gives L2=0 at z=2. For L3=sum2^j/j³ the j=4 term uniquely minimizes j-3 nu2(j) at -2, so nu2(L3)=-2. Let N=2^m; sum expansion gives S_N=-2^N N²(L3-N T_N). For j<N the denominator estimates j-4 nu2(j)>=-4, for j>=N>=16 the term valuation is >=-1, so nu2(T_N)>=-4. With m>=4 the correction N T_N has valuation>=0, strictly above -2, establishing nu2(S_N)=N+2m-2. Legendre nu2(N!)=N-1 gives second formula. Independent exact integer recurrence verified m=4..10. Valid two-adic series converge; no finite truncation is treated as infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Farhi 2022 defines this exact recurrence and Dubickas 2024 proves a stronger general lower bound with equality precisely n=2^k-1. That theorem does not give equality at n=2^m; the assessed exact power-of-two subsequence and its p-adic third-order term are not stated by these inspected papers.
+
+## value
+
+PASS
+
+A natural exact two-adic valuation law on an infinite distinguished subsequence, complementing the known one-below-dyadic equality indices, is a meaningful arithmetic refinement not obtainable by plugging into the prior lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

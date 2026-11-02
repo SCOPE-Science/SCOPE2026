@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T01:13:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md, original verify source, exact frozen Git tree/blob IDs",
+        "independent_checks.py groups and current independent Git reconstruction"
+      ],
+      "rationale": "For 0<p<=1 the p-th quasi-triangle inequality on singular-value expansions bounds any input by its rank-one factors; testing rank-one factors gives equality. Orthogonal rotations reduce every masked rank-one xy* to B_(s,t)=[[sqrt(st),sqrt(s(1-t))],[sqrt((1-s)t),0]], whose singular-value squared sum is s+t-st and product sqrt(st(1-s)(1-t)). At fixed s+t increasing st decreases its largest singular value while strictly increasing a+b; since p<=1 the sum a^p+b^p strictly grows, attaining s=t. The k=sqrt(u/(4-3u)) derivative G(k)+H_p(k) has G decreasing and H_p strictly decreasing for p<1, with precisely one interior zero before 1/sqrt3; for p=1 it vanishes at 1/sqrt3. The formulas give the claimed sharp norm and extremizing rank-one projection; finite independent s,t tests and the p=1,1/2 endpoint algebra passed.",
+      "residual_risks": [
+        "The p<1 Banach-space triangle inequality must be replaced with its quasi-norm p-th power form; the proof uses this correct variant.",
+        "Finite-dimensional tests do not prove the infinite-dimensional singular-value expansion; completeness in S_p and p-subadditivity supply it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McDonald–Sukochev–Zanin classify bounded row/column supports below p=1; their qualitative boundedness result does not specify this sharp norm. Aleksandrov–Peller address Toeplitz/Hankel patterns."
+        ],
+        "reasoning": "Boundedness of all supports formed by finitely many rows and columns is broader in objects but weaker in exact numerical conclusion; no sharp formula dominating this claim was found in the inspected primary sections.",
+        "searches": [
+          "arXiv:2605.07564 Lemma 2.1(iv) and Theorem 2.3",
+          "arXiv:math/0101264 Hankel Toeplitz Schur multipliers"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.07564v2 full PDF Lemma 2.1(iv) and Theorem 2.3",
+        "arXiv:math/0101264 early sections",
+        "Banks–Harcharras (2004), DOI 10.1090/S0002-9939-04-07340-X, abstract/theorem",
+        "Resultary 2026/10/11/SCOPE-the-exact-sharp-gap-for-complex-schatten-four-schur-idempotents--c0af236321e7 published summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source support lemma yields a finite bound but not a sharp 1-variable optimization; Banks–Harcharras assumes 1<p<infinity, p!=2."
+        ],
+        "reasoning": "Neither statement logically yields the full sharp 0<p<1 formula; the fixed p=1 endpoint is not separately novel.",
+        "searches": [
+          "arXiv:2605.07564v2 support theorem",
+          "Banks–Harcharras Proc AMS 132 (2004), DOI 10.1090/S0002-9939-04-07340-X"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The minimal row-column cross compresses to the 2x2 three-one Schur mask on rank one; the Resultary item concerns the same mask at Schatten 4, not at p<1."
+        ],
+        "reasoning": "Matrix permutation and rank-one compression show structural equivalence of the mask, but the Banach p=4 sharp gap is not a quasi-Banach p<1 norm formula.",
+        "searches": [
+          "Resultary: Schur multiplier minimal single row and column cross mask Schatten p quasi norm 0<p<1 sharp norm idempotent",
+          "Resultary finding 2026/10/11/SCOPE-the-exact-sharp-gap-for-complex-schatten-four-schur-idempotents--c0af236321e7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The p=4 published constant and the general p>1 gap theorem do not tabulate this p<1 continuum or the unique rank-one parameter."
+        ],
+        "reasoning": "The classification is analytic and continuous in p, rather than a finite catalogue; a preexisting explicit norm table for the 2x2 mask would cover it, but none was found in the performed checks.",
+        "searches": [
+          "Resultary semantic search exact cross mask Schatten quasi norm",
+          "Banks Harcharras 2004 idempotent Schur multiplier"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the full 0<p<1 sharp profile and optimizer, excluding qualitative boundedness and the trace-class endpoint as independent novelty. Actual primary theorem statements were compared by implication rather than numerical parameters alone.",
+      "residual_risks": [
+        "Older two-by-two sharp inequality or a specialized quasi-Banach Schur multiplier paper could imply this exact continuous profile without naming this mask.",
+        "The accessible Banks–Harcharras material was theorem/abstract, not the complete publisher article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Support-classification broader but no explicit cross-mask extremal norm in inspected theorem",
+          "evidence": "Finite unions of rows/columns have bounded Schur multiplier on S_p, a qualitative existence conclusion.",
+          "identifier_or_url": "arXiv:2605.07564v2",
+          "material_read": "Full text with Lemma 2.1(iv) and Theorem 2.3; screenshot of relevant proof pages",
+          "method": "open arXiv PDF; mathematical reading",
+          "title": "Schur bounded patterns, submajorisation and operator Lipschitz functions",
+          "trigger": "Exactly the row/column support family and p<1"
+        },
+        {
+          "assessment": "Concerns structured diagonal-constant masks; not a direct norm formula for this cross",
+          "evidence": "p-quasi-triangle and different Toeplitz/Hankel support geometry.",
+          "identifier_or_url": "arXiv:math/0101264",
+          "material_read": "Early definitions and relevant Schur multiplier framework from accessible original source",
+          "method": "arXiv open-access manuscript",
+          "title": "Hankel and Toeplitz–Schur multipliers",
+          "trigger": "Potentially general p<1 norm machinery"
+        },
+        {
+          "assessment": "Distinct exponent domain p>1 and sharp gap problem",
+          "evidence": "p>1 explicit hypothesis precludes deriving the asserted p<1 sharp family by literal specialization.",
+          "identifier_or_url": "DOI:10.1090/S0002-9939-04-07340-X",
+          "material_read": "Accessible theorem statement, abstract and p-range, not claimed full article reading",
+          "method": "primary publisher abstract/theorem access",
+          "title": "On the norm of an idempotent Schur multiplier on the Schatten class",
+          "trigger": "Same 2x2 three-one mask arises for Banach Schatten classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "actual RESULT.md finding, precise domain and proof",
+        "originality comparisons and the motivated object/invariant"
+      ],
+      "rationale": "The three-one 2-by-2 cross is the smallest genuinely nontrivial Schur idempotent. Its exact sharp quasi-Schatten norm as a function of the exponent, its optimizer and trace-class endpoint supply a natural operator-ideal invariant omitted from qualitative support classifications. It is not merely verification that the pattern is bounded.",
+      "residual_risks": [
+        "Only one distinguished row and column; extension to multiple rows or p>1 is not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Original unmodified result survives; no claim for p>1 or multirow masks.",
+    "The public METADATA/AUDIT include operational provenance fields and misleading antecedent first_public_date; publication withheld without full guarded sanitization."
+  ],
+  "schema_version": 1
+}

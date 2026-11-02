@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete elementwise formula follows from three explicit idempotent equations and a single square-zero convolution coefficient. The free-arm count with unequal endpoint bits is an affine-linear rank computation; with equal endpoint bits it is an exact finite-field dot-product count, including the zero vector. The sharp comparison holds for every \(r\ge2\) and every prime power. The independent literal-convolution checker exhausts 7,800 parameter fibers in six fields/posets, including characteristic two and \(\mathbb F_4\). The finite tests corroborate rather than replace the proof.
+## correctness
 
-**Originality — PASS, subject to stated risks.** Basnet–Bhattacharyya define unrestricted nil-clean multiplicity and focus on small indices, whereas the claim demands a square-zero remainder. Khripchenko and subsequent triangular-matrix literature describe idempotents but do not, in material available for inspection, determine this restricted isotropic section. An existing full diagonal-idempotent fiber count in split basic algebras implies the unrestricted maximum \(q^{2r}\) but not the restriction count. Exact-result searches for the branched-poset and square-zero equations found no dominating statement. The full text of a plausible triangular-idempotent source was inaccessible, and priority beyond available sources remains uncertain.
+PASS
 
-**Value — PASS.** The order-two nilpotence constraint turns a free idempotent orbit into a quadratic isotropic section. For every \(r\ge2\), the exact index is smaller than the unrestricted index but larger than the largest fiber with opposite endpoint diagonals. The first diamond case gives the concrete non-power multiplicity \(10\) over \(\mathbb F_2\), while the general formula quantifies the transition for an unbounded family of natural finite incidence algebras.
+For binary diagonal alpha,beta_i,gamma, the idempotence equations force (alpha+beta_i-1)x_i=(beta_i+gamma-1)y_i=0 and (alpha+gamma-1)z+sum_i x_iy_i=0. The only nontrivial entry of (a-e)^2 is sum_i(p_i-x_i)(s_i-y_i). Unequal endpoints give affine rank-zero/nonzero fibers q^(r+1) or q^r; equal endpoints reduce to a t-dimensional finite-field dot-product with zero count q^(2t-1)+q^t-q^(t-1) (and nonzero count q^(2t-1)-q^(t-1)). Maximization at t=r gives q^(2r-1)+q^r-q^(r-1), versus ordinary q^(2r). Independent literal incidence-product enumeration for q=2,3 and r<=3 confirms the formulas; universal statement follows from exact algebra, including characteristic 2.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality supported by comparisons of exact statements, same-object sources and published Resultary records; material limitations and possible unindexed equivalences explicitly retained. Equivalently counts points of the dot-product quadric in each affine idempotent fiber, a square-zero nil-clean restriction. Classical nil-clean index counts decompositions with unrestricted nilpotence and does not fix the quadratic section.
+
+## value
+
+PASS
+
+The pointwise count of a natural constrained nil-clean decomposition, its sharp index for an infinite family and quantified separation from unrestricted nil-clean index supply a motivated exact finite-algebra invariant. Not a renaming of total idempotent count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

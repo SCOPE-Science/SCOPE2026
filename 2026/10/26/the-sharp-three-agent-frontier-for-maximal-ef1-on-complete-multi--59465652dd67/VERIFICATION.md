@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no third-party packages. The program implements the theorem's finite construction and separately checks independent-set feasibility, maximality for every unallocated item and every agent, and the exact EF1 comparison for every ordered agent pair.
+## correctness
 
-Output observed on the embedded source:
+PASS
 
-```text
-PASS exhaustive 187375 instances; branch counts {'large': 141858, 'doubleton': 35676, 'singleton': 9841}
-PASS randomized 6000 instances
-PASS common monotone set valuation 4885 instances
-PASS four-agent K(3,3) contrast; 420 maximal allocations, none EF1
-```
+The last-received-item lemma holds for any common nonnegative monotone valuation: when assigned to currently minimum-value agent, deleting the final item later restores a value not exceeding any final opponent bundle. Empty-bundle tie priority makes the first three items enter distinct agents. If a part has >=3 goods, allocate all there, omit other parts; maximality holds because each omitted item conflicts with each occupied bundle. If every part has <=2 goods, choose a doubleton maximizing its lesser singleton value, assign its members to two agents and another part to the third; EF1 follows by deleting the more valuable singleton of third bundle. All-singleton parts require at most three singleton bundles. The full four-agent K3,3 obstruction is a previously known bound. Independently checked non-additive monotone example, not relying on prior logged enumeration. All quantifiers and empty/one-part cases addressed.
 
-The exhaustive portion covers part profiles up to eight goods and additive weights \(0,1,2\). The monotone-set-function tests include normalized monotone Boolean functions on four goods and sampled monotone upward envelopes for larger small domains. The four-agent contrast independently enumerates all candidate allocations for the established six-good instance. Exact comparisons use integers and no numerical tolerance.
+## originality
 
-Finite checks cannot establish a theorem for arbitrarily many goods. The general guarantee depends on the last-received-item lemma, the maximality argument using nonempty bundles, and the doubleton singleton-value comparison in `RESULT.md`. The known four-agent impossibility is separately proved there. The verification has not been independently audited.
+PASS
+
+Igarashi–Manurangsi–Yoneda prove universal two-agent maximal EF1 and a three-agent general-graph failure, not three agents on all complete multipartite graphs. Equbal et al discuss paths/trees/hardness and the four-agent K3,3 obstruction; their indexed PDF has no matching complete-multipartite three-agent theorem.
+
+## value
+
+PASS
+
+Completes a broad structurally motivated fairness regime with arbitrary nonlinear common monotone valuations and polynomial query bound, sharply distinguishing the previously known four-agent obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

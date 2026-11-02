@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing the standalone verifier. The program constructs actual two-variable term coefficients by finite closure under the Alexander operation, constructs the independent polynomial-evaluation ring, compares the two sets, computes possible equation ranks, and directly tests solution counts in eight small examples. The reproducible success marker is `VERIFY_OK cases=8`. The tested cases cover characteristic two with irreducible degree-two and degree-three actions, characteristic three with a nontrivial Jordan block and decomposable scalar actions, and characteristic five with split eigenvalues.
+## correctness
 
-The general proof does not rely on finite computation. Its critical arguments are coefficient reachability via translations, principal-ideal image reduction for arbitrary equations, and elementary-divisor kernel counts. No independent scientific audit has been performed. The exact result is limited to finite-dimensional prime-field vector spaces with both affine multipliers invertible, in the binary quandle language with no constants or division operations.
+PASS
+
+For finite Latin affine quandle x▷y=Tx+(I-T)y, T and I-T invertible, all binary term coefficients form exactly R=F_p[T]: the finite set closed under a▷b=Ta+(I-T)b contains 0,I, inverse bijections of right translations, and by conjugating obtains additive translations by every T^j(I-T); those span R. Arbitrary equations have image sum_j c_j V = g(T)V for an ideal generator g dividing the minimal polynomial. Uniform linear fibers yield probability |ker g(T)|/|V|, and each g is realized with a binary equation. Primary module blocks give precisely the claimed p-power levels, with irreducible minimal polynomial iff the spectrum is {p^-n,1}, without assuming a simple module. Our independent closure and rank computation checked explicit examples; all finite dimensions follow from the module argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: compared equivalent formulations, stronger-coverage implications, exact tables, and primary literature at their true theorem scopes. No identified inspected source directly states the entire assessed refinement; named inaccessible/implicit-cover risks are retained rather than converted into automatic failure. This does not certify historical priority.
+
+## value
+
+PASS
+
+The equational-probability spectrum is a natural finite-algebra invariant already studied by Cardó. The full attainable set for arbitrary Latin Alexander operator—including nilpotent primary blocks, direct sums and a two-variable completeness theorem—is a useful explicit classification. The minimal-spectrum test differs mathematically from simplicity of the module; it is more than a sample calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

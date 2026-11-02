@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The specified exact-Schur pivots are Gram–Schmidt residual squares. The normalized arrow singular-value identity reduces the eigenvalue problem to three positive-definite Gram matrices. Their determinant is exactly one; explicit trace/inverse-trace calculations give the three characteristic polynomials. Strict sign comparisons prove optimality of the central-first orders for every parameter in the stated range, not just at numerical samples. The near-dependence limits and two-row minimality follow analytically. The checker supplies independent exact-rational coefficient tests and numerical full-matrix eigenvalue comparisons.
+PASS
 
-## Originality — PASS, with bibliographic limits
+Exact Gram for rows r1=(1,0,0), r2=(t,s,0), r3=(t,0,s) is [[1,t,t],[t,1,t²],[t,t²,1]], determinant d², d=1-t². Exact Schur pivots give det normalized Gram H=1, with class (trace, inverse trace): A=(T,T), B=(T,T-y²/d), C=(T+y²/[d(1+y)],T-y²/d), y=t², T=1+2/d. Thus positive-eigenvalue cubic polynomials obey chi_B=chi_A-(y²/d)z and chi_C=chi_B-y² z²/[d(1+y)], so largest roots strictly increase A<B<C. Saddle spectrum lambda±=(1±sqrt(1+4mu))/2 proves strict spectral-radius classes, d*mu_A->2, d*mu_C->5/2 gives ratio sqrt(5)/2. For two unit constraints reversed pivots have same trace/determinant. Independently reproduced all trace identities with symbolic exact algebra; finite tests not proof of open-interval classification.
 
-The motivating primary manuscript already supplies the forward full Schur blocks and general normalized preconditioned spectra (arxiv:2610.17940v1); those are not claimed here. The new statement compares **different permutations**, solves all six orders for an entire continuous family, and proves a worst-case failure of first-pair orthogonality selection. The related row-permuted Neumann-control preconditioner (arxiv:2407.19217v2) uses another matrix and triangular approximation. General older saddle-point work (doi:10.1137/04060679X; doi:10.1137/130911962) was only available through publisher summaries and remains a residual priority risk. Related published mathematical findings on row scaling and block iteration ordering, and accessible earlier claims in this topic, did not cover the precise permutation theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A practical choice among exact sequential constraint-block orderings is governed by **all** Schur pivot sizes, not merely the angle of the first pair. The theorem makes that interaction concrete in the smallest dimension capable of it, supplies the exact optimal and worst orders and a nonvanishing limiting spectral-radius ratio. This is a structural finite model, not a generic solver guarantee.
+The Bergamaschi 2026 primary text establishes exact forward Schur pivots and symmetric preconditioning, not a cross-permutation spectral-radius theorem. Wang 2024 uses an approximate triangular preconditioner in a different boundary-control model; published broader saddle-point preconditioner results may contain an equivalent ordering lemma.
 
-## Scope and risks
+## value
 
-The proof concerns real exact arithmetic, three scalar constraints, a zero lower block, and one family of invertible matrices. It does not prove optimal iteration counts or numerical stability. The two older abstract-only references limit the confidence of the priority assessment; any covering specialized ordering result would supersede originality.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identifies the smallest number of scalar constraints where order matters and a sharp, strictly worse least-correlation heuristic for a natural sequential preconditioner, including a limiting penalty; no claim about solver runtime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

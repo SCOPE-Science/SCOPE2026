@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the specified domains, the four local rectangular tile bounds follow directly from forbidden geodesic triples. They give the sharp all-size upper bound through an exact tiling into \(2\times2\), \(2\times3\), \(3\times2\) and \(3\times3\) pieces. Coordinate-parity classes attain equality. Equality of each two-column tile and the explicitly identified phase-flip obstruction classify three-row optimum sets. The two independent forbidden-triple algorithms and brute-force tests agree for the recorded finite cases. No infinite assertion relies on finite extrapolation.
+## correctness
 
-**Originality — PASS, with residual risk.** Klavžar–Rall–Yero (2020) explicitly leave \(d\ge3\) grid values open, while their \(d=2\) result already covers the even-by-even subcase. Cody–Moore (2024) settle general \(k,d\) on two-row grids and leave larger finite grids open. This result covers all aspect ratios at \((k,d)=(3,3)\) and classifies the three-row optimizers, neither provided by the inspected sources. Searched equivalent wording, the possibility of deduction from dissociation numbers, and indexed mathematical records; no dominating prior statement found. Residual risk: unindexed later or differently formulated theorem.
+PASS
 
-**Value — PASS.** The grid problem is explicitly published as open, and this settles a complete parameter slice across every two-dimensional rectangular grid, not an arbitrary finite cutoff. It also shows that the even-even case is not representative of all general \(d\)-position values: the known \(d=2\) bound can be strict. The three-row equality-case rigidity adds structural information beyond the value.
+Every 2x2 rectangular tile has gp_3 at most 2; every 3x2/2x3 tile at most 3, with only alternating 3-vertex masks (101,010) or (010,101); every 3x3 tile at most 5 by the adjacent-column constraints. Tiling m=2a+3epsilon, n=2b+3delta yields upper (mn+epsilon*delta)/2; coordinate checkerboard meets geodesics length<=3 in at most two points and attains it. Equality on a three-row strip forces each 3x2 tile to be one of two phases, while adjoining mismatched phases form a forbidden triple; odd final column selects the unique larger parity class. Independently recomputed small tile forbidden triples and 3xn maximizers; finite tests corroborate the complete tiling/propagation proof.
 
-**Limitations.** This does not resolve all \(d\), all \(k\), or optimizer rigidity for all widths. Bibliographic priority cannot be guaranteed from indexed searches alone. The review does not constitute independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Klavžar–Rall–Yero study general d-position sets and already cover half-order grid bounds in even-even cases; Cody–Moore solve 2-row grids and leave wider grids as open. The result supplies the remaining mixed/odd-parity rectangular grid values for gp_3 and full three-row optimizer rigidity.
+
+## value
+
+PASS
+
+Settles an explicit natural geometric graph invariant for every two-dimensional rectangular grid and classifies 3-row optimizers; not merely a finite grid census or previously established even-even case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
