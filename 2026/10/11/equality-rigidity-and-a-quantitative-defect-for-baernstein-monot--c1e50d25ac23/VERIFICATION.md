@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,125 +19,24 @@
 }
 ---
 
-For the global equality statement, let
-\[
-F_p(r)
-=
-\log(\|p\|_r/\|Q_n\|_r).
-\]
-The cited monotonicity theorem gives
-\[
-F_p(s)\le F_p(t)
-\]
-for all
-\[
-0\le s\le t\le\infty.
-\]
+# Analytical verification of the high-exponent derivative gap
 
-For every positive exponent,
+In Zhang's notation, \(r=2a\), \(g=q^a\) and \(B=q^*/q\). For simple unit-circle roots, Proposition 2.2 gives \(B(0)=0\), hence \(|B(z)|\le|z|\). Proposition 3.4 gives
 \[
-M_p(r)=\int_{\mathbb T}|p|^r\,dm
+\mathcal P_r=\frac{M_{Q_n}(r)}{an}\int_{\mathbb D}\operatorname{Re}H_a(B)|g'|^2\,dA.
 \]
-is real analytic. Near a zero of multiplicity
+Theorem 3.5 and equation (4.2) yield positive harmonic \(\operatorname{Re}H_a\) with center value \(1/(a+1)\). Disk Harnack therefore gives
 \[
-m,
+\operatorname{Re}H_a(B(z))\ge\frac{1-|z|}{2(a+1)}.
 \]
-the local model is
+Proposition 2.4 supplies the nonnegative entropy remainder and \(r\mathcal P_r/M_p\); Lemma 2.3 identifies their total with \(r^2F_p'(r)\). Thus the exact constant multiplying \(\int(1-|z|)|g'|^2dA\) in \((M_p/M_Q)F_p'\) is
 \[
-|\theta-\theta_0|^{mr},
+\frac1{anr}\frac1{2(a+1)}=\frac{2}{nr^2(r+2)}.
 \]
-and all parameter derivatives are dominated on compact positive-exponent intervals by integrable logarithmic powers times a fixed positive power of
+With normalized area measure, the exact mode integral is
 \[
-|\theta-\theta_0|.
+2k^2\int_0^1(1-\rho)\rho^{2k-1}d\rho=\frac{k}{2k+1}.
 \]
-Hence
-\[
-F_p
-\]
-is real analytic on
-\[
-(0,\infty).
-\]
+For \(m_0\) the first nonzero intermediate coefficient, \(c_{m_0}(r)=(r/2)(1-m_0/n)a_{m_0}\). Its positive contribution produces the stated coefficient bound. The proof is analytic and applies for all \(r>0\); only the \(r>2\) portion is asserted as new relative to the prior quantitative comparison.
 
-Equality at any two distinct exponents forces a constant interval by monotonicity, hence global constancy on positive exponents by real analyticity. At
-\[
-r=2,
-\]
-the source derivative identity converts
-\[
-F_p'(2)=0
-\]
-into equality in the homogeneous entropy inequality. The published equality classification for that inequality gives exactly
-\[
-p(z)=c(\omega+z^n).
-\]
-
-For simple roots, the source area identity reads
-\[
-\mathcal P_r
-=
-\frac{M_{Q_n}(r)}{an}
-\int_{\mathbb D}
-\operatorname{Re}H_a(B)
-|g'|^2\,dA,
-\qquad
-a=r/2,
-\qquad
-g=q^a.
-\]
-Harnack's inequality, the source value
-\[
-\operatorname{Re}H_a(0)=1/(a+1),
-\]
-and
-\[
-|B(z)|\le|z|
-\]
-give
-\[
-\operatorname{Re}H_a(B(z))
-\ge
-\frac{1-|z|}{2(a+1)}.
-\]
-
-If
-\[
-g(z)=\sum_{k\ge0}c_k z^k,
-\]
-normalized area integration gives
-\[
-\int_{\mathbb D}(1-|z|)|g'(z)|^2\,dA
-=
-\sum_{k\ge1}\frac{k}{2k+1}|c_k|^2.
-\]
-Substitution into the source entropy decomposition and exponent-derivative identity yields exactly
-\[
-F_p'(r)
-\ge
-\frac{
-2M_{Q_n}(r)
-}{
-n r^2(r+2)M_p(r)
-}
-\sum_{k\ge1}
-\frac{k}{2k+1}|c_k(r)|^2.
-\]
-
-Vanishing of the coefficient energy makes
-\[
-q^{r/2}
-\]
-constant and hence
-\[
-q
-\]
-constant. The coefficient identity
-\[
-q=p-zp'/n
-\]
-then removes every intermediate coefficient of the normalized polynomial, leaving
-\[
-1+z^n.
-\]
-
-The verification is analytic; no numerical experiment or finite enumeration is used.
+No Lean or independent external expert verification is claimed. The existing verification-channel statuses remain `not_performed`.

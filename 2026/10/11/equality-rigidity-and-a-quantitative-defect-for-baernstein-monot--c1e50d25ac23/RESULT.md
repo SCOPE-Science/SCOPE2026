@@ -1,506 +1,79 @@
-# Equality rigidity and a quantitative defect for Baernstein monotonicity
+# An all-exponent Hardy--Dirichlet gap in Baernstein's quasi-norm comparison
 
 ## Finding
 
-Let
+Let \(p\) be a degree-\(n\) polynomial with **simple** zeros on the unit circle, and put \(Q_n(z)=1+z^n\). Up to rotation of the argument and nonzero scalar multiplication, write
 \[
-p
+p(z)=1+a_1z+\cdots+a_{n-1}z^{n-1}+z^n.
 \]
-be a nonzero polynomial of degree
+For \(r>0\), set \(M_f(r)=\int_{\mathbb T}|f|^r\,dm\), with normalized Haar measure \(m\), and
 \[
-n\ge1
+F_p(r)=\log\bigl(\|p\|_r/\|Q_n\|_r\bigr).
 \]
-whose zeros all lie on
+The polar factor \(q=p-zp'/n\) is zero-free on the closed disk. Hence the analytic branch \(q^{r/2}\) normalized by its constant term \(1\) has Taylor series
 \[
-\mathbb T,
+q(z)^{r/2}=\sum_{k=0}^{\infty}c_k(r)z^k.
 \]
-and set
+**For every positive exponent, including \(r>2\),** one has the explicit weighted Hardy--Dirichlet derivative bound
 \[
-Q_n(z)=1+z^n.
+\boxed{\frac{M_p(r)}{M_{Q_n}(r)}F_p'(r)
+\ge \frac{2}{n r^2(r+2)}\sum_{k\ge1}\frac{k}{2k+1}|c_k(r)|^2.}\tag{1}
 \]
-For
+If \(n\ge2\), \(p\ne 1+z^n\), and \(m_0=\min\{1\le j\le n-1:a_j\ne0\}\), this yields a coefficient-visible inequality valid, in particular, over the **previously untreated range \(r>2\)**:
 \[
-0\le r\le\infty,
+\boxed{\frac{M_p(r)}{M_{Q_n}(r)}F_p'(r)
+\ge \frac{m_0(n-m_0)^2}{2n^3(2m_0+1)(r+2)}|a_{m_0}|^2>0.}\tag{2}
 \]
-define
-\[
-F_p(r)
-=
-\log\frac{\|p\|_r}{\|Q_n\|_r},
-\]
-with the Mahler measure at
-\[
-r=0
-\]
-and the supremum norm at
-\[
-r=\infty.
-\]
-
-Then there is a complete equality dichotomy.
-
-Either
-\[
-p(z)=c(\omega+z^n),
-\qquad
-c\ne0,
-\qquad
-|\omega|=1,
-\]
-in which case
-\[
-F_p
-\]
-is constant on the whole interval
-\[
-[0,\infty],
-\]
-or
-\[
-F_p
-\]
-is strictly increasing on
-\[
-[0,\infty].
-\]
-
-Equivalently, for every pair
-\[
-0\le s<t\le\infty,
-\]
-equality in Baernstein's sharp comparison
-\[
-\frac{\|p\|_s}{\|Q_n\|_s}
-\le
-\frac{\|p\|_t}{\|Q_n\|_t}
-\]
-holds if and only if the zeros of
-\[
-p
-\]
-form a regular
-\[
-n
-\]
--gon.
-
-For polynomials with simple unimodular zeros, the strictness can be quantified. Normalize as in the source:
-\[
-p(z)
-=
-1+a_1z+\cdots+a_{n-1}z^{n-1}+z^n
-\]
-and put
-\[
-q
-=
-p-\frac1n zp'.
-\]
-The source proves that
-\[
-q
-\]
-is zero-free on the closed disk. For
-\[
-r>0,
-\]
-take the analytic branch
-\[
-q(z)^{r/2}
-=
-\sum_{k\ge0}c_k(r)z^k
-\]
-with constant term
-\[
-1.
-\]
-Writing
-\[
-M_f(r)
-=
-\int_{\mathbb T}|f|^r\,dm,
-\]
-one has
-\[
-F_p'(r)
-\ge
-\frac{
-2M_{Q_n}(r)
-}{
-n r^2(r+2)M_p(r)
-}
-\sum_{k\ge1}
-\frac{k}{2k+1}
-|c_k(r)|^2.
-\]
-
-The right-hand side is positive unless
-\[
-p(z)=1+z^n
-\]
-in the normalized coordinates. It therefore gives an explicit Hardy--Dirichlet defect behind the qualitative monotonicity theorem.
-
-## Assumptions and scope
-
-The first, global equality statement allows arbitrary multiplicities among the unimodular zeros.
-
-The quantitative derivative estimate uses the simple-zero hypothesis because the source's polar factor is then zero-free on the closed disk and its quotient with the reflected factor is a finite Blaschke product.
-
-The theorem does not assert that the displayed lower bound is the best possible quantitative stability coefficient. Its role is to give a universal, explicit, strictly positive defect away from the regular-polygon extremizer on the simple-root stratum.
-
-The normalization by rotation and nonzero scalar multiplication preserves every ratio
-\[
-\|p\|_r/\|Q_n\|_r.
-\]
+The proof of (1)--(2) in fact works for every \(r>0\), but the separate published result *Strict Baernstein monotonicity and quantitative binomial rigidity* already provides strictness at every exponent and a sharper first-coefficient estimate on \(0<r\le2\). **The new quantitative range claimed here is \(r>2\)**; global equality rigidity is background, not a new contribution.
 
 ## Proof
 
-Zhang's theorem gives
-\[
-F_p(s)\le F_p(t)
-\qquad
-(0\le s\le t\le\infty).
-\]
+The argument uses only the fully specified analytic identities in Teng Zhang's *Baernstein's Quasi-Norm Monotonicity Conjecture for Polynomials with Unimodular Zeros*, arXiv:2610.02009v1. Its Lemma 2.1 gives the normalization above. Proposition 2.2 proves that, when all unit-circle roots are simple, \(q\) has no zeros in \(\overline{\mathbb D}\) and \(B=q^*/q\) is a finite Blaschke product with \(B(0)=0\). Schwarz's lemma therefore gives \(|B(z)|\le|z|\).
 
-First consider equality rigidity for arbitrary root multiplicities.
-
-For
+Write \(a=r/2\) and \(g=q^a\). The source's Proposition 3.4 gives
 \[
-r>0,
+\mathcal P_{2a}(q,B)=\frac{M_{Q_n}(2a)}{an}
+\int_{\mathbb D}\operatorname{Re}H_a(B(z))|g'(z)|^2\,dA(z),
+\quad dA=dx\,dy/\pi.
 \]
-put
-\[
-M_p(r)
-=
-\int_{\mathbb T}|p|^r\,dm.
-\]
-The map
-\[
-r\longmapsto M_p(r)
-\]
-is real analytic on
-\[
-(0,\infty).
-\]
-Indeed, near a boundary zero of multiplicity
-\[
-m,
-\]
-the boundary modulus is comparable to
-\[
-|\theta-\theta_0|^m.
-\]
-On every compact subinterval of positive exponents, all differentiated parameter integrands are dominated by an integrable function of the form
-\[
-|\theta-\theta_0|^{m\varepsilon}
-\bigl(1+|\log|\theta-\theta_0||^j\bigr).
-\]
-Thus parameter differentiation is locally dominated to every order. Since
-\[
-M_p(r)>0,
-\]
-both
-\[
-r^{-1}\log M_p(r)
-\]
-and
-\[
-F_p(r)
-\]
-are real analytic on
-\[
-(0,\infty).
-\]
-
-Suppose equality holds for some
-\[
-0\le s<t\le\infty.
-\]
-Monotonicity forces
-\[
-F_p
-\]
-to be constant on the interval between the two exponents. That interval contains a nonempty open subinterval of
-\[
-(0,\infty).
-\]
-Real analyticity therefore forces
-\[
-F_p
-\]
-to be constant on all of
-\[
-(0,\infty).
-\]
-In particular,
-\[
-F_p'(2)=0.
-\]
-
-Zhang's exponent-differentiation identity identifies
-\[
-4F_p'(2)
-\]
-with the difference between the relative entropies of the normalized
-\[
-|p|^2
-\]
-and
-\[
-|Q_n|^2
-\]
-densities. Hence equality of the derivatives at
-\[
-2
-\]
-is precisely equality in the homogeneous Agler--McCarthy entropy inequality. Lei and Zhang proved that equality there holds if and only if
-\[
-p(z)=c(\omega+z^n),
-\qquad
-c\ne0,
-\qquad
-|\omega|=1.
-\]
-
-Conversely, for such a binomial, a rotation of the circle and multiplication by
-\[
-c
-\]
-show that
-\[
-\|p\|_r
-=
-|c|\|Q_n\|_r
-\]
-for every exponent, including both endpoints. This proves the global dichotomy.
-
-Now assume the roots are simple and use Zhang's normalized polar factorization. Let
-\[
-a=r/2,
-\qquad
-g=q^a,
-\qquad
-B=q^*/q.
-\]
-The source's boundary-to-area identity is
-\[
-\mathcal P_r(q,B)
-=
-\frac{M_{Q_n}(r)}{an}
-\int_{\mathbb D}
-\operatorname{Re}H_a(B(z))
-|g'(z)|^2\,dA(z),
-\]
-and its kernel theorem gives
-\[
-\operatorname{Re}H_a(w)>0
-\qquad
-(w\in\mathbb D)
-\]
-with
-\[
-\operatorname{Re}H_a(0)
-=
-\frac1{a+1}.
-\]
-
-Apply Harnack's inequality to the positive harmonic function
-\[
-\operatorname{Re}H_a.
-\]
-Since the source also proves
-\[
-|B(z)|\le|z|,
-\]
-one obtains
+Its Theorem 3.5 gives \(\operatorname{Re}H_a(w)>0\) for \(|w|<1\), and its kernel expansion (equation (4.2)) gives \(\operatorname{Re}H_a(0)=1/(a+1)\). Applying the disk Harnack inequality to this positive harmonic function and then Schwarz's estimate yields
 \[
 \operatorname{Re}H_a(B(z))
-\ge
-\frac1{a+1}
-\frac{1-|B(z)|}{1+|B(z)|}
-\ge
-\frac1{2(a+1)}
-(1-|z|).
+\ge\frac{1}{a+1}\frac{1-|B(z)|}{1+|B(z)|}
+\ge\frac{1-|z|}{(a+1)(1+|z|)}
+\ge\frac{1-|z|}{2(a+1)}.
 \]
-Therefore
+Proposition 2.4 writes the difference of the normalized relative entropies as a nonnegative entropy term plus \(r\mathcal P_r(q,B)/M_p(r)\); Lemma 2.3 identifies that difference as \(r^2F_p'(r)\). Thus
 \[
-\mathcal P_r(q,B)
-\ge
-\frac{M_{Q_n}(r)}
-{2an(a+1)}
-\int_{\mathbb D}
-(1-|z|)
-|g'(z)|^2\,dA(z).
+F_p'(r)\ge \frac{M_{Q_n}(r)}{M_p(r)}\,
+\frac{1}{anr}\frac{1}{2(a+1)}
+\int_{\mathbb D}(1-|z|)|g'(z)|^2\,dA(z).
 \]
+Equivalently, inserting \(a=r/2\) gives the prefactor \(2/[nr^2(r+2)]\) multiplying the weighted area integral. Indeed, directly before substituting \(a\), the prefactor from the identities is \((anr)^{-1}[2(a+1)]^{-1}\), which is \(2/[nr^2(r+2)]\).
 
-For
+With \(g(z)=\sum_{k\ge0}c_k(r)z^k\), orthogonality on circles and nonnegativity allow termwise radial integration:
 \[
-g(z)=\sum_{k\ge0}c_k(r)z^k
+\int_{\mathbb D}(1-|z|)|g'(z)|^2\,dA(z)
+=2\sum_{k\ge1}k^2|c_k(r)|^2
+\int_0^1(1-\rho)\rho^{2k-1}\,d\rho
+=\sum_{k\ge1}\frac{k}{2k+1}|c_k(r)|^2.
 \]
-and normalized area measure, orthogonality gives the exact radial identity
+This proves (1). If \(m_0\) is the first nonzero intermediate coefficient, then
 \[
-\int_{\mathbb D}
-(1-|z|)
-|g'(z)|^2\,dA(z)
-=
-\sum_{k\ge1}
-\frac{k}{2k+1}
-|c_k(r)|^2.
+q(z)=1+\left(1-\frac{m_0}{n}\right)a_{m_0}z^{m_0}+O(z^{m_0+1}),
 \]
+so \(c_{m_0}(r)=(r/2)(1-m_0/n)a_{m_0}\). Retaining only the corresponding positive summand in (1) proves (2). For a non-binomial polynomial the right side is strictly positive; the binomial has \(q=1\) and vanishing energy.
 
-The source's entropy decomposition contains a nonnegative entropy term plus
-\[
-\frac{r}{M_p(r)}\mathcal P_r(q,B).
-\]
-Combining this decomposition with
-\[
-F_p'(r)
-=
-\frac{
-\mathsf D(\rho_{p,r}\|m)
--
-\mathsf D(\rho_{Q_n,r}\|m)
-}{r^2}
-\]
-and
-\[
-a=r/2
-\]
-gives
-\[
-F_p'(r)
-\ge
-\frac{
-2M_{Q_n}(r)
-}{
-n r^2(r+2)M_p(r)
-}
-\sum_{k\ge1}
-\frac{k}{2k+1}
-|c_k(r)|^2.
-\]
+## Scope, comparisons and use
 
-If the sum vanishes, then
-\[
-q^{r/2}
-\]
-is constant, hence
-\[
-q
-\]
-is constant. Comparing coefficients in
-\[
-q=p-\frac1n zp'
-\]
-forces all intermediate coefficients of the normalized
-\[
-p
-\]
-to vanish. Thus
-\[
-p=1+z^n.
-\]
-The converse is immediate.
+The inequality is **not** asserted for multiple unit-circle zeros; the source's clean zero-free polar factor on the closed disk is used. For \(n=1\), every allowed polynomial is binomial and the bound is zero. No optimality of the coefficient is claimed. The quantity in (2) is invariant under the permitted normalizing rotations because \(|a_{m_0}|\) is unchanged. Integrating (2) over any compact \(2<s<t<\infty\) gives a nonzero quantitative lower bound on the normalized log-ratio increment, weighted by the computable positive moment ratio \(M_{Q_n}(r)/M_p(r)\).
 
-## Verification
+Zhang (arXiv:2610.02009v1) already proves nondecreasing comparison and the kernel/entropy identities above. Lei and Zhang (arXiv:2605.03949v2) classify the exponent-two entropy equality cases. The published *Strict Baernstein monotonicity and quantitative binomial rigidity* (2026) already proves \(F_p'(r)>0\) for all allowed unimodular-root polynomials and a sharper coefficient-dependent gap for \(0<r\le2\). No originality is assigned here to either strictness or the all-exponent equality cases. What survives is the explicit Hardy--Dirichlet coercivity estimate (1) and its coefficient form (2) for \(r>2\).
 
-The global equality argument was checked at all endpoint configurations. If equality occurs with
-\[
-s=0
-\]
-or
-\[
-t=\infty,
-\]
-monotonicity still makes
-\[
-F_p
-\]
-constant on a nonempty interval of finite positive exponents, so the analytic-continuation step applies unchanged.
-
-The real-analyticity argument is local in the exponent and remains valid with repeated boundary zeros. A boundary zero of multiplicity
-\[
-m
-\]
-contributes the model factor
-\[
-|\theta-\theta_0|^{mr},
-\]
-whose parameter derivatives remain locally integrable for every fixed positive exponent.
-
-For the quantitative estimate, the constants were replayed from the source identities:
-\[
-r=2a,
-\]
-the area identity contributes
-\[
-M_{Q_n}(r)/(an),
-\]
-Harnack contributes
-\[
-1/(2(a+1)),
-\]
-the entropy decomposition contributes
-\[
-r/M_p(r),
-\]
-and exponent differentiation contributes
-\[
-1/r^2.
-\]
-Their product is exactly
-\[
-\frac{
-2M_{Q_n}(r)
-}{
-n r^2(r+2)M_p(r)
-}.
-\]
-
-The radial integral was independently evaluated:
-\[
-2k^2
-\int_0^1
-(1-\rho)\rho^{2k-1}\,d\rho
-=
-\frac{k}{2k+1}.
-\]
-
-No finite experiment is used as proof.
-
-## Relationship to prior work
-
-Zhang proves the full Baernstein quasi-norm monotonicity conjecture for arbitrary unimodular-root multiplicities. The theorem is stated as nondecreasing, and the paper says that regular-polygon binomials attain equality. The inspected article does not state an if-and-only-if equality classification for two distinct exponents, and a full-text search finds no strict-monotonicity statement.
-
-The same article proves the positive-kernel area identity used above. The quantitative inequality here is obtained by combining that identity with Harnack's inequality and an exact weighted Dirichlet coefficient calculation; the resulting explicit defect is not stated in the source.
-
-Lei and Zhang previously proved the homogeneous Agler--McCarthy entropy inequality and classified its equality cases at exponent
-\[
-2.
-\]
-That result supplies the rigidity anchor used after real analyticity propagates an equality interval to exponent
-\[
-2.
-\]
-It does not itself compare arbitrary pairs of quasi-norm exponents or provide the all-exponent Hardy--Dirichlet defect.
-
-Targeted searches for strict Baernstein monotonicity, equality cases for arbitrary exponent pairs, regular-polygon rigidity, and quantitative all-exponent defects did not locate an implication-equivalent published statement.
-
-## Limitations
-
-The quantitative derivative bound is asserted only for simple unimodular zeros. The global equality classification does allow repeated roots.
-
-The displayed Hardy--Dirichlet defect is universal but is not claimed to be quantitatively optimal.
-
-The theorem concerns the normalized circle integral means in Baernstein's problem; no stability estimate directly in terms of angular zero discrepancy is asserted.
-
-The proof of the global equality classification uses the previously established equality theorem for the homogeneous entropy inequality at exponent
-\[
-2.
-\]
+A sample numerical integration for the simple-root polynomial \(p=1+z+z^2+z^3\) at \(r=4\) yields \(F_p'(4)\approx0.0457382662\), while the lower bound from (2), after undoing the moment ratio, is \(0.0005611672\). This is only a sanity check: the infinite-family result follows from the analytical proof above.
 
 ## References
 
-1. T. Zhang, *Baernstein's Quasi-Norm Monotonicity Conjecture for Polynomials with Unimodular Zeros*, arXiv:2610.02009v1, first posted 1 October 2026.
-2. J. Lei and T. Zhang, *Proof of the Agler--McCarthy Entropy Conjecture*, arXiv:2605.03949v2, first posted 5 May 2026.
-3. J. Agler and J. E. McCarthy, *The Krzyż Conjecture and an Entropy Conjecture*, Journal d'Analyse Mathématique 144 (2021), 207--226, DOI: 10.1007/s11854-021-0178-z.
+1. T. Zhang, *Baernstein's Quasi-Norm Monotonicity Conjecture for Polynomials with Unimodular Zeros*, arXiv:2610.02009v1 (2026), Lemma 2.1, Propositions 2.2, 2.4, 3.4, Theorem 3.5, and equation (4.2).
+2. J. Lei and T. Zhang, *Proof of the Agler--McCarthy Entropy Conjecture*, arXiv:2605.03949v2 (2026), Theorem 1.3.
+3. *Strict Baernstein monotonicity and quantitative binomial rigidity* (published 2026), all-exponent strictness and coefficient gap for \(0<r\le2\).

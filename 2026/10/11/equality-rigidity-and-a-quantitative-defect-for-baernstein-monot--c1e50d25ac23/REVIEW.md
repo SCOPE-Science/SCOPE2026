@@ -1,48 +1,13 @@
-# Review of Equality rigidity and a quantitative defect for Baernstein monotonicity
+# Mathematical review of the all-exponent Hardy--Dirichlet defect
 
-## Correctness
+The repaired result concerns a quantitative derivative lower bound for polynomials with **simple** zeros on the unit circle. It does **not** claim a new proof of the known global strictness or equality classification. Those statements are already recorded in the published *Strict Baernstein monotonicity and quantitative binomial rigidity*, including a stronger first-coefficient inequality when \(0<r\le2\).
 
-PASS. The global part starts from the proved monotonicity of
-\[
-F_p(r)
-=
-\log(\|p\|_r/\|Q_n\|_r).
-\]
-For every positive exponent the moments are real analytic, including in the presence of repeated boundary zeros. Equality at two distinct exponents therefore creates a constant interval and hence, by real analyticity, a constant function on all positive exponents. The exponent-derivative identity then gives equality in the homogeneous entropy inequality at
-\[
-r=2,
-\]
-whose published equality classification forces
-\[
-p(z)=c(\omega+z^n).
-\]
+For every \(r>2\), the repaired argument controls \((M_p/M_{Q_n})F'_p(r)\) below by a positive weighted Hardy--Dirichlet sum of coefficients of \(q^{r/2}\). If the first nonzero intermediate normalized coefficient is \(a_{m_0}\), its contribution yields \(m_0(n-m_0)^2|a_{m_0}|^2/[2n^3(2m_0+1)(r+2)]\).
 
-For the quantitative part, the source area identity is combined with Harnack's lower bound for its positive harmonic kernel and the source Schwarz estimate
-\[
-|B(z)|\le|z|.
-\]
-The weighted area integral is exactly diagonal in Taylor coefficients and yields
-\[
-\sum_{k\ge1}k|c_k|^2/(2k+1).
-\]
-The constants survive the entropy decomposition and exponent differentiation with the displayed coefficient. Vanishing forces the polar factor to be constant and hence forces the regular-polygon binomial.
+**Correctness.** Proposition 3.4 and Theorem 3.5 of Zhang's source give the analytic area identity and positive kernel; Harnack at the exact center value \(1/(a+1)\), Schwarz for \(B(0)=0\), and normalized radial orthogonality produce the sum. The moment/entropy prefactors are carried exactly. A finite numerical example checks scale but proves no infinite theorem.
 
-## Originality
+**Originality.** The equality/strictness assertion and the \(r\le2\) coefficient gap are already published and receive no new priority claim. The repaired r>2 coefficient estimate and all-exponent Hardy energy coercivity were not found as stated or implied by an inspected stronger published result. The estimate uses elementary Harnack input and is not claimed optimal; a differently stated prior quantitative refinement remains possible.
 
-PASS. The October 2026 source proves nondecreasing monotonicity and states that regular-polygon binomials attain equality, but it does not classify all equality cases or state strict monotonicity. Its positive-kernel area identity is qualitative in the final theorem and is not converted there into the explicit Harnack--Dirichlet derivative defect.
+**Value.** The repaired coefficient gap is a computable stability certificate in the previously untreated high-exponent regime and can be integrated to bound normalized quasi-norm ratio increments. Its use is narrower than global strictness: only simple unit-circle zeros are covered.
 
-The May 2026 entropy paper classifies equality at the single exponent
-\[
-2.
-\]
-It does not classify equality between arbitrary quasi-norm exponents. The accepted result uses real analyticity to transfer an equality interval to that rigid exponent and separately derives an all-exponent quantitative defect on the simple-root stratum.
-
-Searches across source identifiers, strict-monotonicity terminology, equality-case formulations, and regular-polygon extremizers found no statement covering both conclusions.
-
-## Value
-
-PASS. Equality classification is a natural missing part of a newly proved sharp extremal inequality: the source establishes attainment but not rigidity. The result shows that every non-regular zero configuration produces strict separation at every pair of distinct exponents, even with repeated roots.
-
-The derivative estimate adds a quantitative certificate rather than merely labeling equality. Its defect is an intrinsic weighted Hardy--Dirichlet energy of the source polar factor at the same exponent, and it vanishes exactly at the sharp extremizer. This supplies a concrete stability mechanism throughout the positive-exponent scale.
-
-Same-model review: passed. Independent audit: not yet performed.
+This text records mathematical comparisons, not an expert-attestation or external-certification claim.
