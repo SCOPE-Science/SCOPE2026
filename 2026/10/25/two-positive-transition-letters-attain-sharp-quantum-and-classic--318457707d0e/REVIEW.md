@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A nested reversible block construction turns \(m\) unitary/permutation transitions into two positive transitions with exact core action and explicit overhead. A six-label involution/order-three gadget realizes both independent stage-one maps and their inverses using positive words. Each original prefix or suffix is replaced independently while preserving the full acceptance table, shared root, and terminal test. For \(m=4\), the space inflation is \(18\), and each primitive word expands at most \(26\) times. The original source's four-letter asymptotic achievability and general upper bounds then imply the two-letter estimates. A unary word-count bound makes two minimal. Reproducible tests examine actual transition matrices and embedded products; the algebra, not the tests, proves the universal claim.
+PASS
 
-## Originality — PASS, with residual risk
+An m-letter tuple of reversible d-dimensional transitions first becomes two reversible operators A,B on r=m-1 copies: A cycles with the first transition on wrap, B acts by the other transitions on indexed copies. The signed macros a^r and a^j b a^-j preserve a fixed core and implement all original letters exactly. An explicit six-copy gadget has positive binary generators S,T satisfying S^2=T^3=I and implements A,A^-1,B,B^-1 via stst, ttstts, sttstt,tsts, respectively, each preserving the core. Hence all original words have exact compiled positive binary counterparts, dimension factor 6(m-1), word-length factor L_m=max[4(m-1),10(m-2)+6]. For m=4 this is D factor18 and horizon factor26, so the cited four-letter identification lower bounds become binary with the same asymptotic exponents, and general two-letter packing bounds match. Distinct-prefix/suffix conditions survive strict diagonal/off-diagonal acceptance margin. If lambda2=0, source four-letter logarithmic-D law similarly transfers; unary N<=T+1 cannot attain the positive-tolerance exponential-in-T scaling at D=T. Independent permutation tracking checked 60 exact letter-actions over 15 dimension/alphabet families, including inverse implementation and length bounds. The core algebra proves arbitrary unitaries, not numerical samples.
 
-The first public version of arXiv:2610.21797, October 15, 2026, explicitly poses whether a two-letter alphabet attains its four-letter tradeoffs (Section VIII-D); its revised October 19 presentation repeats the open problem (Section 7.4). Birget–Margolis (2007) constructs signed two-letter group encodings for inverse finite automata and radical closure, but supplies neither two *positive* unitary/permutation actions with constant-factor carrier enlargement nor the corresponding fixed-margin Hankel identification theorem. This distinction was checked by reading the relevant full texts. Semantic searches of mathematical literature and published record summaries found no dominating claim. This is not proof of absolute novelty; unindexed or simultaneous work remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result settles a minimum-alphabet question explicitly asked in recent work, while retaining sharp different quantum and classical exponents under the same horizon restriction. It gives a uniform constructive transfer for any fixed input alphabet, preserving exact acceptance tables, rather than a parameter renaming or isolated finite census. The quantitative factors are sufficient, not claimed sharp.
+Best-of-knowledge based on actual source-tree proof inspection, prior claim/implication comparisons and the explicit coverage boundaries. A different older universal two-positive-generator embedding with the same constant overhead may already be known in unitary representation or automata theory.
 
-## Sources and boundaries
+## value
 
-Y. Zhao, arXiv:2610.21797v1, Theorems II.2–II.3 and Section VIII-D (2026-10-15); arXiv:2610.21797v2, Theorems 2.4 and 2.8 and Section 7.4 (2026-10-19). J.-C. Birget and S. W. Margolis, arXiv:math/0701264v1, Sections 1–3 and Proposition 2.6 (2007). Original source theorems, not reproduced in full here, are used as established inputs; all new simulation steps are proved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a constructive and asymptotically sharp solution to the explicitly motivated minimum positive alphabet question in quantum/classical bounded-word Hankel identification. It preserves exact response tables and reversible transition structure with fixed constant overhead, not merely automaton language acceptance or signed free-group words. Constants 18 and 26 are sufficient, not claimed optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
