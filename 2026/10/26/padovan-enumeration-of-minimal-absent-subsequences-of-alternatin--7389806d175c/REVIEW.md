@@ -1,15 +1,21 @@
-# Scientific review: Padovan enumeration of alternating-host MAS
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives an exact and independently checkable greedy subsequence embedding cost \(c(u)=2L-r+s\). The complete classification of one-letter deletion effects yields two disjoint exhaustive families of minimal absent subsequences, with a separate treatment of single-letter candidates. Weighted-run rational generating functions count each admissible word once; exact coefficient extraction proves the recurrence and Padovan shift. The shortest-absent count has a separate exact run-count proof. The attached script exhaustively checks 349,504 binary candidate words for eight hosts, including every deletion and shortest-absent count, plus 100 symbolic recurrence values. Finite checks corroborate rather than prove the infinite statements.
+## correctness
 
-## Originality — PASS with disclosed residual risk
-The most relevant first primary source, Kosche et al., arXiv:2108.13968 (2021), characterizes MAS generally and exhibits an exponential-versus-polynomial MAS/SAS gap for alphabets of size at least four, but does not in its inspected results provide this binary alternating-host enumeration. Adamson et al., arXiv:2407.18599 (2024), bound all absent length-specific subsequences, rather than total minimal absent subsequences for a fixed periodic host. Manea et al., arXiv:2504.21471 (2025), give general enumeration algorithms but not the inspected explicit infinite-family generating function. The numerical sequence is pre-existing Padovan (OEIS A000931): no novelty is claimed for the numbers alone. An accessible published-result summary about Fibonacci extremals counts shortest absences over all binary hosts, not all minimal absences in the alternating host; its full text was unavailable. A hidden equivalent specialization remains possible, hence originality is a best-evidence conclusion, not a proof of unique priority.
+PASS
 
-## Mathematical value — PASS
-Prior work explicitly studies the combinatorial gap between minimal and shortest absent subsequences and gave a four-symbol construction. The proof here identifies a particularly simple two-symbol periodic family realizing an exponential-versus-linear gap, with an exact Padovan rational generating function and exponential constant. This is a structural enumeration of a natural object motivated independently of the resulting integer sequence, and it is neither a routine restatement of the general MAS decision procedure nor merely a small numerical census.
+Greedy embedding of a word u of length L with r runs and initial-one indicator s uses c(u)=2L-r+s positions in the alternating infinite word; u is absent iff c(u)>2k. Deleting an interior singleton (or an initial zero singleton) does not lower cost, hence MAS structure excludes them. Allowed last-run>=2 words must have c=2k+1 or 2k+2; allowed last-singleton words require c=2k+1. Weighted-run generating series with Q=x^3/(1-x^2), P=x/(1-x^2) give rational A(x), B(x) and the stated even/odd coefficient extraction. Every length-k word embeds; length-(k+1) absent words are 0^(k+1),1^(k+1), and 1^i0^(k+1-i), i=1..k, exactly k+2. Independent brute-force candidate enumeration k=1..8 counted 3,5,9,16,28,49,86,151 MAS and k+2 SAS, checking deletions directly. Infinite recurrence follows algebraically, not by finite induction over checked host lengths.
 
-## Limitations
-No claims about the maximum number of MAS for arbitrary binary words, or independent assessment, are made. A potential implicit result in unindexed literature cannot be ruled out; the most closely relevant public-result summary could not be checked against its full text. Earliest cited public source is the August 31, 2021 version of arXiv:2108.13968.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kosche et al. 2021/2023 introduce MAS/SAS and give a >=4-symbol exponential-polynomial separation, but the inspected full text does not present the alternating binary Padovan count. Adamson et al. 2024 bound length-specific absent words, not the total MAS of this host; Manea et al. 2025 give algorithms. The Padovan numbers are known OEIS A000931, but their identification with this natural MAS host and exact GF are the claimed result.
+
+## value
+
+PASS
+
+The minimal-versus-shortest absent-subsequence gap is a core object of the literature. A simple 2-symbol periodic host exhibits exponential versus linear growth, improving the alphabet complexity of prior explicit separation and giving an exact generating function, growth constant and combinatorial interpretation of a classical sequence. This is a natural full infinite-family classification, not an unexplained table match.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:44:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Greedy embedding of a word u of length L with r runs and initial-one indicator s uses c(u)=2L-r+s positions in the alternating infinite word; u is absent iff c(u)>2k. Deleting an interior singleton (or an initial zero singleton) does not lower cost, hence MAS structure excludes them. Allowed last-run>=2 words must have c=2k+1 or 2k+2; allowed last-singleton words require c=2k+1. Weighted-run generating series with Q=x^3/(1-x^2), P=x/(1-x^2) give rational A(x), B(x) and the stated even/odd coefficient extraction. Every length-k word embeds; length-(k+1) absent words are 0^(k+1),1^(k+1), and 1^i0^(k+1-i), i=1..k, exactly k+2. Independent brute-force candidate enumeration k=1..8 counted 3,5,9,16,28,49,86,151 MAS and k+2 SAS, checking deletions directly. Infinite recurrence follows algebraically, not by finite induction over checked host lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosche et al. Prop 3.6 construct exponential MAS versus polynomial SAS gap using >=4 letters.",
+          "Adamson et al. arXiv:2407.18599 give tight bounds on absent subsequences of a fixed length, not the all-length MAS count for (01)^k."
+        ],
+        "reasoning": "Prior >=4-letter existence neither states nor implies the exact alternating binary GF and growth constant. General MAS algorithms can compute each fixed k but are not themselves a closed-form theorem.",
+        "searches": [
+          "Kosche Koss Manea Siemer 2021 proposition 3.6 exponential minimal versus shortest absent subsequences",
+          "minimal absent scattered subsequences alternating binary word (01)^k Padovan rational generating function"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, REVIEW.md; independent brute-force k=1..8",
+        "Kosche et al. arXiv:2108.13968 full primary",
+        "Adamson et al. arXiv:2407.18599",
+        "Manea et al. arXiv:2504.21471",
+        "OEIS A000931 (Padovan)",
+        "Resultary 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General MAS characterization in Kosche et al. permits recognizing each candidate, but does not directly list all MAS for this infinite host.",
+          "The new GF and Padovan shift emerge from the independent weighted-run cost calculation."
+        ],
+        "reasoning": "Generic recognition/counting algorithms could in principle specialize to the computation; the nontrivial closed-form infinite-family enumeration and binary gap are not an explicit prior implication of the cited complexity/characterization theorems.",
+        "searches": [
+          "minimal absent scattered subsequences all binary alternating hosts exponential vs linear classical formulas",
+          "minimal absent scattered subsequences alternating binary word (01)^k Padovan rational generating function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosche, Koß, Manea, Siemer, Absent Subsequences in Words (arXiv:2108.13968), study MAS as non-subsequences whose every deletion embeds.",
+          "The assigned proof counts those words in host (01)^k with a run-cost characterization."
+        ],
+        "reasoning": "Scattered subsequences, minimal absent subsequences, MAS, and subsequence-universality are relevant aliases; ordinary minimal absent contiguous factors are different and cannot substitute for the stated count.",
+        "searches": [
+          "minimal absent scattered subsequences alternating binary word (01)^k Padovan rational generating function",
+          "minimal absent subsequences alternating binary words alternating 0101 Padovan recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A000931 contains the Padovan integer sequence, which is not itself new.",
+          "Resultary hit 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28 counts maximum SAS across all binary hosts, a different statistic."
+        ],
+        "reasoning": "The numerical sequence match is credited. No database item found relating Padovan numbers to MAS of alternating host; maximum SAS over all hosts cannot imply the count of all MAS for one fixed host.",
+        "searches": [
+          "OEIS A000931 Padovan 3 5 9 16 28 49 86 151 minimal absent subsequences",
+          "Resultary minimal absent scattered subsequences alternating binary word (01)^k Padovan rational generating function"
+        ]
+      },
+      "rationale": "Kosche et al. 2021/2023 introduce MAS/SAS and give a >=4-symbol exponential-polynomial separation, but the inspected full text does not present the alternating binary Padovan count. Adamson et al. 2024 bound length-specific absent words, not the total MAS of this host; Manea et al. 2025 give algorithms. The Padovan numbers are known OEIS A000931, but their identification with this natural MAS host and exact GF are the claimed result.",
+      "residual_risks": [
+        "Unknown earlier application of general automata/rationality methods may contain the same sequence for alternating hosts.",
+        "Only exact periodic binary hosts, not arbitrary hosts or maximum MAS, are classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known >=4-letter gap and general decision conditions; no all-k alternating binary Padovan enumeration located in inspected material",
+          "evidence": [
+            "arXiv:2108.13968; Fundamenta Informaticae 189 (2023), Proposition 3.6."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.13968",
+          "material_read": "Accessible full primary text, especially characterization, Proposition 3.6, and alternating-host keyword comparison",
+          "method": "Lawful full-text inspection through public manuscript rendering and arXiv metadata",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Foundational same MAS and SAS object and a claimed exponential gap"
+        },
+        {
+          "assessment": "Counts fixed-length absent words, not total minimal absent subsequences in one periodic host",
+          "evidence": [
+            "arXiv:2407.18599."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.18599",
+          "material_read": "Title, abstract and stated fixed-length absent count; complete full text not independently read",
+          "method": "Public arXiv metadata and source statement comparison",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Potential domination by general counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimal-versus-shortest absent-subsequence gap is a core object of the literature. A simple 2-symbol periodic host exhibits exponential versus linear growth, improving the alphabet complexity of prior explicit separation and giving an exact generating function, growth constant and combinatorial interpretation of a classical sequence. This is a natural full infinite-family classification, not an unexplained table match.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For alternating binary host (01)^k, k>=1, the number of minimal absent scattered subsequences is a_k with generating function z(3-z+2z^2)/(1-2z+z^2-z^3), sequence 3,5,9,16,...=Padovan P_{2k+3}; the number of shortest absent scattered subsequences is exactly k+2, so their counts exhibit an exponential versus linear gap.",
+  "limitations": [
+    "Unknown earlier application of general automata/rationality methods may contain the same sequence for alternating hosts.",
+    "Only exact periodic binary hosts, not arbitrary hosts or maximum MAS, are classified.",
+    "No GitHub write or server-side certification has occurred. Finite checks do not prove unbounded assertions."
+  ],
+  "schema_version": 1
+}
