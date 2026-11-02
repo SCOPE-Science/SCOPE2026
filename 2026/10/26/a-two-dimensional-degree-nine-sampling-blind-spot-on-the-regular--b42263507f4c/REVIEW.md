@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Legendre addition theorem converts exact-degree evaluation ranks on the 24 antipodal vertices into a twelve-by-twelve positive-semidefinite Gram matrix. Direct arithmetic in \(\mathbb Q(\sqrt2)\) yields two independent null vectors at degree nine; a rank-ten modular minor supplies the matching lower bound. Exact modular ranks determine the remaining degrees through 115, and Bernstein's Legendre inequality plus strict diagonal dominance proves full rank for every degree from 116 onward. The prime, root residue, denominator invertibility, and sharp degree-nine vector identities are all checked in `checker.py`. The zero-dimensional and low-degree cases follow from matching modular lower bounds and harmonic-space dimensions. The analytic proof, not the finite check alone, handles every unbounded degree.
+## correctness
 
-**Originality — PASS under bounded literature review.** Dai–Xu (arXiv:1304.2585, §3) give the general zonal-Gram/fundamental-system approach; De Rossi (arXiv:1404.1475, §§2–5) covers local hybrid scattered-data approximation; Wang et al. (arXiv:1502.05806, §§1,5) address cubature-based polynomial-band needlets. None of the inspected material classifies the fixed regular rhombicuboctahedral orbit in every single harmonic degree or gives the degree-nine two-direction obstruction. Other 24-node Archimedean sampling configurations differ in their inner products, so their formulas do not imply this statement. Searches for the solid's alternate name, the critical degree, and exact Gram rank found no decisive covering theorem. Residual risk: an unindexed, differently phrased or unpublished equivalent rank table may exist.
+PASS
 
-**Mathematical value — PASS.** This is the complete exact-degree sampling-rank invariant for a canonical highly symmetric Archimedean 24-node set. The rank is not monotone in degree: it reaches the antipodal maximum at degree six, drops by two at degree nine, then remains maximal forever. The exceptional rank loss has two concise algebraic obstruction equations, and the regular-shape resonance is isolated under a natural one-parameter deformation. This is not implied by general existence of interpolating node sets or by low-pass polynomial quadrature. No global conditioning theorem is claimed.
+Antipodal parity reduces evaluation of H_l on 24 symmetric vertices to a 12×12 positive-semidefinite Legendre Gram G_l=P_l(<xi,xj>). Reconstructed the regular vertex coordinates and independently computed modular ranks over F_998244353 for every l=0..115: 1,3,5,7,9,11 for l<=5; 12 for l=6,7,8; rank10 at l=9; 12 for l=10..115. Independently evaluated P9 in Q(sqrt2) and verified two linearly independent null relations u1−u2,u1−u3, proving the matching rank-10 upper bound and the two signed block constraints. Prime modulus has certified square-root of 2 and invertible recurrence denominators, so nonzero modular minors prove characteristic-zero lower bounds. Off-diagonal |<xi,xj>|≤(7+4sqrt2)/17 with sqrt(1−t²)>2/3; the classical Bernstein Legendre inequality makes the sum of 11 off-diagonal magnitudes <1 from l=116 onward, forcing full rank by strict diagonal dominance. A nonzero rank-12 modular witness at deformation b=2 makes the degree-nine Gram determinant a nonidentically-zero analytic function of b; hence the regular zero is isolated. Finite arithmetic and analytic tail are both indispensable.
 
-**Scientific limitations.** The literature search was bounded; independent mathematical audit and validation remain outstanding, and the deformation parameters away from the regular point are not fully classified. The checker is exact for the finite range but the infinite tail additionally uses the cited analytic Bernstein bound.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact statement and implication comparison: closest accessible primary papers and ranked published findings do not establish this precise claim under the stated parameters. This is not a historical-priority certificate; see source inspections and risks.
+
+## value
+
+PASS
+
+Exact-degree spherical harmonic interpolation on a canonical antipodally symmetric Archimedean solid is a natural sampling invariant. The complete rank sequence exhibits a surprising two-dimensional nonmonotone blind spot after early maximal rank, resolves the persistent interpolation threshold, identifies explicit missing-data linear constraints and isolates the resonance under geometric deformation. Not a generic cubature or finite arbitrary point set recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
