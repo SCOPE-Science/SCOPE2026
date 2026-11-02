@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:55:16.111866Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For GEM(α) weights P_j=V_j∏_{i<j}(1−V_i), V_i∼Beta(1,α), the stick-break recursion yields ES=1/(α+1), ET=6/[(α+1)(α+2)(α+3)] and ES²=(α+6)/[(α+1)(α+2)(α+3)] for S=ΣP_j²,T=ΣP_j⁴. Independent spherical directions imply E(Q_d|P)=S, Var(Q_d|P)=2(S²−T)/d and hence E(Q_d−S)²=2α/[d(α+1)(α+2)(α+3)]. For fixed truncation, representing directions as Gaussian vectors divided by their Euclidean norms shows a multivariate ordinary CLT over d coordinates for the first coordinate and off-diagonal quadratic terms; odd Gaussian moments cancel mixed covariance, giving conditionally independent N(0,S) and N(0,2(S²−T)). Truncation tails vanish in conditional L² using Σ_{j>K}P_j²→0, yielding the stated joint stable conditional convergence. Independently checked beta recursions, finite-d kurtosis, and sphere covariance; the bounded diagnostics are not an asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior paper determines stationary coordinate moments for all d, which can yield many marginal asymptotic moments; it explicitly develops radial density primarily at d=1,2,3."
+        ],
+        "reasoning": "Moment formulas imply marginal information but do not, without additional array-level fluctuation analysis, establish joint stable convergence conditional on the entire GEM weight sequence. Broad Dirichlet-process mean results likewise leave the sphere-dependent cross-term CLT to prove.",
+        "searches": [
+          "Resultary query: high-dimensional isotropic run-and-tumble harmonic trap Dirichlet stick breaking random squared radius conditional Gaussian radial central limit",
+          "Web query: \"run and tumble\" \"high dimensional\" \"stick breaking\" Gaussian limit radius",
+          "Resultary:2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae",
+          "arxiv:2602.08436v2 Appendix A3 and Sec. III"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2602.08436v2, main and appendix; source Git verifier verify.py, source RESULT.md and metadata; Resultary semantic query on isotropic RTP and Dirichlet random-radius limits",
+        "high-dimensional isotropic run-and-tumble harmonic trap Dirichlet stick breaking random squared radius conditional Gaussian radial central limit",
+        "\"run and tumble\" \"high dimensional\" \"stick breaking\" Gaussian limit radius"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "GMS exact Eq.43 provides P_j and Eq.47 gives X moments; the new result computes ΣP_j² as the limit and the second-chaos fluctuation variance 2(S²−T)."
+        ],
+        "reasoning": "The first input strongly motivates and partly implies the random-radius marginal, but the asserted joint conditional stable Gaussian law with asymptotic independence requires nontrivial new central-limit reasoning and is not directly a stated consequence in the inspected paper.",
+        "searches": [
+          "Resultary query: high-dimensional isotropic run-and-tumble harmonic trap Dirichlet stick breaking random squared radius conditional Gaussian radial central limit",
+          "Web query: \"run and tumble\" \"high dimensional\" \"stick breaking\" Gaussian limit radius",
+          "Resultary:2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae",
+          "arxiv:2602.08436v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guéneau–Majumdar–Schehr Eq.43 exactly supplies the GEM position mixture and Appendix A3 relates radial and coordinate moments."
+        ],
+        "reasoning": "The stationary stochastic representation is prior; the assessed limit is equivalently a conditional stable CLT for spherical random weighted means and their squared norms, not a new representation of the fixed-dimensional RTP.",
+        "searches": [
+          "Resultary query: high-dimensional isotropic run-and-tumble harmonic trap Dirichlet stick breaking random squared radius conditional Gaussian radial central limit",
+          "Web query: \"run and tumble\" \"high dimensional\" \"stick breaking\" Gaussian limit radius",
+          "Resultary:2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae",
+          "arxiv:2602.08436v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit on one-spike-ellipsoid random radii concerns Haar sections, not stationary trapped run-and-tumble vectors; no direct high-d conditional RTP limit record appeared."
+        ],
+        "reasoning": "A fixed-dimensional moment table or a different random-radius problem is not the same theorem or a dominating parameter family.",
+        "searches": [
+          "Resultary query: high-dimensional isotropic run-and-tumble harmonic trap Dirichlet stick breaking random squared radius conditional Gaussian radial central limit",
+          "Web query: \"run and tumble\" \"high dimensional\" \"stick breaking\" Gaussian limit radius",
+          "Resultary:2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae"
+        ]
+      },
+      "rationale": "Guéneau–Majumdar–Schehr, arXiv:2602.08436v2, already derives the physical model, Kesten/stick-breaking representation (Eq.43), arbitrary-coordinate moments (Eq.47), radial moments (Appendix A3), and explicit radial laws at d=1,2,3. These premises and finite moment consequences are credited. Its inspected main sections and appendices do not state the joint P-conditional high-d Gaussian limit with independent first-coordinate and radius fluctuations and the nonconcentrating random radial limit. General Dirichlet mean laws do not automatically give this two-statistic stable CLT. Priority is provisional given broad stochastic-geometry literature.",
+      "residual_risks": [
+        "Other probabilistic studies of Dirichlet-process spherical means may state a generic conditional Gaussian fluctuation theorem that specializes to this model.",
+        "The finite-d moments are partially derivable from prior arXiv:2602.08436; originality rests principally on the coupled stable limit, not on the known stationary representation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source fully covers physical GEM representation and radial moment formulas but not the inspected P-conditional two-component high-d stable CLT.",
+          "evidence": [
+            "Eq.43 P_j; Eq.47 Bell moments; App.A Eq.A20–A22; d=1,2,3 radial formulas"
+          ],
+          "identifier_or_url": "arxiv:2602.08436v2 / https://arxiv.org/pdf/2602.08436",
+          "material_read": "38-page full arXiv preprint: abstract, Introduction, Secs II–IV, stationary Eq.43 and Eq.47, Appendix A3–A4 and Table of Contents",
+          "method": "Read source PDF text and visually inspected pp.8,26",
+          "title": "Exact Stationary State of a d-dimensional Run-and-Tumble Particle in a Harmonic Potential",
+          "trigger": "Same physical dynamics, harmonic trap, Dirichlet stick breaking, radial laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural high-dimensional question is whether the trapped active-particle radius self-averages. The answer is a genuinely random GEM diversity radius, accompanied by a quantified 1/√d conditional fluctuation law and a separate Gaussian coordinate scale mixture. This supplies a structural explanation of persistent sample-to-sample radial disorder at fixed tumble rate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned Git package: 2026/10/26/a-random-radius-law-and-conditional-gaussian-fluctuations-in-hig--b9f048a9e93f/RESULT.md blob 51624348b15de4f96be04871501daf1a0227a86f",
+    "Pinned Git tree afd17db564c196b2fe59b95d2fca56352ad1b35e on inventory commit c8b77c8bf54ba7e9c66445b9b4b126557cc55928",
+    "arxiv:2602.08436v2, main and appendix; source Git verifier verify.py, source RESULT.md and metadata; Resultary semantic query on isotropic RTP and Dirichlet random-radius limits",
+    "high-dimensional isotropic run-and-tumble harmonic trap Dirichlet stick breaking random squared radius conditional Gaussian radial central limit",
+    "\"run and tumble\" \"high dimensional\" \"stick breaking\" Gaussian limit radius"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed α>0 and unit-speed isotropic independent tumbles, zero thermal diffusion; no joint α,d scaling.",
+    "Finite moment checks do not certify a probability limit without the conditional Gaussian-array CLT and truncation arguments."
+  ],
+  "residual_risks": [
+    "Other probabilistic studies of Dirichlet-process spherical means may state a generic conditional Gaussian fluctuation theorem that specializes to this model.",
+    "The finite-d moments are partially derivable from prior arXiv:2602.08436; originality rests principally on the coupled stable limit, not on the known stationary representation."
+  ],
+  "schema_version": 1
+}

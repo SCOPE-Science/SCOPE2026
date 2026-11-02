@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary representation follows by integrating the linear trapped dynamics backwards through Poisson refresh times. The independent exponential intervals give independent beta stick-breaking factors. Conditional spherical covariance gives an exact finite-dimensional squared-radius error, while beta recursions give its coefficient and the nonzero limiting radial variance. Finite-array Gaussian central limit arguments, plus dimension-uniform mean-square tail bounds, establish the conditional joint limit and independence of its two Gaussian coordinates. These are infinite-dimensional proofs; the 123 reproducible checks are corroborative only. A fixed positive \(\gamma/\mu\) and strictly isotropic reorientation are essential.
+PASS
 
-## Originality — PASS, with limitations
+For GEM(α) weights P_j=V_j∏_{i<j}(1−V_i), V_i∼Beta(1,α), the stick-break recursion yields ES=1/(α+1), ET=6/[(α+1)(α+2)(α+3)] and ES²=(α+6)/[(α+1)(α+2)(α+3)] for S=ΣP_j²,T=ΣP_j⁴. Independent spherical directions imply E(Q_d|P)=S, Var(Q_d|P)=2(S²−T)/d and hence E(Q_d−S)²=2α/[d(α+1)(α+2)(α+3)]. For fixed truncation, representing directions as Gaussian vectors divided by their Euclidean norms shows a multivariate ordinary CLT over d coordinates for the first coordinate and off-diagonal quadratic terms; odd Gaussian moments cancel mixed covariance, giving conditionally independent N(0,S) and N(0,2(S²−T)). Truncation tails vanish in conditional L² using Σ_{j>K}P_j²→0, yielding the stated joint stable conditional convergence. Independently checked beta recursions, finite-d kurtosis, and sphere covariance; the bounded diagnostics are not an asymptotic proof.
 
-The closest stronger finite-dimensional source is Guéneau–Majumdar–Schehr, arXiv:2602.08436v1, Secs. II–IV and Appendix C. It already proves the all-dimensional stationary mean-functional representation and enough moments to imply the finite-dimensional kurtosis formula; no priority is claimed for these ingredients. Frydel, arXiv:2309.12537, provides broader all-dimensional moment recursions; Smith et al., arXiv:2207.10445, consider an inequivalent discrete-direction mechanism. The assessed addition is a joint conditional high-dimension fluctuation limit around a **random** radius, with exact quantitative radial coupling and a non-Gaussian Gaussian-mixture coordinate limit. None of the inspected primary texts states that joint limit. General theorems on Dirichlet random means or random spherical barycenters could implicitly subsume it, so the assessment is not an independent priority certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The limit identifies a concrete obstruction to naive high-dimensional concentration in an experimentally motivated active-particle model: the common renewal history remains random as directions become orthogonal. The radial finite-dimension correction and the distinct coordinate mixture are measurable predictions, and the threshold for finite-dimensional excess kurtosis provides a reproducible diagnostic. This is a structural limit law, not a restatement of the original finite-dimensional stationary density.
+Guéneau–Majumdar–Schehr, arXiv:2602.08436v2, already derives the physical model, Kesten/stick-breaking representation (Eq.43), arbitrary-coordinate moments (Eq.47), radial moments (Appendix A3), and explicit radial laws at d=1,2,3. These premises and finite moment consequences are credited. Its inspected main sections and appendices do not state the joint P-conditional high-d Gaussian limit with independent first-coordinate and radius fluctuations and the nonconcentrating random radial limit. General Dirichlet mean laws do not automatically give this two-statistic stable CLT. Priority is provisional given broad stochastic-geometry literature.
 
-## Scientific limitations and close literature
+## value
 
-The model assumes stationary harmonic confinement, independent Poisson tumbles, athermal dynamics, isotropic spherical reorientation and fixed rates as dimension grows. Results do not extend without proof to correlated or anisotropic angular dynamics, thermal motion or interacting particles. The published Dirichlet-process theory predates the application and explains the moments of the limiting Simpson statistic. The full dimensional central-limit implication of general random barycenter results remains a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural high-dimensional question is whether the trapped active-particle radius self-averages. The answer is a genuinely random GEM diversity radius, accompanied by a quantified 1/√d conditional fluctuation law and a separate Gaussian coordinate scale mixture. This supplies a structural explanation of persistent sample-to-sample radial disorder at fixed tumble rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
