@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The reduction to the three-dimensional sketch Gram matrix is exact for all real symmetric matrices after two Lanczos steps. The scalar two-by-two compression proof establishes the sharp metric cross-term constant \(\varepsilon/\sqrt{1-\varepsilon^2}\), and the reduced discriminant implies the full bound. The explicit positive-definite tridiagonal witness attains equality and a defective boundary. The included verifier checks symbolic identities and 1000 randomized instances, but those finite checks are not the universal proof.
+## correctness
 
-**Originality — PASS, best-knowledge assessment.** Nakatsukasa--Tropp (arXiv:2111.00113, section 6.8) already state that symmetric sketched Ritz values can be nonreal. De Damas--Grigori (arXiv:2407.03208v1) provide the modern sketched Arnoldi/Petrov--Galerkin formulation. Liu--Liu (arXiv:2610.22261v1) provide a real-Schur remedy. A previously recorded Gaussian-sketch result (identifier `7cd7cbdb-20aa-4dae-820a-6537f0baf613`) quantifies a probability of nonreality on a tridiagonal class. These statements do not imply the sharp *uniform distortion* certificate and its exact worst-case imaginary-part formula. The inspected literature and searches did not identify coverage, but an undiscovered general perturbation theorem remains possible.
+PASS
 
-**Value — PASS.** A directly usable reality certificate for sketched eigensolvers now depends on measurable consecutive Lanczos couplings and a norm-embedding tolerance. Sharpness makes the threshold meaningful rather than a loose gap argument; a defective boundary identifies the transition mechanism. The proof is exact and does not require infinite enumeration.
+Orthogonal three-vector Lanczos coordinates give A[v1 v2]=[v1 v2] [[alpha,a],[a,beta]]+b v3 e2^T. Writing Gram metric G=S^T S on this span, sketched Ritz H=G11^-1 G1: A:,1:2 has offdiagonals a+bt1, a and second diagonal beta+bt2, where t=G11^-1 G12. The eigenvalue discriminant is (alpha-beta-bt2)²+4a(a+bt1). For (1-epsilon)I<=G<=(1+epsilon)I, every 2D compression yields ||t||<=epsilon/sqrt(1-epsilon²); hence maximum imaginary part is bounded by sqrt([a(b epsilon/sqrt(1-epsilon²)-a)]_+). The sharp SPD 3x3 tridiagonal and Gram G=[[1-e²,0,-e sqrt(1-e²)],[0,1,0],[-e sqrt(1-e²),0,1+e²]] attain equality with eigenvalues 1±e,1, and become defective at epsilon=a/sqrt(a²+b²). Independent symbolic checks confirmed H, Gram spectrum, characteristic polynomial and critical threshold; the universal bound rests on the compression inequality.
 
-**Limits.** The sketch must be an embedding for both trial vectors and the next residual; the bound is worst-case over admissible systems with fixed couplings, not the necessary threshold for every fixed matrix. No large-iteration convergence, sketch-probability guarantee, or independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previously studied sketched Rayleigh–Ritz already permits nonreal estimates on symmetric inputs, and standard randomized Arnoldi gives its oblique projection formula. These are acknowledged. The new asserted distinction is a SHARP deterministic embedding tolerance depending on two consecutive Lanczos couplings, with a best possible imaginary envelope and defective extremizer. The original foundational sRR full manuscript was located but inaccessible via authorized OA link; a related complete sketched Arnoldi primary text was inspected. Residual priority risk is explicit.
+
+## value
+
+PASS
+
+The exact epsilon threshold gives a meaningful finite-iteration quality certificate for sketched symmetric eigensolvers, tying an observable sketch distortion to Lanczos couplings. Optimality and a defective transition make it more than a qualitative observation of nonreal computed eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T10:44:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orthogonal three-vector Lanczos coordinates give A[v1 v2]=[v1 v2] [[alpha,a],[a,beta]]+b v3 e2^T. Writing Gram metric G=S^T S on this span, sketched Ritz H=G11^-1 G1: A:,1:2 has offdiagonals a+bt1, a and second diagonal beta+bt2, where t=G11^-1 G12. The eigenvalue discriminant is (alpha-beta-bt2)²+4a(a+bt1). For (1-epsilon)I<=G<=(1+epsilon)I, every 2D compression yields ||t||<=epsilon/sqrt(1-epsilon²); hence maximum imaginary part is bounded by sqrt([a(b epsilon/sqrt(1-epsilon²)-a)]_+). The sharp SPD 3x3 tridiagonal and Gram G=[[1-e²,0,-e sqrt(1-e²)],[0,1,0],[-e sqrt(1-e²),0,1+e²]] attain equality with eigenvalues 1±e,1, and become defective at epsilon=a/sqrt(a²+b²). Independent symbolic checks confirmed H, Gram spectrum, characteristic polynomial and critical threshold; the universal bound rests on the compression inequality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A perturbation theorem without a gap-dependent sharp constant could produce weaker sufficient reality bounds but not necessarily the uniform exact optimum.",
+          "A recent real-Schur remedy addresses complex Ritz values algorithmically rather than deriving the sharp two-step threshold."
+        ],
+        "reasoning": "The declared novelty is the minimax extremal value over all admissible 3D Gram metrics with given epsilon,a,b and its equality case, not a new eigenvalue extraction algorithm.",
+        "searches": [
+          "sketched Lanczos symmetric two step Rayleigh Ritz complex eigenvalues norm embedding sharp imaginary part bound",
+          "sRR symmetric Ritz nonreal eigenvalues bounded distortion metric oblique compression discriminant",
+          "potential stronger general theorem for Sharp embedding-distortion reality certificate for two-step sketched symmetric Lanczos"
+        ]
+      },
+      "checked_sources": [
+        "Randomized Implicitly Restarted Arnoldi method for the non-symmetric eigenvalue problem — https://arxiv.org/html/2407.03208v1",
+        "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems — https://authors.library.caltech.edu/records/sfhkg-s9j41",
+        "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices — https://arxiv.org/pdf/2610.22261"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "de Damas–Grigori 2024 Definition 3.2 gives the oblique sketched Ritz matrix, but not this two-coefficient threshold.",
+          "Nakatsukasa–Tropp original work is acknowledged for nonreal Ritz phenomenon; direct full-text exclusion not possible due inaccessible OA full text.",
+          "Liu–Liu October 2026 primary preprint arxiv:2610.22261 Section 3 develops real-Schur workarounds for nonreal sketched eigenpairs rather than a two-link optimal reality threshold."
+        ],
+        "reasoning": "Prior formulation is not claimed as new. The explicit best possible bound with singular borderline is not implied by the inspected algebraic definitions. The uninspected full technical source is a residual originality risk, not a negative judgment by itself.",
+        "searches": [
+          "sketched Lanczos symmetric two step Rayleigh Ritz complex eigenvalues norm embedding sharp imaginary part bound",
+          "sRR symmetric Ritz nonreal eigenvalues bounded distortion metric oblique compression discriminant",
+          "https://arxiv.org/html/2407.03208v1",
+          "https://authors.library.caltech.edu/records/sfhkg-s9j41",
+          "https://arxiv.org/pdf/2610.22261"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "de Damas–Grigori defines sketched Petrov–Galerkin Ritz projections exactly via (3.5)–(3.7).",
+          "Nakatsukasa–Tropp establishes the underlying randomized sketching framework and qualitative nonreality; exact threshold not demonstrated by accessible metadata alone."
+        ],
+        "reasoning": "Compared equivalent terms sRR, oblique Rayleigh–Ritz, sketch-orthogonal Arnoldi, metric projection, eigenvalue reality of symmetric A, and characteristic discriminant. Qualitative possibility does not imply deterministic optimal bound.",
+        "searches": [
+          "sketched Lanczos symmetric two step Rayleigh Ritz complex eigenvalues norm embedding sharp imaginary part bound",
+          "sRR symmetric Ritz nonreal eigenvalues bounded distortion metric oblique compression discriminant",
+          "Gaussian sketched Rayleigh Ritz real symmetric tridiagonal matrix probability complex nonreal Ritz eigenvalue"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table is relevant to a continuum minimax tolerance. A prior stochastic sketch occurrence law does not imply this worst-case deterministic bound."
+        ],
+        "reasoning": "Random sketch probabilities or individual spectral counterexamples are not full coverage of the deterministic all-sketch quantified inequality.",
+        "searches": [
+          "sketched Lanczos symmetric two step Rayleigh Ritz complex eigenvalues norm embedding sharp imaginary part bound",
+          "Sharp embedding-distortion reality certificate for two-step sketched symmetric Lanczos exact table classification exhaustive source"
+        ]
+      },
+      "rationale": "Previously studied sketched Rayleigh–Ritz already permits nonreal estimates on symmetric inputs, and standard randomized Arnoldi gives its oblique projection formula. These are acknowledged. The new asserted distinction is a SHARP deterministic embedding tolerance depending on two consecutive Lanczos couplings, with a best possible imaginary envelope and defective extremizer. The original foundational sRR full manuscript was located but inaccessible via authorized OA link; a related complete sketched Arnoldi primary text was inspected. Residual priority risk is explicit.",
+      "residual_risks": [
+        "Original Nakatsukasa–Tropp accepted PDF and arXiv file could not be obtained this run; no full-document noncoverage assertion is made.",
+        "An older sharp perturbation/Gram-metric extremum theorem may subsume the constant.",
+        "Authorized institutional full-text retrieval for Nakatsukasa–Tropp was attempted after arXiv and institutional open-access copy failed; it reported disconnected VPN and no paper text was read; this is an access risk, not noncoverage evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_PROJECTION_NOT_SHARP_REALITY",
+          "evidence": [
+            "Definition 3.2 permits complex sketched Ritz eigenvalues; no two-Lanczos-coefficient sharp deterministic embedding-distortion bound appears in inspected theorem structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.03208v1",
+          "material_read": "Full HTML introduction, Sections 2, 3.2 Definition 3.2 and sketched projected eigenproblem (3.5)–(3.7), Sections 4 and 5 theorem structure.",
+          "method": "Direct primary full HTML mathematical inspection",
+          "title": "Randomized Implicitly Restarted Arnoldi method for the non-symmetric eigenvalue problem",
+          "trigger": "Defines exact sketched Ritz Petrov-Galerkin projection and might give general eigenvalue reality theorem"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_MATERIAL_RISK",
+          "evidence": [
+            "Known framework introduces sketched eigenvalue projection; accessible material does not establish the claimed sharp epsilon-vs-Lanczos threshold; cannot rule out unknown relevant full-text statements."
+          ],
+          "identifier_or_url": "https://authors.library.caltech.edu/records/sfhkg-s9j41",
+          "material_read": "Open institutional manuscript metadata, accepted-version file manifest, peer-reviewed published abstract; attempted full Caltech PDF download returned inaccessible signed URL and arXiv PDF access failed; authorized institutional retrieval separately reported VPN disconnected with no full-text pages. Previously reported Section 6.8 qualitative observation remains unverified from full text this run.",
+          "method": "Institutional repository and publisher abstract; full-text retrieval attempted but unsuccessful",
+          "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Original sketched Rayleigh–Ritz analysis including nonreal Ritz values for symmetric A"
+        },
+        {
+          "assessment": "LATER_REAL_SCHUR_REMEDY_NOT_SHARP_LANCZOS_TOLERANCE",
+          "evidence": [
+            "Defines generally nonsymmetric sketched Rayleigh–Ritz matrices even for real SPD inputs; uses a real Schur formulation and local convergence analysis. No two-consecutive-Lanczos-link sharp epsilon threshold or exact worst-case imaginary-part envelope appears in inspected relevant statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22261",
+          "material_read": "27-page original preprint, abstract, Sections 1–3.1 (especially sketched Ritz Eq. (1), real Schur remedy, norm embeddings), Section 5 theorem/convergence description and text-search for Lanczos; PDF page 3 inspected.",
+          "method": "Primary arXiv PDF full-text theorem/section reading and page image, no inferred theorem from mere abstract",
+          "title": "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices",
+          "trigger": "October 2026 paper on exactly symmetric sketched Ritz nonreal eigenpairs, potentially dominating the reality guarantee"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact epsilon threshold gives a meaningful finite-iteration quality certificate for sketched symmetric eigensolvers, tying an observable sketch distortion to Lanczos couplings. Optimality and a defective transition make it more than a qualitative observation of nonreal computed eigenvalues.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Randomized Implicitly Restarted Arnoldi method for the non-symmetric eigenvalue problem — https://arxiv.org/html/2407.03208v1",
+    "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems — https://authors.library.caltech.edu/records/sfhkg-s9j41",
+    "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices — https://arxiv.org/pdf/2610.22261"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the two-step sketched Rayleigh–Ritz compression of any real symmetric A with successive Lanczos links a>0,b>=0, a (1±epsilon) squared-norm embedding of the first two Lanczos vectors and the next residual guarantees real Ritz values when epsilon<=a/sqrt(a²+b²), and every eigenvalue imaginary part is bounded by sqrt([a(b epsilon/sqrt(1-epsilon²)-a)]_+). This deterministic bound is sharp over admissible systems/sketches, including SPD three-dimensional witnesses and a defective equality transition.",
+  "limitations": [
+    "Exact real symmetric two-step Lanczos and sketch embedding on three-dimensional residual span.",
+    "Bounds are worst-case over admissible systems, not necessary for every fixed matrix or a multi-step convergence guarantee."
+  ],
+  "residual_risks": [
+    "Original Nakatsukasa–Tropp accepted PDF and arXiv file could not be obtained this run; no full-document noncoverage assertion is made.",
+    "An older sharp perturbation/Gram-metric extremum theorem may subsume the constant.",
+    "Authorized institutional full-text retrieval for Nakatsukasa–Tropp was attempted after arXiv and institutional open-access copy failed; it reported disconnected VPN and no paper text was read; this is an access risk, not noncoverage evidence."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "BACKGROUND_PROJECTION_NOT_SHARP_REALITY",
+      "evidence": [
+        "Definition 3.2 permits complex sketched Ritz eigenvalues; no two-Lanczos-coefficient sharp deterministic embedding-distortion bound appears in inspected theorem structure."
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2407.03208v1",
+      "material_read": "Full HTML introduction, Sections 2, 3.2 Definition 3.2 and sketched projected eigenproblem (3.5)–(3.7), Sections 4 and 5 theorem structure.",
+      "method": "Direct primary full HTML mathematical inspection",
+      "title": "Randomized Implicitly Restarted Arnoldi method for the non-symmetric eigenvalue problem",
+      "trigger": "Defines exact sketched Ritz Petrov-Galerkin projection and might give general eigenvalue reality theorem"
+    },
+    {
+      "assessment": "ACCESS_LIMITED_MATERIAL_RISK",
+      "evidence": [
+        "Known framework introduces sketched eigenvalue projection; accessible material does not establish the claimed sharp epsilon-vs-Lanczos threshold; cannot rule out unknown relevant full-text statements."
+      ],
+      "identifier_or_url": "https://authors.library.caltech.edu/records/sfhkg-s9j41",
+      "material_read": "Open institutional manuscript metadata, accepted-version file manifest, peer-reviewed published abstract; attempted full Caltech PDF download returned inaccessible signed URL and arXiv PDF access failed; authorized institutional retrieval separately reported VPN disconnected with no full-text pages. Previously reported Section 6.8 qualitative observation remains unverified from full text this run.",
+      "method": "Institutional repository and publisher abstract; full-text retrieval attempted but unsuccessful",
+      "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+      "trigger": "Original sketched Rayleigh–Ritz analysis including nonreal Ritz values for symmetric A"
+    },
+    {
+      "assessment": "LATER_REAL_SCHUR_REMEDY_NOT_SHARP_LANCZOS_TOLERANCE",
+      "evidence": [
+        "Defines generally nonsymmetric sketched Rayleigh–Ritz matrices even for real SPD inputs; uses a real Schur formulation and local convergence analysis. No two-consecutive-Lanczos-link sharp epsilon threshold or exact worst-case imaginary-part envelope appears in inspected relevant statements."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2610.22261",
+      "material_read": "27-page original preprint, abstract, Sections 1–3.1 (especially sketched Ritz Eq. (1), real Schur remedy, norm embeddings), Section 5 theorem/convergence description and text-search for Lanczos; PDF page 3 inspected.",
+      "method": "Primary arXiv PDF full-text theorem/section reading and page image, no inferred theorem from mere abstract",
+      "title": "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices",
+      "trigger": "October 2026 paper on exactly symmetric sketched Ritz nonreal eigenpairs, potentially dominating the reality guarantee"
+    }
+  ]
+}
