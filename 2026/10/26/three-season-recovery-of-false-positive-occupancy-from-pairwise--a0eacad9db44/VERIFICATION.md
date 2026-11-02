@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python verify.py` with the standard Python 3 library and compare its complete JSON stdout with the packaged `certificate.json`. The verifier uses exact fractions, enumerates all binary hidden and observed paths for three seasons, computes observed moments independently of the reconstruction identities, and verifies exact recovery for 12 admissible interior parameter choices, one involving negative temporal memory. It additionally constructs two distinct strictly interior parameter vectors sharing all six observed first and pairwise second moments when the outer detection rates coincide.
+## correctness
 
-The mathematical proof is in `RESULT.md`; finite tests are consistency evidence only. The standalone code has no third-party dependencies. The empirical precision of moments inferred from finitely many surveyed sites is not assessed. No external or independent audit was performed.
+PASS
+
+For stationary irreducible binary Markov occupancy, E[X]=π and Cov(X_i,X_j)=π(1-π)λ^{j-i}. Conditional independent emissions with common f and discriminations δ_t=d_t-f>0 yield m_t=f+πδ_t, c_ij=π(1-π)δ_iδ_j λ^{j-i}. Because λ≠0 and δ0≠δ2, c01-c12≠0, so normalized adjacent covariances uniquely solve f=(c01*m2-c12*m0)/(c01-c12). Then r01=r12=((1-π)/π)λ and r02=((1-π)/π)λ² imply λ=r02/r01 and π=r02/(r01²+r02); recover d_t,γ,ε algebraically. Direct substitution establishes strict feasibility iff including interior γ,ε and m_t-f>0. With two seasons varying f,π keeps the full bivariate law fixed; with d0=d2 varying f fixes all six moments; λ=0 makes full Y0,Y1,Y2 independent. Independently enumerated all eight hidden paths and eight observed patterns with exact fractions for interior example, reconstructing m=(3/10,19/50,17/50), c=(21/500,63/1250,9/500) and full parameters.
+
+## originality
+
+PASS
+
+Claim-specific Resultary and relevant primary literature were compared by statements and implications. The assessed specialized mathematical statement was not identified as covered in the material actually inspected. This is a best-of-knowledge judgment, not absolute novelty proof; stronger plausible inaccessible works are explicitly retained as priority risks.
+
+## value
+
+PASS
+
+An explicit globally identifiable inverse from only one detection per season and six natural low-order statistics is directly motivated by false-positive ecological occupancy observations. The sharp minimal observation design and outer-detection heterogeneity boundary are independently useful exact methodological facts, not just a known generic HMM parameter-count restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

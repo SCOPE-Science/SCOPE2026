@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T10:00:20.443545Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For stationary irreducible binary Markov occupancy, E[X]=π and Cov(X_i,X_j)=π(1-π)λ^{j-i}. Conditional independent emissions with common f and discriminations δ_t=d_t-f>0 yield m_t=f+πδ_t, c_ij=π(1-π)δ_iδ_j λ^{j-i}. Because λ≠0 and δ0≠δ2, c01-c12≠0, so normalized adjacent covariances uniquely solve f=(c01*m2-c12*m0)/(c01-c12). Then r01=r12=((1-π)/π)λ and r02=((1-π)/π)λ² imply λ=r02/r01 and π=r02/(r01²+r02); recover d_t,γ,ε algebraically. Direct substitution establishes strict feasibility iff including interior γ,ε and m_t-f>0. With two seasons varying f,π keeps the full bivariate law fixed; with d0=d2 varying f fixes all six moments; λ=0 makes full Y0,Y1,Y2 independent. Independently enumerated all eight hidden paths and eight observed patterns with exact fractions for interior example, reconstructing m=(3/10,19/50,17/50), c=(21/500,63/1250,9/500) and full parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cole 2019 open full article, introduction and identifiability results; Liu–Culpepper 2025 DOI 10.1017/psy.2025.10024 indexed abstract."
+        ],
+        "reasoning": "Generic hidden Markov identifiability theorems may identify full joint distributions under additional assumptions, but that does not directly yield this explicit inversion using only the first two moment orders and time-varying emissions; Cole 2019 concentrates on other observation structures. Liu–Culpepper 2025 heterogeneous HMM design is a relevant broader-source residual risk pending complete tailored comparison.",
+        "searches": [
+          "hidden Markov two-state occupancy three observations time varying detection shared false positive identifiability pairwise moments"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s40300-019-00156-3",
+        "https://doi.org/10.1890/0012-9658(2006)87[835:GSOMAF]2.0.CO;2",
+        "https://doi.org/10.1017/psy.2025.10024",
+        "Resultary semantic search: hidden Markov two-state occupancy three observations time varying detection shared false positive identifiability pairwise moments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Audited RESULT.md stationarity/ratio proof and sharp boundaries; Cole 2019 comparison."
+        ],
+        "reasoning": "Standard covariance formulas alone identify only products π(1-π)δ_iδ_j λ^h; the factor common to all seasons and outer-rate difference yield new algebraic cancellation. General full-HMM identification does not imply global injectivity of this restricted moment map or the exact failure sets without extra proof.",
+        "searches": [
+          "hidden Markov two-state occupancy three observations time varying detection shared false positive identifiability pairwise moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cole 2019 DOI 10.1007/s40300-019-00156-3 discusses general HMM parameter redundancy and identifiability; Royle–Link 2006 describes false-positive occupancy mixtures."
+        ],
+        "reasoning": "A time-inhomogeneous Bernoulli-emission two-state stationary HMM with shared false-positive rate is a low-order latent-variable covariance-factorization problem. Its normalized adjacent covariance invariants determine latent π,λ only after the scalar baseline f is recovered from unequal outer-season discriminations.",
+        "searches": [
+          "hidden Markov two-state occupancy three observations time varying detection shared false positive identifiability pairwise moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary stationary alternating-renewal pair-law aliasing id 2026/9/21/SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54; current six-moment symbolic inverse."
+        ],
+        "reasoning": "No exact six-moment three-season occupancy feasibility/inversion table appeared in the queried Resultary records, including a nearby two-time Markov law aliasing finding dealing with non-Markov alternating renewals. Exact invertibility is analytically demonstrated rather than inferred from a fitted numerical table.",
+        "searches": [
+          "hidden Markov two-state occupancy three observations time varying detection shared false positive identifiability pairwise moments"
+        ]
+      },
+      "rationale": "Claim-specific Resultary and relevant primary literature were compared by statements and implications. The assessed specialized mathematical statement was not identified as covered in the material actually inspected. This is a best-of-knowledge judgment, not absolute novelty proof; stronger plausible inaccessible works are explicitly retained as priority risks.",
+      "residual_risks": [
+        "A specialized ecological method-of-moments calculation may have established the same inversion without this wording.",
+        "Full 2025 heterogeneous HMM identifiability paper not inspected completely; no blanket noncoverage assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General HMM identifiability, different emission restrictions and full-joint data; specific six-moment inverse not asserted in examined material",
+          "evidence": "Known generic identifiability of HMM parameters under model-specific assumptions, not same moment map.",
+          "identifier_or_url": "https://doi.org/10.1007/s40300-019-00156-3",
+          "material_read": "Open full HTML text and model-identifiability sections including longitudinal misclassification",
+          "method": "Read openly available Springer/University of Kent text",
+          "title": "Parameter redundancy and identifiability in hidden Markov models",
+          "trigger": "closest formal HMM identifiability theorem"
+        },
+        {
+          "assessment": "Establishes ecological model motivation, not exact three-season low-order moment inverse in abstract",
+          "evidence": "False-positive and false-negative occupancy inference studied since 2006.",
+          "identifier_or_url": "https://doi.org/10.1890/0012-9658(2006)87[835:GSOMAF]2.0.CO;2",
+          "material_read": "Published abstract and bibliographic scope; no complete article claimed read",
+          "method": "Public journal abstract/search",
+          "title": "Generalized site occupancy models allowing for false positive and false negative errors",
+          "trigger": "foundational false-positive occupancy model"
+        },
+        {
+          "assessment": "Residual broader-coverage possibility; no assertion of full-document noncoverage",
+          "evidence": "General full-joint heterogeneous HMM identification, not necessarily changing false-positive occupancy six-moment inverse.",
+          "identifier_or_url": "https://doi.org/10.1017/psy.2025.10024",
+          "material_read": "Indexed abstract/metadata and cited theorem scope; complete article not examined for this audit",
+          "method": "Journal/DOI search",
+          "title": "Designing Learning Intervention Studies: Identifiability of Heterogeneous Hidden Markov Models",
+          "trigger": "possible stronger heterogeneous HMM coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit globally identifiable inverse from only one detection per season and six natural low-order statistics is directly motivated by false-positive ecological occupancy observations. The sharp minimal observation design and outer-detection heterogeneity boundary are independently useful exact methodological facts, not just a known generic HMM parameter-count restatement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1007/s40300-019-00156-3",
+    "https://doi.org/10.1890/0012-9658(2006)87[835:GSOMAF]2.0.CO;2",
+    "https://doi.org/10.1017/psy.2025.10024",
+    "Resultary semantic search: hidden Markov two-state occupancy three observations time varying detection shared false positive identifiability pairwise moments",
+    "SCOPE-Science/SCOPE2026@314d6b13df1198f1804055f4cd9de733045cd8b7:2026/10/26/three-season-recovery-of-false-positive-occupancy-from-pairwise--a0eacad9db44/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Requires stationary binary Markov chain, common unknown false-positive probability, positive discrimination, λ≠0 and d0≠d2; population moments, not finite-sample estimates."
+  ],
+  "residual_risks": [
+    "A specialized ecological method-of-moments calculation may have established the same inversion without this wording.",
+    "Full 2025 heterogeneous HMM identifiability paper not inspected completely; no blanket noncoverage assertion."
+  ],
+  "schema_version": 1
+}
