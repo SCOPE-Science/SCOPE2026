@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The exact mass-normalized active-set decomposition and Cauchy bound reduce the nonlinear norm to the Perron eigenvalue of an explicit 2x2 matrix (trace 2-t, determinant (1-t)^2). An admissible two-level positive Perron vector saturates it for each subset, proving optimality and the full extremizer characterization. Strict unimodality yields one-third equality. A polynomial-size positive-integer subset-sum reduction and NP membership establish weak NP-completeness. Computations from the actual Python file independently corroborate 153 exact algebraic identities, 210 extremizers, and 320 small reductions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2014 foundation gives bounds for p>1 and counting-measure exact p<=1 complete graphs.",
+        "2020 sequel studies counting-measure graph norm variants; its abstract/introduction do not contain all-positive-weight Hilbert classification."
+      ],
+      "reasoning": "More general maximal-operator literature studies wider graphs/exponents, but the inspected relevant finite-graph results neither evaluate this arbitrary weighted norm nor imply its NP-complete equality criterion.",
+      "searches": [
+        "\"maximal operator\" \"atomic measure\" \"complete graph\" optimal l2",
+        "weighted graph balls maximal operator exact L2 norm on complete graphs arbitrary masses",
+        "arxiv:1410.6204 Introduction and Proposition 2.7",
+        "arxiv:2011.02630"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1410.6204 (2014; relevant full article text)",
+      "arxiv:2005.03146 (2020; full relevant theorem and proof)",
+      "arxiv:2011.02630 (2020; abstract and accessible journal introduction)",
+      "Semantically related published mathematical research records; results concerned different norms or other graph families."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4 in 2020 proves max_k Phi(k/n); all its graph balls use uniform cardinalities.",
+        "The new NP reduction creates integer weights with one-third total mass iff a SUBSET SUM instance is positive, and the total number of vertices can be two yet yield the universal optimum."
+      ],
+      "reasoning": "The new formula specializes to the prior theorem but is not implied by it for general atom masses; the source theorem cannot distinguish weight lists of the same length. In particular it cannot entail the binary-weight equality decision without the new mass-subset argument.",
+      "searches": [
+        "arxiv:2005.03146 Theorem 4 and §3.1 (full proof comparison)",
+        "arxiv:1410.6204 Proposition 2.7",
+        "weighted finite atomic space maximal operator Hilbert norm NP complete subset sum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2005.03146 proves the equal-counting-mass formula parameterized by k/n; new formula requires arbitrary attainable t=sum_S w/W.",
+        "arxiv:1410.6204 defines graph maximal averages using cardinality normalization and not general unequal masses.",
+        "The same operator is the two-stage nonnegative martingale maximum of the initial global expectation and terminal atomic value; general martingale maximal inequalities bound a larger class but the relevant searched sharp statements did not provide an exact finite-atom weighted subset spectrum."
+      ],
+      "reasoning": "Equal masses reproduce the known counting formula exactly, but an arbitrary weighted atom cannot generally be split into clones while preserving its original domain of functions. No located equivalent exact weighted-mass subset theorem. The two-step martingale reinterpretation was also checked as a possible dominating alias; ordinary Doob bounds do not furnish the exact weight-dependent formula or equality/complexity classification.",
+      "searches": [
+        "weighted complete graph centered Hardy Littlewood maximal operator sharp strong L2 norm vertex measure subset mass one third",
+        "\"weighted\" \"complete graph\" \"maximal operator\" l2 norm",
+        "arxiv:2005.03146, Theorem 4 and §3.1",
+        "\"two step\" \"martingale maximal\" \"sharp\" \"L2\" constant",
+        "\"max(f, Ef)\" \"4/3\" inequality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed thematic result inspected concerns the dual bounded-Lipschitz norm on equal-arm star spaces, not centered weighted maximal averages; no formula for the present norm is provided.",
+        "The known counting-measure table in arxiv:2005.03146 is recovered by t=k/n and does not tabulate arbitrary positive real atom weights."
+      ],
+      "reasoning": "No exact database/table returned a weight-sensitive subset-mass spectrum or an equality/complexity classification; absence of a hit is not a proof of novelty.",
+      "searches": [
+        "exact sharp L2 norm of centered Hardy Littlewood maximal function on weighted complete graph arbitrary positive atomic masses and subset sums",
+        "one-third measure subset strong L2 maximal operator for finite metric measure space complete graph",
+        "weighted finite atomic space maximal operator Hilbert norm NP complete subset sum"
+      ]
+    },
+    "rationale": "The novelty is limited to arbitrary unequal positive atomic masses, optimal attainable-mass subsets, and the arithmetic/weak NP-complete equality criterion. Theorem 4 of arxiv:2005.03146 fully covers the equal-weight subfamily and is explicitly treated as prior art, not as new. The extant uniform-counting formula does not imply the constrained weighted mass-spectrum formula: cloning unequal weights allows forbidden splitting of atomic clones. Relevant accessible original proofs and nearby literature were compared as statements. Unindexed weighted formulations remain a material residual risk.",
+    "residual_risks": [
+      "A weighted finite-atomic maximal-operator theorem may exist under alternate notation or in unindexed literature; absence of matches is not proof of priority.",
+      "The weighted two-level Cauchy method is closely adapted from the known uniform-counting proof; novelty pertains to the arbitrary mass-subset dependence and NP-complete equality criterion, not to the unweighted sharp constant.",
+      "The sequel arxiv:2011.02630 was not read cover-to-cover; its accessible introduction specifies counting measure, but full-text noncoverage is not asserted.",
+      "An exact sharp finite-atom theorem for two-stage nonnegative martingale maxima, if located, could dominate the present weighted-complete-graph formulation; no covering such statement was found in searched material."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counting measure; gives nonsharp p>1 general bounds, not weighted L2 equality classification.",
+        "evidence": [
+          "First posted 2014-10-22; §2 Eq. (3) normalizes by n; Proposition 2.7 concerns n and cardinality, explicitly notes difficulty for p>1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.6204",
+        "material_read": "Abstract, Introduction, §2 complete-graph formula, Proposition 2.7 and proof, Remark 2.8.",
+        "method": "arXiv accessible full HTML text inspected through relevant original statements and proof portions",
+        "title": "Best constants for the Hardy-Littlewood maximal operator on finite graphs",
+        "trigger": "Foundational earliest-public archive work and possible norm domination"
+      },
+      {
+        "assessment": "Already covers the equal-weight special case by exactly Phi(k/n), and a similar Cauchy/eigenvector proof; does not cover arbitrary weighted vertex masses or resulting NP-hard equality.",
+        "evidence": [
+          "Theorem 4: max over k=floor(n/3),ceil(n/3); proof uses n-point counting averages, not arbitrary w_i."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2005.03146v3",
+        "material_read": "Introduction §§1.1,1.3, Theorem 4, Corollary 5 and complete relevant proof §3.1 (around lines 804–891).",
+        "method": "arXiv open HTML full primary text, statement and proof comparison",
+        "title": "Sharp inequalities for maximal operators on finite graphs",
+        "trigger": "Strong plausible full coverage: exact L2 formula on complete graphs"
+      },
+      {
+        "assessment": "Known description studies counting-measure K_n/S_n further exponents and norms; no claim about arbitrary atom masses in material read. Whole-document noncoverage is not asserted.",
+        "evidence": [
+          "The journal introduction explicitly states that mu is counting measure; DOI 10.1016/j.jmaa.2021.125647."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2011.02630",
+        "material_read": "Accessible abstract and publisher-open introduction paragraph, not full article.",
+        "method": "arXiv abstract and publisher HTML introduction comparison",
+        "title": "Sharp inequalities for maximal operators on finite graphs, II",
+        "trigger": "Same author follow-up possibly dominating original"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ffb81d83-5825-4ebe-8f5e-e0592ce5546c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise natural invariant is the centered strong Hilbert maximal norm on an arbitrary positive atomic metric-measure complete graph. The theorem evaluates it fully by the reachable subset-mass spectrum, classifies every extremizer and describes exactly when a universal sharp bound is achieved. Attainment is genuinely arithmetic: [1,2] achieves the bound with two atoms, [1,1,2] does not with three, and the exact-equality decision for binary positive integer masses is weakly NP-complete. A pseudo-polynomial algorithm is available but no polynomial algorithm is implied; this differentiates the finding from routine equal-counting-mass substitution.",
+    "status": "PASS"
+  }
+}
