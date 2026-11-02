@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:46:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Connected graph Laplacian conservation implies a period-two return has uniform total firing count in {0,1,2}; primitive return forces exactly one firing per vertex. For each time-zero firing split p,q, necessary and sufficient chip intervals contribute (b−q)^p q^(a−p)(a−p)^q p^(b−q); every state has a unique split. Their weighted sum equals a^b b^a trace(K_ab K_ba), where the binomial transition composition preserves degree filtration and has eigenvalues (a)_k(b)_k/(a^k b^k), remaining eigenvalues zero when a>b. Gaussian dominated sums at scale √[ab/(a+b)] yield the unrestricted joint asymptotic. Fresh exhaustive actual two-step updates for nine small bicliques and exact phase-vs-trace tests for 196 parameter pairs succeeded; finite enumeration is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang proves permissible periods and uniform firing counts for connected graphs.",
+          "Jung states eventual period 2 within 2ab−a−b<total chips<2ab, not a full periodic-state count for every mass."
+        ],
+        "reasoning": "The known dynamical period theorems do not imply the full combinatorial multiplicities or precise binomial eigenvalues without separate counting.",
+        "searches": [
+          "Bitar–Goles 1992 parallel chip firing",
+          "Jiang arXiv:1003.0943",
+          "Ji–Li–Wang arXiv:2408.10508",
+          "Jung arXiv:2608.01350"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1003.0943, Jiang 2010, full proof read",
+        "https://arxiv.org/pdf/2408.10508, Ji–Li–Wang 2024, full primary PDF read",
+        "https://arxiv.org/abs/2608.01350, Jung 2026, abstract (full text inaccessible)",
+        "https://doi.org/10.1016/0304-3975(92)90316-8, Bitar–Goles 1992 background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal firing count per period establishes the first lemma, but leaves exponentially many chip values and phase distributions uncounted.",
+          "Middle-stair property concerns a restricted initial mass band and possible eventual periods, so cannot give the stated all-mass population."
+        ],
+        "reasoning": "Specific nonimplication follows by comparing quantified sets (all periodic configurations vs all states in a finite mass window) and target statistics (counts vs eventual period).",
+        "searches": [
+          "Jiang 2010 full PDF sections 2–3",
+          "Ji–Li–Wang 2024 full PDF",
+          "Jung 2026 abstract, PDF and HTML attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primitive orbit count is half of the number of configurations returning after exactly two steps but not one; these are distinct from all configurations eventually entering period two.",
+          "The binomial kernel trace equals the firing-phase sum, not merely a possible-period criterion."
+        ],
+        "reasoning": "Searched return-map fixed point, firing-word and two-cycle vocabulary as equivalents and compared state counts, not just titles.",
+        "searches": [
+          "Resultary complete bipartite chip firing count period 2 orbit binomial trace",
+          "Jiang arXiv:1003.0943 Proposition 2.5 Section 3",
+          "Jung arXiv:2608.01350 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen formulas give N_{2,2}=18, N_{2,3}=84, N_{3,3}=909; direct independent simulation reproduced these, not found as a published table in inspected papers."
+        ],
+        "reasoning": "No exact same-state census table identified, but absence from searched indexes is not proof of novelty.",
+        "searches": [
+          "Jiang arXiv:1003.0943 complete-bipartite examples",
+          "Resultary complete-bipartite parity/period searches"
+        ]
+      },
+      "rationale": "The earliest Bitar–Goles automaton, Jiang’s complete-bipartite period-length classification, and Ji–Li–Wang’s period-two forcing theorem do not yield the total number of distinct primitive period-two initial states or their binomial-trace asymptotic. Jung’s August 2026 middle-stair result deals with eventual period in a mass window, not this global census in the accessible description. A primary full-text copy of Jung was unavailable; an unindexed period-two orbit count remains a genuine risk.",
+      "residual_risks": [
+        "Jung 2026 full text inaccessible, so a specialized refined count in it cannot be excluded on abstract alone.",
+        "An older equivalent two-cycle enumeration under fixed-point trace or graph-chip terminology could exist.",
+        "Asymptotic concerns only min(a,b)→∞; no basin or higher-period census claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides essential firing-count theorem and possible periods; not a census of labelled recurrent two-cycles",
+          "evidence": "Jiang proves every vertex fires equally often in a period and classifies possible cycle lengths.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.0943",
+          "material_read": "Full accessible PDF, including Proposition 2.5 and all complete-bipartite period classification arguments",
+          "method": "Primary full-text PDF read; mathematical statements and proof sections inspected",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "Same automaton on K_{a,b} and firing-count lemma"
+        },
+        {
+          "assessment": "Relevant but not an exact counting theorem for initial primitive two-cycles",
+          "evidence": "Ji–Li–Wang analyze chip-mass conditions forcing eventual period two.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.10508",
+          "material_read": "Full accessible primary PDF including statements and main dynamical arguments",
+          "method": "Primary full-text PDF read; mathematical statements and proof sections inspected",
+          "title": "Non-Stabilizing Parallel Chip-Firing Games",
+          "trigger": "Same graph dynamics and possible eventual period two"
+        },
+        {
+          "assessment": "Plausible coverage risk; accessible theorem concerns eventual period in a chip-mass interval, not explicitly all primitive orbit counts",
+          "evidence": "Abstract: if 2ab−a−b<|σ|<2ab then eventual period is 2.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.01350",
+          "material_read": "ArXiv abstract and contextual indexed descriptions; PDF and HTML retrieval failed, so no whole-document conclusion",
+          "method": "Abstract plus attempted primary arXiv full-text access",
+          "title": "The Middle Stair for Complete Bipartite Parallel Chip-Firing",
+          "trigger": "2026 same K_{a,b} and same periodicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A closed exact all-size count and joint Gaussian asymptotic for recurrent period-two states answer a natural dynamical enumeration question, separating initial periodic states from long basins and eventually-periodic mass regions. The binomial trace diagonalization exposes underlying algebra beyond a raw state count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For labelled K_{a,b} with a,b≥1, the number of primitive period-two orbits is a^b b^a/2 times Σ_{k=0}^{min(a,b)} (a)_k(b)_k/(a^k b^k), and as min(a,b)→∞ it is asymptotic to a^b b^a√(πab/[8(a+b)]). Period-two initial states, not basins or other periods.",
+  "limitations": [
+    "Other periods and eventual-cycle basins are outside scope; finite simulations are not the unrestricted proof."
+  ],
+  "schema_version": 1
+}
