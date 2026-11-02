@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T16:49:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 23ed6e9f0ee8d50c08939a8fcd7944eadbf081b0",
+        "arXiv:2610.16823 Theorem 6.6 (general q disk)",
+        "independent_checks.py Takagi-frame random numerical corroboration"
+      ],
+      "rationale": "Self-adjoint conjugate-linear A is represented by complex symmetric M, Takagi-unitarily congruent to diag(s_i). For normalized frame pair with <x,y>=t=|q| under first-variable-linear convention, the complex symmetric rank-two matrix K=(xy^T+yx^T)/2 equals ((1+t)/2)uu^T-((1-t)/2)vv^T for orthonormal complex u=(x+y)/sqrt(2(1+t)),v=(x-y)/sqrt(2(1-t)) (limit t=1 separately), so K has singular values (1+t)/2,(1-t)/2. Von Neumann trace majorization bounds |tr(MK)| by the proposed affine combination of s1,s2. Witness x=alpha e1+i beta e2,y=alpha e1-i beta e2, alpha²=(1+t)/2, beta²=(1-t)/2 attains equality. For any q, an isotropic x for the complex quadratic form x^T M x exists; since n>=3 take a unit z orthogonal to both x and Ax, giving a valid y with zero numerical value. The constrained two-frame manifold is connected and compact, and simultaneous rotation yields full circular symmetry, so all moduli from zero to maximal are attained: a closed disk. Independently checked 105 top-two equality cases, 2,625 randomized admissible upper-bound frames and spectral extraction. Finite numeric checks corroborate the all-dimensional matrix argument.",
+      "residual_risks": [
+        "n>=3 is essential for zero-attainment argument; no extension to all nonsymmetric matrices or dim2 annulus is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kołaczek–Müller 2024 Corollary 2.2 proves ordinary q=1 numerical range is a centered disk in dimension>=2.",
+          "Majumdar–Müller general q theorem proves disk in dimension>=3, including this self-adjoint subclass, but not its exact radius."
+        ],
+        "reasoning": "A stronger class of operators with only set-shape conclusion does not determine an exact singular-value-dependent boundary in the symmetric subclass; the scalar radius remains a genuine additional invariant.",
+        "searches": [
+          "arXiv:2610.16823 Sections 6.1–6.7",
+          "Kołaczek Müller Numerical Ranges of Antilinear Operators 2024 DOI:10.1007/s00020-024-02768-5",
+          "self adjoint antilinear complex symmetric matrices q numerical range disk radius Takagi singular values"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.16823",
+        "DOI:10.1007/s00020-024-02768-5",
+        "Resultary semantic query 4",
+        "classical Autonne–Takagi and von Neumann trace inequality"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 6 identifies zero via an isotropic vector and proves connectedness and circular symmetry.",
+          "The new estimate requires a rank-two symmetric matrix K and von Neumann singular-value trace inequality; Theorem 6.6 has no numerical spectral majorization statement."
+        ],
+        "reasoning": "The prior article implies the disk *shape* of this claim, so that portion must be credited, but not the affine top-two Takagi radius. Standard trace inequality plus an attaining frame furnish the new special-case calculation.",
+        "searches": [
+          "arXiv:2610.16823 Theorem 6.6",
+          "DOI:10.1007/s00020-024-02768-5 Corollary 2.2",
+          "self adjoint antilinear complex symmetric matrices q numerical range disk radius Takagi singular values"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Majumdar–Müller arXiv:2610.16823 Section 6, Theorem 6.6 states centered disk for any antilinear A when dim>=3.",
+          "The entire accessible Section 6, including Proposition 6.2, Lemma 6.4 and Theorem 6.6, gives topology/geometry but no displayed radius as a two-Takagi-value expression."
+        ],
+        "reasoning": "The disk assertion alone is fully covered; the restricted self-adjoint subclass has a new spectral radius computation. Conjugate-symmetric bilinear q forms reduce to Takagi singular values, not to the norm of a general antilinear map by Theorem 6.6 alone.",
+        "searches": [
+          "self adjoint antilinear complex symmetric matrices q numerical range disk radius Takagi singular values",
+          "Takagi symmetric complex matrix antilinear bilinear q-numerical radius two largest singular values",
+          "Majumdar Müller Theorem 6.6 q numerical range antilinear"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary q-numerical findings retrieved concern complex-linear Jordan shifts and rank-one operators, not symmetric antilinear matrices.",
+          "The two endpoint values R(0),R(1) reconstruct s2 and s1 exactly, not a known tabulated dimension-specific number."
+        ],
+        "reasoning": "This is a parameter-uniform matrix spectral identity, not a finite numeric table or a conventional complex-linear q-range calculation. Lack of match does not prove uniqueness.",
+        "searches": [
+          "self adjoint antilinear complex symmetric matrices q numerical range disk radius Takagi singular values",
+          "matrix q numerical radius Takagi singular values spectral norm trace inequality",
+          "Resultary semantic query 4 antilinear q disk"
+        ]
+      },
+      "rationale": "Full text comparison to the same q-numerical range theorem reveals direct coverage of the disk shape but not its radius. The substantive surviving sharp top-two-Takagi law is supported by standard-but-nontrivially-combined spectral arguments.",
+      "residual_risks": [
+        "A matrix-analysis paper on symmetric bilinear q-extrema might state exactly this top-two singular-value law in other terminology.",
+        "The entire disk shape, including zero/connectedness, is established prior art; the new contribution is radius and reconstruction only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISK_SHAPE_COVERED_RADIUS_NOT_STATED",
+          "evidence": "Theorem 6.6 is exactly the disk geometry for all antilinear maps in n>=3; no expression in its §6 theorems for the top two Takagi singular values.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.16823",
+          "material_read": "Full arXiv rendered manuscript, particularly §6 Definition 6.1, Proposition 6.2, Lemma 6.4, Proposition 6.5, Theorem 6.6 and Remark 6.7",
+          "method": "Read complete available primary §6 text",
+          "title": "Some Generalized Numerical Ranges of Real-linear Operators on Hilbert Spaces",
+          "trigger": "Same q-numerical range and same antilinear class, highest-priority comparison"
+        },
+        {
+          "assessment": "ORDINARY_NUMERICAL_RANGE_ONLY",
+          "evidence": "Corollary 2.2 covers ordinary antilinear numerical disk, not an evaluated constrained q radius.",
+          "identifier_or_url": "https://doi.org/10.1007/s00020-024-02768-5",
+          "material_read": "Open-access publisher HTML indexed with introduction, Section 2 and Corollary 2.2; direct full-page open errored, so not an exhaustive paper reading",
+          "method": "Primary publisher indexed section excerpt",
+          "title": "Numerical Ranges of Antilinear Operators",
+          "trigger": "Earlier general disk result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2610.16823 §6",
+        "Git RESULT.md spectral proof"
+      ],
+      "rationale": "The constrained q-numerical disk is a natural operator-theoretic invariant. An exact affine spectral response identifies precisely which singular values survive q-variation and provides a complete reconstruction/invisibility theorem for self-adjoint antilinear operators, beyond the known qualitative disk geometry.",
+      "residual_risks": [
+        "It is a subclass calculation; standard matrix trace inequality is an input, and the disk shape is already known."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite-dimensional symmetric-coefficient antilinear operator A on complex dimension at least three, the constrained q-numerical range is a centered disk with radius ((1+|q|)s1+(1-|q|)s2)/2, detecting exactly the top two Takagi singular values.",
+  "limitations": [
+    "Complex dimension n>=3, self-adjoint antilinear matrices only.",
+    "Other singular values are invisible; no nonlinear/nonnormal full q-range formula."
+  ],
+  "schema_version": 1
+}
