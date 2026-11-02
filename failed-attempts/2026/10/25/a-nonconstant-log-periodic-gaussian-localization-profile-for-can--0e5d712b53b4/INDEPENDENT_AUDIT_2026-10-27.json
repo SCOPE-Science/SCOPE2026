@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T11:00:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git frozen RESULT.md, CHECK.py and 62-assertion output; independent symbolic tail analysis and eight-term numerical lower check",
+        "Grabner & Prodinger 1996 author PDF https://www.math.tugraz.at/~grabner/Publications/Cantor.pdf; equation (5), Fourier equation (7), Theorem",
+        "Knutsen 2020 full-text article arXiv:1907.00848 / DOI:10.1007/s00041-020-09751-9",
+        "Resultary semantic search: middle third Cantor localization Gaussian Hermite eigenvalue log periodic oscillations Laplace self similar product asymptotic"
+      ],
+      "rationale": "Correct as written for the normalized zeroth-Hermite Gaussian eigenvalue, not the full localization norm. Exact digit integration gives lambda0=(1-e^{-h}) product_{j=1}^n(1+e^{-2A/3^j}), h=A/3^n. Splitting at floor(log_3 A) and comparing convergent product tails yields the claimed 3-periodic multiplier H(t)=t^delta K(t), delta=log_3 2, and exp(±eta) relative bound for A>=1, A<3^n. The bilateral log-derivative series has the eight-term lower partial sum 0.6315473360799694 > delta 0.6309297535714574, so nonconstant. Re-read exact rational Taylor majorants in source CHECK.py and the reported 62 test assertions. Finite tests do not replace the infinite convergence/tail proof.",
+      "residual_risks": [
+        "The 1996 full text proves the same leading log-periodic asymptotic and more general Cantor distributions; it does not state the exact finite-n numerical exponent eta verbatim; novelty finding rests on implication plus its elementary tail derivation.",
+        "No claim concerning full operator norm is proved or assessed as an original norm law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1996 paper treats Cantor distributions for general theta in (0,1), includes theta=1/3, derives analytic Fourier coefficients and periodic fluctuations.",
+          "Knutsen treats time-frequency Gaussian Cantor annuli and gives the exact finite product."
+        ],
+        "reasoning": "The broader 1996 Cantor parameter family dominates the specific self-similar Gaussian limiting transform. Combining its expansion with the known finite product yields the two-parameter asymptotic; the eta formula is an elementary explicit truncation.",
+        "searches": [
+          "Grabner Prodinger 1996 full text pp2-5",
+          "Knutsen 2020 full article"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen RESULT.md, CHECK.py and 62-assertion output; independent symbolic tail analysis and eight-term numerical lower check",
+        "Grabner & Prodinger 1996 author PDF https://www.math.tugraz.at/~grabner/Publications/Cantor.pdf; equation (5), Fourier equation (7), Theorem",
+        "Knutsen 2020 full-text article arXiv:1907.00848 / DOI:10.1007/s00041-020-09751-9",
+        "Resultary semantic search: middle third Cantor localization Gaussian Hermite eigenvalue log periodic oscillations Laplace self similar product asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1996 B(z)=F(log_3 z)z^-delta(1+O(z^-M)) after theta=1/3, exhibiting the same nonconstant F.",
+          "Finite λ0=(1-e^-h)prod_{j<=n}(1+e^-2A/3^j); product/(2/3)^n A^{1-delta}=H(A)(1+quantified tails)."
+        ],
+        "reasoning": "The strongest novel-looking portion—the phase-dependent leading coefficient and absence of a single constant—is directly covered. Exact finite-size error bound is a straightforward quantitative reorganization of established products, insufficient to rescue the original headline from coverage.",
+        "searches": [
+          "Grabner–Prodinger full source 1996 equations (5)-(7)",
+          "Knutsen 2020 eigenvalue formula and bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grabner–Prodinger B(z)=prod_{k>=0}(1+exp[-(1-theta)theta^k z])/2. Taking theta=1/3 is exactly B(A)=prod_{j>=1}(1+e^{-2A/3^j})/2.",
+          "The new H(A) is equal to the previously derived periodic coefficient F(log_3 A) by unique asymptotic normalization."
+        ],
+        "reasoning": "The localization Gaussian mode is a finite prefractal Laplace transform, and its infinite limit is the classic middle-third Cantor distribution Laplace transform. This establishes a direct equality of quantities, not merely an analogy.",
+        "searches": [
+          "Grabner Prodinger 1996 Cantor distribution Laplace transform periodic fluctuation",
+          "Knutsen arXiv:1907.00848",
+          "Resultary: middle third Cantor localization Gaussian Hermite eigenvalue log periodic oscillations Laplace self similar product asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact Resultary match, but the exact old infinite product and Fourier periodic function were found in published primary literature."
+        ],
+        "reasoning": "The absence of a Resultary hit is outweighed by actual prior mathematical identity, including the correct normalized parameter z=A and middle-third theta=1/3.",
+        "searches": [
+          "Resultary: middle third Cantor localization Gaussian Hermite eigenvalue log periodic oscillations Laplace self similar product asymptotic",
+          "1996 Grabner Prodinger equation (5) and equation (7)",
+          "Knutsen 2019/2020 finite Cantor product"
+        ]
+      },
+      "rationale": "FAIL: substantial prior mathematical implication, not just similar vocabulary. Grabner–Prodinger, Asymptotic Analysis of the Moments of the Cantor Distribution (1996), pp. 2-5, explicitly gives the Laplace transform B(z)=product_{k>=0}(1+exp[-(1-theta)theta^k z])/2, its z^{-log_{1/theta}2} times nonconstant log-periodic Fourier profile with sharp expansion; choose theta=1/3. This B(A) is exactly the infinite Cantor product (indices shifted) underlying H(A): for A=t*3^m, 2^m B(A) -> K(t), hence A^delta B(A)->H(t), so the prior F(log_3 A) equals this H(A). The 2020 Knutsen article already prints the finite-n Gaussian eigenvalue product; its elementary truncation plus prior B(A) yields the finite explicit error estimate. The claim is covered in substance even though the exact bound eta is not printed verbatim in the 1996 paper.",
+      "residual_risks": [
+        "The 1996 full text proves the same leading log-periodic asymptotic and more general Cantor distributions; it does not state the exact finite-n numerical exponent eta verbatim; novelty finding rests on implication plus its elementary tail derivation.",
+        "No claim concerning full operator norm is proved or assessed as an original norm law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY DOMINATES CLAIM",
+          "evidence": [
+            "For theta=1/3, the 1996 paper gives identical Laplace product, z^-delta times nonconstant 1-periodic Fourier function F(log_3 z), with explicit Mellin coefficients. The equality H(A)=F(log_3 A) follows from splitting B(A) at its log scale."
+          ],
+          "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Cantor.pdf",
+          "material_read": "Entire five-page lawful author PDF, including 1-5, equations (3)-(7) and final theorem; pages displayed as screenshots",
+          "method": "PDF full text plus all five page screenshots",
+          "title": "Asymptotic Analysis of the Moments of the Cantor Distribution",
+          "trigger": "decisive same-product full-text source"
+        },
+        {
+          "assessment": "COVERS INPUT PRODUCT, not its own proof of oscillations",
+          "evidence": [
+            "Exact λ0 product, norm comparison and normalization are acknowledged prior; combine with Grabner–Prodinger."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.00848",
+          "material_read": "Full publicly accessible 2020 article text relevant statements on radial Gaussian Hermite eigenvalues and finite Cantor product",
+          "method": "web article read and compared formula",
+          "title": "Daubechies' Time-Frequency Localization Operator on Cantor Type Sets I",
+          "trigger": "same physical model and exact finite product"
+        },
+        {
+          "assessment": "RELATED, not decisive",
+          "evidence": [
+            "Generalizations of localization bounds, not needed for decisive 1996 coverage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.10976",
+          "material_read": "arXiv abstract and scientific context only, not full article",
+          "method": "web bibliography/abstract",
+          "title": "Daubechies' Time-Frequency Localization Operator on Cantor Type Sets II",
+          "trigger": "general base/alphabet scope"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Git frozen RESULT.md, CHECK.py and 62-assertion output; independent symbolic tail analysis and eight-term numerical lower check",
+        "Grabner & Prodinger 1996 author PDF https://www.math.tugraz.at/~grabner/Publications/Cantor.pdf; equation (5), Fourier equation (7), Theorem",
+        "Knutsen 2020 full-text article arXiv:1907.00848 / DOI:10.1007/s00041-020-09751-9",
+        "Resultary semantic search: middle third Cantor localization Gaussian Hermite eigenvalue log periodic oscillations Laplace self similar product asymptotic"
+      ],
+      "rationale": "FAIL as an original contribution: the central periodic asymptotic and oscillations are already described quantitatively for the same Cantor Laplace product by Grabner–Prodinger (1996); the explicit remainder from the known finite Knutsen product is a short tail estimate and rational nonconstancy check, not a sufficiently independent unknown invariant. The calculation can be pedagogically useful, but a verified known refinement by simple substitution cannot establish new mathematical value.",
+      "residual_risks": [
+        "The 1996 full text proves the same leading log-periodic asymptotic and more general Cantor distributions; it does not state the exact finite-n numerical exponent eta verbatim; novelty finding rests on implication plus its elementary tail derivation.",
+        "No claim concerning full operator norm is proved or assessed as an original norm law."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Git frozen RESULT.md, CHECK.py and 62-assertion output; independent symbolic tail analysis and eight-term numerical lower check",
+    "Grabner & Prodinger 1996 author PDF https://www.math.tugraz.at/~grabner/Publications/Cantor.pdf; equation (5), Fourier equation (7), Theorem",
+    "Knutsen 2020 full-text article arXiv:1907.00848 / DOI:10.1007/s00041-020-09751-9",
+    "Resultary semantic search: middle third Cantor localization Gaussian Hermite eigenvalue log periodic oscillations Laplace self similar product asymptotic"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The 1996 full text proves the same leading log-periodic asymptotic and more general Cantor distributions; it does not state the exact finite-n numerical exponent eta verbatim; novelty finding rests on implication plus its elementary tail derivation.",
+    "No claim concerning full operator norm is proved or assessed as an original norm law."
+  ],
+  "residual_risks": [
+    "The 1996 full text proves the same leading log-periodic asymptotic and more general Cantor distributions; it does not state the exact finite-n numerical exponent eta verbatim; novelty finding rests on implication plus its elementary tail derivation.",
+    "No claim concerning full operator norm is proved or assessed as an original norm law."
+  ],
+  "schema_version": 1
+}
