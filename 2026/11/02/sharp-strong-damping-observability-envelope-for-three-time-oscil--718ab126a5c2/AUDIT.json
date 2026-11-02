@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Proof from exact Cauchy--Binet minors and sin x/x bound; unique root via exact polynomial identity and sign/derivative bounds; compactness and strict-concavity localization plus analytic implicit-function theorem give unique high-damping optimum and coefficients. Resonant zero times explicitly retained. Finite checker tests are auxiliary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Siami--Jadbabaie, arXiv:2005.03143, Secs. 1 and 3: Gramian spectral sparsification and joint sensor/actuator schedules, with no exact damping-dependent three-time information constant.",
+        "Calle--Bopardikar, arXiv:2303.07903, Secs. II and III and numerical examples: random sensor selection and Kalman error covariance concentration, not deterministic equally spaced scalar observations of fixed damped rotation.",
+        "Baran--Szak-Kocsis--Stehlik, arXiv:1704.05719, Secs. 2--3 and Appendix A: stationary complex OU process, 2 real coordinates observed at each time, correlated process noise, unknown trend/covariance parameters; their trend FIM determinant is (1+sum g_OU(d_j))^2 and differs from the 3x2 deterministic-initial-state scalar-output information determinant. The joint covariance optimal lag near 0.4930/a is not the current 0.63129/a."
+      ],
+      "reasoning": "The general scheduling, concentration and stochastic-OU results do not state bounds sharp for this restricted three-measurement decay-rotation submodel. Spectral approximation guarantees cannot imply the exact high-damping constant or uniqueness, and the 2017 source concerns distinct noise correlations and parameters.",
+      "searches": [
+        "D-optimal observation times damped sinusoidal oscillator two sensors optimal sampling Gramian determinant",
+        "sampled harmonic oscillator observability Gramian optimal time spacing finite horizon sampling noise",
+        "D-optimal designs for complex Ornstein-Uhlenbeck processes arxiv:1704.05719",
+        "damped oscillator observability Gramian D-optimal sampling three time scalar",
+        "arxiv:2005.03143 sensor actuator scheduling observability Gramian",
+        "arxiv:2303.07903 Kalman random sensor selection concentration bounds",
+        "D optimal three noisy scalar samples damped sine cosine initial state"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1704.05719",
+      "https://arxiv.org/abs/2005.03143",
+      "https://arxiv.org/abs/2303.07903",
+      "published-finding corpus: 2026/10/11/SCOPE-a-universal-optimal-observation-horizon-for-arithmetic-spectrum--64dbf45b5739",
+      "prior title/claim inventory in current-week prior research records, all 162 finding records (dedup only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baran--Szak-Kocsis--Stehlik, arXiv:1704.05719, Secs. 2--3 and Appendix A: stationary complex OU process, 2 real coordinates observed at each time, correlated process noise, unknown trend/covariance parameters; their trend FIM determinant is (1+sum g_OU(d_j))^2 and differs from the 3x2 deterministic-initial-state scalar-output information determinant. The joint covariance optimal lag near 0.4930/a is not the current 0.63129/a.",
+        "Siami--Jadbabaie, arXiv:2005.03143, Secs. 1 and 3: Gramian spectral sparsification and joint sensor/actuator schedules, with no exact damping-dependent three-time information constant.",
+        "Calle--Bopardikar, arXiv:2303.07903, Secs. II and III and numerical examples: random sensor selection and Kalman error covariance concentration, not deterministic equally spaced scalar observations of fixed damped rotation.",
+        "prior finding a25ed71d-5b47-4637-9807-22120f61ae59: random-angle observability Gramian tail thresholds; no deterministic three-time damping design.",
+        "prior finding 721e7e00-a960-43ec-b84e-4892e2e931b4: two-step greedy noiseless Kalman sensor selection for diagonal dynamics, not D-optimal sampled oscillator."
+      ],
+      "reasoning": "Explicit formulas show different hypotheses and target criteria. Neither the older own-record claims nor the more general published works imply the particular sharp envelope, corrected optimum, or its uniqueness; conversely the present theorem does not imply their random-phase or random-sensor results.",
+      "searches": [
+        "random phase observability tails three time deterministic damping asymptotic",
+        "arxiv:1704.05719 D optimal 0.4930 3 point design",
+        "arxiv:2005.03143 Gramian approximation",
+        "arxiv:2303.07903 sensor selection sampling",
+        "arxiv:1704.05719 Lemma 3.1 and Theorems 3.2/3.5",
+        "arxiv:2303.07903 Sec III randomized Kalman sensor selection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baran--Szak-Kocsis--Stehlik, arXiv:1704.05719, Secs. 2--3 and Appendix A: stationary complex OU process, 2 real coordinates observed at each time, correlated process noise, unknown trend/covariance parameters; their trend FIM determinant is (1+sum g_OU(d_j))^2 and differs from the 3x2 deterministic-initial-state scalar-output information determinant. The joint covariance optimal lag near 0.4930/a is not the current 0.63129/a.",
+        "published-finding corpus closest: 2026/10/11/SCOPE-a-universal-optimal-observation-horizon-for-arithmetic-spectrum--64dbf45b5739 (amplitude-and-decay-slope confluent Vandermonde rather than sine/cosine initial coordinates)."
+      ],
+      "reasoning": "D-optimality for correlated stationary complex OU observations or a confluent spectral amplitude-slope model cannot be substituted for the deterministic rotating-mode scalar-output 3x2 Gram matrix. The 2017 OU FIM (1+sum g_OU)^2 differs algebraically and its parameters are not A,B initial coordinates. Research-record semantic searches did not return an equivalent exact claim.",
+      "searches": [
+        "three equally spaced observation times damped sinusoidal amplitude two quadrature parameters D-optimal Fisher determinant high damping",
+        "damped rotation observability Gramian three measurements sampling interval maximizes determinant",
+        "e^{-2at} sine cosine observation two phase oscillator optimal times determinant asymptotic",
+        "D-optimal designs for complex Ornstein-Uhlenbeck processes arxiv:1704.05719",
+        "D-optimal sampling times damped sinusoidal two-coordinate trend experiment design",
+        "arxiv:1704.05719 Sec. 3 Lemma 3.1 Theorems 3.2 and 3.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The actual research-record queries returned no claimed numerical constants 0.631289958074 or 0.249379061960 in the closest hit summaries.",
+        "Public literature search for these constants and exact-three-time combinations did not expose a precomputed coefficient table."
+      ],
+      "reasoning": "No identified exact table or database provides this same constrained model/constant. Nonappearance is evidence of a bounded search only, not a mathematical novelty proof.",
+      "searches": [
+        "0.2493790619 damping oscillator Fisher determinant sampling",
+        "0.6312899581 D optimal damping frequency sample interval",
+        "damped sinusoid three measurement Gram determinant sharp high damping constant",
+        "sharp D optimal oscillator three observations strong damping coefficient",
+        "published-finding corpus: three equal time damped oscillator asymptotic Gramian determinant"
+      ]
+    },
+    "rationale": "Closest full-text 2017 D-optimal complex-OU result is mathematically distinct in observation dimension, noise covariance, unknowns and information objective; 2020 Gramian sparsification and 2023 stochastic Kalman selection neither contain nor imply this precise universal strong-damping three-time result. Research-record and prior research records claim comparisons find distinct objects; remaining publication-priority risk acknowledged.",
+    "residual_risks": [
+      "Priority against uncatalogued earlier treatments of fixed-three-time, one-scalar-channel oscillatory initial-state D-optimal design remains uncertain; no claim is made for generic D-optimal design or complex-OU process models.",
+      "The absence of an identical numerical coefficient in searchable results alone cannot certify novelty; a specialized amplitude-estimation paper may have an equivalent asymptotic not indexed by the inspected searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the specified deterministic initial-state and independent scalar-noise theorem; high topical proximity",
+        "evidence": "Baran--Szak-Kocsis--Stehlik, arXiv:1704.05719, Secs. 2--3 and Appendix A: stationary complex OU process, 2 real coordinates observed at each time, correlated process noise, unknown trend/covariance parameters; their trend FIM determinant is (1+sum g_OU(d_j))^2 and differs from the 3x2 deterministic-initial-state scalar-output information determinant. The joint covariance optimal lag near 0.4930/a is not the current 0.63129/a.",
+        "identifier_or_url": "https://arxiv.org/abs/1704.05719",
+        "material_read": "Full accessible arXiv HTML: model in Sec. 2, Lemma 3.1, Theorems 3.2, 3.4, 3.5, Example 3.3 and the relevant Appendix A proof",
+        "method": "Read the scientific model, information matrix formulas and time-spacing objective, compare unknown parameters and observation covariance to the current theorem",
+        "title": "D-optimal designs for complex Ornstein-Uhlenbeck processes",
+        "trigger": "Same damped rotation eigenvalues, explicit time D-optimal design and three-point example"
+      },
+      {
+        "assessment": "NOT_COVERING: general approximation and sparse schedule results, no sharp sine-minor formula or high-damping design",
+        "evidence": "Siami--Jadbabaie, arXiv:2005.03143, Secs. 1 and 3: Gramian spectral sparsification and joint sensor/actuator schedules, with no exact damping-dependent three-time information constant.",
+        "identifier_or_url": "https://arxiv.org/abs/2005.03143",
+        "material_read": "Accessible arXiv HTML abstract, introduction, Sec. 3 matrix reconstruction theorem, sparse Gramian scheduling statements",
+        "method": "Compare the output spectral-approximation guarantee with exact 3x2 determinant/limit",
+        "title": "A Separation Theorem for Joint Sensor and Actuator Scheduling with Guaranteed Performance Bounds",
+        "trigger": "General sparse observability Gramian scheduling may dominate sharp scheduling claims"
+      },
+      {
+        "assessment": "NOT_COVERING: random-sensor Kalman covariance concentration; different source of randomness and estimand",
+        "evidence": "Calle--Bopardikar, arXiv:2303.07903, Secs. II and III and numerical examples: random sensor selection and Kalman error covariance concentration, not deterministic equally spaced scalar observations of fixed damped rotation.",
+        "identifier_or_url": "https://arxiv.org/abs/2303.07903",
+        "material_read": "Accessible arXiv HTML Secs. I--III (random selection models, Kalman covariance bounds) and numerical comparisons in Sec. IV",
+        "method": "Compare selected random sensors, process-noise covariance and optimization criterion to deterministic three-time D-design",
+        "title": "A Concentration-Based Approach for Optimizing the Estimation Performance in Stochastic Sensor Selection",
+        "trigger": "Recent stochastic sensor-selection article optimizes estimation performance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "718ab126-a5c2-4ea7-a31a-45dde42c241e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp exact numerical upper envelope and unique high-damping D-optimal sampling design quantify the phase-separation versus exponential decay tradeoff in two-component initial-state reconstruction. The 0.63129/a timing scale and its -0.238809 correction, and the gain over the two-sample comparator, provide a motivated practical reference for experiment scheduling. Limits to one scalar output and equal time spacing are explicit.",
+    "status": "PASS"
+  }
+}
