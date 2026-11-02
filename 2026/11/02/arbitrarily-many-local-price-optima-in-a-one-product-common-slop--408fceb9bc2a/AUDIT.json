@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact component derivative is \\(q-pq(1-q)\\), bounded in absolute value by \\(1+p/4\\) uniformly in valuation. In the induction a tiny positive new weight preserves all old strict alternating derivative witnesses. The old mixture derivative eventually approaches zero from below, so at a later price the new high-valuation component makes the derivative positive. Just beyond the new valuation all component derivatives are negative, adding one separated maximum and one intervening minimum. Analyticity gives strictness, and normalization/continuity yield positive normalized shares and open-set stability. The four finite examples were checked with 50 exact rational Taylor-remainder interval assertions in the standalone checker; the induction is the proof for arbitrary m.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aksoy-Pierson, Allon and Federgruen (2013), https://doi.org/10.1287/mnsc.1120.1664, analyze finite-segment mixed-logit price competition and provide conditions for existence and uniqueness of equilibria, while acknowledging nonquasiconcavity.",
+        "Van de Geer and den Boer (2022) give a global approximation algorithm whose running time is exponential in segment count, but not an extremum-count lower bound."
+      ],
+      "reasoning": "Equilibrium existence under additional market-share restrictions and global price algorithms do not imply an arbitrary-m lower bound for unrestricted one-product revenue stationary points. No inspected broader theorem covers the exact common-slope lower bound. General results on sums of sigmoids may provide equivalent coverage and remain a residual priority risk.",
+      "searches": [
+        "price optimization finite mixture logit common slope arbitrary number local maxima",
+        "Price Competition Under Mixed Multinomial Logit Demand Functions theorem conditions equilibria",
+        "Constrained Pricing under Finite Mixtures of Logit 2026 algorithm complexity"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1287/mnsc.1120.1664",
+      "https://doi.org/10.1287/msom.2017.0675",
+      "https://doi.org/10.1287/mnsc.2021.4272",
+      "https://tuck.dartmouth.edu/uploads/content/SSRN-id2405684.pdf",
+      "https://www.researchgate.net/publication/325183239_Product-Line_Pricing_Under_Discrete_Mixed_Multinomial_Logit_Demand_Winner-2017_MSOM_Practice-Based_Research_Competition",
+      "https://www.researchgate.net/publication/358949731_Price_Optimization_Under_the_Finite-Mixture_Logit_Model"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013 Management Science paper: no general quasiconcavity, conditional Nash-equilibrium results.",
+        "2018 M&SOM paper: two-segment common-slope nonquasiconcavity, Proposition 1 bounded-attraction sufficient concavity condition.",
+        "2022 Management Science paper: finite-mixture global optimization and explicit m=2 one-product multimodal plot."
+      ],
+      "reasoning": "Known nonquasiconcavity says only that some instance has multiple local maxima. Neither this existential assertion, a two-segment example, nor the stated restricted-concavity theorem implies the arbitrary-integer lower bound in the same one-product common-slope family. The new proof supplies a strict sign-preserving induction and nonempty open parameter sets.",
+      "searches": [
+        "10.1287/mnsc.1120.1664 nonquasiconcave profit mixed logit single product",
+        "10.1287/msom.2017.0675 Proposition 1 common price sensitivity single product",
+        "10.1287/mnsc.2021.4272 Figure 1 m=2 n=1 local maxima"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li et al. (2018), Proposition 1 and Figure 2, https://doi.org/10.1287/msom.2017.0675, give single-product common-slope two-segment nonquasiconcavity and its restricted concavity condition.",
+        "Van de Geer and den Boer (2022), section 3 Figure 1, https://doi.org/10.1287/mnsc.2021.4272, display a two-segment one-product multimodal revenue curve."
+      ],
+      "reasoning": "Equivalently the theorem constructs mixtures of logistic purchase probabilities for which p times the mixture has arbitrarily many strict peaks. Two-segment counterexamples show failure of quasiconcavity but do not imply the existence of m peaks for every m. Search did not locate an existing exact all-m formulation; failed search is not a uniqueness guarantee.",
+      "searches": [
+        "mixed logit finite mixture single product revenue arbitrary number local maxima price same coefficient",
+        "multiple local maxima single-product mixed logit finite mixture pricing arbitrarily many",
+        "arbitrarily many local maxima sum of sigmoid demand price revenue",
+        "10.1287/msom.2017.0675 sections on single-product symmetric price sensitivities"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2018 Figure 2 and the 2022 Figure 1 each concern two segments, not a table classifying arbitrary segment numbers."
+      ],
+      "reasoning": "The new statement is not a finite entry in a known benchmark table; it quantifies over all positive integers and is proved by induction. No inspected exact database or tabulation implied it.",
+      "searches": [
+        "one product finite-mixture logit m customer segments at least m local maxima price revenue unbounded",
+        "mixed multinomial logit revenue number of modes segments exact table",
+        "Li Webster Mason Kempf Figure 2 single product two segments"
+      ]
+    },
+    "rationale": "The finite-mixture logit model and two-segment single-product multimodality are known. The assessed new content is an all-integer lower bound of at least m strict local maximum prices with only one product, equal price slopes, and a relatively open set of parameters for each m. An exact induction adds a new separated maximum for every segment. The relevant inspected literature documents two-segment examples, equilibrium conditions and pricing algorithms, not this all-m theorem. No claim of definitive novelty or independent priority certification is made.",
+    "residual_risks": [
+      "An unlocated older theory of extrema of positive mixtures of logistic or sigmoidal price-response curves may already contain a general theorem implying this lower bound.",
+      "Not every historical preprint, appendix, or nonindexed mathematics document on finite-mixture pricing was exhaustively accessed.",
+      "An independent specialist priority assessment has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The established model and prior nonquasiconcavity are acknowledged. Conditional equilibrium results do not furnish the one-product all-m local-maxima lower bound.",
+        "evidence": [
+          "First online date of 22 April 2013 printed on first article page; introduction explains that mixed-logit profits can fail quasiconcavity; market-share-based conditional equilibrium structure."
+        ],
+        "identifier_or_url": "https://tuck.dartmouth.edu/uploads/content/SSRN-id2405684.pdf",
+        "material_read": "Primary paper abstract, introduction, literature review and relevant competition/equilibrium discussion in the accessible 20-page PDF; scanned its relevant nonquasiconcavity references.",
+        "method": "Lawfully open author-hosted PDF and inspect original page images and text for model, scope and theorem implications.",
+        "title": "Price Competition Under Mixed Multinomial Logit Demand Functions",
+        "trigger": "Original archived mixed-logit pricing formulation with conditional equilibrium results and explicitly acknowledged lack of quasiconcavity."
+      },
+      {
+        "assessment": "Single-product common-slope two-segment nonquasiconcavity is known, so not claimed here. The reviewed results do not contain the all-integer strict-peak induction.",
+        "evidence": [
+          "Proposition 1: a sufficient attraction-ratio condition for concavity; Figure 2(b): one-product two-segment nonquasiconcavity with equal slopes."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/325183239_Product-Line_Pricing_Under_Discrete_Mixed_Multinomial_Logit_Demand_Winner-2017_MSOM_Practice-Based_Research_Competition",
+        "material_read": "Accessible primary full text, including formulation, Proposition 1 and Proposition 2, and discussion of Figure 2 around the single-product, two-segment counterexample.",
+        "method": "Read author-available full-text HTML rather than relying on snippets; inspect relevant original results and their hypotheses.",
+        "title": "Product-Line Pricing Under Discrete Mixed Multinomial Logit Demand",
+        "trigger": "Directly related single-product, two-segment and symmetric-price-sensitivity results."
+      },
+      {
+        "assessment": "Shows the m=2 one-product multimodal example and global approximation methods, but none of the inspected theorems establishes m maxima for every segment count.",
+        "evidence": [
+          "Equation (2) specifies the finite-mixture pricing objective; Figure 1 displays two segments and one product; Theorem 2 studies approximation-algorithmic complexity."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/358949731_Price_Optimization_Under_the_Finite-Mixture_Logit_Model",
+        "material_read": "Accessible public full-text sections 1–3, relevant mathematical model and Figure 1, and numerical/algorithmic treatment in section 4.",
+        "method": "Read the full-text HTML across mathematical formulation, Figure 1, method, claims and relevant references.",
+        "title": "Price Optimization Under the Finite-Mixture Logit Model",
+        "trigger": "Exact single-product finite-mixture common-slope example and modern approximation algorithms."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "408fceb9-bc2a-44c5-963b-07076d761ea9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural pricing model has an intrinsically unbounded number of local optima in only one decision variable and for one product, without heterogeneous price coefficients. This separates segmentation-induced complexity from the familiar multiple-product nonconvexity and demonstrates a reason global or multistart price optimization can matter. The parameter-open construction is structural, not a single numerical exception. It does not claim empirical difficulty, hard complexity, or an exact upper bound.",
+    "status": "PASS"
+  }
+}
