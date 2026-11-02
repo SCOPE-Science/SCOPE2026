@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T04:11:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For b>=2, the Av=-v equations force each clique-cell sum to vanish, so the full -1 eigenspace projector is the block diagonal direct sum of R_t=I_t-J_t/t, including R_1=0. F=E_-1 circle E_-1 has cell constant eigenvalue (t-1)/t and cell-contrast eigenvalue (t-2)/t, producing precisely size-two pair-difference null directions and, for a=1, a possible singleton hub. Every other projector kills each pair difference because it lies entirely in the -1 eigenspace, hence all Schur squares kill them. In singleton-core case, positivity of the Perron-vector squared coordinate at the hub removes the remaining hub kernel direction; it is orthogonal to all pair differences. Thus the kernel and rank formula follow. For a>=2, F has all positive eigenvalues >=1/3 and the same kernel as Mhat; PSD addition preserves the lower bound. Size-three internal differences are exactly eigenvalue 1/3 since other spectral projectors have equal columns there. Independent code rebuilt adjacency/spectral projectors for 144 parameter settings and exact -1 eigenspace identities for four settings; these bounded tests corroborate, not prove, the universal argument. No b=1/singleton peripheral/weighted/Laplacian conclusions claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kimmerling 2023 dissertation search-indexed Theorem 5.1.2 (p. 56) says equal French windmills with a single hub and K_m blades have full mixing rank for m>=3.",
+          "Coutinho et al. 2018 rank lemmas concern simple-eigenvalue, bipartite or automorphism hypotheses; general exact arithmetic in 2022 does not itself state all-parameter clique-windmill ranks."
+        ],
+        "reasoning": "Equal one-hub French windmills are contained in the candidate family when a=1 and all r_j=m>=3. Kimmerling’s stated theorem does not cover a=2, heterogeneous blade sizes, size-two defects or uniform 1/3 eigenvalue bound. Algorithmic ability to compute any fixed instance does not automatically provide this unbounded formula; unknown general projector theorem could dominate.",
+        "searches": [
+          "Resultary: continuous-time quantum walks French windmill graphs full rank or rank defects size two blades; generalized friendship graph",
+          "web: \"French Windmill\" \"full rank\" \"average mixing\" Kimmerling",
+          "arXiv:1709.03591 Sections 4-5",
+          "arXiv:2208.08971 Section 2"
+        ]
+      },
+      "checked_sources": [
+        "Godsil, Average Mixing of Continuous Quantum Walks, arXiv:1103.2578v3, original 21-page PDF, Sections 1-2 including Lemma 1.1 and PSD formula: https://arxiv.org/pdf/1103.2578",
+        "Coutinho, Godsil, Guo, Zhan, A New Perspective on the Average Mixing Matrix, arXiv:1709.03591v1, original 14-page PDF, Sections 3-5 including Theorem 3.1 and Lemmas 4.1,4.3,5.1-5.3: https://arxiv.org/pdf/1709.03591",
+        "Coutinho, Baptista, Godsil, Spier, Werner, Irrational Quantum Walks, arXiv:2208.08971v1, original 22-page PDF, Section 2 and Theorem 3: https://arxiv.org/pdf/2208.08971",
+        "Kimmerling, Continuous-Time Quantum Walks on Windmill Graphs, 2023 WSU dissertation, DOI:10.7273/000006322; public repository abstract and search-indexed source page 56 Theorem 5.1.2 read; full PDF NOT obtained: https://rex.libraries.wsu.edu/esploro/outputs/doctoral/Continuous-Time-Quantum-Walks-on-Windmill-Graphs/99901086723401842",
+        "Resultary published research semantic searches (2026-10-27): heterogeneous clique-core average mixing rank/gap; French windmill quantum walk size-two rank defects; Schur-squared clique join projector: https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the candidate formula to a=1 and r_1=...=r_b=m>=3 gives full rank, thereby recapturing Kimmerling’s published result.",
+          "Existing general Schur-square/commutant identities are invoked in the proof, but these general identities are not identical to evaluating them on K_a join disjoint arbitrary cliques.",
+          "Kimmerling’s full-rank claim alone cannot imply the size-two defects or larger-core uniform spectral lower bound."
+        ],
+        "reasoning": "The submitted theorem implies the identified narrower prior result, not conversely. Other published results allow its derivation once its nontrivial graph-specific projector is supplied; no directly covering stronger source found. The full dissertation is uninspected and could contain a wider statement.",
+        "searches": [
+          "Kimmerling 2023 DOI:10.7273/000006322, indexed p56 Theorem 5.1.2",
+          "Godsil arXiv:1103.2578 Lemma 1.1",
+          "Coutinho et al. arXiv:1709.03591 Theorem 3.1 and Lemmas 4.1-5.3",
+          "Coutinho et al. arXiv:2208.08971 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Godsil Lemma 1.1 gives Mhat=sum E_lambda circle E_lambda for every graph. This is a universal identity, not a classification of its kernel on clique-cored windmills.",
+          "Coutinho et al. Theorem 3.1 identifies Mhat as a Gram matrix; Lemma 4.1 identifies its rank via diagonal commutant projection, without explicitly deriving this family’s rank or quantitative spectral gap."
+        ],
+        "reasoning": "Equivalently the question asks which diagonal vectors vanish under spectral averaging or the projector Schur-square sum; the submitted calculation of the -1 eigenspace and its block structure supplies the family-specific answer. No inspected equivalent conclusion was found. A general enough algebraic formulation remains a residual risk.",
+        "searches": [
+          "Resultary: average mixing matrix rank and kernel of heterogeneous windmill graphs composed of core clique joined to disjoint cliques; positive spectral gap 1/3",
+          "web: \"average mixing\" \"generalized friendship\" rank",
+          "Godsil arXiv:1103.2578 Sections 1-2",
+          "Coutinho et al. arXiv:1709.03591 Sections 3-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected cited rank results give only the uniform family, not a lookup table for every tuple (a,b,r_1,...,r_b).",
+          "The related Resultary hits concern other invariants (dissociation polynomials, clique partitions, spectral polytopes), not a precomputed average-mixing kernel/rank/gap database."
+        ],
+        "reasoning": "A finite graph database could not directly imply the infinite all-size rank formula and gap. No table with the same coverage identified; negative searches are evidence only of bounded investigation, not novelty proof.",
+        "searches": [
+          "web: \"average mixing matrix\" \"windmill\" rank heterogeneous clique graphs",
+          "web: \"average mixing\" \"clique\" \"positive definite\" \"twins\"",
+          "Resultary: positive semidefinite Schur square of eigenspace projector clique core join arbitrary clique blade sizes",
+          "Kimmerling 2023 dissertation abstract and indexed Theorem 5.1.2"
+        ]
+      },
+      "rationale": "Targeted published-finding searches and comparison with original average-mixing projector, commutant, exact-arithmetic and French-windmill rank sources found no prior statement implying the complete arbitrary-core, unequal-blade rank formula AND 1/3 uniform gap. General spectral-idempotent theory supplies the proof framework, not the derived graph-specific projector and its exact cell-block spectrum. Kimmerling 2023 Theorem 5.1.2 establishes full rank for one-hub equal French windmills with blades K_m, m>=3, a strict special case. Best-of-knowledge PASS with substantial unread-dissertation and general-theorem priority risks, not an absolute novelty certificate.",
+      "residual_risks": [
+        "The entire Kimmerling 2023 dissertation could not be read; indexed p.56 theorem and abstract are not sufficient to rule out all later generalizations in the thesis. Lawful OA PDF was expired/unavailable and authorized Oxford retrieval returned vpn_disconnected.",
+        "An unidentified general theorem about Schur-square eigenspace projectors of joins/equitable clique partitions could imply the full special case, despite searches.",
+        "Resultary semantic results are incomplete discovery; failed queries are not a proof of novel priority.",
+        "The result is a modest application of universal average-mixing projector theory, not a new general mixing method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General projector identity and PSD proof established; no windmill rank-and-gap theorem in inspected material",
+          "evidence": [
+            "Lemma 1.1 gives sum E_r^{circ 2}; Section 2 states Schur PSD and eigenvalue range [0,1]."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1103.2578",
+          "material_read": "Full accessible paper text searched; original PDF pp. 1-4 read closely, including Lemma 1.1 and Lemmas 2.1-2.2, with screenshot of printed p. 3",
+          "method": "lawful arXiv primary PDF parsed text and PDF screenshot",
+          "title": "Average Mixing of Continuous Quantum Walks",
+          "trigger": "Original universal average-mixing spectral-idempotent and PSD formula"
+        },
+        {
+          "assessment": "Universal Gram/commutant framework and limited rank theorems do not state this heterogeneous clique-core gap and kernel classification",
+          "evidence": [
+            "Theorem 3.1: Gram of average states; Lemma 4.1 rank via projection; Lemmas 5.1-5.3 special simple-spectrum/bipartite/automorphism conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1709.03591",
+          "material_read": "Original PDF pp. 1,4,6-9, relevant Sections 3-5 including Theorem 3.1 and rank lemmas, plus screenshot of printed p.4",
+          "method": "lawful arXiv primary PDF text/page inspection",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "Potential stronger rank/commutant classification"
+        },
+        {
+          "assessment": "Exact computation algorithm for any integral Hamiltonian does not itself state this symbolic family-wide kernel or 1/3 gap",
+          "evidence": [
+            "Section 2 Theorem 3 establishes exact computability of rational average-mixing entries."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.08971",
+          "material_read": "Original PDF introduction and Section 2, including Theorem 3, read; screenshot printed p.3",
+          "method": "lawful arXiv primary PDF text/page inspection",
+          "title": "Irrational Quantum Walks",
+          "trigger": "General exact algorithm potentially dominating fixed-family computation"
+        },
+        {
+          "assessment": "The read passage proves full-rank uniform one-hub French windmills for m>=3 only; broader uninspected material remains a priority risk",
+          "evidence": [
+            "Theorem 5.1.2 states full rank mb+1 for b equal K_m blades, m>=3; proof uses -1 spectral projector Schur square.",
+            "Repository abstract describes unequal-length blades only in Dutch windmill context, not a general heterogeneous French formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.7273/000006322",
+          "material_read": "WSU repository abstract and search-indexed PDF extract for Chapter 5 Theorem 5.1.2 on p.56; full 100-page dissertation was not accessible",
+          "method": "OA repository landing, indexed source passage, attempted open-access PDF download (expired pre-signed URL); authorized Oxford access returned vpn_disconnected; no PDF full-text claim",
+          "title": "Continuous-Time Quantum Walks on Windmill Graphs",
+          "trigger": "Same graph family, direct possible priority overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unweighted clique-cored windmills are a natural graph family with arbitrarily many possibly unequal dense blade subgraphs meeting in a common clique. The full exact kernel/rank formula identifies precisely the size-two cells losing long-time quantum average-mixing degrees of freedom, including the core-size-two anomaly, while the sharp size-independent 1/3 lower spectral bound quantifies surviving modes. This all-parameter classification is not determined by the previously published uniform one-hub full-rank theorem or by pointwise numerical computations. The contribution is narrow and uses standard projector methods but gives a motivated exact structural invariant and stability constant a researcher could need.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Godsil, Average Mixing of Continuous Quantum Walks, arXiv:1103.2578v3, original 21-page PDF, Sections 1-2 including Lemma 1.1 and PSD formula: https://arxiv.org/pdf/1103.2578",
+    "Coutinho, Godsil, Guo, Zhan, A New Perspective on the Average Mixing Matrix, arXiv:1709.03591v1, original 14-page PDF, Sections 3-5 including Theorem 3.1 and Lemmas 4.1,4.3,5.1-5.3: https://arxiv.org/pdf/1709.03591",
+    "Coutinho, Baptista, Godsil, Spier, Werner, Irrational Quantum Walks, arXiv:2208.08971v1, original 22-page PDF, Section 2 and Theorem 3: https://arxiv.org/pdf/2208.08971",
+    "Kimmerling, Continuous-Time Quantum Walks on Windmill Graphs, 2023 WSU dissertation, DOI:10.7273/000006322; public repository abstract and search-indexed source page 56 Theorem 5.1.2 read; full PDF NOT obtained: https://rex.libraries.wsu.edu/esploro/outputs/doctoral/Continuous-Time-Quantum-Walks-on-Windmill-Graphs/99901086723401842",
+    "Resultary published research semantic searches (2026-10-27): heterogeneous clique-core average mixing rank/gap; French windmill quantum walk size-two rank defects; Schur-squared clique join projector: https://github.com/Resultary/2026"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The positive 1/3 lower eigenvalue bound is claimed only for a>=2; for a=1 only t=3 peripheral internal eigenmodes are asserted.",
+    "No theorem for b=1, singleton peripheral cliques, weighted joins or Laplacian walks.",
+    "Full Kimmerling thesis PDF inaccessible; Oxford VPN disconnected; originality qualified with concrete residual risk.",
+    "The public metadata remains unsanitized in source; scientific PASS does not mean publication-ready or externally certified."
+  ],
+  "schema_version": 1
+}
