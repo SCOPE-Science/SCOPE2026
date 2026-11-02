@@ -1,11 +1,21 @@
-# Scientific review — First finite two-list insertion–deletion separation
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact subsequence-incidence criterion was tested by exhaustive fixed-weight codebook enumeration for every length from two through five. The highest admissible sizes in the insertion/deletion channels and the absence of any larger codebook were reproduced by an independently implemented forbidden-triple dynamic program. This certifies an exhaustive finite enumeration, not a claim about longer lengths. For five-bit insertion codes, the 185 maxima were partitioned into 52 reversal/complement orbits, with orbit sizes verified against the complete list.
+## correctness
 
-**Originality: PASS within inspected evidence.** The closest primary works are Con–Doron–Ribeiro (arXiv:2607.03989), Kiah–Wei–Zeng (arXiv:2609.21395), and Banerjee–Con–Wachter-Zeh–Yaakobi (arXiv:2610.15767). Their asymptotic capacities, budget conversion/bounds, and restricted-code average list sizes do not establish the exact worst-case two-list optima at lengths two through five. The nearest mathematical-record claim gives the six-bit deletion-only two-list optimum, not the five-bit insertion/deletion comparison or extremal census. An unknown finite-codebook table remains a priority risk, and publication-search absence is not a novelty proof.
+PASS
 
-**Value: PASS.** The earliest strict separation occurs at length five, with a gap of two codewords between equal-error two-list insertion and deletion capacities. The full count and symmetry classification of optimal length-five insertion codes supply natural exact finite data in the emerging insertion-list-decoding problem. No general asymptotic, large-length, or independent certification claim is made.
+For each received word y, form its exact set of source subsequences (insertions) or supersequences (deletions). A code C is list-two admissible exactly when the intersection with every received-word incidence set has size at most 2, equivalent to avoiding all three-codeword forbidden triples. The supplied source has a complete constant-popcount enumeration at the optimum k and next k+1 over every binary codebook at n=2..5; the second source implementation independently computes three-word common shortest supersequence / longest common subsequence rather than incidence masks. Crucially, downward closure turns absence at k+1 into impossibility of all larger codes. I independently implemented a third C++ forbidden-hypergraph enumerator and checked each of eight optima/next-level counts exactly, obtaining the stated labeled-optimum vectors. A separate independent group-action calculation of the 185 insertion optima yields 41 orbits size four, ten size two, and one singleton. For n=5 all 32 codewords, 128 insertion outputs, and 8 deletion outputs are covered; there is no infinite-length inference.
 
-**Limitations.** Computations are exhaustive only because all possible codebooks for each finite input length were enumerated; no larger-length statement follows. External independent review has not occurred. The finite classification could have appeared in previously unindexed tabulations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared equivalent mathematical formulations, stronger coverage, exact-data overlap, and logical prior implication using primary material and actual Resultary searches. No materially inspected theorem was found to imply the complete final claim; this is a best-of-knowledge, not an exhaustive novelty certificate. All unread relevant material and other risks are recorded.
+
+## value
+
+PASS
+
+This is the first natural finite separation of equal-error-budget insertion and deletion list-two code capacities, together with a complete extremizer census rather than a lone witness. Exact small-blocklength examples are relevant test cases for emerging list-decoding conversion/capacity results; the 52 orbit types expose structure not captured by asymptotic rates. Its finite nature is deliberate and not a weakness by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
