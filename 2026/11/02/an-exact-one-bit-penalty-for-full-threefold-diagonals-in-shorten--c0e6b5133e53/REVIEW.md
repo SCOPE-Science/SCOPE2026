@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** At length \(2^r-2\), a rank-\(r\) parity-check matrix with distinct nonzero columns omits exactly one nonzero syndrome; the nonzero sum contradicts the all-one word forced by the full threefold diagonal. An explicit \(\mathbb F_4\)-line construction meets the resulting rank-\(r+1\) bound and includes the whole diagonal, while every equality case corresponds to a spanning partial binary line spread. The field arithmetic, block ordering, rank, nonzero/distinct columns and short-end obstruction have been checked with the included standalone program. Computation is corroboration, not an infinite proof. The proof applies only to odd \(r\ge3\) and has no hidden enumeration or numerical extrapolation.
+
+**Originality (PASS, residual priority risk).** The dated primary study [1] establishes no penalty only for the twofold *even-weight* diagonal (Theorem 6.6) and poses the \(s\)-fold extension in Problem 6.31. Its stated theorem cannot imply a full threefold result. The unrestricted shortened-Hamming optimum [1,2] concerns codes without the diagonal. The classical \(\mathbb F_4\) spread material [3] provides a geometric construction but does not assert the constrained dimension optimum or the equality geometry. Direct scholarly search and mathematical-record comparisons found no result already implying the stated exact constrained dimension. Residual risk: these short standard ingredients may have been combined in unindexed work, and the check does not prove global publication priority.
+
+**Value (PASS).** This is an infinite sharp and structurally characterized case of the explicit higher-fold problem, and sharply contrasts with the zero-cost twofold result: a full threefold diagonal forces exactly one extra parity bit. The constraint has a natural error-correction meaning and the minimum attained dimension is not an arbitrary isolated finite datum. The result does not solve general fold multiplicities or all lengths.
+
+**Closest literature.** [1] Jon-Lark Kim, arXiv:2610.33676v1 (first public 2026-10-24), Theorem 6.6 and Problem 6.31; [2] Best–Brouwer (1977) on classical shortened Hamming codes; [3] Van de Voorde (2016) on Desarguesian spreads and field reduction. Proof ingredients from these sources are not presented as new.
+
+Self-review: passed. Independent audit: not yet performed.

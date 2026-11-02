@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Exact all-r parity-check proof: h=r would omit one syndrome vector and force nonzero total column sum despite the all-one diagonal codeword. F4-line triple columns in h=r+1 dimensions are distinct, span, sum to zero groupwise, and yield minimum distance three. Every optimum is exactly a spanning partial line spread. verify_triple.py checks full block ordering, rank and diagonal on r=3,5,7,9 plus all seven r=3 omissions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kim Theorem 6.6 is only the two-block even-weight diagonal; Problem 6.31 expressly asks for three or more blocks.",
+        "Best–Brouwer 1977 concerns unconstrained shortest-Hamming optimality, not required diagonal containment."
+      ],
+      "reasoning": "A stronger unconstrained rate theorem does not imply existence with the prescribed full diagonal. The twofold even-weight theorem has different length and subspace hypotheses and cannot yield the threefold all-one obstruction or construction.",
+      "searches": [
+        "Kim 2026 Theorem 6.6 higher-fold Problem 6.31 full diagonal redundancy",
+        "shortened Hamming code length 2^r-2 all ones subcode distance three",
+        "\"3-fold\" \"diagonal-coherent\" binary code Hamming"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.33676v1",
+      "https://doi.org/10.1016/0012-365X(77)90158-3",
+      "https://doi.org/10.1016/j.laa.2016.05.038"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6.6 [Kim] yields n-r for s=2 containing an even-weight subdiagonal; our s=3 full-diagonal case yields n-r-1.",
+        "Best–Brouwer verifies optimal unrestricted Hamming shortening; field reduction supplies F4-lines only."
+      ],
+      "reasoning": "Neither the d=3 twofold theorem, the unrestricted Hamming bound nor the standalone spread existence gives both upper and lower exact constrained dimensions. Our proof supplies the missing all-one obstruction, correct three-block construction and equality characterization.",
+      "searches": [
+        "arxiv:2610.33676v1 Theorem 6.6 Problem 6.31",
+        "Best Brouwer 1977 triply shortened binary Hamming optimal",
+        "Van de Voorde 2016 Desarguesian spreads field reduction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kim, arXiv:2610.33676v1, Problem 6.31 defines the identical ι_s operation but asks for a higher-fold analogue without giving this dimension formula.",
+        "Van de Voorde 2016 gives field reduction and spreads, not a threefold-diagonal code theorem."
+      ],
+      "reasoning": "Equivalent language includes containing the complete 3-fold repetition subspace, three-column zero-sum parity-check grouping, and disjoint two-dimensional syndrome subspaces. The inspected mathematical source and searches do not supply an equivalent constrained dimension formula; generic field-reduction existence alone does not entail the one-bit obstruction.",
+      "searches": [
+        "\"3-fold\" \"diagonal-coherent\" binary code Hamming",
+        "\"triple\" \"diagonal\" \"2^r - 2\" Hamming code",
+        "binary linear codes length 2^r-2 containing tripled diagonal minimum redundancy F4 lines"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical Hamming-code parameter tables state unrestricted dimensions for shortened Hamming lengths, not the restricted full-diagonal optimum.",
+        "Kim 2026 tabulates twofold extremal diagonals rather than the threefold all-subspace case."
+      ],
+      "reasoning": "Known length/distance/dimension entries are not databases of forced-subspace inclusion. No direct exact constrained parameter entry was found; a failed search alone is not proof of novelty.",
+      "searches": [
+        "binary Hamming subcode contains 3-fold repetition diagonal full length optimal",
+        "\"diagonal-coherent\" \"tripled\" \"distance\" binary linear code",
+        "Desarguesian spread partial 2-spread parity check triple constrained binary code"
+      ]
+    },
+    "rationale": "The inspected Kim preprint explicitly poses higher-fold analogues in Problem 6.31 and proves only twofold even-weight coherence. Shortened Hamming and field-reduction references do not state the sharp threefold full-subspace dimension penalty. Direct scholarly and indexed-record comparisons revealed no stronger covering result. Unindexed priority risk remains.",
+    "residual_risks": [
+      "An unindexed or independently obtained theorem may already combine standard shortened-Hamming and partial-spread ingredients.",
+      "Best–Brouwer full article, although its abstract concerns unconstrained optimality, was not inspected in full.",
+      "No exhaustive theorem-level claim to worldwide publication priority or independent referee verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: twofold even-weight theorem; threefold higher-fold problem left open there.",
+        "evidence": [
+          "arxiv:2610.33676v1, PDF pages 11–13 and 22, Theorem 6.6, Problem 6.31"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.33676v1",
+        "material_read": "Abstract, definition and Proposition 6.2, complete Theorem 6.6 proof and discussion, final Problems 6.30–6.32 (including visually inspected Problem 6.31).",
+        "method": "Author manuscript PDF text and page-image comparison",
+        "title": "Extremal diagonal-coherent binary codes: shortened Hamming cores, deep holes, and the 64 I-Ching hexagrams",
+        "trigger": "Direct primary paper defining s-fold diagonal and posing Problem 6.31"
+      },
+      {
+        "assessment": "ABSTRACT_NOT_COVERING: no stated prescribed full threefold-diagonal subspace; uninspected body is a limited residual priority risk.",
+        "evidence": [
+          "M. R. Best and A. E. Brouwer, Discrete Mathematics 17 (1977), 235–245"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(77)90158-3",
+        "material_read": "Peer-reviewed publication metadata and abstract describing unrestricted optimality of one/two/three-times-shortened binary Hamming codes.",
+        "method": "Institutional bibliographic record and abstract; full article not inspected",
+        "title": "The triply shortened binary Hamming code is optimal",
+        "trigger": "Potential dominating optimum code result for shortened Hamming lengths"
+      },
+      {
+        "assessment": "CONSTRUCTION_ONLY: standard field reduction gives pairwise disjoint F4-lines, but not exact constrained code dimension at shortened-Hamming lengths.",
+        "evidence": [
+          "Van de Voorde, Linear Algebra and its Applications 507 (2016), §2.1 and Lemma 2.2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2016.05.038",
+        "material_read": "Abstract and §2.1 definitions, vector-space partition construction and Lemma 2.2; inspected searchable full-text section.",
+        "method": "Open full-text article view",
+        "title": "Desarguesian spreads and field reduction for elements of the semilinear group",
+        "trigger": "Prior field-reduction construction may already provide stronger geometric coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c0e6b513-3e53-4d38-8a68-56e58c42f968",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Infinite exact constrained optimum and structural equality correspondence directly address the higher-fold diagonal question explicitly raised in Kim Problem 6.31. Reveals a sharp one-bit cost unlike the prior twofold no-cost result. Natural finite-field line-spread construction; not a routine isolated parameter substitution.",
+    "status": "PASS"
+  }
+}
