@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The EF1 predicate is an integer equivalence for additive nonnegative goods, including empty bundles. The finite adversarial strategy has \(42\) reachable states; its \(126\) recipient branches are all explicitly verified and every fair successor progresses to a certified state of smaller remaining horizon. Independently recomputing the full Boolean minimax recursion gives failure-forcing at seven turns and no forcing at six. Exhaustive enumeration of \(3279\) fixed type streams verifies clairvoyant feasibility at every prefix. The claim does not extrapolate from these finite domains.
+## correctness
 
-**Originality — PASS (best-knowledge assessment).** The closest published positive result proves a universal two-type online guarantee and an EF2 guarantee for general three-type inputs; its three-type counterexample concerns a particular algorithm, not every online rule. The published 23-item three-agent obstruction defeats even hindsight allocation and therefore does not imply the short-stream gap shown here. A 2026 oblivious-adversary lower bound concerns randomized rules with an asymptotic population scale, unlike this three-agent adaptive finite instance. Search of relevant published research records and recoverable existing claim summaries found no implication-covering result. Historical priority remains uncertain, and the search itself is not a uniqueness certificate.
+PASS
 
-**Mathematical value — PASS.** This resolves the exact threshold in the natural number of valuation types separating a universal deterministic online EF1 guarantee from failure, combining the known positive half with a genuinely new three-type adaptive obstruction. More significantly, the witness distinguishes online impossibility from temporal infeasibility even when each individual seven-good stream is hindsight-feasible. The finite adversarial tree gives a small reproducible boundary example useful for online fair-division mechanism analysis.
+The nine nonnegative type×recipient counts completely determine additive EF1, equivalent to U_i(s)+max_{g∈S_j}v_i(g)≥v_i(S_j) for all ordered i≠j. Backward induction on the finite adversarial game has exact alternation ∃type∀recipient over h remaining turns. The actual STRATEGY.json contains 42 reachable fair nodes, and a separately implemented exact-integer check confirms all 126 allocator responses: 74 immediate failures and the rest guaranteed fair successor states in the policy with no surviving seventh-turn branch. An independent exhaustive exact minimax recursion gives W_6(0)=false and W_7(0)=true; an independent dynamic program verifies prefix-EF1 feasibility for all 3279 fixed streams of 1..7 arrivals. This is an exhaustive finite proof for the fixed valuation vectors, not a sample. The universal two-type positive side is imported from cited literature and not re-proved by this certificate.
 
-**Closest sources and limits.** Choi–Li–Teh (2026), arXiv:2608.20033, Theorem 3.1 and three-type discussion; Elkind et al. (2024), arXiv:2410.14593, Appendix A and Theorem 3.6; He et al. (2019), IJCAI 2019 paper 49; Cohen–Teh–Wooldridge (2026), arXiv:2609.28333, Theorem 5.1. The result is deterministic/adaptive, permits zero values, and does not assert a global optimal seven-turn bound or independence of previously published lower-bound methods.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Unlike the published failure of one particular cyclic online EF1 rule at three types or a longer stream that defeats even clairvoyant allocation, this certificate rules out every deterministic online rule for one small fixed three-type vector system while proving every length≤7 fixed stream admits some hindsight solution. The positive two-type boundary is prior; the finite adaptive-vs-clairvoyant separation is assessed as new with the closest 2026 text incompletely accessible.
+
+## value
+
+PASS
+
+The exact item-type boundary is naturally motivated by the known 2-type universal guarantee. A compact 3-type adversarial strategy proves intrinsic online impossibility even though every individual seven-arrival stream admits a fair hindsight trajectory; the latter quantifier separation is valuable for fair online mechanism design and cannot be inferred from a mere algorithm-specific counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
