@@ -1,0 +1,12 @@
+# Review of the largest-coordinate / Schur-convex dependence theorem
+
+## Correctness — PASS
+The proof uses the constant-density linear map from the ordered simplex chamber to the ranked gaps \(Y_j=j(x_j-x_{j+1})\); a divergence theorem identity for uniform Dirichlet yields an exact covariance representation with positive pairwise weights. The Schur–Ostrowski gradient order makes each term nonnegative, and positivity of the simplex density plus connectedness proves strictness for every nonconstant admissible function. Shannon entropy follows by regularization and monotone convergence, with a separately checked two-dimensional calculation. The extracted standalone program passed 64 independent rational/analytic assertions. Boundary degeneracies and all-dimensional quantifiers are addressed in the proof; finite tests are not offered as proof.
+
+## Originality — PASS, with priority risk
+The inspected sections of Barthe–Gamboa–Lozada-Chang–Rouault (arXiv:1002.1544) show negative association for disjoint coordinate subsets but not for the maximum and a symmetric Schur-convex statistic, which both depend on all coordinates. Itkin (arXiv:2302.13707) studies ranked Dirichlet distributions and moment information, not the universal covariance ordering. An exact previous maximum/Greenwood covariance is a single special case and does not imply this class-wide sign theorem. Semantic and phrase searches for the full generality, rank-gap transformation, and entropy dependence found no dominating statement. An older majorization/association theorem or uninspected source could still cover it; searches do not certify worldwide historical uniqueness.
+
+## Mathematical value — PASS
+The maximum component and Schur-convex concentration indices measure complementary aspects of unevenness in random probability vectors, while Schur-concave entropies measure diversity. Determining the sign for an entire natural preorder class removes the need for case-specific mixed-moment calculations. The positive-pair formula is a structural mechanism, rather than merely a reparameterized Greenwood calculation; it covers functions for which no simple polynomial moment expression is available. Applications to nonlinear diversity statistics and uniform spacings are plausible. No novel marginal distribution or joint stochastic domination is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
