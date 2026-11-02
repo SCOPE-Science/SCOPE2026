@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The last-first-arrival density gives exact winner weights proportional to q_i(t); conditional nonwinning counts are independent positive-truncated Poisson, yielding the stated size-biased Poisson-binomial law. For varying Bernoulli parameter q, the likelihood ratio is increasing in a_{s-1}/a_s; log-concavity of the other independent Bernoulli sum proves this sequence is increasing, including the endpoint. All q_i(t) decrease strictly with t. Thus strict MLR, strict stochastic regression, and negative covariance for all stated integrable increasing transforms follow. The actual standalone checker passed 16,538 assertions, including an independent exact rational state recursion compared with Poissonized integration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adler–Oren–Ross (2003), The Coupon-Collector’s Problem Revisited, Section 3, pp. 515–518; https://oren.ieor.berkeley.edu/pubs/coupon.pdf",
+        "Long (2026), Extremality and Limit Laws for the Siblings of the Coupon Collector, Sections 2 and 6; https://arxiv.org/abs/2606.29635",
+        "The 2026 paper’s monotonicity compares album deficits under changes in the number of coupon types, not the full conditional singleton law at fixed nonuniform rates."
+      ],
+      "reasoning": "Inspected the nearest general-case probability literature for a stronger result covering the exact fixed-vector conditional law. Adler–Oren–Ross obtains nonuniform expectations by Poissonization; Long obtains nonuniform mean expressions and a different parameter monotonicity. Neither presented a result implying the strict time-indexed likelihood-ratio claim.",
+      "searches": [
+        "\"nonuniform coupon collector\" \"singletons\" stochastic ordering",
+        "The Coupon-Collector’s Problem Revisited Adler Oren Ross Section 3",
+        "Extremality and Limit Laws for the Siblings of the Coupon Collector Theorem 4 monotonicity",
+        "Coupon collector cover time T conditional distribution number of singletons S given continuous coverage time; size-biased poisson-binomial formula likelihood ratio ordering arbitrary unequal rates"
+      ]
+    },
+    "checked_sources": [
+      "Myers–Wilf (2003), Some New Aspects of the Coupon-Collector’s Problem, Section 4, eqs. (44)–(47); https://arxiv.org/pdf/math/0304229",
+      "Adler–Oren–Ross (2003), The Coupon-Collector’s Problem Revisited, Section 3, pp. 515–518; https://oren.ieor.berkeley.edu/pubs/coupon.pdf",
+      "Long (2026), Extremality and Limit Laws for the Siblings of the Coupon Collector, Sections 2 and 6; https://arxiv.org/abs/2606.29635",
+      "Published semantic search records on general Poisson-binomial laws, nonuniform coupon collection and size-biased stochastic orders."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Myers–Wilf (2003), Some New Aspects of the Coupon-Collector’s Problem, Section 4, eqs. (44)–(47); https://arxiv.org/pdf/math/0304229",
+        "Adler–Oren–Ross (2003), The Coupon-Collector’s Problem Revisited, Section 3, pp. 515–518; https://oren.ieor.berkeley.edu/pubs/coupon.pdf",
+        "Long (2026), Extremality and Limit Laws for the Siblings of the Coupon Collector, Sections 2 and 6; https://arxiv.org/abs/2606.29635",
+        "The proof additionally uses a coordinatewise likelihood-ratio lemma for size-biased Bernoulli sums; mere expectation identities do not imply likelihood-ratio ordering."
+      ],
+      "reasoning": "The equal-case joint distribution and general-case integral expectations permit some marginal or first-moment specializations; they do not logically imply the complete nonuniform conditional law, its likelihood-ratio inequalities at all thresholds, or covariance for arbitrary increasing transforms. Standard Bernoulli log-concavity is recognized as a known premise, not claimed as an original contribution.",
+      "searches": [
+        "Myers Wilf 2003 equation 44 singleton joint law",
+        "Adler Oren Ross 2003 section 3 nonuniform album expectation",
+        "Long 2026 Proposition 1 Poissonized identity and Theorem 4 monotonicity",
+        "poisson binomial log concavity size-biased likelihood-ratio order"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Myers–Wilf (2003), Some New Aspects of the Coupon-Collector’s Problem, Section 4, eqs. (44)–(47); https://arxiv.org/pdf/math/0304229",
+        "Adler–Oren–Ross (2003), The Coupon-Collector’s Problem Revisited, Section 3, pp. 515–518; https://oren.ieor.berkeley.edu/pubs/coupon.pdf",
+        "Size-biased Bernoulli sum equals a last-arrival-marked Poisson mixture by the identity s P(Y=s)=sum_i P(B_i=1,Y=s)."
+      ],
+      "reasoning": "Compared the conditional mass function, the last-arrival mixture, generating function z F′(z)/F′(1), and the strict likelihood-ratio ordering. Myers–Wilf provides a joint discrete law for uniform coupons, but does not cover arbitrary unequal rates or continuous-time MLR ordering. General Poisson-binomial terminology alone is not a statement of this conditional ordering.",
+      "searches": [
+        "\"coupon collector\" \"singletons\" \"conditional\" \"completion time\"",
+        "\"size-biased\" \"Poisson-binomial\" \"likelihood ratio\"",
+        "conditional probability generating function of singleton counts at coupon collector coverage time",
+        "Number of singleton coupon types conditioned on exact Poissonized completion time: monotone likelihood ratio as time increases with unequal probabilities"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published mathematical records included “Balanced non-uniform reset coupon collectors” (2026/9/17), “Poisson-binomial cumulant effective-trial hierarchy” (2026/9/20), and “Exact two-crossing transport law for Bernoulli pair balancing” (2026/10/4), addressing different questions.",
+        "Myers–Wilf’s explicit equal-probability singleton count formula is not a nonuniform conditional table."
+      ],
+      "reasoning": "No exact table covering arbitrary rate vectors and conditioning on continuous first-coverage time was located. The retrieved tables concern unrelated reset processes, general Poisson-binomial cumulants, or equal-probability unconditioned counts. No absence-of-search-result uniqueness claim is made.",
+      "searches": [
+        "nonuniform coupon collector conditional singleton probability exact table",
+        "coupon collector singleton counts likelihood ratio conditional first coverage time",
+        "Coupon collector cover time T conditional distribution number of singletons S given continuous coverage time; size-biased poisson-binomial formula likelihood ratio ordering arbitrary unequal rates",
+        "Number of singleton coupon types conditioned on exact Poissonized completion time: monotone likelihood ratio as time increases with unequal probabilities"
+      ]
+    },
+    "rationale": "The exact positive size-biased Poisson-binomial conditional law and strict all-time likelihood-ratio order for every positive nonuniform coupon profile were not entailed by the equal-probability joint distribution of Myers–Wilf, general nonuniform expectations of Adler–Oren–Ross, or the distinct parameter-monotonicity theorem of Long. Direct searches of equivalent conditional, Poissonized and likelihood-ratio descriptions did not find a covering claim. Historical priority risk remains: an implicit general point-process theorem may subsume it.",
+    "residual_risks": [
+      "Historical priority remains provisional: a general older order-statistics/marked-Poisson-process result may implicitly contain the same conditional order.",
+      "A broadly cited elementary Bernoulli size-bias lemma may exist without explicit coupon-collector application; the value assessment relies on the full nonuniform conditional time theorem, not novelty of log-concavity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uniform coupon distribution and discrete stopping length; no arbitrary nonuniform profile or conditional MLR theorem in inspected directly relevant section.",
+        "evidence": "Equation (44) gives a joint discrete stopping time/singleton count formula in uniform model; equation (47) gives its unconditional singleton distribution.",
+        "identifier_or_url": "arxiv:math/0304229v1",
+        "material_read": "PDF table of contents, introduction, Section 4 pages 18–20 including equations (44)–(47); no appendix in the paper.",
+        "method": "Primary open-access PDF text and page-image inspection.",
+        "title": "Some New Aspects of the Coupon-Collector’s Problem",
+        "trigger": "Direct joint singleton and completion-time distribution is the closest early published result."
+      },
+      {
+        "assessment": "General-profile expectations, inequalities and simulation estimator for later albums; no distribution conditional on the exact continuous coverage time or its MLR order.",
+        "evidence": "Section 3 introduces independent Poisson rate streams and integrates expected unfilled types; propositions treat expectations rather than the conditional pmf or all increasing-transform ordering.",
+        "identifier_or_url": "https://oren.ieor.berkeley.edu/pubs/coupon.pdf",
+        "material_read": "Entire six-page primary PDF; especially Section 3, pages 515–518, formulas (4)–(11).",
+        "method": "Primary authorized open PDF text and screenshot inspection.",
+        "title": "The Coupon-Collector’s Problem Revisited",
+        "trigger": "General unequal-probability coupon streams and Poissonization could dominate the proposed identity."
+      },
+      {
+        "assessment": "Poissonized nonuniform expectation and monotonicity as number of types changes, plus equal-probability coupling; not the fixed-rate conditional cover-time likelihood-ratio law.",
+        "evidence": "Proposition 1: expected missing types in a later album. Section 6: top spacings under uniform rates and varying number of types.",
+        "identifier_or_url": "arxiv:2606.29635",
+        "material_read": "Full publicly accessible HTML sections 1–2 and 6, including Proposition 1, Theorem 4 summary, and ranked top-spacing representation.",
+        "method": "Primary open-access rendered full-text HTML inspection.",
+        "title": "Extremality and Limit Laws for the Siblings of the Coupon Collector",
+        "trigger": "Later general-probability sibling-collector theory explicitly advertises stochastic monotonicity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "261de083-82e0-46c8-b4a8-c11808ff71da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The time-conditioned singleton count is a canonical efficiency indicator for unequal coupon collection. The complete distribution and strict MLR comparison for arbitrary positive rate profiles give simultaneous control of all conditional tails and increasing losses, not merely an ordinary expected singleton count. This structural negative regression can be applied to heterogenous sampling and multi-threshold collection diagnostics.",
+    "status": "PASS"
+  }
+}
