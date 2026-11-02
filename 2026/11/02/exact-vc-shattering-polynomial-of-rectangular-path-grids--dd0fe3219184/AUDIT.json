@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The graph product distance is Manhattan distance, making all and only nonempty convex sets coordinate rectangles. The extremum exclusion criterion is necessary and sufficient for all traces. Unique obstructing points and weak-quadrant inclusion–exclusion give the cubic coefficient; a unique left/right/bottom/top bijection and exact squared-gap sums give the quartic coefficient. Boundary cases m,n=1 or 2 and limits are handled. Finite independent checks ran successfully, but are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Thiessen–Gärtner, ECML PKDD (2022), Section 4 and Proposition 15 address general VC bounds for graph convex sets; Section 5 discusses a two-row grid as a halfspace-labeling example; no exact support-count formulas in the inspected text.",
+        "The classical real-rectangle VC-dimension proof bounds possible support sizes but does not report a finite lattice-grid census."
+      ],
+      "reasoning": "A general rectangular-range theory certainly supplies the geometric obstruction and its upper bound; the named primary sources do not explicitly cover the all-size integer-grid coefficient polynomial. An unlocated exact count under another name is the principal remaining priority risk.",
+      "searches": [
+        "VC dimension finite grid axis aligned rectangles with degenerate coordinates number of shattered sets",
+        "shattering polynomial finite axis aligned rectangles Cartesian product paths",
+        "Online Learning of Convex Sets on Graphs Thiessen Gärtner grid VC dimension PDF"
+      ]
+    },
+    "checked_sources": [
+      "Thiessen and Gärtner (2022), DOI 10.1007/978-3-031-26412-2_22",
+      "Blum, Hopcroft, Kannan (2018), Foundations of Data Science Section 5.11.1",
+      "Jiang, Pelayo, Pritikin (2004), Geodesic Convexity and Cartesian Products in Graphs (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jiang–Pelayo–Pritikin: Cartesian products of convex sets, not an explicit enumeration of shattered supports in the accessible abstract.",
+        "Blum–Hopcroft–Kannan: four-point VC bound and an example, not exact integer-grid support counts.",
+        "Thiessen–Gärtner: general VC/online-learning bounds, not the stated degree-four polynomial.",
+        "Other relevant mathematical results concern different graph families, Boolean Hamming products, and order-convex two-row posets; the latter uses a different convexity operator."
+      ],
+      "reasoning": "The earlier works provide essential ingredients, but the exact all-parameter cubic and quartic finite-grid count does not follow as a stated corollary with specified values. The proof supplies separate, nontrivial enumeration steps. Exhaustive historical coverage remains unproved.",
+      "searches": [
+        "Jiang Pelayo Pritikin Geodesic Convexity and Cartesian Products in Graphs 2004",
+        "Blum Hopcroft Kannan Foundations of Data Science 2018 Section 5.11 axis parallel rectangles",
+        "Thiessen Gartner Online Learning of Convex Sets on Graphs 2022 VC",
+        "published graph-convexity results axis-aligned rectangular-grid shattering polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blum–Hopcroft–Kannan, Foundations of Data Science (2018), Section 5.11.1, gives the standard four-extreme upper bound for real rectangles; Jiang–Pelayo–Pritikin (2004) give convex-set product structure in their abstract.",
+        "The proof directly identifies graph-geodesic convexity on P_m square P_n with closed integer-grid rectangles, so those are mathematically equivalent formulations."
+      ],
+      "reasoning": "The standard VC-four obstruction is known and not claimed new. The exact number of shattered supports of each cardinality for every finite m by n grid, including ties and thin-grid exceptions, is strictly more specific than an upper bound and is not stated by either inspected reference.",
+      "searches": [
+        "integer grid boxes uniquely extreme points VC shattered supports",
+        "axis-aligned rectangles four points shattering unique min max coordinate",
+        "geodesic convexity Cartesian product paths rectangles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed search returned an exact match for both derived coefficients. The standalone code independently checks 19,329 supports by direct rectangle traces and 945,553 four-point supports by a distinct extrema test."
+      ],
+      "reasoning": "Absence of a database hit is not proof of uniqueness. The claim is not a recomputation of a located published coefficient table; the count follows from explicit bijections and inclusion–exclusion, verified for finite test cases.",
+      "searches": [
+        "\"shattering polynomial\" \"grid\" \"rectangles\" \"VC\"",
+        "\"number of shattered triples\" rectangle grid",
+        "\"mn(m-1)(n-1)\" \"shattered\"",
+        "VC shattering polynomial Cartesian path graph"
+      ]
+    },
+    "rationale": "The classical planar rectangle VC-four theorem and Cartesian-product convexity are explicitly credited. The remaining assertion is an exact full finite-grid shattered-support enumerator, with cubic and quartic formulas and narrow-grid transitions. The inspected literature does not state those enumerations. Priority is conditional on accessible inspection and carries a documented alternate-terminology risk.",
+    "residual_risks": [
+      "Classical enumerations of 3- and 4-point shattered subsets of a discrete grid may exist under a different vocabulary.",
+      "Complete text of the 2004 Cartesian-product paper was unavailable for inspection.",
+      "A prior general geometric theorem may imply the coefficient formulas as an unstated special case; no global literature completeness claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Discusses VC/mistake bounds for arbitrary graphs and a two-row grid example; the inspected material does not contain an all-coefficient rectangular-grid shattering census.",
+        "evidence": [
+          "Proposition 15 bounds the VC dimension by twice the shortest-path-cover size; Section 5 compares cut-size bounds on a two-by-k grid."
+        ],
+        "identifier_or_url": "doi:10.1007/978-3-031-26412-2_22; https://ecmlpkdd-storage.s3.eu-central-1.amazonaws.com/preprints/2022/lncs13716/lncs13716354.pdf",
+        "material_read": "Open-access 16-page paper: introduction, definitions, Section 3, Section 4, general VC bound Proposition 15, Section 5 grid example, conclusion and references; full-document text searches for grid/rectangle/Cartesian.",
+        "method": "Read accessible publication text and visually inspect the PDF page containing the general VC bound.",
+        "title": "Online Learning of Convex Sets on Graphs",
+        "trigger": "Current scientific source date and directly relevant graph-geodesic convexity VC bounds"
+      },
+      {
+        "assessment": "Establishes familiar real-rectangle VC-four bound and four extreme-point argument. Does not state the finite-grid polynomial or count tied-coordinate supports.",
+        "evidence": [
+          "The book shows no five planar points shattered by rectangles, and exhibits a four-point cross configuration."
+        ],
+        "identifier_or_url": "https://www.cs.cornell.edu/jeh/book",
+        "material_read": "Section 5.11.1 and 5.11.2, PDF pages indexed 148–150, including Figure 5.5 and the VC-four proof.",
+        "method": "Read extracted pages and visually inspect PDF page 148.",
+        "title": "Foundations of Data Science",
+        "trigger": "Canonical strongest easily found antecedent for axis-aligned box shattering"
+      },
+      {
+        "assessment": "Its abstract states convex sets of Cartesian product graphs are products of convex sets. Whether its inaccessible full text includes a shattering count remains unverified.",
+        "evidence": [
+          "Explicit product-convexity statement in public abstract; no all-coefficient VC count presented there."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/249760576_Geodesic_Convexity_and_Cartesian_Products_in_Graphs",
+        "material_read": "Public author abstract only. Direct full-text PDF link did not resolve, so the paper was not fully inspected.",
+        "method": "Read abstract and attempted its linked full-text PDF.",
+        "title": "Geodesic Convexity and Cartesian Products in Graphs",
+        "trigger": "Same graph-product convexity objects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd0fe321-9184-4295-a9de-ff8dcd19632e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Instead of only the textbook maximum shatterable support size, the result evaluates every degree of the shattering polynomial for all finite two-dimensional path grids. It distinguishes slender and full grids, accounts exactly for tied coordinates, and yields two meaningful random-support limiting probabilities (2/3, 1/6). The cubic correction and quartic factorization have independent combinatorial explanations; this is not just a renamed VC-four bound.",
+    "status": "PASS"
+  }
+}
