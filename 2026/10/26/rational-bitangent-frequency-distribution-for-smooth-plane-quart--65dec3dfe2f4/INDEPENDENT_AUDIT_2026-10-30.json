@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:57:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "There are exactly 2^15−1=32,767 nonzero ternary quartic forms over F2. The natural GL_3(F2)=PGL_3(F2) action has 168 matrices. Geometric smoothness is equivalent to the ideal (F,F_X,F_Y,F_Z) being unit after dehomogenizing each of the three coordinate charts, verified via Groebner over F2 (including algebraic-closure points). For each of seven F2-lines, the binary quartic restriction has divisor twice a degree-2 divisor exactly when its u³v and uv³ coefficients vanish. Read both packaged independent orbit/Groebner/restriction algorithms and original 279-row orbit file. Reconstructed independent full finite enumeration in a separately coded SymPy pipeline (not by executing opaque repository scripts), exhaustively partitioned all 32,767 forms into 279 orbits, found 78 smooth orbits of total weight 10,920 and independently reproduced the exact histogram b=0:3072,1:5278,2:2352,3:105,4:112,7:1. Orbit action, smoothness and all seven line restrictions are exact symbolic computations, not statistical sampling. Smooth quartic irreducibility excludes an entire line component; hyperflexes satisfy the square criterion and are included.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nart–Ritzenthaler give complete F_q-isomorphism classification, rational normal forms and automorphism groups, which potentially dominate the object classification.",
+          "Their Theorem 3.1 lists k-isomorphism totals stratified by Newton polygon, not direct weighted rational-bitangent counts."
+        ],
+        "reasoning": "The earlier classification can in principle support computation of the table and is a serious coverage risk, but the exact equation-weighted distribution is a distinct arithmetic statistic that still requires applying Frobenius line counts and orbit weights.",
+        "searches": [
+          "Nart–Ritzenthaler arXiv:math/0312366 Theorem 3.1 and §§1–3",
+          "Dolgachev–Kondō arXiv:2406.16246 Proposition 5.8",
+          "smooth quartic F2 78 orbit class classification"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md/census.py/crosscheck.py/all_orbits.csv/smooth_orbits.csv at frozen commit",
+        "Independent separate SymPy Groebner enumeration covering 32767 nonzero forms",
+        "arXiv:math/0312366v2 intro, §§1–2 and Theorem 3.1",
+        "arXiv:2406.16246v5 Proposition 5.8",
+        "Resultary quartic F2 bitangent frequency semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the 78 isomorphism classes by Newton polygon does not numerically determine the number of rational bitangent lines for each class and the size of its PGL3(F2) orbit.",
+          "Geometric counts 7,4,2,1 do not specify Frobenius-fixed lines or how often each occurs among 10,920 equations."
+        ],
+        "reasoning": "Full earlier classification supplies necessary starting data but the six-bin coefficient-space table does not follow merely from the published total class counts or geometric bitangent possibilities; extracting it entails nontrivial finite arithmetic/orbit calculations.",
+        "searches": [
+          "arXiv:math/0312366 Theorem 3.1 and classification via Frobenius descent",
+          "arXiv:2406.16246 Proposition 5.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A rational bitangent corresponds to a Frobenius-fixed geometric bitangent line, not the total geometric bitangent count.",
+          "Dolgachev–Kondō enumerate possible geometric bitangent totals 7,4,2,1 in algebraic closure, while rational fixed-point totals in the computed sample include 0,3."
+        ],
+        "reasoning": "A purely geometric spectrum does not alone imply the F2 frequency table; F2 rational-line restrictions and equation orbit multiplicities are essential.",
+        "searches": [
+          "arXiv:math/0312366 Nart Ritzenthaler Frobenius fixed bitangent orbits",
+          "arXiv:2406.16246 Dolgachev Kondo Proposition 5.8",
+          "Resultary: plane quartic F2 rational bitangent distribution weighted equations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 3.1 contains Newton-polygon isomorphism-class table, not the six target frequencies.",
+          "Resultary quartic hits involve unrelated F4 Cremona maps and other quartic forms, with no exact frequency table."
+        ],
+        "reasoning": "No checked earlier explicit table matches these six weights. An unindexed numerical supplement could, and absence of a web hit is not proof of priority.",
+        "searches": [
+          "F2 quartic exact numbers 3072 5278 2352 105 112 1 bitangents",
+          "10,920 smooth plane quartic equations F2 distribution rational bitangent",
+          "Nart Ritzenthaler Theorem 3.1 q=2 normal forms"
+        ]
+      },
+      "rationale": "Qualified PASS only for the explicit coordinate-equation-weighted six-bin F2 rational-bitangent frequency table, not for quartic isomorphism classes or allowed geometric bitangent counts. Nart–Ritzenthaler (2003/04) fully classifies the curves up to F_q-isomorphism and Frobenius bitangent descent, so it strongly supplies raw ingredients for this table; Theorem 3.1 visibly tabulates Newton polygon class counts, not rational-line frequency weights. Additional orbit-stabilizer and line-restriction computations are necessary to reach the six exact values. The table may be derivable from prior stronger normal forms and could appear elsewhere; that is a material priority risk, not claimed absent from all literature.",
+      "residual_risks": [
+        "Nart–Ritzenthaler already classifies all underlying isomorphism classes, Frobenius and automorphisms; the table could be a computable corollary and may be listed in uninspected supplements.",
+        "Prior data may include matching coefficient-equation weights despite not occurring in inspected Theorem 3.1. Publication-priority specialist check remains valuable.",
+        "The independent finite enumeration is exact symbolic but not a formal proof assistant certification; source code correctness is covered by separate reconstructed implementation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classifies all F_q-isomorphism classes and Frobenius types; Theorem 3.1 tabulates class counts by Newton polygon but not the equation-weighted rational-line histogram. Potential implicit derivation conceded.",
+          "evidence": [
+            "p1 abstract claims complete k-isomorphism classification and normal models; p28 Theorem 3.1 tabulates Newton polygon strata."
+          ],
+          "identifier_or_url": "arXiv:math/0312366v2; https://arxiv.org/pdf/math/0312366",
+          "material_read": "Read primary 31-page PDF introduction, bitangent-descent and normal-form descriptions in Sections 1–2, relevant p23–24 one-bitangent form, and Theorem 3.1 with rendered p28 table; searched throughout for bitangent and frequency. Not every technical proof line read.",
+          "method": "Primary PDF text and page 28 image",
+          "title": "Non-hyperelliptic curves of genus three over finite fields of characteristic two",
+          "trigger": "strongest full classification of identical smooth characteristic-two plane quartics"
+        },
+        {
+          "assessment": "The geometric counts 7/4/2/1 are already known; paper concerns characteristic-two surfaces and geometric normal forms, not equation frequencies over F2.",
+          "evidence": [
+            "p13 Proposition 5.8 identifies geometric p-rank/bitangent strata 7,4,2,1."
+          ],
+          "identifier_or_url": "arXiv:2406.16246v5; https://arxiv.org/pdf/2406.16246",
+          "material_read": "Read primary published PDF introduction and section 5 around Proposition 5.8, including rendered page 13.",
+          "method": "Primary PDF and page image",
+          "title": "Bitangent surfaces and involutions of quartic surfaces",
+          "trigger": "known characteristic-two bitangent normal forms and admissible geometric counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of F2-rational bitangents of a smooth quartic is a natural arithmetic/geometric invariant. The full equation-weighted distribution across every smooth ternary quartic answers an exact finite-field frequency question, including rare strata and zero-bitangent forms. Exact exhaustive certificates and independent cross-reconstruction make the table reusable; it does not purport to supersede known isomorphism or geometric classifications.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub RESULT.md/census.py/crosscheck.py/all_orbits.csv/smooth_orbits.csv at frozen commit",
+    "Independent separate SymPy Groebner enumeration covering 32767 nonzero forms",
+    "arXiv:math/0312366v2 intro, §§1–2 and Theorem 3.1",
+    "arXiv:2406.16246v5 Proposition 5.8",
+    "Resultary quartic F2 bitangent frequency semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Reviewed frozen assigned tree, source proof, critical verification artifacts and relevant literature; best-of-knowledge originality, not a priority guarantee.",
+    "The finite independent checks corroborate but never replace proofs for infinite parameter ranges.",
+    "Publication is withheld pending complete confidentiality-neutral replacements of public administrative metadata."
+  ],
+  "residual_risks": [
+    "Nart–Ritzenthaler already classifies all underlying isomorphism classes, Frobenius and automorphisms; the table could be a computable corollary and may be listed in uninspected supplements.",
+    "Prior data may include matching coefficient-equation weights despite not occurring in inspected Theorem 3.1. Publication-priority specialist check remains valuable.",
+    "The independent finite enumeration is exact symbolic but not a formal proof assistant certification; source code correctness is covered by separate reconstructed implementation."
+  ],
+  "schema_version": 1
+}

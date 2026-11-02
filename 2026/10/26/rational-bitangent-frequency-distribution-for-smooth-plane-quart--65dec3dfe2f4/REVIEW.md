@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The object is every nonzero ternary quartic over \(\mathbf F_2\) that is geometrically smooth. Exact group action exhausts all \(32,767\) forms in \(279\) orbits; the three-chart Jacobian ideals over \(\mathbf F_2\) provide valid algebraic-closure smoothness tests. For each of seven rational lines, the odd-degree binary restriction coefficients vanish precisely for a square binary quartic. The independent full-matrix checker confirms all \(168\) matrices, all orbits, all representative smoothness labels, and all \(10,920\) smooth-form bitangent counts. The six-bin total is \(10,920\). Risk: exact arithmetic code correctness and the usual independent-replication question; detailed source and certificates are provided.
+## correctness
 
-## Originality
-**PASS, with qualification.** The 2003 Nart--Ritzenthaler arXiv paper was read in its relevant full-text sections; it already classifies all characteristic-two plane quartic isomorphism classes, normal forms, Frobenius descent, and automorphism groups. This **does dominate** any claim of a new classification of these curves and plausibly yields the requested equation-weighted histogram via extra counting. Its Theorem 3.1 supplies isomorphism-class counts by Newton polygon, not the six explicit frequencies among \(10,920\) fixed-coordinate equations by rational-bitangent number. The 2024 Dolgachev--Kondō work reviews established geometric bitangent cardinalities \(1,2,4,7\), not the arithmetic frequency histogram; its later-revision proposition was read. No matching explicit six-bin distribution was found in targeted literature or record searches. Residual risk: an earlier table or derivation may already contain the exact numbers; absence from searches cannot certify publication priority.
+PASS
 
-## Value
-**PASS.** Rational bitangents are natural arithmetic sections of canonical genus-three curves. The exact finite-field distribution quantifies how Frobenius descent, geometric bitangent types and coefficient-orbit weights behave at the smallest field, where asymptotic statistics do not settle these numbers. Both absence (\(3,072\) equations) and frequency of at least one rational bitangent (\(7,848\) equations) are exact. This is more than a normalization check and does not claim a general theory beyond the finite census.
+There are exactly 2^15−1=32,767 nonzero ternary quartic forms over F2. The natural GL_3(F2)=PGL_3(F2) action has 168 matrices. Geometric smoothness is equivalent to the ideal (F,F_X,F_Y,F_Z) being unit after dehomogenizing each of the three coordinate charts, verified via Groebner over F2 (including algebraic-closure points). For each of seven F2-lines, the binary quartic restriction has divisor twice a degree-2 divisor exactly when its u³v and uv³ coefficients vanish. Read both packaged independent orbit/Groebner/restriction algorithms and original 279-row orbit file. Reconstructed independent full finite enumeration in a separately coded SymPy pipeline (not by executing opaque repository scripts), exhaustively partitioned all 32,767 forms into 279 orbits, found 78 smooth orbits of total weight 10,920 and independently reproduced the exact histogram b=0:3072,1:5278,2:2352,3:105,4:112,7:1. Orbit action, smoothness and all seven line restrictions are exact symbolic computations, not statistical sampling. Smooth quartic irreducibility excludes an entire line component; hyperflexes satisfy the square criterion and are included.
 
-## Scope and risks
-The exact distribution is equation-weighted; it is not a count of isomorphism classes. The allowed counts and the exceptional all-seven case have known antecedents, which are not presented as discoveries. Historical classifications remain the principal originality risk. Geometric smoothness is checked over the algebraic closure via Jacobian ideals; only computer-assisted finite enumeration supports the final numerical distribution.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS only for the explicit coordinate-equation-weighted six-bin F2 rational-bitangent frequency table, not for quartic isomorphism classes or allowed geometric bitangent counts. Nart–Ritzenthaler (2003/04) fully classifies the curves up to F_q-isomorphism and Frobenius bitangent descent, so it strongly supplies raw ingredients for this table; Theorem 3.1 visibly tabulates Newton polygon class counts, not rational-line frequency weights. Additional orbit-stabilizer and line-restriction computations are necessary to reach the six exact values. The table may be derivable from prior stronger normal forms and could appear elsewhere; that is a material priority risk, not claimed absent from all literature.
+
+## value
+
+PASS
+
+The number of F2-rational bitangents of a smooth quartic is a natural arithmetic/geometric invariant. The full equation-weighted distribution across every smooth ternary quartic answers an exact finite-field frequency question, including rare strata and zero-bitangent forms. Exact exhaustive certificates and independent cross-reconstruction make the table reusable; it does not purport to supersede known isomorphism or geometric classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
