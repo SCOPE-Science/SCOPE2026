@@ -1,0 +1,11 @@
+# Scientific review: the first four-existentially closed Paley graph
+
+**Correctness — PASS.** The 4-e.c./five-round Rado equivalence follows directly from the back-and-forth game and the quantifier-rank-five extension axioms. The finite-field classification includes *all* prime powers below or equal to 89, verified by an irreducible-polynomial construction and a complete affine-normal-form check with explicit negative witnesses for each smaller order. An independently implemented C++ enumerator checks each of the 2,441,626 unordered four-subsets of \(P(89)\) directly. The two positive computations agree without relying on the same orbit reduction.
+
+**Originality — PASS, qualified.** Prior adjacency-property results cover general Paley existential closure, and a publicly available sufficient bound at prime orders \(p\ge193\) is explicitly nonsharp. No inspected full text or research-index result states the sharp first prime-power parameter 89 with its thirteen smaller counterwitnesses. The 1993 Ananchuen–Caccetta paper and the related thesis chapter were not fully accessible and are a material historical-priority uncertainty. The Rado-logic reformulation alone is standard, so originality is attached to the exact sharp Paley threshold, not to the general EF transfer.
+
+**Mathematical value — PASS.** The n-existentially-closed hierarchy is natural in finite model theory and Paley graphs are a standard pseudorandom deterministic family. Locating the first order for 4-e.c. across every prime-power construction and connecting it precisely to five-round Rado equivalence gives a motivated exact model threshold, not a selected arbitrary small-parameter statistic. It improves the previously published sufficient Paley prime bound and is a natural next case beyond the 3-e.c. literature.
+
+**Closest primary literature and risks.** Ananchuen–Caccetta (Networks, 1993), Bonato–Holzmann–Kharaghani (2001), and Elsawy (arXiv:1203.1818v1, 2012); plus the publicly released 4-e.c.-to-geometric-dominance comparison. The older paper/thesis could contain a numerically equivalent result, so priority is qualified. No claim about first 4-e.c. among all finite graphs, all strongly regular graphs, or every larger Paley graph is made.
+
+Self-review: passed. Independent audit: not yet performed.
