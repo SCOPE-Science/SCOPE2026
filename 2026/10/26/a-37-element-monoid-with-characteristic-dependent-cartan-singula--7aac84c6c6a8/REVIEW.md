@@ -1,15 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-The construction has \(6+18+6\cdot2+1=37\) elements. Eisele's orbit formula gives the displayed integer matrix \(C_{\mathbb C}\) with determinant \(16\); applying the \(S_3\) decomposition matrix in characteristic three gives \(C_{\mathbb F_3}\) with determinant exactly zero. The extra zero-element block in the full monoid algebra is \([1]\), so it does not change either conclusion.
+## correctness
 
-## Originality
+PASS
 
-Eisele's primary text gives the same general construction and a worked \(S_3\) witness of order \(397\), using four \(L_a\)-orbits, two \(L_b\)-orbits, and 165 \(L_c\)-orbits. The coefficient choice \((0,1,6)\) yields the displayed 37-element witness and exact determinant pair \((16,0)\). The claim is limited to this explicit reduction; it does not claim a new general mechanism or global minimality. No matching 37-element witness appears in the inspected primary text or accessible literature search results. The source's statement that further examples are easy to produce leaves a residual risk that a smaller witness is already known but not indexed.
+Eisele’s Proposition 2.5 computes orbit contributions using character averages. Independently reconstructed the S3 irreducible character values, both subgroup-averaging matrices, and the modular decomposition matrix D. Their sum I+Δb+6Δc=[[8,1,6],[2,3,0],[1,1,1]] has exact determinant 16, whereas D^T C D=[[14,10],[7,5]] has determinant 0. Orbit sizes 18 and 2 give 6+18+6×2+1=37. Two-sided group actions commute and X^2={0}, guaranteeing associativity. Contracted vs full monoid algebra only adds a one-dimensional Cartan block. No unsupported global lower bound is inferred.
 
-## Value
+## originality
 
-The witness reduces the displayed example from 397 elements to 37, over a tenfold reduction in size. This gives a substantially more compact exact test case for characteristic-dependent Cartan singularity and a sharper explicit upper bound on the order of a counterexample, without overstating the result as a minimum.
+PASS
 
-Closest literature: Eisele, arXiv:2306.14002v1, especially Proposition 2.5 and Example 2.7; Steinberg, arXiv:2305.08251v2, for the modular Cartan-matrix framework.
+Qualified best-of-knowledge new explicit 37-element witness within Eisele’s established biset framework. The original construction gives a 397-element example and a general orbit-character formula, so neither the mechanism nor characteristic dependence is claimed new. Its existence alone does not imply a witness of order 37; the new orbit multiplicity choice and exact determinant constraints supply the quantitative reduction. An unpublished smaller witness or a systematic minimization hidden in earlier work remains possible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Substantial reduction from 397 to 37 in a natural counterexample-size question, retaining a transparent concrete group-biset construction. Smaller explicit witnesses make Cartan-determinant pathology easier to inspect, compute and compare. Not presented as a minimality theorem or a new general representation principle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
