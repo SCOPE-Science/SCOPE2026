@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise claim is the complete sharp length-eight equality classification for every ordered alphabet size. The parity/fixed-point lemma reduces all possible words to five ordered multiplicity types and 3,850 finite candidates. The checker performs exhaustive integer/string tests on all candidates; a separate route builds Burrows–Wheeler transforms from all 65,280 primitive four-letter source words and recovers the same patterns. The general-alphabet binomial identity is a symbolic consequence of order-reduction, not a finite extrapolation.
+## correctness
 
-**Originality — PASS within examined evidence.** The May 2026 source determines the value \(U_q(8)=4\), gives a single example, and supplies a necessary parity condition. Its length-six appendix does not classify the length-eight equality cases. The 2025 existence theorem concerns maximal output runs without fixing the minimum input-run count. Targeted primary-literature, indexed mathematical records, and exact-pattern comparisons showed no covering statement. A previously unindexed equality census remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** Length eight is the first even sharp case following the exceptional length-six obstruction, and fixed-content extremizers are an explicit open direction in the motivating paper. The theorem completely classifies the admissible multiplicity profiles and all extremizers, giving the exact count \(3\binom q3+3\binom q4\) uniformly in alphabet size. This is limited to length eight; it neither solves nor purports to solve the longer-length sharpness conjecture.
+Standard stable-sort permutation is one 8-cycle exactly for primitive necklaces, and input cyclic-run count is Hamming(L,sorted(L)). For any letter with odd count 2u+1 and too many coincident entries, the stable permutation has a fixed point, impossible. Hence sharp four-run inputs must have even counts <=4. Exhaustive exact independent enumeration of the resulting 3,850 reduced multiset words recovered 6 patterns with rows 0,1,1,1,3; order-preserving embeddings prove formula for all q. Four-letter direct construction is supplementary.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: General 4-run lower bound + existence of one 4-run example only proves the optimum value, not uniqueness, Parikh spectra, all six patterns or q-binomial counts. Prior formulation/implication comparisons are documented; search nonhits are not proof of priority.
+
+## value
+
+PASS
+
+A complete and parameter-uniform solution of the small sharpness and fixed Parikh question explicitly motivated by Kumallagov, not an arbitrary isolated value: classifies every optimal word, all positive symbol multiplicities and their dependence on q.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
