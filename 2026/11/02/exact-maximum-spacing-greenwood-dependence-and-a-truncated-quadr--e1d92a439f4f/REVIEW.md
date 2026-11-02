@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The claim is for the exact \(\operatorname{Dirichlet}(1,\ldots,1)\) gap vector with \(m\ge2\). Translation of any \(k\) constrained gaps produces a rescaled uniform simplex and the exact conditional quadratic moment; finite inclusion–exclusion proves the threshold CDF and weighted moment for every threshold. Layer-cake integration and two binomial harmonic identities yield the mixed moment and covariance. The numerator is strictly positive because its increment at \(m\) is \(2(H_m-1)/m>0\). Exact marginal second and fourth moments yield the displayed Pearson correlation and limiting scale. Standalone `verify.py` passed 2760 assertions, including exact polynomial integration over the two-dimensional simplex for \(m=3\). The all-size proof does not rely on enumerated cases.
+
+## Originality — PASS, with residual historical-priority risk
+The closest identifiable theory is the Fisher–Pinelis distribution of the **largest** gap, whereas the present theorem determines a **quadratically weighted** maximum-threshold moment and its exact covariance. Aaron–Cholaquidis–Fraiman studies maximal-spacings asymptotics and geometric testing but not the squared-gap mixed moment. Pyke and Das–Maiti document the marginal spacings and Greenwood statistic separately. An accessible earlier calculation for the *smallest* spacing and the same quadratic statistic concerns a different conditioning event with a different law and opposite covariance sign, and does not imply the present largest-spacing formulas. Published general spacing theory may encode an equivalent result; in particular, Pyke (1965) was not readable completely, so historical uniqueness remains uncertain. No exact matching published theorem or stronger dominating mixed-moment theorem was located in the sources materially inspected.
+
+## Mathematical value — PASS
+The maximum gap measures the largest empty interval, whereas the Greenwood sum measures total quadratic unevenness. Their joint dependence is pertinent to spacing-based null testing and periodogram peak diagnostics: the theorem gives the entire *truncated first quadratic moment* for every peak threshold and a positive finite-sample covariance despite vanishing asymptotic correlation. It is distinct from recomputing the marginal maximum-spacing or Greenwood moments; the weighted inclusion–exclusion term, harmonic-square closed form, and explicit \((\log m)^2/\sqrt m\) correlation scale address a natural dependence question. No combined-test tail law, calibration improvement, or asymptotic independence claim is made.
+
+## Scope and residual uncertainties
+The finding concerns the uniform-simplex (broken-stick) null only. Earlier works on multiple spacing statistics may conceal equivalent formulas; a complete primary-text priority audit remains for an independent reviewer, particularly for Pyke's classic survey. These limitations do not alter the exact mathematics proved here.
+
+Self-review: passed. Independent audit: not yet performed.

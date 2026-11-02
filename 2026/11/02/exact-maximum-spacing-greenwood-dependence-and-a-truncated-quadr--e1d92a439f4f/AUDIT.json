@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Exactly specify uniform Dirichlet m-gap null, all m>=2 and thresholds 0<=t<=1. k-subset simplex shift yields conditional quadratic moment and F_m,A_m via inclusion-exclusion; beta integrations and binomial harmonic identities give E[M G]. Marginal second/fourth moments give variance and correlation; B_m increment 2(H_m-1)/m>0 supplies all-m sign; harmonic asymptotics justify the rate. Independently performed exact polynomial integration at m=3 and 2760 verifier assertions from current package source path; finite checks not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aaron–Cholaquidis–Fraiman (2014), arxiv:1411.2482, Sections 1–3, treats higher-dimensional maximum empty regions, Gumbel limits and convexity tests, not the quadratic sum of all gaps.",
+        "Pyke (1965) Spacings: abstract and indexed excerpt p.398 concern Dirichlet-type spacing moments; full paper could not be read through authorized access.",
+        "Huffer, Divided differences and the joint distribution of linear combinations of spacings, doi:10.2307/3214442: abstract explicitly treats linear combinations; maximum plus quadratic sum is not that class."
+      ],
+      "reasoning": "The closest broad source on maxima addresses the extreme statistic alone, and the closely titled Huffer method covers linear, not nonlinear, functions of the gap vector. No inspected stronger mixed-moment result was identified; Pyke full-text access remains an explicit risk.",
+      "searches": [
+        "\"joint moments\" \"largest spacing\" \"Greenwood\"",
+        "\"maximum spacing\" \"sum of squared spacings\" \"joint\"",
+        "Pyke 1965 Spacings functions of gaps complete moment theory",
+        "Aaron Cholaquidis Fraiman maximal spacings arxiv 1411.2482"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1411.2482v1 (2014-11-10, primary MSC 62G10; current accessible text v2 Sections 1–3)",
+      "arxiv:1909.06406v1 (Pinelis; maximum-spacing CDF and ordered gaps, accessible preprint)",
+      "doi:10.1111/j.2517-6161.1965.tb00602.x (Pyke; partial accessible excerpt only)",
+      "Das and Maiti 2021 uniform-spacings review PDF, pp.220,227",
+      "doi:10.2307/3214442 (Huffer; abstract only)",
+      "previous minimum-spacing/Greenwood record fd1367f3-5b1c-46b9-919f-b41efd27535e",
+      "previous Dirichlet Shannon–Simpson record 60c94d3e-3ee0-40e3-b6b3-19e11e7d740c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior result fd1367f3-5b1c-46b9-919f-b41efd27535e has covariance negative \\(-2(m-1)/(m^3(m+1)(m+2))\\) with **minimum** spacing and the quadratic statistic; this does not imply the positive **maximum** covariance and threshold law.",
+        "Prior result 60c94d3e-3ee0-40e3-b6b3-19e11e7d740c concerns Dirichlet Shannon entropy versus Simpson quadratic concentration under asymmetric parameters, not maximum component.",
+        "Pinelis (2019) gives the **unweighted** maximum tail, which is a factor in the present proof but not the new weighted moment."
+      ],
+      "reasoning": "Classical Dirichlet monomial moments plus the unweighted maximum CDF do not, by themselves, state the conditional weighted moment; the proof additionally evaluates shifted-simplex quadratic integrals and a distinct binomial-harmonic sum. Prior minimum-spacing covariance is a genuinely different event, with opposite sign. No stronger inspected theorem has the new statement as an immediate special case.",
+      "searches": [
+        "Greenwood regression Dirichlet minimum spacing vs maximum spacing",
+        "Pinelis Fisher maximum spacing distribution versus weighted maximum moment",
+        "Pyke higher moments uniform spacings jointly with maximum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pinelis (2019), arxiv:1909.06406, Theorem 1.1 and formula (1.7): distribution of ordered spacings and unweighted maximum tail; no squared-spacings factor.",
+        "Das–Maiti (2021) uniform spacings survey, pp. 220 and 227: classical moment facts, maximal spacing and Greenwood statistic treated separately."
+      ],
+      "reasoning": "The broken-stick, uniform Dirichlet, normalized exponential and univariate uniform-order-statistic gap formulations are the same null model and were compared as aliases. A formula solely for the distribution of the largest spacing does not imply the weighted event moment without a new conditional simplex calculation.",
+      "searches": [
+        "\"maximum spacing\" \"Greenwood\" \"covariance\"",
+        "\"largest spacing\" \"sum of squared spacings\" \"covariance\"",
+        "Dirichlet(1,...,1) largest component and Simpson concentration partial moment under threshold max <= t",
+        "arxiv:1909.06406v1 ordered spacings maximum and harmonic moments"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved published research record: \"Rigorous decorrelation of part count and maximum in uniform compositions\" (record suffix 0ee24a72cd31): maximum of integer compositions versus number of parts.",
+        "Another retrieved record: \"Universal positive covariance of sample richness and unbiased Gini–Simpson diversity\" (record suffix e84114bd4ba0): categorical richness versus unbiased diversity, not Dirichlet gap maxima.",
+        "Prior available result fd1367f3-5b1c-46b9-919f-b41efd27535e: shortest-gap regression for Greenwood and characterization of symmetric Dirichlet law; no largest-gap formula."
+      ],
+      "reasoning": "The actual semantic and exact-query searches did not return the same object and mixed statistic. This absence is only supporting evidence, never proof of novelty; source-level implication comparisons are essential.",
+      "searches": [
+        "Uniform Dirichlet vector maximum component Greenwood Simpson sum of squares covariance [H_m^2+H_m(2)-2H_m]/(m(m+1)(m+2))",
+        "broken stick largest piece quadratic diversity Greenwood statistic finite sample joint truncated CDF mixed moment",
+        "uniform spacings maximal gap and Greenwood quadratic power sum covariance asymptotic correlation log squared over sqrt m",
+        "largest gap sum squares gaps order statistics joint moments"
+      ]
+    },
+    "rationale": "Four implication-level checks were performed. The nearest inspected sources give unweighted maximum-spacing laws, marginal quadratic-spacing moments, or maximum-gap asymptotics; none of their inspected theorems specifies the present weighted threshold moment, exact cross covariance, or correlation scale. The old shortest-gap quadratic regression is not stronger because conditioning on the largest gap requires overlapping threshold events and different sign behavior. Older inaccessible full texts remain a documented risk, not proof of historical priority.",
+    "residual_risks": [
+      "A classical or specialized source might contain equivalent mixed moment identities under broken-stick or periodogram terminology; historical priority cannot be certified by search alone.",
+      "Pyke (1965) full text was not available; only publisher metadata and an indexed excerpt were inspected.",
+      "Huffer full text was not read; its abstract concerns linear-combination distributions, so an unsuspected quadratic extension cannot be ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the nonlinear maximum/Greenwood mixed moment in the inspected primary results",
+        "evidence": "Sections 1–3 concern largest empty convex region asymptotics and convexity testing, not quadratic gap sum.",
+        "identifier_or_url": "https://arxiv.org/html/1411.2482v2",
+        "material_read": "2014 arXiv date/MSC page; full accessible HTML sections 1 introduction, 2 definitions/results, 3 convexity testing (read relevant theorems and scope)",
+        "method": "Direct HTML source inspection",
+        "title": "A Generalization of the maximal-spacings in several dimensions and a convexity test",
+        "trigger": "Primary dated archive anchor, matching maximal spacing and primary MSC 62G10"
+      },
+      {
+        "assessment": "NOT_COVERING the weighted quadratic maximum-threshold moment or its covariance",
+        "evidence": "Theorems govern ordered-gap marginal distributions; equation (1.7) is an unweighted maximum tail.",
+        "identifier_or_url": "https://arxiv.org/abs/1909.06406",
+        "material_read": "Full accessible preprint text: summary, Theorems 1.1–1.2, Fisher maximum-tail formula (1.7), Corollary 1.4 and opening proof section",
+        "method": "Direct full-text HTML source inspection",
+        "title": "Order statistics on the spacings between order statistics for the uniform distribution",
+        "trigger": "Direct maximum-spacing and Dirichlet spacing formulas; plausible stronger ordering law"
+      },
+      {
+        "assessment": "NOT_COVERING joint maximum–quadratic weighted moments in the read material",
+        "evidence": "Pages 220 and 227 present Dirichlet marginal moments and, separately, Greenwood/maximum-spacings uses.",
+        "identifier_or_url": "https://ssca.org.in/media/16_19_2_2021_SA_Saran_Ishika_Maiti_Final.pdf",
+        "material_read": "Full 14-page PDF text; visually inspected pages 220 and 227 (PDF pages 4 and 11) for moment and Greenwood content",
+        "method": "Text and PDF-page inspection",
+        "title": "Uniform spacings — a Bird’s-Eye View",
+        "trigger": "Survey covering maximum spacings and Greenwood statistic in one work"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE; not assessed as whole-document NOT_COVERING",
+        "evidence": "Page 398 excerpt mentions moments of individual uniform spacings derived by Greenwood, while full pp.395–436 was not reviewed.",
+        "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1965.tb00602.x",
+        "material_read": "Journal bibliographic/summary page and an indexed page-398 excerpt; complete original PDF unavailable",
+        "method": "Indexed excerpt plus publisher page; complete text not accessible",
+        "title": "Spacings",
+        "trigger": "Classical highly relevant review possibly containing unlisted joint identities"
+      },
+      {
+        "assessment": "RISK_LOW to moderate: stated scope is linear combinations rather than maximum and quadratic combination",
+        "evidence": "Abstract identifies linear-combination distributions and exact uniformity-test probabilities.",
+        "identifier_or_url": "https://doi.org/10.2307/3214442",
+        "material_read": "Cambridge-hosted abstract only; full paper not obtained",
+        "method": "Publisher abstract inspection",
+        "title": "Divided differences and the joint distribution of linear combinations of spacings",
+        "trigger": "Potential umbrella formula for joint spacing statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e1d92a43-9f4f-4cc5-8b4d-03bb50ccc2ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The largest gap and Greenwood quadratic spacing sum represent complementary maximum-gap and global-unevenness diagnostics in goodness-of-fit and normalized periodogram settings. An exact threshold-truncated first quadratic moment for all t, strictly positive finite covariance, and explicit slowly decaying correlation constitute a motivated joint-law improvement beyond either marginal. The result does not assert combined-test critical values or asymptotic independence.",
+    "status": "PASS"
+  }
+}
