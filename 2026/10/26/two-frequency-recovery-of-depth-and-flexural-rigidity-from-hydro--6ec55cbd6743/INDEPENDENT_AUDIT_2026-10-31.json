@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T04:03:09.734351Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 988aae52d21cdccc1466c29d80f4b9bb0215be2d, analytic normalization, derivative and endpoint argument",
+        "Frozen checker.py Git blob 69b137a6c805716dfb422ca2027e2b48d4cd75af, manually inspected but not regarded as proof",
+        "Milewski and Wang (2013) published massless flexural-gravity forward dispersion eq. (2)",
+        "Independent mpmath 70-decimal-precision grid and bisection checks, not opaque package-code execution"
+      ],
+      "rationale": "The claim is correct for rho,g>0, 0<k1<k2, h,D>0, massless unstressed homogeneous elastic plate. From U=(1+b)tanh(t), fixed U gives b=U*coth(t)-1 with exact domain (0,arctanh U) if U<1 and (0,infinity) if U>=1. The reduced V map G_U(t)=(1+q^4 b(t))*tanh(qt) has the exact derivative 2q^4*tanh(qt)*[(1+q^4*b)/(q^3*sinh(2*q*t))-(1+b)/sinh(2*t)]<0 using sinh(2qt)>q*sinh(2t) and 1+q^4*b<q^4*(1+b), for every q>1 and b>0. As t down to zero G->q^5 U; at the other end G->tanh(q*atanh U) for U<1 or 1+q^4*(U-1) for U>=1; endpoints excluded. IVT and strict decrease give necessity, sufficiency and unique recovered (h,D). The forward Jacobian is positive via -tanh(t)*G′(t). All quantifiers and strict boundaries including U=1 have been checked. An independent high-precision test of 120 sample triples corroborated the algebra and numerical reconstruction; it is not used as an infinite proof.",
+      "residual_risks": [
+        "No formal Lean proof or independent laboratory validation; the analytic argument is the evidence for unlimited parameters.",
+        "At q close to 1, very deep water or a near-zero rigidity limit the inversion may be badly conditioned; strict uniqueness is not a quantitative noise-stability bound.",
+        "Massless, unstressed and lossless homogeneous sheet, known g and rho, and measured k values are necessary model assumptions; no thickness/Young modulus separation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marchenko, Morozov and Muzylev (2013), measurements section: three pressure gauges at a common frequency infer k and H from pressure ratios, then flexural stiffness using known dispersion; their observation map differs.",
+          "Clamond and Labarbe (2023), arXiv:2310.20311, section 4: spatial bottom-pressure profiles recover free-surface and surface-pressure quantities, not the two-sampled dispersion map.",
+          "Sergienko (2017), DOI 10.1002/2017JC012947: simplified ice-shelf group-speed observations estimate Young modulus under an independently constrained geometry; no stated arbitrary positive h,D two-point image.",
+          "Voermans et al. (2023), arXiv:2305.06490: field-wave inversion with inertial and constitutive parameters; results on observational identifiability are not a global two-parameter noise-free inverse theorem."
+        ],
+        "reasoning": "A more elaborate hydroelastic model, pressure sensor method, or practical wave inversion does not dominate a theorem about exactly two prescribed wavenumber-frequency pairs without a demonstrated specialization and global injectivity/image conclusion. Inspected sections do not contain an implication supplying the exact interval L_q(U)<V<q^5 U for every q>1. Existing inverse methodology is acknowledged, not rebranded as new.",
+        "searches": [
+          "Web: \"ice\" \"water depth\" \"flexural rigidity\" two wavelengths inversion",
+          "Web: Clamond Labarbe surface pressure recovery bottom pressure flexural waves 2023 full text arxiv",
+          "Web: Sergienko Behavior of flexural gravity waves on ice shelves two frequencies Young modulus 2017",
+          "Web: Voermans Estimating sea ice properties from wave observations in sea ice 2023",
+          "Resultary semantic: \"Global unique recovery of finite water depth and elastic plate flexural rigidity from two prescribed wavenumber-frequency measurements for hydroelastic or flexural-gravity waves; exact feasible two-frequency data region\""
+        ]
+      },
+      "checked_sources": [
+        "Milewski and Wang (2013), DOI 10.1111/sapm.12005; university author manuscript, forward eq. (2)",
+        "Marchenko, Morozov and Muzylev (2013), DOI 10.3189/2013AoG64A075; pressure-ratio inverse model",
+        "Clamond and Labarbe (2023), arXiv:2310.20311; bottom-pressure inverse field reconstruction",
+        "Sergienko (2017), DOI 10.1002/2017JC012947; ice-shelf group-speed modulus inversion",
+        "Voermans et al. (2023), arXiv:2305.06490; practical sea-ice wave inversion",
+        "Resultary semantic matching for global depth/rigidity inverse and two-frequency hydroelastic data region",
+        "SCOPE2026 published repository code search for hydroelastic dispersion and two-frequency recovery"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Milewski–Wang (2013) equation (2) covers the same forward law with known model parameters and wave-speed extrema, but does not state the global inverse.",
+          "Marchenko et al. (2013) obtain several quantities from three pressure-sensor amplitude ratios, not known wavenumber-frequency pairs.",
+          "Clamond–Labarbe (2023) proves an inverse statement for entire bottom-pressure profiles rather than pointwise dispersion observations.",
+          "The new elimination gives G_U′(t)<0 from sinh(2qt)>q*sinh(2t) and 1+q^4*b<q^4*(1+b), and sharp t->0 and t->T_U endpoint limits. This is an explicit derived theorem, not merely a quoted prior result."
+        ],
+        "reasoning": "Known forward dispersion is a mathematical starting point, and the assessed theorem is logically derivable from it using calculus; this alone does not establish that the global inverse theorem was already proved or tabulated by prior authors. The inspected primary work emphasizes other targets. Neither a model with more parameters nor a pressure-profile reconstruction implies the exact strict two-frequency feasible region without a demonstrable reduction. Specialized inverse-dispersion literature not located remains a material priority risk, so PASS is qualified.",
+        "searches": [
+          "Web: Milewski Wang Three Dimensional Flexural Gravity Waves 2013 full text pdf Marchenko pressure ice stiffness 2013",
+          "Web: two-frequency water depth bending rigidity flexural gravity waves inverse unique recover waves",
+          "Web: \"two frequencies\" \"water depth\" \"flexural rigidity\" inverse",
+          "Resultary semantic: \"Global unique recovery of finite water depth and elastic plate flexural rigidity from two prescribed wavenumber-frequency measurements for hydroelastic or flexural-gravity waves; exact feasible two-frequency data region\"",
+          "GitHub SCOPE2026 code-search: two-frequency recovery"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Milewski and Wang, Three Dimensional Flexural–Gravity Waves (2013), eq. (2): dimensionless phase speed c^2=(1/k+k^3)tanh(kH), algebraically equivalent to the assessed forward relation, not an image theorem.",
+          "The assessed theorem is equivalent to monotone-invertibility of V=(1+q^4(U*coth(t)-1))*tanh(qt) and the open interval L_q(U)<V<q^5 U, including both U<1 and U>=1 branches."
+        ],
+        "reasoning": "Converting omega to phase speed, exchanging dimensionful for dimensionless depth and flexural stiffness, or using two wave pairs is a change of variables, not novelty in the forward law. The full parameter-image and globally injective inverse require proving the fixed-U monotone scalar reduction and its sharp boundary limits. The inspected primary manuscript develops forward propagation and nonlinear modulation; the same necessary-sufficient data region was not identified there. Results based on group velocity or pressure-response observations are not simply equivalent because their measurements are different.",
+        "searches": [
+          "Web: \"two-frequency\" \"depth\" \"rigidity\" \"hydroelastic\"",
+          "Web: \"tanh\" \"flexural rigidity\" \"depth\" \"inverse\" \"two\" wavenumbers",
+          "Web: \"recover\" \"depth\" \"flexural rigidity\" \"dispersion\" \"unique\"",
+          "Resultary semantic: \"Exact inverse water wave dispersion identify depth and bending rigidity from two frequencies; massless floating thin sheet hyperbolic tangent monotonicity\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem concerns a two-dimensional continuum of positive h,D and q>1 rather than a finite combinatorial census or discrete database entry.",
+          "No exact analytic data-image table appeared in the inspected primary materials or targeted SCOPE repository search; index omissions and unlocated tables remain possible."
+        ],
+        "reasoning": "A finite numerical table cannot certify a global continuum uniqueness and sharp realizability statement. This check is less directly applicable than theorem-implication analysis but searches were performed for an exact published analytic image or tabulated range. No matching database result was found; non-detection is explicitly not novelty proof.",
+        "searches": [
+          "Web: \"water depth\" \"flexural rigidity\" \"exact\" \"two\" frequencies",
+          "Web: flexural gravity water depth rigidity inverse admissible frequency pair table",
+          "GitHub SCOPE2026 code-search: hydroelastic dispersion depth rigidity",
+          "GitHub SCOPE2026 code-search: flexural gravity inverse depth",
+          "GitHub SCOPE2026 code-search: two-frequency recovery"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is accepted for the exact noise-free global bijection and sharp two-frequency realizability interval, not for the classical flexural-gravity forward dispersion law. Direct comparisons with accessible original manuscripts show that previously established forward laws, pressure-sensor inversions, field-wave inversions, and bottom-pressure reconstructions use different observables or do not establish this necessary-and-sufficient two-mode data image. The scalar derivative calculation is elementary once formulated, so unlocated specialized inverse literature remains a priority risk; negative search results do not certify novelty.",
+      "residual_risks": [
+        "Unlocated specialized inverse flexural-gravity literature may already imply the global two-frequency region despite different terminology; negative search is not novelty certification.",
+        "The inverse follows from the known forward law by a short but nontrivial monotonic elimination; depending on editorial standards it may be regarded as an elementary corollary rather than a large conceptual advance.",
+        "Sergienko model equations had some text-rendering loss; its distinct group-velocity observation map is clear, but full formal implication comparison of every special limit is not independently proven.",
+        "Resultary and SCOPE code search rankings/indexes may omit a relevant published record; no claim of exhaustive catalogue coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FORWARD_MODEL_COVERED; inspected arguments concern forward wave behavior and do not establish the specific global two-sample inverse data image.",
+          "evidence": [
+            "Equation (2) c^2=(1/k+k^3)tanh(kH); same forward relation after normalization.",
+            "Wavepacket and phase-speed analysis does not provide a necessary-and-sufficient two-measurement realizability interval."
+          ],
+          "identifier_or_url": "https://purehost.bath.ac.uk/ws/portalfiles/portal/10790497/2DFGWangMilewskiStudies2013.pdf",
+          "material_read": "Open author manuscript introduction, model setup, equation (2) visually verified on PDF page 3, subsequent wave-speed and nonlinear modulation analysis, and conclusions; text was read across the manuscript.",
+          "method": "Lawful public university-hosted PDF, section text and rendered-page visual check",
+          "title": "Three Dimensional Flexural–Gravity Waves",
+          "trigger": "Most direct source of the very same massless-sheet dispersion law and possible global inversion antecedent"
+        },
+        {
+          "assessment": "RELATED_INVERSE_DIFFERENT_MEASUREMENTS; reconstructs depth/wavenumber from spatial pressure ratios and stiffness from dispersion, not a global two-(k,omega) image.",
+          "evidence": [
+            "Three sensor pressure ratios at common frequency are used to estimate k and H, then bending rigidity; known wavenumbers at two independent frequencies are not the observation map."
+          ],
+          "identifier_or_url": "https://doi.org/10.3189/2013AoG64A075",
+          "material_read": "Open full article introduction, sensing design, model equations and results, including section using three bottom-pressure sensors and ratios at one wave frequency.",
+          "method": "Open Cambridge journal full text and section-level scientific comparison",
+          "title": "Measurements of sea-ice flexural stiffness by pressure characteristics of flexural-gravity waves",
+          "trigger": "Plausible preexisting inverse determination of depth and bending stiffness"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLES; mathematical inverse from spatial bottom-pressure profiles is not a stronger form of the exact two-frequency inverse.",
+          "evidence": [
+            "Section 4 uses bottom pressure profiles and recovers spatial surface and pressure fields, not only two dispersion samples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.20311",
+          "material_read": "Full open arXiv HTML: formulation, linear and nonlinear inversion, section 4 on water-wave and surface-pressure recovery from bottom-pressure data.",
+          "method": "Lawful arXiv open manuscript full-text section reading",
+          "title": "Steady water-waves with arbitrary surface-pressure: Their recovery from bottom-pressure measurements",
+          "trigger": "Broader inverse-water-wave reconstruction including flexural surface response"
+        },
+        {
+          "assessment": "RELATED_BUT_NOT_DOMINATING; two group-velocity observations estimate ice modulus in another reduced physical model without this model’s global h,D image.",
+          "evidence": [
+            "The paper proposes estimating ice modulus from measured group speeds and depends on shelf geometry/model simplifications; not the two prescribed (k,omega) inverse data region."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/2017JC012947",
+          "material_read": "Full accessible Wiley text: abstract, ice-shelf/flow model, section about group velocities at two frequencies and inverse modulus estimation; some equation display incomplete in extracted text.",
+          "method": "Open journal HTML and scientific section comparison",
+          "title": "Behavior of flexural gravity waves on ice shelves: Application to the Ross Ice Shelf",
+          "trigger": "Potential two-frequency inverse Young-modulus result involving hydroelastic waves"
+        },
+        {
+          "assessment": "RELATED_PRACTICAL_HIGHER_PARAMETER_INVERSION; no identified dominating exact massless two-positive-parameter inverse-image theorem.",
+          "evidence": [
+            "Estimates sea ice parameters from field wave data with inertia and constitutive assumptions; practical identifiability is not the same as the assessed idealized global image."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.06490",
+          "material_read": "Full open preprint HTML abstract, model, parameter-estimation methodology and identifiability discussion.",
+          "method": "Lawful open arXiv full-text inspection",
+          "title": "Estimating sea ice properties from wave observations in sea ice",
+          "trigger": "Directly relevant field-wave inverse estimation with potentially stronger model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md analytical inverse interval and reconstruction step",
+        "Milewski and Wang (2013) established dispersion; Marchenko et al. (2013) demonstrated relevance of related sea-ice inverse estimation",
+        "Clamond and Labarbe (2023) contextual alternative wave measurements"
+      ],
+      "rationale": "Depth h and plate rigidity D are distinct natural unknown physical coefficients in an established flexural-gravity dispersion relation; two independent wavenumber-frequency observations are the minimal nontrivial joint identification design. Beyond the known forward formula, the theorem provides the entire attainable measurement region for every q>1, a sharp if-and-only-if feasibility test, a globally unique scalar reconstruction and the correct weak-conditioning caveats. This exact invariant of the two-observation inverse map can be used to rule out inconsistent ideal-model data or ambiguity without arbitrary fitting. The result is modest in scope (elementary hyperbolic inequalities, no noisy inverse theory) but a meaningful complete natural classification, not an arbitrary numerical slice.",
+      "residual_risks": [
+        "No uncertainty quantification for finite-precision data; model misspecification may overwhelm exact-feasibility test.",
+        "Value is the precise idealized two-parameter inverse classification rather than a new dispersion law or broad wave inverse method."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Physical model assumes linear inviscid fluid, known density/gravity, massless unstressed homogeneous plate, known distinct wavenumbers and exact frequencies.",
+    "The two recovered parameters are depth and composite bending rigidity, not independent elastic modulus and ice thickness.",
+    "The theorem is not a stable noisy inverse guarantee, and the numerical checks are not an infinite proof.",
+    "Originality is best-of-knowledge and acknowledges published forward law, different inverse methods and specialized-literature residual risk.",
+    "Confidentiality-safe public metadata replacements were not staged; a scientific PASS is not permission to publish unchanged operational provenance or misleading first-publication dates."
+  ],
+  "schema_version": 1
+}

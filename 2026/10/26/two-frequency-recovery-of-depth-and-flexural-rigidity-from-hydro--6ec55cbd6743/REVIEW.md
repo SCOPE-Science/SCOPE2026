@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact massless-sheet dispersion law is given in Milewski and Wang (2013), equation (2), and the proof explicitly normalizes both measurements, eliminates rigidity, establishes the full positive-parameter domain, proves strict monotonicity by two sharp hyperbolic inequalities, and computes both boundary limits. This yields global existence and uniqueness, not merely a locally invertible Jacobian. The standalone numerical checker corroborates the algebra at 120 interior samples and confirms the Jacobian sign; this corroboration is not an infinite proof.
+## correctness
 
-**Originality — PASS, with priority limitations.** The forward flexural–gravity formula and existing inverse sea-ice measurements are prior work. A full author-manuscript examination of Milewski–Wang (2013), and targeted inspections of Marchenko–Morozov–Muzylev (2013), Guyenne–Părău (2014), and Voermans et al. (2023) found no directly stated necessary-and-sufficient two-frequency image or global unique reconstruction of *both bathymetry and rigidity* for the idealized massless-sheet model. Published inverse measurement schemes and general multiparameter fitting remain a real priority risk; a negative search result alone does not prove novelty.
+PASS
 
-**Value — PASS.** The inverse problem is dictated by the two independent coefficients in the physically used dispersion law and by the need to distinguish seabed depth from ice-sheet stiffness. The theorem supplies the smallest possible two-frequency exact-data test, sharp rejection bounds for nonrealizable measurements, uniqueness, and a scalar monotone reconstruction. It also identifies where the ideal inverse loses practical robustness. It is a substantive complete classification of the data image, not a routine substitution of a single numerical parameter.
+The claim is correct for rho,g>0, 0<k1<k2, h,D>0, massless unstressed homogeneous elastic plate. From U=(1+b)tanh(t), fixed U gives b=U*coth(t)-1 with exact domain (0,arctanh U) if U<1 and (0,infinity) if U>=1. The reduced V map G_U(t)=(1+q^4 b(t))*tanh(qt) has the exact derivative 2q^4*tanh(qt)*[(1+q^4*b)/(q^3*sinh(2*q*t))-(1+b)/sinh(2*t)]<0 using sinh(2qt)>q*sinh(2t) and 1+q^4*b<q^4*(1+b), for every q>1 and b>0. As t down to zero G->q^5 U; at the other end G->tanh(q*atanh U) for U<1 or 1+q^4*(U-1) for U>=1; endpoints excluded. IVT and strict decrease give necessity, sufficiency and unique recovered (h,D). The forward Jacobian is positive via -tanh(t)*G′(t). All quantifiers and strict boundaries including U=1 have been checked. An independent high-precision test of 120 sample triples corroborated the algebra and numerical reconstruction; it is not used as an infinite proof.
 
-**Closest prior work and limits.** Milewski–Wang (2013) supplies the forward law; Marchenko et al. (2013) uses pressure-ratio sensing to infer ice stiffness and water depth; Guyenne–Părău (2014) treats nonlinear waves; Voermans et al. (2023) fits richer models to field observations. The present proof assumes known gravity/density and wavenumbers, negligible sheet inertia, zero compression, and exact frequencies. It cannot separately identify ice thickness and Young's modulus and makes no claim of robust statistical inversion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is accepted for the exact noise-free global bijection and sharp two-frequency realizability interval, not for the classical flexural-gravity forward dispersion law. Direct comparisons with accessible original manuscripts show that previously established forward laws, pressure-sensor inversions, field-wave inversions, and bottom-pressure reconstructions use different observables or do not establish this necessary-and-sufficient two-mode data image. The scalar derivative calculation is elementary once formulated, so unlocated specialized inverse literature remains a priority risk; negative search results do not certify novelty.
+
+## value
+
+PASS
+
+Depth h and plate rigidity D are distinct natural unknown physical coefficients in an established flexural-gravity dispersion relation; two independent wavenumber-frequency observations are the minimal nontrivial joint identification design. Beyond the known forward formula, the theorem provides the entire attainable measurement region for every q>1, a sharp if-and-only-if feasibility test, a globally unique scalar reconstruction and the correct weak-conditioning caveats. This exact invariant of the two-observation inverse map can be used to rule out inconsistent ideal-model data or ambiguity without arbitrary fitting. The result is modest in scope (elementary hyperbolic inequalities, no noisy inverse theory) but a meaningful complete natural classification, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
