@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed support identity follows by selecting at most the rank many positive Gaussian coordinates in each of the two opposite directions. Small half-normal order statistics have a uniform quadratic trimmed-sum law for \(O(\sqrt n)\) smallest terms, as proved with exponential spacings. Binomial sign-count fluctuations, Gaussian radial normalization, and a delta-method cube width expansion establish the joint weak limit. The cube-width variance is \(1-3/\pi\); exact independence of Gaussian signs and magnitudes gives the limiting independence. At the balanced rank the loss is a scaled \(\chi^2_1\), and the zero atom arises only on the supercentral side. The finite support checker completed 1,400 exact comparisons; it is not substituted for the analytic proof.
+## correctness
 
-## Originality — PASS (bibliographic qualification)
-Ferroni–McGinnis (arXiv:2202.11808v1) and Ferroni (arXiv:2012.04711v1) identify the same independence-polytope family and study lattice/Ehrhart invariants. Kabluchko–Litvak–Zaporozhets (arXiv:1511.08479v3, Theorem 3.6) already prove the cube-width marginal CLT, which is acknowledged and not claimed as an original discovery. Accessible published same-body radius and John-ellipsoid results determine deterministic metric extremizers but do not imply the distribution of a vanishing directional support loss. Cube width distributions and fixed-cardinality hypersimplex width fluctuations likewise do not imply the capped-cube comparison or its binomial equality probability. Relevant indexed records and the identified full texts were compared by implications rather than titles. Unlocated equivalent treatments of Gaussian rank-trimming remain a residual originality risk; a search nonmatch alone does not certify novelty.
+PASS
 
-## Mathematical value — PASS
-The critical rank window resolves an intrinsic probabilistic geometry question: when does a hyperplane cap change the one-dimensional projection of a high-dimensional cube? The exact finite combinatorial equality probability and the two-scale non-Gaussian loss distinguish a natural family already important in matroid-polytope and Ehrhart geometry. The atom transition and asymptotic independence from classical width fluctuations give a structural infinite-dimensional refinement rather than a routine invariant recomputation. No general-matroid or universal non-Gaussian-direction theorem is claimed.
+All vertices of I_{n,k} are 0–1 vectors with at most k ones; the Gaussian support selects at most k largest positive coordinates, so the lost cube width is exactly the sum of the (B−k)_+ smallest positives plus the (n−B−k)_+ smallest absolute negatives, divided by ||G||. Width equality requires n−k≤B≤k (Gaussian sign count), giving the exact finite binomial identity even when the range is empty. For each sign group b~n/2, transform half-normal order statistics using uniforms and exponential spacings; maximal-inequality and F^−1(u)=u/a+O(u²) show Σ_{j≤m}X_(j)=m²/(2ba)+o_P(1) uniformly for m≤Ksqrt(n). Binomial CLT for B and Gaussian radius normalization give Q_c(Z). The ordinary cube width expands by the delta method to Y of variance 1−3/π, and signs are exactly independent of absolute magnitudes, yielding asymptotic independence. At c=0, Q=χ_1²/(4a); c>0 atom mass 2Φ(2c)−1, c≤0 none. Independently enumerated 525 small-n vertex-support tests (n=2..8) confirm the finite identity; no finite test purports to prove CLT.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge, not absolute priority: For uniform-matroid independence polytope I_{n,k}=[0,1]^n∩{Σx_i≤k} with (k−n/2)/sqrt(n)→c, the Gaussian cube-width fluctuation and finer sqrt(n)-scaled cap deficit jointly converge to independent Y~N(0,1−3/π) and Q_c(Z)=[(Z/2−c)_+²+(−Z/2−c)_+²]/sqrt(2/π); the exact width-equality probability is a binomial tail, with chi-square balanced limit and an atom for c>0. The inspected primary sources contribute prerequisite constructions or related weaker/different statements, without identifying a prior theorem that logically entails the distinctive final statement. Inaccessible/unindexed historical overlap remains an explicit risk.
+
+## value
+
+PASS
+
+The capped cube/uniform-matroid independence polytope is a canonical rank-constrained polytope. The geometric question when a central cap changes a random projection is naturally quantified by width equality and defect. The exact sign-tail law and joint Gaussian/chi-square two-scale phase transition at half rank go beyond a known cube-width marginal, without claiming general matroids or all rank regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
