@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The proof independently derives the forced values on \(t^2\), \(t\), and \(1\) using the six basis-pair Rota–Baxter identities. The sole surviving equation is \(a(a-2c)=0\), in every field characteristic. The proof computes the automorphism conjugation rule and its orbit decomposition. The executable exhaustive census of all linear maps over fields of orders 2, 3, and 4, plus candidate replay and orbit checks at order 5, agrees with the formulas. Finite checks do not substitute for the universal proof.
+PASS
 
-## Originality
+Evaluating the weight-zero Rota–Baxter identity on basis pairs (t²,t²),(1,t²),(t,t),(1,1) successively forces P(t²)=0, P(t)=ct² and P(1)=at+bt² with a²=2ac; six unordered basis pairs establish sufficiency. P²(1)=ac t² and P³=0. In char2 a=0 yielding q² maps; for odd char the union of planes a=0 and a=2c intersects in q points, giving 2q²−q and q(q−1) maps with P²≠0. Every algebra automorphism maps t↦ut+vt² (u≠0), inducing (a,b,c)↦(ua,u²b+av,uc). When a=0,c≠0, the invariant b/c² runs over q classes; a=c=0 contributes one zero plus |Fq* /(Fq*)²| nonzero square classes; a≠0 contributes one additional class only in odd char, yielding q+2 (even) and q+4 (odd). Independent reimplementation exhaustively tested ALL q^9 endomorphisms for q=2,3 (4 and 15 valid) and rebuilt the orbit groups (4,7), matching formulas; source verifier also checks q=4 in full and q=5 candidates, but no unwarranted claim that this independent checker repeated F4 enumeration.
 
-The closest primary sources treat semigroup algebras of order at most three, polynomial algebras without truncation, square-zero truncated polynomial rings, or three-dimensional nonunital nilpotent algebras. Their studied objects or assumptions do not imply the complete weight-zero classification on the unital cubic truncation, the finite-field counts, or the conjugacy-orbit split. An unindexed overlapping classification remains possible; the comparison is best-knowledge only.
+## originality
 
-## Value
+PASS
 
-The cubic truncation is the first unital one-generator local algebra beyond the square-zero case. Its nonzero radical square permits nilpotency-index-three Rota–Baxter operators in odd characteristic but rules them out in characteristic two. Complete operator and conjugacy-class counts identify a field-characteristic boundary and moduli rather than merely a small computational sample. These data are natural for comparing operator structures under short nilpotent extensions.
+Important qualification: the exact characteristic-zero parameter families for the SAME algebra k[t]/t³ are PRIOR COVERED by Li–Hou–Bai (2007), Proposition 6.1 table (C12), with basis e1=t,e2=t²,e3=1, whose matrices encode P(t)=c t², P(1)=b t² or P(1)=2c t+b t². Thus no novelty is credited to the C-field classification. The genuinely additional final claim is the arbitrary-field/characteristic-two branch, exact F_q map counts and Aut(A)-conjugacy orbit counts with square-class splitting and nilpotency index dichotomy; bounded primary search did not verify those exact finite-field results in earlier literature. Best-of-knowledge PASS only for these substantive new portions, with high residual priority risk; the original normal form is not passed off as unprecedented.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The first unital one-generator local algebra with nonzero radical square is a natural minimal model for weight-zero Rota–Baxter classification. The arbitrary-characteristic operator structure, stark char2 versus odd index-three nilpotency distinction, and exact conjugacy-orbit spectrum over every finite field describe intrinsic moduli, not just reproducibility of a known char0 list. Though the complex parameter form is old, the finite-field orbit problem is independently motivated and nontrivial enough to be useful as a benchmark for higher truncations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
