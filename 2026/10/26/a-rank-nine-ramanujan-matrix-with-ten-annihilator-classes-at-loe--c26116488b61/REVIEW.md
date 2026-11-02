@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The six-dimensional quotient algebra has the specified multiplication, 15 unit orbits and ten distinct annihilators. The characteristic-two product pairing identifies seven independent Walsh rows. The zero and socle rows add one direction, and a unit row another, giving rank exactly nine. An exact-rational checker independently constructs the ring and matrix, checks basis associativity, counts annihilators and verifies the row relation. The proof applies to the explicit ring only.
+## correctness
 
-**Originality — PASS, with uncertainty.** The motivating paper's complete Section 3 defines the general matrix, proves the nonsingularity criterion and asks for its rank; it does not compute this rank-nine/ten-annihilator example. A published indexed result gives rank three for local square-zero radicals, which do not include this ring since its radical square is nonzero. Targeted research searches found no same ring or rank discrepancy. Indexed-summary-only access to the square-zero result and potential unindexed equivalent examples are residual bibliographic risks; search absence is not a proof of priority.
+PASS
 
-**Value — PASS.** The explicit extra linear relation shows that identification of equal annihilator rows need not account for all rank deficiency already at Loewy length three, whereas the adjacent square-zero setting has a particularly simple rank formula. The example supplies a motivated obstruction to a plausible rank heuristic for a question explicitly raised in recent literature, without claiming a general classification.
+PASS. The six-element F_2-basis 1,x,y,z,x^2,y^2 and multiplication x*y=x*z=y*z=0, z^2=x^2+y^2 give a 64-element local ring with m^2 two-dimensional and m^3=0. Unit orbits on V and W give 15 associate classes; annihilator kernels of the seven nonzero V directions give seven distinct ideals alongside Ann(0), Ann(unit), and common socle annihilator, for ten types. Evaluating the same local quotient-totient/Mobius rule as Nguyen–Tan–Trevino yields seven Walsh-row directions plus the independent unit- and socle-sensitive directions, rank nine, and the explicit non-identical-annihilator row relation. An independent complete 64-element multiplication and unit-orbit enumeration produced exactly 15 classes, 10 annihilator ideals and rational rank 9, and verified the proposed relation; the complete finite construction is exhaustively checkable.
 
-The package does not contain an independent validation or a universal formula.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge. Nguyen–Tân–Treviño Section 3 defines C_R, proves nonsingularity in the Frobenius setting and explicitly asks for its rank (Question 3.4); it does not calculate this order-64 non-Frobenius example or the 9-versus-10 annihilator counterexample. The Resultary published square-zero-radical formula applies only when m^2=0, whereas here m^2 is a nonzero 2-dimensional socle. One published original source has a typographical inconsistency in a displayed theorem headline; the surrounding proof and question establish its actual content. Historical computation of this particular ring in unindexed work remains a residual risk.
+
+## value
+
+PASS
+
+PASS. The generalized Ramanujan rank problem is explicitly asked in a recent primary source. A fully specified small non-Frobenius local ring shows that annihilator-type counts do not determine rank even after coincident-row collapse at Loewy length 3. The seven-direction Walsh decomposition gives a mechanism for the extra dependency, a natural counterexample relevant to constructing a general rank theory, though not a classification or minimal example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
