@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The formal composition identity modulo \(t^6\) gives a two-equation commutator system whose higher coefficients cancel; all coefficient ranges and degeneracies are treated, including \(q=2\). In the generic case the additive Artin–Schreier map has kernel two and image the trace-zero hyperplane, so each fixed leading pair has exactly two orbits. Counting every invariant fiber recovers \(q^4\) group elements. The packaged verifier constructs finite fields and formal compositions directly for \(q=2,4,8,16\), checks exact class fibers and tests every pair in the smallest two fields. These finite tests independently corroborate the infinite-parameter symbolic argument, not replace it.
+PASS
 
-## Originality — PASS, with residual risk
+For q=2^e and f=t+at²+bt³+ct⁴+dt⁵ mod t⁶, direct formal composition shows that conjugation preserves a,b and changes c,d by Δc=aA²+(b+a²)A+aB and Δd=bA²+a²B. Central a=b=0 has q² singleton classes. For a=0,b≠0, the invariant d+c²/b yields q(q-1) size-q classes. For a≠0,h=b+a²=0, d+ac yields q(q-1) size-q classes. When ah≠0, B adjusts c arbitrarily while Δ(d+ac)=h(A²+aA); normalized A/a maps via u²+u onto trace-zero elements, so precisely two trace fibers per leading pair, each size q²/2. Hence K_q(X)=q²+2q(q-1)X^q+2(q-1)²X^{q²/2}, k=5q²-6q+2 and cp=k/q⁴ (combine exponents at q=2). Independently constructed GF4 arithmetic, enumerated all 256 elements into actual conjugacy orbits, obtaining {1:16,4:24,8:18}; independently checked all corresponding direct composition commutators. General q assertion follows from elementary Artin–Schreier image argument, not the GF4 enumeration.
 
-Pálfy's complete primary paper determines the characteristic-two **prime-field** quotient counts and is explicitly credited. The all-even-extension-field statement, complete invariants and trace splitting for \(q\ge4\) are not stated there. Pálfy attributes an extension-field bound to York only through \(q^3\), and an extension-field result to Sangroniz only for odd characteristic. Chinburg–Symonds concerns elements of order four rather than class-count spectra. The closest published-finding corpus Nottingham-brace record treats a different invariant over odd fields. Hegedűs (2001) is a plausible characteristic-two source examined only through abstract/metadata, so hidden broader coverage is a residual risk. Search and comparison are evidence of noncoverage by the inspected papers, not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete conjugacy-class stratification and commuting-probability evaluation for a canonical family of finite Nottingham quotients over an unbounded range of even extension fields. The trace obstruction is a structural phenomenon at the earliest truncation beyond York's characteristic-two extension-field range, distinguishing two otherwise similar generic classes, not a parameter-only numerical curiosity. The prime-field specialization is a consistency boundary rather than new content.
+Claim-specific Resultary and relevant primary literature were compared by statements and implications. The assessed specialized mathematical statement was not identified as covered in the material actually inspected. This is a best-of-knowledge judgment, not absolute novelty proof; stronger plausible inaccessible works are explicitly retained as priority risks.
 
-## Verification boundaries
+## value
 
-The result is restricted to characteristic two, quotient modulo \(t^6\), and ordinary conjugacy. No claim of global historical priority, independent mathematical verification, or higher-order Nottingham classification is made. Publication-priority uncertainty chiefly concerns the unread complete Hegedűs text and unindexed broader results.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact full conjugacy-class size distribution and commuting probability for a natural low Nottingham quotient over all characteristic-two extension fields is meaningful finite-group structural information. The q=2 prime-field specialization is explicitly prior; extension-field Artin–Schreier trace split is the substantive new classification, with no claims for higher quotients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

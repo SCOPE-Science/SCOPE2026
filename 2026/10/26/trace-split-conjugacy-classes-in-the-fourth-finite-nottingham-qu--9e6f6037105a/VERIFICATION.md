@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 (standard library only). Successful output ends in `NOTTINGHAM_QEVEN_CONJUGACY_OK`. Finite-field multiplication is implemented from irreducible binary polynomials for q=2,4,8,16. Each entire quotient is enumerated by its four coefficients, and every predicted conjugacy class is compared with its explicit conjugation orbit. Composition/commutation are tested exhaustively at q=2,4 and in deterministic samples at q=8,16.
+## correctness
 
-# Limits
+PASS
 
-The symbolic argument in `RESULT.md` establishes the arbitrary-even-field conclusion; finite verification cannot establish infinitely many cases. This report does not constitute an independent audit or proof of historical priority.
+For q=2^e and f=t+at²+bt³+ct⁴+dt⁵ mod t⁶, direct formal composition shows that conjugation preserves a,b and changes c,d by Δc=aA²+(b+a²)A+aB and Δd=bA²+a²B. Central a=b=0 has q² singleton classes. For a=0,b≠0, the invariant d+c²/b yields q(q-1) size-q classes. For a≠0,h=b+a²=0, d+ac yields q(q-1) size-q classes. When ah≠0, B adjusts c arbitrarily while Δ(d+ac)=h(A²+aA); normalized A/a maps via u²+u onto trace-zero elements, so precisely two trace fibers per leading pair, each size q²/2. Hence K_q(X)=q²+2q(q-1)X^q+2(q-1)²X^{q²/2}, k=5q²-6q+2 and cp=k/q⁴ (combine exponents at q=2). Independently constructed GF4 arithmetic, enumerated all 256 elements into actual conjugacy orbits, obtaining {1:16,4:24,8:18}; independently checked all corresponding direct composition commutators. General q assertion follows from elementary Artin–Schreier image argument, not the GF4 enumeration.
+
+## originality
+
+PASS
+
+Claim-specific Resultary and relevant primary literature were compared by statements and implications. The assessed specialized mathematical statement was not identified as covered in the material actually inspected. This is a best-of-knowledge judgment, not absolute novelty proof; stronger plausible inaccessible works are explicitly retained as priority risks.
+
+## value
+
+PASS
+
+An exact full conjugacy-class size distribution and commuting probability for a natural low Nottingham quotient over all characteristic-two extension fields is meaningful finite-group structural information. The q=2 prime-field specialization is explicitly prior; extension-field Artin–Schreier trace split is the substantive new classification, with no claims for higher quotients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
