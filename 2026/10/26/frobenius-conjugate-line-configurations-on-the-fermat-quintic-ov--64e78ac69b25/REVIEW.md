@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coefficient expansion of the Fermat equation on an arbitrary projective line proves Hermitian total isotropy and the identity \(L^{(4)}=L^\perp\), whence every geometric line satisfies \(L^{(16)}=L\). The normal bundle is \(\mathcal O_{\mathbb P^1}(-3)\), so the finite Fano scheme is reduced and étale. Explicit RREF equations enumerate the two nonempty pivot charts with exactly \(300+25=325\) solutions over \(\mathbb F_{16}\). The supplied complete verifier enumerates all \(70161\) two-planes, recovers the indicated fixed points, two-cycle, and 80 four-cycles, and verifies graph incidences by both stacked rank and determinant. It also checks the seven rational points and six clique centers. Exhaustion over the finite field is conclusive because the geometric field-of-definition proof is independent of the computation.
+PASS
 
-## Originality — PASS, subject to finite-geometry literature risk
+At characteristic two, the Fermat quintic restricts to a Hermitian form: line isotropy implies L^(4)=L^perp and L^(16)=L; normal bundle O(-3) kills tangent deformations. Independent exhaustive enumeration of all RREF 2-planes over GF(16), justified by this algebraic descent, reproduces 325 lines (75 coordinate-pair and 250 exceptional); Frobenius 3 fixed, one 2-cycle and 80 quartets. Distinct quartets give 48 empty, 14 matching, 12 cycle and 6 clique induced graphs, partitioned by families as claimed. The six rational four-clique centers are consistent with the six F2 points other than [1:1:1:1]. This independently confirms finite-scheme and incidence assertions, not a classification of other twisted forms.
 
-The \(325\) Hermitian-generator count and ordinary line incidence are classical; neither is novel here. Homma–Kim (arXiv:1304.0302) discuss Hermitian surface point geometry, Blake–Murty–Usefi (arXiv:1411.3706) count arithmetic points/zeta factors, and Brosowsky–Page–Ryan–Smith (arXiv:2110.15908) prove the line counts, stars, and global incidence. Their examined full texts do not give the \(\mathbb F_2\)-Frobenius permutation combined with the four orbit-internal intersection-graph types and the classical/exceptional split. A published-result search and accessible related research records revealed no equivalent or strictly stronger classification. Historical finite polar space monographs and older combinatorial tables remain a genuine residual duplication risk, not an assertion of universal uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The classification is a complete arithmetic-geometric refinement of the distinguished Hermitian quintic, not an arbitrary enumeration: it resolves its étale Fano scheme's prime-field descent and shows a structured contrast between the 75 coordinate-pair and 250 other generators. Separating empty, matching, cycle, and clique Frobenius orbit types links Galois descent to intrinsic line incidence. The exact constellation of six rational star centers gives a geometric interpretation of the clique part. Such line-orbit information is not obtainable merely from the known geometric count 325 or regular valency 68.
+The Hermitian generator count 325, degree 68 line-neighbor incidence, and tangent-plane stars are classical. The assessed claim combines specific F2 arithmetic Frobenius orbit partitions with quartet internal intersection graph types and coordinate-pair/exceptional labels. Inspecting the readable general Hermitian and extremal surface results does not identify the exact combined table. Older finite polar space and incidence monographs remain an important uninspected equivalent-table risk.
 
-## Prior coverage and limitations
+## value
 
-The relevant older primary sources are M. Homma–S. Kim, *The characterization of Hermitian surfaces by the number of points*; I. Blake–V. K. Murty–H. Usefi, *A note on diagonal and Hermitian surfaces*; and A. Brosowsky–J. Page–T. Ryan–K. E. Smith, *Geometry of Smooth Extremal Surfaces*. Classical incidence results by Bose–Chakravarti and Hirschfeld are noted but were not fully inspected. The theorem is for the displayed model over \(\mathbb F_2\), not all twists or arbitrary finite-field Hermitian surfaces. Independent certification was not requested or performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full arithmetic descent and Frobenius-incidence classification for a canonical smooth extremal surface is a natural exact geometric invariant: it distinguishes intersection structures of Galois quartets, rather than merely recounting the classical 325 lines.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
