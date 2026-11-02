@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T21:54:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the original synchronous nearest-to-own-opinion weighted-median convention: when leaves a<b, hub selects M=clip(x,[a,b]), not nearest endpoint. With d=(b−a)/2>0, m=(a+b)/2, z=(x−m)/d, the gap satisfies d_next=(1−s)d. If |z|<=1 the interior projection leaves x fixed and interior stays invariant. Outside, z_next=((1−2s)z+s sgn z)/(1−s); for s>1/2 put lambda=(2s−1)/(1−s), B=s/(1−s), so successive exterior side changes give R_next=lambda R−B. When s<=2/3, lambda<=1 and switching cannot continue indefinitely; when s>2/3, R0>B/(lambda−1)=s/(3s−2) generates strict unbounded normalized alternating exterior region. The aggregate dynamics contracts enough for consensus at every s in (0,1); on alternating orbits x_next+m_next=x+m+s sigma d, so summing gives c=(x0+m0)/2+s sigma0 d0/[2(2−s)]. New exact Fraction calculation confirms s=3/4 witness z path 4,−5,7,−11,19,−35, c=73/100. The infinite result follows by induction, not the finite prefix.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheng–Mei Theorem 9 addresses convergence to equilibrium; a convergent orbit with eternally alternating selected leaf satisfies that theorem.",
+          "Other papers use asynchronous single-node or continuous-time updates."
+        ],
+        "reasoning": "Broader convergence theorems do not determine stabilization of branch identity and thus do not cover the 2/3 sharp selector threshold.",
+        "searches": [
+          "weighted median self appraisal synchronous three agent path branch switching forever critical s two thirds",
+          "arXiv:2610.16406, Theorem 9 and consensus criterion",
+          "arXiv:2212.08808",
+          "arXiv:2404.16318"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md 7ef1b854b213f577fc9d6df847121a94254566c2",
+        "SCOPE frozen verify.py b5683bd4b13435b72af5f938bb8fccd1854136da, inspected source",
+        "Independent Fraction recurrence and consensus check; independent_checks.py",
+        "https://arxiv.org/html/2406.17552v3",
+        "https://arxiv.org/abs/2610.16406",
+        "Resultary search: weighted median self appraisal synchronous three agent path branch switching forever critical s two thirds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original work derives the update definition and discusses distributions and mean-field behavior.",
+          "New paper convergence theorem leaves open whether selected extremal leaf changes finitely or infinitely often."
+        ],
+        "reasoning": "The 2/3 threshold follows specifically from the affine normalized gap recurrence. Earlier consensus conclusions neither imply it nor exclude the alternating example.",
+        "searches": [
+          "arXiv:2406.17552v3, Sections 2–5",
+          "arXiv:2610.16406, Theorem 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original rule selects median closest to the actor’s current value, yielding clip(x,[a,b]) at the two-leaf hub.",
+          "The later mixed model studies synchronous consensus, not the selector branch sequence."
+        ],
+        "reasoning": "After translating the weighted-median definition exactly, the reported 2/3 switching law is not a restatement of known eventual opinion convergence.",
+        "searches": [
+          "weighted median self appraisal synchronous three agent path branch switching forever critical s two thirds",
+          "arXiv:2406.17552v3, Section 2.2",
+          "arXiv:2610.16406, Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hits included other switching dynamics and three-agent mechanism classification, not this weighted-median branch selector s=2/3 phase boundary."
+        ],
+        "reasoning": "An all-time parameter classification for a natural path is not a known small-graph lookup in the queried corpus.",
+        "searches": [
+          "weighted median self appraisal synchronous three agent path branch switching forever critical s two thirds",
+          "Resultary search; 11 hits"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the original Mohr–Hjorth–Porter model fixes median tie/interval convention and examines long-/short-time opinion distributions; Cheng–Mei (2026) proves convergent opinions and structural consensus but does not assert finite stabilization of the chosen selector. Indeed persistent selector switching is compatible with their conclusion. Asynchronous and continuous-time frameworks are not statement-equivalent. Prior switching-system analogues are a residual risk.",
+      "residual_risks": [
+        "No classification of all initial states when s>2/3; only a nonempty open perpetually alternating set.",
+        "Other unindexed switched consensus or hybrid systems sources could contain an equivalent three-path threshold.",
+        "The proof assumes symmetric two-leaf weights, common s and the full median-interval projection convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines this model, does not state strict 2/3 permanent-selector threshold",
+          "evidence": "Median defined as minimizing absolute weighted deviation with closest-to-current tie, giving interval projection.",
+          "identifier_or_url": "https://arxiv.org/html/2406.17552v3",
+          "material_read": "Primary HTML Sections 2–5, original Section 2.2 equation/update convention, and appendix descriptions",
+          "method": "Read full model text and theorem/scenario descriptions",
+          "title": "Long-Time and Short-Time Dynamics in a Weighted-Median Opinion Model on Networks",
+          "trigger": "Origin of the exact discrete synchronous rule and tie convention"
+        },
+        {
+          "assessment": "Proves convergence to equilibrium in broader mixed model, not branch stabilization",
+          "evidence": "Theorem 9 is a convergence statement; no selected-branch 2/3 claim.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.16406",
+          "material_read": "Full readable open text, Sections 2–3, Theorem 9, and discussions of consensus criteria",
+          "method": "Read primary HTML theoretical sections and theorem 9",
+          "title": "Equilibria and consensus in discrete-time opinion dynamics with mixed weighted-averaging and weighted-median mechanisms",
+          "trigger": "Recent potentially stronger all-network synchronous convergence"
+        },
+        {
+          "assessment": "Asynchronous updates, so no implication for this synchronous alternating selector",
+          "evidence": "Single-node asynchronous selection differs from simultaneous three-node map.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.08808",
+          "material_read": "Model definitions and available convergence statements",
+          "method": "Read accessible model/abstract material",
+          "title": "Convergence, Consensus and Dissensus in the Weighted-Median Opinion Dynamics",
+          "trigger": "Possible earlier median dynamical stabilizing theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest symmetric network with a nontrivial median interval has an exact robust transition between convergent opinions with eventually stable selector and convergent opinions with perpetual strict branch alternation. This sharp dynamical boundary separates discrete influence choice from continuous consensus and is not merely a single simulated cycle.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen RESULT.md 7ef1b854b213f577fc9d6df847121a94254566c2",
+    "SCOPE frozen verify.py b5683bd4b13435b72af5f938bb8fccd1854136da, inspected source",
+    "Independent Fraction recurrence and consensus check; independent_checks.py",
+    "https://arxiv.org/html/2406.17552v3",
+    "https://arxiv.org/abs/2610.16406",
+    "Resultary search: weighted median self appraisal synchronous three agent path branch switching forever critical s two thirds"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Assumes initial distinct leaves; coincident leaf values handled by separate linear consensus case.",
+    "Exact path dynamics and threshold are analytical; finite Fraction checks serve only as witnesses."
+  ],
+  "residual_risks": [
+    "No classification of all initial states when s>2/3; only a nonempty open perpetually alternating set.",
+    "Other unindexed switched consensus or hybrid systems sources could contain an equivalent three-path threshold.",
+    "The proof assumes symmetric two-leaf weights, common s and the full median-interval projection convention."
+  ],
+  "schema_version": 1
+}

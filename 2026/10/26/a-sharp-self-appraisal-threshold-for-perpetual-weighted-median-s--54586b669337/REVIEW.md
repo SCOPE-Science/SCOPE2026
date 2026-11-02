@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses the paper's *full interval-projection* median convention, not a nearest-endpoint substitution. Direct substitution gives the leaf-gap recursion, invariant interior region, and exact exterior affine map. For \(s\le2/3\) every outer sign reversal decreases normalized distance by at least the fixed positive quantity \(B\), making infinitely many such reversals impossible; for \(s>2/3\), the strict invariant outer region grows in normalized displacement and alternates at every time. The geometric consensus proof and alternating-branch geometric series check all denominators and endpoints; exact-rational instances supply a separate computational check.
+## correctness
 
-**Originality — PASS, subject to bibliographic uncertainty.** The primary full text defines the synchronous rule and focuses on simulations and mean-field behavior, rather than median-branch identity stabilization. The closest newer convergence theorem for mixed median/average dynamics does not imply branch stabilization: it controls convergence of opinions, which holds even in this alternating construction. Asynchronous and continuous-time median results have different update mechanisms. Searches for three-path median switching, its sharp \(2/3\) coefficient, and related phrasing yielded no equivalent theorem; remaining unindexed literature risk is explicit.
+PASS
 
-**Mathematical value — PASS.** This identifies a sharp, structurally motivated qualitative boundary between globally eventually fixed median selection and robust endless branch switching, on the smallest connected graph with a two-neighbor median interval. The open alternating set separates stability of opinions from stability of the discrete influence mechanism and gives an exact, interpretable consensus observable. The threshold is not just a computed orbit or an arbitrary finite slice.
+Use the original synchronous nearest-to-own-opinion weighted-median convention: when leaves a<b, hub selects M=clip(x,[a,b]), not nearest endpoint. With d=(b−a)/2>0, m=(a+b)/2, z=(x−m)/d, the gap satisfies d_next=(1−s)d. If |z|<=1 the interior projection leaves x fixed and interior stays invariant. Outside, z_next=((1−2s)z+s sgn z)/(1−s); for s>1/2 put lambda=(2s−1)/(1−s), B=s/(1−s), so successive exterior side changes give R_next=lambda R−B. When s<=2/3, lambda<=1 and switching cannot continue indefinitely; when s>2/3, R0>B/(lambda−1)=s/(3s−2) generates strict unbounded normalized alternating exterior region. The aggregate dynamics contracts enough for consensus at every s in (0,1); on alternating orbits x_next+m_next=x+m+s sigma d, so summing gives c=(x0+m0)/2+s sigma0 d0/[2(2−s)]. New exact Fraction calculation confirms s=3/4 witness z path 4,−5,7,−11,19,−35, c=73/100. The infinite result follows by induction, not the finite prefix.
 
-**Closest comparisons and limitations.** arXiv:2406.17552 Sections 2–5 and appendices; arXiv:2610.16406 Sections 2–3 and supporting analysis; arXiv:2212.08808; arXiv:2404.16318; arXiv:2408.01899. The sharp cutoff applies to a symmetric three-agent path, common \(s\), synchronous updates, and the specified median convention. A broader literature analogue may remain unindexed. No claim of independent certification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: the original Mohr–Hjorth–Porter model fixes median tie/interval convention and examines long-/short-time opinion distributions; Cheng–Mei (2026) proves convergent opinions and structural consensus but does not assert finite stabilization of the chosen selector. Indeed persistent selector switching is compatible with their conclusion. Asynchronous and continuous-time frameworks are not statement-equivalent. Prior switching-system analogues are a residual risk.
+
+## value
+
+PASS
+
+The smallest symmetric network with a nontrivial median interval has an exact robust transition between convergent opinions with eventually stable selector and convergent opinions with perpetual strict branch alternation. This sharp dynamical boundary separates discrete influence choice from continuous consensus and is not merely a single simulated cycle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
