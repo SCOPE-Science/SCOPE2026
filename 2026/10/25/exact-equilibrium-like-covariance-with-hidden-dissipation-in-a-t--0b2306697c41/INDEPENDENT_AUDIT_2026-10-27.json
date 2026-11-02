@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T20:11:30.510775Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-equilibrium-like-covariance-with-hidden-dissipation-in-a-t--0b2306697c41/RESULT.md",
+        "Git inspected source verifier or mathematical proof; details in rationale",
+        "/mnt/data/independent_math_checks_scope05.py"
+      ],
+      "rationale": "PASS: Checked the unique stationary solution from positive stiffnesses, the 2x2 linear systems for state-resolved second moments u_i=D(b+k)/(2ab+k(a+b)), D(a+k)/(2ab+k(a+b)), and covariance C(t)=u^T exp(t[[-a-k,k],[k,-b-k]])1. Its characteristic ODE has L=a+b+2k, P=ab+k(a+b), initial C(0)=D L/[2ab+k(a+b)] and C'(0)=-D. Enforcing one exponential yields the exact factor (ab-k^2)(4ab-(a+b)^2)=0; distinct a,b force ab=k^2 and conversely uniqueness of the ODE gives the asserted entire covariance. Independently recomputed the 4th-moment generator inverse and the positive cumulant 3D^2(a-b)^2(4ab+3k(a+b)+2k^2)/[(2ab+k(a+b))^2(4ab+k(a+b))] using SymPy, and verified factorization exactly. Prior published joint entropy formula Sigma=k(a-b)^2/[4ab+2k(a+b)] reduces algebraically to stated identity. AM-GM and a->infty with b=k^2/a establish positivity, calibration and unboundedness. Claim is covariance-only, not full OU law.",
+      "residual_risks": [
+        "An alternative regime-switching OU spectral theorem might contain the same two-time cancellation as a corollary; not identified in inspected full primary source."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Markov-modulated OU framework provides resolvent/propagation methods, not an inspected statement of the special scalar cancellation iff k^2=ab with exact entropy and kurtosis."
+        ],
+        "reasoning": "General Feynman–Kac theory supplies methodology but does not in itself publish this fully specialized sharp identifiability curve. Risk of an already worked out specialization remains.",
+        "searches": [
+          "arXiv:2202.02630 full PDF",
+          "arXiv:2012.10712 general Markov-modulated OU background (cited by package)",
+          "Resultary Markov-modulated OU covariance search"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 7ed3c97e8bc82a162a9e0885bdf2574f5bbb1b65",
+        "Git record tree 05457910d6ec14487070f1b9f74ace7b05883617",
+        "arXiv:2202.02630 full §4 primary PDF",
+        "Independent exact symbolic stationary moment/Cayley–Hamilton factorization and fourth cumulant",
+        "Resultary switched harmonic stiffness OU search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Eq.(38) yields the 2x2 stationary second moments; Eq.(41) determines joint Sigma for any switching rate."
+        ],
+        "reasoning": "These exact prior quantities enable the source proof but do not imply single-exponential all-lag autocorrelation without solving the Feynman–Kac 2x2 dynamics and identifying the exact cancellation. The current K formula requires the separate fourth-moment calculation.",
+        "searches": [
+          "Alston–Cocconi–Bertrand 2022 Eq.(41)",
+          "arXiv:2202.02630 Eq.(38)",
+          "Resultary related OU observations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alston–Cocconi–Bertrand Eq.(41) gives Sigma for switching trap; stationary conditional variance is already known."
+        ],
+        "reasoning": "OU covariance equivalence is same as a one-pole stationary spectrum and cancellation of a second Feynman–Kac mode. No equivalent all-lag cancellation threshold with kurtosis calibration was found in the full inspected initiating paper or relevant Resultary hits.",
+        "searches": [
+          "arXiv:2202.02630 §4.2.2 equations 37–43",
+          "Resultary: switching two-state harmonic stiffness OU autocovariance exponential geometric mean switching entropy production kurtosis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The single condition k^2=ab is an all-parameter functional equality, not a finite exact lookup table."
+        ],
+        "reasoning": "The original paper tabulates/plots thermodynamics; such tables do not by themselves prove the iff equality of the two-time function or invertible kurtosis–entropy equation.",
+        "searches": [
+          "arXiv:2202.02630 Eqs.(37)–(43), relevant figures",
+          "Resultary two-state harmonic switching search"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Alston–Cocconi–Bertrand 2022 investigates the very same two-state switched positive-stiffness harmonic trap and gives the state moments and physical entropy formula, both acknowledged as prior. The new result is sharp if-and-only-if cancellation of one covariance mode at kappa=sqrt(ab) for every lag and exact positive fourth-cumulant entropy calibration. The inspected full primary source does not state the combined criterion; general Markov-modulated OU methods could admit an equivalent specialization elsewhere, an explicit residual risk.",
+      "residual_risks": [
+        "An alternative regime-switching OU spectral theorem might contain the same two-time cancellation as a corollary; not identified in inspected full primary source.",
+        "Joint physical entropy production requires model observation/environment, not inference from X autocovariance alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stationary variance and entropy are prior. The paper does not establish in the inspected relevant results the all-lag OU mimicry iff threshold and K calibration",
+          "evidence": "Eq.(38) and Eq.(41) support baseline thermodynamics and normalization; cross-covariance equation separately derived",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.02630",
+          "material_read": "Full arXiv PDF, including §4, stationary conditional moment Eq.(38), internal entropy-production Eq.(41), neighboring analysis and actual page-image of §4",
+          "method": "Full primary PDF text and page-image inspection",
+          "title": "Non-equilibrium thermodynamics of diffusion in fluctuating potentials",
+          "trigger": "Exact originating two-state trap and entropy convention"
+        },
+        {
+          "assessment": "No direct same two-state positive-stiffness cancellation claim among returned hits",
+          "evidence": "Closest named random-sensor result concerns high-dimensional OU observing directions rather than Markov-switching harmonic traps",
+          "identifier_or_url": "https://github.com/Resultary/2026",
+          "material_read": "Semantic query returned top eight named records and summaries, including random sensor OU threshold, physically distinct models",
+          "method": "Resultary semantic search",
+          "title": "Resultary published related OU findings",
+          "trigger": "Seek published equivalent finite-rate OU camouflage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md 7ed3c97e8bc82a162a9e0885bdf2574f5bbb1b65",
+        "Git record tree 05457910d6ec14487070f1b9f74ace7b05883617",
+        "arXiv:2202.02630 full §4 primary PDF"
+      ],
+      "rationale": "PASS: Stationary autocovariance/power spectrum is an important equilibrium diagnostic. A positive, arbitrarily dissipative physical model with exactly equilibrium two-point correlations is a sharp identifiability counterexample; the kurtosis formula provides an exact higher-order diagnostic for the self-review, not just qualitative non-Gaussianity.",
+      "residual_risks": [
+        "Exactly two equally likely states with symmetric switching, strictly positive unequal stiffnesses, common additive Brownian diffusion, stationary preparation.",
+        "The a=b equilibrium case works for any k and is excluded from nontrivial iff; covariance equality is not Gaussianity or path-law equality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two equally likely states with symmetric switching, strictly positive unequal stiffnesses, common additive Brownian diffusion, stationary preparation.",
+    "The a=b equilibrium case works for any k and is excluded from nontrivial iff; covariance equality is not Gaussianity or path-law equality."
+  ],
+  "schema_version": 1
+}

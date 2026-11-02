@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete stationary covariance and moment relations were derived from the joint generator and the explicitly stated hypotheses. The companion `checks/check.py` was executed successfully with `sympy`, `numpy`, and `scipy`, producing the exact output preserved in `checks/results.txt`. Reproduced identities include the unconditional stationary fourth cumulant, the polynomial cancellation factor, the geometric-mean equality criterion, the joint entropy formula and the inverse kurtosis–entropy relation. The checker also evaluates 30 matrix-exponential correlation lag cases across five nonidentical traps, four off-threshold counterchecks, and the exact rational example.
+## correctness
 
-The infinite-parameter and all-lag theorem rests on the analytic stationary-generator/Feynman–Kac proof in `RESULT.md`, not on numerical sample size. Tests do not establish independent scholarly priority, experimental validity, or extensions beyond stationary symmetric two-state positive stiffness and common diffusion. No independent audit has been conducted.
+PASS
+
+PASS: Checked the unique stationary solution from positive stiffnesses, the 2x2 linear systems for state-resolved second moments u_i=D(b+k)/(2ab+k(a+b)), D(a+k)/(2ab+k(a+b)), and covariance C(t)=u^T exp(t[[-a-k,k],[k,-b-k]])1. Its characteristic ODE has L=a+b+2k, P=ab+k(a+b), initial C(0)=D L/[2ab+k(a+b)] and C'(0)=-D. Enforcing one exponential yields the exact factor (ab-k^2)(4ab-(a+b)^2)=0; distinct a,b force ab=k^2 and conversely uniqueness of the ODE gives the asserted entire covariance. Independently recomputed the 4th-moment generator inverse and the positive cumulant 3D^2(a-b)^2(4ab+3k(a+b)+2k^2)/[(2ab+k(a+b))^2(4ab+k(a+b))] using SymPy, and verified factorization exactly. Prior published joint entropy formula Sigma=k(a-b)^2/[4ab+2k(a+b)] reduces algebraically to stated identity. AM-GM and a->infty with b=k^2/a establish positivity, calibration and unboundedness. Claim is covariance-only, not full OU law.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Alston–Cocconi–Bertrand 2022 investigates the very same two-state switched positive-stiffness harmonic trap and gives the state moments and physical entropy formula, both acknowledged as prior. The new result is sharp if-and-only-if cancellation of one covariance mode at kappa=sqrt(ab) for every lag and exact positive fourth-cumulant entropy calibration. The inspected full primary source does not state the combined criterion; general Markov-modulated OU methods could admit an equivalent specialization elsewhere, an explicit residual risk.
+
+## value
+
+PASS
+
+PASS: Stationary autocovariance/power spectrum is an important equilibrium diagnostic. A positive, arbitrarily dissipative physical model with exactly equilibrium two-point correlations is a sharp identifiability counterexample; the kurtosis formula provides an exact higher-order diagnostic for the self-review, not just qualitative non-Gaussianity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
