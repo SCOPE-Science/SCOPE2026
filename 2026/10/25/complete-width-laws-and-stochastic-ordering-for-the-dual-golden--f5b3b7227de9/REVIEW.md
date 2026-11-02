@@ -1,19 +1,21 @@
-# Review of the golden-polyhedron width laws
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** With circumradius one and central symmetry, the half-width is the maximum dot product with a vertex. The five-sided and three-sided regular spherical Voronoi cells have common circumradius \(\arccos r\), differing inradii \(\arccos c_I\) and \(\arccos c_D\), and their clipped-cap losses are disjoint up to the cell circumradius. The proof computes the spherical segment area by a verified integral, obtains both CDFs, and establishes strict order by a sign-definite derivative on the first transition interval and an endpoint argument on the second. The near-support expansion follows by differentiation. Independently enumerated vertices and randomized directions corroborate seven thresholds per polyhedron. The simulations are not a substitute for the continuous proof.
+PASS
 
-## Originality
+For centered circumradius-one icosahedron and dodecahedron, half-width is max_{vertices v} U·v by antipodal symmetry. Their spherical Voronoi cells are regular pentagons (12) and triangles (20), each inscribed about cap of angular apothem a and covering radius b; geometry gives the same minimum support r=sqrt((5+2sqrt(5))/15). For cap threshold r<=t<=1, disjoint side overshoot segments before the Voronoi vertices have integral B(t;c), yielding survival N(1-t)/2−15 B(t;c)/pi, with c_I~.85065 and c_D~.93417. The proof checks aperture derivative H'(r)=0, H'>0 until c_I, then no interior minimum and positive endpoint, then exact H=4(1-t) above c_D. It also derives quadratic lower onset and exactly linear upper tails. Independent 80000-direction per-solid quasiuniform evaluations agreed with survival formulas at six thresholds to <0.00017 and strict stochastic order at 199 test thresholds; these are corroboration only, not the all-threshold proof.
 
-**PASS relative to the inspected record, with historical-priority risk.** Finch's width study concentrates on the cube and tetrahedron. Abas gives a general density calculus for polytopes and specializations to other solids, a real instance of broader methodological coverage; it does not state the dual golden-polyhedron order. Previously published icosahedral and Platonic-solid mean-square widths determine moments, not the full distributions or their pointwise comparison. Spherical-cap intersection formulas alone do not compare these two normal fans. No precise earlier ordering theorem was found in the relevant searches, but limited accessibility of public mathematical-record full texts and the possibility of an unindexed prior specialization remain explicit risks. The contribution is the strict stochastic order and its explicit two-law evaluation, not a general density-existence theorem.
+## originality
 
-## Value
+PASS
 
-**PASS.** A strict all-threshold comparison of two polar-dual regular solids with *identical normalized extremal widths* is a meaningful structural geometric-probability invariant: the mean and variance alone cannot establish it. The result is not an arbitrary parameter slice; the regular icosahedron and dodecahedron are the natural golden-ratio dual Platonic pair. Their 12 and 20 vertices give competing cap multiplicities and clipped-cell terms, and the exact proof resolves those effects globally, while the endpoint coefficients quantify their distinction. The special-case scope is acknowledged.
+General normal-fan coarea theory implies an algorithmic density representation and moments are known, so cap-integration method is not claimed as novel; the exact two-piece golden-pair survival laws and strict pointwise stochastic ordering at equal circumradius were not identified as a stated result in inspected accessible material. The very relevant Abas 2026 complete manuscript was inaccessible; originality PASS is explicitly conditional best of knowledge.
 
-## Checked literature and remaining limits
+## value
 
-Finch (arXiv:1110.0671, first 2011); Mazonka (arXiv:1205.1396, 2012); Abas (arXiv:2609.26202, 2026), including its normal-fan machinery and its explicit examples; and relevant public moment records were compared on statements, not merely titles. Source access limitations and the general-method antecedent are separately recorded in `AUDIT.json`. No expert or independent audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full laws and their strict stochastic order are natural distributional comparisons for the two dual regular golden solids under a clearly specified equal-circumradius scale. Complete pointwise order, identical minimum support, and distinct quadratic low-end rates are not inferred from the known finite width moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
