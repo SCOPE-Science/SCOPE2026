@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The eight three-deck coordinates were independently rederived as functions of the zero-prefix moments \(S_0,S_1,S_2\) and the counts of zeros and ones. Length-three counts recover shorter scattered-subword counts. Up to three marked ones, two linear moment constraints leave at most one continuous degree of freedom and the squared norm has at most two intersections. At four marked ones, the displayed two-parameter integer lattice preserves both linear moments; the algebraic norm identity fixes the quadratic moment, and the non-root-of-unity calculation guarantees \(k+1\) distinct solutions. Strict monotonicity of zero-prefix coordinates and arbitrary zero padding complete the all-length proof. The checker reproduced the symbolic moment table on 2,372 short words, exact deck coincidence in five parameter families, and exhaustive low-support bounds through length fourteen. Computation is corroboration, not the universal proof.
+PASS
 
-## Originality (PASS, subject to historical priority risk)
+For fixed n>=3, scattered three-decks recover shorter counts by combinatorial extension, including S0=c_01. For r marked ones and m=n-r zeros the eight triple counts are explicit polynomials in S0=sum z_i, S1=sum i*z_i, S2=sum z_i^2; these are both necessary and sufficient deck invariants. r<=2 yields unique zero-prefix vector; at r=3 the two linear equations leave a direction (1,-2,1), and positive quadratic norm meets this line at most twice. The explicit 7-letter pair gives equality and padding preserves it. At r=4, use x_j+y_j sqrt(-5)=(1+sqrt(-5))^j(1-sqrt(-5))^(k-j), norm 6^k and v=((x-y),(3y-x),(-x-3y),(x+y))/2. Exact integer parity, sum v=sum i*v_i=0, norm squared=6^k and B=4*6^k yield strictly increasing z_i=iB+v_i in 0..5B. The quotient of conjugate algebraic numbers has rational trace -4/3 and cannot be a root of unity; the k+1 words are distinct and deck-identical at length 20*6^k+4, with padding extending to every n>=124 and the exact floor-log bound. Independently enumerated 1,578 short words/decks and checked algebraic witnesses k=1..5; finite checks do not prove unboundedness.
 
-The 2013 Rigo–Salimov long preprint and later published version establish binomial equivalence and overall quotient bounds, but not a fixed-weight-four three-deck class-size divergence. The full-text sections on finite equivalence in Lejeune–Rigo–Rosenfeld 2020 concern principally two-binomial class algorithms and general class counts; their stronger-looking quotient counts do not bound, classify or produce the fiber sizes in this theorem. Chrisnata and collaborators' distinct-deck enumeration and OEIS A258585 count how many observations exist rather than how many words share one particular observation. The previously reported two-preimage behavior at three marked symbols does not imply any four-marker unbounded construction. No equivalent four-marker result was located in the inspected literature, but an unindexed specialization or earlier construction is a residual risk.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-This identifies the sharp minimum nonconstant alphabet support for **unbounded** ambiguity under multiplicity-sensitive three-deck observation. It connects a reconstruction invariant to the elementary norm-form family \(x^2+5y^2\) and provides explicit witnesses at every sufficiently large source length. Neither the r-three quadratic-bound argument nor an arbitrary parameter increment alone explains the number-theoretic growth at r-four; this is a substantive structural transition.
+The 2021 Chrisnata et al. full paper specifically counts distinct k-deck observations D_k(n), and its Section 5.3 concerns three ones, explicitly giving the two 7-letter ambiguous words. Rigo--Salimov and Lejeune--Rigo--Rosenfeld develop binomial equivalence and total number of equivalence classes, primarily two-binomial finite-word classification; neither the number of distinct observations nor a bounded weight-three fiber can imply unbounded single-deck fibers at weight four. Fresh Resultary nearest hits concern three-deletion reconstructions and alternative multispectra, not fixed-weight four-one scattered length-3 deck fibers. Norm-form infinite witness is new relative to inspected implications; unindexed older sparse-word class-size research remains risk.
 
-## Limits and closest prior coverage
+## value
 
-There is no matching upper bound for four-one fiber sizes and no claim of maximality of the specific constructed class. Primary comparisons: Rigo–Salimov 2013, Lejeune–Rigo–Rosenfeld 2020, Chrisnata et al. 2019, and OEIS A258585. The earliest linked 2013 source was available on its institutional repository on May 27, 2013. Independent external mathematical verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed-deck reconstruction is a natural combinatorial inverse problem. The sharp transition from at most two reconstructions with <=3 ones to unbounded multiplicities with precisely four ones, plus an explicit arithmetic construction and bound for all sufficiently long lengths, establishes a meaningful structural threshold beyond a single counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

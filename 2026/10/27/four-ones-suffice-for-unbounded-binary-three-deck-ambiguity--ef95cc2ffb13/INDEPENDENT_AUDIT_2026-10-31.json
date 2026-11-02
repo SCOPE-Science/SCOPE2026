@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T22:54:11.746205Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed n>=3, scattered three-decks recover shorter counts by combinatorial extension, including S0=c_01. For r marked ones and m=n-r zeros the eight triple counts are explicit polynomials in S0=sum z_i, S1=sum i*z_i, S2=sum z_i^2; these are both necessary and sufficient deck invariants. r<=2 yields unique zero-prefix vector; at r=3 the two linear equations leave a direction (1,-2,1), and positive quadratic norm meets this line at most twice. The explicit 7-letter pair gives equality and padding preserves it. At r=4, use x_j+y_j sqrt(-5)=(1+sqrt(-5))^j(1-sqrt(-5))^(k-j), norm 6^k and v=((x-y),(3y-x),(-x-3y),(x+y))/2. Exact integer parity, sum v=sum i*v_i=0, norm squared=6^k and B=4*6^k yield strictly increasing z_i=iB+v_i in 0..5B. The quotient of conjugate algebraic numbers has rational trace -4/3 and cannot be a root of unity; the k+1 words are distinct and deck-identical at length 20*6^k+4, with padding extending to every n>=124 and the exact floor-log bound. Independently enumerated 1,578 short words/decks and checked algebraic witnesses k=1..5; finite checks do not prove unboundedness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 23 yields uniqueness for weight <=k-1, i.e. <=2 when k=3; Section 5.3 treats weight-three cases.",
+          "General total-class upper bounds do not bound sizes of inverse fibers."
+        ],
+        "reasoning": "The potentially broader general deck enumeration and finite-word class-count theorems do not determine growth of the largest weight-four inverse image.",
+        "searches": [
+          "Chrisnata et al. 2021 Theorem 23 and Section 5.3",
+          "arXiv:2001.11732 Proposition 12",
+          "binary words three binomial equivalence fixed four occurrences of one unbounded class size sparse 3-deck reconstruction moments Prouhet"
+        ]
+      },
+      "checked_sources": [
+        "https://yaakobi.net.technion.ac.il/files/2022/08/60_k_Decks_Disc_Math21.pdf",
+        "https://arxiv.org/html/2001.11732v1",
+        "https://hdl.handle.net/2268/149313",
+        "binary words three binomial equivalence fixed four occurrences of one unbounded class size sparse 3-deck reconstruction moments Prouhet"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chrisnata et al. Theorem 23 is restricted to weights <=2; their Section 5.3 gives a distinct pair at weight three.",
+          "The assessed norm family produces k+1 equal decks with fixed weight four for unbounded k, which is not given by those earlier weight-three results."
+        ],
+        "reasoning": "A 2-fiber at r=3 and general growth of total distinct decks do not entail an unbounded r=4 fiber or its constructive log bound.",
+        "searches": [
+          "https://yaakobi.net.technion.ac.il/files/2022/08/60_k_Decks_Disc_Math21.pdf pages 15--16",
+          "arXiv:2001.11732 Section 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At fixed n>=3 the multiset three-deck is equivalent to three-binomial equivalence; the target statistic is the size of one fiber conditioned on exactly r occurrences of 1.",
+          "Lejeune--Rigo--Rosenfeld introduce the same equivalence but count overall quotients and two-binomial classes."
+        ],
+        "reasoning": "Matching aliases scattered subword, binomial equivalence, three-deck reconstruction and fixed-composition fiber does not turn finite quotient counts into this maximal fiber theorem.",
+        "searches": [
+          "binary words three binomial equivalence fixed four occurrences of one unbounded class size sparse 3-deck reconstruction moments Prouhet",
+          "arXiv:2001.11732 Definition 2",
+          "Rigo--Salimov 2013 binomial-equivalence long preprint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A258585 and the paper Table 1 report aggregate counts of distinct three-decks, not the largest same-deck multiplicity with exactly four ones.",
+          "The paper Section 5.3 supplies the known weight-three length-seven example."
+        ],
+        "reasoning": "Exact small tables and aggregate counts cannot imply the infinite logarithmic family; no explicit weight-four fiber-growth formula located.",
+        "searches": [
+          "OEIS A258585",
+          "Chrisnata et al. 2021 Table 1 and D_{3,3}(n)",
+          "Resultary search: binary weight four 3-deck reconstruction class size"
+        ]
+      },
+      "rationale": "The 2021 Chrisnata et al. full paper specifically counts distinct k-deck observations D_k(n), and its Section 5.3 concerns three ones, explicitly giving the two 7-letter ambiguous words. Rigo--Salimov and Lejeune--Rigo--Rosenfeld develop binomial equivalence and total number of equivalence classes, primarily two-binomial finite-word classification; neither the number of distinct observations nor a bounded weight-three fiber can imply unbounded single-deck fibers at weight four. Fresh Resultary nearest hits concern three-deletion reconstructions and alternative multispectra, not fixed-weight four-one scattered length-3 deck fibers. Norm-form infinite witness is new relative to inspected implications; unindexed older sparse-word class-size research remains risk.",
+      "residual_risks": [
+        "Earlier specialized binomial-equivalence theory or sparse Prouhet-type constructions could imply this four-one threshold.",
+        "The logarithmic lower bound is not optimal and no exhaustive four-one fiber classification is asserted.",
+        "Published 2019 short conference paper was not separately fully inspected from its expanded 2021 primary text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its statistic D_k(n) counts distinct observations; known uniqueness for weights <=2 and weight-three pair do not give weight-four unbounded fiber growth.",
+          "evidence": [
+            "Theorem 23, Section 5.3, pages 15--16; DOI 10.3934/amc.2021032"
+          ],
+          "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2022/08/60_k_Decks_Disc_Math21.pdf",
+          "material_read": "Introduction, Section 3 trellis definition, Table 1 objectives, pages 15--16 Section 5.3 and Theorem 23, including zero-gap argument",
+          "method": "Full open primary PDF text with visual screenshots pages 1 and 15",
+          "title": "On the Number of Distinct k-Decks: Enumeration and Bounds",
+          "trigger": "Same precise scattered three-deck and possible fixed-weight lower bounds"
+        },
+        {
+          "assessment": "No inspected theorem gives fixed-four-one unbounded three-deck fibers; total class counts are different invariants.",
+          "evidence": [
+            "Definition 2 and Section 4, arXiv:2001.11732v1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2001.11732v1",
+          "material_read": "Definitions, binary two-binomial class sections, quotient-growth results and final limitations",
+          "method": "Open arXiv full HTML source, read relevant mathematical theorem sections",
+          "title": "On the Binomial Equivalence Classes of Finite Words",
+          "trigger": "Same three-binomial equivalence language and finite equivalence-class cardinalities"
+        },
+        {
+          "assessment": "Foundational binomial-equivalence and two-deck classifications credited; full-document absence not claimed.",
+          "evidence": [
+            "Rigo and Salimov, WORDS 2013; https://hdl.handle.net/2268/149313"
+          ],
+          "identifier_or_url": "https://hdl.handle.net/2268/149313",
+          "material_read": "Published author preprint bibliographic and mathematical summaries; did not independently re-read its complete PDF in this run",
+          "method": "Original bibliographic record and comparison with accessible finite-word primary",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "Historical source of binomial equivalence and possible growth results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-deck reconstruction is a natural combinatorial inverse problem. The sharp transition from at most two reconstructions with <=3 ones to unbounded multiplicities with precisely four ones, plus an explicit arithmetic construction and bound for all sufficiently long lengths, establishes a meaningful structural threshold beyond a single counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Earlier specialized binomial-equivalence theory or sparse Prouhet-type constructions could imply this four-one threshold.",
+    "The logarithmic lower bound is not optimal and no exhaustive four-one fiber classification is asserted.",
+    "Published 2019 short conference paper was not separately fully inspected from its expanded 2021 primary text."
+  ],
+  "schema_version": 1
+}
