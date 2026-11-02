@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the clique-augmented biclique norm theorem
+# Independent mathematical audit
 
-The standalone Python checker uses exact rational arithmetic. It constructs each unweighted graph and independently tests the explicit Laplacian dipole potentials for the three edge classes. It computes absolute column sums directly over actual edges, compares all formulas, and checks sharp upper bounds at tested parameters. For 23 graphs it independently inverts the grounded integer Laplacian and reconstructs every projection column, providing a calculation independent of the proposed orbit potentials.
+## correctness
 
-Successful run:
+PASS
 
-`CLIQUE_AUGMENTED_BICLIQUE_EXACT_OK orbit_cases=5712 orbit_edges=882504 grounded_graphs=23 grounded_columns=1013 sharp_limit_samples=3`
+Every edge lies in exactly one CC, CB or UB symmetry orbit. The displayed class-constant dipole potentials solve Lv=delta_x-delta_y; summing absolute voltage drops gives S_e and complementary Z_e=1+S_e-2R_e. The CB solution has a single absolute sign change at p=m-k=n, producing the two branch corrections. Exact positive-factor comparisons show CC cannot maximize either projection norm, while the signs of Delta_Q,Delta_P give distinct T_Q,T_P; their explicit gap 4(k+n)(n-1)/(n(n+2))>3 yields an interior integer phase. Algebraic upper bounds <4 and <5 for all admissible integers and the t,t^2,t^4 sequence realizes both limits. Independent exact inverses of grounded Laplacians checked all 621 edge columns on 10 graphs, but the unrestricted domain is proved by the orbit potentials and inequalities.
 
-All exact rational comparisons passed. The five symbolic identities used to simplify the orbit-current sums were separately checked with exact algebra. The proof applies to every integer parameter in the stated domain; the enumerated finite range alone would not establish its universal quantifiers, uniqueness in the literature, or optimality among nonorthogonal projections.
+## originality
+
+PASS
+
+Qualified original exact absolute-current edge-space norm classification for mixed clique/independent bicliques, including separated edge-maximizer phases and sharp 4/5 bounds. Known electrical-network pseudoinverse and graph-blowup formulas provide input resistance distances but do not themselves evaluate total absolute currents and the l1/linfty maxima or identify these threshold regimes. An equivalent specialized graph current calculation could remain in incompletely accessed literature.
+
+## value
+
+PASS
+
+Cut/cycle Hodge operator norms on a connected graph are natural geometric invariants for graph transportation and flow decomposition. The three-orbit explicit classification and opposite-maximizer phase window across all sizes answer a structured perturbation problem and establish sharp amplification ceilings, reusable beyond finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

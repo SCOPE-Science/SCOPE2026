@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Three explicitly stated potentials satisfy the graph Laplacian dipole equations in each edge orbit. Summing all edge drops gives rational expressions with just one sign-changing term, leading to the exact two-branch formulas. Positive-factor comparisons exclude clique edges from maximizing, determine strict phase boundaries, and prove unattained bounds \(4\) and \(5\). The independent grounded-Laplacian computations agree with the analytic formulas on all checked configurations. The finite checker corroborates but does not replace the unrestricted proof.
+PASS
 
-## Originality — PASS (qualified)
+Every edge lies in exactly one CC, CB or UB symmetry orbit. The displayed class-constant dipole potentials solve Lv=delta_x-delta_y; summing absolute voltage drops gives S_e and complementary Z_e=1+S_e-2R_e. The CB solution has a single absolute sign change at p=m-k=n, producing the two branch corrections. Exact positive-factor comparisons show CC cannot maximize either projection norm, while the signs of Delta_Q,Delta_P give distinct T_Q,T_P; their explicit gap 4(k+n)(n-1)/(n(n+2))>3 yields an interior integer phase. Algebraic upper bounds <4 and <5 for all admissible integers and the t,t^2,t^4 sequence realizes both limits. Independent exact inverses of grounded Laplacians checked all 621 edge columns on 10 graphs, but the unrestricted domain is proved by the orbit potentials and inequalities.
 
-The 2023 cycle-space projection treatment concentrates on tori and Hamming graphs, not mixed clique–independent blowups. The closest edge-current precursor for a biclique with only one inserted internal edge does not imply the free-clique-size phase separation or sharp large-clique bounds. The 2021 and 2024 graph-blowup papers deal primarily with pseudoinverses and effective resistance, rather than the absolute-current norm comparison. Their available material does not state this classification, but inaccessible portions and alternative electrical-network notation leave a material residual bibliographic risk. No claim of exhaustive novelty certification is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The three-parameter theorem resolves a natural structured edge perturbation of the biclique, supplies exact operator norms rather than bounds, and proves a genuinely separated interval of opposite maximizing-edge classes for each \(n\ge5,k\ge3\). Letting the clique size grow creates new sharp amplification ceilings \(4\) and \(5\), beyond the single-edge perturbation regime. These are concrete, reusable invariants and structural transitions for graph transportation spaces, not mere relabeling or a finite table.
+Qualified original exact absolute-current edge-space norm classification for mixed clique/independent bicliques, including separated edge-maximizer phases and sharp 4/5 bounds. Known electrical-network pseudoinverse and graph-blowup formulas provide input resistance distances but do not themselves evaluate total absolute currents and the l1/linfty maxima or identify these threshold regimes. An equivalent specialized graph current calculation could remain in incompletely accessed literature.
 
-## Limitations and prior work
+## value
 
-Real, unweighted orthogonal projections only. The analysis does not address arbitrary projections, other exponents, or graph weights. See the primary arXiv reference and the resistance-blowup papers in `RESULT.md`; lack of complete access to some resistance sources limits the literature exclusion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cut/cycle Hodge operator norms on a connected graph are natural geometric invariants for graph transportation and flow decomposition. The three-orbit explicit classification and opposite-maximizer phase window across all sizes answer a structured perturbation problem and establish sharp amplification ceilings, reusable beyond finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

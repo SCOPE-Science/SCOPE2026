@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:51:25.476073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every edge lies in exactly one CC, CB or UB symmetry orbit. The displayed class-constant dipole potentials solve Lv=delta_x-delta_y; summing absolute voltage drops gives S_e and complementary Z_e=1+S_e-2R_e. The CB solution has a single absolute sign change at p=m-k=n, producing the two branch corrections. Exact positive-factor comparisons show CC cannot maximize either projection norm, while the signs of Delta_Q,Delta_P give distinct T_Q,T_P; their explicit gap 4(k+n)(n-1)/(n(n+2))>3 yields an interior integer phase. Algebraic upper bounds <4 and <5 for all admissible integers and the t,t^2,t^4 sequence realizes both limits. Independent exact inverses of grounded Laplacians checked all 621 edge columns on 10 graphs, but the unrestricted domain is proved by the orbit potentials and inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582 studies invariant projections on tori and Hamming graphs",
+          "Azimi–Bapat–Farrokhi 2021 and Sun–Yang–Xu 2024 derive resistance distances in graph blowups"
+        ],
+        "reasoning": "The graph family is an unbalanced mixed blowup with a variable clique; broader resistance formulas do not in themselves compute absolute currents in all three edge orbits. Hamming/toroidal projection examples are not a general exact classification of this family.",
+        "searches": [
+          "graph edge-space cut cycle orthogonal projections l1 norm clique augmented complete bipartite graph",
+          "Dilworth Kutzarova Ostrovskii cycle spaces invariant projections Hamming graphs torus 2023",
+          "Azimi Bapat Farrokhi blowups trees resistance distance"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md 0f477907ca6b9a43c497e34dea6e3df5253afb81: explicit potentials and edge class norm inequalities",
+        "check_clique_bipartite.py 40604a78d346f6cfab0a7a7e2561cfbe79286201, inspected supplementary",
+        "https://arxiv.org/abs/2305.12582",
+        "https://doi.org/10.1016/j.disc.2021.112387",
+        "https://doi.org/10.1016/j.disc.2024.114327"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source proof gives explicit three-orbit Laplacian dipoles and absolute current sums",
+          "2023 cycle-space projection work provides general norm context on other symmetric graphs",
+          "2021/2024 blowup papers give effective-resistance pseudoinverse methods"
+        ],
+        "reasoning": "Known L^+ methods allow computing any individual edge current in principle, but an exact 3-parameter absolute-value comparison and sharp 4/5 suprema require the audited sign and threshold analysis. No inspected theorem dominates the final statement.",
+        "searches": [
+          "graph edge-space cut cycle orthogonal projections l1 norm clique augmented complete bipartite graph",
+          "https://arxiv.org/abs/2305.12582",
+          "Resistance distance and Kirchhoff index of unbalanced blowups of graphs 2024"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For Q=D^T L^+D, column l1 norm equals total absolute unit-current from one dipole; for P=I-Q the column total is 1+S_e-2R_e",
+          "Generic resistance identities determine R_e but not S_e"
+        ],
+        "reasoning": "Electrical dipole and Hodge projection are equivalent presentations of the target norm, but published resistance-only formulas for blowup graphs do not supply absolute current totals or their optimizing orbit classes.",
+        "searches": [
+          "graph edge-space cut cycle orthogonal projections l1 norm clique augmented complete bipartite graph",
+          "cycle-space projection l1 norms clique-augmented biclique"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published complete-bipartite symmetric edge-deletion Laplacian-spectrum record concerns different graph perturbations",
+          "The exact norm is a three-parameter infinite integer family with a change at p=n"
+        ],
+        "reasoning": "No exact table/data source for the 3-parameter Q/P norms was identified; published finite graph enumeration cannot imply the closed all-size transition formulas.",
+        "searches": [
+          "graph edge-space cut cycle orthogonal projections l1 norm clique augmented complete bipartite graph",
+          "Resultary graph edge-space cut cycle orthogonal projections l1 norm clique augmented complete bipartite graph"
+        ]
+      },
+      "rationale": "Qualified original exact absolute-current edge-space norm classification for mixed clique/independent bicliques, including separated edge-maximizer phases and sharp 4/5 bounds. Known electrical-network pseudoinverse and graph-blowup formulas provide input resistance distances but do not themselves evaluate total absolute currents and the l1/linfty maxima or identify these threshold regimes. An equivalent specialized graph current calculation could remain in incompletely accessed literature.",
+      "residual_risks": [
+        "Some graph blowup resistance articles unavailable in full; possible equivalent current formulas hidden in appendices",
+        "No minimal norm among all nonorthogonal projections or arbitrary weighted/ell_p edge spaces is established",
+        "621 finite column checks do not establish all-parameter phase inequalities"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not state the mixed clique-augmented K_{m,n} absolute-current classification in examined results",
+          "evidence": "Explicit examples are discrete tori and Hamming graphs",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+          "material_read": "Relevant invariant-projection statements, graph examples and Hamming/torus sections",
+          "method": "Primary arXiv PDF and inspected page images",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Closest directly mathematical cycle-projection l1 norm topic"
+        },
+        {
+          "assessment": "Potential computation ingredient, no full-text NOT_COVERING claim",
+          "evidence": "Effective resistance and pseudoinverse methods for graph blowups",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2021.112387",
+          "material_read": "Publication abstract and described effective-resistance results; complete text not available",
+          "method": "Abstract/publisher metadata and mathematical object comparison",
+          "title": "Resistance distance of blowups of trees",
+          "trigger": "General blowup resistance formulas might subsume source graph"
+        },
+        {
+          "assessment": "Does not establish the exact total-absolute-current norm in accessible statements; remaining text priority risk",
+          "evidence": "Resistance-distance and Kirchhoff index are quadratic/Laplacian observables rather than absolute-current column norms",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2024.114327",
+          "material_read": "Accessible abstract and displayed resistance/Kirchhoff formulations, not full article proof",
+          "method": "Publisher/publication results comparison",
+          "title": "Resistance distance and Kirchhoff index of unbalanced blowups of graphs",
+          "trigger": "Unbalanced blowups of similar graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cut/cycle Hodge operator norms on a connected graph are natural geometric invariants for graph transportation and flow decomposition. The three-orbit explicit classification and opposite-maximizer phase window across all sizes answer a structured perturbation problem and establish sharp amplification ceilings, reusable beyond finite examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For unweighted K_{m,n} with a k-clique inserted into the m part (n>=2,k>=3,m>=k+1), the orthogonal edge-space cut and cycle projections Q,P have exact l1/linfty norms q0+max(0,Delta_Q), z0+max(0,Delta_P), with explicit rational piecewise corrections and distinct minimizing/maximizing edge-orbit thresholds T_P<T_Q for n>=5, plus sharp unattained family-wide suprema 4 and 5.",
+  "limitations": [
+    "Some graph blowup resistance articles unavailable in full; possible equivalent current formulas hidden in appendices",
+    "No minimal norm among all nonorthogonal projections or arbitrary weighted/ell_p edge spaces is established",
+    "621 finite column checks do not establish all-parameter phase inequalities"
+  ],
+  "schema_version": 1
+}
