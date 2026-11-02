@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Independent exponential SI edge clocks imply two active boundaries per susceptible seed gap, giving independent Gamma(shape=gap,rate=2λ) completion times. Strict log-concavity of Poisson upper tails proves every balancing transfer. Uniform weak compositions yield exact gap inclusion–exclusion and Poisson factorial moments; Chernoff bounds with N/k >> (log k)^2 transfer the gap Gumbel to completion time. Complete finite-state CTMC and combinatorial checker passes 15742 assertions. Analytic proof, not finite tests, supports asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Leskelä–Ngo Theorem 2.1 asymptotic flooding on random min-degree≥3 graphs; cycle excluded.",
+        "Schlemm (2014) derives Gumbel for maximal continuous Dirichlet circular spacing; it supplies related prior extreme-value asymptotics but no SI Gamma gap-clearing or deadline-wise placement optimization."
+      ],
+      "reasoning": "Earlier general first-passage literature establishes the process and known gap extreme-value phenomena; these cannot by themselves imply the quantified all-time stochastic placement order or transfer to discrete infection dynamics under the stated growing regime. A general unlocated source might still subsume the result.",
+      "searches": [
+        "Gumbel limit for flooding SI infection on cycle with uniformly random k seeds, asymptotic log k slowdown versus balanced source placement",
+        "Exact finite-time flood distribution product of Erlang gap CDFs for infected seeds on ring; balancing seeds stochastic-order optimizes completion deadline",
+        "arxiv:1405.6114",
+        "arxiv:1806.09568 Sec. 2–3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1806.09568",
+      "https://arxiv.org/html/1806.09568v3",
+      "https://arxiv.org/abs/1809.06656",
+      "https://arxiv.org/abs/1405.6114"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior continuous max-gap Gumbel of Schlemm is explicitly acknowledged and narrower than discrete stochastic flooding.",
+        "Earlier own circle Poisson expanding-ball coverage concerns temporally arriving random seeds and deterministic radial growth; no fixed-seed exponential SI equivalence.",
+        "Earlier own complete-bipartite single-source SI terminal-mark law has another graph and no optimal seed-spacing statement."
+      ],
+      "reasoning": "Neither a known continuous spacing limit nor a random-network one-source flooding law yields the finite all-deadline placement inequality plus Gamma gap-clearance stochastic independence. Related models share extreme-value mathematics but not theorem hypotheses. Residual unsearched literature may dominate.",
+      "searches": [
+        "SI first passage percolation cyclic graph fixed k infected sources all deadline exact gamma inter-source gap stochastic optimal evenly spaced",
+        "random seeds first passage percolation cycle infection complete maximum Poisson gaps Gumbel logarithmic factor versus evenly spaced",
+        "arxiv:1405.6114",
+        "arxiv:1806.09568"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Leskelä–Ngo Section 2: configuration model with minimum degree at least three and single-source flooding; no multi-source ring gaps.",
+        "Jankowski et al. Sections 1–2: discrete sequential seeding and eventual reach, not exponential completion."
+      ],
+      "reasoning": "A fixed undirected degree-two cycle with k independent initial seeds and exponential edge passage is not reducible to either cited theorem under their specified network and seeding hypotheses. The common infection vocabulary does not make their conclusions equivalent.",
+      "searches": [
+        "continuous-time SI infection cycle multiple initially infected seeds complete infection time gamma gap maximum optimal evenly spaced seeds stochastic ordering",
+        "Poisson first passage percolation ring graph with k deterministic sources optimal placement infection finish time balanced gaps and log-concavity",
+        "arxiv:1806.09568",
+        "arxiv:1809.06656"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full exact formula is derived as a product of Gamma CDFs and uniform-composition coefficient, not taken from a data table.",
+        "Independent checker compares with complete CTMC and brute weak-composition enumeration for small cycles."
+      ],
+      "reasoning": "No identical exact finite distribution or lookup table was identified in the examined sources or source comparisons; a negative search is only limited evidence, not a proof of novelty.",
+      "searches": [
+        "Exact finite-time flood distribution product of Erlang gap CDFs for infected seeds on ring; balancing seeds stochastic-order optimizes completion deadline",
+        "cycle graph random seed spacing exact gamma Erlang gap maximum optimal stochastic ordering"
+      ]
+    },
+    "rationale": "The coupled exact all-deadline seed-optimality and random-seed Gumbel penalty for continuous-time SI on fixed cycles is not statement-equivalent to the compared random minimum-degree≥3 graph flooding, discrete cascades, or classical continuous uniform spacing results. Classical maximum-gap Gumbel is explicitly treated as known. Broad priority remains provisional; no independent literature audit.",
+    "residual_risks": [
+      "The classical first-passage percolation, rumor diffusion and optimal graph-seeding literatures are extensive; an equivalent more general result might not have been located.",
+      "Maximum continuous uniform circular gap Gumbel is known prior work; only the combined discrete SI flooding statement is claimed as distinctive.",
+      "Other edge-rate, transmission-time and random seed growth regimes are unproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related FPP foundation, but no implication for a degree-two cycle with k prescribed seeds or stochastic all-deadline placement optimization.",
+        "evidence": [
+          "Theorem 2.1 imposes minimum degree δ≥3 on random configuration graphs and examines uniform one-source flooding.",
+          "First public submission 2018-06-25; MSC includes 60K35."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1806.09568v3",
+        "material_read": "Full HTML: abstract, introduction, Section 2 Theorem 2.1, Section 3 earlier work and broadcast application, proof structure in Section 4",
+        "method": "Open-access HTML direct inspection, read hypotheses and statements and compared random-degree assumptions",
+        "title": "First passage percolation in sparse random graphs with boundary weights",
+        "trigger": "Same exponential-edge first-passage and flooding model; primary 2018 public source"
+      },
+      {
+        "assessment": "Discrete independent-cascade spread and sequential-vs-single stage coverage, not deadline CDF for continuous-time SI on cycle.",
+        "evidence": [
+          "The paper compares sequential and simultaneous activation coverage, not first-passage complete infection times."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1809.06656",
+        "material_read": "Author abstract, introduction and sections on coordinated randomized execution, staged seeding and coverage statements in accessible full HTML/plain text",
+        "method": "Read accessible open full manuscript rendering and compared objective and time model",
+        "title": "Probing Limits of Information Spread with Sequential Seeding",
+        "trigger": "Potentially stronger seed-placement/activation coverage result"
+      },
+      {
+        "assessment": "The continuous maximum-spacing Gumbel is established prior art and expressly credited; dynamic flood and all-deadline placement remain distinct.",
+        "evidence": [
+          "The paper gives the Gumbel law for continuous uniform circular sample spacings, not SI gap clearance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.6114",
+        "material_read": "Accessible open full text, Sections 1–3 including Gumbel limit and Dirichlet spacing representation",
+        "method": "Direct full-text inspection, compared continuous gaps with discrete fixed-count seed gaps and infection clocks",
+        "title": "Limiting distribution of the maximal distance between random points on a circle: A moments approach",
+        "trigger": "Possible prior Gumbel for circular seed gaps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8190a09-2c2e-4909-a3a0-7b0cb9a108c1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural finite-network placement optimality for every completion deadline and a quantitative Gumbel/logarithmic random-placement penalty offer a substantial structural understanding beyond a one-off computation. Precise finite distributions and asymptotic limits are mathematically motivated for spatial epidemic or rumor flooding.",
+    "status": "PASS"
+  }
+}
