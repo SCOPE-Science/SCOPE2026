@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the rank-spectrum formulas
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3 and no third-party packages. The deterministic marker is `VERIFY_OK`.
+## correctness
 
-The script enumerates each coefficient vector over nine cyclic quandle tests with prime coefficient fields, plus three valid \(\mathbb F_4\) tests and three tests on \(C_3\times C_3\); the pairs \((A,\varphi)\) include latin, nonlatin, and trivial cases. A separate larger cyclic case checks only symbolic consistency and is explicitly marked `FORMULA_ONLY`. Each exhaustive test independently constructs the quandle multiplication table, forms the left/right multiplication matrices, calculates their ranks by finite-field elimination, and compares the full rank histograms and exact zero-product pair count against the orbit formulas. For \(\mathbb F_4\) the checker implements arithmetic modulo \(X^2+X+1\).
+PASS
 
-Key exhaustive comparisons include \(C_4\) with inversion over \(\mathbb F_3\), giving \(1089\) ordered zero-product pairs and unequal left/right rank distributions; \(C_5\) with multiplication by \(2\) over \(\mathbb F_2\), giving \(93\) pairs with a nonsplit orbit of size four; and \(C_3\times C_3\) with the diagonal automorphism \((x,y)\mapsto(x,-y)\) over \(\mathbb F_2\), giving \(38592\) pairs and respective rank supports \(\{0,1,2,3\}\) and \(\{0,3,6,9\}\).
+For finite abelian A with N=|A| and char(F_q) coprime to N, Fourier inversion is valid over the algebraic closure and compatible with q-Frobenius descent. From e_x*e_y=e_(phi(x)+(1-phi)(y)) derive the known Fourier product hat(u*v)(chi)=hat(u)(Phi chi)hat(v)(Psi chi). The dual Psi has image I of size r=|(1-phi)A|, fibers of size f=N/r; Phi is a permutation. Each Frobenius orbit O in I of length d yields an fd-dimensional F_q block for coefficients of u on Phi(Psi^{-1}(O)); exactly one of q^(fd) assignments is zero, otherwise L_u rank increases by d. For R_u, nonzero u at image I contributes f rows per character and q^(N-r) free coordinates outside I, yielding the distinct right-rank polynomial. Summing q^(N-rank L_u) gives q^(N-r) product_O(q^d+q^(fd)-1), with 2q^N-1 trivial zero-factor pairs subtracted for both nonzero. Independent direct multiplication-matrix enumeration agrees with both rank polynomials and zero-pair counts in four prime-field cyclic examples; original script additionally covers F4 and noncyclic C3xC3. Modular characteristic excluded and rank invariance upon extension is justified by minors.
 
-The theorem's unbounded scope follows from the finite Fourier transform, Frobenius descent, and disjoint-fiber rank calculations in `RESULT.md`. The small-field enumerations are cross-checks rather than proof of infinitely many cases. No independent audit is claimed.
+## originality
+
+PASS
+
+Lực Ta arXiv:2610.20306 Proposition 5.1 proves the exact Fourier product identity over algebraic-closure characteristic 0 and discusses qualitative zero-divisor/augmentation outcomes. Elhamdadi--Ta--Virgin arXiv:2609.03799 Theorem 3.2 supplies prior latin Fourier multiplication. These are important known premises. The candidate counts complete nonsplitting finite-field Frobenius-orbit left and right multiplication rank distributions for all finite abelian A and nonlatin phi, and derives ordered zero-pair count; this specific uniform census is not stated or directly implied by any inspected published rank-enumeration result. General Fourier-fiber counting may be an implicit prior corollary, explicitly retained as risk.
+
+## value
+
+PASS
+
+Exact multiplication ranks and probability of zero products are natural invariants of finite nonassociative algebras. The two different full rank polynomials capture a structural latin/nonlatin asymmetry, including nonsplitting coefficient fields, and reduce an all-element census for arbitrarily large finite groups to Frobenius orbit products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
