@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks
 
-Run the included `CHECKER.py` with Python 3 and the standard library. It enumerates all \(q^9\) ring elements over the prime fields \(\mathbb F_2\) and \(\mathbb F_3\), computes squares and every product of the resulting square-zero elements in the monomial basis, and checks the closed annihilation relation for all ordered pairs.
+# Independent mathematical audit
 
-Observed output:
+## correctness
 
-```text
-CHECK 2 squarezero 32 base 4 ordered_zero_products 640
-CHECK 3 squarezero 243 base 9 ordered_zero_products 24057
-SQUARE_ZERO_ANNIHILATION_OK
-```
+PASS
 
-The theorem predicts \(q^5\) square-zero elements and \(q^9+q^8-q^7\) ordered annihilating pairs. The computations verify these two cases, including every pair, and confirm that all products agree with the leading-coefficient bilinear criterion. They do not verify larger finite extensions or independently validate the proof for arbitrary \(q\). The complete general proof is in `RESULT.md`.
+For odd characteristic, the degree-2 coefficient conic v²+2uw=0 has q+1 projective directions; product B=uw’+wu’+vv’ vanishes on two nonzero isotropic vectors exactly for equal directions. In characteristic two Frobenius leaves u x²+w y² plus three independent higher-tail coordinates and B=uw’+wu’, giving the same q+1 projective classes. Higher tails annihilate all. Hence the join of a universal K_{q³-1} with q+1 copies of K_{(q-1)q³}; graph parameters and q9+q8-q7 ordered product count follow. Independently enumerated all q^9 elements for q=2,3, and all square-zero pair products, confirming 31 and 242 nonzero vertices and 640/24057 ordered annihilating pairs, respectively.
+
+## originality
+
+PASS
+
+The induced graph on nonzero square-zero elements of the particular 9-dimensional truncated algebra and its all-characteristic clique-join decomposition were not obtained from the full group-ring zero-divisor graph invariants or generic induced-graph universality in inspected sources. Char-3 group-ring identification is acknowledged as prior algebra structure, not alone novelty. Searches do not certify priority.
+
+## value
+
+PASS
+
+The fixed natural local complete-intersection algebra has a surprisingly simple characteristic-uniform annihilator graph despite distinct characteristic-two and odd-characteristic square-zero parametrizations; exact decomposition, graph parameters and ordered product counts may support further finite-ring graph classification and distinguish induced from full zero-divisor invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

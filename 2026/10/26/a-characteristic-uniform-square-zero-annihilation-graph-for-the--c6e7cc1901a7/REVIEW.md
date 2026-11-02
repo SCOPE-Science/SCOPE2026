@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof works in the full nine-monomial basis of \(\mathbb F_q[x,y]/(x^3,y^3)\). For odd characteristic, square-zero elements are parameterized by a split conic in the quadratic coefficients and three free higher coefficients; the product of two elements is controlled by the polar form, which vanishes on isotropic vectors only for proportional directions. In characteristic two, squaring directly leaves five free monomials and the product is a two-dimensional determinant, with the same projective-line incidence. Both arguments treat zero vectors, characteristic boundaries, and graph loops explicitly. The checker exhaustively verifies squaring and all ordered products over the prime fields of orders two and three; the infinite field-family theorem follows from the written proof.
+## correctness
 
-## Originality — PASS with literature-priority risk
-Aliniaeifard and Li (2014, DOI 10.1080/00927872.2013.827689) study the full zero-divisor graph of group rings, not this canonical square-zero induced graph. Arunkumar et al. (arXiv:2207.11741) show that arbitrary graphs occur as induced subgraphs of suitable zero-divisor graphs; that existential universality does not imply the complete graph of the fixed square-zero locus. A single-element multiplication-Jordan census for a related truncation does not settle the two-element annihilation incidence. Targeted claim, alias, and mathematical-implication searches did not locate this exact theorem. Unknown prior or stronger results remain possible; search absence alone is not taken as novelty proof.
+PASS
 
-## Value — PASS
-The square-zero part of a modular group-ring graph is a canonical and nontrivial substructure. Identifying its full clique-join structure gives complete graph invariants and a closed annihilation-pair census across every finite field. The equality of graph types across the characteristic-two and odd-characteristic structural transition is the mathematical reason for this specific invariant. It is not merely a small isolated number.
+For odd characteristic, the degree-2 coefficient conic v²+2uw=0 has q+1 projective directions; product B=uw’+wu’+vv’ vanishes on two nonzero isotropic vectors exactly for equal directions. In characteristic two Frobenius leaves u x²+w y² plus three independent higher-tail coordinates and B=uw’+wu’, giving the same q+1 projective classes. Higher tails annihilate all. Hence the join of a universal K_{q³-1} with q+1 copies of K_{(q-1)q³}; graph parameters and q9+q8-q7 ordered product count follow. Independently enumerated all q^9 elements for q=2,3, and all square-zero pair products, confirming 31 and 242 nonzero vertices and 640/24057 ordered annihilating pairs, respectively.
 
-## Scientific limitations
-Only the induced square-zero graph is classified, not the entire ring zero-divisor graph or other truncations. Full publication-priority verification and external mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The induced graph on nonzero square-zero elements of the particular 9-dimensional truncated algebra and its all-characteristic clique-join decomposition were not obtained from the full group-ring zero-divisor graph invariants or generic induced-graph universality in inspected sources. Char-3 group-ring identification is acknowledged as prior algebra structure, not alone novelty. Searches do not certify priority.
+
+## value
+
+PASS
+
+The fixed natural local complete-intersection algebra has a surprisingly simple characteristic-uniform annihilator graph despite distinct characteristic-two and odd-characteristic square-zero parametrizations; exact decomposition, graph parameters and ordered product counts may support further finite-ring graph classification and distinguish induced from full zero-divisor invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
