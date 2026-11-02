@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The exact surplus is (3+3p-p^2)q+3(p^2+p+1). For p>=7, q>=p+2 and the surplus is <=-p^3+4p^2+12p+9<0. At p=5, positive sum of distinct divisors restricts q to 7 or 11, yielding only 550. At p=3, the proper divisors are {1,2,3,6,9,18} union q{1,2,3,6,9}; for q>=17 neither two low, one low and one q-multiple, nor two q-multiple divisors can sum to 3q+39. The q=13 case is excluded by no distinct coefficients in {1,2,3,6,9} summing to 6. Direct complete proper-divisor checks of all remaining cases give precisely 90,126,198,550 and their unique pairs. Independent divisor algorithms and a 4371-prime-pair numerical stress test checked the finite premises, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aryan et al. (2024), Integers 24, A61, Theorems 1–2: classify 2^k p and 2^k p^2, i.e. two distinct prime supports.",
+        "Fearon et al., arXiv:2508.06651v3, Theorem 3: 2^k p^m with two prime supports; Section 6.2 explicitly describes three-prime families as a next classification problem.",
+        "Published record Squarefree 2-near-perfect numbers with three prime factors: complete 2pq only, values {30,66}."
+      ],
+      "reasoning": "None of these broader-looking theorems assumes the exact three-support exponent pattern 2p^2q; their domains exclude it. The separate 2pq classification changes a prime exponent and cannot imply the new list. A conditional all-three-support theorem could cover the result, but none was found in inspected sources.",
+      "searches": [
+        "2-near-perfect numbers 2 p^2 q broader family 2^a p^b q^c theorem OEIS A341475",
+        "arXiv:2310.01305v1",
+        "arXiv:2508.06651v3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.01305v1 (published version Integers 24 A61, 2024)",
+      "arXiv:2508.06651v3 (HTML, Section 6.2)",
+      "OEIS:A341475",
+      "Published 2026 mathematical note, Squarefree 2-near-perfect numbers with three prime factors",
+      "Accessible earlier published arithmetic records and complete accessible prior claims for research number-theory middle"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published 2pq result determines only n=2pq and cannot force n=2p^2q values.",
+        "2025 arXiv:2508.06651v3 explicitly describes the three-prime family classification as future work.",
+        "The near-perfect n congruent 2 mod 4 shape theorem has sigma(n)=2n+d (one omitted divisor), which is not sigma(n)=2n+d1+d2."
+      ],
+      "reasoning": "The closest implication to test is whether the squarefree three-prime classification extends automatically to prime-square exponents; it does not: both positive sets differ, and the new proof needs separate prime-positivity and divisor-pair inequalities. The one-divisor near-perfect shape theorem has a different defining equation, and no implication to two omitted divisors.",
+      "searches": [
+        "Complete classification 2-near-perfect integers 2 p^2 q with distinct odd primes p<q; exactly 90 126 198 550",
+        "2-near-perfect numbers 2 p^2 q broader family 2^a p^b q^c theorem OEIS A341475",
+        "Published mathematical note, Squarefree 2-near-perfect numbers with three prime factors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining equation is sigma(2p^2q)-4p^2q=d1+d2, with distinct divisors d1,d2 of 2p^2q.",
+        "OEIS A341475 lists 90,126,198 and 550 but gives no theorem that this prime-factor pattern has no larger instances.",
+        "Published numerical examples in arXiv:2508.06651v3 Section 6.2 include 90 and 126."
+      ],
+      "reasoning": "The equivalent statement is an exact four-element spectrum of 2-near-perfect integers with prime exponent vector (1,2,1), and also of 2-near-perfect integers with precisely twelve divisors and the repeated odd prime being the smallest odd prime. Neither published table supplies universal nonexistence. Mere list agreement is not mathematical coverage.",
+      "searches": [
+        "Complete classification 2-near-perfect integers 2 p^2 q with distinct odd primes p<q; exactly 90 126 198 550",
+        "2-near perfect 2p²q primes 3 5 7 11 omitted divisors uniqueness classification",
+        "Three distinct prime factor 2-near-perfect numbers shape 2 p p q squareful odd part, exactly four values"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A341475, terms and algorithm, last modified 2026-09-01: enumerates values and mentions the 2023 paper but does not state an exhaustive classification by prime exponent vector.",
+        "Fearon et al., arXiv:2508.06651v3, Section 6.2, table of eight smallest three-prime examples: lists 90 and 126, not a theorem for all p<q."
+      ],
+      "reasoning": "Exhaustive finite tables of small integers are consistent with and support the four numerical witnesses, but have no global bound on q. The new proof supplies that global bound and eliminates all remaining finite cases.",
+      "searches": [
+        "2-near-perfect integers exactly twelve divisors 2 p squared q complete classification",
+        "OEIS:A341475"
+      ]
+    },
+    "rationale": "The exact 2p^2q classification is not a consequence of earlier theorems restricted to two prime supports or the squarefree 2pq three-prime slice; the 2025 paper explicitly asks for multi-prime family classifications and gives examples rather than unbounded exhaustiveness. A341475 records examples but is not a proof that no larger such examples exist. Accessible research-record and prior-claim searches found no covering theorem. Bibliographic uniqueness is not certified.",
+    "residual_risks": [
+      "An earlier unpublished or unindexed exact 2p^2q classification might exist.",
+      "The 2025 paper reports finite C++ three-prime searches; finite data alone does not prove the new universal exclusion.",
+      "The present result does not address general three-prime exponents and is mathematically narrow."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: its classifications assume only two distinct prime factors, unlike 2p^2q",
+        "evidence": "Theorem 2: 2-near-perfect numbers 2^k p^2 are exactly {18,36,200}; abstract/intro specify two prime supports.",
+        "identifier_or_url": "arXiv:2310.01305v1; https://math.colgate.edu/~integers/y61/y61.pdf",
+        "material_read": "Published 18-page version: abstract, introduction, stated Theorems 1–2, proof equations for 2^k p^2, and related prime-support discussion",
+        "method": "Read text with direct page inspection of title and Theorems 1–2",
+        "title": "On 2-Near Perfect Numbers",
+        "trigger": "Earliest motivating paper defining and classifying 2-near-perfect integers"
+      },
+      {
+        "assessment": "NOT_COVERING: all theorems deal with precisely two prime supports; 6.2 explicitly poses three-prime classification as future research",
+        "evidence": "Section 6.2 presents the 90 and 126 examples and states classifying families with three distinct prime factors is a natural next problem.",
+        "identifier_or_url": "arXiv:2508.06651v3; https://arxiv.org/html/2508.06651v3",
+        "material_read": "Full HTML: abstract; introduction and Theorems 1–3; Section 6.2 Multi-Prime 2-near Perfect Numbers; references",
+        "method": "Read original OA HTML with relevant passages and mathematical hypotheses",
+        "title": "Complete characterization of 2-near perfect numbers with exactly 2 prime factors",
+        "trigger": "Newer primary paper with possible coverage and exactly related multi-prime discussion"
+      },
+      {
+        "assessment": "TABLE_ONLY: values listed; no universal shape exclusion",
+        "evidence": "90,126,198,550 are among displayed terms; no complete 2p^2q classification is stated.",
+        "identifier_or_url": "https://oeis.org/A341475",
+        "material_read": "Sequence terms, comments, program, example, references and last-modified date",
+        "method": "Read public integer sequence entry",
+        "title": "A341475: 2-near-perfect numbers",
+        "trigger": "Exact candidate values may appear in tables"
+      },
+      {
+        "assessment": "NOT_COVERING: its domain is squarefree 2pq, not 2p^2q",
+        "evidence": "Squarefree 2pq only gives 30 and 66; has no theorem on repeated prime exponent.",
+        "identifier_or_url": "Published 2026 research note, Squarefree 2-near-perfect numbers with three prime factors",
+        "material_read": "Public indexed theorem claim and summary plus accessible earlier full claim of 2pq classification",
+        "method": "Compared precise support/exponent assumptions and conclusion",
+        "title": "Squarefree 2-near-perfect numbers with three prime factors",
+        "trigger": "Closest published theorem for same divisor-sum condition and three primes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a57416e8-6b23-4ccc-a623-84ccfc2c2f53",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact first squareful extension 2p^2q of the natural squarefree three-prime family 2pq fills a motivated class directly adjacent to an existing complete classification. Fearon et al. explicitly identify multi-prime 2-near-perfect classification as a natural problem (2025, Section 6.2). Proving there are exactly four values, including unique omitted pairs, across infinitely many eligible prime pairs is a complete natural extremal-support classification, not arbitrary cutoff enumeration. Novelty consists in the exhaustive structure, not discovering these small values; no downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
