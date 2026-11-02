@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The quartic becomes \(xH+G\) upon substituting \(z=x+U\). The two coprime plane curves meet in twelve explicitly squarefree transverse points; their blowup resolves the four generating quartics of the complete base-ideal linear system. The three strict transforms of the cubic's lines are precisely the contracted curves and have self-intersection \(-3\). The local Jacobian quotient has basis indexed by exponents less than \((4,2,2)\), and the Leray calculation gives local geometric genus \(1\). The standalone checker independently recomputes key polynomial and finite-field identities; it does not substitute for the geometric proof. No infinite-field assertion is inferred solely from enumeration.
+## correctness
 
-## Originality — PASS, qualified
-Inspected primary sources give Schur's characteristic-zero equation, characterize smooth quartics in characteristic two, and provide background on singular normal quartics. None of the inspected relevant source sections states the same blowup of the twelve-point complete intersection together with the three \((-3)\)-curve contraction and local invariants. The closest database record computes the incidence spectrum of 64 classical Schur lines and does not imply the reduction geometry. Alternative historical names and unindexed modular treatments remain residual risks; the literature search is evidence of noncoverage in inspected material, not proof of absolute priority.
+PASS
 
-## Value — PASS
-The model is a classical extremal quartic whose exceptional characteristic-two degeneration is explicitly acknowledged in the literature. Determining its minimal resolution, contracted intersection lattice, geometric genus, precise twelve-line special configuration, and intrinsic singular-scheme length gives structural information about the singular special fibre that is not implied by the classical line count. This is a complete natural geometric description of a distinguished bad-reduction fibre, not an arbitrary finite slice.
+Derivatives y³,xy²,w³,zw² force y=w=0 and x=z, hence unique P; in U=x+z coordinates F=x(Y³+W³)+(U⁴+UW³), primitive linear xH+G with coprime H,G ensures integral normal hypersurface by Serre R1/S2. On W=1, H=Y³+1, G=U⁴+U: three distinct cube roots Y and four U∈F4, transverse intersection (dH/dY=Y²≠0,dG/dU=1). Four quartic sections [G:YH:UH+G:WH] resolve projection from P upon blowing up the CI, L=4h−sum E with L²=4. The three H-factor lines each pass through four basepoints and meet at nonbasepoint Q; strict transforms have self-intersection −3 and pairwise intersection1, and these are exactly curves contracted to P, giving minimal resolution. Lines through P iff their direction satisfies H=G=0, hence twelve. Local affine f=u⁴+v³+(1+u)t³ has Tjurina ideal (u⁴,v²,t²), quotient length16. Leray plus H²(O_X)=k, H²(O_resolution)=0 and H¹=0 yield geometric genus1; triple-point blowup gives SNC star (-1;-4,-4,-4).
 
-## Scope and limitations
-There is one final claim: the explicit minimal resolution and resulting local geometry of Schur's characteristic-two special fibre. No universal stable reduction, additional lines away from the point, or independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: General characteristic-two normal quartic bounds do not supply this special fiber's 12-point resolution and local invariants.
+
+## value
+
+PASS
+
+Gives a complete, explicit geometric resolution and intrinsic local invariants of a classical degenerate quartic in characteristic two; the twelve-line configuration and nonrationality are natural, reusable facts beyond existing smooth-quartic line bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
