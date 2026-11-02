@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,83 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The primary input is the published product system
-\[
-A'=\frac{B-2A}{3AB},
-\qquad
-B'=\frac{A-2B}{3AB}.
-\]
+# Independent mathematical audit
 
-With
-\[
-S=A+B,\qquad D=A-B,
-\]
-direct algebra gives
-\[
-S'=-\frac{S}{3AB},
-\qquad
-D'=-\frac{D}{AB}.
-\]
-The quotient rule therefore yields
-\[
-\frac{d}{dt}\left(\frac{D}{S^3}\right)=0.
-\]
+## correctness
 
-Writing
-\[
-D=cS^3
-\]
-gives
-\[
-A=\frac S2(1+cS^2),
-\qquad
-B=\frac S2(1-cS^2),
-\]
-and
-\[
-AB=\frac{S^2}{4}(1-c^2S^4).
-\]
-Consequently
-\[
-S'=-\frac{4}{3S(1-c^2S^4)}.
-\]
-Integrating this scalar equation yields the exact clock
-\[
-t=\frac38(S_0^2-S^2)-\frac{c^2}{8}(S_0^6-S^6).
-\]
+PASS
 
-At \(S=0\),
-\[
-T=\frac38S_0^2-\frac18(A_0-B_0)^2
-=\frac{A_0^2+4A_0B_0+B_0^2}{4}.
-\]
+Reconstructed the exact positive product ODE from primary Lemma 3.1 and the unit-round curvature normalization. Let S=A+B,D=A-B. Then Sdot=-S/(3AB), Ddot=-D/(AB), hence d(D/S^3)/dt=0 including D=0. With c=D0/S0^3, A=S(1+cS^2)/2, B=S(1-cS^2)/2 and Sdot=-4/[3S(1-c^2S^4)]. Since |c|S0^2<1 and S decreases, A,B>0 throughout 0<=t<T and S->0 at finite T. Integration gives t=3/8(S0^2-S^2)-c^2/8(S0^6-S^6), monotone in decreasing S and unique. Extinction T=(A0^2+4A0B0+B0^2)/4, also independently follows from d/dt(A^2+4AB+B^2)=-4. Delta=cS^2 yields T-t=S^2(3-delta^2)/8; the delta/c cubic law is restricted to c!=0. Series inversion yields delta=(8c/3)(T-t)+O((T-t)^3); A/B=1+(16c/3)(T-t)+O((T-t)^2). The diagonal case c=0 gives T=3a^2/2. Independent SymPy symbolic checks of all ten identities and inversion coefficients passed; finite checks are supplementary, not the proof.
 
-For
-\[
-\delta=D/S=cS^2,
-\]
-the exact remaining-time identity is
-\[
-T-t=\frac{S^2}{8}(3-\delta^2).
-\]
-If \(c\ne0\), this is equivalently
-\[
-T-t=\frac{\delta(3-\delta^2)}{8c}.
-\]
+## originality
 
-The checker verifies all of these identities symbolically. It also expands the inverse relation at extinction:
-\[
-S^2=\frac83(T-t)+O((T-t)^3),
-\]
-which gives the claimed first-order anisotropy decay.
+PASS
 
-The diagonal case \(A_0=B_0\) is checked separately and agrees exactly with
-\[
-A(t)^2=A_0^2-\frac23t,
-\qquad
-T=\frac32A_0^2.
-\]
+Qualified best-of-knowledge for the complete exact unnormalized trajectory/clock. The same-source arXiv primary states the ODE, normalized ratio solution and qualitative finite extinction, but not the displayed first integral, T(A0,B0), or cubic remaining-time identity. Resultary self-match is excluded as independent evidence, and broad/exact searches did not show a separate prior theorem. A very short derivation from the published ODE is material: this is a modest new explicit integrability observation, not a new flow definition or unrelated general theorem.
 
-No numerical trajectory is used to establish an infinite-time or finite-extinction conclusion.
+## value
+
+PASS
+
+The newly introduced geometric flow uses this 2-sphere product as a canonical finite-time degeneration example. The exact initial-condition extinction time, all-time scale-shape first integral and sharp anisotropy/remaining-time relation classify the entire invariant product dynamics rather than a one-off constant or a sampled trajectory. This directly sharpens the source's qualitative time and ratio conclusions and gives a useful benchmark for future product-flow comparisons. Value is limited to an elementary, target-specific ODE completion; no theorem about arbitrary metrics or stability is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

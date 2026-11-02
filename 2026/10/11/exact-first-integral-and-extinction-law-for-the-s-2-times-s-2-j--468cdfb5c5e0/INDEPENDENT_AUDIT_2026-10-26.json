@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T10:51:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.02993",
+        "Assigned RESULT.md and verify.py at pinned source tree 48e48cbc9b37787adb03439d874cd88d4aba3092",
+        "Independent independent_jflow_check.py and independent_jflow_results.json"
+      ],
+      "rationale": "Reconstructed the exact positive product ODE from primary Lemma 3.1 and the unit-round curvature normalization. Let S=A+B,D=A-B. Then Sdot=-S/(3AB), Ddot=-D/(AB), hence d(D/S^3)/dt=0 including D=0. With c=D0/S0^3, A=S(1+cS^2)/2, B=S(1-cS^2)/2 and Sdot=-4/[3S(1-c^2S^4)]. Since |c|S0^2<1 and S decreases, A,B>0 throughout 0<=t<T and S->0 at finite T. Integration gives t=3/8(S0^2-S^2)-c^2/8(S0^6-S^6), monotone in decreasing S and unique. Extinction T=(A0^2+4A0B0+B0^2)/4, also independently follows from d/dt(A^2+4AB+B^2)=-4. Delta=cS^2 yields T-t=S^2(3-delta^2)/8; the delta/c cubic law is restricted to c!=0. Series inversion yields delta=(8c/3)(T-t)+O((T-t)^3); A/B=1+(16c/3)(T-t)+O((T-t)^2). The diagonal case c=0 gives T=3a^2/2. Independent SymPy symbolic checks of all ten identities and inversion coefficients passed; finite checks are supplementary, not the proof.",
+      "residual_risks": [
+        "The audit verifies the primary published product reduction and algebraic ODE conclusion; it does not re-prove the complete fourth-order PDE theory.",
+        "The extinction solution stops at T and does not continue as a positive definite metric past T."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2610.02993v1 Section 3.1 treats homothetically evolving Einstein metrics and gives T=Q0^-1, which specializes to the symmetric diagonal A0=B0 only, not general anisotropic product data.",
+          "arXiv:2610.02993v1 Section 3.3 describes normalized stability and unnormalized finite extinction, but gives no general exact original-time clock.",
+          "The classical Kähler J-flow is explicitly distinguished from the curvature-tensor J-flow in the primary source introduction."
+        ],
+        "reasoning": "The Einstein homothety result covers only c=0. General theorems on J-flow existence and curvature estimates do not produce the initial-data polynomial extinction clock. The full product ODE from the source logically determines its solution but leaves the exact integration unstated. There is no independently inspected broader published theorem explicitly dominating the classification.",
+        "searches": [
+          "Resultary: Fourth-order geometric flow Q curvature product spheres explicit solution scale ratio first integral finite extinction simultaneous",
+          "web: \"A geometric flow associated to Q-curvature\" Chen Kang Yuan 2026 J-flow product explicit extinction",
+          "web: Q-curvature J-tensor flow homogeneous product spheres exact ODE extinction",
+          "arXiv:2610.02993v1 Sections 3.1-3.4"
+        ]
+      },
+      "checked_sources": [
+        "Chen–Kang–Yuan, A geometric flow associated to Q-curvature, arXiv:2610.02993v1, Sections 3.1-3.4 primary full-text HTML",
+        "Resultary published-record semantic search (three queries), self-match excluded as independent prior",
+        "Web same-object exact-formula and alias searches (Q-curvature J-tensor, normalized ratio, unnormalized first integral, product extinction time)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 3.1 gives J_g for product constant-curvature factors, from which A'= (B-2A)/(3AB), B'=(A-2B)/(3AB) follow for two round factors.",
+          "Section 3.3 uses a homothety of the explicit normalized solution to deduce finite T and rho -> 1 but does not determine T(A0,B0).",
+          "From the sourced ODE, the new calculation gives S'=-S/(3AB), D'=-D/(AB), D/S^3 constant and directly d/dt(A^2+4AB+B^2)=-4; with known simultaneous extinction this yields the exact T."
+        ],
+        "reasoning": "The prior source gives the governing ODE and the qualitative extinction result; the submitted quantitative result follows by a short, but distinct, integrability and clock argument. Since it is an elementary consequence of the published ODE, novelty and mathematical weight are modest and tied to the particular full-trajectory formula, not to discovering a new flow or PDE theorem.",
+        "searches": [
+          "arXiv:2610.02993v1: Lemma 3.1; Sections 3.1, 3.2, 3.3 read in full",
+          "arXiv:2610.02993v1 source's normalized ratio (3.7) and unnormalized homothety/time change comparison",
+          "Resultary same-object searches as documented above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2610.02993v1 Section 3.3 states the product ODE and proves finite extinction and ratio A/B -> 1, without a displayed first integral D/S^3 or general T(A0,B0) [primary full text lines 309-316].",
+          "Resultary exact-title/equation hit is the audited record itself, not independent prior publication.",
+          "The variable z=(rho-1)/(rho+1) and its normalized-time exponential evolution in Section 3.2 are not the unnormalized invariant D/S^3 or an explicit original-time extinction law [arXiv full text lines 300-305]."
+        ],
+        "reasoning": "Possible aliases include the normalized ratio z, signed anisotropy delta=(A-B)/(A+B), the quadratic affine clock Q=A^2+4AB+B^2 and the scale-shape integral D/S^3. The primary paper supplies ODE and normalized z dynamics but not those exact unnormalized formulae. No independent equivalent located. The algebra is short, so unindexed follow-up and immediate-corollary risk remain.",
+        "searches": [
+          "Resultary semantic query: Exact extinction time anisotropy first integral unnormalized J flow of Chen Kang Yuan on S2 x S2 product metrics",
+          "web: \"J-flow\" \"extinction\" \"(A-B)/(A+B)\"",
+          "web: \"Chen\" \"Kang\" \"Yuan\" \"J-flow\" \"A-B\" \"A+B\"",
+          "arXiv:2610.02993v1 full-text, Section 3.3 and 3.2, searches A+B, extinction time, A/B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a direct record self-match SCOPE-exact-first-integral-and-extinction-law-for-the-s-2-times-s-2-j--468cdfb5c5e0; it is the assessed finding and is excluded as independent novelty evidence.",
+          "Searches for the exact quadratic and invariant returned unrelated algebraic expressions rather than a same-system published table or theorem."
+        ],
+        "reasoning": "This is a continuous two-parameter ODE trajectory classification, not a tabulated finite invariant. Exact formula searches matter as coverage checks; none found independent same-system values. Failed indexing is not positive proof of novelty.",
+        "searches": [
+          "Resultary exact/semantic query: ODE D over S cubed first integral for two-factor product geometric flow exact extinction time polynomial clock",
+          "web: \"A^2+4AB+B^2\" \"J\" flow extinction",
+          "web: \"2610.02993\" \"extinction time\" \"S2\"",
+          "web: \"J-flow\" \"S^2\" \"S^2\" \"A+B\" \"A-B\" extinction"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge for the complete exact unnormalized trajectory/clock. The same-source arXiv primary states the ODE, normalized ratio solution and qualitative finite extinction, but not the displayed first integral, T(A0,B0), or cubic remaining-time identity. Resultary self-match is excluded as independent evidence, and broad/exact searches did not show a separate prior theorem. A very short derivation from the published ODE is material: this is a modest new explicit integrability observation, not a new flow definition or unrelated general theorem.",
+      "residual_risks": [
+        "The exact clock has an especially short proof: d/dt(A^2+4AB+B^2)=-4. Its independent mathematical weight is limited and a reader might consider it an immediate exercise from the published product equations.",
+        "Very recent or unindexed follow-up to arXiv:2610.02993 could already have written the same formulas.",
+        "No claim that similar invariants exist for non-product metrics, or that anisotropy asymptotics imply stability under general geometric perturbations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL PARTIAL COVERAGE: contains the same product ODE, normalized ratio solution, qualitative simultaneous extinction and ratio convergence. Does not state the exact general unnormalized extinction time or the D/S^3 first integral in inspected sections.",
+          "evidence": "Section 3.3 source text lines 309-316; Section 3.2 normalized (3.5)-(3.7) lines 296-305; Lemma 3.1 lines 241-270; Section 3.1 lines 233-240.",
+          "identifier_or_url": "arXiv:2610.02993v1 | https://arxiv.org/abs/2610.02993",
+          "material_read": "Full-text arXiv-rendered HTML: abstract and introduction, Section 3.1 Einstein homotheties, Lemma 3.1 curvature-product tensor formula, Sections 3.2-3.3 including equations (3.5)-(3.7), normalized z dynamics and unnormalized extinction proof, and Section 3.4 adjoining product comparison; searched remaining full text for formula aliases.",
+          "method": "Direct opened primary arXiv full-text HTML (1,226 indexed lines), with targeted on-page searches and adjacent full-section reading; not PDF or abstract-only.",
+          "title": "A geometric flow associated to Q-curvature",
+          "trigger": "The exact same newly introduced fourth-order J-flow and its S2 x S2 unnormalized product reduction; decisive primary comparison."
+        },
+        {
+          "assessment": "SELF_MATCH_NOT_INDEPENDENT: cannot establish originality or prior independent coverage.",
+          "evidence": "Summary contains the exact claimed D/S^3 and T formula, while the record identifier matches this audited package.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-first-integral-and-extinction-law-for-the-s-2-times-s-2-j--468cdfb5c5e0",
+          "material_read": "Title and returned summary only; this is the same research finding being reviewed.",
+          "method": "Resultary semantic retrieval, not a full manuscript reading.",
+          "title": "Published Resultary record of exact first integral and extinction law",
+          "trigger": "Highest-scoring Resultary exact object/formula hit."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.02993",
+        "Assigned RESULT.md and comparison with Section 3.3",
+        "Independent symbolic verification of exact quadratic clock"
+      ],
+      "rationale": "The newly introduced geometric flow uses this 2-sphere product as a canonical finite-time degeneration example. The exact initial-condition extinction time, all-time scale-shape first integral and sharp anisotropy/remaining-time relation classify the entire invariant product dynamics rather than a one-off constant or a sampled trajectory. This directly sharpens the source's qualitative time and ratio conclusions and gives a useful benchmark for future product-flow comparisons. Value is limited to an elementary, target-specific ODE completion; no theorem about arbitrary metrics or stability is inferred.",
+      "residual_risks": [
+        "The calculation is elementary and may be seen as a routine exercise; the mathematical usefulness is the complete natural flow profile, not technical complexity or generality.",
+        "Unknown applications beyond the product ansatz; none claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the unit-round product family with A0,B0>0 and original unnormalized time t is addressed.",
+    "The scalar cubic relation dividing by c is not asserted at c=0.",
+    "The 2026 primary source supplies the model ODE; the present contribution is its exact integration, a modest structural refinement.",
+    "No independent expert attestation, Lean proof or general PDE stability is claimed."
+  ],
+  "schema_version": 1
+}

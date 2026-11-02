@@ -1,45 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source product system gives
-\[
-S'=-\frac{S}{3AB},
-\qquad
-D'=-\frac{D}{AB},
-\]
-for
-\[
-S=A+B,\qquad D=A-B.
-\]
-Hence
-\[
-dD/dS=3D/S
-\]
-and \(D/S^3\) is constant. Substitution reduces the flow to a single separable scalar equation. Exact integration gives the claimed trajectory and extinction time. The positivity condition follows from
-\[
-|c|S_0^2<1,
-\]
-and improves as \(S\) decreases. The anisotropy law and its asymptotic expansion follow algebraically from the same exact relation. The packaged checker independently replays each identity.
+PASS
 
-## Originality
+Reconstructed the exact positive product ODE from primary Lemma 3.1 and the unit-round curvature normalization. Let S=A+B,D=A-B. Then Sdot=-S/(3AB), Ddot=-D/(AB), hence d(D/S^3)/dt=0 including D=0. With c=D0/S0^3, A=S(1+cS^2)/2, B=S(1-cS^2)/2 and Sdot=-4/[3S(1-c^2S^4)]. Since |c|S0^2<1 and S decreases, A,B>0 throughout 0<=t<T and S->0 at finite T. Integration gives t=3/8(S0^2-S^2)-c^2/8(S0^6-S^6), monotone in decreasing S and unique. Extinction T=(A0^2+4A0B0+B0^2)/4, also independently follows from d/dt(A^2+4AB+B^2)=-4. Delta=cS^2 yields T-t=S^2(3-delta^2)/8; the delta/c cubic law is restricted to c!=0. Series inversion yields delta=(8c/3)(T-t)+O((T-t)^3); A/B=1+(16c/3)(T-t)+O((T-t)^2). The diagonal case c=0 gives T=3a^2/2. Independent SymPy symbolic checks of all ten identities and inversion coefficients passed; finite checks are supplementary, not the proof.
 
-PASS. The inspected primary preprint introduces this fourth-order flow, states the exact product ODE, solves the normalized ratio equation, and proves finite unnormalized extinction qualitatively. It does not state the invariant
-\[
-(A-B)/(A+B)^3,
-\]
-the general extinction-time formula, or the cubic law relating anisotropy to remaining time. Targeted searches by source identifier, ODE, first-integral terminology, extinction-time formula, and equivalent anisotropy variables located no covering statement.
+## originality
 
-Residual risk: because the reduction is elementary once the source ODE is written down, a very recent unindexed note could independently contain the same calculation.
+PASS
 
-## Value
+Qualified best-of-knowledge for the complete exact unnormalized trajectory/clock. The same-source arXiv primary states the ODE, normalized ratio solution and qualitative finite extinction, but not the displayed first integral, T(A0,B0), or cubic remaining-time identity. Resultary self-match is excluded as independent evidence, and broad/exact searches did not show a separate prior theorem. A very short derivation from the published ODE is material: this is a modest new explicit integrability observation, not a new flow definition or unrelated general theorem.
 
-PASS. The source uses \(S^2\times S^2\) as its basic finite-time product model but leaves its unnormalized extinction clock implicit. The new first integral solves that model completely within its invariant family, converts qualitative rounding into an exact shape law, and gives a closed extinction time for every positive initial pair. This is a motivated structural refinement of a central example.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
 
-## Closest literature and limitations
+The newly introduced geometric flow uses this 2-sphere product as a canonical finite-time degeneration example. The exact initial-condition extinction time, all-time scale-shape first integral and sharp anisotropy/remaining-time relation classify the entire invariant product dynamics rather than a one-off constant or a sampled trajectory. This directly sharpens the source's qualitative time and ratio conclusions and gives a useful benchmark for future product-flow comparisons. Value is limited to an elementary, target-specific ODE completion; no theorem about arbitrary metrics or stability is inferred.
 
-The closest literature is Jiaqi Chen, Xudong Kang, and Wei Yuan, *A geometric flow associated to \(Q\)-curvature*, arXiv:2610.02993v1. The flow is new there, and the relevant comparison is therefore the product section of that paper itself.
-
-The formulas do not extend automatically to non-product metrics or prove nonlinear stability of the product family against general perturbations. The exact invariant is scale dependent in the expected way.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
