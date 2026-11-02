@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Every valid directed path branching is exactly L^k R^(n-k): any RL adjacent pair forms a forbidden 2-cycle, and all other orientations reach an endpoint. Direct cost-counting gives a base count plus simple symmetric partial sums. The leftmost-minimum law factors via reflection into strict and weak nonnegative walks. The expected minimum follows the exact reflection identity, binomial absolute moment and parity atom, including n=1 and odd-n central BFD tie. Donsker invariance, a.s.-unique Brownian minimum and Levy arcsine yield the tie-rule-invariant limit and 2/3 concentration. Extractable standard-library verification exhausts 65,534 rankings and 4,096 explicit rooted-orientation checks. Computation corroborates finite algebra and is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brill et al. formalize ranked forests and compare their ranks and voting weights experimentally in Sections 5–6, not this random-preference distribution.",
+        "Utke and Schmidt-Kraepelin study arbitrary fixed delegation graphs and randomized mixed Borda branchings; their general algorithm calculates fractions of fixed-profile optima but does not integrate iid random preferences or derive the arcsine limit.",
+        "published mathematical records query 5 closest id published finding: Six voters are the sharp threshold for Banzhaf–Shapley–Shubik ordinal divergence concerns indices, not delegation paths."
+      ],
+      "reasoning": "General branching optimization covers deterministic optimum construction but is not a probability law under iid ranks. Randomized tie-breaking of a fixed profile and random generation of profiles are mathematically distinct; neither inspected general treatment supplies a dominating explicit representation concentration or exact expected-cost comparison.",
+      "searches": [
+        "liquid democracy with ranked delegations path two gurus random rankings exact arcsine voting weight BordaBranching",
+        "ranked delegation path two gurus randomized rank order Borda branchings cost savings sqrt n versus breadth first and beta distribution",
+        "Liquid Democracy with Ranked Delegations",
+        "Anonymous and Copy-Robust Delegations for Liquid Democracy"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2112.07509v1",
+      "arxiv:2307.01174",
+      "arxiv:1912.01854",
+      "Doney 1987 DOI 10.1112/blms/19.2.177",
+      "published mathematical records focused semantic searches on BordaBranching, arcsine, two gurus, min-rank forests",
+      "Related mathematical claims on delegated pivotality and proxy selection (comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "AAAI 2022 defines and computes minimum-rank BordaBranching but reports empirical tension rather than an asymptotic arcsine concentration theorem for two gurus.",
+        "NeurIPS 2023 provides fixed-profile mixed Borda branching fractions and copy-robustness but not iid random-profile optimal-cut distributions.",
+        "The Lévy/Feller arcsine law establishes the final weak limit of random-walk minimum locations, but without the separate delegation-to-walk theorem and BFD rank comparison does not subsume the full model-specific claim.",
+        "Popular Branchings and Their Dual Certificates, arxiv:1912.01854, concerns majority popularity of branchings and was examined at abstract level only."
+      ],
+      "reasoning": "The final result is a conjunction of a rigorous delegation-specific cut reduction, exact finite distribution, arbitrary-optimal-tie Brownian concentration, a finite expected-rank formula, and a BFD comparison. Published general algorithms and classic probability facts provide methods but do not imply the full social-choice tradeoff without new identified premises.",
+      "searches": [
+        "BordaBranching optimal delegation guru weight random preferences path arcsine Brownian time minimum first minimizer",
+        "liquid democracy with ranked delegations path two gurus random rankings exact arcsine voting weight BordaBranching",
+        "arxiv:2112.07509v1",
+        "arxiv:2307.01174",
+        "popular branchings dual certificates arxiv:1912.01854"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brill et al., AAAI 2022 §§2–3.3: BordaBranching defined by global rank minimization; no random-rank path minimum-time distribution in inspected proof and results sections.",
+        "Utke and Schmidt-Kraepelin, NeurIPS 2023 §§2–6: random walks used for fixed-instance randomized mixes of Borda-optimal branchings, a distinct probability space.",
+        "published mathematical records highest scored query 4: published finding: Oriented-tree general position as a Greene–Kleitman two-family, concerning oriented-tree general-position posets, not Borda delegation."
+      ],
+      "reasoning": "Equivalent terminology searched: ranked delegation, minimum-cost branching, two-root forest, first minimum of a Bernoulli walk, Brownian arcsine for guru weights. A generic random-walk arcsine theorem implies the distribution of a known random walk argmin but not the model-to-walk reduction; that reduction and Borda-vs-BFD comparison are the submitted contribution. No equal or stronger delegation theorem located in inspected materials.",
+      "searches": [
+        "BordaBranching optimal delegation guru weight random preferences path arcsine Brownian time minimum first minimizer",
+        "minimum rank arborescence two roots on path independent preference order exact number of optimal cutpoints arcsine asymptotics",
+        "arxiv:2112.07509v1",
+        "arxiv:2307.01174"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching tabulation or published mathematical records claim appeared among returned candidate IDs for focused delegation queries.",
+        "The exact expression is a reflected first-global-minimum ballot count, not a new enumeration of random-walk paths in isolation."
+      ],
+      "reasoning": "Existing reflection/ballot tables can recover the finite walk-minimum distribution once the optimization reduction is proved; that classical component is credited. No existing delegation-table output covering the final joint tradeoff was identified. Failed searches alone are not proof of novelty.",
+      "searches": [
+        "two voting sinks ranked delegation random preference optimal cut simple random walk beta arcsine limiting representation",
+        "BordaBranching ranked liquid democracy two gurus on a line path random opposite neighbor preferences simple random walk argminimum arcsine law for guru voting weight",
+        "arcsine BordaBranching two gurus path exact first-minimum ballot formula"
+      ]
+    },
+    "rationale": "The first full-text source introduces BordaBranching and measures a rank-versus-representation tension empirically, but does not derive this two-guru iid preference arcsine law. The most relevant follow-up randomizes optimal branchings conditioned on a fixed ranked input; this differs fundamentally from optimizing over iid random local rankings. Classical reflection and arcsine limit theorems are cited as inputs, not claimed as original. published mathematical records and own-claim searches found no coverage; specialist model applications outside inspected sources remain a residual priority risk.",
+    "residual_risks": [
+      "A mathematically equivalent random-forest minimum-cut arcsine result might appear under unrelated optimization terminology.",
+      "Prior work may prove a stronger stochastic preference-integration result in a full paper not identified in the inspected targeted search.",
+      "Additional mixed delegation behavior on richer graphs is outside the claimed scope; independent external validation not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines BordaBranching and documents empirical tradeoff, does not establish iid two-terminal path arcsine law or exact optimum-rank expression.",
+        "evidence": [
+          "Brill et al. AAAI 2022 §3.3 minimum-cost branching definition; §§5–6 rank and weights figures."
+        ],
+        "identifier_or_url": "arxiv:2112.07509v1; https://ojs.aaai.org/index.php/AAAI/article/view/20417/20176",
+        "material_read": "AAAI 2022 full text: model and rules in §§2–3.3; experimental rankings/representation §§5–6, results and conclusions; visually inspected PDF pages 3–5 and 7 (PDF zero-index pages 2–4,6).",
+        "method": "Open-access proceedings PDF text and page screenshot inspection",
+        "title": "Liquid Democracy with Ranked Delegations",
+        "trigger": "Initiating introduction of BordaBranching, ranks and guru-weight balancing"
+      },
+      {
+        "assessment": "Computes fixed-profile mixed Borda solution; does not, in inspected material, characterize iid randomly drawn ranked instances on a two-guru path.",
+        "evidence": [
+          "Utke and Schmidt-Kraepelin NeurIPS 2023, mixed optimum branching definitions and algorithms."
+        ],
+        "identifier_or_url": "arxiv:2307.01174; https://proceedings.neurips.cc/paper_files/paper/2023/file/dbb5180957513805ebeea787b8c66ac9-Paper-Conference.pdf",
+        "material_read": "Open-access NeurIPS paper: introduction and model on PDF pp.1–3; relevant random-walk and mixed Borda sections §§2–6 including text around fixed-profile optimization and theorems; relevant later page screenshot.",
+        "method": "PDF text and page screenshot inspection",
+        "title": "Anonymous and Copy-Robust Delegations for Liquid Democracy",
+        "trigger": "Follow-up mixed BordaBranching using random walks and randomization"
+      },
+      {
+        "assessment": "Popularity via pairwise preference majority is not additive Borda minimization; full-text absence leaves modest risk.",
+        "evidence": [
+          "arXiv:1912.01854 abstract, popular branchings objective."
+        ],
+        "identifier_or_url": "arxiv:1912.01854",
+        "material_read": "Title and abstract only",
+        "method": "Abstract-index inspection",
+        "title": "Popular Branchings and Their Dual Certificates",
+        "trigger": "Related optimization on rooted directed forests"
+      },
+      {
+        "assessment": "Covers underpinning random-walk facts, not a modern model-specific delegation theorem.",
+        "evidence": [
+          "Classical first-passage ballot/reflection formulas and Levy arcsine theorem."
+        ],
+        "identifier_or_url": "Feller (1968), 3rd edition",
+        "material_read": "Identified standard theorem statements as classical mathematical background, not a full-volume inspection",
+        "method": "Mathematical reconstruction and known classical results",
+        "title": "An Introduction to Probability Theory and Its Applications, Vol. I",
+        "trigger": "Classical reflection principle, arcsine law and binomial absolute moments"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "af9fc3ce-9313-47e8-a867-9314e2ec733b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact social-choice objective tradeoff is motivated by the source paper. The new reduction quantifies how saving Theta(sqrt(n)) second-choice votes under globally minimum-ranked branching produces Theta(n) asymmetry in guru weights with limiting probability 2/3; BFD instead has balanced weights. A full finite optimum-cut law, closed finite expected costs and arbitrary-optimum-tie robust asymptotic show structural mathematical information beyond a renamed textbook probability theorem or one-off example.",
+    "status": "PASS"
+  }
+}
