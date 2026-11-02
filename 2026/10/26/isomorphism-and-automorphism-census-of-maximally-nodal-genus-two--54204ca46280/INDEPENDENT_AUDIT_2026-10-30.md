@@ -1,0 +1,21 @@
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The final claim has precise quantifiers: p odd, s=p^r (r>=1), q=s^2, fixed maximal E/F_q with #E(F_q)=(s+1)^2, n=s-1 even, one rational nonsplit node, unmarked F_q-isomorphisms. Pinching the unique degree-two closed normalization point via F_q+m_P has delta=1, two conjugate smooth branches, arithmetic genus 2 and one additional F_q point; normalization functoriality yields bijection between curve classes and degree-two closed points modulo Aut_{F_q}(E). Its maximal Frobenius polynomial is (T+s)^2; since End(E)⊗Q has no nonzero nilpotents, pi=[-s]. Hence E(F_q)=E[s+1], E(F_{q^2})=E[(s-1)(s+1)] and [s+1] gives exact surjection onto E[n]. Quotient by rational translations gives nonzero n-torsion differences D=R-pi(R); replacing a branch negates D, already realized by [-1] in U. Maximal scalar Frobenius centralizes all geometric origin automorphisms, so they descend. A point-orbit of size a under abstract U gives exactly 2|U|/a automorphisms of the pinched curve; even when D=-D, its two branch-target choices contribute distinct rational translations. For p>=5, C2/C4/C6 fixed points on n-torsion give each row; order-4 elements fix one nonzero 2-torsion, order-3 elements fix two 3-torsion precisely when 3|n. For p=3, U has order 12 with S3 action on E[2]; order-3 elements have only O fixed and order-4 elements each fix one 2-torsion, so one orbit size3 and remaining orbits size12. Recomputed exact actual elliptic group actions for E:y^2=x^3-x over F9/F81 (one class aut8), E:y^2=x^3+1 over F25/F625 (two aut2 and one aut4), and E:y^2=x^3-x over F49/F2401 (eight aut2, one aut4, one aut8). Further independently enumerated C2/C4/C6 torsion actions at nine even n and order-12 characteristic-three actions at n=2,8,26, each matching table formulas. These finite checks substantiate boundary cases but are not the universal proof; the structural fixed-point and quotient argument is.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS with a material 2026-primary-full-text access limitation. The exact final theorem classifies rational isomorphism classes, for one fixed maximal elliptic normalization over odd-characteristic square F_q, and gives the complete full-curve automorphism-order distribution. Aubry–Iezzi (2015) prove local singularization and the maximal point-count/existence bounds; their Theorem 3.4 and Corollary 5.5 are not the quotient count or stabilizer distribution. Their 2015 follow-up bounds closed degree-two points and possible genera, rather than unmarked fixed-E orbit counts. Bergström (2009) uses equivariant mass/stack counts for stable genus-two moduli, not the stated fixed-E unweighted four-row census in the sections inspected. General delta_0 boundary geometry and known elliptic automorphisms give the conceptual starting point, but the maximal scalar-Frobenius torsion specialization and exceptional-characteristic stabilizer strata require further enumeration. The highly relevant Hilario–Salomão–Vidal Martins 2026 paper was accessible only by abstract; no whole-document negative assertion is made. Searches of Resultary and the literature found no mathematically equivalent full classification, which does not establish exhaustive priority.
+
+## value
+
+PASS
+
+The irreducible one-node boundary is the first natural singular degeneration of genus-two curves; fixed maximal elliptic normalization and unmarked F_q-isomorphism are mathematically canonical, not arbitrary sample slices. Prior work gives a raw B_2 closed-point count but not how many genuinely distinct pinched curves and which full finite automorphism groups occur. The exact infinite-family count and complete order-stratified census distinguish generic, j=1728 and j=0 symmetry, and explain the wild p=3 jump. These quantities are useful for finite-field moduli stratification, automorphism-weighting, and examples of maximal singular genus-two curves. Computation requires nontrivial orbit-stabilizer and Frobenius-torsion arguments; it is not a mere point-bound restatement, though it is a focused classification rather than a general theorem for all normalizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

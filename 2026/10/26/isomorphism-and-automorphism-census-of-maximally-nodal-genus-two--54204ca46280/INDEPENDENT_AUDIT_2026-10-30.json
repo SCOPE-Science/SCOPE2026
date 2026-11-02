@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T15:07:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned Git RESULT.md blob c6f106e04df572f2318039fbd2d49c90e07bd447 (all Finding, Assumptions, Proof §§1–4, boundary cases and Limits).",
+        "Pinned Git verify.py blob 6c47d00391f80f3a9fd528364226b69e952817bb reviewed, not treated as a proof.",
+        "Independent exact GF81/F9, GF625/F25, GF2401/F49 geometric point-and-group enumeration; 24/270/1120 degree-two points; group actions of size 192/216/256.",
+        "Independent torsion matrix-orbit enumeration for C2/C4/C6 and the characteristic-three order-12 group; point stabilizers checked using the abstract rather than the sometimes nonfaithful small-torsion group order.",
+        "Aubry–Iezzi 2015, Theorem 3.4 local pinching, providing geometric construction input."
+      ],
+      "rationale": "The final claim has precise quantifiers: p odd, s=p^r (r>=1), q=s^2, fixed maximal E/F_q with #E(F_q)=(s+1)^2, n=s-1 even, one rational nonsplit node, unmarked F_q-isomorphisms. Pinching the unique degree-two closed normalization point via F_q+m_P has delta=1, two conjugate smooth branches, arithmetic genus 2 and one additional F_q point; normalization functoriality yields bijection between curve classes and degree-two closed points modulo Aut_{F_q}(E). Its maximal Frobenius polynomial is (T+s)^2; since End(E)⊗Q has no nonzero nilpotents, pi=[-s]. Hence E(F_q)=E[s+1], E(F_{q^2})=E[(s-1)(s+1)] and [s+1] gives exact surjection onto E[n]. Quotient by rational translations gives nonzero n-torsion differences D=R-pi(R); replacing a branch negates D, already realized by [-1] in U. Maximal scalar Frobenius centralizes all geometric origin automorphisms, so they descend. A point-orbit of size a under abstract U gives exactly 2|U|/a automorphisms of the pinched curve; even when D=-D, its two branch-target choices contribute distinct rational translations. For p>=5, C2/C4/C6 fixed points on n-torsion give each row; order-4 elements fix one nonzero 2-torsion, order-3 elements fix two 3-torsion precisely when 3|n. For p=3, U has order 12 with S3 action on E[2]; order-3 elements have only O fixed and order-4 elements each fix one 2-torsion, so one orbit size3 and remaining orbits size12. Recomputed exact actual elliptic group actions for E:y^2=x^3-x over F9/F81 (one class aut8), E:y^2=x^3+1 over F25/F625 (two aut2 and one aut4), and E:y^2=x^3-x over F49/F2401 (eight aut2, one aut4, one aut8). Further independently enumerated C2/C4/C6 torsion actions at nine even n and order-12 characteristic-three actions at n=2,8,26, each matching table formulas. These finite checks substantiate boundary cases but are not the universal proof; the structural fixed-point and quotient argument is.",
+      "residual_risks": [
+        "No formal Lean/expert certification; standard normalization and elliptic geometric automorphism group classifications are mathematical theoretical inputs.",
+        "Independent finite experiments check representative fields, not every odd prime power or existence of every conditional j row.",
+        "Published scalar-Frobenius and group-action facts have been reasoned through, not exhaustively machine formalized."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1501.03676v2 Theorem 3.4 constructs pinched singular curves for prescribed local rings and Corollary 5.5 gives a bound/number of degree-two places for geometric genus one, not isomorphism classes of the resulting curves with fixed normalization.",
+          "arXiv:1510.01853v1 Proposition 4.1 supplies the general genus-spectrum existence condition and bound B_2; it does not classify automorphism strata of nonsplit nodal curves.",
+          "Bergström 2009 addresses all genus-two stable moduli via equivariant/weighted point counts, a broader object but a different aggregate invariant."
+        ],
+        "reasoning": "Broader generality in genus or in stable-stack point counting does not automatically imply the exact fixed-E rational orbit-and-stabilizer distribution. The raw B_2 count is far larger than the quotient class count and has no individual automorphism orders. A hypothetical stronger full groupoid table would cover the claim, and remains a residual priority risk.",
+        "searches": [
+          "Aubry and Iezzi arXiv:1501.03676v2, §3 Theorem 3.4, §4 Theorem 4.2, §5 Corollary 5.5",
+          "Aubry and Iezzi arXiv:1510.01853v1, §4 Proposition 4.1 and Theorem 4.3",
+          "Web: counting points moduli stack stable genus 2 curves over finite fields boundary delta0 elliptic automorphism 2006",
+          "Web: Bergstrom point counts moduli space stable curves genus two finite field boundary automorphism"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches (three actual target paraphrases), 2026-10-30; no relevant published exact fixed-normalization nodal genus-two table among the ranked results.",
+        "Aubry–Iezzi arXiv:1501.03676v2, Theorem 3.4 and Corollary 5.5, full PDF relevant math sections and full-document terminology search.",
+        "Aubry–Iezzi arXiv:1510.01853v1, Proposition 4.1 and Theorem 4.3, full PDF relevant sections and full-document terminology search.",
+        "Bergström, Doc. Math. 14 (2009) §§2 and 11.2, groupoid-weighted moduli counts.",
+        "Hilario–Salomão–Vidal Martins arXiv:2609.22557v2: abstract only, exact stronger-coverage comparison not possible due access."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pinching a degree-two point and the rational point-count increase by one were already proved and are NOT claimed as new.",
+          "The audited finite-field classification requires additional specific implications: maximal Frobenius [-s], exact sequence of E-torsion, descent of U, and fixed-point counts for C2/C4/C6 or the nonabelian order-12 p=3 group.",
+          "Bergström 2009 §2 states automorphism-weighted groupoid counting identities; these weighted masses do not individually determine the unweighted four-row stabilizer distribution for one E."
+        ],
+        "reasoning": "The prior singularization theorem and general nodal-moduli quotient are ingredients and in principle permit the new arithmetic calculation, but the inspected primary theorems do not already state the required exact count or a stronger explicit formula from which it follows by mere parameter substitution. The 2026 recent construction was not read in full, so any equivalent appendix/table there remains explicitly unverified.",
+        "searches": [
+          "Aubry–Iezzi Theorem 3.4 plus Corollary 5.5 and Frobenius scalar [-s], direct theorem-level implication comparison",
+          "Bergström 2009 §§2,11, moduli stack masses versus fixed E rational unweighted classes",
+          "Web: elliptic curve nodal genus 2 arithmetic curve finite field Fq isomorphism automorphism fixed normalization gluing degree two point",
+          "Web: Maximal singular curves over finite fields from elliptic and hyperelliptic curves pdf 2609.22557"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Generic irreducible one-node genus-two curves correspond to elliptic curves with an unordered pair of distinct geometric points, and fixed-normalization classes are automorphism-orbits of those pairs; this part is classical moduli geometry.",
+          "The audited theorem adds the finite-field Frobenius conjugation restriction and identifies (E(F_{q^2}) minus E(F_q))/translations and inversion with (E[s-1] minus 0)/Aut(E,O); explicit full stabilizer orders are essential.",
+          "Bergström 2009 §11.2 obtains aggregate stable-genus-two equivariant counts from strata, not a fixed maximal E four-row rational isomorphism/stabilizer table in the text examined."
+        ],
+        "reasoning": "The generic nodal-boundary quotient is a conceptual equivalent model of the moduli problem, but neither a displayed four-case unweighted count nor the wild-characteristic-three automorphism-order refinement was found as an earlier statement. A general exact groupoid enumeration specializing to these strata would dominate the claim; none was identified in the material read.",
+        "searches": [
+          "Resultary: maximally singular genus two curves one non-split rational node fixed maximal elliptic normalization isomorphism classes automorphism orders torsion orbit Frobenius -sqrt q",
+          "Web: number of isomorphism classes one nodal genus two curves finite field maximal elliptic normalization",
+          "Web: irreducible nodal genus two elliptic normalization automorphism count over finite fields",
+          "Bergström 2009, Equivariant Counts of Points of the Moduli Spaces of Pointed Hyperelliptic Curves, sections 2 and 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit lists were unrelated to this exact fixed-elliptic-normalization nodal genus-two census: e.g. genus-three monodromy, smooth genus-two Diophantine searches, and other automorphism classifications.",
+          "Aubry–Iezzi 2015 tables enumerate ranges/bounds for B_2(X), not the four rows indexed by j(E), p and curve automorphism order.",
+          "Accessible smooth-genus-two class databases and moduli surveys address smooth hyperelliptic curves rather than the fixed-normalization nonsplit nodal stratum."
+        ],
+        "reasoning": "No exact published table with the four full automorphism-order rows was identified. This is a bounded negative search finding, not a proof that no prior or unindexed database exists.",
+        "searches": [
+          "Resultary: elliptic curve nodal genus 2 arithmetic curve finite field Fq isomorphism automorphism fixed normalization gluing degree two point",
+          "Resultary: number of elliptic curve degree two places modulo automorphisms point pair genus two nodal F_q",
+          "Web: count genus two stable curves over Fq one nodal elliptic normalization automorphism types j 0 1728",
+          "Web: number of isomorphism classes stable curves genus 2 over finite fields automorphism point counts boundary delta0"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with a material 2026-primary-full-text access limitation. The exact final theorem classifies rational isomorphism classes, for one fixed maximal elliptic normalization over odd-characteristic square F_q, and gives the complete full-curve automorphism-order distribution. Aubry–Iezzi (2015) prove local singularization and the maximal point-count/existence bounds; their Theorem 3.4 and Corollary 5.5 are not the quotient count or stabilizer distribution. Their 2015 follow-up bounds closed degree-two points and possible genera, rather than unmarked fixed-E orbit counts. Bergström (2009) uses equivariant mass/stack counts for stable genus-two moduli, not the stated fixed-E unweighted four-row census in the sections inspected. General delta_0 boundary geometry and known elliptic automorphisms give the conceptual starting point, but the maximal scalar-Frobenius torsion specialization and exceptional-characteristic stabilizer strata require further enumeration. The highly relevant Hilario–Salomão–Vidal Martins 2026 paper was accessible only by abstract; no whole-document negative assertion is made. Searches of Resultary and the literature found no mathematically equivalent full classification, which does not establish exhaustive priority.",
+      "residual_risks": [
+        "The closest 2026 maximal singular-curve source could contain an implicit or explicit matching fixed-E isomorphism/automorphism table in text or appendices: only its abstract was accessible; Oxford access reported VPN disconnected.",
+        "An arithmetic point count for delta_0 of the stable genus-two stack or a finite-field elliptic-point-pair groupoid table could imply all rows without matching current title/numbers; no comprehensive priority theorem was found.",
+        "Classical nodal-moduli quotient and elliptic fixed-point arithmetic are known; the conceptual reduction alone is not novel, and distinctness of the combined exact census remains best-of-knowledge rather than certified.",
+        "Unindexed older local characteristic-three automorphism-classification tables may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers degree-two pinching, point counts and bounds, but examined statements do not enumerate unmarked fixed-E curve classes or their full automorphism orders.",
+          "evidence": [
+            "Theorem 3.4, PDF pp.6–7: prescribed local ring singularization; Corollary 5.5, PDF p.11: B_2 formula; PDF p.12: maximal singular zeta function."
+          ],
+          "identifier_or_url": "Yves Aubry and Annamaria Iezzi, arXiv:1501.03676v2, https://arxiv.org/pdf/1501.03676",
+          "material_read": "PDF introduction, §3 local-ring construction and Theorem 3.4, §§4–5 especially Theorem 4.2, Corollary 5.5 and Proposition 5.8; searched entire PDF text for automorphism terminology; page 4 image independently inspected.",
+          "method": "Read indexed PDF theorem/proof passages and page screenshot; search text for exact automorphism/isomorphism terminology.",
+          "title": "On the Maximum Number of Rational Points on Singular Curves over Finite Fields",
+          "trigger": "Most relevant prior singularization and geometric-genus-one maximal-count framework"
+        },
+        {
+          "assessment": "Proves genus-existence criteria and upper bounds via counts of closed degree-two places; does not state an unweighted fixed-E orbit census in the inspected sections.",
+          "evidence": [
+            "Proposition 4.1 §4, PDF pp.12–13: maximum genus spectrum from B_2, rather than quotient by automorphism groups."
+          ],
+          "identifier_or_url": "Yves Aubry and Annamaria Iezzi, arXiv:1510.01853v1, https://arxiv.org/pdf/1510.01853",
+          "material_read": "PDF introduction, §2 bound framework, §4 genera-spectrum Proposition 4.1 and Theorem 4.3, and PDF-wide isomorphism/automorphism searches; first-page screenshot inspected.",
+          "method": "Full-text searchable PDF with direct theorem/proof reading and visual page check.",
+          "title": "Optimal and Maximal Singular Curves",
+          "trigger": "Possible broader theorem counting all maximal singular curves by degree-two points"
+        },
+        {
+          "assessment": "Aggregates equivariant/mass counts over general moduli; relevant conceptual framework but no explicit fixed-E four-row aut-order classification identified.",
+          "evidence": [
+            "Section 2 defines sums with 1/|Aut_k(C)|, §11.2 obtains stable M_{2,n} Galois/cohomological information by strata."
+          ],
+          "identifier_or_url": "Jonas Bergström, Documenta Math. 14 (2009), https://ems.press/content/serial-article-files/26050?nt=1",
+          "material_read": "PDF introduction, §2 automorphism-weighted counting identity, §11.2 stable genus-two cohomological count, and contents/index searches; p.30 image inspected.",
+          "method": "Read accessible full PDF relevant sections and visually inspect relevant page.",
+          "title": "Equivariant Counts of Points of the Moduli Spaces of Pointed Hyperelliptic Curves",
+          "trigger": "A broader published stable-genus-two moduli point census might dominate the exact nodal case"
+        },
+        {
+          "assessment": "Abstract advertises explicit constructions, embedding and gonality, not the exact fixed-normalization class and automorphism distribution; full-document coverage comparison remains an unresolved priority risk, not a negative whole-document conclusion.",
+          "evidence": [
+            "arXiv abstract posted 2026-09-18, revised 2026-09-22; claims maximal curves from elliptic/hyperelliptic normalizations and computes gonality."
+          ],
+          "identifier_or_url": "C. Hilario, R. Salomão, R. V. Martins, arXiv:2609.22557v2, https://arxiv.org/abs/2609.22557",
+          "material_read": "Public abstract and bibliographic metadata only; arXiv HTML/PDF accesses were blocked; authorized institutional attempt returned vpn_disconnected. No full text read in this execution.",
+          "method": "OA/arXiv searches and abstract reading; authorized institutional retrieval attempted after OA failure without authentication bypass.",
+          "title": "Maximal Singular Curves over Finite Fields from Elliptic and Hyperelliptic Curves",
+          "trigger": "Highly relevant 2026 paper on exactly maximal singular curves with elliptic normalizations and nonsplit nodes"
+        },
+        {
+          "assessment": "Survey discusses the smooth M_2 and principally polarized abelian-surface cohomological counting framework, not an explicitly fixed maximal elliptic normalization with a nonsplit node.",
+          "evidence": [
+            "Section 5 explicitly frames counting smooth genus-two curves through M_2 and the smooth Torelli locus."
+          ],
+          "identifier_or_url": "Gerard van der Geer, Finite Fields and Their Applications 32 (2015), https://doi.org/10.1016/j.ffa.2014.09.008",
+          "material_read": "Accessible HTML abstract, introduction and section 5 about genus-two moduli and weighted smooth-curve counts; not the full PDF.",
+          "method": "Read publisher-accessible mathematical section and inspect the object/parameter definitions.",
+          "title": "Counting Curves over Finite Fields",
+          "trigger": "Broad curve-moduli counting survey potentially encompassing nodal boundary automorphism distributions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Aubry–Iezzi 2015 Corollary 5.5 supplies the contrasting unquotiented number of degree-two points.",
+        "Pinned RESULT.md complete table for the natural infinite arithmetic family and all exceptional strata.",
+        "Independent actual elliptic-geometric orbit classification in three finite fields supports nontrivial automorphism stratification."
+      ],
+      "rationale": "The irreducible one-node boundary is the first natural singular degeneration of genus-two curves; fixed maximal elliptic normalization and unmarked F_q-isomorphism are mathematically canonical, not arbitrary sample slices. Prior work gives a raw B_2 closed-point count but not how many genuinely distinct pinched curves and which full finite automorphism groups occur. The exact infinite-family count and complete order-stratified census distinguish generic, j=1728 and j=0 symmetry, and explain the wild p=3 jump. These quantities are useful for finite-field moduli stratification, automorphism-weighting, and examples of maximal singular genus-two curves. Computation requires nontrivial orbit-stabilizer and Frobenius-torsion arguments; it is not a mere point-bound restatement, though it is a focused classification rather than a general theorem for all normalizations.",
+      "residual_risks": [
+        "No claimed downstream coding theorem or complete count over every maximal elliptic normalization; usefulness is the exact moduli invariant itself.",
+        "A preexisting general explicit boundary-count table would reduce or eliminate both novelty and incremental value; the 2026 full-text priority gap persists."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Maximal fixed elliptic normalization only; no all-normalizations, even-characteristic, nonmaximal, smooth or higher-singularity classification.",
+    "2026 Hilario–Salomão–Vidal Martins closest paper was available only by abstract; Oxford institutional attempt returned vpn_disconnected after arXiv and OA attempts failed; not used as evidence that the full paper does not cover the claim.",
+    "The prior generic nodal-moduli orbit description and elliptic automorphism groups are known; originality is qualified best-of-knowledge for the exact finite-field four-row census.",
+    "Existing public METADATA.json and AUDIT.json contain internal scope_run_id, and first_public_date points to a cited earlier paper; no confidentiality-safe fully guarded UTF-8 replacements supplied.",
+    "No Lean proof, independent expert attestation, publication or repository mutation performed; pre-existing formal/expert channels unchanged."
+  ],
+  "schema_version": 1
+}
