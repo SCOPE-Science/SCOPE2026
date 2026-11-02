@@ -1,13 +1,21 @@
-## Correctness
-PASS. Binary digit splitting supplies the explicit nine-state transfer matrix. Exact integer multiplication establishes the six-step matrix identity; cancellation of even/odd pairs eliminates the all-ones direction, and idempotence of the residue-triple averaging matrix proves the formula for every dyadic scale. The nonzero components at the first dyadic scale establish genuine two-mode minimality. The extracted standalone checker verifies the nonstandard finite matrix identity and independent defining sums; computation is not substituted for the infinite proof.
+# Independent mathematical audit
 
-## Originality
-PASS within inspected evidence, not a declaration of publication priority. Full-text inspection of Shallit, arXiv:2302.09436v2, especially Section 6, found results for moduli three and five but not nine's two-rate projection. Goldstein–Kelly–Speer (1992) focus on prime moduli and scaling asymptotics. Drmota–Skałba (2000) covers general odd moduli but its publicly accessible abstract establishes positivity phenomena rather than this exact vector law. The full texts of the two older papers were inaccessible after lawful attempts; unknown stronger statements remain a material originality risk. Searches of mathematical literature and prior mathematical-result records showed no matching nine-residue formula, which is evidence of nonoverlap, not proof of novelty.
+## correctness
 
-## Mathematical value
-PASS. Modulus nine is the first odd prime-square case beyond the prime-modulus setting, and the exact law isolates two genuinely nonzero arithmetic scales rather than a single asymptotic exponent. It gives all nine shifts at every dyadic cutoff, an exact recursion and its sharp vector-order obstruction, supplying a motivated structural benchmark for composite-modulus rarefied sums. These conclusions concern a natural complete residue system, not a cherry-picked numerical increment. They do not imply a general composite-modulus theorem.
+PASS
 
-## Closest sources and limits
-Shallit (2023) studies the same rarefied-sum definitions at moduli three and five and motivates the composite-modulus question. Goldstein–Kelly–Speer (1992) treats prime-modulus self-similarity; Drmota–Skałba (2000) treats arbitrary odd-modulus positivity and remains an unresolved full-text comparison risk. This review is not external confirmation of publication priority.
+Binary digit recurrence epsilon(2n+r)=(-1)^r epsilon(n) gives an explicit 9x9 integer matrix B on F_j(k). Independently multiplying shows B^6=3I+8Q-3J with Q_{ij}=1 iff i=j mod3, Q^2=3Q. For k>=1 the total of nine residue sums equals sum_{n<9*2^k}epsilon(n)=0, so JV(k)=0. The projector P=Q/3 yields V(k+6m)=3^m(I-P)V(k)+27^mPV(k), all k>=1,m>=0; V(1) has both components nonzero, so the vector order-two recurrence is minimal. Direct computations for all j, k=1..7, m=0..2 corroborate exact algebra but do not prove infinite cutoffs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Shallit’s primary PDF develops automatic representations for b=3,5 and related odd progressions, without the full nine-shift B^6 identity in inspected relevant sections. Goldstein–Kelly–Speer treat primarily odd prime moduli. Drmota–Skałba explicitly treats arbitrary odd q including q=9, so potential stronger coverage is a material priority risk; full text was not available and the authorized retrieval attempt was blocked by safety controls. No whole-document noncoverage conclusion is inferred. The inspected evidence favors novelty of the explicit all-nine dyadic 3/27 projector formula, not novelty of transfer matrices or rarefied-sum asymptotics.
+
+## value
+
+PASS
+
+Modulus nine is the first odd composite prime-square beyond prime cases and the nine residue class vector is a natural complete arithmetic invariant. An exact six-step two-eigenvalue decomposition with a finite matrix certificate supplies all dyadic values and structural two-scale growth, not just a few arbitrary numerics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
