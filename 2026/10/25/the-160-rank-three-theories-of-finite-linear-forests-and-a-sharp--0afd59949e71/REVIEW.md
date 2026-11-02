@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The theorem reduces all nonempty linear forests to 16,383 explicit path-multiplicity normal forms by a proved single-path rank-three cutoff and a three-round componentwise game argument. A back-and-forth rank-three fingerprint is derived from complete pointed-pair one-move extension data. Two implementations exhaust the canonical cases and independently agree on exactly 160 types and on the minimum-representative histogram with sharp maximum 23. A direct Ehrenfeucht–Fraïssé recursion agrees on 901 small pairs. The computation is not extrapolated to infinite path lengths; the normalization supplies that step.
+## correctness
 
-## Originality
-PASS under a best-knowledge literature comparison. Brown–Hoshino's full text classifies a pair of individual paths or cycles, not arbitrary disjoint unions of paths; Verbitsky's study addresses bounds on defining connected bounded-degree graphs, not this exact rank-three forest quotient. A separate published directed-path result changes the signature and also restricts to a connected path. Searches for exact linear-forest rank-three classifications, the number 160, and the 23-point cutoff located no result covering either exact assertion. Previously examined path, star-forest, and cycle classifications do not determine the new quotient. Search incompleteness and unindexed folklore remain residual risks, not claims of certified uniqueness.
+PASS
 
-## Value
-PASS. The class of linear forests is the natural maximum-degree-two acyclic graph class. The theorem gives a complete logical quotient and sharp uniform small-representative bound across infinitely many disconnected structures, reducing a 16,383-element canonical search to 160 genuinely different theories. The nontrivial sharp extremizer demonstrates why the global 23-vertex requirement cannot be recovered from inspecting a single long path. The result provides a finite test set for rank-three definability questions within this class, without claiming a broader high-rank classification.
+FO adjacency/equality quantifier rank three corresponds to three-move EF equivalence. For each path Pn with n>=7, the ordered-pair one-move adjacency-pattern type depends only on endpoint status and distances 1,2,>=3; pointed rank-two types stabilize, giving Pn≡3P7. Componentwise three-round EF composition truncates each P1,...,P7 multiplicity to at most three without increasing size. This covers all nonempty finite linear forests by 4^7−1=16,383 finite canonical cases. Complete two-vertex rank-one pattern type t_G(x,y), pointed rank-two union mask M_G(x), and rank-three sentence type S(G) are exact back-and-forth recursions. Independently enumerated all 16,383 signatures and obtained 160 distinct classes, sharp minimum-representative maximum order 23, unique sharp class 2P1⊔P2⊔P3⊔P4⊔P5⊔P7. The finite census is exhaustive only because the separate infinite-family normalization argument holds.
 
-## Closest literature and limitations
-Brown and Hoshino (2007), Theorem 3.1 and conclusion, are the closest direct source. Verbitsky (arXiv:math/0401361) treats a related but nonidentical definability problem. The exact counts are established by transparent finite programs only after symbolic reduction; their interpretation is confined to rank three and the indicated signature. An unindexed equivalent enumeration remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brown–Hoshino determine three-move equivalence for INDIVIDUAL paths (threshold seven), not arbitrary disconnected unions or their exact theory census. General disjoint union/EF composition bounds the search but does not imply the actual count 160 or sharp size 23. Verbitsky separator results give asymptotic bounds, not this finite-rank classification. Best-of-knowledge qualified by possible unpublished tables.
+
+## value
+
+PASS
+
+Complete rank-three first-order theory classification of a natural graph class, with a sharp finite-model kernel, gives a useful exact EF benchmark beyond connected paths; these numbers are not routine consequences of the path cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
