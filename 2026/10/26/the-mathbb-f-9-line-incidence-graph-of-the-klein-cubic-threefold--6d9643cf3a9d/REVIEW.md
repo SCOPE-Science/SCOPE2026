@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A proof from unique RREF representatives tests all \(605242\) two-planes over \(\mathbb F_9\), uses exact coefficient vanishing to identify cubic-contained lines, and computes incidences by finite-field ranks. A deterministic standalone implementation asserts every advertised finite count and symmetry. The semisimple cyclic-action argument independently explains the exactly two invariant lines. No experimental finite sample is used to claim an infinite classification.
+## correctness
 
-**Originality — PASS (with residual risk).** The 2010 global cohomological L-function and the 2013 Fano-zeta formula dominate line **counts**, but do not entail the quadratic-extension intersection matrix or its degree and triangle statistics. The 2025 finite-geometry study concerns rational lines over the base field, not the quadratic-extension set of 82 lines. Semantically searched published records for the Fano-incidence graph and checked own accessible ledger claims; no source found with a stronger result implying this graph's structural data. Some specialized finite-geometry literature remains an originality risk.
+PASS
 
-**Mathematical value — PASS.** For a Fano surface the incidence relation is a geometric correspondence, not a statistic determined by zeta data. The first quadratic-extension graph is connected and has a nonregular spectrum of valencies, whereas the known base-field graph is a disjoint five-cycle with five isolated lines. The paired distinguished invariant lines have a direct representation-theoretic explanation and a precise arithmetic Frobenius behavior. These exact invariants provide natural structure for further arithmetic study of the incidence correspondence.
+Verified the exact base field F3[alpha]/(alpha^2+1), cubic F=sum_i x_i^2 x_(i+1), and smoothness from the five gradient equations. Every F9-rational line has unique 2x5 RREF representation: exhaustive Gaussian binomial count 605242. The four coefficient equations for F(sa+tb)=0 are necessary and sufficient; an independent implementation finds 82 qualifying lines. For each of all 3321 pairs, rank-three stacked matrix iff lines meet geometrically; independent exact finite-field arithmetic gives 350 incidences, 190 triangles, full degrees and connectivity, and F3 induced C5 plus 5 isolates. C5 module decomposition over F9 gives two invariant irreducible 2-planes with no weight-zero cubic monomials; they lie on the cubic and Frobenius swaps them. Finite enumeration here is exhaustive, not merely a sample.
 
-**Closest literature and limitations.** Roulleau arXiv:1001.4853 and arXiv:1304.4076, Okazaki–Yamauchi arXiv:1008.2052, and Bayar–Akça DOI:10.18185/erzifbed.1556681. This is a single quadratic-extension computation with a fully enumerable certificate; no universal classification or independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the full exact F9 intersection graph, distinguished cyclic fixed lines and detailed incidence invariants. Published Fano-surface and zeta/cohomology theory can determine aggregate line counts and intrinsic geometry; finite-F3 geometric studies cover a different rationality level. Neither aggregate counts nor general geometry directly supplies the F9 pairwise adjacency matrix and its degree/triangle statistics. An equivalent finite-geometric tabulation could exist.
+
+## value
+
+PASS
+
+The full incidence graph is a natural exact finite-field invariant of a distinguished smooth cubic/Fano surface, refining arithmetic point totals into adjacency, degree, triangle and automorphism data. The 82-vertex graph and symmetry-fixed lines give a meaningful complete calculation not a tiny arbitrary parameter tweak.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

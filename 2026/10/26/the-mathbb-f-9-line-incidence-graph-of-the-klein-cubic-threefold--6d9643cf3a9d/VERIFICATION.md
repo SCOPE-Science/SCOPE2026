@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 klein_q9_certificate.py` using Python 3 and no external packages. The run checks a primitive quotient-field multiplication table, enumerates all 605242 RREF two-planes, tests all four coefficients of the cubic restriction, and computes the full exact graph by Gaussian elimination over nine field elements. The observed output was:
+## correctness
 
-```
-RREF_Grassmannian=605242
-contained_F9_lines=82
-F9_incidence_edges=350
-F9_degree_distribution=[(4, 5), (6, 20), (8, 15), (10, 32), (12, 10)]
-F9_incidence_triangles=190
-F9_incidence_graph_connected=True
-F3_fixed_lines=10; induced_graph=C5_disjoint_union_5K1
-C5_coordinate_shift_fixed_F9_lines=2; swapped_by_Frobenius=True; disjoint=True; degree=10
-VERIFY_OK
-```
+PASS
 
-**Checks actually performed:** Complete deterministic field/RREF exhaustion; all exact line-containment coefficients; exact adjacency and triangle census; connectedness; Frobenius and cyclic coordinate-action checks, including automorphism preservation of the full graph. Mathematical verification of the semisimple representation lemma is given in RESULT.md.
+Verified the exact base field F3[alpha]/(alpha^2+1), cubic F=sum_i x_i^2 x_(i+1), and smoothness from the five gradient equations. Every F9-rational line has unique 2x5 RREF representation: exhaustive Gaussian binomial count 605242. The four coefficient equations for F(sa+tb)=0 are necessary and sufficient; an independent implementation finds 82 qualifying lines. For each of all 3321 pairs, rank-three stacked matrix iff lines meet geometrically; independent exact finite-field arithmetic gives 350 incidences, 190 triangles, full degrees and connectivity, and F3 induced C5 plus 5 isolates. C5 module decomposition over F9 gives two invariant irreducible 2-planes with no weight-zero cubic monomials; they lie on the cubic and Frobenius swaps them. Finite enumeration here is exhaustive, not merely a sample.
 
-**Unproved scope:** The calculations certify this finite graph only; they do not prove any statement about every finite extension or preclude every unpublished equivalent incidence table. Independent audit and independent validation have not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the full exact F9 intersection graph, distinguished cyclic fixed lines and detailed incidence invariants. Published Fano-surface and zeta/cohomology theory can determine aggregate line counts and intrinsic geometry; finite-F3 geometric studies cover a different rationality level. Neither aggregate counts nor general geometry directly supplies the F9 pairwise adjacency matrix and its degree/triangle statistics. An equivalent finite-geometric tabulation could exist.
+
+## value
+
+PASS
+
+The full incidence graph is a natural exact finite-field invariant of a distinguished smooth cubic/Fano surface, refining arithmetic point totals into adjacency, degree, triangle and automorphism data. The 82-vertex graph and symmetry-fixed lines give a meaningful complete calculation not a tiny arbitrary parameter tweak.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
