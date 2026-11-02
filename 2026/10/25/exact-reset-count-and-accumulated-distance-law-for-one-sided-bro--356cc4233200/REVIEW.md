@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact first-reset exponential-depth transform follows from the sign-dependent killed-diffusion boundary-value problem and matching the derivative across the monitoring boundary; its normalization gives the geometric trial-success probability. Renewal produces the full joint transform and conditional Gamma family. Summation yields the zero-atom/exponential total distance law and the nonuniform weak-rate limit. The included exact-bridge trajectory simulator and BVP residual checks independently corroborate all key algebraic expressions. All claims require \(D,r,L>0\) and instantaneous, negative-only reset rules.
+## correctness
 
-**Originality — PASS, with residual risk.** Tal-Friedman et al. (arXiv:2409.10108, article Sec. II and Appendix C) already prove the constant mean cost and expected number of successful measurements. They do not explicitly provide the full joint reset-count/cost law. Sunil et al. (arXiv:2304.09348) derive a general renewal transform for ordinary resetting at all Poisson times, which has a different geometric success parameter. Plata et al. (arXiv:2007.12417) derive mean first-passage relations for state-dependent resetting, without the cost mixture. Exact equivalent forms, broad-method implication, table/database results, and model-specific prior-claim implications were checked against available primary texts and mathematical research records. A previous derivation implicit in broader killed-diffusion or stochastic-cost work remains a genuine residual risk; a negative search is not proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** The mean energetic cost is rate-independent but the complete law is not: its zero-cost mass, exact exponential tail, conditional jump-count distribution and diverging weak-rate variance show a physically meaningful risk phenomenon. This is a naturally motivated path-level classification, not a recomputation of the known mean.
+The first-attempt killed diffusion has potential w_s(x)=E[e^{-sY}; first termination is a negative reset], satisfying D w''=0 on (0,L), D w''-r w=-r e^{s x} on x<0, boundary w(L)=0, bounded at -infinity and C1 matching at 0. Solving yields w_s(0)=q*kappa/(kappa+s) with kappa=sqrt(r/D), q=kappa L/(1+kappa L); independently checked exact symbolic residuals and both matching conditions, including s=kappa by continuous extension. It follows that failure probability q, conditional mark Exp(kappa), success p. Strong Markov and independent Poisson increments provide iid attempts and conditional iid reset marks, so P(N=n)=p q^n and joint PGF/Laplace p/(1-q z kappa/(kappa+s)). Summed Gamma densities give mass p at C=0, positive density p q kappa exp(-p kappa c), N-1|C=c>0 ~ Poisson(q kappa c), mean L, variance L²+2L/kappa, and exact weak limits. These are exact all D,r,L>0, not sample-based or an assertion at r=0.
 
-**Scientific limits.** No result is claimed for nonlinear costs, non-Poisson monitoring, drift, moving targets, passage-time/cost joint statistics or return mechanics that alter subsequent dynamics. An all-rate proof and one implementation of finite numerical tests are provided, but no external validation or independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tal-Friedman–Keidar–Reuveni–Roichman 2024/2025 *same model* already gives mean energy F0 L and negative-position integrated occupation kernel ~p(x,0)=(L/D)e^{kappa x} (SI Eq S22), which is an important strong precursor. It yields the expected spatial reset intensity and is compatible with the claimed exp mark law, but a first-moment occupation density alone does not establish independence of successive reset depths or the *joint path-level count/cost law*. Their main article/SI compute average costs and first-passage statistics, not these full joint laws or posterior Poisson count. Sunil et al. derive more general renewal transforms for resets at every clock time, a different state-dependent mechanism. The new statement is the one-sided reset-specific joint law and risk/weak-rate asymptotics, with an explicit risk that it may be an algebraically short corollary of a broader uninspected cost-functional theorem.
+
+## value
+
+PASS
+
+The source's reset-rate-independent *mean* hides a sharply rate-dependent full cost law: positive zero-cost atom, exponential positive tail, variance diverging as r^{-1/2}, weak convergence to zero as r->0 despite fixed mean L, and an exactly identified conditional count distribution. These are naturally motivated experimentally relevant fluctuations and a non-uniform-integrability phenomenon, not a re-expression of the previously published average cost.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

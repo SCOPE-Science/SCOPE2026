@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:15:30.174409Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first-attempt killed diffusion has potential w_s(x)=E[e^{-sY}; first termination is a negative reset], satisfying D w''=0 on (0,L), D w''-r w=-r e^{s x} on x<0, boundary w(L)=0, bounded at -infinity and C1 matching at 0. Solving yields w_s(0)=q*kappa/(kappa+s) with kappa=sqrt(r/D), q=kappa L/(1+kappa L); independently checked exact symbolic residuals and both matching conditions, including s=kappa by continuous extension. It follows that failure probability q, conditional mark Exp(kappa), success p. Strong Markov and independent Poisson increments provide iid attempts and conditional iid reset marks, so P(N=n)=p q^n and joint PGF/Laplace p/(1-q z kappa/(kappa+s)). Summed Gamma densities give mass p at C=0, positive density p q kappa exp(-p kappa c), N-1|C=c>0 ~ Poisson(q kappa c), mean L, variance L²+2L/kappa, and exact weak limits. These are exact all D,r,L>0, not sample-based or an assertion at r=0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sunil et al. analyze resets at all Poisson times, with a different stopped process and resetting mark measure.",
+          "Tal-Friedman et al. solved the full one-time propagator and mean power-law cost, which determines first-moment occupation intensity but not by itself correlations or the joint (N,C) transform."
+        ],
+        "reasoning": "A general theorem for marked renewals with state-dependent killing could dominate, but no identified source states the necessary one-sided kernel and complete joint transform together. These strong precursor equations are explicitly credited.",
+        "searches": [
+          "Brownian one sided smart resetting negative position Poisson monitoring reset distance joint distribution count",
+          "Sunil Blythe Evans Majumdar 2023 cost of stochastic resetting count cost joint renewals",
+          "Tal-Friedman smart resetting SI integrated negative-side propagator"
+        ]
+      },
+      "checked_sources": [
+        "Tal-Friedman et al., arXiv:2409.10108v1 full main+SI including SIII Eq S22",
+        "Sunil et al. arXiv:2304.09348 (general ordinary resets)",
+        "Plata et al. arXiv:2007.12417 (state-dependent MFPT)",
+        "Resultary search: Brownian one sided smart resetting negative position Poisson monitoring reset distance joint distribution count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "SI Sec SIII Eq S22 gives int_0^inf spatial reset flux density kappa² L e^{-kappa y}dy; it is a first-moment measure of all resetting events, not a full joint law.",
+          "New first-attempt transform w_s(0)=q*k/(k+s) and iid renewal derive P(N=n,C∈dc) and posterior N|C exactly."
+        ],
+        "reasoning": "Prior mean and occupation formulas alone do not directly entail multi-attempt independence by statement; the Markov model enables a new but accessible derivation. Originality is limited to the fully specified joint law and its consequences, with residual risk of an implicit equivalent marked-renewal result.",
+        "searches": [
+          "Brownian one sided smart resetting negative position Poisson monitoring reset distance joint distribution count",
+          "Tal-Friedman 2024 supplementary SI SIII smart resetting occupation kernel Eq S22",
+          "The cost of stochastic resetting 2023 generalized joint statistics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary arXiv:2409.10108v1 SI Eq S22 gives mean cost and occupation kernel, but not an N,C joint PGF in inspected main text and supporting information.",
+          "The found geometric measurement count in SI SIV refers to *ordinary resetting*, not negative-position-only actual smart resets."
+        ],
+        "reasoning": "The closest paper is the exact model, so no novelty is asserted for model, mean, or occupation kernel. The marked-renewal joint law requires additional conditional-depth/renewal structure and is not explicitly established in the source.",
+        "searches": [
+          "Brownian one sided smart resetting negative position Poisson monitoring reset distance joint distribution count",
+          "Tal-Friedman smart resetting mean energy cost full probability distribution reset depth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked database records the exact p/(1-qz k/(k+s)) for the one-sided protocol.",
+          "Symbolic derivation and independently checked transform, residual, and p+q=1 for arbitrary symbolic parameters."
+        ],
+        "reasoning": "Matching only the known mean E[C]=L cannot establish the full law; missing search results alone do not certify priority.",
+        "searches": [
+          "Brownian one sided smart resetting negative position Poisson monitoring reset distance joint distribution count",
+          "one sided smart resetting geometric number actual resets exponential depth distribution table",
+          "Brownian smart reset accumulated travel distance distribution"
+        ]
+      },
+      "rationale": "Tal-Friedman–Keidar–Reuveni–Roichman 2024/2025 *same model* already gives mean energy F0 L and negative-position integrated occupation kernel ~p(x,0)=(L/D)e^{kappa x} (SI Eq S22), which is an important strong precursor. It yields the expected spatial reset intensity and is compatible with the claimed exp mark law, but a first-moment occupation density alone does not establish independence of successive reset depths or the *joint path-level count/cost law*. Their main article/SI compute average costs and first-passage statistics, not these full joint laws or posterior Poisson count. Sunil et al. derive more general renewal transforms for resets at every clock time, a different state-dependent mechanism. The new statement is the one-sided reset-specific joint law and risk/weak-rate asymptotics, with an explicit risk that it may be an algebraically short corollary of a broader uninspected cost-functional theorem.",
+      "residual_risks": [
+        "The closest 2024 source contains the full negative-half-line occupation density, so this joint-law extension may be recoverable by a short marked-renewal derivation. It is treated as a strong antecedent, not claimed independently derived or fundamentally new stochastic calculus.",
+        "An earlier general marked-renewal or Feynman–Kac cost generating-function theorem for state-dependent resetting could subsume the result; no full historical exclusion.",
+        "No assertion for non-Poisson times, drift, position-varying diffusion, nonlinear return cost, or total passage time correlation.",
+        "At exactly r=0, cost is 0 a.s.; the r downarrow 0 positive-rate mean L does not extend by continuity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PRECURSOR_ONLY",
+          "evidence": "Same protocol; SIII computes first-moment integrated negative-half-line density (L/D)e^{kappa x}, mean energy F0L. It does not explicitly classify N and joint cost.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.10108",
+          "material_read": "Full 25-page open arXiv main paper and supplementary, especially pp3-7 and SI pp18-22; page screenshots 20-21 confirm integrated occupation kernel and mean cost equations",
+          "method": "PDF text and page screenshots, exact model and SI Eq S22 cross-check",
+          "title": "Smart Resetting: An Energy-Efficient Strategy for Stochastic Search Processes",
+          "trigger": "Exact state-dependent half-line Brownian reset and linear energetic cost"
+        },
+        {
+          "assessment": "DIFFERENT_RESET_PROTOCOL",
+          "evidence": "Ordinary resets at every observation do not use only negative-position actual resets; methodologically relevant marked renewal not identical joint law.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.09348",
+          "material_read": "Abstract, renewal-scope and source-paper citation to standard Poisson resetting, without claiming comprehensive appendix exclusion",
+          "method": "source comparison and method identification",
+          "title": "The cost of stochastic resetting",
+          "trigger": "Potential generic cost/count renewal dominance"
+        },
+        {
+          "assessment": "MEAN_FPT_NOT_FULL_COST",
+          "evidence": "Focuses MFPT under asymmetric resetting, not the conditional Gamma count/cost law described here.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.12417",
+          "material_read": "Abstract and primary model/MFPT scope, including citation from Tal-Friedman supplement",
+          "method": "primary model/theorem-scope comparison",
+          "title": "Asymmetric Stochastic Resetting: Modeling Catastrophic Events",
+          "trigger": "Same position-selective reset geometry in a broader system"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source's reset-rate-independent *mean* hides a sharply rate-dependent full cost law: positive zero-cost atom, exponential positive tail, variance diverging as r^{-1/2}, weak convergence to zero as r->0 despite fixed mean L, and an exactly identified conditional count distribution. These are naturally motivated experimentally relevant fluctuations and a non-uniform-integrability phenomenon, not a re-expression of the previously published average cost.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "D>0,r>0,L>0 only; r=0 is excluded and a singular limit.",
+    "Resets triggered only at negative Poisson observations; N counts actual resets, not all observations.",
+    "Total return distance is linear sum of jump depths; no nonlinear cost law is implied.",
+    "Generic renewal prior work may yield a relatively short alternative derivation; priority remains qualified."
+  ],
+  "schema_version": 1
+}
